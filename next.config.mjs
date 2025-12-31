@@ -166,12 +166,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [{ type: "host", value: "sahneva.com" }],
-        destination: "https://www.sahneva.com/:path*",
-        permanent: true,
-      },
-      {
         source: "/search",
         has: [{ type: "query", key: "q", value: "(?<term>.*)" }],
         destination: "/?q=:term",
