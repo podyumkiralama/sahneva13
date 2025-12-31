@@ -3,8 +3,6 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import NewTabAccessibility from "@/components/NewTabAccessibility.client";
-import Script from "next/script";
-
 const DEFAULT_LANG = "tr";
 const DEFAULT_DIR = "ltr";
 
@@ -32,12 +30,6 @@ export default function RootLayout({ children }) {
         <SkipLinks />
         <NewTabAccessibility />
         {children}
-        <Script id="clarity-id" strategy="beforeInteractive">
-  {`window.__CLARITY_ID__="${process.env.NEXT_PUBLIC_CLARITY_ID || ""}"`}
-</Script>
-
-<Script src="/clarity.js" strategy="afterInteractive" />
-
       </body>
     </html>
   );
