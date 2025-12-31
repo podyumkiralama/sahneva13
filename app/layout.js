@@ -3,7 +3,6 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import NewTabAccessibility from "@/components/NewTabAccessibility.client";
-import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import Script from "next/script";
 
 const DEFAULT_LANG = "tr";
@@ -30,7 +29,6 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
        <body className="min-h-screen antialiased flex flex-col font-sans">
-        <AnalyticsConsentWrapper />
         <SkipLinks />
         <NewTabAccessibility />
         {children}
