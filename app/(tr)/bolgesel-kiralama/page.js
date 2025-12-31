@@ -183,7 +183,7 @@ export default function Page() {
     },
     {
       q: "Güvenlik ve iş sağlığı süreçleri nasıl yönetiliyor?",
-      a: "Kurulumda zemin/ankraj, yükseklik güvenliği, kablolama ve geçiş yolları kontrol edilir. Proje tipine göre ek önlemler planlanır.",
+      a: "Kurulumda zemin/ankraj, yükseklik güvenliği, kablolama ve geçiş yolları kontrol edilir.İşgüvenliği uzmanı Proje tipine göre ek önlemler planlanır.",
     },
   ];
 
