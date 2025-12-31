@@ -21,10 +21,10 @@ const securityHeaders = (() => {
     "https://vercel.live",
     "https://www.clarity.ms",
     "https://scripts.clarity.ms",
-    "https://k.clarity.ms/collect",
-    "static.cloudflareinsights.com",
-    "z.clarity.ms",
+    "https://k.clarity.ms",
+    "https://z.clarity.ms",
     "https://l.clarity.ms",
+    "https://static.cloudflareinsights.com",
   ].join(" ");
 
   const SCRIPT_SRC_ELEM = [
@@ -36,10 +36,10 @@ const securityHeaders = (() => {
     "https://vercel.live",
     "https://www.clarity.ms",
     "https://scripts.clarity.ms",
-    "https://k.clarity.ms/collect",
-    "static.cloudflareinsights.com",
-    "z.clarity.ms",
+    "https://k.clarity.ms",
+    "https://z.clarity.ms",
     "https://l.clarity.ms",
+    "https://static.cloudflareinsights.com",
   ].join(" ");
 
   const CONNECT_SRC = [
@@ -50,10 +50,11 @@ const securityHeaders = (() => {
     "https://stats.g.doubleclick.net",
     "https://www.clarity.ms",
     "https://scripts.clarity.ms",
-    "https://k.clarity.ms/collect",
-    "static.cloudflareinsights.com",
-    "z.clarity.ms",
+    "https://k.clarity.ms",
+    "https://z.clarity.ms",
+    "https://l.clarity.ms",
     "https://*.clarity.ms",
+    "https://static.cloudflareinsights.com",
     siteUrl,
   ].join(" ");
 
@@ -122,6 +123,14 @@ const longTermCacheHeaders = [
   },
 ];
 
+// ✅ HTML (page) cache: WAIT şişmesini azaltır
+const htmlCacheHeaders = [
+  {
+    key: "Cache-Control",
+    value: `public, s-maxage=300, stale-while-revalidate=86400`,
+  },
+];
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -135,7 +144,6 @@ const nextConfig = {
   },
 
   images: {
-    // ✅ GÜNCELLEME: 1440px (Laptop) eklendi. LCP için önemli.
     deviceSizes: [320, 420, 640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/avif", "image/webp"],
@@ -184,7 +192,17 @@ const nextConfig = {
 
   async headers() {
     return [
+      // 1) Her şeyde güvenlik başlıkları
       { source: "/(.*)", headers: securityHeaders },
+
+      // 2) ✅ SADECE HTML sayfalar (api/_next/dosya uzantıları hariç)
+      // - Bu kural "WAIT" problemini hedefliyor.
+      {
+        source: "/((?!api/|_next/|.*\\..*).*)",
+        headers: htmlCacheHeaders,
+      },
+
+      // 3) Next static chunklar: 1 yıl immutable
       {
         source: "/_next/static/(.*)",
         headers: [
@@ -192,10 +210,14 @@ const nextConfig = {
           { key: "X-Robots-Tag", value: "noindex, nofollow" },
         ],
       },
+
+      // 4) Dosya uzantılı assetler: 1 yıl immutable
       {
         source: "/(.*)\\.(ico|png|jpg|jpeg|webp|avif|svg|gif|woff2|css|js)",
         headers: longTermCacheHeaders,
       },
+
+      // 5) _next genel: noindex
       {
         source: "/_next/(.*)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
