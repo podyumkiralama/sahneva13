@@ -796,11 +796,7 @@ function Articles() {
                   Profesyonel Kurumsal Organizasyon: Etkinlik Başarınız İçin Tam
                   Kapsamlı Çözümler
                 </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Kurumsal standartlar, detaylı planlama süreçleri ve
-                  ölçülebilir kalite garantisi ile etkinliklerinizde mükemmel
-                  performans
-                </p>
+           
               </div>
             </header>
 
