@@ -875,7 +875,7 @@ function Articles() {
                     Organizasyon stratejimiz kurumsal ihtiyaçlarınıza ve hedef
                     kitlenize göre şekillenir. Konferans organizasyonlarında
                     teknik mükemmellik ön planda tutulurken, lansman ve galalarda
-                    marka deneyimi ve görsel etki önceliklendirilir.
+                    marka deneyimi ve görsel zekice etki önceliklendirilir.
                   </p>
                 </div>
 
