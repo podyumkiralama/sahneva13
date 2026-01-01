@@ -197,6 +197,7 @@ function StructuredData() {
 function HeroSection() {
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[100svh] md:min-h-[80vh]">
+      {/* Background image فقط */}
       <div className="absolute inset-0">
         <Image
           src="/img/podyum/hero.webp"
@@ -209,27 +210,37 @@ function HeroSection() {
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" />
+        {/* ✅ TEST: Mor/mavi saydam overlay'ler tamamen kaldırıldı */}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
+      {/* Content */}
+      <div
+        className="relative z-10 container mx-auto px-4 text-center py-12"
+        style={{ color: "#fff" }} // ✅ Tailwind/Render sorunlarına karşı garanti
+      >
         <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6 animate-fade-in-up">
           <span className="relative flex w-2 h-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
           </span>
-          <span className="text-sm font-bold text-white">İstanbul Geneli Profesyonel Hizmet</span>
+          <span className="text-sm font-bold text-white">
+            İstanbul Geneli Profesyonel Hizmet
+          </span>
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Profesyonel <span className="text-blue-200">Podyum Kiralama</span>
+          Profesyonel{" "}
+          <span className="text-blue-200">Podyum Kiralama</span>
         </h1>
+
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
         </p>
+
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Modüler podyum sistemleri, kaymaz kaplama ve <span className="font-semibold text-white">profesyonel kurulum</span> ile anahtar teslim çözümler
+          Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+          <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
+          ile anahtar teslim çözümler
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -241,7 +252,11 @@ function HeroSection() {
           >
             <span className="text-xl mr-2">💬</span> Hemen Teklif Al
           </Link>
-          <Link href="#hizmetler" className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 shadow-lg">
+
+          <Link
+            href="#hizmetler"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 shadow-lg"
+          >
             <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
           </Link>
         </div>
@@ -252,11 +267,13 @@ function HeroSection() {
             <div className="text-xl font-black text-white">4.8/5</div>
             <div className="text-white/80 text-sm">200+ Değerlendirme</div>
           </div>
+
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2">🏆</span>
             <div className="text-xl font-black text-white">600+</div>
             <div className="text-white/80 text-sm">Etkinlik</div>
           </div>
+
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2">🚀</span>
             <div className="text-xl font-black text-white">2-6 Saat</div>
@@ -267,6 +284,7 @@ function HeroSection() {
     </section>
   );
 }
+
 
 // --- SERVICES SECTION ---
 function ServicesSection() {
