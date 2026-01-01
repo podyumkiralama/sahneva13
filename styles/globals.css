@@ -1,4 +1,8 @@
 @import "tailwindcss";
+/* ✅ Tailwind v4: tüm route/component dosyalarını kesin tarat */
+@source "../app/**/*.{js,jsx,ts,tsx,mdx}";
+@source "../components/**/*.{js,jsx,ts,tsx,mdx}";
+@source "../lib/**/*.{js,jsx,ts,tsx,mdx}";
 
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
