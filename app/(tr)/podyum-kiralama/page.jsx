@@ -193,92 +193,165 @@ function StructuredData() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-// --- HERO SECTION (FIXED for Google render) ---
+// --- HERO SECTION (Google Render FIX: Tailwind bağımsız) ---
 function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center bg-slate-900 pt-20 min-h-screen md:min-h-[80vh]">
-      {/* Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+    <section
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        paddingTop: "80px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#0f172a",
+        overflow: "visible", // overflow-hidden YOK
+      }}
+    >
+      {/* Background (mutlaka arkada kalsın) */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
         <Image
           src="/img/podyum/hero.webp"
           alt="Profesyonel podyum kurulumu"
           fill
           priority
           fetchPriority="high"
-          className="object-cover"
           sizes="100vw"
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
+          style={{ objectFit: "cover" }}
         />
 
-        {/* (İstersen overlay geri kalsın) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" />
+        {/* Overlay istersen kalsın – ama yine inline */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(135deg, rgba(30,58,138,0.72), rgba(88,28,135,0.62), rgba(23,37,84,0.78))",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top, rgba(23,37,84,0.72), rgba(0,0,0,0) 55%, rgba(88,28,135,0.45))",
+          }}
+        />
       </div>
 
-      {/* Content */}
+      {/* Content (mutlaka üstte) */}
       <div
-        className="relative z-10 container mx-auto px-4 text-center py-12"
-        style={{ color: "#fff" }} // ✅ Tailwind/paint sorunlarına karşı garanti
+        style={{
+          position: "relative",
+          zIndex: 10,
+          width: "min(1100px, calc(100% - 32px))",
+          textAlign: "center",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "18px",
+          background: "rgba(0,0,0,0.35)", // Google snapshot’ta görünürlük garantisi
+          border: "1px solid rgba(255,255,255,0.22)",
+          boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+        }}
       >
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "rgba(255,255,255,0.18)",
+            border: "1px solid rgba(255,255,255,0.25)",
+            borderRadius: 12,
+            padding: "8px 14px",
+            marginBottom: 16,
+          }}
+        >
+          <span
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: 999,
+              background: "#22c55e",
+              boxShadow: "0 0 0 6px rgba(34,197,94,0.18)",
+            }}
+            aria-hidden="true"
+          />
+          <span style={{ fontSize: 14, fontWeight: 800 }}>
             İstanbul Geneli Profesyonel Hizmet
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Profesyonel <span className="text-blue-200">Podyum Kiralama</span>
+        <h1
+          style={{
+            fontSize: "clamp(32px, 6vw, 72px)",
+            fontWeight: 900,
+            lineHeight: 1.05,
+            marginBottom: 12,
+            textShadow: "0 10px 30px rgba(0,0,0,0.55)",
+          }}
+        >
+          Profesyonel{" "}
+          <span style={{ color: "#93c5fd" }}>Podyum Kiralama</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
+        <p style={{ fontSize: "clamp(18px, 2.2vw, 26px)", opacity: 0.95, marginBottom: 8 }}>
           Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
         </p>
 
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
+        <p style={{ fontSize: "clamp(16px, 2vw, 20px)", opacity: 0.85, marginBottom: 16 }}>
           Modüler podyum sistemleri, kaymaz kaplama ve{" "}
-          <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
-          ile anahtar teslim çözümler
+          <strong style={{ opacity: 1 }}>profesyonel kurulum</strong> ile anahtar teslim çözümler
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
+        <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:shadow-xl shadow-lg"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "14px 18px",
+              borderRadius: 16,
+              background: "linear-gradient(90deg, #22c55e, #059669)",
+              color: "#fff",
+              fontWeight: 900,
+              textDecoration: "none",
+              boxShadow: "0 10px 22px rgba(0,0,0,0.35)",
+            }}
           >
-            <span className="text-xl mr-2">💬</span> Hemen Teklif Al
-          </Link>
+            💬 Hemen Teklif Al
+          </a>
 
-          <Link
+          <a
             href="#hizmetler"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 shadow-lg"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "14px 18px",
+              borderRadius: 16,
+              background: "rgba(255,255,255,0.10)",
+              color: "#fff",
+              fontWeight: 900,
+              textDecoration: "none",
+              border: "2px solid rgba(255,255,255,0.85)",
+            }}
           >
-            <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2">⭐</span>
-            <div className="text-xl font-black text-white">4.8/5</div>
-            <div className="text-white/80 text-sm">200+ Değerlendirme</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2">🏆</span>
-            <div className="text-xl font-black text-white">600+</div>
-            <div className="text-white/80 text-sm">Etkinlik</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2">🚀</span>
-            <div className="text-xl font-black text-white">2-6 Saat</div>
-            <div className="text-white/80 text-sm">Kurulum Süresi</div>
-          </div>
+            🎯 Hizmetlerimiz
+          </a>
         </div>
       </div>
     </section>
