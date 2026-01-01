@@ -223,7 +223,7 @@ function HeroSection() {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Profesyonel <span className="gradient-text gradient-text--safe-xl">Podyum Kiralama</span>
+          Profesyonel <span className="text-blue-200">Podyum Kiralama</span>
         </h1>
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
