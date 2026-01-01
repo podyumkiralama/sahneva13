@@ -38,7 +38,7 @@
   --font-inter-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  /* grid-overlay defaults (override edilebilir) */
+  /* grid-overlay defaults */
   --grid-overlay-opacity: 0.7;
   --grid-overlay-size: 24px;
   --grid-overlay-dot: rgba(255, 255, 255, 0.05);
@@ -151,21 +151,14 @@
     color: rgb(226, 232, 240);
   }
 
-  /* ✅ Tek grid-overlay: hem dot grid hem glow.
-     Bileşen içinde inline style ile şu değişkenleri override edebilirsin:
-     --grid-overlay-opacity, --grid-overlay-size, --grid-overlay-dot,
-     --grid-overlay-top, --grid-overlay-bottom
-  */
+  /* ✅ Tek grid-overlay: dot grid + glow */
   .grid-overlay {
     @apply absolute inset-0 pointer-events-none;
     opacity: var(--grid-overlay-opacity);
 
     background-image:
-      /* dot grid */
       radial-gradient(circle, var(--grid-overlay-dot) 1px, transparent 1px),
-      /* top glow */
       radial-gradient(circle at top, var(--grid-overlay-top), transparent 55%),
-      /* bottom glow */
       radial-gradient(circle at bottom, var(--grid-overlay-bottom), transparent 55%);
 
     background-size:
@@ -194,19 +187,19 @@
 
 /* Utilities */
 @layer utilities {
-  /* ✅ GOOGLE/GSC render fix:
-     - Varsayılan: görünür renk (fallback)
-     - Sadece background-clip:text destekliyorsa gradient’i uygula
-  */
+  /* ✅ KRİTİK: gradient-text artık ASLA transparent değil.
+     Google/GSC/garip renderlarda yazı kaybolmaz. */
   .gradient-text {
-    color: #93c5fd; /* fallback: metin kaybolmasın */
+    color: #93c5fd;
     -webkit-text-fill-color: currentColor;
-    background-image: none;
     text-shadow: none;
+    background-image: none;
   }
 
+  /* ✅ İstersen gerçek gradient efekti için bunu kullan:
+     className="gradient-text gradient-text-fx" */
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-    .gradient-text {
+    .gradient-text-fx {
       background-image: linear-gradient(
         90deg,
         rgba(96, 165, 250, 0.9) 0%,
@@ -223,7 +216,6 @@
     }
   }
 
-  /* İstersen bu kalsın: XL'de “safe” fallback */
   @media (min-width: 1280px) {
     .gradient-text--safe-xl {
       background-image: none;
