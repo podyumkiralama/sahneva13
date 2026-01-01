@@ -193,73 +193,173 @@ function StructuredData() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-{/* HERO (öne çıkan = hero) */}
-      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={heroImg}
-            alt="Geniş sahnede 2026 LED ekran teknolojilerini temsil eden kurumsal etkinlik"
-            fill
-            className="object-cover opacity-65"
-            priority
-            sizes="100vw"
-            fetchPriority="high"
+// --- HERO SECTION (DEBUG) ---
+function HeroSection() {
+  return (
+    <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[100svh] md:min-h-[80vh]">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/img/podyum/hero.webp"
+          alt="Profesyonel podyum kurulumu"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover"
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
+        />
+      </div>
+
+      {/* ✅ DEBUG: Eğer bu yazı GSC'de görünmüyorsa, üstte bir overlay kapatıyor demektir */}
+      <div
+        style={{
+          position: "absolute",
+          top: 90,
+          left: 12,
+          zIndex: 99999,
+          color: "#ff2d2d",
+          fontSize: 18,
+          fontWeight: 900,
+          background: "rgba(0,0,0,0.65)",
+          padding: "6px 10px",
+          borderRadius: 10,
+          border: "2px solid rgba(255,45,45,0.9)",
+        }}
+      >
+        DEBUG TEXT VISIBLE?
+      </div>
+
+      {/* Content */}
+      <div
+        className="relative z-10 container mx-auto px-4 text-center py-12"
+        style={{
+          color: "#fff",
+          zIndex: 10000,
+          background: "rgba(0,0,0,0.35)", // ✅ metin arkasına koyu panel (görünürlük garantisi)
+          border: "1px solid rgba(255,255,255,0.25)",
+          borderRadius: 18,
+          padding: 16,
+          maxWidth: 1100,
+        }}
+      >
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "rgba(255,255,255,0.2)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            borderRadius: 12,
+            padding: "8px 14px",
+            marginBottom: 16,
+          }}
+        >
+          <span
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: 999,
+              background: "#22c55e",
+              boxShadow: "0 0 0 6px rgba(34,197,94,0.18)",
+            }}
           />
+          <span style={{ fontSize: 14, fontWeight: 800 }}>
+            İstanbul Geneli Profesyonel Hizmet
+          </span>
         </div>
 
-        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-blue-300 animate-pulse" />
-            2026 LED Ekran Trend Raporu
-          </div>
+        <h1
+          style={{
+            fontSize: "clamp(32px, 6vw, 72px)",
+            fontWeight: 900,
+            lineHeight: 1.05,
+            marginBottom: 12,
+            textShadow: "0 10px 30px rgba(0,0,0,0.55)",
+          }}
+        >
+          Profesyonel <span style={{ color: "#93c5fd" }}>Podyum Kiralama</span>
+        </h1>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
-            2026’da LED Ekran{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Sahne Tasarımını Nasıl Değiştiriyor?
-            </span>
-          </h1>
+        <p style={{ fontSize: "clamp(18px, 2.2vw, 26px)", opacity: 0.95, marginBottom: 8 }}>
+          Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
+        </p>
 
-          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
-            COB paneller, 2.0 nesil sürücüler ve HDR içerik ile kurumsal etkinliklerde LED ekranlar artık sadece fon değil, başrol oyuncu.
-            Teknik kararları 2026’da nasıl almalısınız?
-          </p>
+        <p style={{ fontSize: "clamp(16px, 2vw, 20px)", opacity: 0.85, marginBottom: 16 }}>
+          Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+          <span style={{ fontWeight: 800, opacity: 1 }}>profesyonel kurulum</span>{" "}
+          ile anahtar teslim çözümler
+        </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
-            <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
-              <span aria-hidden="true">📅</span> 15 Aralık 2025
-            </time>
-            <span className="flex items-center gap-2">
-              <span aria-hidden="true">⏱️</span> 7 dk okuma
-            </span>
-            <span className="flex items-center gap-2">
-              <span aria-hidden="true">✍️</span> {AUTHOR_NAME}
-            </span>
-          </div>
+        <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginBottom: 18 }}>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "14px 18px",
+              borderRadius: 16,
+              background: "linear-gradient(90deg, #22c55e, #059669)",
+              color: "#fff",
+              fontWeight: 900,
+              textDecoration: "none",
+              boxShadow: "0 10px 22px rgba(0,0,0,0.35)",
+            }}
+          >
+            💬 Hemen Teklif Al
+          </a>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LED projeniz için WhatsApp üzerinden yazın — yeni sekmede açılır"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-7 py-3.5 shadow-lg shadow-emerald-900/40 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-            >
-              <span aria-hidden="true">💬</span>
-              <span>WhatsApp’tan Yazın</span>
-            </a>
-
-            <Link
-              href={LED_SERVICE_PATH}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-3.5 border border-white/20 backdrop-blur-md transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
-            >
-              <span aria-hidden="true">🖥️</span>
-              <span>LED Ekran Kiralama</span>
-            </Link>
-          </div>
+          <a
+            href="#hizmetler"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "14px 18px",
+              borderRadius: 16,
+              background: "rgba(255,255,255,0.10)",
+              color: "#fff",
+              fontWeight: 900,
+              textDecoration: "none",
+              border: "2px solid rgba(255,255,255,0.85)",
+            }}
+          >
+            🎯 Hizmetlerimiz
+          </a>
         </div>
-      </header>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, maxWidth: 640, margin: "0 auto" }}>
+          {[
+            ["⭐", "4.8/5", "200+ Değerlendirme"],
+            ["🏆", "600+", "Etkinlik"],
+            ["🚀", "2-6 Saat", "Kurulum Süresi"],
+          ].map(([icon, value, label]) => (
+            <div
+              key={label}
+              style={{
+                padding: 14,
+                borderRadius: 14,
+                background: "rgba(255,255,255,0.10)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                textAlign: "center",
+              }}
+            >
+              <div style={{ fontSize: 22, marginBottom: 6 }}>{icon}</div>
+              <div style={{ fontSize: 20, fontWeight: 900 }}>{value}</div>
+              <div style={{ fontSize: 13, opacity: 0.85 }}>{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // --- SERVICES SECTION ---
 function ServicesSection() {
