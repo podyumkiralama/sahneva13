@@ -456,8 +456,6 @@ export default function ProjectsGallery({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [openState.isOpen, close, next, prev]);
 
-  if (!mounted) return null;
-
   const entries = Object.entries(normalizedGalleries);
 
   const computedHeadingId = ariaLabelledby ?? `projects-title-${headingId}`;
@@ -524,144 +522,143 @@ export default function ProjectsGallery({
         </ul>
       </div>
 
-      {/* LIGHTBOX */}
-      {openState.isOpen &&
-        createPortal(
-          <div
-            ref={dialogRef}
-            tabIndex={-1}
-            className={`
-              fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl
-              flex items-center justify-center
-              ${reduced ? "" : "transition-all duration-300"}
-              ${anim ? "opacity-100" : "opacity-0"}
-            `}
-            role="dialog"
-            aria-modal="true"
-            aria-label={fillTemplate(normalizedDictionary.dialogAria, {
-              title: openState.title,
-            })}
-            onClick={(e) => e.target === e.currentTarget && close()}
-          >
-            <div className="sr-only" aria-live="polite">
-              {fillTemplate(normalizedDictionary.liveMessage, {
-                title: openState.title,
-                count: openState.items.length,
-              })}
-            </div>
+     {/* LIGHTBOX */}
+{mounted && portal.current && openState.isOpen &&
+  createPortal(
+    <div
+      ref={dialogRef}
+      tabIndex={-1}
+      className={`
+        fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl
+        flex items-center justify-center
+        ${reduced ? "" : "transition-all duration-300"}
+        ${anim ? "opacity-100" : "opacity-0"}
+      `}
+      role="dialog"
+      aria-modal="true"
+      aria-label={fillTemplate(normalizedDictionary.dialogAria, {
+        title: openState.title,
+      })}
+      onClick={(e) => e.target === e.currentTarget && close()}
+    >
+      <div className="sr-only" aria-live="polite">
+        {fillTemplate(normalizedDictionary.liveMessage, {
+          title: openState.title,
+          count: openState.items.length,
+        })}
+      </div>
 
+      <button
+        ref={closeBtn}
+        className={`
+          absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
+          hover:text-white hover:bg-white/20
+          ${LIGHTBOX_FOCUS_RING}
+        `}
+        onClick={close}
+        aria-label={normalizedDictionary.closeLabel}
+      >
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      {openState.items.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="
+              hidden md:flex absolute left-6 top-1/2 -translate-y-1/2
+              bg-black/40 hover:bg-black/60 border border-white/10
+              rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
+            "
+            aria-label={normalizedDictionary.prevLabel}
+          >
+            <span aria-hidden="true">‹</span>
+            <span className="sr-only">{normalizedDictionary.prevSr}</span>
+          </button>
+
+          <button
+            onClick={next}
+            className="
+              hidden md:flex absolute right-6 top-1/2 -translate-y-1/2
+              bg-black/40 hover:bg-black/60 border border-white/10
+              rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
+            "
+            aria-label={normalizedDictionary.nextLabel}
+          >
+            <span aria-hidden="true">›</span>
+            <span className="sr-only">{normalizedDictionary.nextSr}</span>
+          </button>
+        </>
+      )}
+
+      <div
+        className="relative w-full max-w-6xl h-[80vh] p-6 flex items-center justify-center"
+        onClick={handleImageClick}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <Image
+          key={openState.items[openState.index]}
+          src={getSrc(openState.items[openState.index])}
+          alt={fillTemplate(normalizedDictionary.lightboxAlt, {
+            title: openState.title,
+            index: openState.index + 1,
+          })}
+          fill
+          sizes={LIGHTBOX_SIZES}
+          className={`object-contain ${
+            anim ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          } transition-all duration-300`}
+        />
+
+        {openState.items.length > 1 && (
+          <div className="absolute inset-x-0 -bottom-2 flex items-center justify-between px-6 md:hidden text-white/80 text-sm">
             <button
-              ref={closeBtn}
-              className={`
-                absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
-                hover:text-white hover:bg-white/20
-                ${LIGHTBOX_FOCUS_RING}
-              `}
-              onClick={close}
-              aria-label={normalizedDictionary.closeLabel}
+              onClick={prev}
+              className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
+              aria-label={normalizedDictionary.mobilePrevLabel}
             >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <span aria-hidden="true">‹</span>
+              <span className="sr-only">{normalizedDictionary.prevSr}</span>
             </button>
 
-            {openState.items.length > 1 && (
-              <>
-                <button
-                  onClick={prev}
-                  className="
-                    hidden md:flex absolute left-6 top-1/2 -translate-y-1/2
-                    bg-black/40 hover:bg-black/60 border border-white/10
-                    rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
-                    focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-                  "
-                  aria-label={normalizedDictionary.prevLabel}
-                >
-                  <span aria-hidden="true">‹</span>
-                  <span className="sr-only">{normalizedDictionary.prevSr}</span>
-                </button>
-                <button
-                  onClick={next}
-                  className="
-                    hidden md:flex absolute right-6 top-1/2 -translate-y-1/2
-                    bg-black/40 hover:bg-black/60 border border-white/10
-                    rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
-                    focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-                  "
-                  aria-label={normalizedDictionary.nextLabel}
-                >
-                  <span aria-hidden="true">›</span>
-                  <span className="sr-only">{normalizedDictionary.nextSr}</span>
-                </button>
-              </>
-            )}
+            <span>
+              {fillTemplate(normalizedDictionary.counterLabel, {
+                index: openState.index + 1,
+                total: openState.items.length,
+              })}
+            </span>
 
-            <div
-              className="relative w-full max-w-6xl h-[80vh] p-6 flex items-center justify-center"
-              onClick={handleImageClick}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
+            <button
+              onClick={next}
+              className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
+              aria-label={normalizedDictionary.mobileNextLabel}
             >
-              <Image
-                key={openState.items[openState.index]}
-                src={getSrc(openState.items[openState.index])}
-                alt={fillTemplate(normalizedDictionary.lightboxAlt, {
-                  title: openState.title,
-                  index: openState.index + 1,
-                })}
-                fill
-                sizes={LIGHTBOX_SIZES}
-                className={`object-contain ${
-                  anim ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                } transition-all duration-300`}
-              />
-
-              {openState.items.length > 1 && (
-                <div className="absolute inset-x-0 -bottom-2 flex items-center justify-between px-6 md:hidden text-white/80 text-sm">
-                  <button
-                    onClick={prev}
-                    className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
-                    aria-label={normalizedDictionary.mobilePrevLabel}
-                  >
-                    <span aria-hidden="true">‹</span>
-                    <span className="sr-only">
-                      {normalizedDictionary.prevSr}
-                    </span>
-                  </button>
-
-                  <span>
-                    {fillTemplate(normalizedDictionary.counterLabel, {
-                      index: openState.index + 1,
-                      total: openState.items.length,
-                    })}
-                  </span>
-
-                  <button
-                    onClick={next}
-                    className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
-                    aria-label={normalizedDictionary.mobileNextLabel}
-                  >
-                    <span className="sr-only">
-                      {normalizedDictionary.nextSr}
-                    </span>
-                    <span aria-hidden="true">›</span>
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>,
-          portal.current
+              <span className="sr-only">{normalizedDictionary.nextSr}</span>
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
         )}
+      </div>
+    </div>,
+    portal.current
+  )}
+
     </section>
   );
 }
