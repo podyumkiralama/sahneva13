@@ -1,21 +1,11 @@
 @import "tailwindcss";
 
-/* ✅ Tailwind v4: kaynak taraması (özellikle route group parantezleri için) */
-@source "../app/**/*.{js,jsx,ts,tsx,mdx}";
-@source "../components/**/*.{js,jsx,ts,tsx,mdx}";
-@source "../lib/**/*.{js,jsx,ts,tsx,mdx}";
-
-/* ✅ Parantezli klasörler için ekstra garanti (route groups) */
-@source "../app/\\(tr\\)/**/*.{js,jsx,ts,tsx,mdx}";
-@source "../app/\\(tr\\)/\\(site\\)/**/*.{js,jsx,ts,tsx,mdx}";
-
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
 /* Theme tokens (v4) */
 @theme {
-  /* Font */
   --font-sans: var(--font-inter),
     var(
       --font-inter-fallback,
@@ -28,16 +18,15 @@
       sans-serif
     );
 
-  /* Brand tokens */
   --color-brand-primary: #6d28d9;
   --color-brand-secondary: #4f46e5;
 
-  /* Container tokens */
   --container-padding: 1rem;
   --container-padding-sm: 1.5rem;
   --container-padding-lg: 2rem;
   --container-padding-xl: 2.5rem;
   --container-padding-2xl: 3.5rem;
+
   --container-max: 1440px;
   --container-max-2xl: 1536px;
   --container-max-3xl: 1680px;
@@ -47,12 +36,7 @@
   --font-inter-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  /* grid-overlay defaults (override edilebilir) */
-  --grid-overlay-opacity: 0.7;
-  --grid-overlay-size: 24px;
-  --grid-overlay-dot: rgba(255, 255, 255, 0.05);
-  --grid-overlay-top: rgba(56, 189, 248, 0.18);
-  --grid-overlay-bottom: rgba(59, 130, 246, 0.28);
+  color-scheme: dark;
 }
 
 /* Base */
@@ -64,24 +48,23 @@
   }
 
   body {
-    /* ✅ Tailwind class’ları üretilemese bile temel okunabilirlik */
-    background-color: #000;
-    color: #e2e8f0;
-
-    @apply antialiased min-h-screen font-sans;
+    /* Blog ve hizmet sayfaları arasında “default” farkı kalmasın */
+    @apply min-h-screen font-sans antialiased;
     text-rendering: optimizeLegibility;
     width: 100%;
     overflow-x: hidden;
+
+    /* Default görünüm (layout class’ları yüklenemese bile sayfa boş kalmasın) */
+    background: #0b1120;
+    color: rgb(226 232 240);
   }
 
   h1 {
     @apply text-4xl md:text-5xl leading-tight font-extrabold tracking-tight;
   }
-
   h2 {
     @apply text-3xl md:text-4xl leading-tight font-bold tracking-tight;
   }
-
   h3 {
     @apply text-2xl md:text-3xl leading-snug font-semibold tracking-tight;
   }
@@ -148,11 +131,9 @@
   .prose h1 {
     @apply text-4xl md:text-5xl leading-tight font-extrabold;
   }
-
   .prose h2 {
     @apply text-3xl md:text-4xl leading-tight font-bold;
   }
-
   .prose h3 {
     @apply text-2xl md:text-3xl leading-snug font-semibold;
   }
@@ -164,25 +145,11 @@
     color: rgb(226, 232, 240);
   }
 
-  /* ✅ Tek grid-overlay: dot grid + glow */
+  /* tek bir grid-overlay tanımı bırak */
   .grid-overlay {
-    @apply absolute inset-0 pointer-events-none;
-    opacity: var(--grid-overlay-opacity);
-
-    background-image:
-      radial-gradient(circle, var(--grid-overlay-dot) 1px, transparent 1px),
-      radial-gradient(circle at top, var(--grid-overlay-top), transparent 55%),
-      radial-gradient(circle at bottom, var(--grid-overlay-bottom), transparent 55%);
-
-    background-size:
-      var(--grid-overlay-size) var(--grid-overlay-size),
-      100% 100%,
-      100% 100%;
-
-    background-position:
-      0 0,
-      center,
-      center;
+    @apply absolute inset-0 pointer-events-none opacity-70;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
 
@@ -200,18 +167,13 @@
 
 /* Utilities */
 @layer utilities {
-  /* ✅ KRİTİK: gradient-text hiçbir yerde görünmez yapmıyor. */
+  /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
   .gradient-text {
-    color: #93c5fd;
-    -webkit-text-fill-color: currentColor;
-    text-shadow: none;
-    background-image: none;
+    color: rgb(147 197 253); /* fallback */
   }
 
-  /* ✅ Gradient efekti istersen bunu ekle:
-     className="gradient-text gradient-text-fx" */
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-    .gradient-text-fx {
+    .gradient-text {
       background-image: linear-gradient(
         90deg,
         rgba(96, 165, 250, 0.9) 0%,
@@ -230,10 +192,10 @@
 
   @media (min-width: 1280px) {
     .gradient-text--safe-xl {
-      background-image: none;
-      color: #93c5fd;
-      -webkit-text-fill-color: currentColor;
-      text-shadow: none;
+      background-image: none !important;
+      color: #93c5fd !important;
+      -webkit-text-fill-color: currentColor !important;
+      text-shadow: none !important;
     }
   }
 
