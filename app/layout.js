@@ -10,7 +10,7 @@ const DEFAULT_DIR = "ltr";
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#6d28d9",
+  
 };
 
 export const metadata = {
