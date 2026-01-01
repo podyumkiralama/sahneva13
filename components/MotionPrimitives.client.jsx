@@ -1,41 +1,39 @@
 // components/MotionPrimitives.client.jsx
-'use client';
+"use client";
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from "react";
 
-/**
- * 2026 Standardı: "Progressive Enhancement" Animasyonları.
- * Ağır kütüphaneler yerine Native IntersectionObserver ve CSS Transition kullanır.
- * 'prefers-reduced-motion' kullanıcının işletim sistemi ayarlarına otomatik uyum sağlar.
- */
-export function MotionWrapper({ 
-  children, 
-  animation = 'fade-up', 
-  delay = 0, 
-  className = '',
-  as: Component = 'div', // Semantik HTML için esneklik (section, article, li vs.)
- ...props 
+export function MotionWrapper({
+  children,
+  animation = "fade-up",
+  delay = 0,
+  className = "",
+  as: Component = "div",
+  ...props
 }) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // ✅ default VISIBLE
 
   useEffect(() => {
-    // Tarayıcı desteği kontrolü ve Reduced Motion kontrolü
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (prefersReducedMotion) {
-      setIsVisible(true); // Animasyonu atla, direkt göster
-      return;
-    }
+    if (prefersReducedMotion) return;
+
+    // IntersectionObserver yoksa (bot / eski env) görünür kalsın
+    if (!("IntersectionObserver" in window)) return;
+
+    // ✅ sadece “yaklaşınca” animasyon, ama opacity ile saklama yok
+    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Performans: Tek seferlik tetikleme
+          observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' } // Erken yükleme için marj
+      { threshold: 0.1, rootMargin: "50px" }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -44,28 +42,39 @@ export function MotionWrapper({
 
   const getInitialStyle = () => {
     switch (animation) {
-      case 'fade-up': return 'translate-y-8 opacity-0';
-      case 'fade-down': return '-translate-y-8 opacity-0';
-      case 'scale': return 'scale-95 opacity-0';
-      case 'blur': return 'blur-sm opacity-0';
-      default: return 'opacity-0';
+      case "fade-up":
+        return "translate-y-6"; // ✅ opacity yok
+      case "fade-down":
+        return "-translate-y-6";
+      case "scale":
+        return "scale-[0.98]";
+      case "blur":
+        return "blur-[2px]";
+      default:
+        return "";
     }
   };
 
   const getVisibleStyle = () => {
     switch (animation) {
-      case 'fade-up': 
-      case 'fade-down': return 'translate-y-0 opacity-100';
-      case 'scale': return 'scale-100 opacity-100';
-      case 'blur': return 'blur-0 opacity-100';
-      default: return 'opacity-100';
+      case "fade-up":
+      case "fade-down":
+        return "translate-y-0";
+      case "scale":
+        return "scale-100";
+      case "blur":
+        return "blur-0";
+      default:
+        return "";
     }
   };
 
   return (
     <Component
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out will-change-transform ${isVisible? getVisibleStyle() : getInitialStyle()}`}
+      className={`${className} transition-all duration-700 ease-out will-change-transform ${
+        isVisible ? getVisibleStyle() : getInitialStyle()
+      }`}
       style={{ transitionDelay: `${delay}ms` }}
       {...props}
     >
