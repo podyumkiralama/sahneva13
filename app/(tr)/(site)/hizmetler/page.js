@@ -324,7 +324,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-hidden">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <ServicesStructuredData />
 
