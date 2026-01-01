@@ -183,7 +183,6 @@ export default function TurkishLayout({ children }) {
           ariaLabel="Sahneva site altbilgi"
           descriptionId="_main_footer_desc"
         />
-        <StickyVideoRailClient />
       </div>
     </>
   );
