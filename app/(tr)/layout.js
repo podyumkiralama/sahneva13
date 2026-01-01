@@ -58,14 +58,15 @@ const globalJsonLd = {
       },
     },
 
-    /* ---- Editor Organization ---- */
-    {
-      "@type": "Organization",
-      "@id": EDITOR_ORGANIZATION_ID,
-      name: "Sahneva Editör",
-      url: BASE_SITE_URL,
-      parentOrganization: { "@id": ORGANIZATION_ID },
-    },
+  /* ---- Editor (Person) ---- */
+{
+  "@type": "Person",
+  "@id": EDITOR_ORGANIZATION_ID,
+  name: "Sahneva Editör",
+  url: BASE_SITE_URL,
+  worksFor: { "@id": ORGANIZATION_ID }
+},
+
 
     /* ---- LocalBusiness ---- */
     {
