@@ -193,12 +193,12 @@ function StructuredData() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-// --- HERO SECTION (DEBUG) ---
 function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[100svh] md:min-h-[80vh]">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative flex items-center justify-center bg-slate-900 pt-20 min-h-screen md:min-h-[80vh]">
+      
+      {/* Background image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src="/img/podyum/hero.webp"
           alt="Profesyonel podyum kurulumu"
@@ -212,24 +212,28 @@ function HeroSection() {
         />
       </div>
 
-      {/* ✅ DEBUG: Eğer bu yazı GSC'de görünmüyorsa, üstte bir overlay kapatıyor demektir */}
+      {/* Content */}
       <div
-        style={{
-          position: "absolute",
-          top: 90,
-          left: 12,
-          zIndex: 99999,
-          color: "#ff2d2d",
-          fontSize: 18,
-          fontWeight: 900,
-          background: "rgba(0,0,0,0.65)",
-          padding: "6px 10px",
-          borderRadius: 10,
-          border: "2px solid rgba(255,45,45,0.9)",
-        }}
+        className="relative z-10 container mx-auto px-4 text-center py-12"
+        style={{ color: "#fff" }}
       >
-        DEBUG TEXT VISIBLE?
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4">
+          Profesyonel <span className="text-blue-200">Podyum Kiralama</span>
+        </h1>
+
+        <p className="text-xl md:text-2xl opacity-90 mb-4">
+          Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
+        </p>
+
+        <p className="text-lg opacity-80 mb-6">
+          Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+          <strong>profesyonel kurulum</strong>
+        </p>
       </div>
+    </section>
+  );
+}
+
 
       {/* Content */}
       <div
