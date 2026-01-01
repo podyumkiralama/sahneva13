@@ -62,7 +62,7 @@ function ContactStructuredData() {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
       <ContactStructuredData />
 
       {/* HERO */}
