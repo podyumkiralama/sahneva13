@@ -1,16 +1,13 @@
 @import "tailwindcss";
-/* ✅ Tailwind v4: kaynak taraması (özellikle parantezli route grupları için) */
+
+/* ✅ Tailwind v4: kaynak taraması (özellikle route group parantezleri için) */
 @source "../app/**/*.{js,jsx,ts,tsx,mdx}";
 @source "../components/**/*.{js,jsx,ts,tsx,mdx}";
 @source "../lib/**/*.{js,jsx,ts,tsx,mdx}";
 
-/* ✅ Parantezli klasörler için “escape’li” ekstra garanti */
+/* ✅ Parantezli klasörler için ekstra garanti (route groups) */
 @source "../app/\\(tr\\)/**/*.{js,jsx,ts,tsx,mdx}";
 @source "../app/\\(tr\\)/\\(site\\)/**/*.{js,jsx,ts,tsx,mdx}";
-
-/* (İstersen EN/AR için de) */
-@source "../app/en/**/*.{js,jsx,ts,tsx,mdx}";
-@source "../app/ar/**/*.{js,jsx,ts,tsx,mdx}";
 
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
@@ -50,7 +47,7 @@
   --font-inter-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  /* grid-overlay defaults */
+  /* grid-overlay defaults (override edilebilir) */
   --grid-overlay-opacity: 0.7;
   --grid-overlay-size: 24px;
   --grid-overlay-dot: rgba(255, 255, 255, 0.05);
@@ -67,7 +64,11 @@
   }
 
   body {
-    @apply text-neutral-900 antialiased min-h-screen font-sans;
+    /* ✅ Tailwind class’ları üretilemese bile temel okunabilirlik */
+    background-color: #000;
+    color: #e2e8f0;
+
+    @apply antialiased min-h-screen font-sans;
     text-rendering: optimizeLegibility;
     width: 100%;
     overflow-x: hidden;
@@ -199,8 +200,7 @@
 
 /* Utilities */
 @layer utilities {
-  /* ✅ KRİTİK: gradient-text artık ASLA transparent değil.
-     Google/GSC/garip renderlarda yazı kaybolmaz. */
+  /* ✅ KRİTİK: gradient-text hiçbir yerde görünmez yapmıyor. */
   .gradient-text {
     color: #93c5fd;
     -webkit-text-fill-color: currentColor;
@@ -208,7 +208,7 @@
     background-image: none;
   }
 
-  /* ✅ İstersen gerçek gradient efekti için bunu kullan:
+  /* ✅ Gradient efekti istersen bunu ekle:
      className="gradient-text gradient-text-fx" */
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .gradient-text-fx {
