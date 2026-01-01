@@ -113,6 +113,7 @@ export default function HeroSection() {
   return (
     <header
       className="relative min-h-[90vh] md:min-h-[70vh] 2xl:min-h-[75vh] pt-14 lg:pt-16 flex items-center justify-center overflow-hidden bg-black"
+      style={{ color: "#ffffff" }}
       aria-labelledby="hero-title"
       aria-describedby="hero-description hero-keywords"
     >

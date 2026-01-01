@@ -324,7 +324,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-hidden">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <ServicesStructuredData />
 
@@ -365,7 +365,10 @@ export default function ServicesPage() {
           </span>
         </div>
         
-        <div className="relative z-10 container text-center text-white">
+        <div
+          className="relative z-10 container text-center text-white"
+          style={{ color: "#ffffff" }}
+        >
           <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
@@ -419,7 +422,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <div id="main" className="relative">
+      <div id="main" className="relative" style={{ color: "#0f172a" }}>
         {/* ✅ HIZLI ERİŞİM KARTLARI */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
           <div className="container max-w-6xl mx-auto px-4">

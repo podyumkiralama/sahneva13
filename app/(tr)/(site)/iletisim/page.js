@@ -62,7 +62,7 @@ function ContactStructuredData() {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
       <ContactStructuredData />
 
       {/* HERO */}
@@ -87,7 +87,10 @@ export default function ContactPage() {
           </span>
         </div>
 
-        <div className="relative z-10 container text-center text-white">
+        <div
+          className="relative z-10 container text-center text-white"
+          style={{ color: "#ffffff" }}
+        >
           
             <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
               <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
@@ -130,7 +133,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div id="main" className="relative pb-28 md:pb-0">
+      <div
+        id="main"
+        className="relative pb-28 md:pb-0"
+        style={{ color: "#0f172a" }}
+      >
         {/* Hızlı İletişim Kartları */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
           <div className="container max-w-6xl mx-auto px-4">
