@@ -1,8 +1,16 @@
 @import "tailwindcss";
-/* ✅ Tailwind v4: tüm route/component dosyalarını kesin tarat */
+/* ✅ Tailwind v4: kaynak taraması (özellikle parantezli route grupları için) */
 @source "../app/**/*.{js,jsx,ts,tsx,mdx}";
 @source "../components/**/*.{js,jsx,ts,tsx,mdx}";
 @source "../lib/**/*.{js,jsx,ts,tsx,mdx}";
+
+/* ✅ Parantezli klasörler için “escape’li” ekstra garanti */
+@source "../app/\\(tr\\)/**/*.{js,jsx,ts,tsx,mdx}";
+@source "../app/\\(tr\\)/\\(site\\)/**/*.{js,jsx,ts,tsx,mdx}";
+
+/* (İstersen EN/AR için de) */
+@source "../app/en/**/*.{js,jsx,ts,tsx,mdx}";
+@source "../app/ar/**/*.{js,jsx,ts,tsx,mdx}";
 
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
