@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import NewTabAccessibility from "@/components/NewTabAccessibility.client";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const DEFAULT_LANG = "tr";
 const DEFAULT_DIR = "ltr";
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <SkipLinks />
         <NewTabAccessibility />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
