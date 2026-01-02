@@ -65,73 +65,83 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
       <ContactStructuredData />
 
-      {/* HERO */}
-      <section
-        className="relative min-h-[60vh] 2xl:min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-16 lg:pt-20"
-        aria-labelledby="hero-title"
-      >
-        {/* Gradient efektler */}
-        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse delay-1000" />
-          <div className="absolute top-40 left-1/2 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply blur-3xl opacity-30 animate-pulse delay-500" />
-        </div>
+{/* HERO */}
+<section
+  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white"
+  aria-labelledby="hero-title"
+>
+  {/* ARKA PLAN EFEKTLERİ (dekor, GSC-safe) */}
+  <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/25 rounded-full blur-3xl" />
+    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/25 rounded-full blur-3xl" />
+    <div className="absolute top-40 left-1/2 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl -translate-x-1/2" />
 
-        {/* Arka plan yazısı */}
-        <div
-          className="absolute inset-0 flex items-center justify-center opacity-5 select-none"
-          aria-hidden="true"
-        >
-          <span className="text-[100px] lg:text-[160px] font-black text-white tracking-wider">
-            İLETİŞİM
+    {/* koyu film */}
+    <div className="absolute inset-0 bg-black/35" />
+  </div>
+
+  {/* ARKA PLAN YAZISI */}
+  <div
+    className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
+    aria-hidden="true"
+  >
+    <span className="text-[100px] lg:text-[160px] font-black text-white/5 tracking-wider">
+      İLETİŞİM
+    </span>
+  </div>
+
+  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
+  <div className="relative z-10">
+    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+      <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          <span className="text-white/90 text-sm font-medium">
+            7/24 Teknik Destek
           </span>
         </div>
 
-        <div
-          className="relative z-10 container text-center text-white"
-          style={{ color: "#ffffff" }}
+        {/* Title */}
+        <h1
+          id="hero-title"
+          className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.55)]"
         >
-          
-            <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-white/90 text-sm font-medium">
-                  7/24 Teknik Destek
-                </span>
-              </div>
+          <span className="block">BİZE</span>
+          <span className="text-blue-200">Ulaşın</span>
+        </h1>
 
-              <h1
-                id="hero-title"
-                className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
-              >
-                <span className="block">BİZE</span>
-                <span className="gradient-text gradient-text--safe-xl">
-                  Ulaşın
-                </span>
-              </h1>
+        {/* Description */}
+        <p className="text-lg md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
+          Etkinliğiniz için{" "}
+          <strong className="text-blue-300">en uygun çözümleri</strong>{" "}
+          sunalım
+          <br />
+          <strong className="text-purple-300">
+            2 saat içinde detaylı teklif
+          </strong>{" "}
+          hazırlıyoruz
+        </p>
+      </div>
+    </div>
+  </div>
 
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-                Etkinliğiniz için{" "}
-                <strong className="text-blue-300">en uygun çözümleri</strong>{" "}
-                sunalım
-                <br />
-                <strong className="text-purple-300">
-                  2 saat içinde detaylı teklif
-                </strong>{" "}
-                hazırlıyoruz
-              </p>
-            </div>
-          
-        </div>
+  {/* Scroll hint */}
+  <div
+    className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
+    aria-hidden="true"
+  >
+    <div className="animate-bounce">
+      <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
+      </div>
+    </div>
+  </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2" aria-hidden="true">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* alt geçiş */}
+  <div className="h-12 bg-gradient-to-b from-transparent to-white" />
+</section>
+
 
       <div
         id="main"
