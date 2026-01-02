@@ -336,93 +336,129 @@ export default function ServicesPage() {
         Ana içeriğe atla
       </a>
 
-      {/* ✅ HERO SECTION - Premium Design */}
-      <section 
-        className="relative min-h-[70vh] 2xl:min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-16 lg:pt-20"
-        aria-labelledby="hero-title"
-      >
-        <div className="absolute inset-0">
-          <Image
-            src="/img/hizmetler-hero.webp"
-            alt="Sahneva Hizmetler - Profesyonel Etkinlik Ekipmanları ve Teknoloji Çözümleri"
-            fill
-            priority
-            quality={80}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-            className="object-cover object-center nc-HizmetlerPage-hero-1"
-          />
-        </div>
+    {/* ✅ HERO SECTION - Premium + GSC-safe */}
+<section
+  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
+  aria-labelledby="hero-title"
+>
+  {/* FULL-BLEED BACKGROUND */}
+  <div className="absolute inset-0 pointer-events-none">
+    <Image
+      src="/img/hizmetler-hero.webp"
+      alt="Sahneva Hizmetler - Profesyonel Etkinlik Ekipmanları ve Teknoloji Çözümleri"
+      fill
+      priority
+      quality={80}
+      sizes="100vw"
+      className="object-cover object-center"
+    />
 
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/60 to-purple-900/70"
-          aria-hidden="true"
-        />
+    {/* okunabilirlik için film (morluk kontrollü) */}
+    <div className="absolute inset-0 bg-black/40" />
 
-        {/* ✅ BÜYÜK ARKA PLAN YAZISI */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5" aria-hidden="true">
-          <span className="text-[120px] lg:text-[180px] font-black text-white tracking-wider select-none">
-            HİZMETLER
+    {/* gradient (soft) */}
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,58,138,0.35) 45%, rgba(88,28,135,0.28) 100%)",
+      }}
+    />
+
+    {/* grid overlay (faq vibe) */}
+    <div
+      className="absolute inset-0 opacity-35"
+      aria-hidden="true"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
+    />
+
+    {/* glow blobs (soft) */}
+    <div className="absolute -top-28 -right-28 w-96 h-96 bg-purple-500/14 rounded-full blur-3xl" />
+    <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-blue-500/14 rounded-full blur-3xl" />
+  </div>
+
+  {/* BIG BACKGROUND TEXT */}
+  <div
+    className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
+    aria-hidden="true"
+  >
+    <span className="text-[120px] lg:text-[180px] font-black text-white/5 tracking-wider">
+      HİZMETLER
+    </span>
+  </div>
+
+  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
+  <div className="relative z-10">
+    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true" />
+          <span className="text-white/90 text-sm font-medium">
+            Türkiye Geneli Profesyonel Hizmet
           </span>
         </div>
-        
-        <div
-          className="relative z-10 container text-center text-white"
-          style={{ color: "#ffffff" }}
+
+        <h1
+          id="hero-title"
+          className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
-          <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-white/90 text-sm font-medium">Türkiye Geneli Profesyonel Hizmet</span>
-            </div>
+          <span className="block">PROFESYONEL</span>
+          {/* ✅ gradient-text yerine güvenli vurgu */}
+          <span className="text-blue-200">Hizmetlerimiz</span>
+        </h1>
 
-            <h1
-              id="hero-title"
-              className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
-            >
-              <span className="block">PROFESYONEL</span>
-              <span className="gradient-text gradient-text--safe-xl">
-                Hizmetlerimiz
+        <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
+          Sahne, LED ekran, ses-ışık sistemlerinden komple etkinlik prodüksiyonuna kadar
+          <br />
+          <strong className="text-blue-300">tek çatı altında premium çözümler</strong>
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a
+            href="#hizmet-listesi"
+            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            aria-label="Hizmetlerimizi inceleyin"
+          >
+            <span className="flex items-center gap-2">
+              Hizmetleri Keşfet
+              <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                →
               </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-              Sahne, LED ekran, ses-ışık sistemlerinden komple etkinlik prodüksiyonuna kadar<br />
-              <strong className="text-blue-300">tek çatı altında premium çözümler</strong>
-            </p>
+            </span>
+          </a>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a
-                href="#hizmet-listesi"
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                aria-label="Hizmetlerimizi inceleyin"
-              >
-                <span className="flex items-center gap-2">
-                  Hizmetleri Keşfet
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
-              </a>
-              
-              <a
-                href="tel:+905453048671"
-                className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                aria-label="Hemen ara - Detaylı bilgi için"
-              >
-                📞 Hemen Ara
-              </a>
-            </div>
-          </div>
+          <a
+            href="tel:+905453048671"
+            className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            aria-label="Hemen ara - Detaylı bilgi için"
+          >
+            📞 Hemen Ara
+          </a>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Scroll hint */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true">
+    <div className="animate-bounce">
+      <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
+      </div>
+    </div>
+  </div>
 
-      <div id="main" className="relative" style={{ color: "#0f172a" }}>
+  {/* alt geçiş */}
+  <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+</section>
+
+<div id="main" className="relative" style={{ color: "#0f172a" }}>
+
         {/* ✅ HIZLI ERİŞİM KARTLARI */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
           <div className="container max-w-6xl mx-auto px-4">
