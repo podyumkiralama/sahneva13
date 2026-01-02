@@ -150,90 +150,156 @@ export default function HakkimizdaPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <AboutStructuredData />
 
-      {/* HERO - LED Ekran Sayfası ile Birebir Aynı (İstatistikler Hero İçinde) */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]" aria-labelledby="hero-title">
-        <div className="absolute inset-0">
-          <Image 
-            src="/img/hakkimizda-hero-corporate.webp"
-            alt="Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde 10+ Yıllık Deneyim"
-            fill 
-            priority 
-            className="object-cover"
-            sizes="100vw"
-            quality={85}
-           
-            blurDataURL={BLUR_DATA_URL}
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+    {/* HERO - Hakkımızda (Premium + GSC-safe, istatistikler hero içinde) */}
+<section
+  className="relative bg-slate-950 text-white pt-14 lg:pt-16 overflow-hidden"
+  aria-labelledby="hero-title"
+>
+  {/* FULL-BLEED BACKGROUND */}
+  <div className="absolute inset-0 pointer-events-none">
+    <Image
+      src="/img/hakkimizda-hero-corporate.webp"
+      alt="Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde 10+ Yıllık Deneyim"
+      fill
+      priority
+      fetchPriority="high"
+      className="object-cover object-center"
+      sizes="100vw"
+      quality={85}
+      placeholder="blur"
+      blurDataURL={BLUR_DATA_URL}
+    />
+
+    {/* okunabilirlik için film (soft) */}
+    <div className="absolute inset-0 bg-black/40" />
+
+    {/* gradient (morluk azaltıldı) */}
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.60) 100%)",
+      }}
+    />
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(2,6,23,0.72) 0%, rgba(2,6,23,0.20) 45%, rgba(2,6,23,0.78) 100%)",
+      }}
+    />
+
+    {/* grid overlay (faq vibe) */}
+    <div
+      className="absolute inset-0 opacity-30"
+      aria-hidden="true"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
+    />
+
+    {/* glow blobs */}
+    <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+    <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
+  </div>
+
+  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
+  <div className="relative z-10">
+    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+      <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
+        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
+          <span className="relative flex w-2 h-2" aria-hidden="true">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
+          </span>
+          <span className="text-sm font-bold text-white">
+            2012&apos;den Bugüne Güvenilir Çözüm
+          </span>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-            <span className="relative flex w-2 h-2" aria-hidden="true">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-            </span>
-            <span className="text-sm font-bold text-white">2012'den Bugüne Güvenilir Çözüm</span>
-          </div>
+        <h1
+          id="hero-title"
+          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
+        >
+          Hakkımızda <span className="text-blue-200">Sahneva</span>
+        </h1>
 
-          <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-            Hakkımızda <span className="gradient-text gradient-text--safe-xl">Sahneva</span>
-          </h1>
+        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
+          Etkinlik Teknolojilerinde • 10+ Yıl Deneyim • 700+ Proje
+        </p>
 
-          <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-            Etkinlik Teknolojilerinde • 10+ Yıl Deneyim • 700+ Proje
-          </p>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
-            Türkiye'nin <span className="font-semibold text-white">1 numaralı etkinlik teknoloji partneri</span> olarak
-            her projede teknik mükemmellik ve yaratıcı vizyonu buluşturuyoruz
-          </p>
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
+          Türkiye&apos;nin{" "}
+          <span className="font-semibold text-white">
+            1 numaralı etkinlik teknoloji partneri
+          </span>{" "}
+          olarak her projede teknik mükemmellik ve yaratıcı vizyonu
+          buluşturuyoruz
+        </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-            <Link
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
+          <Link
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır"
-              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-              role="button"
-            >
-              <span aria-hidden="true" className="text-xl mr-2">💬</span> 
-              <span className="text-base">Hemen İletişime Geç</span>
-            </Link>
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-2">
+              💬
+            </span>
+            <span className="text-base">Hemen İletişime Geç</span>
+          </Link>
 
-            <Link
+          <Link
             href="#tarihce"
             aria-label="Şirket tarihçemizi öğrenin"
-              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-              role="button"
-            >
-              <span aria-hidden="true" className="text-xl mr-2">📖</span> 
-              <span className="text-base">Tarihçemiz</span>
-            </Link>
-          </div>
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-2">
+              📖
+            </span>
+            <span className="text-base">Tarihçemiz</span>
+          </Link>
+        </div>
 
-          {/* 3'lü İstatistik Kartları - Hero İçinde */}
-          <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">🎬</span>
-              <div className="text-xl font-black text-white">700+</div>
-              <div className="text-white/80 text-sm">Başarılı Proje</div>
-            </div>
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-              <div className="text-xl font-black text-white">12+</div>
-              <div className="text-white/80 text-sm">Yıl Deneyim</div>
-            </div>
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">🗺️</span>
-              <div className="text-xl font-black text-white">81</div>
-              <div className="text-white/80 text-sm">İlde Hizmet</div>
-            </div>
+        {/* Stats – hero içinde */}
+        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              🎬
+            </span>
+            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-white/80 text-sm">Başarılı Proje</div>
+          </div>
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              ⭐
+            </span>
+            <div className="text-xl font-black text-white">12+</div>
+            <div className="text-white/80 text-sm">Yıl Deneyim</div>
+          </div>
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              🗺️
+            </span>
+            <div className="text-xl font-black text-white">81</div>
+            <div className="text-white/80 text-sm">İlde Hizmet</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+
+  {/* alt geçiş */}
+  <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+</section>
 
       <div className="relative">
         {/* BİZ KİMİZ */}
