@@ -282,6 +282,28 @@ function StructuredData() {
  * - Metin önce geliyor, görsel sonra geliyor (blog gibi)
  * - Google snapshot’ta kaybolacak opacity/transparent hilesi yok
  */
+
+<style
+  dangerouslySetInnerHTML={{
+    __html: `
+      /* GSC / snapshot güvenlik: görünmeyen içerikleri zorla görünür yap */
+      [data-reveal],
+      [data-motion],
+      [data-animate],
+      .reveal,
+      .motion,
+      .animate-fade-in-up,
+      .animate-fade-in,
+      .opacity-0 {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+    `,
+  }}
+/>
+
+
 // --- HERO SECTION (Modern + GSC-safe, tasarım aynı) ---
 function HeroSection() {
   return (
