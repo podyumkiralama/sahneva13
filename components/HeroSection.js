@@ -102,26 +102,37 @@ function HeroBackgroundImage() {
         loading="eager"
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover object-center"
-        aria-hidden="true"
       />
     </picture>
   );
 }
 
-
 export default function HeroSection() {
   return (
     <header
-      className="relative min-h-[90vh] md:min-h-[70vh] 2xl:min-h-[75vh] pt-14 lg:pt-16 flex items-center justify-center overflow-hidden bg-black"
-      style={{ color: "#ffffff" }}
+      className="relative min-h-[90vh] md:min-h-[70vh] 2xl:min-h-[75vh] pt-14 lg:pt-16 flex items-center justify-center overflow-hidden bg-black text-white"
       aria-labelledby="hero-title"
       aria-describedby="hero-description hero-keywords"
     >
       {/* Background */}
-      <div className="absolute inset-0" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <HeroBackgroundImage />
-        {/* Daha dengeli overlay: “simsiyah” yapmadan kontrast sağlar */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/55" />
+
+        {/* daha soft film/overlay (simsiyah yapmaz) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/55" />
+
+        {/* hafif mavi/purple atmosfer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-transparent" />
+
+        {/* grid overlay (faq vibe) */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -129,20 +140,18 @@ export default function HeroSection() {
         <div className="max-w-3xl 2xl:max-w-4xl mx-auto text-center">
           {/* Badge */}
           <p className="inline-flex items-center gap-3 bg-black/45 rounded-full px-4 py-2 border border-white/10 text-xs md:text-sm text-slate-100">
-            <span
-              className="w-2 h-2 bg-green-400 rounded-full"
-              aria-hidden="true"
-            />
+            <span className="w-2 h-2 bg-green-400 rounded-full" aria-hidden="true" />
             Sahneva Organizasyon • Türkiye Geneli Organizasyon Firması
           </p>
 
           {/* Title */}
           <h1
             id="hero-title"
-            className="mt-4 text-white text-3xl md:text-5xl lg:text-6xl font-black leading-tight"
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
           >
             Türkiye genelinde
-            <span className="gradient-text gradient-text--safe-xl block">
+            {/* ✅ gradient-text yerine snapshot-safe vurgu */}
+            <span className="block text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
               Sahne Kiralama ve LED Ekran Kiralama
             </span>
           </h1>
@@ -153,7 +162,7 @@ export default function HeroSection() {
           {/* Description */}
           <p
             id="hero-description"
-            className="text-slate-100 text-sm md:text-lg mt-2 md:mt-4 max-w-xl mx-auto"
+            className="text-slate-100/95 text-sm md:text-lg mt-2 md:mt-4 max-w-xl mx-auto"
           >
             500+ başarılı proje, %98 müşteri memnuniyeti ve Türkiye geneli kurulum
             desteğiyle sahne kiralama, LED ekran kiralama ve etkinlik prodüksiyonu
