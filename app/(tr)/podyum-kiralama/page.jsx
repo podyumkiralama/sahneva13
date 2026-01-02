@@ -193,91 +193,102 @@ function StructuredData() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-/**
- * ✅ NEW HERO (GSC-safe):
- * - Metin görselin üstünde bindirme değil
- * - Metin önce geliyor, görsel sonra geliyor (blog gibi)
- * - Google snapshot’ta kaybolacak opacity/transparent hilesi yok
- */
 function HeroSection() {
   return (
     <section className="bg-slate-950 text-white">
-      <div className="container mx-auto px-4 pt-20 pb-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-4 py-2 mb-6">
-            <span className="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_6px_rgba(34,197,94,0.18)]" aria-hidden="true" />
-            <span className="text-sm font-extrabold text-white">
-              İstanbul Geneli Profesyonel Hizmet
-            </span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4">
-            Profesyonel{" "}
-            <span className="text-blue-200">Podyum Kiralama</span>
-          </h1>
-
-          <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-4">
-            Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
-          </p>
-
-          <p className="text-base md:text-xl text-white/75 leading-relaxed mb-8">
-            Modüler podyum sistemleri, kaymaz kaplama ve{" "}
-            <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
-            ile anahtar teslim çözümler
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10">
-            <Link
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl"
-            >
-              <span className="text-xl mr-2">💬</span> Hemen Teklif Al
-            </Link>
-
-            <Link
-              href="#hizmetler"
-              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/80 text-white bg-white/10 hover:bg-white/15"
-            >
-              <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
-            </Link>
-          </div>
-        </div>
-
-        {/* Görsel artık METNİN ALTINDA ve normal akışta */}
+      <div className="container mx-auto px-4 pt-20 pb-10">
         <div className="max-w-6xl mx-auto">
-          <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-purple-900/35 to-slate-950/60 z-10 pointer-events-none" />
-            <Image
-              src="/img/podyum/hero.webp"
-              alt="Profesyonel podyum kurulumu"
-              width={1920}
-              height={1080}
-              priority
-              fetchPriority="high"
-              className="w-full h-auto block"
-              placeholder="blur"
-              blurDataURL={BLUR_DATA_URL}
-            />
-          </div>
+          {/* HERO CARD (görsel arkada hissi, ama GSC-safe) */}
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+            {/* Görsel + overlay */}
+            <div className="absolute inset-0 pointer-events-none">
+              <Image
+                src="/img/podyum/hero.webp"
+                alt="Profesyonel podyum kurulumu"
+                fill
+                priority
+                fetchPriority="high"
+                className="object-cover"
+                sizes="100vw"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+              />
+              <div className="absolute inset-0 bg-black/55" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/40 to-slate-950/75" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-purple-900/45" />
+              <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
+              <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl" />
+            </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
-            {[
-              { icon: "⭐", value: "4.8/5", label: "200+ Değerlendirme" },
-              { icon: "🏆", value: "600+", label: "Etkinlik" },
-              { icon: "🚀", value: "2-6 Saat", label: "Kurulum" },
-              { icon: "🛡️", value: "Güvenli", label: "Kaymaz Sistem" },
-            ].map((s) => (
-              <div
-                key={s.label}
-                className="rounded-2xl bg-white/8 border border-white/12 px-4 py-4 text-center"
-              >
-                <div className="text-2xl mb-1" aria-hidden="true">{s.icon}</div>
-                <div className="text-xl font-black">{s.value}</div>
-                <div className="text-sm text-white/70 font-semibold">{s.label}</div>
+            {/* İçerik (GSC için güvenli: görünür, opacity/transparent yok) */}
+            <div className="relative z-10 px-6 py-12 md:px-10 md:py-16 text-center">
+              <div className="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 px-4 py-2 mb-6">
+                <span
+                  className="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_6px_rgba(34,197,94,0.18)]"
+                  aria-hidden="true"
+                />
+                <span className="text-sm font-extrabold text-white">
+                  İstanbul Geneli Profesyonel Hizmet
+                </span>
               </div>
-            ))}
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
+                Profesyonel{" "}
+                <span className="text-blue-200">Podyum Kiralama</span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-4">
+                Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
+              </p>
+
+              <p className="text-base md:text-xl text-white/75 leading-relaxed mb-8 max-w-3xl mx-auto">
+                Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+                <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
+                ile anahtar teslim çözümler
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10">
+                <Link
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl"
+                >
+                  <span className="text-xl mr-2">💬</span> Hemen Teklif Al
+                </Link>
+
+                <Link
+                  href="#hizmetler"
+                  className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/80 text-white bg-white/10 hover:bg-white/15 backdrop-blur-xl"
+                >
+                  <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                {[
+                  { icon: "⭐", value: "4.8/5", label: "200+ Değerlendirme" },
+                  { icon: "🏆", value: "600+", label: "Etkinlik" },
+                  { icon: "🚀", value: "2-6 Saat", label: "Kurulum" },
+                  { icon: "🛡️", value: "Güvenli", label: "Kaymaz Sistem" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/12 px-4 py-4 text-center"
+                  >
+                    <div className="text-2xl mb-1" aria-hidden="true">
+                      {s.icon}
+                    </div>
+                    <div className="text-xl font-black">{s.value}</div>
+                    <div className="text-sm text-white/70 font-semibold">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <span className="sr-only">Podyum Kiralama - Sahneva Organizasyon</span>
+            </div>
           </div>
         </div>
       </div>
@@ -285,17 +296,6 @@ function HeroSection() {
   );
 }
 
-function SectionTitle({ title, accent }) {
-  return (
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-        {title}{" "}
-        <span className="text-blue-700">{accent}</span>
-      </h2>
-      <div className="w-28 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
-    </div>
-  );
-}
 
 
 // --- SERVICES SECTION ---
