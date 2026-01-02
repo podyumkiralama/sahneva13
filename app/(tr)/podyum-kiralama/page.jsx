@@ -193,7 +193,7 @@ function StructuredData() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-// --- HERO SECTION (Google Render FIX: Tailwind bağımsız) ---
+// --- HERO SECTION (GSC FIX: content absolute + inline) ---
 function HeroSection() {
   return (
     <section
@@ -201,14 +201,11 @@ function HeroSection() {
         position: "relative",
         minHeight: "100vh",
         paddingTop: "80px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         background: "#0f172a",
-        overflow: "visible", // overflow-hidden YOK
+        overflow: "hidden",
       }}
     >
-      {/* Background (mutlaka arkada kalsın) */}
+      {/* Background */}
       <div
         style={{
           position: "absolute",
@@ -229,7 +226,7 @@ function HeroSection() {
           style={{ objectFit: "cover" }}
         />
 
-        {/* Overlay istersen kalsın – ama yine inline */}
+        {/* Overlay (istersen kalsın) */}
         <div
           style={{
             position: "absolute",
@@ -248,110 +245,140 @@ function HeroSection() {
         />
       </div>
 
-      {/* Content (mutlaka üstte) */}
+      {/* ✅ Content (absolute) — Google snapshot’ta kesin görünür */}
       <div
         style={{
-          position: "relative",
-          zIndex: 10,
-          width: "min(1100px, calc(100% - 32px))",
-          textAlign: "center",
-          color: "#fff",
+          position: "absolute",
+          inset: 0,
+          zIndex: 9999,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           padding: "16px",
-          borderRadius: "18px",
-          background: "rgba(0,0,0,0.35)", // Google snapshot’ta görünürlük garantisi
-          border: "1px solid rgba(255,255,255,0.22)",
-          boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
         }}
       >
         <div
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            background: "rgba(255,255,255,0.18)",
-            border: "1px solid rgba(255,255,255,0.25)",
-            borderRadius: 12,
-            padding: "8px 14px",
-            marginBottom: 16,
+            width: "min(1100px, 100%)",
+            textAlign: "center",
+            color: "#fff",
+            padding: "18px 16px",
+            borderRadius: "18px",
+            background: "rgba(0,0,0,0.38)",
+            border: "1px solid rgba(255,255,255,0.22)",
+            boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
           }}
         >
-          <span
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: 999,
-              background: "#22c55e",
-              boxShadow: "0 0 0 6px rgba(34,197,94,0.18)",
-            }}
-            aria-hidden="true"
-          />
-          <span style={{ fontSize: 14, fontWeight: 800 }}>
-            İstanbul Geneli Profesyonel Hizmet
-          </span>
-        </div>
-
-        <h1
-          style={{
-            fontSize: "clamp(32px, 6vw, 72px)",
-            fontWeight: 900,
-            lineHeight: 1.05,
-            marginBottom: 12,
-            textShadow: "0 10px 30px rgba(0,0,0,0.55)",
-          }}
-        >
-          Profesyonel{" "}
-          <span style={{ color: "#93c5fd" }}>Podyum Kiralama</span>
-        </h1>
-
-        <p style={{ fontSize: "clamp(18px, 2.2vw, 26px)", opacity: 0.95, marginBottom: 8 }}>
-          Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
-        </p>
-
-        <p style={{ fontSize: "clamp(16px, 2vw, 20px)", opacity: 0.85, marginBottom: 16 }}>
-          Modüler podyum sistemleri, kaymaz kaplama ve{" "}
-          <strong style={{ opacity: 1 }}>profesyonel kurulum</strong> ile anahtar teslim çözümler
-        </p>
-
-        <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
+          <div
             style={{
               display: "inline-flex",
               alignItems: "center",
-              justifyContent: "center",
               gap: 8,
-              padding: "14px 18px",
-              borderRadius: 16,
-              background: "linear-gradient(90deg, #22c55e, #059669)",
-              color: "#fff",
-              fontWeight: 900,
-              textDecoration: "none",
-              boxShadow: "0 10px 22px rgba(0,0,0,0.35)",
+              background: "rgba(255,255,255,0.18)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: 12,
+              padding: "8px 14px",
+              marginBottom: 16,
             }}
           >
-            💬 Hemen Teklif Al
-          </a>
+            <span
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: 999,
+                background: "#22c55e",
+                boxShadow: "0 0 0 6px rgba(34,197,94,0.18)",
+              }}
+              aria-hidden="true"
+            />
+            <span style={{ fontSize: 14, fontWeight: 800 }}>
+              İstanbul Geneli Profesyonel Hizmet
+            </span>
+          </div>
 
-          <a
-            href="#hizmetler"
+          <h1
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-              padding: "14px 18px",
-              borderRadius: 16,
-              background: "rgba(255,255,255,0.10)",
-              color: "#fff",
+              fontSize: "clamp(32px, 6vw, 72px)",
               fontWeight: 900,
-              textDecoration: "none",
-              border: "2px solid rgba(255,255,255,0.85)",
+              lineHeight: 1.05,
+              marginBottom: 12,
+              textShadow: "0 10px 30px rgba(0,0,0,0.55)",
             }}
           >
-            🎯 Hizmetlerimiz
-          </a>
+            Profesyonel{" "}
+            <span style={{ color: "#93c5fd" }}>Podyum Kiralama</span>
+          </h1>
+
+          <p
+            style={{
+              fontSize: "clamp(18px, 2.2vw, 26px)",
+              opacity: 0.95,
+              marginBottom: 8,
+            }}
+          >
+            Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
+          </p>
+
+          <p
+            style={{
+              fontSize: "clamp(16px, 2vw, 20px)",
+              opacity: 0.85,
+              marginBottom: 16,
+            }}
+          >
+            Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+            <strong style={{ opacity: 1 }}>profesyonel kurulum</strong> ile anahtar
+            teslim çözümler
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: 10,
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                padding: "14px 18px",
+                borderRadius: 16,
+                background: "linear-gradient(90deg, #22c55e, #059669)",
+                color: "#fff",
+                fontWeight: 900,
+                textDecoration: "none",
+                boxShadow: "0 10px 22px rgba(0,0,0,0.35)",
+              }}
+            >
+              💬 Hemen Teklif Al
+            </a>
+
+            <a
+              href="#hizmetler"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                padding: "14px 18px",
+                borderRadius: 16,
+                background: "rgba(255,255,255,0.10)",
+                color: "#fff",
+                fontWeight: 900,
+                textDecoration: "none",
+                border: "2px solid rgba(255,255,255,0.85)",
+              }}
+            >
+              🎯 Hizmetlerimiz
+            </a>
+          </div>
         </div>
       </div>
     </section>
