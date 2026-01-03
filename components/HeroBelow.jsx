@@ -27,7 +27,7 @@ function HeroFeatureGrid() {
     >
       {HERO_FEATURES_TR.map((item) => (
         <li key={item.title} className="flex min-w-0">
-          <article className="w-full h-full flex flex-col items-start bg-slate-900/60 backdrop-blur-sm rounded-xl p-5 border border-white/10 shadow-lg hover:bg-slate-800/60 transition-colors duration-300">
+          <article className="w-full h-full flex flex-col items-start rounded-xl p-5 border border-white/10 shadow-lg transition-colors duration-300 bg-slate-900/55 hover:bg-slate-800/55 backdrop-blur-[2px]">
             <div
               className={`text-3xl mb-4 p-3 rounded-lg bg-white/5 ${item.color}`}
               aria-hidden="true"
@@ -52,7 +52,7 @@ function ConsultationCard() {
     <div className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-indigo-900 rounded-2xl p-1 border border-white/10 shadow-2xl">
       <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="bg-slate-950/30 rounded-xl p-5 md:p-7 backdrop-blur-sm h-full">
+      <div className="bg-slate-950/30 rounded-xl p-5 md:p-7 backdrop-blur-[2px] h-full">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="flex-shrink-0">
             <div
@@ -86,7 +86,7 @@ function ConsultationCard() {
               className="group relative w-full md:w-auto inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-white/20 hover:-translate-y-1 focus-ring min-h-[44px]"
             >
               <span>Hemen Teklif Al</span>
-              <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+              <span className="group-hover:translate-x-1 transition-transform">
                 →
               </span>
             </a>
@@ -107,7 +107,7 @@ function ProcessList() {
       {PROCESS_STEPS.map((step) => (
         <article
           key={step.title}
-          className="relative h-full rounded-2xl border border-white/10 bg-slate-900/60 p-4 backdrop-blur-sm shadow-md"
+          className="relative h-full rounded-2xl border border-white/10 bg-slate-900/55 p-4 backdrop-blur-[2px] shadow-md"
         >
           <div className="absolute -top-3 left-4 inline-flex items-center justify-center rounded-full bg-white text-blue-900 font-bold w-8 h-8 shadow-lg">
             {step.badge}
@@ -115,7 +115,9 @@ function ProcessList() {
           <h3 className="text-white font-semibold text-lg mt-2 mb-2">
             {step.title}
           </h3>
-          <p className="text-slate-200/80 text-sm leading-relaxed">{step.desc}</p>
+          <p className="text-slate-200/80 text-sm leading-relaxed">
+            {step.desc}
+          </p>
         </article>
       ))}
     </div>
@@ -125,18 +127,27 @@ function ProcessList() {
 export default function HeroBelow() {
   return (
     <section
-      className="relative z-10 overflow-hidden bg-slate-950 mt-6 md:mt-8 py-10 md:py-12 2xl:py-16"
+      className="home-section home-section--surface relative overflow-hidden bg-slate-950 mt-0 py-10 md:py-12 2xl:py-16"
       aria-labelledby="hero-supporting-title"
     >
+      {/* Hero -> HeroBelow geçişini yumuşat (beyaz band hissi azalır) */}
+      <div
+        className="pointer-events-none absolute inset-x-0 -top-10 h-16 bg-gradient-to-b from-slate-950/0 via-slate-950/70 to-slate-950"
+        aria-hidden="true"
+      />
+
       <h2 id="hero-supporting-title" className="sr-only">
         Sahne Kiralama Hizmet Özellikleri ve Danışmanlık
       </h2>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
+      <div className="home-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="max-w-3xl space-y-2">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" aria-hidden="true" />
-            Süreç & Güvence
+            <span
+              className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"
+              aria-hidden="true"
+            />
+            Süreç &amp; Güvence
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
@@ -144,12 +155,20 @@ export default function HeroBelow() {
           </h3>
 
           <p className="text-slate-200/80 text-base md:text-lg leading-relaxed max-w-3xl">
-            Sahneva ekibi keşif, statik hesap, LED içerik hazırlığı, truss kiralama ve sahne üstü operasyonu aynı çatı altında toparlar; bu da hem hız hem de hatasız teslimat sağlar.
+            Sahneva ekibi keşif, statik hesap, LED içerik hazırlığı, truss kiralama
+            ve sahne üstü operasyonu aynı çatı altında toparlar; bu da hem hız hem
+            de hatasız teslimat sağlar.
           </p>
         </div>
 
-        <HeroFeatureGrid />
-        <ConsultationCard />
+        <div className="relative z-10">
+          <HeroFeatureGrid />
+        </div>
+
+        <div className="relative z-0 mt-4">
+          <ConsultationCard />
+        </div>
+
         <ProcessList />
       </div>
     </section>
