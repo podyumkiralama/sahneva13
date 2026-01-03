@@ -72,12 +72,17 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* ✅ Navbar altına girmesin + boşluk dengesi bozulmasın:
-            - pt/pb ile itmek yok
-            - min-height + center + kontrollü gap */}
         <div className="container mx-auto px-4">
-<div className="max-w-5xl mx-auto text-center min-h-[clamp(560px,82vh,860px)] md:min-h-[clamp(640px,86vh,920px)] flex flex-col justify-start pt-20 pb-16 md:pt-28 md:pb-20">
-
+          {/* ✅ SABİT HERO YÜKSEKLİĞİ: Test araçlarında “oturması” için vh/svh yok */}
+          <div
+            className="
+              max-w-5xl mx-auto text-center
+              h-[620px] md:h-[720px] lg:h-[780px]
+              flex flex-col justify-center
+              pt-16 md:pt-0
+              pb-14
+            "
+          >
             <div className="space-y-4 md:space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
@@ -165,7 +170,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Hero -> next section geçiş (band hissini azaltır) */}
+      {/* Hero -> next section geçiş */}
       <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </header>
   );
