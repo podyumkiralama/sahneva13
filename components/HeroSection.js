@@ -34,11 +34,11 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      className="relative bg-[#0B1120] text-white overflow-hidden"
+      className="relative bg-slate-950 text-white pt-10 lg:pt-12 overflow-hidden"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
-      {/* Background */}
+      {/* background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/img/hero-bg.webp"
@@ -50,33 +50,40 @@ export default function HeroSection() {
           sizes="100vw"
         />
 
-        {/* Film (okunurluk) */}
+        {/* film biraz güçlendi: okunurluk */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Mavi-mor vibe (daha az mor) */}
+        {/* vibe gradient (çok mor basmasın) */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.10) 55%, rgba(2,6,23,0.78) 100%)",
+              "linear-gradient(135deg, rgba(30,58,138,0.32) 0%, rgba(88,28,135,0.14) 55%, rgba(2,6,23,0.72) 100%)",
           }}
         />
 
-        {/* Grid overlay — globals.css ile uyumlu */}
-        <div className="grid-overlay opacity-35" />
+        {/* grid overlay */}
+        <div
+          className="absolute inset-0 opacity-25"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
 
-        {/* Glow blobs */}
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
+        {/* glow blobs */}
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
       </div>
 
-      {/* Content */}
+      {/* content */}
       <div className="relative z-10">
-        {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
-        <div className="container mx-auto px-4 pt-4 pb-10 md:pt-5 md:pb-12">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Badge: daha belirgin */}
-            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+        {/* ✅ boşluk düzeltildi: py yerine pt/pb */}
+        <div className="container mx-auto px-4 pt-8 pb-4 md:pt-9 md:pb-5">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* badge okunur: şerit koyulaştı + yazı beyazlandı */}
+            <div className="inline-flex items-center gap-3 bg-black/65 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <span
                 className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
                 aria-hidden="true"
@@ -86,13 +93,13 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Title */}
+            {/* title */}
             <h1
               id="hero-title"
-              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+              className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
             >
               Sahneva ile{" "}
-              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
                 Etkinlik Prodüksiyonu
               </span>
               <span className="block text-white">
@@ -100,10 +107,8 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            {/* Pills */}
             <KeywordPills />
 
-            {/* Description */}
             <p
               id="hero-desc"
               className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
@@ -148,9 +153,9 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll cue */}
+      {/* scroll cue */}
       <div
-        className="hidden lg:block absolute bottom-5 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="hidden lg:block absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none"
         aria-hidden="true"
       >
         <div className="animate-bounce motion-reduce:animate-none">
@@ -160,8 +165,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ✅ HeroBelow ile geçiş: daha az “beyaz band” hissi */}
-      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
+      {/* ✅ bottom fade küçültüldü: 16 → 6 */}
+      <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </header>
   );
 }
