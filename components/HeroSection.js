@@ -34,7 +34,7 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      className="relative bg-slate-950 text-white pt-10 lg:pt-12 overflow-hidden"
+      className="relative bg-slate-950 text-white pt-4 lg:pt-6 overflow-hidden"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
@@ -79,7 +79,7 @@ export default function HeroSection() {
 
       {/* content */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4 py-8 md:py-9">
+        <div className="container mx-auto px-4 pt-4 pb-8 md:pt-5 md:pb-9">
           <div className="max-w-4xl mx-auto text-center">
             {/* ✅ badge okunur: şerit koyulaştı + yazı beyazlandı */}
             <div className="inline-flex items-center gap-3 bg-black/65 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
