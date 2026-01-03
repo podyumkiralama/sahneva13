@@ -27,15 +27,12 @@ const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 const globalJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    /* ---- Logo ImageObject ---- */
     {
       "@type": "ImageObject",
       "@id": LOGO_ID,
       url: LOGO_URL,
       contentUrl: LOGO_URL,
     },
-
-    /* ---- Organization ---- */
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
@@ -56,18 +53,13 @@ const globalJsonLd = {
         availableLanguage: ["tr", "en", "ar"],
       },
     },
-
-  /* ---- Editor (Person) ---- */
-{
-  "@type": "Person",
-  "@id": EDITOR_ORGANIZATION_ID,
-  name: "Sahneva Editör",
-  url: BASE_SITE_URL,
-  worksFor: { "@id": ORGANIZATION_ID }
-},
-
-
-    /* ---- LocalBusiness ---- */
+    {
+      "@type": "Person",
+      "@id": EDITOR_ORGANIZATION_ID,
+      name: "Sahneva Editör",
+      url: BASE_SITE_URL,
+      worksFor: { "@id": ORGANIZATION_ID },
+    },
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
@@ -98,8 +90,6 @@ const globalJsonLd = {
         "https://www.youtube.com/@sahneva",
       ],
     },
-
-    /* ---- WebSite ---- */
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
@@ -158,27 +148,28 @@ export default function TurkishLayout({ children }) {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
-<div className="min-h-screen text-slate-100 flex flex-col">
-  <header
-    id="_main_header"
-    aria-label="Sahneva site başlığı ve ana gezinme"
-    className="w-full relative z-50"
-  >
-    <Navbar />
-  </header>
 
-  <main
-    id="_main_content"
-    aria-label="Sahneva ana içerik"
-    tabIndex={-1}
-    className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
-  >
-    <div className="w-full overflow-visible">{children}</div>
-  </main>
-</div>
+      {/* ✅ bg-black KALDIRILDI: default arka plan globals.css body’de */}
+      <div className="min-h-screen flex flex-col text-slate-100">
+        <header
+          id="_main_header"
+          aria-label="Sahneva site başlığı ve ana gezinme"
+          className="w-full relative z-50"
+        >
+          <Navbar />
+        </header>
 
+        {/* ✅ pt-16/20 istersen durabilir. “üst boşluk” için Hero’daki pt’yi düşürmüştük zaten */}
+        <main
+          id="_main_content"
+          aria-label="Sahneva ana içerik"
+          tabIndex={-1}
+          className="relative flex-1 pt-16 lg:pt-20 focus:outline-none scroll-mt-24 min-h-[1px]"
+        >
+          <div className="w-full overflow-visible">{children}</div>
+        </main>
 
-
+        {/* ✅ Footer artık wrapper içinde */}
         <Footer
           id="_main_footer"
           ariaLabel="Sahneva site altbilgi"
