@@ -1,51 +1,29 @@
 // components/HeroSection.js
-import heroImg from "@/public/img/hero-bg.webp";
+import Image from "next/image";
+import Link from "next/link";
 
 const HERO_KEYWORDS = [
-  { text: "Sahne Kiralama", gradient: "text-blue-300" },
-  { text: "LED Ekran Kiralama", gradient: "text-purple-300" },
-  { text: "Ses Işık Sistemleri", gradient: "text-cyan-300" },
-  { text: "Podyum Kurulumu", gradient: "text-green-300" },
+  { text: "Sahne Kiralama", color: "text-blue-200" },
+  { text: "LED Ekran Kiralama", color: "text-purple-200" },
+  { text: "Ses & Işık Sistemleri", color: "text-cyan-200" },
+  { text: "Podyum Kurulumu", color: "text-emerald-200" },
 ];
 
-const CTA_BUTTONS = [
-  {
-    href: "tel:+905453048671",
-    label: "Hemen Ara",
-    icon: "📞",
-    ariaLabel: "Hemen Ara — Sahneva'yı telefonla arayın",
-  },
-  {
-    href: "https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Sahne+kiralama+ve+LED+ekran+fiyatlar%C4%B1+hakk%C4%B1nda+detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp",
-    label: "WhatsApp Teklif",
-    icon: "💬",
-    target: "_blank",
-    rel: "noopener noreferrer nofollow",
-    ariaLabel:
-      "WhatsApp Teklif — WhatsApp üzerinden teklif isteyin (bağlantı yeni sekmede açılır)",
-    gradient: "from-green-600 to-emerald-700",
-  },
-];
+const CTA_BASE =
+  "w-full sm:w-auto min-w-[180px] min-h-[44px] inline-flex items-center justify-center gap-2 font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
 
-const CTA_BASE_CLASS =
-  "w-full sm:w-auto min-w-[180px] min-h-[44px] text-center group relative text-white font-bold text-base px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.03] border border-white/20 focus-ring";
-
-const CTA_OVERLAY_CLASS =
-  "absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200";
-
-function KeywordPills({ id }) {
+function KeywordPills() {
   return (
     <ul
-      id={id}
-      className="flex flex-wrap justify-center gap-2 mt-4 mb-4 max-w-4xl mx-auto"
-      aria-label="Öne çıkan hizmet başlıkları"
+      className="flex flex-wrap justify-center gap-2 mt-4 mb-4 max-w-4xl mx-auto list-none p-0"
+      aria-label="Öne çıkan hizmetler"
     >
-      {HERO_KEYWORDS.map(({ text, gradient }) => (
-        <li key={text} className="list-none">
+      {HERO_KEYWORDS.map((k) => (
+        <li key={k.text}>
           <span
-            className={`text-sm md:text-base font-semibold px-3 py-1 ${gradient} bg-white/15 rounded-lg border border-white/10`}
+            className={`text-sm md:text-base font-semibold px-3 py-1 rounded-lg border border-white/10 bg-white/10 ${k.color}`}
           >
-            {text}
+            {k.text}
           </span>
         </li>
       ))}
@@ -53,130 +31,139 @@ function KeywordPills({ id }) {
   );
 }
 
-function CTAButton({
-  href,
-  label,
-  icon,
-  gradient = "from-blue-600 to-purple-600",
-  ariaLabel,
-  ...rest
-}) {
-  return (
-    <a
-      href={href}
-      className={`${CTA_BASE_CLASS} bg-gradient-to-r ${gradient}`}
-      aria-label={ariaLabel || label}
-      {...rest}
-    >
-      <span className="relative z-10 flex items-center justify-center gap-2">
-        <span aria-hidden="true">{icon}</span>
-        <span>{label}</span>
-      </span>
-      <div className={CTA_OVERLAY_CLASS} aria-hidden="true" />
-    </a>
-  );
-}
-
-function CTAGroup() {
-  return (
-    <div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-3">
-      {CTA_BUTTONS.map((cta) => (
-        <CTAButton key={cta.href} {...cta} />
-      ))}
-    </div>
-  );
-}
-
-function HeroBackgroundImage() {
-  return (
-    <picture>
-      <source
-        srcSet="/img/hero-bg-mobile.webp"
-        media="(max-width: 768px)"
-        type="image/webp"
-      />
-      <img
-        src={heroImg.src}
-        alt="ses ışık led ekranlı Sahne"
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
-    </picture>
-  );
-}
-
 export default function HeroSection() {
   return (
     <header
-      className="relative min-h-[90vh] md:min-h-[70vh] 2xl:min-h-[75vh] pt-14 lg:pt-16 flex items-center justify-center overflow-hidden bg-black text-white"
+      className={[
+        // Navbar sabit olduğu için: layout main'deki pt-16'yı HERODA istemiyoruz.
+        // Bu yüzden hero kendi içinde daha küçük padding-top kullanır.
+        "relative bg-slate-950 text-white overflow-hidden",
+        "pt-4 sm:pt-6 lg:pt-8",
+        // Lighthouse/viewport farklarında hero “kısa” görünmesin:
+        "min-h-[80vh] 2xl:min-h-[85vh]",
+      ].join(" ")}
       aria-labelledby="hero-title"
-      aria-describedby="hero-description hero-keywords"
+      aria-describedby="hero-desc"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <HeroBackgroundImage />
+        <Image
+          src="/img/hero-bg.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
 
-        {/* daha soft film/overlay (simsiyah yapmaz) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/55" />
+        {/* Okunurluk filmi */}
+        <div className="absolute inset-0 bg-black/45" />
 
-        {/* hafif mavi/purple atmosfer */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-transparent" />
-
-        {/* grid overlay (faq vibe) */}
+        {/* Vibe gradient (mor azaltılmış) */}
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.12) 55%, rgba(2,6,23,0.72) 100%)",
+          }}
+        />
+
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
+
+        {/* Glow blobs */}
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+
+        {/* Hero bitişini HeroBelow ile daha yumuşak birleştir */}
+        <div className="absolute bottom-0 left-0 w-full h-14 bg-gradient-to-b from-transparent to-slate-950" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container py-8">
-        <div className="max-w-3xl 2xl:max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <p className="inline-flex items-center gap-3 bg-black/45 rounded-full px-4 py-2 border border-white/10 text-xs md:text-sm text-slate-100">
-            <span className="w-2 h-2 bg-green-400 rounded-full" aria-hidden="true" />
-            Sahneva Organizasyon • Türkiye Geneli Organizasyon Firması
-          </p>
+      <div className="relative z-10 flex items-center justify-center min-h-[80vh] 2xl:min-h-[85vh]">
+        <div className="container py-8 md:py-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge: daha okunur */}
+            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+              <span
+                className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                aria-hidden="true"
+              />
+              <span className="text-xs md:text-sm font-extrabold text-white">
+                Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma
+              </span>
+            </div>
 
-          {/* Title */}
-          <h1
-            id="hero-title"
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
-          >
-            Türkiye genelinde
-            {/* ✅ gradient-text yerine snapshot-safe vurgu */}
-            <span className="block text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
-              Sahne Kiralama ve LED Ekran Kiralama
-            </span>
-          </h1>
+            {/* Title */}
+            <h1
+              id="hero-title"
+              className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+            >
+              Sahneva ile{" "}
+              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
+                Etkinlik Prodüksiyonu
+              </span>
+              <span className="block text-white">Tek Ekip, Tek Çatı, Tek Çözüm</span>
+            </h1>
 
-          {/* Keywords */}
-          <KeywordPills id="hero-keywords" />
+            <KeywordPills />
 
-          {/* Description */}
-          <p
-            id="hero-description"
-            className="text-slate-100/95 text-sm md:text-lg mt-2 md:mt-4 max-w-xl mx-auto"
-          >
-            500+ başarılı proje, %98 müşteri memnuniyeti ve Türkiye geneli kurulum
-            desteğiyle sahne kiralama, LED ekran kiralama ve etkinlik prodüksiyonu
-            için yanınızdayız.
-          </p>
+            {/* Description: biraz daha parlak */}
+            <p
+              id="hero-desc"
+              className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+            >
+              Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum
+              kurulumunda <strong className="text-white">500+ proje</strong>{" "}
+              deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
+            </p>
 
-          {/* CTAs */}
-          <CTAGroup />
+            {/* CTAs */}
+            <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+              <a
+                href="tel:+905453048671"
+                className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
+                aria-label="Hemen ara — Sahneva'yı telefonla arayın"
+              >
+                <span aria-hidden="true">📞</span>
+                Hemen Ara
+              </a>
+
+              <a
+                href="https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
+                aria-label="WhatsApp teklif — yeni sekmede açılır"
+              >
+                <span aria-hidden="true">💬</span>
+                WhatsApp Teklif
+              </a>
+
+              <Link
+                href="#teklif-al"
+                className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
+                aria-label="Hemen teklif al bölümüne git"
+              >
+                <span aria-hidden="true">🎯</span>
+                Hemen Teklif Al
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scroll cue (desktop only) */}
+      {/* Scroll cue */}
       <div
-        className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2"
+        className="hidden lg:block absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none"
         aria-hidden="true"
       >
         <div className="animate-bounce motion-reduce:animate-none">
