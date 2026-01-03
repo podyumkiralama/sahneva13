@@ -2,49 +2,156 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// 1. Orijinal Keyword Verilerin (HİÇBİRİ EKSİLMEDİ)
+const HERO_KEYWORDS = [
+  { text: "Sahne Kiralama", color: "text-blue-200" },
+  { text: "LED Ekran Kiralama", color: "text-purple-200" },
+  { text: "Ses & Işık Sistemleri", color: "text-cyan-200" },
+  { text: "Podyum Kurulumu", color: "text-emerald-200" },
+];
+
+const CTA_BASE =
+  "w-full sm:w-auto min-w-[180px] min-h-[44px] inline-flex items-center justify-center gap-2 font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
+
+function KeywordPills() {
+  return (
+    <ul
+      className="flex flex-wrap justify-center gap-2 mt-4 mb-4 max-w-4xl mx-auto list-none p-0"
+      aria-label="Öne çıkan hizmetler"
+    >
+      {HERO_KEYWORDS.map((k) => (
+        <li key={k.text}>
+          <span
+            className={`text-sm md:text-base font-semibold px-3 py-1 rounded-lg border border-white/10 bg-white/10 ${k.color}`}
+          >
+            {k.text}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function HeroSection() {
   return (
-    <header className="relative bg-[#0B1120] text-white min-h-screen flex flex-col justify-between overflow-hidden">
-      
-      {/* Background Section - unoptimized ekleyerek Google'ın hızlı görmesini sağladık */}
-      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+    <header
+      /* min-h-screen: Ekranın tamamını kaplar. 
+         flex flex-col: İçeriği dikeyde hizalamamızı sağlar.
+         justify-between: Üstteki yazılar ile alttaki butonları birbirinden en uzak noktalara iter. */
+      className="relative bg-[#0B1120] text-white overflow-hidden min-h-screen flex flex-col justify-between"
+      aria-labelledby="hero-title"
+      aria-describedby="hero-desc"
+    >
+      {/* Background - Orijinal tüm katmanlar ve efektler buradadır */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/img/hero-bg.webp"
-          alt="Sahneva Sahne ve Ses Sistemleri"
+          alt=""
           fill
           priority
-          unoptimized 
+          unoptimized // Googlebot'un siyah ekran görmemesi için eklendi
           className="object-cover object-center"
+          sizes="100vw"
         />
-        {/* Görsel yüklenene kadar veya yüklenmezse gözükecek hafif siyah film */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.10) 55%, rgba(2,6,23,0.78) 100%)",
+          }}
+        />
+        <div className="grid-overlay opacity-35" />
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
       </div>
 
-      {/* İçerik: Üst/Orta Kısım */}
-      <div className="relative z-10 pt-32 container mx-auto px-4 text-center">
-         <div className="max-w-5xl mx-auto">
-            {/* Orijinal içeriklerin */}
-            <h1 className="text-4xl md:text-7xl font-black leading-tight drop-shadow-xl">
-              Sahneva ile <span className="text-blue-200">Etkinlik Prodüksiyonu</span>
+      {/* --- ÜST/ORTA KISIM: Başlık ve Metinler --- */}
+      <div className="relative z-10 pt-24 md:pt-32">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Orijinal Badge */}
+            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" aria-hidden="true" />
+              <span className="text-xs md:text-sm font-extrabold text-white">
+                Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma
+              </span>
+            </div>
+
+            {/* Orijinal Başlık (HİÇBİR KELİME DEĞİŞMEDİ) */}
+            <h1
+              id="hero-title"
+              className="mt-6 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+            >
+              Sahneva ile{" "}
+              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+                Etkinlik Prodüksiyonu
+              </span>
+              <span className="block text-white">
+                Tek Ekip, Tek Çatı, Tek Çözüm
+              </span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-              Sahne kiralama ve LED ekran kurulumunda profesyonel çözümler.
-            </p>
-         </div>
-      </div>
 
-      {/* İçerik: Alt Kısım (Butonlar Tam Aşağıda) */}
-      <div className="relative z-10 pb-16 container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a href="tel:+905453048671" className="bg-white text-black px-8 py-4 rounded-2xl font-bold w-full sm:w-auto text-center">
-            Hemen Ara
-          </a>
-          <a href="https://wa.me/905453048671" className="bg-green-600 text-white px-8 py-4 rounded-2xl font-bold w-full sm:w-auto text-center">
-            WhatsApp
-          </a>
+            {/* Pills Bileşeni */}
+            <KeywordPills />
+
+            {/* Orijinal Açıklama (HİÇBİR KELİME DEĞİŞMEDİ) */}
+            <p
+              id="hero-desc"
+              className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+            >
+              Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum
+              kurulumunda <strong className="text-white">500+ proje</strong>{" "}
+              deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
+            </p>
+          </div>
         </div>
       </div>
 
+      {/* --- ALT KISIM: Butonlar ve Kaydırma İkonu --- */}
+      <div className="relative z-10 pb-12 md:pb-20">
+        <div className="container mx-auto px-4 text-center">
+          
+          {/* Orijinal 3 Butonun (TAM LİSTE) */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href="tel:+905453048671"
+              className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
+              aria-label="Hemen ara — Sahneva'yı telefonla arayın"
+            >
+              <span aria-hidden="true">📞</span> Hemen Ara
+            </a>
+
+            <a
+              href="https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
+              aria-label="WhatsApp teklif — yeni sekmede açılır"
+            >
+              <span aria-hidden="true">💬</span> WhatsApp Teklif
+            </a>
+
+            <Link
+              href="#teklif-al"
+              className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
+              aria-label="Hemen teklif al bölümüne git"
+            >
+              <span aria-hidden="true">🎯</span> Hemen Teklif Al
+            </Link>
+          </div>
+
+          {/* Orijinal Mouse Scroll Cue İkonu */}
+          <div className="hidden lg:flex justify-center mt-10" aria-hidden="true">
+            <div className="animate-bounce w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Alt Gradyan Film (Daha Yumuşak Geçiş) */}
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0B1120] to-transparent pointer-events-none" />
     </header>
   );
 }
