@@ -35,11 +35,9 @@ export default function HeroSection() {
   return (
     <header
       className={[
-        // Navbar sabit olduğu için: layout main'deki pt-16'yı HERODA istemiyoruz.
-        // Bu yüzden hero kendi içinde daha küçük padding-top kullanır.
         "relative bg-slate-950 text-white overflow-hidden",
-        "pt-16 sm:pt-16 lg:pt-8",
-        // Lighthouse/viewport farklarında hero “kısa” görünmesin:
+        // ✅ double offset olmasın: pt-16 KALDIRILDI
+        "pt-4 sm:pt-6 lg:pt-8",
         "min-h-[80vh] 2xl:min-h-[85vh]",
       ].join(" ")}
       aria-labelledby="hero-title"
@@ -57,10 +55,8 @@ export default function HeroSection() {
           sizes="100vw"
         />
 
-        {/* Okunurluk filmi */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Vibe gradient (mor azaltılmış) */}
         <div
           className="absolute inset-0"
           style={{
@@ -69,7 +65,6 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-25"
           style={{
@@ -79,11 +74,9 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Glow blobs */}
         <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
         <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
 
-        {/* Hero bitişini HeroBelow ile daha yumuşak birleştir */}
         <div className="absolute bottom-0 left-0 w-full h-14 bg-gradient-to-b from-transparent to-slate-950" />
       </div>
 
@@ -91,7 +84,6 @@ export default function HeroSection() {
       <div className="relative z-10 flex items-center justify-center min-h-[80vh] 2xl:min-h-[85vh]">
         <div className="container py-8 md:py-10">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge: daha okunur */}
             <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <span
                 className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
@@ -102,7 +94,6 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Title */}
             <h1
               id="hero-title"
               className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
@@ -111,12 +102,13 @@ export default function HeroSection() {
               <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
                 Etkinlik Prodüksiyonu
               </span>
-              <span className="block text-white">Tek Ekip, Tek Çatı, Tek Çözüm</span>
+              <span className="block text-white">
+                Tek Ekip, Tek Çatı, Tek Çözüm
+              </span>
             </h1>
 
             <KeywordPills />
 
-            {/* Description: biraz daha parlak */}
             <p
               id="hero-desc"
               className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
@@ -126,7 +118,6 @@ export default function HeroSection() {
               deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
             </p>
 
-            {/* CTAs */}
             <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
                 href="tel:+905453048671"
@@ -161,7 +152,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll cue */}
       <div
         className="hidden lg:block absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none"
         aria-hidden="true"
