@@ -375,14 +375,16 @@ function ServicesTabsComponent({
                 aria-atomic={isActive ? "true" : undefined}
                 tabIndex={isActive ? 0 : -1}
               >
-                {/* Hafif arka plan dokusu */}
-                <div
-                  className="pointer-events-none absolute inset-0 z-0"
-                  aria-hidden="true"
-                >
-                <div className="grid-overlay" />
+{/* Hafif arka plan dokusu */}
+<div
+  className="pointer-events-none absolute inset-0 z-0"
+  aria-hidden="true"
+>
+  <div className="grid-overlay" />
+</div>
 
-                <div className="relative z-10 grid lg:grid-cols-[1.08fr_0.92fr] gap-0 min-h-[460px]">
+<div className="relative z-10 grid lg:grid-cols-[1.08fr_0.92fr] gap-0 min-h-[460px]">
+
                   {/* SOL: METİN */}
                   <div className="p-7 md:p-9 flex flex-col justify-center order-2 lg:order-1">
                     <div className="mb-6">
