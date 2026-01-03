@@ -34,12 +34,7 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      className={[
-        "relative bg-slate-950 text-white overflow-hidden",
-        // ✅ double offset olmasın: pt-16 KALDIRILDI
-        "pt-4 sm:pt-6 lg:pt-8",
-        "min-h-[80vh] 2xl:min-h-[85vh]",
-      ].join(" ")}
+      className="relative bg-[#0B1120] text-white overflow-hidden"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
@@ -55,35 +50,32 @@ export default function HeroSection() {
           sizes="100vw"
         />
 
+        {/* Film (okunurluk) */}
         <div className="absolute inset-0 bg-black/45" />
 
+        {/* Mavi-mor vibe (daha az mor) */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.12) 55%, rgba(2,6,23,0.72) 100%)",
+              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.10) 55%, rgba(2,6,23,0.78) 100%)",
           }}
         />
 
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
+        {/* Grid overlay — globals.css ile uyumlu */}
+        <div className="grid-overlay opacity-35" />
 
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
-
-        <div className="absolute bottom-0 left-0 w-full h-14 bg-gradient-to-b from-transparent to-slate-950" />
+        {/* Glow blobs */}
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-[80vh] 2xl:min-h-[85vh]">
-        <div className="container py-8 md:py-10">
-          <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-10">
+        {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
+        <div className="container mx-auto px-4 pt-4 pb-10 md:pt-5 md:pb-12">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Badge: daha belirgin */}
             <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <span
                 className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
@@ -94,12 +86,13 @@ export default function HeroSection() {
               </span>
             </div>
 
+            {/* Title */}
             <h1
               id="hero-title"
-              className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
             >
               Sahneva ile{" "}
-              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.25)]">
+              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
                 Etkinlik Prodüksiyonu
               </span>
               <span className="block text-white">
@@ -107,8 +100,10 @@ export default function HeroSection() {
               </span>
             </h1>
 
+            {/* Pills */}
             <KeywordPills />
 
+            {/* Description */}
             <p
               id="hero-desc"
               className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
@@ -118,6 +113,7 @@ export default function HeroSection() {
               deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
             </p>
 
+            {/* CTAs */}
             <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
                 href="tel:+905453048671"
@@ -152,8 +148,9 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* Scroll cue */}
       <div
-        className="hidden lg:block absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="hidden lg:block absolute bottom-5 left-1/2 -translate-x-1/2 pointer-events-none"
         aria-hidden="true"
       >
         <div className="animate-bounce motion-reduce:animate-none">
@@ -162,6 +159,9 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* ✅ HeroBelow ile geçiş: daha az “beyaz band” hissi */}
+      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </header>
   );
 }
