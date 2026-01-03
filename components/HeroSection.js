@@ -34,7 +34,7 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      className="relative bg-slate-950 text-white pt-6 lg:pt-8 overflow-hidden"
+     className="relative bg-slate-950 text-white pt-10 lg:pt-12 overflow-hidden min-h-[calc(100vh-80px)]"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
