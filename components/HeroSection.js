@@ -34,14 +34,15 @@ export default function HeroSection() {
     >
       {/* Background (Aynı Kalıyor) */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Image
-          src="/img/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+       <Image
+  src="/img/hero-bg.webp"
+  alt="Sahneva Etkinlik Prodüksiyon Arka Planı"
+  fill
+  priority
+  unoptimized // Googlebot'un beklemeden görmesi için ekledik
+  className="object-cover object-center"
+  sizes="100vw"
+/>
         <div className="absolute inset-0 bg-black/45" />
         <div className="grid-overlay opacity-35" />
       </div>
