@@ -38,7 +38,7 @@ export default function HeroSection() {
         // Navbar sabit olduğu için: layout main'deki pt-16'yı HERODA istemiyoruz.
         // Bu yüzden hero kendi içinde daha küçük padding-top kullanır.
         "relative bg-slate-950 text-white overflow-hidden",
-        "pt-5 sm:pt-16 lg:pt-8",
+        "pt-16 sm:pt-16 lg:pt-8",
         // Lighthouse/viewport farklarında hero “kısa” görünmesin:
         "min-h-[80vh] 2xl:min-h-[85vh]",
       ].join(" ")}
