@@ -80,7 +80,7 @@ export default function HeroSection() {
       {/* content */}
       <div className="relative z-10">
         {/* ✅ boşluk düzeltildi: py yerine pt/pb */}
-        +<div className="container mx-auto px-4 pt-6 pb-4 md:pt-7 md:pb-5">
+        <div className="container mx-auto px-4 pt-5 pb-4 md:pt-7 md:pb-5">
           <div className="max-w-4xl mx-auto text-center">
             {/* badge okunur: şerit koyulaştı + yazı beyazlandı */}
             <div className="inline-flex items-center gap-3 bg-black/65 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
