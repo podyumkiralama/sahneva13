@@ -76,7 +76,7 @@ export default function HeroSection() {
             - pt/pb ile itmek yok
             - min-height + center + kontrollü gap */}
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center min-h-[calc(100svh-96px)] flex flex-col justify-center py-10 md:py-12">
+          <div className="max-w-5xl mx-auto text-center min-h-[100svh] flex flex-col justify-center py-10 md:py-12">
             <div className="space-y-4 md:space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
