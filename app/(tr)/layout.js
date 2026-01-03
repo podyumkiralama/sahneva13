@@ -27,7 +27,6 @@ const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 const globalJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    /* ---- Logo ImageObject ---- */
     {
       "@type": "ImageObject",
       "@id": LOGO_ID,
@@ -35,7 +34,6 @@ const globalJsonLd = {
       contentUrl: LOGO_URL,
     },
 
-    /* ---- Organization ---- */
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
@@ -57,7 +55,6 @@ const globalJsonLd = {
       },
     },
 
-    /* ---- Editor (Person) ---- */
     {
       "@type": "Person",
       "@id": EDITOR_ORGANIZATION_ID,
@@ -66,7 +63,6 @@ const globalJsonLd = {
       worksFor: { "@id": ORGANIZATION_ID },
     },
 
-    /* ---- LocalBusiness ---- */
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
@@ -98,7 +94,6 @@ const globalJsonLd = {
       ],
     },
 
-    /* ---- WebSite ---- */
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
@@ -159,7 +154,7 @@ export default function TurkishLayout({ children }) {
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
 
-      {/* ✅ TEK WRAPPER: Header + Main + Footer aynı div içinde */}
+      {/* ✅ TEK WRAPPER: Header + Main + Footer */}
       <div className="min-h-screen text-slate-100 flex flex-col">
         <header
           id="_main_header"
@@ -169,14 +164,14 @@ export default function TurkishLayout({ children }) {
           <Navbar />
         </header>
 
-       <main
-  id="_main_content"
-  aria-label="Sahneva ana içerik"
-  tabIndex={-1}
-  className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
->
-  <div className="w-full overflow-visible">{children}</div>
-</main>
+        <main
+          id="_main_content"
+          aria-label="Sahneva ana içerik"
+          tabIndex={-1}
+          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+        >
+          <div className="w-full overflow-visible">{children}</div>
+        </main>
 
         <Footer
           id="_main_footer"
