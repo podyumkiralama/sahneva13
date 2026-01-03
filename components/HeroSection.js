@@ -73,8 +73,8 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10">
         {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
-        <div className="container mx-auto px-4 pt-24 pb-10 md:pt-24 md:pb-12">
-          <div className="max-w-5xl mx-auto text-center">
+<div className="container mx-auto px-4">
+  <div className="max-w-5xl mx-auto text-center min-h-[calc(100svh-96px)] flex flex-col justify-center py-10 md:py-12">
             {/* Badge: daha belirgin */}
             <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <span
