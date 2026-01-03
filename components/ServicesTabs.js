@@ -380,16 +380,7 @@ function ServicesTabsComponent({
                   className="pointer-events-none absolute inset-0 z-0"
                   aria-hidden="true"
                 >
-                  <div
-                    className="grid-overlay"
-                    style={{
-                      "--grid-overlay-top": "#0ea5e933",
-                      "--grid-overlay-bottom": "#22d3ee22",
-                      "--grid-overlay-opacity": "0.5",
-                      "--grid-overlay-blur": "24px",
-                    }}
-                  />
-                </div>
+                <div className="grid-overlay" />
 
                 <div className="relative z-10 grid lg:grid-cols-[1.08fr_0.92fr] gap-0 min-h-[460px]">
                   {/* SOL: METİN */}
