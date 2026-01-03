@@ -27,12 +27,15 @@ const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 const globalJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    /* ---- Logo ImageObject ---- */
     {
       "@type": "ImageObject",
       "@id": LOGO_ID,
       url: LOGO_URL,
       contentUrl: LOGO_URL,
     },
+
+    /* ---- Organization ---- */
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
@@ -53,6 +56,8 @@ const globalJsonLd = {
         availableLanguage: ["tr", "en", "ar"],
       },
     },
+
+    /* ---- Editor (Person) ---- */
     {
       "@type": "Person",
       "@id": EDITOR_ORGANIZATION_ID,
@@ -60,6 +65,8 @@ const globalJsonLd = {
       url: BASE_SITE_URL,
       worksFor: { "@id": ORGANIZATION_ID },
     },
+
+    /* ---- LocalBusiness ---- */
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
@@ -90,6 +97,8 @@ const globalJsonLd = {
         "https://www.youtube.com/@sahneva",
       ],
     },
+
+    /* ---- WebSite ---- */
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
@@ -105,6 +114,7 @@ const globalJsonLd = {
 
 const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
 
+/* ================== META ================== */
 export const metadata = {
   title: {
     default: HOME_PAGE_TITLE,
@@ -149,8 +159,8 @@ export default function TurkishLayout({ children }) {
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
 
-      {/* ✅ bg-black KALDIRILDI: default arka plan globals.css body’de */}
-      <div className="min-h-screen flex flex-col text-slate-100">
+      {/* ✅ TEK WRAPPER: Header + Main + Footer aynı div içinde */}
+      <div className="min-h-screen text-slate-100 flex flex-col">
         <header
           id="_main_header"
           aria-label="Sahneva site başlığı ve ana gezinme"
@@ -159,24 +169,17 @@ export default function TurkishLayout({ children }) {
           <Navbar />
         </header>
 
-        {/* ✅ pt-16/20 istersen durabilir. “üst boşluk” için Hero’daki pt’yi düşürmüştük zaten */}
-     <main
-  id="_main_content"
-  aria-label="Sahneva ana içerik"
-  tabIndex={-1}
-  className="
-    relative flex-1
-    pt-12 lg:pt-14
-    focus:outline-none
-    scroll-mt-24
-    min-h-[1px]
-  "
->
-  <div className="w-full overflow-visible">{children}</div>
-</main>
+        <main
+          id="_main_content"
+          aria-label="Sahneva ana içerik"
+          tabIndex={-1}
+          // Navbar fixed ise bunu aç:
+          // className="relative flex-1 pt-16 lg:pt-20 focus:outline-none scroll-mt-24 min-h-[1px]"
+          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+        >
+          <div className="w-full overflow-visible">{children}</div>
+        </main>
 
-
-        {/* ✅ Footer artık wrapper içinde */}
         <Footer
           id="_main_footer"
           ariaLabel="Sahneva site altbilgi"
