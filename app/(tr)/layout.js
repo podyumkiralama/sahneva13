@@ -169,16 +169,14 @@ export default function TurkishLayout({ children }) {
           <Navbar />
         </header>
 
-        <main
-          id="_main_content"
-          aria-label="Sahneva ana içerik"
-          tabIndex={-1}
-          // Navbar fixed ise bunu aç:
-          // className="relative flex-1 pt-16 lg:pt-20 focus:outline-none scroll-mt-24 min-h-[1px]"
-          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
-        >
-          <div className="w-full overflow-visible">{children}</div>
-        </main>
+       <main
+  id="_main_content"
+  aria-label="Sahneva ana içerik"
+  tabIndex={-1}
+  className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+>
+  <div className="w-full overflow-visible">{children}</div>
+</main>
 
         <Footer
           id="_main_footer"
