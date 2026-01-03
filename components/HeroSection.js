@@ -15,7 +15,7 @@ const CTA_BASE =
 function KeywordPills() {
   return (
     <ul
-      className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto list-none p-0"
+      className="flex flex-wrap justify-center gap-2 mt-4 mb-4 max-w-4xl mx-auto list-none p-0"
       aria-label="Öne çıkan hizmetler"
     >
       {HERO_KEYWORDS.map((k) => (
@@ -72,87 +72,77 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4">
-          {/* ✅ SABİT HERO YÜKSEKLİĞİ: Test araçlarında “oturması” için vh/svh yok */}
-          <div
-            className="
-              max-w-5xl mx-auto text-center
-              h-[620px] md:h-[720px] lg:h-[780px]
-              flex flex-col justify-center
-              pt-16 md:pt-0
-              pb-14
-            "
-          >
-            <div className="space-y-4 md:space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <span
-                  className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
-                  aria-hidden="true"
-                />
-                <span className="text-xs md:text-sm font-extrabold text-white">
-                  Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma
-                </span>
-              </div>
+        {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
+        <div className="container mx-auto px-4 pt-4 pb-10 md:pt-5 md:pb-12">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Badge: daha belirgin */}
+            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+              <span
+                className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                aria-hidden="true"
+              />
+              <span className="text-xs md:text-sm font-extrabold text-white">
+                Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma
+              </span>
+            </div>
 
-              {/* Title */}
-              <h1
-                id="hero-title"
-                className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+            {/* Title */}
+            <h1
+              id="hero-title"
+              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+            >
+              Sahneva ile{" "}
+              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+                Etkinlik Prodüksiyonu
+              </span>
+              <span className="block text-white">
+                Tek Ekip, Tek Çatı, Tek Çözüm
+              </span>
+            </h1>
+
+            {/* Pills */}
+            <KeywordPills />
+
+            {/* Description */}
+            <p
+              id="hero-desc"
+              className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+            >
+              Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum
+              kurulumunda <strong className="text-white">500+ proje</strong>{" "}
+              deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+              <a
+                href="tel:+905453048671"
+                className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
+                aria-label="Hemen ara — Sahneva'yı telefonla arayın"
               >
-                Sahneva ile{" "}
-                <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
-                  Etkinlik Prodüksiyonu
-                </span>
-                <span className="block text-white">
-                  Tek Ekip, Tek Çatı, Tek Çözüm
-                </span>
-              </h1>
+                <span aria-hidden="true">📞</span>
+                Hemen Ara
+              </a>
 
-              {/* Pills */}
-              <KeywordPills />
-
-              {/* Description */}
-              <p
-                id="hero-desc"
-                className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+              <a
+                href="https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
+                aria-label="WhatsApp teklif — yeni sekmede açılır"
               >
-                Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum
-                kurulumunda <strong className="text-white">500+ proje</strong>{" "}
-                deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.
-              </p>
+                <span aria-hidden="true">💬</span>
+                WhatsApp Teklif
+              </a>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
-                <a
-                  href="tel:+905453048671"
-                  className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
-                  aria-label="Hemen ara — Sahneva'yı telefonla arayın"
-                >
-                  <span aria-hidden="true">📞</span>
-                  Hemen Ara
-                </a>
-
-                <a
-                  href="https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
-                  aria-label="WhatsApp teklif — yeni sekmede açılır"
-                >
-                  <span aria-hidden="true">💬</span>
-                  WhatsApp Teklif
-                </a>
-
-                <Link
-                  href="#teklif-al"
-                  className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
-                  aria-label="Hemen teklif al bölümüne git"
-                >
-                  <span aria-hidden="true">🎯</span>
-                  Hemen Teklif Al
-                </Link>
-              </div>
+              <Link
+                href="#teklif-al"
+                className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
+                aria-label="Hemen teklif al bölümüne git"
+              >
+                <span aria-hidden="true">🎯</span>
+                Hemen Teklif Al
+              </Link>
             </div>
           </div>
         </div>
@@ -170,8 +160,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Hero -> next section geçiş */}
+      {/* ✅ HeroBelow ile geçiş: daha az “beyaz band” hissi */}
       <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
     </header>
   );
-}
+}  
