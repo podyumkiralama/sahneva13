@@ -305,7 +305,7 @@ function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+        <div className="container mx-auto px-4 pt-[var(--navbar-h)] pb-10 md:pb-12 text-center">
           <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
               <span className="relative flex w-2 h-2" aria-hidden="true">
