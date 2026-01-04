@@ -548,6 +548,5 @@ export default function HakkimizdaPage() {
           </div>
         </section>
       </div>
-    </div>
   );
 }
