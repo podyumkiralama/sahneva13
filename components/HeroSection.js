@@ -114,7 +114,7 @@ export default function HeroSection() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
                 href="tel:+905453048671"
                 className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
