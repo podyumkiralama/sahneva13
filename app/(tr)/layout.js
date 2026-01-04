@@ -154,8 +154,8 @@ export default function TurkishLayout({ children }) {
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
 
-      {/* ✅ TEK WRAPPER: Header + Main + Footer */}
-      <div className="min-h-screen text-slate-100 flex flex-col">
+      {/* ✅ overflow-x-hidden ekleyerek yanlara taşmayı ve boyamayı engelledik */}
+      <div className="min-h-screen text-slate-100 flex flex-col overflow-x-hidden bg-[#0B1120]">
         <header
           id="_main_header"
           aria-label="Sahneva site başlığı ve ana gezinme"
@@ -168,9 +168,13 @@ export default function TurkishLayout({ children }) {
           id="_main_content"
           aria-label="Sahneva ana içerik"
           tabIndex={-1}
-          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+          /* ✅ relative z-10 ekleyerek içerik katmanını sabitledik */
+          className="relative flex-1 focus:outline-none scroll-mt-24 z-10"
         >
-          <div className="w-full overflow-visible">{children}</div>
+          {/* ✅ w-full overflow-hidden: Hero'nun altındaki komponenti boyamasını engeller */}
+          <div className="w-full overflow-hidden">
+            {children}
+          </div>
         </main>
 
         <Footer
