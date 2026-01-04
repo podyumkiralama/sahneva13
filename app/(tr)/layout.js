@@ -2,6 +2,7 @@
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -27,6 +28,7 @@ const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 const globalJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    /* ---- Logo ImageObject ---- */
     {
       "@type": "ImageObject",
       "@id": LOGO_ID,
@@ -34,6 +36,7 @@ const globalJsonLd = {
       contentUrl: LOGO_URL,
     },
 
+    /* ---- Organization ---- */
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
@@ -55,14 +58,16 @@ const globalJsonLd = {
       },
     },
 
+    /* ---- Editor Organization ---- */
     {
-      "@type": "Person",
+      "@type": "Organization",
       "@id": EDITOR_ORGANIZATION_ID,
       name: "Sahneva Editör",
       url: BASE_SITE_URL,
-      worksFor: { "@id": ORGANIZATION_ID },
+      parentOrganization: { "@id": ORGANIZATION_ID },
     },
 
+    /* ---- LocalBusiness ---- */
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
@@ -94,6 +99,7 @@ const globalJsonLd = {
       ],
     },
 
+    /* ---- WebSite ---- */
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
@@ -109,7 +115,6 @@ const globalJsonLd = {
 
 const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
 
-/* ================== META ================== */
 export const metadata = {
   title: {
     default: HOME_PAGE_TITLE,
@@ -153,9 +158,7 @@ export default function TurkishLayout({ children }) {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
-
-      {/* ✅ overflow-x-hidden ekleyerek yanlara taşmayı ve boyamayı engelledik */}
-      <div className="min-h-screen text-slate-100 flex flex-col overflow-x-hidden bg-[#0B1120]">
+      <div className="min-h-screen bg-black text-slate-100 flex flex-col">
         <header
           id="_main_header"
           aria-label="Sahneva site başlığı ve ana gezinme"
@@ -168,13 +171,9 @@ export default function TurkishLayout({ children }) {
           id="_main_content"
           aria-label="Sahneva ana içerik"
           tabIndex={-1}
-          /* ✅ relative z-10 ekleyerek içerik katmanını sabitledik */
-          className="relative flex-1 focus:outline-none scroll-mt-24 z-10"
+          className="flex-1 pt-16 lg:pt-20 focus:outline-none scroll-mt-24"
         >
-          {/* ✅ w-full overflow-hidden: Hero'nun altındaki komponenti boyamasını engeller */}
-          <div className="w-full overflow-hidden">
-            {children}
-          </div>
+          <div className="overflow-x-hidden">{children}</div>
         </main>
 
         <Footer
@@ -182,6 +181,7 @@ export default function TurkishLayout({ children }) {
           ariaLabel="Sahneva site altbilgi"
           descriptionId="_main_footer_desc"
         />
+        <StickyVideoRailClient />
       </div>
     </>
   );
