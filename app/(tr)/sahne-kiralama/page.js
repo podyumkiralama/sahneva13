@@ -263,121 +263,150 @@ const PACKAGES = [
   },
 ];
 
-/* ================== HERO ================== */
+/* ================== HERO (GSC-safe, modern) ================== */
 function Hero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]"
+      className="relative overflow-hidden bg-slate-950 text-white"
       aria-labelledby="hero-title"
     >
-      <div className="absolute inset-0">
-        <Image
-          src={HERO.src}
-          alt={HERO.alt}
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover"
-          sizes={HERO.sizes}
-          quality={85}
-         
-          blurDataURL={BLUR_DATA_URL}
-          loading="eager"
-        />
+      {/* Üst glowlar (arka plan) */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
         <div
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60"
-          aria-hidden="true"
+          className="absolute inset-0 opacity-25"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">
-            Türkiye Geneli Profesyonel Kurulum
-          </span>
+      <div className="relative z-10 container mx-auto px-4 pt-6 pb-10 md:pb-12">
+        {/* CONTENT (metin önce) */}
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-3 bg-black/65 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+            <span
+              className="relative flex w-2 h-2"
+              aria-hidden="true"
+            >
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex rounded-full w-2 h-2 bg-emerald-400" />
+            </span>
+            <span className="text-xs md:text-sm font-extrabold text-white">
+              Türkiye Geneli • Profesyonel Kurulum
+            </span>
+          </div>
+
+          <h1
+            id="hero-title"
+            className="mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+          >
+            Profesyonel{" "}
+            <span className="gradient-text gradient-text--safe-xl">
+              Sahne Kiralama
+            </span>
+          </h1>
+
+          <p className="mt-4 text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            Konser • Konferans • Lansman • Miting • Festival
+          </p>
+
+          <p className="mt-3 text-base md:text-xl text-white/75 max-w-3xl mx-auto leading-relaxed">
+            Truss sistemleri, modüler podyum, LED ekranlar ile
+            <span className="font-semibold text-white">
+              {" "}
+              anahtar teslim sahne çözümleri
+            </span>
+          </p>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp üzerinden hemen teklif alın"
+              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:shadow-xl focus-ring shadow-lg"
+              role="button"
+            >
+              <span aria-hidden="true" className="text-xl mr-2">💬</span>
+              <span className="text-base">Hemen Teklif Al</span>
+            </Link>
+
+            <Link
+              href="#paketler"
+              aria-label="Paketleri görüntüleyin"
+              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-white/10 backdrop-blur-lg hover:bg-white/15 hover:border-white/70 focus-ring shadow-lg"
+              role="button"
+            >
+              <span aria-hidden="true" className="text-xl mr-2">🎯</span>
+              <span className="text-base">Paketleri Gör</span>
+            </Link>
+          </div>
         </div>
 
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
-        >
-          Profesyonel{" "}
-          <span className="gradient-text gradient-text--safe-xl">
-            Sahne Kiralama
-          </span>
-        </h1>
+        {/* MEDIA (görsel metnin altında, normal akışta) */}
+        <div className="mt-10 max-w-6xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+            {/* Görselin üstünde hafif film/gradient (morluk azaltıldı) */}
+            <div
+              className="pointer-events-none absolute inset-0 z-10"
+              aria-hidden="true"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(30,58,138,0.40) 0%, rgba(88,28,135,0.18) 55%, rgba(2,6,23,0.70) 100%)",
+              }}
+            />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-black/25" aria-hidden="true" />
 
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Konser • Konferans • Lansman • Miting • Festival
-        </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Truss sistemleri, modüler podyum, LED ekranlar ile
-          <span className="font-semibold text-white">
-            {" "}
-            anahtar teslim sahne çözümleri
-          </span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-            role="button"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              💬
-            </span>
-            <span className="text-base">Hemen Teklif Al</span>
-          </Link>
-
-          <Link
-            href="#paketler"
-            aria-label="Paketlerimiz hakkında daha fazla bilgi edinin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-            role="button"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              🎯
-            </span>
-            <span className="text-base">Paketleri Gör</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              ⭐
-            </span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">183+ Değerlendirme</div>
+            <Image
+              src={HERO.src}
+              alt={HERO.alt}
+              width={1920}
+              height={1080}
+              priority
+              fetchPriority="high"
+              className="w-full h-auto block"
+              sizes={HERO.sizes}
+              quality={85}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🏆
-            </span>
-            <div className="text-xl font-black text-white">300+</div>
-            <div className="text-white/80 text-sm">Proje</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🚀
-            </span>
-            <div className="text-xl font-black text-white">81 İl</div>
-            <div className="text-white/80 text-sm">Hizmet</div>
+
+          {/* İstatistikler (istersen komple kaldırabilirsin) */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto mt-6">
+            <div className="flex flex-col items-center text-center p-4 bg-white/8 backdrop-blur-md rounded-2xl border border-white/12">
+              <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
+              <div className="text-xl font-black text-white">4.9/5</div>
+              <div className="text-white/70 text-sm font-semibold">183+ Değerlendirme</div>
+            </div>
+
+            <div className="flex flex-col items-center text-center p-4 bg-white/8 backdrop-blur-md rounded-2xl border border-white/12">
+              <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
+              <div className="text-xl font-black text-white">300+</div>
+              <div className="text-white/70 text-sm font-semibold">Proje</div>
+            </div>
+
+            <div className="flex flex-col items-center text-center p-4 bg-white/8 backdrop-blur-md rounded-2xl border border-white/12">
+              <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
+              <div className="text-xl font-black text-white">81 İl</div>
+              <div className="text-white/70 text-sm font-semibold">Hizmet</div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Alt fade (HeroBelow geçişini yumuşatır) */}
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 w-full h-10"
+        aria-hidden="true"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #020617)",
+        }}
+      />
     </section>
   );
 }
