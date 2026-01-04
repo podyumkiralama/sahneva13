@@ -270,7 +270,7 @@ function Hero() {
       className="
         relative isolate overflow-hidden bg-slate-900 text-white
         flex items-center justify-center
-        pt-16 pb-10 md:pb-12 lg:pt-20
+        pt-20 pb-14 md:pb-16 lg:pt-24
       "
       aria-labelledby="hero-title"
     >
