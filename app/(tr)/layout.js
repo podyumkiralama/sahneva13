@@ -171,7 +171,7 @@ export default function TurkishLayout({ children }) {
           id="_main_content"
           aria-label="Sahneva ana içerik"
           tabIndex={-1}
-          className="flex-1 pt-16 lg:pt-20 focus:outline-none scroll-mt-24"
+          className="flex-1 pt-16 lg:pt-20 [--header-height:4rem] lg:[--header-height:5rem] focus:outline-none scroll-mt-24"
         >
           <div className="overflow-x-hidden">{children}</div>
         </main>
