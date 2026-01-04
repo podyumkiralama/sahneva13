@@ -270,7 +270,7 @@ function Hero() {
       className="
         relative isolate overflow-hidden bg-slate-900 text-white
         flex items-center justify-center
-        min-h-[calc(100svh-var(--navbar-h))]
+        pt-16 pb-10 md:pb-12 lg:pt-20
       "
       aria-labelledby="hero-title"
     >
@@ -304,7 +304,7 @@ function Hero() {
       {/* CONTENT */}
       <div className="relative z-10 w-full">
         {/* ✅ Navbar çakışmasını burada çözüyoruz */}
-        <div className="container mx-auto px-4 pt-[calc(var(--navbar-h)+16px)] pb-10 md:pb-12 text-center">
+        <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
               <span className="relative flex w-2 h-2" aria-hidden="true">
