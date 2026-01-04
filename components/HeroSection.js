@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// 1. Orijinal Keyword Verilerin (HİÇBİRİ EKSİLMEDİ)
 const HERO_KEYWORDS = [
   { text: "Sahne Kiralama", color: "text-blue-200" },
   { text: "LED Ekran Kiralama", color: "text-purple-200" },
@@ -35,21 +34,19 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      /* min-h-screen: Ekranın tamamını kaplar. 
-         flex flex-col: İçeriği dikeyde hizalamamızı sağlar.
-         justify-between: Üstteki yazılar ile alttaki butonları birbirinden en uzak noktalara iter. */
-      className="relative bg-[#0B1120] text-white overflow-hidden min-h-screen flex flex-col justify-between"
+      /* min-h-[100dvh]: Butonları araç çubuğunun hemen üstüne oturtmak için en iyi ölçüdür. */
+      className="relative bg-[#0B1120] text-white overflow-hidden min-h-[100dvh] flex flex-col justify-between"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
-      {/* Background - Orijinal tüm katmanlar ve efektler buradadır */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      {/* 1. KATMAN: Arka Plan (z-0 ile en arkaya itildi) */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/img/hero-bg.webp"
           alt=""
           fill
           priority
-          unoptimized // Googlebot'un siyah ekran görmemesi için eklendi
+          unoptimized 
           className="object-cover object-center"
           sizes="100vw"
         />
@@ -62,23 +59,26 @@ export default function HeroSection() {
           }}
         />
         <div className="grid-overlay opacity-35" />
+        {/* Glow efektleri */}
         <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
         <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
       </div>
 
-      {/* --- ÜST/ORTA KISIM: Başlık ve Metinler --- */}
-      <div className="relative z-10 pt-24 md:pt-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
+      {/* 2. KATMAN: İçerik (z-10 ile öne alındı) */}
+      <div className="relative z-10 flex flex-col flex-1">
+        
+        {/* --- Üst Kısım: Başlık Alanı --- */}
+        <div className="container mx-auto px-4 pt-24 md:pt-32 text-center">
+          <div className="max-w-5xl mx-auto">
             {/* Orijinal Badge */}
-            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" aria-hidden="true" />
+            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-lg">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               <span className="text-xs md:text-sm font-extrabold text-white">
                 Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma
               </span>
             </div>
 
-            {/* Orijinal Başlık (HİÇBİR KELİME DEĞİŞMEDİ) */}
+            {/* Orijinal Başlık */}
             <h1
               id="hero-title"
               className="mt-6 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
@@ -92,10 +92,12 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            {/* Pills Bileşeni */}
-            <KeywordPills />
+            {/* Pills */}
+            <div className="my-6">
+              <KeywordPills />
+            </div>
 
-            {/* Orijinal Açıklama (HİÇBİR KELİME DEĞİŞMEDİ) */}
+            {/* Orijinal Açıklama */}
             <p
               id="hero-desc"
               className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
@@ -106,43 +108,30 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-      </div>
 
-      {/* --- ALT KISIM: Butonlar ve Kaydırma İkonu --- */}
-      <div className="relative z-10 pb-12 md:pb-20">
-        <div className="container mx-auto px-4 text-center">
-          
-          {/* Orijinal 3 Butonun (TAM LİSTE) */}
+        {/* --- Alt Kısım: Butonlar (Sayfanın en altına itildi) --- */}
+        <div className="mt-auto pb-10 md:pb-16 container mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a
-              href="tel:+905453048671"
-              className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
-              aria-label="Hemen ara — Sahneva'yı telefonla arayın"
-            >
+            <a href="tel:+905453048671" className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}>
               <span aria-hidden="true">📞</span> Hemen Ara
             </a>
 
             <a
-              href="https://wa.me/905453048671?text=Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp"
+              href="https://wa.me/905453048671?text=Merhaba"
               target="_blank"
               rel="noopener noreferrer nofollow"
               className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
-              aria-label="WhatsApp teklif — yeni sekmede açılır"
             >
               <span aria-hidden="true">💬</span> WhatsApp Teklif
             </a>
 
-            <Link
-              href="#teklif-al"
-              className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
-              aria-label="Hemen teklif al bölümüne git"
-            >
+            <Link href="#teklif-al" className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}>
               <span aria-hidden="true">🎯</span> Hemen Teklif Al
             </Link>
           </div>
 
-          {/* Orijinal Mouse Scroll Cue İkonu */}
-          <div className="hidden lg:flex justify-center mt-10" aria-hidden="true">
+          {/* Orijinal Mouse Cue */}
+          <div className="hidden lg:flex justify-center mt-8" aria-hidden="true">
             <div className="animate-bounce w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
             </div>
@@ -150,8 +139,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Alt Gradyan Film (Daha Yumuşak Geçiş) */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0B1120] to-transparent pointer-events-none" />
+      {/* 3. KATMAN: Boyama Yapmayan Yumuşak Geçiş (z-0 yapıldı) */}
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#0B1120] to-transparent z-0 pointer-events-none" />
     </header>
   );
 }
