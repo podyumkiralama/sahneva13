@@ -378,7 +378,9 @@ export default function HomePage() {
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
       <HeroSection />
-      <HeroBelow />
+      <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
+        <HeroBelow />
+      </div>
 
       <div id="teklif-al" className="sr-only" />
 
