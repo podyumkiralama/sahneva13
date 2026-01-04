@@ -263,20 +263,19 @@ const PACKAGES = [
   },
 ];
 
-/* ================== HERO (GSC-safe like Hakkımızda) ================== */
+/* ================== HERO (100svh - navbar) ================== */
 function Hero() {
   return (
     <section
       className="
-        relative overflow-hidden bg-slate-900 text-white
-        pt-16 md:pt-20
-        min-h-[80svh] md:min-h-[80vh] 2xl:min-h-[85vh]
+        relative isolate overflow-hidden bg-slate-900 text-white
         flex items-center justify-center
+        min-h-[calc(100svh-var(--navbar-h))]
       "
       aria-labelledby="hero-title"
     >
-      {/* FULL-BLEED BACKGROUND (pointer-events-none like Hakkımızda) */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src={HERO.src}
           alt={HERO.alt}
@@ -290,10 +289,10 @@ function Hero() {
           blurDataURL={BLUR_DATA_URL}
         />
 
-        {/* okunabilirlik filmi (Hakkımızda gibi) */}
+        {/* readability film */}
         <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
-        {/* gradient katmanlar (seninki) */}
+        {/* gradients */}
         <div
           className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90"
           aria-hidden="true"
@@ -304,7 +303,7 @@ function Hero() {
         />
       </div>
 
-      {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
+      {/* CONTENT */}
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-4 py-10 md:py-12 text-center">
           <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
