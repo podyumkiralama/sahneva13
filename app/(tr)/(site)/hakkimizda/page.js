@@ -151,8 +151,14 @@ export default function HakkimizdaPage() {
       <AboutStructuredData />
 
     {/* HERO - Hakkımızda (Premium + GSC-safe, istatistikler hero içinde) */}
+/* ================== HERO - Hakkımızda (FINAL / CWV-safe) ================== */
 <section
-  className="relative bg-slate-950 text-white pt-14 lg:pt-16 overflow-hidden"
+  className="
+    relative overflow-hidden bg-slate-950 text-white
+    pt-16 md:pt-20
+    min-h-[75svh] md:min-h-[70vh]
+    flex items-center
+  "
   aria-labelledby="hero-title"
 >
   {/* FULL-BLEED BACKGROUND */}
@@ -170,8 +176,8 @@ export default function HakkimizdaPage() {
       blurDataURL={BLUR_DATA_URL}
     />
 
-    {/* okunabilirlik için film (soft) */}
-    <div className="absolute inset-0 bg-black/40" />
+    {/* okunabilirlik filmi */}
+    <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
     {/* gradient (morluk azaltıldı) */}
     <div
@@ -179,7 +185,7 @@ export default function HakkimizdaPage() {
       aria-hidden="true"
       style={{
         background:
-          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.60) 100%)",
+          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.62) 100%)",
       }}
     />
     <div
@@ -187,7 +193,7 @@ export default function HakkimizdaPage() {
       aria-hidden="true"
       style={{
         background:
-          "linear-gradient(180deg, rgba(2,6,23,0.72) 0%, rgba(2,6,23,0.20) 45%, rgba(2,6,23,0.78) 100%)",
+          "linear-gradient(180deg, rgba(2,6,23,0.74) 0%, rgba(2,6,23,0.18) 45%, rgba(2,6,23,0.82) 100%)",
       }}
     />
 
@@ -208,7 +214,7 @@ export default function HakkimizdaPage() {
   </div>
 
   {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
-  <div className="relative z-10">
+  <div className="relative z-10 w-full">
     <div className="container mx-auto px-4 py-10 md:py-12 text-center">
       <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
@@ -247,7 +253,7 @@ export default function HakkimizdaPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg min-h-[44px]"
             role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
@@ -259,7 +265,7 @@ export default function HakkimizdaPage() {
           <Link
             href="#tarihce"
             aria-label="Şirket tarihçemizi öğrenin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg min-h-[44px]"
             role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
@@ -278,6 +284,7 @@ export default function HakkimizdaPage() {
             <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Başarılı Proje</div>
           </div>
+
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               ⭐
@@ -285,6 +292,7 @@ export default function HakkimizdaPage() {
             <div className="text-xl font-black text-white">12+</div>
             <div className="text-white/80 text-sm">Yıl Deneyim</div>
           </div>
+
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               🗺️
@@ -297,81 +305,10 @@ export default function HakkimizdaPage() {
     </div>
   </div>
 
-  {/* alt geçiş */}
-  <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+  {/* SAFE alt boşluk: taşma/renk sarkması yapmaz */}
+  <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/10" />
 </section>
 
-      <div className="relative">
-        {/* BİZ KİMİZ */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="biz-kimiz-title">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 id="biz-kimiz-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-                Biz{" "}
-                <span className="gradient-text gradient-text--safe-xl">
-                  Kimiz?
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                2012'den bu yana etkinlik teknolojilerinde güvenilir çözüm ortağınız
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  <strong className="text-blue-600">Sahneva</strong>, 2012'den bu yana etkinlik prodüksiyonu ve teknoloji çözümlerinde
-                  <strong> Türkiye'nin öncü kuruluşudur</strong>. Sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel kurulum hizmetlerinde
-                  uzmanlaşmış ekibimizle, her etkinliği teknik mükemmellik ve yaratıcı vizyonla buluşturuyoruz.
-                </p>
-
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Misyonumuz; <strong>güvenilir, yenilikçi ve müşteri odaklı</strong> çözümler sunarak kurumsal etkinliklerinizin
-                  teknik altyapısını sorunsuz şekilde yönetmek, markanızın değerine değer katmaktır.
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  {[
-                    { number: "700+", label: "Başarılı Proje" },
-                    { number: "98%", label: "Memnuniyet Oranı" },
-                    { number: "81", label: "İlde Hizmet" },
-                    { number: "15+", label: "Uzman Ekip" },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-4 bg-white rounded-xl shadow-lg border border-gray-100"
-                      aria-label={`${stat.number} ${stat.label}`}
-                    >
-                      <div className="text-2xl font-black text-blue-600">{stat.number}</div>
-                      <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/img/ekip-calisma.webp"
-                    alt="Sahneva profesyonel ekip çalışması - Sahne kurulumu ve teknik operasyon"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                    sizes="(max-width: 1024px) 100vw, 600px"
-                  />
-                </div>
-                <div
-                  className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl -z-10"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl -z-10"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* DEĞERLERİMİZ */}
         <section className="py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/60" aria-labelledby="degerlerimiz-title">
