@@ -34,7 +34,7 @@ function KeywordPills() {
 export default function HeroSection() {
   return (
     <header
-      className="relative bg-[#0B1120] text-white overflow-hidden"
+      className="relative bg-[#0B1120] text-white overflow-hidden py-20 md:py-24 lg:py-28"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
@@ -73,7 +73,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10">
         {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
-        <div className="container mx-auto px-4 pt-4 pb-10 md:pt-5 md:pb-12">
+        <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge: daha belirgin */}
             <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
@@ -89,7 +89,7 @@ export default function HeroSection() {
             {/* Title */}
             <h1
               id="hero-title"
-              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-[1.15] drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
             >
               Sahneva ile{" "}
               <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
@@ -106,7 +106,7 @@ export default function HeroSection() {
             {/* Description */}
             <p
               id="hero-desc"
-              className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+              className="text-base md:text-xl text-white/90 leading-relaxed md:leading-loose max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
             >
               Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum
               kurulumunda <strong className="text-white">500+ proje</strong>{" "}
@@ -114,7 +114,7 @@ export default function HeroSection() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
                 href="tel:+905453048671"
                 className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
