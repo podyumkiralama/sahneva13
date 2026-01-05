@@ -2,6 +2,7 @@
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -178,6 +179,7 @@ export default function TurkishLayout({ children }) {
           ariaLabel="Sahneva site altbilgi"
           descriptionId="_main_footer_desc"
         />
+        <StickyVideoRailClient />
       </div>
     </>
   );
