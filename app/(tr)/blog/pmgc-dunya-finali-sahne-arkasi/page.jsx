@@ -200,7 +200,7 @@ export default function Page() {
           </p>
 
           <p>
-            Bu dev organizasyonda, [Ajans Adı]’nın vizyoner liderliği altında teknik çözüm ortağı
+            Bu dev organizasyonda, Dimi Ajans’nın vizyoner liderliği altında teknik çözüm ortağı
             olarak yer aldık. İşte o 7 günlük uykusuz maratonun, Google Translate ile örülen ve
             milimetrik hesaplarla biten başarı hikayesi.
           </p>
@@ -239,7 +239,7 @@ export default function Page() {
           <h2>4. Ve Beklenen Ödül: Yılın En İyi Teknik Uygulaması</h2>
           <p>
             Tüm bu uykusuz gecelerin ve verdiğimiz teknik emeğin karşılığı, sektörün en prestijli
-            platformunda tescillendi. [Ajans Adı] ile birlikte yürüttüğümüz bu dev prodüksiyon,
+            platformunda tescillendi. Dimi Ajans ile birlikte yürüttüğümüz bu dev prodüksiyon,
             11. Masters of Events Corporate Awards (Ace of M.I.C.E.) töreninde;
             <strong> "En İyi Ses, Işık, Görüntü Uygulaması"</strong> ödülüne layık görüldü.
           </p>
