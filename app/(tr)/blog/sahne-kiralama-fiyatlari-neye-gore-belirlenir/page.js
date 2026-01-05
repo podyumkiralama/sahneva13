@@ -212,43 +212,54 @@ export default function Page() {
       <JsonLd data={faqJsonLd} />
 
       {/* HERO (OG = HERO) */}
-      <header className="relative overflow-hidden bg-gray-900 py-20 text-white">
-        <Image
-          src={HERO_IMG}
-          alt="Sahne kiralama fiyatlarını etkileyen m² ve teknik ihtiyaçlar"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover opacity-60"
-        />
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/90">
-            Rehber • m² • Teknik Rider • Çok Katmanlı Etkinlik
-          </p>
+      <header className="relative overflow-hidden bg-gray-950 py-20 text-white">
+  {/* Background image */}
+  <Image
+    src={HERO_IMG}
+    alt="Sahne kiralama fiyatlarını etkileyen m² ve teknik ihtiyaçlar"
+    fill
+    priority
+    fetchPriority="high"
+    sizes="100vw"
+    className="object-cover"
+  />
 
-          <h1 className="text-balance text-3xl font-black tracking-tight md:text-5xl">
-            {TITLE}
-          </h1>
+  {/* Readability scrims */}
+  <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
+  <div
+    aria-hidden="true"
+    className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/70"
+  />
+  <div
+    aria-hidden="true"
+    className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.20)_0%,rgba(0,0,0,0.70)_70%)]"
+  />
 
-          <p className="mt-5 text-pretty text-base text-white/85 md:text-lg">
-            Sahne kiralama fiyatı tek bir rakam değildir. En temelde m² belirler; yükseklik
-            fiyatı etkilemez. Truss, LED ekran, ses-ışık ve çadır gibi teknik katmanlar ile
-            teknik rider geldiğinde fiyat netleşir. Rider yoksa konuşulan fiyatlar ortalamadır.
-          </p>
+  <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
+    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/95 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
+      Rehber • m² • Teknik Rider • Çok Katmanlı Etkinlik
+    </p>
 
-          {/* Hızlı iç linkler */}
-          <div className="mt-7 flex flex-wrap justify-center gap-2 text-sm">
-            <PillLink href="/sahne-kiralama">Sahne Kiralama</PillLink>
-            <PillLink href="/podyum-kiralama">Podyum Kiralama</PillLink>
-            <PillLink href="/led-ekran-kiralama">LED Ekran Kiralama</PillLink>
-            <PillLink href="/ses-isik-sistemleri">Ses & Işık</PillLink>
-            <PillLink href="/cadir-kiralama">Çadır Kiralama</PillLink>
-            <PillLink href="/kurumsal-organizasyon">Kurumsal Organizasyon</PillLink>
-          </div>
-        </div>
-      </header>
+    <h1 className="text-balance text-3xl font-black tracking-tight md:text-5xl drop-shadow-[0_8px_28px_rgba(0,0,0,0.80)]">
+      {TITLE}
+    </h1>
 
+    <p className="mx-auto mt-5 max-w-3xl text-pretty text-base text-white/90 md:text-lg drop-shadow-[0_6px_20px_rgba(0,0,0,0.85)]">
+      Sahne kiralama fiyatı tek bir rakam değildir. En temelde m² belirler; yükseklik
+      fiyatı etkilemez. Truss, LED ekran, ses-ışık ve çadır gibi teknik katmanlar ile
+      teknik rider geldiğinde fiyat netleşir. Rider yoksa konuşulan fiyatlar ortalamadır.
+    </p>
+
+    <div className="mt-7 flex flex-wrap justify-center gap-2 text-sm">
+      <PillLink href="/sahne-kiralama">Sahne Kiralama</PillLink>
+      <PillLink href="/podyum-kiralama">Podyum Kiralama</PillLink>
+      <PillLink href="/led-ekran-kiralama">LED Ekran Kiralama</PillLink>
+      <PillLink href="/ses-isik-sistemleri">Ses & Işık</PillLink>
+      <PillLink href="/cadir-kiralama">Çadır Kiralama</PillLink>
+      <PillLink href="/kurumsal-organizasyon">Kurumsal Organizasyon</PillLink>
+    </div>
+  </div>
+</header>
       <main className="bg-white">
         <article className="mx-auto w-full max-w-4xl px-4 py-12">
           <div className="prose prose-lg max-w-none">
