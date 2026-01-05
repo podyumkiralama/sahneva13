@@ -213,9 +213,10 @@ export default function Page() {
 
       {/* HERO (OG = HERO) */}
 <header className="relative overflow-hidden bg-gray-950 py-20 text-white">
+  {/* Background image */}
   <Image
     src={HERO_IMG}
-    alt="Sahne kiralama fiyatlarını etkileyen m² ve teknik ihtiyaçlar"
+    alt="Sahne kiralama fiyatlarını etkileyen m², teknik rider ve etkinlik yapısı"
     fill
     priority
     fetchPriority="high"
@@ -223,37 +224,36 @@ export default function Page() {
     className="object-cover"
   />
 
-  {/* Balanced readability overlay */}
+  {/* Minimal readability overlay (çok hafif) */}
   <div
     aria-hidden="true"
-    className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/55"
+    className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/45"
   />
 
   <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
-    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-semibold text-white/95 backdrop-blur-md">
+    {/* Üst etiket (bilgi amaçlı, link değil) */}
+    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/95 backdrop-blur-md">
       Rehber • m² • Teknik Rider • Çok Katmanlı Etkinlik
     </p>
 
-    <h1 className="text-balance text-3xl font-black tracking-tight md:text-5xl drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)]">
-      {TITLE}
-    </h1>
+    {/* Yazı paneli */}
+    <div className="mx-auto max-w-3xl rounded-3xl border border-white/15 bg-black/25 p-6 backdrop-blur-lg shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+      <h1 className="text-balance text-3xl font-black tracking-tight md:text-5xl text-white drop-shadow-[0_10px_26px_rgba(0,0,0,0.7)]">
+        Sahne Kiralama Fiyatları
+        <br />
+        Neye Göre Belirlenir?
+      </h1>
 
-    <p className="mx-auto mt-5 max-w-3xl text-pretty text-base text-white/90 md:text-lg drop-shadow-[0_4px_14px_rgba(0,0,0,0.55)]">
-      Sahne kiralama fiyatı tek bir rakam değildir. En temelde m² belirler; yükseklik
-      fiyatı etkilemez. Truss, LED ekran, ses-ışık ve çadır gibi teknik katmanlar ile
-      teknik rider geldiğinde fiyat netleşir. Rider yoksa konuşulan fiyatlar ortalamadır.
-    </p>
-
-    <div className="mt-7 flex flex-wrap justify-center gap-2 text-sm">
-      <PillLink href="/sahne-kiralama">Sahne Kiralama</PillLink>
-      <PillLink href="/podyum-kiralama">Podyum Kiralama</PillLink>
-      <PillLink href="/led-ekran-kiralama">LED Ekran Kiralama</PillLink>
-      <PillLink href="/ses-isik-sistemleri">Ses & Işık</PillLink>
-      <PillLink href="/cadir-kiralama">Çadır Kiralama</PillLink>
-      <PillLink href="/kurumsal-organizasyon">Kurumsal Organizasyon</PillLink>
+      <p className="mt-5 text-pretty text-base text-white/90 md:text-lg drop-shadow-[0_6px_16px_rgba(0,0,0,0.7)]">
+        Sahne kiralama fiyatı tek bir rakam değildir. En temelde m² belirler; yükseklik
+        fiyatı etkilemez. Truss, LED ekran, ses-ışık ve çadır gibi teknik katmanlar ile
+        teknik rider geldiğinde fiyat netleşir. Rider yoksa konuşulan fiyatlar
+        ortalamadır.
+      </p>
     </div>
   </div>
 </header>
+
 
       <main className="bg-white">
         <article className="mx-auto w-full max-w-4xl px-4 py-12">
