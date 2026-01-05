@@ -321,7 +321,7 @@ function Hero() {
               className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
             >
               Profesyonel{" "}
-              <span className="gradient-text gradient-text--safe-xl">
+              <span className="text-blue-200">
                 Sahne Kiralama
               </span>
             </h1>
@@ -414,7 +414,7 @@ function Services() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Profesyonel{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -516,7 +516,7 @@ function Packages() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Hazır{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Paketler
             </span>
           </h2>
@@ -678,7 +678,7 @@ function Gallery() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Proje{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Galerimiz
             </span>
           </h2>
@@ -804,7 +804,7 @@ function Technical() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Teknik{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Altyapımız
             </span>
           </h2>
@@ -921,7 +921,7 @@ function UseCases() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
           >
             Kullanım{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Alanları
             </span>
           </h2>
@@ -998,7 +998,7 @@ function Articles() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Bilgi &{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Profesyonel Rehber
             </span>
           </h2>
@@ -1364,7 +1364,7 @@ function FAQ() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Sık Sorulan{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Sorular
             </span>
           </h2>
@@ -1468,7 +1468,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Hizmetlerimiz
             </span>
           </h2>

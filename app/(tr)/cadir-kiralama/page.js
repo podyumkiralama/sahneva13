@@ -249,7 +249,7 @@ function Hero() {
           className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
         >
           Profesyonel{" "}
-          <span className="gradient-text gradient-text--safe-xl">
+          <span className="text-blue-200">
             Çadır Kiralama
           </span>
         </h1>
@@ -279,7 +279,7 @@ function Hero() {
           <Link
             href="#hizmetler"
             aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg_WHITE/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 backdrop-blur-lg hover:bg-white/30 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               🎯
@@ -289,21 +289,21 @@ function Hero() {
         </div>
 
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border_WHITE/20">
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               ⭐
             </span>
             <div className="text-xl font-black text-white">4.8/5</div>
             <div className="text-white/80 text-sm">180+ Değerlendirme</div>
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border_WHITE/20">
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               🏆
             </span>
             <div className="text-xl font-black text_WHITE">850+</div>
             <div className="text-white/80 text-sm">Etkinlik</div>
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border_WHITE/20">
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               🚀
             </span>
@@ -331,7 +331,7 @@ function Services() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Profesyonel{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -468,7 +468,7 @@ function Gallery() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Proje{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Galerimiz
             </span>
           </h2>
@@ -589,7 +589,7 @@ function Technical() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Teknik{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Altyapımız
             </span>
           </h2>
@@ -706,7 +706,7 @@ function UseCases() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
           >
             Kullanım{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Alanları
             </span>
           </h2>
@@ -778,7 +778,7 @@ function Articles() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Bilgi &{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Profesyonel Rehber
             </span>
           </h2>
@@ -1144,7 +1144,7 @@ function FAQ() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Sık Sorulan{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Sorular
             </span>
           </h2>
@@ -1241,7 +1241,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="gradient-text gradient-text--safe-xl">
+            <span className="text-blue-700">
               Hizmetlerimiz
             </span>
           </h2>

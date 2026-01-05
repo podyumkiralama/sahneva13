@@ -396,7 +396,7 @@ export default function ServicesPage() {
   <div className="relative z-10">
     <div className="container mx-auto px-4 py-10 md:py-12 text-center">
       <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
+        <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md rounded-full px-6 py-3 border border-white/30 mb-6">
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true" />
           <span className="text-white/90 text-sm font-medium">
             Türkiye Geneli Profesyonel Hizmet
@@ -434,7 +434,7 @@ export default function ServicesPage() {
 
           <a
             href="tel:+905453048671"
-            className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            className="group bg-white/20 backdrop-blur-md hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             aria-label="Hemen ara - Detaylı bilgi için"
           >
             📞 Hemen Ara
@@ -464,7 +464,7 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Tüm <span className="gradient-text gradient-text--safe-xl">Hizmetlerimiz</span>
+                Tüm <span className="text-blue-700">Hizmetlerimiz</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Etkinliğiniz için ihtiyaç duyduğunuz tüm ekipman ve hizmetleri tek noktadan temin edin
@@ -504,7 +504,7 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Neden <span className="gradient-text gradient-text--safe-xl">Sahneva?</span>
+                Neden <span className="text-blue-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 10+ yıllık deneyimimiz ve uzman ekibimizle fark yaratıyoruz
@@ -538,7 +538,7 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Komple <span className="gradient-text gradient-text--safe-xl">Etkinlik Çözümleri</span>
+                Komple <span className="text-blue-700">Etkinlik Çözümleri</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Sahne kurulumundan organizasyon yönetimine kadar tüm süreci profesyonelce yönetiyoruz
@@ -555,9 +555,9 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Ek <span className="gradient-text gradient-text--safe-xl">Hizmetlerimiz</span>
+                Ek <span className="text-blue-200">Hizmetlerimiz</span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Etkinliğinizin kusursuz geçmesi için ihtiyaç duyabileceğiniz tüm destek hizmetleri
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8"></div>
@@ -570,7 +570,7 @@ export default function ServicesPage() {
                     <span className="text-3xl">🎯</span>
                     Organizasyon & Prodüksiyon
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Etkinlik planlama ve yönetimi",
                       "Teknik prodüksiyon koordinasyonu",
@@ -591,7 +591,7 @@ export default function ServicesPage() {
                     <span className="text-3xl">🚚</span>
                     Lojistik & Destek Hizmetleri
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Ekipman taşıma ve kurulum",
                       "Teknik personel temini",
@@ -614,7 +614,7 @@ export default function ServicesPage() {
                     <span className="text-3xl">📸</span>
                     Medya & Görüntüleme
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Profesyonel fotoğraf çekimi",
                       "Video prodüksiyon ve canlı yayın",
@@ -635,7 +635,7 @@ export default function ServicesPage() {
                     <span className="text-3xl">🎨</span>
                     Tasarım & Dekorasyon
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Mekan tasarımı ve dekorasyon",
                       "Aydınlatma tasarımı",
