@@ -58,7 +58,7 @@ function normalizePostMeta(slug, rawMeta = {}) {
     title: rawMeta.title || fallbackTitle,
     description: rawMeta.description || "Bu makale için açıklama girilmemiş.",
     date: safeDateString(rawMeta.date),
-    image: rawMeta.image || "/img/blog/default.webp",
+    image: rawMeta.image || "/img/og/sahneva-og.webp",
     category: rawMeta.category || "Genel",
     readTime: rawMeta.readTime || "3 dk okuma",
     draft: rawMeta.draft === true,
