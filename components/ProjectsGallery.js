@@ -57,7 +57,7 @@ const DEFAULT_GALLERIES = {
 // ===============================================================
 
 const DEFAULT_DICTIONARY = {
-  title: "Projelerimiz",
+  title: "Proje Galerisi",
   subtitle:
     "500'den fazla kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.",
   hoverCta: "Projeyi incele",
@@ -120,30 +120,7 @@ const GalleryCard = memo(function GalleryCard({
   dictionary,
 }) {
   const cover = gallery.images?.[0];
-  const coverRef = useRef(null);
-  const [canLoadCover, setCanLoadCover] = useState(false);
-
-  useEffect(() => {
-    if (!coverRef.current || canLoadCover) return;
-
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setCanLoadCover(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setCanLoadCover(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "240px 0px", threshold: 0.1 }
-    );
-
-    observer.observe(coverRef.current);
-    return () => observer.disconnect();
-  }, [canLoadCover]);
+  const [canLoadCover] = useState(true);
 
   const handleOpen = () => open(title, gallery.images, 0);
 
@@ -157,7 +134,6 @@ const GalleryCard = memo(function GalleryCard({
         type="button"
         onClick={handleOpen}
         className="relative block w-full aspect-[4/3] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-        ref={coverRef}
       >
         {canLoadCover ? (
           <Image
@@ -168,6 +144,7 @@ const GalleryCard = memo(function GalleryCard({
             })}
             fill
             sizes={COVER_SIZES}
+            loading="lazy"
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
             className={`object-cover transition-transform duration-700 ${
@@ -491,14 +468,12 @@ export default function ProjectsGallery({
           id={computedHeadingId}
           className="text-4xl md:text-5xl font-bold text-white leading-tight"
         >
-          Başarılı{" "}
           <span className="gradient-text gradient-text--safe-xl">
-            Projelerimiz
+            {normalizedDictionary.title}
           </span>
         </h2>
         <p id={computedDescriptionId} className="text-slate-400 text-lg mt-4">
-          500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda
-          profesyonel çözüm ortağı olduk.
+          {normalizedDictionary.subtitle}
         </p>
       </div>
 
