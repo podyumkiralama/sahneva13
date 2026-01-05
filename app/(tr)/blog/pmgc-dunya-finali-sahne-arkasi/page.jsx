@@ -200,7 +200,7 @@ export default function Page() {
           </p>
 
           <p>
-            Bu dev organizasyonda, Dimi ajans’ın vizyoner liderliği altında teknik çözüm ortağı
+            Bu dev organizasyonda, [Ajans Adı]’nın vizyoner liderliği altında teknik çözüm ortağı
             olarak yer aldık. İşte o 7 günlük uykusuz maratonun, Google Translate ile örülen ve
             milimetrik hesaplarla biten başarı hikayesi.
           </p>
@@ -239,7 +239,7 @@ export default function Page() {
           <h2>4. Ve Beklenen Ödül: Yılın En İyi Teknik Uygulaması</h2>
           <p>
             Tüm bu uykusuz gecelerin ve verdiğimiz teknik emeğin karşılığı, sektörün en prestijli
-            platformunda tescillendi. Dimi ajans ile birlikte yürüttüğümüz bu dev prodüksiyon,
+            platformunda tescillendi. [Ajans Adı] ile birlikte yürüttüğümüz bu dev prodüksiyon,
             11. Masters of Events Corporate Awards (Ace of M.I.C.E.) töreninde;
             <strong> "En İyi Ses, Işık, Görüntü Uygulaması"</strong> ödülüne layık görüldü.
           </p>
@@ -251,7 +251,7 @@ export default function Page() {
           />
 
           <p>
-            Bu ödül; Dimi ajansımızın vizyonu ile Sahneva’nın sahadaki kusursuz teknik uygulamasının
+            Bu ödül; ajansımızın vizyonu ile Sahneva’nın sahadaki kusursuz teknik uygulamasının
             birleştiği noktada geldi. Bizim için bu kupa; uykusuz geçen o 7 günün, milimetrik
             marangozluk hesaplarımızın ve "imkansız" denilen kurulumları hayata geçiren
             ekibimizin zaferidir.
@@ -285,7 +285,16 @@ export default function Page() {
           <ul>
             <li>Proje: PMGC 2023 Grand Finals - Istanbul</li>
             <li>Ödül: Ace of M.I.C.E. 2023 - En İyi Ses, Işık, Görüntü Uygulaması</li>
-            <li>Resmi Kaynak: Ace of M.I.C.E. Awards Kazananlar Listesi</li>
+            <li>
+              Resmi Kaynak:{" "}
+              <a
+                href="https://aceofmice.com/ace-of-m-i-c-e-awards/kazananlar/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ace of M.I.C.E. Awards Kazananlar Listesi
+              </a>
+            </li>
           </ul>
         </article>
       </section>
