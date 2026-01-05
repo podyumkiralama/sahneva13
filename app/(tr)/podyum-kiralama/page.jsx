@@ -195,7 +195,7 @@ function StructuredData() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-slate-950 text-white pt-14 lg:pt-16">
+    <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
       {/* FULL-BLEED BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
@@ -234,7 +234,7 @@ function HeroSection() {
 
       {/* CONTENT */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4 py-8 md:py-10">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* badge */}
             <div className="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 px-4 py-2 mb-5">

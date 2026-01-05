@@ -206,7 +206,7 @@ const USE_CASES = [
 function Hero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]"
+      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -233,7 +233,7 @@ function Hero() {
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
+      <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
           <span className="relative flex w-2 h-2" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
