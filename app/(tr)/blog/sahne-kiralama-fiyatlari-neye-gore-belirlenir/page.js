@@ -28,6 +28,7 @@ export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: BLOG_URL },
+  image: HERO_IMG,
   openGraph: {
     title: `${TITLE} | Sahneva Organizasyon`,
     description:
