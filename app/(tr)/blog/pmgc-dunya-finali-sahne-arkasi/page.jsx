@@ -251,7 +251,7 @@ export default function Page() {
           />
 
           <p>
-            Bu ödül; ajansımızın vizyonu ile Sahneva’nın sahadaki kusursuz teknik uygulamasının
+            Bu ödül; Dimi ajansımızın vizyonu ile Sahneva’nın sahadaki kusursuz teknik uygulamasının
             birleştiği noktada geldi. Bizim için bu kupa; uykusuz geçen o 7 günün, milimetrik
             marangozluk hesaplarımızın ve "imkansız" denilen kurulumları hayata geçiren
             ekibimizin zaferidir.
