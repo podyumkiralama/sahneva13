@@ -406,7 +406,7 @@ export default function HomePage() {
       </section>
 
       {/* Teknik */}
-      <div className="bg-slate-900 py-10" style={BELOW_THE_FOLD_VISIBILITY_STYLE}>
+      <div className="bg-slate-900 py-10">
         <TechCapabilities techFeatures={SEO_TECH_FEATURES} infraFeatures={SEO_INFRA_FEATURES} />
       </div>
 
