@@ -206,7 +206,7 @@ const USE_CASES = [
 function Hero() {
   return (
     <section
-            className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
+      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">

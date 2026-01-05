@@ -216,7 +216,7 @@ const FAQ_ITEMS = [
 /* ================== Bölüm Bileşenleri ================== */
 function Hero() {
   return (
-    <header className="pt-16 pb-12 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <header className="pt-20 pb-14 md:pb-16 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
       <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-7xl">
         <nav aria-label="Sayfa yolu" className="mb-6">
           <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
