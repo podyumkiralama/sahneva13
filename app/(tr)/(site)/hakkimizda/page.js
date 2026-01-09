@@ -309,6 +309,59 @@ export default function HakkimizdaPage() {
   <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/10" />
 </section>
 
+        {/* BİZ KİMİZ */}
+        <section
+          className="py-16 md:py-20 bg-white"
+          aria-labelledby="biz-kimiz-title"
+        >
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-2 items-center">
+              <div className="order-2 lg:order-1">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">
+                  Biz Kimiz?
+                </p>
+                <h2
+                  id="biz-kimiz-title"
+                  className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-5"
+                >
+                  2012&apos;den bu yana etkinlik teknolojilerinde güvenilir
+                  çözüm ortağınız
+                </h2>
+                <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
+                  <p>
+                    Sahneva, 2012&apos;den bu yana etkinlik prodüksiyonu ve
+                    teknoloji çözümlerinde Türkiye&apos;nin öncü kuruluşudur.
+                    Sahne kiralama, LED ekran, ses-ışık sistemleri ve
+                    profesyonel kurulum hizmetlerinde uzmanlaşmış ekibimizle,
+                    her etkinliği teknik mükemmellik ve yaratıcı vizyonla
+                    buluşturuyoruz.
+                  </p>
+                  <p>
+                    Misyonumuz; güvenilir, yenilikçi ve müşteri odaklı çözümler
+                    sunarak etkinliklerinizin teknik altyapısını sorunsuz
+                    şekilde yönetmek, markanızın değerine değer katmaktır.
+                  </p>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <Image
+                    src="/img/ekip-calisma.webp"
+                    alt="Sahneva teknik ekibi etkinlik kurulumunda"
+                    width={720}
+                    height={540}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-tr from-slate-900/25 via-transparent to-white/10"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* DEĞERLERİMİZ */}
         <section className="py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/60" aria-labelledby="degerlerimiz-title">
