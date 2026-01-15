@@ -7,11 +7,11 @@ const SLUG = "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi";
 const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
-const HERO_IMG = "/img/blog/kurumsal-etkinlik-hero.webp";
-const IMG_PODYUM = "/img/blog/kurumsal-etkinlik-podyum-detay.webp";
-const IMG_DOME = "/img/blog/kurumsal-etkinlik-sahne-genel.webp";
-const IMG_LASER_LED = "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp";
-const IMG_AKUSTIK = "/img/blog/kurumsal-etkinlik-ses-backstage.webp";
+const HERO_IMG = "/img/blog/milli-uzay-programi-hero.webp";
+const IMG_PODYUM = "/img/blog/milli-uzay-programi-podyum.webp";
+const IMG_DOME = "/img/blog/milli-uzay-programi-dome.webp";
+const IMG_LASER_LED = "/img/blog/milli-uzay-programi-lazer-led.webp";
+const IMG_AKUSTIK = "/img/blog/milli-uzay-programi-akustik.webp";
 
 const TITLE = "Milli Uzay Programı Lansmanı (2021): Sahneva’nın Mühendislik Refleksiyle Tasarlanan Kusursuz Sahne";
 const DESCRIPTION =
