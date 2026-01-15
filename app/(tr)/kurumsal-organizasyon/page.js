@@ -260,7 +260,7 @@ const PLANNING_STEPS = [
 function Hero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]"
+       className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
