@@ -1351,12 +1351,6 @@ function JsonLd() {
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "250",
-      bestRating: "5",
-    },
   };
 
   const serviceNode = serviceSchema
@@ -1365,6 +1359,7 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"] ?? `${pageUrl}#service`;
   serviceNode["@id"] = serviceId;
+  serviceNode.mainEntityOfPage = { "@id": pageUrl };
 
   const productNodes = products ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS);
@@ -1375,12 +1370,12 @@ function JsonLd() {
       serviceNode,
       {
         "@type": "WebPage",
+        "@id": pageUrl,
         name: metadata.title,
         description: pageDescription,
         url: pageUrl,
         mainEntity: {
-          "@type": "Service",
-          name: "Kurumsal Organizasyon",
+          "@id": serviceId,
         },
       },
       ...productNodes,
