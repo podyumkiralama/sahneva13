@@ -1365,6 +1365,7 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"] ?? `${pageUrl}#service`;
   serviceNode["@id"] = serviceId;
+  serviceNode.mainEntityOfPage = { "@id": pageUrl };
 
   const productNodes = products ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS);
@@ -1375,12 +1376,12 @@ function JsonLd() {
       serviceNode,
       {
         "@type": "WebPage",
+        "@id": pageUrl,
         name: metadata.title,
         description: pageDescription,
         url: pageUrl,
         mainEntity: {
-          "@type": "Service",
-          name: "Kurumsal Organizasyon",
+          "@id": serviceId,
         },
       },
       ...productNodes,
