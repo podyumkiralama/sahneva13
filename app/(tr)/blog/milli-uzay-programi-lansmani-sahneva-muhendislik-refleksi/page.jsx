@@ -27,7 +27,7 @@ const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
 const VIDEO_THUMB = `https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`;
 
 export const metadata = {
-  title: "Milli Uzay Programı Lansmanı (2021) | Sahneva’nın Mühendislik Refleksi",
+  title: "Milli Uzay Programı Lansmanı (2021) | Sahneva Mühendislik Refleksi",
   description: DESCRIPTION,
   keywords: [
     "Milli Uzay Programı",
@@ -49,7 +49,7 @@ export const metadata = {
   readTime: "7 dk okuma",
   author: AUTHOR_NAME,
   openGraph: {
-    title: "Milli Uzay Programı Lansmanı (2021) | Sahneva Case Study",
+    title: "Milli Uzay Programı Lansmanı (2021) | Sahneva Mühendislik Refleksi",
     description:
       "Sahneva’nın Milli Uzay Programı Lansmanı’nda uyguladığı mühendislik çözümleri ve akıllı pnömatik sistemler.",
     url: BLOG_URL,
@@ -67,7 +67,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Milli Uzay Programı Lansmanı (2021) | Sahneva’nın Mühendislik Refleksi",
+    title: "Milli Uzay Programı Lansmanı (2021) | Sahneva Mühendislik Refleksi",
     description: DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMG}`],
   },
@@ -181,12 +181,14 @@ export default function Page() {
         ]}
       />
 
-      <section className="mx-auto w-full max-w-5xl px-4 py-12">
+      <section className="mx-auto w-full max-w-5xl px-4 py-12" aria-labelledby="page-title">
         <Breadcrumbs />
 
         <header className="mb-8">
           <p className="text-sm font-semibold text-blue-600">Case Study · Beştepe 2021</p>
-          <h1 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">{TITLE}</h1>
+          <h1 id="page-title" className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+            {TITLE}
+          </h1>
           <p className="mt-4 text-lg text-gray-700">{DESCRIPTION}</p>
         </header>
 
@@ -326,7 +328,7 @@ export default function Page() {
             Lansmanın atmosferini ve teknik detaylarını daha yakından görmek için aşağıdaki videoyu
             izleyebilirsiniz.
           </p>
-          <div className="not-prose my-8">
+          <div className="not-prose my-8" aria-labelledby="video-title">
             <div
               className="relative w-full overflow-hidden rounded-2xl border border-gray-200 shadow-sm"
               style={{ paddingTop: "56.25%" }}
@@ -339,7 +341,9 @@ export default function Page() {
                 allowFullScreen
               />
             </div>
-            <p className="mt-3 text-sm text-gray-600">Video öne çıkan görsel: {VIDEO_THUMB}</p>
+            <p id="video-title" className="mt-3 text-sm text-gray-600">
+              Video öne çıkan görsel: {VIDEO_THUMB}
+            </p>
           </div>
 
           <h2 id="teknik-ozet">Teknik Vaka Analizi (Summary)</h2>
