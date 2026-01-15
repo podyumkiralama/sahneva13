@@ -1351,12 +1351,6 @@ function JsonLd() {
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "250",
-      bestRating: "5",
-    },
   };
 
   const serviceNode = serviceSchema
