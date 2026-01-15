@@ -47,9 +47,9 @@ const SECTIONS = [
 
 const RELATED_SERVICES = [
   {
-    title: "Kurumsal organizasyon çözümleri",
-    href: "/kurumsal-organizasyon",
-    description: "Konferans, lansman ve gala etkinlikleri için uçtan uca planlama ve sahne tasarımı.",
+    title: "Sahne kiralama",
+    href: "/sahne-kiralama",
+    description: "Konferans ve lansmanlar için modüler sahne kurulumu, truss ve güvenli taşıyıcı sistemler.",
   },
   {
     title: "LED ekran kiralama",
@@ -137,7 +137,14 @@ export default function CorporateEventManagementPage() {
           </h1>
           <p className="text-lg text-gray-700 sm:max-w-4xl">
             Konferans, lansman ve iç iletişim toplantılarında kusursuz deneyim için teknik planlama, backstage iletişimi ve
-            sahne tasarımını aynı çerçevede anlatan pratik bir rehber.
+            sahne tasarımını aynı çerçevede anlatan pratik bir rehber. Detaylı süreç akışı için{" "}
+            <Link
+              href="/kurumsal-organizasyon"
+              className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4"
+            >
+              kurumsal organizasyon
+            </Link>{" "}
+            sayfamıza da göz atabilirsiniz.
           </p>
 
           <div className="flex flex-wrap gap-3 text-sm text-gray-600">
