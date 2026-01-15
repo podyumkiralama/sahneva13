@@ -41,33 +41,35 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Kurumsal Organizasyon | Profesyonel Etkinlik Yönetimi | Sahneva",
+  title:
+    "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri | Sahneva",
   description:
-    "Konferans, lansman, gala, miting ve roadshow organizasyonları. Sahne, ses, ışık, LED ekran ve profesyonel etkinlik yönetimi. Türkiye geneli hızlı hizmet.",
+    "Kurumsal organizasyon nedir, nasıl planlanır? Lansman, konferans, gala ve bayi toplantıları için sahne, ses-ışık ve LED ekran dahil uçtan uca kurumsal organizasyon çözümleri.",
   alternates: { canonical: `${ORIGIN}/kurumsal-organizasyon` },
   openGraph: {
-    title: "Kurumsal Organizasyon | Sahneva Organizasyon",
+    title: "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri",
     description:
-      "Konferans, lansman, gala ve kurumsal etkinlik çözümleri. Türkiye geneli profesyonel organizasyon ve tamamlayıcı hizmetler.",
+      "Kurumsal organizasyon nedir, nasıl planlanır? Konferans, lansman ve gala gibi etkinlikler için sahne, ses-ışık ve LED ekran çözümleri.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva Organizasyon",
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        url: `${ORIGIN}/img/kurumsal/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Kurumsal organizasyon için konferans sahnesi ve etkinlik düzeni",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon | Profesyonel Etkinlik Yönetimi | Sahneva",
+    title:
+      "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri | Sahneva",
     description:
-      "Konferans, lansman, gala, miting organizasyonları. Sahne, ses, ışık, LED ekran ve profesyonel yönetim.",
-    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
+      "Kurumsal organizasyon nedir, nasıl planlanır? Konferans, lansman ve gala için sahne, ses-ışık ve LED ekran çözümleri.",
+    images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: {
     index: true,
@@ -205,6 +207,55 @@ const USE_CASES = [
   },
 ];
 
+const PLANNING_STEPS = [
+  {
+    title: "Hedef & format belirleme",
+    description:
+      "Kurumsal organizasyonun başarısı, hedefin netleştirilmesiyle başlar. Konferans, lansman, gala ya da bayi toplantısı gibi formatlar; içerik, akış ve teknik gereksinimleri belirler. Hedef kitleyi ve ana mesajı netleştirmek, kurumsal etkinlik organizasyonu bütçesini doğru yönetmenizi sağlar. Böylece zaman çizelgesi, konuşmacı planı ve teknik ihtiyaçlar tek bir çatı altında toplanır.",
+    checklist: [
+      "Etkinlik amacı ve başarı metriği",
+      "Format ve içerik akışı",
+      "Katılımcı profili",
+    ],
+  },
+  {
+    title: "Mekân & kapasite analizi",
+    description:
+      "Mekân seçimi; kapasite, erişilebilirlik, yükleme alanı ve akustik gibi kriterleri içerir. İstanbul gibi büyük şehirlerde ulaşım ve park planı ekstra önem kazanır. Alanın tavan yüksekliği ve sahne yerleşimi, sahne ve LED ekran kurulumunu doğrudan etkiler. Bu aşamada yangın çıkışları, fuaye alanı ve kayıt noktaları da planlanmalıdır.",
+    checklist: [
+      "Kapasite ve oturma düzeni",
+      "Teknik kurulum alanları",
+      "Giriş-çıkış ve güvenlik",
+    ],
+  },
+  {
+    title: "Teknik altyapı kontrol listesi",
+    description:
+      "Sahne, ses, ışık ve LED ekran gereksinimleri kurumsal organizasyonun algısını belirler. İçerik yoğunluğu ve izleme mesafesi LED ekran çözünürlüğünü belirlerken, ses sistemi oturum tipine göre projelendirilir. Güç altyapısı ve yedekleme planı, kesintisiz yayın için kritik rol oynar. Teknik çizimler ve kablolama planları bu noktada tamamlanır.",
+    checklist: [
+      "Sahne ölçüsü ve görünürlük",
+      "Ses-ışık ve LED ekran planı",
+      "Güç ve yedek sistemler",
+    ],
+  },
+  {
+    title: "Kurulum, prova ve etkinlik günü akışı",
+    description:
+      "Kurulum planı, ekipmanların sahaya gelişinden prova saatine kadar net bir zaman çizelgesi ister. Provalarda sunum akışı, ışık senaryosu ve sahne geçişleri test edilir. Etkinlik günü; kayıt, sahne yönetimi ve back office koordinasyonu eş zamanlı yürütülür. Profesyonel kurumsal organizasyon firması, bu adımları tek elden yöneterek riski azaltır.",
+    checklist: ["Kurulum zaman planı", "Prova ve teknik testler", "Gün akışı"],
+  },
+  {
+    title: "Söküm & raporlama",
+    description:
+      "Etkinlik bittiğinde söküm ve iade süreci planlı yürütülmelidir. Tüm ekipman kontrol edilerek hasar raporu ve teslim tutanakları hazırlanır. Katılımcı geri bildirimleri, operasyonel raporlarla birlikte değerlendirilir. Bu analiz, bir sonraki kurumsal organizasyon için iyileştirme alanlarını netleştirir.",
+    checklist: [
+      "Söküm ve teslim planı",
+      "Hasar ve envanter kontrolü",
+      "Geri bildirim raporu",
+    ],
+  },
+];
+
 /* ================== HERO ================== */
 function Hero() {
   return (
@@ -309,6 +360,139 @@ function Hero() {
             <div className="text-xl font-black text-white">81 İl</div>
             <div className="text-white/80 text-sm">Hizmet</div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Üst Bilgilendirme ================== */
+function IntroSection() {
+  return (
+    <section
+      className="py-16 bg-white"
+      aria-labelledby="kurumsal-intro-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div className="space-y-6">
+            <h2
+              id="kurumsal-intro-baslik"
+              className="text-3xl md:text-4xl font-black text-gray-900"
+            >
+              Kurumsal Organizasyon Nedir?
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Kurumsal organizasyon, bir markanın hedef kitlesiyle güvenli,
+              tutarlı ve etkileyici bir deneyim kurmasını sağlayan planlı
+              etkinlik sürecidir. Kurumsal organizasyon planı; içerik, mekan,
+              teknik altyapı ve operasyonu tek akışta birleştirir. Kurumsal
+              organizasyon yaklaşımı doğru kurgulandığında, marka mesajı net
+              görünür ve ekipler aynı hedefe odaklanır.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Sahneva olarak İstanbul merkezli ekiplerimizle Türkiye genelinde
+              kurumsal etkinlik organizasyonu yönetiyoruz; konferans, lansman ve
+              gala gibi formatlarda sahne, ses-ışık ve LED ekran çözümlerini
+              uçtan uca planlıyoruz. Bu sayede kurumsal organizasyon firması
+              arayan ekipler, tek noktadan koordinasyon ve ölçülebilir kalite
+              standartlarına ulaşır.
+            </p>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                Bu sayfada neler bulacaksınız?
+              </h3>
+              <ul className="space-y-2 text-gray-700">
+                {[
+                  "Kurumsal organizasyonun kapsamı ve temel kavramlar",
+                  "Planlama adımları ve teknik altyapı kontrol listesi",
+                  "Hizmet türleri ve kullanım senaryoları",
+                  "Fiyatı etkileyen faktörler ve operasyon ipuçları",
+                  "Sık sorulan sorular ve hızlı yanıtlar",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span
+                      className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-6 shadow-xl">
+            <h3 className="text-xl font-bold mb-4">Hızlı Özet</h3>
+            <ul className="space-y-3 text-white/90">
+              {[
+                "Planlama: hedef, format, bütçe ve zaman çizelgesi",
+                "Teknik altyapı: sahne, ses-ışık ve LED ekran entegrasyonu",
+                "Operasyon & saha yönetimi: kurulum, prova ve etkinlik akışı",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    className="mt-2 h-2 w-2 rounded-full bg-white"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Planlama Rehberi ================== */
+function PlanningGuide() {
+  return (
+    <section
+      className="py-20 bg-gradient-to-b from-white to-blue-50/40"
+      aria-labelledby="planlama-rehberi-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <h2
+            id="planlama-rehberi-baslik"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
+          >
+            Kurumsal Organizasyon Nasıl Planlanır?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Aşağıdaki adımlar, kurumsal organizasyon sürecini netleştirir ve
+            operasyonu ölçülebilir hale getirir. Her başlık, sahne kurulumu ve
+            etkinlik deneyimi için kritik kontrol noktalarını içerir.
+          </p>
+        </div>
+
+        <div className="grid gap-8">
+          {PLANNING_STEPS.map((step) => (
+            <article
+              key={step.title}
+              className="bg-white rounded-3xl border border-gray-100 shadow-lg p-6 md:p-8"
+            >
+              <h3 className="text-2xl font-black text-gray-900 mb-3">
+                {step.title}
+              </h3>
+              <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                {step.description}
+              </p>
+              <ul className="grid gap-2 sm:grid-cols-2 text-gray-700">
+                {step.checklist.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span
+                      className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -1103,20 +1287,28 @@ function Articles() {
 /* ================== SSS ================== */
 const FAQ_ITEMS = [
   {
-    q: "Kurumsal organizasyon fiyatları ne kadar?",
-    a: "Kurumsal organizasyon fiyatları etkinlik türüne, katılımcı sayısına, teknik ihtiyaçlara ve süreye göre değişiklik gösterir. Temel bir konferans organizasyonu 15.000 TL'den başlarken, kapsamlı lansman organizasyonları 50.000 TL ve üzerine çıkabilir. Detaylı teklif için iletişime geçebilirsiniz.",
+    q: "Kurumsal organizasyon nedir?",
+    a: "Kurumsal organizasyon; bir markanın hedef kitlesiyle buluştuğu konferans, lansman, gala veya bayi toplantısı gibi etkinliklerin planlama, teknik altyapı ve operasyonunun tek çatı altında yönetilmesidir. Amaç, tutarlı bir marka deneyimi ve ölçülebilir sonuçlar üretmektir.",
   },
   {
-    q: "Organizasyon planlaması ne kadar sürer?",
-    a: "Küçük ölçekli organizasyonlar için 2-4 hafta, orta ölçekli organizasyonlar için 4-8 hafta, büyük ölçekli organizasyonlar için 8-12 hafta planlama süresi öneriyoruz. Acil durumlarda express organizasyon hizmeti sunuyoruz.",
+    q: "Kurumsal etkinlik ile kurumsal organizasyon farkı nedir?",
+    a: "Kurumsal etkinlik, tek bir etkinliğin kendisini ifade ederken; kurumsal organizasyon, bu etkinliğin hedef belirleme, planlama, sahne-ses-ışık altyapısı ve saha yönetimi dahil tüm sürecini kapsar. Yani organizasyon, etkinliği başarıya taşıyan bütünsel süreçtir.",
   },
   {
-    q: "Hangi şehirlerde hizmet veriyorsunuz?",
-    a: "Türkiye'nin 81 ilinde profesyonel kurumsal organizasyon hizmeti sunuyoruz. İstanbul, Ankara, İzmir gibi büyükşehirlerde daha kısa planlama süreleri sunarken, tüm illerde standart hizmet kalitemizi koruyoruz.",
+    q: "Kurumsal organizasyon fiyatı neye göre değişir?",
+    a: "Fiyat; etkinlik formatı, katılımcı sayısı, mekan koşulları, sahne ve teknik ekipman ihtiyaçları ile süreye göre değişir. Görsel içerik yoğunluğu ve LED ekran boyutu gibi kalemler bütçeyi etkiler. Net teklif için ihtiyaç analizi yapılması gerekir.",
   },
   {
-    q: "Teknik ekipmanlarınız yedekli mi?",
-    a: "Evet, tüm kritik teknik ekipmanlarımız yedeklidir. Ses sistemleri, mikserler, mikrofonlar, LED ekran modülleri, jeneratörler ve aydınlatma sistemleri yedekli olarak kurulur. Ayrıca teknik ekip üyelerimiz de yedekli olarak görev yapar.",
+    q: "LED ekran / ses-ışık şart mı?",
+    a: "Etkinliğin formatına göre ihtiyaç değişir. Sunum ve lansmanlarda LED ekran ve doğru ses-ışık kurgusu katılımı artırır. Küçük ölçekli toplantılarda minimal çözümler yeterli olabilir; doğru seçim mekan ve içerik analizine bağlıdır.",
+  },
+  {
+    q: "Kaç gün önceden planlamak gerekir?",
+    a: "Orta ölçekli etkinlikler için 4-6 hafta, büyük ölçekli organizasyonlar için 8-12 hafta planlama önerilir. Mekan ve tedarikçi yoğunluğu dönemsel olarak değişebileceği için erken planlama avantaj sağlar.",
+  },
+  {
+    q: "Açık hava kurumsal etkinliklerinde nelere dikkat edilmeli?",
+    a: "Hava koşulları, rüzgar yükü, güç altyapısı ve güvenlik planı kritik başlıklardır. LED ekran ve sahne sistemlerinde su koruması, jeneratör kapasitesi ve alan güvenliği mutlaka değerlendirilmelidir.",
   },
 ];
 
@@ -1408,6 +1600,8 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <JsonLd />
       <Hero />
+      <IntroSection />
+      <PlanningGuide />
       <Services />
       <Gallery />
       <Technical />
