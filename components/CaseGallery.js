@@ -17,22 +17,13 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
   const scrollYRef = useRef(0);
   const dialogRef = useRef(null);
   const closeBtnRef = useRef(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Component mount kontrolü
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const openLightbox = useCallback(
     (index) => {
-      if (!isMounted) return;
-
       lastFocus.current = document.activeElement;
       setCurrentIndex(index);
       setOpen(true);
     },
-    [isMounted]
+    []
   );
 
   const closeLightbox = useCallback(() => {
@@ -67,7 +58,7 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
 
   // Lightbox açıkken body scroll kilidi + klavye kontrolleri
   useEffect(() => {
-    if (!open || !isMounted) return;
+    if (!open) return;
 
     const body = document.body;
     scrollYRef.current = window.scrollY;
@@ -132,26 +123,13 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
         setTimeout(() => lastFocus.current.focus(), 50);
       }
     };
-  }, [closeLightbox, navigate, open, isMounted, images.length]);
+  }, [closeLightbox, navigate, open, images.length]);
 
   // Görüntülenecek thumbnail'leri belirle
   const displayImages = useMemo(
     () => (visibleCount ? images.slice(0, visibleCount) : images),
     [images, visibleCount]
   );
-
-  if (!isMounted) {
-    return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {displayImages.map((_, i) => (
-          <div
-            key={i}
-            className="relative aspect-[16/9] overflow-hidden rounded-xl border bg-gray-200 animate-pulse"
-          />
-        ))}
-      </div>
-    );
-  }
 
   return (
     <div className="w-full">
@@ -212,7 +190,7 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
       )}
 
       {/* Lightbox/Modal */}
-      {open && isMounted && (
+      {open && (
         <div
           ref={dialogRef}
           role="dialog"
