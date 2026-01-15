@@ -56,10 +56,10 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        url: `${ORIGIN}/img/kurumsal/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Kurumsal organizasyon için konferans sahnesi ve etkinlik düzeni",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata = {
       "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri | Sahneva",
     description:
       "Kurumsal organizasyon nedir, nasıl planlanır? Konferans, lansman ve gala için sahne, ses-ışık ve LED ekran çözümleri.",
-    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
+    images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: {
     index: true,
