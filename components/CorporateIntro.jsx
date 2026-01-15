@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const CheckIcon = () => (
   <svg
@@ -58,7 +59,14 @@ export default function CorporateIntro() {
               sahne, LED ekran kiralama, ses-ışık ve truss yapıları
             </span>{" "}
             dahil tüm teknik altyapıyı tek ekipten yönetiyoruz. Teknik riskleri sizden
-            alıp, kusursuz görünen bir etkinlik akışı tasarlıyoruz.
+            alıp, kusursuz görünen bir etkinlik akışı tasarlıyoruz.{" "}
+            <Link
+              href="/kurumsal-organizasyon"
+              className="font-semibold text-cyan-200 hover:text-cyan-100 underline underline-offset-4"
+            >
+              Kurumsal organizasyon çözümleri
+            </Link>{" "}
+            sayfamızda süreci adım adım paylaşıyoruz.
           </p>
         </div>
 
