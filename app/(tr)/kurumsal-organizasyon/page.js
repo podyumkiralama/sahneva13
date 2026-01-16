@@ -42,7 +42,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title:
-    "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri | Sahneva",
+    "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri",
   description:
     "Kurumsal organizasyon nedir, nasıl planlanır? Lansman, konferans, gala ve bayi toplantıları için sahne, ses-ışık ve LED ekran dahil uçtan uca kurumsal organizasyon çözümleri.",
   alternates: { canonical: `${ORIGIN}/kurumsal-organizasyon` },
