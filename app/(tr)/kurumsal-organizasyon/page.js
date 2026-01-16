@@ -296,9 +296,7 @@ function Hero() {
           className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
         >
           Kurumsal{" "}
-          <span className="gradient-text gradient-text--safe-xl">
-            Organizasyon
-          </span>
+          <span className="text-blue-200">Organizasyon</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
@@ -514,9 +512,7 @@ function Services() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Kurumsal{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Hizmetlerimiz
-            </span>
+            <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Kurumsal organizasyon hizmetlerimiz: planlama, teknik tasarım,
@@ -639,9 +635,7 @@ function Gallery() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Kurumsal{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Projelerimiz
-            </span>
+            <span className="text-blue-700">Projelerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Gerçekleştirdiğimiz başarılı kurumsal organizasyonlardan örnekler
@@ -758,9 +752,7 @@ function Technical() {
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Teknik{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Altyapımız
-            </span>
+            <span className="text-blue-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             En son teknoloji ekipmanlar ve profesyonel teknik altyapı ile
@@ -830,6 +822,7 @@ function StatsBand() {
             <article
               key={stat.label}
               className="text-center group"
+              role="group"
               aria-labelledby={`kurum-stat-${index}-value`}
               aria-describedby={`kurum-stat-${index}-label`}
             >
@@ -875,9 +868,7 @@ function UseCases() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
           >
             Organizasyon{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Türleri
-            </span>
+            <span className="text-blue-200">Türleri</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Kurumsal organizasyon çözümlerimizin tercih edildiği başlıca
@@ -889,11 +880,15 @@ function UseCases() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          role="list"
+        >
           {USE_CASES.map((uc) => (
             <article
               key={uc.text}
               className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
+              role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
                 <div
@@ -947,9 +942,7 @@ function Articles() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Kurumsal{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Rehber
-            </span>
+            <span className="text-blue-700">Rehber</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Kurumsal organizasyon hakkında uzman görüşleri ve teknik bilgiler
@@ -1322,38 +1315,55 @@ function FAQ() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Sık Sorulan{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Sorular
-            </span>
+            <span className="text-blue-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Kurumsal organizasyon hakkında merak edilen sorular ve cevapları
           </p>
         </div>
 
-        <div className="space-y-6">
-          {FAQ_ITEMS.map((faq, index) => (
-            <details
-              key={index}
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
-            >
-              <summary
-                className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                role="button"
-              >
-                <span className="pr-4">{faq.q}</span>
-                <span
-                  aria-hidden="true"
-                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+        <div
+          className="space-y-6"
+          role="list"
+          aria-label="Sık sorulan sorular listesi"
+        >
+          {FAQ_ITEMS.map((faq, index) => {
+            const panelId = `faq-panel-${index}`;
+            const headingId = `faq-heading-${index}`;
+
+            return (
+              <article key={faq.q} role="listitem">
+                <details
+                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-blue-50 open:border-blue-200 [&_summary::-webkit-details-marker]:hidden"
+                  id={panelId}
+                  aria-labelledby={headingId}
                 >
-                  ⌄
-                </span>
-              </summary>
-              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
-                {faq.a}
-              </div>
-            </details>
-          ))}
+                  <summary
+                    id={headingId}
+                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="pr-4 flex-1">{faq.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
+                    >
+                      ⌄
+                    </span>
+                  </summary>
+
+                  <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
+                    <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
+                      <p className="pl-4 border-l-4 border-blue-500">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
+                </details>
+              </article>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
@@ -1417,9 +1427,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Hizmetlerimiz
-            </span>
+            <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Kurumsal organizasyonunuzu tamamlayacak diğer profesyonel etkinlik
