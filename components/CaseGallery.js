@@ -150,7 +150,7 @@ function CaseGallery({
         <div className="space-y-4" aria-label="Proje galerisi">
           <button
             type="button"
-            className="relative aspect-[16/9] overflow-hidden rounded-2xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
+            className="relative w-full aspect-[5/3] md:aspect-[16/9] overflow-hidden rounded-2xl border-2 border-gray-200 bg-gray-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
             onClick={() => openLightbox(activeIndex)}
             aria-label={`${
               mainImage?.alt || "Galerideki görsel"
