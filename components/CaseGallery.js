@@ -10,9 +10,15 @@ import React, {
   useState,
 } from "react";
 
-function CaseGallery({ images = [], visibleCount = 4 }) {
+function CaseGallery({
+  images = [],
+  visibleCount = 4,
+  layout = "grid",
+  priorityCount = 1,
+}) {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const lastFocus = useRef(null);
   const scrollYRef = useRef(0);
   const dialogRef = useRef(null);
@@ -29,6 +35,10 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
   const closeLightbox = useCallback(() => {
     setOpen(false);
   }, []);
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [images]);
 
   const navigate = useCallback(
     (direction) => {
@@ -131,43 +141,35 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
     [images, visibleCount]
   );
 
+  const mainImage = displayImages[activeIndex] || displayImages[0];
+
   return (
     <div className="w-full">
       {/* Thumbnail Grid */}
-      <div
-        className={`grid gap-3 ${
-          displayImages.length === 1
-            ? "grid-cols-1 max-w-md mx-auto"
-            : displayImages.length === 2
-            ? "grid-cols-2 max-w-2xl mx-auto"
-            : displayImages.length === 3
-            ? "grid-cols-3 max-w-3xl mx-auto"
-            : "grid-cols-2 md:grid-cols-4"
-        }`}
-        aria-label="Proje galerisi"
-      >
-        {displayImages.map((img, index) => (
+      {layout === "featured" ? (
+        <div className="space-y-4" aria-label="Proje galerisi">
           <button
-            key={`${img.src}-${index}`}
             type="button"
-            className="relative aspect-[16/9] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
-            onClick={() => openLightbox(index)}
+            className="relative w-full max-w-5xl mx-auto aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl border-2 border-gray-200 bg-gray-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
+            onClick={() => openLightbox(activeIndex)}
             aria-label={`${
-              img.alt || `Galerideki ${index + 1}. görsel`
+              mainImage?.alt || "Galerideki görsel"
             } - Görseli büyüt`}
           >
-            <Image
-              src={img.src}
-              alt={img.alt || `Galerideki ${index + 1}. görsel`}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              // Performans: sadece ilk görsel eager, diğerleri lazy
-              loading={index === 0 ? "eager" : "lazy"}
-              decoding="async"
-              quality={75}
-              unoptimized
-            />
+            {mainImage && (
+              <Image
+                key={mainImage?.src || "main-image"}
+                src={mainImage.src}
+                alt={mainImage.alt || "Galerideki görsel"}
+                fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="eager"
+                decoding="async"
+                quality={75}
+                unoptimized
+              />
+            )}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span
@@ -178,8 +180,88 @@ function CaseGallery({ images = [], visibleCount = 4 }) {
               </span>
             </div>
           </button>
-        ))}
-      </div>
+
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+            {displayImages.map((img, index) => (
+              <button
+                key={`${img.src}-${index}`}
+                type="button"
+                className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-white transition-all duration-300 focus-ring ${
+                  index === activeIndex
+                    ? "border-blue-500 shadow-md"
+                    : "border-gray-200 hover:border-blue-400 hover:shadow-lg"
+                }`}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setCurrentIndex(index);
+                }}
+                aria-label={`${
+                  img.alt || `Galerideki ${index + 1}. görsel`
+                } - Önizleme`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt || `Galerideki ${index + 1}. görsel`}
+                  fill
+                  sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
+                  className="object-cover"
+                  loading={index < priorityCount ? "eager" : "lazy"}
+                  decoding="async"
+                  quality={75}
+                  unoptimized
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div
+          className={`grid gap-3 ${
+            displayImages.length === 1
+              ? "grid-cols-1 max-w-md mx-auto"
+              : displayImages.length === 2
+              ? "grid-cols-2 max-w-2xl mx-auto"
+              : displayImages.length === 3
+              ? "grid-cols-3 max-w-3xl mx-auto"
+              : "grid-cols-2 md:grid-cols-4"
+          }`}
+          aria-label="Proje galerisi"
+        >
+          {displayImages.map((img, index) => (
+            <button
+              key={`${img.src}-${index}`}
+              type="button"
+              className="relative aspect-[16/9] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
+              onClick={() => openLightbox(index)}
+              aria-label={`${
+                img.alt || `Galerideki ${index + 1}. görsel`
+              } - Görseli büyüt`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt || `Galerideki ${index + 1}. görsel`}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                // Performans: sadece ilk görsel eager, diğerleri lazy
+                loading={index < priorityCount ? "eager" : "lazy"}
+                decoding="async"
+                quality={75}
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span
+                  className="bg-black/50 text-white rounded-full p-2 transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                  aria-hidden="true"
+                >
+                  🔍
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Gizli görseller için bilgi (screen reader için) */}
       {visibleCount && images.length > visibleCount && (
