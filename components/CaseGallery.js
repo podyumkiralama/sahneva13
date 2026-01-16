@@ -147,10 +147,7 @@ function CaseGallery({
     <div className="w-full">
       {/* Thumbnail Grid */}
       {layout === "featured" ? (
-        <div
-          className="grid gap-4 lg:grid-cols-[2.2fr_1fr]"
-          aria-label="Proje galerisi"
-        >
+        <div className="space-y-4" aria-label="Proje galerisi">
           <button
             type="button"
             className="relative aspect-[16/9] overflow-hidden rounded-2xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
@@ -161,6 +158,7 @@ function CaseGallery({
           >
             {mainImage && (
               <Image
+                key={mainImage?.src || "main-image"}
                 src={mainImage.src}
                 alt={mainImage.alt || "Galerideki görsel"}
                 fill
@@ -183,7 +181,7 @@ function CaseGallery({
             </div>
           </button>
 
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-1">
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
             {displayImages.map((img, index) => (
               <button
                 key={`${img.src}-${index}`}
@@ -193,7 +191,10 @@ function CaseGallery({
                     ? "border-blue-500 shadow-md"
                     : "border-gray-200 hover:border-blue-400 hover:shadow-lg"
                 }`}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setCurrentIndex(index);
+                }}
                 aria-label={`${
                   img.alt || `Galerideki ${index + 1}. görsel`
                 } - Önizleme`}
@@ -202,7 +203,7 @@ function CaseGallery({
                   src={img.src}
                   alt={img.alt || `Galerideki ${index + 1}. görsel`}
                   fill
-                  sizes="(max-width: 1024px) 33vw, 20vw"
+                  sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
                   className="object-cover"
                   loading={index < priorityCount ? "eager" : "lazy"}
                   decoding="async"
