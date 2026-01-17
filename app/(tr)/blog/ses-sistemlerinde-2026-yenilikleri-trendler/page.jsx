@@ -11,7 +11,7 @@ const MODIFIED_DATE = "2026-01-17T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva Teknik";
 
 export const metadata = {
-  title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array Trendleri",
+  title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array | Sahneva",
   description:
     "2026 ses teknolojilerini keşfedin: WMAS sistemler, AI tabanlı frekans yönetimi ve beam steering ile etkinlik prodüksiyonunda mühendislik dönemi.",
   alternates: {
@@ -58,6 +58,7 @@ function ArticleSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    url: BLOG_URL,
     headline:
       "Ses Sistemlerinde 2026 Yenilikleri: Kablosuz Mikrofon Teknolojileri ve Line Array Ses Sistemleri Trendleri",
     description:
@@ -75,8 +76,8 @@ function ArticleSchema() {
         url: "https://www.sahneva.com/logo.png",
       },
     },
-    datePublished: "2026-01-16",
-    dateModified: "2026-01-17",
+    datePublished: PUBLISH_DATE,
+    dateModified: MODIFIED_DATE,
   };
 
   return (
@@ -155,13 +156,13 @@ export default function BlogPostAudioTrends2026() {
       <ArticleSchema />
 
       <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-blue-900/25 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/img/blog/ses-sistemleri-2026-hero.webp"
             alt="2026 ses sistemleri teknolojileri için sahne ve miks alanı"
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-80"
             priority
             sizes="100vw"
           />
