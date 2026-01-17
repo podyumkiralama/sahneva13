@@ -1,0 +1,361 @@
+import Image from "next/image";
+import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
+const BLOG_PATH = "/blog/ses-sistemlerinde-2026-yenilikleri-trendler";
+const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
+
+const PUBLISH_DATE = "2026-01-16T00:00:00+03:00";
+const MODIFIED_DATE = "2026-01-17T00:00:00+03:00";
+const AUTHOR_NAME = "Sahneva Teknik";
+
+export const metadata = {
+  title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array Trendleri",
+  description:
+    "2026 ses teknolojilerini keşfedin: WMAS sistemler, AI tabanlı frekans yönetimi ve beam steering ile etkinlik prodüksiyonunda mühendislik dönemi.",
+  alternates: {
+    canonical: BLOG_URL,
+  },
+  image: "/img/blog/ses-sistemleri-2026-hero.webp",
+  openGraph: {
+    title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array Trendleri",
+    description:
+      "WMAS, AI tabanlı frekans yönetimi ve beam steering ile ses mühendisliğinde yeni dönem.",
+    url: BLOG_URL,
+    type: "article",
+    locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
+    images: [
+      {
+        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Organizasyon blog görseli",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ses Sistemlerinde 2026 Yenilikleri",
+    description: "WMAS ve line array trendleriyle 2026 ses teknolojileri.",
+    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+  },
+  keywords: [
+    "ses sistemleri kiralama",
+    "kablosuz mikrofon teknolojileri",
+    "line array ses sistemleri",
+    "WMAS",
+    "AI frekans yönetimi",
+    "beam steering",
+  ],
+  authors: [{ name: AUTHOR_NAME }],
+  publisher: "Sahneva Teknik",
+  date: PUBLISH_DATE,
+};
+
+function ArticleSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline:
+      "Ses Sistemlerinde 2026 Yenilikleri: Kablosuz Mikrofon Teknolojileri ve Line Array Ses Sistemleri Trendleri",
+    description:
+      "2026 yılı etkinlik ses teknolojileri, WMAS, AI frekans yönetimi ve line array trendleri üzerine teknik inceleme.",
+    image: "https://www.sahneva.com/images/blog/ses-sistemleri-2026-hero.jpg",
+    author: {
+      "@type": "Organization",
+      name: "Sahneva Teknik",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Sahneva Teknik",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.sahneva.com/logo.png",
+      },
+    },
+    datePublished: "2026-01-16",
+    dateModified: "2026-01-17",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}
+
+const Breadcrumbs = () => (
+  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
+    <ol className="flex items-center space-x-2 flex-wrap">
+      <li>
+        <Link href="/" className="hover:text-blue-600 transition-colors">
+          Anasayfa
+        </Link>
+      </li>
+      <li aria-hidden="true" className="text-gray-500">
+        /
+      </li>
+      <li>
+        <Link href="/blog" className="hover:text-blue-600 transition-colors">
+          Blog
+        </Link>
+      </li>
+      <li aria-hidden="true" className="text-gray-500">
+        /
+      </li>
+      <li className="text-gray-900 font-medium truncate" aria-current="page">
+        Ses Sistemlerinde 2026 Yenilikleri
+      </li>
+    </ol>
+  </nav>
+);
+
+const TableOfContents = () => (
+  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
+    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">İçindekiler</h4>
+    <ul className="space-y-2 text-sm">
+      {[
+        { id: "kablosuz-mikrofon", label: "1. Kablosuz Mikrofon Teknolojileri" },
+        { id: "wmas", label: "1.1 WMAS Dönemi" },
+        { id: "ai-frekans", label: "1.2 AI Tabanlı Frekans Koordinasyonu" },
+        { id: "line-array", label: "2. Line Array Ses Sistemleri" },
+        { id: "network-kontrol", label: "2.1 Network Kontrollü Mimari" },
+        { id: "oda-kalibrasyonu", label: "2.2 Akıllı Oda Kalibrasyonu" },
+        { id: "neden-yatirim", label: "3. Neden 2026 Teknolojileri?" },
+      ].map((item) => (
+        <li key={item.id}>
+          <a
+            href={`#${item.id}`}
+            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export default function BlogPostAudioTrends2026() {
+  const breadcrumbItems = [
+    { name: "Ana Sayfa", url: `${SITE_URL}/` },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: "Ses Sistemlerinde 2026 Yenilikleri", url: BLOG_URL },
+  ];
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
+      <ArticleSchema />
+
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-blue-900/25 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/blog/ses-sistemleri-2026-hero.webp"
+            alt="2026 ses sistemleri teknolojileri için sahne ve miks alanı"
+            fill
+            className="object-cover opacity-80"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            Teknik Prodüksiyon / Ses Sistemleri
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
+            Ses Sistemlerinde 2026 Yenilikleri: Kablosuz Mikrofon Teknolojileri ve Line Array Ses
+            Sistemleri Trendleri
+          </h1>
+          <p className="text-lg md:text-xl text-slate-200 mb-6">
+            Yayın Tarihi: 16 Ocak 2026 | Okuma Süresi: 9 dk | Kategori: Teknik Prodüksiyon / Ses
+            Sistemleri
+          </p>
+          <p className="text-base md:text-lg text-slate-200">
+            Etkinlik prodüksiyonunda ses, yalnızca duyulan bir unsur değil; katılımcının algısını,
+            odaklanma seviyesini ve etkinliğin genel prestijini belirleyen bir mühendislik
+            disiplinidir.
+          </p>
+        </div>
+      </header>
+
+      <main className="bg-white">
+        <section className="container mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-10">
+            <aside>
+              <TableOfContents />
+            </aside>
+            <article className="prose prose-lg max-w-none">
+              <Breadcrumbs />
+              <p>
+                2026 yılı itibarıyla profesyonel ses sistemleri, yüksek desibel odaklı yaklaşımları
+                geride bırakarak; spektral verimlilik, akıllı frekans yönetimi ve akustik simülasyon
+                temelli bir döneme girmiştir. Güncel projelerde artık “daha yüksek ses” değil, daha
+                kontrollü, daha temiz ve daha güvenli ses konuşulmaktadır.
+              </p>
+
+              <h2 id="kablosuz-mikrofon">
+                Kablosuz Mikrofon Teknolojileri 2026: Spektrum Savaşlarında Akıllı Çözümler
+              </h2>
+              <p>
+                RF (Radyo Frekansı) spektrumunun 5G altyapıları ve yoğun dijital yayın trafiği
+                nedeniyle daralması, geleneksel analog sistemlerin sınırlarını net biçimde ortaya
+                koymuştur. 2026 itibarıyla kablosuz mikrofon sistemlerinde temel yaklaşım, “kanal
+                açmak”tan çok spektrumu yönetmek üzerine kuruludur.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
+                <figure className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src="/img/blog/kablosuz-mikrofon-kiralama-2026-trendleri.webp"
+                    alt="2026 kablosuz mikrofon teknolojileri WMAS ve dijital frekans yönetimi"
+                    width={720}
+                    height={480}
+                    className="w-full h-full object-cover"
+                  />
+                </figure>
+                <figure className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm">
+                  <Image
+                    src="/img/blog/wmas-teknolojisi-frekans-yonetimi.webp"
+                    alt="Sahneva teknik ekip gerçek zamanlı RF spektrum analizi operasyonu"
+                    width={720}
+                    height={480}
+                    className="w-full h-full object-cover"
+                  />
+                </figure>
+              </div>
+
+              <h3 id="wmas">WMAS (Wireless Multichannel Audio Systems) Dönemi</h3>
+              <p>
+                Shure Axient Digital PSM ve Sennheiser Spectera gibi yeni nesil sistemler, tek bir
+                6 MHz veya 8 MHz frekans bloğu içerisinde 64 kanala kadar ses iletimi sağlayabilmektedir.
+                Bu yapı, bidirectional bodypack teknolojisi sayesinde tek bir ünite üzerinden hem
+                mikrofon sinyalinin gönderilmesine hem de kulak içi monitör (IEM) sinyalinin alınmasına
+                olanak tanır. Bu yaklaşım, RF yoğunluğunu yaklaşık %50 oranında azaltır.
+              </p>
+
+              <h3 id="ai-frekans">AI Tabanlı Frekans Koordinasyonu</h3>
+              <p>
+                Yeni nesil dijital alıcılar, ortamda oluşabilecek RF parazitlerini milisaniyelik
+                taramalarla analiz eder. Olası bir çakışma tespit edildiğinde sistem, “Interference
+                Detection” mekanizması sayesinde seste fark edilebilir bir kesinti yaşatmadan otomatik
+                olarak yedek frekansa geçiş yapar.
+              </p>
+
+              <h3>AES-256 Şifreleme ve Veri Güvenliği</h3>
+              <p>
+                Kurumsal etkinlikler ve gizliliğin ön planda olduğu organizasyonlarda dijital ses
+                güvenliği artık standarttır. 2026 model sistemlerde kullanılan AES-256 şifreleme, ses
+                sinyalinin dışarıdan dinlenmesini teknik olarak imkânsız hâle getirir.
+              </p>
+
+              <div className="not-prose bg-slate-50 border border-slate-200 rounded-xl p-5 my-8 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="text-xl" aria-hidden="true">
+                    ⚙️
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">
+                      Mühendislik Notu: “Görünmez Kablo” Güvenliği
+                    </p>
+                    <p className="text-slate-700 mt-2">
+                      Modern etkinliklerde kablosuz sistemler yalnızca donanım değil, aktif olarak
+                      yönetilen bir RF altyapısıdır. Gerçek zamanlı spektrum analizleri sayesinde, baz
+                      istasyonları veya diğer telsiz sistemlerinden kaynaklanabilecek kopma (dropout)
+                      riskleri milisaniyelik tepkilerle kontrol altında tutulur.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h2 id="line-array">Line Array Ses Sistemleri 2026: Akustik Simülasyon ve Nokta Atışı Kapsama</h2>
+              <p>
+                Büyük ölçekli organizasyonlarda homojen ses dağılımı sağlamak, yalnızca hoparlörleri
+                asmakla sınırlı değildir. 2026 itibarıyla line array sistemler; beam steering (hüzme
+                yönlendirme) ve yapay zeka destekli oda kalibrasyonu ile yönetilmektedir.
+              </p>
+
+              <figure className="not-prose rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm my-8">
+                <Image
+                  src="/img/blog/line-array-ses-sistemi-akustik-kalibrasyon.webp"
+                  alt="Profesyonel line array ses sistemi kurulumu ve AI destekli akustik simülasyon"
+                  width={960}
+                  height={540}
+                  className="w-full h-full object-cover"
+                />
+              </figure>
+
+              <h3 id="network-kontrol">Aktif Entegre Mimari ve Network Kontrol</h3>
+              <p>
+                L-Acoustics, d&b audiotechnik ve Meyer Sound gibi üreticilerin yeni nesil kabinleri,
+                amplifikatör ve DSP birimlerini kendi gövdelerinde barındırır. Milan ve Dante
+                protokolleri üzerinden çalışan bu yapı sayesinde her hoparlörün ısı, voltaj ve
+                performans verileri anlık olarak izlenebilir. Bu yaklaşım, kurulum süresini önemli
+                ölçüde kısaltırken sistem kararlılığını artırır.
+              </p>
+
+              <h3>Cardioid Subwoofer Mühendisliği</h3>
+              <p>
+                Sahne arkasındaki düşük frekans kirliliğini azaltmak amacıyla kullanılan cardioid ve
+                end-fire dizilimler, ses enerjisinin arka tarafa yayılmasını %90’a varan oranlarda
+                sınırlar. Böylece hem sahne üzerindeki performans konforu artar hem de izleyici alanında
+                daha temiz bir bas dağılımı elde edilir.
+              </p>
+
+              <h3 id="oda-kalibrasyonu">Akıllı Oda Kalibrasyonu (System Tuning)</h3>
+              <p>
+                Kurulum sonrası yapılan lazer ölçümler ve akustik analizler, mekanın fiziksel
+                özelliklerini dijital ortama aktarır. Sistem; EQ, gecikme (delay) ve faz ayarlarını bu
+                verilere göre optimize eder. Sonuç olarak ön sıradaki dinleyici ile en arka sıradaki
+                dinleyici aynı netlikte ve dengede sesi algılar.
+              </p>
+
+              <h2 id="neden-yatirim">Neden 2026 Teknolojilerine Yatırım Yapılmalı?</h2>
+              <ul>
+                <li>Yüksek güvenilirlik: Frekans çakışmaları ve kopmalar minimum seviyeye iner.</li>
+                <li>Hızlı ve modüler kurulum: Daha kısa sürede, daha kararlı sistemler.</li>
+                <li>Sürdürülebilirlik: Düşük enerji tüketimli Class-D amplifikatörler.</li>
+                <li>Hibrit uyumluluk: Canlı yayın ve fiziksel etkinliklerin aynı anda kusursuz yönetimi.</li>
+              </ul>
+
+              <p>
+                2026 yılı, ses sistemlerinde teknolojinin mühendislik refleksiyle birleştiği bir dönüm
+                noktasıdır. Doğru planlanan sistemler, yalnızca daha iyi ses değil; daha güvenli, daha
+                kontrollü ve daha profesyonel etkinlikler anlamına gelir. Sahneva Teknik bu yeni nesil
+                dijital standartları operasyonel yaklaşımının merkezine alarak, teknik risklerin
+                minimize edildiği yüksek prestijli etkinlik altyapılarına odaklanmaktadır.
+              </p>
+
+              <p>
+                Profesyonel <Link href="/ses-isik-sistemleri">ses sistemleri kiralama</Link> çözümleri
+                için ekibimizle iletişime geçebilir, mühendislik yaklaşımımızı yakından görmek için
+                <Link href="/hakkimizda"> teknik partner</Link> sayfamızı inceleyebilirsiniz.
+              </p>
+
+              <div className="not-prose mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+                <div>
+                  <p className="text-lg font-semibold text-blue-900">👉 Profesyonel ses ve ışık çözümleri</p>
+                  <p className="text-sm text-blue-800">Projeleriniz için uygun ses, ışık ve mühendislik desteğini planlayalım.</p>
+                </div>
+                <Link
+                  href="/ses-isik-sistemleri"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                >
+                  Teklif Alın
+                </Link>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
