@@ -43,9 +43,9 @@ export const metadata = {
 
 /* ================== YARDIMCI FONKSİYONLAR ================== */
 function safeDateString(date) {
-  if (!date) return new Date().toISOString();
+  if (!date) return null;
   const d = new Date(date);
-  return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
 function normalizePostMeta(slug, rawMeta = {}) {
@@ -111,7 +111,11 @@ async function getBlogPosts() {
       }
     }
 
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    posts.sort((a, b) => {
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
+    });
     return posts;
   } catch (error) {
     console.error("[Blog] Kritik okuma hatası:", error);
@@ -180,8 +184,8 @@ function BlogJsonLd({ posts, baseUrl }) {
           headline: post.title,
           description: post.description,
           image: absImg,
-          datePublished: post.date,
-          dateModified: post.date,
+          datePublished: post.date || undefined,
+          dateModified: post.date || undefined,
           inLanguage: "tr-TR",
           author: { "@id": editorId },
           publisher: { "@id": orgId },
@@ -210,11 +214,13 @@ function BlogJsonLd({ posts, baseUrl }) {
 
 /* ================== BLOG KART ================== */
 function BlogCard({ post, isFeatured = false }) {
-  const formattedDate = new Date(post.date).toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const formattedDate = post.date
+    ? new Date(post.date).toLocaleDateString("tr-TR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
 
   return (
     <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
@@ -240,10 +246,14 @@ function BlogCard({ post, isFeatured = false }) {
 
         <div className="flex flex-col flex-1 p-6">
           <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
-            <time dateTime={post.date} className="flex items-center gap-1">
-              📅 {formattedDate}
-            </time>
-            <span className="w-1 h-1 bg-gray-400 rounded-full" />
+            {formattedDate && (
+              <time dateTime={post.date} className="flex items-center gap-1">
+                📅 {formattedDate}
+              </time>
+            )}
+            {formattedDate && (
+              <span className="w-1 h-1 bg-gray-400 rounded-full" />
+            )}
             <span className="flex items-center gap-1">⏱️ {post.readTime}</span>
           </div>
 
