@@ -72,7 +72,6 @@ function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
   const ARTICLE_ID = `${BLOG_URL}#article`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
-  const BREADCRUMB_ID = `${BLOG_URL}#breadcrumb`;
   const LOGO_ID = `${SITE_URL}/#logo`; // global graph ile ayni format
 
   const jsonLd = {
@@ -87,30 +86,6 @@ function ArticleSchema() {
         height: 630,
       },
       {
-        "@type": "BreadcrumbList",
-        "@id": BREADCRUMB_ID,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Ana Sayfa",
-            item: SITE_URL,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Blog",
-            item: `${SITE_URL}/blog`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "Ses Sistemlerinde 2026 Yenilikleri",
-            item: BLOG_URL,
-          },
-        ],
-      },
-      {
         "@type": "WebPage",
         "@id": WEBPAGE_ID,
         url: BLOG_URL,
@@ -119,7 +94,6 @@ function ArticleSchema() {
         isPartOf: { "@id": WEBSITE_ID }, // global WebSite
         about: { "@id": ORGANIZATION_ID },
         primaryImageOfPage: { "@id": PRIMARY_IMAGE_ID },
-        breadcrumb: { "@id": BREADCRUMB_ID },
         inLanguage: "tr-TR",
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
