@@ -271,7 +271,8 @@ function Hero() {
           priority 
           className="object-cover"
           sizes={HERO.sizes}
-          quality={85}
+          quality={75}
+          fetchPriority="high"
          
           blurDataURL={BLUR_DATA_URL}
           loading="eager"
