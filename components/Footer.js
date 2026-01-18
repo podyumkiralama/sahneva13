@@ -396,6 +396,23 @@ export default function Footer({
                   info@sahneva.com
                 </a>
               </div>
+
+              {/* Çalışma saatleri */}
+              <div className="flex items-start gap-3">
+                <span
+                  className="
+                    flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl
+                    bg-slate-900/80 text-lg border border-white/10 shadow-sm
+                  "
+                  aria-hidden="true"
+                >
+                  🕒
+                </span>
+                <div>
+                  <span className="block text-white font-medium mb-0.5">Çalışma Saatleri</span>
+                  <span className="block text-gray-200">Pzt-Cts 09:00-23:00</span>
+                </div>
+              </div>
             </address>
 
             <nav className="pt-2 flex flex-col gap-2" aria-label="İşletme bağlantıları">
