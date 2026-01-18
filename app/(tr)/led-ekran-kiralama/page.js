@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import VideoEmbed from "@/components/VideoEmbed.client";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -457,6 +458,98 @@ const GALLERY_IMAGES = [
   },
 ];
 
+const VIDEO_GALLERY = [
+  {
+    id: "1R5Av0x5ouA",
+    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
+    description: "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "JNzGlNzNRuk",
+    title: "LED Ekran Kurulum Süreci",
+    description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "j1Tr5l8DVW8",
+    title: "LED Ekran & Sahne Uygulaması",
+    description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
+    uploadDate: "2026-01-15T00:00:00+03:00",
+  },
+  {
+    id: "HNDZ-wYVKLw",
+    title: "LED Ekran Kurulum Detayları",
+    description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "173gBurWSRQ",
+    title: "Etkinlik LED Ekran Örnekleri",
+    description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+];
+
+const VIDEO_REVIEWS = [
+  {
+    name: "Ece Şahin",
+    company: "Nova İletişim",
+    rating: 5,
+    text: "Kurulum günü ekibin hızı ve görüntü netliği çok iyiydi. LED ekran geçişleri kusursuz aktı.",
+    image: "/img/galeri/led-ekran-kiralama-1.webp",
+  },
+  {
+    name: "Kerem Uçar",
+    company: "Atlas Medya",
+    rating: 5,
+    text: "Açık hava etkinliğinde güneş altında bile parlaklık beklentimizin üzerindeydi.",
+    image: "/img/galeri/led-ekran-kiralama-2.webp",
+  },
+  {
+    name: "Büşra Demir",
+    company: "Pixel Event",
+    rating: 4.9,
+    text: "Kurulum planı dakikayla ilerledi, operatör desteği yayında hiç kesinti yaşatmadı.",
+    image: "/img/galeri/led-ekran-kiralama-3.webp",
+  },
+  {
+    name: "Mert Yalçın",
+    company: "Kreatif Ajans",
+    rating: 5,
+    text: "Sahne ve LED ekran senkronu mükemmeldi, müşterimiz görsel etkiye bayıldı.",
+    image: "/img/galeri/led-ekran-kiralama-4.webp",
+  },
+  {
+    name: "Ayşe Kara",
+    company: "Orion Fuarcılık",
+    rating: 5,
+    text: "Fuar standında video wall çözümü ile standımızın trafiği bariz arttı.",
+    image: "/img/galeri/led-ekran-kiralama-5.webp",
+  },
+  {
+    name: "Emre Güneş",
+    company: "Vega Organizasyon",
+    rating: 4.8,
+    text: "Kurulum sonrası testler çok detaylıydı. Güvenlik ve kablolama tertemizdi.",
+    image: "/img/galeri/led-ekran-kiralama-6.webp",
+  },
+  {
+    name: "Seda Arslan",
+    company: "Luna Etkinlik",
+    rating: 5,
+    text: "Kurum içi lansmanda metin okunabilirliği harikaydı, içerikleri hızlı optimize ettiler.",
+    image: "/img/galeri/led-ekran-kiralama-7.webp",
+  },
+  {
+    name: "Onur Koç",
+    company: "Pulse Prodüksiyon",
+    rating: 5,
+    text: "Saha ekibi çok koordineliydi. Kurulumdan yayına kadar kusursuz destek aldık.",
+    image: "/img/galeri/led-ekran-kiralama-8.webp",
+  },
+];
+
 function Gallery() {
   return (
     <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
@@ -472,6 +565,121 @@ function Gallery() {
 
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
+        </div>
+
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Video <span className="text-blue-700">Galerisi</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              LED ekran kurulumlarımızı ve sahne prodüksiyonlarımızı videolarla keşfedin
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {VIDEO_GALLERY.map((video) => (
+              <article
+                key={video.id}
+                className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
+                aria-labelledby={`video-${video.id}-title`}
+              >
+                <div className="relative w-full aspect-video bg-black">
+                  <VideoEmbed videoId={video.id} title={video.title} />
+                </div>
+                <div className="p-6">
+                  <h4
+                    id={`video-${video.id}-title`}
+                    className="text-xl font-bold text-gray-900 mb-3"
+                  >
+                    {video.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">{video.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Detaylı <span className="text-blue-700">Müşteri Yorumları</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              4.9/5 ortalama puan ve doğrulanmış projelerden gerçek geri bildirimler
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
+            <div className="grid gap-6 md:grid-cols-2">
+              {VIDEO_REVIEWS.map((review) => (
+                <article
+                  key={`${review.name}-${review.company}`}
+                  className="rounded-3xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-gray-200">
+                      <Image
+                        src={review.image}
+                        alt={`${review.company} etkinlik görseli`}
+                        fill
+                        sizes="56px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-gray-900">{review.name}</p>
+                      <p className="text-sm text-gray-500">{review.company}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <div className="flex text-yellow-500" aria-hidden="true">
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <span key={idx}>★</span>
+                      ))}
+                    </div>
+                    <span className="font-semibold text-gray-800">{review.rating.toFixed(1)}</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">{review.text}</p>
+                </article>
+              ))}
+            </div>
+
+            <aside className="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-lg">
+              <h4 className="text-2xl font-black text-gray-900 mb-4">Google Reviews</h4>
+              <p className="text-gray-600 mb-6">
+                Gerçek Google yorumlarımızı görüntüleyin veya kendi deneyiminizi paylaşın.
+              </p>
+              <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <iframe
+                  title="Sahneva Google Reviews"
+                  src="https://www.google.com/maps?q=Sahneva%20Organizasyon&output=embed"
+                  className="h-72 w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="mt-6 flex flex-col gap-3">
+                <a
+                  href="https://g.page/r/CZhkMzkNOdgnEBI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  Google'da Yorum Yaz
+                </a>
+                <a
+                  href="https://g.page/r/CZhkMzkNOdgnEBI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl border-2 border-blue-600 px-5 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition-colors"
+                >
+                  Google Yorumlarını Gör
+                </a>
+              </div>
+            </aside>
+          </div>
         </div>
 
         <div className="text-center mt-12">
@@ -1165,6 +1373,9 @@ function JsonLd() {
     mainEntity: {
       "@id": `${pageUrl}#service`,
     },
+    hasPart: VIDEO_GALLERY.map((video, index) => ({
+      "@id": `${pageUrl}#video-${index + 1}`,
+    })),
     isPartOf: {
       "@id": `${ORIGIN}#website`,
     },
@@ -1199,6 +1410,29 @@ function JsonLd() {
       name: "Türkiye",
     },
   };
+
+  /* ----------------------------------------
+    VIDEO OBJECTS
+  ---------------------------------------- */
+  const videoObjects = VIDEO_GALLERY.map((video, index) => ({
+    "@type": "VideoObject",
+    "@id": `${pageUrl}#video-${index + 1}`,
+    name: video.title,
+    description: video.description,
+    uploadDate: video.uploadDate ?? undefined,
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    inLanguage: "tr-TR",
+    isFamilyFriendly: true,
+    publisher: providerRef,
+    about: {
+      "@id": `${pageUrl}#service`,
+    },
+    mainEntityOfPage: {
+      "@id": `${pageUrl}#webpage`,
+    },
+  }));
 
   /* ----------------------------------------
     REVIEWS (Product'a bağlı — Google uyumlu)
@@ -1263,6 +1497,7 @@ function JsonLd() {
         productNode,         // 3) Product
         eventServiceSchema,  // 4) EventService
         ratingNode,          // 5) Rating
+        ...videoObjects,     // 6) Videos
         ...reviews,          // 6) Reviews
         faqSchema,           // 7) FAQ
     ],
