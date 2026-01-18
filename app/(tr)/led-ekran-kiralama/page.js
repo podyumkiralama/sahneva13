@@ -462,26 +462,31 @@ const VIDEO_GALLERY = [
     id: "1R5Av0x5ouA",
     title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
     description: "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
+    uploadDate: null,
   },
   {
     id: "JNzGlNzNRuk",
     title: "LED Ekran Kurulum Süreci",
     description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
+    uploadDate: null,
   },
   {
     id: "j1Tr5l8DVW8",
     title: "LED Ekran & Sahne Uygulaması",
     description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
+    uploadDate: null,
   },
   {
     id: "HNDZ-wYVKLw",
     title: "LED Ekran Kurulum Detayları",
     description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
+    uploadDate: null,
   },
   {
     id: "173gBurWSRQ",
     title: "Etkinlik LED Ekran Örnekleri",
     description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
+    uploadDate: null,
   },
 ];
 
@@ -1280,6 +1285,7 @@ function JsonLd() {
     "@id": `${pageUrl}#video-${index + 1}`,
     name: video.title,
     description: video.description,
+    uploadDate: video.uploadDate ?? undefined,
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
