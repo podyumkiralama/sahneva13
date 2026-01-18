@@ -457,6 +457,39 @@ const GALLERY_IMAGES = [
   },
 ];
 
+const VIDEO_GALLERY = [
+  {
+    id: "1R5Av0x5ouA",
+    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
+    description: "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
+    thumbnail: "https://i.ytimg.com/vi/1R5Av0x5ouA/hqdefault.jpg",
+  },
+  {
+    id: "JNzGlNzNRuk",
+    title: "LED Ekran Kurulum Süreci",
+    description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
+    thumbnail: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
+  },
+  {
+    id: "j1Tr5l8DVW8",
+    title: "LED Ekran & Sahne Uygulaması",
+    description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
+    thumbnail: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
+  },
+  {
+    id: "HNDZ-wYVKLw",
+    title: "LED Ekran Kurulum Detayları",
+    description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
+    thumbnail: "https://i.ytimg.com/vi/HNDZ-wYVKLw/hqdefault.jpg",
+  },
+  {
+    id: "173gBurWSRQ",
+    title: "Etkinlik LED Ekran Örnekleri",
+    description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
+    thumbnail: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
+  },
+];
+
 function Gallery() {
   return (
     <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
@@ -472,6 +505,56 @@ function Gallery() {
 
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
+        </div>
+
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Video <span className="text-blue-700">Galerisi</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              LED ekran kurulumlarımızı ve sahne prodüksiyonlarımızı videolarla keşfedin
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {VIDEO_GALLERY.map((video) => (
+              <article
+                key={video.id}
+                className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
+                aria-labelledby={`video-${video.id}-title`}
+              >
+                <div className="relative w-full overflow-hidden bg-gray-900">
+                  <img
+                    src={video.thumbnail}
+                    alt={`${video.title} kapak görseli`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="relative w-full aspect-video bg-black">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                    title={video.title}
+                    className="absolute inset-0 h-full w-full"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-6">
+                  <h4
+                    id={`video-${video.id}-title`}
+                    className="text-xl font-bold text-gray-900 mb-3"
+                  >
+                    {video.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">{video.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mt-12">
@@ -1165,6 +1248,9 @@ function JsonLd() {
     mainEntity: {
       "@id": `${pageUrl}#service`,
     },
+    hasPart: VIDEO_GALLERY.map((video, index) => ({
+      "@id": `${pageUrl}#video-${index + 1}`,
+    })),
     isPartOf: {
       "@id": `${ORIGIN}#website`,
     },
@@ -1199,6 +1285,28 @@ function JsonLd() {
       name: "Türkiye",
     },
   };
+
+  /* ----------------------------------------
+    VIDEO OBJECTS
+  ---------------------------------------- */
+  const videoObjects = VIDEO_GALLERY.map((video, index) => ({
+    "@type": "VideoObject",
+    "@id": `${pageUrl}#video-${index + 1}`,
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    inLanguage: "tr-TR",
+    isFamilyFriendly: true,
+    publisher: providerRef,
+    about: {
+      "@id": `${pageUrl}#service`,
+    },
+    mainEntityOfPage: {
+      "@id": `${pageUrl}#webpage`,
+    },
+  }));
 
   /* ----------------------------------------
     REVIEWS (Product'a bağlı — Google uyumlu)
@@ -1263,6 +1371,7 @@ function JsonLd() {
         productNode,         // 3) Product
         eventServiceSchema,  // 4) EventService
         ratingNode,          // 5) Rating
+        ...videoObjects,     // 6) Videos
         ...reviews,          // 6) Reviews
         faqSchema,           // 7) FAQ
     ],
