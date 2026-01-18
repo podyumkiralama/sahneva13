@@ -104,7 +104,7 @@ const securityHeaders = (() => {
     {
       key: "Permissions-Policy",
       value:
-        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), fullscreen=()",
+        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), fullscreen=(self)",
     },
     {
       key: "Strict-Transport-Security",
