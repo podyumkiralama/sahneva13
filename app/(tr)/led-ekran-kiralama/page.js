@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import VideoEmbed from "@/components/VideoEmbed.client";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -584,14 +585,7 @@ function Gallery() {
                 aria-labelledby={`video-${video.id}-title`}
               >
                 <div className="relative w-full aspect-video bg-black">
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                    title={video.title}
-                    className="absolute inset-0 h-full w-full"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
+                  <VideoEmbed videoId={video.id} title={video.title} />
                 </div>
                 <div className="p-6">
                   <h4
