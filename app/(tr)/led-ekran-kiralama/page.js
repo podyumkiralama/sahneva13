@@ -537,15 +537,6 @@ function Gallery() {
                     {video.title}
                   </h4>
                   <p className="text-gray-600 leading-relaxed">{video.description}</p>
-                  <a
-                    href={`https://www.youtube.com/watch?v=${video.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-5 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
-                  >
-                    <span aria-hidden="true">▶️</span>
-                    YouTube'da izle
-                  </a>
                 </div>
               </article>
             ))}
