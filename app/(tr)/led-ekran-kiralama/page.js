@@ -462,31 +462,26 @@ const VIDEO_GALLERY = [
     id: "1R5Av0x5ouA",
     title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
     description: "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
-    thumbnail: "https://i.ytimg.com/vi/1R5Av0x5ouA/hqdefault.jpg",
   },
   {
     id: "JNzGlNzNRuk",
     title: "LED Ekran Kurulum Süreci",
     description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
-    thumbnail: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
   },
   {
     id: "j1Tr5l8DVW8",
     title: "LED Ekran & Sahne Uygulaması",
     description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
-    thumbnail: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
   },
   {
     id: "HNDZ-wYVKLw",
     title: "LED Ekran Kurulum Detayları",
     description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
-    thumbnail: "https://i.ytimg.com/vi/HNDZ-wYVKLw/hqdefault.jpg",
   },
   {
     id: "173gBurWSRQ",
     title: "Etkinlik LED Ekran Örnekleri",
     description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
-    thumbnail: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
   },
 ];
 
@@ -524,15 +519,6 @@ function Gallery() {
                 className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
                 aria-labelledby={`video-${video.id}-title`}
               >
-                <div className="relative w-full overflow-hidden bg-gray-900">
-                  <img
-                    src={video.thumbnail}
-                    alt={`${video.title} kapak görseli`}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
                 <div className="relative w-full aspect-video bg-black">
                   <iframe
                     src={`https://www.youtube-nocookie.com/embed/${video.id}`}
