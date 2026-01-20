@@ -474,8 +474,8 @@ export default function BlogPostDome360Mapping() {
                   </p>
                   <p className="text-sm text-blue-800 mt-2">
                     Diğer seçenekler:{" "}
-                    <Link href="/sahne-kiralama" className="underline font-semibold">
-                      sahne kiralama seçeneklerimizi görün
+                    <Link href="/cadir-kiralama" className="underline font-semibold">
+                      Çadır kiralama seçeneklerimizi görün
                     </Link>
                   </p>
                 </div>
@@ -487,15 +487,7 @@ export default function BlogPostDome360Mapping() {
                   Teklif Alın
                 </Link>
               </div>
-
-              <p className="mt-10">
-                Profesyonel{" "}
-                <Link href="/cadir-kiralama">çadır kiralama</Link>{" "}
-                ve{" "}
-                <Link href="/ses-isik-sistemleri">ses &amp; ışık sistemleri</Link>{" "}
-                çözümleri için ekibimizle iletişime geçebilirsiniz.
-              </p>
-            </article>
+           </article>
           </div>
         </section>
       </main>
