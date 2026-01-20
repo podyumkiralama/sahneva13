@@ -475,13 +475,13 @@ export default function BlogPostDome360Mapping() {
                   <p className="text-sm text-blue-800 mt-2">
                     Diğer seçenekler:{" "}
                     <Link href="/sahne-kiralama" className="underline font-semibold">
-                      çadır kiralama seçeneklerimizi görün
+                      sahne kiralama seçeneklerimizi görün
                     </Link>
                   </p>
                 </div>
 
                 <Link
-                  href="/cadir-kiralama"
+                  href="/sahne-kiralama"
                   className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
                 >
                   Teklif Alın
@@ -490,7 +490,7 @@ export default function BlogPostDome360Mapping() {
 
               <p className="mt-10">
                 Profesyonel{" "}
-                <Link href="/iletisim">çadır kiralama</Link>{" "}
+                <Link href="/cadir-kiralama">çadır kiralama</Link>{" "}
                 ve{" "}
                 <Link href="/ses-isik-sistemleri">ses &amp; ışık sistemleri</Link>{" "}
                 çözümleri için ekibimizle iletişime geçebilirsiniz.
