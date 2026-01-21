@@ -44,6 +44,7 @@ export const metadata = {
     "Kurumsal Etkinliklerde Dome Çadır Devrimi: 360° Mapping | Sahneva",
   description:
     "Pnömatik/geodezik dome çadır + 360° video mapping ile kurumsal lansmanlarda yeni dönem. Batman Dicle Elektrik – Dicle Fest örneği, kurulum, akustik ve senkronizasyon detayları.",
+  image: HERO_IMAGE,
   alternates: {
     canonical: BLOG_URL,
   },
