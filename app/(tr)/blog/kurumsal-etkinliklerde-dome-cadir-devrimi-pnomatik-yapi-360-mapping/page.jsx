@@ -124,7 +124,7 @@ function ArticleSchema() {
         name: "Dome Çadır & 360° Mapping Örneği",
         description:
           "Dome çadır içinde 360° video mapping uygulamasına örnek video.",
-        uploadDate: "2026-01-20",
+        uploadDate: "2025-11-17T00:00:00+03:00",
         embedUrl: `https://www.youtube-nocookie.com/embed/${YT_ID}`,
         contentUrl: YT_URL,
         thumbnailUrl: `${SITE_URL}${HERO_IMAGE}`,
