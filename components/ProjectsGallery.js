@@ -326,9 +326,15 @@ export default function ProjectsGallery({
       if (!window.matchMedia("(min-width: 768px)").matches) return;
 
       const target = event.currentTarget;
-      const rect = target.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const clickRatio = clickX / rect.width;
+      const nativeEvent = event.nativeEvent;
+      const width = target.clientWidth;
+      if (!width) return;
+
+      const offsetX =
+        typeof nativeEvent?.offsetX === "number"
+          ? nativeEvent.offsetX
+          : event.clientX - target.getBoundingClientRect().left;
+      const clickRatio = offsetX / width;
 
       if (clickRatio <= 0.35) {
         prev();
