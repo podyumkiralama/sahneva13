@@ -37,6 +37,9 @@ const IMG_GECE = "/img/blog/dome-cadir-gece-ambiyans.webp"; // ⚠️ .web deği
 const YT_URL = "https://www.youtube.com/watch?v=JNzGlNzNRuk";
 const YT_ID = "JNzGlNzNRuk";
 const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?rel=0&modestbranding=1`;
+const YT_LASER_URL = "https://youtube.com/shorts/CVdYV5BkF3k";
+const YT_LASER_ID = "CVdYV5BkF3k";
+const YT_LASER_EMBED = `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}?rel=0&modestbranding=1`;
 
 /* ================== META ================== */
 export const metadata = {
@@ -92,6 +95,7 @@ function ArticleSchema() {
   const ARTICLE_ID = `${BLOG_URL}#article`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
   const VIDEO_ID = `${BLOG_URL}#video`;
+  const VIDEO_LASER_ID = `${BLOG_URL}#laser-video`;
   const LOGO_ID = `${SITE_URL}/#logo`; // global graph formatınla uyumlu
 
   const jsonLd = {
@@ -130,6 +134,17 @@ function ArticleSchema() {
         thumbnailUrl: `${SITE_URL}${HERO_IMAGE}`,
       },
       {
+        "@type": "VideoObject",
+        "@id": VIDEO_LASER_ID,
+        name: "Lazer Projeksiyon Mapping Örneği",
+        description:
+          "Lazer projeksiyon mapping içeriğinin akışı ve efektlerini gösteren kısa video.",
+        uploadDate: "2025-11-17T00:00:00+03:00",
+        embedUrl: `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}`,
+        contentUrl: YT_LASER_URL,
+        thumbnailUrl: `${SITE_URL}${HERO_IMAGE}`,
+      },
+      {
         "@type": "Article",
         "@id": ARTICLE_ID,
         isPartOf: { "@id": WEBPAGE_ID },
@@ -144,7 +159,7 @@ function ArticleSchema() {
         inLanguage: "tr-TR",
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
-        video: { "@id": VIDEO_ID },
+        video: [{ "@id": VIDEO_ID }, { "@id": VIDEO_LASER_ID }],
       },
       // Optional: globaldeki logo node'unu sadece @id ile işaretle (duplicate olmasın)
       {
@@ -223,14 +238,14 @@ const TableOfContents = () => (
   </div>
 );
 
-function YouTubeEmbed() {
+function YouTubeEmbed({ title, embedUrl }) {
   return (
     <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
       <div className="aspect-video w-full">
         <iframe
           className="h-full w-full"
-          src={YT_EMBED}
-          title="Dome Çadır & 360° Mapping Video"
+          src={embedUrl}
+          title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           loading="lazy"
@@ -399,13 +414,30 @@ export default function BlogPostDome360Mapping() {
               </p>
 
               <div className="not-prose my-8">
-                <YouTubeEmbed />
+                <YouTubeEmbed
+                  title="Dome Çadır & 360° Mapping Video"
+                  embedUrl={YT_EMBED}
+                />
                 <p className="mt-3 text-sm text-gray-600">
                   Video kaynağı:{" "}
                   <a href={YT_URL} target="_blank" rel="noopener noreferrer">
                     YouTube
                   </a>{" "}
                   (embed: youtube-nocookie).
+                </p>
+              </div>
+
+              <div className="not-prose my-8">
+                <YouTubeEmbed
+                  title="Lazer Projeksiyon Mapping Video"
+                  embedUrl={YT_LASER_EMBED}
+                />
+                <p className="mt-3 text-sm text-gray-600">
+                  Video kaynağı:{" "}
+                  <a href={YT_LASER_URL} target="_blank" rel="noopener noreferrer">
+                    YouTube Shorts
+                  </a>{" "}
+                  (lazer projeksiyon mapping içeriği).
                 </p>
               </div>
 
