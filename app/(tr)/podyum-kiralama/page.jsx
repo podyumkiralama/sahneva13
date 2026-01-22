@@ -130,7 +130,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     locale: "tr_TR",
     images: [{
-      url: `${ORIGIN}/img/og/sahneva-og.webp`,
+      url: `${ORIGIN}/img/podyum/hero.webp`,
       width: 1200,
       height: 630,
       alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",

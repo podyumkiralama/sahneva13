@@ -15,7 +15,7 @@ export const metadata = {
     url: "https://www.sahneva.com/en/about",
     images: [
       {
-        url: "https://www.sahneva.com/img/og-hakkimizda.jpg",
+        url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
         alt: "Sahneva Team - Professional Event Technologies",

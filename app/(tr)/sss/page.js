@@ -19,7 +19,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -31,7 +31,7 @@ export const metadata = {
     title: "Sık Sorulan Sorular | Sahneva Organizasyon",
     description:
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}/img/hero-bg.webp`],
   },
 };
 

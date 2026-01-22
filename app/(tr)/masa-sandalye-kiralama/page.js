@@ -56,7 +56,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        url: `${ORIGIN}/img/sandalye/3.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -68,7 +68,7 @@ export const metadata = {
     title: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
     description:
       "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim.",
-    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
+    images: [`${ORIGIN}/img/sandalye/3.webp`],
   },
   robots: {
     index: true,

@@ -18,7 +18,7 @@ export const metadata = {
     url: "https://www.sahneva.com/en/contact",
     images: [
       {
-        url: "/img/og-iletisim.jpg",
+        url: "/img/hero-bg.webp",
         width: 1200,
         height: 630,
         alt: "Sahneva Contact - Professional Event Solutions",

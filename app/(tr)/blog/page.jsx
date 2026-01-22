@@ -32,7 +32,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        url: `${ORIGIN}/img/blog/default.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon blog görseli",

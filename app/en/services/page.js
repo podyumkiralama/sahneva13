@@ -20,7 +20,7 @@ export const metadata = {
     url: "https://www.sahneva.com/en/services",
     images: [
       {
-        url: "https://www.sahneva.com/img/og-hizmetler.jpg",
+        url: "https://www.sahneva.com/img/hizmetler-hero.webp",
         width: 1200,
         height: 630,
         alt: "Sahneva Services - Professional Event Equipment",

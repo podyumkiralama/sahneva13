@@ -35,8 +35,8 @@ const PRICING_DISCLAIMER =
   "Fiyatlar; şehir, gün, metraj, kurulum ve ekipmana göre değişebilir. Net teklif için iletişime geçin.";
 
 const ogUrl =
-  getOgImageUrl?.({ path: "/img/og/sahneva-og.webp", absolute: true }) ??
-  `${BASE_SITE_URL}/img/og/sahneva-og.webp`;
+  getOgImageUrl?.({ path: "/img/hero-bg.webp", absolute: true }) ??
+  `${BASE_SITE_URL}/img/hero-bg.webp`;
 
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
@@ -415,7 +415,7 @@ export default function HomePage() {
         <CorporateEvents />
       </div>
 
-      <div className="bg-black py-0 m-0 w-full" style={BELOW_THE_FOLD_VISIBILITY_STYLE}>
+      <div className="bg-black py-0 m-0 w-full">
         <CorporateIntro />
       </div>
 

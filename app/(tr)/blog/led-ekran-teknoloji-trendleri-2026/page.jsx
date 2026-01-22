@@ -60,7 +60,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}${FEATURED_IMAGE}`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon blog görseli",
@@ -72,7 +72,7 @@ export const metadata = {
     title: "2026 LED Ekran Teknolojisi Trendleri",
     description:
       "COB LED, ince piksel aralığı ve HDR içerik ile sahne tasarımında yeni dönem.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}${FEATURED_IMAGE}`],
   },
   keywords: [
     "LED ekran trendleri 2026",
