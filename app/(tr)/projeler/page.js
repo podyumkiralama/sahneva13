@@ -18,7 +18,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -35,7 +35,7 @@ function ProjectsStructuredData() {
     description:
       "Sahneva Organizasyon tarafından gerçekleştirilen sahne, podyum, LED ekran ve ses-ışık projeleri.",
     url: `${SITE_URL}/projeler`,
-    image: `${SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${SITE_URL}/img/hero-bg.webp`,
     inLanguage: "tr-TR",
   };
 

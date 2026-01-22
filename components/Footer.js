@@ -451,6 +451,24 @@ export default function Footer({
         </section>
       </div>
 
+      <div className="relative z-10 container mx-auto px-6 pb-6 md:pb-8">
+        <div className="flex justify-center">
+          <Link
+            href="/sss"
+            className={`
+              inline-flex items-center gap-2 rounded-full border border-cyan-400/50
+              bg-cyan-500/10 px-5 py-2 text-sm font-semibold text-cyan-100
+              hover:border-cyan-300/70 hover:text-white transition-colors
+              ${FOCUS_RING_CLASS}
+            `}
+            aria-label="Sık Sorulan Sorular sayfasına git"
+          >
+            <span aria-hidden="true">❓</span>
+            Sık Sorulan Sorular
+          </Link>
+        </div>
+      </div>
+
       {/* Alt Telif Satırı */}
       <div className="relative border-t border-white/10 text-center py-5 bg-black/40 backdrop-blur-md">
         <div className="container mx-auto px-6 relative z-10">

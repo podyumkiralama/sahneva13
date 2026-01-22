@@ -7,7 +7,7 @@ const SITE =
 
 const PAGE_PATH = "/nasil-calisiyoruz";
 const PAGE_URL = `${SITE}${PAGE_PATH}`;
-const OG_IMAGE = `${SITE}/img/og/how-it-works-og.webp`;
+const OG_IMAGE = `${SITE}/img/nasil-calisiriz/hero-surec.webp`;
 
 export const metadata = {
   title: "Nasıl Çalışıyoruz? | Sahneva Organizasyon",

@@ -5,7 +5,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
 
 export const metadata = {
-  title: "İletişim | Sahneva - Profesyonel Etkinlik Çözümleri",
+  title: "İletişim | Sahneva Organizasyon - Profesyonel Etkinlik Çözümleri",
   description:
     "Sahne kiralama, LED ekran, ses-ışık sistemleri için hemen ulaşın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
   alternates: { canonical: PAGE_URL },
@@ -14,9 +14,10 @@ export const metadata = {
     description:
       "Sahne, LED ekran, ses-ışık sistemleri için hemen teklif alın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
     url: PAGE_URL,
+    siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${BASE_SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -46,7 +47,7 @@ function ContactStructuredData() {
     description:
       "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri iletişim bilgileri",
     url: PAGE_URL,
-    image: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${BASE_SITE_URL}/img/hero-bg.webp`,
     mainEntity: {
       "@id": ORGANIZATION_ID,
     },
