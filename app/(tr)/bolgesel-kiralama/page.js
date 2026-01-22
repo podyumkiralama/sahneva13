@@ -6,7 +6,7 @@ const SITE =
 
 const PAGE_PATH = "/bolgesel-kiralama";
 const PAGE_URL = `${SITE}${PAGE_PATH}`;
-const OG_IMAGE = `${SITE}/img/og/bolgesel-kiralama-og.webp`;
+const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 
 export const metadata = {
   title: "Bölgesel Kiralama",

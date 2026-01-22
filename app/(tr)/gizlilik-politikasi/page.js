@@ -28,7 +28,7 @@ export const metadata = {
     type: "article",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
     description:
       "Sahneva Organizasyon’un KVKK ve GDPR uyumlu gizlilik politikası, çerez kullanımı ve veri işleme süreçleri.",
     inLanguage: "tr-TR",
-    image: `${SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${SITE_URL}/img/hero-bg.webp`,
     isPartOf: {
       "@type": "WebSite",
       name: "Sahneva",

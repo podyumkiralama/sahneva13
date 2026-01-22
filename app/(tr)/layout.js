@@ -21,7 +21,7 @@ const content = LOCALE_CONTENT.tr;
 
 const EDITOR_ORGANIZATION_ID = `${BASE_SITE_URL}/#editor`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
-const OG_IMAGE_URL = `${BASE_SITE_URL}/img/og/sahneva-og.webp`;
+const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 
 /* ================== JSON-LD: GLOBAL GRAPH ================== */
@@ -100,6 +100,7 @@ const globalJsonLd = {
       "@id": WEBSITE_ID,
       url: BASE_SITE_URL,
       name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       description:
         "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
       inLanguage: "tr-TR",
@@ -112,10 +113,12 @@ const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
 
 /* ================== META ================== */
 export const metadata = {
+  metadataBase: new URL(BASE_SITE_URL),
   title: {
     default: HOME_PAGE_TITLE,
     template: `%s | Sahneva`,
   },
+  applicationName: "Sahneva Organizasyon",
   description: content.meta.description,
   openGraph: {
     title: HOME_PAGE_TITLE,

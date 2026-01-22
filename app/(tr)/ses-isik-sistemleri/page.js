@@ -45,7 +45,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     locale: "tr_TR",
     images: [{ 
-      url: `${ORIGIN}/img/og/sahneva-og.webp`, 
+      url: `${ORIGIN}/img/ses-isik/hero.webp`, 
       width: 1200, 
       height: 630, 
       alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli" 
@@ -55,7 +55,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
     description: "Line array, dijital mikser, kablosuz mikrofon, hareketli başlık, truss ve canlı operasyonla Türkiye genelinde ses & ışık kiralama.",
-    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
+    images: [`${ORIGIN}/img/ses-isik/hero.webp`],
   },
   robots: {
     index: true,

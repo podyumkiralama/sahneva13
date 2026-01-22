@@ -4,6 +4,7 @@ import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
+const HERO_IMAGE = "/img/projeler/kapali-alan-led/1.webp";
 
 export const metadata = {
   title:
@@ -19,7 +20,7 @@ export const metadata = {
       "24×6 m P2 LED, 24×8 m sahne/podyum, scaff ve truss ile büyük ölçekli kapalı alan kurulumu.",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -33,7 +34,7 @@ export const metadata = {
       "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva Organizasyon",
     description:
       "Kapalı alan sahne & LED uygulaması — 24×6 m P2 LED ve 24×8 m sahne/podyum.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}${HERO_IMAGE}`],
   },
 };
 
@@ -61,7 +62,7 @@ export default function CasePage() {
       "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu",
     description:
       "24×6 m P2 LED, 24×8 m sahne/podyum, scaff ve truss ile büyük ölçekli kapalı alan kurulumu.",
-    image: `${SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${SITE_URL}${HERO_IMAGE}`,
     author: { "@id": ORGANIZATION_ID },
     publisher: { "@id": ORGANIZATION_ID },
     mainEntityOfPage: {

@@ -24,7 +24,7 @@ const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri | Sahneva Organizasy
 const DESCRIPTION =
   "Kare, üçgen, circle ve kemer (gate) dahil her türlü truss kiralama ve kurulumu. LED ekran, ışık-ses rigging ve sahne portalı için nakliye + montaj + teknik ekip desteği.";
 
-const OG_IMAGE = `${ORIGIN}/img/og/sahneva-og.webp`;
+const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
 /* ================== İletişim ================== */
 /** !!! burayı ne yapalım: LED ekran sayfasındaki PHONE düzenine göre güncelledim. */

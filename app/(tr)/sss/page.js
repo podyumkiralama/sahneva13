@@ -19,7 +19,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -31,7 +31,7 @@ export const metadata = {
     title: "Sık Sorulan Sorular | Sahneva Organizasyon",
     description:
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}/img/hero-bg.webp`],
   },
 };
 
@@ -290,7 +290,11 @@ function CategoryChips() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8">
       {FAQ_CATEGORIES.map((c) => (
-        <a key={c.id} href={`#${c.id}`} className="faq-chip px-3 py-2 rounded-full text-sm">
+        <a
+          key={c.id}
+          href={`#${c.id}`}
+          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100 transition-colors"
+        >
           <span className="mr-1">{c.icon}</span>
           {c.title}
         </a>
@@ -301,9 +305,11 @@ function CategoryChips() {
 
 function FaqSection({ id, icon, title, items }) {
   return (
-    <section id={id} className="scroll-mt-28 mb-8 rounded-2xl faq-glass p-5 md:p-7">
-      
-        <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold mb-5">
+    <section
+      id={id}
+      className="scroll-mt-28 mb-8 rounded-2xl bg-slate-900/70 border border-slate-700/60 p-5 md:p-7 shadow-[0_20px_60px_rgba(15,23,42,0.45)]"
+    >
+        <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold mb-5 text-slate-100">
           <span className="text-lg md:text-xl">{icon}</span>
           {title}
         </h2>
@@ -313,14 +319,14 @@ function FaqSection({ id, icon, title, items }) {
         <div className="space-y-3">
           {items.map((it) => (
 
-              <details key={it.q} className="faq-card group rounded-xl bg-white p-4">
+              <details key={it.q} className="faq-card group rounded-xl bg-slate-950/70 border border-slate-700/70 p-4 text-slate-100">
                 <summary
-                  className="cursor-pointer select-none list-none font-semibold leading-7 flex items-center justify-between"
+                  className="cursor-pointer select-none list-none font-semibold leading-7 flex items-center justify-between text-slate-100"
                   role="button"
                 >
                   <span className="pr-3">{it.q}</span>
                   <svg
-                    className="ml-2 h-5 w-5 text-slate-500 transition-transform group-open:rotate-90"
+                    className="ml-2 h-5 w-5 text-slate-300 transition-transform group-open:rotate-90"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -329,7 +335,7 @@ function FaqSection({ id, icon, title, items }) {
                     <path d="M8 4l8 8-8 8" />
                   </svg>
                 </summary>
-                <div className="faq-anim mt-3 text-neutral/90 leading-relaxed">
+                <div className="faq-anim mt-3 text-slate-300 leading-relaxed">
                   {injectLinks(it.a)}
                 </div>
               </details>
@@ -376,9 +382,10 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container py-10 md:py-14">
+      <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
+        <div className="container py-10 md:py-14 text-slate-100">
         
-          <h1 className="text-3xl md:text-[34px] font-extrabold tracking-tight text-center mb-6">
+          <h1 className="text-3xl md:text-[34px] font-extrabold tracking-tight text-center mb-6 text-white">
             Sık Sorulan Sorular
           </h1>
         
@@ -397,7 +404,7 @@ export default function FaqPage() {
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="tel:+905453048671"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-white hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-400"
             >
               📞 Hemen Teklif Al
             </a>
@@ -405,13 +412,14 @@ export default function FaqPage() {
               href="https://wa.me/905453048671"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 font-semibold hover:bg-neutral-50"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100"
               aria-label="WhatsApp’tan Sor — yeni sekmede açılır"
             >
               💬 WhatsApp’tan Sor
             </a>
           </div>
         
+        </div>
       </div>
     </>
   );

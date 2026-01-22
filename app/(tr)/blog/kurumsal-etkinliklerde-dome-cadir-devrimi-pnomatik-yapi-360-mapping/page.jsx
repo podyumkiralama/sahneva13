@@ -27,7 +27,7 @@ const AUTHOR_NAME = "Sahneva Teknik";
 
 /* ================== ASSETS ================== */
 const HERO_IMAGE = "/img/blog/dome-cadir-360-mapping-hero.webp";
-const OG_IMAGE = "/img/og/sahneva-og.webp";
+const OG_IMAGE = HERO_IMAGE;
 
 const IMG_KURULUM = "/img/blog/dome-cadir-kurulum.webp";
 const IMG_IC_MEKAN = "/img/blog/dome-cadir-ic-mekan.webp";

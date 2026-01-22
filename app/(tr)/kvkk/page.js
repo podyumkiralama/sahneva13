@@ -18,7 +18,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -30,7 +30,7 @@ export const metadata = {
     title: "KVKK / Gizlilik | Sahneva Organizasyon",
     description:
       "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}/img/hero-bg.webp`],
   },
   robots: { index: true, follow: true },
 };
