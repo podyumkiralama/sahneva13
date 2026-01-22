@@ -368,6 +368,16 @@ export default function Faq({
                   onToggle={() => handleToggle(index)}
                 />
               ))}
+              <div className="pt-4">
+                <a
+                  href="/sss"
+                  className={`inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 hover:border-sky-300/70 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
+                  aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+                >
+                  <span aria-hidden="true">📚</span>
+                  Tüm soruları gör
+                </a>
+              </div>
             </div>
 
             <div className="w-full lg:max-w-sm xl:max-w-md mt-6 lg:mt-0">
