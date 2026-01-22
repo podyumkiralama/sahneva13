@@ -113,10 +113,12 @@ const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
 
 /* ================== META ================== */
 export const metadata = {
+  metadataBase: new URL(BASE_SITE_URL),
   title: {
     default: HOME_PAGE_TITLE,
     template: `%s | Sahneva Organizasyon`,
   },
+  applicationName: "Sahneva Organizasyon",
   description: content.meta.description,
   openGraph: {
     title: HOME_PAGE_TITLE,
