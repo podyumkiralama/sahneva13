@@ -415,7 +415,7 @@ export default function HomePage() {
         <CorporateEvents />
       </div>
 
-      <div className="bg-black py-0 m-0 w-full" style={BELOW_THE_FOLD_VISIBILITY_STYLE}>
+      <div className="bg-black py-0 m-0 w-full">
         <CorporateIntro />
       </div>
 
