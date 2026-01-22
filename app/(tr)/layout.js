@@ -100,6 +100,7 @@ const globalJsonLd = {
       "@id": WEBSITE_ID,
       url: BASE_SITE_URL,
       name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       description:
         "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
       inLanguage: "tr-TR",
@@ -114,7 +115,7 @@ const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
 export const metadata = {
   title: {
     default: HOME_PAGE_TITLE,
-    template: `%s | Sahneva`,
+    template: `%s | Sahneva Organizasyon`,
   },
   description: content.meta.description,
   openGraph: {
