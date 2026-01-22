@@ -1172,3 +1172,32 @@ function Articles() {
     </section>
   );
 }
+
+/* ================== Sayfa Bileşeni ================== */
+export default function Page() {
+  const baseUrl = ORIGIN;
+  const canonical = `${baseUrl}/cadir-kiralama`;
+  const breadcrumbItems = [
+    { name: "Ana Sayfa", url: `${baseUrl}/` },
+    { name: "Hizmetler", url: `${baseUrl}/hizmetler` },
+    { name: "Çadır Kiralama", url: canonical },
+  ];
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <Hero />
+      <TurnkeyInfrastructure />
+      <Services />
+      <VideoEvidence />
+      <Gallery />
+      <Technical />
+      <StandardsTable />
+      <ChallengesSolutions />
+      <InstallationProcess />
+      <StatsBand />
+      <UseCases />
+      <Articles />
+    </>
+  );
+}
