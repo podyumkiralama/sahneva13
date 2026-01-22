@@ -17,7 +17,7 @@ export const metadata = {
     url: "https://www.sahneva.com/hakkimizda",
     images: [
       {
-        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -42,7 +42,7 @@ function AboutStructuredData() {
     name: "Hakkımızda | Sahneva - Profesyonel Etkinlik Teknolojileri",
     description:
       "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri ve etkinlik prodüksiyon hizmetleri",
-    image: `${SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
     mainEntity: { "@id": ORGANIZATION_ID },
     inLanguage: "tr-TR",
   };

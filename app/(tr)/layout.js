@@ -21,7 +21,7 @@ const content = LOCALE_CONTENT.tr;
 
 const EDITOR_ORGANIZATION_ID = `${BASE_SITE_URL}/#editor`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
-const OG_IMAGE_URL = `${BASE_SITE_URL}/img/og/sahneva-og.webp`;
+const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 
 /* ================== JSON-LD: GLOBAL GRAPH ================== */

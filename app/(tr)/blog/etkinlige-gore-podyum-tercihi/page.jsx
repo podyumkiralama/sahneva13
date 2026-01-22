@@ -76,7 +76,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}${FEATURED_IMAGE}`,
         width: 1200,
         height: 630,
         alt: "Sahneva blog",
@@ -88,7 +88,7 @@ export const metadata = {
     title: "Etkinliğe Göre Podyum Tercihi | Sahneva Blog",
     description:
       "Etkinliğe göre podyum seçimi: yükseklik, yüzey, güvenlik ve kurulum ipuçları.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}${FEATURED_IMAGE}`],
   },
   keywords: [
     "podyum kiralama",

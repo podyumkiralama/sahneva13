@@ -10,6 +10,7 @@ const BLOG_URL = `${SITE_URL}/blog/kurumsal-etkinlik-yonetimi`;
 const PUBLISH_DATE = "2025-12-15T00:00:00+03:00";
 const MODIFIED_DATE = "2025-12-15T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
+const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-hero.webp";
 
 /* ================== META DATA ================== */
 export const metadata = {
@@ -19,7 +20,7 @@ export const metadata = {
   alternates: {
     canonical: BLOG_URL,
   },
-  image: "/img/blog/kurumsal-etkinlik-hero.webp",
+  image: HERO_IMAGE,
   openGraph: {
     title: "Kurumsal Etkinlik Yönetimi: Teknik Kiralama Rehberi | Sahneva Organizasyon",
     description:
@@ -30,7 +31,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${SITE_URL}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon blog görseli",
@@ -41,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Kurumsal Etkinlik Yönetimi Rehberi",
     description: "Kurumsal Etkinlikleriniz için teknik planlama ipuçları.",
-    images: [`${SITE_URL}/img/og/sahneva-og.webp`],
+    images: [`${SITE_URL}${HERO_IMAGE}`],
   },
   keywords: [
     "kurumsal etkinlik yönetimi",

@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "Sahneva Organizasyon",
     images: [
       {
-        url: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${BASE_SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -47,7 +47,7 @@ function ContactStructuredData() {
     description:
       "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri iletişim bilgileri",
     url: PAGE_URL,
-    image: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
+    image: `${BASE_SITE_URL}/img/hero-bg.webp`,
     mainEntity: {
       "@id": ORGANIZATION_ID,
     },

@@ -15,7 +15,7 @@ export const metadata = {
     url: `${BASE_SITE_URL}/hizmetler`,
     images: [
       {
-        url: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
+        url: `${BASE_SITE_URL}/img/hizmetler-hero.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli"
@@ -37,7 +37,7 @@ function ServicesStructuredData() {
     '@type': 'Service',
     'name': 'Sahneva Hizmetler',
     'description': 'Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri, podyum, çadır kiralama ve etkinlik prodüksiyon hizmetleri',
-    'image': `${SITE_URL}/img/og/sahneva-og.webp`,
+    'image': `${SITE_URL}/img/hizmetler-hero.webp`,
     'provider': { '@id': ORGANIZATION_ID },
     'areaServed': 'TR',
     'hasOfferCatalog': {

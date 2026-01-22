@@ -23,7 +23,7 @@ const AUTHOR_NAME = "Sahneva Teknik";
 
 /* ================== ASSETS ================== */
 const HERO_IMAGE = "/img/blog/ses-sistemleri-2026-hero.webp";
-const OG_IMAGE = "/img/og/sahneva-og.webp";
+const OG_IMAGE = HERO_IMAGE;
 
 /* ================== META ================== */
 export const metadata = {
