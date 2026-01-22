@@ -1001,7 +1001,7 @@ function Articles() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Ana Makale */}
+          {/* ================== Ana Makale ================== */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
             <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
@@ -1017,10 +1017,12 @@ function Articles() {
                     🎯 Pratik Çözümler
                   </span>
                 </div>
+
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                   Profesyonel Çadır Kiralama: Etkinlik Başarınız İçin Tam
                   Kapsamlı Çözümler
                 </h3>
+
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Kurumsal standartlar, hızlı kurulum süreçleri ve ölçülebilir
                   kalite yaklaşımı ile güvenli çözümler
@@ -1030,80 +1032,161 @@ function Articles() {
 
             <div className="p-8 md:p-10">
               <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
-  <div className="grid md:grid-cols-2 gap-8 mb-10">
-    <div className="space-y-6">
-      <h3>Profesyonel Çadır Kiralama Yaklaşımımız</h3>
-      <p>
-        <strong>Sahneva</strong>, çadır kiralama hizmetlerinde yalnızca fiziksel
-        kurulum değil; planlama, güvenlik ve operasyonel sürekliliği birlikte
-        ele alır. Her proje öncesinde alan keşfi yapılır, zemin yapısı analiz
-        edilir ve çadır sistemleri bu verilere göre projelendirilir.
-      </p>
-      <p>
-        Düğün, fuar, konser veya kurumsal organizasyon fark etmeksizin tüm
-        projelerde aynı kalite standartları uygulanır. Böylece etkinlik
-        süresince hem güvenlik hem de görsel bütünlük korunur.
-      </p>
-    </div>
+                <div className="grid md:grid-cols-2 gap-8 mb-10">
+                  <div className="space-y-6">
+                    <h4>Profesyonel Çadır Kiralama Yaklaşımımız</h4>
+                    <p>
+                      <strong>Sahneva</strong>, çadır kiralama hizmetlerinde yalnızca
+                      fiziksel kurulum değil; planlama, güvenlik ve operasyonel
+                      sürekliliği birlikte ele alır. Her proje öncesinde alan keşfi
+                      yapılır, zemin yapısı analiz edilir ve çadır sistemleri bu
+                      verilere göre projelendirilir.
+                    </p>
+                    <p>
+                      Düğün, fuar, konser veya kurumsal organizasyon fark etmeksizin tüm
+                      projelerde aynı kalite standartları uygulanır. Böylece etkinlik
+                      süresince hem güvenlik hem de görsel bütünlük korunur.
+                    </p>
+                  </div>
 
-    <div className="space-y-6">
-      <h3>Kullanılan Çadır Sistemleri</h3>
-      <ul>
-        <li>Pagoda çadır sistemleri (5×5 m / 6×6 m modüler yapı)</li>
-        <li>Şeffaf dome çadır çözümleri</li>
-        <li>Endüstriyel ve geniş açıklıklı çadır sistemleri</li>
-        <li>Fuar ve sergi alanlarına özel çadır uygulamaları</li>
-      </ul>
-      <p>
-        Tüm sistemler TS EN standartlarına uygun malzemelerle kurulmakta,
-        profesyonel ankraj ve sabitleme yöntemleriyle güvenli hâle
-        getirilmektedir.
-      </p>
-    </div>
-  </div>
+                  <div className="space-y-6">
+                    <h4>Kullanılan Çadır Sistemleri</h4>
+                    <ul>
+                      <li>Pagoda çadır sistemleri (5×5 m / 6×6 m modüler yapı)</li>
+                      <li>Şeffaf dome çadır çözümleri</li>
+                      <li>Endüstriyel ve geniş açıklıklı çadır sistemleri</li>
+                      <li>Fuar ve sergi alanlarına özel çadır uygulamaları</li>
+                    </ul>
+                    <p>
+                      Tüm sistemler TS EN standartlarına uygun malzemelerle kurulmakta,
+                      profesyonel ankraj ve sabitleme yöntemleriyle güvenli hâle
+                      getirilmektedir.
+                    </p>
+                  </div>
+                </div>
 
-  <h3>Kurulum Süreci Nasıl İlerler?</h3>
-  <p>
-    Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
-    çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman yerleşimi
-    belirlenir. Kurulum, uzman ekipler tarafından kısa sürede tamamlanır ve
-    etkinlik öncesi tüm kontroller yapılır.
-  </p>
+                <h4>Kurulum Süreci Nasıl İlerler?</h4>
+                <p>
+                  Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
+                  çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman
+                  yerleşimi belirlenir. Kurulum, uzman ekipler tarafından kısa sürede
+                  tamamlanır ve etkinlik öncesi tüm kontroller yapılır.
+                </p>
 
-  <ul>
-    <li>Saha keşfi ve ölçümleme</li>
-    <li>Teknik planlama ve yerleşim tasarımı</li>
-    <li>Çadır kurulumu ve sabitleme</li>
-    <li>Aydınlatma, elektrik ve iklimlendirme entegrasyonu</li>
-    <li>Etkinlik süresince teknik destek</li>
-  </ul>
+                <ul>
+                  <li>Saha keşfi ve ölçümleme</li>
+                  <li>Teknik planlama ve yerleşim tasarımı</li>
+                  <li>Çadır kurulumu ve sabitleme</li>
+                  <li>Aydınlatma, elektrik ve iklimlendirme entegrasyonu</li>
+                  <li>Etkinlik süresince teknik destek</li>
+                </ul>
 
-  <h3>Hangi Etkinlikler İçin Uygundur?</h3>
-  <p>
-    Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine uyarlanabilir.
-    Açık hava düğünlerinden büyük ölçekli fuarlara kadar her etkinlik için
-    ölçeklenebilir çözümler sunuyoruz.
-  </p>
+                <h4>Hangi Etkinlikler İçin Uygundur?</h4>
+                <p>
+                  Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine
+                  uyarlanabilir. Açık hava düğünlerinden büyük ölçekli fuarlara kadar her
+                  etkinlik için ölçeklenebilir çözümler sunuyoruz.
+                </p>
 
-  <ul>
-    <li>Düğün, nişan ve özel davet organizasyonları</li>
-    <li>Fuar, sergi ve lansman etkinlikleri</li>
-    <li>Konser, festival ve açık hava etkinlikleri</li>
-    <li>Belediye ve kurumsal organizasyonlar</li>
-    <li>Geçici depolama ve endüstriyel kullanım alanları</li>
-  </ul>
+                <ul>
+                  <li>Düğün, nişan ve özel davet organizasyonları</li>
+                  <li>Fuar, sergi ve lansman etkinlikleri</li>
+                  <li>Konser, festival ve açık hava etkinlikleri</li>
+                  <li>Belediye ve kurumsal organizasyonlar</li>
+                  <li>Geçici depolama ve endüstriyel kullanım alanları</li>
+                </ul>
 
-  <h3>Neden Sahneva?</h3>
-  <p>
-    Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
-    gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla,
-    her ölçekte organizasyon için güvenilir çözüm ortağıyız.
-  </p>
+                <h4>Neden Sahneva?</h4>
+                <p>
+                  Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
+                  gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla,
+                  her ölçekte organizasyon için güvenilir çözüm ortağıyız.
+                </p>
 
-  <p>
-    <strong>
-      8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
-    </strong>{" "}
-    ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
-  </p>
-</div>
+                <p>
+                  <strong>
+                    8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
+                  </strong>{" "}
+                  ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          {/* ================== Yan Kart 1 ================== */}
+          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
+            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
+                Teknik Entegrasyon ve Kurulum Süreçleri
+              </h3>
+              <p className="text-blue-100 mt-2 text-lg">
+                Güvenlik, sabitleme ve tamamlayıcı hizmetler
+              </p>
+            </header>
+
+            <div className="p-6 md:p-8">
+              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
+                <p>
+                  Çadır kurulum sürecimiz keşif ve planlama ile başlar. Alanın zemin türüne
+                  göre profesyonel sabitleme yöntemi belirlenir; güvenlik ekipleri ve
+                  teknik ihtiyaçlar (elektrik, aydınlatma, iklimlendirme) projeye entegre edilir.
+                </p>
+
+                <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
+                  <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-3">
+                    <span
+                      className="bg-purple-100 text-purple-600 rounded-xl p-2"
+                      aria-hidden="true"
+                    >
+                      📋
+                    </span>
+                    Standart Uygulama Başlıkları
+                  </h4>
+                  <ul className="text-gray-700 space-y-2 text-base">
+                    <li>Profesyonel ankraj & sabitleme</li>
+                    <li>Yağmur oluğu ve su tahliye planı</li>
+                    <li>Kablo gizleme ve güvenli hat düzeni</li>
+                    <li>Etkinlik boyunca teknik destek</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* ================== Yan Kart 2 ================== */}
+          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
+            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
+                Etkinlik Türlerine Özel Çözümler
+              </h3>
+              <p className="text-blue-100 mt-2 text-lg">
+                Düğün, fuar ve kurumsal organizasyonlara uygun planlama
+              </p>
+            </header>
+
+            <div className="p-6 md:p-8">
+              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
+                <p>
+                  Her etkinliğin ihtiyacı farklıdır. Düğün ve davetlerde estetik ve konfor
+                  odaklı düzen kurarken, fuar ve kurumsal etkinliklerde akış, giriş–çıkış
+                  ve markalama planını öne alırız.
+                </p>
+
+                <div className="bg-blue-50 rounded-2xl p-5 mt-6 border border-blue-200">
+                  <h4 className="font-bold text-gray-900 text-lg mb-3">
+                    Popüler senaryolar
+                  </h4>
+                  <ul className="text-gray-700 space-y-2 text-base">
+                    <li>Düğün & özel davet — ışık & dekor entegrasyonu</li>
+                    <li>Fuar & sergi — stand uyumu ve yönlendirme</li>
+                    <li>Kurumsal etkinlik — sahne/LED/teknik planlama</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
