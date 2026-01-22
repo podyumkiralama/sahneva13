@@ -534,19 +534,41 @@ function VideoEvidence() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <a
-            href="https://www.youtube.com/watch?v=tyb1lG9KtiA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus-ring"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">
-              ▶️
-            </span>
-            <span>Kurulum Videosunu İzleyin</span>
-          </a>
+        <div className="mt-12 max-w-5xl mx-auto">
+          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+            <div className="relative aspect-[16/9]">
+              <VideoEmbed
+                videoId={VIDEO_EMBED.videoId}
+                title={VIDEO_EMBED.title}
+                autoLoad
+              />
+            </div>
+            <div className="p-6 md:p-8">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+                {VIDEO_EMBED.title}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {VIDEO_EMBED.description}
+              </p>
+            </div>
+          </article>
         </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              name: VIDEO_EMBED.title,
+              description: VIDEO_EMBED.description,
+              thumbnailUrl: [`https://i.ytimg.com/vi/${VIDEO_EMBED.videoId}/hqdefault.jpg`],
+              embedUrl: `https://www.youtube-nocookie.com/embed/${VIDEO_EMBED.videoId}`,
+              contentUrl: `https://www.youtube.com/watch?v=${VIDEO_EMBED.videoId}`,
+            }),
+          }}
+        />
+
       </div>
     </section>
   );
