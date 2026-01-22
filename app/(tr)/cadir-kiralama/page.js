@@ -1,7 +1,8 @@
 // app/(tr)/cadir-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import CaseGallery from "@/components/CaseGallery";
+import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== Sabitler ================== */
@@ -20,24 +21,6 @@ const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
-
-/* ================== Dinamik galeri (CaseGallery) ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="flex justify-center items-center h-64"
-      role="status"
-      aria-label="Galeri yükleniyor"
-    >
-      <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
-        aria-hidden="true"
-      />
-      <span className="sr-only">Galeri yükleniyor...</span>
-    </div>
-  ),
-});
 
 /* ================== META ================== */
 export const metadata = {
@@ -105,14 +88,14 @@ const TURNKEY_FEATURES = [
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
 
+const VIDEO_EMBED = {
+  videoId: "tyb1lG9KtiA",
+  title: "Kurulum Videosu • 00:10",
+  description:
+    "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+};
+
 const VIDEO_PROOFS = [
-  {
-    src: "/img/cadir/7.webp",
-    alt: "Vinçle kaldırılan çelik konstrüksiyon kurulumu",
-    title: "Kurulum Videosu • 00:10",
-    description:
-      "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
-  },
   {
     src: "/img/cadir/8.webp",
     alt: "Dome çadır içinde 360 derece mapping anı",
@@ -510,6 +493,20 @@ function VideoEvidence() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+            <div className="relative aspect-[16/9]">
+              <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
+            </div>
+            <div className="p-6 md:p-8">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+                {VIDEO_EMBED.title}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {VIDEO_EMBED.description}
+              </p>
+            </div>
+          </article>
+
           {VIDEO_PROOFS.map((proof) => (
             <article
               key={proof.title}
@@ -1188,5 +1185,34 @@ function Articles() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ================== Sayfa Bileşeni ================== */
+export default function Page() {
+  const baseUrl = ORIGIN;
+  const canonical = `${baseUrl}/cadir-kiralama`;
+  const breadcrumbItems = [
+    { name: "Ana Sayfa", url: `${baseUrl}/` },
+    { name: "Hizmetler", url: `${baseUrl}/hizmetler` },
+    { name: "Çadır Kiralama", url: canonical },
+  ];
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <Hero />
+      <TurnkeyInfrastructure />
+      <Services />
+      <VideoEvidence />
+      <Gallery />
+      <Technical />
+      <StandardsTable />
+      <ChallengesSolutions />
+      <InstallationProcess />
+      <StatsBand />
+      <UseCases />
+      <Articles />
+    </>
   );
 }
