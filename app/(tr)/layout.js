@@ -120,6 +120,7 @@ export const metadata = {
   },
   applicationName: "Sahneva Organizasyon",
   description: content.meta.description,
+  themeColor: "#6d28d9",
   openGraph: {
     title: HOME_PAGE_TITLE,
     description: content.meta.description,
