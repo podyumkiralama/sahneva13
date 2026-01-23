@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-export default function VideoEmbed({ videoId, title }) {
-  const [isLoaded, setIsLoaded] = useState(false);
+export default function VideoEmbed({ videoId, title, autoLoad = false }) {
+  const [isLoaded, setIsLoaded] = useState(autoLoad);
   const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
   const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
 
