@@ -97,18 +97,18 @@ const VIDEO_EMBED = {
 
 const VIDEO_PROOFS = [
   {
-    src: "/img/cadir/9.webp",
-    alt: "Çadır iç düzeni - kurumsal etkinlik planı",
-    title: "Çadır İç Düzeni",
+    src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp",
+    alt: "Büyük ölçekli çadır kurulumu - etkinlik alanında profesyonel kurulum",
+    title: "Büyük Ölçekli Kurulum",
     description:
-      "Kurumsal etkinlikler için düzenli, güvenli ve konforlu iç yerleşimler.",
+      "Geniş katılımlı organizasyonlar için yüksek kapasiteli çadır kurulumu.",
   },
   {
-    src: "/img/cadir/10.webp",
-    alt: "Geniş açıklıklı çadır - etkinlik alanı düzeni",
-    title: "Geniş Açıklıklı Çadır",
+    src: "/img/cadir/sahneva-cadir-kurulumu.webp",
+    alt: "Sahneva çadır kurulumu - ekip çalışması ve hızlı montaj",
+    title: "Sahneva Kurulum Ekibi",
     description:
-      "Geniş açıklıklı çadırlarla ferah ve esnek etkinlik alanları.",
+      "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
   },
 ];
 
