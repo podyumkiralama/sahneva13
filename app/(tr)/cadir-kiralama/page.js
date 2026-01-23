@@ -4,6 +4,7 @@ import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -83,17 +84,25 @@ const HERO = {
 const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
   "Endüstriyel iklimlendirme (klima) ve hava yönetimi",
-  "5G/RF internet altyapısı ve kesintisiz bağlantı",
+  "Etkinlik alanına uygun internet altyapısı ve kesintisiz bağlantı",
   "Kesintisiz enerji sistemleri ve yedekleme planları",
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
 
-const VIDEO_EMBED = {
-  videoId: "tyb1lG9KtiA",
-  title: "Kurulum Videosu • 00:10",
-  description:
-    "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
-};
+const VIDEO_EMBEDS = [
+  {
+    videoId: "tyb1lG9KtiA",
+    title: "Kurulum Videosu • 00:10",
+    description:
+      "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+  },
+  {
+    videoId: "_9Q7v0ZL304",
+    title: "Teknofest Çadır İç Görünüm • Sahne & Teknik Kurulum",
+    description:
+      "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları.",
+  },
+];
 
 const VIDEO_PROOFS = [
   {
@@ -109,6 +118,30 @@ const VIDEO_PROOFS = [
     title: "Sahneva Kurulum Ekibi",
     description:
       "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
+  },
+];
+
+const PRICING_ITEMS = [
+  {
+    title: "5x5 Çadır",
+    price: "9.000 TL + nakliye",
+    description: "Etkinlik ve davetler için 25 m² pagoda çadır paketi.",
+  },
+  {
+    title: "4x4 Çadır",
+    price: "8.000 TL + nakliye",
+    description: "Orta ölçekli kurulumlar için 16 m² çadır çözümü.",
+  },
+  {
+    title: "3x3 Çadır",
+    price: "7.000 TL + nakliye",
+    description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
+  },
+  {
+    title: "10-40 m Ölçülü Çadırlar",
+    price: "430 TL / m²",
+    description:
+      "10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çözümler için metrekare fiyatı.",
   },
 ];
 
@@ -527,20 +560,76 @@ function VideoEvidence() {
           ))}
         </div>
 
-        <article className="mt-10 bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 max-w-4xl mx-auto">
-          <div className="relative aspect-[16/9]">
-            <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
-          </div>
-          <div className="p-6 md:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-              {VIDEO_EMBED.title}
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {VIDEO_EMBED.description}
-            </p>
-          </div>
-        </article>
+        <div className="mt-10 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {VIDEO_EMBEDS.map((video) => (
+            <article
+              key={video.videoId}
+              className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="relative aspect-[16/9]">
+                <VideoEmbed videoId={video.videoId} title={video.title} />
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+                  {video.title}
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {video.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
 
+      </div>
+    </section>
+  );
+}
+
+/* ================== Fiyatlandırma ================== */
+function PricingSection() {
+  return (
+    <section
+      className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
+      aria-labelledby="fiyatlar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2
+            id="fiyatlar-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+          >
+            2026 Çadır{" "}
+            <span className="gradient-text gradient-text--safe-xl">Kiralama</span>{" "}
+            Fiyatları
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Net ölçü bazlı fiyatlar ve büyük ölçekli çadır çözümleri için güncel
+            metrekare bedelleri.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {PRICING_ITEMS.map((item) => (
+            <article
+              key={item.title}
+              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
+            >
+              <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+              <p className="text-2xl font-black text-blue-700">{item.price}</p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
+            kurulum detayları proje bazında netleştirilir.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -1138,6 +1227,20 @@ function Articles() {
                   </div>
                 </div>
 
+                <h3>Organizasyon Çadır Kiralama Nedir?</h3>
+                <p>
+                  <strong>Organizasyon çadır kiralama</strong>, açık veya yarı açık alanlarda
+                  gerçekleştirilen etkinlikler için profesyonel, geçici ve güvenli mekân
+                  oluşturma çözümüdür. Sahneva, çadır sistemlerini yalnızca fiziksel bir yapı
+                  olarak değil; teknik altyapısı, güvenliği ve operasyonel planlaması yapılmış
+                  bir etkinlik alanı olarak ele alır.
+                </p>
+                <p>
+                  Kurumsal lansmanlar, festivaller, belediye organizasyonları ve özel etkinliklerde
+                  kullanılan <strong>etkinlik çadırı kiralama</strong> çözümleri; katılımcı konforu,
+                  hava koşullarına dayanıklılık ve marka algısını doğrudan etkiler.
+                </p>
+
                 <h4>Kurulum Süreci Nasıl İlerler?</h4>
                 <p>
                   Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
@@ -1154,6 +1257,19 @@ function Articles() {
                   <li>Etkinlik süresince teknik destek</li>
                 </ul>
 
+                <h3>Düğün ve Özel Davetler İçin Çadır Kiralama</h3>
+                <p>
+                  <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin
+                  birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle
+                  kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü
+                  bir alan oluşturur.
+                </p>
+                <p>
+                  Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama
+                  ve dekorasyon uyumluluğu ile birlikte planlayarak, etkinlik boyunca sorunsuz
+                  bir deneyim sunar.
+                </p>
+
                 <h4>Hangi Etkinlikler İçin Uygundur?</h4>
                 <p>
                   Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine
@@ -1169,6 +1285,20 @@ function Articles() {
                   <li>Geçici depolama ve endüstriyel kullanım alanları</li>
                 </ul>
 
+                <h3>Büyük Ölçekli ve Kurumsal Etkinliklerde Çadır Kiralama</h3>
+                <p>
+                  <strong>Büyük çadır kiralama</strong>, standart organizasyonlara kıyasla daha
+                  yüksek mühendislik, lojistik ve saha yönetimi gerektirir. Fuar alanları,
+                  festival sahaları ve kamu projelerinde kullanılan büyük açıklıklı çadır
+                  sistemleri; vinçli kurulum ve profesyonel ekip koordinasyonu ile hayata geçirilir.
+                </p>
+                <p>
+                  Sahneva, büyük ölçekli organizasyonlarda yalnızca çadır kurulumu değil;
+                  zamanlama, güvenlik ve teknik altyapı yönetimi ile anahtar teslim çözümler
+                  sunar. Bu yaklaşım, kurumsal etkinliklerin planlanan takvim içinde güvenle
+                  gerçekleşmesini sağlar.
+                </p>
+
                 <h4>Neden Sahneva?</h4>
                 <p>
                   Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
@@ -1181,6 +1311,18 @@ function Articles() {
                     8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
                   </strong>{" "}
                   ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
+                </p>
+
+                <h3>Etkinlik Çadırı Kiralama Neden Profesyonel Yapılmalıdır?</h3>
+                <p>
+                  Profesyonel <strong>etkinlik çadırı kiralama</strong> hizmeti; yalnızca çadırın
+                  kurulmasını değil, etkinlik süresince yaşanabilecek tüm teknik ve operasyonel
+                  ihtiyaçların önceden planlanmasını kapsar.
+                </p>
+                <p>
+                  Sahneva, Türkiye genelinde sunduğu çadır kiralama hizmetlerinde; deneyimli
+                  ekip, güçlü teknik altyapı ve saha yönetimi ile her ölçekte etkinlik için
+                  güvenilir çözüm ortağı olarak konumlanır.
                 </p>
               </div>
             </div>
@@ -1264,6 +1406,67 @@ function Articles() {
   );
 }
 
+/* ================== JSON-LD ================== */
+function JsonLd() {
+  const pageUrl = `${ORIGIN}/cadir-kiralama`;
+  const pageDescription = metadata?.description || "";
+  const webPageId = `${pageUrl}#webpage`;
+
+  const provider = { "@id": ORGANIZATION_ID };
+
+  const { service: serviceSchema, products } = buildServiceProductSchema({
+    slug: "/cadir-kiralama",
+    locale: "tr-TR",
+  });
+
+  const baseService = {
+    "@type": "Service",
+    name: "Çadır Kiralama",
+    description: pageDescription,
+    provider,
+    areaServed: { "@type": "Country", name: "Türkiye" },
+    inLanguage: "tr-TR",
+  };
+
+  const serviceNode = {
+    ...(serviceSchema || {}),
+    ...baseService,
+    "@type": "Service",
+    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
+    provider,
+    url: pageUrl,
+    mainEntityOfPage: { "@id": webPageId },
+  };
+
+  const serviceId = serviceNode["@id"];
+  const productNodes = products ?? [];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      serviceNode,
+      {
+        "@type": "WebPage",
+        "@id": webPageId,
+        name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+        description: pageDescription,
+        url: pageUrl,
+        inLanguage: "tr-TR",
+        mainEntity: { "@id": serviceId },
+      },
+      ...productNodes,
+    ],
+  };
+
+  return (
+    <script
+      id="ld-json-cadir"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 /* ================== Sayfa Bileşeni ================== */
 export default function Page() {
   const baseUrl = ORIGIN;
@@ -1277,9 +1480,11 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <JsonLd />
       <Hero />
       <TurnkeyInfrastructure />
       <Services />
+      <PricingSection />
       <VideoEvidence />
       <Gallery />
       <Technical />
@@ -1288,7 +1493,6 @@ export default function Page() {
       <InstallationProcess />
       <StatsBand />
       <UseCases />
-      <RelatedServices />
       <Articles />
       <RelatedServices />
     </>
