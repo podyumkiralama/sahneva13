@@ -601,6 +601,12 @@ function VideoEvidence() {
           ))}
         </div>
 
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
+            kurulum detayları proje bazında netleştirilir.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -1102,15 +1108,15 @@ function RelatedServices() {
   return (
     <section
       className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
-      aria-labelledby="tamamlayici-hizmetler-baslik"
+      aria-labelledby="ek-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="tamamlayici-hizmetler-baslik"
+            id="ek-hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Tamamlayıcı{" "}
+            Ek{" "}
             <span className="text-blue-700">Hizmetler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1122,7 +1128,7 @@ function RelatedServices() {
           />
         </div>
 
-        <nav aria-label="Tamamlayıcı hizmetler">
+        <nav aria-label="Ek hizmetler">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {services.map((service) => (
               <Link
