@@ -231,6 +231,12 @@ const FAQ_CATEGORIES = [
         a: "Müsaitliğe bağlı olarak süre uzatılabilir. Ek gün ücretleri sözleşmede belirtilir.",
       },
     ],
+    links: [
+      {
+        href: "/cadir-kiralama",
+        label: "Çadır kiralama detayları ve güncel fiyatlar",
+      },
+    ],
   },
   {
     id: "sozlesme",
@@ -307,7 +313,7 @@ function CategoryChips() {
   );
 }
 
-function FaqSection({ id, icon, title, items }) {
+function FaqSection({ id, icon, title, items, links }) {
   return (
     <section
       id={id}
@@ -346,6 +352,21 @@ function FaqSection({ id, icon, title, items }) {
             
           ))}
         </div>
+
+        {links?.length ? (
+          <div className="mt-5 flex flex-col gap-2 text-sm text-slate-300">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 font-semibold text-cyan-200 hover:text-cyan-100"
+              >
+                <span aria-hidden="true">🔗</span>
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+        ) : null}
       
     </section>
   );

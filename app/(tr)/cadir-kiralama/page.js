@@ -5,6 +5,7 @@ import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -118,6 +119,25 @@ const VIDEO_PROOFS = [
     title: "Sahneva Kurulum Ekibi",
     description:
       "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Çadır kiralama fiyatları ne kadar?",
+    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+  },
+  {
+    q: "Çadır kurulumu ne kadar sürer?",
+    a: "5×5 metre çadır kurulumu genellikle 2-3 saat, 6×6 metre çadır kurulumu ise 3-4 saat sürmektedir. Büyük ölçekli projelerde kurulum 1 gün önceden tamamlanır. Acil durumlarda express kurulum hizmeti sunuyoruz.",
+  },
+  {
+    q: "Çadırlar kötü hava koşullarına dayanıklı mı?",
+    a: "Evet, çadırlarımız 90 km/s rüzgar hızına dayanıklıdır. TS EN 13782 standartlarına uygun üretilmiş alüminyum iskelet ve 650 gr/m² UV dayanımlı branda kullanıyoruz. Yağmur oluğu sistemi ile su tahliyesi sorunsuz şekilde sağlanır.",
+  },
+  {
+    q: "Hangi şehirlerde hizmet veriyorsunuz?",
+    a: "Türkiye'nin 81 ilinde profesyonel çadır kiralama hizmeti sunuyoruz. İstanbul, Ankara, İzmir gibi büyükşehirlerde daha hızlı kurulum süreleri sağlarken, tüm illerde standart hizmet kalitemizi koruyoruz.",
   },
 ];
 
@@ -581,6 +601,12 @@ function VideoEvidence() {
           ))}
         </div>
 
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
+            kurulum detayları proje bazında netleştirilir.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -1406,6 +1432,71 @@ function Articles() {
   );
 }
 
+/* ================== SSS ================== */
+function FAQ() {
+  return (
+    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-16">
+          <h2
+            id="sss-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+          >
+            Sık Sorulan{" "}
+            <span className="gradient-text gradient-text--safe-xl">Sorular</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Çadır kiralama hakkında merak edilen sorular ve cevapları
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {FAQ_ITEMS.map((faq, index) => (
+            <details
+              key={index}
+              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+            >
+              <summary
+                className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
+                role="button"
+              >
+                <span className="pr-4">{faq.q}</span>
+                <span
+                  aria-hidden="true"
+                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                >
+                  ⌄
+                </span>
+              </summary>
+
+              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-gray-600 text-lg mb-6">
+            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
+          </p>
+          <Link
+            href="/sss"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-3">
+              📚
+            </span>
+            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== JSON-LD ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/cadir-kiralama`;
@@ -1440,6 +1531,7 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
+  const faqSchema = buildFaqSchema(FAQ_ITEMS);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1455,6 +1547,7 @@ function JsonLd() {
         mainEntity: { "@id": serviceId },
       },
       ...productNodes,
+      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 
@@ -1494,6 +1587,7 @@ export default function Page() {
       <StatsBand />
       <UseCases />
       <Articles />
+      <FAQ />
       <RelatedServices />
     </>
   );
