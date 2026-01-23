@@ -97,11 +97,18 @@ const VIDEO_EMBED = {
 
 const VIDEO_PROOFS = [
   {
-    src: "/img/cadir/8.webp",
-    alt: "Dome çadır içinde 360 derece mapping anı",
-    title: "Mapping Videosu • 01:13",
+    src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp",
+    alt: "Büyük ölçekli çadır kurulumu - etkinlik alanında profesyonel kurulum",
+    title: "Büyük Ölçekli Kurulum",
     description:
-      "Etkinlik alanınızı yaşayan bir dijital sahneye dönüştürüyoruz.",
+      "Geniş katılımlı organizasyonlar için yüksek kapasiteli çadır kurulumu.",
+  },
+  {
+    src: "/img/cadir/sahneva-cadir-kurulumu.webp",
+    alt: "Sahneva çadır kurulumu - ekip çalışması ve hızlı montaj",
+    title: "Sahneva Kurulum Ekibi",
+    description:
+      "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
   },
 ];
 
