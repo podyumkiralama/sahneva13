@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
+import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== Sabitler ================== */
@@ -498,21 +499,7 @@ function VideoEvidence() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
-            <div className="relative aspect-[16/9]">
-              <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
-            </div>
-            <div className="p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-                {VIDEO_EMBED.title}
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {VIDEO_EMBED.description}
-              </p>
-            </div>
-          </article>
-
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {VIDEO_PROOFS.map((proof) => (
             <article
               key={proof.title}
@@ -539,6 +526,20 @@ function VideoEvidence() {
             </article>
           ))}
         </div>
+
+        <article className="mt-10 bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 max-w-4xl mx-auto">
+          <div className="relative aspect-[16/9]">
+            <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
+          </div>
+          <div className="p-6 md:p-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+              {VIDEO_EMBED.title}
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {VIDEO_EMBED.description}
+            </p>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -629,12 +630,6 @@ function Technical() {
       features: ["5×5m / 6×6m pagoda", "Proje bazlı ölçülendirme", "10-20m geniş açıklık", "Yan yana birleştirme"],
     },
     {
-      category: "tamamlayici",
-      title: "Tamamlayıcı Hizmetler",
-      description: "Çadır kurulumunu tamamlayan profesyonel hizmetler",
-      features: ["Zemin kaplama sistemleri", "Aydınlatma çözümleri", "Isıtma-soğutma sistemleri", "Markalama ve dekorasyon"],
-    },
-    {
       category: "kurulum",
       title: "Kurulum Süreçleri",
       description: "Hızlı kurulum, söküm ve lojistik hizmetleri",
@@ -678,7 +673,6 @@ function Technical() {
                     {item.category === "malzeme" && "🏗️"}
                     {item.category === "guvenlik" && "🛡️"}
                     {item.category === "olcu" && "📐"}
-                    {item.category === "tamamlayici" && "🔧"}
                     {item.category === "kurulum" && "⚡"}
                     {item.category === "destek" && "📞"}
                   </span>
@@ -967,6 +961,95 @@ function UseCases() {
   );
 }
 
+/* ================== Tamamlayıcı Hizmetler ================== */
+function RelatedServices() {
+  const services = [
+    {
+      href: "/ses-isik-sistemleri",
+      title: "Ses & Işık Sistemleri",
+      icon: "🎵",
+      desc: "Çadır etkinlikleri için profesyonel ses ve ışık çözümleri",
+    },
+    {
+      href: "/sahne-kiralama",
+      title: "Sahne Kiralama",
+      icon: "🛠️",
+      desc: "Konser ve sunumlar için modüler sahne kurulumları",
+    },
+    {
+      href: "/masa-sandalye-kiralama",
+      title: "Masa & Sandalye",
+      icon: "🪑",
+      desc: "Konforlu oturma alanları ve tamamlayıcı mobilyalar",
+    },
+    {
+      href: "/led-ekran-kiralama",
+      title: "LED Ekran Kiralama",
+      icon: "📺",
+      desc: "Sunum ve sahne için yüksek çözünürlüklü ekranlar",
+    },
+  ];
+
+  return (
+    <section
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      aria-labelledby="tamamlayici-hizmetler-baslik"
+    >
+      <div className="container max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2
+            id="tamamlayici-hizmetler-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+          >
+            Tamamlayıcı{" "}
+            <span className="text-blue-700">Hizmetler</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Çadır kurulumunuzu uçtan uca tamamlayacak diğer profesyonel çözümler
+          </p>
+          <div
+            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+            aria-hidden="true"
+          />
+        </div>
+
+        <nav aria-label="Tamamlayıcı hizmetler">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {services.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
+                aria-label={`${service.title} - ${service.desc}`}
+              >
+                <div
+                  className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                  aria-hidden="true"
+                >
+                  {service.icon}
+                </div>
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
+                  {service.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        <div className="sr-only">
+          <p>
+            Bu bölümde çadır kiralama hizmetinizi tamamlayacak ek çözümler
+            listelenmiştir. Kartları seçerek ilgili sayfaya ilerleyebilirsiniz.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
@@ -1206,6 +1289,7 @@ export default function Page() {
       <StatsBand />
       <UseCases />
       <Articles />
+      <RelatedServices />
     </>
   );
 }
