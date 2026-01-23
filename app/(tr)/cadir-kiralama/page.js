@@ -120,6 +120,30 @@ const VIDEO_PROOFS = [
   },
 ];
 
+const PRICING_ITEMS = [
+  {
+    title: "5x5 Çadır",
+    price: "9.000 TL + nakliye",
+    description: "Etkinlik ve davetler için 25 m² pagoda çadır paketi.",
+  },
+  {
+    title: "4x4 Çadır",
+    price: "8.000 TL + nakliye",
+    description: "Orta ölçekli kurulumlar için 16 m² çadır çözümü.",
+  },
+  {
+    title: "3x3 Çadır",
+    price: "7.000 TL + nakliye",
+    description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
+  },
+  {
+    title: "10-40 m Ölçülü Çadırlar",
+    price: "430 TL / m²",
+    description:
+      "10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çözümler için metrekare fiyatı.",
+  },
+];
+
 const STANDARDS = [
   {
     feature: "Rüzgar Dayanımı",
@@ -556,6 +580,55 @@ function VideoEvidence() {
           ))}
         </div>
 
+      </div>
+    </section>
+  );
+}
+
+/* ================== Fiyatlandırma ================== */
+function PricingSection() {
+  return (
+    <section
+      className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
+      aria-labelledby="fiyatlar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2
+            id="fiyatlar-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+          >
+            2026 Çadır{" "}
+            <span className="gradient-text gradient-text--safe-xl">Kiralama</span>{" "}
+            Fiyatları
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Net ölçü bazlı fiyatlar ve büyük ölçekli çadır çözümleri için güncel
+            metrekare bedelleri.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {PRICING_ITEMS.map((item) => (
+            <article
+              key={item.title}
+              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
+            >
+              <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+              <p className="text-2xl font-black text-blue-700">{item.price}</p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Nakliye ve saha koşullarına göre kurulum detayları proje bazında
+            netleştirilir.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -1295,6 +1368,7 @@ export default function Page() {
       <Hero />
       <TurnkeyInfrastructure />
       <Services />
+      <PricingSection />
       <VideoEvidence />
       <Gallery />
       <Technical />
