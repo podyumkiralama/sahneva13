@@ -1288,6 +1288,7 @@ export default function Page() {
       <InstallationProcess />
       <StatsBand />
       <UseCases />
+      <RelatedServices />
       <Articles />
       <RelatedServices />
     </>
