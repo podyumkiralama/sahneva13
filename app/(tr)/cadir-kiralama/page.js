@@ -85,7 +85,7 @@ const HERO = {
 const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
   "Endüstriyel iklimlendirme (klima) ve hava yönetimi",
-  "Kesintisiz enerji sistemleri ve yedekleme planları",
+  "Proje bazlı internet ve enerji altyapısı çözümleri",
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
 
