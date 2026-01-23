@@ -92,14 +92,14 @@ const VIDEO_EMBEDS = [
   {
     videoId: "tyb1lG9KtiA",
     title: "Kurulum Videosu • 00:10",
-    uploadDate: "2025-11-17",
+    uploadDate: "2025-11-17T00:00:00+03:00",
     description:
       "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
   },
   {
     videoId: "_9Q7v0ZL304",
     title: "Teknofest Çadır İç Görünüm • Sahne & Teknik Kurulum",
-    uploadDate: "2025-11-17",
+    uploadDate: "2025-11-17T00:00:00+03:00",
     description:
       "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları.",
   },
