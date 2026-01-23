@@ -645,6 +645,16 @@ function PricingSection() {
               <p className="text-gray-600 text-lg leading-relaxed">
                 {item.description}
               </p>
+              <Link
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.title} için WhatsApp üzerinden teklif alın`}
+                className="mt-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus-ring"
+              >
+                <span aria-hidden="true">💬</span>
+                WhatsApp’tan Teklif Al
+              </Link>
             </article>
           ))}
         </div>
@@ -652,7 +662,9 @@ function PricingSection() {
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500">
             Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
-            kurulum detayları proje bazında netleştirilir.
+            kurulum detayları proje bazında netleştirilir. İstanbul içi nakliye
+            8.000–12.000 TL arası mesafeye göre değişmektedir; müşteri isterse
+            kendi nakliyesini getirebilir.
           </p>
         </div>
       </div>
