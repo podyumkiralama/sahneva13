@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 
 const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
@@ -11,6 +12,9 @@ const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
 
 export default function StickyVideoRailClient() {
   const [shouldRender, setShouldRender] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === "/cadir-kiralama") return null;
 
   useEffect(() => {
     if (typeof window === "undefined" || shouldRender) return;
