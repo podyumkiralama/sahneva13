@@ -37,7 +37,12 @@ const SERVICES = [
 const QUICK_LINKS = [
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/hizmetler", label: "Hizmetler" },
-  { href: "/kvkk", label: "KVKK / Gizlilik" },
+  {
+    href: "/kvkk",
+    label: "KVKK / Gizlilik",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
 ];
 
 const BUSINESS_LINKS = [
@@ -58,10 +63,14 @@ const FooterLink = ({
   href,
   children,
   hoverColorClass = "hover:text-blue-400 hover:border-blue-400",
+  target,
+  rel,
 }) => (
   <li>
     <Link
       href={href}
+      target={target}
+      rel={rel}
       className={`
         group flex items-center py-1.5 pl-2 border-l-2 border-transparent
         transition-all duration-200 rounded-sm text-gray-300
@@ -310,6 +319,8 @@ export default function Footer({
                 <FooterLink
                   key={link.href}
                   href={link.href}
+                  target={link.target}
+                  rel={link.rel}
                   hoverColorClass="hover:text-purple-300 hover:border-purple-400"
                 >
                   {link.label}

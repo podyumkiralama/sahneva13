@@ -2,6 +2,25 @@
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 
+function ensureYouTubePreconnect() {
+  if (typeof document === "undefined") return;
+  if (document.querySelector('link[data-yt-preconnect="1"]')) return;
+
+  const origins = [
+    "https://www.youtube-nocookie.com",
+    "https://i.ytimg.com",
+  ];
+
+  for (const href of origins) {
+    const preconnect = document.createElement("link");
+    preconnect.rel = "preconnect";
+    preconnect.href = href;
+    preconnect.crossOrigin = "";
+    preconnect.setAttribute("data-yt-preconnect", "1");
+    document.head.appendChild(preconnect);
+  }
+}
+
 function warmupYouTube() {
   if (typeof document === "undefined") return;
   if (document.querySelector('link[data-yt-warmup="1"]')) return;
@@ -36,6 +55,7 @@ export default function VideoEmbed({
   autoplayOnClick = false,
   muteOnAutoplay = true,
   warmupOnIdle = false, // istersen true yap
+  preconnectOnMount = true,
   className = "",
 }) {
   const thumbs = useMemo(() => {
@@ -67,6 +87,11 @@ export default function VideoEmbed({
     setThumbIndex(0);
     setThumbFailed(false);
   }, [videoId, autoLoad]);
+
+  useEffect(() => {
+    if (!preconnectOnMount) return;
+    ensureYouTubePreconnect();
+  }, [preconnectOnMount]);
 
   useEffect(() => {
     if (!warmupOnIdle) return;
