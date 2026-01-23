@@ -4,6 +4,7 @@ import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1405,6 +1406,67 @@ function Articles() {
   );
 }
 
+/* ================== JSON-LD ================== */
+function JsonLd() {
+  const pageUrl = `${ORIGIN}/cadir-kiralama`;
+  const pageDescription = metadata?.description || "";
+  const webPageId = `${pageUrl}#webpage`;
+
+  const provider = { "@id": ORGANIZATION_ID };
+
+  const { service: serviceSchema, products } = buildServiceProductSchema({
+    slug: "/cadir-kiralama",
+    locale: "tr-TR",
+  });
+
+  const baseService = {
+    "@type": "Service",
+    name: "Çadır Kiralama",
+    description: pageDescription,
+    provider,
+    areaServed: { "@type": "Country", name: "Türkiye" },
+    inLanguage: "tr-TR",
+  };
+
+  const serviceNode = {
+    ...(serviceSchema || {}),
+    ...baseService,
+    "@type": "Service",
+    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
+    provider,
+    url: pageUrl,
+    mainEntityOfPage: { "@id": webPageId },
+  };
+
+  const serviceId = serviceNode["@id"];
+  const productNodes = products ?? [];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      serviceNode,
+      {
+        "@type": "WebPage",
+        "@id": webPageId,
+        name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+        description: pageDescription,
+        url: pageUrl,
+        inLanguage: "tr-TR",
+        mainEntity: { "@id": serviceId },
+      },
+      ...productNodes,
+    ],
+  };
+
+  return (
+    <script
+      id="ld-json-cadir"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 /* ================== Sayfa Bileşeni ================== */
 export default function Page() {
   const baseUrl = ORIGIN;
@@ -1418,6 +1480,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <JsonLd />
       <Hero />
       <TurnkeyInfrastructure />
       <Services />
