@@ -87,6 +87,13 @@ const TURNKEY_FEATURES = [
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
 
+const VIDEO_EMBED = {
+  videoId: "tyb1lG9KtiA",
+  title: "Kurulum Videosu • 00:10",
+  description:
+    "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+};
+
 const VIDEO_PROOFS = [
   {
     src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp",
@@ -492,6 +499,20 @@ function VideoEvidence() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+            <div className="relative aspect-[16/9]">
+              <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
+            </div>
+            <div className="p-6 md:p-8">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+                {VIDEO_EMBED.title}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {VIDEO_EMBED.description}
+              </p>
+            </div>
+          </article>
+
           {VIDEO_PROOFS.map((proof) => (
             <article
               key={proof.title}
