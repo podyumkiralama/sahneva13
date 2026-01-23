@@ -5,7 +5,6 @@ import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -645,6 +644,16 @@ function PricingSection() {
               <p className="text-gray-600 text-lg leading-relaxed">
                 {item.description}
               </p>
+              <Link
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.title} için WhatsApp üzerinden teklif alın`}
+                className="mt-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus-ring"
+              >
+                <span aria-hidden="true">💬</span>
+                WhatsApp’tan Teklif Al
+              </Link>
             </article>
           ))}
         </div>
@@ -652,7 +661,9 @@ function PricingSection() {
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500">
             Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
-            kurulum detayları proje bazında netleştirilir.
+            kurulum detayları proje bazında netleştirilir. İstanbul içi nakliye
+            8.000–12.000 TL arası mesafeye göre değişmektedir; müşteri isterse
+            kendi nakliyesini getirebilir.
           </p>
         </div>
       </div>
@@ -1252,103 +1263,147 @@ function Articles() {
                   </div>
                 </div>
 
-                <h3>Organizasyon Çadır Kiralama Nedir?</h3>
-                <p>
-                  <strong>Organizasyon çadır kiralama</strong>, açık veya yarı açık alanlarda
-                  gerçekleştirilen etkinlikler için profesyonel, geçici ve güvenli mekân
-                  oluşturma çözümüdür. Sahneva, çadır sistemlerini yalnızca fiziksel bir yapı
-                  olarak değil; teknik altyapısı, güvenliği ve operasyonel planlaması yapılmış
-                  bir etkinlik alanı olarak ele alır.
-                </p>
-                <p>
-                  Kurumsal lansmanlar, festivaller, belediye organizasyonları ve özel etkinliklerde
-                  kullanılan <strong>etkinlik çadırı kiralama</strong> çözümleri; katılımcı konforu,
-                  hava koşullarına dayanıklılık ve marka algısını doğrudan etkiler.
-                </p>
+                <div className="space-y-4">
+                  <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
+                      <span>Organizasyon Çadır Kiralama Nedir?</span>
+                      <span
+                        aria-hidden="true"
+                        className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180"
+                      >
+                        ⌄
+                      </span>
+                    </summary>
+                    <div className="mt-4 space-y-4 text-gray-700">
+                      <p>
+                        <strong>Organizasyon çadır kiralama</strong>, açık veya yarı açık alanlarda
+                        gerçekleştirilen etkinlikler için profesyonel, geçici ve güvenli mekân
+                        oluşturma çözümüdür. Sahneva, çadır sistemlerini yalnızca fiziksel bir yapı
+                        olarak değil; teknik altyapısı, güvenliği ve operasyonel planlaması yapılmış
+                        bir etkinlik alanı olarak ele alır.
+                      </p>
+                      <p>
+                        Kurumsal lansmanlar, festivaller, belediye organizasyonları ve özel etkinliklerde
+                        kullanılan <strong>etkinlik çadırı kiralama</strong> çözümleri; katılımcı konforu,
+                        hava koşullarına dayanıklılık ve marka algısını doğrudan etkiler.
+                      </p>
+                      <h4>Kurulum Süreci Nasıl İlerler?</h4>
+                      <p>
+                        Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
+                        çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman
+                        yerleşimi belirlenir. Kurulum, uzman ekipler tarafından kısa sürede
+                        tamamlanır ve etkinlik öncesi tüm kontroller yapılır.
+                      </p>
+                      <ul>
+                        <li>Saha keşfi ve ölçümleme</li>
+                        <li>Teknik planlama ve yerleşim tasarımı</li>
+                        <li>Çadır kurulumu ve sabitleme</li>
+                        <li>Aydınlatma, elektrik ve iklimlendirme entegrasyonu</li>
+                        <li>Etkinlik süresince teknik destek</li>
+                      </ul>
+                    </div>
+                  </details>
 
-                <h4>Kurulum Süreci Nasıl İlerler?</h4>
-                <p>
-                  Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
-                  çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman
-                  yerleşimi belirlenir. Kurulum, uzman ekipler tarafından kısa sürede
-                  tamamlanır ve etkinlik öncesi tüm kontroller yapılır.
-                </p>
+                  <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
+                      <span>Düğün ve Özel Davetler İçin Çadır Kiralama</span>
+                      <span
+                        aria-hidden="true"
+                        className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180"
+                      >
+                        ⌄
+                      </span>
+                    </summary>
+                    <div className="mt-4 space-y-4 text-gray-700">
+                      <p>
+                        <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin
+                        birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle
+                        kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü
+                        bir alan oluşturur.
+                      </p>
+                      <p>
+                        Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama
+                        ve dekorasyon uyumluluğu ile birlikte planlayarak, etkinlik boyunca sorunsuz
+                        bir deneyim sunar.
+                      </p>
+                      <h4>Hangi Etkinlikler İçin Uygundur?</h4>
+                      <p>
+                        Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine
+                        uyarlanabilir. Açık hava düğünlerinden büyük ölçekli fuarlara kadar her
+                        etkinlik için ölçeklenebilir çözümler sunuyoruz.
+                      </p>
+                      <ul>
+                        <li>Düğün, nişan ve özel davet organizasyonları</li>
+                        <li>Fuar, sergi ve lansman etkinlikleri</li>
+                        <li>Konser, festival ve açık hava etkinlikleri</li>
+                        <li>Belediye ve kurumsal organizasyonlar</li>
+                        <li>Geçici depolama ve endüstriyel kullanım alanları</li>
+                      </ul>
+                    </div>
+                  </details>
 
-                <ul>
-                  <li>Saha keşfi ve ölçümleme</li>
-                  <li>Teknik planlama ve yerleşim tasarımı</li>
-                  <li>Çadır kurulumu ve sabitleme</li>
-                  <li>Aydınlatma, elektrik ve iklimlendirme entegrasyonu</li>
-                  <li>Etkinlik süresince teknik destek</li>
-                </ul>
+                  <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
+                      <span>Büyük Ölçekli ve Kurumsal Etkinliklerde Çadır Kiralama</span>
+                      <span
+                        aria-hidden="true"
+                        className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180"
+                      >
+                        ⌄
+                      </span>
+                    </summary>
+                    <div className="mt-4 space-y-4 text-gray-700">
+                      <p>
+                        <strong>Büyük çadır kiralama</strong>, standart organizasyonlara kıyasla daha
+                        yüksek mühendislik, lojistik ve saha yönetimi gerektirir. Fuar alanları,
+                        festival sahaları ve kamu projelerinde kullanılan büyük açıklıklı çadır
+                        sistemleri; vinçli kurulum ve profesyonel ekip koordinasyonu ile hayata geçirilir.
+                      </p>
+                      <p>
+                        Sahneva, büyük ölçekli organizasyonlarda yalnızca çadır kurulumu değil;
+                        zamanlama, güvenlik ve teknik altyapı yönetimi ile anahtar teslim çözümler
+                        sunar. Bu yaklaşım, kurumsal etkinliklerin planlanan takvim içinde güvenle
+                        gerçekleşmesini sağlar.
+                      </p>
+                      <h4>Neden Sahneva?</h4>
+                      <p>
+                        Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
+                        gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla,
+                        her ölçekte organizasyon için güvenilir çözüm ortağıyız.
+                      </p>
+                      <p>
+                        <strong>
+                          8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
+                        </strong>{" "}
+                        ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
+                      </p>
+                    </div>
+                  </details>
 
-                <h3>Düğün ve Özel Davetler İçin Çadır Kiralama</h3>
-                <p>
-                  <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin
-                  birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle
-                  kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü
-                  bir alan oluşturur.
-                </p>
-                <p>
-                  Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama
-                  ve dekorasyon uyumluluğu ile birlikte planlayarak, etkinlik boyunca sorunsuz
-                  bir deneyim sunar.
-                </p>
-
-                <h4>Hangi Etkinlikler İçin Uygundur?</h4>
-                <p>
-                  Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine
-                  uyarlanabilir. Açık hava düğünlerinden büyük ölçekli fuarlara kadar her
-                  etkinlik için ölçeklenebilir çözümler sunuyoruz.
-                </p>
-
-                <ul>
-                  <li>Düğün, nişan ve özel davet organizasyonları</li>
-                  <li>Fuar, sergi ve lansman etkinlikleri</li>
-                  <li>Konser, festival ve açık hava etkinlikleri</li>
-                  <li>Belediye ve kurumsal organizasyonlar</li>
-                  <li>Geçici depolama ve endüstriyel kullanım alanları</li>
-                </ul>
-
-                <h3>Büyük Ölçekli ve Kurumsal Etkinliklerde Çadır Kiralama</h3>
-                <p>
-                  <strong>Büyük çadır kiralama</strong>, standart organizasyonlara kıyasla daha
-                  yüksek mühendislik, lojistik ve saha yönetimi gerektirir. Fuar alanları,
-                  festival sahaları ve kamu projelerinde kullanılan büyük açıklıklı çadır
-                  sistemleri; vinçli kurulum ve profesyonel ekip koordinasyonu ile hayata geçirilir.
-                </p>
-                <p>
-                  Sahneva, büyük ölçekli organizasyonlarda yalnızca çadır kurulumu değil;
-                  zamanlama, güvenlik ve teknik altyapı yönetimi ile anahtar teslim çözümler
-                  sunar. Bu yaklaşım, kurumsal etkinliklerin planlanan takvim içinde güvenle
-                  gerçekleşmesini sağlar.
-                </p>
-
-                <h4>Neden Sahneva?</h4>
-                <p>
-                  Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
-                  gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla,
-                  her ölçekte organizasyon için güvenilir çözüm ortağıyız.
-                </p>
-
-                <p>
-                  <strong>
-                    8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
-                  </strong>{" "}
-                  ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
-                </p>
-
-                <h3>Etkinlik Çadırı Kiralama Neden Profesyonel Yapılmalıdır?</h3>
-                <p>
-                  Profesyonel <strong>etkinlik çadırı kiralama</strong> hizmeti; yalnızca çadırın
-                  kurulmasını değil, etkinlik süresince yaşanabilecek tüm teknik ve operasyonel
-                  ihtiyaçların önceden planlanmasını kapsar.
-                </p>
-                <p>
-                  Sahneva, Türkiye genelinde sunduğu çadır kiralama hizmetlerinde; deneyimli
-                  ekip, güçlü teknik altyapı ve saha yönetimi ile her ölçekte etkinlik için
-                  güvenilir çözüm ortağı olarak konumlanır.
-                </p>
+                  <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
+                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
+                      <span>Etkinlik Çadırı Kiralama Neden Profesyonel Yapılmalıdır?</span>
+                      <span
+                        aria-hidden="true"
+                        className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180"
+                      >
+                        ⌄
+                      </span>
+                    </summary>
+                    <div className="mt-4 space-y-4 text-gray-700">
+                      <p>
+                        Profesyonel <strong>etkinlik çadırı kiralama</strong> hizmeti; yalnızca çadırın
+                        kurulmasını değil, etkinlik süresince yaşanabilecek tüm teknik ve operasyonel
+                        ihtiyaçların önceden planlanmasını kapsar.
+                      </p>
+                      <p>
+                        Sahneva, Türkiye genelinde sunduğu çadır kiralama hizmetlerinde; deneyimli
+                        ekip, güçlü teknik altyapı ve saha yönetimi ile her ölçekte etkinlik için
+                        güvenilir çözüm ortağı olarak konumlanır.
+                      </p>
+                    </div>
+                  </details>
+                </div>
               </div>
             </div>
           </article>
@@ -1530,8 +1585,14 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS);
-
+  const videoNodes = VIDEO_EMBEDS.map((video) => ({
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
+  }));
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1545,8 +1606,23 @@ function JsonLd() {
         inLanguage: "tr-TR",
         mainEntity: { "@id": serviceId },
       },
+      {
+        "@type": "AggregateOffer",
+        lowPrice: "7000",
+        highPrice: "9000",
+        priceCurrency: "TRY",
+        availability: "https://schema.org/InStock",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: FAQ_ITEMS.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
       ...productNodes,
-      ...(faqSchema ? [faqSchema] : []),
+      ...videoNodes,
     ],
   };
 
