@@ -88,12 +88,20 @@ const TURNKEY_FEATURES = [
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
 
-const VIDEO_EMBED = {
-  videoId: "tyb1lG9KtiA",
-  title: "Kurulum Videosu • 00:10",
-  description:
-    "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
-};
+const VIDEO_EMBEDS = [
+  {
+    videoId: "tyb1lG9KtiA",
+    title: "Kurulum Videosu • 00:10",
+    description:
+      "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+  },
+  {
+    videoId: "_9Q7v0ZL304",
+    title: "Teknofest Çadır İç Görünüm • Sahne & Teknik Kurulum",
+    description:
+      "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları.",
+  },
+];
 
 const VIDEO_PROOFS = [
   {
@@ -527,19 +535,26 @@ function VideoEvidence() {
           ))}
         </div>
 
-        <article className="mt-10 bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 max-w-4xl mx-auto">
-          <div className="relative aspect-[16/9]">
-            <VideoEmbed videoId={VIDEO_EMBED.videoId} title={VIDEO_EMBED.title} />
-          </div>
-          <div className="p-6 md:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-              {VIDEO_EMBED.title}
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {VIDEO_EMBED.description}
-            </p>
-          </div>
-        </article>
+        <div className="mt-10 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {VIDEO_EMBEDS.map((video) => (
+            <article
+              key={video.videoId}
+              className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="relative aspect-[16/9]">
+                <VideoEmbed videoId={video.videoId} title={video.title} />
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+                  {video.title}
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {video.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
 
       </div>
     </section>
