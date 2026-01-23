@@ -169,16 +169,16 @@
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
   .gradient-text {
-    color: rgb(147 197 253); /* fallback */
+    color: #1d4ed8; /* fallback */
   }
 
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .gradient-text {
       background-image: linear-gradient(
         90deg,
-        rgba(96, 165, 250, 0.9) 0%,
-        rgba(167, 139, 250, 0.86) 52%,
-        rgba(56, 189, 248, 0.85) 100%
+        rgba(29, 78, 216, 0.98) 0%,
+        rgba(109, 40, 217, 0.98) 52%,
+        rgba(2, 132, 199, 0.98) 100%
       );
       background-clip: text;
       -webkit-background-clip: text;
@@ -193,7 +193,7 @@
   @media (min-width: 1280px) {
     .gradient-text--safe-xl {
       background-image: none !important;
-      color: #93c5fd !important;
+      color: #1d4ed8 !important;
       -webkit-text-fill-color: currentColor !important;
       text-shadow: none !important;
     }
