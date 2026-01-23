@@ -223,8 +223,18 @@ const FAQ_CATEGORIES = [
         a: "Evet. Modüler platform, halı kaplama ve rampalı erişim seçenekleri sunuyoruz.",
       },
       {
+        q: "2026 çadır kiralama fiyatları nedir?",
+        a: "2026 fiyatlarımız: 5x5 çadır 9.000 TL + nakliye, 4x4 çadır 8.000 TL + nakliye, 3x3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+      },
+      {
         q: "Kiralama süresi uzatılabilir mi?",
         a: "Müsaitliğe bağlı olarak süre uzatılabilir. Ek gün ücretleri sözleşmede belirtilir.",
+      },
+    ],
+    links: [
+      {
+        href: "/cadir-kiralama",
+        label: "Çadır kiralama detayları ve güncel fiyatlar",
       },
     ],
   },
@@ -303,7 +313,7 @@ function CategoryChips() {
   );
 }
 
-function FaqSection({ id, icon, title, items }) {
+function FaqSection({ id, icon, title, items, links }) {
   return (
     <section
       id={id}
@@ -342,6 +352,21 @@ function FaqSection({ id, icon, title, items }) {
             
           ))}
         </div>
+
+        {links?.length ? (
+          <div className="mt-5 flex flex-col gap-2 text-sm text-slate-300">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 font-semibold text-cyan-200 hover:text-cyan-100"
+              >
+                <span aria-hidden="true">🔗</span>
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+        ) : null}
       
     </section>
   );
