@@ -83,7 +83,7 @@ const HERO = {
 const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
   "Endüstriyel iklimlendirme (klima) ve hava yönetimi",
-  "5G/RF internet altyapısı ve kesintisiz bağlantı",
+  "Etkinlik alanına uygun internet altyapısı ve kesintisiz bağlantı",
   "Kesintisiz enerji sistemleri ve yedekleme planları",
   "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
 ];
@@ -625,8 +625,8 @@ function PricingSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500">
-            Nakliye ve saha koşullarına göre kurulum detayları proje bazında
-            netleştirilir.
+            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
+            kurulum detayları proje bazında netleştirilir.
           </p>
         </div>
       </div>
