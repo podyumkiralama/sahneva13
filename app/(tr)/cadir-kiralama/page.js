@@ -493,8 +493,8 @@ function VideoEvidence() {
             <span className="gradient-text gradient-text--safe-xl">Kanıtlar</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Kurulumdan dijital sahneye uzanan operasyon gücünü videolardan
-            seçilmiş karelerle gösteriyoruz.
+            Kurulumdan dijital sahneye uzanan operasyon gücünü öne çıkan
+            görsellerle gösteriyoruz.
           </p>
         </div>
 
