@@ -1585,6 +1585,14 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
+  const videoNodes = VIDEO_EMBEDS.map((video) => ({
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
+  }));
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1614,6 +1622,7 @@ function JsonLd() {
         })),
       },
       ...productNodes,
+      ...videoNodes,
     ],
   };
 
