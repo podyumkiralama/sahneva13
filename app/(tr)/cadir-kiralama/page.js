@@ -5,7 +5,6 @@ import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1586,8 +1585,6 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1601,8 +1598,22 @@ function JsonLd() {
         inLanguage: "tr-TR",
         mainEntity: { "@id": serviceId },
       },
+      {
+        "@type": "AggregateOffer",
+        lowPrice: "7000",
+        highPrice: "9000",
+        priceCurrency: "TRY",
+        availability: "https://schema.org/InStock",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: FAQ_ITEMS.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
       ...productNodes,
-      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 
