@@ -5,6 +5,7 @@ import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1524,6 +1525,7 @@ function JsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
+  const faqSchema = buildFaqSchema(FAQ_ITEMS);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1539,6 +1541,7 @@ function JsonLd() {
         mainEntity: { "@id": serviceId },
       },
       ...productNodes,
+      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 
