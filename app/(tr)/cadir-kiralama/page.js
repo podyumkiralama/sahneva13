@@ -73,6 +73,11 @@ const VIDEO_EMBEDS = [
   { videoId: "_9Q7v0ZL304", title: "Teknofest Çadır İç Görünüm • Sahne & Teknik Kurulum", uploadDate: "2025-11-17T00:00:00+03:00", description: "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları." },
 ];
 
+const VIDEO_PROOFS = [
+  { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Büyük ölçekli çadır kurulumu - etkinlik alanında profesyonel kurulum", title: "Büyük Ölçekli Kurulum", description: "Geniş katılımlı organizasyonlar için yüksek kapasiteli çadır kurulumu." },
+  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Sahneva çadır kurulumu - ekip çalışması ve hızlı montaj", title: "Sahneva Kurulum Ekibi", description: "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri." },
+];
+
 const FAQ_ITEMS = [
   { q: "Çadır kiralama fiyatları ne kadar?", a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir." },
   { q: "Çadır kurulumu ne kadar sürer?", a: "5×5 metre çadır kurulumu genellikle 2-3 saat, 6×6 metre çadır kurulumu ise 3-4 saat sürmektedir. Büyük ölçekli projelerde kurulum 1 gün önceden tamamlanır. Acil durumlarda express kurulum hizmeti sunuyoruz." },
@@ -126,25 +131,6 @@ const SERVICES = [
   },
 ];
 
-const STANDARDS = [
-  { feature: "Rüzgar Dayanımı", standard: "90 km/s (TS EN 13782 Sertifikalı)" },
-  { feature: "Branda Kalitesi", standard: "650 gr/m² UV korumalı, B1 alev yürümez" },
-  { feature: "Kurulum Süresi", standard: "4 - 8 saat (Express Kurulum Seçeneği ile)" },
-  { feature: "Ekstra Donanım", standard: "Akustik çözümler, kablo gizleme, LED entegrasyonu" },
-];
-
-const CHALLENGES = [
-  { title: "Akustik Çözümler", description: "Dome yapıların içindeki yankı problemini doğru konumlandırma ve kalibrasyon ile yönetiyoruz." },
-  { title: "Görünmez Kablo Güvenliği", description: "Tüm kablolama altyapısını zemin altına veya estetik kanallara alarak hem güvenliği hem de görsel şıklığı sağlıyoruz." },
-];
-
-const INSTALLATION_STEPS = [
-  { title: "Keşif", description: "Lazer ölçümleme ve zemin analizi." },
-  { title: "3D Modelleme", description: "Etkinlikten önce çadırın iç yerleşimini dijital ortamda görün." },
-  { title: "Hızlı Montaj", description: "Boş bir alandan anahtar teslim etkinlik alanına dönüşüm." },
-  { title: "Teknik Destek", description: "Etkinlik boyunca sahada hazır bekleyen uzman ekip." },
-];
-
 const GALLERY_IMAGES = [
   { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
   { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır - Özel davetler için atmosfer" },
@@ -168,6 +154,26 @@ const USE_CASES = [
   { icon: "🏭", text: "Endüstriyel ve depolama", desc: "Geçici depolama ve üretim alanları" },
   { icon: "🏫", text: "Okul ve eğitim etkinlikleri", desc: "Eğitim kurumları için çözümler" },
 ];
+
+const STANDARDS = [
+  { feature: "Rüzgar Dayanımı", standard: "90 km/s (TS EN 13782 Sertifikalı)" },
+  { feature: "Branda Kalitesi", standard: "650 gr/m² UV korumalı, B1 alev yürümez" },
+  { feature: "Kurulum Süresi", standard: "4 - 8 saat (Express Kurulum Seçeneği ile)" },
+  { feature: "Ekstra Donanım", standard: "Akustik çözümler, kablo gizleme, LED entegrasyonu" },
+];
+
+const CHALLENGES = [
+  { title: "Akustik Çözümler", description: "Dome yapıların içindeki yankı problemini doğru konumlandırma ve kalibrasyon ile yönetiyoruz." },
+  { title: "Görünmez Kablo Güvenliği", description: "Tüm kablolama altyapısını zemin altına veya estetik kanallara alarak hem güvenliği hem de görsel şıklığı sağlıyoruz." },
+];
+
+const INSTALLATION_STEPS = [
+  { title: "Keşif", description: "Lazer ölçümleme ve zemin analizi." },
+  { title: "3D Modelleme", description: "Etkinlikten önce çadırın iç yerleşimini dijital ortamda görün." },
+  { title: "Hızlı Montaj", description: "Boş bir alandan anahtar teslim etkinlik alanına dönüşüm." },
+  { title: "Teknik Destek", description: "Etkinlik boyunca sahada hazır bekleyen uzman ekip." },
+];
+
 /* ================== HERO ================== */
 function Hero() {
   return (
@@ -187,7 +193,7 @@ function Hero() {
         </div>
         <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
           Profesyonel{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-black">
             Çadır Kiralama
           </span>
         </h1>
@@ -429,6 +435,7 @@ function PricingSection() {
     </section>
   );
 }
+
 /* ================== Galeri ================== */
 function Gallery() {
   return (
@@ -743,6 +750,7 @@ function RelatedServices() {
     </section>
   );
 }
+
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
@@ -836,9 +844,34 @@ function Articles() {
                   </details>
 
                   <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
-                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
-                      <span className="flex items-center gap-2">
-                        <span>💍</span> Düğün İçin Çadır Kiralama Nasıl Olmalı?
-                      </span>
-                      <span className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180">
-                       
+  <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
+    <span className="flex items-center gap-2">
+      <span>💍</span> Düğün İçin Çadır Kiralama Nasıl Olmalı?
+    </span>
+    <span className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180">
+      ⌄
+    </span>
+  </summary>
+
+  <div className="mt-4 space-y-4 text-gray-700">
+    <p>
+      <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü bir alan oluşturur.
+    </p>
+    <p>
+      Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama, dekorasyon uyumluluğu ve ses/ışık entegrasyonu ile birlikte planlayarak, etkinlik boyunca sorunsuz bir deneyim sunar. Çadırın iç dekoru, masa düzeni ve misafir akışı önceden 3D modelleme ile tasarlanır.
+    </p>
+
+    <h4>Düğün Çadırı Seçerken Nelere Dikkat Edilmeli?</h4>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Alan ölçülerine uygun modüler yapı (5×5 m veya 6×6 m pagoda ideal)</li>
+      <li>UV korumalı ve alev yürümez branda (güneş ve yağmur dayanımı)</li>
+      <li>Profesyonel ankraj ve sabitleme (rüzgarlı havalarda güvenlik)</li>
+      <li>Zemin kaplama ve yağmur oluğu sistemi (temizlik ve konfor)</li>
+      <li>Aydınlatma ve dekorasyon entegrasyonu (gece şıklığı)</li>
+    </ul>
+
+    <p>
+      <strong>Öneri:</strong> Düğün tarihinden en az 1–2 ay önce keşif yaptırın. Sahneva ekibi, düğün konseptinize özel 3D görselleştirme sunarak sürpriz yaşamamanızı sağlar.
+    </p>
+  </div>
+</details>
