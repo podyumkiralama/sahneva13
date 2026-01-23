@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
+import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== Sabitler ================== */
