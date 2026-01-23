@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
-import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== Sabitler ================== */
@@ -540,43 +539,6 @@ function VideoEvidence() {
             </article>
           ))}
         </div>
-
-        <div className="mt-12 max-w-5xl mx-auto">
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
-            <div className="relative aspect-[16/9]">
-              <VideoEmbed
-                videoId={VIDEO_EMBED.videoId}
-                title={VIDEO_EMBED.title}
-                autoLoad
-              />
-            </div>
-            <div className="p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-                {VIDEO_EMBED.title}
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {VIDEO_EMBED.description}
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              name: VIDEO_EMBED.title,
-              description: VIDEO_EMBED.description,
-              thumbnailUrl: [
-                `https://i.ytimg.com/vi/${VIDEO_EMBED.videoId}/hqdefault.jpg`,
-              ],
-              embedUrl: `https://www.youtube-nocookie.com/embed/${VIDEO_EMBED.videoId}`,
-              contentUrl: `https://www.youtube.com/watch?v=${VIDEO_EMBED.videoId}`,
-            }),
-          }}
-        />
 
       </div>
     </section>
