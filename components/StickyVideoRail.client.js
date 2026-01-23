@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 
 const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
@@ -11,9 +12,11 @@ const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
 
 export default function StickyVideoRailClient() {
   const [shouldRender, setShouldRender] = useState(false);
+  const pathname = usePathname();
+  const shouldHide = pathname === "/cadir-kiralama";
 
   useEffect(() => {
-    if (typeof window === "undefined" || shouldRender) return;
+    if (shouldHide || typeof window === "undefined" || shouldRender) return;
 
     const scheduleRender = () => setShouldRender(true);
 
@@ -28,7 +31,9 @@ export default function StickyVideoRailClient() {
     // Fallback
     const timerId = window.setTimeout(scheduleRender, 2000);
     return () => window.clearTimeout(timerId);
-  }, [shouldRender]);
+  }, [shouldHide, shouldRender]);
+
+  if (shouldHide) return null;
 
   if (!shouldRender) return null;
   return <StickyVideoRailLazy />;

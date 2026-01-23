@@ -1,7 +1,7 @@
 // app/(tr)/cadir-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import CaseGallery from "@/components/CaseGallery";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== Sabitler ================== */
@@ -20,24 +20,6 @@ const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
-
-/* ================== Dinamik galeri (CaseGallery) ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="flex justify-center items-center h-64"
-      role="status"
-      aria-label="Galeri yükleniyor"
-    >
-      <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
-        aria-hidden="true"
-      />
-      <span className="sr-only">Galeri yükleniyor...</span>
-    </div>
-  ),
-});
 
 /* ================== META ================== */
 export const metadata = {
@@ -107,18 +89,18 @@ const TURNKEY_FEATURES = [
 
 const VIDEO_PROOFS = [
   {
-    src: "/img/cadir/7.webp",
-    alt: "Vinçle kaldırılan çelik konstrüksiyon kurulumu",
-    title: "Kurulum Videosu • 00:10",
+    src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp",
+    alt: "Büyük ölçekli çadır kurulumu - etkinlik alanında profesyonel kurulum",
+    title: "Büyük Ölçekli Kurulum",
     description:
-      "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+      "Geniş katılımlı organizasyonlar için yüksek kapasiteli çadır kurulumu.",
   },
   {
-    src: "/img/cadir/8.webp",
-    alt: "Dome çadır içinde 360 derece mapping anı",
-    title: "Mapping Videosu • 01:13",
+    src: "/img/cadir/sahneva-cadir-kurulumu.webp",
+    alt: "Sahneva çadır kurulumu - ekip çalışması ve hızlı montaj",
+    title: "Sahneva Kurulum Ekibi",
     description:
-      "Etkinlik alanınızı yaşayan bir dijital sahneye dönüştürüyoruz.",
+      "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
   },
 ];
 
@@ -537,19 +519,6 @@ function VideoEvidence() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <a
-            href="https://www.youtube.com/watch?v=tyb1lG9KtiA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus-ring"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">
-              ▶️
-            </span>
-            <span>Kurulum Videosunu İzleyin</span>
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -1188,5 +1157,34 @@ function Articles() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ================== Sayfa Bileşeni ================== */
+export default function Page() {
+  const baseUrl = ORIGIN;
+  const canonical = `${baseUrl}/cadir-kiralama`;
+  const breadcrumbItems = [
+    { name: "Ana Sayfa", url: `${baseUrl}/` },
+    { name: "Hizmetler", url: `${baseUrl}/hizmetler` },
+    { name: "Çadır Kiralama", url: canonical },
+  ];
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <Hero />
+      <TurnkeyInfrastructure />
+      <Services />
+      <VideoEvidence />
+      <Gallery />
+      <Technical />
+      <StandardsTable />
+      <ChallengesSolutions />
+      <InstallationProcess />
+      <StatsBand />
+      <UseCases />
+      <Articles />
+    </>
   );
 }
