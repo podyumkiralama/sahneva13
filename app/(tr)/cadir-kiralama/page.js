@@ -40,7 +40,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        url: `${ORIGIN}/img/cadir/hero.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
@@ -52,7 +52,7 @@ export const metadata = {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
     description:
       "Pagoda, şeffaf dome, endüstriyel çadır kiralama. Zemin kaplama, aydınlatma ve profesyonel kurulum.",
-    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
+    images: [`${ORIGIN}/img/cadir/hero.webp`],
   },
   robots: {
     index: true,
