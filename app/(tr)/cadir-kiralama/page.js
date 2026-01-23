@@ -1002,7 +1002,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="text-blue-700">Hizmetlerimiz</span>
+            <span className="text-blue-700">Hizmetler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Çadır kurulumunuzu uçtan uca tamamlayacak diğer profesyonel çözümler
