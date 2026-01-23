@@ -630,12 +630,6 @@ function Technical() {
       features: ["5×5m / 6×6m pagoda", "Proje bazlı ölçülendirme", "10-20m geniş açıklık", "Yan yana birleştirme"],
     },
     {
-      category: "tamamlayici",
-      title: "Tamamlayıcı Hizmetler",
-      description: "Çadır kurulumunu tamamlayan profesyonel hizmetler",
-      features: ["Zemin kaplama sistemleri", "Aydınlatma çözümleri", "Isıtma-soğutma sistemleri", "Markalama ve dekorasyon"],
-    },
-    {
       category: "kurulum",
       title: "Kurulum Süreçleri",
       description: "Hızlı kurulum, söküm ve lojistik hizmetleri",
@@ -679,7 +673,6 @@ function Technical() {
                     {item.category === "malzeme" && "🏗️"}
                     {item.category === "guvenlik" && "🛡️"}
                     {item.category === "olcu" && "📐"}
-                    {item.category === "tamamlayici" && "🔧"}
                     {item.category === "kurulum" && "⚡"}
                     {item.category === "destek" && "📞"}
                   </span>
