@@ -565,7 +565,7 @@ function VideoEvidence() {
                   alt={proof.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
                   loading="lazy"
                 />
               </div>
