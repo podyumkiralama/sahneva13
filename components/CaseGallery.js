@@ -81,16 +81,18 @@ function CaseGallery({
       width: body.style.width,
     };
 
-    body.style.position = "fixed";
-    body.style.top = `-${scrollYRef.current}px`;
-    body.style.overflow = "hidden";
-    body.style.width = "100%";
+    let focusRafId;
+    let styleRafId = window.requestAnimationFrame(() => {
+      body.style.position = "fixed";
+      body.style.top = `-${scrollYRef.current}px`;
+      body.style.overflow = "hidden";
+      body.style.width = "100%";
 
-    // Odak yönetimi
-    const focusElement = closeBtnRef.current || dialogRef.current;
-    if (focusElement) {
-      setTimeout(() => focusElement.focus(), 50);
-    }
+      const focusElement = closeBtnRef.current || dialogRef.current;
+      if (focusElement) {
+        focusRafId = window.requestAnimationFrame(() => focusElement.focus());
+      }
+    });
 
     // Klavye olayları
     const handleKeyDown = (e) => {
@@ -118,20 +120,23 @@ function CaseGallery({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
 
-      // Scroll kilidini kaldır
-      body.style.position = previousStyles.position;
-      body.style.top = previousStyles.top;
-      body.style.overflow = previousStyles.overflow;
-      body.style.width = previousStyles.width;
+      if (styleRafId) window.cancelAnimationFrame(styleRafId);
+      if (focusRafId) window.cancelAnimationFrame(focusRafId);
 
-      if (scrollYRef.current !== undefined) {
-        window.scrollTo(0, scrollYRef.current);
-      }
+      window.requestAnimationFrame(() => {
+        body.style.position = previousStyles.position;
+        body.style.top = previousStyles.top;
+        body.style.overflow = previousStyles.overflow;
+        body.style.width = previousStyles.width;
 
-      // Önceki odağa dön
-      if (lastFocus.current?.focus) {
-        setTimeout(() => lastFocus.current.focus(), 50);
-      }
+        if (scrollYRef.current !== undefined) {
+          window.scrollTo(0, scrollYRef.current);
+        }
+
+        if (lastFocus.current?.focus) {
+          window.requestAnimationFrame(() => lastFocus.current.focus());
+        }
+      });
     };
   }, [closeLightbox, navigate, open, images.length]);
 
