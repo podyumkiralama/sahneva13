@@ -1554,7 +1554,7 @@ function FAQ() {
   );
 }
 
-/* ================== JSON-LD (Çadır Kiralama) — SAFE FINAL + m² (10/20/30/40m genişlik) ================== */
+/* ================== JSON-LD (Çadır Kiralama) — FINAL SAFE ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/cadir-kiralama`;
   const pageDescription = metadata?.description || "";
@@ -1567,6 +1567,7 @@ function JsonLd() {
     locale: "tr-TR",
   });
 
+  /* ================== OFFER CATALOG ================== */
   const offerCatalogId = `${pageUrl}#offer-catalog`;
 
   const offerCatalogNode = {
@@ -1605,31 +1606,39 @@ function JsonLd() {
         description: "25 m² etkinlik ve davetler için pagoda çadır paketi. (Nakliye hariç)",
       },
 
-      /* ✅ m² bazlı fiyat (genişlik 10/20/30/40m, uzunluk müşteriye bağlı) */
+      /* ✅ m² bazlı fiyat */
       {
         "@type": "Offer",
         "@id": `${pageUrl}#offer-m2`,
-        name: "Geniş Açıklıklı Çadırlar (10/20/30/40m) — m² Fiyatı",
+        name: "Geniş Açıklıklı Çadırlar (10 / 20 / 30 / 40 m) — m² Fiyatı",
         url: pageUrl,
-        priceCurrency: "TRY",
         availability: "https://schema.org/InStock",
         priceSpecification: {
           "@type": "UnitPriceSpecification",
           price: "430",
           priceCurrency: "TRY",
-          unitCode: "MTK",  // square meter
+          unitCode: "MTK",
           unitText: "m²",
         },
-        eligibleRegion: {
-          "@type": "Country",
-          name: "Türkiye",
-        },
+        additionalProperty: [
+          {
+            "@type": "PropertyValue",
+            name: "Genişlik seçenekleri (m)",
+            value: "10, 20, 30, 40",
+          },
+          {
+            "@type": "PropertyValue",
+            name: "Uzunluk",
+            value: "Müşteri tercihine göre",
+          },
+        ],
         description:
-          "Genişlik seçenekleri 10m / 20m / 30m / 40m. Uzunluk müşteri tercihine göre belirlenir. Fiyat 430 TL / m² (nakliye ve saha koşulları proje bazlıdır).",
+          "Genişlik 10/20/30/40 metredir. Uzunluk müşteri tercihine göre belirlenir. Fiyat 430 TL / m²’dir. Nakliye ve saha koşulları proje bazlıdır.",
       },
     ],
   };
 
+  /* ================== SERVICE ================== */
   const baseService = {
     "@type": "Service",
     name: "Çadır Kiralama",
@@ -1651,8 +1660,7 @@ function JsonLd() {
     provider,
   };
 
-  const serviceId = serviceNode["@id"];
-
+  /* ================== WEBPAGE ================== */
   const webPageNode = {
     "@type": "WebPage",
     "@id": webPageId,
@@ -1660,8 +1668,9 @@ function JsonLd() {
     description: pageDescription,
     url: pageUrl,
     inLanguage: "tr-TR",
-    mainEntity: { "@id": serviceId },
+    mainEntity: { "@id": serviceNode["@id"] },
     isPartOf: { "@id": WEBSITE_ID },
+    hasPart: { "@id": offerCatalogId },
     publisher: provider,
     primaryImageOfPage: {
       "@type": "ImageObject",
@@ -1671,6 +1680,7 @@ function JsonLd() {
     },
   };
 
+  /* ================== FAQ ================== */
   const faqNode = {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
@@ -1681,6 +1691,7 @@ function JsonLd() {
     })),
   };
 
+  /* ================== VIDEO ================== */
   const videoNodes = (VIDEO_EMBEDS || []).map((video) => ({
     "@type": "VideoObject",
     name: video.title,
