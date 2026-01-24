@@ -25,7 +25,7 @@ const BLUR_DATA_URL =
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+  title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
   description:
     "Pagoda, şeffaf dome, endüstriyel çadır kiralama. Zemin kaplama, aydınlatma ve profesyonel kurulum. Türkiye geneli hızlı hizmet.",
   alternates: { canonical: `${ORIGIN}/cadir-kiralama` },
@@ -158,11 +158,11 @@ const PRICING_ITEMS = [
     description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
   },
   {
-    title: "10-40 m Ölçülü Çadırlar",
-    price: "430 TL / m²",
-    description:
-      "10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çözümler için metrekare fiyatı.",
-  },
+  title: "Geniş Açıklıklı Çadırlar (10 / 20 / 30 / 40 m)",
+  price: "430 TL / m²",
+  description:
+    "Genişlik seçenekleri 10 m, 20 m, 30 m ve 40 m’dir. Uzunluk müşteri tercihine göre belirlenir. Büyük ölçekli etkinlikler için ideal çözümdür.",
+},
 ];
 
 const STANDARDS = [
@@ -1553,7 +1553,7 @@ function FAQ() {
   );
 }
 
-/* ================== JSON-LD ================== */
+/* ================== JSON-LD (Çadır Kiralama) — SAFE FINAL + m² (10/20/30/40m genişlik) ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/cadir-kiralama`;
   const pageDescription = metadata?.description || "";
@@ -1566,13 +1566,80 @@ function JsonLd() {
     locale: "tr-TR",
   });
 
+  const offerCatalogId = `${pageUrl}#offer-catalog`;
+
+  const offerCatalogNode = {
+    "@type": "OfferCatalog",
+    "@id": offerCatalogId,
+    name: "Çadır Kiralama Fiyatları (Paket + m²)",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        "@id": `${pageUrl}#offer-3x3`,
+        name: "3×3 Çadır Kiralama",
+        url: pageUrl,
+        priceCurrency: "TRY",
+        price: "7000",
+        availability: "https://schema.org/InStock",
+        description: "9 m² kompakt alanlar için hızlı kurulum çadır paketi. (Nakliye hariç)",
+      },
+      {
+        "@type": "Offer",
+        "@id": `${pageUrl}#offer-4x4`,
+        name: "4×4 Çadır Kiralama",
+        url: pageUrl,
+        priceCurrency: "TRY",
+        price: "8000",
+        availability: "https://schema.org/InStock",
+        description: "16 m² orta ölçekli kurulumlar için çadır paketi. (Nakliye hariç)",
+      },
+      {
+        "@type": "Offer",
+        "@id": `${pageUrl}#offer-5x5`,
+        name: "5×5 Çadır Kiralama",
+        url: pageUrl,
+        priceCurrency: "TRY",
+        price: "9000",
+        availability: "https://schema.org/InStock",
+        description: "25 m² etkinlik ve davetler için pagoda çadır paketi. (Nakliye hariç)",
+      },
+
+      /* ✅ m² bazlı fiyat (genişlik 10/20/30/40m, uzunluk müşteriye bağlı) */
+      {
+        "@type": "Offer",
+        "@id": `${pageUrl}#offer-m2`,
+        name: "Geniş Açıklıklı Çadırlar (10/20/30/40m) — m² Fiyatı",
+        url: pageUrl,
+        priceCurrency: "TRY",
+        availability: "https://schema.org/InStock",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "430",
+          priceCurrency: "TRY",
+          unitCode: "MTK",  // square meter
+          unitText: "m²",
+        },
+        eligibleRegion: {
+          "@type": "Country",
+          name: "Türkiye",
+        },
+        description:
+          "Genişlik seçenekleri 10m / 20m / 30m / 40m. Uzunluk müşteri tercihine göre belirlenir. Fiyat 430 TL / m² (nakliye ve saha koşulları proje bazlıdır).",
+      },
+    ],
+  };
+
   const baseService = {
     "@type": "Service",
     name: "Çadır Kiralama",
     description: pageDescription,
+    serviceType: "Etkinlik Çadır Kiralama",
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
     inLanguage: "tr-TR",
+    url: pageUrl,
+    mainEntityOfPage: { "@id": webPageId },
+    hasOfferCatalog: { "@id": offerCatalogId },
   };
 
   const serviceNode = {
@@ -1581,13 +1648,39 @@ function JsonLd() {
     "@type": "Service",
     "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
     provider,
-    url: pageUrl,
-    mainEntityOfPage: { "@id": webPageId },
   };
 
   const serviceId = serviceNode["@id"];
-  const productNodes = products ?? [];
-  const videoNodes = VIDEO_EMBEDS.map((video) => ({
+
+  const webPageNode = {
+    "@type": "WebPage",
+    "@id": webPageId,
+    name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+    description: pageDescription,
+    url: pageUrl,
+    inLanguage: "tr-TR",
+    mainEntity: { "@id": serviceId },
+    isPartOf: { "@id": WEBSITE_ID },
+    publisher: provider,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${ORIGIN}/img/cadir/hero.webp`,
+      width: 1200,
+      height: 630,
+    },
+  };
+
+  const faqNode = {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: FAQ_ITEMS.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
+  const videoNodes = (VIDEO_EMBEDS || []).map((video) => ({
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
@@ -1596,44 +1689,28 @@ function JsonLd() {
     embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
   }));
+
+  const productNodes = products ?? [];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      webPageNode,
       serviceNode,
-      {
-        "@type": "WebPage",
-        "@id": webPageId,
-        name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
-        description: pageDescription,
-        url: pageUrl,
-        inLanguage: "tr-TR",
-        mainEntity: { "@id": serviceId },
-      },
-      {
-        "@type": "AggregateOffer",
-        lowPrice: "7000",
-        highPrice: "9000",
-        priceCurrency: "TRY",
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: FAQ_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.q,
-          acceptedAnswer: { "@type": "Answer", text: faq.a },
-        })),
-      },
+      offerCatalogNode,
+      faqNode,
       ...productNodes,
       ...videoNodes,
     ],
   };
 
+  const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+
   return (
     <script
       id="ld-json-cadir"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: safe }}
     />
   );
 }
