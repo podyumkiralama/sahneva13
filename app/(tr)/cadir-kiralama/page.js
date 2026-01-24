@@ -5,6 +5,7 @@ import CaseGallery from "@/components/CaseGallery";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
