@@ -67,6 +67,21 @@ export const metadata = {
   },
 };
 
+export function Head() {
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="/img/cadir/hero.webp"
+        fetchPriority="high"
+        type="image/webp"
+        imagesizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
+      />
+    </>
+  );
+}
+
 /* ================== Yardımcılar & Sabitler ================== */
 const slugify = (s) =>
   s
@@ -79,7 +94,7 @@ const slugify = (s) =>
 const HERO = {
   src: "/img/cadir/hero.webp",
   alt: "Profesyonel çadır kurulumu - Pagoda çadır ve etkinlik alanı düzenlemesi",
-  sizes: "(max-width: 768px) 100vw, 100vw",
+  sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px",
 };
 
 const TURNKEY_FEATURES = [
@@ -565,7 +580,7 @@ function VideoEvidence() {
                   alt={proof.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
                   loading="lazy"
                 />
               </div>
