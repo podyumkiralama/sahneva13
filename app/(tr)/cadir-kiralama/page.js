@@ -1,7 +1,7 @@
 // app/(tr)/cadir-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import CaseGallery from "@/components/CaseGallery";
+import dynamic from "next/dynamic";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
@@ -23,6 +23,23 @@ const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+
+/* ================== Dinamik galeri (CaseGallery) ================== */
+const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
+  loading: () => (
+    <div
+      className="flex justify-center items-center h-64"
+      role="status"
+      aria-label="Galeri yükleniyor"
+    >
+      <div
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">Galeri yükleniyor...</span>
+    </div>
+  ),
+});
 
 /* ================== META ================== */
 export const metadata = {
