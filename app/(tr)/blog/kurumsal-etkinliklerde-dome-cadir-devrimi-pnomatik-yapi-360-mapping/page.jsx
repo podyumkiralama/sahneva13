@@ -37,9 +37,11 @@ const IMG_GECE = "/img/blog/dome-cadir-gece-ambiyans.webp"; // ⚠️ .web deği
 const YT_URL = "https://www.youtube.com/watch?v=JNzGlNzNRuk";
 const YT_ID = "JNzGlNzNRuk";
 const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?rel=0&modestbranding=1`;
+const YT_THUMB = `https://img.youtube.com/vi/${YT_ID}/hqdefault.jpg`;
 const YT_LASER_URL = "https://youtube.com/shorts/CVdYV5BkF3k";
 const YT_LASER_ID = "CVdYV5BkF3k";
 const YT_LASER_EMBED = `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}?rel=0&modestbranding=1`;
+const YT_LASER_THUMB = `https://img.youtube.com/vi/${YT_LASER_ID}/hqdefault.jpg`;
 
 /* ================== META ================== */
 export const metadata = {
@@ -131,7 +133,7 @@ function ArticleSchema() {
         uploadDate: "2025-11-17T00:00:00+03:00",
         embedUrl: `https://www.youtube-nocookie.com/embed/${YT_ID}`,
         contentUrl: YT_URL,
-        thumbnailUrl: `${SITE_URL}${HERO_IMAGE}`,
+        thumbnailUrl: YT_THUMB,
       },
       {
         "@type": "VideoObject",
@@ -142,7 +144,7 @@ function ArticleSchema() {
         uploadDate: "2025-11-17T00:00:00+03:00",
         embedUrl: `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}`,
         contentUrl: YT_LASER_URL,
-        thumbnailUrl: `${SITE_URL}${HERO_IMAGE}`,
+        thumbnailUrl: YT_LASER_THUMB,
       },
       {
         "@type": "Article",
