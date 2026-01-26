@@ -30,7 +30,6 @@ const CATALOG_ID = `${HOME_URL}#catalog`;
 const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
-const VIDEO_ID = `${HOME_URL}#intro-video`;
 const PRICING_DISCLAIMER =
   "Fiyatlar; şehir, gün, metraj, kurulum ve ekipmana göre değişebilir. Net teklif için iletişime geçin.";
 
@@ -276,24 +275,6 @@ const HOME_JSON_LD = {
       provider: { "@id": ORGANIZATION_ID },
       hasOfferCatalog: { "@id": CATALOG_ID },
       serviceType: "Event Production",
-    },
-
-    {
-      "@type": "VideoObject",
-      "@id": VIDEO_ID,
-      name: "Sahneva – Sahne, Podyum ve LED Ekran Kiralama Tanıtım Videosu",
-      description:
-        "Sahneva’nın sahne, podyum, LED ekran, ses ve ışık sistemleriyle gerçekleştirdiği profesyonel etkinlik kurulumlarından kısa bir tanıtım videosu.",
-      thumbnailUrl: ["https://img.youtube.com/vi/173gBurWSRQ/hqdefault.jpg"],
-      uploadDate: "2025-11-17T10:30:00+03:00",
-      duration: "PT1M30S",
-      inLanguage: "tr-TR",
-      isFamilyFriendly: true,
-      publisher: { "@id": ORGANIZATION_ID },
-      contentUrl: "https://www.youtube.com/watch?v=173gBurWSRQ",
-      embedUrl: "https://www.youtube.com/embed/173gBurWSRQ",
-      isPartOf: { "@id": WEBPAGE_ID },
-      about: { "@id": SERVICE_ID },
     },
 
     {
