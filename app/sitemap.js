@@ -121,6 +121,116 @@ const IMAGE_MAP = {
   "/hakkimizda": ["/img/hakkimizda.webp"],
 };
 
+const BLOG_VIDEO_MAP = {
+  "kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping": [
+    {
+      title: "Dome Çadır ve 360° Mapping Örneği",
+      description: "Dome çadır içinde 360° video mapping uygulamasına örnek video.",
+      thumbnail_loc: "https://img.youtube.com/vi/JNzGlNzNRuk/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
+      player_loc: "https://www.youtube-nocookie.com/embed/JNzGlNzNRuk",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+    {
+      title: "Lazer Projeksiyon Mapping Örneği",
+      description:
+        "Lazer projeksiyon mapping içeriğinin akışı ve efektlerini gösteren kısa video.",
+      thumbnail_loc: "https://img.youtube.com/vi/CVdYV5BkF3k/hqdefault.jpg",
+      content_loc: "https://youtube.com/shorts/CVdYV5BkF3k",
+      player_loc: "https://www.youtube-nocookie.com/embed/CVdYV5BkF3k",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+  ],
+  "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi": [
+    {
+      title: "Milli Uzay Programı Lansmanı 2021",
+      description:
+        "Milli Uzay Programı Lansmanı’nda Sahneva’nın mühendislik yaklaşımını anlatan video.",
+      thumbnail_loc: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=j1Tr5l8DVW8",
+      player_loc: "https://www.youtube.com/embed/j1Tr5l8DVW8",
+      publication_date: "2021-02-09T00:00:00+03:00",
+    },
+  ],
+  "pmgc-dunya-finali-sahne-arkasi": [
+    {
+      title: "PMGC 2023 Grand Finals - Istanbul",
+      description:
+        "PMGC 2023 Dünya Finali’nin sahne arkası ve açılış atmosferini gösteren resmi video.",
+      thumbnail_loc: "https://img.youtube.com/vi/173gBurWSRQ/maxresdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=173gBurWSRQ",
+      player_loc: "https://www.youtube.com/embed/173gBurWSRQ",
+      publication_date: "2026-01-05T10:00:00+03:00",
+    },
+  ],
+};
+
+const PAGE_VIDEO_MAP = {
+  "/led-ekran-kiralama": [
+    {
+      title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
+      description:
+        "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
+      thumbnail_loc: "https://img.youtube.com/vi/1R5Av0x5ouA/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=1R5Av0x5ouA",
+      player_loc: "https://www.youtube-nocookie.com/embed/1R5Av0x5ouA",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+    {
+      title: "LED Ekran Kurulum Süreci",
+      description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
+      thumbnail_loc: "https://img.youtube.com/vi/JNzGlNzNRuk/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
+      player_loc: "https://www.youtube-nocookie.com/embed/JNzGlNzNRuk",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+    {
+      title: "LED Ekran ve Sahne Uygulaması",
+      description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
+      thumbnail_loc: "https://img.youtube.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=j1Tr5l8DVW8",
+      player_loc: "https://www.youtube-nocookie.com/embed/j1Tr5l8DVW8",
+      publication_date: "2026-01-15T00:00:00+03:00",
+    },
+    {
+      title: "LED Ekran Kurulum Detayları",
+      description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
+      thumbnail_loc: "https://img.youtube.com/vi/HNDZ-wYVKLw/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=HNDZ-wYVKLw",
+      player_loc: "https://www.youtube-nocookie.com/embed/HNDZ-wYVKLw",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+    {
+      title: "Etkinlik LED Ekran Örnekleri",
+      description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
+      thumbnail_loc: "https://img.youtube.com/vi/173gBurWSRQ/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=173gBurWSRQ",
+      player_loc: "https://www.youtube-nocookie.com/embed/173gBurWSRQ",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+  ],
+  "/cadir-kiralama": [
+    {
+      title: "Kurulum Videosu 00:10",
+      description:
+        "Güvenli sabitleme, doğru ekipman ve deneyimli ekip ile hızlı ve kontrollü kurulum.",
+      thumbnail_loc: "https://img.youtube.com/vi/tyb1lG9KtiA/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=tyb1lG9KtiA",
+      player_loc: "https://www.youtube-nocookie.com/embed/tyb1lG9KtiA",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+    {
+      title: "Teknofest Çadır İç Görünüm Sahne ve Teknik Kurulum",
+      description:
+        "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları.",
+      thumbnail_loc: "https://img.youtube.com/vi/_9Q7v0ZL304/hqdefault.jpg",
+      content_loc: "https://www.youtube.com/watch?v=_9Q7v0ZL304",
+      player_loc: "https://www.youtube-nocookie.com/embed/_9Q7v0ZL304",
+      publication_date: "2025-11-17T00:00:00+03:00",
+    },
+  ],
+};
+
 // --- SERVICES ---
 function dynamicFromServices() {
   const seen = new Set(STATIC_PAGES.map((s) => s.path));
@@ -177,6 +287,7 @@ function dynamicFromBlog() {
         change: "weekly",
         pr: 0.85,
         images: [`${SITE}/img/blog/${slug}-hero.webp`],
+        videos: BLOG_VIDEO_MAP[slug],
       };
     })
     .filter(({ path }) => Boolean(path));
@@ -199,6 +310,7 @@ export default function sitemap() {
     changeFrequency: change,
     priority: pr,
     images: (IMAGE_MAP[path] ?? []).map(abs),
+    videos: PAGE_VIDEO_MAP[path],
   }));
 
   const projectItems = dynamicFromProjects().map(({ path, lastMod, change, pr, images }) => ({
@@ -209,12 +321,13 @@ export default function sitemap() {
     images,
   }));
 
-  const blogItems = dynamicFromBlog().map(({ path, lastMod, change, pr, images }) => ({
+  const blogItems = dynamicFromBlog().map(({ path, lastMod, change, pr, images, videos }) => ({
     url: abs(path),
     lastModified: new Date(lastMod).toISOString(),
     changeFrequency: change,
     priority: pr,
     images,
+    videos,
   }));
 
   return [...baseWithImages, ...projectItems, ...blogItems];

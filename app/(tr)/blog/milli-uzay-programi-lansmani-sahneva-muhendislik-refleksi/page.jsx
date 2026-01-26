@@ -22,7 +22,7 @@ const MODIFIED_DATE = "2021-02-09T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const VIDEO_ID = "j1Tr5l8DVW8";
-const VIDEO_URL = `https://youtu.be/${VIDEO_ID}?si=51NRE4nLWb12_W4Y`;
+const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
 const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
 const VIDEO_THUMB = `https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`;
 
