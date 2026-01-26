@@ -20,6 +20,7 @@ const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const VIDEO_ID = "173gBurWSRQ";
 const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
+const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
 const VIDEO_THUMB = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 
 export const metadata = {
@@ -93,6 +94,7 @@ function ArticleSchema() {
         thumbnailUrl: [VIDEO_THUMB],
         uploadDate: PUBLISH_DATE,
         embedUrl: VIDEO_EMBED_URL,
+        contentUrl: VIDEO_URL,
         mainEntityOfPage: BLOG_URL,
         publisher: {
           "@type": "Organization",
