@@ -124,7 +124,7 @@ const IMAGE_MAP = {
 const BLOG_VIDEO_MAP = {
   "kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping": [
     {
-      title: "Dome Çadır & 360° Mapping Örneği",
+      title: "Dome Çadır ve 360° Mapping Örneği",
       description: "Dome çadır içinde 360° video mapping uygulamasına örnek video.",
       thumbnail_loc: "https://img.youtube.com/vi/JNzGlNzNRuk/hqdefault.jpg",
       content_loc: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
