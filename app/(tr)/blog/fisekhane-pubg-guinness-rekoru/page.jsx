@@ -26,48 +26,13 @@ const MODIFIED_DATE = "2026-01-27T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva Teknik";
 
 /* ================== ASSETS ================== */
-const HERO_IMAGE = "/img/blog/fisekhane-pubg-etkinlik.webp"; // hero / og
+const HERO_IMAGE = "/img/blog/fisekhane-pubg-etkinlik.webp";
 const OG_IMAGE = HERO_IMAGE;
 
-// Galeri (senin attığın isimlere göre)
-const GALLERY = [
-  {
-    src: "/img/blog/pubg-etkinlik-sahne.webp",
-    alt: "Fişekhane’de PUBG Mobile etkinliği için sahne ve podyum kurulum alanı",
-    w: 1200,
-    h: 800,
-    caption: "Etkinlik öncesi sahne/podyum hazırlığı",
-  },
-  {
-    src: "/img/blog/pubg-sahneva-etkinlik.webp",
-    alt: "Fişekhane’de PUBG Mobile etkinliğinde sahne üzerinde kutlama anı",
-    w: 1200,
-    h: 800,
-    caption: "Rekor sonrası sahnede kutlama",
-  },
-  {
-    src: "/img/blog/pubg-dans-rekor.webp",
-    alt: "PUBG Mobile etkinliğinde sahne ışıkları ve konfeti ile kutlama atmosferi",
-    w: 1200,
-    h: 800,
-    caption: "Atmosfer ve sahne ışık kurgusu",
-  },
-  {
-    // Sen bunu güvenli olsun diye kısalttın:
-    src: "/img/blog/fisekhane-pubg-koreografili.webp",
-    alt: "PUBG Mobile rekor etkinliği kapsamında Fişekhane’de koreografili an",
-    w: 1200,
-    h: 800,
-    caption: "Koreografili an (rekor sürecinin parçası)",
-  },
-  {
-    src: "/img/blog/bupg.webp",
-    alt: "PUBG Mobile etkinliğinde katılımcı deneyiminden bir kare",
-    w: 1200,
-    h: 800,
-    caption: "Katılımcı deneyimi",
-  },
-];
+const IMG_STAGE = "/img/blog/fisekhane-pubg-sahne-kurulumu.webp";
+const IMG_GUINNESS = "/img/blog/fisekhane-pubg-guinness-rekoru.webp";
+const IMG_CHOREO = "/img/blog/fisekhane-pubg-koreografili.webp";
+const IMG_CONFETTI = "/img/blog/fisekhane-pubg-rekor-ani.webp";
 
 /* ================== META ================== */
 export const metadata = {
@@ -90,7 +55,7 @@ export const metadata = {
         url: `${SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Fişekhane PUBG Mobile etkinliği sahne kurulumu ve kutlama anı",
+        alt: "Fişekhane’de PUBG Mobile etkinliği ve teknik prodüksiyon atmosferi",
       },
     ],
   },
@@ -109,9 +74,9 @@ export const metadata = {
     "podyum kiralama",
     "led ekran kiralama",
     "ses sistemi kiralama",
-    "isik sistemi kiralama",
-    "canli yayin teknigi",
-    "etkinlik teknik destek",
+    "ışık sistemi kiralama",
+    "teknik prodüksiyon",
+    "canlı yayın teknik destek",
   ],
   authors: [{ name: AUTHOR_NAME }],
 };
@@ -145,9 +110,8 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
       },
-
-      // Blog URL olsa bile içerik “haber/ref” formatında:
       {
+        // Blog içinde dursa da “haber/ref” formatı için NewsArticle iyi sinyal verir
         "@type": "NewsArticle",
         "@id": ARTICLE_ID,
         isPartOf: { "@id": WEBPAGE_ID },
@@ -164,8 +128,6 @@ function ArticleSchema() {
         dateModified: MODIFIED_DATE,
         articleSection: ["Etkinlik", "E-Spor", "Teknik Prodüksiyon"],
       },
-
-      // Event node (mekan ve tarih sinyali için güçlü)
       {
         "@type": "Event",
         "@id": `${BLOG_URL}#event`,
@@ -234,12 +196,12 @@ const TableOfContents = () => (
     </h4>
     <ul className="space-y-2 text-sm">
       {[
-        { id: "kisa-ozet", label: "1. Kısa Özet" },
-        { id: "hizmetler", label: "2. Sağladığımız Hizmetler" },
-        { id: "kurulum-operasyon", label: "3. Kurulum & Operasyon" },
-        { id: "canli-yayin", label: "4. Canlı Yayın & Çekim Desteği" },
-        { id: "gorseller", label: "5. Etkinlikten Kareler" },
-        { id: "iletisim", label: "6. Benzer Etkinlikler İçin" },
+        { id: "kisa-bilgi", label: "1. Kısa Bilgi" },
+        { id: "sagladigimiz-hizmetler", label: "2. Sağladığımız Hizmetler" },
+        { id: "kurulum-operasyon", label: "3. Kurulum ve Operasyon" },
+        { id: "yayin-cekim", label: "4. Canlı Yayın ve Çekim Desteği" },
+        { id: "rekor-ani", label: "5. Rekor Anı ve Atmosfer" },
+        { id: "benzer-etkinlikler", label: "6. Benzer Etkinlikler İçin" },
       ].map((item) => (
         <li key={item.id}>
           <a
@@ -253,6 +215,27 @@ const TableOfContents = () => (
     </ul>
   </div>
 );
+
+function Figure({ src, alt, caption, w = 1200, h = 800 }) {
+  return (
+    <figure className="not-prose rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm my-8">
+      <Image
+        src={src}
+        alt={alt}
+        width={w}
+        height={h}
+        className="w-full h-auto object-cover"
+        sizes="(min-width: 1024px) 960px, 100vw"
+        loading="lazy"
+      />
+      {caption ? (
+        <figcaption className="px-4 py-3 text-sm text-gray-600">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
 
 /* ================== PAGE ================== */
 export default function BlogPostFisekhanePubgGuinness() {
@@ -297,7 +280,7 @@ export default function BlogPostFisekhanePubgGuinness() {
 
           <p className="text-base md:text-lg text-slate-200">
             Bu etkinlikte teknik altyapı sağlayıcı olarak; sahne/podyum, LED
-            ekran, ses-ışık, teknik operasyon ile canlı yayın ve çekim süreçlerine
+            ekran, ses-ışık, teknik destek ve canlı yayın/çekim süreçlerine
             destek verdik.
           </p>
         </div>
@@ -313,59 +296,83 @@ export default function BlogPostFisekhanePubgGuinness() {
             <article className="prose prose-lg max-w-none">
               <Breadcrumbs />
 
-              <h2 id="kisa-ozet">Kısa Özet</h2>
+              <h2 id="kisa-bilgi">Kısa Bilgi</h2>
               <p>
-                25 Ocak’ta İstanbul <strong>Fişekhane</strong>’de gerçekleşen PUBG
-                Mobile buluşmasında, etkinliğin sahne ve teknik altyapı ihtiyaçları
-                tarafımızdan karşılandı. Organizasyonun kurulum, etkinlik içi
-                operasyon ve söküm süreçleri boyunca; sahne arkası koordinasyon,
-                görüntü/ses sürekliliği ve yayın tarafının gereksinimleri için
-                sahada aktif teknik destek sağladık.
+                25 Ocak’ta İstanbul <strong>Fişekhane</strong>’de gerçekleştirilen
+                PUBG Mobile buluşmasında, organizasyonun sahne ve teknik altyapı
+                ihtiyaçları tarafımızdan karşılandı. Etkinliğin kurulumdan
+                etkinlik içi operasyona kadar olan sürecinde, sahada aktif
+                teknik ekip ile operasyonel süreklilik sağlandı.
               </p>
 
-              <h2 id="hizmetler">Sağladığımız Hizmetler</h2>
+              <Figure
+                src={IMG_GUINNESS}
+                alt="PUBG Mobile Guinness Dünya Rekoru sertifikasıyla Fişekhane’de kutlama anı"
+                caption="Fişekhane’de PUBG Mobile etkinliğinde Guinness Dünya Rekoru™ sonrası kutlama anı."
+              />
+
+              <h2 id="sagladigimiz-hizmetler">Sağladığımız Hizmetler</h2>
+              <p>
+                Etkinlik kapsamında ihtiyaç duyulan tüm kritik teknik başlıklarda
+                entegre destek sağladık. Sahne üzeri akış, görsel içerik
+                yönetimi, ses-ışık dengesi ve yayın/çekim süreçlerinin birlikte
+                ilerlemesi için tek plan üzerinden ilerledik.
+              </p>
+
               <ul>
                 <li>
-                  <strong>Sahne & podyum kurulumu:</strong> Alan akışına uygun
-                  konumlandırma, güvenli platform kurulumu.
+                  <strong>Sahne & podyum kurulumu:</strong> Modüler platform
+                  sistemleri, sahne önü geçiş ve güvenli kullanım düzeni.
                 </li>
                 <li>
-                  <strong>LED ekran:</strong> Görsel içerik akışı ve sahne
-                  arkasına uygun kurulum/entegrasyon.
+                  <strong>LED ekran:</strong> Sahne ve alan içerisinde görsel
+                  içerik akışına uygun kurulum ve entegrasyon.
                 </li>
                 <li>
                   <strong>Ses sistemi:</strong> Mekân akustiğine göre yerleşim,
-                  kontrollü ses dağılımı.
+                  kontrollü ses dağılımı ve net konuşma anlaşılabilirliği.
                 </li>
                 <li>
                   <strong>Işık kurgusu:</strong> Sahne atmosferi ve kamera
-                  çekimlerine uygun ışık dengesi.
+                  görüntüsünü destekleyen ışık dengesi.
                 </li>
                 <li>
-                  <strong>Teknik destek:</strong> Kurulumdan etkinlik sonuna
-                  kadar sahada operasyonel teknik ekip.
+                  <strong>Teknik destek:</strong> Kurulum, etkinlik anı ve söküm
+                  süreçlerinde sahada operasyonel ekip.
                 </li>
                 <li>
                   <strong>Canlı yayın & çekim desteği:</strong> Yayın akışı,
-                  görüntü düzeni ve sahne-çekim uyumu için teknik koordinasyon.
+                  sahne-görüntü uyumu ve teknik koordinasyon.
                 </li>
               </ul>
 
-              <h2 id="kurulum-operasyon">Kurulum & Operasyon</h2>
+              <Figure
+                src={IMG_CHOREO}
+                alt="PUBG Mobile rekor etkinliği kapsamında Fişekhane’de koreografili an"
+                caption="Etkinlik akışında eş zamanlı koreografili anlar; kurgunun ve sahne düzeninin yayın tarafıyla birlikte yönetilmesini gerektirdi."
+              />
+
+              <h2 id="kurulum-operasyon">Kurulum ve Operasyon</h2>
               <p>
-                Fişekhane’nin mimari yapısı ve etkinlik yoğunluğu göz önünde
-                bulundurularak sahne/podyum yerleşimi planlandı. Kurulum
-                sırasında; kablo güzergâhları, güvenli geçiş alanları, sahne önü
-                düzeni ve teknik ekipman konumları netleştirilerek operasyonun
-                akıcı ilerlemesi hedeflendi.
+                Fişekhane’nin mimari yapısı ve etkinlik yoğunluğu dikkate
+                alınarak sahne/podyum yerleşimi planlandı. Kurulum sırasında
+                kablo güzergâhları, güvenli geçiş alanları ve teknik ekipman
+                konumları belirlenerek etkinlik süresince akıcı bir operasyon
+                hedeflendi.
               </p>
 
-              <h2 id="canli-yayin">Canlı Yayın & Çekim Desteği</h2>
+              <Figure
+                src={IMG_STAGE}
+                alt="PUBG Mobile etkinliği öncesinde Fişekhane’de yapılan sahne ve podyum kurulumu"
+                caption="Etkinlik öncesi sahne/podyum kurulumu: alan akışı ve teknik ekipman yerleşimi buna göre planlandı."
+              />
+
+              <h2 id="yayin-cekim">Canlı Yayın ve Çekim Desteği</h2>
               <p>
-                Etkinliğin yayın/çekim tarafında; sahne kurgusu, ışık dengesi ve
-                görsel ekran akışı birlikte düşünülerek sahada teknik destek
-                sağlandı. Böylece hem katılımcı deneyimi hem de görüntü tarafında
-                bütünlük korunmuş oldu.
+                Canlı yayın ve çekim tarafında, sahne kurgusu ile ışık dengesi ve
+                görsel içerik akışı birlikte düşünülerek teknik destek sağlandı.
+                Bu yaklaşım, hem katılımcı deneyimini hem de görüntü
+                sürekliliğini güçlendirdi.
               </p>
 
               <div className="not-prose bg-slate-50 border border-slate-200 rounded-xl p-5 my-8 shadow-sm">
@@ -375,47 +382,31 @@ export default function BlogPostFisekhanePubgGuinness() {
                   </span>
                   <div>
                     <p className="font-semibold text-slate-900">
-                      Kapsam: Tek noktadan entegre teknik çözüm
+                      Tek noktadan entegre teknik çözüm
                     </p>
                     <p className="text-slate-700 mt-2">
                       Sahne/podyum + LED ekran + ses/ışık + teknik ekip + yayın/çekim
-                      desteği; tek operasyon planı içinde yönetildi.
+                      koordinasyonu; tek operasyon planı içinde yönetildi.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <h2 id="gorseller">Etkinlikten Kareler</h2>
+              <h2 id="rekor-ani">Rekor Anı ve Atmosfer</h2>
               <p>
-                Aşağıdaki görseller, kurulum süreci ve etkinlik atmosferinden
-                seçilmiştir.
+                Rekor anının sahnede güçlü bir atmosfere dönüşebilmesi için sahne
+                ışığı, görsel akış ve alan düzeni birlikte yönetildi. Finalde
+                ortaya çıkan kutlama atmosferi, etkinliğin en güçlü anlarından
+                birini oluşturdu.
               </p>
 
-              <div className="not-prose grid md:grid-cols-2 gap-6 my-8">
-                {GALLERY.map((img) => (
-                  <figure
-                    key={img.src}
-                    className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={img.w}
-                      height={img.h}
-                      className="w-full h-auto object-cover"
-                      sizes="(min-width: 1024px) 520px, 100vw"
-                      loading="lazy"
-                    />
-                    {img.caption ? (
-                      <figcaption className="px-4 py-3 text-sm text-gray-600">
-                        {img.caption}
-                      </figcaption>
-                    ) : null}
-                  </figure>
-                ))}
-              </div>
+              <Figure
+                src={IMG_CONFETTI}
+                alt="Fişekhane’de PUBG Mobile Guinness Dünya Rekoru sonrası genel kutlama atmosferi"
+                caption="Rekor sonrası kutlama atmosferi: sahne ışıkları ve alan kurgusu ile bütünleşen final anı."
+              />
 
-              <h2 id="iletisim">Benzer Etkinlikler İçin</h2>
+              <h2 id="benzer-etkinlikler">Benzer Etkinlikler İçin</h2>
               <p>
                 E-spor, lansman, konser ve kurumsal organizasyonlarda; sahne,
                 LED ekran, ses-ışık, teknik operasyon ve yayın/çekim süreçleri
