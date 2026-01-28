@@ -112,13 +112,13 @@ function Table({ caption, columns, rows }) {
 function Figure({ src, alt, caption }) {
   return (
     <figure className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className="relative aspect-[16/8] w-full">
+      <div className="relative aspect-[16/9] w-full bg-slate-50">
         <Image
           src={src}
           alt={alt}
           fill
           sizes="(max-width: 1024px) 100vw, 760px"
-          className="object-cover"
+          className="object-contain"
           loading="lazy"
         />
       </div>
