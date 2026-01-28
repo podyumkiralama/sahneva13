@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi";
@@ -357,6 +358,13 @@ export default function Page() {
               senkronize bir 360° görsel-işitsel atmosfer
             </li>
           </ul>
+
+          <BlogRelatedLinks
+            services={[
+              { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+              { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
+            ]}
+          />
         </article>
       </section>
     </main>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -845,6 +846,13 @@ export default function Page() {
                   </li>
                 </ul>
               </section>
+
+              <BlogRelatedLinks
+                services={[
+                  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+                  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+                ]}
+              />
             </article>
 
             {/* Sidebar */}

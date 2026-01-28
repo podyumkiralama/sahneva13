@@ -3,6 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== ISR ================== */
 export const revalidate = 1800;
@@ -664,6 +665,18 @@ export default function Page() {
       <Gallery />
       <Technical />
       <FAQ />
+      <ServiceBlogLinks
+        links={[
+          {
+            href: "/blog/pmgc-dunya-finali-sahne-arkasi",
+            label: "PMGC Dünya Finali Sahne Arkası",
+          },
+          {
+            href: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi",
+            label: "Milli Uzay Programı Lansmanı: Mühendislik Refleksi",
+          },
+        ]}
+      />
       <Offer />
     </main>
   );

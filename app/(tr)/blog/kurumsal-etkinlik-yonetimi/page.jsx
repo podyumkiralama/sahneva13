@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -567,6 +568,12 @@ export default function BlogPostCorporate() {
                   </div>
                 </div>
 
+                <BlogRelatedLinks
+                  services={[
+                    { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+                    { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+                  ]}
+                />
               </article>
             </div>
 

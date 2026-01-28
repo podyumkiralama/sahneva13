@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -736,6 +737,13 @@ export default function Page() {
                   </Link>{" "}
                   sayfamızdan teklif isteyebilirsiniz.
                 </p>
+
+                <BlogRelatedLinks
+                  services={[
+                    { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama" },
+                    { href: STAGE_SERVICE_PATH, label: "Sahne Kiralama" },
+                  ]}
+                />
               </article>
             </div>
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import {
   BASE_SITE_URL,
@@ -522,6 +523,13 @@ export default function BlogPostDome360Mapping() {
                   Teklif Alın
                 </Link>
               </div>
+
+              <BlogRelatedLinks
+                services={[
+                  { href: "/cadir-kiralama", label: "Çadır Kiralama" },
+                  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+                ]}
+              />
            </article>
           </div>
         </section>
