@@ -20,13 +20,13 @@ const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-01-28T00:00:00+03:00";
 
 export const metadata = {
-  title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
+  title: "2026 Kurumsal Etkinlik Planlama Rehberi",
   description:
     "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
   alternates: { canonical: url },
   image: FEATURED_IMAGE,
   openGraph: {
-    title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
+    title: "2026 Kurumsal Etkinlik Planlama Rehberi",
     description:
       "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
     url,
