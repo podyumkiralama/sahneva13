@@ -14,8 +14,8 @@ export const revalidate = 86400;
 
 const slug = "/blog/kurumsal-etkinlik-planlama-rehberi-2026";
 const url = `${BASE_SITE_URL}${slug}`;
-const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-hero.webp";
-const OG_IMAGE = HERO_IMAGE;
+const FEATURED_IMAGE = "/img/blog/kurumsal-etkinlik-timeline.webp";
+const OG_IMAGE = FEATURED_IMAGE;
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-01-28T00:00:00+03:00";
 
@@ -25,7 +25,7 @@ export const metadata = {
   description:
     "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi. Teknik prodüksiyonla sorunsuz organizasyon!",
   alternates: { canonical: url },
-  image: HERO_IMAGE,
+  image: FEATURED_IMAGE,
   openGraph: {
     title:
       "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları | Sahneva",
@@ -175,7 +175,7 @@ export default function Page() {
           "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları",
         description:
           "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi.",
-        image: `${BASE_SITE_URL}${HERO_IMAGE}`,
+        image: `${BASE_SITE_URL}${FEATURED_IMAGE}`,
         datePublished: publishedISO,
         dateModified: publishedISO,
         inLanguage: "tr-TR",
@@ -276,7 +276,7 @@ export default function Page() {
             </div>
 
             <Figure
-              src={HERO_IMAGE}
+              src={FEATURED_IMAGE}
               alt="Kurumsal etkinlik planlama rehberi için öne çıkan görsel"
               caption="Kurumsal etkinlik planlama rehberi: strateji, bütçe, run-of-show ve teknik prodüksiyon."
             />
