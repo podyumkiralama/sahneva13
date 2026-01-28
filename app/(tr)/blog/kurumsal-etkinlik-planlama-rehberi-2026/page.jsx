@@ -14,32 +14,56 @@ export const revalidate = 86400;
 
 const slug = "/blog/kurumsal-etkinlik-planlama-rehberi-2026";
 const url = `${BASE_SITE_URL}${slug}`;
+const FEATURED_IMAGE = "/img/blog/kurumsal-etkinlik-timeline.webp";
+const OG_IMAGE = FEATURED_IMAGE;
+const AUTHOR_NAME = "Sahneva İçerik Ekibi";
+const PUBLISH_DATE = "2026-01-28T00:00:00+03:00";
 
-export async function generateMetadata() {
-  const title =
-    "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları | Sahneva";
-  const description =
-    "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi. Teknik prodüksiyonla sorunsuz organizasyon!";
-
-  return {
-    title,
-    description,
-    alternates: { canonical: url },
-    openGraph: {
-      title,
-      description,
-      url,
-      siteName: "Sahneva",
-      type: "article",
-      locale: "tr_TR",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-    },
-  };
-}
+export const metadata = {
+  title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
+  description:
+    "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
+  alternates: { canonical: url },
+  image: FEATURED_IMAGE,
+  openGraph: {
+    title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
+    description:
+      "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
+    url,
+    siteName: "Sahneva",
+    type: "article",
+    locale: "tr_TR",
+    images: [
+      {
+        url: `${BASE_SITE_URL}${OG_IMAGE}`,
+        width: 1200,
+        height: 630,
+        alt: "2026 Kurumsal Etkinlik Planlama Rehberi öne çıkan görseli",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "2026 Kurumsal Etkinlik Planlama Rehberi",
+    description:
+      "Kurumsal etkinlik planlaması için strateji, bütçe, zaman çizelgesi ve teknik prodüksiyon kontrol listesi.",
+    images: [`${BASE_SITE_URL}${OG_IMAGE}`],
+  },
+  keywords: [
+    "kurumsal etkinlik planlama",
+    "kurumsal etkinlik kontrol listesi",
+    "sahne kiralama",
+    "LED ekran kiralama",
+    "teknik prodüksiyon",
+    "run of show",
+    "etkinlik bütçesi",
+  ],
+  authors: [{ name: AUTHOR_NAME }],
+  date: PUBLISH_DATE,
+  category: "Kurumsal Etkinlik",
+  readTime: "12–14 dk okuma",
+  author: AUTHOR_NAME,
+};
 
 /* ---------- helpers (LIGHT BLOG THEME) ---------- */
 function StatCard({ value, label }) {
@@ -109,7 +133,7 @@ function Table({ caption, columns, rows }) {
   );
 }
 
-function Figure({ src, alt, caption }) {
+function Figure({ src, alt, caption, priority = false, loading = "lazy" }) {
   return (
     <figure className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="relative aspect-[16/9] w-full bg-slate-50">
@@ -119,7 +143,9 @@ function Figure({ src, alt, caption }) {
           fill
           sizes="(max-width: 1024px) 100vw, 760px"
           className="object-contain"
-          loading="lazy"
+          loading={loading}
+          priority={priority}
+          fetchPriority={priority ? "high" : "auto"}
         />
       </div>
       {caption ? (
@@ -132,7 +158,7 @@ function Figure({ src, alt, caption }) {
 }
 
 export default function Page() {
-  const publishedISO = "2026-01-28";
+  const publishedISO = PUBLISH_DATE;
   const publishedHuman = "28 Ocak 2026";
   const readingTime = "12–14 dk okuma";
   const pdfHref = "/files/kurumsal-etkinlik-kontrol-listesi-2026.pdf";
@@ -147,11 +173,16 @@ export default function Page() {
         headline:
           "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları",
         description:
-          "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi.",
+          "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
+        image: `${BASE_SITE_URL}${FEATURED_IMAGE}`,
         datePublished: publishedISO,
         dateModified: publishedISO,
         inLanguage: "tr-TR",
-        author: { "@type": "Organization", "@id": ORGANIZATION_ID, name: "Sahneva" },
+        author: {
+          "@type": "Organization",
+          "@id": ORGANIZATION_ID,
+          name: "Sahneva",
+        },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,
@@ -242,6 +273,14 @@ export default function Page() {
                 Kontrol Listesi PDF İndir
               </a>
             </div>
+
+            <Figure
+              src={FEATURED_IMAGE}
+              alt="Kurumsal etkinlik planlama rehberi için öne çıkan görsel"
+              caption="Kurumsal etkinlik planlama rehberi: strateji, bütçe, run-of-show ve teknik prodüksiyon."
+              priority
+              loading="eager"
+            />
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <StatCard value="%65–68" label="Hibrit etkinlik oranı (2025–2026 raporları)" />
