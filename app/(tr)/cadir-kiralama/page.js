@@ -6,6 +6,7 @@ import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1788,6 +1789,18 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <ServiceBlogLinks
+        links={[
+          {
+            href: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
+            label: "Dome Çadır Rehberi: 360° Mapping",
+          },
+          {
+            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
+            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
+          },
+        ]}
+      />
     </>
   );
 }

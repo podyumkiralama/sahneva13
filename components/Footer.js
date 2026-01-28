@@ -45,6 +45,19 @@ const QUICK_LINKS = [
   },
 ];
 
+const POPULAR_PAGES = [
+  { href: "/podyum-kiralama", label: "Podyum Kiralama" },
+  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+  { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
+  { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
+  { href: "/cadir-kiralama", label: "Çadır Kiralama" },
+  { href: "/masa-sandalye-kiralama", label: "Masa & Sandalye Kiralama" },
+  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+  { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },
+  { href: "/projeler", label: "Projeler" },
+  { href: "/blog", label: "Blog" },
+];
+
 const BUSINESS_LINKS = [
   {
     href: "https://g.page/r/CZhkMzkNOdgnEBI",
@@ -327,6 +340,21 @@ export default function Footer({
                 </FooterLink>
               ))}
             </ul>
+
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold text-slate-200 mb-2">Popüler Sayfalar</h4>
+              <ul className="space-y-0.5 text-sm text-gray-300">
+                {POPULAR_PAGES.map((link) => (
+                  <FooterLink
+                    key={link.href}
+                    href={link.href}
+                    hoverColorClass="hover:text-purple-300 hover:border-purple-400"
+                  >
+                    {link.label}
+                  </FooterLink>
+                ))}
+              </ul>
+            </div>
           </div>
         </nav>
 

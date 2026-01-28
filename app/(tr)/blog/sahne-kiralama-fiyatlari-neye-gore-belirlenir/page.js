@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -641,6 +642,13 @@ export default function Page() {
               Keşif / Teklif Al
             </Link>
           </div>
+
+          <BlogRelatedLinks
+            services={[
+              { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+              { href: "/podyum-kiralama", label: "Podyum Kiralama" },
+            ]}
+          />
         </article>
       </main>
     </>

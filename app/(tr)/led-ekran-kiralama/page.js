@@ -5,6 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1536,6 +1537,15 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <ServiceBlogLinks
+        links={[
+          { href: "/blog/led-ekran-teknoloji-trendleri-2026", label: "2026 LED Ekran Teknoloji Trendleri" },
+          {
+            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
+            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
+          },
+        ]}
+      />
       <CTA />
     </>
   );

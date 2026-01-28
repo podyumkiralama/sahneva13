@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -520,6 +521,13 @@ export default function Page() {
               </Link>
             </div>
           </div>
+
+          <BlogRelatedLinks
+            services={[
+              { href: "/podyum-kiralama", label: "Podyum Kiralama" },
+              { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+            ]}
+          />
         </article>
       </main>
     </>

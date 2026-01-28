@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "pmgc-dunya-finali-sahne-arkasi";
@@ -297,6 +298,13 @@ export default function Page() {
               </a>
             </li>
           </ul>
+
+          <BlogRelatedLinks
+            services={[
+              { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+              { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
+            ]}
+          />
         </article>
       </section>
     </main>

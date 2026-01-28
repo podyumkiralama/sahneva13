@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1623,6 +1624,18 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <ServiceBlogLinks
+        links={[
+          {
+            href: "/blog/kurumsal-etkinlik-yonetimi",
+            label: "Kurumsal Etkinlik Yönetimi Rehberi",
+          },
+          {
+            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
+            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
+          },
+        ]}
+      />
       <CTA />
     </>
   );
