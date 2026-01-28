@@ -20,13 +20,13 @@ const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-01-28T00:00:00+03:00";
 
 export const metadata = {
-  title: "2026 Kurumsal Etkinlik Planlama Rehberi",
+  title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
   description:
     "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
   alternates: { canonical: url },
   image: FEATURED_IMAGE,
   openGraph: {
-    title: "2026 Kurumsal Etkinlik Planlama Rehberi",
+    title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",
     description:
       "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
     url,
@@ -133,7 +133,7 @@ function Table({ caption, columns, rows }) {
   );
 }
 
-function Figure({ src, alt, caption }) {
+function Figure({ src, alt, caption, priority = false, loading = "lazy" }) {
   return (
     <figure className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="relative aspect-[16/9] w-full bg-slate-50">
@@ -143,7 +143,9 @@ function Figure({ src, alt, caption }) {
           fill
           sizes="(max-width: 1024px) 100vw, 760px"
           className="object-contain"
-          loading="lazy"
+          loading={loading}
+          priority={priority}
+          fetchPriority={priority ? "high" : "auto"}
         />
       </div>
       {caption ? (
@@ -276,6 +278,8 @@ export default function Page() {
               src={FEATURED_IMAGE}
               alt="Kurumsal etkinlik planlama rehberi için öne çıkan görsel"
               caption="Kurumsal etkinlik planlama rehberi: strateji, bütçe, run-of-show ve teknik prodüksiyon."
+              priority
+              loading="eager"
             />
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
