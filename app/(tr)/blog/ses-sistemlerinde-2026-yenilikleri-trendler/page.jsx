@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import {
   BASE_SITE_URL,
@@ -433,6 +434,13 @@ export default function BlogPostAudioTrends2026() {
                   Teklif Alın
                 </Link>
               </div>
+
+              <BlogRelatedLinks
+                services={[
+                  { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
+                  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+                ]}
+              />
             </article>
           </div>
         </section>

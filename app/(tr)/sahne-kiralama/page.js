@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1667,6 +1668,18 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <ServiceBlogLinks
+        links={[
+          {
+            href: "/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir",
+            label: "Sahne Kiralama Fiyatları Neye Göre Belirlenir?",
+          },
+          {
+            href: "/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir",
+            label: "Sahne Neden Hep Yüksektir? 2500 Yıllık Bir Sır",
+          },
+        ]}
+      />
       <CTA />
     </>
   );

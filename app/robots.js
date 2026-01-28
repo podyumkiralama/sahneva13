@@ -7,6 +7,7 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
+        crawlDelay: 1,
         allow: "/",
         disallow: [
           "/api/",        // API route'ları indexlenmesin

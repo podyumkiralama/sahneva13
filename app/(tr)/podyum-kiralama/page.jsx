@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 1800; // 30 Dakika ISR
@@ -846,6 +847,12 @@ export default function Page() {
       <ArticlesSection />
       <FAQSection />
       <RelatedServicesSection />
+      <ServiceBlogLinks
+        links={[
+          { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Etkinliğe Göre Podyum Tercihi" },
+          { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Neden Podyum Sahne Tercih Edilir?" },
+        ]}
+      />
       <CTASection />
     </>
   );
