@@ -23,14 +23,14 @@ export const metadata = {
   title:
     "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları | Sahneva",
   description:
-    "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi. Teknik prodüksiyonla sorunsuz organizasyon!",
+    "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
   alternates: { canonical: url },
   image: FEATURED_IMAGE,
   openGraph: {
     title:
       "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları | Sahneva",
     description:
-      "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi. Teknik prodüksiyonla sorunsuz organizasyon!",
+      "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
     url,
     siteName: "Sahneva",
     type: "article",
@@ -49,7 +49,7 @@ export const metadata = {
     title:
       "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları",
     description:
-      "Kurumsal etkinlik planlamasında strateji, bütçe, zaman çizelgesi ve teknik prodüksiyon kontrol listesi.",
+      "Kurumsal etkinlik planlaması için strateji, bütçe, zaman çizelgesi ve teknik prodüksiyon kontrol listesi.",
     images: [`${BASE_SITE_URL}${OG_IMAGE}`],
   },
   keywords: [
@@ -174,7 +174,7 @@ export default function Page() {
         headline:
           "2026 Kurumsal Etkinlik Planlama Rehberi: Kontrol Listesi ve Teknik İpuçları",
         description:
-          "İstanbul’da kurumsal etkinlik planlaması için kapsamlı rehber: strateji, bütçe, zaman çizelgesi, sahne–LED–çadır, run-of-show ve indirilebilir kontrol listesi.",
+          "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
         image: `${BASE_SITE_URL}${FEATURED_IMAGE}`,
         datePublished: publishedISO,
         dateModified: publishedISO,
