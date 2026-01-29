@@ -2,18 +2,63 @@
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 
-/* ... ensureYouTubePreconnect + warmupYouTube aynı kalsın ... */
+/* ===========================
+   YouTube preconnect helpers
+   =========================== */
+
+let _ytPreconnectDone = false;
+
+function ensureYouTubePreconnect() {
+  if (typeof document === "undefined") return;
+  if (_ytPreconnectDone) return;
+
+  // If something already injected, don't duplicate
+  if (document.querySelector('link[data-yt-preconnect="1"]')) {
+    _ytPreconnectDone = true;
+    return;
+  }
+
+  _ytPreconnectDone = true;
+
+  const links = [
+    // preconnect
+    { rel: "preconnect", href: "https://www.youtube-nocookie.com" },
+    { rel: "preconnect", href: "https://i.ytimg.com" },
+    { rel: "preconnect", href: "https://www.google.com" },
+    // dns-prefetch
+    { rel: "dns-prefetch", href: "https://www.youtube-nocookie.com" },
+    { rel: "dns-prefetch", href: "https://i.ytimg.com" },
+  ];
+
+  for (const { rel, href } of links) {
+    const link = document.createElement("link");
+    link.rel = rel;
+    link.href = href;
+    link.setAttribute("data-yt-preconnect", "1");
+    document.head.appendChild(link);
+  }
+}
+
+function warmupYouTube() {
+  ensureYouTubePreconnect();
+}
+
+/* ===========================
+   Component
+   =========================== */
 
 export default function VideoEmbed({
   videoId,
   title = "YouTube video",
   autoLoad = false,
-  autoplayOnClick = false,
+  autoplayOnClick = true,
   muteOnAutoplay = true,
   warmupOnIdle = false,
   preconnectOnMount = true,
   className = "",
 }) {
+  if (!videoId) return null;
+
   const thumbs = useMemo(() => {
     const base = `https://i.ytimg.com/vi/${videoId}`;
     return [
@@ -24,18 +69,18 @@ export default function VideoEmbed({
     ];
   }, [videoId]);
 
-  // ✅ SEO için: iframe her zaman DOM’da olsun.
-  // isLoaded artık "autoplay'e geç / overlay'i kaldır" gibi davranacak.
+  // Overlay state (UX). Iframe is always present for SEO.
   const [isLoaded, setIsLoaded] = useState(Boolean(autoLoad));
   const [thumbIndex, setThumbIndex] = useState(0);
   const [thumbFailed, setThumbFailed] = useState(false);
 
-  // ✅ Autoplay OLMAYAN güvenli URL (ilk render)
+  // Base iframe URL (no autoplay): safe initial render
   const baseEmbedUrl = useMemo(() => {
+    // playsinline=1 for iOS; modestbranding/rel for cleaner UI
     return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
   }, [videoId]);
 
-  // ✅ Click sonrası autoplay URL
+  // Click URL (autoplay optional)
   const clickEmbedUrl = useMemo(() => {
     if (!autoplayOnClick) return baseEmbedUrl;
     const params = new URLSearchParams();
@@ -44,14 +89,13 @@ export default function VideoEmbed({
     return `${baseEmbedUrl}&${params.toString()}`;
   }, [baseEmbedUrl, autoplayOnClick, muteOnAutoplay]);
 
-  // iframe src state: ilk başta base, click'le clickEmbedUrl
+  // Iframe src state: starts with base, becomes autoplay on click
   const [iframeSrc, setIframeSrc] = useState(baseEmbedUrl);
 
   useEffect(() => {
     setIsLoaded(Boolean(autoLoad));
     setThumbIndex(0);
     setThumbFailed(false);
-    // video değişince base'e dön
     setIframeSrc(baseEmbedUrl);
   }, [videoId, autoLoad, baseEmbedUrl]);
 
@@ -64,9 +108,9 @@ export default function VideoEmbed({
     if (!warmupOnIdle) return;
     if (typeof window === "undefined") return;
 
-    const id = window.requestIdleCallback
-      ? window.requestIdleCallback(() => warmupYouTube(), { timeout: 1500 })
-      : window.setTimeout(() => warmupYouTube(), 800);
+    const id =
+      window.requestIdleCallback?.(() => warmupYouTube(), { timeout: 1500 }) ??
+      window.setTimeout(() => warmupYouTube(), 800);
 
     return () => {
       if (window.cancelIdleCallback) window.cancelIdleCallback(id);
@@ -78,18 +122,19 @@ export default function VideoEmbed({
     warmupYouTube();
   }, []);
 
-  const handleLoad = useCallback(() => {
+  const handlePlay = useCallback(() => {
     warmupYouTube();
     setIsLoaded(true);
-    // click ile autoplay isteniyorsa src'yi autoplay'li yap
     setIframeSrc(clickEmbedUrl);
   }, [clickEmbedUrl]);
 
   const currentThumb = thumbs[thumbIndex];
 
   return (
-    <div className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}>
-      {/* ✅ SEO için iframe her zaman DOM'da */}
+    <div
+      className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}
+    >
+      {/* ✅ SEO için: iframe HER ZAMAN DOM’da */}
       <iframe
         src={iframeSrc}
         title={title}
@@ -100,11 +145,11 @@ export default function VideoEmbed({
         referrerPolicy="strict-origin-when-cross-origin"
       />
 
-      {/* Overlay: click gelene kadar videoyu "kapak" gibi göster */}
+      {/* Overlay: click gelene kadar kapağı göster */}
       {!isLoaded ? (
         <button
           type="button"
-          onClick={handleLoad}
+          onClick={handlePlay}
           onMouseEnter={handleWarmup}
           onFocus={handleWarmup}
           className="absolute inset-0 z-10 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -128,10 +173,16 @@ export default function VideoEmbed({
             </div>
           )}
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60" aria-hidden="true" />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60"
+            aria-hidden="true"
+          />
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-4">
-            <span className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" aria-hidden="true">
+            <span
+              className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none"
+              aria-hidden="true"
+            >
               ▶
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
