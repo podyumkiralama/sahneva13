@@ -2,51 +2,7 @@
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 
-function ensureYouTubePreconnect() {
-  if (typeof document === "undefined") return;
-  if (document.querySelector('link[data-yt-preconnect="1"]')) return;
-
-  const origins = [
-    "https://www.youtube-nocookie.com",
-    "https://i.ytimg.com",
-  ];
-
-  for (const href of origins) {
-    const preconnect = document.createElement("link");
-    preconnect.rel = "preconnect";
-    preconnect.href = href;
-    preconnect.crossOrigin = "";
-    preconnect.setAttribute("data-yt-preconnect", "1");
-    document.head.appendChild(preconnect);
-  }
-}
-
-function warmupYouTube() {
-  if (typeof document === "undefined") return;
-  if (document.querySelector('link[data-yt-warmup="1"]')) return;
-
-  const origins = [
-    "https://www.youtube-nocookie.com",
-    "https://www.google.com",
-    "https://i.ytimg.com",
-    "https://www.gstatic.com",
-  ];
-
-  for (const href of origins) {
-    const preconnect = document.createElement("link");
-    preconnect.rel = "preconnect";
-    preconnect.href = href;
-    preconnect.crossOrigin = "";
-    preconnect.setAttribute("data-yt-warmup", "1");
-    document.head.appendChild(preconnect);
-
-    const dns = document.createElement("link");
-    dns.rel = "dns-prefetch";
-    dns.href = href;
-    dns.setAttribute("data-yt-warmup", "1");
-    document.head.appendChild(dns);
-  }
-}
+/* ... ensureYouTubePreconnect + warmupYouTube aynı kalsın ... */
 
 export default function VideoEmbed({
   videoId,
@@ -54,7 +10,7 @@ export default function VideoEmbed({
   autoLoad = false,
   autoplayOnClick = false,
   muteOnAutoplay = true,
-  warmupOnIdle = false, // istersen true yap
+  warmupOnIdle = false,
   preconnectOnMount = true,
   className = "",
 }) {
@@ -68,25 +24,36 @@ export default function VideoEmbed({
     ];
   }, [videoId]);
 
+  // ✅ SEO için: iframe her zaman DOM’da olsun.
+  // isLoaded artık "autoplay'e geç / overlay'i kaldır" gibi davranacak.
   const [isLoaded, setIsLoaded] = useState(Boolean(autoLoad));
   const [thumbIndex, setThumbIndex] = useState(0);
   const [thumbFailed, setThumbFailed] = useState(false);
 
-  const embedUrl = useMemo(() => {
-    const base = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
-    if (!autoplayOnClick) return base;
+  // ✅ Autoplay OLMAYAN güvenli URL (ilk render)
+  const baseEmbedUrl = useMemo(() => {
+    return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
+  }, [videoId]);
 
+  // ✅ Click sonrası autoplay URL
+  const clickEmbedUrl = useMemo(() => {
+    if (!autoplayOnClick) return baseEmbedUrl;
     const params = new URLSearchParams();
     params.set("autoplay", "1");
     if (muteOnAutoplay) params.set("mute", "1");
-    return `${base}&${params.toString()}`;
-  }, [videoId, autoplayOnClick, muteOnAutoplay]);
+    return `${baseEmbedUrl}&${params.toString()}`;
+  }, [baseEmbedUrl, autoplayOnClick, muteOnAutoplay]);
+
+  // iframe src state: ilk başta base, click'le clickEmbedUrl
+  const [iframeSrc, setIframeSrc] = useState(baseEmbedUrl);
 
   useEffect(() => {
     setIsLoaded(Boolean(autoLoad));
     setThumbIndex(0);
     setThumbFailed(false);
-  }, [videoId, autoLoad]);
+    // video değişince base'e dön
+    setIframeSrc(baseEmbedUrl);
+  }, [videoId, autoLoad, baseEmbedUrl]);
 
   useEffect(() => {
     if (!preconnectOnMount) return;
@@ -108,28 +75,39 @@ export default function VideoEmbed({
   }, [warmupOnIdle]);
 
   const handleWarmup = useCallback(() => {
-    // hover/focus olduğunda hızlı warmup
     warmupYouTube();
   }, []);
 
   const handleLoad = useCallback(() => {
     warmupYouTube();
     setIsLoaded(true);
-  }, []);
+    // click ile autoplay isteniyorsa src'yi autoplay'li yap
+    setIframeSrc(clickEmbedUrl);
+  }, [clickEmbedUrl]);
 
   const currentThumb = thumbs[thumbIndex];
 
   return (
-    <div
-      className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}
-    >
+    <div className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}>
+      {/* ✅ SEO için iframe her zaman DOM'da */}
+      <iframe
+        src={iframeSrc}
+        title={title}
+        className="absolute inset-0 h-full w-full"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
+
+      {/* Overlay: click gelene kadar videoyu "kapak" gibi göster */}
       {!isLoaded ? (
         <button
           type="button"
           onClick={handleLoad}
           onMouseEnter={handleWarmup}
           onFocus={handleWarmup}
-          className="absolute inset-0 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          className="absolute inset-0 z-10 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           aria-label={`${title} videosunu oynat`}
         >
           {!thumbFailed ? (
@@ -140,29 +118,20 @@ export default function VideoEmbed({
               loading="lazy"
               decoding="async"
               onError={() => {
-                // sıradaki thumb'a geç
                 if (thumbIndex < thumbs.length - 1) setThumbIndex((i) => i + 1);
                 else setThumbFailed(true);
               }}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-              <span className="text-sm text-white/70">
-                Önizleme yüklenemedi
-              </span>
+              <span className="text-sm text-white/70">Önizleme yüklenemedi</span>
             </div>
           )}
 
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60"
-            aria-hidden="true"
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60" aria-hidden="true" />
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-4">
-            <span
-              className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none"
-              aria-hidden="true"
-            >
+            <span className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" aria-hidden="true">
               ▶
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
@@ -170,17 +139,7 @@ export default function VideoEmbed({
             </span>
           </div>
         </button>
-      ) : (
-        <iframe
-          src={embedUrl}
-          title={title}
-          className="absolute inset-0 h-full w-full"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      )}
+      ) : null}
     </div>
   );
 }
