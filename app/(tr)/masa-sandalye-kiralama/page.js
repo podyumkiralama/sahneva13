@@ -43,7 +43,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
+  title: "Masa Sandalye Kiralama | Profesyonel Çözümler",
   description:
     "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim. İstanbul genelinde hızlı teslim.",
   alternates: { canonical: `${ORIGIN}/masa-sandalye-kiralama` },
