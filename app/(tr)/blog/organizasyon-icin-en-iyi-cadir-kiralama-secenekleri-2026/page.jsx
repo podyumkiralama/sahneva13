@@ -29,7 +29,7 @@ const DESCRIPTION =
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: `${TITLE} | Sahneva Organizasyon`,
+  title: `${TITLE}`,
   description: DESCRIPTION,
   alternates: { canonical: BLOG_URL },
   image: FEATURED_IMAGE,
