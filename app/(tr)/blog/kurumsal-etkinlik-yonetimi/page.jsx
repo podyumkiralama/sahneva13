@@ -15,7 +15,7 @@ const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-hero.webp";
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Kurumsal Etkinlik Yönetimi ve Teknik Kiralama Rehberi | Sahneva",
+  title: "Kurumsal Etkinlik Yönetimi ve Teknik Kiralama Rehberi",
   description:
     "Kurumsal organizasyonlarınızda kusursuz bir akış için sahne, podyum, LED ekran, ses-ışık ve çadır kiralama rehberi. Lansman ve bayi toplantısı ipuçları.",
   alternates: {
