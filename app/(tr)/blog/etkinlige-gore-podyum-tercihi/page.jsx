@@ -62,7 +62,7 @@ const SECTION_IMAGES = {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Etkinliğe Göre Podyum Tercihi | Sahneva Blog",
+  title: "Etkinliğe Göre Podyum Tercihi",
   description:
     "Doğru podyum seçimi nasıl yapılır? Düğün, kurumsal toplantı, konser ve mitingler için en uygun sahne çözümleri Sahneva’da. Profesyonel podyum kiralama rehberimizi inceleyin.",
   alternates: { canonical: BLOG_URL },
