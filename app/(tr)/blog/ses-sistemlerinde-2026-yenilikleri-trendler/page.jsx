@@ -28,7 +28,7 @@ const OG_IMAGE = HERO_IMAGE;
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array | Sahneva",
+  title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array",
   description:
     "2026 ses teknolojilerini keşfedin: WMAS sistemler, AI tabanlı frekans yönetimi ve beam steering ile etkinlik prodüksiyonunda mühendislik dönemi.",
   image: HERO_IMAGE,
