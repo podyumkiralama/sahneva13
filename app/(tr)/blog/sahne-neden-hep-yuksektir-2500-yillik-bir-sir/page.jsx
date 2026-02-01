@@ -38,7 +38,7 @@ const IMAGES = {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sahne Neden Hep Yüksektir? 2500 Yıllık Bir Sır | Sahneva Blog",
+  title: "Sahne Neden Hep Yüksektir? 2500 Yıllık Bir Sır",
   description:
     "Antik çağın konuşma platformlarından modern konser sahnelerine… Sahnenin yükseltilmiş bir alan olarak nasıl doğduğunu, yüzyıllar boyunca nasıl evrildiğini ve bugünün sahne teknolojilerine nasıl dönüştüğünü anlatan tarih yazısı.",
 
