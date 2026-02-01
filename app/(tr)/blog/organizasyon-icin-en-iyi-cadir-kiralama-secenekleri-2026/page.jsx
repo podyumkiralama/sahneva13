@@ -17,15 +17,15 @@ const BLOG_PATH = "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-202
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
 const FEATURED_IMAGE = "/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
+const TENT_SERVICE_PATH = "/cadir-kiralama";
 
 const PUBLISH_DATE = "2026-02-12T00:00:00+03:00";
 const MODIFIED_DATE = "2026-02-12T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
-const TITLE =
-  "Organizasyon İçin En İyi Çadır Kiralama Seçenekleri (2026 Güncel Rehber)";
+const TITLE = "2026 Çadır Kiralama Rehberi: Organizasyon İçin En İyi Seçenekler";
 const DESCRIPTION =
-  "Kurumsal etkinlikten düğüne, fuardan festivale: 2026 çadır kiralama rehberi. Doğru çadır seçimi, kurulum süreci, maliyet belirleyicileri ve güvenlik kontrol listesi.";
+  "Kurumsal etkinlikten düğüne, fuardan festivale: 2026 çadır kiralama rehberi. Doğru çadır seçimi, kurulum süreci ve maliyetleri hızlıca öğrenin.";
 
 /* ================== META DATA ================== */
 export const metadata = {
@@ -174,7 +174,7 @@ const TableOfContents = () => (
 );
 
 const StatCard = ({ value, label }) => (
-  <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+  <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
     <div className="text-2xl md:text-3xl font-black text-gray-900">{value}</div>
     <p className="mt-2 text-sm text-gray-600 leading-snug">{label}</p>
   </div>
@@ -237,19 +237,32 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
 
-      <header className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-            Çadır Kiralama Rehberi
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroImg}
+            alt="Kurumsal organizasyonlar için profesyonel çadır kurulumu"
+            fill
+            className="object-cover opacity-65"
+            priority
+            sizes="100vw"
+            fetchPriority="high"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-300 animate-pulse" />
+            2026 Çadır Kiralama Rehberi
           </div>
-          <h1 className="text-4xl md:text-5xl font-black leading-[1.15] mb-5 tracking-tight text-gray-900">
-            {TITLE}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-6 tracking-tight">
+            <span className="gradient-text gradient-text--safe-xl">{TITLE}</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-light">
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
             {DESCRIPTION}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mt-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
             <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
               <span aria-hidden="true">📅</span> 12 Şubat 2026
             </time>
@@ -260,24 +273,44 @@ export default function Page() {
               <span aria-hidden="true">✍️</span> {AUTHOR_NAME}
             </span>
           </div>
-        </div>
-        <div className="container mx-auto px-4 mt-10">
-          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-            <Image
-              src={heroImg}
-              alt="Kurumsal organizasyonlar için profesyonel çadır kurulumu"
-              className="h-auto w-full object-cover"
-              priority
-              sizes="100vw"
-              placeholder="blur"
-            />
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href={TENT_SERVICE_PATH}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
+            >
+              ⛺ Çadır Kiralama
+            </Link>
+            <Link
+              href="/iletisim"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold py-3.5 px-7 border border-white/20 transition-transform hover:-translate-y-0.5"
+            >
+              ✉️ Teklif Alın
+            </Link>
           </div>
         </div>
       </header>
 
-      <section className="relative -mt-8 z-30 px-4" aria-label="Öne Çıkan Veriler">
+      <section className="relative -mt-10 z-30 px-4" aria-label="Öne Çıkan Veriler">
         <div className="container mx-auto">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10">
+            <div className="flex items-start justify-between flex-col md:flex-row gap-6 mb-8">
+              <div>
+                <h2 className="text-xl md:text-2xl font-black text-gray-900">
+                  2026 Çadır Kiralama Gerçekleri
+                </h2>
+                <p className="text-gray-600 mt-2 text-sm md:text-base max-w-2xl">
+                  Teknik keşif, zemin analizi ve doğru modül seçimi bütçe sapmalarını azaltır ve güvenliği artırır.
+                </p>
+              </div>
+              <Link
+                href={TENT_SERVICE_PATH}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 hover:bg-black text-white font-semibold px-5 py-3 transition-transform hover:-translate-y-0.5"
+              >
+                <span aria-hidden="true">📌</span>
+                Teklif Al
+              </Link>
+            </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {STAT_ITEMS.map((stat) => (
                 <StatCard key={stat.label} value={stat.value} label={stat.label} />
