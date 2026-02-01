@@ -38,7 +38,7 @@ const IMG_CONFETTI = "/img/blog/fisekhane-pubg-rekor-ani.webp";
 /* ================== META ================== */
 export const metadata = {
   title:
-    "Fişekhane’de PUBG Mobile Guinness Dünya Rekoru™ | Teknik Altyapı Sağlayıcısı Sahneva",
+    "Fişekhane’de PUBG Mobile Guinness Dünya Rekoru™ | Teknik Altyapı Sağlayıcısı",
   description:
     "Fişekhane’de gerçekleşen PUBG Mobile etkinliğinde sahne/podyum, LED ekran, ses-ışık, teknik destek ve canlı yayın/çekim altyapısı tarafımızdan sağlandı.",
   image: HERO_IMAGE,
