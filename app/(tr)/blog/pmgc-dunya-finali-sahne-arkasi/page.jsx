@@ -25,7 +25,7 @@ const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
 const VIDEO_THUMB = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 
 export const metadata = {
-  title: `${TITLE} | Sahneva Blog`,
+  title: `${TITLE}`,
   description: DESCRIPTION,
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
