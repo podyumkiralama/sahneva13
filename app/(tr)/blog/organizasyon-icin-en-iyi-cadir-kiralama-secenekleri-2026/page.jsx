@@ -23,7 +23,7 @@ const PUBLISH_DATE = "2026-02-12T00:00:00+03:00";
 const MODIFIED_DATE = "2026-02-12T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
-const TITLE = "2026 Çadır Kiralama Rehberi: Organizasyon İçin En İyi Seçenekler";
+const TITLE = "2026 Çadır Kiralama Rehberi: Organizasyon İçin Seçenekler";
 const DESCRIPTION =
   "Kurumsal etkinlikten düğüne, fuardan festivale: 2026 çadır kiralama rehberi. Doğru çadır seçimi, kurulum süreci ve maliyetleri hızlıca öğrenin.";
 
