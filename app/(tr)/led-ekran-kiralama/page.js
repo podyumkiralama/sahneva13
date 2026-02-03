@@ -41,7 +41,7 @@ function FAQ() {
   return (
     <section className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Sık Sorulan <span className="text-blue-700">Sorular</span>
           </h2>
@@ -254,7 +254,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "LED ekran kiralama teslim süresi ne kadar?",
-    a: "İstanbul içi standart projelerde genellikle 24–72 saat içinde kuruluma hazır planlama yapılabilir. Şehir dışı ve büyük ölçekli konser/festival projelerinde lojistik ve rigging planına göre teslim/kurulum takvimi netleştirilir."
+    a: "Küçük ve orta ölçekli projelerde (ör. 20–40 m²) LED ekran sistemleri ortalama **3–5 saat içinde** kurulabilir. Acil durumlarda ekip ve ekipman hazırsa aynı gün kurulum sağlanır. Büyük ölçekli konser ve festival projelerinde ise taşıyıcı sistem (truss/rigging), enerji ve güvenlik planlamasına bağlı olarak süre uzayabilir; takvim keşif sonrası netleştirilir."
   },
   {
     q: "Yağmurlu havada LED ekran kullanılabilir mi?",
@@ -380,7 +380,7 @@ function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {SERVICES.map((service, index) => {
             const id = `svc-${slugify(service.title)}`;
             const delayClass = `animation-delay-${index * 100}`;
@@ -573,7 +573,7 @@ const VIDEO_REVIEWS = [
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section className="py-14 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -594,28 +594,28 @@ function Gallery() {
               Video <span className="text-blue-700">Galerisi</span>
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              LED ekran kurulumlarımızı ve sahne prodüksiyonlarımızı videolarla keşfedin
+              Gerçek kurulumlarımızdan seçilmiş kısa videolar
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {VIDEO_GALLERY.map((video) => (
               <article
                 key={video.id}
-                className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
+                className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
                 aria-labelledby={`video-${video.id}-title`}
               >
                 <div className="relative w-full aspect-video bg-black">
                   <VideoEmbed videoId={video.id} title={video.title} />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <h4
                     id={`video-${video.id}-title`}
-                    className="text-xl font-bold text-gray-900 mb-3"
+                    className="text-lg font-bold text-gray-900 mb-2"
                   >
                     {video.title}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">{video.description}</p>
+                  <p className="text-gray-600 leading-relaxed line-clamp-2">{video.description}</p>
                 </div>
               </article>
             ))}
@@ -768,9 +768,9 @@ function Technical() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section className="py-14 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Teknik <span className="text-blue-700">Altyapımız</span>
           </h2>
@@ -779,25 +779,30 @@ function Technical() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {technicalItems.map((item) => (
             <div key={item.category} className="group">
-              <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl group-hover:scale-105 transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+              <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
                   <span className="text-3xl" aria-hidden="true">{item.icon}</span>
                   {item.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-600 mb-2 text-base leading-relaxed">
                   {item.description}
                 </p>
-                <ul className="space-y-3">
-                  {item.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3 text-gray-700">
-                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      <span className="text-base">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
+                  <summary className="cursor-pointer select-none font-semibold text-gray-900">
+                    Detayları gör
+                  </summary>
+                  <ul className="mt-3 space-y-2">
+                    {item.features.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-3 text-gray-700">
+                        <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="text-sm leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </div>
             </div>
           ))}
@@ -843,7 +848,7 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-blue-700">Alanları</span>
+            Kullanım <span className="text-blue-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             LED ekran çözümlerimizin tercih edildiği başlıca etkinlik türleri ve özel çözümlerimiz
