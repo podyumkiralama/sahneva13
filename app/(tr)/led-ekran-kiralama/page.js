@@ -106,39 +106,45 @@ function FAQ() {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | Profesyonel Çözümler",
-  description: "P2.5-P3.9 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. İç/dış mekan, konser, fuar ve kurumsal etkinlikler için profesyonel çözümler.",
-  keywords: "led ekran kiralama, p2.5 led ekran, p4 led ekran, dış mekan led ekran, led wall kiralama, video wall kiralama, konser led ekran",
+  title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+  description:
+    "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla profesyonel LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler için yüksek parlaklık, IP65 ve uzman kurulum.",
+  keywords:
+    "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
   openGraph: {
-    title: "LED Ekran Kiralama | Sahneva Organizasyon",
-    description: "P2.5-P3.9 piksel aralığında iç ve dış mekan LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum.",
+    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+    description:
+      "İç mekanda P2.5/P2.9, dış mekanda P3.9 LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum/söküm ekibi.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva Organizasyon",
     locale: "tr_TR",
-    images: [{
-      url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
-      width: 1200,
-      height: 630,
-      alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli"
-    }],
+    images: [
+      {
+        url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "LED ekran kiralama – sahnede profesyonel LED wall kurulumu",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Ekran Kiralama | Profesyonel Çözümler | Sahneva",
-    description: "P2.5-P3.9 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler.",
+    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+    description:
+      "P2.5/P2.9 indoor, P3.9 outdoor LED ekran kiralama. Konser, fuar ve kurumsal etkinliklerde yüksek parlaklık ve uzman kurulum.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { 
-      index: true, 
-      follow: true, 
-      "max-image-preview": "large", 
-      "max-snippet": -1, 
-      "max-video-preview": -1 
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 };
@@ -165,8 +171,8 @@ const SERVICES = [
   {
     icon: "🖥️",
     title: "İç Mekan LED Ekranlar",
-    description: "P2.5-P3.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
-    features: ["P2.5-P3.9 piksel", "800-1500 nit parlaklık", "4K çözünürlük", "Hızlı kurulum"],
+    description: "P2.5-P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
+    features: ["P2.5/P2.9 piksel", "800-1500 nit parlaklık", "4K çözünürlük", "Hızlı kurulum"],
     cta: { label: "Detaylı Bilgi", href: getServiceWhatsappLink("İç Mekan LED Ekranlar") },
   },
   {
@@ -813,6 +819,157 @@ function Technical() {
 }
 
 /* ================== İstatistik Bant (Kompakt) ================== */
+
+/* ================== Makale-İçi Rehber (CSV uyumlu) ================== */
+const LED_REHBER = [
+  {
+    q: "LED ekran kiralama fiyatları ne kadar?",
+    a: (
+      <>
+        <p>
+          Fiyat; piksel aralığı (P2.5/P2.9 – P3.9), toplam m², kurulum yüksekliği, taşıyıcı sistem (truss/rigging),
+          enerji altyapısı ve yayın gereksinimlerine göre netleşir. En doğru teklif için ekran ölçüsü + izleme mesafesi
+          birlikte değerlendirilmelidir.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "Kiralık LED ekran hizmeti veren firmalar nereden bulunur?",
+    a: (
+      <>
+        <p>
+          Referans proje kanıtı (foto/video), sahada sorumlu teknik kişi, yedek parça prosedürü ve dış mekân için
+          güvenli taşıyıcı sistem kriterlerini kontrol ederek doğru firmayı seçebilirsiniz.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "LED ekran kiralama için iletişim bilgileri olan şirketler hangileri?",
+    a: (
+      <>
+        <p>
+          Önemli olan tek numara değil; teklif akışı, kurulum günü ulaşılabilir saha sorumlusu ve dahil kalemlerin
+          yazılı olmasıdır. Teklif isterken tarih, mekan, tahmini m² ve içerik türünü iletmek süreci hızlandırır.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "Kiralık LED ekran teslim/kurulum süresi genellikle ne kadar?",
+    a: (
+      <>
+        <p>
+          Küçük ve orta ölçekli projelerde (yaklaşık 20–40 m²) sistemler çoğu senaryoda <strong>3–5 saat</strong> içinde
+          kuruluma hazır hale getirilebilir. Acil işlerde ekip ve ekipman hazırsa aynı gün kurulum planlanabilir.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "LED ekran kiralama sözleşmesi nasıl hazırlanır?",
+    a: (
+      <>
+        <p>
+          Sözleşmede m², piksel aralığı, kurulum-söküm saatleri, teslim kriteri (test yayını + onay), teknik ekip kapsamı,
+          arıza/yedek prosedürü ve dış mekân güvenliği (ankraj/rüzgar) net yazılmalıdır.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "Etkinlikler için LED ekran kiralama paket seçenekleri nelerdir?",
+    a: (
+      <>
+        <p>
+          Paketleri “m² + hizmet” olarak düşünün: Temel (panel+kurulum), Standart (kontrol+format), Pro (operatör+canlı yayın/sunum entegrasyonu).
+          Proje büyüdükçe taşıyıcı sistem ve yayın ekipmanı kapsamı da genişler.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "Kiralık LED ekran kurulumu ve sökümü hizmeti veriliyor mu?",
+    a: (
+      <>
+        <p>
+          Profesyonel kiralamada kurulum-söküm standarttır. Önemli olan; güvenli rigging, doğru kablolama/enerji hattı ve
+          etkinlik akışına (run-of-show) uyumlu teslim planıdır.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "LED ekran kiralama hizmetinde teknik destek sunuluyor mu?",
+    a: (
+      <>
+        <p>
+          Kurulum günü teknisyen, yayın sırasında operatör desteği ve yedek panel/kritik parça prosedürü olan firmalar
+          etkinlik günü riski ciddi azaltır.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "Kiralık LED ekran boyut seçenekleri nelerdir?",
+    a: (
+      <>
+        <p>
+          LED sistemler modüler olduğu için ölçü esnektir (ör. 4×2 m, 6×3 m). Doğru boyut için izleme mesafesi,
+          içerik türü (sunum/video/canlı kamera) ve sahne yerleşimi birlikte değerlendirilir.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: "LED ekran kiralama fiyatına dahil olan hizmetler neler?",
+    a: (
+      <>
+        <p>
+          Genellikle panel, kurulum-söküm, kontrol sistemi kurulumu, kablolama ve test yayını dahildir. Operatör,
+          içerik uyarlama ve yayın entegrasyonu proje kapsamına göre eklenebilir. Teklifte “dahil olanlar”ı yazılı istemek önemlidir.
+        </p>
+      </>
+    ),
+  },
+];
+
+function LedEkranRehber() {
+  return (
+    <section className="py-12 bg-[#0B1120]" aria-labelledby="led-rehber-baslik">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-6">
+          <h2 id="led-rehber-baslik" className="text-2xl md:text-3xl font-bold text-white">
+            LED Ekran Kiralama Rehberi
+          </h2>
+          <p className="mt-2 text-white/70">
+            En çok sorulan sorulara kısa ve teknik cevaplar. Detaylar tıklayınca açılır.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {LED_REHBER.map((item, idx) => (
+            <details
+              key={idx}
+              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5"
+            >
+              <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
+                <span className="font-semibold text-white">{item.q}</span>
+                <span aria-hidden="true" className="text-white/60 group-open:rotate-180 transition">
+                  ⌄
+                </span>
+              </summary>
+              <div className="mt-4 text-white/80 leading-relaxed">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function StatsBand() {
   const stats = [
     { value: "300+", label: "Başarılı Proje" },
@@ -1345,7 +1502,7 @@ function JsonLd() {
     "@id": `${pageUrl}#product`,
     name: "İç ve Dış Mekan LED Ekran Kiralama",
     description:
-      "P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık sunan iç/dış mekan LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için profesyonel çözümler.",
+      "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla 4K çözünürlük ve yüksek parlaklık sunan profesyonel LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için uzman kurulum.",
     category: "EventLedScreenRental",
     image: `${ORIGIN}/img/hizmet-led-ekran.webp`,
     brand: providerRef,
@@ -1536,6 +1693,7 @@ export default function Page() {
       <Services />
       <Gallery />
       <Technical />
+      <LedEkranRehber />
       <StatsBand />
       <UseCases />
       <Articles />
