@@ -7,7 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
 
-const SLUG = "podyum-sahne-avantajlari";
+const SLUG = "neden-podyum-sahne-tercih-edilir";
 const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 

@@ -18,7 +18,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
   ""
 );
 
-const BLOG_PATH = "/blog/led-ekran-2026-teknoloji-trendleri";
+const BLOG_PATH = "/blog/led-ekran-teknoloji-trendleri-2026";
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
