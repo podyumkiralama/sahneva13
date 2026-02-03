@@ -65,8 +65,6 @@ function FAQ() {
                   <summary
                     id={headingId}
                     className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
-                    role="button"
-                    tabIndex={0}
                   >
                     <span className="pr-4 flex-1">{faq.q}</span>
                     <span
@@ -109,12 +107,12 @@ function FAQ() {
 /* ================== META ================== */
 export const metadata = {
   title: "LED Ekran Kiralama | Profesyonel Çözümler",
-  description: "P2-P6 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. İç/dış mekan, konser, fuar ve kurumsal etkinlikler için profesyonel çözümler.",
+  description: "P2.5-P3.9 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. İç/dış mekan, konser, fuar ve kurumsal etkinlikler için profesyonel çözümler.",
   keywords: "led ekran kiralama, p2.5 led ekran, p4 led ekran, dış mekan led ekran, led wall kiralama, video wall kiralama, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
   openGraph: {
     title: "LED Ekran Kiralama | Sahneva Organizasyon",
-    description: "P2-P6 piksel aralığında iç ve dış mekan LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum.",
+    description: "P2.5-P3.9 piksel aralığında iç ve dış mekan LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva Organizasyon",
@@ -129,7 +127,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "LED Ekran Kiralama | Profesyonel Çözümler | Sahneva",
-    description: "P2-P6 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler.",
+    description: "P2.5-P3.9 piksel aralığı, 4K çözünürlük, yüksek parlaklık LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
   },
   robots: {
@@ -174,8 +172,8 @@ const SERVICES = [
   {
     icon: "🌞",
     title: "Dış Mekan LED Ekranlar",
-    description: "P4-P6 piksel aralığı ve yüksek parlaklık ile açık hava çözümleri",
-    features: ["P4-P6 piksel", "5000-6500+ nit", "IP65 su geçirmez", "UV dayanıklı"],
+    description: "P3.9 piksel aralığı ve yüksek parlaklık ile açık hava çözümleri",
+    features: ["P3.9 piksel", "5000-6500+ nit", "IP65 su geçirmez", "UV dayanıklı"],
     cta: { label: "Teklif Al", href: getServiceWhatsappLink("Dış Mekan LED Ekranlar") },
   },
   {
@@ -244,21 +242,42 @@ const USE_CASES = [
 const FAQ_ITEMS = [
   {
     q: "LED ekran kiralama fiyatları ne kadar?",
-    a: "LED ekran kiralama fiyatları piksel aralığına ve ekran boyutuna göre değişmektedir. P2.5 iç mekan LED ekran için m² fiyatı 2.800 TL, P4 dış mekan LED ekran için m² fiyatı 1.800 TL'dir. Profesyonel kurulum ve operatör hizmetleri paket fiyatlarına dahildir."
+    a: "LED ekran kiralama fiyatları piksel aralığı, ekran boyutu (m²), iç/dış mekan kullanım ve kurulum tipi (zemin/truss/rigging) gibi faktörlere göre değişir. İç mekanda P2.5 / P2.9 çözümler ile, dış mekanda P3.9 yüksek parlaklık çözümler için proje bazlı fiyatlandırma yapılır. İstersen etkinlik tarihi, şehir ve yaklaşık ölçüyü yaz; en doğru teklifi hızlıca çıkaralım."
+  },
+  {
+    q: "LED ekran kiralama fiyatına hangi hizmetler dahildir?",
+    a: "Paketler genellikle LED panel kiralama, kurulum-söküm, kontrol sistemi kurulumu, test yayını ve sahada teknik ekip desteğini kapsar. İçerik formatlama (çözünürlük uyarlama) ve operatör desteği ise projenin ihtiyacına göre eklenebilir."
   },
   {
     q: "LED ekran kurulumu ne kadar sürer?",
-    a: "Standart bir LED ekran kurulumu 2-6 saat arasında tamamlanır. 20m²'ye kadar küçük kurulumlar 2-3 saat, 20-50m² orta ölçekli kurulumlar 3-4 saat, 50m²+ büyük kurulumlar ise 4-6 saat sürmektedir. Kompleks rigging gerektiren projelerde bu süre 24 saate kadar çıkabilir."
+    a: "Standart kurulumlar çoğu projede 2–6 saat içinde tamamlanır. Ekran alanı büyüdükçe ve rigging/truss gerektiren kurulumlarda süre uzayabilir. Büyük ölçekli sahne projelerinde keşif + planlama ile birlikte aynı gün içinde kurulum ve test yayını tamamlanacak şekilde planlama yapılır."
+  },
+  {
+    q: "LED ekran kiralama teslim süresi ne kadar?",
+    a: "İstanbul içi standart projelerde genellikle 24–72 saat içinde kuruluma hazır planlama yapılabilir. Şehir dışı ve büyük ölçekli konser/festival projelerinde lojistik ve rigging planına göre teslim/kurulum takvimi netleştirilir."
   },
   {
     q: "Yağmurlu havada LED ekran kullanılabilir mi?",
-    a: "Evet, dış mekan LED ekranlarımız IP65 koruma sınıfına sahiptir ve yağmurlu havada güvenle kullanılabilir. IP65 koruma, ekranın toza karşı tam korumalı ve su jetlerine karşı korumalı olduğu anlamına gelir. Ancak şiddetli fırtına ve kasırga gibi ekstrem hava koşullarında güvenlik önlemi olarak kullanıma ara verilmesini öneriyoruz."
+    a: "Evet. Dış mekan LED ekranlarımız IP65 koruma sınıfına uygun çözümlerle açık havada kullanılabilir. Yine de şiddetli fırtına ve ekstrem hava koşullarında güvenlik önlemleri kapsamında kullanıma ara verilmesini öneririz."
   },
   {
     q: "LED ekran için hangi piksel aralığını seçmeliyim?",
-    a: "Piksel aralığı seçimi izleyici mesafesine göre belirlenmelidir. 3-10m mesafe için P2.5-P3.9, 10-25m mesafe için P4, 25m+ mesafe için P6 piksel aralığı öneriyoruz. İç mekan etkinliklerinde P2.5-P3.9, dış mekan etkinliklerinde ise P4-P6 aralığı tercih edilmektedir."
+    a: "Doğru seçim izleme mesafesine bağlıdır. Yakın mesafe ve iç mekan uygulamalarında P2.5 / P2.9 daha net görüntü verir. Açık hava konser, festival ve geniş izleme alanlarında en yaygın tercih P3.9'dur. Çok uzak mesafe uygulamalarında farklı piksel aralıkları da sağlanabilir; teknik keşifle en doğru seçimi netleştiririz."
+  },
+  {
+    q: "Video içerik desteği sağlıyor musunuz?",
+    a: "Evet. LED ekran çözünürlüğüne uygun içerik formatlama, oran/dosya hazırlığı ve gerekiyorsa canlı yayın entegrasyonu için teknik destek sağlayabiliriz."
+  },
+  {
+    q: "LED ekran kiralama sözleşmesi yapıyor musunuz?",
+    a: "Evet. Kurumsal projelerde hizmet kapsamı, kurulum planı, teslim koşulları ve teknik sorumluluklar sözleşme ile netleştirilir."
+  },
+  {
+    q: "Türkiye geneline hizmet veriyor musunuz?",
+    a: "Evet. Türkiye'nin 81 ilinde kurulum ve teknik prodüksiyon desteğiyle LED ekran kiralama hizmeti sunuyoruz."
   },
 ];
+
 
 /* ================== HERO ================== */
 function Hero() {
@@ -275,8 +294,8 @@ function Hero() {
           quality={75}
           fetchPriority="high"
          
+          placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
-          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
@@ -299,7 +318,7 @@ function Hero() {
           Konser • Fuar • Lansman • Festival • Kurumsal Etkinlikler
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          P2-P6 piksel aralığı, 4K çözünürlük ve yüksek parlaklık ile 
+          P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık ile 
           <span className="font-semibold text-white"> profesyonel görsel çözümler</span>
         </p>
 
@@ -707,9 +726,9 @@ function Technical() {
     {
       category: "piksel",
       title: "Piksel Teknolojileri",
-      description: "P2.5-P6 piksel aralığı ile her ihtiyaca uygun çözümler",
+      description: "P2.5-P3.9 piksel aralığı ile her ihtiyaca uygun çözümler",
       icon: "🔍",
-      features: ["P2.5: İç mekan premium", "P3.9: Hibrit kullanım", "P4: Dış mekan standart", "P6: Büyük açık alanlar"]
+      features: ["P2.5: İç mekan premium", "P3.9: Hibrit kullanım", "P4: Dış mekan standart", "P4.8: Uzak mesafe (opsiyon)"]
     },
     {
       category: "parlaklik",
@@ -788,44 +807,26 @@ function Technical() {
   );
 }
 
-/* ================== İstatistik Bant ================== */
+/* ================== İstatistik Bant (Kompakt) ================== */
 function StatsBand() {
   const stats = [
-    { value: "300+", label: "Başarılı Proje", icon: "🎬" },
-    { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
-    { value: "81", label: "İlde Hizmet", icon: "🗺️" },
-    { value: "5+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: "300+", label: "Başarılı Proje" },
+    { value: "50+", label: "Kurumsal Müşteri" },
+    { value: "81", label: "İlde Hizmet" },
+    { value: "5+", label: "Yıl Deneyim" },
   ];
-  
+
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-label="Başarı İstatistiklerimiz">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {stats.map((stat, index) => (
+    <section className="py-10 bg-[#0B1120]" aria-label="Başarı İstatistiklerimiz">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {stats.map((s) => (
             <article
-              key={stat.label}
-              className="text-center group"
-              role="group"
-              aria-labelledby={`tr-led-stat-${index}-value`}
-              aria-describedby={`tr-led-stat-${index}-label`}
+              key={s.label}
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 group-hover:bg-white/20 transition-all duration-500 group-hover:scale-105">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                  {stat.icon}
-                </div>
-                <h3
-                  id={`tr-led-stat-${index}-value`}
-                  className="text-4xl md:text-5xl font-black mb-2 text-white drop-shadow-lg"
-                >
-                  {stat.value}
-                </h3>
-                <p
-                  id={`tr-led-stat-${index}-label`}
-                  className="text-blue-100 text-lg font-semibold"
-                >
-                  {stat.label}
-                </p>
-              </div>
+              <div className="text-3xl font-black text-white">{s.value}</div>
+              <div className="text-sm text-white/70 mt-1">{s.label}</div>
             </article>
           ))}
         </div>
@@ -833,6 +834,7 @@ function StatsBand() {
     </section>
   );
 }
+
 
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
@@ -956,7 +958,7 @@ function Articles() {
                       değerleriyle her koşulda net ve canlı görüntü garantisi sunuyoruz.
                     </p>
                     <p>
-                      P2.5-P6 piksel aralığı seçeneklerimizle, izleyici mesafesine göre optimize edilmiş çözümler 
+                      P2.5-P3.9 piksel aralığı seçeneklerimizle, izleyici mesafesine göre optimize edilmiş çözümler 
                       sunarak hem yakın mesafede detay kaybı hem de uzak mesafede pikselli görüntü sorunlarını ortadan kaldırıyoruz.
                     </p>
                   </div>
@@ -970,7 +972,7 @@ function Articles() {
                   </h5>
                   <p className="text-gray-700 text-lg mb-0 leading-relaxed">
                     LED ekran seçiminde izleyici mesafesi en kritik faktördür. Yakın mesafe (3-10m) için P2.5-P3.9, 
-                    orta mesafe (10-25m) için P4, uzak mesafe (25m+) için P6 piksel aralığı öneriyoruz. Açık hava 
+                    orta mesafe (10-25m) için P4, uzak mesafe (25m+) için P4.8 piksel aralığı öneriyoruz. Açık hava 
                     etkinliklerinde ise parlaklık ve IP koruma sınıfı öncelikli değerlendirilmelidir.
                   </p>
                 </div>
@@ -1264,10 +1266,7 @@ function CTA() {
                 <span className="text-lg">WhatsApp'tan Yaz</span>
               </a>
             </div>
-            <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 5+ yıl deneyim
-            </div>
-          </div>
+</div>
         </div>
       </div>
     </section>
@@ -1341,7 +1340,7 @@ function JsonLd() {
     "@id": `${pageUrl}#product`,
     name: "İç ve Dış Mekan LED Ekran Kiralama",
     description:
-      "P2-P6 piksel aralığı, 4K çözünürlük ve yüksek parlaklık sunan iç/dış mekan LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için profesyonel çözümler.",
+      "P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık sunan iç/dış mekan LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için profesyonel çözümler.",
     category: "EventLedScreenRental",
     image: `${ORIGIN}/img/hizmet-led-ekran.webp`,
     brand: providerRef,
