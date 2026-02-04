@@ -20,6 +20,7 @@ const IMG_PRO = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 
 const PUBLISH_DATE = "2025-12-30T09:00:00+03:00";
 const MODIFIED_DATE = "2025-12-30T09:00:00+03:00";
+const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 /* ================== META ================== */
 export const metadata = {
