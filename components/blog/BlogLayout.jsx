@@ -3,189 +3,116 @@ import Link from "next/link";
 
 /**
  * Sahneva BlogLayout
- * - Hero + meta + CTA
- * - Breadcrumbs (UI)
- * - Prose wrapper
+ * - Consistent hero aspect ratio (16:9)
+ * - Consistent content image sizing (max 900px) via global style targeting .blog-content img
  *
- * Not: JSON-LD breadcrumb / Article schema gibi scriptleri sayfa içinde bırakın.
+ * Props:
+ * - title, description, image, publishDate, author
+ * - breadcrumbs: [{ name, item }]
+ * - ctas: [{ href, label }]
+ * - children
  */
 export default function BlogLayout({
-  siteUrl,
-  breadcrumbItems = [],
-  heroImage,
-  pills = [],
   title,
-  highlight,
   description,
+  image,
   publishDate,
-  author,
-  readTime,
-  primaryLinks,
-  whatsappUrl,
+  author = "Sahneva İçerik Ekibi",
+  breadcrumbs = [],
+  ctas = [],
   children,
 }) {
-  const formattedDate = publishDate ? formatTrDate(publishDate) : null;
-
-  const links = Array.isArray(primaryLinks) ? primaryLinks.filter(Boolean) : [];
-
   return (
     <>
-      {/* HERO */}
-      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
-        {heroImage?.src ? (
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt ?? title ?? "Sahneva Blog"}
-              fill
-              className="object-cover opacity-65"
-              priority
-              sizes="100vw"
-              fetchPriority="high"
-            />
-          </div>
-        ) : null}
+      <article className="mx-auto w-full px-4 pb-16 pt-8">
+        <div className="mx-auto w-full max-w-6xl">
+          {/* Breadcrumbs */}
+          {breadcrumbs?.length > 0 && (
+            <nav aria-label="Breadcrumb" className="mb-4 text-sm text-white/70">
+              <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                {breadcrumbs.map((b, i) => (
+                  <li key={b.item ?? i} className="flex items-center gap-2">
+                    {i > 0 && <span className="text-white/30">/</span>}
+                    <Link href={b.item ?? "#"} className="hover:text-white">
+                      {b.name}
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
 
-        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
-          {pills?.length ? (
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-7">
-              {pills.slice(0, 4).map((p, i) => (
-                <Pill key={`${p}-${i}`}>{p}</Pill>
-              ))}
+          {/* Header */}
+          <header className="mb-6">
+            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+              {title}
+            </h1>
+
+            {description && (
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-white/80 md:text-lg">
+                {description}
+              </p>
+            )}
+
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60">
+              {publishDate && <time dateTime={publishDate}>{publishDate}</time>}
+              <span className="text-white/25">•</span>
+              <span>{author}</span>
             </div>
-          ) : null}
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-5 tracking-tight">
-            {title}{" "}
-            {highlight ? (
-              <span className="gradient-text gradient-text--safe-xl">{highlight}</span>
-            ) : null}
-          </h1>
+            {ctas?.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {ctas.map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </header>
 
-          {description ? (
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
-              {description}
-            </p>
-          ) : null}
-
-          {(formattedDate || readTime || author) ? (
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
-              {formattedDate ? (
-                <time dateTime={publishDate} className="flex items-center gap-2">
-                  <span aria-hidden="true">📅</span> {formattedDate}
-                </time>
-              ) : null}
-
-              {readTime ? (
-                <span className="flex items-center gap-2">
-                  <span aria-hidden="true">⏱️</span> {readTime}
-                </span>
-              ) : null}
-
-              {author ? (
-                <span className="flex items-center gap-2">
-                  <span aria-hidden="true">✍️</span> {author}
-                </span>
-              ) : null}
+          {/* Hero */}
+          {image && (
+            <div className="relative mb-10 w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={image}
+                  alt={title || "Blog görseli"}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  className="object-cover"
+                />
+              </div>
             </div>
-          ) : null}
+          )}
 
-          {(links.length || whatsappUrl) ? (
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              {links.slice(0, 3).map((l, idx) => (
-                <Link
-                  key={`${l.href}-${idx}`}
-                  href={l.href}
-                  className={buttonClass(idx === 0)}
-                >
-                  {l.icon ? <span aria-hidden="true">{l.icon}</span> : null}
-                  {l.label}
-                </Link>
-              ))}
-
-              {whatsappUrl ? (
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp ile iletişime geç — yeni sekmede açılır"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
-                >
-                  <span aria-hidden="true">💬</span> WhatsApp
-                </a>
-              ) : null}
-            </div>
-          ) : null}
-        </div>
-      </header>
-
-      {/* MAIN */}
-      <main className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <Breadcrumbs items={breadcrumbItems} />
-
-          <article className="prose prose-lg max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+          {/* Content */}
+          <div className="blog-content mx-auto w-full max-w-4xl text-white/90">
             {children}
-          </article>
+          </div>
         </div>
-      </main>
+      </article>
+
+      {/* Global image normalization for blog content */}
+      <style jsx global>{`
+        .blog-content img {
+          width: 100% !important;
+          max-width: 900px !important;
+          height: auto !important;
+          display: block !important;
+          margin: 40px auto !important;
+          border-radius: 16px !important;
+        }
+        /* Next/Image wrapper safety */
+        .blog-content span > img {
+          max-width: 900px !important;
+        }
+      `}</style>
     </>
   );
-}
-
-function buttonClass(isPrimary) {
-  if (isPrimary) {
-    return "inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5";
-  }
-  return "inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold py-3.5 px-7 border border-white/20 transition-transform hover:-translate-y-0.5";
-}
-
-function Pill({ children }) {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold tracking-wide">
-      {children}
-    </span>
-  );
-}
-
-function Breadcrumbs({ items }) {
-  if (!items?.length) return null;
-  return (
-    <nav aria-label="Breadcrumb" className="mb-8">
-      <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-        {items.map((it, idx) => (
-          <li key={`${it.url}-${idx}`} className="flex items-center gap-2">
-            {idx > 0 ? <span aria-hidden="true" className="text-gray-400">/</span> : null}
-            {idx < items.length - 1 ? (
-              <Link href={safePath(it.url)} className="hover:underline">
-                {it.name}
-              </Link>
-            ) : (
-              <span className="text-gray-900 font-semibold">{it.name}</span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
-function safePath(url) {
-  // siteUrl ile tam url verilirse path'e indir
-  try {
-    const u = new URL(url);
-    return u.pathname + (u.search ?? "");
-  } catch {
-    return url;
-  }
-}
-
-function formatTrDate(iso) {
-  try {
-    const d = new Date(iso);
-    return new Intl.DateTimeFormat("tr-TR", { day: "2-digit", month: "long", year: "numeric" }).format(d);
-  } catch {
-    return null;
-  }
 }
