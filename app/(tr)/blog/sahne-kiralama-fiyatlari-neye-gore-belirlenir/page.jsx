@@ -186,7 +186,7 @@ function PillLink({ href, children }) {
 function ImgFigure({ src, alt, caption }) {
   return (
     <figure className="not-prose my-8">
-      <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+      <div className="relative overflow-hidden rounded-2xl bg-transparent">
         <Image
           src={src}
           alt={alt}
@@ -230,6 +230,9 @@ return (
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="7\u20139 dk okuma"
+        currentSlug={BLOG_PATH.replace("/blog/", "")}
+        currentCategory={metadata?.category}
+        currentKeywords={metadata?.keywords}
         primaryLinks={[
           { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
           { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
