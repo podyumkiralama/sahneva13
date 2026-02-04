@@ -5,12 +5,8 @@ import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
-import {
+import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
-  BASE_SITE_URL,
-  ORGANIZATION_ID,
-  WEBSITE_ID,
-} from "@/lib/seo/schemaIds";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(

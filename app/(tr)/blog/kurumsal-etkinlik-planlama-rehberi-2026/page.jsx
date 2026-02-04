@@ -5,12 +5,8 @@ import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import {
+import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
-  BASE_SITE_URL,
-  ORGANIZATION_ID,
-  WEBSITE_ID,
-} from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 
