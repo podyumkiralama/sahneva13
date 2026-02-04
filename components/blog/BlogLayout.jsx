@@ -97,22 +97,6 @@ export default function BlogLayout({
           </div>
         </div>
       </article>
-
-      {/* Global image normalization for blog content */}
-      <style jsx global>{`
-        .blog-content img {
-          width: 100% !important;
-          max-width: 900px !important;
-          height: auto !important;
-          display: block !important;
-          margin: 40px auto !important;
-          border-radius: 16px !important;
-        }
-        /* Next/Image wrapper safety */
-        .blog-content span > img {
-          max-width: 900px !important;
-        }
-      `}</style>
     </>
   );
 }
