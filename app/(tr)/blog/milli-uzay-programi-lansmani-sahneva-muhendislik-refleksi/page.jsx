@@ -23,6 +23,8 @@ const PUBLISH_DATE = "2021-02-09T00:00:00+03:00";
 const MODIFIED_DATE = "2021-02-09T00:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, blog yazınızı okudum. Projem için teklif almak istiyorum.");
+
 const VIDEO_ID = "j1Tr5l8DVW8";
 const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
 const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
@@ -190,7 +192,7 @@ export default function Page() {
         description={DESCRIPTION}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
-        readTime="3\u20135 dk okuma"
+        readTime="7 dk okuma"
         primaryLinks={[
           { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎭" },
           { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "🧱" },
