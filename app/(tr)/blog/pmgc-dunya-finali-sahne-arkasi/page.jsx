@@ -20,6 +20,8 @@ const PUBLISH_DATE = "2026-01-05T10:00:00+03:00";
 const MODIFIED_DATE = "2026-01-05T10:00:00+03:00";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, blog yazınızı okudum. Projem için teklif almak istiyorum.");
+
 const VIDEO_ID = "173gBurWSRQ";
 const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
 const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
@@ -162,34 +164,32 @@ function ImgFigure({ src, alt, caption }) {
 }
 
 export default function Page() {
-  
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
+    { name: TITLE, url: BLOG_URL },
   ];
 
-return (
+  return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      <section className="mx-auto w-full max-w-5xl px-4 py-12">
-              <Breadcrumbs />
+      <ArticleSchema />
       <BlogLayout
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
+        heroImage={{ src: HERO_IMG, alt: TITLE }}
         pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
+        title={TITLE}
+        description={DESCRIPTION}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
-        readTime="2\u20134 dk okuma"
+        readTime="7 dk okuma"
         primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
+          { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎭" },
+          { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "🧱" },
+          { href: "/led-ekran-kiralama", label: "LED Ekran", icon: "🟦" },
         ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
+        whatsappUrl={WA_URL}
       >
 
           <p>
@@ -303,4 +303,6 @@ return (
             ]}
           />
       </BlogLayout>
-  );}
+    </>
+  );
+}
