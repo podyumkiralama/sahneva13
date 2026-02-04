@@ -45,6 +45,7 @@ function warmupYouTube() {
 export default function VideoEmbed({
   videoId,
   title = "YouTube video",
+  thumbnailUrl,
   autoplayOnClick = true,
   muteOnAutoplay = true,
   warmupOnIdle = true,        // ✅ idle warmup kalsın
@@ -55,13 +56,17 @@ export default function VideoEmbed({
 
   const thumbs = useMemo(() => {
     const base = `https://i.ytimg.com/vi/${videoId}`;
-    return [
+    const fallbackThumbs = [
       `${base}/maxresdefault.jpg`,
       `${base}/hqdefault.jpg`,
       `${base}/sddefault.jpg`,
       `${base}/mqdefault.jpg`,
     ];
-  }, [videoId]);
+
+    if (!thumbnailUrl) return fallbackThumbs;
+
+    return [thumbnailUrl, ...fallbackThumbs];
+  }, [videoId, thumbnailUrl]);
 
   // Overlay UX state
   const [isPlayed, setIsPlayed] = useState(false);
