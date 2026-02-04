@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -385,26 +384,127 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      
-            {/* HERO */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="1\u20133 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
 
+      {/* HERO */}
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={SECTION_IMAGES.hero.src}
+            alt={SECTION_IMAGES.hero.alt}
+            fill
+            className="object-cover opacity-65"
+            priority
+            sizes="100vw"
+            fetchPriority="high"
+          />
+          {/* watermark on hero */}
+          <div className="absolute bottom-6 right-6 z-20 bg-black/55 text-white text-xs font-extrabold px-3 py-1.5 rounded-full backdrop-blur">
+            Sahneva Uygulaması
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-300 animate-pulse" />
+            <strong>Modüler podyum sistemleri</strong> • <strong>Hızlı kurulum</strong> •{" "}
+            <strong>Güvenlik</strong>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
+            Etkinliğe Göre{" "}
+            <span className="gradient-text gradient-text--safe-xl">Podyum ve Sahne</span>{" "}
+            Tercihi
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
+            Düğün, kurumsal toplantı, konser ve miting için doğru podyum yüksekliği, yüzey tercihi ve
+            güvenlik kuralları. “<strong>Kiralık podyum fiyatları</strong>” araştırırken asıl farkı;
+            doğru ölçü + doğru kurulum belirler.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
+            <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
+              <span aria-hidden="true">📅</span> 28 Aralık 2025
+            </time>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">⏱️</span> 7 dk okuma
+            </span>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">✍️</span> {AUTHOR_NAME}
+            </span>
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href={PODIUM_SERVICE_PATH}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
+            >
+              🧾 Hemen Teklif Al
+            </Link>
+
+            <a
+              href={LEADMAGNET_WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp ile ücretsiz danışmanlık alın — yeni sekmede açılır"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+            >
+              💬 Ücretsiz Danışmanlık
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* STATS */}
+      <section id="stats" aria-label="Hızlı Seçim Özeti" className="relative -mt-10 z-30 px-4">
+        <div className="container mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10">
+            <div className="flex items-start justify-between flex-col md:flex-row gap-6 mb-8">
+              <div>
+                <h2 className="text-xl md:text-2xl font-black text-gray-900">
+                  Hızlı Seçim Özeti
+                </h2>
+                <p className="text-gray-600 mt-2 text-sm md:text-base max-w-2xl">
+                  İnsanlar blog yazılarını okumaz, tarar. Bu bölüm tek bakışta karar içindir.
+                </p>
+              </div>
+
+              <Link
+                href={PODIUM_SERVICE_PATH}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 hover:bg-black text-white font-semibold px-5 py-3 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
+              >
+                <span aria-hidden="true">📌</span>
+                Teklif Al
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCard value="≤ 80 cm" label="Kurumsal toplantı / otel içi sahne üst sınırı" />
+              <StatCard value="40–80 cm" label="Düğün sahnesi (önü komple merdiven olmalı)" />
+              <StatCard value="100–150 cm" label="Konser & miting (150 cm’de sabitleme)" />
+              <StatCard value="Max 2" label="Konser & mitingde merdiven sayısı (kontrol)" />
+            </div>
+
+            <div className="mt-8">
+              <InfoBox icon="⚠️" title="Uyarı (Güvenlik)" variant="warn">
+                150 cm sahne kurulumunda <strong>sabitleme bağlantı aparatları</strong> zorunludur.
+                Aksi halde sallanma ve güvenlik riski artar.
+              </InfoBox>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN */}
+      <main className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs />
+
+          <div className="flex flex-col lg:flex-row gap-12 relative">
+            {/* LEFT */}
+            <div className="lg:w-2/3">
+              <article className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
                 {/* SOCIAL PROOF (numbersiz, güvenli) */}
                 <div className="not-prose mb-10">
                   <InfoBox icon="✅" title="Sosyal Kanıt">
@@ -644,6 +744,69 @@ export default function Page() {
                     { href: STAGE_SERVICE_PATH, label: "Sahne Kiralama" },
                   ]}
                 />
-      </BlogLayout>
+              </article>
+            </div>
+
+            {/* RIGHT */}
+            <aside className="lg:w-1/3 relative">
+              <div className="sticky top-24 space-y-8">
+                <TableOfContents />
+
+                <nav className="bg-gray-50 rounded-2xl p-6 border border-gray-200" aria-label="İlgili Hizmetler">
+                  <h4 className="font-black mb-4 text-sm uppercase tracking-wider text-gray-700">
+                    İlgili Hizmetler
+                  </h4>
+                  <ul className="space-y-1">
+                    {[
+                      { href: PODIUM_SERVICE_PATH, icon: "🧱", label: "Podyum Kiralama" },
+                      { href: STAGE_SERVICE_PATH, icon: "🎭", label: "Sahne Kiralama" },
+                      { href: CORPORATE_SERVICE_PATH, icon: "🏢", label: "Kurumsal Organizasyon" },
+                      { href: TENT_SERVICE_PATH, icon: "⛺", label: "Çadır Kiralama" },
+                      { href: SOUND_LIGHT_PATH, icon: "🔊", label: "Ses & Işık Sistemleri" },
+                      { href: LED_SERVICE_PATH, icon: "🖥️", label: "LED Ekran Kiralama" },
+                    ].map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-blue-600 group"
+                        >
+                          <span className="bg-white group-hover:bg-blue-50 text-lg w-8 h-8 flex items-center justify-center rounded-md border border-gray-100 shadow-sm transition-colors">
+                            {link.icon}
+                          </span>
+                          <span className="font-semibold text-sm">{link.label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                  <p className="m-0 text-xs uppercase tracking-wide text-gray-500 font-black">
+                    Hızlı Aksiyon
+                  </p>
+                  <p className="mt-2 text-sm text-gray-700">
+                    Etkinliğinizi yazın, size uygun ölçü ve kurulum planını netleştirelim.
+                  </p>
+                  <Link
+                    href={PODIUM_SERVICE_PATH}
+                    className="mt-4 inline-flex items-center justify-center w-full rounded-xl bg-gray-900 hover:bg-black text-white font-semibold px-4 py-3"
+                  >
+                    🧾 Teklif Al
+                  </Link>
+                  <a
+                    href={LEADMAGNET_WA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center justify-center w-full rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-4 py-3"
+                  >
+                    💬 WhatsApp
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
     </>
-  );}
+  );
+}

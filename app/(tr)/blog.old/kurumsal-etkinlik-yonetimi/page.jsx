@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -197,26 +196,81 @@ export default function BlogPostCorporate() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      
-            {/* --- HERO SECTION --- */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="2\u20134 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
 
+      {/* --- HERO SECTION --- */}
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/blog/kurumsal-etkinlik-hero.webp"
+            alt="Kurumsal etkinlik sahnesi ve LED ekran kurulumu"
+            fill
+            className="object-cover opacity-60"
+            priority
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            Kurumsal Organizasyon Rehberi
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
+            Kurumsal Etkinlik Yönetimi <br className="hidden md:block" />
+            <span className="gradient-text gradient-text--safe-xl">
+              Teknik Kiralama Rehberi
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto font-light antialiased">
+            Lansman, bayi toplantısı ve şirket içi etkinliklerde markanızın prestijini yansıtacak teknik kurguyu nasıl planlamalısınız?
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-300 mt-8 pt-8 border-t border-white/10">
+            <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
+              <span>📅</span> 20 Mayıs 2025
+            </time>
+            <span className="flex items-center gap-2"><span>⏱️</span> 8 dk okuma</span>
+            <span className="flex items-center gap-2"><span>✍️</span> {AUTHOR_NAME}</span>
+          </div>
+        </div>
+      </header>
+
+      {/* --- İSTATİSTİKLER (Responsive Grid) --- */}
+      <section className="relative -mt-10 z-30 px-4" aria-label="Önemli İstatistikler">
+        <div className="container mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-gray-100">
+              {[
+                { val: "92%", label: "Teknik sorun yaşayan etkinlik oranı", color: "text-red-500" },
+                { val: "3x", label: "Profesyonel planlamada ROI artışı", color: "text-green-600" },
+                { val: "%40", label: "Plansızlık kaynaklı maliyet artışı", color: "text-orange-500" },
+                { val: "15dk", label: "Ortalama teknik aksama süresi", color: "text-blue-600" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center group px-2">
+                  <div className={`text-3xl md:text-4xl font-black ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                    {stat.val}
+                  </div>
+                  <div className="text-xs md:text-sm text-gray-600 font-medium leading-snug max-w-[150px] mx-auto">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- MAIN CONTENT --- */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs />
+
+          <div className="flex flex-col lg:flex-row gap-12 relative">
+            {/* SOL KOLON (MAKALE) */}
+            <div className="lg:w-2/3">
+              <article className="prose prose-lg prose-headings:font-bold prose-headings:text-gray-900 prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl max-w-none">
                 
                 <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
                   <p className="text-lg text-gray-700 font-medium italic m-0">
@@ -520,6 +574,78 @@ export default function BlogPostCorporate() {
                     { href: "/sahne-kiralama", label: "Sahne Kiralama" },
                   ]}
                 />
-      </BlogLayout>
+              </article>
+            </div>
+
+            {/* --- SAĞ KOLON (STICKY SIDEBAR) --- */}
+            <aside className="lg:w-1/3 relative">
+              <div className="sticky top-24 space-y-8">
+                
+                {/* İÇİNDEKİLER (Desktop Only) */}
+                <TableOfContents />
+
+                {/* TEKLİF KUTUSU */}
+                <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 relative overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-purple-500" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Hızlı Teklif Alın</h3>
+                  <p className="text-sm text-gray-600 mb-6">
+                    Etkinlik detaylarınızı paylaşın, 2 saat içinde projelendirilmiş teklifinizi sunalım.
+                  </p>
+                  <div className="space-y-3">
+                    <a
+                      href="https://wa.me/905453048671"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp ile hızlı teklif isteyin — yeni sekmede açılır"
+                      className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-green-200"
+                    >
+                      <span>📱</span> WhatsApp
+                    </a>
+                    <Link href="/iletisim" className="flex items-center justify-center gap-2 w-full bg-gray-50 hover:bg-gray-100 text-gray-900 font-bold py-3.5 rounded-xl transition-all border border-gray-200">
+                      <span>✉️</span> Form Doldur
+                    </Link>
+                  </div>
+                </div>
+
+                {/* CHECKLIST DOWNLOAD (LEAD MAGNET) */}
+                <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 text-center relative">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold border border-orange-200">ÜCRETSİZ</span>
+                  <div className="text-4xl mb-2">📋</div>
+                  <h4 className="font-bold text-orange-900 mb-2">Planlama Checklist'i</h4>
+                  <p className="text-orange-800/80 text-xs mb-4 leading-relaxed">
+                    Etkinlik öncesi teknik kontrol listesini PDF olarak indirin, sürpriz yaşamayın.
+                  </p>
+                  <button className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-3 rounded-xl transition-all shadow-md cursor-not-allowed opacity-70" disabled>
+                    Checklist'i İndir (Yakında)
+                  </button>
+                </div>
+
+                {/* HİZMETLER MENÜSÜ */}
+                <nav className="bg-gray-50 rounded-2xl p-6 border border-gray-200" aria-label="İlgili Hizmetler">
+                  <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider text-gray-700">Hizmetlerimiz</h4>
+                  <ul className="space-y-1">
+                    {[
+                      { href: "/kurumsal-organizasyon", icon: "🏢", label: "Kurumsal Organizasyon" },
+                      { href: "/led-ekran-kiralama", icon: "🖥️", label: "LED Ekran Kiralama" },
+                      { href: "/ses-isik-sistemleri", icon: "🎵", label: "Ses & Işık Sistemleri" },
+                      { href: "/cadir-kiralama", icon: "⛺", label: "Çadır Kiralama" },
+                      { href: "/sahne-kiralama", icon: "🎭", label: "Sahne Kiralama" },
+                    ].map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href} className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-blue-600 group">
+                          <span className="bg-white group-hover:bg-blue-50 text-lg w-8 h-8 flex items-center justify-center rounded-md border border-gray-100 shadow-sm transition-colors">{link.icon}</span>
+                          <span className="font-medium text-sm">{link.label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
     </>
-  );}
+  );
+}

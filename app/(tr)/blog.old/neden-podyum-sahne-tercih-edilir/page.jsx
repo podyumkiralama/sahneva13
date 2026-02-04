@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -146,39 +145,66 @@ export default function Page() {
   const breadcrumbJsonLd = buildBreadcrumbJsonLd();
   const faqJsonLd = buildFaqJsonLd();
 
-  
-  const breadcrumbItems = [
-    { name: "Ana Sayfa", url: `${SITE_URL}/` },
-    { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
-  ];
-
-return (
+  return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      <JsonLd data={breadcrumbJsonLd} />
-            <JsonLd data={articleJsonLd} />
-            <JsonLd data={faqJsonLd} />
-      
-            {/* HERO */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="8\u201310 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
+      {/* Eğer projende BreadcrumbJsonLd component’i standart ise bunu korudum */}
+      <BreadcrumbJsonLd
+        baseUrl={SITE_URL}
+        items={[
+          { name: "Ana Sayfa", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: "Neden Podyum Sahne Tercih Edilir?", url: BLOG_URL },
         ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
+      />
 
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={articleJsonLd} />
+      <JsonLd data={faqJsonLd} />
+
+      {/* HERO */}
+      <header className="relative overflow-hidden bg-gray-900 py-20 text-white">
+        <Image
+          src={HERO_IMG}
+          alt="Podyum sahne kurulumu ve etkinlik alanında profesyonel sahne düzeni"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover opacity-60"
+        />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
+          <h1 className="text-balance text-3xl font-black tracking-tight md:text-5xl">
+            Neden Podyum Sahne Tercih Edilir? Etkinliklerde Sağladığı Avantajlar
+          </h1>
+          <p className="mt-5 text-pretty text-base text-white/85 md:text-lg">
+            Görünürlük, güvenlik, kurulum süresi ve profesyonel algı… Podyum sahnenin
+            etkinliklerde öne çıkmasının sebeplerini detaylıca inceleyin.
+          </p>
+
+          {/* Hızlı linkler */}
+          <div className="mt-7 flex flex-wrap justify-center gap-2 text-sm">
+            <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15" href="/podyum-kiralama">
+              Podyum Kiralama
+            </Link>
+            <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15" href="/sahne-kiralama">
+              Sahne Kiralama
+            </Link>
+            <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15" href="/led-ekran-kiralama">
+              LED Ekran Kiralama
+            </Link>
+            <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15" href="/cadir-kiralama">
+              Çadır Kiralama
+            </Link>
+            <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15" href="/kurumsal-organizasyon">
+              Kurumsal Organizasyon
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* CONTENT */}
+      <main className="bg-white py-14">
+        <article className="prose prose-lg mx-auto max-w-3xl px-4 prose-headings:font-black prose-a:no-underline hover:prose-a:underline">
           {/* ====== METİN: pasted.txt’den TAMAMEN BİREBİR ====== */}
           <p>
             Etkinlik organizasyonlarında sahne seçimi yalnızca estetik bir karar değildir.
@@ -502,6 +528,8 @@ return (
               { href: "/sahne-kiralama", label: "Sahne Kiralama" },
             ]}
           />
-      </BlogLayout>
+        </article>
+      </main>
     </>
-  );}
+  );
+}

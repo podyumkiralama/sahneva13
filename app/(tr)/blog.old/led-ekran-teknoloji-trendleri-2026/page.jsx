@@ -11,7 +11,6 @@ import cobMacroImg from "@/public/img/blog/cob-led-macro.webp";
 // Yeni eklenen görseller (sen yükledin)
 import pixelPitchComparison from "@/public/img/blog/pixel-pitch-karsilastirma.webp";
 import cobSmdComparison from "@/public/img/blog/cob-smd-yapisal-fark.webp";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -274,26 +273,139 @@ export default function LedTrends2026Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      
-            {/* HERO (öne çıkan = hero) */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="3\u20135 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
 
+      {/* HERO (öne çıkan = hero) */}
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroImg}
+            alt="Geniş sahnede 2026 LED ekran teknolojilerini temsil eden kurumsal etkinlik"
+            fill
+            className="object-cover opacity-65"
+            priority
+            sizes="100vw"
+            fetchPriority="high"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-300 animate-pulse" />
+            2026 LED Ekran Trend Raporu
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
+            2026’da LED Ekran{" "}
+            <span className="gradient-text gradient-text--safe-xl">
+              Sahne Tasarımını Nasıl Değiştiriyor?
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
+            COB paneller, 2.0 nesil sürücüler ve HDR içerik ile kurumsal etkinliklerde LED ekranlar artık sadece fon değil, başrol oyuncu.
+            Teknik kararları 2026’da nasıl almalısınız?
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
+            <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
+              <span aria-hidden="true">📅</span> 15 Aralık 2025
+            </time>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">⏱️</span> 7 dk okuma
+            </span>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">✍️</span> {AUTHOR_NAME}
+            </span>
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LED projeniz için WhatsApp üzerinden yazın — yeni sekmede açılır"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-7 py-3.5 shadow-lg shadow-emerald-900/40 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+            >
+              <span aria-hidden="true">💬</span>
+              <span>WhatsApp’tan Yazın</span>
+            </a>
+
+            <Link
+              href={LED_SERVICE_PATH}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-3.5 border border-white/20 backdrop-blur-md transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
+            >
+              <span aria-hidden="true">🖥️</span>
+              <span>LED Ekran Kiralama</span>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* HERO ALTİ PREMIUM BLOCK: STATS */}
+      <section
+        id="stats"
+        aria-label="2026 LED Ekran Gerçekleri"
+        className="relative -mt-10 z-30 px-4"
+      >
+        <div className="container mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10">
+            <div className="flex items-start justify-between flex-col md:flex-row gap-6 mb-8">
+              <div>
+                <h2 className="text-xl md:text-2xl font-black text-gray-900">
+                  2026 LED Ekran Gerçekleri
+                </h2>
+                <p className="text-gray-600 mt-2 text-sm md:text-base max-w-2xl">
+                  Bu bölüm “hızlı karar” vermek içindir: doğru panel, doğru yenileme oranı ve doğru içerik üretimi sahnede farkı saniyeler içinde gösterir.
+                </p>
+              </div>
+
+              <Link
+                href={LED_SERVICE_PATH}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 hover:bg-black text-white font-semibold px-5 py-3 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
+              >
+                <span aria-hidden="true">📌</span>
+                Teklif Al
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <StatCard
+                value="%68"
+                label="Kurumsal etkinliklerde fine-pitch LED tercih oranı (2026 trend)"
+              />
+              <StatCard
+                value="3840Hz+"
+                label="Yeni nesil sürücülerde önerilen minimum yenileme oranı"
+              />
+              <StatCard
+                value="%42"
+                label="Yanlış piksel aralığı seçimi nedeniyle memnuniyetsizlik riski"
+              />
+              <StatCard
+                value="15 dk"
+                label="Yanlış kurulum/ayarın canlı yayında gecikmeye etkisi"
+              />
+            </div>
+
+            <div className="mt-8">
+              <InfoBox icon="💡" title="Pro Tip">
+                Kamera varsa sadece “m²” konuşmayın: <strong>piksel aralığı + yenileme oranı + renk kalibrasyonu</strong> aynı pakette net yazılmalı.
+              </InfoBox>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN CONTENT */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs />
+
+          <div className="flex flex-col lg:flex-row gap-12 relative">
+            {/* SOL */}
+            <div className="lg:w-2/3">
+              <article className="prose prose-lg prose-headings:font-black prose-headings:text-gray-900 prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl max-w-none">
                 <div className="bg-blue-50/60 p-6 rounded-xl border-l-4 border-blue-500 mb-8 not-prose">
                   <p className="text-lg text-gray-700 font-semibold italic m-0">
                     “LED ekran olsun yeter” dönemi bitti. 2026’da markalar; piksel aralığı, sürücü teknolojisi, HDR desteği ve kamera dostu flicker performansını aynı anda istiyor.
@@ -650,6 +762,61 @@ export default function LedTrends2026Page() {
                     { href: "/sahne-kiralama", label: "Sahne Kiralama" },
                   ]}
                 />
-      </BlogLayout>
+              </article>
+            </div>
+
+            {/* SAĞ */}
+            <aside className="lg:w-1/3 relative">
+              <div className="sticky top-24 space-y-8">
+                <TableOfContents />
+
+                <nav className="bg-gray-50 rounded-2xl p-6 border border-gray-200" aria-label="İlgili Hizmetler">
+                  <h4 className="font-black mb-4 text-sm uppercase tracking-wider text-gray-700">
+                    Hizmetlerimiz
+                  </h4>
+                  <ul className="space-y-1">
+                    {[
+                      { href: LED_SERVICE_PATH, icon: "🖥️", label: "LED Ekran Kiralama" },
+                      { href: "/sahne-kiralama", icon: "🎭", label: "Sahne Kiralama" },
+                      { href: "/ses-isik-sistemleri", icon: "🎵", label: "Ses & Işık Sistemleri" },
+                      { href: "/kurumsal-organizasyon", icon: "🏢", label: "Kurumsal Organizasyon" },
+                    ].map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-blue-600 group"
+                        >
+                          <span className="bg-white group-hover:bg-blue-50 text-lg w-8 h-8 flex items-center justify-center rounded-md border border-gray-100 shadow-sm transition-colors">
+                            {link.icon}
+                          </span>
+                          <span className="font-semibold text-sm">{link.label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                  <p className="m-0 text-xs uppercase tracking-wide text-gray-500 font-black">
+                    Hızlı Aksiyon
+                  </p>
+                  <p className="mt-2 text-sm text-gray-700">
+                    Teknik teklif checklist PDF’ini alıp 2026 kriterlerine göre teklifleri hızlıca kıyaslayın.
+                  </p>
+                  <a
+                    href={LEADMAGNET_WA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center justify-center w-full rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                  >
+                    📄 PDF iste
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
     </>
-  );}
+  );
+}

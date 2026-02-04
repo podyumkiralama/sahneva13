@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -241,26 +240,85 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      
-            {/* HERO */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="2\u20134 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
 
+      {/* HERO */}
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={IMAGES.hero.src}
+            alt={IMAGES.hero.alt}
+            fill
+            className="object-cover opacity-65"
+            priority
+            sizes="100vw"
+            fetchPriority="high"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-7">
+            <Pill>Antik → Modern</Pill>
+            <Pill>Sahne Podyum Tarihi</Pill>
+            <Pill>Söz • Tiyatro • Opera • Konser</Pill>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-5 tracking-tight">
+            Sahne Neden Hep Yüksektir?{" "}
+            <span className="gradient-text gradient-text--safe-xl">2500 Yıllık Bir Sır</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light antialiased">
+            Sahne, bir platformdan fazlası… Antik dünyanın konuşma alanlarından modern konser teknolojilerine uzanan
+            hikâye: Neden yükselir, nasıl evrilir, neyi temsil eder?
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-200 mt-8 pt-8 border-t border-white/10">
+            <time dateTime={PUBLISH_DATE} className="flex items-center gap-2">
+              <span aria-hidden="true">📅</span> 29 Aralık 2025
+            </time>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">⏱️</span> 10–12 dk okuma
+            </span>
+            <span className="flex items-center gap-2">
+              <span aria-hidden="true">✍️</span> {AUTHOR_NAME}
+            </span>
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href={STAGE_SERVICE_PATH}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
+            >
+              🎭 Sahne Kiralama
+            </Link>
+
+            <Link
+              href={PODIUM_SERVICE_PATH}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold py-3.5 px-7 border border-white/20 transition-transform hover:-translate-y-0.5"
+            >
+              🧱 Podyum Kiralama
+            </Link>
+
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp ile iletişime geç — yeni sekmede açılır"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
+            >
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* MAIN */}
+      <main className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs />
+
+          <article className="prose prose-lg max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
             <InfoBox icon="🧭" title="Bu Yazının Rotası">
               Bu yazı bir “teknik eğitim rehber” değil; sahnenin kültürel ve tarihsel yolculuğu. Antik çağda sözün yükselmesiyle
               başlayan bu hikâye, bugün truss sistemleri ve LED ekranlarla devam ediyor.
@@ -447,6 +505,9 @@ export default function Page() {
                 { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama" },
               ]}
             />
-      </BlogLayout>
+          </article>
+        </div>
+      </main>
     </>
-  );}
+  );
+}

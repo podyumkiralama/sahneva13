@@ -5,7 +5,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import {
-import BlogLayout from "@/components/blog/BlogLayout";
   BASE_SITE_URL,
   ORGANIZATION_ID,
   WEBSITE_ID,
@@ -269,27 +268,57 @@ export default function BlogPostDome360Mapping() {
 
   return (
     <>
+      {/* Breadcrumb JSON-LD */}
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      {/* Article + WebPage + Video JSON-LD */}
-            <ArticleSchema />
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="2\u20134 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
 
+      {/* Article + WebPage + Video JSON-LD */}
+      <ArticleSchema />
+
+      <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-blue-900/25 z-10" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={HERO_IMAGE}
+            alt="Dome çadır içinde 360° video mapping ile kapsayıcı lansman atmosferi"
+            fill
+            className="object-cover opacity-80"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm font-semibold mb-8 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            Kurumsal Organizasyon / Çadır Kiralama
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight">
+            Kurumsal Etkinliklerde Dome Çadır Devrimi: Pnömatik Yapı ve 360° Mapping
+            ile Geleceğin Lansmanları
+          </h1>
+
+          <p className="text-lg md:text-xl text-slate-200 mb-6">
+            Yayın Tarihi: 20 Ocak 2026 | Okuma Süresi: 9 dk | Kategori: Kurumsal
+            Organizasyon / Çadır Kiralama
+          </p>
+
+          <p className="text-base md:text-lg text-slate-200">
+            Prestij artık dört duvar arasında değil; gökyüzüne açılan, teknolojiyle
+            nefes alan fütüristik yapılarda. 2026 itibarıyla lansmanların yeni
+            standardı: pnömatik/geodezik dome ve 360° video mapping.
+          </p>
+        </div>
+      </header>
+
+      <main className="bg-white">
+        <section className="container mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-10">
+            <aside>
+              <TableOfContents />
+            </aside>
+
+            <article className="prose prose-lg max-w-none">
               <Breadcrumbs />
 
               <p>
@@ -501,6 +530,10 @@ export default function BlogPostDome360Mapping() {
                   { href: "/sahne-kiralama", label: "Sahne Kiralama" },
                 ]}
               />
-      </BlogLayout>
+           </article>
+          </div>
+        </section>
+      </main>
     </>
-  );}
+  );
+}

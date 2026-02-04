@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import BlogLayout from "@/components/blog/BlogLayout";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi";
@@ -171,36 +170,42 @@ function ImgFigure({ src, alt, caption }) {
 }
 
 export default function Page() {
-  
-  const breadcrumbItems = [
-    { name: "Ana Sayfa", url: `${SITE_URL}/` },
-    { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
-  ];
-
-return (
-    <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      <section className="mx-auto w-full max-w-5xl px-4 py-12" aria-labelledby="page-title">
-              <Breadcrumbs />
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="3\u20135 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
+  return (
+    <main className="bg-white text-gray-900">
+      <ArticleSchema />
+      <BreadcrumbJsonLd
+        baseUrl={SITE_URL}
+        items={[
+          { name: "Ana Sayfa", url: SITE_URL },
+          { name: "Blog", url: `${SITE_URL}/blog` },
+          { name: TITLE, url: BLOG_URL },
         ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
+      />
 
+      <section className="mx-auto w-full max-w-5xl px-4 py-12" aria-labelledby="page-title">
+        <Breadcrumbs />
+
+        <header className="mb-8">
+          <p className="text-sm font-semibold text-blue-600">Case Study · Beştepe 2021</p>
+          <h1 id="page-title" className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+            {TITLE}
+          </h1>
+          <p className="mt-4 text-lg text-gray-700">{DESCRIPTION}</p>
+        </header>
+
+        <div className="relative overflow-hidden rounded-3xl border border-gray-200 shadow-lg">
+          <Image
+            src={HERO_IMG}
+            alt="Milli Uzay Programı Lansmanı sahne kurulumu"
+            width={2048}
+            height={1003}
+            priority
+            className="h-auto w-full object-cover"
+            sizes="(max-width: 1024px) 100vw, 960px"
+          />
+        </div>
+
+        <article className="prose prose-lg max-w-none mt-10">
           <p>
             9 Şubat 2021 tarihinde, Ankara Beştepe Millet Kongre ve Kültür Merkezi, Türkiye’nin
             gelecek 10 yıllık uzay vizyonunun açıklandığı tarihi bir ana tanıklık etti. Sahneva
@@ -360,6 +365,8 @@ return (
               { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
             ]}
           />
-      </BlogLayout>
-    </>
-  );}
+        </article>
+      </section>
+    </main>
+  );
+}
