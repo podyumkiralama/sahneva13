@@ -186,7 +186,7 @@ function PillLink({ href, children }) {
 function ImgFigure({ src, alt, caption }) {
   return (
     <figure className="not-prose my-8">
-      <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+      <div className="relative overflow-hidden rounded-2xl bg-transparent">
         <Image
           src={src}
           alt={alt}
