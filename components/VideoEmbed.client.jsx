@@ -5,14 +5,12 @@ import { useEffect, useMemo, useState, useCallback } from "react";
 /* ===========================
    YouTube preconnect helpers
    =========================== */
-
 let _ytPreconnectDone = false;
 
 function ensureYouTubePreconnect() {
   if (typeof document === "undefined") return;
   if (_ytPreconnectDone) return;
 
-  // If something already injected, don't duplicate
   if (document.querySelector('link[data-yt-preconnect="1"]')) {
     _ytPreconnectDone = true;
     return;
@@ -21,11 +19,9 @@ function ensureYouTubePreconnect() {
   _ytPreconnectDone = true;
 
   const links = [
-    // preconnect
     { rel: "preconnect", href: "https://www.youtube-nocookie.com" },
     { rel: "preconnect", href: "https://i.ytimg.com" },
     { rel: "preconnect", href: "https://www.google.com" },
-    // dns-prefetch
     { rel: "dns-prefetch", href: "https://www.youtube-nocookie.com" },
     { rel: "dns-prefetch", href: "https://i.ytimg.com" },
   ];
@@ -46,15 +42,13 @@ function warmupYouTube() {
 /* ===========================
    Component
    =========================== */
-
 export default function VideoEmbed({
   videoId,
   title = "YouTube video",
-  autoLoad = false,
   autoplayOnClick = true,
   muteOnAutoplay = true,
-  warmupOnIdle = false,
-  preconnectOnMount = true,
+  warmupOnIdle = true,        // ✅ idle warmup kalsın
+  preconnectOnMount = false,  // ✅ sayfa açılışında 3P preconnect yapmasın
   className = "",
 }) {
   if (!videoId) return null;
@@ -69,14 +63,13 @@ export default function VideoEmbed({
     ];
   }, [videoId]);
 
-  // Overlay state (UX). Iframe is always present for SEO.
-  const [isLoaded, setIsLoaded] = useState(Boolean(autoLoad));
+  // Overlay UX state
+  const [isPlayed, setIsPlayed] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
   const [thumbFailed, setThumbFailed] = useState(false);
 
-  // Base iframe URL (no autoplay): safe initial render
+  // ✅ Base iframe URL: crawler görsün diye HER ZAMAN gerçek src
   const baseEmbedUrl = useMemo(() => {
-    // playsinline=1 for iOS; modestbranding/rel for cleaner UI
     return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
   }, [videoId]);
 
@@ -89,15 +82,15 @@ export default function VideoEmbed({
     return `${baseEmbedUrl}&${params.toString()}`;
   }, [baseEmbedUrl, autoplayOnClick, muteOnAutoplay]);
 
-  // Iframe src state: starts with base, becomes autoplay on click
+  // ✅ iframe src: başlangıçta base (crawler görünür), tıklayınca autoplay versiyona geçer
   const [iframeSrc, setIframeSrc] = useState(baseEmbedUrl);
 
   useEffect(() => {
-    setIsLoaded(Boolean(autoLoad));
+    setIsPlayed(false);
     setThumbIndex(0);
     setThumbFailed(false);
     setIframeSrc(baseEmbedUrl);
-  }, [videoId, autoLoad, baseEmbedUrl]);
+  }, [videoId, baseEmbedUrl]);
 
   useEffect(() => {
     if (!preconnectOnMount) return;
@@ -124,29 +117,27 @@ export default function VideoEmbed({
 
   const handlePlay = useCallback(() => {
     warmupYouTube();
-    setIsLoaded(true);
+    setIsPlayed(true);
     setIframeSrc(clickEmbedUrl);
   }, [clickEmbedUrl]);
 
   const currentThumb = thumbs[thumbIndex];
 
   return (
-    <div
-      className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}
-    >
-      {/* ✅ SEO için: iframe HER ZAMAN DOM’da */}
+    <div className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}>
+      {/* ✅ CRAWLER GÖRÜR: iframe gerçek src ile DOM’da */}
       <iframe
         src={iframeSrc}
         title={title}
         className="absolute inset-0 h-full w-full"
-        loading="lazy"
+        loading="lazy" // ✅ viewport’a yaklaşmadan yüklemez
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         referrerPolicy="strict-origin-when-cross-origin"
       />
 
-      {/* Overlay: click gelene kadar kapağı göster */}
-      {!isLoaded ? (
+      {/* ✅ Overlay: kullanıcı tıklayana kadar thumbnail göster */}
+      {!isPlayed ? (
         <button
           type="button"
           onClick={handlePlay}
@@ -173,16 +164,10 @@ export default function VideoEmbed({
             </div>
           )}
 
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60"
-            aria-hidden="true"
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60" aria-hidden="true" />
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-4">
-            <span
-              className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none"
-              aria-hidden="true"
-            >
+            <span className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" aria-hidden="true">
               ▶
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
