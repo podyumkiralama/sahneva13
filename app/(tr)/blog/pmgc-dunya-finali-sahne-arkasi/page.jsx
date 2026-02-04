@@ -184,6 +184,9 @@ export default function Page() {
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="7 dk okuma"
+        currentSlug={SLUG}
+        currentCategory={metadata?.category}
+        currentKeywords={metadata?.keywords}
         primaryLinks={[
           { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎭" },
           { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "🧱" },

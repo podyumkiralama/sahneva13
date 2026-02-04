@@ -209,6 +209,9 @@ export default function BlogPostCorporate() {
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="2\u20134 dk okuma"
+        currentSlug={BLOG_URL.split("/").pop()}
+        currentCategory={metadata?.category}
+        currentKeywords={metadata?.keywords}
         primaryLinks={[
           { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
           { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },

@@ -4,6 +4,7 @@ import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
+import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -845,6 +846,12 @@ export default function Page() {
                   </li>
                 </ul>
               </section>
+
+              <SmartBlogSuggestions
+                currentSlug={slug.replace("/blog/", "")}
+                currentCategory={metadata?.category}
+                currentKeywords={metadata?.keywords}
+              />
 
               <BlogRelatedLinks
                 services={[

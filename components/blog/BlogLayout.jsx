@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 
 /**
  * Sahneva BlogLayout
@@ -22,6 +23,9 @@ export default function BlogLayout({
   readTime,
   primaryLinks,
   whatsappUrl,
+  currentSlug,
+  currentCategory,
+  currentKeywords,
   children,
 }) {
   const formattedDate = publishDate ? formatTrDate(publishDate) : null;
@@ -128,6 +132,12 @@ export default function BlogLayout({
           <article className="prose prose-lg max-w-none blog-scope prose-headings:font-black prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
             {children}
           </article>
+
+          <SmartBlogSuggestions
+            currentSlug={currentSlug}
+            currentCategory={currentCategory}
+            currentKeywords={currentKeywords}
+          />
         </div>
       </main>
     </>
