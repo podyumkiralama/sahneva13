@@ -151,6 +151,36 @@
     background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+
+  .blog-content img {
+    width: 100% !important;
+    max-width: 900px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 40px auto !important;
+    border-radius: 16px !important;
+  }
+
+  /* Next/Image wrapper safety */
+  .blog-content span > img {
+    max-width: 900px !important;
+  }
+
+  .blog-scope img {
+    width: 100% !important;
+    max-width: 900px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 40px auto !important;
+    border-radius: 16px !important;
+  }
+
+  .blog-scope .blog-hero img,
+  .blog-scope [data-blog-hero] img {
+    max-width: 1200px !important;
+    margin-top: 24px !important;
+    margin-bottom: 40px !important;
+  }
 }
 
 /* Accessibility */
