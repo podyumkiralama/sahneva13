@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
