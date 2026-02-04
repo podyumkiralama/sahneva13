@@ -1,21 +1,19 @@
-// app/(tr)/blog/kurumsal-etkinlik-planlama-rehberi-2026/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
-import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
-import BlogLayout from "@/components/blog/BlogLayout";
+import {
+  BASE_SITE_URL,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
-
 const slug = "/blog/kurumsal-etkinlik-planlama-rehberi-2026";
-const BLOG_URL = `${SITE_URL}${slug}`;
-
-const url = `${SITE_URL}${slug}`;
+const url = `${BASE_SITE_URL}${slug}`;
 const FEATURED_IMAGE = "/img/blog/kurumsal-etkinlik-timeline.webp";
 const OG_IMAGE = FEATURED_IMAGE;
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
@@ -204,35 +202,113 @@ export default function Page() {
     ],
   };
 
-  
-  const breadcrumbItems = [
-    { name: "Ana Sayfa", url: `${SITE_URL}/` },
-    { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
-  ];
-
-return (
+  return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      {/* Header */}
-      <BlogLayout
-        siteUrl={SITE_URL}
-        breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
-        pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
-        description={metadata?.description}
-        publishDate={PUBLISH_DATE}
-        author={AUTHOR_NAME}
-        readTime="2\u20134 dk okuma"
-        primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
-        ]}
-        whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
-      >
+      <Script
+        id="ld-blogposting"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
+      <div className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-10 md:px-6 md:pt-14">
+          <BreadcrumbJsonLd
+            items={[
+              { name: "Anasayfa", url: BASE_SITE_URL },
+              { name: "Blog", url: `${BASE_SITE_URL}/blog` },
+              { name: "2026 Kurumsal Etkinlik Planlama Rehberi", url },
+            ]}
+          />
+
+          {/* Header */}
+          <header>
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700">
+              İstanbul kurumsal etkinlik firmaları • teknik prodüksiyon
+            </div>
+
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+              2026 Kurumsal Etkinlik Planlama Rehberi
+              <span className="block text-slate-600">
+                En Kapsamlı Kontrol Listesi ve Teknik İpuçları
+              </span>
+            </h1>
+
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">
+              2026’da hibrit etkinlikler artık “alternatif” değil, norm haline geliyor.
+              İşin kritik tarafı şu: sahne, LED ekran, ses–ışık ve yayın zincirini tek
+              bir planla yönetmezseniz en küçük aksaklık, akışı ve bütçeyi hızla bozar.
+              Bu rehber; stratejiden run-of-show’a kadar tüm süreci tek yerde toplar.
+            </p>
+
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+              <span>{publishedHuman}</span>
+              <span aria-hidden="true">•</span>
+              <span>{readingTime}</span>
+              <span aria-hidden="true">•</span>
+              <span>Sahneva İçerik Ekibi</span>
+            </div>
+
+            {/* CTA row */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href="https://wa.me/905453048671"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                WhatsApp’tan Yazın (2 saatte teklif)
+              </a>
+
+              <Link
+                href="/iletisim"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                Teklif Al / İletişim
+              </Link>
+
+              <a
+                href={pdfHref}
+                className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                Kontrol Listesi PDF İndir
+              </a>
+            </div>
+
+            <Figure
+              src={FEATURED_IMAGE}
+              alt="Kurumsal etkinlik planlama rehberi için öne çıkan görsel"
+              caption="Kurumsal etkinlik planlama rehberi: strateji, bütçe, run-of-show ve teknik prodüksiyon."
+              priority
+              loading="eager"
+            />
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <StatCard value="%65–68" label="Hibrit etkinlik oranı (2025–2026 raporları)" />
+              <StatCard
+                value="%25–46"
+                label="Teknik aksaklık sonrası terk/kriz riski aralığı"
+              />
+              <StatCard value="2–3 ay" label="İdeal planlama başlangıç süresi" />
+              <StatCard value="Tek Plan" label="Sahne+LED+ses+ışık+yayın akışı" />
+            </div>
+
+            {/* Sources / footnote */}
+            <p className="mt-4 text-xs leading-5 text-slate-500">
+              Kaynak notu: Teknik aksaklık sonrası terk oranı için Kaltura “State of Virtual Events 2023”
+              (1–2 glitch sonrası ~%25, 3+ glitch sonrası ~%46). Ayrıca hibritleşme eğilimleri için Eventcube
+              sektör istatistik derlemeleri ve 2025–2026 benchmark’ları.
+            </p>
+
+            <ProTip title="2026 notu">
+              Hibrit işlerde sadece “m²” konuşmak yetmez. LED ekran + kamera + ses/ışık + yayın zinciri aynı
+              dosyada yazılı olmalı; aksi halde sahada küçük bir sorun büyük gecikmeye döner.
+            </ProTip>
+          </header>
+
+          {/* Layout */}
+          <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_340px]">
+            {/* Main */}
+            <article className="min-w-0">
               {/* TOC */}
               <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <h2 className="text-base font-semibold text-slate-900">
@@ -776,6 +852,72 @@ return (
                   { href: "/sahne-kiralama", label: "Sahne Kiralama" },
                 ]}
               />
-      </BlogLayout>
+            </article>
+
+            {/* Sidebar */}
+            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="text-sm font-semibold text-slate-900">Hızlı Teklif</div>
+                <p className="mt-2 text-sm leading-6 text-slate-700">
+                  Etkinlik detaylarını yazın, hızlıca projelendirelim.
+                </p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <a
+                    href="https://wa.me/905453048671"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                  >
+                    WhatsApp
+                  </a>
+                  <Link
+                    href="/iletisim"
+                    className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  >
+                    İletişim Formu
+                  </Link>
+                  <a
+                    href={pdfHref}
+                    className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  >
+                    PDF Kontrol Listesi
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="text-sm font-semibold text-slate-900">Hizmetler</div>
+                <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  <li><Link className="hover:text-slate-900" href="/kurumsal-organizasyon">Kurumsal Organizasyon</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/led-ekran-kiralama">LED Ekran Kiralama</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/ses-isik-sistemleri">Ses & Işık Sistemleri</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/cadir-kiralama">Çadır Kiralama</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/sahne-kiralama">Sahne Kiralama</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/podyum-kiralama">Podyum Kiralama</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/masa-sandalye-kiralama">Masa Sandalye Kiralama</Link></li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="text-sm font-semibold text-slate-900">İlgili Yazılar</div>
+                <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  <li><Link className="hover:text-slate-900" href="/blog/led-ekran-teknoloji-trendleri-2026">2026 LED Ekran Teknolojisi Trendleri</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/blog/ses-sistemlerinde-2026-yenilikleri-trendler">Ses Sistemlerinde 2026 Yenilikleri</Link></li>
+                  <li>
+                    <Link
+                      className="hover:text-slate-900"
+                      href="/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping"
+                    >
+                      Dome Çadır Rehberi: 360° Mapping
+                    </Link>
+                  </li>
+                  <li><Link className="hover:text-slate-900" href="/blog/kurumsal-etkinlik-yonetimi">Kurumsal Etkinlik Yönetimi Rehberi</Link></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
     </>
-  );}
+  );
+}
