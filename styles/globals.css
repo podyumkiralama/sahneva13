@@ -175,6 +175,17 @@
     border-radius: 16px !important;
   }
 
+  .blog-scope figure span {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .blog-scope figure span > img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
   .blog-scope .blog-hero img,
   .blog-scope [data-blog-hero] img {
     max-width: 1200px !important;
