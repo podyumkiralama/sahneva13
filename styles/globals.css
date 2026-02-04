@@ -169,7 +169,7 @@
   .blog-scope img {
     width: 100% !important;
     max-width: 1100px !important;
-    max-height: 600px !important;
+    max-height: 520px !important;
     height: auto !important;
     display: block !important;
     margin: 40px auto !important;
@@ -188,25 +188,14 @@
   .blog-scope figure span > img {
     width: 100% !important;
     height: auto !important;
-    max-height: 600px !important;
+    max-height: 520px !important;
     object-fit: cover !important;
-  }
-
-  .blog-scope figure span {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .blog-scope figure span > img {
-    width: 100% !important;
-    height: auto !important;
   }
 
   .blog-scope .blog-hero img,
   .blog-scope [data-blog-hero] img {
     max-width: 1300px !important;
-    max-height: 620px !important;
+    max-height: 560px !important;
     margin-top: 24px !important;
     margin-bottom: 40px !important;
   }
