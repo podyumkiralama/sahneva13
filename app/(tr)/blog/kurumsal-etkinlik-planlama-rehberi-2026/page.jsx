@@ -13,6 +13,8 @@ export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
 
 const slug = "/blog/kurumsal-etkinlik-planlama-rehberi-2026";
+const BLOG_URL = `${SITE_URL}${slug}`;
+
 const url = `${SITE_URL}${slug}`;
 const FEATURED_IMAGE = "/img/blog/kurumsal-etkinlik-timeline.webp";
 const OG_IMAGE = FEATURED_IMAGE;
