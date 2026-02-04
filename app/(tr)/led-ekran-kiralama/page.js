@@ -612,7 +612,11 @@ function Gallery() {
                 aria-labelledby={`video-${video.id}-title`}
               >
                 <div className="relative w-full aspect-video bg-black">
-                  <VideoEmbed videoId={video.id} title={video.title} />
+                  <VideoEmbed
+                    videoId={video.id}
+                    title={video.title}
+                    thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                  />
                 </div>
                 <div className="p-5">
                   <h4
