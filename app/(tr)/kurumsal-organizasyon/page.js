@@ -568,6 +568,40 @@ function AdvantagesSection() {
             neden uzun vadeli bir yatırım olarak görülmesi gerektiğini ortaya
             koyar.
           </p>
+          <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-2xl">
+            <Image
+              src="/img/kurumsal/3.webp"
+              alt="Büyük organizasyon şirketleriyle çalışmanın avantajlarını yansıtan sahne kurulumu"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
+          <p>
+            Sözleşme ve planlama aşamasında şeffaflık da kritiktir. İş planında
+            sorumlulukların netleştirilmesi, hizmet kapsamının açık şekilde
+            belirtilmesi ve teslim takvimi üzerinde mutabakat sağlanması,
+            kurumsal etkinlik organizasyonu sürecinin sorunsuz ilerlemesine
+            yardımcı olur. Referansların yanında, ekipmanın bakım kayıtları ve
+            güvenlik sertifikaları gibi belgeler de karar sürecini destekleyen
+            somut veri kaynaklarıdır.
+          </p>
+          <ul className="grid gap-3 md:grid-cols-2">
+            {[
+              "Referans projeler ve ölçülebilir başarı metrikleri",
+              "Teknik ekip kapasitesi ve uzmanlık sertifikaları",
+              "LED, sahne ve ses altyapısında güncel ekipman parkı",
+              "İstanbul ölçekli organizasyon deneyimi ve yerel tedarik ağı",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -648,6 +682,15 @@ function TechnicalInfrastructureSection() {
         >
           Event Organizasyon Şirketleri İçin Teknik Altyapı
         </h2>
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="/img/kurumsal/1.webp"
+            alt="Event organizasyonlarında sahne, LED ekran ve teknik altyapı düzeni"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
         <p>
           Event organizasyon şirketleri için teknik altyapı, etkinliğin
           bütünsel başarısını belirleyen ana faktördür. Sahne tasarımı, LED
@@ -714,6 +757,15 @@ function RentalSection() {
         <h3 className="text-2xl font-black text-gray-900">
           Organizasyon Kiralama Nedir?
         </h3>
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="/img/kurumsal/5.webp"
+            alt="Organizasyon kiralama hizmetleri için sahne ve teknik ekipman kurulumu"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
         <p>
           Organizasyon kiralama, kurumsal etkinliklerde ihtiyaç duyulan teknik
           ekipmanların satın alınmadan, proje bazlı olarak temin edilmesidir.
