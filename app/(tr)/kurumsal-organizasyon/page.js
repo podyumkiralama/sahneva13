@@ -43,14 +43,15 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title:
-    "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri",
+    "Kurumsal Organizasyon Şirketleri | İstanbul Etkinlik ve Organizasyon Kiralama",
   description:
-    "Kurumsal organizasyon nedir, nasıl planlanır? Lansman, konferans, gala ve bayi toplantıları için sahne, ses-ışık ve LED ekran dahil uçtan uca kurumsal organizasyon çözümleri.",
+    "İstanbul kurumsal organizasyon şirketleri arasında profesyonel sahne, LED ekran, ses ve etkinlik prodüksiyon çözümleri. Büyük organizasyon yönetimi ve organizasyon kiralama hizmetleri.",
   alternates: { canonical: `${ORIGIN}/kurumsal-organizasyon` },
   openGraph: {
-    title: "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri",
+    title:
+      "Kurumsal Organizasyon Şirketleri | İstanbul Etkinlik ve Organizasyon Kiralama",
     description:
-      "Kurumsal organizasyon nedir, nasıl planlanır? Konferans, lansman ve gala gibi etkinlikler için sahne, ses-ışık ve LED ekran çözümleri.",
+      "İstanbul kurumsal organizasyon şirketleri arasında profesyonel sahne, LED ekran, ses ve etkinlik prodüksiyon çözümleri. Büyük organizasyon yönetimi ve organizasyon kiralama hizmetleri.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva Organizasyon",
@@ -67,9 +68,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Kurumsal Organizasyon Nedir? Profesyonel Etkinlik Çözümleri | Sahneva",
+      "Kurumsal Organizasyon Şirketleri | İstanbul Etkinlik ve Organizasyon Kiralama",
     description:
-      "Kurumsal organizasyon nedir, nasıl planlanır? Konferans, lansman ve gala için sahne, ses-ışık ve LED ekran çözümleri.",
+      "İstanbul kurumsal organizasyon şirketleri arasında profesyonel sahne, LED ekran, ses ve etkinlik prodüksiyon çözümleri. Büyük organizasyon yönetimi ve organizasyon kiralama hizmetleri.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: {
@@ -296,8 +297,8 @@ function Hero() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
         >
-          Kurumsal{" "}
-          <span className="text-blue-200">Organizasyon</span>
+          Kurumsal Organizasyon Şirketleri Arasında{" "}
+          <span className="text-blue-200">Profesyonel Çözümler</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
@@ -379,23 +380,28 @@ function IntroSection() {
               id="kurumsal-intro-baslik"
               className="text-3xl md:text-4xl font-black text-gray-900"
             >
-              Kurumsal Organizasyon Nedir?
+              Kurumsal Etkinlik Organizasyon Şirketleri Ne Sunar?
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Kurumsal organizasyon, bir markanın hedef kitlesiyle güvenli,
-              tutarlı ve etkileyici bir deneyim kurmasını sağlayan planlı
-              etkinlik sürecidir. Kurumsal organizasyon planı; içerik, mekan,
-              teknik altyapı ve operasyonu tek akışta birleştirir. Kurumsal
-              organizasyon yaklaşımı doğru kurgulandığında, marka mesajı net
-              görünür ve ekipler aynı hedefe odaklanır.
+              Kurumsal etkinlik organizasyon şirketleri; strateji, içerik ve
+              teknik prodüksiyonu aynı masada toplayarak markalara güven veren
+              bir etkinlik deneyimi sunar. İstanbul kurumsal organizasyon
+              ihtiyaçlarında doğru planlama; lansman organizasyonu,
+              bayi toplantısı organizasyonu veya gala gecesi organizasyonu gibi
+              formatlarda hedef kitleye uygun akışı ve teknik kurguyu bir arada
+              yönetmeyi sağlar. Böylece şirket etkinliği yalnızca bir buluşma
+              değil, marka algısını güçlendiren ölçülebilir bir iletişim
+              platformuna dönüşür.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               Sahneva olarak İstanbul merkezli ekiplerimizle Türkiye genelinde
-              kurumsal etkinlik organizasyonu yönetiyoruz; konferans, lansman ve
-              gala gibi formatlarda sahne, ses-ışık ve LED ekran çözümlerini
-              uçtan uca planlıyoruz. Bu sayede kurumsal organizasyon firması
-              arayan ekipler, tek noktadan koordinasyon ve ölçülebilir kalite
-              standartlarına ulaşır.
+              kurumsal etkinlik organizasyonu yönetiyoruz; marka lansmanı,
+              konferans ve gala gibi formatlarda sahne, ses-ışık ve LED ekran
+              çözümlerini uçtan uca planlıyoruz. Deneyimli bir prodüksiyon
+              firmasıyla çalışmak, kurumsal organizasyon şirketleri arasında
+              kaliteyi belirleyen teknik standartlara erişmenizi sağlar. Böylece
+              operasyon tek elden yürür, riskler azalır ve marka mesajı doğru
+              zamanda doğru sahnede görünür.
             </p>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
@@ -421,25 +427,378 @@ function IntroSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-4">Hızlı Özet</h3>
-            <ul className="space-y-3 text-white/90">
-              {[
-                "Planlama: hedef, format, bütçe ve zaman çizelgesi",
-                "Teknik altyapı: sahne, ses-ışık ve LED ekran entegrasyonu",
-                "Operasyon & saha yönetimi: kurulum, prova ve etkinlik akışı",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span
-                    className="mt-2 h-2 w-2 rounded-full bg-white"
-                    aria-hidden="true"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-6 shadow-xl">
+              <h3 className="text-xl font-bold mb-4">Hızlı Özet</h3>
+              <ul className="space-y-3 text-white/90">
+                {[
+                  "Planlama: hedef, format, bütçe ve zaman çizelgesi",
+                  "Teknik altyapı: sahne, ses-ışık ve LED ekran entegrasyonu",
+                  "Operasyon & saha yönetimi: kurulum, prova ve etkinlik akışı",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span
+                      className="mt-2 h-2 w-2 rounded-full bg-white"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
+              <Image
+                src="/img/kurumsal/4.webp"
+                alt="Kurumsal etkinlik organizasyonu için sahne ve görsel kurulum"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Otorite İçerikleri ================== */
+function SelectionSection() {
+  return (
+    <section className="py-20 bg-slate-50" aria-labelledby="secim-baslik">
+      <div className="container mx-auto px-4 max-w-6xl space-y-8">
+        <div className="text-center">
+          <h2
+            id="secim-baslik"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
+          >
+            Kurumsal Organizasyon Şirketleri Nasıl Seçilir?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Doğru iş ortağı seçimi, şirket etkinliği planlamasının en kritik
+            adımıdır. Kurumsal organizasyon şirketleri, yalnızca teknik ekipman
+            sağlayan firmalar değildir; aynı zamanda marka lansmanı veya
+            kurumsal toplantı gibi stratejik buluşmalarda içerik akışını,
+            sahne kurgusunu ve etkinlik organizasyon süreçlerini yöneten uzman
+            ekiplerdir. İstanbul kurumsal organizasyon projelerinde deneyim
+            sahibi bir prodüksiyon firması, hem şehir içi lojistik hem de mekan
+            yönetimi konusunda hızlı hareket eder ve zaman kaybını azaltır.
+          </p>
+        </div>
+        <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+          <p>
+            Seçim sürecinde referans kontrolü yapmak, daha önce gerçekleştirilen
+            lansman organizasyonu ve büyük ölçekli etkinliklerdeki başarı
+            göstergelerini görmek açısından önemlidir. Teknik ekip kapasitesi
+            yalnızca sahne kurulumuna değil, aynı zamanda LED ekran, ses ve ışık
+            tasarımına hakimiyet göstermelidir. İstanbul ölçekli organizasyon
+            deneyimi olan ekipler; trafik, kurulum saatleri, alan güvenliği ve
+            belediye izinleri gibi detayları öngörerek operasyon planını daha
+            gerçekçi bir takvime oturtur.
+          </p>
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+            <Image
+              src="/img/kurumsal/2.webp"
+              alt="Kurumsal organizasyon şirketi seçimi için referans ve teknik ekip değerlendirmesi"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 70vw"
+            />
+          </div>
+          <p>
+            Sözleşme ve planlama aşamasında şeffaflık da kritiktir. İş planında
+            sorumlulukların netleştirilmesi, hizmet kapsamının açık şekilde
+            belirtilmesi ve teslim takvimi üzerinde mutabakat sağlanması,
+            kurumsal etkinlik organizasyonu sürecinin sorunsuz ilerlemesine
+            yardımcı olur. Referansların yanında, ekipmanın bakım kayıtları ve
+            güvenlik sertifikaları gibi belgeler de karar sürecini destekleyen
+            somut veri kaynaklarıdır.
+          </p>
+          <ul className="grid gap-3 md:grid-cols-2 text-gray-800">
+            {[
+              "Referans projeler ve ölçülebilir başarı metrikleri",
+              "Teknik ekip kapasitesi ve uzmanlık sertifikaları",
+              "LED, sahne ve ses altyapısında güncel ekipman parkı",
+              "İstanbul ölçekli organizasyon deneyimi ve yerel tedarik ağı",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdvantagesSection() {
+  return (
+    <section
+      className="py-20 bg-white"
+      aria-labelledby="avantajlar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl space-y-8">
+        <div className="text-center">
+          <h2
+            id="avantajlar-baslik"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
+          >
+            Büyük Organizasyon Şirketleri ile Çalışmanın Avantajları
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Kurumsal organizasyon şirketleri arasında ölçek ve deneyim farkı,
+            etkinliğin güvenliğini ve görünürlüğünü doğrudan etkiler. Büyük
+            organizasyon şirketleri; kapsamlı ekip, güçlü tedarik ağı ve çoklu
+            lokasyon yönetimi ile aynı anda birden fazla proje yürütebilir. Bu
+            durum özellikle bayi toplantısı organizasyonu, lansman organizasyonu
+            ve gala gecesi organizasyonu gibi yüksek görünürlük isteyen
+            formatlarda markalara daha istikrarlı bir operasyon sunar.
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
+            Kurumsal etkinlik organizasyon şirketleri, yalnızca etkinlik günü
+            değil, hazırlık sürecinde de marka ekibinin stratejik partneridir.
+            Hedef kitle iletişimi, içerik akışı, sahne tasarımı ve medya planı
+            birlikte ele alındığında marka lansmanı gibi projelerde tutarlılık
+            sağlanır. Bu yaklaşım, büyük organizasyon şirketleri ile çalışmanın
+            neden uzun vadeli bir yatırım olarak görülmesi gerektiğini ortaya
+            koyar.
+          </p>
+          <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-2xl">
+            <Image
+              src="/img/kurumsal/3.webp"
+              alt="Büyük organizasyon şirketleriyle çalışmanın avantajlarını yansıtan sahne kurulumu"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DifferencesSection() {
+  return (
+    <section
+      className="py-20 bg-slate-50"
+      aria-labelledby="farklar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl space-y-6 text-lg text-gray-700 leading-relaxed">
+        <h2
+          id="farklar-baslik"
+          className="text-3xl md:text-4xl font-black text-gray-900"
+        >
+          Büyük Organizasyon Şirketleri ile Küçük Firmalar Arasındaki Fark
+        </h2>
+        <p>
+          Büyük organizasyon şirketleri, etkinlik ölçeği büyüdükçe devreye giren
+          karmaşık ihtiyaçları yönetme konusunda daha kapsamlı bir altyapı
+          sunar. Ekipman parkı geniştir; aynı anda farklı sahnelerde LED ekran,
+          ses sistemi ve ışık kurulumlarını sürdürebilir. Küçük firmalar ise
+          daha butik hizmet sağlayabilir, fakat yüksek katılımlı etkinliklerde
+          yedek sistem bulunmaması operasyon riskini artırır.
+        </p>
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="/img/kurumsal/6.webp"
+            alt="Büyük organizasyon şirketleri ile küçük firmalar arasındaki ekipman ve operasyon farkları"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
+        <p>
+          Yedek sistem yaklaşımı büyük etkinliklerde kritik bir güvenlik
+          katmanıdır. Örneğin marka lansmanı sırasında yaşanacak bir ses
+          kesintisi veya görüntü kaybı, etkinlik algısını olumsuz etkiler. Büyük
+          organizasyon şirketleri, yedek jeneratör, UPS, alternatif mikrofon ve
+          yedek LED kontrol ünitesi gibi önlemlerle kesintisiz bir deneyim
+          sağlar. Operasyon ekibi ise sahada hızlı müdahale edebilmek için görev
+          paylaşımı ve acil durum senaryolarıyla çalışır.
+        </p>
+        <p>
+          Operasyon ekibi büyüklüğü, etkinlik günündeki koordinasyonu belirler.
+          Büyük organizasyon şirketleri, saha yönetimi için ayrı sorumlular,
+          teknik yönetmenler ve güvenlik koordinatörleri görevlendirir. Bu
+          yaklaşım, şirket etkinliği boyunca sahne akışının aksamasını engeller,
+          katılımcı deneyimini korur ve markanın profesyonel algısını
+          güçlendirir.
+        </p>
+        <p>
+          Risk yönetimi sadece teknik aksaklıklarla sınırlı değildir; kitle
+          yönetimi, güvenlik, sahne akış planı ve protokol düzeni de büyük
+          organizasyonlarda profesyonel bir koordinasyon gerektirir. Büyük
+          organizasyon şirketleri, kurumsal etkinlik organizasyon şirketleri
+          arasında bu koordinasyonu standartlaştıran süreçlere sahiptir ve
+          yatırımın geri dönüşünü ölçen raporlamalarla markalara stratejik veri
+          sunar.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function TechnicalInfrastructureSection() {
+  return (
+    <section
+      className="py-20 bg-white"
+      aria-labelledby="teknik-altyapi-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl space-y-6 text-lg text-gray-700 leading-relaxed">
+        <h2
+          id="teknik-altyapi-baslik"
+          className="text-3xl md:text-4xl font-black text-gray-900"
+        >
+          Event Organizasyon Şirketleri İçin Teknik Altyapı
+        </h2>
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="/img/kurumsal/1.webp"
+            alt="Event organizasyonlarında sahne, LED ekran ve teknik altyapı düzeni"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
+        <p>
+          Event organizasyon şirketleri için teknik altyapı, etkinliğin
+          bütünsel başarısını belirleyen ana faktördür. Sahne tasarımı, LED
+          ekran senaryosu, ses sistemi yerleşimi ve ışık programlaması aynı anda
+          planlandığında, şirket etkinliği boyunca izleyicinin dikkatini canlı
+          tutan bir akış yaratılır. Bu süreçte akustik analiz, görüntüleme
+          mesafeleri ve sahne görüş açıları mutlaka değerlendirilmelidir.
+        </p>
+        <p>
+          Lansman organizasyonu ve bayi toplantısı organizasyonu gibi yüksek
+          bilgi aktarımı gerektiren formatlarda, konuşmacıların sesi net
+          duyulmalı ve sahne üzerindeki içerik her noktadan görünür olmalıdır.
+          Büyük organizasyon şirketleri, farklı salon tiplerinde LED ekran
+          çözünürlüğünü ve ses gücünü optimize ederek katılımcı deneyimini
+          artırır. Teknik ekip, sahne arkasında provalar ve senkronizasyon
+          kontrolleriyle etkinlik günündeki riskleri azaltır.
+        </p>
+        <p>
+          Günümüzde event organizasyon şirketleri için canlı yayın ve hibrit
+          etkinlik altyapısı da kritik bir ihtiyaç haline geldi. Kamera rejisi,
+          yayın kodlayıcıları, uzaktan katılım platformları ve etkileşimli
+          içerik yazılımları; özellikle ulusal markaların lansman organizasyonu
+          gibi projelerinde standart hale geldi. Bu nedenle teknik altyapıda
+          yalnızca sahne ekipmanlarına değil, dijital prodüksiyon kapasitesine
+          de yatırım yapılması gerekir.
+        </p>
+        <p>
+          İstanbul kurumsal organizasyon projelerinde sık kullanılan mekan
+          çeşitliliği, teknik altyapıda esneklik gerektirir. Kapalı salonlar,
+          açık hava alanları veya kongre merkezlerinde farklı güç altyapıları
+          bulunur. Bu nedenle prodüksiyon firması, jeneratör kapasitesi, güç
+          dağıtım planı ve kablolama güvenliği gibi ayrıntılarda uzman bir
+          planlama sunmalıdır. Böylece gala gecesi organizasyonu gibi yüksek
+          prestijli etkinliklerde kesintisiz bir sahne performansı sağlanır.
+        </p>
+        <p>
+          Teknik altyapının sürdürülebilir olması, yalnızca etkinlik günü değil,
+          kurulum ve prova dönemlerinde de disiplin gerektirir. Event
+          organizasyon şirketleri; güvenlik bariyerleri, sahne yük hesapları ve
+          acil çıkış planları gibi detayları da aynı şablonda yönetmelidir. Bu
+          yaklaşım, kurumsal organizasyon şirketleri arasında güvenilirlik ve
+          otorite algısını güçlendiren en önemli kriterlerden biridir.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function RentalSection() {
+  return (
+    <section
+      className="py-20 bg-slate-50"
+      aria-labelledby="kiralama-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-6xl space-y-6 text-lg text-gray-700 leading-relaxed">
+        <div className="text-center">
+          <h2
+            id="kiralama-baslik"
+            className="text-3xl md:text-4xl font-black text-gray-900"
+          >
+            Organizasyon Kiralama Hizmetleri
+          </h2>
+        </div>
+        <h3 className="text-2xl font-black text-gray-900">
+          Organizasyon Kiralama Nedir?
+        </h3>
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="/img/kurumsal/5.webp"
+            alt="Organizasyon kiralama hizmetleri için sahne ve teknik ekipman kurulumu"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
+        <p>
+          Organizasyon kiralama, kurumsal etkinliklerde ihtiyaç duyulan teknik
+          ekipmanların satın alınmadan, proje bazlı olarak temin edilmesidir.
+          Özellikle sahne kiralama, LED ekran kiralama ve ses sistemi kiralama
+          gibi çözümler, bütçeyi verimli kullanmayı sağlar. Etkinlik ölçeğine
+          göre belirlenen ekipmanlar, kurulum ve operasyon desteğiyle birlikte
+          planlandığında markalara hızlı ve güvenilir bir çözüm sunar.
+        </p>
+        <p>
+          Kurumsal organizasyon şirketleri, organizasyon kiralama sürecini uçtan
+          uca yönettiğinde sahne akışı netleşir ve riskler azalır. Örneğin büyük
+          organizasyon şirketleri, truss sistem kiralama ve dome çadır kiralama
+          gibi özel yapı ihtiyaçlarında mühendislik hesaplarıyla güvenli kurulum
+          garantisi verir. Mekan yapısına göre doğru ekipman seçimi, marka
+          lansmanı veya gala gecesi organizasyonu gibi prestijli buluşmalarda
+          profesyonel bir görünüm yaratır.
+        </p>
+        <p>
+          Organizasyon kiralama fiyatları; etkinlik süresi, kurulum alanı,
+          ekipman kapasitesi ve teknik personel ihtiyacına göre belirlenir. Bu
+          nedenle teklif alınırken kullanılacak sahne ölçüleri, LED ekran
+          metrajı ve ses sistemi kapasitesi gibi kalemlerin netleştirilmesi
+          önemlidir. Şeffaf bir bütçe tablosu, markaların büyük organizasyon
+          şirketleriyle çalışırken kaynak planlamasını doğru yapmasına yardımcı
+          olur.
+        </p>
+        <p>
+          Sahneva’da organizasyon kiralama çözümleri;{" "}
+          <Link href="/sahne-kiralama" className="text-blue-700 font-semibold">
+            sahne kiralama
+          </Link>
+          ,{" "}
+          <Link href="/led-ekran-kiralama" className="text-blue-700 font-semibold">
+            LED ekran kiralama
+          </Link>
+          ,{" "}
+          <Link href="/ses-sistemi-kiralama" className="text-blue-700 font-semibold">
+            ses sistemi kiralama
+          </Link>{" "}
+          ve{" "}
+          <Link href="/cadir-kiralama" className="text-blue-700 font-semibold">
+            çadır kiralama
+          </Link>{" "}
+          hizmetlerini kapsar. Detaylı operasyon örnekleri ve sektörel
+          içgörüler için{" "}
+          <Link href="/blog" className="text-blue-700 font-semibold">
+            blog
+          </Link>{" "}
+          içeriklerimiz de yol gösterici bir kaynak olarak kullanılabilir.
+        </p>
+        <p>
+          Organizasyon kiralama hizmetlerinde önemli olan sadece ekipmanı temin
+          etmek değil, doğru uygulama planıyla desteklemektir. Bu nedenle
+          kurulum, prova, etkinlik yönetimi ve söküm planı tek bir çatı altında
+          ilerlemelidir. Böylece kurumsal etkinlik organizasyon şirketleri,
+          markaların stratejik hedefleriyle uyumlu ve sürdürülebilir bir
+          etkinlik deneyimi sunar.
+        </p>
       </div>
     </section>
   );
@@ -936,6 +1295,24 @@ function UseCases() {
 
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
+  const galleryHighlights = [
+    {
+      src: "/img/kurumsal/1.webp",
+      alt: "Kurumsal organizasyon - Konferans sahnesi ve LED ekran kurulumu",
+      label: "Konferans Sahnesi",
+    },
+    {
+      src: "/img/kurumsal/3.webp",
+      alt: "Kurumsal organizasyon - Gala gecesi dekorasyonu ve ışık tasarımı",
+      label: "Gala Gecesi",
+    },
+    {
+      src: "/img/kurumsal/5.webp",
+      alt: "Kurumsal organizasyon - Roadshow sahne ve marka deneyimi",
+      label: "Roadshow Deneyimi",
+    },
+  ];
+
   return (
     <section
       className="py-20 bg-gradient-to-b from-white to-gray-50/50"
@@ -1286,28 +1663,24 @@ function Articles() {
 /* ================== SSS ================== */
 const FAQ_ITEMS = [
   {
-    q: "Kurumsal organizasyon nedir?",
-    a: "Kurumsal organizasyon; bir markanın hedef kitlesiyle buluştuğu konferans, lansman, gala veya bayi toplantısı gibi etkinliklerin planlama, teknik altyapı ve operasyonunun tek çatı altında yönetilmesidir. Amaç, tutarlı bir marka deneyimi ve ölçülebilir sonuçlar üretmektir.",
+    q: "Kurumsal organizasyon şirketleri ne yapar?",
+    a: "Kurumsal organizasyon şirketleri, etkinliğin hedef belirleme, içerik akışı, teknik prodüksiyon ve saha operasyonunu yönetir. Lansman organizasyonu, bayi toplantısı organizasyonu veya gala gecesi organizasyonu gibi formatlarda sahne, ses-ışık ve LED ekran gibi bileşenleri tek koordinasyon altında birleştirir.",
   },
   {
-    q: "Kurumsal etkinlik ile kurumsal organizasyon farkı nedir?",
-    a: "Kurumsal etkinlik, tek bir etkinliğin kendisini ifade ederken; kurumsal organizasyon, bu etkinliğin hedef belirleme, planlama, sahne-ses-ışık altyapısı ve saha yönetimi dahil tüm sürecini kapsar. Yani organizasyon, etkinliği başarıya taşıyan bütünsel süreçtir.",
+    q: "Büyük organizasyon şirketleri neden tercih edilir?",
+    a: "Büyük organizasyon şirketleri, geniş ekipman parkı, yedek sistemler ve güçlü operasyon ekipleri sayesinde risk yönetimini daha etkin yapar. Bu yapı, şirket etkinliği ve marka lansmanı gibi yüksek görünürlüklü projelerde kesintisiz bir deneyim sunar.",
   },
   {
-    q: "Kurumsal organizasyon fiyatı neye göre değişir?",
-    a: "Fiyat; etkinlik formatı, katılımcı sayısı, mekan koşulları, sahne ve teknik ekipman ihtiyaçları ile süreye göre değişir. Görsel içerik yoğunluğu ve LED ekran boyutu gibi kalemler bütçeyi etkiler. Net teklif için ihtiyaç analizi yapılması gerekir.",
+    q: "Organizasyon kiralama fiyatları neye göre belirlenir?",
+    a: "Organizasyon kiralama fiyatları; sahne ölçüsü, LED ekran metrajı, ses sistemi kapasitesi, kurulum süresi ve teknik personel ihtiyacına göre belirlenir. Mekan koşulları ve etkinlik süresi arttıkça bütçe kalemleri de güncellenir.",
   },
   {
-    q: "LED ekran / ses-ışık şart mı?",
-    a: "Etkinliğin formatına göre ihtiyaç değişir. Sunum ve lansmanlarda LED ekran ve doğru ses-ışık kurgusu katılımı artırır. Küçük ölçekli toplantılarda minimal çözümler yeterli olabilir; doğru seçim mekan ve içerik analizine bağlıdır.",
+    q: "İstanbul’da kurumsal etkinlik firması seçerken nelere dikkat edilmeli?",
+    a: "İstanbul kurumsal organizasyon projelerinde referans kontrolü, teknik ekip kapasitesi, LED/sahne/ses altyapısı ve yerel operasyon deneyimi kritik başlıklardır. Sözleşme kapsamının netleştirilmesi ve risk planının paylaşılması sağlıklı bir seçim süreci sunar.",
   },
   {
-    q: "Kaç gün önceden planlamak gerekir?",
-    a: "Orta ölçekli etkinlikler için 4-6 hafta, büyük ölçekli organizasyonlar için 8-12 hafta planlama önerilir. Mekan ve tedarikçi yoğunluğu dönemsel olarak değişebileceği için erken planlama avantaj sağlar.",
-  },
-  {
-    q: "Açık hava kurumsal etkinliklerinde nelere dikkat edilmeli?",
-    a: "Hava koşulları, rüzgar yükü, güç altyapısı ve güvenlik planı kritik başlıklardır. LED ekran ve sahne sistemlerinde su koruması, jeneratör kapasitesi ve alan güvenliği mutlaka değerlendirilmelidir.",
+    q: "Event organizasyon şirketleri teknik ekipman sağlar mı?",
+    a: "Evet. Event organizasyon şirketleri; sahne, LED ekran, ses-ışık, truss ve güç altyapısı gibi teknik ekipmanları sağlayabilir ve kurulumdan operasyona kadar yönetebilir. Doğru ekipman seçimi etkinliğin kalitesini doğrudan artırır.",
   },
 ];
 
@@ -1553,10 +1926,16 @@ function JsonLd() {
 
   const baseService = {
     "@type": "Service",
-    name: "Kurumsal Organizasyon",
+    name: "Kurumsal Organizasyon Hizmetleri",
     description: pageDescription,
     provider,
-    areaServed: { "@type": "Country", name: "Türkiye" },
+    areaServed: "İstanbul",
+    serviceType: [
+      "Kurumsal Etkinlik Organizasyonu",
+      "Event Organizasyon",
+      "Organizasyon Kiralama",
+      "Büyük Organizasyon Yönetimi",
+    ],
   };
 
   const serviceNode = serviceSchema
@@ -1615,13 +1994,18 @@ export default function Page() {
       <JsonLd />
       <Hero />
       <IntroSection />
+      <SelectionSection />
       <PlanningGuide />
       <Services />
       <Gallery />
+      <AdvantagesSection />
       <Technical />
+      <DifferencesSection />
       <StatsBand />
       <UseCases />
+      <TechnicalInfrastructureSection />
       <Articles />
+      <RentalSection />
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks
