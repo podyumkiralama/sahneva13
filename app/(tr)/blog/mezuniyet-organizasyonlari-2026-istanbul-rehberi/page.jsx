@@ -15,9 +15,9 @@ const IMG_STAGE = "/img/blog/mezuniyet-toreni-sahnesi.webp";
 const IMG_SHOW = "/img/blog/mezuniyet-toreni-gorsel-sow.webp";
 const IMG_LED = "/img/blog/mezuniyet-toreni-led-ekran.webp";
 
-const TITLE = "Mezuniyet Organizasyonları 2026: İstanbul’da Profesyonel Planlama ve Büyük Ölçekli Prodüksiyon Rehberi";
+const TITLE = "Mezuniyet Organizasyonları 2026: İstanbul Profesyonel Planlama Rehberi";
 const DESCRIPTION =
-  "Mezuniyet töreni organizasyonu 2026 rehberi: İstanbul’da sahne, LED ekran, ses-ışık, canlı yayın ve mezuniyet partisi planlamasını profesyonel düzeye çıkaran kapsamlı yol haritası.";
+  "Mezuniyet töreni organizasyonu için İstanbul’da sahne, LED ekran, ses-ışık, canlı yayın ve mezuniyet partisi planlama rehberi.";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const PUBLISH_DATE = "2026-02-10T09:00:00+03:00";
@@ -347,8 +347,8 @@ export default function BlogPostGraduationGuide() {
           yönü, zemin sertliği, elektrik kapasitesi ve ses yalıtımı gibi detaylar en az manzara kadar önemlidir.
         </p>
 
-        <h2>Mezuniyet Yerleri Seçerken Nelere Dikkat Edilmeli?</h2>
-        <h3>1. Katılımcı Kapasitesi ve Alan Derinliği</h3>
+        <h3>Mezuniyet Yerleri Seçerken Nelere Dikkat Edilmeli?</h3>
+        <h4>1. Katılımcı Kapasitesi ve Alan Derinliği</h4>
         <p>
           Mezuniyet yerleri genellikle “maksimum kişi sayısı” üzerinden pazarlanır. Ancak önemli olan sadece kişi kapasitesi
           değil, sahne kurulumu için ayrılabilecek alan derinliğidir. 800 kişilik bir alan teknik olarak uygun görünse bile,
@@ -359,7 +359,7 @@ export default function BlogPostGraduationGuide() {
           hesaplanmalıdır. Aksi takdirde hem görüntü hem ses performansı zayıflar.
         </p>
 
-        <h3>2. Açık Alan mı Kapalı Alan mı?</h3>
+        <h4>2. Açık Alan mı Kapalı Alan mı?</h4>
         <p>
           Mezuniyet organizasyon fikirleri planlanırken ilk karar açık hava mı yoksa kapalı salon mu olacağıdır. Açık alan
           mezuniyet organizasyonları daha geniş sahne kurulumu sağlar, drone çekimi ve kep atma anı için idealdir, daha yüksek
@@ -372,8 +372,8 @@ export default function BlogPostGraduationGuide() {
           tercih edilmektedir.
         </p>
 
-        <h2>İstanbul Mezuniyet Mekanları: Bölgesel Analiz</h2>
-        <h3>Avrupa Yakası Açık Alan Mekanları</h3>
+        <h3>İstanbul Mezuniyet Mekanları: Bölgesel Analiz</h3>
+        <h4>Avrupa Yakası Açık Alan Mekanları</h4>
         <p>
           Zekeriyaköy, Kemerburgaz ve Bahçeköy bölgeleri geniş kır bahçeleri ile bilinir. Bu bölgeler özellikle 700+ kişilik
           mezuniyet organizasyonları için uygundur.
@@ -390,7 +390,7 @@ export default function BlogPostGraduationGuide() {
           <li>Trafik planlaması gereksinimi</li>
         </ul>
 
-        <h3>Boğaz Manzaralı Mekanlar</h3>
+        <h4>Boğaz Manzaralı Mekanlar</h4>
         <p>
           İstanbul mezuniyet organizasyonları denildiğinde Boğaz manzaralı mekanlar prestij açısından ön plana çıkar. Beykoz,
           Sarıyer ve Üsküdar hattında bulunan mekanlar özellikle üniversite mezuniyet organizasyonlarında tercih edilir.
@@ -403,14 +403,14 @@ export default function BlogPostGraduationGuide() {
         </ul>
         <p>Ancak Boğaz hattında rüzgar faktörü teknik planlama açısından mutlaka dikkate alınmalıdır.</p>
 
-        <h3>Anadolu Yakası Alternatifleri</h3>
+        <h4>Anadolu Yakası Alternatifleri</h4>
         <p>
           Anadolu Yakası’nda Maltepe, Kartal ve Tuzla bölgeleri geniş organizasyon alanlarına sahiptir. Bu bölgelerde hem açık
           alan hem de otel salon seçenekleri bulunur. İstanbul mezuniyet mekanları arasında Anadolu Yakası genellikle daha
           ekonomik çözümler sunar. Bu da mezuniyet organizasyon bütçesi planlanırken avantaj sağlar.
         </p>
 
-        <h2>Mezuniyet Organizasyon Fikirleri ve Mekan Uyumu</h2>
+        <h3>Mezuniyet Organizasyon Fikirleri ve Mekan Uyumu</h3>
         <p>Bir mezuniyet organizasyonu fikri belirlenirken mekân ile konsept uyumu çok önemlidir. Örneğin:</p>
         <ul>
           <li>Retro temalı mezuniyet partisi için kır bahçesi uygun olabilir.</li>
@@ -429,7 +429,7 @@ export default function BlogPostGraduationGuide() {
         </ul>
         <p>zorunlu hale gelir.</p>
 
-        <h2>Mezuniyet Mekanları ve Teknik Altyapı Uyumunun Önemi</h2>
+        <h3>Mezuniyet Mekanları ve Teknik Altyapı Uyumunun Önemi</h3>
         <p>
           Birçok organizasyonda en sık yapılan hata, mekan seçildikten sonra teknik planlama yapılmasıdır. Oysa doğru süreç
           tersidir:
@@ -448,7 +448,7 @@ export default function BlogPostGraduationGuide() {
         </ul>
         <p>gerekecektir. Bu teknik hacmi kaldıramayacak mezuniyet yerleri baştan elenmelidir.</p>
 
-        <h2>İstanbul Mezuniyet Organizasyonlarında Erken Rezervasyonun Önemi</h2>
+        <h3>İstanbul Mezuniyet Organizasyonlarında Erken Rezervasyonun Önemi</h3>
         <p>
           İstanbul mezuniyet sezonu genellikle Mayıs – Haziran aylarında yoğunlaşır. Bu dönem için mezuniyet mekanları en az
           5–6 ay önceden rezerve edilmelidir.
@@ -465,7 +465,7 @@ export default function BlogPostGraduationGuide() {
           organizasyonlar için erken planlama ciddi fark yaratır.
         </p>
 
-        <h2>Mezuniyet Yerleri Seçiminde Yapılan Yaygın Hatalar</h2>
+        <h3>Mezuniyet Yerleri Seçiminde Yapılan Yaygın Hatalar</h3>
         <p>Profesyonel organizasyonlarda sık karşılaşılan hatalar şunlardır:</p>
         <ul>
           <li>Sadece kişi kapasitesine göre mekan seçmek</li>
@@ -489,7 +489,7 @@ export default function BlogPostGraduationGuide() {
           tören ve parti bölümü ayrı senaryolar üzerinden tasarlanır.
         </p>
 
-        <h2>Mezuniyet Partisi Neden Ayrı Planlanmalıdır?</h2>
+        <h3>Mezuniyet Partisi Neden Ayrı Planlanmalıdır?</h3>
         <p>Resmi tören sırasında:</p>
         <ul>
           <li>Net konuşma sesi gerekir</li>
@@ -537,7 +537,7 @@ export default function BlogPostGraduationGuide() {
           kullanılıyor. Bu geçiş, organizasyonun profesyonellik algısını ciddi ölçüde artırıyor.
         </p>
 
-        <h2>Büyük Ölçekli Mezuniyet Organizasyonlarında Teknik Akış Yönetimi</h2>
+        <h3>Büyük Ölçekli Mezuniyet Organizasyonlarında Teknik Akış Yönetimi</h3>
         <p>500 kişi üzeri organizasyonlarda sahne program akışı dakikası dakikasına planlanmalıdır.</p>
         <p>Standart bir mezuniyet organizasyonu programı şu akışa sahiptir:</p>
         <ul>
@@ -720,7 +720,7 @@ export default function BlogPostGraduationGuide() {
           sabitleme sistemi zorunludur.
         </p>
 
-        <h2>Mezuniyet Organizasyonu Bütçe Planlaması</h2>
+        <h3>Mezuniyet Organizasyonu Bütçe Planlaması</h3>
         <p>Mezuniyet organizasyonu bütçesi sabit paket mantığıyla belirlenmez. Fiyatı etkileyen ana faktörler şunlardır:</p>
         <ul>
           <li>Katılımcı sayısı</li>
@@ -740,7 +740,7 @@ export default function BlogPostGraduationGuide() {
           ve teknik ekip sayısı azaltıldığında maliyet düşer ancak risk artar.
         </p>
 
-        <h2>Mezuniyet Partisi Aşamasında Güvenlik Yönetimi</h2>
+        <h3>Mezuniyet Partisi Aşamasında Güvenlik Yönetimi</h3>
         <p>
           Mezuniyet partisi bölümünde kalabalık hareketliliği artar. Bu nedenle sahne önü bariyer sistemi ve güvenlik personeli
           planlaması yapılmalıdır. Özellikle İstanbul mezuniyet etkinliklerinde açık alan organizasyonlarında şu riskler
@@ -754,7 +754,7 @@ export default function BlogPostGraduationGuide() {
         </ul>
         <p>Profesyonel organizasyon yönetimi bu riskleri önceden hesaplar.</p>
 
-        <h2>2026 Sezonunda Mezuniyet Organizasyonlarının Evrimi</h2>
+        <h3>2026 Sezonunda Mezuniyet Organizasyonlarının Evrimi</h3>
         <p>
           Günümüzde mezuniyet organizasyonları klasik tören modelinden uzaklaşıyor. Daha deneyim odaklı, daha görsel ve daha
           interaktif etkinlikler talep ediliyor. İstanbul mezuniyet organizasyonlarında artık şu beklentiler standart hale
@@ -769,7 +769,7 @@ export default function BlogPostGraduationGuide() {
         </ul>
         <p>Bu beklentiler doğrultusunda organizasyon planlaması yapılmazsa etkinlik sıradan kalabilir.</p>
 
-        <h2>2026 İçin Profesyonel Mezuniyet Organizasyon Stratejisi</h2>
+        <h3>2026 İçin Profesyonel Mezuniyet Organizasyon Stratejisi</h3>
         <p>
           2026 sezonunda mezuniyet organizasyonları daha büyük prodüksiyon ölçeğine geçiyor. İstanbul mezuniyet mekanları hızla
           dolarken, erken planlama yapan kurumlar avantaj sağlıyor. Başarılı bir mezuniyet organizasyonu için:
