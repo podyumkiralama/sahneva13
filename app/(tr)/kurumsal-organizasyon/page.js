@@ -577,6 +577,31 @@ function AdvantagesSectionBlock() {
               sizes="(max-width: 1024px) 100vw, 60vw"
             />
           </div>
+          <p>
+            Sözleşme ve planlama aşamasında şeffaflık da kritiktir. İş planında
+            sorumlulukların netleştirilmesi, hizmet kapsamının açık şekilde
+            belirtilmesi ve teslim takvimi üzerinde mutabakat sağlanması,
+            kurumsal etkinlik organizasyonu sürecinin sorunsuz ilerlemesine
+            yardımcı olur. Referansların yanında, ekipmanın bakım kayıtları ve
+            güvenlik sertifikaları gibi belgeler de karar sürecini destekleyen
+            somut veri kaynaklarıdır.
+          </p>
+          <ul className="grid gap-3 md:grid-cols-2 text-gray-800">
+            {[
+              "Referans projeler ve ölçülebilir başarı metrikleri",
+              "Teknik ekip kapasitesi ve uzmanlık sertifikaları",
+              "LED, sahne ve ses altyapısında güncel ekipman parkı",
+              "İstanbul ölçekli organizasyon deneyimi ve yerel tedarik ağı",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -1356,6 +1381,15 @@ function Articles() {
                   Profesyonel Kurumsal Organizasyon: Etkinlik Başarınız İçin Tam
                   Kapsamlı Çözümler
                 </h3>
+                <div className="relative aspect-[16/9] w-full mt-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={galleryHighlights[0].src}
+                    alt={galleryHighlights[0].alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 80vw"
+                  />
+                </div>
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Kurumsal standartlar, detaylı planlama süreçleri ve
                   ölçülebilir kalite garantisi ile etkinliklerinizde mükemmel
@@ -1525,6 +1559,15 @@ function Articles() {
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Teknik Entegrasyon ve Operasyon Süreçleri
               </h3>
+              <div className="relative aspect-[16/9] w-full mt-6 rounded-2xl overflow-hidden">
+                <Image
+                  src={galleryHighlights[1].src}
+                  alt={galleryHighlights[1].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <p className="text-blue-100 mt-2 text-lg">
                 Profesyonel kurulum, yedekli sistemler ve operasyonel
                 mükemmellik
@@ -1601,6 +1644,15 @@ function Articles() {
             </header>
 
             <div className="p-6 md:p-8">
+              <div className="relative aspect-[16/9] w-full mb-6 rounded-2xl overflow-hidden">
+                <Image
+                  src={galleryHighlights[2].src}
+                  alt={galleryHighlights[2].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <div className="space-y-6">
                   <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
