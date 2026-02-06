@@ -1682,7 +1682,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+     
       <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
       <SelectionSection />
