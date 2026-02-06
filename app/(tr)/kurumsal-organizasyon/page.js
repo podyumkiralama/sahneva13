@@ -95,96 +95,52 @@ const slugify = (s) =>
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 
-/* ================== Premium arka plan (faq ile aynı çizgi+glow hissi) ================== */
-function PremiumGridBg() {
-  return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[#0B1120]" />
-      <div
-        className="absolute inset-0 opacity-[0.22]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
-      <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[120px]" />
-      <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-500/15 blur-[120px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/55" />
-    </div>
-  );
-}
-
+/* ================== Premium helpers (hero like screenshot) ================== */
 const KEYWORD_CHIPS = [
-  "Kurumsal organizasyon şirketleri",
+  "Kurumsal Organizasyon şirketleri",
   "Kurumsal etkinlik organizasyon şirketleri",
   "Etkinlik organizasyon",
   "Büyük organizasyon şirketleri",
   "Event organizasyon şirketleri",
   "Kurumsal etkinlik",
-  "Organizasyon kiralama",
 ];
 
-function TrustBar() {
+const HERO_FEATURES = [
+  { t: "Tek sayfa strateji", d: "Brief → hedef, format, başarı metriği" },
+  { t: "Teknik keşif", d: "Mekân ölçümü, güç, akustik, yükleme planı" },
+  { t: "Yedekli sistem", d: "Güç, kontrol ve kritik ekipman yedekleri" },
+  { t: "Run-of-show", d: "Prova, geçişler, sahne yönetimi" },
+];
+
+function PremiumGridBg() {
   return (
-    <section className="py-10 bg-white" aria-label="Kurumsal segment ve standartlar">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid gap-4 md:grid-cols-4">
-          {[
-            { t: "Kurumsal Segment", d: "Holding • global marka • kamu • üniversite" },
-            { t: "Operasyon Modeli", d: "Planlama → keşif → kurulum → yönetim → rapor" },
-            { t: "Teknik Standart", d: "Yedekli güç • yedek kontrol • saha güvenliği" },
-            { t: "Coğrafi Kapsam", d: "İstanbul merkezli • Türkiye geneli" },
-          ].map((x) => (
-            <div key={x.t} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <div className="text-sm font-black text-gray-900">{x.t}</div>
-              <div className="mt-2 text-gray-600 leading-relaxed">{x.d}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[#0B1120]" />
+      <div
+        className="absolute inset-0 opacity-[0.20]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.10) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+        }}
+      />
+      <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[130px]" />
+      <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-400/15 blur-[140px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+    </div>
   );
 }
 
-function InsightsBlock() {
+function GlassCard({ children, className = "" }) {
   return (
-    <section className="py-20 bg-white" aria-labelledby="insights-baslik">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 id="insights-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
-            Kurumsal Rehber ve İçgörüler
-          </h2>
-          <p className="mt-4 text-lg md:text-xl leading-relaxed text-gray-600">
-            Strateji, teknik keşif ve risk yönetimini tek akışta topladığınızda premium kalite standardı oluşur.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-6">
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-            <h3 className="text-xl font-black text-gray-900">Strateji → Planlama</h3>
-            <p className="mt-3 text-gray-600 leading-relaxed">
-              Tek sayfa strateji, SMART hedefler ve geriye dönük timeline ile kapsamı sabitleyin. Run-of-show ile tüm
-              paydaşları aynı akışa alın.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-            <h3 className="text-xl font-black text-gray-900">Teknik → Operasyon</h3>
-            <p className="mt-3 text-gray-600 leading-relaxed">
-              Teknik keşif, güç planı, kablolama ve yedekli sistemler premium standardın temelidir. Prova ve senaryo
-              simülasyonu riski düşürür.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-            <h3 className="text-xl font-black text-gray-900">Bütçe → Risk</h3>
-            <p className="mt-3 text-gray-600 leading-relaxed">
-              %10–15 contingency, açık hava B planı ve kritik zincir yaklaşımı ile bütçeyi “kesinti maliyeti”
-              perspektifinden yönetin.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div
+      className={
+        "rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_30px_80px_rgba(0,0,0,0.35)] " +
+        className
+      }
+    >
+      {children}
+    </div>
   );
 }
 
@@ -352,99 +308,196 @@ const PLANNING_STEPS = [
 ];
 
 /* ================== HERO ================== */
-function Hero() {
+/* ================== HERO (premium like screenshot) ================== */
+function Hero({ breadcrumbItems }) {
+  const crumb = Array.isArray(breadcrumbItems) ? breadcrumbItems : [];
+  const last = crumb[crumb.length - 1]?.name ?? "Kurumsal Organizasyon";
+
   return (
-    <section className="relative overflow-hidden pt-24 pb-14 md:pb-16 lg:pt-28" aria-labelledby="hero-title">
-      <PremiumGridBg />
+    <section className="relative overflow-hidden" aria-labelledby="hero-title">
+      {/* Background image + premium overlay */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src={HERO.src}
+          alt={HERO.alt}
+          fill
+          priority
+          className="object-cover"
+          sizes={HERO.sizes}
+          quality={88}
+          blurDataURL={BLUR_DATA_URL}
+          loading="eager"
+        />
+        <PremiumGridBg />
+        {/* extra cinematic vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120]/92 via-[#0B1120]/55 to-[#0B1120]/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+      </div>
 
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          {/* SOL */}
-          <div className="text-white">
-            <nav className="text-white/60 text-sm mb-4" aria-label="Breadcrumb">
-              <span>🏠</span> <span className="mx-2">Ana Sayfa</span>
-              <span className="mx-2">›</span>
-              <span className="text-white/80">Kurumsal Organizasyon</span>
-            </nav>
+      <div className="relative z-10 container mx-auto px-4 pt-14 md:pt-16 lg:pt-20 pb-10 md:pb-12">
+        {/* breadcrumb line (inside hero) */}
+        <div className="flex items-center gap-2 text-white/70 text-sm">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5">
+            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+          </span>
+          <span className="font-medium">Ana Sayfa</span>
+          <span className="text-white/40">/</span>
+          <span className="font-semibold text-white/80">{last}</span>
+        </div>
 
-            <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              Büyük Ölçekli Kurumsal Organizasyonlarda{" "}
-              <span className="text-blue-200">Stratejik Prodüksiyon Partneriniz</span>
-            </h1>
+        <div className="mt-8 max-w-2xl">
+          <h1
+            id="hero-title"
+            className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-white"
+          >
+            Büyük Ölçekli Kurumsal{" "}
+            <span className="text-white/90">Organizasyonlarda</span>{" "}
+            <span className="block text-blue-300">Stratejik Prodüksiyon Partneriniz</span>
+          </h1>
 
-            <p className="mt-5 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
-              Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde;
-              <span className="text-white font-semibold"> planlama</span>,{" "}
-              <span className="text-white font-semibold">risk yönetimi</span> ve{" "}
-              <span className="text-white font-semibold">yedekli teknik altyapı</span> ile uçtan uca operasyon yönetimi.
+          <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
+            Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde; planlama, risk yönetimi
+            ve yedekli teknik altyapı ile uçtan uca operasyon yönetimi.
+          </p>
+
+          <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition focus-ring"
+            >
+              Hemen Teklif Al
+            </Link>
+            <Link
+              href="#hizmetler"
+              className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/90 hover:bg-black/35 transition focus-ring"
+            >
+              Hizmetlerinizi İnceleyin
+            </Link>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {KEYWORD_CHIPS.map((k) => (
+              <span
+                key={k}
+                className="rounded-full border border-white/12 bg-black/30 px-3 py-1 text-xs text-white/75"
+              >
+                {k}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Trust bar (glass) */}
+        <div className="mt-10">
+          <GlassCard className="px-4 py-4 md:px-6 md:py-5">
+            <div className="grid gap-4 md:grid-cols-4">
+              {[
+                { t: "Kurumsal Segment", d: "Holding • global marka • kamu • üniversite" },
+                { t: "Operasyon Modeli", d: "Planlama → keşif → kurulum → yönetim → rapor" },
+                { t: "Teknik Standart", d: "Yedekli güç • yedek kontrol • saha güvenliği" },
+                { t: "Coğrafi Kapsam", d: "İstanbul merkezli • Türkiye geneli" },
+              ].map((x) => (
+                <div key={x.t} className="text-center md:text-left">
+                  <div className="text-sm font-black text-white">{x.t}</div>
+                  <div className="mt-1 text-sm text-white/70 leading-relaxed">{x.d}</div>
+                </div>
+              ))}
+            </div>
+          </GlassCard>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ================== Üst Bilgilendirme ================== */
+/* ================== Üst Bilgilendirme (premium) ================== */
+function IntroSection() {
+  return (
+    <section className="relative overflow-hidden py-16 md:py-20 bg-white" aria-labelledby="kurumsal-intro-baslik">
+      {/* subtle light grid + glow */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50" />
+        <div
+          className="absolute inset-0 opacity-[0.10]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 30%, rgba(59,130,246,0.25), transparent 45%), radial-gradient(circle at 80% 40%, rgba(99,102,241,0.18), transparent 50%), radial-gradient(circle at 40% 90%, rgba(14,165,233,0.12), transparent 55%)",
+          }}
+        />
+      </div>
+
+      <div className="relative container mx-auto px-4 max-w-6xl">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          {/* LEFT */}
+          <div>
+            <h2 id="kurumsal-intro-baslik" className="text-3xl md:text-4xl font-black text-gray-900">
+              Kurumsal Etkinlik{" "}
+              <span className="text-blue-700">Organizasyon Şirketleri</span>
+              <br />
+              Ne Sunar?
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+              Kurumsal organizasyon; hedef, içerik ve teknik prodüksiyonun aynı masada yönetildiği,
+              ölçülebilir bir operasyon disiplinidir.
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp üzerinden hemen teklif alın"
-                className="inline-flex items-center justify-center font-bold px-7 py-4 rounded-2xl bg-blue-600 text-white hover:bg-blue-500 transition-all duration-200 focus-ring shadow-lg shadow-blue-600/20"
-              >
-                Hemen Teklif Al
-              </Link>
-
-              <Link
-                href="#hizmetler"
-                aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
-                className="inline-flex items-center justify-center font-bold px-7 py-4 rounded-2xl border border-white/20 text-white bg-white/5 backdrop-blur hover:bg-white/10 transition-all duration-200 focus-ring"
-              >
-                Hizmetlerimizi İnceleyin
-              </Link>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {KEYWORD_CHIPS.map((k) => (
-                <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                  {k}
-                </span>
+            <div className="mt-8 grid sm:grid-cols-2 gap-3">
+              {HERO_FEATURES.map((f) => (
+                <div
+                  key={f.t}
+                  className="rounded-2xl border border-slate-200 bg-white/70 backdrop-blur p-4 shadow-sm"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                    <div>
+                      <div className="font-bold text-gray-900">{f.t}</div>
+                      <div className="mt-1 text-sm text-gray-600">{f.d}</div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* SAĞ: Görsel kart */}
+          {/* RIGHT: image card with mini tags */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-2xl">
-              <div className="relative aspect-[4/3]">
+            <GlassCard className="overflow-hidden bg-black/80">
+              <div className="relative aspect-[16/9]">
                 <Image
-                  src={HERO.src}
-                  alt={HERO.alt}
+                  src="/img/kurumsal/2.webp"
+                  alt="Kurumsal etkinlik sahnesi ve LED ekran kurulum örneği"
                   fill
-                  priority
                   className="object-cover"
-                  sizes={HERO.sizes}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={88}
                   blurDataURL={BLUR_DATA_URL}
-                  loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
               </div>
 
-              <div className="p-6">
+              <div className="p-5 md:p-6">
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { k: "Operasyon", v: "Uçtan uca" },
                     { k: "Altyapı", v: "Yedekli" },
                     { k: "Plan", v: "Run-of-show" },
                   ].map((item) => (
-                    <div key={item.k} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-white">
+                    <div key={item.k} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-white">
                       <div className="text-xs text-white/60 font-semibold">{item.k}</div>
                       <div className="mt-1 text-sm font-bold">{item.v}</div>
                     </div>
                   ))}
                 </div>
 
-                <p className="mt-4 text-sm text-white/70 leading-relaxed">
+                <p className="mt-4 text-sm text-white/75 leading-relaxed">
                   Kurumsal organizasyon yalnızca kurulum değil; planlama, risk ve görünürlük yönetimidir.
                 </p>
               </div>
-            </div>
+            </GlassCard>
           </div>
         </div>
       </div>
@@ -452,103 +505,6 @@ function Hero() {
   );
 }
 
-
-
-/* ================== Üst Bilgilendirme ================== */
-function IntroSection() {
-  return (
-    <section
-      className="py-16 bg-white"
-      aria-labelledby="kurumsal-intro-baslik"
-    >
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-6">
-            <h2
-              id="kurumsal-intro-baslik"
-              className="text-3xl md:text-4xl font-black text-gray-900"
-            >
-              Kurumsal Etkinlik Organizasyon Şirketleri Ne Sunar?
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Kurumsal etkinlik organizasyon şirketleri; strateji, içerik ve
-              teknik prodüksiyonu aynı masada toplayarak markalara güven veren
-              bir etkinlik deneyimi sunar. İstanbul kurumsal organizasyon
-              ihtiyaçlarında doğru planlama; lansman organizasyonu,
-              bayi toplantısı organizasyonu veya gala gecesi organizasyonu gibi
-              formatlarda hedef kitleye uygun akışı ve teknik kurguyu bir arada
-              yönetmeyi sağlar. Böylece şirket etkinliği yalnızca bir buluşma
-              değil, marka algısını güçlendiren ölçülebilir bir iletişim
-              platformuna dönüşür.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Sahneva olarak İstanbul merkezli ekiplerimizle Türkiye genelinde
-              kurumsal etkinlik organizasyonu yönetiyoruz; marka lansmanı,
-              konferans ve gala gibi formatlarda sahne, ses-ışık ve LED ekran
-              çözümlerini uçtan uca planlıyoruz. Deneyimli bir prodüksiyon
-              firmasıyla çalışmak, kurumsal organizasyon şirketleri arasında
-              kaliteyi belirleyen teknik standartlara erişmenizi sağlar. Böylece
-              operasyon tek elden yürür, riskler azalır ve marka mesajı doğru
-              zamanda doğru sahnede görünür.
-            </p>
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                Bu sayfada neler bulacaksınız?
-              </h3>
-              <ul className="space-y-2 text-gray-700">
-                {[
-                  "Kurumsal organizasyonun kapsamı ve temel kavramlar",
-                  "Planlama adımları ve teknik altyapı kontrol listesi",
-                  "Hizmet türleri ve kullanım senaryoları",
-                  "Fiyatı etkileyen faktörler ve operasyon ipuçları",
-                  "Sık sorulan sorular ve hızlı yanıtlar",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="mt-2 h-2 w-2 rounded-full bg-blue-600"
-                      aria-hidden="true"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-6 shadow-xl">
-              <h3 className="text-xl font-bold mb-4">Hızlı Özet</h3>
-              <ul className="space-y-3 text-white/90">
-                {[
-                  "Planlama: hedef, format, bütçe ve zaman çizelgesi",
-                  "Teknik altyapı: sahne, ses-ışık ve LED ekran entegrasyonu",
-                  "Operasyon & saha yönetimi: kurulum, prova ve etkinlik akışı",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="mt-2 h-2 w-2 rounded-full bg-white"
-                      aria-hidden="true"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
-              <Image
-                src="/img/kurumsal/4.webp"
-                alt="Kurumsal etkinlik organizasyonu için sahne ve görsel kurulum"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ================== Otorite İçerikleri ================== */
 function SelectionSection() {
@@ -2132,13 +2088,11 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <JsonLd />
-      <Hero />
-      <TrustBar />
+      <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
       <SelectionSection />
       <PlanningGuide />
       <Services />
-      <InsightsBlock />
       <Gallery />
       <AdvantagesSectionBlock />
       <Technical />
