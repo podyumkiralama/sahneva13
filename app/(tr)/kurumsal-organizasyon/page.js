@@ -14,6 +14,8 @@ const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
+
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Merhaba%2C+kurumsal+organizasyon+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonferans%2Flansman%2Fgala%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
@@ -1273,6 +1275,87 @@ const FAQ_ITEMS = [
   },
 ];
 
+
+/* ================== JSON-LD (Kurumsal Organizasyon) — FINAL SAFE ================== */
+function JsonLd() {
+  const pageUrl = `${ORIGIN}/kurumsal-organizasyon`;
+  const pageDescription = metadata?.description || "";
+  const webPageId = `${pageUrl}#webpage`;
+
+  const provider = { "@id": ORGANIZATION_ID };
+
+  const { service: serviceSchema, products } = buildServiceProductSchema({
+    slug: "/kurumsal-organizasyon",
+    locale: "tr-TR",
+  });
+
+  /* ================== SERVICE ================== */
+  const baseService = {
+    "@type": "Service",
+    name: "Kurumsal Organizasyon",
+    description: pageDescription,
+    serviceType: "Kurumsal Etkinlik Organizasyonu",
+    provider,
+    areaServed: { "@type": "Country", name: "Türkiye" },
+    inLanguage: "tr-TR",
+    url: pageUrl,
+    mainEntityOfPage: { "@id": webPageId },
+  };
+
+  const serviceNode = {
+    ...(serviceSchema || {}),
+    ...baseService,
+    "@type": "Service",
+    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
+    provider,
+  };
+
+  /* ================== WEBPAGE ================== */
+  const webPageNode = {
+    "@type": "WebPage",
+    "@id": webPageId,
+    name: "Kurumsal Organizasyon Şirketleri | Sahneva",
+    description: pageDescription,
+    url: pageUrl,
+    inLanguage: "tr-TR",
+    mainEntity: { "@id": serviceNode["@id"] },
+    isPartOf: { "@id": WEBSITE_ID },
+    publisher: provider,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${ORIGIN}/img/kurumsal/hero.webp`,
+      width: 1200,
+      height: 630,
+    },
+  };
+
+  /* ================== FAQ ================== */
+  const faqNode = buildFaqSchema?.(FAQ_ITEMS) || null;
+
+  const productNodes = products ?? [];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      webPageNode,
+      serviceNode,
+      ...(faqNode ? [faqNode] : []),
+      ...productNodes,
+    ],
+  };
+
+  const safe = JSON.stringify(jsonLd).replace(/</g, "\u003c");
+
+  return (
+    <script
+      id="ld-json-kurumsal"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: safe }}
+    />
+  );
+}
+
+
 function FAQ() {
   return (
     <SectionShell variant="soft" id="sss">
@@ -1428,6 +1511,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <JsonLd />
       {/* JSON-LD global graph layout'tan geliyor; sayfada tekrar basmıyoruz */}
       <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
