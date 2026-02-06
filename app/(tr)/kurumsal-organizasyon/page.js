@@ -95,7 +95,7 @@ const slugify = (s) =>
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 
-/* ================== Premium yardımcı bileşenler ================== */
+/* ================== Premium arka plan (faq ile aynı çizgi+glow hissi) ================== */
 function PremiumGridBg() {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -125,27 +125,6 @@ const KEYWORD_CHIPS = [
   "Organizasyon kiralama",
 ];
 
-function SectionHeader({ kicker, title, desc }) {
-  return (
-    <header className="max-w-3xl mx-auto text-center mb-10">
-      {kicker ? (
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm">
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
-          <span className="font-semibold">{kicker}</span>
-        </div>
-      ) : null}
-      <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
-        {title}
-      </h2>
-      {desc ? (
-        <p className="mt-4 text-lg md:text-xl leading-relaxed text-gray-600">
-          {desc}
-        </p>
-      ) : null}
-    </header>
-  );
-}
-
 function TrustBar() {
   return (
     <section className="py-10 bg-white" aria-label="Kurumsal segment ve standartlar">
@@ -172,30 +151,35 @@ function InsightsBlock() {
   return (
     <section className="py-20 bg-white" aria-labelledby="insights-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        <SectionHeader
-          title="Kurumsal Rehber ve İçgörüler"
-          desc="Strateji, teknik keşif ve risk yönetimini tek akışta topladığınızda premium kalite standardı oluşur."
-        />
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <h2 id="insights-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
+            Kurumsal Rehber ve İçgörüler
+          </h2>
+          <p className="mt-4 text-lg md:text-xl leading-relaxed text-gray-600">
+            Strateji, teknik keşif ve risk yönetimini tek akışta topladığınızda premium kalite standardı oluşur.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
             <h3 className="text-xl font-black text-gray-900">Strateji → Planlama</h3>
             <p className="mt-3 text-gray-600 leading-relaxed">
-              Tek sayfa strateji, SMART hedefler ve geriye dönük timeline ile kapsamı sabitleyin.
-              Run-of-show ile tüm paydaşları aynı akışa alın.
+              Tek sayfa strateji, SMART hedefler ve geriye dönük timeline ile kapsamı sabitleyin. Run-of-show ile tüm
+              paydaşları aynı akışa alın.
             </p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
             <h3 className="text-xl font-black text-gray-900">Teknik → Operasyon</h3>
             <p className="mt-3 text-gray-600 leading-relaxed">
-              Teknik keşif, güç planı, kablolama ve yedekli sistemler premium standardın temelidir.
-              Prova ve senaryo simülasyonu riski düşürür.
+              Teknik keşif, güç planı, kablolama ve yedekli sistemler premium standardın temelidir. Prova ve senaryo
+              simülasyonu riski düşürür.
             </p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
             <h3 className="text-xl font-black text-gray-900">Bütçe → Risk</h3>
             <p className="mt-3 text-gray-600 leading-relaxed">
-              %10–15 contingency, açık hava B planı ve kritik zincir yaklaşımı ile bütçeyi
-              “kesinti maliyeti” perspektifinden yönetin.
+              %10–15 contingency, açık hava B planı ve kritik zincir yaklaşımı ile bütçeyi “kesinti maliyeti”
+              perspektifinden yönetin.
             </p>
           </div>
         </div>
@@ -203,7 +187,6 @@ function InsightsBlock() {
     </section>
   );
 }
-
 
 const HERO = {
   src: "/img/kurumsal/hero.webp",
@@ -378,12 +361,13 @@ function Hero() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           {/* SOL */}
           <div className="text-white">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
-              <span className="font-semibold">Türkiye geneli kurumsal prodüksiyon</span>
-            </div>
+            <nav className="text-white/60 text-sm mb-4" aria-label="Breadcrumb">
+              <span>🏠</span> <span className="mx-2">Ana Sayfa</span>
+              <span className="mx-2">›</span>
+              <span className="text-white/80">Kurumsal Organizasyon</span>
+            </nav>
 
-            <h1 id="hero-title" className="mt-6 text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+            <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
               Büyük Ölçekli Kurumsal Organizasyonlarda{" "}
               <span className="text-blue-200">Stratejik Prodüksiyon Partneriniz</span>
             </h1>
@@ -392,8 +376,7 @@ function Hero() {
               Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde;
               <span className="text-white font-semibold"> planlama</span>,{" "}
               <span className="text-white font-semibold">risk yönetimi</span> ve{" "}
-              <span className="text-white font-semibold">yedekli teknik altyapı</span> ile
-              uçtan uca operasyon yönetimi.
+              <span className="text-white font-semibold">yedekli teknik altyapı</span> ile uçtan uca operasyon yönetimi.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
@@ -416,7 +399,7 @@ function Hero() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {KEYWORD_CHIPS.map((k) => (
                 <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
                   {k}
@@ -425,7 +408,7 @@ function Hero() {
             </div>
           </div>
 
-          {/* SAĞ */}
+          {/* SAĞ: Görsel kart */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur shadow-2xl">
               <div className="relative aspect-[4/3]">
@@ -460,10 +443,6 @@ function Hero() {
                 <p className="mt-4 text-sm text-white/70 leading-relaxed">
                   Kurumsal organizasyon yalnızca kurulum değil; planlama, risk ve görünürlük yönetimidir.
                 </p>
-
-                <div className="mt-4 text-blue-200 text-sm">
-                  📍 81 ilde hizmet • ⏰ 7/24 operasyonel destek • ⭐ 10+ yıl deneyim
-                </div>
               </div>
             </div>
           </div>
@@ -472,6 +451,8 @@ function Hero() {
     </section>
   );
 }
+
+
 
 /* ================== Üst Bilgilendirme ================== */
 function IntroSection() {
@@ -992,48 +973,61 @@ function PlanningGuide() {
 /* ================== Hizmetler ================== */
 function Services() {
   return (
-    <section id="hizmetler" className="py-20 bg-white" aria-labelledby="hizmetler-baslik">
+    <section
+      id="hizmetler"
+      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      aria-labelledby="hizmetler-baslik"
+    >
       <div className="container mx-auto px-4">
-        <SectionHeader
-          kicker="Hizmet kapsamı"
-          title={
-            <>
-              Kurumsal <span className="text-blue-700">Hizmetlerimiz</span>
-            </>
-          }
-          desc="Planlama, teknik tasarım, kurulum, operasyon ve etkinlik sonrası raporlama"
-        />
+        <div className="text-center mb-16">
+          <h2
+            id="hizmetler-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+          >
+            Kurumsal{" "}
+            <span className="text-blue-700">Hizmetlerimiz</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Kurumsal organizasyon hizmetlerimiz: planlama, teknik tasarım,
+            kurulum, operasyon ve destek
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {SERVICES.map((service) => {
             const id = `svc-${slugify(service.title)}`;
             return (
               <article
                 key={id}
-                className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
+                className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group hover:scale-105 transition-all duration-500 h-full flex flex-col"
                 aria-labelledby={id}
               >
-                <div className="flex items-center gap-3">
-                  <div
-                    className="text-3xl h-12 w-12 flex items-center justify-center rounded-2xl bg-blue-50 text-blue-700 group-hover:scale-105 transition-transform"
-                    aria-hidden="true"
-                  >
-                    {service.icon}
-                  </div>
-                  <h3 id={id} className="text-xl font-black text-gray-900 group-hover:text-blue-700 transition-colors">
-                    {service.title}
-                  </h3>
+                <div
+                  className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  aria-hidden="true"
+                >
+                  {service.icon}
                 </div>
-
-                <p className="mt-4 text-gray-600 leading-relaxed flex-grow">
+                <h3
+                  id={id}
+                  className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors"
+                >
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
                   {service.description}
                 </p>
-
-                <ul className="mt-5 space-y-2">
+                <ul className="space-y-3">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-gray-700">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
-                      <span>{feature}</span>
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 text-gray-700"
+                    >
+                      <span
+                        className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span className="text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -1042,14 +1036,17 @@ function Services() {
           })}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-95 transform transition-all duration-200 focus-ring shadow-lg shadow-blue-600/20"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
-            Detaylı Teklif için İletişime Geçin
+            <span aria-hidden="true" className="text-xl mr-3">
+              📞
+            </span>
+            <span>Detaylı Teklif için İletişime Geçin</span>
           </Link>
         </div>
       </div>
@@ -1293,26 +1290,37 @@ function StatsBand() {
   ];
 
   return (
-    <section className="relative py-20 text-white" aria-label="Başarı İstatistiklerimiz">
-      <PremiumGridBg />
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <section
+      className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      aria-label="Başarı İstatistiklerimiz"
+    >
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
             <article
               key={stat.label}
-              className="text-center"
+              className="text-center group"
               role="group"
               aria-labelledby={`kurum-stat-${index}-value`}
               aria-describedby={`kurum-stat-${index}-label`}
             >
-              <div className="rounded-3xl p-8 border border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 transition-all duration-300">
-                <div className="text-4xl mb-4" aria-hidden="true">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 group-hover:bg-white/20 transition-all duration-500 group-hover:scale-105">
+                <div
+                  className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  aria-hidden="true"
+                >
                   {stat.icon}
                 </div>
-                <h3 id={`kurum-stat-${index}-value`} className="text-4xl md:text-5xl font-black mb-2 text-white drop-shadow-lg">
+                <h3
+                  id={`kurum-stat-${index}-value`}
+                  className="text-4xl md:text-5xl font-black mb-2 text-white drop-shadow-lg"
+                >
                   {stat.value}
                 </h3>
-                <p id={`kurum-stat-${index}-label`} className="text-white/75 text-lg font-semibold">
+                <p
+                  id={`kurum-stat-${index}-label`}
+                  className="text-blue-100 text-lg font-semibold"
+                >
                   {stat.label}
                 </p>
               </div>
