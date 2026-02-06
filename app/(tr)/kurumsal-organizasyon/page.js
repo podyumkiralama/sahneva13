@@ -115,7 +115,7 @@ const HERO_FEATURES = [
 function PremiumGridBg() {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[#0B1120]" />
+      <div className="absolute inset-0 bg-[#0B1120]/55" />
       <div
         className="absolute inset-0 opacity-[0.20]"
         style={{
