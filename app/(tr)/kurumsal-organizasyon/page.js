@@ -4,7 +4,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
@@ -1284,11 +1283,6 @@ function JsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  const { service: serviceSchema, products } = buildServiceProductSchema({
-    slug: "/kurumsal-organizasyon",
-    locale: "tr-TR",
-  });
-
   /* ================== SERVICE ================== */
   const baseService = {
     "@type": "Service",
@@ -1303,11 +1297,8 @@ function JsonLd() {
   };
 
   const serviceNode = {
-    ...(serviceSchema || {}),
     ...baseService,
-    "@type": "Service",
-    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
-    provider,
+    "@id": `${pageUrl}#service`,
   };
 
   /* ================== WEBPAGE ================== */
@@ -1332,15 +1323,12 @@ function JsonLd() {
   /* ================== FAQ ================== */
   const faqNode = buildFaqSchema?.(FAQ_ITEMS) || null;
 
-  const productNodes = products ?? [];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       webPageNode,
       serviceNode,
       ...(faqNode ? [faqNode] : []),
-      ...productNodes,
     ],
   };
 
