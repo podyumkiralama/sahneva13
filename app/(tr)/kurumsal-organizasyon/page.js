@@ -113,6 +113,13 @@ const HERO_FEATURES = [
   { t: "Run-of-show", d: "Prova, geçişler, sahne yönetimi" },
 ];
 
+const SHOWCASE_IMAGES = [
+  { src: "/img/kurumsal/4.webp", alt: "Kurumsal konferans sahnesi ve LED ekran" },
+  { src: "/img/kurumsal/5.webp", alt: "Kurumsal etkinlikte konuşmacı sahnesi" },
+  { src: "/img/kurumsal/6.webp", alt: "Kurumsal gala sahnesi ve ışık kurgusu" },
+  { src: "/img/kurumsal/3.webp", alt: "Kurumsal toplantı sahnesi ve seyirci alanı" },
+];
+
 /* ================== Enterprise section system ================== */
 function SectionShell({ variant = "light", id, children }) {
   const base = "relative overflow-hidden";
@@ -599,6 +606,63 @@ function IntroSection() {
           src="/img/kurumsal/2.webp"
           alt="Kurumsal etkinlik sahnesi ve LED ekran kurulum örneği"
         />
+      </div>
+    </SectionShell>
+  );
+}
+
+function ShowcaseSection() {
+  return (
+    <SectionShell variant="soft" id="ne-sunar-gorsel">
+      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <H2
+            kicker="Operasyon disiplini"
+            title={
+              <>
+                Kurumsal Etkinlik{" "}
+                <span className="text-blue-700">Organizasyon Şirketleri</span> Ne Sunar?
+              </>
+            }
+            desc="Kurumsal organizasyon; hedef, içerik ve teknik prodüksiyonun aynı masada yönetildiği, ölçülebilir bir operasyon disiplinidir."
+          />
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {HERO_FEATURES.map((f) => (
+              <Card key={f.t}>
+                <div className="flex items-start gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                  <div>
+                    <div className="font-black text-gray-900">{f.t}</div>
+                    <div className="mt-2 text-gray-600 leading-relaxed">{f.d}</div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {SHOWCASE_IMAGES.map((image) => (
+            <div
+              key={image.src}
+              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+            >
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 50vw, 30vw"
+                  quality={85}
+                  blurDataURL={BLUR_DATA_URL}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+            </div>
+          ))}
+        </div>
       </div>
     </SectionShell>
   );
@@ -1503,6 +1567,7 @@ export default function Page() {
       {/* Page-level JSON-LD: Service + WebPage + (varsa) FAQ */}
       <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
+      <ShowcaseSection />
       <SelectionSection />
       <PlanningGuide />
       <Services />
