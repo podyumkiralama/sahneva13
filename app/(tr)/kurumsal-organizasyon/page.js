@@ -1344,7 +1344,7 @@ function JsonLd() {
     ],
   };
 
-  const safe = JSON.stringify(jsonLd).replace(/</g, "\u003c");
+  const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 
   return (
     <script
@@ -1512,7 +1512,7 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <JsonLd />
-      {/* JSON-LD global graph layout'tan geliyor; sayfada tekrar basmıyoruz */}
+      {/* Page-level JSON-LD: Service + WebPage + (varsa) FAQ */}
       <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
       <SelectionSection />
