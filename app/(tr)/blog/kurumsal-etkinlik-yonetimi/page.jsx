@@ -223,7 +223,7 @@ export default function BlogPostCorporate() {
                 
                 <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
                   <p className="text-lg text-gray-700 font-medium italic m-0">
-                    Kurumsal etkinlikler, bir şirketin vizyonunu paydaşlarına gösterdiği en güçlü sahnelerdir. Bu sahnenin arkasındaki görünmeyen kahraman ise; doğru planlanmış <strong>teknik altyapı</strong>dır.
+                    <Link href="/kurumsal-organizasyon">Kurumsal etkinlikler</Link>, bir şirketin vizyonunu paydaşlarına gösterdiği en güçlü sahnelerdir. Bu sahnenin arkasındaki görünmeyen kahraman ise; doğru planlanmış <strong>teknik altyapı</strong>dır.
                   </p>
                 </div>
 
