@@ -382,7 +382,8 @@ export default function BlogPostFisekhanePubgGuinness() {
 
               <h2 id="benzer-etkinlikler">Benzer Etkinlikler İçin</h2>
               <p>
-                E-spor, lansman, konser ve kurumsal organizasyonlarda; sahne,
+                E-spor, lansman, konser ve{" "}
+                <Link href="/kurumsal-organizasyon">kurumsal organizasyonlarda</Link>; sahne,
                 LED ekran, ses-ışık, teknik operasyon ve yayın/çekim süreçleri
                 birlikte planlandığında riskler azalır ve etkinlik kalitesi
                 belirgin şekilde artar.

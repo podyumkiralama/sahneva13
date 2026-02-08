@@ -519,7 +519,7 @@ return (
 
             <p>
               Kurumsal planlama için:{" "}
-              <a href="https://www.sahneva.com/kurumsal-organizasyon">Kurumsal Organizasyon</a>.
+              <Link href="/kurumsal-organizasyon">Kurumsal Organizasyon</Link>.
             </p>
 
             {/* nakliye */}
@@ -604,7 +604,7 @@ return (
                 <a href="https://www.sahneva.com/cadir-kiralama">Çadır Kiralama</a>
               </li>
               <li>
-                <a href="https://www.sahneva.com/kurumsal-organizasyon">Kurumsal Organizasyon</a>
+                <Link href="/kurumsal-organizasyon">Kurumsal Organizasyon</Link>
               </li>
             </ul>
           </div>
