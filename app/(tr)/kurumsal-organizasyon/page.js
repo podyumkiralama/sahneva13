@@ -114,7 +114,7 @@ const HERO_FEATURES = [
 ];
 
 const HERO_STATS = [
-  { t: "25+ yıl", d: "Etkinlik operasyon deneyimi" },
+  { t: "2012'den beri", d: "Etkinlik operasyon deneyimi" },
   { t: "360°", d: "Uçtan uca prodüksiyon yönetimi" },
   { t: "7/24", d: "Saha ve teknik destek" },
 ];
