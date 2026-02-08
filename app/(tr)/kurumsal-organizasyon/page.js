@@ -113,6 +113,12 @@ const HERO_FEATURES = [
   { t: "Run-of-show", d: "Prova, geçişler, sahne yönetimi" },
 ];
 
+const HERO_STATS = [
+  { t: "25+ yıl", d: "Etkinlik operasyon deneyimi" },
+  { t: "360°", d: "Uçtan uca prodüksiyon yönetimi" },
+  { t: "7/24", d: "Saha ve teknik destek" },
+];
+
 const SHOWCASE_IMAGES = [
   { src: "/img/kurumsal/4.webp", alt: "Kurumsal konferans sahnesi ve LED ekran" },
   { src: "/img/kurumsal/5.webp", alt: "Kurumsal etkinlikte konuşmacı sahnesi" },
@@ -203,10 +209,10 @@ function Card({ children, dark = false, className = "" }) {
   return (
     <div
       className={[
-        "rounded-3xl border p-6 md:p-7 shadow-sm transition-all duration-300",
+        "rounded-3xl border p-6 md:p-7 shadow-sm transition-all duration-300 hover:-translate-y-1",
         dark
           ? "border-white/10 bg-white/5 backdrop-blur hover:bg-white/7"
-          : "border-slate-200 bg-white hover:shadow-lg",
+          : "border-slate-200 bg-white/90 backdrop-blur hover:shadow-xl",
         className,
       ].join(" ")}
     >
@@ -503,9 +509,13 @@ function Hero({ breadcrumbItems }) {
         </div>
 
         <div className="mt-8 max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 shadow-[0_20px_60px_rgba(15,23,42,0.45)]">
+            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            Kurumsal Prodüksiyon
+          </div>
           <h1
             id="hero-title"
-            className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-white"
+            className="mt-5 text-4xl md:text-6xl font-black leading-tight tracking-tight text-white drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]"
           >
             Büyük Ölçekli Kurumsal{" "}
             <span className="text-white/90">Organizasyonlarda</span>{" "}
@@ -522,13 +532,13 @@ function Hero({ breadcrumbItems }) {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition focus-ring"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition focus-ring"
             >
               Hemen Teklif Al
             </Link>
             <Link
               href="#hizmetler"
-              className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/90 hover:bg-black/35 transition focus-ring"
+              className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/90 hover:bg-white/10 transition focus-ring"
             >
               Hizmetlerinizi İnceleyin
             </Link>
@@ -563,6 +573,18 @@ function Hero({ breadcrumbItems }) {
               ))}
             </div>
           </GlassCard>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {HERO_STATS.map((stat) => (
+            <div
+              key={stat.t}
+              className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white shadow-[0_20px_60px_rgba(15,23,42,0.35)] backdrop-blur"
+            >
+              <div className="text-2xl font-black">{stat.t}</div>
+              <div className="mt-1 text-sm text-white/70">{stat.d}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -646,20 +668,21 @@ function ShowcaseSection() {
           {SHOWCASE_IMAGES.map((image) => (
             <div
               key={image.src}
-              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+              className="group relative overflow-hidden rounded-3xl border border-white/40 bg-white/70 shadow-[0_20px_60px_rgba(15,23,42,0.12)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_rgba(15,23,42,0.2)]"
             >
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 1024px) 50vw, 30vw"
                   quality={85}
                   blurDataURL={BLUR_DATA_URL}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+              <div className="absolute inset-0 ring-1 ring-white/20" aria-hidden="true" />
             </div>
           ))}
         </div>
