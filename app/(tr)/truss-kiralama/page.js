@@ -21,7 +21,7 @@ const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PAGE_PATH = "/truss-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
-const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri | Sahneva Organizasyon";
+const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri";
 const DESCRIPTION =
   "Kare, üçgen, circle ve kemer (gate) dahil her türlü truss kiralama ve kurulumu. LED ekran, ışık-ses rigging ve sahne portalı için nakliye + montaj + teknik ekip desteği.";
 
