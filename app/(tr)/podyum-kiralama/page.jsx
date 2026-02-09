@@ -19,10 +19,10 @@ const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 
 /* ================== 2. DİNAMİK FİYAT MOTORU ================== */
 const UNIT_PRICES = {
-  platform_m2_week: 250,
-  carpet_m2_week: 120,
-  skirt_ml_week: 90,
-  istanbul_setup: 8000,
+  platform_m2_week: 270,
+  carpet_m2_week: 130,
+  skirt_ml_week: 100,
+  istanbul_setup: 9000,
   currency: "TRY"
 };
 
@@ -157,7 +157,7 @@ function StructuredData() {
         url: `${ORIGIN}/podyum-kiralama#${pkg.id}`,
         priceCurrency: UNIT_PRICES.currency,
         price: prices.total,
-        priceValidUntil: "2025-12-31",
+        priceValidUntil: "2027-12-31",
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition"
       }
@@ -170,7 +170,7 @@ function StructuredData() {
     image: [`${ORIGIN}/img/podyum/hero.webp`],
     author: { "@id": ORGANIZATION_ID },
     publisher: { "@id": ORGANIZATION_ID },
-    datePublished: "2023-01-01",
+    datePublished: "2025-10-08",
     dateModified: new Date().toISOString().split('T')[0],
     description: metadata.description
   };
