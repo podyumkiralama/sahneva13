@@ -304,6 +304,22 @@ export const metadata = {
 
 // --- JSON-LD ---
 function StructuredData() {
+  const offerCatalogItems = PACKAGES.map((pkg) => {
+    const prices = calculatePackagePrice(pkg.layout);
+    return {
+      "@type": "Offer",
+      name: pkg.name,
+      url: `${ORIGIN}/podyum-kiralama#${pkg.id}`,
+      priceCurrency: UNIT_PRICES.currency,
+      price: String(prices.total),
+      itemOffered: {
+        "@type": "Service",
+        name: pkg.name,
+        description: pkg.note,
+      },
+    };
+  });
+
   const productSchemas = PACKAGES.map((pkg) => {
     const prices = calculatePackagePrice(pkg.layout);
     return {
@@ -334,6 +350,11 @@ function StructuredData() {
         description: metadata.description,
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Podyum Kiralama Paketleri",
+          itemListElement: offerCatalogItems,
+        },
       },
       ...productSchemas,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
