@@ -634,15 +634,15 @@ function PackagesSection() {
 
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 mb-4">
                     <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between text-gray-800">
                         <span>Platform:</span>
-                        <span className="font-semibold">{formatTRY(prices.base)}</span>
+                        <span className="font-semibold text-gray-900">{formatTRY(prices.base)}</span>
                       </div>
-                      <div className="flex justify-between text-gray-500">
+                      <div className="flex justify-between text-gray-700">
                         <span>Halı + Skört:</span>
                         <span>{formatTRY(prices.carpet + prices.skirt)}</span>
                       </div>
-                      <div className="flex justify-between text-gray-500">
+                      <div className="flex justify-between text-gray-700">
                         <span>Nakliye (İstanbul):</span>
                         <span>{formatTRY(prices.nakliye)}</span>
                       </div>
