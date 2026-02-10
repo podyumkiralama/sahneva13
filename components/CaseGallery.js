@@ -155,7 +155,7 @@ function CaseGallery({
         <div className="space-y-4" aria-label="Proje galerisi">
           <button
             type="button"
-            className="relative w-full max-w-4xl mx-auto aspect-[16/9] max-h-[60vh] overflow-hidden rounded-2xl border-2 border-gray-200 bg-gray-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
+            className="relative w-full max-w-4xl mx-auto aspect-[16/9] min-h-12 max-h-[60vh] overflow-hidden rounded-2xl border-2 border-gray-200 bg-gray-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
             onClick={() => openLightbox(activeIndex)}
             aria-label={`${
               mainImage?.alt || "Galerideki görsel"
@@ -236,7 +236,7 @@ function CaseGallery({
             <button
               key={`${img.src}-${index}`}
               type="button"
-              className="relative aspect-[16/9] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
+              className="relative aspect-[16/9] min-h-12 overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
               onClick={() => openLightbox(index)}
               aria-label={`${
                 img.alt || `Galerideki ${index + 1}. görsel`

@@ -51,7 +51,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
   return (
     <div
       className={[
-        "mx-auto w-full max-w-2xl rounded-2xl border bg-white/90 shadow-sm ring-1 ring-black/5 backdrop-blur",
+        "mx-auto w-full max-w-2xl rounded-2xl border border-neutral-300 bg-white shadow-sm ring-1 ring-black/10",
         className,
       ].join(" ")}
       role="region"
@@ -59,9 +59,9 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
       aria-describedby="podyum-fiyat-hesaplayici-aciklama"
     >
       {/* Üst şerit */}
-      <div className="rounded-t-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent px-4 py-3 sm:px-6">
+      <div className="rounded-t-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent px-4 py-3 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 id="podyum-fiyat-hesaplayici" className="text-sm font-semibold text-neutral-800">
+          <h3 id="podyum-fiyat-hesaplayici" className="text-sm font-semibold text-neutral-900">
             Hızlı Fiyat Hesaplama
           </h3>
           <div className="flex flex-wrap gap-1.5">
@@ -78,8 +78,8 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
                   className={[
                     "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-[background,transform] active:scale-[.98]",
                     isActive
-                      ? "border-primary/30 bg-primary/15 text-primary"
-                      : "border-neutral-200 bg-white hover:bg-neutral-50 text-neutral-700",
+                      ? "border-primary/60 bg-primary/20 text-blue-900"
+                      : "border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-800",
                   ].join(" ")}
                   aria-pressed={isActive}
                 >
@@ -133,7 +133,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
         </div>
 
         {/* Ayrıntı + Toplam */}
-        <div className="mt-4 rounded-xl border border-primary/10 bg-primary/5 p-4">
+        <div className="mt-4 rounded-xl border border-primary/25 bg-primary/10 p-4">
           <Row left="Halı (ops.)" right={formatTRY(carpet)} />
           <Row left="Skört (ops.)" right={formatTRY(skirt)} />
           <Row
@@ -146,12 +146,12 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
           />
           <div className="my-3 h-px w-full bg-primary/10" />
           <div className="flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] text-neutral-700">Önerilen Paket (Halı + Skört)</span>
-            <span className="text-base font-semibold tracking-tight">{formatTRY(paketToplam)}</span>
+            <span className="text-[13px] font-medium text-neutral-900">Önerilen Paket (Halı + Skört)</span>
+            <span className="text-base font-semibold tracking-tight text-neutral-900">{formatTRY(paketToplam)}</span>
           </div>
           <div className="mt-1 flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] text-neutral-700">Genel Toplam (Paket + Nakliye/Kurulum)</span>
-            <span className="text-lg font-semibold tracking-tight text-primary">
+            <span className="text-[13px] font-medium text-neutral-900">Genel Toplam (Paket + Nakliye/Kurulum)</span>
+            <span className="text-lg font-bold tracking-tight text-blue-800">
               {lojistikTL ? formatTRY(genelToplam) : "—"}
             </span>
           </div>
@@ -162,12 +162,12 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
 
         {/* Alt satır */}
         <div className="mt-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
-          <span className="text-xs text-neutral-500">
+          <span className="text-xs text-neutral-700">
             *İstanbul içi ≤200 m² projelerde sabit ₺8.000 uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.
           </span>
           <ExternalLink
             href="https://wa.me/905453048671?text=Merhaba%20Sahneva%2C%20Podyum%20fiyat%20hesaplay%C4%B1c%C4%B1s%C4%B1ndan%20yaz%C4%B1yorum."
-            className="inline-flex items-center rounded-lg border border-primary/30 bg-white px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10"
+            className="inline-flex items-center rounded-lg border border-blue-300 bg-white px-3 py-1.5 text-xs font-semibold text-blue-800 hover:bg-blue-50"
             ariaLabel="WhatsApp’tan Sor — yeni sekmede açılır"
           >
             WhatsApp’tan Sor
@@ -185,7 +185,7 @@ function Field({ label, value, onChange, name, inputProps = {} }) {
   const inputId = name ?? reactId;
   return (
     <label className="text-xs" htmlFor={inputId}>
-      <span className="block text-neutral-600">{label}</span>
+      <span className="block font-medium text-neutral-700">{label}</span>
       <input
         id={inputId}
         name={name ?? inputId}
@@ -193,8 +193,8 @@ function Field({ label, value, onChange, name, inputProps = {} }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="
-          mt-1 w-full rounded-xl border border-neutral-200 bg-white
-          px-3 py-2 text-sm transition-colors duration-200 focus-ring
+          mt-1 w-full rounded-xl border border-neutral-300 bg-white
+          px-3 py-2 text-sm text-neutral-900 transition-colors duration-200 focus-ring
           focus-visible:border-primary/40
         "
         {...inputProps}
@@ -208,15 +208,15 @@ function SelectField({ label, value, onChange, options, name }) {
   const selectId = name ?? reactId;
   return (
     <label className="text-xs" htmlFor={selectId}>
-      <span className="block text-neutral-600">{label}</span>
+      <span className="block font-medium text-neutral-700">{label}</span>
       <select
         id={selectId}
         name={name ?? selectId}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="
-          mt-1 w-full rounded-xl border border-neutral-200 bg-white
-          px-3 py-2 text-sm transition-colors duration-200 focus-ring
+          mt-1 w-full rounded-xl border border-neutral-300 bg-white
+          px-3 py-2 text-sm text-neutral-900 transition-colors duration-200 focus-ring
           focus-visible:border-primary/40
         "
         aria-label={label}
@@ -233,9 +233,9 @@ function SelectField({ label, value, onChange, options, name }) {
 
 function Info({ label, value, emphasize = false }) {
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white p-3">
-      <div className="text-xs text-neutral-500">{label}</div>
-      <div className={["font-semibold", emphasize ? "text-primary" : ""].join(" ")}>{value}</div>
+    <div className="rounded-xl border border-neutral-300 bg-white p-3">
+      <div className="text-xs font-medium text-neutral-700">{label}</div>
+      <div className={["font-semibold text-neutral-900", emphasize ? "text-blue-800" : ""].join(" ")}>{value}</div>
     </div>
   );
 }
@@ -243,8 +243,8 @@ function Info({ label, value, emphasize = false }) {
 function Row({ left, right }) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-neutral-700">{left}</span>
-      <span className="font-medium">{right}</span>
+      <span className="text-neutral-800">{left}</span>
+      <span className="font-semibold text-neutral-900">{right}</span>
     </div>
   );
 }
