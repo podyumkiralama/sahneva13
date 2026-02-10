@@ -329,9 +329,9 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: "Ana Sayfa", item: `${BASE_SITE_URL}/` },
-          { name: "Podyum Kiralama", item: `${BASE_SITE_URL}/podyum-kiralama` },
-          { name: "Podyum Kiralama Fiyatları", item: url },
+          { name: "Ana Sayfa", url: `${BASE_SITE_URL}/` },
+          { name: "Podyum Kiralama", url: `${BASE_SITE_URL}/podyum-kiralama` },
+          { name: "Podyum Kiralama Fiyatları", url },
         ]}
       />
 
@@ -446,14 +446,7 @@ export default function Page() {
 
               <p className="mt-4 text-base text-gray-600">
                 Not: Bu sayfa fiyat odaklıdır. Hizmet detayları ve örnek
-                kurulumlar için{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>{" "}
-                sayfasına geçebilirsiniz.
+                kurulumlar için üst bölümdeki hizmet bağlantısını kullanabilirsiniz.
               </p>
             </div>
 
@@ -553,14 +546,8 @@ export default function Page() {
                 </ul>
                 <p className="mt-5 text-base text-gray-600">
                   Burada amaç: aynı kalemleri doğru tanımlayıp sürpriz
-                  maliyetleri önlemek. Profesyonel hizmet detayları için{" "}
-                  <Link
-                    href="/podyum-kiralama"
-                    className="font-semibold text-blue-700 underline"
-                  >
-                    podyum kiralama
-                  </Link>{" "}
-                  sayfasına geçebilirsiniz.
+                  maliyetleri önlemek. Teknik kapsam ve uygulama adımları ihtiyaç
+                  ve mekâna göre değişir.
                 </p>
               </div>
 
@@ -661,14 +648,8 @@ export default function Page() {
               </div>
 
               <p className="mt-6 text-base text-gray-600">
-                Hizmet detayları ve örnek kurulumlar için{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>{" "}
-                sayfasını inceleyin.
+                Hizmet detayları ve örnek kurulumlar için üst bölümdeki hizmet
+                sayfası bağlantısını inceleyebilirsiniz.
               </p>
             </div>
 
@@ -717,14 +698,6 @@ export default function Page() {
 
               <p className="mt-6 text-base text-gray-600">
                 Şehir dışı işler için lojistik ve ekip planı ayrıca yapılır.
-                Detaylı hizmet kapsamı:{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>
-                .
               </p>
             </div>
 
@@ -872,11 +845,7 @@ export default function Page() {
                 </div>
                 <p className="mt-6 text-sm text-white/80">
                   Bu sayfa fiyat intent’ini hedefler; hizmet kapsamı ve örnek
-                  uygulamalar için{" "}
-                  <Link href="/podyum-kiralama" className="underline font-semibold">
-                    ana podyum kiralama sayfasını
-                  </Link>{" "}
-                  inceleyin.
+                  uygulamalar için yukarıdaki hizmet butonunu kullanabilirsiniz.
                 </p>
               </div>
             </div>
