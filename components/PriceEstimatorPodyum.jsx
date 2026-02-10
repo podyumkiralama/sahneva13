@@ -146,11 +146,11 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
           />
           <div className="my-3 h-px w-full bg-primary/10" />
           <div className="flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] text-neutral-800">Önerilen Paket (Halı + Skört)</span>
-            <span className="text-base font-semibold tracking-tight">{formatTRY(paketToplam)}</span>
+            <span className="text-[13px] font-medium text-neutral-900">Önerilen Paket (Halı + Skört)</span>
+            <span className="text-base font-semibold tracking-tight text-neutral-900">{formatTRY(paketToplam)}</span>
           </div>
           <div className="mt-1 flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] text-neutral-800">Genel Toplam (Paket + Nakliye/Kurulum)</span>
+            <span className="text-[13px] font-medium text-neutral-900">Genel Toplam (Paket + Nakliye/Kurulum)</span>
             <span className="text-lg font-bold tracking-tight text-blue-800">
               {lojistikTL ? formatTRY(genelToplam) : "—"}
             </span>
