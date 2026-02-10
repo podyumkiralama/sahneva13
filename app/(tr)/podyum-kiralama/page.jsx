@@ -249,6 +249,24 @@ export const metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Podyum Kiralama | Profesyonel Sahne Çözümleri | Sahneva",
+    description:
+      "Modüler podyum sistemleri, kaymaz kaplama, halı ve skört seçenekleriyle İstanbul geneli profesyonel kurulum hizmeti.",
+    images: [`${ORIGIN}/img/podyum/hero.webp`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 /* ================== 6. BİLEŞENLER ================== */
