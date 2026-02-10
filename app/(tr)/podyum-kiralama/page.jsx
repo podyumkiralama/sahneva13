@@ -668,7 +668,7 @@ function PackagesSection() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+                    className="w-full min-h-12 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
                     <span className="text-lg mr-2">💬</span> Hemen Teklif Al
                   </Link>
