@@ -20,78 +20,62 @@ const UNIT_PRICES = {
   platform_m2_week: 270, // TL
   carpet_m2_week: 130, // TL
   skirt_ml_week: 100, // TL (metre)
-  ist_installation: 9000, // TL
+  ist_nakliye: 9000, // TL (İstanbul içi sabit)
   currency: "TRY",
 };
 
 const BLUR_DATA_URL =
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 /* ================== SEO METADATA ================== */
 export const metadata = {
-  title: "Podyum Kiralama Fiyatları 2026 | m² Bazlı Güncel Liste | Sahneva",
+  title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste | Sahneva",
   description:
-    "2026 güncel podyum kiralama fiyatları: m² bazlı hesaplama, halı, skört ve İstanbul kurulum maliyetleri. Defile/konser için hızlı teklif alın.",
+    "2026 güncel podyum kiralama fiyatları: m² bazlı hesaplama, halı, skört ve İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli. Defile/konser/düğün için hızlı teklif alın.",
   alternates: { canonical: url },
   openGraph: {
     type: "website",
     url,
-    title: "Podyum Kiralama Fiyatları 2026 | Sahneva",
+    title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste | Sahneva",
     description:
-      "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. Defile/konser/düğün için fiyat rehberi.",
+      "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
     images: [{ url: `${BASE_SITE_URL}/img/podyum/hero.webp` }],
   },
 };
 
-/* ================== FAQ (12) ================== */
+/* ================== FAQ (2026 / Fiyat Intent) ================== */
 const FAQ = [
   {
-    q: "Podyum fiyatları neye göre değişir?",
-    a: "Alan (m²), yükseklik, zemin koşulları, halı/kaplama, skört metre ihtiyacı, kurulum-söküm ve lojistik toplam bütçeyi belirler.",
+    q: "Podyum kiralama fiyatları 2026 yılında nasıl hesaplanır?",
+    a: "Fiyat; platform alanı (m²), halı kaplama (m²), skört (metre) ve İstanbul içi nakliye (kurulum+söküm dahil) kalemleri üzerinden hesaplanır.",
+  },
+  {
+    q: "İstanbul içi nakliye bedeli sabit mi?",
+    a: "Evet. Bu sayfadaki İstanbul içi nakliye bedeli 9.000 TL’dir ve kurulum + söküm dahildir (sabit).",
+  },
+  {
+    q: "Moda defilesi için podyum kiralama fiyatları neye göre değişir?",
+    a: "Runway ölçüsü, yükseklik, zemin koşulları, trafik yoğunluğu ve yükleme saatleri (load-in/out) gibi operasyon detayları toplam bütçeyi etkiler. Birim fiyatlar tabloda yer alır, net teklif proje bilgileriyle çıkarılır.",
+  },
+  {
+    q: "Konser organizasyonu için podyum kiralama fiyatları farklı mı?",
+    a: "Konserlerde teknik entegrasyon (ses/ışık/LED), yoğun trafik ve zaman kısıtları daha yüksek olabildiği için saha planına göre toplam bütçe değişebilir. Birim fiyatlar aynı, uygulama koşulları projeye göre netleşir.",
   },
   {
     q: "Kısa süreli podyum kiralama mümkün mü?",
-    a: "Evet. Günlük/haftalık kiralama yapılabilir. Kısa süreli işlerde kurulum-söküm ve lojistik kalemleri toplam içinde daha belirgin olur.",
+    a: "Evet. Günlük/haftalık kiralama yapılabilir. Kısa süreli projelerde nakliye ve saha planı daha belirgin bir maliyet kalemi olabilir.",
   },
   {
-    q: "İstanbul kurulum fiyatı sabit mi?",
-    a: "İstanbul içi standart kurulum/söküm için başlangıç paketi tabloda yer alır. Mekân erişimi (yük asansörü, merdiven, uzak taşıma vb.) bütçeyi etkileyebilir.",
+    q: "Podyum fiyatları neye göre değişir?",
+    a: "Alan (m²), yükseklik, zemin koşulları, halı/kaplama, skört metre ihtiyacı, nakliye ve saha planı toplam bütçeyi belirler.",
   },
   {
     q: "Hızlı teklif için hangi bilgiler gerekli?",
-    a: "Tarih, il/ilçe, alan (m²), yükseklik, halı/kaplama isteği, skört metre ihtiyacı ve kurulum koşulları (zemin, giriş-çıkış, saat aralığı) yeterlidir.",
+    a: "Tarih, il/ilçe, alan (m²), yükseklik, halı isteği, skört metre ihtiyacı ve mekân erişim bilgisi (kat/merdiven/yük asansörü) yeterlidir.",
   },
   {
     q: "Fiyatlar KDV dahil mi?",
     a: "Tekliflerde KDV durumu ayrıca belirtilir. Kurumsal işlerde ödeme/sözleşme koşullarına göre netleşir.",
-  },
-  {
-    q: "Defile ve konser için fiyatlar farklı mı?",
-    a: "Genellikle evet. Trafik yoğunluğu, güvenlik standartları, teknik entegrasyon ve zaman kısıtları arttıkça bütçe değişebilir.",
-  },
-  {
-    q: "Minimum kiralama var mı?",
-    a: "Etkinliğin ölçeğine göre minimum metrekare veya minimum kurulum paketi uygulanabilir. En sağlıklısı ölçü ve lokasyonla hızlı teklif almaktır.",
-  },
-  {
-    q: "Aynı gün kurulum olur mu?",
-    a: "Müsaitlik ve mekân erişimi uygunsa yapılabilir. Yükleme (load-in) saatleri ve trafik/otopark planı önemlidir.",
-  },
-  {
-    q: "Dış mekân podyumlarında zemin eğimi sorun olur mu?",
-    a: "Zemin eğimi ve yüzey yapısı dengeleme ihtiyacı doğurur. Keşif notlarına göre ayak ayarı ve dengeleme çözümleri planlanır.",
-  },
-  {
-    q: "İptal/erteleme durumunda süreç nasıl işler?",
-    a: "Sözleşme koşullarına göre değerlendirilir. Tarih değişikliği varsa uygunluk ve lojistik plan yeniden yapılır.",
-  },
-  {
-    q: "Podyum + ses sistemi birlikte kiralanır mı?",
-    a: "Evet. Tek paket prodüksiyon (ses/ışık/LED/podyum) planlanabilir, bu yaklaşım kurulum süresini ve operasyon riskini azaltır.",
-  },
-  {
-    q: "Garanti ve destek veriyor musunuz?",
-    a: "Kurulum sırasında teknik ekip sahada olur; iş güvenliği ve stabilite kontrolleri yapılır. Etkinlik boyunca destek opsiyonları projeye göre eklenebilir.",
   },
 ];
 
@@ -104,38 +88,21 @@ function tl(n) {
   }
 }
 
-/** ISO string with fixed +03:00 (Europe/Istanbul) offset */
-function nowIsoTR() {
-  const d = new Date();
-  // convert "now" into a +03:00-offset ISO (without relying on runtime tz)
-  const utc = d.getTime() + d.getTimezoneOffset() * 60_000;
-  const tr = new Date(utc + 3 * 60 * 60_000);
-
-  const pad = (x) => String(x).padStart(2, "0");
-  return (
-    `${tr.getFullYear()}-${pad(tr.getMonth() + 1)}-${pad(tr.getDate())}` +
-    `T${pad(tr.getHours())}:${pad(tr.getMinutes())}:${pad(tr.getSeconds())}+03:00`
-  );
-}
-
 /* ================== JSON-LD ================== */
 function buildJsonLd() {
-  const dateModified = nowIsoTR();
-
-  // Low/High referans senaryolar (AggregateOffer için tutarlı aralık)
-  // Mini: 12 m² + halı + 14 m skört + İstanbul kurulum
+  // Mini: 12 m² + halı + 14 m skört + İstanbul nakliye (kurulum+söküm dahil)
   const exampleLow =
     12 * UNIT_PRICES.platform_m2_week +
     12 * UNIT_PRICES.carpet_m2_week +
     14 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_installation;
+    UNIT_PRICES.ist_nakliye;
 
-  // Pro: 48 m² + halı + 28 m skört + İstanbul kurulum
+  // Pro: 48 m² + halı + 28 m skört + İstanbul nakliye (kurulum+söküm dahil)
   const exampleHigh =
     48 * UNIT_PRICES.platform_m2_week +
     48 * UNIT_PRICES.carpet_m2_week +
     28 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_installation;
+    UNIT_PRICES.ist_nakliye;
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
@@ -163,17 +130,17 @@ function buildJsonLd() {
 
   const mainService = {
     "@type": "Service",
-    name: "Podyum Kiralama Fiyatları (m² Bazlı)",
+    name: "Podyum Kiralama Fiyatları (m² Bazlı) — 2026",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: [
       { "@type": "Country", name: "Türkiye" },
       { "@type": "AdministrativeArea", name: "İstanbul" },
     ],
-    serviceType: "Podyum kiralama, kurulum ve söküm",
+    serviceType: "Podyum kiralama fiyatları ve tekliflendirme (platform/halı/skört/nakliye)",
     offers: [
       {
         "@type": "Offer",
-        name: "Platform (Podyum) Kiralama",
+        name: "Platform (Modüler Podyum) — 2026",
         price: String(UNIT_PRICES.platform_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
@@ -182,7 +149,7 @@ function buildJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Halı Kaplama",
+        name: "Halı Kaplama — 2026",
         price: String(UNIT_PRICES.carpet_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
@@ -191,7 +158,7 @@ function buildJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Skört (Etek Kaplama)",
+        name: "Skört (Etek Kaplama) — 2026",
         price: String(UNIT_PRICES.skirt_ml_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
@@ -200,8 +167,8 @@ function buildJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "İstanbul Kurulum / Söküm",
-        price: String(UNIT_PRICES.ist_installation),
+        name: "İstanbul İçi Nakliye (Kurulum + Söküm Dahil) — 2026",
+        price: String(UNIT_PRICES.ist_nakliye),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
         availability: "https://schema.org/InStock",
@@ -222,7 +189,8 @@ function buildJsonLd() {
   const howTo = {
     "@type": "HowTo",
     name: "Podyum fiyat teklifi nasıl alınır?",
-    description: "Hızlı teklif için gerekli bilgileri paylaşın, keşif ve planlamayla net bütçeyi çıkaralım.",
+    description:
+      "Hızlı teklif için gerekli bilgileri paylaşın, ölçü ve saha planına göre net bütçeyi çıkaralım.",
     step: [
       {
         "@type": "HowToStep",
@@ -232,12 +200,12 @@ function buildJsonLd() {
       {
         "@type": "HowToStep",
         name: "Opsiyonları netleştirelim",
-        text: "Halı, skört metre ihtiyacı ve kurulum koşullarını (zemin, erişim, saat) belirleyin.",
+        text: "Halı, skört metre ihtiyacı ve mekân erişimini (kat/merdiven/yük asansörü) belirtin.",
       },
       {
         "@type": "HowToStep",
-        name: "Teklif ve kurulum planı",
-        text: "Net bütçe + kurulum-söküm saat planı + ekipman listesi ile teklif paylaşılır.",
+        name: "Net teklif ve saha planı",
+        text: "Birim fiyatlara göre kalem kalem toplam + saha planı ile teklif paylaşılır.",
       },
     ],
   };
@@ -250,7 +218,7 @@ function buildJsonLd() {
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORGANIZATION_ID },
     datePublished: PUBLISH_DATE,
-    dateModified,
+    dateModified: PUBLISH_DATE, // Stabil sinyal
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${BASE_SITE_URL}/img/podyum/hero.webp`,
@@ -264,16 +232,17 @@ function buildJsonLd() {
 }
 
 export default function Page() {
-  // Örnek hesap (20 m² + halı + 20 ml skört + İstanbul kurulum)
+  // Örnek hesap (20 m² + halı + 20 ml skört + İstanbul nakliye)
   const sample = {
     m2: 20,
     skirt: 20,
     platform: 20 * UNIT_PRICES.platform_m2_week,
     carpet: 20 * UNIT_PRICES.carpet_m2_week,
     skirtCost: 20 * UNIT_PRICES.skirt_ml_week,
-    install: UNIT_PRICES.ist_installation,
+    nakliye: UNIT_PRICES.ist_nakliye,
   };
-  const sampleTotal = sample.platform + sample.carpet + sample.skirtCost + sample.install;
+  const sampleTotal =
+    sample.platform + sample.carpet + sample.skirtCost + sample.nakliye;
 
   // m² aralık tablosu (referans)
   const ranges = [
@@ -284,7 +253,7 @@ export default function Page() {
     const platform = r.m2 * UNIT_PRICES.platform_m2_week;
     const carpet = r.m2 * UNIT_PRICES.carpet_m2_week;
     const skirt = r.skirt * UNIT_PRICES.skirt_ml_week;
-    const total = platform + carpet + skirt + UNIT_PRICES.ist_installation;
+    const total = platform + carpet + skirt + UNIT_PRICES.ist_nakliye;
 
     // Aralık: saha koşullarına göre +- %10 (referans)
     const low = Math.round(total * 0.9);
@@ -386,9 +355,17 @@ export default function Page() {
                   2026
                 </h1>
 
-                <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-4">
-                  Bütçe; alan (m²), yükseklik, halı/kaplama, skört, kurulum ve
-                  lojistik kalemlerine göre hesaplanır.
+                {/* ✅ SEO hamlesi #1: Net İstanbul + 2026 sinyali */}
+                <p className="text-base md:text-xl text-white/85 leading-relaxed mb-4 max-w-3xl mx-auto">
+                  İstanbul’da <b>2026</b> yılı için güncel podyum kiralama
+                  fiyatlarını <b>m² bazlı</b> olarak aşağıda inceleyebilirsiniz.
+                  Defile, konser ve düğün organizasyonları için net hesaplama
+                  örnekleri yer alır.
+                </p>
+
+                <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-5">
+                  Bütçe; alan (m²), yükseklik, halı/kaplama, skört ve{" "}
+                  <b>İstanbul içi nakliye</b> kalemlerine göre hesaplanır.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -443,8 +420,8 @@ export default function Page() {
                 <table className="min-w-full border-separate border-spacing-0">
                   <caption className="sr-only">
                     2026 podyum kiralama birim fiyatları tablosu: platform, halı,
-                    skört ve İstanbul kurulum. Fiyatlar referans başlangıç
-                    değerleridir.
+                    skört ve İstanbul içi nakliye (kurulum+söküm dahil). Fiyatlar
+                    referans başlangıç değerleridir.
                   </caption>
                   <thead>
                     <tr className="text-left bg-gray-50">
@@ -494,10 +471,12 @@ export default function Page() {
                       </td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4">İstanbul Kurulum / Söküm</td>
-                      <td className="px-6 py-4">paket</td>
+                      <td className="px-6 py-4">
+                        İstanbul İçi Nakliye (Kurulum + Söküm Dahil)
+                      </td>
+                      <td className="px-6 py-4">sabit</td>
                       <td className="px-6 py-4 font-semibold text-gray-900">
-                        {tl(UNIT_PRICES.ist_installation)} TL
+                        {tl(UNIT_PRICES.ist_nakliye)} TL
                       </td>
                     </tr>
                   </tbody>
@@ -510,6 +489,18 @@ export default function Page() {
               (erişim, saat, zemin) teklifte netleşir.
             </p>
 
+            {/* ✅ SEO hamlesi #2: İstanbul H2 */}
+            <div className="mt-10 max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3 text-center">
+                İstanbul’da Podyum Kiralama Fiyatları 2026
+              </h2>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center">
+                İstanbul genelinde podyum kiralama fiyatları; metrekare, yükseklik,
+                halı/skört opsiyonları ve nakliye kalemlerine göre hesaplanır.
+                Yukarıdaki tablo 2026 yılı için geçerli başlangıç birim fiyatları gösterir.
+              </p>
+            </div>
+
             {/* FACTORS */}
             <div className="mt-14 grid gap-8 lg:grid-cols-2">
               <div className="rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
@@ -521,8 +512,7 @@ export default function Page() {
                   <li>• Zemin durumu (düz/bozuk/eğimli) ve dengeleme ihtiyacı</li>
                   <li>• Halı kaplama (renk/yoğunluk) ve skört metre ihtiyacı</li>
                   <li>
-                    • Kurulum penceresi (gece kurulum, kısa load-in, aynı gün
-                    söküm)
+                    • Saha penceresi (gece çalışma, kısa load-in, aynı gün söküm)
                   </li>
                   <li>
                     • Mekân erişimi (kat, merdiven, yük asansörü, uzak taşıma)
@@ -533,9 +523,8 @@ export default function Page() {
                   <li>• Sezon yoğunluğu ve ekip/araç planlaması</li>
                 </ul>
                 <p className="mt-5 text-base text-gray-600">
-                  Burada amaç: aynı kalemleri doğru tanımlayıp sürpriz
-                  maliyetleri önlemek. Teknik kapsam ve uygulama adımları ihtiyaç
-                  ve mekâna göre değişir.
+                  Amaç: aynı kalemleri doğru tanımlayıp sürpriz maliyetleri önlemek.
+                  Teknik kapsam ve uygulama adımları ihtiyaç ve mekâna göre değişir.
                 </p>
               </div>
 
@@ -545,8 +534,8 @@ export default function Page() {
                   m²’ye Göre Referans Bütçe Aralıkları
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Aşağıdaki aralıklar; standart kurulum (İstanbul), halı + skört
-                  dahil örnek senaryolardır. Saha koşullarına göre netleşir.
+                  Aşağıdaki aralıklar; İstanbul içi nakliye (kurulum+söküm dahil),
+                  halı + skört dahil örnek senaryolardır. Saha koşullarına göre netleşir.
                 </p>
 
                 <div className="overflow-x-auto">
@@ -643,8 +632,8 @@ export default function Page() {
                 <div className="rounded-2xl bg-gray-50 p-6 border border-gray-100">
                   <p className="font-bold text-gray-900 mb-2">Saha disiplini</p>
                   <p>
-                    Kurulum-söküm saat planı, giriş-çıkış ve güvenlik sınırları
-                    (barikat/kenar çözümleri) projeye göre planlanır.
+                    Giriş-çıkış, güvenlik sınırları (barikat/kenar çözümleri) ve
+                    zaman planı projeye göre netleştirilir.
                   </p>
                 </div>
               </div>
@@ -672,10 +661,10 @@ export default function Page() {
             {/* ISTANBUL DISTRICTS */}
             <div className="mt-14 rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
               <h2 className="text-3xl font-black text-gray-900 mb-4">
-                İstanbul’da Kurulum ve Teslimat (Avrupa / Anadolu)
+                İstanbul’da Teslimat Bölgeleri (Avrupa / Anadolu)
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                İstanbul genelinde kurulum planı; mekân erişimi ve saat
+                İstanbul genelinde teslimat ve saha planı; mekân erişimi ve saat
                 penceresine göre oluşturulur. Aşağıdaki ilçeler örnektir.
               </p>
 
@@ -713,7 +702,7 @@ export default function Page() {
               </div>
 
               <p className="mt-6 text-base text-gray-600">
-                Şehir dışı işler için lojistik ve ekip planı ayrıca yapılır.
+                Şehir dışı işler için lojistik plan ayrıca yapılır.
               </p>
             </div>
 
@@ -724,7 +713,7 @@ export default function Page() {
               </p>
               <p className="mt-2 text-base text-gray-700">
                 {sample.m2} m² platform + {sample.m2} m² halı + {sample.skirt} m
-                skört + İstanbul kurulum
+                skört + İstanbul içi nakliye (kurulum+söküm dahil)
               </p>
               <div className="mt-5 grid gap-4 text-base text-gray-700 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-2xl bg-white p-4 shadow-sm">
@@ -737,12 +726,15 @@ export default function Page() {
                   Skört: <b>{tl(sample.skirtCost)} TL</b>
                 </div>
                 <div className="rounded-2xl bg-white p-4 shadow-sm">
-                  Kurulum: <b>{tl(sample.install)} TL</b>
+                  Nakliye: <b>{tl(sample.nakliye)} TL</b>
                 </div>
               </div>
               <p className="mt-4 text-base text-gray-900">
                 Toplam yaklaşık: <b>{tl(sampleTotal)} TL</b>
-                <span className="text-gray-500"> (KDV ve saha koşulları hariç)</span>
+                <span className="text-gray-500">
+                  {" "}
+                  (KDV ve saha koşulları hariç)
+                </span>
               </p>
             </div>
           </div>
@@ -782,8 +774,8 @@ export default function Page() {
                   Konser için podyum fiyatları
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
-                  Sahne truss/ışık/ses entegrasyonu ve load-in/out saatleri
-                  bütçeyi etkileyebilir.
+                  Truss/ışık/ses entegrasyonu ve load-in/out saatleri bütçeyi
+                  etkileyebilir.
                 </p>
                 <Link
                   href="/konser-icin-podyum-kiralama"
@@ -822,7 +814,7 @@ export default function Page() {
                 Sık Sorulan <span className="text-blue-700">Sorular</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Fiyat ve teklif süreci hakkında en çok sorulan sorular.
+                2026 fiyatları ve teklif süreci hakkında en çok sorulan sorular.
               </p>
             </div>
             <div className="space-y-6">
@@ -856,9 +848,8 @@ export default function Page() {
                   Hızlı Teklif Alın
                 </h2>
                 <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Tarih + ilçe + m² + yükseklik + halı/skört isteği bilgilerini
-                  iletin, 24 saat içinde net teklif ve kurulum planıyla dönüş
-                  yapalım.
+                  Tarih + ilçe + m² + yükseklik + halı/skört bilgilerini iletin,
+                  24 saat içinde net teklif ve saha planıyla dönüş yapalım.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
@@ -869,17 +860,19 @@ export default function Page() {
                   >
                     <span className="text-xl mr-3">💬</span> WhatsApp’tan Yaz
                   </a>
+
+                  {/* ✅ SEO hamlesi #3: güçlü iç link */}
                   <Link
                     href="/podyum-kiralama"
                     className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
                   >
                     <span className="text-xl mr-3">🎯</span> Profesyonel Podyum
-                    Kiralama
+                    Kiralama Hizmeti
                   </Link>
                 </div>
                 <p className="mt-6 text-sm text-white/80">
                   Bu sayfa fiyat intent’ini hedefler; hizmet kapsamı ve örnek
-                  uygulamalar için yukarıdaki hizmet butonunu kullanabilirsiniz.
+                  uygulamalar için hizmet sayfasını inceleyebilirsiniz.
                 </p>
               </div>
             </div>
