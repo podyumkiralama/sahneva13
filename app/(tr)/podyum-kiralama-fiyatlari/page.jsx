@@ -329,9 +329,9 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: "Ana Sayfa", item: `${BASE_SITE_URL}/` },
-          { name: "Podyum Kiralama", item: `${BASE_SITE_URL}/podyum-kiralama` },
-          { name: "Podyum Kiralama Fiyatları", item: url },
+          { name: "Ana Sayfa", url: `${BASE_SITE_URL}/` },
+          { name: "Podyum Kiralama", url: `${BASE_SITE_URL}/podyum-kiralama` },
+          { name: "Podyum Kiralama Fiyatları", url },
         ]}
       />
 
@@ -391,18 +391,6 @@ export default function Page() {
                   lojistik kalemlerine göre hesaplanır.
                 </p>
 
-                <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-                  Bu sayfa “fiyat” niyeti için hazırlanmıştır. Asıl hizmet
-                  sayfamız:{" "}
-                  <Link
-                    href="/podyum-kiralama"
-                    className="font-extrabold text-white underline underline-offset-4 hover:text-blue-200"
-                  >
-                    Profesyonel podyum kiralama
-                  </Link>
-                  .
-                </p>
-
                 <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                   <Link
                     href="/podyum-kiralama"
@@ -446,14 +434,7 @@ export default function Page() {
 
               <p className="mt-4 text-base text-gray-600">
                 Not: Bu sayfa fiyat odaklıdır. Hizmet detayları ve örnek
-                kurulumlar için{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>{" "}
-                sayfasına geçebilirsiniz.
+                kurulumlar için üst bölümdeki hizmet bağlantısını kullanabilirsiniz.
               </p>
             </div>
 
@@ -553,14 +534,8 @@ export default function Page() {
                 </ul>
                 <p className="mt-5 text-base text-gray-600">
                   Burada amaç: aynı kalemleri doğru tanımlayıp sürpriz
-                  maliyetleri önlemek. Profesyonel hizmet detayları için{" "}
-                  <Link
-                    href="/podyum-kiralama"
-                    className="font-semibold text-blue-700 underline"
-                  >
-                    podyum kiralama
-                  </Link>{" "}
-                  sayfasına geçebilirsiniz.
+                  maliyetleri önlemek. Teknik kapsam ve uygulama adımları ihtiyaç
+                  ve mekâna göre değişir.
                 </p>
               </div>
 
@@ -631,6 +606,20 @@ export default function Page() {
               </div>
             </div>
 
+            <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/1.webp"
+                alt="Kurulum sırasında podyum modüllerinin hizalanması ve yüzey hazırlığı"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[380px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Saha hazırlığı ve modüler podyum hizalama adımı.
+              </figcaption>
+            </figure>
+
             {/* TECH TRUST */}
             <div className="mt-14 rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
               <h2 className="text-3xl font-black text-gray-900 mb-4">
@@ -661,16 +650,24 @@ export default function Page() {
               </div>
 
               <p className="mt-6 text-base text-gray-600">
-                Hizmet detayları ve örnek kurulumlar için{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>{" "}
-                sayfasını inceleyin.
+                Hizmet detayları ve örnek kurulumlar için üst bölümdeki hizmet
+                sayfası bağlantısını inceleyebilirsiniz.
               </p>
             </div>
+
+            <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/2.webp"
+                alt="Tamamlanmış podyum uygulamasında kenar bitişi ve yüzey kalitesi"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[380px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Bitiş detaylarında yüzey kalitesi ve kenar güvenliği örneği.
+              </figcaption>
+            </figure>
 
             {/* ISTANBUL DISTRICTS */}
             <div className="mt-14 rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
@@ -717,14 +714,6 @@ export default function Page() {
 
               <p className="mt-6 text-base text-gray-600">
                 Şehir dışı işler için lojistik ve ekip planı ayrıca yapılır.
-                Detaylı hizmet kapsamı:{" "}
-                <Link
-                  href="/podyum-kiralama"
-                  className="font-semibold text-blue-700 underline"
-                >
-                  podyum kiralama
-                </Link>
-                .
               </p>
             </div>
 
@@ -807,6 +796,24 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4">
+            <figure className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/3.webp"
+                alt="Etkinlik alanında tamamlanan podyumun kullanım anından bir görünüm"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[420px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Etkinlik kullanım senaryosunda podyum görünümü.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-4xl">
@@ -872,11 +879,7 @@ export default function Page() {
                 </div>
                 <p className="mt-6 text-sm text-white/80">
                   Bu sayfa fiyat intent’ini hedefler; hizmet kapsamı ve örnek
-                  uygulamalar için{" "}
-                  <Link href="/podyum-kiralama" className="underline font-semibold">
-                    ana podyum kiralama sayfasını
-                  </Link>{" "}
-                  inceleyin.
+                  uygulamalar için yukarıdaki hizmet butonunu kullanabilirsiniz.
                 </p>
               </div>
             </div>
