@@ -201,9 +201,8 @@ export default function Page() {
           { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "🧱" },
           { href: "/led-ekran-kiralama", label: "LED Ekran", icon: "🟦" },
         ]}
-        whatsappUrl={WA_URL}
       >
-
+        <Breadcrumbs />
           <p>
             9 Şubat 2021 tarihinde, Ankara Beştepe Millet Kongre ve Kültür Merkezi, Türkiye’nin
             gelecek 10 yıllık uzay vizyonunun açıklandığı tarihi bir ana tanıklık etti. Sahneva
