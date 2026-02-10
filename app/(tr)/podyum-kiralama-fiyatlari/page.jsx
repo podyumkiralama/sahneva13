@@ -599,7 +599,7 @@ export default function Page() {
 
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/4.webp"
+                src="/img/podyum/6.webp"
                 alt="Kurulum sırasında podyum modüllerinin hizalanması ve yüzey hazırlığı"
                 width={1600}
                 height={1000}
@@ -648,7 +648,7 @@ export default function Page() {
 
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/5.webp"
+                src="/img/podyum/7.webp"
                 alt="Tamamlanmış podyum uygulamasında kenar bitişi ve yüzey kalitesi"
                 width={1600}
                 height={1000}
@@ -794,7 +794,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <figure className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/6.webp"
+                src="/img/podyum/8.webp"
                 alt="Etkinlik alanında tamamlanan podyumun kullanım anından bir görünüm"
                 width={1600}
                 height={1000}
