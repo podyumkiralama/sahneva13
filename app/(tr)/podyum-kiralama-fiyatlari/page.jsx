@@ -606,6 +606,20 @@ export default function Page() {
               </div>
             </div>
 
+            <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/1.webp"
+                alt="Kurulum sırasında podyum modüllerinin hizalanması ve yüzey hazırlığı"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[380px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Saha hazırlığı ve modüler podyum hizalama adımı.
+              </figcaption>
+            </figure>
+
             {/* TECH TRUST */}
             <div className="mt-14 rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
               <h2 className="text-3xl font-black text-gray-900 mb-4">
@@ -640,6 +654,20 @@ export default function Page() {
                 sayfası bağlantısını inceleyebilirsiniz.
               </p>
             </div>
+
+            <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/2.webp"
+                alt="Tamamlanmış podyum uygulamasında kenar bitişi ve yüzey kalitesi"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[380px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Bitiş detaylarında yüzey kalitesi ve kenar güvenliği örneği.
+              </figcaption>
+            </figure>
 
             {/* ISTANBUL DISTRICTS */}
             <div className="mt-14 rounded-3xl border-2 border-gray-100 bg-white p-8 shadow-lg">
@@ -765,6 +793,24 @@ export default function Page() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4">
+            <figure className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <Image
+                src="/img/podyum/3.webp"
+                alt="Etkinlik alanında tamamlanan podyumun kullanım anından bir görünüm"
+                width={1600}
+                height={1000}
+                className="w-full h-[280px] md:h-[420px] object-cover"
+                sizes="100vw"
+              />
+              <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
+                Etkinlik kullanım senaryosunda podyum görünümü.
+              </figcaption>
+            </figure>
           </div>
         </section>
 
