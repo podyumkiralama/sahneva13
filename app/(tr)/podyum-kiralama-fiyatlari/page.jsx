@@ -118,15 +118,17 @@ function buildJsonLd() {
     ],
   };
 
-  const aggregateOffer = {
-    "@type": "AggregateOffer",
-    priceCurrency: UNIT_PRICES.currency,
-    lowPrice: String(exampleLow),
-    highPrice: String(exampleHigh),
-    priceValidUntil: PRICE_VALID_UNTIL,
-    availability: "https://schema.org/InStock",
-    url,
-  };
+ const aggregateOffer = {
+  "@type": "AggregateOffer",
+  priceCurrency: UNIT_PRICES.currency,
+  lowPrice: String(exampleLow),
+  highPrice: String(exampleHigh),
+  offerCount: "4",
+  priceValidUntil: PRICE_VALID_UNTIL,
+  availability: "https://schema.org/InStock",
+  url,
+};
+
 
   const mainService = {
     "@type": "Service",
