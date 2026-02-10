@@ -329,9 +329,9 @@ export default function Page() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: "Ana Sayfa", item: `${BASE_SITE_URL}/` },
-          { name: "Podyum Kiralama", item: `${BASE_SITE_URL}/podyum-kiralama` },
-          { name: "Podyum Kiralama Fiyatları", item: url },
+          { name: "Ana Sayfa", url: `${BASE_SITE_URL}/` },
+          { name: "Podyum Kiralama", url: `${BASE_SITE_URL}/podyum-kiralama` },
+          { name: "Podyum Kiralama Fiyatları", url },
         ]}
       />
 
