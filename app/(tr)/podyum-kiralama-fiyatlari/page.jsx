@@ -29,7 +29,7 @@ const BLUR_DATA_URL =
 
 /* ================== SEO METADATA ================== */
 export const metadata = {
-  title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste | Sahneva",
+  title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
   description:
     "2026 güncel podyum kiralama fiyatları: m² bazlı hesaplama, halı, skört ve İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli. Defile/konser/düğün için hızlı teklif alın.",
   alternates: { canonical: url },
