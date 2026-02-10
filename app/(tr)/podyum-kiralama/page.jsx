@@ -245,6 +245,18 @@ const SHOWCASE_IMAGES = [
   { src: "/img/podyum/16.webp", title: "Açık Alan Podyum Çözümü" },
 ];
 
+const ARTICLE_BREAK_IMAGES = [
+  { src: "/img/podyum/19.webp", alt: "Kurumsal etkinlikte podyum kurulumu" },
+  { src: "/img/podyum/20.webp", alt: "Festival için modüler podyum detayı" },
+  { src: "/img/podyum/21.webp", alt: "Açık alanda podyum ve sahne yerleşimi" },
+];
+
+const PROCESS_STEP_IMAGES = [
+  { src: "/img/podyum/22.webp", alt: "Podyum kurulumunda zemin hazırlığı" },
+  { src: "/img/podyum/23.webp", alt: "Podyum panel montaj aşaması" },
+  { src: "/img/podyum/24.webp", alt: "Etkinlik öncesi son kontrol" },
+];
+
 /* ================== 5. META DATA ================== */
 export const metadata = {
   title: "Podyum Kiralama | Profesyonel Sahne Çözümleri",
@@ -916,6 +928,22 @@ function ArticlesSection() {
                 nakliye, kurulum ve söküm dahil <strong>uçtan uca hizmet</strong> sağlıyoruz.
               </p>
 
+              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
+                {ARTICLE_BREAK_IMAGES.map((img) => (
+                  <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+
               <h4 className="flex items-center gap-3 mt-10">
                 <span className="inline-flex bg-purple-100 text-purple-600 rounded-2xl p-2">🔧</span>{" "}
                 Özel Podyum Sistemleri
@@ -1016,6 +1044,23 @@ function ProcessAndTipsSection() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             İstanbul genelinde podyum kiralama teklifinizi daha hızlı netleştirmek için süreç adımlarını ve kritik noktaları özetledik.
           </p>
+        </div>
+
+        <div className="mb-8 grid gap-4 md:grid-cols-3">
+          {PROCESS_STEP_IMAGES.map((img) => (
+            <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              </div>
+            </figure>
+          ))}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
