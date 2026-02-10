@@ -325,17 +325,6 @@ function StructuredData() {
     };
   });
 
-  const articleSchema = {
-    "@type": "Article",
-    headline: "Profesyonel Podyum Kiralama Rehberi",
-    image: [`${ORIGIN}/img/podyum/hero.webp`],
-    author: { "@id": ORGANIZATION_ID },
-    publisher: { "@id": ORGANIZATION_ID },
-    datePublished: "2026-02-09",
-    dateModified: "2026-02-09",
-    description: metadata.description,
-  };
-
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -347,7 +336,6 @@ function StructuredData() {
         areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
       },
       ...productSchemas,
-      articleSchema,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
     ].filter(Boolean),
   };
