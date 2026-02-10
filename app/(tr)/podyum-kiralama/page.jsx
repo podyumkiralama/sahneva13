@@ -380,7 +380,8 @@ function HeroSection() {
           priority
           fetchPriority="high"
           className="object-cover"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
+          quality={60}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
@@ -588,7 +589,7 @@ function PackagesSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white [content-visibility:auto] [contain-intrinsic-size:1px_1100px]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -689,7 +690,7 @@ function PackagesSection() {
 
 function GallerySection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50 [content-visibility:auto] [contain-intrinsic-size:1px_1200px]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
