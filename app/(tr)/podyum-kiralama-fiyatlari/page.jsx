@@ -391,18 +391,6 @@ export default function Page() {
                   lojistik kalemlerine göre hesaplanır.
                 </p>
 
-                <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-                  Bu sayfa “fiyat” niyeti için hazırlanmıştır. Asıl hizmet
-                  sayfamız:{" "}
-                  <Link
-                    href="/podyum-kiralama"
-                    className="font-extrabold text-white underline underline-offset-4 hover:text-blue-200"
-                  >
-                    Profesyonel podyum kiralama
-                  </Link>
-                  .
-                </p>
-
                 <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                   <Link
                     href="/podyum-kiralama"
