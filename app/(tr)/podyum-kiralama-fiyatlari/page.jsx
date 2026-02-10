@@ -39,7 +39,7 @@ export const metadata = {
     title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste | Sahneva",
     description:
       "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
-    images: [{ url: `${BASE_SITE_URL}/img/podyum/hero.webp` }],
+    images: [{ url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp` }],
   },
 };
 
@@ -221,7 +221,7 @@ function buildJsonLd() {
     dateModified: PUBLISH_DATE, // Stabil sinyal
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${BASE_SITE_URL}/img/podyum/hero.webp`,
+      url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
     },
   };
 
@@ -315,7 +315,7 @@ export default function Page() {
         <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
           <div className="absolute inset-0 pointer-events-none">
             <Image
-              src="/img/podyum/hero.webp"
+              src="/img/podyum/podyum-kiralama-fiyatlari-hero.webp"
               alt="Podyum fiyat tablosu ve profesyonel modüler podyum kurulumu"
               fill
               priority
@@ -597,7 +597,7 @@ export default function Page() {
 
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/1.webp"
+                src="/img/podyum/4.webp"
                 alt="Kurulum sırasında podyum modüllerinin hizalanması ve yüzey hazırlığı"
                 width={1600}
                 height={1000}
@@ -646,7 +646,7 @@ export default function Page() {
 
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/2.webp"
+                src="/img/podyum/5.webp"
                 alt="Tamamlanmış podyum uygulamasında kenar bitişi ve yüzey kalitesi"
                 width={1600}
                 height={1000}
@@ -792,7 +792,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <figure className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
-                src="/img/podyum/3.webp"
+                src="/img/podyum/6.webp"
                 alt="Etkinlik alanında tamamlanan podyumun kullanım anından bir görünüm"
                 width={1600}
                 height={1000}
