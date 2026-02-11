@@ -219,11 +219,42 @@ const GALLERY_IMAGES = [
   "/img/podyum/1.webp",
   "/img/podyum/2.webp",
   "/img/podyum/3.webp",
-  "/img/galeri/podyum-kiralama-4.webp",
-  "/img/galeri/podyum-kiralama-5.webp",
-  "/img/galeri/podyum-kiralama-6.webp",
-  "/img/galeri/podyum-kiralama-7.webp",
-  "/img/galeri/podyum-kiralama-8.webp",
+  "/img/podyum/17.webp",
+  "/img/podyum/18.webp",
+  "/img/podyum/6.webp",
+  "/img/podyum/7.webp",
+  "/img/podyum/8.webp",
+  "/img/podyum/9.webp",
+  "/img/podyum/10.webp",
+  "/img/podyum/11.webp",
+  "/img/podyum/12.webp",
+  "/img/podyum/13.webp",
+  "/img/podyum/14.webp",
+  "/img/podyum/15.webp",
+  "/img/podyum/16.webp",
+];
+
+const SHOWCASE_IMAGES = [
+  { src: "/img/podyum/9.webp", title: "Kurumsal Lansman Sahnesi" },
+  { src: "/img/podyum/10.webp", title: "Mezuniyet Podyum Kurulumu" },
+  { src: "/img/podyum/11.webp", title: "Konser Performans Alanı" },
+  { src: "/img/podyum/12.webp", title: "AVM Etkinlik Podyumu" },
+  { src: "/img/podyum/13.webp", title: "Fuar Standı Sahneleme" },
+  { src: "/img/podyum/14.webp", title: "Tören ve Ödül Gecesi" },
+  { src: "/img/podyum/15.webp", title: "Festival Sahne Altyapısı" },
+  { src: "/img/podyum/16.webp", title: "Açık Alan Podyum Çözümü" },
+];
+
+const ARTICLE_BREAK_IMAGES = [
+  { src: "/img/podyum/19.webp", alt: "Kurumsal etkinlikte podyum kurulumu" },
+  { src: "/img/podyum/20.webp", alt: "Festival için modüler podyum detayı" },
+  { src: "/img/podyum/21.webp", alt: "Açık alanda podyum ve sahne yerleşimi" },
+];
+
+const PROCESS_STEP_IMAGES = [
+  { src: "/img/podyum/22.webp", alt: "Podyum kurulumunda zemin hazırlığı" },
+  { src: "/img/podyum/23.webp", alt: "Podyum panel montaj aşaması" },
+  { src: "/img/podyum/24.webp", alt: "Etkinlik öncesi son kontrol" },
 ];
 
 /* ================== 5. META DATA ================== */
@@ -249,12 +280,46 @@ export const metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Podyum Kiralama | Profesyonel Sahne Çözümleri | Sahneva",
+    description:
+      "Modüler podyum sistemleri, kaymaz kaplama, halı ve skört seçenekleriyle İstanbul geneli profesyonel kurulum hizmeti.",
+    images: [`${ORIGIN}/img/podyum/hero.webp`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 /* ================== 6. BİLEŞENLER ================== */
 
 // --- JSON-LD ---
 function StructuredData() {
+  const offerCatalogItems = PACKAGES.map((pkg) => {
+    const prices = calculatePackagePrice(pkg.layout);
+    return {
+      "@type": "Offer",
+      name: pkg.name,
+      url: `${ORIGIN}/podyum-kiralama#${pkg.id}`,
+      priceCurrency: UNIT_PRICES.currency,
+      price: String(prices.total),
+      itemOffered: {
+        "@type": "Service",
+        name: pkg.name,
+        description: pkg.note,
+      },
+    };
+  });
+
   const productSchemas = PACKAGES.map((pkg) => {
     const prices = calculatePackagePrice(pkg.layout);
     return {
@@ -276,17 +341,6 @@ function StructuredData() {
     };
   });
 
-  const articleSchema = {
-    "@type": "Article",
-    headline: "Profesyonel Podyum Kiralama Rehberi",
-    image: [`${ORIGIN}/img/podyum/hero.webp`],
-    author: { "@id": ORGANIZATION_ID },
-    publisher: { "@id": ORGANIZATION_ID },
-    datePublished: "2026-02-09",
-    dateModified: "2026-02-09",
-    description: metadata.description,
-  };
-
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -296,9 +350,13 @@ function StructuredData() {
         description: metadata.description,
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Podyum Kiralama Paketleri",
+          itemListElement: offerCatalogItems,
+        },
       },
       ...productSchemas,
-      articleSchema,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
     ].filter(Boolean),
   };
@@ -322,7 +380,8 @@ function HeroSection() {
           priority
           fetchPriority="high"
           className="object-cover"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
+          quality={60}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
@@ -530,7 +589,7 @@ function PackagesSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white [content-visibility:auto] [contain-intrinsic-size:1px_1100px]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -574,22 +633,22 @@ function PackagesSection() {
                     ))}
                   </ul>
 
-                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 mb-4">
+                  <div className="bg-white rounded-xl p-4 border border-gray-300 mb-4">
                     <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between text-gray-800">
                         <span>Platform:</span>
-                        <span className="font-semibold">{formatTRY(prices.base)}</span>
+                        <span className="font-semibold text-gray-900">{formatTRY(prices.base)}</span>
                       </div>
-                      <div className="flex justify-between text-gray-500">
+                      <div className="flex justify-between text-gray-700">
                         <span>Halı + Skört:</span>
-                        <span>{formatTRY(prices.carpet + prices.skirt)}</span>
+                        <span className="font-medium text-gray-900">{formatTRY(prices.carpet + prices.skirt)}</span>
                       </div>
-                      <div className="flex justify-between text-gray-500">
+                      <div className="flex justify-between text-gray-700">
                         <span>Nakliye (İstanbul):</span>
-                        <span>{formatTRY(prices.nakliye)}</span>
+                        <span className="font-medium text-gray-900">{formatTRY(prices.nakliye)}</span>
                       </div>
                       <div className="flex justify-between border-t border-gray-300 pt-2">
-                        <span className="font-bold">Toplam (İstanbul):</span>
+                        <span className="font-bold text-gray-900">Toplam (İstanbul):</span>
                         <span className="font-bold text-blue-700">
                           {formatTRY(prices.total)}
                         </span>
@@ -609,7 +668,7 @@ function PackagesSection() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+                    className="w-full min-h-[52px] inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
                     <span className="text-lg mr-2">💬</span> Hemen Teklif Al
                   </Link>
@@ -631,7 +690,7 @@ function PackagesSection() {
 
 function GallerySection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50 [content-visibility:auto] [contain-intrinsic-size:1px_1200px]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -666,6 +725,50 @@ function GallerySection() {
     </section>
   );
 }
+
+
+function VisualShowcaseSection() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
+            Sahadan <span className="text-purple-700">Canlı Kareler</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            İlk 8 görselin ardından, son projelerimizden seçtiğimiz yeni fotoğraflarla sayfayı daha dinamik hale getirdik.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+          {SHOWCASE_IMAGES.map((item, idx) => (
+            <article
+              key={item.src}
+              className={`group relative overflow-hidden rounded-3xl border border-gray-200 shadow-lg ${
+                idx % 4 === 0 || idx % 4 === 3 ? "lg:-translate-y-3" : "lg:translate-y-3"
+              } transition-transform duration-500`}
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm md:text-base leading-snug">
+                  {item.title}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function TechnicalSection() {
   return (
@@ -835,6 +938,22 @@ function ArticlesSection() {
                 nakliye, kurulum ve söküm dahil <strong>uçtan uca hizmet</strong> sağlıyoruz.
               </p>
 
+              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
+                {ARTICLE_BREAK_IMAGES.map((img) => (
+                  <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+
               <h4 className="flex items-center gap-3 mt-10">
                 <span className="inline-flex bg-purple-100 text-purple-600 rounded-2xl p-2">🔧</span>{" "}
                 Özel Podyum Sistemleri
@@ -935,6 +1054,23 @@ function ProcessAndTipsSection() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             İstanbul genelinde podyum kiralama teklifinizi daha hızlı netleştirmek için süreç adımlarını ve kritik noktaları özetledik.
           </p>
+        </div>
+
+        <div className="mb-8 grid gap-4 md:grid-cols-3">
+          {PROCESS_STEP_IMAGES.map((img) => (
+            <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              </div>
+            </figure>
+          ))}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
@@ -1189,6 +1325,7 @@ export default function Page() {
       <CalculatorSection />
       <PackagesSection />
       <GallerySection />
+      <VisualShowcaseSection />
       <TechnicalSection />
       <StatsSection />
       <UseCasesSection />
