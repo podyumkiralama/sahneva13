@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { SEO_ARTICLES } from "@/lib/articlesData";
-import { LLMS_GENERATED_AT, PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
+import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
 
 const SITE = "https://www.sahneva.com";
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
@@ -215,6 +215,21 @@ function articleEntries() {
 /**
  * Her entry için tek satırlık llms.txt formatı
  */
+
+function resolveGeneratedAt(entries = []) {
+  const candidates = entries
+    .map((entry) => entry.updatedAt || entry.date)
+    .filter(Boolean)
+    .map((value) => new Date(value))
+    .filter((d) => !Number.isNaN(d.getTime()));
+
+  if (!candidates.length) return PROJECT_LASTMOD_FALLBACK;
+
+  return candidates
+    .sort((a, b) => b.getTime() - a.getTime())[0]
+    .toISOString();
+}
+
 function formatEntry({
   path,
   title,
@@ -259,11 +274,13 @@ export async function GET() {
     (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
   );
 
+  const generatedAt = resolveGeneratedAt(sorted);
+
   const header = [
     "# llms.txt",
     "# Sahneva için LLM odaklı en iyi içerik ve referans sayfa listesi",
     "# Daha verimli tarama için öncelik sıralı bağlantılar",
-    `generated=${LLMS_GENERATED_AT}`,
+    `generated=${generatedAt}`,
     `site=${SITE}`,
     "",
     "[pages]",
