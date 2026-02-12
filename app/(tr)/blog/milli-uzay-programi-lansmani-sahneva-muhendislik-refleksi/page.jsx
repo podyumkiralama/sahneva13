@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi";
@@ -20,7 +21,7 @@ const DESCRIPTION =
   "2021 Milli Uzay Programı Lansmanı’nda Sahneva’nın mühendislik refleksiyle tasarladığı pnömatik dome, sessiz akustik çözümler ve 360° lazer–LED senkronizasyonu.";
 
 const PUBLISH_DATE = "2021-02-09T00:00:00+03:00";
-const MODIFIED_DATE = "2021-02-09T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, blog yazınızı okudum. Projem için teklif almak istiyorum.");
