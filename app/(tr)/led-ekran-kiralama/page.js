@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -13,6 +14,7 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
+const PAGE_LAST_MODIFIED = getLastModifiedForFile("app/(tr)/led-ekran-kiralama/page.js", "2026-01-14");
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
@@ -1557,7 +1559,7 @@ function JsonLd() {
       caption: "Sahneva — Profesyonel LED Ekran Kiralama Hizmetleri",
     },
     datePublished: "2024-01-01",
-    dateModified: new Date().toISOString().split("T")[0],
+    dateModified: PAGE_LAST_MODIFIED,
     author: providerRef,
   };
 
