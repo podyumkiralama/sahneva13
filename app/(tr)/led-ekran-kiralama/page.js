@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import { LED_EKRAN_KIRALAMA_LAST_MODIFIED } from "@/lib/seoLastModified";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -14,7 +14,7 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const PAGE_LAST_MODIFIED = LED_EKRAN_KIRALAMA_LAST_MODIFIED;
+const PAGE_LAST_MODIFIED = getLastModifiedForFile("app/(tr)/led-ekran-kiralama/page.js", "2026-01-14");
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";

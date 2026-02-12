@@ -2,6 +2,7 @@ import Image from "next/image";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
@@ -21,7 +22,7 @@ const DESCRIPTION =
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const PUBLISH_DATE = "2026-02-10T09:00:00+03:00";
-const MODIFIED_DATE = "2026-02-10T09:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi/page.jsx", "2026-02-05T00:00:00+03:00");
 
 export const metadata = {
   title: TITLE,
