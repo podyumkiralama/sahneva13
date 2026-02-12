@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -25,7 +26,7 @@ const DESCRIPTION =
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
-const MODIFIED_DATE = "2026-01-05T09:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir/page.jsx", "2026-02-08T00:00:00+03:00");
 
 /* ================== META ================== */
 export const metadata = {
