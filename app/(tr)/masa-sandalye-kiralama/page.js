@@ -509,7 +509,7 @@ function Packages() {
 
         {/* Paket Kartları */}
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {PACKAGES.map((pkg) => {
+          {PACKAGES.map((pkg, index) => {
             const isPopular = pkg.badge === "Popüler";
             const isCorporate = pkg.badge === "Kurumsal";
 
@@ -518,6 +518,7 @@ function Packages() {
             return (
               <article
                 key={pkg.id}
+                id={`fiyat-${index + 1}`}
                 className={`group h-full`}
                 aria-labelledby={headingId}
               >

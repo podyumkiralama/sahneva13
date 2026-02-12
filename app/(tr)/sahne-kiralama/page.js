@@ -527,8 +527,8 @@ function Packages() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {PACKAGES.map((pkg) => (
-            <div key={pkg.id} className="group">
+          {PACKAGES.map((pkg, index) => (
+            <article key={pkg.id} id={`fiyat-${index + 1}`} className="group">
               <div
                 className={`bg-white rounded-3xl border-2 shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 h-full flex flex-col ${
                   pkg.badge === "Popüler"
@@ -625,7 +625,7 @@ function Packages() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
