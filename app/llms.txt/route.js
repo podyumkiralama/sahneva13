@@ -3,10 +3,9 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { SEO_ARTICLES } from "@/lib/articlesData";
+import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
 
 const SITE = "https://www.sahneva.com";
-const NOW_ISO = new Date().toISOString();
-
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
 
 /**
@@ -167,7 +166,7 @@ function projectEntries() {
         title: project.title,
         summary: project.excerpt,
         priority: project.priority ?? 0.82,
-        updatedAt: project.updatedAt ?? NOW_ISO,
+        updatedAt: project.updatedAt ?? PROJECT_LASTMOD_FALLBACK,
         category: "project",
         keywords: buildKeywordsFromTitle(project.title),
       };
@@ -216,6 +215,21 @@ function articleEntries() {
 /**
  * Her entry için tek satırlık llms.txt formatı
  */
+
+function resolveGeneratedAt(entries = []) {
+  const candidates = entries
+    .map((entry) => entry.updatedAt || entry.date)
+    .filter(Boolean)
+    .map((value) => new Date(value))
+    .filter((d) => !Number.isNaN(d.getTime()));
+
+  if (!candidates.length) return PROJECT_LASTMOD_FALLBACK;
+
+  return candidates
+    .sort((a, b) => b.getTime() - a.getTime())[0]
+    .toISOString();
+}
+
 function formatEntry({
   path,
   title,
@@ -260,11 +274,13 @@ export async function GET() {
     (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
   );
 
+  const generatedAt = resolveGeneratedAt(sorted);
+
   const header = [
     "# llms.txt",
     "# Sahneva için LLM odaklı en iyi içerik ve referans sayfa listesi",
     "# Daha verimli tarama için öncelik sıralı bağlantılar",
-    `generated=${NOW_ISO}`,
+    `generated=${generatedAt}`,
     `site=${SITE}`,
     "",
     "[pages]",

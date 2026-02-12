@@ -650,6 +650,7 @@ function VideoEvidence() {
 function PricingSection() {
   return (
     <section
+      id="fiyatlar"
       className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
       aria-labelledby="fiyatlar-baslik"
     >
@@ -670,9 +671,10 @@ function PricingSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRICING_ITEMS.map((item) => (
+          {PRICING_ITEMS.map((item, index) => (
             <article
               key={item.title}
+              id={`fiyat-${index + 1}`}
               className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
             >
               <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
