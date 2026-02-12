@@ -3,10 +3,9 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { SEO_ARTICLES } from "@/lib/articlesData";
+import { LLMS_GENERATED_AT, PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
 
 const SITE = "https://www.sahneva.com";
-const NOW_ISO = new Date().toISOString();
-
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
 
 /**
@@ -167,7 +166,7 @@ function projectEntries() {
         title: project.title,
         summary: project.excerpt,
         priority: project.priority ?? 0.82,
-        updatedAt: project.updatedAt ?? NOW_ISO,
+        updatedAt: project.updatedAt ?? PROJECT_LASTMOD_FALLBACK,
         category: "project",
         keywords: buildKeywordsFromTitle(project.title),
       };
@@ -264,7 +263,7 @@ export async function GET() {
     "# llms.txt",
     "# Sahneva için LLM odaklı en iyi içerik ve referans sayfa listesi",
     "# Daha verimli tarama için öncelik sıralı bağlantılar",
-    `generated=${NOW_ISO}`,
+    `generated=${LLMS_GENERATED_AT}`,
     `site=${SITE}`,
     "",
     "[pages]",
