@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -19,7 +20,7 @@ const IMG_KURULUM = "/img/blog/podyum-sahne-kurulum.webp";
 const IMG_PRO = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 
 const PUBLISH_DATE = "2025-12-30T09:00:00+03:00";
-const MODIFIED_DATE = "2025-12-30T09:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 /* ================== META ================== */

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "pmgc-dunya-finali-sahne-arkasi";
@@ -17,7 +18,7 @@ const DESCRIPTION =
   "Ülker Arena’da gerçekleşen PMGC 2023 Dünya Finali’nde Sahneva’nın 7 günlük teknik maratonu: milimetrik sahne kurulumları, rigging güvenliği, global koordinasyon ve ödülle taçlanan uygulama.";
 
 const PUBLISH_DATE = "2026-01-05T10:00:00+03:00";
-const MODIFIED_DATE = "2026-01-05T10:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/pmgc-dunya-finali-sahne-arkasi/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, blog yazınızı okudum. Projem için teklif almak istiyorum.");
