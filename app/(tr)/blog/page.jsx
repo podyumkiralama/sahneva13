@@ -103,8 +103,10 @@ async function getBlogPosts() {
       try {
         const postModule = await import(`./${postSlug}/page`);
         const postMetadata = postModule?.metadata || {};
-        const filePath = `app/(tr)/blog/${postSlug}/page.jsx`;
-        const modifiedDate = `${getLastModifiedForFile(filePath, "2026-02-01")}T00:00:00+03:00`;
+        const fileRelativePath = existsSync(pageJsxPath)
+          ? `app/(tr)/blog/${postSlug}/page.jsx`
+          : `app/(tr)/blog/${postSlug}/page.js`;
+        const modifiedDate = `${getLastModifiedForFile(fileRelativePath, "2026-02-01")}T00:00:00+03:00`;
         const normalized = normalizePostMeta(postSlug, { ...postMetadata, modifiedDate });
         if (normalized.draft) continue;
 
