@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { execSync } from "node:child_process";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -13,7 +14,26 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const PAGE_LAST_MODIFIED = "2026-01-14";
+const PAGE_LAST_MODIFIED_FALLBACK = "2026-01-14";
+
+const resolvePageLastModified = () => {
+  try {
+    const lastCommitDate = execSync(
+      'git log -1 --format=%cs -- "app/(tr)/led-ekran-kiralama/page.js"',
+      { stdio: ["ignore", "pipe", "ignore"] }
+    ).toString().trim();
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(lastCommitDate)) {
+      return lastCommitDate;
+    }
+  } catch {
+    // Git metadata may be unavailable in some deploy environments.
+  }
+
+  return PAGE_LAST_MODIFIED_FALLBACK;
+};
+
+const PAGE_LAST_MODIFIED = resolvePageLastModified();
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
