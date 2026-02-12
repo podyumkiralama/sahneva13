@@ -15,7 +15,6 @@ const SITE_URL = (
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Merhaba%2C+çadır+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bdüğün%2Ffuar%2Fkonser%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
@@ -94,7 +93,7 @@ export function Head() {
         href="/img/cadir/hero.webp"
         fetchPriority="high"
         type="image/webp"
-        imagesizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
+        imageSizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
       />
     </>
   );
