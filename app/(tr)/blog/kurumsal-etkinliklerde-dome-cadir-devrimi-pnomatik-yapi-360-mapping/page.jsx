@@ -6,6 +6,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(
@@ -18,7 +19,7 @@ const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
 /* ================== DATES ================== */
 const PUBLISH_DATE = "2026-01-20T00:00:00+03:00";
-const MODIFIED_DATE = "2026-01-20T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping/page.jsx", "2026-02-05T00:00:00+03:00");
 
 /* ================== AUTHOR ================== */
 const AUTHOR_NAME = "Sahneva Teknik";
