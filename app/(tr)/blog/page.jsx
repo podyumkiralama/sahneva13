@@ -5,6 +5,7 @@ import { readdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
 /* ================== RUNTIME & ISR ================== */
 export const runtime = "nodejs";
@@ -63,6 +64,7 @@ function normalizePostMeta(slug, rawMeta = {}) {
     readTime: rawMeta.readTime || "3 dk okuma",
     draft: rawMeta.draft === true,
     author: rawMeta.author || "Sahneva Editör",
+    modifiedDate: rawMeta.modifiedDate || null,
   };
 }
 
@@ -101,7 +103,11 @@ async function getBlogPosts() {
       try {
         const postModule = await import(`./${postSlug}/page`);
         const postMetadata = postModule?.metadata || {};
-        const normalized = normalizePostMeta(postSlug, postMetadata);
+        const fileRelativePath = existsSync(pageJsxPath)
+          ? `app/(tr)/blog/${postSlug}/page.jsx`
+          : `app/(tr)/blog/${postSlug}/page.js`;
+        const modifiedDate = `${getLastModifiedForFile(fileRelativePath, "2026-02-01")}T00:00:00+03:00`;
+        const normalized = normalizePostMeta(postSlug, { ...postMetadata, modifiedDate });
         if (normalized.draft) continue;
 
         posts.push(normalized);
@@ -185,7 +191,7 @@ function BlogJsonLd({ posts, baseUrl }) {
           description: post.description,
           image: absImg,
           datePublished: post.date || undefined,
-          dateModified: post.date || undefined,
+          dateModified: post.modifiedDate || post.date || undefined,
           inLanguage: "tr-TR",
           author: { "@id": editorId },
           publisher: { "@id": orgId },
