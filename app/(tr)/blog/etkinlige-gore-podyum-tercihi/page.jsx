@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -23,7 +24,7 @@ const SOUND_LIGHT_PATH = "/ses-isik-sistemleri";
 const FEATURED_IMAGE = "/img/galeri/podyum-kiralama-1.webp";
 
 const PUBLISH_DATE = "2025-12-28T00:00:00+03:00";
-const MODIFIED_DATE = "2025-12-28T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/etkinlige-gore-podyum-tercihi/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const WHATSAPP_NUMBER = "905453048671";

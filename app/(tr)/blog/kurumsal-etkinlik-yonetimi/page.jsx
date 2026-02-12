@@ -4,13 +4,14 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const BLOG_URL = `${SITE_URL}/blog/kurumsal-etkinlik-yonetimi`;
 // ✅ Rich Results için timezone dahil ISO 8601
 const PUBLISH_DATE = "2025-12-15T00:00:00+03:00";
-const MODIFIED_DATE = "2025-12-15T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/kurumsal-etkinlik-yonetimi/page.jsx", "2026-02-08T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-hero.webp";
 
