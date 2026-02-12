@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -18,7 +19,7 @@ const SOUND_LIGHT_PATH = "/ses-isik-sistemleri";
 const FEATURED_IMAGE = "/img/galeri/led-ekran-kiralama-3.webp";
 
 const PUBLISH_DATE = "2025-12-29T00:00:00+03:00";
-const MODIFIED_DATE = "2025-12-29T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const WHATSAPP_NUMBER = "905453048671";
