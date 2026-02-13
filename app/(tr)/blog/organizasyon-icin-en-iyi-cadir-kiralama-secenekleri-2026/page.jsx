@@ -7,6 +7,7 @@ import heroImg from "@/public/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
 import clearTopImg from "@/public/img/blog/kurumsal-etkinlik-cadir.webp";
 import domeImg from "@/public/img/blog/dome-cadir-ic-mekan.webp";
 import BlogLayout from "@/components/blog/BlogLayout";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -21,7 +22,7 @@ const FEATURED_IMAGE = "/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
 const TENT_SERVICE_PATH = "/cadir-kiralama";
 
 const PUBLISH_DATE = "2026-02-12T00:00:00+03:00";
-const MODIFIED_DATE = "2026-02-12T00:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026/page.jsx", "2026-02-05T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const TITLE = "2026 Çadır Kiralama Rehberi: Organizasyon İçin Seçenekler";
