@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import dynamic from "next/dynamic";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
@@ -157,6 +159,23 @@ const USE_CASES = [
   },
 ];
 
+const hasPublicFile = (relativePath) =>
+  existsSync(join(process.cwd(), "public", relativePath.replace(/^\//, "")));
+
+const FEATURED_BRANDS = [
+  { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik logo", width: 230, height: 68 },
+  { src: "/img/ses-isik/dpa.png", alt: "DPA Microphones logo", width: 180, height: 58 },
+  { src: "/img/ses-isik/lacoustics.png", alt: "L-Acoustics logo", width: 240, height: 62 },
+  { src: "/img/ses-isik/meyer.png", alt: "Meyer Sound logo", width: 230, height: 82 },
+  { src: "/img/ses-isik/shure.png", alt: "Shure logo", width: 200, height: 56 },
+  { src: "/img/ses-isik/yamaha.png", alt: "Yamaha logo", width: 240, height: 62 },
+  { src: "/img/ses-isik/riedel.png", alt: "Riedel logo", width: 220, height: 60 },
+  { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com logo", width: 220, height: 64 },
+  ...(hasPublicFile("/img/ses-isik/sennheiser.webp")
+    ? [{ src: "/img/ses-isik/sennheiser.webp", alt: "Sennheiser logo", width: 240, height: 62 }]
+    : []),
+];
+
 /* ================== HERO ================== */
 function Hero() {
   return (
@@ -238,6 +257,38 @@ function Hero() {
             <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
             <div className="text-xl font-black text-white">81 İl</div>
             <div className="text-white/80 text-sm">Hizmet</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Marka Barı ================== */
+function FeaturedBrands() {
+  return (
+    <section className="py-16 bg-gray-100" aria-labelledby="markalar-baslik">
+      <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            id="markalar-baslik"
+            className="text-center text-3xl md:text-4xl font-black text-gray-700 tracking-wide uppercase mb-12"
+          >
+            Kullandığımız Markalar
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 items-center justify-items-center">
+            {FEATURED_BRANDS.map((brand) => (
+              <div key={brand.src} className="w-full h-14 flex items-center justify-center">
+                <Image
+                  src={brand.src}
+                  alt={brand.alt}
+                  width={brand.width}
+                  height={brand.height}
+                  className="max-h-14 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -1128,6 +1179,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <JsonLd />
       <Hero />
+      <FeaturedBrands />
       <Services />
       <Gallery />
       <Technical />
