@@ -129,7 +129,7 @@ export default function BlogLayout({
         <div className="container mx-auto px-4">
           <Breadcrumbs items={breadcrumbItems} />
 
-          <article className="prose prose-lg max-w-none blog-scope prose-headings:font-black prose-headings:scroll-mt-32 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+          <article className="prose prose-xl lg:prose-2xl max-w-none blog-scope prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
             {children}
           </article>
 
