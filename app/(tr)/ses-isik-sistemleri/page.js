@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import dynamic from "next/dynamic";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
@@ -157,16 +159,24 @@ const USE_CASES = [
   },
 ];
 
+const hasPublicFile = (relativePath) =>
+  existsSync(join(process.cwd(), "public", relativePath.replace(/^\//, "")));
+
 const FEATURED_BRANDS = [
   { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik logo", width: 230, height: 68 },
   { src: "/img/ses-isik/dpa.png", alt: "DPA Microphones logo", width: 180, height: 58 },
   { src: "/img/ses-isik/lacoustics.png", alt: "L-Acoustics logo", width: 240, height: 62 },
   { src: "/img/ses-isik/meyer.png", alt: "Meyer Sound logo", width: 230, height: 82 },
   { src: "/img/ses-isik/shure.png", alt: "Shure logo", width: 200, height: 56 },
+  ...(hasPublicFile("/img/ses-isik/sennheiser.webp")
+    ? [{ src: "/img/ses-isik/sennheiser.webp", alt: "Sennheiser logo", width: 240, height: 62 }]
+    : []),
   { src: "/img/ses-isik/yamaha.png", alt: "Yamaha logo", width: 240, height: 62 },
   { src: "/img/ses-isik/riedel.png", alt: "Riedel logo", width: 220, height: 60 },
   { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com logo", width: 220, height: 64 },
 ];
+
+const FEATURED_BRANDS_TOP_COUNT = FEATURED_BRANDS.length > 8 ? 7 : 6;
 
 /* ================== HERO ================== */
 function Hero() {
@@ -269,8 +279,8 @@ function FeaturedBrands() {
             Kullandığımız Markalar
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 items-center justify-items-center">
-            {FEATURED_BRANDS.slice(0, 6).map((brand) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 items-center justify-items-center">
+            {FEATURED_BRANDS.slice(0, FEATURED_BRANDS_TOP_COUNT).map((brand) => (
               <div key={brand.src} className="w-full h-14 flex items-center justify-center">
                 <Image
                   src={brand.src}
@@ -284,7 +294,7 @@ function FeaturedBrands() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto items-center justify-items-center">
-            {FEATURED_BRANDS.slice(6).map((brand) => (
+            {FEATURED_BRANDS.slice(FEATURED_BRANDS_TOP_COUNT).map((brand) => (
               <div key={brand.src} className="w-full h-14 flex items-center justify-center">
                 <Image
                   src={brand.src}
