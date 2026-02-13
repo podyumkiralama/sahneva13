@@ -269,8 +269,8 @@ function FeaturedBrands() {
             Kullandığımız Markalar
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 items-center justify-items-center">
-            {FEATURED_BRANDS.slice(0, 7).map((brand) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 items-center justify-items-center">
+            {FEATURED_BRANDS.slice(0, 6).map((brand) => (
               <div key={brand.src} className="w-full h-14 flex items-center justify-center">
                 <Image
                   src={brand.src}
@@ -283,16 +283,18 @@ function FeaturedBrands() {
             ))}
           </div>
 
-          <div className="mt-12 flex justify-center">
-            <div className="w-full max-w-xs h-14 flex items-center justify-center">
-              <Image
-                src={FEATURED_BRANDS[7].src}
-                alt={FEATURED_BRANDS[7].alt}
-                width={FEATURED_BRANDS[7].width}
-                height={FEATURED_BRANDS[7].height}
-                className="max-h-14 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              />
-            </div>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto items-center justify-items-center">
+            {FEATURED_BRANDS.slice(6).map((brand) => (
+              <div key={brand.src} className="w-full h-14 flex items-center justify-center">
+                <Image
+                  src={brand.src}
+                  alt={brand.alt}
+                  width={brand.width}
+                  height={brand.height}
+                  className="max-h-14 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
