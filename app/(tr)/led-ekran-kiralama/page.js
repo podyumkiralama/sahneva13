@@ -108,7 +108,7 @@ function FAQ() {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+  title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
   description:
     "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla profesyonel LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler için yüksek parlaklık, IP65 ve uzman kurulum.",
   keywords:
