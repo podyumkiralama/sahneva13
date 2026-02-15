@@ -21,11 +21,13 @@ const SITEMAP_FEEDS = Object.freeze([
 export function GET() {
   const items = SITEMAP_FEEDS.map(({ path, getEntries }) => {
     const entries = getEntries();
+    if (!entries.length) return null;
+
     return {
       loc: `${SITE}${path}`,
       lastMod: getLatestLastMod(entries),
     };
-  });
+  }).filter(Boolean);
 
   const xml = buildSitemapIndex(items);
 

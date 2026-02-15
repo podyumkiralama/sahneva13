@@ -11,7 +11,7 @@ export const metadata = {
     "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Teknik Referans | Sahneva",
   description:
     "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekran; scaff ve truss üst yapısıyla, 60 kişilik ekiple 2 günde tamamlanan büyük ölçekli kurulum.",
-  alternates: { canonical: "/projeler/kapali-alan-led-sahne-kurulumu" },
+  alternates: { canonical: `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu` },
   openGraph: {
     type: "article",
     title:
