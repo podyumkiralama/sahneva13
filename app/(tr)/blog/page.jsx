@@ -45,8 +45,16 @@ export const metadata = {
 /* ================== YARDIMCI FONKSİYONLAR ================== */
 function safeDateString(date) {
   if (!date) return null;
-  const d = new Date(date);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString();
+
+  const raw = String(date).trim();
+  if (!raw) return null;
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+    return `${raw}T00:00:00+03:00`;
+  }
+
+  const d = new Date(raw);
+  return Number.isNaN(d.getTime()) ? null : raw;
 }
 
 function normalizePostMeta(slug, rawMeta = {}) {
