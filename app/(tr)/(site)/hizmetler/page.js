@@ -6,7 +6,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Hizmetlerimiz | Sahneva - Profesyonel Etkinlik Ekipmanları Kiralama",
+  title: "Hizmetlerimiz - Profesyonel Etkinlik Ekipmanları Kiralama",
   description: "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri, podyum, çadır kiralama ve etkinlik prodüksiyon hizmetleri. Türkiye geneli hızlı kurulum.",
   alternates: { canonical: `${BASE_SITE_URL}/hizmetler` },
   openGraph: {
