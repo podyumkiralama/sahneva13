@@ -6,6 +6,14 @@ export const metadata = {
   title: "خدمات تجهيز الفعاليات",
   description:
     "تعرف على حلول سحنيفا للمنصات، شاشات LED، أنظمة الصوت والإضاءة، الخيام وتجهيزات الجلوس مع تشغيل كامل.",
+  openGraph: {
+    title: "خدمات تجهيز الفعاليات | سحنيفا",
+    description:
+      "تعرف على حلول سحنيفا للمنصات، شاشات LED، أنظمة الصوت والإضاءة، الخيام وتجهيزات الجلوس مع تشغيل كامل.",
+    url: "https://www.sahneva.com/ar/services",
+    type: "website",
+    locale: "ar_AR",
+  },
   alternates: {
     canonical: "https://www.sahneva.com/ar/services",
     languages: {

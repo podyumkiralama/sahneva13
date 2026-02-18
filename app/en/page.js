@@ -383,6 +383,14 @@ export const metadata = {
   title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye",
   description:
     "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation for corporate events, concerts and public activations across Türkiye.",
+  openGraph: {
+    title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye | Sahneva",
+    description:
+      "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation for corporate events, concerts and public activations across Türkiye.",
+    url: "https://www.sahneva.com/en",
+    type: "website",
+    locale: "en_US",
+  },
   alternates: {
     canonical: "https://www.sahneva.com/en",
     languages: {

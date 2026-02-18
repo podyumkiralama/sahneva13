@@ -383,6 +383,14 @@ export const metadata = {
   title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا",
   description:
     "سحنيفا توفر منصات، شاشات LED، أنظمة صوت وإضاءة مع تركيب وتشغيل كامل في جميع المدن التركية.",
+  openGraph: {
+    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | سحنيفا",
+    description:
+      "سحنيفا توفر منصات، شاشات LED، أنظمة صوت وإضاءة مع تركيب وتشغيل كامل في جميع المدن التركية.",
+    url: "https://www.sahneva.com/ar",
+    type: "website",
+    locale: "ar_AR",
+  },
   alternates: {
     canonical: "https://www.sahneva.com/ar",
     languages: {

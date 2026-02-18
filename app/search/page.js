@@ -1,9 +1,20 @@
 import Link from "next/link";
 import { getSearchIndex } from "@/lib/searchIndex";
 
+const SEARCH_URL = "https://www.sahneva.com/search";
+
 export const metadata = {
-  title: "Site İçi Arama | Sahneva",
+  title: "Site İçi Arama",
   description: "Sahneva sayfaları arasında anahtar kelime ile arama yapın.",
+  alternates: { canonical: SEARCH_URL },
+  openGraph: {
+    title: "Site İçi Arama | Sahneva",
+    description: "Sahneva sayfaları arasında anahtar kelime ile arama yapın.",
+    url: SEARCH_URL,
+    type: "website",
+    locale: "tr_TR",
+  },
+  robots: { index: false, follow: true },
 };
 
 const filterRoutes = (routes, query) => {

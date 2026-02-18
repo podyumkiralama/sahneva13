@@ -2,6 +2,14 @@ export const metadata = {
   title: "تواصل مع سحنيفا",
   description:
     "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا.",
+  openGraph: {
+    title: "تواصل مع سحنيفا",
+    description:
+      "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا.",
+    url: "https://www.sahneva.com/ar/contact",
+    type: "website",
+    locale: "ar_AR",
+  },
   alternates: {
     canonical: "https://www.sahneva.com/ar/contact",
     languages: {

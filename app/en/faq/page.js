@@ -6,6 +6,14 @@ export const metadata = {
   description:
     "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
   alternates: { canonical: "https://www.sahneva.com/en/faq" },
+  openGraph: {
+    title: "Frequently Asked Questions | Sahneva",
+    description:
+      "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
+    url: "https://www.sahneva.com/en/faq",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 /* ================== DATA ================== */
