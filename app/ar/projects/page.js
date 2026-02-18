@@ -2,6 +2,14 @@ export const metadata = {
   title: "أعمال مختارة",
   description:
     "نماذج من فعاليات سحنيفا تشمل إطلاقات الشركات، الحفلات الجماهيرية والمهرجانات الرياضية في مدن تركيا المختلفة.",
+  openGraph: {
+    title: "أعمال مختارة | سحنيفا",
+    description:
+      "نماذج من فعاليات سحنيفا تشمل إطلاقات الشركات، الحفلات الجماهيرية والمهرجانات الرياضية في مدن تركيا المختلفة.",
+    url: "https://www.sahneva.com/ar/projects",
+    type: "website",
+    locale: "ar_AR",
+  },
   alternates: {
     canonical: "https://www.sahneva.com/ar/projects",
     languages: {

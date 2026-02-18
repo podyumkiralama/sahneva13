@@ -7,6 +7,7 @@ import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
 
 const SITE = "https://www.sahneva.com";
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
+const DEFAULT_LANG = "tr-TR";
 
 /**
  * Basit bir keyword üretici:
@@ -35,6 +36,13 @@ function buildKeywordsFromTitle(title) {
 function quote(value) {
   if (value == null) return '""';
   return `"${String(value).replace(/"/g, '\\"')}"`;
+}
+
+function safeIsoDate(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toISOString();
 }
 
 /**
@@ -145,6 +153,7 @@ function serviceEntries() {
         title: service.title,
         summary: service.excerpt,
         priority: 0.92,
+        updatedAt: PROJECT_LASTMOD_FALLBACK,
         category: "service",
         keywords: buildKeywordsFromTitle(service.title),
       };
@@ -204,7 +213,7 @@ function articleEntries() {
         title: article.title,
         summary: article.desc,
         priority: 0.86,
-        date: article.datePublished,
+        date: safeIsoDate(article.datePublished),
         category: "blog",
         keywords: buildKeywordsFromTitle(article.title),
       };
@@ -244,6 +253,7 @@ function formatEntry({
     `url=${SITE}${path}`,
     `title=${quote(title)}`,
     `priority=${Number(priority || 0).toFixed(2)}`,
+    `lang=${DEFAULT_LANG}`,
   ];
 
   if (category) fields.push(`category=${category}`);
@@ -271,7 +281,9 @@ export async function GET() {
   }
 
   const sorted = [...unique.values()].sort(
-    (a, b) => (b.priority ?? 0) - (a.priority ?? 0)
+    (a, b) =>
+      (b.priority ?? 0) - (a.priority ?? 0) ||
+      String(a.path).localeCompare(String(b.path), "tr")
   );
 
   const generatedAt = resolveGeneratedAt(sorted);
@@ -282,6 +294,9 @@ export async function GET() {
     "# Daha verimli tarama için öncelik sıralı bağlantılar",
     `generated=${generatedAt}`,
     `site=${SITE}`,
+    "version=1.1",
+    "primary_lang=tr-TR",
+    "crawl_hint=prioritize-high-priority-urls",
     "",
     "[pages]",
   ];

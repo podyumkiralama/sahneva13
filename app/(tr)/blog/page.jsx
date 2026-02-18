@@ -24,6 +24,7 @@ export const metadata = {
   title: "Blog | Sahneva - Etkinlik Teknolojileri ve Organizasyon Rehberleri",
   description:
     "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
+  alternates: { canonical: `${getBaseUrl()}/blog` },
   openGraph: {
     title: "Sahneva Organizasyon Blog | Etkinlik Teknolojileri Rehberi",
     description:
