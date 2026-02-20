@@ -48,8 +48,13 @@ export default function VideoEmbed({
   thumbnailUrl,
   autoplayOnClick = true,
   muteOnAutoplay = true,
-  warmupOnIdle = true,        // ✅ idle warmup kalsın
-  preconnectOnMount = false,  // ✅ sayfa açılışında 3P preconnect yapmasın
+
+  // ✅ Google mantığı: landing’de idle warmup kapalı kalsın (default false)
+  warmupOnIdle = false,
+
+  // ✅ sayfa açılışında 3P preconnect yapmasın
+  preconnectOnMount = false,
+
   className = "",
 }) {
   if (!videoId) return null;
@@ -62,23 +67,18 @@ export default function VideoEmbed({
       `${base}/sddefault.jpg`,
       `${base}/mqdefault.jpg`,
     ];
-
     if (!thumbnailUrl) return fallbackThumbs;
-
     return [thumbnailUrl, ...fallbackThumbs];
   }, [videoId, thumbnailUrl]);
 
-  // Overlay UX state
   const [isPlayed, setIsPlayed] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
   const [thumbFailed, setThumbFailed] = useState(false);
 
-  // ✅ Base iframe URL: crawler görsün diye HER ZAMAN gerçek src
   const baseEmbedUrl = useMemo(() => {
     return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
   }, [videoId]);
 
-  // Click URL (autoplay optional)
   const clickEmbedUrl = useMemo(() => {
     if (!autoplayOnClick) return baseEmbedUrl;
     const params = new URLSearchParams();
@@ -87,15 +87,19 @@ export default function VideoEmbed({
     return `${baseEmbedUrl}&${params.toString()}`;
   }, [baseEmbedUrl, autoplayOnClick, muteOnAutoplay]);
 
-  // ✅ iframe src: başlangıçta base (crawler görünür), tıklayınca autoplay versiyona geçer
-  const [iframeSrc, setIframeSrc] = useState(baseEmbedUrl);
+  /**
+   * ✅ EN KRİTİK DEĞİŞİKLİK:
+   * Başlangıçta iframe yok: src boş.
+   * Böylece YouTube hiç yüklenmez (Google mantığı).
+   */
+  const [iframeSrc, setIframeSrc] = useState("");
 
   useEffect(() => {
     setIsPlayed(false);
     setThumbIndex(0);
     setThumbFailed(false);
-    setIframeSrc(baseEmbedUrl);
-  }, [videoId, baseEmbedUrl]);
+    setIframeSrc(""); // ✅ reset: yine ilk yükte iframe yok
+  }, [videoId]);
 
   useEffect(() => {
     if (!preconnectOnMount) return;
@@ -123,25 +127,27 @@ export default function VideoEmbed({
   const handlePlay = useCallback(() => {
     warmupYouTube();
     setIsPlayed(true);
-    setIframeSrc(clickEmbedUrl);
+    setIframeSrc(clickEmbedUrl); // ✅ tıklayınca iframe eklenir + autoplay başlar
   }, [clickEmbedUrl]);
 
   const currentThumb = thumbs[thumbIndex];
 
   return (
     <div className={`relative aspect-video rounded-3xl overflow-hidden shadow-xl ${className}`}>
-      {/* ✅ CRAWLER GÖRÜR: iframe gerçek src ile DOM’da */}
-      <iframe
-        src={iframeSrc}
-        title={title}
-        className="absolute inset-0 h-full w-full"
-        loading="lazy" // ✅ viewport’a yaklaşmadan yüklemez
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
-      />
+      {/* ✅ Google mantığı: iframe sadece oynatınca DOM’a girer */}
+      {iframeSrc ? (
+        <iframe
+          src={iframeSrc}
+          title={title}
+          className="absolute inset-0 h-full w-full"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      ) : null}
 
-      {/* ✅ Overlay: kullanıcı tıklayana kadar thumbnail göster */}
+      {/* ✅ Overlay: kullanıcı tıklayana kadar thumbnail */}
       {!isPlayed ? (
         <button
           type="button"
