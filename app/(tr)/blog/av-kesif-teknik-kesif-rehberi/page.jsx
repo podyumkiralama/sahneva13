@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Script from "next/script";
 import Image from "next/image";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
@@ -129,14 +128,6 @@ export default function Page() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Ana Sayfa", item: "/" },
-          { name: "Blog", item: "/blog" },
-          { name: "AV Keşif Rehberi", item: slug },
-        ]}
-      />
-
       <Script
         id="jsonld-blogposting"
         type="application/ld+json"
