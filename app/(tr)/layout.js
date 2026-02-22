@@ -43,6 +43,15 @@ const globalJsonLd = {
       logo: { "@id": LOGO_ID },
       description:
         "Türkiye genelinde sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri sunan profesyonel etkinlik prodüksiyon markası.",
+      knowsAbout: [
+        "podyum kiralama",
+        "sahne kiralama",
+        "modüler sahne kiralama",
+        "led ekran kiralama",
+        "çadır kiralama",
+        "kurumsal organizasyon",
+        "kurumsal etkinlik organizasyonu",
+      ],
       sameAs: [
         "https://www.instagram.com/sahnevaorganizasyon",
         "https://www.youtube.com/@sahneva",
@@ -104,12 +113,20 @@ const globalJsonLd = {
       description:
         "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
       inLanguage: "tr-TR",
+      about: [
+        "sahne kiralama",
+        "podyum kiralama",
+        "led ekran kiralama",
+        "çadır kiralama",
+        "kurumsal organizasyon",
+      ],
       publisher: { "@id": ORGANIZATION_ID },
     },
   ],
 };
 
 const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
+
 
 /* ================== META ================== */
 export const metadata = {
