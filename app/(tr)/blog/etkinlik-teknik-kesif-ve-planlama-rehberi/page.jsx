@@ -194,6 +194,9 @@ export default function Page() {
               doğru dağıtılmasını sağlar. Amaç her zaman en büyük sistemi kurmak değil, hedefe
               en uygun sistemi kurmaktır.
             </p>
+            <blockquote>
+              Amaç her zaman en büyük sistemi kurmak değil, hedefe en uygun sistemi kurmaktır.
+            </blockquote>
 
             <h3>Hedef kitlenin ihtiyaçlarını analiz edin</h3>
             <p>
@@ -466,11 +469,14 @@ export default function Page() {
               prodüksiyonlarda kullanılıp kullanılmadığı değerlendirilmelidir.
             </p>
             <p>
-              Rigging uygulamalarında güvenlik birinci önceliktir. Yanlış hesaplanmış yük dağılımı
+              <strong>Rigging uygulamalarında güvenlik birinci önceliktir.</strong> Yanlış hesaplanmış yük dağılımı
               hem ekipman hem katılımcı güvenliği açısından ciddi risk oluşturur. Bu nedenle uzman
               teknik ekip tarafından <Link href="/truss-kiralama">truss ve askı planlaması</Link> yapılması
               gerekir.
             </p>
+            <blockquote>
+              Rigging uygulamalarında güvenlik birinci önceliktir.
+            </blockquote>
 
             <h2>Bölüm 4: Dokümanlar ve stratejik karar alma</h2>
             <p>
@@ -490,11 +496,14 @@ export default function Page() {
               jeneratör desteği veya yedek internet hattı gibi ihtiyaçlar bu aşamada netleşir.
             </p>
             <p>
-              Mekân sözleşmesi teknik açıdan incelenmelidir. Harici teknik ekip kullanımına izin
+              <strong>Mekân sözleşmesi teknik açıdan incelenmelidir.</strong> Harici teknik ekip kullanımına izin
               verilip verilmediği, ek ekipman kurulumu için ücret talep edilip edilmediği,
               elektrik tüketimi için ek bedel uygulanıp uygulanmadığı kontrol edilmelidir. Kurulum
               ve söküm saatleri sözleşmede açıkça belirtilmelidir.
             </p>
+            <blockquote>
+              Mekân sözleşmesi teknik açıdan incelenmelidir.
+            </blockquote>
             <p>
               Bazı mekânlarda ses seviyesi sınırlamaları veya belirli teknik kısıtlamalar
               bulunabilir. Bu maddelerin önceden bilinmesi, planlamanın doğru yapılmasını sağlar.
@@ -509,6 +518,30 @@ export default function Page() {
               riskleri önceden görür, alternatif çözümler üretir ve uygulama sırasında oluşabilecek
               aksaklıkları minimize eder.
             </p>
+
+            <div className="not-prose mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+              <h3 className="m-0 text-lg font-semibold text-slate-900">
+                Teknik keşif planını ekibinizle standartlaştırın
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-700 md:text-base">
+                Keşif sürecinde aynı başlıkları her mekânda tutarlı değerlendirmek için pratik bir
+                kontrol dokümanı büyük kolaylık sağlar. PDF formatındaki kontrol listesi;
+                elektrik altyapısı, akustik, video-ışık planı, rigging güvenliği ve lojistik
+                hazırlık maddelerini tek bir akışta toplar. Böylece teklif, kurulum ve uygulama
+                aşamalarında ekipler arası iletişim hızlanır, kritik detayların atlanma riski azalır.
+              </p>
+              <div className="mt-5">
+                <a
+                  href="https://www.sahneva.com/files/kurumsal-etkinlik-kontrol-listesi-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-700"
+                >
+                  PDF Kontrol Listesini Aç
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
 
             <h2>Sonuç</h2>
             <p>
@@ -528,6 +561,22 @@ export default function Page() {
               değerlendiriyoruz.
             </p>
             <p><strong>Doğru keşif, güçlü prodüksiyonun temelidir.</strong></p>
+
+            <div className="not-prose mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-5 md:p-6">
+              <p className="m-0 text-sm leading-6 text-slate-700 md:text-base">
+                Bir sonraki etkinliğinizde teknik riskleri ortadan kaldırmak için Sahneva
+                uzmanlarıyla hemen iletişime geçin ve ücretsiz keşif planlayın.
+              </p>
+              <div className="mt-4">
+                <Link
+                  href="/iletisim"
+                  className="inline-flex items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
+                >
+                  Ücretsiz Keşif Planlayın
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
           </article>
         </div>
       </div>
