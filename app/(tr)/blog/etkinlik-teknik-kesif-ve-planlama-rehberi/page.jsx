@@ -15,7 +15,7 @@ const PUBLISH_DATE = "2026-02-23T00:00:00+03:00";
 const MODIFIED_DATE = "2026-02-23T00:00:00+03:00";
 
 export const metadata = {
-  title: "Etkinlik Teknik Keşif ve Planlama Rehberi | Sahneva",
+  title: "Etkinlik Teknik Keşif ve Planlama Rehberi",
   description:
     "Etkinliklerde teknik keşif süreci nasıl yürütülür? Mekân analizi, altyapı kontrolü ve prodüksiyon planlama adımları rehberi.",
   alternates: { canonical: url },
