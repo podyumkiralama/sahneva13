@@ -228,7 +228,7 @@ export default function Page() {
             <h3>Görsel-işitsel gereksinimlerinizi tanımlayın</h3>
             <p>
               Etkinliğin hedefleri ve katılımcı analizi netleştikten sonra temel teknik
-              gereksinimler belirlenir. <Link href="/ses-sistemi-kiralama">Ses sistemi</Link> kapasitesi,
+              gereksinimler belirlenir. <Link href="/ses-isik-sistemleri">Ses sistemi</Link> kapasitesi,
               hoparlör kapsama alanı, mikrofon türleri, LED ekran çözünürlüğü, projeksiyon
               ihtiyacı, ışık kontrol sistemi ve gerekiyorsa rigging altyapısı bu aşamada
               planlanır.
@@ -303,7 +303,7 @@ export default function Page() {
             </p>
             <p>
               Planlanan teknik kapsam da önceden belirtilmelidir. Ses sistemi ölçeği, LED ekran
-              veya projeksiyon ihtiyacı, sahne tasarımı, <Link href="/isiklik-kiralama">ışık kurulumu</Link> ve
+              veya projeksiyon ihtiyacı, sahne tasarımı, <Link href="/ses-isik-sistemleri">ışık kurulumu</Link> ve
               olası rigging gereksinimleri hakkında genel çerçeve sunmak, keşif sırasında doğru
               bilgilerin hazır olmasını sağlar.
             </p>
