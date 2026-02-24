@@ -120,8 +120,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp"
                 alt="Konferans salonunda LED ekranlı sahne ve oturma düzeni — teknik keşif için örnek kurulum"
-                width=1600
-                height=720
+                width={1600}
+                height={720}
                 priority
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
@@ -189,8 +189,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/led-sahne-genis-plan.webp"
                 alt="Geniş LED ekranlı sahne kurulumu — içerik okunabilirliği ve ekran yerleşimi planlama örneği"
-                width=1440
-                height=665
+                width={1440}
+                height={665}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
@@ -283,8 +283,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/acik-hava-cadir-alan.webp"
                 alt="Açık hava çadır alanı — zemin, erişim ve kurulum planı için keşif örneği"
-                width=1600
-                height=900
+                width={1600}
+                height={900}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
@@ -326,8 +326,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/sahne-kurulum-platform.webp"
                 alt="Sahne platform kurulumu — kurulum, güvenlik ve lojistik kontrol noktaları"
-                width=1600
-                height=1200
+                width={1600}
+                height={1200}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
@@ -432,8 +432,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/tarihi-mekan-aydinlatma.webp"
                 alt="Tarihi bir iç mekânda aydınlatma ve mimari yapı — akustik ve yansıma riskleri"
-                width=1600
-                height=1200
+                width={1600}
+                height={1200}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
@@ -464,8 +464,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/ses-sistemi-linearray.webp"
                 alt="Profesyonel line array hoparlör sistemi — keşifte kapsama ve güç hesabı"
-                width=1600
-                height=720
+                width={1600}
+                height={720}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
@@ -546,8 +546,8 @@ export default function Page() {
               <Image
                 src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/rigging-truss-linearray.webp"
                 alt="Truss ve rigging kurulumu — askı noktaları, yük dağılımı ve güvenlik kontrolü"
-                width=1600
-                height=720
+                width={1600}
+                height={720}
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="w-full rounded-2xl border border-slate-200 shadow-sm"
               />
