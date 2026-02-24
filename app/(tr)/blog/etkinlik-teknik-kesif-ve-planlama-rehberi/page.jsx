@@ -40,10 +40,6 @@ export const metadata = {
       "Etkinliklerde teknik keşif süreci nasıl yürütülür? Mekân analizi, altyapı kontrolü ve prodüksiyon planlama adımları rehberi.",
     images: [OG_IMAGE],
   },
-  date: PUBLISH_DATE,
-  category: "Etkinlik Planlama",
-  readTime: "11-13 dk okuma",
-  author: "Sahneva Organizasyon",
 };
 
 export default function Page() {
@@ -144,7 +140,20 @@ export default function Page() {
         ]}
       >
           <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-700 hover:prose-a:text-blue-800">
-
+            <figure className="not-prose mt-2">
+              <Image
+                src={FEATURED_IMAGE}
+                alt="Konferans salonunda LED ekranlı sahne ve oturma düzeni — teknik keşif için örnek kurulum"
+                width={1600}
+                height={720}
+                priority
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Teknik keşif, sahnenin görüş açısı, ekran yerleşimi ve ışık dağılımını etkinlik gününden önce netleştirir.
+              </figcaption>
+            </figure>
 
             <h2>Giriş</h2>
             <p>
