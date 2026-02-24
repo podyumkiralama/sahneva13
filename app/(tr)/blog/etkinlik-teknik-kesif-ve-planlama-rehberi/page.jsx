@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
+import BlogLayout from "@/components/blog/BlogLayout";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -11,10 +12,11 @@ export const revalidate = 86400;
 
 const slug = "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi";
 const url = `${BASE_SITE_URL}${slug}`;
+const FEATURED_IMAGE = "/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp";
 const PUBLISH_DATE = "2026-02-23T00:00:00+03:00";
 const MODIFIED_DATE = "2026-02-23T00:00:00+03:00";
 
-const OG_IMAGE = `${BASE_SITE_URL}/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp`;
+const OG_IMAGE = `${BASE_SITE_URL}${FEATURED_IMAGE}`;
 
 export const metadata = {
   title: "Etkinlik Teknik Keşif ve Planlama Rehberi",
@@ -110,26 +112,38 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
-      <div className="bg-white">
-        <div className="mx-auto w-full max-w-4xl px-4 pb-16 pt-10 md:px-6 md:pt-14">
-
-          <article className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-700 hover:prose-a:text-blue-800">
-            <h1>Başarılı Görsel-İşitsel Keşif Ziyaretlerinin Anahtarları</h1>
-            <p><strong>Etkinliğiniz İçin Mükemmel Mekânı Bulmak</strong></p>
-            <figure className="not-prose mt-6">
-              <Image
-                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp"
-                alt="Konferans salonunda LED ekranlı sahne ve oturma düzeni — teknik keşif için örnek kurulum"
-                width={1600}
-                height={720}
-                priority
-                sizes="(max-width: 768px) 100vw, 768px"
-                className="w-full rounded-2xl border border-slate-200 shadow-sm"
-              />
-              <figcaption className="mt-2 text-sm text-slate-600">
-                Teknik keşif, sahnenin görüş açısı, ekran yerleşimi ve ışık dağılımını etkinlik gününden önce netleştirir.
-              </figcaption>
-            </figure>
+      <BlogLayout
+        siteUrl={BASE_SITE_URL}
+        breadcrumbItems={[
+          { name: "Anasayfa", url: BASE_SITE_URL },
+          { name: "Blog", url: `${BASE_SITE_URL}/blog` },
+          { name: "Etkinlik Teknik Keşif ve Planlama Rehberi", url },
+        ]}
+        heroImage={{
+          src: FEATURED_IMAGE,
+          alt: "Konferans salonunda LED ekranlı sahne ve oturma düzeni — teknik keşif için örnek kurulum",
+        }}
+        pills={["Teknik Keşif", "Prodüksiyon Planlama", "Etkinlik Rehberi"]}
+        title="Etkinlik Teknik Keşif"
+        highlight="ve Planlama Rehberi"
+        description="Etkinliklerde teknik keşif sürecini adım adım planlayın: mekân analizi, elektrik-akustik kontrolü, video/ışık tasarımı ve uygulama öncesi risk yönetimi."
+        publishDate={PUBLISH_DATE}
+        author="Sahneva Organizasyon"
+        readTime="11-13 dk okuma"
+        primaryLinks={[
+          { href: "/iletisim", label: "Ücretsiz Keşif Planlayın" },
+          { href: "/hizmetler", label: "Hizmetlerimizi İnceleyin" },
+        ]}
+        whatsappUrl="https://wa.me/905453048671"
+        currentSlug={slug}
+        currentCategory="Etkinlik Planlama"
+        currentKeywords={[
+          "etkinlik teknik keşif",
+          "prodüksiyon planlama",
+          "sahne ses ışık",
+        ]}
+      >
+          <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-700 hover:prose-a:text-blue-800">
 
 
             <h2>Giriş</h2>
@@ -675,9 +689,8 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-          </article>
-        </div>
-      </div>
+          </div>
+      </BlogLayout>
     </>
   );
 }
