@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -13,6 +13,8 @@ const slug = "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi";
 const url = `${BASE_SITE_URL}${slug}`;
 const PUBLISH_DATE = "2026-02-23T00:00:00+03:00";
 const MODIFIED_DATE = "2026-02-23T00:00:00+03:00";
+
+const OG_IMAGE = `${BASE_SITE_URL}/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp`;
 
 export const metadata = {
   title: "Etkinlik Teknik Keşif ve Planlama Rehberi",
@@ -27,12 +29,14 @@ export const metadata = {
     type: "article",
     locale: "tr_TR",
     siteName: "Sahneva",
+    images: [{ url: OG_IMAGE, width: 1600, height: 720, alt: "Etkinlik teknik keşif ve planlama — konferans salonu sahne kurulumu" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Etkinlik Teknik Keşif ve Planlama Rehberi | Sahneva",
     description:
       "Etkinliklerde teknik keşif süreci nasıl yürütülür? Mekân analizi, altyapı kontrolü ve prodüksiyon planlama adımları rehberi.",
+    images: [OG_IMAGE],
   },
   date: PUBLISH_DATE,
   category: "Etkinlik Planlama",
@@ -55,6 +59,7 @@ export default function Page() {
         url,
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
+        image: [{ "@type": "ImageObject", url: OG_IMAGE, width: 1600, height: 720 }],
         author: {
           "@type": "Organization",
           name: "Sahneva Organizasyon",
@@ -107,17 +112,25 @@ export default function Page() {
 
       <div className="bg-white">
         <div className="mx-auto w-full max-w-4xl px-4 pb-16 pt-10 md:px-6 md:pt-14">
-          <BreadcrumbJsonLd
-            items={[
-              { name: "Anasayfa", url: BASE_SITE_URL },
-              { name: "Blog", url: `${BASE_SITE_URL}/blog` },
-              { name: "Etkinlik Teknik Keşif ve Planlama Rehberi", url },
-            ]}
-          />
 
           <article className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-700 hover:prose-a:text-blue-800">
             <h1>Başarılı Görsel-İşitsel Keşif Ziyaretlerinin Anahtarları</h1>
             <p><strong>Etkinliğiniz İçin Mükemmel Mekânı Bulmak</strong></p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/hero-konferans-salonu.webp"
+                alt="Konferans salonunda LED ekranlı sahne ve oturma düzeni — teknik keşif için örnek kurulum"
+                width={1600}
+                height={720}
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Teknik keşif, sahnenin görüş açısı, ekran yerleşimi ve ışık dağılımını etkinlik gününden önce netleştirir.
+              </figcaption>
+            </figure>
+
 
             <h2>Giriş</h2>
             <p>
@@ -172,6 +185,20 @@ export default function Page() {
               motivasyon etkinliğinde ise ses sisteminin gücü ve ışık tasarımının dinamizmi
               deneyimi belirler.
             </p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/led-sahne-genis-plan.webp"
+                alt="Geniş LED ekranlı sahne kurulumu — içerik okunabilirliği ve ekran yerleşimi planlama örneği"
+                width={1440}
+                height={665}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Video/LED planı yapılırken izleme mesafesi, çözünürlük ve içerik formatı birlikte değerlendirilir.
+              </figcaption>
+            </figure>
+
             <p>
               Görsel-işitsel unsurların rolü yalnızca destekleyici değildir; doğru kullanıldığında
               etkinliğin etkisini katlar. Bu nedenle teknik planlama, hedefin netleşmesiyle
@@ -252,6 +279,20 @@ export default function Page() {
               görsel beğeniye dayalı bir karar değildir; teknik uygulanabilirliğin temelini
               oluşturur.
             </p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/acik-hava-cadir-alan.webp"
+                alt="Açık hava çadır alanı — zemin, erişim ve kurulum planı için keşif örneği"
+                width={1600}
+                height={900}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Açık hava mekânlarında zemin durumu, yükleme/boşaltma ve hava koşullarına karşı B planı keşifte netleşir.
+              </figcaption>
+            </figure>
+
 
             <h3>Etkinlik mekânı arayışı</h3>
             <p>
@@ -281,6 +322,20 @@ export default function Page() {
               boşaltma alanlarının uygunluğu, tır yanaşma imkânı ve kapı genişlikleri kontrol
               edilmelidir.
             </p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/sahne-kurulum-platform.webp"
+                alt="Sahne platform kurulumu — kurulum, güvenlik ve lojistik kontrol noktaları"
+                width={1600}
+                height={1200}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Keşifte sahne ölçüleri, backstage akışı ve kablo güzergâhları netleştirilerek kurulum günü sürprizleri azaltılır.
+              </figcaption>
+            </figure>
+
             <p>
               Yük asansörlerinin kapasitesi ve kurulum süresi boyunca alanın erişilebilirliği de
               planlamada kritik rol oynar. Kurulum ve söküm için ayrılan zaman dilimi yeterli
@@ -373,6 +428,20 @@ export default function Page() {
               Mekânın akustik özellikleri konuşma netliğini ve müzik performansını doğrudan
               etkiler. Yankı süresi, yansıma noktaları ve arka plan gürültüsü analiz edilmelidir.
             </p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/tarihi-mekan-aydinlatma.webp"
+                alt="Tarihi bir iç mekânda aydınlatma ve mimari yapı — akustik ve yansıma riskleri"
+                width={1600}
+                height={1200}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Mimari yüzeyler yankıyı artırabilir; keşifte akustik riskler ve çözüm (absorber/perde/yerleşim) planlanır.
+              </figcaption>
+            </figure>
+
             <p>
               Duvar ve zemin kaplamaları ses dağılımını belirler. Sert yüzeyler yankıyı
               artırırken, absorbe edici malzemeler sesi dengeler. HVAC sistemlerinden gelen sabit
@@ -390,6 +459,21 @@ export default function Page() {
               performansı test edilmelidir. Konuşma ve müzik farklı senaryolarda denenmeli, alanın
               tamamında dengeli dağılım sağlanıp sağlanmadığı kontrol edilmelidir.
             </p>
+
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/ses-sistemi-linearray.webp"
+                alt="Profesyonel line array hoparlör sistemi — keşifte kapsama ve güç hesabı"
+                width={1600}
+                height={720}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Hoparlör kapsaması, gecikme planı ve güç gereksinimi keşif aşamasında ölçülerek planlanmalıdır.
+              </figcaption>
+            </figure>
+
             <p>
               Kaç mikrofon gerektiği, hangi mikrofon tipinin kullanılacağı, simultane çeviri
               ihtiyacı olup olmadığı bu aşamada netleşir. Interkom sistemi gereksinimi ve frekans
@@ -458,6 +542,20 @@ export default function Page() {
               Bazı etkinliklerde ışık, hoparlör veya LED ekranların tavandan asılması gerekir. Bu
               durumda rigging altyapısı detaylı biçimde kontrol edilmelidir.
             </p>
+            <figure className="not-prose mt-6">
+              <Image
+                src="/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/rigging-truss-linearray.webp"
+                alt="Truss ve rigging kurulumu — askı noktaları, yük dağılımı ve güvenlik kontrolü"
+                width={1600}
+                height={720}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Askı noktası kapasitesi ve yük dağılımı doğru hesaplanmazsa hem ekipman hem katılımcı güvenliği riske girer.
+              </figcaption>
+            </figure>
+
             <p>
               Askı noktalarının yük kapasitesi ve yerleşimi incelenmelidir. Mekânın teknik
               dokümantasyonunda belirtilen maksimum taşıma kapasitesi dikkate alınmalıdır. Gerekli
