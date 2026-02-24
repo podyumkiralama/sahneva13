@@ -63,12 +63,25 @@ function normalizePostMeta(slug, rawMeta = {}) {
     .replace(/-/g, " ")
     .replace(/\b\w/g, (l) => l.toUpperCase());
 
+  const ogImage = Array.isArray(rawMeta?.openGraph?.images)
+    ? rawMeta.openGraph.images[0]
+    : null;
+  const ogImageUrl =
+    typeof ogImage === "string"
+      ? ogImage
+      : typeof ogImage?.url === "string"
+        ? ogImage.url
+        : null;
+  const imageFromOg = ogImageUrl
+    ? ogImageUrl.replace(/^https?:\/\/[^/]+/i, "")
+    : null;
+
   return {
     slug,
     title: rawMeta.title || fallbackTitle,
     description: rawMeta.description || "Bu makale için açıklama girilmemiş.",
     date: safeDateString(rawMeta.date),
-    image: rawMeta.image || "/img/blog/default.webp",
+    image: rawMeta.image || imageFromOg || "/img/blog/default.webp",
     category: rawMeta.category || "Genel",
     readTime: rawMeta.readTime || "3 dk okuma",
     draft: rawMeta.draft === true,
