@@ -20,14 +20,14 @@ const IMG_KURULUM = "/img/blog/podyum-sahne-kurulum.webp";
 const IMG_PRO = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 
 const PUBLISH_DATE = "2025-12-30T09:00:00+03:00";
-const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-05T00:00:00+03:00");
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-25T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 /* ================== META ================== */
 export const metadata = {
   title: "Neden Podyum Sahne Tercih Edilir?",
   description:
-    "Podyum sahne nedir, neden tercih edilir? Görünürlükten güvenliğe, kurulum kolaylığın, podyum sahnelerin etkinliklerde sunduğu avantajlar.",
+    "Podyum sahne nedir, neden tercih edilir? Görünürlükten güvenliğe, kurulum kolaylığından podyum sahnelerin etkinliklerde sunduğu avantajlar.",
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
   openGraph: {
@@ -166,7 +166,10 @@ return (
       <BlogLayout
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
+        heroImage={{
+          src: HERO_IMG,
+          alt: metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog",
+        }}
         pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
         title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
         description={metadata?.description}
