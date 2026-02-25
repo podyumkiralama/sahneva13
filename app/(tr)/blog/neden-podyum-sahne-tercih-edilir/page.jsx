@@ -168,7 +168,7 @@ return (
         breadcrumbItems={breadcrumbItems}
         heroImage={{
           src: HERO_IMG,
-          alt: metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog",
+          alt: metadata?.title ? metadata.title.replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog",
         }}
         pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
         title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
