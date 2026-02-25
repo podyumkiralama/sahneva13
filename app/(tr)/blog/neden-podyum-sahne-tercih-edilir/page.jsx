@@ -20,7 +20,7 @@ const IMG_KURULUM = "/img/blog/podyum-sahne-kurulum.webp";
 const IMG_PRO = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 
 const PUBLISH_DATE = "2025-12-30T09:00:00+03:00";
-const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-05T00:00:00+03:00");
+const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-25T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 /* ================== META ================== */
@@ -168,7 +168,7 @@ return (
         breadcrumbItems={breadcrumbItems}
         heroImage={{
           src: HERO_IMG,
-          alt: metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog",
+          alt: metadata?.title ? metadata.title.replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog",
         }}
         pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
         title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
