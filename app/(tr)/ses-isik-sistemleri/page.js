@@ -51,7 +51,7 @@ export const metadata = {
       url: `${ORIGIN}/img/ses-isik/hero.webp`, 
       width: 1200, 
       height: 630, 
-      alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli" 
+      alt: "Sahneva Organizasyon ses ve ışık sistemleri kiralama – line array, hareketli ışık ve profesyonel sahne çözümleri"
     }],
   },
   twitter: {

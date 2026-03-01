@@ -13,7 +13,7 @@ export const metadata = {
     description:
       "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
     url: `${SITE_URL}/kvkk`,
-    type: "article",
+    type: "website",
     siteName: "Sahneva Organizasyon",
     locale: "tr_TR",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
         url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon KVKK gizlilik politikası – kişisel veri işleme bilgilendirmesi",
       },
     ],
   },

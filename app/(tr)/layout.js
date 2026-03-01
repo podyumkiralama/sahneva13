@@ -149,7 +149,7 @@ export const metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon – sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri",
       },
     ],
   },

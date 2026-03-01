@@ -20,11 +20,19 @@ export const metadata = {
         url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon ekibi – 10+ yıllık deneyimle profesyonel etkinlik prodüksiyon hizmetleri",
       },
     ],
     type: "website",
     locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hakkımızda | Sahneva – Profesyonel Etkinlik Teknolojileri",
+    description:
+      "10+ yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.",
+    images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: { index: true, follow: true },
 };

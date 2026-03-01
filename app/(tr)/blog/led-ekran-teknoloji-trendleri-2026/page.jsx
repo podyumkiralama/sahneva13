@@ -72,7 +72,7 @@ export const metadata = {
         url: `${SITE_URL}${FEATURED_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon blog görseli",
+        alt: "LED ekran teknolojisi trendleri 2026 – COB panel, fine pitch ve HDR sahne tasarımı",
       },
     ],
   },

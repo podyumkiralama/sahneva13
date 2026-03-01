@@ -39,7 +39,23 @@ export const metadata = {
     title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste | Sahneva",
     description:
       "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
-    images: [{ url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp` }],
+    locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
+    images: [
+      {
+        url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Podyum kiralama fiyatları 2026 – m² bazlı İstanbul güncel fiyat listesi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
+    description:
+      "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
+    images: [`${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`],
   },
 };
 

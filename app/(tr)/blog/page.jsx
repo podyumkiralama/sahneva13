@@ -31,15 +31,23 @@ export const metadata = {
       "Sahneva ekibinden kurumsal organizasyon ve teknik ekipmanlar üzerine güncel blog yazıları.",
     url: `${getBaseUrl()}/blog`,
     type: "website",
+    locale: "tr_TR",
     siteName: "Sahneva Organizasyon",
     images: [
       {
         url: `${ORIGIN}/img/blog/default.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon blog görseli",
+        alt: "Sahneva Organizasyon – etkinlik teknolojileri ve organizasyon rehberleri blog",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sahneva Blog | Etkinlik Teknolojileri ve Organizasyon Rehberleri",
+    description:
+      "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
+    images: [`${ORIGIN}/img/blog/default.webp`],
   },
 };
 

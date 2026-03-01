@@ -23,7 +23,7 @@ export const metadata = {
         url: `${SITE_URL}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon – kapalı alan LED sahne kurulumu projesi",
       },
     ],
     url: "https://www.sahneva.com/projeler/kapali-alan-led-sahne-kurulumu",

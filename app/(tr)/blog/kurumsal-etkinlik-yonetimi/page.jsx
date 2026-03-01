@@ -44,7 +44,7 @@ export const metadata = {
         url: `${SITE_URL}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon blog görseli",
+        alt: "Kurumsal etkinlik yönetimi – profesyonel organizasyon ve teknik prodüksiyon rehberi",
       },
     ],
   },

@@ -66,7 +66,7 @@ export const metadata = {
         url: `${SITE_URL}${FEATURED_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva blog",
+        alt: "Sahne neden hep yüksektir – 2500 yıllık tarihsel ve teknik bir inceleme",
       },
     ],
   },

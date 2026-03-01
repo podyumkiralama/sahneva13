@@ -16,14 +16,23 @@ export const metadata = {
     description: "Gerçekleşen projelerimizin arşivi.",
     url: "https://www.sahneva.com/projeler",
     type: "website",
+    locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
     images: [
       {
         url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon – sahne, podyum, LED ekran ve ses-ışık projeleri",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projeler | Sahneva Organizasyon",
+    description:
+      "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
+    images: [`${SITE_URL}/img/hero-bg.webp`],
   },
 };
 

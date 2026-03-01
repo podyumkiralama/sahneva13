@@ -25,15 +25,23 @@ export const metadata = {
       "Sahneva Organizasyon’un KVKK ve GDPR uyumlu gizlilik politikası, çerez kullanımı ve veri işleme süreçleri.",
     url: `${SITE_URL}/gizlilik-politikasi`,
     siteName: "Sahneva Organizasyon",
-    type: "article",
+    type: "website",
+    locale: "tr_TR",
     images: [
       {
         url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon gizlilik politikası – KVKK ve GDPR uyumlu veri koruma",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gizlilik Politikası | Sahneva Organizasyon",
+    description:
+      "Sahneva Organizasyon’un KVKK ve GDPR uyumlu gizlilik politikası, çerez kullanımı ve veri işleme süreçleri.",
+    images: [`${SITE_URL}/img/hero-bg.webp`],
   },
 };
 

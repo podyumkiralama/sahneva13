@@ -87,7 +87,7 @@ export const metadata = {
         url: `${SITE_URL}${FEATURED_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva blog",
+        alt: "Etkinliğe göre podyum tercihi – düğün, konser, kurumsal ve dış mekan etkinlikleri için podyum rehberi",
       },
     ],
   },

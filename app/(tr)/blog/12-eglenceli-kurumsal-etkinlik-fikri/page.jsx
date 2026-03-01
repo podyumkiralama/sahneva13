@@ -18,14 +18,22 @@ export const metadata = {
   title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
   description: "Profesyonellik ile eğlenceyi bir arada sunan 12 yaratıcı kurumsal etkinlik fikri. Atölye, spor, cinayet gizemi, bingo, gala ve daha fazlası!",
   alternates: { canonical: BLOG_URL },
-  image: HERO_IMAGE,
   category: "Kurumsal Etkinlik",
   keywords: ["kurumsal etkinlik", "eğlenceli etkinlik", "ekip etkinliği", "şirket organizasyonu", "kurumsal organizasyon", "etkinlik fikirleri"],
   openGraph: {
     title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel) | Sahneva",
     description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
     url: BLOG_URL,
-    images: [{ url: `${SITE_URL}${HERO_IMAGE}`, width: 1200, height: 630 }],
+    type: "article",
+    locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
+    images: [{ url: `${SITE_URL}${HERO_IMAGE}`, width: 1200, height: 630, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026 – ekip etkinliği ve organizasyon fikirleri" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
+    description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
+    images: [`${SITE_URL}${HERO_IMAGE}`],
   },
 };
 
