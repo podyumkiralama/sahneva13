@@ -17,6 +17,8 @@ const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const SOUND_LIGHT_PATH = "/ses-isik-sistemleri";
 
 const FEATURED_IMAGE = "/img/galeri/led-ekran-kiralama-3.webp";
+const HERO_IMAGE = FEATURED_IMAGE;
+const OG_IMAGE = FEATURED_IMAGE;
 
 const PUBLISH_DATE = "2025-12-29T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir/page.jsx", "2026-02-05T00:00:00+03:00");
@@ -158,32 +160,6 @@ function ArticleSchema() {
 }
 
 /* ================== UI ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        Sahne Neden Hep Yüksektir?
-      </li>
-    </ol>
-  </nav>
-);
-
 function WatermarkedFigure({ src, alt, caption }) {
   return (
     <figure className="my-10 not-prose">
@@ -222,12 +198,6 @@ const InfoBox = ({ icon, title, children }) => (
       </div>
     </div>
   </div>
-);
-
-const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold text-white">
-    {children}
-  </span>
 );
 
 /* ================== PAGE ================== */

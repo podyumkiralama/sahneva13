@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
@@ -118,32 +117,6 @@ function ArticleSchema() {
     />
   );
 }
-
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        PMGC Dünya Finali
-      </li>
-    </ol>
-  </nav>
-);
 
 function ImgFigure({ src, alt, caption }) {
   return (

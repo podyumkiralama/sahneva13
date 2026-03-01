@@ -14,6 +14,13 @@ const PUBLISH_DATE = "2025-12-15T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/kurumsal-etkinlik-yonetimi/page.jsx", "2026-02-08T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-hero.webp";
+const FEATURED_IMAGE = HERO_IMAGE;
+const OG_IMAGE = HERO_IMAGE;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
 
 /* ================== META DATA ================== */
 export const metadata = {
@@ -148,44 +155,6 @@ function ArticleSchema() {
 }
 
 /* ================== BİLEŞENLER ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li><Link href="/" className="hover:text-blue-600 transition-colors">Anasayfa</Link></li>
-      <li aria-hidden="true" className="text-gray-500">/</li>
-      <li><Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link></li>
-      <li aria-hidden="true" className="text-gray-500">/</li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">Kurumsal Etkinlik Yönetimi</li>
-    </ol>
-  </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">İçindekiler</h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "sahne-podyum", label: "1. Sahne ve Podyum Tasarımı" },
-        { id: "led-ekran", label: "2. LED Ekran Teknolojileri" },
-        { id: "ses-isik", label: "3. Ses ve Işık Yönetimi" },
-        { id: "kurumsal-cadir", label: "4. Kurumsal Çadırlar" },
-        { id: "teknik-prova", label: "5. Teknik Prova Akışı" },
-        { id: "butce-planlama", label: "Bütçe Planlaması" },
-        { id: "faq", label: "Sık Sorulan Sorular" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a 
-            href={`#${item.id}`} 
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
 /* ================== ANA SAYFA ================== */
 export default function BlogPostCorporate() {
   const breadcrumbItems = [

@@ -28,6 +28,13 @@ const AUTHOR_NAME = "Sahneva Teknik";
 const HERO_IMAGE = "/img/blog/dome-cadir-360-mapping-hero.webp";
 const OG_IMAGE = HERO_IMAGE;
 
+const FEATURED_IMAGE = HERO_IMAGE;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
+
 const IMG_KURULUM = "/img/blog/dome-cadir-kurulum.webp";
 const IMG_IC_MEKAN = "/img/blog/dome-cadir-ic-mekan.webp";
 const IMG_MAPPING = "/img/blog/dome-cadir-projeksiyon-mapping.webp";
@@ -207,36 +214,6 @@ const Breadcrumbs = () => (
       </li>
     </ol>
   </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
-      İçindekiler
-    </h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "dome-gucu", label: "1. Dome Çadırın Kurumsal Gücü" },
-        { id: "immersif", label: "1.1 İmmersif Atmosfer" },
-        { id: "guvenlik", label: "1.2 Mühendislik & Güvenlik" },
-        { id: "hizli-kurulum", label: "1.3 Hızlı ve Modüler Operasyon" },
-        { id: "mapping", label: "2. 360° Mapping Mühendisliği" },
-        { id: "projeksiyon", label: "2.1 Lümen / Warp / Edge Blending" },
-        { id: "senkron", label: "2.2 Tam Senkronizasyon" },
-        { id: "zorluklar", label: "3. Teknik Zorluklar & Çözümler" },
-        { id: "sonuc", label: "Sonuç" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a
-            href={`#${item.id}`}
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
 );
 
 function YouTubeEmbed({ title, embedUrl }) {

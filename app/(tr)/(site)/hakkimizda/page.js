@@ -151,7 +151,7 @@ export default function HakkimizdaPage() {
       <AboutStructuredData />
 
     {/* HERO - Hakkımızda (Premium + GSC-safe, istatistikler hero içinde) */}
-/* ================== HERO - Hakkımızda (FINAL / CWV-safe) ================== */
+    {/* ================== HERO - Hakkımızda (FINAL / CWV-safe) ================== */}
 <section
   className="
     relative overflow-hidden bg-slate-950 text-white

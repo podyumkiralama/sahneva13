@@ -15,14 +15,6 @@ import { HOME_PAGE_TITLE, getOgImageUrl } from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
-/* -------------------
-   Below-the-fold: content-visibility (perf)
-------------------- */
-const BELOW_THE_FOLD_VISIBILITY_STYLE = {
-  contentVisibility: "auto",
-  containIntrinsicSize: "1px 1200px",
-};
-
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
 const SERVICE_ID = `${HOME_URL}#primary-service`;

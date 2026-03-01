@@ -57,9 +57,8 @@ export default function VideoEmbed({
 
   className = "",
 }) {
-  if (!videoId) return null;
-
   const thumbs = useMemo(() => {
+    if (!videoId) return [];
     const base = `https://i.ytimg.com/vi/${videoId}`;
     const fallbackThumbs = [
       `${base}/maxresdefault.jpg`,
@@ -76,6 +75,7 @@ export default function VideoEmbed({
   const [thumbFailed, setThumbFailed] = useState(false);
 
   const baseEmbedUrl = useMemo(() => {
+    if (!videoId) return "";
     return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
   }, [videoId]);
 
@@ -129,6 +129,8 @@ export default function VideoEmbed({
     setIsPlayed(true);
     setIframeSrc(clickEmbedUrl); // ✅ tıklayınca iframe eklenir + autoplay başlar
   }, [clickEmbedUrl]);
+
+  if (!videoId) return null;
 
   const currentThumb = thumbs[thumbIndex];
 
