@@ -13,6 +13,12 @@ const PUBLISH_DATE = "2026-02-27T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx", "2026-03-01T17:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/12-eglenceli-kurumsal-etkinlik-hero.webp";
+const IMG_KONFERANS = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp";
+const IMG_LED_ENSTALASYON = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp";
+const IMG_GALA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/gala-gecesi-truss-led-kurulum.webp";
+const IMG_ACIK_HAVA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/acik-hava-luks-davet-masa-duzeni.webp";
+const IMG_PANEL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-panel-konusmaci-sahne.webp";
+const IMG_PROTOKOL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/protokol-sahne-backwall.webp";
 
 export const metadata = {
   title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
@@ -246,6 +252,10 @@ export default function BlogPost() {
         </ul>
         <Tip2026>AI tabanlı eşleştirme uygulamaları ile katılımcıları ortak ilgi alanları ve kariyer hedefleri doğrultusunda buluşturarak networking verimliliğini %40'a kadar artırabilirsiniz.</Tip2026>
 
+        <figure className="my-10 not-prose">
+          <Image src={IMG_KONFERANS} alt="Geniş konferans salonu kurumsal etkinlik ve networking organizasyonu" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
+
         {/* 4 */}
         <h3 id="etkinlik-4" className="text-2xl font-bold mt-14 scroll-mt-20">4. Immersive & AR Destekli Gizem Maceraları</h3>
         <p>Klasik cinayet gizemi etkinlikleri 2026'da artırılmış gerçeklik (AR) ve immersive tasarımla birleşerek çok daha sürükleyici bir boyut kazandı. Katılımcıları holografik ipuçları ve AR sahneleriyle çevreleyen bu organizasyonlar, stratejik düşünmeyi alışılmışın dışında bir atmosferde deneyimleme imkânı sunuyor.</p>
@@ -256,6 +266,10 @@ export default function BlogPost() {
           <li>Oturmalı bir yemekle birleştirin – Sosyal bir ortamda ipuçlarını tartışma ve fikir alışverişi imkânı sunun.</li>
         </ul>
         <Tip2026>VR gözlük destekli sanal suç mahalli turu ekleyerek hibrit katılımcıların da deneyimden tam anlamıyla yararlanmasını sağlayabilirsiniz.</Tip2026>
+
+        <figure className="my-10 not-prose">
+          <Image src={IMG_LED_ENSTALASYON} alt="Kurumsal LED dijital enstalasyon – immersive etkinlik ve AR teknoloji tasarımı" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
 
         {/* 5 */}
         <h3 id="etkinlik-5" className="text-2xl font-bold mt-14 scroll-mt-20">5. Amaç Odaklı Sosyal Etki Etkinlikleri</h3>
@@ -293,6 +307,10 @@ export default function BlogPost() {
         </ul>
         <Tip2026>Menüde yerel çiftçilerden temin edilen ürünleri kullanarak etkinliğin karbon ayak izini azaltabilir ve bunu bir iletişim avantajına dönüştürebilirsiniz.</Tip2026>
 
+        <figure className="my-10 not-prose">
+          <Image src={IMG_GALA} alt="Gala gecesi truss ve LED kurulumu – kurumsal gala yemeği dekorasyon ve sahne tasarımı" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
+
         {/* 8 */}
         <h3 id="etkinlik-8" className="text-2xl font-bold mt-14 scroll-mt-20">8. Gamification & AI Destekli Eğlence Yarışmaları</h3>
         <p>Klasik bingo formatının çok ötesine geçen gamification etkinlikleri, 2026'da AI destekli kişiselleştirilmiş yarışmalar ve dinamik liderlik tabloları ile yeniden tanımlanıyor. Her seviyeden katılımcının kolaylıkla dahil olabileceği bu organizasyonlar, pozitif şirket kültürünü desteklerken rekabetçi ve eğlenceli bir enerji yaratır.</p>
@@ -315,6 +333,10 @@ export default function BlogPost() {
         </ul>
         <Tip2026>Bitkisel ve vegan seçenekleri menüye dahil ederek farklı beslenme tercihlerine saygı gösterin ve etkinliğinizi daha kapsayıcı hale getirin.</Tip2026>
 
+        <figure className="my-10 not-prose">
+          <Image src={IMG_ACIK_HAVA} alt="Açık hava lüks davet masa düzeni – kurumsal yemek ve tadım etkinliği organizasyonu" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
+
         {/* 10 */}
         <h3 id="etkinlik-10" className="text-2xl font-bold mt-14 scroll-mt-20">10. Micro-Learning & İnteraktif Bilgi Oturumları</h3>
         <p>2026'da dikkat süresinin kısaldığı ve hızlı bilgi tüketiminin öne çıktığı bir dönemde, klasik seminerler yerini kısa ve yoğun micro-learning formatlarına bırakıyor. 15-30 dakikalık yoğun oturumlar, çalışanların bilgiyi çok daha etkili içselleştirmesini sağlarken katılım enerjisini canlı tutuyor.</p>
@@ -326,6 +348,10 @@ export default function BlogPost() {
         </ul>
         <Tip2026>AI destekli içerik kişiselleştirme ile her katılımcıya kariyer hedeflerine göre uyarlanmış öğrenme yolları sunabilirsiniz.</Tip2026>
 
+        <figure className="my-10 not-prose">
+          <Image src={IMG_PANEL} alt="Kurumsal panel konuşmacı sahne – micro-learning ve interaktif bilgi oturumu etkinlik düzeni" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
+
         {/* 11 */}
         <h3 id="etkinlik-11" className="text-2xl font-bold mt-14 scroll-mt-20">11. Kurumsal Ödül Törenleri</h3>
         <p>Kurumsal ödül törenleri, emeği ve başarıyı görünür kılmanın en etkili yollarından biridir. Şirket içi motivasyonu artırırken marka kimliğini güçlendiren bu organizasyonlar, 2026'da hibrit format ve çalışan katılımlı ödül kategorileriyle çok daha kapsayıcı bir yapıya kavuşuyor.</p>
@@ -336,6 +362,10 @@ export default function BlogPost() {
           <li>Açık mikrofon bölümü planlayın – Kazananlara duygu ve düşüncelerini paylaşma fırsatı sunarak törene samimi bir boyut katın.</li>
         </ul>
         <Tip2026>AI ile yıl boyunca toplanan performans verilerini analiz ederek ödül kategorilerini veriye dayalı ve şeffaf bir şekilde oluşturabilirsiniz.</Tip2026>
+
+        <figure className="my-10 not-prose">
+          <Image src={IMG_PROTOKOL} alt="Protokol sahne backwall – kurumsal ödül töreni sahne ve organizasyon tasarımı" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
 
         {/* 12 */}
         <h3 id="etkinlik-12" className="text-2xl font-bold mt-14 scroll-mt-20">12. Kurumsal Komedi Etkinlikleri</h3>
