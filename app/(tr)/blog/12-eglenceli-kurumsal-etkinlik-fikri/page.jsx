@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== YAPILANDIRMA ================== */
@@ -18,6 +19,8 @@ export const metadata = {
   description: "Profesyonellik ile eğlenceyi bir arada sunan 12 yaratıcı kurumsal etkinlik fikri. Atölye, spor, cinayet gizemi, bingo, gala ve daha fazlası!",
   alternates: { canonical: BLOG_URL },
   image: HERO_IMAGE,
+  category: "Kurumsal Etkinlik",
+  keywords: ["kurumsal etkinlik", "eğlenceli etkinlik", "ekip etkinliği", "şirket organizasyonu", "kurumsal organizasyon", "etkinlik fikirleri"],
   openGraph: {
     title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel) | Sahneva",
     description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
@@ -153,7 +156,7 @@ export default function BlogPost() {
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: HERO_IMAGE, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026" }}
-        pills={["Sahneva Blog", "Eğlence & Motivasyon"]}
+        pills={['Sahneva Blog', 'Eğlence & Motivasyon']}
         title="12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)"
         description={metadata.description}
         publishDate={PUBLISH_DATE}
@@ -349,6 +352,12 @@ export default function BlogPost() {
             <a href="tel:+905453048671" className="bg-white text-violet-900 hover:bg-violet-50 font-bold py-5 px-12 rounded-2xl text-lg">📞 Hemen Arayın</a>
           </div>
         </div>
+
+        <SmartBlogSuggestions
+          currentSlug="12-eglenceli-kurumsal-etkinlik-fikri"
+          currentCategory={metadata.category}
+          currentKeywords={metadata.keywords}
+        />
 
         <BlogRelatedLinks services={[
           { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
