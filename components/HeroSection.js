@@ -33,7 +33,7 @@ function KeywordPills() {
 
 export default function HeroSection() {
   return (
-    <header
+    <section
       className="relative bg-[#0B1120] text-white overflow-hidden py-20 md:py-24 lg:py-28"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
@@ -162,6 +162,6 @@ export default function HeroSection() {
 
       {/* ✅ HeroBelow ile geçiş: daha az “beyaz band” hissi */}
       <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
-    </header>
+    </section>
   );
 }
