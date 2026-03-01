@@ -1,6 +1,6 @@
 // components/HeroSection.js
-import Image from "next/image";
 import Link from "next/link";
+import { preload } from "react-dom";
 
 const HERO_KEYWORDS = [
   { text: "Sahne Kiralama", color: "text-blue-200" },
@@ -32,6 +32,17 @@ function KeywordPills() {
 }
 
 export default function HeroSection() {
+  preload("/img/hero-bg-desktop.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(min-width: 640px)",
+  });
+  preload("/img/hero-bg-mobile.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(max-width: 639px)",
+  });
+
   return (
     <section
       className="relative bg-[#0B1120] text-white overflow-hidden py-20 md:py-24 lg:py-28"
@@ -40,15 +51,22 @@ export default function HeroSection() {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Image
-          src="/img/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+        <picture>
+          <source
+            srcSet="/img/hero-bg-mobile.webp"
+            media="(max-width: 639px)"
+            type="image/webp"
+          />
+          <img
+            src="/img/hero-bg-desktop.webp"
+            alt=""
+            fetchPriority="high"
+            loading="eager"
+            width={1600}
+            height={900}
+            className="absolute inset-0 object-cover object-center"
+          />
+        </picture>
 
         {/* Film (okunurluk) */}
         <div className="absolute inset-0 bg-black/45" />
