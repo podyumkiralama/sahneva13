@@ -1,5 +1,6 @@
 // components/CorporateEvents.js
 
+import Image from "next/image";
 import Link from "next/link";
 
 // —————————————————————————————————————————
@@ -52,7 +53,7 @@ const DEFAULT_ADVANTAGES = [
       "text-purple-300 bg-purple-500/10 border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.15)]",
   },
   {
-    icon: "yw", // 👷
+    icon: "👷",
     label: "Saha Deneyimi",
     desc: "Kriz anlarını yönetebilen, 10+ yıl deneyimli teknik kadro.",
     colorClass:
@@ -137,14 +138,13 @@ function mergeDictionary(base, override = {}) {
 
 function CardImage({ src, alt }) {
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
-      width={1600}
-      height={1200}
-      loading="lazy"
+      fill
       decoding="async"
       className="absolute inset-0 h-full w-full object-cover"
+      sizes="(max-width: 768px) 100vw, 33vw"
     />
   );
 }
@@ -203,16 +203,12 @@ export default function CorporateEvents({
       </div>
 
       <div className="container relative z-10 px-4 mx-auto">
-        {/* Başlık (tek kaynak, stabil) */}
-        {!ariaLabel && (
-          <h2 id={computedHeadingId} className="sr-only">
-            {dictionary.sectionTitleSr}
-          </h2>
-        )}
-
         {/* SEO & Giriş */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+          <h2
+            id={ariaLabel ? undefined : computedHeadingId}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+          >
             İstanbul&apos;da{" "}
             <span className="gradient-text gradient-text--safe-xl">
               Kurumsal Organizasyon Yapan Firmalar
@@ -347,7 +343,7 @@ export default function CorporateEvents({
                       className={`w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-3 transition-all duration-300 border ${safeColorClass}`}
                       aria-hidden="true"
                     >
-                      {item.icon === "yw" ? "👷" : item.icon}
+                      {item.icon}
                     </div>
 
                     <h4 className="text-base font-bold text-white mb-1">{item.label}</h4>

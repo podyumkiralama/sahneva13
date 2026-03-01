@@ -322,18 +322,6 @@ const HOME_JSON_LD = {
 const homeJsonLdSafe = JSON.stringify(HOME_JSON_LD).replace(/</g, "\\u003c");
 const BREADCRUMB_ITEMS = [{ name: "Ana Sayfa", url: `${HOME_URL}` }];
 
-const SEO_TECH_FEATURES = [
-  { title: "LED Ekran Kurulum & Teknik Operasyon", desc: "Indoor/Outdoor LED panel kurulumları, canlı yayın/stream ve içerik yönetimi." },
-  { title: "Ses & Işık Sistemleri", desc: "Profesyonel ses sistemleri, ışık tasarımı ve teknik ekip desteği." },
-  { title: "Sahne, Podyum & Truss", desc: "Modüler sahne/podyum, truss sistemleri ve güvenli kurulum çözümleri." },
-];
-
-const SEO_INFRA_FEATURES = [
-  { title: "Keşif & Planlama", desc: "Mekân keşfi, teknik ihtiyaç analizi ve proje planı." },
-  { title: "Kurulum & Operasyon", desc: "Zamanında kurulum, sahada teknik ekip ve operasyon yönetimi." },
-  { title: "Söküm & Teslim", desc: "Etkinlik sonrası güvenli söküm ve raporlama." },
-];
-
 function StructuredData() {
   return (
     <script
@@ -380,7 +368,7 @@ export default function HomePage() {
 
       {/* Teknik */}
       <div className="bg-slate-900 py-10">
-        <TechCapabilities techFeatures={SEO_TECH_FEATURES} infraFeatures={SEO_INFRA_FEATURES} />
+        <TechCapabilities />
       </div>
 
       {/* Kurumsal */}
