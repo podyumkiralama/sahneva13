@@ -5,10 +5,12 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 /* ================== YAPILANDIRMA ================== */
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
-const BLOG_URL = `${SITE_URL}/blog/12-eglenceli-kurumsal-etkinlik-fikri`;
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
+const BLOG_PATH = "/blog/12-eglenceli-kurumsal-etkinlik-fikri";
+const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 const PUBLISH_DATE = "2026-02-27T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx", "2026-03-01T17:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
@@ -16,6 +18,7 @@ const HERO_IMAGE = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/12-eglenceli-
 const IMG_KONFERANS = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp";
 const IMG_LED_ENSTALASYON = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp";
 const IMG_GALA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/gala-gecesi-truss-led-kurulum.webp";
+const IMG_SEFFAF_CADIR = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/seffaf_cadir_kokteyl.webp";
 const IMG_ACIK_HAVA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/acik-hava-luks-davet-masa-duzeni.webp";
 const IMG_PANEL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-panel-konusmaci-sahne.webp";
 const IMG_PROTOKOL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/protokol-sahne-backwall.webp";
@@ -44,29 +47,55 @@ export const metadata = {
 };
 
 function ArticleSchema() {
-  const site = SITE_URL;
+  const WEBPAGE_ID = `${BLOG_URL}#webpage`;
+  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ImageObject",
+        "@id": PRIMARY_IMAGE_ID,
+        url: `${SITE_URL}${HERO_IMAGE}`,
+        contentUrl: `${SITE_URL}${HERO_IMAGE}`,
+        width: 1200,
+        height: 630,
+      },
+      {
+        "@type": "WebPage",
+        "@id": WEBPAGE_ID,
+        url: BLOG_URL,
+        name: metadata.title,
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
+        primaryImageOfPage: { "@id": PRIMARY_IMAGE_ID },
+        inLanguage: "tr-TR",
+        datePublished: PUBLISH_DATE,
+        dateModified: MODIFIED_DATE,
+      },
+      {
+        "@type": "Article",
+        "@id": ARTICLE_ID,
+        isPartOf: { "@id": WEBPAGE_ID },
+        mainEntityOfPage: { "@id": WEBPAGE_ID },
+        headline: metadata.title,
+        description: metadata.description,
+        image: { "@id": PRIMARY_IMAGE_ID },
+        author: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+        inLanguage: "tr-TR",
+        datePublished: PUBLISH_DATE,
+        dateModified: MODIFIED_DATE,
+      },
+    ],
+  };
+
   return (
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: metadata.title,
-          description: metadata.description,
-          image: `${site}${HERO_IMAGE}`,
-          datePublished: PUBLISH_DATE,
-          dateModified: MODIFIED_DATE,
-          author: { "@type": "Organization", name: AUTHOR_NAME, url: site },
-          publisher: {
-            "@type": "Organization",
-            name: "Sahneva",
-            url: site,
-            logo: { "@type": "ImageObject", url: `${site}/img/logo.png` },
-          },
-        }).replace(/</g, "\u003c"),
-      }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
     />
   );
 }
@@ -334,6 +363,10 @@ export default function BlogPost() {
         <Tip2026>Bitkisel ve vegan seçenekleri menüye dahil ederek farklı beslenme tercihlerine saygı gösterin ve etkinliğinizi daha kapsayıcı hale getirin.</Tip2026>
 
         <figure className="my-10 not-prose">
+          <Image src={IMG_SEFFAF_CADIR} alt="Şeffaf çadır altında kokteyl düzeni – kurumsal yiyecek ve içecek tadım etkinliği organizasyonu" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
+        </figure>
+
+        <figure className="my-10 not-prose">
           <Image src={IMG_ACIK_HAVA} alt="Açık hava lüks davet masa düzeni – kurumsal yemek ve tadım etkinliği organizasyonu" width={1200} height={675} sizes="(max-width: 768px) 100vw, 800px" className="h-auto w-full rounded-2xl" loading="lazy" />
         </figure>
 
@@ -401,9 +434,9 @@ export default function BlogPost() {
           { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
           { href: "/sahne-kiralama", label: "Sahne Kiralama" },
           { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
-          { href: "/ses-isik-sistemi", label: "Ses & Işık Sistemi" },
-          { href: "/dekorasyon-kiralama", label: "Dekorasyon Kiralama" },
-          { href: "/teknik-destek", label: "Teknik Destek" },
+          { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemi" },
+          { href: "/cadir-kiralama", label: "Çadır Kiralama" },
+          { href: "/truss-kiralama", label: "Truss Kiralama" },
         ]} />
 
       </BlogLayout>
