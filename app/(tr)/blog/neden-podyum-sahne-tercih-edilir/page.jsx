@@ -22,6 +22,10 @@ const IMG_PRO = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 const PUBLISH_DATE = "2025-12-30T09:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/neden-podyum-sahne-tercih-edilir/page.jsx", "2026-02-25T00:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
 
 /* ================== META ================== */
 export const metadata = {

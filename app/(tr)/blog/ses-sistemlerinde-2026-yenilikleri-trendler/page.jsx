@@ -24,6 +24,13 @@ const AUTHOR_NAME = "Sahneva Teknik";
 const HERO_IMAGE = "/img/blog/ses-sistemleri-2026-hero.webp";
 const OG_IMAGE = HERO_IMAGE;
 
+const FEATURED_IMAGE = HERO_IMAGE;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
+
 /* ================== META ================== */
 export const metadata = {
   title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array",
@@ -136,58 +143,6 @@ function ArticleSchema() {
 }
 
 /* ================== UI HELPERS ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        Ses Sistemlerinde 2026 Yenilikleri
-      </li>
-    </ol>
-  </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">İçindekiler</h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "kablosuz-mikrofon", label: "1. Kablosuz Mikrofon Teknolojileri" },
-        { id: "wmas", label: "1.1 WMAS Dönemi" },
-        { id: "ai-frekans", label: "1.2 AI Tabanlı Frekans Koordinasyonu" },
-        { id: "line-array", label: "2. Line Array Ses Sistemleri" },
-        { id: "network-kontrol", label: "2.1 Network Kontrollü Mimari" },
-        { id: "oda-kalibrasyonu", label: "2.2 Akıllı Oda Kalibrasyonu" },
-        { id: "neden-yatirim", label: "3. Neden 2026 Teknolojileri?" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a
-            href={`#${item.id}`}
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
 /* ================== PAGE ================== */
 export default function BlogPostAudioTrends2026() {
   const breadcrumbItems = [
@@ -221,8 +176,6 @@ export default function BlogPostAudioTrends2026() {
         ]}
         whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
       >
-
-              <Breadcrumbs />
 
               <p>
                 2026 yılı itibarıyla profesyonel ses sistemleri, yüksek desibel odaklı yaklaşımları

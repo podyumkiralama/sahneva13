@@ -11,7 +11,6 @@ import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
  * Not: JSON-LD breadcrumb / Article schema gibi scriptleri sayfa içinde bırakın.
  */
 export default function BlogLayout({
-  siteUrl,
   breadcrumbItems = [],
   heroImage,
   pills = [],

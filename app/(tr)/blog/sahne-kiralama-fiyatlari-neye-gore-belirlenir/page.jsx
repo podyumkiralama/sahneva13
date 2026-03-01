@@ -3,7 +3,6 @@ import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -24,9 +23,16 @@ const TITLE = "Sahne Kiralama Fiyatları Neye Göre Belirlenir?";
 const DESCRIPTION =
   "Sahne kiralama fiyatı en temelde m² üzerinden şekillenir. Yükseklik fiyatı etkilemez; truss, LED ekran, ses-ışık ve çadır gibi teknik katmanlar ile teknik rider geldiğinde fiyat netleşir. Rider yoksa verilen fiyatlar tahminidir.";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
+const FEATURED_IMAGE = HERO_IMG;
+const HERO_IMAGE = HERO_IMG;
+const OG_IMAGE = HERO_IMG;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
 
 const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
-const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir/page.jsx", "2026-02-08T00:00:00+03:00");
 
 /* ================== META ================== */
 export const metadata = {
@@ -61,129 +67,7 @@ export const metadata = {
   robots: { index: true, follow: true },
 };
 
-/* ================== JSON-LD HELPERS ================== */
-function JsonLd({ data }) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
-}
-
-function buildBreadcrumbJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
-      { "@type": "ListItem", position: 3, name: TITLE, item: BLOG_URL },
-    ],
-  };
-}
-
-function buildArticleJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": `${BLOG_URL}#article`,
-    mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
-    headline: TITLE,
-    description: DESCRIPTION,
-    image: [`${SITE_URL}${HERO_IMG}`],
-    datePublished: PUBLISH_DATE,
-    dateModified: MODIFIED_DATE,
-    inLanguage: "tr-TR",
-    author: {
-      "@type": "Organization",
-      name: "Sahneva Organizasyon",
-      url: SITE_URL,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva Organizasyon",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-    },
-  };
-}
-
-function buildFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Sahne kiralama fiyatını en çok ne belirler?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Sahne kiralama fiyatını en temelde sahnenin ölçüsü (m²) belirler. Mekân/alan, çadır ölçüsü, teknik katmanlar (truss, LED, ses-ışık) ve etkinliğin teknik ihtiyaçları toplam bütçeyi şekillendirir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Sahne yüksekliği fiyatı etkiler mi?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Genellikle hayır. Sahne yüksekliği (40/60/80 cm gibi) çoğu projede fiyatı belirleyen ana unsur değildir. Fiyatın ana ekseni m² ve teknik kapsamdır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Rider yokken verilen fiyat net midir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Rider (teknik şartname) yokken verilen fiyatlar ortalama/tahmini olur. Teknik ihtiyaçlar netleştiğinde (rider veya ajans/organizasyon teknik planı) fiyat yeniden şekillenebilir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "LED ekran, truss ve ses-ışık nasıl fiyatlanır?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "LED ekranlar çoğunlukla günlük fiyatlanır; truss ve podyum sistemleri proje kapsamına göre günlük/haftalık değerlendirilir. Marka, adet ve teknik özellikler fiyatı doğrudan etkiler. Ses-ışıkta konuşma sistemi ile konser sistemi aynı değildir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Çadır kiralama fiyatı neye göre belirlenir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Çadır fiyatı m² üzerinden belirlenir. Açık hava etkinliklerinde, açılışlarda ve güvenlik alanı oluşturulan projelerde çadır ölçüsü hem çadır hem de sahne planını etkileyebilir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Net fiyat almak için hangi bilgiler gerekir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Net fiyat için en azından mekân/alan bilgisi, istenen sahne ölçüsü, etkinlik süresi ve teknik katmanlar (LED, ses-ışık, truss, çadır vb.) netleşmelidir. Sanatçı/canlı müzik varsa teknik rider fiyatın ana belirleyicisidir.",
-        },
-      },
-    ],
-  };
-}
-
 /* ================== KÜÇÜK BİLEŞENLER ================== */
-function PillLink({ href, children }) {
-  return (
-    <Link
-      href={href}
-      className="rounded-full border border-white/15 bg-white/10 px-4 py-2 hover:bg-white/15"
-    >
-      {children}
-    </Link>
-  );
-}
-
 function ImgFigure({ src, alt, caption }) {
   return (
     <figure className="not-prose my-8">
@@ -207,10 +91,6 @@ function ImgFigure({ src, alt, caption }) {
 
 /* ================== SAYFA ================== */
 export default function Page() {
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd();
-  const articleJsonLd = buildArticleJsonLd();
-  const faqJsonLd = buildFaqJsonLd();
-
   
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },

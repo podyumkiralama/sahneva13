@@ -62,6 +62,11 @@ const SECTION_IMAGES = {
   },
 };
 
+const IMAGES = SECTION_IMAGES;
+const HERO_IMAGE = FEATURED_IMAGE;
+const OG_IMAGE = FEATURED_IMAGE;
+const WA_URL = LEADMAGNET_WA;
+
 /* ================== META ================== */
 export const metadata = {
   title: "Etkinliğe Göre Podyum Tercihi",
@@ -203,70 +208,6 @@ function ArticleSchema() {
 }
 
 /* ================== UI HELPERS ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        Etkinliğe Göre Podyum Tercihi
-      </li>
-    </ol>
-  </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
-      İçindekiler
-    </h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "stats", label: "Hızlı Seçim Özeti" },
-        { id: "tablo", label: "Teknik Özellikler Tablosu" },
-        { id: "kurumsal", label: "Kurumsal Etkinlikler / Otel İçi" },
-        { id: "dugun", label: "Düğün / Nişan" },
-        { id: "konser", label: "Konser / Festival" },
-        { id: "miting", label: "Miting" },
-        { id: "altyapi", label: "Açık Alan / Çadır Altyapısı (10 cm + Halı)" },
-        { id: "checklist", label: "Teknik Kontrol Listesi" },
-        { id: "cta", label: "Ücretsiz Danışmanlık / Teklif Al" },
-        { id: "faq", label: "SSS (Rich Snippet)" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a
-            href={`#${item.id}`}
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const StatCard = ({ value, label }) => (
-  <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-    <div className="text-2xl md:text-3xl font-black text-gray-900">{value}</div>
-    <p className="mt-2 text-sm text-gray-600 leading-snug">{label}</p>
-  </div>
-);
-
 const InfoBox = ({ icon, title, children, variant = "info" }) => {
   const styles =
     variant === "warn"

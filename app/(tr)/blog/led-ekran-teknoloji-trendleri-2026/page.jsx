@@ -4,7 +4,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 // Statik image importları (public/img/blog/)
-import heroImg from "@/public/img/blog/led-2026-hero.webp";
 import stageWideImg from "@/public/img/blog/led-2026-sahne-genis.webp";
 import cobMacroImg from "@/public/img/blog/cob-led-macro.webp";
 
@@ -41,6 +40,13 @@ const LEADMAGNET_MSG = encodeURIComponent(
   "Merhaba, LED Ekran Teknik Teklif Checklist PDF’ini almak istiyorum. Etkinlik tipi, salon ölçüsü ve izleme mesafesini de paylaşabilirim."
 );
 const LEADMAGNET_WA = `https://wa.me/${WHATSAPP_NUMBER}?text=${LEADMAGNET_MSG}`;
+
+const HERO_IMAGE = FEATURED_IMAGE;
+const OG_IMAGE = FEATURED_IMAGE;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const WA_URL = LEADMAGNET_WA;
 
 /* ================== META DATA ================== */
 export const metadata = {
@@ -174,70 +180,6 @@ function ArticleSchema() {
 }
 
 /* ================== UI PARÇALARI ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        2026 LED Ekran Teknolojisi Trendleri
-      </li>
-    </ol>
-  </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
-      İçindekiler
-    </h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "stats", label: "2026 LED Ekran Gerçekleri (Hızlı Özet)" },
-        { id: "fine-pitch", label: "1. Fine-Pitch ve P1.x Dönemi" },
-        { id: "cob-led", label: "2. COB LED 2.0: Dayanıklılık ve Siyah Seviye" },
-        { id: "hdr", label: "3. HDR İçerik ve Renk Kalibrasyonu" },
-        { id: "case-study", label: "Vaka Analizi: Lansman Sahnesi" },
-        { id: "comparison", label: "2026 Panel Karşılaştırma Tablosu" },
-        { id: "mistakes", label: "5 Kritik Hata (2026)" },
-        { id: "budget", label: "Bütçe Dağılımı (Pratik)" },
-        { id: "teknik-checklist", label: "Teknik Checklist + PDF" },
-        { id: "faq", label: "Sık Sorulan Sorular" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a
-            href={`#${item.id}`}
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const StatCard = ({ value, label }) => (
-  <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-    <div className="text-2xl md:text-3xl font-black text-gray-900">{value}</div>
-    <p className="mt-2 text-sm text-gray-600 leading-snug">{label}</p>
-  </div>
-);
-
 const InfoBox = ({ icon, title, children, variant = "info" }) => {
   const styles =
     variant === "warn"

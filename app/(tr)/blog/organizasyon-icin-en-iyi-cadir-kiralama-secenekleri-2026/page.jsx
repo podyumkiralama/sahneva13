@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import heroImg from "@/public/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
 import clearTopImg from "@/public/img/blog/kurumsal-etkinlik-cadir.webp";
@@ -19,7 +17,13 @@ const BLOG_PATH = "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-202
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
 const FEATURED_IMAGE = "/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
-const TENT_SERVICE_PATH = "/cadir-kiralama";
+const HERO_IMAGE = FEATURED_IMAGE;
+const OG_IMAGE = FEATURED_IMAGE;
+const IMAGES = null;
+const STAGE_SERVICE_PATH = "/sahne-kiralama";
+const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
 
 const PUBLISH_DATE = "2026-02-12T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026/page.jsx", "2026-02-05T00:00:00+03:00");
@@ -100,87 +104,6 @@ const FAQ_ITEMS = [
       "Metrekare, zemin koşulları, ankraj ihtiyacı, iklimlendirme, LED ekran/sahne entegrasyonu ve lojistik giderleri maliyetin ana belirleyicileridir.",
   },
 ];
-
-const STAT_ITEMS = [
-  {
-    value: "%60",
-    label: "Yanlış planlama kaynaklı bütçe sapması",
-  },
-  {
-    value: "4x",
-    label: "Teknik keşif yapılan projelerde risk azalması",
-  },
-  {
-    value: "12m",
-    label: "LED ekran + truss entegrasyonlu tipik kurulum",
-  },
-  {
-    value: "24s",
-    label: "Rüzgar yükü kontrolü gereken ortalama süre",
-  },
-];
-
-/* ================== UI PARÇALARI ================== */
-const Breadcrumbs = () => (
-  <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
-    <ol className="flex items-center space-x-2 flex-wrap">
-      <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
-          Anasayfa
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
-          Blog
-        </Link>
-      </li>
-      <li aria-hidden="true" className="text-gray-500">
-        /
-      </li>
-      <li className="text-gray-900 font-medium truncate" aria-current="page">
-        2026 Çadır Kiralama Rehberi
-      </li>
-    </ol>
-  </nav>
-);
-
-const TableOfContents = () => (
-  <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 mb-6 hidden lg:block">
-    <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">İçindekiler</h4>
-    <ul className="space-y-2 text-sm">
-      {[
-        { id: "neden-cadir", label: "Çadırın gizli rolü" },
-        { id: "kurumsal", label: "Kurumsal etkinlikler" },
-        { id: "dugun", label: "Düğün ve özel günler" },
-        { id: "fuar", label: "Fuar & festival alanları" },
-        { id: "kurulum", label: "Kurulum süreci" },
-        { id: "maliyet", label: "Maliyet belirleyicileri" },
-        { id: "risk", label: "Planlama riski" },
-        { id: "sonuc", label: "Sonuç" },
-        { id: "faq", label: "Sık Sorulan Sorular" },
-      ].map((item) => (
-        <li key={item.id}>
-          <a
-            href={`#${item.id}`}
-            className="text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all block"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const StatCard = ({ value, label }) => (
-  <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-    <div className="text-2xl md:text-3xl font-black text-gray-900">{value}</div>
-    <p className="mt-2 text-sm text-gray-600 leading-snug">{label}</p>
-  </div>
-);
 
 /* ================== SCHEMA (JSON-LD) ================== */
 function ArticleSchema() {

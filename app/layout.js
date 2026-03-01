@@ -14,6 +14,7 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL(process.env.SITE_URL ?? "https://www.sahneva.com"),
   manifest: "/manifest.json",
 };
 
