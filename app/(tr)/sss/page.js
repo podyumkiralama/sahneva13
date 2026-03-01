@@ -22,7 +22,7 @@ export const metadata = {
         url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon sık sorulan sorular – sahne, podyum, LED ekran ve ses-ışık kiralama SSS",
       },
     ],
   },

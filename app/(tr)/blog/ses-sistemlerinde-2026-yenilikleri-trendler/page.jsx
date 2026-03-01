@@ -53,7 +53,7 @@ export const metadata = {
         url: `${SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon blog görseli",
+        alt: "Ses sistemlerinde 2026 yenilikleri ve trendler – line array, dijital konsol ve sahne ses teknolojileri",
       },
     ],
   },

@@ -276,7 +276,7 @@ export const metadata = {
         url: `${ORIGIN}/img/podyum/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon podyum kiralama – modüler podyum sistemleri ve profesyonel sahne çözümleri",
       },
     ],
   },

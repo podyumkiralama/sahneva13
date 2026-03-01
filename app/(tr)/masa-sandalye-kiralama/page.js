@@ -60,7 +60,7 @@ export const metadata = {
         url: `${ORIGIN}/img/sandalye/3.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon masa sandalye kiralama – düğün, kurumsal etkinlik ve organizasyon için profesyonel çözümler",
       },
     ],
   },

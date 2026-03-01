@@ -73,7 +73,7 @@ export const metadata = {
         url: `${SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon blog görseli",
+        alt: "Kurumsal etkinliklerde dome çadır devrimi – pnömatik yapı ve 360° mapping uygulaması",
       },
     ],
   },

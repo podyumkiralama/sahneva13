@@ -60,7 +60,7 @@ export const metadata = {
         url: `${ORIGIN}/img/cadir/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve endüstriyel çadır çözümleri",
       },
     ],
   },

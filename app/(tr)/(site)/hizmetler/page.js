@@ -18,11 +18,19 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/hizmetler-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli"
-      }
+        alt: "Sahneva Organizasyon – sahne, LED ekran, ses-ışık ve çadır kiralama hizmetleri",
+      },
     ],
     type: "website",
     locale: "tr_TR",
+    siteName: "Sahneva Organizasyon",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hizmetlerimiz | Sahneva Organizasyon – Profesyonel Etkinlik Çözümleri",
+    description:
+      "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",
+    images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],
   },
   robots: { index: true, follow: true },
 };

@@ -20,11 +20,18 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon iletişim – sahne, LED ekran ve ses-ışık kiralama teklif alın",
       },
     ],
     type: "website",
     locale: "tr_TR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "İletişim | Sahneva Organizasyon – Profesyonel Etkinlik Çözümleri",
+    description:
+      "Sahne, LED ekran, ses-ışık sistemleri için hemen teklif alın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
+    images: [`${BASE_SITE_URL}/img/hero-bg.webp`],
   },
   robots: { index: true, follow: true },
 };

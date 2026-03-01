@@ -69,7 +69,7 @@ export const metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon etkinlik prodüksiyon görseli",
+        alt: "Sahneva Organizasyon truss kiralama – kare, üçgen ve özel konstrüksiyon truss sistemleri",
       },
     ],
   },
