@@ -1,6 +1,7 @@
 // app/(tr)/konser-icin-podyum-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
+import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
@@ -12,11 +13,11 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
-  "Merhaba, konser için podyum/sahne kiralama hakkında bilgi almak istiyorum."
+  "Merhaba, konser için podyum kiralama hakkında teklif istiyorum."
 )}`;
 
 const BLUR_DATA_URL =
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 /* ================== 2. İÇERİK VERİLERİ ================== */
 const SERVICES = [
@@ -24,148 +25,152 @@ const SERVICES = [
     icon: "🎤",
     title: "Ana Sahne Platformları",
     description:
-      "Headliner sanatçılar ve büyük prodüksiyonlar için yüksek taşıma kapasiteli, mühendislik onaylı geniş sahne platformları",
-    features: ["Geniş alan kapasitesi", "Yüksek yük taşıma", "Modüler genişletme", "Mühendislik onaylı"],
+      "Headliner sanatçılar ve ana performanslar için yüksek taşıma kapasiteli ana sahne sistemleri",
+    features: [
+      "Geniş platform alanı",
+      "Yüksek yük kapasitesi",
+      "Çelik truss entegrasyonu",
+      "Modüler genişletme",
+    ],
+  },
+  {
+    icon: "🎸",
+    title: "Yan Sahne & Uzatmalar",
+    description:
+      "Dans ekipleri, arka vokal ve enstrümanlar için ana sahneye entegre yan platform çözümleri",
+    features: [
+      "Ana sahne entegrasyonu",
+      "Esnek ölçülendirme",
+      "Güvenli geçiş yolları",
+      "Teknik erişim",
+    ],
   },
   {
     icon: "🥁",
-    title: "Davul & Enstrüman Yükselticileri",
+    title: "Davul Yükselticisi",
     description:
-      "Optimum ses projeksiyonu ve sahne içi görüş açısı için özel ölçülerde tasarlanan platform çözümleri",
-    features: ["Ses izolasyonu", "Özel ölçü tasarım", "Titreşim damperleri", "Güvenli bağlantı"],
+      "Optimum ses projeksiyonu ve sahne içi görüş açısı için özel tasarım davul platformları",
+    features: [
+      "Özel ölçülendirme",
+      "Titreşim yönetimi",
+      "Ses izolasyonu",
+      "Güvenli kablo kanalları",
+    ],
   },
   {
-    icon: "🎪",
-    title: "Festival Sahne Sistemleri",
+    icon: "🎚️",
+    title: "FOH & Teknik Platformlar",
     description:
-      "Çelik truss çatılı, brandalı ve hava koşullarına dayanıklı büyük ölçekli festival sahne altyapısı",
-    features: ["Truss çatı sistemi", "Rüzgar yükü hesaplı", "Brandalı üst kaplama", "Açık hava onaylı"],
+      "Ses mühendisi ve teknik ekip için sahne önü ve kontrol alanı platformları",
+    features: [
+      "FOH mixer platformu",
+      "Teknik kontrol alanı",
+      "Kablo yönetimi",
+      "Ergonomik tasarım",
+    ],
   },
   {
-    icon: "🖥️",
-    title: "LED Ekran & Işık Entegrasyonu",
+    icon: "💡",
+    title: "LED & Işık Entegrasyonu",
     description:
-      "Sahne planlamasına entegre LED ekran konfigürasyonu, ışık tasarımı ve truss taşıma sistemleri",
-    features: ["LED video wall", "Işık tasarımı", "Truss entegrasyonu", "Teknik rider uyumu"],
-  },
-  {
-    icon: "🎛️",
-    title: "FOH & Teknik Kontrol Platformları",
-    description:
-      "Ses mühendisi ve teknik ekip için ergonomik FOH platformları ve sahne arkası operasyon alanları",
-    features: ["FOH platform", "Teknik kontrol alanı", "Kablo yönetimi", "Sahne arkası erişim"],
+      "LED ekran taşıyıcı yapılar, ışık truss sistemleri ve sahne aydınlatma altyapısı",
+    features: [
+      "LED ekran desteği",
+      "Truss sistemleri",
+      "Işık bar entegrasyonu",
+      "Ağır yük kapasitesi",
+    ],
   },
   {
     icon: "🔧",
-    title: "Uçtan Uca Teknik Destek",
+    title: "Teknik Destek & Saha Yönetimi",
     description:
-      "Keşif, projelendirme, teslimat, kurulum, prova/soundcheck takibi ve söküm dahil tam saha yönetimi",
-    features: ["Mekân değerlendirmesi", "Teknik rider analizi", "Etkinlik günü destek", "Söküm hizmeti"],
-  },
-];
-
-const USE_CASES = [
-  { icon: "🎤", text: "Açık hava konserleri ve festivaller", desc: "On binlerce kişilik büyük ölçekli etkinlikler" },
-  { icon: "🏟️", text: "Kapalı mekân konserleri", desc: "Akustik yapıya uygun sahne kurulumu" },
-  { icon: "🎵", text: "DJ ve elektronik müzik performansları", desc: "DJ booth ve yükseltilmiş platform çözümleri" },
-  { icon: "🎼", text: "Klasik müzik ve orkestra sahneleri", desc: "Geniş orkestra platform düzenlemeleri" },
-  { icon: "🌟", text: "Yerel ve ulusal ölçekli konserler", desc: "Her ölçeğe uygun esnek çözümler" },
-  { icon: "🎊", text: "Yılbaşı ve özel gece etkinlikleri", desc: "Premium sahne ve prodüksiyon desteği" },
-];
-
-const TECHNICAL_SPECS = [
-  {
-    title: "Güvenlik & Mühendislik",
-    icon: "🛡️",
-    description: "Mühendislik hesapları yapılmış, yük taşıma kapasitesi onaylı sistemler",
-    features: ["Statik hesap raporları", "Rüzgar yükü analizi", "Zemin analizi", "TS EN standartları"],
-  },
-  {
-    title: "Modüler Sahne Yapısı",
-    icon: "🏗️",
-    description: "İstenilen ölçü ve yükseklikte kurulabilen esnek modüler sahne sistemi",
-    features: ["Her ölçeğe uyum", "Hızlı kurulum", "Dayanıklı malzeme", "Kaymaz yüzey kaplama"],
-  },
-  {
-    title: "Açık Hava Sistemleri",
-    icon: "🌤️",
-    description: "Rüzgar yükü, zemin analizi ve sabitleme sistemleriyle açık hava güvenliği",
-    features: ["Zemin sabitleme", "Brandalı çatı", "Hava koşulu dayanımı", "Güvenli yapı"],
-  },
-  {
-    title: "Kapalı Alan Çözümleri",
-    icon: "🏛️",
-    description: "Tavan yüksekliği, akustik yapı ve truss kapasitesi hesaplanmış iç mekân kurulumu",
-    features: ["Akustik planlama", "Tavan yükü hesabı", "Truss entegrasyonu", "Alan optimizasyonu"],
-  },
-  {
-    title: "Ses & Teknik Altyapı",
-    icon: "🔊",
-    description: "Ses sistemi yerleşimi, kablo kanalları ve teknik rider'a uygun altyapı hazırlığı",
-    features: ["Ses sistemi uyumu", "Kablo kanalları", "Teknik rider analizi", "Ses izolasyonu"],
-  },
-  {
-    title: "Operasyonel Disiplin",
-    icon: "⚡",
-    description: "Prova ve soundcheck takvimine uyumlu kurulum, sahada anlık teknik müdahale",
-    features: ["Takvim uyumu", "Prova desteği", "Soundcheck hazırlığı", "Anlık müdahale"],
+      "Kurulum, prova, soundcheck ve etkinlik boyunca kesintisiz teknik destek",
+    features: [
+      "Rider uyumlu kurulum",
+      "Soundcheck desteği",
+      "Etkinlik günü destek",
+      "Söküm hizmeti",
+    ],
   },
 ];
 
 const FAQ_ITEMS = [
   {
     q: "Konser için podyum kiralama fiyatları nasıl belirlenir?",
-    a: "Fiyat; sahne boyutu (m²), yükseklik, sistemin türü (modüler podyum / truss sahne), ek donanımlar (FOH platformu, yan sahneler, davul yükselticisi) ve etkinlik süresiyle şekillenir. Açık hava etkinliklerinde rüzgar yükü hesapları ve zemin sabitleme maliyeti de dahil edilir. Ücretsiz keşif ve özel fiyat teklifi için Sahneva ile iletişime geçebilirsiniz.",
+    a: "Konser sahnesi fiyatlandırması; sahne alanı (m²), yükseklik, LED/truss entegrasyonu, ekstra platformlar (FOH, davul, yan sahne) ve kurulum süresi temel alınarak belirlenir. Türkiye geneli ve İstanbul dışı projeler için özel nakliye bedeli uygulanır.",
   },
   {
-    q: "Büyük açık hava festivalleri için sahne kurulumu ne kadar sürer?",
-    a: "Büyük ölçekli festival sahneleri genellikle 1-3 gün öncesinden kurulmaya başlar. Kurulum süresi; sahne boyutu, truss çatı sistemi, LED entegrasyonu ve ekip büyüklüğüne göre de  işir. Sahneva ekibi, prova ve soundcheck takvimiyle uyumlu kurulum planlaması yapar.",
+    q: "Kaç günlük organizasyonlar için hizmet veriyorsunuz?",
+    a: "Tek günlük konserlerden çok günlü festivallere kadar hizmet sunuyoruz. Multi-day festivallerde sahne yapısı kurulur ve etkinlik süresince yerinde teknik destek sağlanır.",
   },
   {
-    q: "Sanatçının teknik rider'ı sahne planlamasını etkiler mi?",
-    a: "Evet, teknik rider sahne planlamasının temel girdisidir. Rider; sahne boyutu, ses sistemi yerleşimi, ışık rig yüksekliği, LED ekran konfigürasyonu ve backstage düzenini doğrudan belirler. Sahneva, rider analizi yaparak teknik uyumlu kurulum sağlar.",
+    q: "Teknik rider'a uygun sahne kurulumu yapıyor musunuz?",
+    a: "Evet. Sanatçının teknik rider belgesi incelenerek sahne ölçüleri, yükseklikleri, kablo geçişleri ve teknik platform konumları buna göre planlanır.",
   },
   {
-    q: "Kapalı mekân konserlerinde sahne kurulumu farklı mı?",
-    a: "Evet. Kapalı mekânlarda tavan yüksekliği, mekânın taşıyıcı sistem kapasitesi ve akustik yapı özellikle önem taşır. Truss taşıma kapasitesi mekâna özel hesaplanır, ses sisteminin yansıma noktaları ve ışık tasarımı da buna göre planlanır.",
-  },
-  {
-    q: "Konser sahnesine LED ekran ve ışık sistemi entegre edilebilir mi?",
-    a: "Evet. Sahne planlaması; LED ekran konfigürasyonu, ışık tasarımı ve truss taşıma sistemi ile bütünleşik şekilde yapılır. Sahneva bu hizmetleri tek paket olarak sunarak teknik uyumluluğu ve kurulum hızını en üst düzeye çıkarır.",
+    q: "Açık hava konserlerinde güvenlik nasıl sağlanıyor?",
+    a: "Açık hava organizasyonlarında rüzgâr yükü hesaplamaları, zemin analizi ve sabitleme sistemleri mühendislik standartlarına uygun olarak planlanır. Tüm bağlantı noktaları ve taşıma kapasiteleri belgelenmiş sistemler kullanılır.",
   },
 ];
 
 const RELATED_SERVICES = [
-  { href: "/podyum-kiralama", title: "Podyum Kiralama", icon: "🎭", desc: "Modüler podyum sistemleri ve profesyonel kurulum" },
-  { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", icon: "🎵", desc: "Profesyonel ses ve ışık sistemleri kiralama" },
-  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", icon: "🖥️", desc: "Yüksek çözünürlüklü LED ekran ve video wall" },
-  { href: "/cadir-kiralama", title: "Çadır Kiralama", icon: "🏕️", desc: "Açık hava etkinlikleri için çadır sistemleri" },
+  {
+    href: "/podyum-kiralama",
+    title: "Podyum Kiralama",
+    icon: "🎭",
+    desc: "Tüm etkinlik türleri için modüler podyum çözümleri",
+  },
+  {
+    href: "/defile-podyum-kiralama",
+    title: "Defile Podyum Kiralama",
+    icon: "👗",
+    desc: "Moda defilesi ve marka lansmanı podyumları",
+  },
+  {
+    href: "/led-ekran-kiralama",
+    title: "LED Ekran Kiralama",
+    icon: "🖥️",
+    desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri",
+  },
+  {
+    href: "/ses-isik-sistemleri",
+    title: "Ses & Işık Sistemleri",
+    icon: "🎵",
+    desc: "Profesyonel ses ve ışık sistemleri kiralama",
+  },
 ];
 
-/* ================== 3. GÖRSEL VERİLERİ ================== */
-// Görselleri /img/podyum/ altına ekleyin
 const ARTICLE_BREAK_IMAGES = [
-  { src: "/img/podyum/konser-1.webp", alt: "Konser için büyük sahne platformu kurulumu – Sahneva" },
-  { src: "/img/podyum/konser-2.webp", alt: "Festival sahne altyapısı ve truss sistemi – Sahneva" },
-  { src: "/img/podyum/konser-3.webp", alt: "Konser sahnesi LED ekran ve ışık entegrasyonu – Sahneva" },
+  {
+    src: "/img/podyum/konser-1.webp",
+    alt: "Konser sahne kurulumu – ana platform ve truss sistemi",
+  },
+  {
+    src: "/img/podyum/konser-2.webp",
+    alt: "Festival sahnesi geniş alan kurulumu",
+  },
+  {
+    src: "/img/podyum/konser-3.webp",
+    alt: "Açık hava konser podyumu – LED entegrasyonu",
+  },
+  {
+    src: "/img/podyum/konser-4.webp",
+    alt: "Konser için davul yükselticisi ve teknik platform",
+  },
 ];
 
-const ARTICLE_BREAK_IMAGES_2 = [
-  { src: "/img/podyum/konser-4.webp", alt: "Açık hava festivali sahne kurulumu – Sahneva" },
-  { src: "/img/podyum/konser-5.webp", alt: "Kapalı mekân konser sahnesi kurulumu – Sahneva" },
-  { src: "/img/podyum/konser-6.webp", alt: "Profesyonel konser sahne detayı – Sahneva" },
-];
-
-/* ================== 4. META DATA ================== */
+/* ================== 3. META DATA ================== */
 export const metadata = {
-  title: "Konser İçin Podyum Kiralama | Festival & Canlı Performans Sahne Çözümleri | Sahneva",
+  title:
+    "Konser İçin Podyum Kiralama | Festival ve Canlı Performans Sahne Çözümleri | Sahneva",
   description:
-    "Konser ve festival organizasyonları için profesyonel sahne kurulum ve podyum kiralama hizmeti. Açık hava festivalleri, kapalı mekân konserleri ve canlı performanslar için mühendislik onaylı sahne sistemleri. İstanbul & Türkiye geneli.",
+    "Konser ve festival organizasyonları için profesyonel sahne kurulumu ve podyum kiralama. Ana sahne platformları, yan kuleler, FOH platformları ve uçtan uca teknik destek. İstanbul ve Türkiye geneli hizmet.",
   alternates: { canonical: `${ORIGIN}/konser-icin-podyum-kiralama` },
   openGraph: {
-    title: "Konser İçin Podyum Kiralama | Festival & Canlı Performans Sahne Çözümleri",
+    title: "Konser İçin Podyum Kiralama | Sahneva",
     description:
-      "Açık hava festivalleri ve kapalı mekân konserlerinde profesyonel sahne kurulumu. Mühendislik onaylı, LED entegrasyonlu, teknik rider uyumlu sahne sistemleri.",
+      "Festival ve konser sahneleri için modüler sahne sistemleri, LED entegrasyonu ve profesyonel kurulum.",
     url: `${ORIGIN}/konser-icin-podyum-kiralama`,
     type: "website",
     siteName: "Sahneva Organizasyon",
@@ -175,15 +180,16 @@ export const metadata = {
         url: `${ORIGIN}/img/podyum/konser-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon – Konser için profesyonel podyum kiralama ve festival sahne kurulumu",
+        alt: "Konser için profesyonel sahne ve podyum kiralama – Sahneva",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Konser İçin Podyum Kiralama | Festival Sahne Çözümleri | Sahneva",
+    title:
+      "Konser İçin Podyum Kiralama | Festival Sahne Çözümleri | Sahneva",
     description:
-      "Konser ve festival organizasyonları için mühendislik onaylı sahne sistemleri. Açık hava ve kapalı mekân kurulumları.",
+      "Konser ve festival organizasyonları için profesyonel sahne kurulumu.",
     images: [`${ORIGIN}/img/podyum/konser-hero.webp`],
   },
   robots: {
@@ -199,93 +205,23 @@ export const metadata = {
   },
 };
 
-/* ================== 5. BİLEŞENLER ================== */
+/* ================== 4. BİLEŞENLER ================== */
 
+// --- JSON-LD ---
 function StructuredData() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
-        "@id": `${ORIGIN}/konser-icin-podyum-kiralama#service`,
         name: "Konser İçin Podyum Kiralama",
-        alternateName: "Festival Sahne Kurulumu",
         description: metadata.description,
-        provider: {
-          "@id": ORGANIZATION_ID,
-          "@type": "Organization",
-          name: "Sahneva Organizasyon",
-          url: ORIGIN,
-        },
-        areaServed: [
-          { "@type": "AdministrativeArea", name: "İstanbul" },
-          { "@type": "AdministrativeArea", name: "Türkiye" },
-        ],
-        serviceType: "Konser Sahne Kiralama",
-        category: "Etkinlik Teknik Hizmetleri",
-        image: `${ORIGIN}/img/podyum/konser-hero.webp`,
-        offers: {
-          "@type": "Offer",
-          url: `${ORIGIN}/konser-icin-podyum-kiralama`,
-          priceCurrency: "TRY",
-          availability: "https://schema.org/InStock",
-          description:
-            "Konser ve festival için profesyonel sahne kurulumu. Ücretsiz keşif ve özel fiyat teklifi için iletişime geçin.",
-        },
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Konser Sahne Hizmetleri",
-          itemListElement: SERVICES.map((s, i) => ({
-            "@type": "Offer",
-            position: i + 1,
-            itemOffered: {
-              "@type": "Service",
-              name: s.title,
-              description: s.description,
-            },
-          })),
-        },
+        provider: { "@id": ORGANIZATION_ID },
+        areaServed: { "@type": "AdministrativeArea", name: "Türkiye" },
+        serviceType: "Konser Sahne Kurulumu",
       },
-      {
-        "@type": "FAQPage",
-        mainEntity: FAQ_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.a,
-          },
-        })),
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${ORIGIN}/konser-icin-podyum-kiralama#webpage`,
-        url: `${ORIGIN}/konser-icin-podyum-kiralama`,
-        name: metadata.title,
-        description: metadata.description,
-        isPartOf: { "@type": "WebSite", url: ORIGIN },
-        inLanguage: "tr-TR",
-        datePublished: "2026-01-01",
-        dateModified: "2026-03-02",
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: `${ORIGIN}/img/podyum/konser-hero.webp`,
-        },
-        breadcrumb: {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: `${ORIGIN}/` },
-            { "@type": "ListItem", position: 2, name: "Hizmetler", item: `${ORIGIN}/hizmetler` },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: "Konser İçin Podyum Kiralama",
-              item: `${ORIGIN}/konser-icin-podyum-kiralama`,
-            },
-          ],
-        },
-      },
-    ],
+      buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
+    ].filter(Boolean),
   };
 
   return (
@@ -302,7 +238,7 @@ function HeroSection() {
       <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/img/podyum/konser-hero.webp"
-          alt="Konser için profesyonel sahne kurulumu ve podyum kiralama – Sahneva"
+          alt="Konser için profesyonel sahne ve podyum kurulumu – Sahneva"
           fill
           priority
           fetchPriority="high"
@@ -313,12 +249,12 @@ function HeroSection() {
           blurDataURL={BLUR_DATA_URL}
         />
 
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-purple-900/25 to-slate-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-purple-900/20" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/45 via-purple-900/20 to-slate-950/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-purple-900/25" />
 
         <div
-          className="absolute inset-0 opacity-25"
+          className="absolute inset-0 opacity-35"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
@@ -326,8 +262,8 @@ function HeroSection() {
           }}
         />
 
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
       </div>
 
       <div className="relative z-10">
@@ -339,23 +275,16 @@ function HeroSection() {
                 aria-hidden="true"
               />
               <span className="text-sm font-extrabold text-white">
-                İstanbul & Türkiye Geneli • Mühendislik Onaylı Sahne Sistemleri
+                İstanbul Geneli Profesyonel Hizmet
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-              Konser İçin{" "}
-              <span className="text-blue-200">Podyum Kiralama</span>
+              Konser İçin <span className="text-blue-200">Podyum Kiralama</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-3">
-              Festival • Canlı Performans • Açık Hava • Kapalı Mekân Konserleri
-            </p>
-
-            <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-              Küçük ölçekli kapalı mekân etkinliklerinden on binlerce kişilik açık hava
-              festivallerine — her ölçeğe uygun{" "}
-              <span className="font-semibold text-white">mühendislik onaylı sahne çözümleri</span>
+              Ana Sahne • Yan Kuleler • FOH Platform • LED Entegrasyonu
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-9">
@@ -365,23 +294,23 @@ function HeroSection() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
               >
-                <span className="text-xl mr-2">💬</span> Ücretsiz Keşif & Teklif
+                <span className="text-xl mr-2">💬</span> Hemen Teklif Al
               </Link>
 
               <Link
                 href="#hizmetler"
                 className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-xl transition shadow-lg"
               >
-                <span className="text-xl mr-2">🎤</span> Hizmetlerimiz
+                <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
               </Link>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {[
-                { icon: "⭐", value: "4.8/5", label: "200+ Değerlendirme" },
-                { icon: "🏆", value: "600+", label: "Başarılı Etkinlik" },
-                { icon: "🌍", value: "TR Geneli", label: "Hizmet Alanı" },
-                { icon: "🛡️", value: "Mühendislik", label: "Onaylı Sistemler" },
+                { icon: "🎤", value: "500+", label: "Konser & Festival" },
+                { icon: "🏆", value: "Türkiye", label: "Geneli Hizmet" },
+                { icon: "🚀", value: "8+", label: "Yıl Deneyim" },
+                { icon: "🛡️", value: "Güvenli", label: "Mühendislik Onaylı" },
               ].map((s) => (
                 <div
                   key={s.label}
@@ -398,7 +327,9 @@ function HeroSection() {
               ))}
             </div>
 
-            <span className="sr-only">Konser İçin Podyum Kiralama - Sahneva Organizasyon</span>
+            <span className="sr-only">
+              Konser İçin Podyum Kiralama - Sahneva Organizasyon
+            </span>
           </div>
         </div>
       </div>
@@ -417,11 +348,11 @@ function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Konser Sahne{" "}
-            <span className="text-blue-700">Hizmetlerimiz</span>
+            Profesyonel <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Teknik rider analizi, mekân değerlendirmesi, sahne kurulumu ve etkinlik günü teknik destek
+            Konser ve festival sahne kurulumunda keşif, projelendirme, nakliye,
+            kurulum, teknik destek ve söküm
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -454,7 +385,8 @@ function ServicesSection() {
             rel="noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
-            <span className="text-xl mr-3">📞</span> Konser Sahneniz İçin Teklif Alın
+            <span className="text-xl mr-3">📞</span> Detaylı Teklif için
+            İletişime Geçin
           </Link>
         </div>
       </div>
@@ -468,60 +400,70 @@ function ArticlesSection() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Konser Sahne{" "}
-            <span className="text-blue-700">Rehberi</span>
+            Konser Sahne <span className="text-blue-700">Rehberi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Konser ve festival organizasyonlarında başarılı sahne kurulumu için teknik bilgiler
+            Konser ve festival sahne kurulumu hakkında uzman görüşleri ve teknik
+            bilgiler
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* ANA MAKALE */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
             <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative">
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  🎤 Konser & Festival
+                  📚 Kapsamlı Rehber
                 </span>
                 <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  🛡️ Mühendislik Onaylı
+                  ⭐ Uzman Görüşü
                 </span>
                 <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  🎯 Teknik Rider Uyumlu
+                  🎯 Pratik Çözümler
                 </span>
               </div>
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                Konser İçin Podyum Kiralama: Sahneyi Performansa Dönüştüren Altyapı
+                Konser ve Festival Sahnelerinde Profesyonel Podyum Kurulumu
               </h3>
               <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                Mühendislik hesapları, LED entegrasyonu, ses sistemi yerleşimi ve uçtan uca teknik destek
+                Ana sahne platformlarından FOH kulelerine, LED entegrasyonundan
+                teknik desteke uçtan uca çözümler
               </p>
             </header>
             <div className="p-8 md:p-10 prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed">
-
-              <h4 className="flex items-center gap-3">
-                <span className="inline-flex bg-blue-100 text-blue-600 rounded-2xl p-2">🎤</span>{" "}
-                Konser Sahnesi: Sadece Bir Platform Değil
-              </h4>
               <p>
-                Konser ve festival organizasyonlarında sahne, yalnızca sanatçının durduğu bir platform değil;
-                ışık, ses, LED ekran, sahne arkası operasyonu ve izleyici deneyiminin birleştiği ana merkezdir.{" "}
-                <strong>Sahneva</strong> olarak konser için podyum kiralama ve festival sahne kurulum hizmetlerimizi;
-                küçük ölçekli kapalı mekân etkinliklerinden on binlerce kişilik açık hava organizasyonlarına
-                kadar her ölçeğe uygun şekilde planlıyor ve uyguluyoruz.
+                Konser ve festival organizasyonlarında sahne, yalnızca sanatçının
+                durduğu bir platform değil; ışık, ses, LED ekran, sahne arkası
+                operasyonu ve izleyici deneyiminin birleştiği ana merkezdir.{" "}
+                <strong>Sahneva</strong> olarak konser için podyum kiralama ve
+                festival sahne kurulum hizmetlerimizi; küçük ölçekli kapalı
+                mekân etkinliklerinden on binlerce kişilik açık hava
+                organizasyonlarına kadar her ölçeğe uygun şekilde planlıyor ve
+                uyguluyoruz.
               </p>
 
-              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
+              <p>
+                İstanbul başta olmak üzere Türkiye genelinde gerçekleştirdiğimiz
+                konser sahne kurulumlarında; mühendislik hesapları yapılmış,
+                yüksek taşıma kapasiteli ve güvenlik standartlarına uygun
+                sistemler kullanıyoruz. Sanatçının teknik rider&apos;ı, ses
+                sistemi yerleşimi, ışık tasarımı ve LED entegrasyonu sahne
+                planlamasının ayrılmaz bir parçasıdır.
+              </p>
+
+              <div className="not-prose mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {ARTICLE_BREAK_IMAGES.map((img) => (
-                  <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
+                  <figure
+                    key={img.src}
+                    className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md"
+                  >
                     <div className="relative aspect-[4/3]">
                       <Image
                         src={img.src}
                         alt={img.alt}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
                     </div>
                   </figure>
@@ -529,262 +471,140 @@ function ArticlesSection() {
               </div>
 
               <h4 className="flex items-center gap-3 mt-10">
-                <span className="inline-flex bg-purple-100 text-purple-600 rounded-2xl p-2">🏗️</span>{" "}
+                <span className="inline-flex bg-blue-100 text-blue-600 rounded-2xl p-2">
+                  🎤
+                </span>{" "}
                 Her Performans İçin Profesyonel Sahne Çözümleri
               </h4>
               <p>
-                İster yerel bir konser, ister büyük ölçekli bir müzik festivali düzenliyor olun; ihtiyaca göre
-                ölçeklenebilir sahne sistemleri sunuyoruz. Sahne sistemlerimiz dayanıklılık, stabilite ve modüler
-                yapı esas alınarak tasarlanır.
+                İster yerel bir konser, ister büyük ölçekli bir müzik festivali
+                düzenliyor olun; ihtiyaca göre ölçeklenebilir sahne sistemleri
+                sunuyoruz. Açık hava organizasyonlarında rüzgâr yükü hesapları,
+                zemin analizi ve sabitleme sistemleri titizlikle planlanır.
+                Kapalı alan konserlerinde ise tavan yüksekliği, akustik yapı ve
+                truss taşıma kapasitesi dikkate alınarak kurulum yapılır.
               </p>
-              <ul>
-                <li><strong>Açık hava organizasyonlarında:</strong> rüzgâr yükü hesapları, zemin analizi ve sabitleme sistemleri titizlikle planlanır</li>
-                <li><strong>Kapalı alan konserlerinde:</strong> tavan yüksekliği, akustik yapı ve truss taşıma kapasitesi dikkate alınarak kurulum yapılır</li>
-                <li><strong>Ana sahne platformları:</strong> headliner sanatçılar için geniş ve yüksek taşıma kapasiteli yapılar</li>
-                <li><strong>Davul yükselticileri:</strong> optimum ses projeksiyonu için özel ölçülerde tasarım</li>
-              </ul>
+              <p>
+                Konser için podyum kiralama hizmetimiz kapsamında; ana sahne
+                platformları, yan sahne uzatmaları, teknik platformlar ve
+                sanatçıya özel alan çözümleri sunuyoruz. Büyük prodüksiyonlarda
+                sahne genişletmeleri sayesinde kalabalık orkestralar, dans
+                ekipleri veya çoklu performans düzenleri rahatlıkla
+                konumlandırılabilir.
+              </p>
 
               <aside className="mt-10 rounded-2xl border-l-4 border-blue-500 bg-blue-50 p-5">
-                <h5 className="font-black text-blue-700 text-lg mb-2">💡 Teknik Rider Entegrasyonu</h5>
+                <h5 className="font-black text-blue-700 text-lg mb-2">
+                  💡 Konser ve Festival Sahnelerimiz Neleri Kapsar?
+                </h5>
                 <p className="mb-0">
-                  Sanatçının teknik rider&apos;ı, ses sistemi yerleşimi, ışık tasarımı ve LED entegrasyonu sahne
-                  planlamasının ayrılmaz bir parçasıdır. Sahneva, rider analizini kurulumdan önce tamamlayarak
-                  teknik uyumsuzlukları sıfıra indirir.
+                  Ana sahneler, headliner sanatçılar ve ana performanslar için
+                  geniş ve yüksek taşıma kapasiteli platformlardan oluşur.
+                  Gruplar, DJ performansları ve dans ekipleri için yükseltilmiş
+                  platform çözümleri sağlanır. Davul yükselticileri, optimum ses
+                  projeksiyonu ve sahne içi görüş açısı için özel ölçülerde
+                  tasarlanır. Daha büyük ekipler için sahne genişletme modülleri
+                  ile esnek alan yaratılır.
                 </p>
               </aside>
 
-              <div className="not-prose mt-10 grid gap-4 md:grid-cols-3">
-                {ARTICLE_BREAK_IMAGES_2.map((img) => (
-                  <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
-                    <div className="relative aspect-[4/3]">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-                  </figure>
-                ))}
-              </div>
-
               <h4 className="mt-10 flex items-center gap-3">
-                <span className="inline-flex bg-green-100 text-green-600 rounded-2xl p-2">🚀</span>{" "}
-                Uçtan Uca Sahne Hizmeti ve Teknik Destek
+                <span className="inline-flex bg-purple-100 text-purple-600 rounded-2xl p-2">
+                  🎨
+                </span>{" "}
+                Özelleştirilebilir Festival Sahne Tasarımı
               </h4>
               <p>
-                Sahneva ekibi; keşif, projelendirme, teslimat, kurulum ve söküm dahil olmak üzere tüm süreci
-                yönetir. Organizasyon öncesinde mekân değerlendirmesi yaparak ideal sahne ölçülerini ve yerleşim
-                planını belirliyoruz.
+                Her konser ve festivalin dinamiği farklıdır. Sahne tasarımını;
+                sanatçının sahne şovu, LED ekran konfigürasyonu, ışık tasarımı
+                ve ses sistemi yerleşimi ile entegre şekilde projelendiriyoruz.
+                İstenilen ölçü ve yükseklikte sahne kurulumu yapılabilir; yan
+                kuleler, FOH platformları ve teknik kontrol alanları planlamaya
+                dahil edilir.
               </p>
-              <ul>
-                <li><strong>Güvenlik ve zamanlama:</strong> iş güvenliği standartları ve mühendislik hesapları esas alınır</li>
-                <li><strong>Prova takibi:</strong> kurulum süreci, prova ve soundcheck takvimiyle uyumlu ilerler</li>
-                <li><strong>Etkinlik günü destek:</strong> sahada deneyimli teknik ekip, olası ihtiyaçlara anında müdahale eder</li>
-              </ul>
+              <p>
+                Büyük ölçekli açık hava festivallerinde; çelik truss çatılı
+                sahne sistemleri, brandalı üst kaplama ve hava koşullarına
+                dayanıklı yapı elemanları kullanılır.
+              </p>
 
               <aside className="mt-10 rounded-2xl border-l-4 border-yellow-400 bg-yellow-50 p-5">
                 <h5 className="font-black text-yellow-700 text-lg mb-2 flex items-center gap-2">
                   <span aria-hidden="true">💎</span> Neden Sahneva?
                 </h5>
                 <p className="mb-0 text-yellow-800">
-                  <strong>8+ yıllık deneyim, 600+ başarılı etkinlik</strong> ve Türkiye geneli hizmet ile konser
-                  ve festival sahne kurulumlarında güvenilir çözüm ortağınız. Amacımız yalnızca bir sahne kurmak
-                  değil; sanatçının performansını güçlendiren ve izleyiciye unutulmaz bir deneyim yaşatan bir
-                  prodüksiyon altyapısı oluşturmaktır.
+                  Yüksek kaliteli ekipman, deneyimli teknik kadro ve büyük
+                  ölçekli organizasyon tecrübesi ile konser ve festival sahne
+                  kurulumlarında güvenilir bir çözüm ortağıyız. Sahneva ekibi;
+                  keşif, projelendirme, teslimat, kurulum ve söküm dahil olmak
+                  üzere tüm süreci yönetir. Etkinlik boyunca yerinde teknik
+                  destek sağlanarak olası ihtiyaçlara anında müdahale edilir.
                 </p>
               </aside>
             </div>
           </article>
 
-          {/* MAKALE 2 */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
             <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black leading-tight">
-                Konser & Festival Sahnelerimiz Neleri Kapsar?
+                Teknik Rider Uyumlu Sahne Planlaması
               </h3>
               <p className="text-blue-100 mt-2 text-lg">
-                Ana sahneden FOH platformuna kadar eksiksiz sahne altyapısı
+                Sanatçının teknik gereksinimlerine göre özelleştirilmiş sahne
+                çözümleri
               </p>
             </header>
             <div className="p-6 md:p-8 prose prose-lg max-w-none prose-p:text-gray-600">
               <p>
-                Ana sahneler, headliner sanatçılar ve ana performanslar için geniş ve yüksek taşıma
-                kapasiteli platformlardan oluşur.
+                Sanatçının teknik rider belgesi incelenerek sahne ölçüleri,
+                yükseklikleri, kablo geçişleri ve teknik platform konumları buna
+                göre planlanır. Ses sistemi yerleşimi, ışık tasarımı ve LED
+                entegrasyonu sahne planlamasının ayrılmaz bir parçasıdır.
               </p>
               <ul>
-                <li>Gruplar, DJ performansları ve dans ekipleri için yükseltilmiş platformlar</li>
-                <li>Davul yükselticileri — optimum ses projeksiyonu için özel ölçü</li>
-                <li>Sahne genişletme modülleri — büyük ekipler ve kalabalık orkestralar için</li>
-                <li>Yan kuleler ve teknik kontrol alanları</li>
-                <li>FOH platformları — ses mühendisi için ergonomik çalışma alanı</li>
+                <li>Rider&apos;a uygun sahne boyutları</li>
+                <li>Kablo geçiş ve yönetim planı</li>
+                <li>Monitor ve FOH platform konumları</li>
+                <li>Backline ve enstrüman alanı düzenlemesi</li>
               </ul>
-              <p>
-                Tüm sistemlerimiz; kaymaz yüzey kaplamaları, güvenli bağlantı noktaları ve yüksek
-                taşıma değerlerine sahip modüler sahne elemanlarından oluşur.
-              </p>
             </div>
           </article>
 
-          {/* MAKALE 3 */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
             <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black leading-tight">
-                Özelleştirilebilir Festival Sahne Tasarımı
+                Açık Hava vs. Kapalı Alan Konser Sahneleri
               </h3>
               <p className="text-blue-100 mt-2 text-lg">
-                Sanatçının sahne şovuna özel, LED entegrasyonlu sahne planlaması
+                Her ortama özel teknik çözümler ve güvenlik planlaması
               </p>
             </header>
             <div className="p-6 md:p-8 prose prose-lg max-w-none prose-p:text-gray-600">
-              <p>
-                Her konser ve festivalin dinamiği farklıdır. Bu nedenle sahne tasarımını; sanatçının
-                sahne şovu, LED ekran konfigürasyonu, ışık tasarımı ve ses sistemi yerleşimi ile
-                entegre şekilde projelendiriyoruz.
-              </p>
               <h4 className="flex items-center gap-2 text-lg font-bold">
-                <span className="inline-flex bg-purple-100 text-purple-600 rounded-xl p-2">🎪</span>{" "}
-                Büyük Ölçekli Festivaller
+                <span className="inline-flex bg-blue-100 text-blue-600 rounded-xl p-2">
+                  🌤️
+                </span>{" "}
+                Açık Hava Organizasyonları
               </h4>
               <p>
-                Çelik truss çatılı sahne sistemleri, brandalı üst kaplama ve hava koşullarına
-                dayanıklı yapı elemanları kullanılır.
+                Rüzgâr yükü hesapları, zemin analizi ve sabitleme sistemleri
+                mühendislik standartlarına uygun planlanır. Çelik truss çatı ve
+                hava koşullarına dayanıklı yapı elemanları kullanılır.
               </p>
-              <h4 className="flex items-center gap-2 text-lg font-bold mt-4">
-                <span className="inline-flex bg-blue-100 text-blue-600 rounded-xl p-2">🏛️</span>{" "}
-                Kapalı Mekân Konserleri
+
+              <h4 className="flex items-center gap-2 text-lg font-bold mt-6">
+                <span className="inline-flex bg-purple-100 text-purple-600 rounded-xl p-2">
+                  🏛️
+                </span>{" "}
+                Kapalı Alan Konserleri
               </h4>
               <p>
-                Tavan yüksekliği, akustik yapı ve truss taşıma kapasitesi dikkate alınarak kurulum
-                yapılır. Yan kuleler, FOH platformları ve teknik kontrol alanları planlamaya dahil edilir.
+                Tavan yüksekliği, akustik yapı ve truss taşıma kapasitesi
+                dikkate alınarak kurulum yapılır. Mekânın yapısal özellikleri
+                sahne planlamasına entegre edilir.
               </p>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TechnicalSection() {
-  return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Teknik{" "}
-            <span className="text-blue-700">Altyapımız</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Mühendislik hesaplı, güvenlik standartlarına uygun profesyonel konser sahne sistemleri
-          </p>
-        </div>
-        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {TECHNICAL_SPECS.map((item, idx) => (
-            <li key={idx} className="h-full">
-              <article className="group bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
-                  <span className="text-3xl">{item.icon}</span> {item.title}
-                </h3>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                  {item.description}
-                </p>
-                <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
-                  {item.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
-              </article>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-function StatsSection() {
-  const stats = [
-    { value: "600+", label: "Başarılı Etkinlik", icon: "🎪" },
-    { value: "8+", label: "Yıl Deneyim", icon: "⭐" },
-    { value: "TR Geneli", label: "Hizmet Alanı", icon: "🌍" },
-    { value: "7/24", label: "Teknik Destek", icon: "🛡️" },
-  ];
-  return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {stats.map((stat, idx) => (
-            <article
-              key={stat.label}
-              className="text-center group bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105"
-              aria-labelledby={`konser-stat-${idx}-value`}
-              aria-describedby={`konser-stat-${idx}-label`}
-            >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                {stat.icon}
-              </div>
-              <h3
-                id={`konser-stat-${idx}-value`}
-                className="text-4xl md:text-5xl font-black mb-1 text-white drop-shadow-lg"
-              >
-                {stat.value}
-              </h3>
-              <p id={`konser-stat-${idx}-label`} className="text-blue-100 text-lg font-semibold mb-0">
-                {stat.label}
-              </p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function UseCasesSection() {
-  return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Konser{" "}
-            <span className="text-blue-300">Türleri</span>
-          </h2>
-          <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
-            Sahne kurulumu yaptığımız başlıca konser ve festival türleri
-          </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" />
-        </div>
-        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {USE_CASES.map((uc, idx) => (
-            <li
-              key={idx}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
-            >
-              <div className="flex flex-col items-start gap-4">
-                <div className="text-3xl bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300">
-                  {uc.icon}
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
-                    {uc.text}
-                  </h3>
-                  <p className="text-white/70 text-lg leading-relaxed">{uc.desc}</p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className="text-center mt-12">
-          <Link
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
-          >
-            <span className="text-xl mr-3">💬</span> Konseriniz İçin Özel Çözüm Alın
-          </Link>
         </div>
       </div>
     </section>
@@ -797,11 +617,11 @@ function FAQSection() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan{" "}
-            <span className="text-blue-700">Sorular</span>
+            Sık Sorulan <span className="text-blue-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Konser için podyum kiralama ve sahne kurulumu hakkında merak edilenler
+            Konser için podyum kiralama hakkında merak edilen sorular ve
+            cevapları
           </p>
         </div>
 
@@ -830,7 +650,7 @@ function FAQSection() {
           </p>
           <Link
             href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span className="text-xl mr-3">📚</span>
             <span className="text-lg">Tüm SSS&apos;yi Görüntüle</span>
@@ -847,11 +667,11 @@ function RelatedServicesSection() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Tamamlayıcı{" "}
-            <span className="text-blue-700">Hizmetlerimiz</span>
+            Tamamlayıcı <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Konser sahnenizi tamamlayacak diğer profesyonel etkinlik çözümlerimiz
+            Konser sahne kurulumunuzu tamamlayacak diğer profesyonel etkinlik
+            çözümlerimiz
           </p>
         </div>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -867,7 +687,9 @@ function RelatedServicesSection() {
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-lg leading-relaxed">{service.desc}</p>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {service.desc}
+                </p>
               </Link>
             </li>
           ))}
@@ -885,11 +707,12 @@ function CTASection() {
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-              Konserinizi Güçlü Bir Sahneyle Başlatın
+              Konser Sahnesi Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Etkinliğiniz için en uygun sahne sistemini sunalım. Ücretsiz keşif, profesyonel
-              danışmanlık ve rekabetçi fiyat garantisi ile hizmetinizdeyiz.
+              Konser ve festival organizasyonunuz için en uygun sahne sistemlerini
+              sunalım. Ücretsiz keşif, profesyonel danışmanlık ve rekabetçi fiyat
+              garantisi ile hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -915,31 +738,38 @@ function CTASection() {
 }
 
 export default function Page() {
-  const baseUrl = SITE_URL;
-  const canonical = `${baseUrl}/konser-icin-podyum-kiralama`;
   const breadcrumbItems = [
-    { name: "Ana Sayfa", url: `${baseUrl}/` },
-    { name: "Hizmetler", url: `${baseUrl}/hizmetler` },
-    { name: "Konser İçin Podyum Kiralama", url: canonical },
+    { name: "Ana Sayfa", url: `${SITE_URL}/` },
+    { name: "Hizmetler", url: `${SITE_URL}/hizmetler` },
+    {
+      name: "Konser İçin Podyum Kiralama",
+      url: `${SITE_URL}/konser-icin-podyum-kiralama`,
+    },
   ];
 
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <StructuredData />
       <HeroSection />
       <ServicesSection />
       <ArticlesSection />
-      <TechnicalSection />
-      <StatsSection />
-      <UseCasesSection />
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks
         links={[
-          { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Etkinliğe Göre Podyum Tercihi" },
-          { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Neden Podyum Sahne Tercih Edilir?" },
-          { href: "/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir", label: "Sahne Neden Hep Yüksektir?" },
+          {
+            href: "/blog/etkinlige-gore-podyum-tercihi",
+            label: "Etkinliğe Göre Podyum Tercihi",
+          },
+          {
+            href: "/blog/neden-podyum-sahne-tercih-edilir",
+            label: "Neden Podyum Sahne Tercih Edilir?",
+          },
+          {
+            href: "/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir",
+            label: "Sahne Neden Hep Yüksektir?",
+          },
         ]}
       />
       <CTASection />
