@@ -27,14 +27,20 @@ const CONTENT_IMAGES = [
   {
     src: "/img/podyum/defile-runway-tasarimi.webp",
     alt: "T tipi defile runway tasarımı – moda defilesi için podyum kurulumu",
+    width: 1440,
+    height: 1322,
   },
   {
     src: "/img/podyum/moda-defilesi-sahne.webp",
     alt: "Moda defilesi sahne kurulumu – profesyonel ışık ve arka plan entegrasyonu",
+    width: 1440,
+    height: 1657,
   },
   {
     src: "/img/podyum/podyum-isik-entegrasyonu.webp",
     alt: "Podyum ışık entegrasyonu – LED destekli defile sahnesi",
+    width: 1194,
+    height: 1913,
   },
 ];
 
@@ -418,21 +424,20 @@ function ContentSection() {
               </p>
 
               {/* 3 içerik görseli */}
-              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
+              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3 items-start">
                 {CONTENT_IMAGES.map((img) => (
                   <figure
                     key={img.src}
-                    className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md"
+                    className="group overflow-hidden rounded-2xl border border-gray-200 shadow-md"
                   >
-                    <div className="relative aspect-[4/3]">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={img.width}
+                      height={img.height}
+                      className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </figure>
                 ))}
               </div>
