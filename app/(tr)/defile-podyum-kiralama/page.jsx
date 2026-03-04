@@ -629,7 +629,7 @@ function StatsSection() {
     <section className="py-20 bg-gradient-to-r from-violet-700 via-pink-700 to-violet-800 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {stats.map((stat, idx) => (
+          {stats.map((stat) => (
             <article
               key={stat.label}
               className="text-center group bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105"
