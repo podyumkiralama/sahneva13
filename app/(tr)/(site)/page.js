@@ -101,7 +101,7 @@ const HOME_JSON_LD = {
             "@type": "Service",
             name: "LED Ekran Kiralama",
             url: `${BASE_SITE_URL}/led-ekran-kiralama`,
-            image: `${BASE_SITE_URL}/img/hizmet-led.webp`,
+            image: `${BASE_SITE_URL}/img/hizmet-led-ekran.webp`,
             description: `İç/dış mekan LED ekran kiralama. ${PRICING_DISCLAIMER}`,
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
