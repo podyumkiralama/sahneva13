@@ -37,6 +37,7 @@ const SERVICES = [
 const QUICK_LINKS = [
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/hizmetler", label: "Hizmetler" },
+  { href: "/podyum-kiralama-fiyatlari", label: "Podyum Kiralama Fiyatları" },
   {
     href: "/kvkk",
     label: "KVKK / Gizlilik",
@@ -46,11 +47,6 @@ const QUICK_LINKS = [
 ];
 
 const POPULAR_PAGES = [
-  { href: "/podyum-kiralama", label: "Podyum Kiralama" },
-  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
-  { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
-  { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
-  { href: "/cadir-kiralama", label: "Çadır Kiralama" },
   { href: "/masa-sandalye-kiralama", label: "Masa & Sandalye Kiralama" },
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },
