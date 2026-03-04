@@ -68,7 +68,7 @@ export default function Page() {
           name: "Sahneva Organizasyon",
           logo: {
             "@type": "ImageObject",
-            url: `${BASE_SITE_URL}/img/sahneva-logo.svg`,
+            url: `${BASE_SITE_URL}/img/logo.svg`,
           },
         },
         isPartOf: { "@id": WEBSITE_ID },
