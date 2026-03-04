@@ -175,13 +175,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/search",
-        has: [{ type: "query", key: "q", value: "(?<term>.*)" }],
-        destination: "/?q=:term",
-        permanent: true,
-      },
-      { source: "/search", destination: "/", permanent: true },
-      {
         source: "/sahne-kurulumu",
         destination: "/sahne-kiralama",
         permanent: true,
