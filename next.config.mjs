@@ -205,13 +205,25 @@ const nextConfig = {
         ],
       },
 
-      // 4) Dosya uzantılı assetler: 1 yıl immutable
+      // 4) Web App Manifest: doğru MIME tipi + kısa vadeli önbellek
+      {
+        source: "/manifest.json",
+        headers: [
+          { key: "Content-Type", value: "application/manifest+json" },
+          {
+            key: "Cache-Control",
+            value: `public, max-age=${ONE_DAY_IN_SECONDS}, stale-while-revalidate=${ONE_DAY_IN_SECONDS * 7}`,
+          },
+        ],
+      },
+
+      // 5) Dosya uzantılı assetler: 1 yıl immutable
       {
         source: "/(.*)\\.(ico|png|jpg|jpeg|webp|avif|svg|gif|woff2|css|js)",
         headers: longTermCacheHeaders,
       },
 
-      // 5) _next genel: noindex
+      // 6) _next genel: noindex
       {
         source: "/_next/(.*)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
