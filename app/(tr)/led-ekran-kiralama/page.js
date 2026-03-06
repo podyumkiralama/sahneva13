@@ -39,73 +39,6 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   )
 });
 
-function FAQ() {
-  return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-10">
-          <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan <span className="text-blue-700">Sorular</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            LED ekran kiralama hakkında merak edilen sorular ve cevapları
-          </p>
-        </div>
-
-        <div className="space-y-4" role="list" aria-label="Sık sorulan sorular listesi">
-          {FAQ_ITEMS.map((faq, index) => {
-            const panelId = `faq-panel-${index}`;
-            const headingId = `faq-heading-${index}`;
-
-            return (
-              <article key={faq.q} role="listitem">
-                <details
-                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden"
-                  id={panelId}
-                  aria-labelledby={headingId}
-                >
-                  <summary
-                    id={headingId}
-                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
-                  >
-                    <span className="pr-4 flex-1">{faq.q}</span>
-                    <span
-                      aria-hidden="true"
-                      className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
-                    >
-                      ⌄
-                    </span>
-                  </summary>
-
-                  <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
-                    <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
-                      <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
-                    </div>
-                  </div>
-                </details>
-              </article>
-            );
-          })}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
-          </p>
-          <Link
-            href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
-            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">📚</span>
-            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ================== META ================== */
 export const metadata = {
   title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
@@ -286,6 +219,72 @@ const FAQ_ITEMS = [
   },
 ];
 
+function FAQ() {
+  return (
+    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-10">
+          <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+            Sık Sorulan <span className="text-blue-700">Sorular</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            LED ekran kiralama hakkında merak edilen sorular ve cevapları
+          </p>
+        </div>
+
+        <div className="space-y-4" role="list" aria-label="Sık sorulan sorular listesi">
+          {FAQ_ITEMS.map((faq, index) => {
+            const panelId = `faq-panel-${index}`;
+            const headingId = `faq-heading-${index}`;
+
+            return (
+              <article key={faq.q} role="listitem">
+                <details
+                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden"
+                  id={panelId}
+                  aria-labelledby={headingId}
+                >
+                  <summary
+                    id={headingId}
+                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
+                  >
+                    <span className="pr-4 flex-1">{faq.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
+                    >
+                      ⌄
+                    </span>
+                  </summary>
+
+                  <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
+                    <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
+                      <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
+                    </div>
+                  </div>
+                </details>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-gray-600 text-lg mb-6">
+            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
+          </p>
+          <Link
+            href="/sss"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+          >
+            <span aria-hidden="true" className="text-xl mr-3">📚</span>
+            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ================== HERO ================== */
 function Hero() {
@@ -825,156 +824,6 @@ function Technical() {
 }
 
 /* ================== İstatistik Bant (Kompakt) ================== */
-
-/* ================== Makale-İçi Rehber (CSV uyumlu) ================== */
-const LED_REHBER = [
-  {
-    q: "LED ekran kiralama fiyatları ne kadar?",
-    a: (
-      <>
-        <p>
-          Fiyat; piksel aralığı (P2.5/P2.9 – P3.9), toplam m², kurulum yüksekliği, taşıyıcı sistem (truss/rigging),
-          enerji altyapısı ve yayın gereksinimlerine göre netleşir. En doğru teklif için ekran ölçüsü + izleme mesafesi
-          birlikte değerlendirilmelidir.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "Kiralık LED ekran hizmeti veren firmalar nereden bulunur?",
-    a: (
-      <>
-        <p>
-          Referans proje kanıtı (foto/video), sahada sorumlu teknik kişi, yedek parça prosedürü ve dış mekân için
-          güvenli taşıyıcı sistem kriterlerini kontrol ederek doğru firmayı seçebilirsiniz.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "LED ekran kiralama için iletişim bilgileri olan şirketler hangileri?",
-    a: (
-      <>
-        <p>
-          Önemli olan tek numara değil; teklif akışı, kurulum günü ulaşılabilir saha sorumlusu ve dahil kalemlerin
-          yazılı olmasıdır. Teklif isterken tarih, mekan, tahmini m² ve içerik türünü iletmek süreci hızlandırır.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "Kiralık LED ekran teslim/kurulum süresi genellikle ne kadar?",
-    a: (
-      <>
-        <p>
-          Küçük ve orta ölçekli projelerde (yaklaşık 20–40 m²) sistemler çoğu senaryoda <strong>3–5 saat</strong> içinde
-          kuruluma hazır hale getirilebilir. Acil işlerde ekip ve ekipman hazırsa aynı gün kurulum planlanabilir.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "LED ekran kiralama sözleşmesi nasıl hazırlanır?",
-    a: (
-      <>
-        <p>
-          Sözleşmede m², piksel aralığı, kurulum-söküm saatleri, teslim kriteri (test yayını + onay), teknik ekip kapsamı,
-          arıza/yedek prosedürü ve dış mekân güvenliği (ankraj/rüzgar) net yazılmalıdır.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "Etkinlikler için LED ekran kiralama paket seçenekleri nelerdir?",
-    a: (
-      <>
-        <p>
-          Paketleri “m² + hizmet” olarak düşünün: Temel (panel+kurulum), Standart (kontrol+format), Pro (operatör+canlı yayın/sunum entegrasyonu).
-          Proje büyüdükçe taşıyıcı sistem ve yayın ekipmanı kapsamı da genişler.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "Kiralık LED ekran kurulumu ve sökümü hizmeti veriliyor mu?",
-    a: (
-      <>
-        <p>
-          Profesyonel kiralamada kurulum-söküm standarttır. Önemli olan; güvenli rigging, doğru kablolama/enerji hattı ve
-          etkinlik akışına (run-of-show) uyumlu teslim planıdır.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "LED ekran kiralama hizmetinde teknik destek sunuluyor mu?",
-    a: (
-      <>
-        <p>
-          Kurulum günü teknisyen, yayın sırasında operatör desteği ve yedek panel/kritik parça prosedürü olan firmalar
-          etkinlik günü riski ciddi azaltır.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "Kiralık LED ekran boyut seçenekleri nelerdir?",
-    a: (
-      <>
-        <p>
-          LED sistemler modüler olduğu için ölçü esnektir (ör. 4×2 m, 6×3 m). Doğru boyut için izleme mesafesi,
-          içerik türü (sunum/video/canlı kamera) ve sahne yerleşimi birlikte değerlendirilir.
-        </p>
-      </>
-    ),
-  },
-  {
-    q: "LED ekran kiralama fiyatına dahil olan hizmetler neler?",
-    a: (
-      <>
-        <p>
-          Genellikle panel, kurulum-söküm, kontrol sistemi kurulumu, kablolama ve test yayını dahildir. Operatör,
-          içerik uyarlama ve yayın entegrasyonu proje kapsamına göre eklenebilir. Teklifte “dahil olanlar”ı yazılı istemek önemlidir.
-        </p>
-      </>
-    ),
-  },
-];
-
-function LedEkranRehber() {
-  return (
-    <section className="py-12 bg-[#0B1120]" aria-labelledby="led-rehber-baslik">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-6">
-          <h2 id="led-rehber-baslik" className="text-2xl md:text-3xl font-bold text-white">
-            LED Ekran Kiralama Rehberi
-          </h2>
-          <p className="mt-2 text-white/70">
-            En çok sorulan sorulara kısa ve teknik cevaplar. Detaylar tıklayınca açılır.
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          {LED_REHBER.map((item, idx) => (
-            <details
-              key={idx}
-              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5"
-            >
-              <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
-                <span className="font-semibold text-white">{item.q}</span>
-                <span aria-hidden="true" className="text-white/60 group-open:rotate-180 transition">
-                  ⌄
-                </span>
-              </summary>
-              <div className="mt-4 text-white/80 leading-relaxed">{item.a}</div>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 function StatsBand() {
   const stats = [
@@ -1699,7 +1548,6 @@ export default function Page() {
       <Services />
       <Gallery />
       <Technical />
-      <LedEkranRehber />
       <StatsBand />
       <UseCases />
       <Articles />
