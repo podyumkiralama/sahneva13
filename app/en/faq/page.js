@@ -265,14 +265,18 @@ function stripTags(value = "") {
 }
 
 function injectLinks(text) {
-  let html = text;
-  for (const { key, href } of KEYWORD_LINKS) {
-    const pattern = new RegExp(`(${escapeRegex(key)})`, "gi");
-    html = html.replace(
-      pattern,
-      `<a href="${href}" class="underline hover:no-underline font-medium">$1</a>`
-    );
-  }
+  // Sort longest first so "stage rental page" is matched before "stage rental",
+  // preventing nested <a> tags from a second pass over already-replaced text.
+  const sorted = [...KEYWORD_LINKS].sort((a, b) => b.key.length - a.key.length);
+  const map = Object.fromEntries(sorted.map(({ key, href }) => [key.toLowerCase(), href]));
+  const pattern = new RegExp(
+    `(${sorted.map(({ key }) => escapeRegex(key)).join("|")})`,
+    "gi"
+  );
+  const html = text.replace(pattern, (match) => {
+    const href = map[match.toLowerCase()];
+    return `<a href="${href}" class="underline hover:no-underline font-medium">${match}</a>`;
+  });
   return <span dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
