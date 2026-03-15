@@ -81,7 +81,7 @@ export const metadata = {
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${FEATURED_IMAGE}`,

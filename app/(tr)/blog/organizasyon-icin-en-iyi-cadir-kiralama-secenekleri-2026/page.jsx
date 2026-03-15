@@ -40,12 +40,12 @@ export const metadata = {
   alternates: { canonical: BLOG_URL },
   image: FEATURED_IMAGE,
   openGraph: {
-    title: `${TITLE} | Sahneva Organizasyon`,
+    title: `${TITLE} | Sahneva`,
     description: DESCRIPTION,
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${FEATURED_IMAGE}`,

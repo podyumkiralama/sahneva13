@@ -5,16 +5,16 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
 
 export const metadata = {
-  title: "İletişim | Sahneva Organizasyon - Profesyonel Etkinlik Çözümleri",
+  title: "İletişim",
   description:
     "Sahne kiralama, LED ekran, ses-ışık sistemleri için hemen ulaşın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "İletişim | Sahneva Organizasyon - Profesyonel Etkinlik Çözümleri",
+    title: "İletişim | Sahneva",
     description:
       "Sahne, LED ekran, ses-ışık sistemleri için hemen teklif alın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
     url: PAGE_URL,
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${BASE_SITE_URL}/img/hero-bg.webp`,
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "İletişim | Sahneva Organizasyon – Profesyonel Etkinlik Çözümleri",
+    title: "İletişim | Sahneva",
     description:
       "Sahne, LED ekran, ses-ışık sistemleri için hemen teklif alın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
     images: [`${BASE_SITE_URL}/img/hero-bg.webp`],

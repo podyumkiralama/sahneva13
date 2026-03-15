@@ -20,7 +20,7 @@ const buildNotFoundSchema = () => ({
 const NOT_FOUND_JSON_LD = JSON.stringify(buildNotFoundSchema());
 
 export const metadata = {
-  title: "Sayfa Bulunamadı | Sahneva",
+  title: "Sayfa Bulunamadı",
   description: NOT_FOUND_DESCRIPTION,
   robots: { index: false, follow: false },
   alternates: { canonical: NOT_FOUND_URL },

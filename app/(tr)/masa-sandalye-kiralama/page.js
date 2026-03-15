@@ -55,12 +55,12 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Masa Sandalye Kiralama | Sahneva Organizasyon",
+    title: "Masa Sandalye Kiralama | Sahneva",
     description:
       "Davet, konferans ve kokteyl düzenleri için masa sandalye kiralama. Örtü-kılıf, planlama ve profesyonel kurulum.",
     url: `${ORIGIN}/masa-sandalye-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

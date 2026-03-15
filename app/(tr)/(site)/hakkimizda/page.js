@@ -6,7 +6,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Hakkımızda | Sahneva - Profesyonel Etkinlik Teknolojileri",
+  title: "Hakkımızda",
   description:
     "10+ yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.",
   alternates: {
@@ -19,7 +19,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Hakkımızda | Sahneva Organizasyon - Profesyonel Etkinlik Teknolojileri",
+    title: "Hakkımızda | Sahneva",
     description:
       "10+ yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.",
     url: "https://www.sahneva.com/hakkimizda",
@@ -33,7 +33,7 @@ export const metadata = {
     ],
     type: "website",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
   },
   twitter: {
     card: "summary_large_image",

@@ -264,12 +264,12 @@ export const metadata = {
     "Modüler podyum kiralama: 1×1 ve 2×1 paneller, kaymaz kaplama, halı ve skört opsiyonları. İstanbul geneli profesyonel hizmet ve saha yönetimi.",
   alternates: { canonical: `${ORIGIN}/podyum-kiralama` },
   openGraph: {
-    title: "Podyum Kiralama | Sahneva Organizasyon",
+    title: "Podyum Kiralama | Sahneva",
     description:
       "Modüler podyum sistemleri, kaymaz kaplama ve profesyonel hizmet.",
     url: `${ORIGIN}/podyum-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

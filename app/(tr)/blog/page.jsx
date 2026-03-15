@@ -21,18 +21,18 @@ function getBaseUrl() {
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Blog | Sahneva - Etkinlik Teknolojileri ve Organizasyon Rehberleri",
+  title: "Blog",
   description:
     "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
   alternates: { canonical: `${getBaseUrl()}/blog` },
   openGraph: {
-    title: "Sahneva Organizasyon Blog | Etkinlik Teknolojileri Rehberi",
+    title: "Sahneva | Etkinlik Teknolojileri Rehberi",
     description:
       "Sahneva ekibinden kurumsal organizasyon ve teknik ekipmanlar üzerine güncel blog yazıları.",
     url: `${getBaseUrl()}/blog`,
     type: "website",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${ORIGIN}/img/blog/default.webp`,

@@ -30,13 +30,13 @@ export const metadata = {
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
   openGraph: {
-    title: `${TITLE} | Sahneva Organizasyon`,
+    title: `${TITLE} | Sahneva`,
     description:
       "Mezuniyet töreni organizasyonu için 2026 trendleri, büyük ölçekli prodüksiyon planlama adımları, İstanbul mekân seçimi ve teknik altyapı rehberi.",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${HERO_IMG}`,

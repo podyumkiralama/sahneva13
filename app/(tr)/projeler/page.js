@@ -8,7 +8,7 @@ export const revalidate = 1800;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Projeler | Sahneva",
+  title: "Projeler",
   description: "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
   alternates: {
     canonical: "https://www.sahneva.com/projeler",
@@ -20,12 +20,12 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Projeler | Sahneva Organizasyon",
+    title: "Projeler | Sahneva",
     description: "Gerçekleşen projelerimizin arşivi.",
     url: "https://www.sahneva.com/projeler",
     type: "website",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}/img/hero-bg.webp`,
@@ -37,7 +37,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projeler | Sahneva Organizasyon",
+    title: "Projeler | Sahneva",
     description:
       "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
     images: [`${SITE_URL}/img/hero-bg.webp`],

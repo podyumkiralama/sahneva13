@@ -10,7 +10,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/nasil-calisiriz/hero-surec.webp`;
 
 export const metadata = {
-  title: "Nasıl Çalışıyoruz? | Sahneva Organizasyon",
+  title: "Nasıl Çalışıyoruz?",
   description:
     "Sahneva’da süreç; ihtiyaç analizi, teklif, teknik keşif, kurulum ve etkinlik sonrası söküm dahil uçtan uca planlanır.",
   alternates: {
@@ -20,7 +20,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Nasıl Çalışıyoruz? | Sahneva Organizasyon",
+    title: "Nasıl Çalışıyoruz? | Sahneva",
     description: "İhtiyaç → teklif → keşif → kurulum → etkinlik günü → söküm.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva nasıl çalışır?" }],
     siteName: "Sahneva",
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nasıl Çalışıyoruz? | Sahneva Organizasyon",
+    title: "Nasıl Çalışıyoruz? | Sahneva",
     description: "Sahneva süreç yönetimi: teklif, keşif, kurulum, etkinlik günü, söküm.",
     images: [OG_IMAGE],
   },

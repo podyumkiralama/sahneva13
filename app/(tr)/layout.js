@@ -133,15 +133,15 @@ export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
   title: {
     default: HOME_PAGE_TITLE,
-    template: `%s | Sahneva Organizasyon`,
+    template: `%s | Sahneva`,
   },
-  applicationName: "Sahneva Organizasyon",
+  applicationName: "Sahneva",
   description: content.meta.description,
   openGraph: {
     title: HOME_PAGE_TITLE,
     description: content.meta.description,
     url: buildCanonical("/"),
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     type: "website",
     locale: "tr_TR",
     images: [

@@ -35,7 +35,7 @@ export const metadata = {
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [{ url: `${SITE_URL}${HERO_IMAGE}`, width: 1200, height: 630, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026 – ekip etkinliği ve organizasyon fikirleri" }],
   },
   twitter: {

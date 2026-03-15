@@ -32,13 +32,13 @@ export const metadata = {
   },
   image: HERO_IMAGE,
   openGraph: {
-    title: "Kurumsal Etkinlik Yönetimi: Teknik Kiralama Rehberi | Sahneva Organizasyon",
+    title: "Kurumsal Etkinlik Yönetimi: Teknik Kiralama Rehberi | Sahneva",
     description:
       "Lansman, bayi toplantısı ve şirket etkinlikleri için sahne, LED ekran, ses-ışık ve çadır kiralama odaklı profesyonel teknik çözüm rehberi.",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${HERO_IMAGE}`,

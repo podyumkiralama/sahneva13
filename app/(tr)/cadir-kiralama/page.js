@@ -55,12 +55,12 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Çadır Kiralama | Sahneva Organizasyon",
+    title: "Çadır Kiralama | Sahneva",
     description:
       "Pagoda, şeffaf ve endüstriyel çadır çözümleri. Türkiye geneli profesyonel kurulum ve tamamlayıcı hizmetler.",
     url: `${ORIGIN}/cadir-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

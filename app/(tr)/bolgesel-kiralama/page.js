@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Bölgesel Kiralama | Sahneva Organizasyon",
+    title: "Bölgesel Kiralama | Sahneva",
     description:
       "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum, ses-ışık. Kurulum + operasyon + söküm dahil.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva Bölgesel Kiralama" }],
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bölgesel Kiralama | Sahneva Organizasyon",
+    title: "Bölgesel Kiralama | Sahneva",
     description:
       "Türkiye genelinde etkinlik ekipmanı kiralama. Şehrinizi seçin, hızlı teklif alın.",
     images: [OG_IMAGE],

@@ -55,12 +55,12 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Sahne Kiralama | Sahneva Organizasyon",
+    title: "Sahne Kiralama | Sahneva",
     description:
       "Konser, konferans, lansman ve festival etkinlikleri için truss, podyum, LED ekran, ses ve ışık sistemleri ile anahtar teslim sahne çözümleri.",
     url: `${ORIGIN}/sahne-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

@@ -10,12 +10,12 @@ export const metadata = {
     "Podyum, LED ekran, ses-ışık ve çadır kiralama; kurulum, elektrik, izinler ve fiyatlandırma hakkında detaylı SSS.",
   alternates: { canonical: `${SITE_URL}/sss` },
   openGraph: {
-    title: "Sık Sorulan Sorular | Sahneva Organizasyon",
+    title: "Sık Sorulan Sorular | Sahneva",
     description:
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
     url: `${SITE_URL}/sss`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sık Sorulan Sorular | Sahneva Organizasyon",
+    title: "Sık Sorulan Sorular | Sahneva",
     description:
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
