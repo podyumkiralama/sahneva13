@@ -41,11 +41,11 @@ export const metadata = {
   description: "Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. 81 ilde canlı operasyon desteği.",
   alternates: { canonical: `${ORIGIN}/ses-isik-sistemleri` },
   openGraph: {
-    title: "Ses ve Işık Sistemleri Kiralama | Sahneva Organizasyon",
+    title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
     description: "Türkiye genelinde uçtan uca ses & ışık çözümleri: keşif, projelendirme, kurulum, canlı miksaj ve söküm.",
     url: `${ORIGIN}/ses-isik-sistemleri`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [{ 
       url: `${ORIGIN}/img/ses-isik/hero.webp`, 

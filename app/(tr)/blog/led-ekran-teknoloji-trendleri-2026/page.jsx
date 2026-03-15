@@ -60,13 +60,13 @@ export const metadata = {
   image: FEATURED_IMAGE,
 
   openGraph: {
-    title: "2026 LED Ekran Teknolojisi Trendleri ve Etkinlik Tasarımı | Sahneva Organizasyon",
+    title: "2026 LED Ekran Teknolojisi Trendleri ve Etkinlik Tasarımı | Sahneva",
     description:
       "COB LED paneller, 2.0 nesil sürücüler ve HDR içerik üretimi ile 2026’da etkinlik sahneleri nasıl dönüşüyor?",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${FEATURED_IMAGE}`,

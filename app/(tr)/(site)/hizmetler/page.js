@@ -18,7 +18,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Hizmetlerimiz | Sahneva Organizasyon - Profesyonel Etkinlik Çözümleri",
+    title: "Hizmetlerimiz | Sahneva",
     description: "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",
     url: `${BASE_SITE_URL}/hizmetler`,
     images: [
@@ -31,11 +31,11 @@ export const metadata = {
     ],
     type: "website",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hizmetlerimiz | Sahneva Organizasyon – Profesyonel Etkinlik Çözümleri",
+    title: "Hizmetlerimiz | Sahneva",
     description:
       "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",
     images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],

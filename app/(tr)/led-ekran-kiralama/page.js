@@ -53,7 +53,7 @@ export const metadata = {
       "İç mekanda P2.5/P2.9, dış mekanda P3.9 LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum/söküm ekibi.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

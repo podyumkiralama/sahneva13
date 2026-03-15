@@ -40,7 +40,7 @@ export const metadata = {
     description:
       "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,

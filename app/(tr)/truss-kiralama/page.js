@@ -61,7 +61,7 @@ export const metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     type: "website",
     images: [

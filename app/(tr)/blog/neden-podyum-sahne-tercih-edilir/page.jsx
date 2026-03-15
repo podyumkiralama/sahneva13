@@ -35,13 +35,13 @@ export const metadata = {
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
   openGraph: {
-    title: "Neden Podyum Sahne Tercih Edilir? | Sahneva Organizasyon",
+    title: "Neden Podyum Sahne Tercih Edilir? | Sahneva",
     description:
       "Görünürlük, güvenlik, modüler yapı, hızlı kurulum ve profesyonel algı: podyum sahnenin etkinliklere kattığı avantajlar.",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${HERO_IMG}`,

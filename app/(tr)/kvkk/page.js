@@ -9,12 +9,12 @@ export const metadata = {
     "Sahneva KVKK ve Gizlilik Politikası: kişisel verilerin işlenmesi, saklanması, aktarımı ve haklarınız hakkında bilgilendirme.",
   alternates: { canonical: `${SITE_URL}/kvkk` },
   openGraph: {
-    title: "KVKK / Gizlilik | Sahneva Organizasyon",
+    title: "KVKK / Gizlilik | Sahneva",
     description:
       "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
     url: `${SITE_URL}/kvkk`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KVKK / Gizlilik | Sahneva Organizasyon",
+    title: "KVKK / Gizlilik | Sahneva",
     description:
       "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
     images: [`${SITE_URL}/img/hero-bg.webp`],

@@ -41,13 +41,13 @@ export const metadata = {
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
   openGraph: {
-    title: `${TITLE} | Sahneva Organizasyon`,
+    title: `${TITLE} | Sahneva`,
     description:
       "m², teknik sistemler ve teknik rider: sahne kiralama fiyatının gerçek belirleyicileri. Çok katmanlı etkinliklerde net fiyat için teknik ihtiyaçların netleşmesi gerekir.",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${HERO_IMG}`,

@@ -154,7 +154,7 @@ export const metadata = {
       "Festival ve konser sahneleri için modüler sahne sistemleri, LED entegrasyonu ve profesyonel kurulum.",
     url: `${ORIGIN}/konser-icin-podyum-kiralama`,
     type: "website",
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {

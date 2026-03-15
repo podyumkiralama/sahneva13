@@ -8,14 +8,14 @@ const HERO_IMAGE = "/img/projeler/kapali-alan-led/1.webp";
 
 export const metadata = {
   title:
-    "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Teknik Referans | Sahneva",
+    "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Teknik Referans",
   description:
     "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekran; scaff ve truss üst yapısıyla, 60 kişilik ekiple 2 günde tamamlanan büyük ölçekli kurulum.",
   alternates: { canonical: `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu` },
   openGraph: {
     type: "article",
     title:
-      "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva Organizasyon",
+      "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva",
     description:
       "24×6 m P2 LED, 24×8 m sahne/podyum, scaff ve truss ile büyük ölçekli kapalı alan kurulumu.",
     images: [
@@ -31,7 +31,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva Organizasyon",
+      "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva",
     description:
       "Kapalı alan sahne & LED uygulaması — 24×6 m P2 LED ve 24×8 m sahne/podyum.",
     images: [`${SITE_URL}${HERO_IMAGE}`],

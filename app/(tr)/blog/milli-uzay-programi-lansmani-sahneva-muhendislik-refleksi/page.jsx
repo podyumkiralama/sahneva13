@@ -58,7 +58,7 @@ export const metadata = {
     description:
       "Sahneva’nın Milli Uzay Programı Lansmanı’nda uyguladığı mühendislik çözümleri ve akıllı pnömatik sistemler.",
     url: BLOG_URL,
-    siteName: "Sahneva Organizasyon",
+    siteName: "Sahneva",
     images: [
       {
         url: `${SITE_URL}${HERO_IMG}`,
