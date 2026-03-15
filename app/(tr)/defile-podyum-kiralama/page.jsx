@@ -133,7 +133,7 @@ const RELATED_SERVICES = [
 export const metadata = {
   title: "Defile & Podyum Kiralama | Moda Etkinlikleri İçin Profesyonel Sahne Çözümleri | Sahneva",
   description:
-    "Defile ve podyum kiralama: T tipi, U tipi ve düz runway tasarımları, LED arka plan sahneleri, projeksiyon mapping ve tam teknik destek. İstanbul geneli profesyonel moda etkinliği sahne hizmeti.",
+    "Defile & moda podyum kiralama: T/U tipi, düz runway, LED arka plan, projeksiyon mapping + tam teknik destek. İstanbul profesyonel etkinlik sahneleri.",
   alternates: { canonical: `${ORIGIN}/defile-podyum-kiralama` },
   openGraph: {
     title: "Defile & Podyum Kiralama | Sahneva Organizasyon",

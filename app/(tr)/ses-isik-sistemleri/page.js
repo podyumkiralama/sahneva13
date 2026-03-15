@@ -38,7 +38,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title: "Ses ve Işık Sistemleri Kiralama | Profesyonel Çözümler",
-  description: "Konser, festival ve kurumsal etkinlikler için profesyonel ses & ışık sistemleri kiralama. Line array, dijital mikser, hareketli ışık, truss ve canlı operasyon. 81 ilde hizmet.",
+  description: "Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. 81 ilde canlı operasyon desteği.",
   alternates: { canonical: `${ORIGIN}/ses-isik-sistemleri` },
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva Organizasyon",

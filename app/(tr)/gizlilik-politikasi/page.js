@@ -11,7 +11,7 @@ const MAIL = "info@sahneva.com";
 export const metadata = {
   title: "Gizlilik Politikası | KVKK ve GDPR Uyumlu",
   description:
-    "Sahneva olarak kişisel verilerinizi KVKK ve GDPR kapsamında güvenli şekilde işliyor, saklıyor ve koruyoruz. Gizlilik politikamızı bu sayfadan inceleyebilirsiniz.",
+    "Sahneva kişisel verilerinizi KVKK ve GDPR uyumlu olarak güvenle işler, saklar ve korur. Veri güvenliği detayları için gizlilik politikamızı inceleyin.",
   alternates: {
     canonical: `${SITE_URL}/gizlilik-politikasi`,
     languages: {

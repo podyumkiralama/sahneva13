@@ -14,7 +14,7 @@ const AWARD_IMG = "/img/blog/kurumsal-etkinlik-sahne-genel.webp";
 
 const TITLE = "7 Gün, Sıfır Uyku, Milimetrik Tutku: PMGC Dünya Finali’nin Sahne Arkası";
 const DESCRIPTION =
-  "Ülker Arena’da gerçekleşen PMGC 2023 Dünya Finali’nde Sahneva’nın 7 günlük teknik maratonu: milimetrik sahne kurulumları, rigging güvenliği, global koordinasyon ve ödülle taçlanan uygulama.";
+  "Ülker Arena PMGC 2023 Dünya Finali sahne arkası: 7 günlük milimetrik kurulum, rigging güvenliği, global koordinasyon ve ödül alan prodüksiyon detayları.";
 
 const PUBLISH_DATE = "2026-01-05T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/pmgc-dunya-finali-sahne-arkasi/page.jsx", "2026-02-05T00:00:00+03:00");

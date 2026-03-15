@@ -43,7 +43,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
   description:
-    "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla profesyonel LED ekran kiralama. Konser, fuar ve kurumsal etkinlikler için yüksek parlaklık, IP65 ve uzman kurulum.",
+    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
   keywords:
     "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },

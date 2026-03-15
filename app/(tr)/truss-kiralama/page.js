@@ -23,7 +23,7 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
 const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri";
 const DESCRIPTION =
-  "Kare, üçgen, circle ve kemer (gate) dahil her türlü truss kiralama ve kurulumu. LED ekran, ışık-ses rigging ve sahne portalı için nakliye + montaj + teknik ekip desteği.";
+  "Kare, üçgen, daire ve kemer dahil tüm truss kiralama kurulumları. LED ekran, ses-ışık rigging ve sahne portalı için nakliye, montaj ve teknik ekip desteği.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 

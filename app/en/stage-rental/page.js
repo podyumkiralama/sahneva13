@@ -32,7 +32,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Stage Rental | Professional Stage Solutions | Sahneva",
   description:
-    "Turnkey stage rental for concerts, conferences, launches, rallies and festivals. Truss systems, modular decks, LED screens, sound and lighting with nationwide service across Türkiye.",
+    "Turnkey stage rental in Türkiye: truss, modular decks, LED screens, sound & lighting for concerts and festivals. Nationwide crew and fast setup service.",
   alternates: {
     canonical: `${ORIGIN}/en/stage-rental`,
     languages: {

@@ -32,7 +32,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Sound & Lighting Rental | Concert-Grade Audio Visual Systems | Sahneva",
   description:
-    "Line-array audio, digital mixing consoles, moving-head lighting and truss systems with nationwide crew support for concerts, festivals and corporate events across Türkiye.",
+    "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
   alternates: { canonical: `${ORIGIN}/en/sound-light-rental` },
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",

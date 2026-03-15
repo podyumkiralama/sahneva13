@@ -31,7 +31,7 @@ const BLUR_DATA_URL =
 export const metadata = {
   title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
   description:
-    "2026 güncel podyum kiralama fiyatları: m² bazlı hesaplama, halı, skört ve İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli. Defile/konser/düğün için hızlı teklif alın.",
+    "2026 podyum kiralama fiyatları: m² bazlı, halı-skört dahil, İstanbul içi nakliye, kurulum ve söküm sabit bedel. Defile ve konserler için teklif isteyin.",
   alternates: { canonical: url },
   openGraph: {
     type: "website",

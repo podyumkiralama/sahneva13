@@ -44,7 +44,7 @@ const IMAGES = {
 export const metadata = {
   title: "Sahne Neden Hep Yüksektir? 2500 Yıllık Bir Sır",
   description:
-    "Antik çağın konuşma platformlarından modern konser sahnelerine… Sahnenin yükseltilmiş bir alan olarak nasıl doğduğunu, yüzyıllar boyunca nasıl evrildiğini ve bugünün sahne teknolojilerine nasıl dönüştüğünü anlatan tarih yazısı.",
+    "Antik platformlardan modern konser sahnelerine: sahnenin 2500 yıllık evrimi, yükseltilmiş alanın doğuşu ve günümüz LED-truss teknolojilerine dönüşümü.",
 
   alternates: { canonical: BLOG_URL },
 

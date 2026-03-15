@@ -46,7 +46,7 @@ export const metadata = {
   title:
     "Kurumsal Organizasyon Şirketleri | İstanbul Etkinlik ve Organizasyon Kiralama",
   description:
-    "İstanbul kurumsal organizasyon şirketleri arasında profesyonel sahne, LED ekran, ses ve etkinlik prodüksiyon çözümleri. Büyük organizasyon yönetimi ve organizasyon kiralama hizmetleri.",
+    "İstanbul'daki kurumsal organizasyonlara sahne, LED ekran, ses-ışık prodüksiyon çözümleri. Anahtar teslim kiralama, profesyonel ekip. Hemen teklif alın.",
   alternates: { canonical: `${ORIGIN}/kurumsal-organizasyon` },
   openGraph: {
     title:

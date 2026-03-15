@@ -71,7 +71,7 @@ const WA_URL = LEADMAGNET_WA;
 export const metadata = {
   title: "Etkinliğe Göre Podyum Tercihi",
   description:
-    "Doğru podyum seçimi nasıl yapılır? Düğün, kurumsal toplantı, konser ve mitingler için en uygun sahne çözümleri Sahneva’da. Profesyonel podyum kiralama rehberimizi inceleyin.",
+    "Doğru podyum seçimi rehberi: düğün, kurumsal, konser, miting için en uygun çözümler. T tipi, düz runway ve profesyonel kiralama ipuçları Sahneva’da.",
   alternates: { canonical: BLOG_URL },
   image: FEATURED_IMAGE,
   openGraph: {
