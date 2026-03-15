@@ -37,6 +37,8 @@ export const metadata = {
     canonical: `${ORIGIN}/en/table-chair-rental`,
     languages: {
       "tr-TR": `${ORIGIN}/masa-sandalye-kiralama`,
+      "en": `${ORIGIN}/en/table-chair-rental`,
+      "x-default": `${ORIGIN}/en/table-chair-rental`,
     },
   },
   openGraph: {

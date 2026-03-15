@@ -37,6 +37,8 @@ export const metadata = {
     canonical: `${ORIGIN}/en/tent-rental`,
     languages: {
       "tr-TR": `${ORIGIN}/cadir-kiralama`,
+      "en": `${ORIGIN}/en/tent-rental`,
+      "x-default": `${ORIGIN}/en/tent-rental`,
     },
   },
   openGraph: {

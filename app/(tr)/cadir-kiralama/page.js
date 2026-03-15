@@ -46,7 +46,14 @@ export const metadata = {
   title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
   description:
     "Pagoda, şeffaf dome, endüstriyel çadır kiralama. Zemin kaplama, aydınlatma ve profesyonel kurulum. Türkiye geneli hızlı hizmet.",
-  alternates: { canonical: `${ORIGIN}/cadir-kiralama` },
+  alternates: {
+    canonical: `${ORIGIN}/cadir-kiralama`,
+    languages: {
+      "tr-TR": `${ORIGIN}/cadir-kiralama`,
+      "en": `${ORIGIN}/en/tent-rental`,
+      "x-default": `${ORIGIN}/en/tent-rental`,
+    },
+  },
   openGraph: {
     title: "Çadır Kiralama | Sahneva Organizasyon",
     description:

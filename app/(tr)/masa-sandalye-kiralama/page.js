@@ -46,7 +46,14 @@ export const metadata = {
   title: "Masa Sandalye Kiralama | Profesyonel Çözümler",
   description:
     "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim. İstanbul genelinde hızlı teslim.",
-  alternates: { canonical: `${ORIGIN}/masa-sandalye-kiralama` },
+  alternates: {
+    canonical: `${ORIGIN}/masa-sandalye-kiralama`,
+    languages: {
+      "tr-TR": `${ORIGIN}/masa-sandalye-kiralama`,
+      "en": `${ORIGIN}/en/table-chair-rental`,
+      "x-default": `${ORIGIN}/en/table-chair-rental`,
+    },
+  },
   openGraph: {
     title: "Masa Sandalye Kiralama | Sahneva Organizasyon",
     description:

@@ -7,7 +7,15 @@ export const metadata = {
   title: "About Us | Sahneva - Professional Event Technologies",
   description:
     "Over 10 years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. 700+ completed projects.",
-  alternates: { canonical: "https://www.sahneva.com/en/about" },
+  alternates: {
+    canonical: "https://www.sahneva.com/en/about",
+    languages: {
+      "tr-TR": "https://www.sahneva.com/hakkimizda",
+      "en": "https://www.sahneva.com/en/about",
+      "ar": "https://www.sahneva.com/ar/about",
+      "x-default": "https://www.sahneva.com/en/about",
+    },
+  },
   openGraph: {
     title: "About Us | Sahneva - Professional Event Technologies",
     description:

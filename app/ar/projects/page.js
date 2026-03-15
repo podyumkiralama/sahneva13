@@ -15,6 +15,8 @@ export const metadata = {
     languages: {
       "tr-TR": "https://www.sahneva.com/projeler",
       "en": "https://www.sahneva.com/en/projects",
+      "ar": "https://www.sahneva.com/ar/projects",
+      "x-default": "https://www.sahneva.com/en/projects",
     },
   },
 };

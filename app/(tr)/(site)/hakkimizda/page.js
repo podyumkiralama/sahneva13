@@ -9,7 +9,15 @@ export const metadata = {
   title: "Hakkımızda | Sahneva - Profesyonel Etkinlik Teknolojileri",
   description:
     "10+ yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.",
-  alternates: { canonical: "https://www.sahneva.com/hakkimizda" },
+  alternates: {
+    canonical: "https://www.sahneva.com/hakkimizda",
+    languages: {
+      "tr-TR": "https://www.sahneva.com/hakkimizda",
+      "en": "https://www.sahneva.com/en/about",
+      "ar": "https://www.sahneva.com/ar/about",
+      "x-default": "https://www.sahneva.com/en/about",
+    },
+  },
   openGraph: {
     title: "Hakkımızda | Sahneva Organizasyon - Profesyonel Etkinlik Teknolojileri",
     description:

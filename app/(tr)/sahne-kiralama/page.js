@@ -46,7 +46,14 @@ export const metadata = {
   title: "Sahne Kiralama | Profesyonel Sahne Çözümleri",
   description:
     "Konser, konferans, lansman, miting ve festival etkinlikleri için anahtar teslim sahne kiralama. Truss, podyum, LED ekran, ses ve ışık sistemleri. 81 ilde profesyonel hizmet.",
-  alternates: { canonical: `${ORIGIN}/sahne-kiralama` },
+  alternates: {
+    canonical: `${ORIGIN}/sahne-kiralama`,
+    languages: {
+      "tr-TR": `${ORIGIN}/sahne-kiralama`,
+      "en": `${ORIGIN}/en/stage-rental`,
+      "x-default": `${ORIGIN}/en/stage-rental`,
+    },
+  },
   openGraph: {
     title: "Sahne Kiralama | Sahneva Organizasyon",
     description:

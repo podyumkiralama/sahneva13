@@ -8,7 +8,15 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 export const metadata = {
   title: "Hizmetlerimiz - Profesyonel Etkinlik Ekipmanları Kiralama",
   description: "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri, podyum, çadır kiralama ve etkinlik prodüksiyon hizmetleri. Türkiye geneli hızlı kurulum.",
-  alternates: { canonical: `${BASE_SITE_URL}/hizmetler` },
+  alternates: {
+    canonical: `${BASE_SITE_URL}/hizmetler`,
+    languages: {
+      "tr-TR": `${BASE_SITE_URL}/hizmetler`,
+      "en": `${BASE_SITE_URL}/en/services`,
+      "ar": `${BASE_SITE_URL}/ar/services`,
+      "x-default": `${BASE_SITE_URL}/en/services`,
+    },
+  },
   openGraph: {
     title: "Hizmetlerimiz | Sahneva Organizasyon - Profesyonel Etkinlik Çözümleri",
     description: "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",

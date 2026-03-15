@@ -10,7 +10,15 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 export const metadata = {
   title: "Projeler | Sahneva",
   description: "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
-  alternates: { canonical: "https://www.sahneva.com/projeler" },
+  alternates: {
+    canonical: "https://www.sahneva.com/projeler",
+    languages: {
+      "tr-TR": "https://www.sahneva.com/projeler",
+      "en": "https://www.sahneva.com/en/projects",
+      "ar": "https://www.sahneva.com/ar/projects",
+      "x-default": "https://www.sahneva.com/en/projects",
+    },
+  },
   openGraph: {
     title: "Projeler | Sahneva Organizasyon",
     description: "Gerçekleşen projelerimizin arşivi.",
