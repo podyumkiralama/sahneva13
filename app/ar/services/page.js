@@ -19,6 +19,8 @@ export const metadata = {
     languages: {
       "tr-TR": "https://www.sahneva.com/hizmetler",
       "en": "https://www.sahneva.com/en/services",
+      "ar": "https://www.sahneva.com/ar/services",
+      "x-default": "https://www.sahneva.com/en/services",
     },
   },
 };

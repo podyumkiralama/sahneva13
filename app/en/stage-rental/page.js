@@ -37,6 +37,8 @@ export const metadata = {
     canonical: `${ORIGIN}/en/stage-rental`,
     languages: {
       "tr-TR": `${ORIGIN}/sahne-kiralama`,
+      "en": `${ORIGIN}/en/stage-rental`,
+      "x-default": `${ORIGIN}/en/stage-rental`,
     },
   },
   openGraph: {

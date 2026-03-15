@@ -15,7 +15,8 @@ export const metadata = {
     canonical: `${ORIGIN}/en/projects`,
     languages: {
       "tr-TR": `${ORIGIN}/projeler`,
-      "en-US": `${ORIGIN}/en/projects`,
+      "en": `${ORIGIN}/en/projects`,
+      "ar": `${ORIGIN}/ar/projects`,
       "x-default": `${ORIGIN}/en/projects`,
     },
   },
