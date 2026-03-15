@@ -45,7 +45,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Sahne Kiralama | Profesyonel Sahne Çözümleri",
   description:
-    "Konser, konferans, lansman, miting ve festival etkinlikleri için anahtar teslim sahne kiralama. Truss, podyum, LED ekran, ses ve ışık sistemleri. 81 ilde profesyonel hizmet.",
+    "Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. 81 ilde hızlı kurulum ve teknik destek.",
   alternates: {
     canonical: `${ORIGIN}/sahne-kiralama`,
     languages: {

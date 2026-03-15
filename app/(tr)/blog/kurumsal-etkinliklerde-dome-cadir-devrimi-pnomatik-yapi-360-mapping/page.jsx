@@ -54,7 +54,7 @@ export const metadata = {
   title:
     "Kurumsal Etkinliklerde Dome Çadır Devrimi: 360° Mapping",
   description:
-    "Pnömatik/geodezik dome çadır + 360° video mapping ile kurumsal lansmanlarda yeni dönem. Batman Dicle Elektrik – Dicle Fest örneği, kurulum, akustik ve senkronizasyon detayları.",
+    "Kurumsal lansmanlarda dome çadır ve 360° video mapping devrimi. Dicle Fest örneği, hızlı kurulum, akustik senkronizasyon ve tüm proje detayları.",
   image: HERO_IMAGE,
   alternates: {
     canonical: BLOG_URL,

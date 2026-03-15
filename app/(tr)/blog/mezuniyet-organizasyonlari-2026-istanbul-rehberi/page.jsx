@@ -18,7 +18,7 @@ const IMG_LED = "/img/blog/mezuniyet-toreni-led-ekran.webp";
 
 const TITLE = "Mezuniyet Organizasyonları 2026 Rehberi";
 const DESCRIPTION =
-  "Mezuniyet töreni organizasyonu için İstanbul’da sahne, LED ekran, ses-ışık, canlı yayın ve mezuniyet partisi planlamasını 2026 trendleriyle ele alan kapsamlı rehber.";
+  "İstanbul mezuniyet töreni rehberi 2026: sahne, LED ekran, ses-ışık ve canlı yayın planlaması. Trendler, bütçe ipuçları ve profesyonel organizasyon önerileri.";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 
 const PUBLISH_DATE = "2026-02-10T09:00:00+03:00";
