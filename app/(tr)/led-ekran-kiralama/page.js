@@ -1416,7 +1416,7 @@ function JsonLd() {
     EVENT SERVICE
   ---------------------------------------- */
   const eventServiceSchema = {
-    "@type": "EventService",
+    "@type": "Service",
     "@id": `${pageUrl}#eventservice`,
     name: "Etkinlik LED Ekran Kiralama Hizmeti",
     description:
