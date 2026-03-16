@@ -11,6 +11,8 @@ export const config = {
   ],
 };
 
-export default function proxy() {
-  return NextResponse.next();
+export default function proxy(request) {
+  const response = NextResponse.next();
+  response.headers.set("x-pathname", request.nextUrl.pathname);
+  return response;
 }

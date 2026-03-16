@@ -8,7 +8,15 @@ export const metadata = {
   title: "İletişim",
   description:
     "Sahne kiralama, LED ekran, ses-ışık sistemleri için hemen ulaşın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
-  alternates: { canonical: PAGE_URL },
+  alternates: {
+    canonical: PAGE_URL,
+    languages: {
+      "tr-TR": PAGE_URL,
+      en: `${BASE_SITE_URL}/en/contact`,
+      ar: `${BASE_SITE_URL}/ar/contact`,
+      "x-default": `${BASE_SITE_URL}/en/contact`,
+    },
+  },
   openGraph: {
     title: "İletişim | Sahneva",
     description:

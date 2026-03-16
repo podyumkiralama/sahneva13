@@ -3,8 +3,7 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import NewTabAccessibility from "@/components/NewTabAccessibility.client";
-const DEFAULT_LANG = "tr";
-const DEFAULT_DIR = "ltr";
+import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
 export const viewport = {
@@ -19,11 +18,23 @@ export const metadata = {
 };
 
 /* ================== ROOT LAYOUT ================== */
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+
+  let lang = "tr";
+  let dir = "ltr";
+  if (pathname.startsWith("/en")) {
+    lang = "en";
+  } else if (pathname.startsWith("/ar")) {
+    lang = "ar";
+    dir = "rtl";
+  }
+
   return (
     <html
-      lang={DEFAULT_LANG}
-      dir={DEFAULT_DIR}
+      lang={lang}
+      dir={dir}
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
