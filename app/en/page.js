@@ -390,6 +390,22 @@ export const metadata = {
     url: "https://www.sahneva.com/en",
     type: "website",
     locale: "en_US",
+    siteName: "Sahneva",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sahneva – Stage, LED Wall, Sound & Lighting Rentals across Türkiye",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye | Sahneva",
+    description:
+      "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation across Türkiye.",
+    images: ["https://www.sahneva.com/img/og/sahneva-og.webp"],
   },
   alternates: {
     canonical: "https://www.sahneva.com/en",
@@ -532,7 +548,7 @@ function StructuredData() {
       {
         "@type": "ImageObject",
         "@id": "https://www.sahneva.com/en#og",
-        contentUrl: "https://www.sahneva.com/og/sahneva-home.jpg",
+        contentUrl: "https://www.sahneva.com/img/og/sahneva-og.webp",
         width: 1200,
         height: 630,
       },

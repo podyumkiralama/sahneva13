@@ -26,11 +26,20 @@ export const metadata = {
     url: `${ORIGIN}/en/projects`,
     type: "website",
     siteName: "Sahneva",
+    images: [
+      {
+        url: `${ORIGIN}/img/og/sahneva-og.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva – Selected completed projects and event setups",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Projects | Sahneva",
     description: "Selected examples from our completed stage and LED screen setups.",
+    images: [`${ORIGIN}/img/og/sahneva-og.webp`],
   },
 };
 

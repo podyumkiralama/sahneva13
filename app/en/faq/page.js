@@ -13,6 +13,14 @@ export const metadata = {
     url: "https://www.sahneva.com/en/faq",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/hero-bg.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sahneva – Frequently Asked Questions about event technology rentals",
+      },
+    ],
   },
 };
 

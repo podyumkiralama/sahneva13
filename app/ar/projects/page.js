@@ -9,6 +9,14 @@ export const metadata = {
     url: "https://www.sahneva.com/ar/projects",
     type: "website",
     locale: "ar_AR",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "سحنيفا – مشاريع وفعاليات منجزة",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.sahneva.com/ar/projects",

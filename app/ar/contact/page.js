@@ -9,6 +9,14 @@ export const metadata = {
     url: "https://www.sahneva.com/ar/contact",
     type: "website",
     locale: "ar_AR",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/hero-bg.webp",
+        width: 1200,
+        height: 630,
+        alt: "سحنيفا – تواصل معنا لحلول تقنيات الفعاليات",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.sahneva.com/ar/contact",
