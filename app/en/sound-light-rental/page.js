@@ -30,7 +30,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sound & Lighting Rental | Concert-Grade Audio Visual Systems | Sahneva",
+  title: "Sound & Lighting Rental | Concert-Grade AV Systems",
   description:
     "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
   alternates: { canonical: `${ORIGIN}/en/sound-light-rental` },
@@ -51,7 +51,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sound & Lighting Rental | Concert-Grade Audio Visual Systems | Sahneva",
+    title: "Sound & Lighting Rental | Concert-Grade AV Systems",
     description:
       "Professional line-array audio, digital consoles, wireless microphones, moving-head lighting, truss and technical crew support across Türkiye.",
     images: [`${ORIGIN}/img/ses-isik/hero.webp`],
@@ -1050,7 +1050,7 @@ function JsonLd() {
       },
       {
         "@type": "WebPage",
-        name: "Sound & Lighting Rental | Concert-Grade Audio Visual Systems | Sahneva",
+        name: "Sound & Lighting Rental | Concert-Grade AV Systems",
         description: "Line-array audio, digital mixing consoles, moving-head lighting and truss systems with nationwide crew support for concerts, festivals and corporate events across Türkiye.",
         url: `${ORIGIN}/en/sound-light-rental`,
         mainEntity: {

@@ -30,7 +30,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Screen Rental | Professional LED Wall Solutions | Sahneva",
+  title: "LED Screen Rental | Professional LED Wall Rentals",
   description:
     "P2–P6 pixel pitch, 4K processors and ultra-bright LED wall rentals. Indoor/outdoor, concert, expo and corporate event solutions across Turkey.",
   alternates: { canonical: `${ORIGIN}/en/led-screen-rental` },
@@ -51,7 +51,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Screen Rental | Professional LED Wall Solutions | Sahneva",
+    title: "LED Screen Rental | Professional LED Wall Rentals",
     description:
       "LED screen rental with high brightness, 4K processors and nationwide certified crews for concerts, expos and corporate events.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
@@ -1063,7 +1063,7 @@ function JsonLd() {
       },
       {
         "@type": "WebPage",
-        name: "LED Screen Rental | Professional LED Wall Solutions | Sahneva",
+        name: "LED Screen Rental | Professional LED Wall Rentals",
         description: "P2–P6 pixel pitch, 4K processing and high-brightness LED wall rentals for indoor/outdoor concerts, trade shows and corporate events across Turkey.",
         url: `${ORIGIN}/en/led-screen-rental`,
         mainEntity: {

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Our Services | Sahneva - Professional Event Equipment Rentals",
+  title: "Our Services | Professional Event Equipment Rentals",
   description:
     "Professional stage rentals, LED walls, sound-light systems, podiums, tents and full event production across Türkiye.",
   alternates: {

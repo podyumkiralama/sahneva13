@@ -28,12 +28,12 @@ const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
 const VIDEO_THUMB = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 
 export const metadata = {
-  title: `${TITLE}`,
+  title: "PMGC 2023 Dünya Finali'nin Sahne Arkası",
   description: DESCRIPTION,
   alternates: { canonical: BLOG_URL },
   image: HERO_IMG,
   openGraph: {
-    title: `${TITLE} | Sahneva`,
+    title: "PMGC 2023 Dünya Finali'nin Sahne Arkası | Sahneva",
     description: DESCRIPTION,
     url: BLOG_URL,
     type: "article",
@@ -50,7 +50,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
+    title: "PMGC 2023 Dünya Finali'nin Sahne Arkası",
     description: DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMG}`],
   },

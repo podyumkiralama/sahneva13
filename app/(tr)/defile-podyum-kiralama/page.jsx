@@ -131,7 +131,7 @@ const RELATED_SERVICES = [
 
 /* ================== 4. META DATA ================== */
 export const metadata = {
-  title: "Defile & Podyum Kiralama | Moda Etkinlikleri İçin Profesyonel Sahne Çözümleri",
+  title: "Defile & Podyum Kiralama | Moda Etkinlik Sahnesi",
   description:
     "Defile & moda podyum kiralama: T/U tipi, düz runway, LED arka plan, projeksiyon mapping + tam teknik destek. İstanbul profesyonel etkinlik sahneleri.",
   alternates: { canonical: `${ORIGIN}/defile-podyum-kiralama` },
