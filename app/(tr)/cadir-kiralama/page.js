@@ -1686,8 +1686,7 @@ function JsonLd() {
     description: pageDescription,
     serviceType: "Etkinlik Çadır Kiralama",
     provider,
-    areaServed: { "@type": "Country", name: "Türkiye" },
-    inLanguage: "tr-TR",
+    areaServed: { "@type": "AdministrativeArea", name: "Türkiye" },
     url: pageUrl,
     mainEntityOfPage: { "@id": webPageId },
     hasOfferCatalog: { "@id": offerCatalogId },
@@ -1711,7 +1710,6 @@ function JsonLd() {
     inLanguage: "tr-TR",
     mainEntity: { "@id": serviceNode["@id"] },
     isPartOf: { "@id": WEBSITE_ID },
-    hasPart: { "@id": offerCatalogId },
     publisher: provider,
     primaryImageOfPage: {
       "@type": "ImageObject",
