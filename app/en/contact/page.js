@@ -9,6 +9,9 @@ export const metadata = {
     canonical: "https://www.sahneva.com/en/contact",
     languages: {
       "tr-TR": "https://www.sahneva.com/iletisim",
+      en: "https://www.sahneva.com/en/contact",
+      ar: "https://www.sahneva.com/ar/contact",
+      "x-default": "https://www.sahneva.com/en/contact",
     },
   },
   openGraph: {

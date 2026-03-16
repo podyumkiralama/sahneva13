@@ -1,11 +1,11 @@
 export const metadata = {
   title: "تواصل مع سحنيفا",
   description:
-    "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا.",
+    "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا. نغطي كافة المدن بفرق متخصصة جاهزة للتركيب السريع.",
   openGraph: {
     title: "تواصل مع سحنيفا",
     description:
-      "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا.",
+      "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا. نغطي كافة المدن بفرق متخصصة جاهزة للتركيب السريع.",
     url: "https://www.sahneva.com/ar/contact",
     type: "website",
     locale: "ar_AR",
@@ -22,7 +22,9 @@ export const metadata = {
     canonical: "https://www.sahneva.com/ar/contact",
     languages: {
       "tr-TR": "https://www.sahneva.com/iletisim",
-      "en": "https://www.sahneva.com/en/contact",
+      en: "https://www.sahneva.com/en/contact",
+      ar: "https://www.sahneva.com/ar/contact",
+      "x-default": "https://www.sahneva.com/en/contact",
     },
   },
 };
