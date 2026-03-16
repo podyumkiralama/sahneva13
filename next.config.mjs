@@ -55,6 +55,7 @@ const securityHeaders = (() => {
     "https://l.clarity.ms",
     "https://*.clarity.ms",
     "https://static.cloudflareinsights.com",
+    "wss://*.pusher.com",
     siteUrl,
   ].join(" ");
 
@@ -83,7 +84,7 @@ const securityHeaders = (() => {
     object-src 'none';
     upgrade-insecure-requests;
     img-src 'self' data: blob: https:;
-    font-src 'self' data: https://fonts.gstatic.com;
+    font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     script-src ${SCRIPT_SRC};
     script-src-elem ${SCRIPT_SRC_ELEM};
