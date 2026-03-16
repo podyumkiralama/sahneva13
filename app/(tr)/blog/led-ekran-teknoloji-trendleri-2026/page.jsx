@@ -50,8 +50,7 @@ const WA_URL = LEADMAGNET_WA;
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title:
-    "2026 LED Ekran Teknolojisi Trendleri: COB, 2.0 Nesil Paneller ve Sahne Tasarımı",
+  title: "2026 LED Ekran Trendleri: COB ve Sahne Tasarımı",
   description:
     "2026 LED ekran trendleri: COB paneller, ultra düşük piksel, HDR sahne tasarımı. Lansman, festival ve kurumsal etkinlikler için teknik rehber ve yenilikler.",
   alternates: { canonical: BLOG_URL },

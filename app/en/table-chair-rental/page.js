@@ -30,7 +30,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Table & Chair Rental | Banquet, Conference & Cocktail Setups | Sahneva",
+  title: "Table & Chair Rental | Banquet & Cocktail Setups",
   description:
     "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
   alternates: {
@@ -58,7 +58,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Table & Chair Rental | Banquet, Conference & Cocktail Setups | Sahneva",
+    title: "Table & Chair Rental | Banquet & Cocktail Setups",
     description:
       "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
     images: [`${ORIGIN}/img/sandalye/3.webp`],
@@ -1180,7 +1180,7 @@ function JsonLd() {
       },
       {
         "@type": "WebPage",
-        name: "Table & Chair Rental | Banquet, Conference & Cocktail Setups | Sahneva",
+        name: "Table & Chair Rental | Banquet & Cocktail Setups",
         description:
           "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
         url: `${ORIGIN}/en/table-chair-rental`,
