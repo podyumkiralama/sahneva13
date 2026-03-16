@@ -104,7 +104,7 @@ const securityHeaders = (() => {
     {
       key: "Permissions-Policy",
       value:
-        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), fullscreen=(self \"https://www.youtube.com\" \"https://www.youtube-nocookie.com\")",
+        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), fullscreen=()",
     },
     {
       key: "Strict-Transport-Security",
@@ -147,7 +147,6 @@ const nextConfig = {
     deviceSizes: [320, 420, 640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/avif", "image/webp"],
-    qualities: [60, 75],
     minimumCacheTTL: ONE_MONTH_IN_SECONDS,
     remotePatterns: [],
     dangerouslyAllowSVG: false,
