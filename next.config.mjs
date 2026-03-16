@@ -15,6 +15,7 @@ const siteUrl = process.env.SITE_URL ?? "https://www.sahneva.com";
 const securityHeaders = (() => {
   const SCRIPT_SRC = [
     "'self'",
+    "'unsafe-eval'", // Required by GTM, Clarity and similar third-party analytics that use eval() internally
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
