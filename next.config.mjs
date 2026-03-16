@@ -129,10 +129,6 @@ const htmlCacheHeaders = [
     key: "Cache-Control",
     value: `public, s-maxage=300, stale-while-revalidate=86400`,
   },
-  {
-    key: "X-Robots-Tag",
-    value: "index, follow",
-  },
 ];
 
 const nextConfig = {
