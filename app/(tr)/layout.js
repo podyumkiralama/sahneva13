@@ -137,6 +137,11 @@ export const metadata = {
   },
   applicationName: "Sahneva",
   description: content.meta.description,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   openGraph: {
     title: HOME_PAGE_TITLE,
     description: content.meta.description,
