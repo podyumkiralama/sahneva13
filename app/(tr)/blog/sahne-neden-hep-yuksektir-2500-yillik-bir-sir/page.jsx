@@ -131,11 +131,11 @@ function ArticleSchema() {
         author: { "@type": "Person", name: AUTHOR_NAME },
         publisher: { "@type": "Organization", name: "Sahneva Organizasyon", url: SITE_URL },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
-        relatedLink: [
-          `${SITE_URL}${STAGE_SERVICE_PATH}`,
-          `${SITE_URL}${PODIUM_SERVICE_PATH}`,
-          `${SITE_URL}${LED_SERVICE_PATH}`,
-          `${SITE_URL}${SOUND_LIGHT_PATH}`,
+        mentions: [
+          { "@type": "WebPage", "@id": `${SITE_URL}${STAGE_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${PODIUM_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${LED_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${SOUND_LIGHT_PATH}` },
         ],
       },
       {

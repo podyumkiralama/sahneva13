@@ -153,7 +153,7 @@ function ArticleSchema() {
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
-        relatedLink: [LED_SERVICE_URL],
+        mentions: [{ "@type": "WebPage", "@id": LED_SERVICE_URL }],
       },
       {
         "@type": "FAQPage",

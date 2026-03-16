@@ -278,16 +278,6 @@ export default function CasePage() {
             description:
               "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekranla scaff ve truss altyapısı kullanılan, 2 günde 60 kişilik ekiple tamamlanan büyük ölçekli kurulum.",
             image: IMAGES.map((i) => `${SITE_URL}${i.src}`),
-            creator: { "@id": ORGANIZATION_ID },
-            additionalProperty: [
-              { "@type": "PropertyValue", name: "Sahne/Podyum", value: "24×8 m" },
-              { "@type": "PropertyValue", name: "LED Ekran", value: "24×6 m (P2)" },
-              { "@type": "PropertyValue", name: "Altyapı", value: "Scaff + Truss" },
-              { "@type": "PropertyValue", name: "Alan", value: "40’lık çadır (kapalı alan)" },
-              { "@type": "PropertyValue", name: "Kurulum Süresi", value: "2 iş günü" },
-              { "@type": "PropertyValue", name: "Ekip", value: "60 kişi" },
-              { "@type": "PropertyValue", name: "Ses & Işık", value: "Line-array, robot ışık, sahne ışıkları" },
-            ],
           }),
         }}
       />
