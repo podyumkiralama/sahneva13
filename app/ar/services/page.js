@@ -13,6 +13,14 @@ export const metadata = {
     url: "https://www.sahneva.com/ar/services",
     type: "website",
     locale: "ar_AR",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/hizmet-sahne.webp",
+        width: 1200,
+        height: 630,
+        alt: "سحنيفا – خدمات تجهيز الفعاليات: منصات، شاشات LED، صوت وإضاءة",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.sahneva.com/ar/services",

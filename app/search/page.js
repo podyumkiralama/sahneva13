@@ -13,6 +13,14 @@ export const metadata = {
     url: SEARCH_URL,
     type: "website",
     locale: "tr_TR",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Site İçi Arama",
+      },
+    ],
   },
   robots: { index: false, follow: true },
 };

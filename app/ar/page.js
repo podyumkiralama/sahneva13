@@ -390,6 +390,22 @@ export const metadata = {
     url: "https://www.sahneva.com/ar",
     type: "website",
     locale: "ar_AR",
+    siteName: "Sahneva",
+    images: [
+      {
+        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        width: 1200,
+        height: 630,
+        alt: "سحنيفا – تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | سحنيفا",
+    description:
+      "سحنيفا توفر منصات، شاشات LED، أنظمة صوت وإضاءة مع تركيب وتشغيل كامل في جميع المدن التركية.",
+    images: ["https://www.sahneva.com/img/og/sahneva-og.webp"],
   },
   alternates: {
     canonical: "https://www.sahneva.com/ar",
@@ -541,7 +557,7 @@ function StructuredData() {
       {
         "@type": "ImageObject",
         "@id": "https://www.sahneva.com/ar#og",
-        contentUrl: "https://www.sahneva.com/og/sahneva-home.jpg",
+        contentUrl: "https://www.sahneva.com/img/og/sahneva-og.webp",
         width: 1200,
         height: 630,
       },
