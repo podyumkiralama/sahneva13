@@ -177,13 +177,13 @@ function ArticleSchema() {
           url: SITE_URL,
         },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
-        relatedLink: [
-          `${SITE_URL}${PODIUM_SERVICE_PATH}`,
-          `${SITE_URL}${STAGE_SERVICE_PATH}`,
-          `${SITE_URL}${SOUND_LIGHT_PATH}`,
-          `${SITE_URL}${LED_SERVICE_PATH}`,
-          `${SITE_URL}${TENT_SERVICE_PATH}`,
-          `${SITE_URL}${CORPORATE_SERVICE_PATH}`,
+        mentions: [
+          { "@type": "WebPage", "@id": `${SITE_URL}${PODIUM_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${STAGE_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${SOUND_LIGHT_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${LED_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${TENT_SERVICE_PATH}` },
+          { "@type": "WebPage", "@id": `${SITE_URL}${CORPORATE_SERVICE_PATH}` },
         ],
       },
       {

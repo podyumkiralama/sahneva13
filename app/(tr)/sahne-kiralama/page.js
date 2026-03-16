@@ -1604,7 +1604,6 @@ function JsonLd() {
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    inLanguage: "tr-TR",
     // ❌ aggregateRating YOK (yorum yok dedin)
   };
 
