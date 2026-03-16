@@ -15,6 +15,9 @@ import { HOME_PAGE_TITLE, getOgImageUrl } from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
+/* ================== ISR ================== */
+export const revalidate = 3600;
+
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
 const SERVICE_ID = `${HOME_URL}#primary-service`;
