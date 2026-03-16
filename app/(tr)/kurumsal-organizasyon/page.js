@@ -1378,7 +1378,6 @@ function JsonLd() {
     serviceType: "Kurumsal Etkinlik Organizasyonu",
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    inLanguage: "tr-TR",
     url: pageUrl,
     mainEntityOfPage: { "@id": webPageId },
   };
