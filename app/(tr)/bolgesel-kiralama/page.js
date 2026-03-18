@@ -9,7 +9,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 
 export const metadata = {
-  title: "Bölgesel Kiralama",
+  title: "Bölgesel Kiralama | Türkiye Geneli Etkinlik Ekipman",
   description:
     "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık sistemleri kiralama. Şehrinizi seçin, hızlı teklif alın; kurulum, test ve söküm dahil.",
   alternates: {
@@ -33,6 +33,7 @@ export const metadata = {
       "Türkiye genelinde etkinlik ekipmanı kiralama. Şehrinizi seçin, hızlı teklif alın.",
     images: [OG_IMAGE],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 function JsonLd({ services, faqs, steps }) {

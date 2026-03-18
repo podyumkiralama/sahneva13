@@ -6,7 +6,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Hakkımızda",
+  title: "Hakkımızda | Profesyonel Etkinlik Prodüksiyon Ekibimiz",
   description:
     "10+ yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.",
   alternates: {

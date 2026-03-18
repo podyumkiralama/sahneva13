@@ -5,10 +5,10 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 
 /* ——— META ——— */
 export const metadata = {
-  title: "Sık Sorulan Sorular",
+  title: "Sık Sorulan Sorular | Kiralama SSS Rehberi",
   description:
     "Podyum, LED ekran, ses-ışık ve çadır kiralama; kurulum, elektrik, izinler ve fiyatlandırma hakkında detaylı SSS.",
-  alternates: { canonical: `${SITE_URL}/sss` },
+  alternates: { canonical: `${SITE_URL}/sss`, languages: { "tr-TR": `${SITE_URL}/sss`, "x-default": `${SITE_URL}/sss` } },
   openGraph: {
     title: "Sık Sorulan Sorular | Sahneva",
     description:
@@ -33,6 +33,7 @@ export const metadata = {
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 /* ——— VERİ ——— */

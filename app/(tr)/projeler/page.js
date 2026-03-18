@@ -8,7 +8,7 @@ export const revalidate = 1800;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Projeler",
+  title: "Projeler | Etkinlik Sahne ve LED Referanslarımız",
   description: "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
   alternates: {
     canonical: "https://www.sahneva.com/projeler",
@@ -42,6 +42,7 @@ export const metadata = {
       "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 function ProjectsStructuredData() {

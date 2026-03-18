@@ -56,7 +56,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: PAGE_URL },
+  alternates: { canonical: PAGE_URL, languages: { "tr-TR": PAGE_URL, "x-default": PAGE_URL } },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

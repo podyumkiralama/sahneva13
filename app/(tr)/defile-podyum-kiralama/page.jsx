@@ -134,7 +134,7 @@ export const metadata = {
   title: "Defile & Podyum Kiralama | Moda Etkinlik Sahnesi",
   description:
     "Defile & moda podyum kiralama: T/U tipi, düz runway, LED arka plan, projeksiyon mapping + tam teknik destek. İstanbul profesyonel etkinlik sahneleri.",
-  alternates: { canonical: `${ORIGIN}/defile-podyum-kiralama` },
+  alternates: { canonical: `${ORIGIN}/defile-podyum-kiralama`, languages: { "tr-TR": `${ORIGIN}/defile-podyum-kiralama`, "x-default": `${ORIGIN}/defile-podyum-kiralama` } },
   openGraph: {
     title: "Defile & Podyum Kiralama | Sahneva",
     description:

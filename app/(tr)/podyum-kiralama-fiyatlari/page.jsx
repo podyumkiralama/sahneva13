@@ -32,7 +32,7 @@ export const metadata = {
   title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
   description:
     "2026 podyum kiralama fiyatları: m² bazlı, halı-skört dahil, İstanbul içi nakliye, kurulum ve söküm sabit bedel. Defile ve konserler için teklif isteyin.",
-  alternates: { canonical: url },
+  alternates: { canonical: url, languages: { "tr-TR": url, "x-default": url } },
   openGraph: {
     type: "website",
     url,
@@ -57,6 +57,7 @@ export const metadata = {
       "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
     images: [`${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 /* ================== FAQ (2026 / Fiyat Intent) ================== */
