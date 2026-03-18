@@ -5,7 +5,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
 
 export const metadata = {
-  title: "İletişim",
+  title: "İletişim | Hızlı Teklif ve Kiralama Danışmanlığı",
   description:
     "Sahne kiralama, LED ekran, ses-ışık sistemleri için hemen ulaşın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
   alternates: {

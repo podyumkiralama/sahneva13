@@ -43,6 +43,7 @@ export const metadata = {
       "Sahneva Organizasyon’un KVKK ve GDPR uyumlu gizlilik politikası, çerez kullanımı ve veri işleme süreçleri.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 export default function PrivacyPolicyPage() {

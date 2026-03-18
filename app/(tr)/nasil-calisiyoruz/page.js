@@ -10,7 +10,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/nasil-calisiriz/hero-surec.webp`;
 
 export const metadata = {
-  title: "Nasıl Çalışıyoruz?",
+  title: "Nasıl Çalışıyoruz? | Sahneva Etkinlik Süreci",
   description:
     "Sahneva’da süreç; ihtiyaç analizi, teklif, teknik keşif, kurulum ve etkinlik sonrası söküm dahil uçtan uca planlanır.",
   alternates: {
@@ -32,6 +32,7 @@ export const metadata = {
     description: "Sahneva süreç yönetimi: teklif, keşif, kurulum, etkinlik günü, söküm.",
     images: [OG_IMAGE],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 /* ================== JSON-LD ================== */

@@ -21,10 +21,10 @@ function getBaseUrl() {
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Blog",
+  title: "Blog | Etkinlik ve Organizasyon Rehberleri",
   description:
     "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
-  alternates: { canonical: `${getBaseUrl()}/blog` },
+  alternates: { canonical: `${getBaseUrl()}/blog`, languages: { "tr-TR": `${getBaseUrl()}/blog`, "x-default": `${getBaseUrl()}/blog` } },
   openGraph: {
     title: "Sahneva | Etkinlik Teknolojileri Rehberi",
     description:
@@ -49,6 +49,7 @@ export const metadata = {
       "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
     images: [`${ORIGIN}/img/blog/default.webp`],
   },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 /* ================== YARDIMCI FONKSİYONLAR ================== */

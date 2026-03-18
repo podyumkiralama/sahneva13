@@ -4,10 +4,10 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "KVKK / Gizlilik",
+  title: "KVKK ve Gizlilik Politikası | Kişisel Veri Koruması",
   description:
     "Sahneva KVKK ve Gizlilik Politikası: kişisel verilerin işlenmesi, saklanması, aktarımı ve haklarınız hakkında bilgilendirme.",
-  alternates: { canonical: `${SITE_URL}/kvkk` },
+  alternates: { canonical: `${SITE_URL}/kvkk`, languages: { "tr-TR": `${SITE_URL}/kvkk`, "x-default": `${SITE_URL}/kvkk` } },
   openGraph: {
     title: "KVKK / Gizlilik | Sahneva",
     description:
