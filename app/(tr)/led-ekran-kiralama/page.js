@@ -1331,7 +1331,7 @@ function JsonLd() {
     url: pageUrl,
     provider: providerRef,
     areaServed: {
-      "@type": "State",
+      "@type": "Country",
       name: "Türkiye",
       description:
         "Türkiye'nin 81 ilinde profesyonel LED ekran kiralama hizmeti",
@@ -1513,7 +1513,7 @@ function JsonLd() {
         webpageSchema,       // 1) WebPage
         serviceNode,         // 2) Service
         productNode,         // 3) Product
-        eventServiceSchema,  // 4) EventService
+        eventServiceSchema,  // 4) Service (event-specific)
         ratingNode,          // 5) Rating
         ...videoObjects,     // 6) Videos
         ...reviews,          // 6) Reviews

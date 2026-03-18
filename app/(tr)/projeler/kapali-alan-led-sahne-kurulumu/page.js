@@ -274,7 +274,7 @@ export default function CasePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Project",
+            "@type": "CreativeWork",
             name: "Kapalı Alan LED ve Sahne Kurulumu (Protokol Seviyesi)",
             description:
               "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekranla scaff ve truss altyapısı kullanılan, 2 günde 60 kişilik ekiple tamamlanan büyük ölçekli kurulum.",
