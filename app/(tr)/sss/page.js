@@ -1,5 +1,7 @@
 // app/sss/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { FAQ_ITEMS } from "@/lib/faqData";
+import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -375,24 +377,14 @@ function FaqSection({ id, icon, title, items, links }) {
 
 /* ——— SAYFA ——— */
 export default function FaqPage() {
-  const mainEntity = [];
-  for (const category of FAQ_CATEGORIES) {
-    for (const item of category.items) {
-      mainEntity.push({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: stripTags(item.a) },
-      });
-    }
-  }
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": "https://www.sahneva.com/sss#faq",
-    inLanguage: "tr-TR",
-    mainEntity,
-  };
+  const faqSchema = buildFaqSchema(FAQ_ITEMS);
+  const jsonLd = faqSchema
+    ? {
+        ...faqSchema,
+        "@id": "https://www.sahneva.com/sss#faq",
+        inLanguage: "tr-TR",
+      }
+    : null;
   const baseUrl = SITE_URL;
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${baseUrl}/` },
@@ -403,10 +395,12 @@ export default function FaqPage() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       {/* JSON-LD – SSR ile direkt HTML içinde */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
 
       <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
         <div className="container py-10 md:py-14 text-slate-100">
