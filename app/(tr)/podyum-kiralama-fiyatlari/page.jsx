@@ -338,6 +338,7 @@ export default function Page() {
               alt="Podyum fiyat tablosu ve profesyonel modüler podyum kurulumu"
               fill
               priority
+              fetchPriority="high"
               className="object-cover"
               sizes="100vw"
               placeholder="blur"

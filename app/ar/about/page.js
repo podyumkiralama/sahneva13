@@ -159,6 +159,7 @@ export default function ArabicAboutPage() {
             alt="فريق سحنيفا يتمتع بأكثر من عقد من الخبرة في تقنيات الفعاليات"
             fill
             priority
+            fetchPriority="high"
             className="object-cover"
             sizes="100vw"
             quality={85}
