@@ -359,6 +359,7 @@ export default function EnglishServicesPage() {
             alt="Sahneva Services - Professional Event Equipment and Technology Solutions"
             fill
             priority
+            fetchPriority="high"
             quality={80}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             className="object-cover object-center nc-ServicesPage-hero-1"

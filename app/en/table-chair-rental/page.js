@@ -229,6 +229,7 @@ function Hero() {
           alt={HERO.alt}
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
           quality={85}

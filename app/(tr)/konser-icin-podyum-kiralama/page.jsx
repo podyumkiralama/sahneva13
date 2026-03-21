@@ -232,6 +232,7 @@ function HeroSection() {
           alt="Konser için profesyonel sahne ve podyum kurulumu – Sahneva"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover opacity-40"
           placeholder="blur"

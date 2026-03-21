@@ -64,7 +64,7 @@ export default function HeroSection() {
             loading="eager"
             width={1600}
             height={900}
-            className="absolute inset-0 object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </picture>
 
