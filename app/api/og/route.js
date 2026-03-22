@@ -3,38 +3,18 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-async function fetchAsBase64(url) {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    const buffer = await res.arrayBuffer();
-    const contentType = res.headers.get('content-type') || 'image/webp';
-    const bytes = new Uint8Array(buffer);
-    let binary = '';
-    const chunkSize = 8192;
-    for (let i = 0; i < bytes.length; i += chunkSize) {
-      binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
-    }
-    const base64 = btoa(binary);
-    return `data:${contentType};base64,${base64}`;
-  } catch {
-    return null;
-  }
-}
-
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
-
+    
+    // Parametreleri okuyoruz
     const title = searchParams.get('title')?.slice(0, 100) || 'Sahneva Organizasyon & Podyum Kiralama';
     const bgParam = searchParams.get('bg');
 
-    const baseUrl = (
-      process.env.SITE_URL ||
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      'https://www.sahneva.com'
-    ).replace(/\/$/, '');
+    // Sitenizin ana adresi (Manuel fetch yapmadığımız için direkt ana domaini veriyoruz)
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sahneva.com';
 
+    // Arka plan resminin tam (absolute) URL'sini oluşturuyoruz
     let bgUrl = null;
     if (bgParam) {
       if (bgParam.startsWith('http')) {
@@ -44,12 +24,8 @@ export async function GET(request) {
       }
     }
 
-    const [bgDataUrl, logoDataUrl] = await Promise.all([
-      bgUrl ? fetchAsBase64(bgUrl) : Promise.resolve(null),
-      fetchAsBase64(`${baseUrl}/img/logo.png`),
-    ]);
-
-    const hasBg = !!bgDataUrl;
+    // Logonun tam URL'si
+    const logoUrl = `${baseUrl}/img/logo.png`;
 
     return new ImageResponse(
       (
@@ -64,12 +40,11 @@ export async function GET(request) {
             padding: '80px',
           }}
         >
-          {/* 1. KATMAN: Arka Plan Resmi (base64 data URL ile SSL-safe) */}
-          {hasBg && (
+          {/* 1. KATMAN: Arka Plan Resmi (Base64'e gerek yok, URL'yi direkt veriyoruz) */}
+          {bgUrl && (
             <img
-              src={bgDataUrl}
+              src={bgUrl}
               alt=""
-              role="presentation"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -89,14 +64,14 @@ export async function GET(request) {
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundImage: hasBg
+              backgroundImage: bgUrl
                 ? 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.1) 100%)'
                 : 'radial-gradient(circle at 25px 25px, #222 2%, transparent 0%), radial-gradient(circle at 75px 75px, #222 2%, transparent 0%)',
-              backgroundSize: hasBg ? '100% 100%' : '100px 100px',
+              backgroundSize: bgUrl ? '100% 100%' : '100px 100px',
             }}
           />
 
-          {/* 3. KATMAN: İçerik (Logo, Başlık, Domain) */}
+          {/* 3. KATMAN: İçerik */}
           <div
             style={{
               display: 'flex',
@@ -108,14 +83,12 @@ export async function GET(request) {
           >
             {/* Sol Üst Logo */}
             <div style={{ display: 'flex' }}>
-              {logoDataUrl && (
-                <img
-                  src={logoDataUrl}
-                  alt="Sahneva Logo"
-                  width="250"
-                  style={{ objectFit: 'contain' }}
-                />
-              )}
+              <img
+                src={logoUrl}
+                alt="Sahneva Logo"
+                width="250"
+                style={{ objectFit: 'contain' }}
+              />
             </div>
 
             {/* Dinamik Başlık */}
@@ -134,7 +107,7 @@ export async function GET(request) {
               </h1>
             </div>
 
-            {/* Alt Bilgi Bandı (Domain) */}
+            {/* Domain */}
             <div
               style={{
                 display: 'flex',
@@ -144,7 +117,7 @@ export async function GET(request) {
                 letterSpacing: '0.05em',
               }}
             >
-              sahneva.com
+              www.sahneva.com
             </div>
           </div>
         </div>
