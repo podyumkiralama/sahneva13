@@ -1,15 +1,15 @@
 // app/(tr)/(site)/page.js
 
+import dynamic from "next/dynamic";
+
 import HeroSection from "@/components/HeroSection";
 import HeroBelow from "@/components/HeroBelow";
 
 import ServicesTabs from "@/components/ServicesTabs";
-import ProjectsGallery from "@/components/ProjectsGallery";
 import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Faq from "@/components/Faq";
 
 import { HOME_PAGE_TITLE, getOgImageUrl } from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -17,6 +17,39 @@ import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds"
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
+
+/* ================== Dinamik bileşenler ================== */
+const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
+  loading: () => (
+    <div
+      className="flex justify-center items-center h-64"
+      role="status"
+      aria-label="Galeri yükleniyor"
+    >
+      <div
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">Galeri yükleniyor...</span>
+    </div>
+  ),
+});
+
+const Faq = dynamic(() => import("@/components/Faq"), {
+  loading: () => (
+    <div
+      className="flex justify-center items-center h-32"
+      role="status"
+      aria-label="SSS yükleniyor"
+    >
+      <div
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">SSS yükleniyor...</span>
+    </div>
+  ),
+});
 
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;

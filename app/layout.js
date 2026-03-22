@@ -1,4 +1,8 @@
 // app/layout.jsx
+
+/* ================== ISR – global varsayılan ================== */
+export const revalidate = 86400; // 24 saatte bir yenile (sayfa bazlı kurallar bunu ezer)
+
 import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
