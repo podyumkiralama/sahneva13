@@ -15,6 +15,8 @@ const PUBLISH_DATE = "2026-02-27T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx", "2026-03-01T17:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/12-eglenceli-kurumsal-etkinlik-hero.webp";
+const PAGE_TITLE = "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)";
+const OG_IMAGE_URL = `${SITE_URL}/api/og?title=${encodeURIComponent(PAGE_TITLE)}&bg=${encodeURIComponent(HERO_IMAGE)}`;
 const IMG_KONFERANS = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp";
 const IMG_LED_ENSTALASYON = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp";
 const IMG_GALA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/gala-gecesi-truss-led-kurulum.webp";
@@ -36,13 +38,13 @@ export const metadata = {
     type: "article",
     locale: "tr_TR",
     siteName: "Sahneva",
-    images: [{ url: `${SITE_URL}${HERO_IMAGE}`, width: 1200, height: 630, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026 – ekip etkinliği ve organizasyon fikirleri" }],
+    images: [{ url: OG_IMAGE_URL, width: 1200, height: 630, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026 – ekip etkinliği ve organizasyon fikirleri" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
     description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
-    images: [`${SITE_URL}${HERO_IMAGE}`],
+    images: [OG_IMAGE_URL],
   },
 };
 
