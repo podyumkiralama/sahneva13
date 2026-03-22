@@ -15,7 +15,7 @@ const siteUrl = process.env.SITE_URL ?? "https://www.sahneva.com";
 const securityHeaders = (() => {
   const SCRIPT_SRC = [
     "'self'",
-    "'unsafe-eval'", // Required by GTM, Clarity and similar third-party analytics that use eval() internally
+    "'unsafe-eval'", // GTM ve Clarity için gerekli
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
@@ -127,12 +127,9 @@ const longTermCacheHeaders = [
   },
 ];
 
-// ✅ HTML (page) cache: WAIT şişmesini azaltır
-const htmlCacheHeaders = [
-  {
-    key: "Cache-Control",
-    value: `public, s-maxage=300, stale-while-revalidate=86400`,
-  },
+// DÜZELTME: HTML sayfaları için sadece index/follow etiketini tutuyoruz.
+// App Router'da Cache-Control buraya manuel YAZILMAMALIDIR.
+const htmlRobotsHeaders = [
   {
     key: "X-Robots-Tag",
     value: "index, follow",
@@ -155,7 +152,7 @@ const nextConfig = {
     deviceSizes: [320, 420, 640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/avif", "image/webp"],
-    qualities: [50, 60, 70, 75, 78, 80, 85, 88, 90],
+    // DÜZELTME: 'qualities' dizisi Next.js'de geçerli bir ayar olmadığı için kaldırıldı.
     minimumCacheTTL: ONE_MONTH_IN_SECONDS,
     remotePatterns: [],
     dangerouslyAllowSVG: false,
@@ -166,11 +163,8 @@ const nextConfig = {
     optimizePackageImports: ["lucide-react", "@headlessui/react"],
   },
 
-  modularizeImports: {
-    "lucide-react": {
-      transform: "lucide-react/icons/{{member}}",
-    },
-  },
+  // DÜZELTME: modularizeImports ve optimizePackageImports aynı anda kullanılmamalı.
+  // optimizePackageImports ("lucide-react" için) tek başına en iyi performansı verir. Bu yüzden modularizeImports tamamen kaldırıldı.
 
   env: {
     SITE_URL: siteUrl,
@@ -197,11 +191,10 @@ const nextConfig = {
       // 1) Her şeyde güvenlik başlıkları
       { source: "/(.*)", headers: securityHeaders },
 
-      // 2) ✅ SADECE HTML sayfalar (api/_next/dosya uzantıları hariç)
-      // - Bu kural "WAIT" problemini hedefliyor.
+      // 2) DÜZELTME: Sayfalar için sadece Robots başlığı basıyoruz, Cache-Control Next.js'e bırakıldı.
       {
         source: "/((?!api/|_next/|.*\\..*).*)",
-        headers: htmlCacheHeaders,
+        headers: htmlRobotsHeaders,
       },
 
       // 3) Next static chunklar: 1 yıl immutable
