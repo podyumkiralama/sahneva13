@@ -355,7 +355,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
           setServicesOpen(false);
           setResearchOpen(false);
         }}
-        aria-hidden={!open}
+        aria-hidden="true"
         data-open={open ? "true" : undefined}
       />
     </>

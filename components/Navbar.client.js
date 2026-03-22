@@ -985,7 +985,7 @@ export default function Navbar({
           setMobileOpen(false);
           setMobileServicesOpen(false);
         }}
-        aria-hidden={!mobileOpen}
+        aria-hidden="true"
         data-open={mobileOpen ? "true" : undefined}
       />
     </>
