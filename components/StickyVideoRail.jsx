@@ -423,7 +423,7 @@ function StickyVideoRailInner({
                 return (
                   <label
                     key={video.id}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left text-slate-100 text-sm transition-colors border-b border-white/5 last:border-b-0 cursor-pointer ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left text-slate-100 text-sm transition-colors border-b border-white/5 last:border-b-0 cursor-pointer focus-within:ring-2 focus-within:ring-blue-400 focus-within:ring-inset rounded-sm ${
                       isActive
                         ? "bg-blue-500/20 border-r-2 border-blue-500"
                         : "hover:bg-slate-800/80 border-r-2 border-transparent"
@@ -517,7 +517,24 @@ function StickyVideoRailInner({
           onMouseDown={startDrag}
           onTouchStart={startDrag}
         >
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 flex-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
+            tabIndex={0}
+            aria-label="Video oynatıcıyı taşı. Ok tuşlarıyla yeniden konumlandırabilirsiniz."
+            onKeyDown={(e) => {
+              const STEP = 40;
+              const moves = {
+                ArrowLeft: { x: -STEP, y: 0 },
+                ArrowRight: { x: STEP, y: 0 },
+                ArrowUp: { x: 0, y: -STEP },
+                ArrowDown: { x: 0, y: STEP },
+              };
+              if (!moves[e.key]) return;
+              e.preventDefault();
+              const { x, y } = moves[e.key];
+              setPosition((prev) => ({ x: prev.x + x, y: prev.y + y }));
+            }}
+          >
             <span className="text-sm font-semibold text-slate-100 flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               {accessibleTitle}
