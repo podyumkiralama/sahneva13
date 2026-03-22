@@ -3,26 +3,53 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
+async function fetchAsBase64(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const buffer = await res.arrayBuffer();
+    const contentType = res.headers.get('content-type') || 'image/webp';
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    const chunkSize = 8192;
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+    }
+    const base64 = btoa(binary);
+    return `data:${contentType};base64,${base64}`;
+  } catch {
+    return null;
+  }
+}
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
 
-    // Parametreleri alıyoruz
     const title = searchParams.get('title')?.slice(0, 100) || 'Sahneva Organizasyon & Podyum Kiralama';
-    const bgParam = searchParams.get('bg'); // Resim yolu parametresi
+    const bgParam = searchParams.get('bg');
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sahneva.com';
+    const baseUrl = (
+      process.env.SITE_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      'https://www.sahneva.com'
+    ).replace(/\/$/, '');
 
-    // Eğer bg parametresi geldiyse, URL'yi oluşturuyoruz
     let bgUrl = null;
     if (bgParam) {
       if (bgParam.startsWith('http')) {
         bgUrl = bgParam;
       } else {
-        // "/img/blog/..." gibi göreceli bir yolsa ana domain ile birleştir
         bgUrl = `${baseUrl}${bgParam.startsWith('/') ? '' : '/'}${bgParam}`;
       }
     }
+
+    const [bgDataUrl, logoDataUrl] = await Promise.all([
+      bgUrl ? fetchAsBase64(bgUrl) : Promise.resolve(null),
+      fetchAsBase64(`${baseUrl}/img/logo.png`),
+    ]);
+
+    const hasBg = !!bgDataUrl;
 
     return new ImageResponse(
       (
@@ -37,11 +64,12 @@ export async function GET(request) {
             padding: '80px',
           }}
         >
-          {/* 1. KATMAN: Arka Plan Resmi (Eğer gönderildiyse) */}
-          {bgUrl && (
+          {/* 1. KATMAN: Arka Plan Resmi (base64 data URL ile SSL-safe) */}
+          {hasBg && (
             <img
-              src={bgUrl}
-              alt="Background"
+              src={bgDataUrl}
+              alt=""
+              role="presentation"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -53,7 +81,7 @@ export async function GET(request) {
             />
           )}
 
-          {/* 2. KATMAN: Karartma (Overlay) - Yazının okunabilirliğini garanti eder */}
+          {/* 2. KATMAN: Karartma (Overlay) */}
           <div
             style={{
               position: 'absolute',
@@ -61,11 +89,10 @@ export async function GET(request) {
               left: 0,
               width: '100%',
               height: '100%',
-              // Resim varsa soldan sağa açılan siyah degrade, yoksa standart kurumsal desen
-              backgroundImage: bgUrl
+              backgroundImage: hasBg
                 ? 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.1) 100%)'
                 : 'radial-gradient(circle at 25px 25px, #222 2%, transparent 0%), radial-gradient(circle at 75px 75px, #222 2%, transparent 0%)',
-              backgroundSize: bgUrl ? '100% 100%' : '100px 100px',
+              backgroundSize: hasBg ? '100% 100%' : '100px 100px',
             }}
           />
 
@@ -81,12 +108,14 @@ export async function GET(request) {
           >
             {/* Sol Üst Logo */}
             <div style={{ display: 'flex' }}>
-              <img
-                src={`${baseUrl}/img/logo.png`}
-                alt="Sahneva Logo"
-                width="250"
-                style={{ objectFit: 'contain' }}
-              />
+              {logoDataUrl && (
+                <img
+                  src={logoDataUrl}
+                  alt="Sahneva Logo"
+                  width="250"
+                  style={{ objectFit: 'contain' }}
+                />
+              )}
             </div>
 
             {/* Dinamik Başlık */}
