@@ -792,7 +792,7 @@ export default function BlogPostGraduationGuide() {
         </p>
         <p>
           Mezuniyet mekanları doğru seçildiğinde, mezuniyet partisi profesyonel planlandığında ve teknik altyapı güçlü
-          kurulduğunda organizasyon yalnızca bir tören değil, unutulmaz bir deneyime dönüşür. Başarılı bir mezuniyet
+          kurulduunda organizasyon yalnızca bir tören değil, unutulmaz bir deneyime dönüşür. Başarılı bir mezuniyet
           organizasyonu tesadüf değildir. Strateji, teknik planlama ve doğru ekip ile mümkündür.
         </p>
 
