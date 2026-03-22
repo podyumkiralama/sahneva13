@@ -11,10 +11,17 @@ import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds"
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
 const BLOG_PATH = "/blog/12-eglenceli-kurumsal-etkinlik-fikri";
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
+const TITLE = "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)";
+const HERO_IMAGE = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/12-eglenceli-kurumsal-etkinlik-hero.webp";
+
+// Dinamik OG Image URL - Türkçe karakter güvenliği için encodeURIComponent eklendi
+const DYNAMIC_OG_URL = `${SITE_URL}/api/og?title=${encodeURIComponent(TITLE)}&bg=${encodeURIComponent(HERO_IMAGE)}`;
+
 const PUBLISH_DATE = "2026-02-27T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx", "2026-03-01T17:00:00+03:00");
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
-const HERO_IMAGE = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/12-eglenceli-kurumsal-etkinlik-hero.webp";
+
+// İçerik Görselleri
 const IMG_KONFERANS = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp";
 const IMG_LED_ENSTALASYON = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp";
 const IMG_GALA = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/gala-gecesi-truss-led-kurulum.webp";
@@ -24,28 +31,29 @@ const IMG_PANEL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-panel
 const IMG_PROTOKOL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/protokol-sahne-backwall.webp";
 
 export const metadata = {
-  title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
+  title: TITLE,
   description: "Profesyonellik ile eğlenceyi bir arada sunan 12 yaratıcı kurumsal etkinlik fikri. Atölye, spor, cinayet gizemi, bingo, gala ve daha fazlası!",
   alternates: { canonical: BLOG_URL },
   category: "Kurumsal Etkinlik",
   keywords: ["kurumsal etkinlik", "eğlenceli etkinlik", "ekip etkinliği", "şirket organizasyonu", "kurumsal organizasyon", "etkinlik fikirleri"],
   openGraph: {
-    title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel) | Sahneva",
+    title: `${TITLE} | Sahneva`,
     description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
     siteName: "Sahneva",
-    images: [{ url: `${SITE_URL}${HERO_IMAGE}`, width: 1200, height: 630, alt: "12 Eğlenceli Kurumsal Etkinlik Fikri 2026 – ekip etkinliği ve organizasyon fikirleri" }],
+    images: [{ url: DYNAMIC_OG_URL, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
+    title: TITLE,
     description: "Kurumsal etkinliklerinizi unutulmaz kılacak 12 hazır fikir + uygulama ipuçları.",
-    images: [`${SITE_URL}${HERO_IMAGE}`],
+    images: [DYNAMIC_OG_URL],
   },
 };
 
+/* ================== SEO ŞEMALARI ================== */
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
   const ARTICLE_ID = `${BLOG_URL}#article`;
@@ -57,8 +65,8 @@ function ArticleSchema() {
       {
         "@type": "ImageObject",
         "@id": PRIMARY_IMAGE_ID,
-        url: `${SITE_URL}${HERO_IMAGE}`,
-        contentUrl: `${SITE_URL}${HERO_IMAGE}`,
+        url: DYNAMIC_OG_URL,
+        contentUrl: DYNAMIC_OG_URL,
         width: 1200,
         height: 630,
       },
@@ -66,7 +74,7 @@ function ArticleSchema() {
         "@type": "WebPage",
         "@id": WEBPAGE_ID,
         url: BLOG_URL,
-        name: metadata.title,
+        name: TITLE,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
         primaryImageOfPage: { "@id": PRIMARY_IMAGE_ID },
@@ -79,7 +87,7 @@ function ArticleSchema() {
         "@id": ARTICLE_ID,
         isPartOf: { "@id": WEBPAGE_ID },
         mainEntityOfPage: { "@id": WEBPAGE_ID },
-        headline: metadata.title,
+        headline: TITLE,
         description: metadata.description,
         image: { "@id": PRIMARY_IMAGE_ID },
         author: { "@id": ORGANIZATION_ID },
@@ -135,7 +143,7 @@ function FaqSchema() {
               },
             },
           ],
-        }).replace(/</g, "\u003c"),
+        }).replace(/</g, "\\u003c"),
       }}
     />
   );
