@@ -8,12 +8,22 @@ import { useEffect, useRef, useState } from "react";
  * - Görünür olduklarında (IntersectionObserver), veya
  * - Tarayıcı boşta kaldığında (requestIdleCallback / RAF fallback)
  * hydrate eden küçük yardımcı bileşen.
+ * * EKLENEN ÖZELLİK: Arama motoru botları (Googlebot vb.) için
+ * gecikmeyi iptal edip içeriği anında sunarak SEO risklerini ortadan kaldırır.
  *
  * Kullanım:
  * <DeferredHydration idleTimeout={3000} rootMargin="200px">
  *   <HeavyComponent />
  * </DeferredHydration>
  */
+
+// Basit ve hızlı bir bot tespit fonksiyonu
+const isBot = () => {
+  if (typeof navigator === "undefined") return false;
+  return /bot|googlebot|crawler|spider|robot|crawling/i.test(
+    navigator.userAgent
+  );
+};
 
 export default function DeferredHydration({
   children,
@@ -65,6 +75,13 @@ export default function DeferredHydration({
         idleId = null;
       }
     };
+
+    // --- SEO GÜVENLİĞİ: Eğer giren bir botsa, beklemeden hydrate et ---
+    if (isBot()) {
+      hydrateNow();
+      return; // Diğer performans optimizasyonlarını kurmaya gerek yok
+    }
+    // ------------------------------------------------------------------
 
     // Görünür olunca hydrate et
     if ("IntersectionObserver" in window && ref.current) {
