@@ -64,7 +64,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
+  title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
   description:
     "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
   keywords:
@@ -303,7 +303,6 @@ function Hero() {
           sizes={HERO.sizes}
           quality={65}
           fetchPriority="high"
-         
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
@@ -522,65 +521,6 @@ const VIDEO_GALLERY = [
   },
 ];
 
-const VIDEO_REVIEWS = [
-  {
-    name: "Ece Şahin",
-    company: "Nova İletişim",
-    rating: 5,
-    text: "Kurulum günü ekibin hızı ve görüntü netliği çok iyiydi. LED ekran geçişleri kusursuz aktı.",
-    image: "/img/galeri/led-ekran-kiralama-1.webp",
-  },
-  {
-    name: "Kerem Uçar",
-    company: "Atlas Medya",
-    rating: 5,
-    text: "Açık hava etkinliğinde güneş altında bile parlaklık beklentimizin üzerindeydi.",
-    image: "/img/galeri/led-ekran-kiralama-2.webp",
-  },
-  {
-    name: "Büşra Demir",
-    company: "Pixel Event",
-    rating: 4.9,
-    text: "Kurulum planı dakikayla ilerledi, operatör desteği yayında hiç kesinti yaşatmadı.",
-    image: "/img/galeri/led-ekran-kiralama-3.webp",
-  },
-  {
-    name: "Mert Yalçın",
-    company: "Kreatif Ajans",
-    rating: 5,
-    text: "Sahne ve LED ekran senkronu mükemmeldi, müşterimiz görsel etkiye bayıldı.",
-    image: "/img/galeri/led-ekran-kiralama-4.webp",
-  },
-  {
-    name: "Ayşe Kara",
-    company: "Orion Fuarcılık",
-    rating: 5,
-    text: "Fuar standında video wall çözümü ile standımızın trafiği bariz arttı.",
-    image: "/img/galeri/led-ekran-kiralama-5.webp",
-  },
-  {
-    name: "Emre Güneş",
-    company: "Vega Organizasyon",
-    rating: 4.8,
-    text: "Kurulum sonrası testler çok detaylıydı. Güvenlik ve kablolama tertemizdi.",
-    image: "/img/galeri/led-ekran-kiralama-6.webp",
-  },
-  {
-    name: "Seda Arslan",
-    company: "Luna Etkinlik",
-    rating: 5,
-    text: "Kurum içi lansmanda metin okunabilirliği harikaydı, içerikleri hızlı optimize ettiler.",
-    image: "/img/galeri/led-ekran-kiralama-7.webp",
-  },
-  {
-    name: "Onur Koç",
-    company: "Pulse Prodüksiyon",
-    rating: 5,
-    text: "Saha ekibi çok koordineliydi. Kurulumdan yayına kadar kusursuz destek aldık.",
-    image: "/img/galeri/led-ekran-kiralama-8.webp",
-  },
-];
-
 function Gallery() {
   return (
     <section className="py-14 bg-white" aria-labelledby="galeri-baslik">
@@ -633,89 +573,6 @@ function Gallery() {
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Detaylı <span className="text-blue-700">Müşteri Yorumları</span>
-            </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              4.9/5 ortalama puan ve doğrulanmış projelerden gerçek geri bildirimler
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
-            <div className="grid gap-6 md:grid-cols-2">
-              {VIDEO_REVIEWS.map((review) => (
-                <article
-                  key={`${review.name}-${review.company}`}
-                  className="rounded-3xl border border-gray-200 bg-white shadow-lg p-6 flex flex-col gap-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-gray-200">
-                      <Image
-                        src={review.image}
-                        alt={`${review.company} etkinlik görseli`}
-                        fill
-                        sizes="56px"
-                        className="object-cover"
-                        loading="lazy"
-                        quality={75}
-                      />
-                    </div>
-                    <div>
-                      <p className="text-lg font-bold text-gray-900">{review.name}</p>
-                      <p className="text-sm text-gray-500">{review.company}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className="flex text-yellow-500" aria-hidden="true">
-                      {Array.from({ length: 5 }).map((_, idx) => (
-                        <span key={idx}>★</span>
-                      ))}
-                    </div>
-                    <span className="font-semibold text-gray-800">{review.rating.toFixed(1)}</span>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">{review.text}</p>
-                </article>
-              ))}
-            </div>
-
-            <aside className="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-lg">
-              <h4 className="text-2xl font-black text-gray-900 mb-4">Google Reviews</h4>
-              <p className="text-gray-600 mb-6">
-                Gerçek Google yorumlarımızı görüntüleyin veya kendi deneyiminizi paylaşın.
-              </p>
-              <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
-                <iframe
-                  title="Sahneva Google Reviews"
-                  src="https://www.google.com/maps?q=Sahneva%20Organizasyon&output=embed"
-                  className="h-72 w-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <div className="mt-6 flex flex-col gap-3">
-                <a
-                  href="https://g.page/r/CZhkMzkNOdgnEBI/review"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  Google'da Yorum Yaz
-                </a>
-                <a
-                  href="https://g.page/r/CZhkMzkNOdgnEBI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl border-2 border-blue-600 px-5 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition-colors"
-                >
-                  Google Yorumlarını Gör
-                </a>
-              </div>
-            </aside>
           </div>
         </div>
 
@@ -831,7 +688,6 @@ function Technical() {
 }
 
 /* ================== İstatistik Bant (Kompakt) ================== */
-
 function StatsBand() {
   const stats = [
     { value: "300+", label: "Başarılı Proje" },
@@ -858,7 +714,6 @@ function StatsBand() {
     </section>
   );
 }
-
 
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
@@ -922,265 +777,93 @@ function Articles() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Bilgi & <span className="text-blue-700">Profesyonel Rehber</span>
+            LED Ekran Kiralama <span className="text-blue-700">Rehberi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            LED ekran teknolojileri hakkında uzman görüşleri ve teknik bilgiler
+            Etkinliğiniz için doğru LED ekranı seçmek, kurulum sürecini planlamak ve bütçeyi optimize etmek için kapsamlı rehber
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Ana Makale */}
-          <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
-              <div className="relative z-10">
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
-                    <ArrowRight size={14} aria-hidden="true" /> Kapsamlı Rehber
-                  </span>
-                  <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
-                    <CheckCircle size={14} aria-hidden="true" /> Uzman Görüşü
-                  </span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
-                    <Eye size={14} aria-hidden="true" /> Pratik Çözümler
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                  LED Ekran Kiralama: Etkinlik Başarınız İçin Görsel Mükemmellik
-                </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  En son teknoloji LED ekranlar, profesyonel kurulum ve görsel prodüksiyon ile etkinliklerinizde mükemmel performans
-                </p>
-              </div>
-            </header>
+        <article className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+          <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+              LED Ekran Kiralama: Etkinliklerde Yüksek Etki İçin Doğru Planlama
+            </h3>
+            <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+              Konserden fuara, kurumsal lansmandan düğüne kadar her organizasyonda güçlü görsel iletişim için profesyonel çözümler
+            </p>
+          </header>
 
-            <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
-                
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="space-y-6">
-                    <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">
-                        <Monitor size={24} />
-                      </span>
-                      LED Ekran Teknolojileri
-                    </h4>
-                    <p>
-                      <strong className="text-gray-900">Sahneva</strong>, Türkiye genelinde{" "}
-                      <Link href="/led-ekran-kiralama" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
-                        profesyonel LED ekran kiralama
-                      </Link>{" "}
-                      hizmetleriyle kurumsal standartta çözümler sunmaktadır.
-                    </p>
-                    <p>
-                      Etkinliğiniz ister kapalı salon konseri, ister açık hava festivali olsun; detaylı teknik keşif, 
-                      piksel aralığı optimizasyonu, profesyonel kurulum ve canlı operasyon dahil{" "}
-                      <strong className="text-gray-900">anahtar teslim çözümler</strong> sunuyoruz.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-purple-100 text-purple-600 rounded-2xl p-3" aria-hidden="true">
-                        <Sun size={24} />
-                      </span>
-                      Parlaklık ve Görünürlük
-                    </h4>
-                    <p>
-                      İç mekan etkinliklerinde 800-1500 nit, dış mekan etkinliklerinde ise 3500-6500+ nit parlaklık 
-                      değerleriyle her koşulda net ve canlı görüntü garantisi sunuyoruz.
-                    </p>
-                    <p>
-                      P2.5-P3.9 piksel aralığı seçeneklerimizle, izleyici mesafesine göre optimize edilmiş çözümler 
-                      sunarak hem yakın mesafede detay kaybı hem de uzak mesafede pikselli görüntü sorunlarını ortadan kaldırıyoruz.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Önemli Bilgi Kutusu */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 rounded-r-2xl p-6 mb-8">
-                  <h5 className="font-black text-blue-700 text-xl mb-4 flex items-center gap-3">
-                    <Eye size={22} aria-hidden="true" />
-                    Teknik Seçim Stratejisi
-                  </h5>
-                  <p className="text-gray-700 text-lg mb-0 leading-relaxed">
-                    LED ekran seçiminde izleyici mesafesi en kritik faktördür. Yakın mesafe (3-10m) için P2.5-P3.9, 
-                    orta mesafe (10-25m) için P4, uzak mesafe (25m+) için P4.8 piksel aralığı öneriyoruz. Açık hava 
-                    etkinliklerinde ise parlaklık ve IP koruma sınıfı öncelikli değerlendirilmelidir.
-                  </p>
-                </div>
-
-                {/* Başarı Faktörleri Grid */}
-                <div className="mb-8">
-                  <h4 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-4">
-                    <span className="bg-green-100 text-green-600 rounded-2xl p-3" aria-hidden="true">
-                      <Zap size={24} />
-                    </span>
-                    Kritik Başarı Faktörleri
-                  </h4>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {[
-                      { 
-                        Icon: Eye, 
-                        title: "Doğru Piksel Seçimi", 
-                        desc: "İzleyici mesafesine göre optimize edilmiş piksel aralığı" 
-                      },
-                      { 
-                        Icon: Sun, 
-                        title: "Parlaklık Optimizasyonu", 
-                        desc: "Ortam ışık koşullarına göre ayarlanmış parlaklık seviyeleri" 
-                      },
-                      { 
-                        Icon: Shield, 
-                        title: "Güvenlik Sistemleri", 
-                        desc: "Rigging, güç dağıtım ve acil durum sistemleri" 
-                      },
-                      { 
-                        Icon: Layout, 
-                        title: "İçerik Optimizasyonu", 
-                        desc: "Ekran çözünürlüğüne uygun içerik hazırlama ve yayınlama" 
-                      },
-                    ].map((item, index) => (
-                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200">
-                        <div className="flex items-start gap-4">
-                          <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
-                            <item.Icon size={28} />
-                          </span>
-                          <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
-                              {item.title}
-                            </h5>
-                            <p className="text-gray-600 leading-relaxed">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
-                  <h5 className="font-black text-yellow-700 text-lg mb-3 flex items-center gap-3">
-                    <CheckCircle size={20} aria-hidden="true" />
-                    Neden Sahneva?
-                  </h5>
-                  <p className="text-yellow-800 mb-0">
-                    <strong>5+ yıllık deneyim, 300+ başarılı proje ve 81 ilde hizmet</strong> ile 
-                    LED ekran kiralama konusunda güvenilir çözüm ortağınız. En son teknoloji ekipman, 
-                    uzman ekip ve 7/24 teknik destek garantisi.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          {/* Yan Makaleler */}
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
-                Teknik Kurulum ve Operasyon
-              </h3>
-              <p className="text-blue-100 mt-2 text-lg">
-                Profesyonel kurulum süreçleri ve canlı operasyon yönetimi
+          <div className="p-8 md:p-10">
+            <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <h4>LED Ekran Kiralama Nedir?</h4>
+              <p>
+                <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
+                kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Satın alma maliyeti olmadan profesyonel ekipman
+                kullanmanıza olanak tanır.
               </p>
-            </header>
 
-            <div className="p-6 md:p-8">
-              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
-                <p>
-                  LED ekran kurulum sürecimiz detaylı site survey ile başlar. Mekanın fiziksel koşulları, 
-                  güç altyapısı, izleyici perspektifi ve görsel açılar analiz edilir.
-                </p>
-                <p>
-                  Profesyonel kurulum ekibimiz 2-6 saat içinde LED ekranınızı monte eder, 
-                  kablolama ve güç sistemlerini kurar, test ve kalibrasyon işlemlerini tamamlar.
-                </p>
-                
-                <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
-                  <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-3">
-                    <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">
-                      <Settings size={18} />
-                    </span>
-                    Kurulum Standartları
-                  </h4>
-                  <ul className="text-gray-700 space-y-2 text-base">
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Ground stack veya truss rigging sistemleri
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Profesyonel güç dağıtım ve UPS sistemleri
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Renk kalibrasyonu ve görüntü optimizasyonu
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Yedek modül ve acil müdahale planı
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
-                Etkinlik Türlerine Özel Çözümler
-              </h3>
-              <p className="text-blue-100 mt-2 text-lg">
-                Her etkinlik türüne özel LED ekran stratejileri ve teknik çözümler
+              <h4>Neden LED Ekran Kiralama Tercih Edilmeli?</h4>
+              <p>
+                Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, maliyet ve operasyon açısından çok daha esnek bir çözüm sunar.
+                Doğru planlama ile hem izleyici deneyimi artar hem de teknik riskler minimuma iner.
               </p>
-            </header>
+              <ul>
+                <li>Yüksek satın alma maliyetinden kaçınma</li>
+                <li>Etkinliğe uygun m² ve piksel aralığı seçebilme</li>
+                <li>Kurulum, söküm ve teknik operasyonun tek ekipten alınması</li>
+                <li>İç mekan ve dış mekan için farklı parlaklık/koruma alternatifleri</li>
+              </ul>
 
-            <div className="p-6 md:p-8">
-              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
-                <div className="space-y-6">
-                  <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">
-                        <Music size={18} />
-                      </span>
-                      Konser & Festival
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      Yüksek parlaklık, geniş görüş açısı, canlı kamera entegrasyonu, multi-screen setup
-                    </p>
-                  </div>
-                  
-                  <div className="bg-purple-50 rounded-2xl p-5 border border-purple-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">
-                        <Briefcase size={18} />
-                      </span>
-                      Kurumsal Etkinlikler
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      Yüksek çözünürlük, net metin okunabilirliği, profesyonel sunum desteği, marka renk doğruluğu
-                    </p>
-                  </div>
-                  
-                  <div className="bg-green-50 rounded-2xl p-5 border border-green-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-green-100 text-green-600 rounded-xl p-2" aria-hidden="true">
-                        <Tent size={18} />
-                      </span>
-                      Fuar & Sergi
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      Kompakt tasarım, hızlı kurulum, etkileşimli içerik, yüksek trafik dayanıklılığı
-                    </p>
-                  </div>
-                </div>
+              <h4>İç Mekan ve Dış Mekan LED Ekran Farkı</h4>
+              <p>
+                İç mekan LED ekranlarda (P2.5 / P2.9) yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
+                ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
+              </p>
+
+              <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl p-6 my-8">
+                <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
+                <p className="text-gray-700 mb-0">
+                  İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
+                  tercih edilerek daha net ve dengeli görüntü elde edilir.
+                </p>
+              </div>
+
+              <h4>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h4>
+              <ul>
+                <li>Toplam ekran alanı (m²)</li>
+                <li>Piksel aralığı (P2.5, P2.9, P3.9, P4)</li>
+                <li>İç mekan / dış mekan tercihi</li>
+                <li>Kiralama süresi (günlük, haftalık, proje bazlı)</li>
+                <li>Kurulum zorluğu, rigging ve teknik ekip sayısı</li>
+                <li>Canlı yayın, reji ve kamera entegrasyon ihtiyaçları</li>
+              </ul>
+
+              <h4>Kurulum Süreci Nasıl İlerler?</h4>
+              <p>
+                Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
+                yayın sırasında kesinti riskini azaltır ve içerik akışının sorunsuz ilerlemesini sağlar.
+              </p>
+
+              <h4>Hangi Etkinliklerde Kullanılır?</h4>
+              <ul>
+                <li>Konser, festival ve sahne performansları</li>
+                <li>Kurumsal toplantı ve lansmanlar</li>
+                <li>Fuar, sergi ve tanıtım organizasyonları</li>
+                <li>Düğün, özel davet ve canlı yayın prodüksiyonları</li>
+                <li>AVM ve perakende alanlarında reklam gösterimleri</li>
+              </ul>
+
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
+                <h5 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h5>
+                <p className="text-yellow-800 mb-0">
+                  Doğru planlanan bir <strong>LED ekran kiralama</strong> hizmeti, etkinliğinizin görsel etkisini artırır, marka algısını güçlendirir
+                  ve katılımcı deneyimini belirgin şekilde iyileştirir. İhtiyaca uygun teknik seçim + uzman operasyon = başarılı etkinlik.
+                </p>
               </div>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
   );
@@ -1310,7 +993,7 @@ function CTA() {
                 <span className="text-lg">WhatsApp'tan Yaz</span>
               </a>
             </div>
-</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1326,14 +1009,8 @@ function JsonLd() {
     "@id": ORGANIZATION_ID,
   };
 
-    /* ----------------------------------------
-      LOCAL BUSINESS (layout'taki #local)
-    ---------------------------------------- */
-    const localBusinessRef = { "@id": LOCAL_BUSINESS_ID };
+  const localBusinessRef = { "@id": LOCAL_BUSINESS_ID };
 
-  /* ----------------------------------------
-    RATING NODE (LocalBusiness'a bağlı)
-  ---------------------------------------- */
   const ratingNodeId = `${pageUrl}#rating`;
 
   const ratingNode = {
@@ -1343,12 +1020,9 @@ function JsonLd() {
     bestRating: "5",
     worstRating: "1",
     ratingCount: "2",
-      itemReviewed: localBusinessRef,
+    itemReviewed: localBusinessRef,
   };
 
-  /* ----------------------------------------
-    SERVICE
-  ---------------------------------------- */
   const serviceNode = {
     "@type": "Service",
     "@id": `${pageUrl}#service`,
@@ -1376,9 +1050,6 @@ function JsonLd() {
     },
   };
 
-  /* ----------------------------------------
-    PRODUCT (Review buraya bağlanacak)
-  ---------------------------------------- */
   const productNode = {
     "@type": "Product",
     "@id": `${pageUrl}#product`,
@@ -1405,9 +1076,6 @@ function JsonLd() {
     },
   };
 
-  /* ----------------------------------------
-    WEBPAGE
-  ---------------------------------------- */
   const webpageSchema = {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -1439,9 +1107,6 @@ function JsonLd() {
     author: providerRef,
   };
 
-  /* ----------------------------------------
-    EVENT SERVICE
-  ---------------------------------------- */
   const eventServiceSchema = {
     "@type": "Service",
     "@id": `${pageUrl}#eventservice`,
@@ -1456,9 +1121,6 @@ function JsonLd() {
     },
   };
 
-  /* ----------------------------------------
-    VIDEO OBJECTS
-  ---------------------------------------- */
   const videoObjects = VIDEO_GALLERY.map((video, index) => ({
     "@type": "VideoObject",
     "@id": `${pageUrl}#video-${index + 1}`,
@@ -1479,9 +1141,6 @@ function JsonLd() {
     },
   }));
 
-  /* ----------------------------------------
-    REVIEWS (Product'a bağlı — Google uyumlu)
-  ---------------------------------------- */
   const reviews = [
     {
       "@type": "Review",
@@ -1515,9 +1174,6 @@ function JsonLd() {
     },
   ];
 
-  /* ----------------------------------------
-    FAQ
-  ---------------------------------------- */
   const faqSchema = {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
@@ -1531,20 +1187,17 @@ function JsonLd() {
     })),
   };
 
-  /* ----------------------------------------
-    TOP GRAPH (çadır sayfasıyla aynı mantık)
-  ---------------------------------------- */
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-        webpageSchema,       // 1) WebPage
-        serviceNode,         // 2) Service
-        productNode,         // 3) Product
-        eventServiceSchema,  // 4) EventService
-        ratingNode,          // 5) Rating
-        ...videoObjects,     // 6) Videos
-        ...reviews,          // 6) Reviews
-        faqSchema,           // 7) FAQ
+      webpageSchema,
+      serviceNode,
+      productNode,
+      eventServiceSchema,
+      ratingNode,
+      ...videoObjects,
+      ...reviews,
+      faqSchema,
     ],
   };
 
