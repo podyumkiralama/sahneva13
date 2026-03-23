@@ -45,7 +45,7 @@ export const metadata = {
   description:
     "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
   keywords:
-    "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p2.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
+    "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
   openGraph: {
     title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
@@ -91,7 +91,7 @@ const slugify = (s) =>
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/&/g, " ve ")
-    .replace(/[^�-\u007F]/g, "")
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
     .trim()
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
@@ -465,7 +465,7 @@ const GALLERY_IMAGES = [
     alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
   },
   { 
-    src: "/img/galeri/led-ekran-kiralama-4.webp", 
+    src: "/img/galeri/led-ekran-kiralama-4.webp",
     alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
   },
   { 
@@ -816,7 +816,7 @@ function Technical() {
                 </details>
               </div>
             </div>
-          })}
+          ))}
         </div>
       </div>
     </section>
@@ -824,6 +824,7 @@ function Technical() {
 }
 
 /* ================== İstatistik Bant (Kompakt) ================== */
+
 function StatsBand() {
   const stats = [
     { value: "300+", label: "Başarılı Proje" },
@@ -850,6 +851,7 @@ function StatsBand() {
     </section>
   );
 }
+
 
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
@@ -932,7 +934,7 @@ function Articles() {
                   <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Pratik Çözümler</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                  LED Ekran Kiralama: Etkinliğiniz İçin Görsel Mükemmellik
+                  LED Ekran Kiralama: Etkinlik Başarınız İçin Görsel Mükemmellik
                 </h3>
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
                   En son teknoloji LED ekranlar, profesyonel kurulum ve görsel prodüksiyon ile etkinliklerinizde mükemmel performans
@@ -941,7 +943,7 @@ function Articles() {
             </header>
 
             <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500 prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
                 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
@@ -1481,7 +1483,7 @@ function JsonLd() {
         worstRating: "1",
       },
       reviewBody:
-        "Açık hava festivalinde gün ışığında bile LED ekran parlaklığı beklentimizin üzerindeydi.",
+        "Açık hava festivalinde gün ışığında bile LED ekran parlaklığı çok iyiydi. Teknik ekip hızlı ve profesyoneldi.",
       datePublished: "2024-03-05",
     },
   ];
