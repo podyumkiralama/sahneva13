@@ -301,7 +301,7 @@ function Hero() {
           priority 
           className="object-cover"
           sizes={HERO.sizes}
-          quality={75}
+          quality={65}
           fetchPriority="high"
          
           placeholder="blur"
