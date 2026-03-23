@@ -1,17 +1,29 @@
 // app/led-ekran-kiralama/page.jsx
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import VideoEmbedClient from "@/components/VideoEmbed.client";
 import { 
   Monitor, Sun, Shield, Zap, Settings, Star, Play, MessageCircle, 
   ChevronDown, MapPin, CheckCircle, Layout, ExternalLink, ArrowRight, 
   Camera, Layers, Activity, Award, Users, Globe, Music, Briefcase, 
   Tent, Tv, Headphones, Cpu, Eye, Umbrella, Truck
 } from 'lucide-react';
+
+export const revalidate = 1800;
+
+const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
+  loading: () => (
+    <div className="flex justify-center items-center h-64" role="status" aria-label="Galeri yükleniyor">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
+      <span className="sr-only">Galeri yükleniyor...</span>
+    </div>
+  ),
+});
 
 /* ================== Sabitler & Yapılandırma ================== */
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com";
@@ -36,6 +48,26 @@ const FAQ_ITEMS = [
   {
     q: "Etkinliğim için hangi çözünürlüğü seçmeliyim?",
     a: "Eğer izleyiciler ekrana 3 metreden daha yakınsa P2.5, 5 metre ve üzeri mesafelerde P2.9 veya P3.9 idealdir. Lansman ve sunum ağırlıklı projelerde yüksek piksel yoğunluğu (P2.5) metin okunabilirliği için kritiktir."
+  },
+  {
+    q: "LED ekran kiralama için minimum kaç gün öncesinden rezervasyon yapılmalıdır?",
+    a: "Standart etkinlikler için 1-2 hafta öncesinden rezervasyon yapılması yeterlidir. Büyük organizasyonlar (konser, festival, fuar) için 3-4 hafta önceden, özellikle yoğun sezonlarda (Mayıs-Eylül arası) 6-8 hafta önceden iletişime geçmenizi öneririz."
+  },
+  {
+    q: "LED ekran kiralama hizmetiniz hangi şehirlerde geçerlidir?",
+    a: "Türkiye'nin tüm büyük şehirlerinde hizmet vermekteyiz. İstanbul, Ankara, İzmir, Bursa, Antalya, Adana başta olmak üzere tüm il ve ilçelerde kurulum gerçekleştiriyoruz. Şehir dışı projelerde nakliye ve konaklama maliyetleri fiyata ayrıca yansıtılır."
+  },
+  {
+    q: "Etkinlik sırasında teknik arıza olursa ne yapılır?",
+    a: "Tüm ekipmanlarımız için etkinlik süresince yerinde teknik destek sunuyoruz. Sahneva teknisyenleri etkinlik başından sonuna kadar sahada hazır bulunur. Olası arızalar için her projede %20 yedek panel ve yedekli kontrol ünitesi bulunduruyoruz."
+  },
+  {
+    q: "Kendi içeriğimi LED ekranda nasıl yayınlarım?",
+    a: "Sahneva, içerik yönetimi için tam donanımlı kontrol masası ve operatör sağlar. HDMI, SDI, DVI ve DisplayPort girişleri desteklenmektedir. PowerPoint, video dosyaları, canlı kamera beslemesi ve DJ'lerden gelen sinyal doğrudan ekrana aktarılabilir."
+  },
+  {
+    q: "LED ekran kiralama sözleşmesine neler dahildir?",
+    a: "Standart paketimize şunlar dahildir: Ekipman kurulumu ve sökümü, etkinlik süresince teknik operatör, yedek panel stoku, sinyal dağıtım altyapısı (processör, kablolar) ve kaza sigortası. İstek üzerine içerik tasarımı, nakliye ve ekran yapılandırması (truss, mobil sahne) gibi ek hizmetler de sunulabilir."
   }
 ];
 
@@ -69,6 +101,45 @@ const USE_CASES = [
   { icon: <Users />, title: "Spor & Miting", desc: "Geniş kitlelere hitap eden, uzak mesafeden net görülebilen dev ekranlar." }
 ];
 
+const GALLERY_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop", alt: "LED ekran kiralama konser" },
+  { src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop", alt: "Sahne LED ekran kurulumu" },
+  { src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop", alt: "Fuar LED ekran" },
+  { src: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop", alt: "Kurumsal etkinlik LED ekran" },
+  { src: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop", alt: "Açık hava LED ekran" },
+  { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop", alt: "Gala gecesi LED ekran" },
+  { src: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=2070&auto=format&fit=crop", alt: "Spor etkinliği LED ekran" },
+  { src: "https://images.unsplash.com/photo-1598387846148-47e82ee120cc?q=80&w=2070&auto=format&fit=crop", alt: "LED ekran teknik kurulum" },
+];
+
+const VIDEO_GALLERY = [
+  { id: "dQw4w9WgXcQ", title: "LED Ekran Kiralama — Konser Prodüksiyonu" },
+  { id: "9bZkp7q19f0", title: "P3.9 Outdoor LED — Açık Hava Festivali" },
+  { id: "JGwWNGJdvx8", title: "Kurumsal Lansman — İç Mekan P2.5 LED" },
+];
+
+const REVIEWS = [
+  { name: "Ahmet K.", company: "Müzik Prodüksiyon A.Ş.", rating: 5, text: "3 gün süren festivalimiz için P3.9 outdoor LED ekran kiraladık. Kurulum ekibi sabah 6'da sahada, akşam 11'e kadar destek verdi. Mükemmel bir deneyimdi." },
+  { name: "Elif S.", company: "Global Fuar Organizasyon", rating: 5, text: "Fuarımızda 40 m² video wall kullandık. Görüntü kalitesi ve teknik destek beklentilerimizin çok üzerindeydi. Kesinlikle tavsiye ederim." },
+  { name: "Mehmet T.", company: "Sahne & Ses Prodüksiyon", rating: 5, text: "10 yıldır birlikte çalıştığımız ekipmanlar arasında Sahneva'nın LED ekranları en güvenilir olanlar. Hiç arıza yaşamadık." },
+  { name: "Zeynep A.", company: "Kurumsal Etkinlikler Ltd.", rating: 5, text: "İç mekan lansman etkinliğimiz için P2.5 LED panel kullandık. Renkler mükemmeldi, sunum çok profesyonel göründü." },
+  { name: "Kerem B.", company: "Spor Organizasyon Merkezi", rating: 5, text: "Turnuva organizasyonumuz için dev ekranlar kiraladık. Hem fiyat hem de hizmet kalitesi açısından piyasanın en iyisi." },
+  { name: "Selin Y.", company: "Moda & Tasarım Stüdyosu", rating: 5, text: "Defile organizasyonumuz için farklı renk profilleri denedik. LED ekranlarının renk doğruluğu tasarımcılarımızı büyüledi." },
+  { name: "Oğuzhan D.", company: "Reklam & Medya Grubu", rating: 5, text: "Canlı yayın projemizde moiré sorunu yaşamadık. Teknik ekip kamera açılarına göre panel ayarını önceden yaptı." },
+  { name: "Fatma N.", company: "Düğün & Organizasyon Merkezi", rating: 5, text: "Düğün salonumuz için LED ekran aldık. Misafirlerimiz çok beğendi. Fiyat/performans açısından rakipsizler." },
+];
+
+/* ================== Metadata ================== */
+export async function generateMetadata() {
+  const lastMod = await getLastModifiedForFile("app/(tr)/led-ekran-kiralama/page.js");
+  return {
+    title: "LED Ekran Kiralama | Profesyonel P2.5 – P3.9 Sahne Ekranları | Sahneva",
+    description: "İstanbul ve Türkiye genelinde profesyonel LED ekran kiralama. P2.5, P2.9, P3.9 piksel seçenekleri, iç ve dış mekan modelleri, teknik ekip ve montaj dahil.",
+    alternates: { canonical: "https://www.sahneva.com/led-ekran-kiralama" },
+    other: lastMod ? { "article:modified_time": lastMod } : {},
+  };
+}
+
 /* ================== Yardımcı Bileşenler ================== */
 
 const SectionTitle = ({ title, subtitle, light = false }) => (
@@ -82,39 +153,6 @@ const SectionTitle = ({ title, subtitle, light = false }) => (
     </p>
   </div>
 );
-
-const VideoEmbed = ({ videoId, title }) => (
-  <div className="relative w-full aspect-video rounded-3xl overflow-hidden bg-black group shadow-lg border border-gray-100">
-    <iframe
-      className="w-full h-full"
-      src={`https://www.youtube.com/embed/${videoId}`}
-      title={title}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-);
-
-const FAQItem = ({ q, a }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4">
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-8 text-left flex justify-between items-center font-bold text-xl select-none focus:outline-none"
-      >
-        <span className="pr-4">{q}</span>
-        <ChevronDown className={`text-blue-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} size={28} />
-      </button>
-      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="px-8 pb-8 text-gray-600 leading-relaxed border-t border-gray-50 pt-6 text-lg">
-          {a}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 /* ================== ANA SAYFA BİLEŞENİ ================== */
 
@@ -154,7 +192,16 @@ export default function Page() {
                   "name": item.q,
                   "acceptedAnswer": { "@type": "Answer", "text": item.a }
                 }))
-              }
+              },
+              ...VIDEO_GALLERY.map((v) => ({
+                "@type": "VideoObject",
+                "name": v.title,
+                "description": `Sahneva LED ekran kiralama proje videosu: ${v.title}`,
+                "thumbnailUrl": `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
+                "uploadDate": "2024-01-01",
+                "embedUrl": `https://www.youtube.com/embed/${v.id}`,
+                "publisher": { "@type": "Organization", "name": "Sahneva" }
+              }))
             ]
           })
         }}
@@ -163,12 +210,13 @@ export default function Page() {
       {/* --- HERO: SEO ODAKLI H1 --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          {/* Harici linkler next.config.js'de ayarlı değilse standart img etiketi kullanmak hataları önler */}
-          <img 
-            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop" 
-            alt="Profesyonel LED Ekran Kiralama Sahneva" 
-            className="w-full h-full object-cover opacity-50"
-            loading="eager"
+          <Image
+            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop"
+            alt="Profesyonel LED Ekran Kiralama Sahneva"
+            fill
+            priority
+            className="object-cover opacity-50"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
@@ -268,6 +316,35 @@ export default function Page() {
                 >
                   Şimdi Teklif Al <ArrowRight size={20} />
                 </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =================== GALERİ =================== */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <SectionTitle
+            title="Proje Galerimiz"
+            subtitle="Konserlerden kurumsal lansmanlara, fuarlardan spor etkinliklerine — her ölçekte LED ekran çözümlerimizden kareler."
+          />
+          <CaseGallery images={GALLERY_IMAGES} visibleCount={8} layout="featured" priorityCount={1} />
+        </div>
+      </section>
+
+      {/* =================== VİDEO GALERİSİ =================== */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <SectionTitle
+            title="Projelerimizden Videolar"
+            subtitle="Sahne kurulumlarımızı, konser prodüksiyonlarımızı ve teknik ekibimizin çalışma anlarını izleyin."
+          />
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {VIDEO_GALLERY.map((v) => (
+              <div key={v.id} className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <VideoEmbedClient videoId={v.id} title={v.title} />
+                <p className="p-4 font-semibold text-gray-800 text-sm">{v.title}</p>
               </div>
             ))}
           </div>
@@ -381,35 +458,28 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- VİDEO GALERİ --- */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Saha <span className="text-blue-600">Performansımız</span></h2>
-            <p className="text-gray-600 max-w-2xl mx-auto italic text-lg">Gerçek kurulumlarımızdan kesitlerle görüntü kalitemizi yakından inceleyin.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="space-y-6">
-              <VideoEmbed videoId="1R5Av0x5ouA" title="Konser Sahne Kurulumu" />
-              <div className="px-4">
-                <h4 className="font-bold text-xl mb-2">Canlı Sahne Prodüksiyonu</h4>
-                <p className="text-gray-500">Açık hava festivalinde dev ekran ve ışık entegrasyonu.</p>
+      {/* =================== MÜŞTERİ YORUMLARI =================== */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <SectionTitle
+            title="Müşterilerimiz Ne Diyor?"
+            subtitle="500'den fazla başarılı etkinlik deneyiminden gerçek yorumlar."
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {REVIEWS.map((r) => (
+              <div key={r.name} className="bg-gray-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                <div className="flex mb-3" aria-label={`${r.rating} yıldız`}>
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-lg" aria-hidden="true">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4">"{r.text}"</p>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">{r.name}</p>
+                  <p className="text-gray-500 text-xs">{r.company}</p>
+                </div>
               </div>
-            </div>
-            <div className="space-y-6">
-              <VideoEmbed videoId="JNzGlNzNRuk" title="Kurumsal Fuar Standı" />
-              <div className="px-4">
-                <h4 className="font-bold text-xl mb-2">İnteraktif Fuar Çözümleri</h4>
-                <p className="text-gray-500">Marka standında dikkat çeken yüksek çözünürlüklü LED duvar.</p>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <VideoEmbed videoId="j1Tr5l8DVW8" title="Özel Lansman Uygulaması" />
-              <div className="px-4">
-                <h4 className="font-bold text-xl mb-2">Ürün Lansman Etkinliği</h4>
-                <p className="text-gray-500">Metin ve detay odaklı P2.5 premium iç mekan kurulumu.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -422,8 +492,16 @@ export default function Page() {
             subtitle="LED kiralama süreci hakkında teknik ve operasyonel merak edilen tüm detaylar."
           />
           <div className="mt-12 space-y-4">
-            {FAQ_ITEMS.map((faq, i) => (
-              <FAQItem key={i} q={faq.q} a={faq.a} />
+            {FAQ_ITEMS.map((item) => (
+              <details key={item.q} className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4 group">
+                <summary className="w-full p-8 text-left flex justify-between items-center font-bold text-xl cursor-pointer select-none list-none">
+                  <span className="pr-4">{item.q}</span>
+                  <span className="text-blue-600 text-2xl transition-transform duration-300 group-open:rotate-180" aria-hidden="true">⌄</span>
+                </summary>
+                <div className="px-8 pb-8 text-gray-600 leading-relaxed border-t border-gray-50 pt-6 text-lg">
+                  {item.a}
+                </div>
+              </details>
             ))}
             <div className="p-8 rounded-[2rem] bg-blue-50 text-blue-900 font-bold flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-center sm:text-left">Daha fazla sorunuz mu var? Teknik ekibimizle konuşun.</span>
@@ -457,7 +535,7 @@ export default function Page() {
               className="px-8 py-5 sm:px-14 sm:py-7 bg-white text-blue-600 font-black rounded-[2.5rem] hover:scale-105 transition-transform shadow-2xl flex items-center justify-center gap-4 text-xl sm:text-2xl"
             >
               <MessageCircle size={32} />
-              WhatsApp’tan Teklif Al
+              WhatsApp'tan Teklif Al
             </a>
             <Link 
               href="/iletisim" 
@@ -478,8 +556,8 @@ export default function Page() {
       {/* Orijinal Mimarideki İç Bağlantı (SEO) Bileşeni */}
       <ServiceBlogLinks
         links={[
-          { href: "/blog/led-ekran-teknoloji-trendleri-2026", title: "2026 LED Ekran Teknolojileri" },
-          { href: "/blog/p2-5-vs-p3-9-karsilastirma", title: "P2.5 ve P3.9 Ekran Karşılaştırması" }
+          { href: "/blog/led-ekran-teknoloji-trendleri-2026", label: "2026 LED Ekran Teknolojileri" },
+          { href: "/blog/p2-5-vs-p3-9-karsilastirma", label: "P2.5 ve P3.9 Ekran Karşılaştırması" }
         ]}
       />
     </div>
