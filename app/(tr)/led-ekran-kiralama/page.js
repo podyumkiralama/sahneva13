@@ -644,6 +644,61 @@ function Gallery() {
   );
 }
 
+/* ================== Teknik Karşılaştırma Tablosu ================== */
+function TechnicalComparison() {
+  return (
+    <div className="max-w-5xl mx-auto mt-12">
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
+          <h3 className="text-xl md:text-2xl font-black text-gray-900">
+            Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
+          </h3>
+          <p className="text-gray-600 mt-1">
+            Doğru piksel seçimi, görüntü netliği ve bütçe optimizasyonu için kritik öneme sahiptir.
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="bg-white border-b border-gray-100">
+                <th className="px-6 py-4 font-bold text-gray-900">Model</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Netlik Düzeyi</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Maliyet Endeksi</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
+                <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
+                <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
+                <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
+                <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
+              </tr>
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
+                <td className="px-6 py-4 text-gray-700">High Definition</td>
+                <td className="px-6 py-4 text-gray-700">💰💰💰</td>
+                <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
+                <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
+                <td className="px-6 py-4 text-gray-700">Standard HD</td>
+                <td className="px-6 py-4 text-gray-700">💰💰</td>
+                <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
+                <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ================== Teknik Altyapı ================== */
 function Technical() {
   const technicalItems = [
@@ -734,56 +789,8 @@ function Technical() {
           ))}
         </div>
 
-        <div className="max-w-5xl mx-auto mt-12">
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-            <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
-              <h3 className="text-xl md:text-2xl font-black text-gray-900">
-                Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
-              </h3>
-              <p className="text-gray-600 mt-1">
-                Doğru piksel seçimi, görüntü netliği ve bütçe optimizasyonu için kritik öneme sahiptir.
-              </p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-  <thead>
-    <tr className="bg-white border-b border-gray-100">
-      <th className="px-6 py-4 font-bold text-gray-900">Model</th>
-      <th className="px-6 py-4 font-bold text-gray-900">Netlik Düzeyi</th>
-      <th className="px-6 py-4 font-bold text-gray-900">Maliyet Endeksi</th>
-      <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
-      <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr className="border-b border-gray-100">
-      <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
-      <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
-      <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
-      <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
-      <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
-    </tr>
-    <tr className="border-b border-gray-100">
-      <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
-      <td className="px-6 py-4 text-gray-700">High Definition</td>
-      <td className="px-6 py-4 text-gray-700">💰💰💰</td>
-      <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
-      <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
-    </tr>
-    <tr>
-      <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
-      <td className="px-6 py-4 text-gray-700">Standard HD</td>
-      <td className="px-6 py-4 text-gray-700">💰💰</td>
-      <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
-      <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
-    </tr>
-  </tbody>
-</table>
-    </div>
-    </div>
-   </div>
-   </div>
+        <TechnicalComparison />
+      </div>
     </section>
   );
 }
