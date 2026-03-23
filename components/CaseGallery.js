@@ -252,7 +252,6 @@ function CaseGallery({
                 loading={index < priorityCount ? "eager" : "lazy"}
                 decoding="async"
                 quality={75}
-                unoptimized
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -349,7 +348,6 @@ function CaseGallery({
                 quality={90}
                 loading="eager"
                 decoding="async"
-                unoptimized
               />
             </div>
           </div>

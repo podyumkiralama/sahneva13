@@ -395,11 +395,11 @@ function Services() {
             const id = `svc-${slugify(service.title)}`;
             const delayClass = `animation-delay-${index * 100}`;
             return (
-              <div key={id} className="group">
-                <article
-                  className={`bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col animate-fade-up ${delayClass}`}
-                  aria-labelledby={id}
-                >
+              <article
+                key={id}
+                className={`group bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 hover:scale-105 transition-all duration-500 h-full flex flex-col animate-fade-up ${delayClass}`}
+                aria-labelledby={id}
+              >
                   <div className="mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
                     <service.Icon size={36} aria-hidden="true" />
                   </div>
@@ -432,7 +432,6 @@ function Services() {
                     </div>
                   )}
                 </article>
-              </div>
             );
           })}
         </div>
@@ -661,6 +660,8 @@ function Gallery() {
                         fill
                         sizes="56px"
                         className="object-cover"
+                        loading="lazy"
+                        quality={75}
                       />
                     </div>
                     <div>
@@ -795,31 +796,29 @@ function Technical() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {technicalItems.map((item) => (
-            <div key={item.category} className="group">
-              <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
-                <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
-                  <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300">
-                    <item.Icon size={28} aria-hidden="true" />
-                  </span>
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 mb-2 text-base leading-relaxed">
-                  {item.description}
-                </p>
-                <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
-                  <summary className="cursor-pointer select-none font-semibold text-gray-900">
-                    Detayları gör
-                  </summary>
-                  <ul className="mt-3 space-y-2">
-                    {item.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3 text-gray-700">
-                        <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full flex-shrink-0" aria-hidden="true" />
-                        <span className="text-sm leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              </div>
+            <div key={item.category} className="group bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+              <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+                <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                  <item.Icon size={28} aria-hidden="true" />
+                </span>
+                {item.title}
+              </h3>
+              <p className="text-gray-600 mb-2 text-base leading-relaxed">
+                {item.description}
+              </p>
+              <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
+                <summary className="cursor-pointer select-none font-semibold text-gray-900">
+                  Detayları gör
+                </summary>
+                <ul className="mt-3 space-y-2">
+                  {item.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-3 text-gray-700">
+                      <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </div>
           ))}
         </div>
