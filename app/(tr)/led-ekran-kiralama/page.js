@@ -7,6 +7,29 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import {
+  Monitor,
+  Sun,
+  Shield,
+  Zap,
+  Settings,
+  MessageCircle,
+  CheckCircle,
+  Layout,
+  ArrowRight,
+  Camera,
+  Layers,
+  Activity,
+  Users,
+  Music,
+  Briefcase,
+  Tent,
+  Tv,
+  Headphones,
+  Cpu,
+  Eye,
+  Truck,
+} from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -18,11 +41,11 @@ const PAGE_LAST_MODIFIED = getLastModifiedForFile("app/(tr)/led-ekran-kiralama/p
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
-const WA_TEXT = "Merhaba%2C+LED+ekran+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonser%2Ffuar%2Flansman%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Ekran+boyutu%3A+%5Bxxx%5D.";
-const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+const WA_TEXT = "Merhaba, LED ekran kiralama projemiz için profesyonel teklif almak istiyoruz. Etkinlik türü: [Konser/Fuar/Düğün], Tarih: [Tarih], Şehir: [Şehir].";
+const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
 
 const getServiceWhatsappLink = (title) => {
-  const text = `Merhaba, ${title} hizmeti icin detayli bilgi ve fiyat teklifi almak istiyorum. Etkinlik tarihi: [gg.aa.yyyy], mekan: [ic/dis], tahmini ekran olcusu: [xx m2]`;
+  const text = `Merhaba, ${title} hizmeti için detaylı bilgi ve fiyat teklifi almak istiyorum. Etkinlik tarihi: [gg.aa.yyyy], mekân: [iç/dış], tahmini ekran ölçüsü: [xx m2]`;
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
 
@@ -104,42 +127,42 @@ const HERO = {
 
 const SERVICES = [
   {
-    icon: "🖥️",
+    Icon: Monitor,
     title: "İç Mekan LED Ekranlar",
     description: "P2.5-P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
     features: ["P2.5/P2.9 piksel", "800-1500 nit parlaklık", "4K çözünürlük", "Hızlı kurulum"],
     cta: { label: "Detaylı Bilgi", href: getServiceWhatsappLink("İç Mekan LED Ekranlar") },
   },
   {
-    icon: "🌞",
+    Icon: Sun,
     title: "Dış Mekan LED Ekranlar",
     description: "P3.9 piksel aralığı ve yüksek parlaklık ile açık hava çözümleri",
     features: ["P3.9 piksel", "5000-6500+ nit", "IP65 su geçirmez", "UV dayanıklı"],
     cta: { label: "Teklif Al", href: getServiceWhatsappLink("Dış Mekan LED Ekranlar") },
   },
   {
-    icon: "🎬",
+    Icon: Layers,
     title: "Video Wall Sistemleri",
     description: "Modüler yapıda esnek video wall ve kreatif ekran çözümleri",
     features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol"],
     cta: { label: "Kreatif Çözüm Planla", href: getServiceWhatsappLink("Video Wall Sistemleri") },
   },
   {
-    icon: "⚡",
+    Icon: Cpu,
     title: "Kontrol & Yayın Sistemleri",
     description: "Profesyonel video işleme, kontrol ve canlı yayın sistemleri",
     features: ["Novastar işlemciler", "4K scaler", "Medya sunucular", "Canlı yayın"],
     cta: { label: "Yayın Desteği", href: getServiceWhatsappLink("Kontrol & Yayın Sistemleri") },
   },
   {
-    icon: "🔧",
+    Icon: Zap,
     title: "Kurulum & Rigging",
     description: "Profesyonel kurulum, truss sistemleri ve güvenlik çözümleri",
     features: ["Ground stack", "Truss rigging", "Güvenlik sistemleri", "Hızlı montaj"],
     cta: { label: "Kurulum Planı", href: getServiceWhatsappLink("Kurulum & Rigging") },
   },
   {
-    icon: "🎮",
+    Icon: Headphones,
     title: "Operatör & Teknik Destek",
     description: "Deneyimli operatörler ve 7/24 teknik destek hizmeti",
     features: ["Profesyonel operatör", "İçerik yönetimi", "7/24 teknik destek", "Acil müdahale"],
@@ -149,32 +172,32 @@ const SERVICES = [
 
 const USE_CASES = [
   {
-    icon: "🎵",
+    Icon: Music,
     text: "Konser, festival ve sahne performansları",
     desc: "Ana sahne LED ekranları ve yan ekran çözümleri"
   },
-  { 
-    icon: "💼", 
+  {
+    Icon: Briefcase,
     text: "Kurumsal lansman ve toplantılar",
     desc: "Profesyonel sunum ve marka gösterimi"
   },
-  { 
-    icon: "🎪", 
+  {
+    Icon: Tent,
     text: "Fuar, sergi ve ticari etkinlikler",
     desc: "Stand tasarımı ve etkileşimli ekranlar"
   },
-  { 
-    icon: "🏟️", 
+  {
+    Icon: Activity,
     text: "Spor etkinlikleri ve stadyumlar",
     desc: "Dev ekranlar ve skorboard sistemleri"
   },
-  { 
-    icon: "🛍️", 
+  {
+    Icon: Tv,
     text: "AVM ve perakende mekanları",
     desc: "Reklam ve bilgilendirme ekranları"
   },
-  { 
-    icon: "💒", 
+  {
+    Icon: Camera,
     text: "Düğün ve özel davetler",
     desc: "Fotoğraf/video gösterimi ve canlı yayın"
   },
@@ -182,40 +205,20 @@ const USE_CASES = [
 
 const FAQ_ITEMS = [
   {
-    q: "LED ekran kiralama fiyatları ne kadar?",
-    a: "LED ekran kiralama fiyatları piksel aralığı, ekran boyutu (m²), iç/dış mekan kullanım ve kurulum tipi (zemin/truss/rigging) gibi faktörlere göre değişir. İç mekanda P2.5 / P2.9 çözümler ile, dış mekanda P3.9 yüksek parlaklık çözümler için proje bazlı fiyatlandırma yapılır. İstersen etkinlik tarihi, şehir ve yaklaşık ölçüyü yaz; en doğru teklifi hızlıca çıkaralım."
+    q: "LED ekran kiralama fiyatları nasıl belirlenir?",
+    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve en iyi teknoloji garantisi sunuyoruz."
   },
   {
-    q: "LED ekran kiralama fiyatına hangi hizmetler dahildir?",
-    a: "Paketler genellikle LED panel kiralama, kurulum-söküm, kontrol sistemi kurulumu, test yayını ve sahada teknik ekip desteğini kapsar. İçerik formatlama (çözünürlük uyarlama) ve operatör desteği ise projenin ihtiyacına göre eklenebilir."
+    q: "İç mekan (Indoor) ve Dış mekan (Outdoor) LED ekran arasındaki fark nedir?",
+    a: "Temel fark parlaklık ve dayanıklılıktır. İç mekan ekranlar 800-1500 nit parlaklık sunarken, dış mekan ekranlar güneş ışığında görünürlük için 5000-6500 nit parlaklığa ve IP65 su geçirmezlik korumasına sahiptir. Ayrıca dış mekan modellerinde piksel aralığı genellikle daha geniştir (P3.9, P4.8)."
   },
   {
     q: "LED ekran kurulumu ne kadar sürer?",
-    a: "Standart kurulumlar çoğu projede 2–6 saat içinde tamamlanır. Ekran alanı büyüdükçe ve rigging/truss gerektiren kurulumlarda süre uzayabilir. Büyük ölçekli sahne projelerinde keşif + planlama ile birlikte aynı gün içinde kurulum ve test yayını tamamlanacak şekilde planlama yapılır."
+    a: "Standart bir 15-30 m² LED ekran kurulumu, teknik ekibimiz tarafından yaklaşık 2-4 saat içinde tamamlanır. Kurulum sonrasında renk kalibrasyonu ve görüntü testleri yapılarak sistem operatörümüze teslim edilir."
   },
   {
-    q: "LED ekran kiralama teslim süresi ne kadar?",
-    a: "Küçük ve orta ölçekli projelerde (ör. 20–40 m²) LED ekran sistemleri ortalama **3–5 saat içinde** kurulabilir. Acil durumlarda ekip ve ekipman hazırsa aynı gün kurulum sağlanır. Büyük ölçekli konser ve festival projelerinde ise taşıyıcı sistem (truss/rigging), enerji ve güvenlik planlamasına bağlı olarak süre uzayabilir; takvim keşif sonrası netleştirilir."
-  },
-  {
-    q: "Yağmurlu havada LED ekran kullanılabilir mi?",
-    a: "Evet. Dış mekan LED ekranlarımız IP65 koruma sınıfına uygun çözümlerle açık havada kullanılabilir. Yine de şiddetli fırtına ve ekstrem hava koşullarında güvenlik önlemleri kapsamında kullanıma ara verilmesini öneririz."
-  },
-  {
-    q: "LED ekran için hangi piksel aralığını seçmeliyim?",
-    a: "Doğru seçim izleme mesafesine bağlıdır. Yakın mesafe ve iç mekan uygulamalarında P2.5 / P2.9 daha net görüntü verir. Açık hava konser, festival ve geniş izleme alanlarında en yaygın tercih P3.9'dur. Çok uzak mesafe uygulamalarında farklı piksel aralıkları da sağlanabilir; teknik keşifle en doğru seçimi netleştiririz."
-  },
-  {
-    q: "Video içerik desteği sağlıyor musunuz?",
-    a: "Evet. LED ekran çözünürlüğüne uygun içerik formatlama, oran/dosya hazırlığı ve gerekiyorsa canlı yayın entegrasyonu için teknik destek sağlayabiliriz."
-  },
-  {
-    q: "LED ekran kiralama sözleşmesi yapıyor musunuz?",
-    a: "Evet. Kurumsal projelerde hizmet kapsamı, kurulum planı, teslim koşulları ve teknik sorumluluklar sözleşme ile netleştirilir."
-  },
-  {
-    q: "Türkiye geneline hizmet veriyor musunuz?",
-    a: "Evet. Türkiye'nin 81 ilinde kurulum ve teknik prodüksiyon desteğiyle LED ekran kiralama hizmeti sunuyoruz."
+    q: "Etkinliğim için hangi çözünürlüğü seçmeliyim?",
+    a: "Eğer izleyiciler ekrana 3 metreden daha yakınsa P2.5, 5 metre ve üzeri mesafelerde P2.9 veya P3.9 idealdir. Lansman ve sunum ağırlıklı projelerde yüksek piksel yoğunluğu (P2.5) metin okunabilirliği için kritiktir."
   },
 ];
 
@@ -277,7 +280,7 @@ function FAQ() {
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
             aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
-            <span aria-hidden="true" className="text-xl mr-3">📚</span>
+            <ArrowRight size={20} aria-hidden="true" className="mr-3" />
             <span className="text-lg">Tüm SSS'yi Görüntüle</span>
           </Link>
         </div>
@@ -337,7 +340,7 @@ function Hero() {
             aria-label="WhatsApp üzerinden hemen teklif alın"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-green-600 shadow-lg"
           >
-            <span aria-hidden="true" className="text-xl mr-2">💬</span> 
+            <MessageCircle size={20} aria-hidden="true" className="mr-2" />
             <span className="text-base">Hemen Teklif Al</span>
           </Link>
 
@@ -346,24 +349,24 @@ function Hero() {
             aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 backdrop-blur-lg hover:bg-white/30 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white shadow-lg"
           >
-            <span aria-hidden="true" className="text-xl mr-2">🎯</span> 
+            <Monitor size={20} aria-hidden="true" className="mr-2" />
             <span className="text-base">Hizmetlerimiz</span>
           </Link>
         </div>
 
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
+            <div className="mb-2 text-yellow-300"><CheckCircle size={24} aria-hidden="true" /></div>
             <div className="text-xl font-black text-white">4.9/5</div>
             <div className="text-white/80 text-sm">2 Doğrulanmış Değerlendirme</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
+            <div className="mb-2 text-blue-300"><Users size={24} aria-hidden="true" /></div>
             <div className="text-xl font-black text-white">300+</div>
             <div className="text-white/80 text-sm">Proje</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
+            <div className="mb-2 text-green-300"><Truck size={24} aria-hidden="true" /></div>
             <div className="text-xl font-black text-white">81 İl</div>
             <div className="text-white/80 text-sm">Hizmet</div>
           </div>
@@ -397,8 +400,8 @@ function Services() {
                   className={`bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col animate-fade-up ${delayClass}`}
                   aria-labelledby={id}
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                    {service.icon}
+                  <div className="mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                    <service.Icon size={36} aria-hidden="true" />
                   </div>
                   <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
                     {service.title}
@@ -423,7 +426,7 @@ function Services() {
                         className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                         aria-label={`${service.title} için ${service.cta.label}`}
                       >
-                        <span aria-hidden="true">➡️</span>
+                        <ArrowRight size={18} aria-hidden="true" />
                         <span>{service.cta.label}</span>
                       </Link>
                     </div>
@@ -441,7 +444,7 @@ function Services() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
           >
-            <span aria-hidden="true" className="text-xl mr-3">📞</span>
+            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Detaylı Teklif için İletişime Geçin</span>
           </Link>
         </div>
@@ -722,7 +725,7 @@ function Gallery() {
             href="/projeler"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-300"
           >
-            <span aria-hidden="true" className="text-xl mr-3">📸</span>
+            <Eye size={20} aria-hidden="true" className="mr-3" />
             <span>Tüm Projeleri Görüntüle</span>
           </Link>
         </div>
@@ -738,42 +741,42 @@ function Technical() {
       category: "piksel",
       title: "Piksel Teknolojileri",
       description: "P2.5-P3.9 piksel aralığı ile her ihtiyaca uygun çözümler",
-      icon: "🔍",
+      Icon: Eye,
       features: ["P2.5: İç mekan premium", "P3.9: Hibrit kullanım", "P4: Dış mekan standart", "P4.8: Uzak mesafe (opsiyon)"]
     },
     {
       category: "parlaklik",
       title: "Parlaklık & Görünürlük",
       description: "Ortam koşullarına göre optimize edilmiş parlaklık seviyeleri",
-      icon: "☀️",
+      Icon: Sun,
       features: ["İç mekan: 800-1500 nit", "Dış mekan: 3500-6500 nit", "Otomatik parlaklık", "Güneş altında netlik"]
     },
     {
       category: "koruma",
       title: "Koruma Sistemleri",
       description: "IP65 su geçirmez koruma ve dayanıklı yapı",
-      icon: "🛡️",
+      Icon: Shield,
       features: ["IP65 ön koruma", "IP54 arka koruma", "UV dayanıklı malzeme", "Toz geçirmez yapı"]
     },
     {
       category: "kontrol",
       title: "Kontrol Sistemleri",
       description: "Profesyonel video işleme ve kontrol sistemleri",
-      icon: "🎮",
+      Icon: Settings,
       features: ["Novastar işlemciler", "4K video scaling", "Medya sunucular", "Uzaktan kontrol"]
     },
     {
       category: "kurulum",
       title: "Kurulum Sistemleri",
       description: "Hızlı ve güvenli kurulum için özel sistemler",
-      icon: "⚡",
+      Icon: Zap,
       features: ["Ground stack", "Truss rigging", "Motorlu asma sistem", "Hızlı kilit mekanizması"]
     },
     {
       category: "destek",
       title: "Teknik Destek",
       description: "7/24 teknik destek ve acil müdahale hizmetleri",
-      icon: "📞",
+      Icon: Headphones,
       features: ["7/24 teknik destek", "Yedek modül stoğu", "Acil müdahale ekibi", "Uzaktan diagnostik"]
     }
   ];
@@ -795,7 +798,9 @@ function Technical() {
             <div key={item.category} className="group">
               <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
-                  <span className="text-3xl" aria-hidden="true">{item.icon}</span>
+                  <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                    <item.Icon size={28} aria-hidden="true" />
+                  </span>
                   {item.title}
                 </h3>
                 <p className="text-gray-600 mb-2 text-base leading-relaxed">
@@ -876,8 +881,8 @@ function UseCases() {
               role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
-                <div className="text-3xl bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                  {uc.icon}
+                <div className="text-white bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300">
+                  <uc.Icon size={28} aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
@@ -899,7 +904,7 @@ function UseCases() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
           >
-            <span aria-hidden="true" className="text-xl mr-3">💬</span>
+            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
           </Link>
         </div>
@@ -929,9 +934,15 @@ function Articles() {
               <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">📚 Kapsamlı Rehber</span>
-                  <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">⭐ Uzman Görüşü</span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Pratik Çözümler</span>
+                  <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
+                    <ArrowRight size={14} aria-hidden="true" /> Kapsamlı Rehber
+                  </span>
+                  <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
+                    <CheckCircle size={14} aria-hidden="true" /> Uzman Görüşü
+                  </span>
+                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold flex items-center gap-2">
+                    <Eye size={14} aria-hidden="true" /> Pratik Çözümler
+                  </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                   LED Ekran Kiralama: Etkinlik Başarınız İçin Görsel Mükemmellik
@@ -948,7 +959,9 @@ function Articles() {
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">🖥️</span>
+                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">
+                        <Monitor size={24} />
+                      </span>
                       LED Ekran Teknolojileri
                     </h4>
                     <p>
@@ -967,7 +980,9 @@ function Articles() {
                   
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-purple-100 text-purple-600 rounded-2xl p-3" aria-hidden="true">🌞</span>
+                      <span className="bg-purple-100 text-purple-600 rounded-2xl p-3" aria-hidden="true">
+                        <Sun size={24} />
+                      </span>
                       Parlaklık ve Görünürlük
                     </h4>
                     <p>
@@ -984,7 +999,7 @@ function Articles() {
                 {/* Önemli Bilgi Kutusu */}
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 rounded-r-2xl p-6 mb-8">
                   <h5 className="font-black text-blue-700 text-xl mb-4 flex items-center gap-3">
-                    <span className="text-2xl" aria-hidden="true">💡</span> 
+                    <Eye size={22} aria-hidden="true" />
                     Teknik Seçim Stratejisi
                   </h5>
                   <p className="text-gray-700 text-lg mb-0 leading-relaxed">
@@ -997,36 +1012,38 @@ function Articles() {
                 {/* Başarı Faktörleri Grid */}
                 <div className="mb-8">
                   <h4 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-4">
-                    <span className="bg-green-100 text-green-600 rounded-2xl p-3" aria-hidden="true">🚀</span>
+                    <span className="bg-green-100 text-green-600 rounded-2xl p-3" aria-hidden="true">
+                      <Zap size={24} />
+                    </span>
                     Kritik Başarı Faktörleri
                   </h4>
                   <div className="grid md:grid-cols-2 gap-6">
                     {[
                       { 
-                        icon: "🎯", 
+                        Icon: Eye, 
                         title: "Doğru Piksel Seçimi", 
                         desc: "İzleyici mesafesine göre optimize edilmiş piksel aralığı" 
                       },
                       { 
-                        icon: "📊", 
+                        Icon: Sun, 
                         title: "Parlaklık Optimizasyonu", 
                         desc: "Ortam ışık koşullarına göre ayarlanmış parlaklık seviyeleri" 
                       },
                       { 
-                        icon: "🔒", 
+                        Icon: Shield, 
                         title: "Güvenlik Sistemleri", 
                         desc: "Rigging, güç dağıtım ve acil durum sistemleri" 
                       },
                       { 
-                        icon: "🎭", 
+                        Icon: Layout, 
                         title: "İçerik Optimizasyonu", 
                         desc: "Ekran çözünürlüğüne uygun içerik hazırlama ve yayınlama" 
                       },
                     ].map((item, index) => (
                       <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200">
                         <div className="flex items-start gap-4">
-                          <span className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
-                            {item.icon}
+                          <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
+                            <item.Icon size={28} />
                           </span>
                           <div>
                             <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
@@ -1044,7 +1061,7 @@ function Articles() {
 
                 <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
                   <h5 className="font-black text-yellow-700 text-lg mb-3 flex items-center gap-3">
-                    <span className="text-xl" aria-hidden="true">💎</span>
+                    <CheckCircle size={20} aria-hidden="true" />
                     Neden Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
@@ -1081,7 +1098,9 @@ function Articles() {
                 
                 <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
                   <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-3">
-                    <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">📋</span>
+                    <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">
+                      <Settings size={18} />
+                    </span>
                     Kurulum Standartları
                   </h4>
                   <ul className="text-gray-700 space-y-2 text-base">
@@ -1122,7 +1141,9 @@ function Articles() {
                 <div className="space-y-6">
                   <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
                     <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">🎵</span>
+                      <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">
+                        <Music size={18} />
+                      </span>
                       Konser & Festival
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
@@ -1132,7 +1153,9 @@ function Articles() {
                   
                   <div className="bg-purple-50 rounded-2xl p-5 border border-purple-200">
                     <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">💼</span>
+                      <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">
+                        <Briefcase size={18} />
+                      </span>
                       Kurumsal Etkinlikler
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
@@ -1142,7 +1165,9 @@ function Articles() {
                   
                   <div className="bg-green-50 rounded-2xl p-5 border border-green-200">
                     <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-green-100 text-green-600 rounded-xl p-2" aria-hidden="true">🎪</span>
+                      <span className="bg-green-100 text-green-600 rounded-xl p-2" aria-hidden="true">
+                        <Tent size={18} />
+                      </span>
                       Fuar & Sergi
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
@@ -1165,25 +1190,25 @@ function RelatedServices() {
     { 
       href: "/ses-isik-sistemleri", 
       title: "Ses & Işık Sistemleri", 
-      icon: "🎵", 
+      Icon: Music, 
       desc: "Profesyonel ses ve ışık sistemleri kiralama" 
     },
     { 
       href: "/sahne-kiralama", 
       title: "Sahne Kiralama", 
-      icon: "🛠️", 
+      Icon: Layers, 
       desc: "Portatif ve modüler sahne sistemleri kiralama" 
     },
     { 
       href: "/podyum-kiralama", 
       title: "Podyum Kiralama", 
-      icon: "📐", 
+      Icon: Layout, 
       desc: "Profesyonel sahne platformları ve podyum sistemleri" 
     },
     { 
       href: "/cadir-kiralama", 
       title: "Çadır Kiralama", 
-      icon: "🎪", 
+      Icon: Tent, 
       desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri" 
     },
   ];
@@ -1223,10 +1248,10 @@ function RelatedServices() {
                 aria-label={`${service.title} - ${service.desc}`}
               >
                 <div 
-                  className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" 
+                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 
                   aria-hidden="true"
                 >
-                  {service.icon}
+                  <service.Icon size={36} />
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}
@@ -1270,7 +1295,7 @@ function CTA() {
                 href="/iletisim"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
               >
-                <span aria-hidden="true" className="text-xl mr-3">📞</span> 
+                <MessageCircle size={20} aria-hidden="true" className="mr-3" />
                 <span className="text-lg">Hemen Teklif Al</span>
               </Link>
               <a
@@ -1279,7 +1304,7 @@ function CTA() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
               >
-                <span aria-hidden="true" className="text-xl mr-3">💬</span> 
+                <MessageCircle size={20} aria-hidden="true" className="mr-3" />
                 <span className="text-lg">WhatsApp'tan Yaz</span>
               </a>
             </div>
@@ -1545,10 +1570,10 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <JsonLd />
       <Hero />
+      <StatsBand />
       <Services />
       <Gallery />
       <Technical />
-      <StatsBand />
       <UseCases />
       <Articles />
       <FAQ />
