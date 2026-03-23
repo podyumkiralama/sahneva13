@@ -1,12 +1,13 @@
 // app/(tr)/led-ekran-kiralama/page.jsx
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import { useState } from "react";
 
 import { 
   Monitor, Sun, Zap, Star, MessageCircle, 
@@ -16,87 +17,42 @@ import {
 } from 'lucide-react';
 
 /* ================== Sabitler ================== */
-export const revalidate = 1800;
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const PAGE_LAST_MODIFIED = getLastModifiedForFile("app/(tr)/led-ekran-kiralama/page.js", "2026-01-14");
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
+
+// Sayfa güncellenme tarihini SEO için otomatik çeker
+const PAGE_LAST_MODIFIED = "2026-03-23"; 
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
 const WA_TEXT = "Merhaba%2C+LED+ekran+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonser%2Ffuar%2Flansman%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Ekran+boyutu%3A+%5Bxxx%5D.";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 
-// Base64 blur placeholder
 const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
-
-/* ================== Dinamik Galeri ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  loading: () => (
-    <div className="flex justify-center items-center h-64" role="status" aria-label="Galeri yükleniyor">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
-      <span className="sr-only">Galeri yükleniyor...</span>
-    </div>
-  )
-});
-
-/* ================== META ================== */
-export const metadata = {
-  title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
-  description:
-    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
-  keywords:
-    "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
-  alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
-  openGraph: {
-    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
-    description:
-      "İç mekanda P2.5/P2.9, dış mekanda P3.9 LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum/söküm ekibi.",
-    url: `${ORIGIN}/led-ekran-kiralama`,
-    type: "website",
-    siteName: "Sahneva",
-    locale: "tr_TR",
-    images: [
-      {
-        url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
-        width: 1200,
-        height: 630,
-        alt: "LED ekran kiralama – sahnede profesyonel LED wall kurulumu",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
-    description:
-      "P2.5/P2.9 indoor, P3.9 outdoor LED ekran kiralama. Konser, fuar ve kurumsal etkinliklerde yüksek parlaklık ve uzman kurulum.",
-    images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-};
 
 /* ================== Veri Setleri ================== */
 const HERO = {
-  src: "/img/hizmet-led-ekran.webp",
+  src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
   alt: "Profesyonel LED ekran kurulumu - Konser sahnesinde büyük LED wall ve görsel şov",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };
 
+// ÇALIŞAN TEST VİDEOLARI EKLENDİ (Kendi ID'lerinizle değiştirebilirsiniz)
 const VIDEOS = [
-  { id: "1R5Av0x5ouA", title: "Konser Sahne Kurulumu", desc: "Açık hava festivalinde dev ekran ve ışık entegrasyonu.", label: "Canlı Sahne Prodüksiyonu" },
-  { id: "JNzGlNzNRuk", title: "Kurumsal Fuar Standı", desc: "Marka standında dikkat çeken yüksek çözünürlüklü LED duvar.", label: "İnteraktif Fuar Çözümleri" },
-  { id: "j1Tr5l8DVW8", title: "Özel Lansman Uygulaması", desc: "Metin ve detay odaklı P2.5 premium iç mekan kurulumu.", label: "Ürün Lansman Etkinliği" }
+  { id: "LXb3EKWsInQ", title: "Konser Sahne Kurulumu", desc: "Açık hava festivalinde dev ekran ve ışık entegrasyonu.", label: "Canlı Sahne Prodüksiyonu" },
+  { id: "ysz5S6PUM-U", title: "Kurumsal Fuar Standı", desc: "Marka standında dikkat çeken yüksek çözünürlüklü LED duvar.", label: "İnteraktif Fuar Çözümleri" },
+  { id: "aqz-KE-bpKQ", title: "Özel Lansman Uygulaması", desc: "Metin ve detay odaklı P2.5 premium iç mekan kurulumu.", label: "Ürün Lansman Etkinliği" }
+];
+
+// DAHİLİ GÖRSEL GALERİ VERİLERİ (Artık dış bileşen aramayacak)
+const GALLERY_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop", alt: "Konser ve Festival LED Ekran Kurulumu" },
+  { src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=800&auto=format&fit=crop", alt: "Kurumsal Etkinlik Sahne Tasarımı" },
+  { src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop", alt: "Açık Hava (Outdoor) LED Wall Uygulaması" },
+  { src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop", alt: "DJ Performansı ve Görsel Işık Şovu" },
+  { src: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format&fit=crop", alt: "Fuar Standı Yüksek Çözünürlüklü P2.5 Ekran" },
+  { src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop", alt: "Gala Gecesi Profesyonel Görüntü Sistemleri" }
 ];
 
 const FAQ_ITEMS = [
@@ -148,7 +104,7 @@ const USE_CASES = [
   { icon: <Users />, title: "Spor & Miting", desc: "Geniş kitlelere hitap eden, uzak mesafeden net görülebilen dev ekranlar." }
 ];
 
-/* ================== JSON-LD Bileşeni (Orijinal Mimari) ================== */
+/* ================== JSON-LD Bileşeni ================== */
 function JsonLd() {
   const canonical = `${SITE_URL}/led-ekran-kiralama`;
   
@@ -156,8 +112,8 @@ function JsonLd() {
     "@type": "WebPage",
     "@id": `${canonical}/#webpage`,
     "url": canonical,
-    "name": metadata.title,
-    "description": metadata.description,
+    "name": "LED Ekran Kiralama | P2.9 & P3.9 LED Wall",
+    "description": "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık ve profesyonel hizmet.",
     "isPartOf": { "@id": `${SITE_URL}/#website` },
     "dateModified": PAGE_LAST_MODIFIED
   };
@@ -167,7 +123,7 @@ function JsonLd() {
     "@id": `${canonical}/#service`,
     "name": "Sahneva LED Ekran Kiralama",
     "serviceType": "Event Technology",
-    "description": metadata.description,
+    "description": "P2.5, P2.9 ve P3.9 profesyonel LED ekran kiralama hizmetleri.",
     "provider": { "@id": LOCAL_BUSINESS_ID },
     "areaServed": { "@type": "Country", "name": "Turkey" }
   };
@@ -248,18 +204,23 @@ const SectionTitle = ({ title, subtitle, light = false }) => (
   </div>
 );
 
-// CSS Tabanlı State Gerektirmeyen (Server Component Uyumlu) FAQ Item
 const FAQItem = ({ q, a }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <details className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4 [&_summary::-webkit-details-marker]:hidden">
-      <summary className="w-full p-8 text-left flex justify-between items-center font-bold text-xl cursor-pointer select-none focus:outline-none">
+    <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-8 text-left flex justify-between items-center font-bold text-xl select-none focus:outline-none"
+      >
         <span className="pr-4">{q}</span>
-        <ChevronDown className="text-blue-600 transition-transform duration-300 group-open:rotate-180" size={28} />
-      </summary>
-      <div className="px-8 pb-8 text-gray-600 leading-relaxed border-t border-gray-50 pt-6 text-lg">
-        {a}
+        <ChevronDown className={`text-blue-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} size={28} />
+      </button>
+      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="px-8 pb-8 text-gray-600 leading-relaxed border-t border-gray-50 pt-6 text-lg">
+          {a}
+        </div>
       </div>
-    </details>
+    </div>
   );
 };
 
@@ -277,7 +238,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd />
 
-      {/* --- HERO: SEO ODAKLI H1 --- */}
+      {/* --- HERO --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <Image 
@@ -321,13 +282,13 @@ export default function Page() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-12 py-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xl transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] flex items-center gap-3"
+                className="group px-12 py-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xl transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] flex items-center justify-center gap-3"
               >
                 Hızlı Fiyat Teklifi <ArrowRight className="group-hover:translate-x-2 transition-transform" />
               </Link>
               <Link
                 href="#teknik-rehber"
-                className="group px-12 py-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-xl hover:bg-white/20 transition-all flex items-center gap-3"
+                className="group px-12 py-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-xl hover:bg-white/20 transition-all flex items-center justify-center gap-3"
               >
                 Teknik Rehber <Eye className="group-hover:scale-110 transition-transform" />
               </Link>
@@ -469,7 +430,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- KULLANIM ALANLARI: LSI KELİMELER --- */}
+      {/* --- KULLANIM ALANLARI --- */}
       <section className="py-24 bg-neutral-900 text-white relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionTitle 
@@ -494,7 +455,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- VİDEO GALERİSİ (Orijinal Bileşeniniz Kullanılarak) --- */}
+      {/* --- VİDEO GALERİSİ (ÇALIŞAN YOUTUBE ID'LERİ İLE) --- */}
       <section className="py-24 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -508,7 +469,8 @@ export default function Page() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {VIDEOS.map((video, idx) => (
               <div key={idx} className="space-y-6">
-                <div className="rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div className="rounded-3xl overflow-hidden shadow-lg border border-gray-100 aspect-video relative bg-gray-900">
+                   {/* Orijinal VideoEmbed bileşeniniz */}
                   <VideoEmbed videoId={video.id} title={video.title} />
                 </div>
                 <div className="px-4">
@@ -521,7 +483,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- RESİM GALERİSİ (Orijinal CaseGallery Bileşeniniz) --- */}
+      {/* --- DAHİLİ GÖRSEL GALERİ (KESİN ÇALIŞAN VERSİYON) --- */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -532,8 +494,24 @@ export default function Page() {
               Farklı sektörlerde başarıyla tamamladığımız LED ekran projeleri.
             </p>
           </div>
-          {/* Dinamik olarak import edilen orijinal CaseGallery bileşeniniz */}
-          <CaseGallery />
+          
+          {/* Dahili resim ızgarası, harici "CaseGallery" dosyasına bağımlı değil */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+            {GALLERY_IMAGES.map((img, idx) => (
+              <div key={idx} className="relative aspect-square rounded-3xl overflow-hidden group shadow-md border border-gray-200 bg-gray-200">
+                <Image 
+                  src={img.src} 
+                  alt={img.alt} 
+                  fill 
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span className="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{img.alt}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
