@@ -1,1 +1,1 @@
-{new content}
+[full modified content]
