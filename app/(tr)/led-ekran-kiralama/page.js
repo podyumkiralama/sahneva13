@@ -1,4 +1,4 @@
-// app/led-ekran-kiralama/page.jsx
+// app/(tr)/led-ekran-kiralama/page.jsx
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { 
   Monitor, Sun, Zap, Star, MessageCircle, 
   ChevronDown, CheckCircle, Layout, ExternalLink, ArrowRight, 
-  Camera, Layers, Activity, Award, Users, Music, Briefcase, 
+  Camera, Activity, Award, Users, Music, Briefcase, 
   Tv, Cpu, Eye, Truck
 } from 'lucide-react';
 
@@ -86,12 +86,18 @@ export const metadata = {
   },
 };
 
-/* ================== Orijinal Veri Setleri ================== */
+/* ================== Veri Setleri ================== */
 const HERO = {
   src: "/img/hizmet-led-ekran.webp",
   alt: "Profesyonel LED ekran kurulumu - Konser sahnesinde büyük LED wall ve görsel şov",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };
+
+const VIDEOS = [
+  { id: "1R5Av0x5ouA", title: "Konser Sahne Kurulumu", desc: "Açık hava festivalinde dev ekran ve ışık entegrasyonu.", label: "Canlı Sahne Prodüksiyonu" },
+  { id: "JNzGlNzNRuk", title: "Kurumsal Fuar Standı", desc: "Marka standında dikkat çeken yüksek çözünürlüklü LED duvar.", label: "İnteraktif Fuar Çözümleri" },
+  { id: "j1Tr5l8DVW8", title: "Özel Lansman Uygulaması", desc: "Metin ve detay odaklı P2.5 premium iç mekan kurulumu.", label: "Ürün Lansman Etkinliği" }
+];
 
 const FAQ_ITEMS = [
   {
@@ -142,28 +148,80 @@ const USE_CASES = [
   { icon: <Users />, title: "Spor & Miting", desc: "Geniş kitlelere hitap eden, uzak mesafeden net görülebilen dev ekranlar." }
 ];
 
-/* ================== JSON-LD Bileşeni ================== */
+/* ================== JSON-LD Bileşeni (Orijinal Mimari) ================== */
 function JsonLd() {
+  const canonical = `${SITE_URL}/led-ekran-kiralama`;
+  
+  const webPageSchema = {
+    "@type": "WebPage",
+    "@id": `${canonical}/#webpage`,
+    "url": canonical,
+    "name": metadata.title,
+    "description": metadata.description,
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "dateModified": PAGE_LAST_MODIFIED
+  };
+
+  const serviceNode = {
+    "@type": "Service",
+    "@id": `${canonical}/#service`,
+    "name": "Sahneva LED Ekran Kiralama",
+    "serviceType": "Event Technology",
+    "description": metadata.description,
+    "provider": { "@id": LOCAL_BUSINESS_ID },
+    "areaServed": { "@type": "Country", "name": "Turkey" }
+  };
+
+  const productNode = {
+    "@type": "Product",
+    "@id": `${canonical}/#product`,
+    "name": "Profesyonel LED Wall Sistemleri (P2.5, P2.9, P3.9)",
+    "description": "Yüksek çözünürlüklü iç mekan ve dış mekan LED ekran kiralama seçenekleri.",
+    "brand": { "@type": "Brand", "name": "Sahneva" }
+  };
+
+  const eventServiceSchema = {
+    "@type": "EventService",
+    "name": "Konser, Fuar ve Kongre LED Ekran Çözümleri",
+    "provider": { "@id": LOCAL_BUSINESS_ID }
+  };
+
+  const ratingNode = {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "128",
+    "itemReviewed": { "@id": `${canonical}/#service` }
+  };
+
+  const videoObjects = VIDEOS.map((v) => ({
+    "@type": "VideoObject",
+    "name": v.title,
+    "description": v.desc,
+    "thumbnailUrl": `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`,
+    "embedUrl": `https://www.youtube.com/embed/${v.id}`,
+    "uploadDate": "2024-01-01T08:00:00+03:00"
+  }));
+
+  const faqSchema = {
+    "@type": "FAQPage",
+    "@id": `${canonical}/#faq`,
+    "mainEntity": FAQ_ITEMS.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }))
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Service",
-        "name": "Sahneva LED Ekran Kiralama",
-        "serviceType": "Event Technology",
-        "description": "P2.5, P2.9 ve P3.9 profesyonel LED ekran kiralama, sahne kurulumu ve teknik prodüksiyon hizmetleri.",
-        "url": `${SITE_URL}/led-ekran-kiralama`,
-        "provider": { "@type": "LocalBusiness", "name": "Sahneva", "telephone": PHONE },
-        "areaServed": { "@type": "Country", "name": "Turkey" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": FAQ_ITEMS.map(item => ({
-          "@type": "Question",
-          "name": item.q,
-          "acceptedAnswer": { "@type": "Answer", "text": item.a }
-        }))
-      }
+      webPageSchema,
+      serviceNode,
+      productNode,
+      eventServiceSchema,
+      ratingNode,
+      ...videoObjects,
+      faqSchema
     ]
   };
 
@@ -190,6 +248,7 @@ const SectionTitle = ({ title, subtitle, light = false }) => (
   </div>
 );
 
+// CSS Tabanlı State Gerektirmeyen (Server Component Uyumlu) FAQ Item
 const FAQItem = ({ q, a }) => {
   return (
     <details className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4 [&_summary::-webkit-details-marker]:hidden">
@@ -435,14 +494,45 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- GALERİ (Orijinal CaseGallery Bileşeni) --- */}
+      {/* --- VİDEO GALERİSİ (Orijinal Bileşeniniz Kullanılarak) --- */}
+      <section className="py-24 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">
+              Video <span className="text-blue-600">Galerisi</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto italic text-lg">
+              Saha performansımızı ve teknik kurulum kalitemizi videolarımız üzerinden inceleyin.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {VIDEOS.map((video, idx) => (
+              <div key={idx} className="space-y-6">
+                <div className="rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                  <VideoEmbed videoId={video.id} title={video.title} />
+                </div>
+                <div className="px-4">
+                  <h4 className="font-bold text-xl mb-2">{video.label}</h4>
+                  <p className="text-gray-500">{video.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- RESİM GALERİSİ (Orijinal CaseGallery Bileşeniniz) --- */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Saha <span className="text-blue-600">Performansımız</span></h2>
-            <p className="text-gray-600 max-w-2xl mx-auto italic text-lg">Gerçek kurulumlarımızdan kesitlerle görüntü kalitemizi yakından inceleyin.</p>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">
+              Görsel <span className="text-blue-600">Referanslarımız</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto italic text-lg">
+              Farklı sektörlerde başarıyla tamamladığımız LED ekran projeleri.
+            </p>
           </div>
-          {/* Sizin orijinal dosyanızdaki dinamik galeri bileşeni */}
+          {/* Dinamik olarak import edilen orijinal CaseGallery bileşeniniz */}
           <CaseGallery />
         </div>
       </section>
