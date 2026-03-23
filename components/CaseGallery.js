@@ -244,12 +244,12 @@ function CaseGallery({
                 src={img.src}
                 alt={img.alt || `Galerideki ${index + 1}. görsel`}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 767px) 50vw, 25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 // Performans: sadece ilk görsel eager, diğerleri lazy
                 loading={index < priorityCount ? "eager" : "lazy"}
                 decoding="async"
-                quality={75}
+                quality={65}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
