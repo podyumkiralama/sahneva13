@@ -29,6 +29,9 @@ import {
   Cpu,
   Eye,
   Truck,
+  Lock,
+  RotateCcw,
+  Gauge,
 } from "lucide-react";
 
 /* ================== Sabitler ================== */
@@ -151,21 +154,21 @@ const SERVICES = [
     Icon: Layers,
     title: "Video Wall Sistemleri",
     description: "Modüler yapıda esnek video wall ve kreatif ekran çözümleri",
-    features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol"],
+    features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol", "Kavisli tasarım (-10°/+10°)"],
     cta: { label: "Kreatif Çözüm Planla", href: getServiceWhatsappLink("Video Wall Sistemleri") },
   },
   {
     Icon: Cpu,
     title: "Kontrol & Yayın Sistemleri",
     description: "Profesyonel video işleme, kontrol ve canlı yayın sistemleri",
-    features: ["Novastar işlemciler", "4K scaler", "Medya sunucular", "Canlı yayın"],
+    features: ["Novastar işlemciler", "4K scaler", "Medya sunucular", "Canlı yayın", "3840Hz yenileme hızı"],
     cta: { label: "Yayın Desteği", href: getServiceWhatsappLink("Kontrol & Yayın Sistemleri") },
   },
   {
     Icon: Zap,
     title: "Kurulum & Rigging",
     description: "Profesyonel kurulum, truss sistemleri ve güvenlik çözümleri",
-    features: ["Ground stack", "Truss rigging", "Güvenlik sistemleri", "Hızlı montaj"],
+    features: ["Ground stack", "Truss rigging", "Güvenlik sistemleri", "Hızlı montaj", "Click-lock hızlı kilit"],
     cta: { label: "Kurulum Planı", href: getServiceWhatsappLink("Kurulum & Rigging") },
   },
   {
@@ -458,51 +461,6 @@ function Services() {
     </section>
   );
 }
-<div className="max-w-5xl mx-auto mt-12">
-  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-    <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
-      <h3 className="text-xl md:text-2xl font-black text-gray-900">
-        Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
-      </h3>
-      <p className="text-gray-600 mt-1">
-        Doğru piksel seçimi, görüntü netliği ve bütçe optimizasyonu için kritik öneme sahiptir.
-      </p>
-    </div>
-
-    <div className="overflow-x-auto">
-      <table className="w-full text-left">
-        <thead>
-          <tr className="bg-white border-b border-gray-100">
-            <th className="px-6 py-4 font-bold text-gray-900">Model</th>
-            <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
-            <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
-            <th className="px-6 py-4 font-bold text-gray-900">Avantaj</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-b border-gray-100">
-            <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
-            <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
-            <td className="px-6 py-4 text-gray-700">Lansman, toplantı, yakın izleme</td>
-            <td className="px-6 py-4 text-gray-700">En yüksek netlik, metin okunabilirliği</td>
-          </tr>
-          <tr className="border-b border-gray-100">
-            <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
-            <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
-            <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
-            <td className="px-6 py-4 text-gray-700">Netlik ve maliyet dengesi</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
-            <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
-            <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
-            <td className="px-6 py-4 text-gray-700">Yüksek parlaklık, geniş alan performansı</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 /* ================== Galeri ================== */
 const GALLERY_IMAGES = [
   { 
@@ -721,21 +679,21 @@ function Technical() {
       title: "Koruma Sistemleri",
       description: "IP65 su geçirmez koruma ve dayanıklı yapı",
       Icon: Shield,
-      features: ["IP65 ön koruma", "IP54 arka koruma", "UV dayanıklı malzeme", "Toz geçirmez yapı"]
+      features: ["IP65 ön koruma", "IP54 arka koruma", "UV dayanıklı malzeme", "Toz geçirmez yapı", "Flip-shield köşe koruması"]
     },
     {
       category: "kontrol",
       title: "Kontrol Sistemleri",
       description: "Profesyonel video işleme ve kontrol sistemleri",
       Icon: Settings,
-      features: ["Novastar işlemciler", "4K video scaling", "Medya sunucular", "Uzaktan kontrol"]
+      features: ["Novastar işlemciler", "4K video scaling", "Medya sunucular", "Uzaktan kontrol", "3840Hz flicker-free yenileme"]
     },
     {
       category: "kurulum",
       title: "Kurulum Sistemleri",
       description: "Hızlı ve güvenli kurulum için özel sistemler",
       Icon: Zap,
-      features: ["Ground stack", "Truss rigging", "Motorlu asma sistem", "Hızlı kilit mekanizması"]
+      features: ["Ground stack", "Truss rigging", "Motorlu asma sistem", "Hızlı kilit mekanizması", "Click-lock tek kişilik kurulum", "Pinch n' Go modül değişim"]
     },
     {
       category: "destek",
@@ -817,6 +775,111 @@ function StatsBand() {
               <div className="text-sm text-white/70 mt-1">{s.label}</div>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Neden Sahneva? ================== */
+function WhySahneva() {
+  const features = [
+    {
+      Icon: Shield,
+      title: "Flip-shield Köşe Koruması",
+      description:
+        "Panellerin hassas köşelerini koruyan otomatik mekanizma sayesinde kurulum sırasında piksel hasarı riski sıfıra iner.",
+    },
+    {
+      Icon: RotateCcw,
+      title: "Kavisli Tasarım (-10° / +10°)",
+      description:
+        "İçbükey veya dışbükey kavisli ekranlar oluşturabilme esnekliğiyle sahnenize derinlik ve estetik katıyoruz.",
+    },
+    {
+      Icon: Lock,
+      title: "Click-lock Hızlı Kurulum",
+      description:
+        "Özel kilit mekanizması sayesinde tek kişiyle çok kısa sürede güvenli kurulum. Prodüksiyonda zaman ve iş gücü tasarrufu.",
+    },
+    {
+      Icon: Zap,
+      title: "Pinch n' Go Modül Değişimi",
+      description:
+        "Herhangi bir teknik aksaklıkta modüller saniyeler içinde değiştirilebilir; canlı yayın sırasında kesintisiz görüntü garantisi.",
+    },
+    {
+      Icon: Gauge,
+      title: "3840Hz Kamera Dostu Performans",
+      description:
+        "Yüksek yenileme hızı ve gri skala derinliği sayesinde TV çekimlerinde ve canlı yayınlarda ekranda titreme (flicker) oluşmaz.",
+    },
+    {
+      Icon: Activity,
+      title: "Türkiye Geneli 81 İl Hizmet",
+      description:
+        "Uzman teknik ekibimiz kurulumdan söküme kadar her aşamada yanınızda; sorunsuz operasyonel süreç garantisi.",
+    },
+  ];
+
+  return (
+    <section
+      id="neden-sahneva"
+      className="py-20 bg-gradient-to-b from-blue-50/50 to-white"
+      aria-labelledby="neden-sahneva-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2
+            id="neden-sahneva-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+          >
+            Teknik <span className="text-blue-700">Üstünlüğümüz</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle rakipsiz prodüksiyon kalitesi
+          </p>
+          <div
+            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {features.map((feature) => (
+            <div key={feature.title} className="group">
+              <article
+                className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col"
+                aria-labelledby={`why-${slugify(feature.title)}`}
+              >
+                <div className="mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-blue-700 group-hover:scale-110 transition-transform duration-300">
+                  <feature.Icon size={28} aria-hidden="true" />
+                </div>
+                <h3
+                  id={`why-${slugify(feature.title)}`}
+                  className="text-xl font-black text-gray-900 mb-3 group-hover:text-blue-700 transition-colors"
+                >
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-base leading-relaxed flex-grow">
+                  {feature.description}
+                </p>
+              </article>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            aria-label="Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
+          >
+            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
+            <span>Teknik Danışmanlık Alın</span>
+          </a>
         </div>
       </div>
     </section>
@@ -929,6 +992,24 @@ function Articles() {
                 ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
               </p>
 
+              <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6 my-6">
+                <h5 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840Hz Yenileme Hızı</h5>
+                <p className="text-gray-700 mb-0">
+                  Unilumin URMIII panellerinin 3840Hz yenileme hızı, televizyon çekimlerinde ve canlı yayınlarda
+                  ekranda <strong>titreme (flicker) oluşmasını engeller</strong>. Yüksek gri skala derinliği sayesinde kamera
+                  karşısında profesyonel bir görüntü elde edilir.
+                </p>
+              </div>
+
+              <div className="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6 mb-8">
+                <h5 className="font-black text-green-700 text-lg mb-3">Flip-shield ile Sıfır Piksel Hasarı Garantisi</h5>
+                <p className="text-gray-700 mb-0">
+                  Unilumin URMIII teknolojisindeki <strong>Flip-shield köşe koruma mekanizması</strong>, kurulum sırasında
+                  panellerin en hassas noktaları olan köşeleri otomatik olarak korur. Bu sayede piksel hasarı riski
+                  sıfıra iner ve kusursuz görüntü kalitesi garanti edilir.
+                </p>
+              </div>
+
               <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl p-6 my-8">
                 <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
                 <p className="text-gray-700 mb-0">
@@ -993,13 +1074,13 @@ function RelatedServices() {
       href: "/ses-isik-sistemleri", 
       title: "Ses & Işık Sistemleri", 
       Icon: Music, 
-      desc: "Profesyonel ses ve ışık sistemleri kiralama" 
+      desc: "Line Array ses sistemleri ve akıllı robot ışık tasarımı ile profesyonel prodüksiyon" 
     },
     { 
       href: "/sahne-kiralama", 
       title: "Sahne Kiralama", 
       Icon: Layers, 
-      desc: "Portatif ve modüler sahne sistemleri kiralama" 
+      desc: "Modüler sahne sistemleri, güvenli truss yapıları ve estetik sahne dekor uygulamaları" 
     },
     { 
       href: "/podyum-kiralama", 
@@ -1012,6 +1093,13 @@ function RelatedServices() {
       title: "Çadır Kiralama", 
       Icon: Tent, 
       desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri" 
+    },
+    {
+      href: getServiceWhatsappLink("Kamera & Reji"),
+      title: "Kamera & Reji",
+      Icon: Camera,
+      desc: "Çok kameralı canlı yayın reji hizmetleri ve anlık görüntü miksajı",
+      external: true,
     },
   ];
   
@@ -1041,11 +1129,12 @@ function RelatedServices() {
         </div>
 
         <nav aria-label="Tamamlayıcı hizmetler">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {services.map((service) => (
               <Link
                 key={service.href}
                 href={service.href}
+                {...(service.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
                 aria-label={`${service.title} - ${service.desc}`}
               >
@@ -1348,6 +1437,7 @@ export default function Page() {
       <Services />
       <Gallery />
       <Technical />
+      <WhySahneva />
       <UseCases />
       <Articles />
       <FAQ />
