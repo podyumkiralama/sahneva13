@@ -61,6 +61,13 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
     </div>
   )
 });
+/*fiyat*/
+const PRICE_MULTIPLIERS = {
+  "P2.5": 1.5,
+  "P2.9": 1.2,
+  "P3.9": 1.0,
+  "P4.8": 0.8,
+};
 
 /* ================== META ================== */
 export const metadata = {
@@ -739,40 +746,44 @@ function Technical() {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-white border-b border-gray-100">
-                    <th className="px-6 py-4 font-bold text-gray-900">Model</th>
-                    <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
-                    <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
-                    <th className="px-6 py-4 font-bold text-gray-900">Avantaj</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-100">
-                    <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
-                    <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
-                    <td className="px-6 py-4 text-gray-700">Lansman, toplantı, yakın izleme</td>
-                    <td className="px-6 py-4 text-gray-700">En yüksek netlik, metin okunabilirliği</td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
-                    <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
-                    <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
-                    <td className="px-6 py-4 text-gray-700">Netlik ve maliyet dengesi</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
-                    <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
-                    <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
-                    <td className="px-6 py-4 text-gray-700">Yüksek parlaklık, geniş alan performansı</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+              <<table className="w-full text-left">
+  <thead>
+    <tr className="bg-white border-b border-gray-100">
+      <th className="px-6 py-4 font-bold text-gray-900">Model</th>
+      <th className="px-6 py-4 font-bold text-gray-900">Netlik Düzeyi</th>
+      <th className="px-6 py-4 font-bold text-gray-900">Maliyet Endeksi</th>
+      <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
+      <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr className="border-b border-gray-100">
+      <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
+      <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
+      <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
+      <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
+      <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
+    </tr>
+    <tr className="border-b border-gray-100">
+      <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
+      <td className="px-6 py-4 text-gray-700">High Definition</td>
+      <td className="px-6 py-4 text-gray-700">💰💰💰</td>
+      <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
+      <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
+    </tr>
+    <tr>
+      <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
+      <td className="px-6 py-4 text-gray-700">Standard HD</td>
+      <td className="px-6 py-4 text-gray-700">💰💰</td>
+      <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
+      <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    </div>
+   </div>
+   </div>
     </section>
   );
 }
@@ -918,6 +929,15 @@ function Articles() {
                   tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
+              <h4>Neden Fiyatlar Değişiyor?</h4>
+<p>
+  LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
+  izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
+  P3.9 ve üzeri modeller ise geniş alanlarda maliyet avantajı sağlar.
+</p>
+<p>
+  Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
+</p>                    
 
               <h4>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h4>
               <ul>
