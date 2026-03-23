@@ -746,7 +746,7 @@ function Technical() {
             </div>
 
             <div className="overflow-x-auto">
-              <<table className="w-full text-left">
+              <table className="w-full text-left">
   <thead>
     <tr className="bg-white border-b border-gray-100">
       <th className="px-6 py-4 font-bold text-gray-900">Model</th>
