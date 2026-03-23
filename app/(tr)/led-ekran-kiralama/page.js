@@ -726,6 +726,52 @@ function Technical() {
             </div>
           ))}
         </div>
+
+        <div className="max-w-5xl mx-auto mt-12">
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
+              <h3 className="text-xl md:text-2xl font-black text-gray-900">
+                Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
+              </h3>
+              <p className="text-gray-600 mt-1">
+                Doğru piksel seçimi, görüntü netliği ve bütçe optimizasyonu için kritik öneme sahiptir.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-white border-b border-gray-100">
+                    <th className="px-6 py-4 font-bold text-gray-900">Model</th>
+                    <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
+                    <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
+                    <th className="px-6 py-4 font-bold text-gray-900">Avantaj</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-100">
+                    <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
+                    <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
+                    <td className="px-6 py-4 text-gray-700">Lansman, toplantı, yakın izleme</td>
+                    <td className="px-6 py-4 text-gray-700">En yüksek netlik, metin okunabilirliği</td>
+                  </tr>
+                  <tr className="border-b border-gray-100">
+                    <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
+                    <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
+                    <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
+                    <td className="px-6 py-4 text-gray-700">Netlik ve maliyet dengesi</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
+                    <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
+                    <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
+                    <td className="px-6 py-4 text-gray-700">Yüksek parlaklık, geniş alan performansı</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1004,7 +1050,6 @@ function RelatedServices() {
   );
 }
 
-/* ================== CTA ================== */
 function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-baslik">
@@ -1037,15 +1082,16 @@ function CTA() {
                 <span className="text-lg">WhatsApp'tan Yaz</span>
               </a>
             </div>
+
+            <p className="mt-5 text-sm md:text-base text-blue-100/90">
+              Fiyatlar <strong>başlayan fiyatlarla</strong> sunulmaktadır; proje kapsamı, m², piksel aralığı ve şehir/lojistik koşullarına göre değişebilir.
+            </p>
           </div>
         </div>
       </div>
     </section>
   );
 }
-<p className="mt-5 text-sm md:text-base text-blue-100/90">
-  Fiyatlar <strong>başlayan fiyatlarla</strong> sunulmaktadır; proje kapsamı, m², piksel aralığı ve şehir/lojistik koşullarına göre değişebilir.
-</p>
 /* ================== JSON-LD (LED Ekran Kiralama) — FINAL ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
