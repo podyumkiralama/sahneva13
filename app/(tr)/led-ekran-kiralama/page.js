@@ -661,6 +661,8 @@ function Gallery() {
                         fill
                         sizes="56px"
                         className="object-cover"
+                        loading="lazy"
+                        quality={75}
                       />
                     </div>
                     <div>
