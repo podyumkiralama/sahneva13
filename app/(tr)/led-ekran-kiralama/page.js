@@ -501,31 +501,31 @@ const VIDEO_GALLERY = [
   {
     id: "1R5Av0x5ouA",
     title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
-    description: "Profesyonel LED ekran kurulum süreci ve sahne prodüksiyonu özet görüntüsü.",
+    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "JNzGlNzNRuk",
     title: "LED Ekran Kurulum Süreci",
-    description: "LED ekran montajı, test ve canlı yayın hazırlığına dair kısa video.",
+    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "LED Ekran & Sahne Uygulaması",
-    description: "Etkinlik alanında LED ekran ve sahne kurgusundan öne çıkan anlar.",
+    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
+    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
     uploadDate: "2026-01-15T00:00:00+03:00",
   },
   {
     id: "HNDZ-wYVKLw",
     title: "LED Ekran Kurulum Detayları",
-    description: "Kurulum, kablolama ve görüntü optimizasyonuna dair teknik özet.",
+    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "173gBurWSRQ",
     title: "Etkinlik LED Ekran Örnekleri",
-    description: "Farklı etkinliklerde kullanılan LED ekran kurulumlarından kısa kesitler.",
+    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
 ];
@@ -624,6 +624,7 @@ function TechnicalComparison() {
                 <th className="px-6 py-4 font-bold text-gray-900">Netlik Düzeyi</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Maliyet Endeksi</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Yenileme Hızı</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
               </tr>
             </thead>
@@ -633,6 +634,7 @@ function TechnicalComparison() {
                 <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
                 <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
                 <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
+                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
                 <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
               </tr>
               <tr className="border-b border-gray-100">
@@ -640,6 +642,7 @@ function TechnicalComparison() {
                 <td className="px-6 py-4 text-gray-700">High Definition</td>
                 <td className="px-6 py-4 text-gray-700">💰💰💰</td>
                 <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
+                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
                 <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
               </tr>
               <tr>
@@ -647,6 +650,7 @@ function TechnicalComparison() {
                 <td className="px-6 py-4 text-gray-700">Standard HD</td>
                 <td className="px-6 py-4 text-gray-700">💰💰</td>
                 <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
+                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
                 <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
               </tr>
             </tbody>
@@ -758,7 +762,7 @@ function StatsBand() {
   const stats = [
     { value: "300+", label: "Başarılı Proje" },
     { value: "50+", label: "Kurumsal Müşteri" },
-    { value: "81", label: "İlde Hizmet" },
+    { value: "81 İL", label: "Kendi Araçlarımızla Hızlı Kurulum" },
     { value: "5+", label: "Yıl Deneyim" },
   ];
 
@@ -1177,7 +1181,7 @@ function CTA() {
               Profesyonel LED Ekran Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Etkinliğiniz için en uygun LED ekran sistemlerini sunalım. Ücretsiz keşif, profesyonel danışmanlık ve 
+              Türkiye'nin 81 ilinde kendi araçlarımız ve uzman ekibimizle hızlı kurulum yapıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
               rekabetçi fiyat garantisi ile hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
