@@ -53,7 +53,7 @@ const getServiceWhatsappLink = (title) => {
 };
 
 // Base64 blur placeholder
-const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAFA3PEY8MlBGQUZaVVBfeMiCeG5uePWvuZHI////////////////////////////////////////////////////2wBDAVVaWnhpeOuCguv/////////////////////////////////////////////////////////////////////////wAARCAADAAQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwBmKKKKGB//2Q==";
 
 /* ================== Dinamik galeri (CaseGallery) ================== */
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
@@ -630,7 +630,12 @@ function TechnicalComparison() {
             </thead>
             <tbody>
               <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-semibold text-gray-900">P2.5</td>
+                <td className="px-6 py-4">
+                  <span className="font-semibold text-gray-900">P2.5</span>
+                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                    %{Math.round((PRICE_MULTIPLIERS["P2.5"] - 1) * 100)} daha premium
+                  </span>
+                </td>
                 <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
                 <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
                 <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
@@ -638,7 +643,12 @@ function TechnicalComparison() {
                 <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-semibold text-gray-900">P2.9</td>
+                <td className="px-6 py-4">
+                  <span className="font-semibold text-gray-900">P2.9</span>
+                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                    En dengeli seçim
+                  </span>
+                </td>
                 <td className="px-6 py-4 text-gray-700">High Definition</td>
                 <td className="px-6 py-4 text-gray-700">💰💰💰</td>
                 <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
@@ -646,7 +656,12 @@ function TechnicalComparison() {
                 <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 font-semibold text-gray-900">P3.9</td>
+                <td className="px-6 py-4">
+                  <span className="font-semibold text-gray-900">P3.9</span>
+                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                    En çok tercih edilen
+                  </span>
+                </td>
                 <td className="px-6 py-4 text-gray-700">Standard HD</td>
                 <td className="px-6 py-4 text-gray-700">💰💰</td>
                 <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
@@ -1146,7 +1161,7 @@ function RelatedServices() {
                   className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 
                   aria-hidden="true"
                 >
-                  <service.Icon size={36} />
+                  <service.Icon size={36} aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}
