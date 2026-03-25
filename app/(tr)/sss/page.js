@@ -274,9 +274,6 @@ const FAQ_CATEGORIES = [
 function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-function stripTags(s = "") {
-  return s.replace(/<[^>]+>/g, "");
-}
 function injectLinks(text) {
   const pairs = [
     { key: "podyum", href: "/podyum-kiralama" },
