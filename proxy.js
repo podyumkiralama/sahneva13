@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 /**
- * Next.js middleware — runs on every matched request.
+ * Next.js proxy — runs on every matched request.
  * Keep this minimal/pass-through for maximum stability & performance.
  */
 export const config = {
@@ -11,7 +11,7 @@ export const config = {
   ],
 };
 
-export function middleware(request) {
+export function proxy(request) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
 

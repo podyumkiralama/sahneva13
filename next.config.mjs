@@ -158,11 +158,6 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
   },
 
-  optimizePackageImports: ["lucide-react", "@headlessui/react"],
-
-  // DÜZELTME: modularizeImports ve optimizePackageImports aynı anda kullanılmamalı.
-  // optimizePackageImports ("lucide-react" için) tek başına en iyi performansı verir. Bu yüzden modularizeImports tamamen kaldırıldı.
-
   env: {
     SITE_URL: siteUrl,
     NEXT_PUBLIC_APP_ENV: process.env.NODE_ENV ?? "development",
