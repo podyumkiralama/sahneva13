@@ -2,7 +2,6 @@
   "name": "sahneva13",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
     "dev:webpack": "NEXT_DISABLE_TURBOPACK=1 next dev",
