@@ -4,6 +4,7 @@
 import { useRef, useState, useCallback, useMemo, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Layers, Layout, Monitor, Music, Tent, Users } from "lucide-react";
 
 // —————————————————————————————————————————
 // İKONLAR
@@ -43,7 +44,7 @@ const DEFAULT_SERVICES = [
   {
     id: "sahne",
     title: "Sahne Kiralama",
-    icon: "🎪",
+    Icon: Layers,
     description:
       "Profesyonel modüler sahne sistemleri, truss kiralama ve güvenlik ekipmanları. Konser, festival, fuar ve özel etkinlikler için özel tasarım sahne çözümleri.",
     image: "/img/hizmet-sahne.webp",
@@ -58,7 +59,7 @@ const DEFAULT_SERVICES = [
   {
     id: "podyum",
     title: "Podyum Kiralama",
-    icon: "👑",
+    Icon: Layout,
     description:
       "Modüler podyum sistemleri, özel tasarım podyumlar ve protokol masaları. Toplantı, lansman ve ödül törenleri için profesyonel çözümler.",
     image: "/img/hizmet-podyum.webp",
@@ -73,7 +74,7 @@ const DEFAULT_SERVICES = [
   {
     id: "led",
     title: "LED Ekran Kiralama",
-    icon: "🖥️",
+    Icon: Monitor,
     description:
       "Yüksek çözünürlüklü indoor/outdoor LED ekran kiralama çözümleri. P2, P3, P4, P5, P6 pixel pitch seçenekleri ile her türlü etkinlik için ideal.",
     image: "/img/galeri/led-ekran-kiralama-1.webp",
@@ -88,7 +89,7 @@ const DEFAULT_SERVICES = [
   {
     id: "ses-isik",
     title: "Ses Işık Sistemleri",
-    icon: "🎭",
+    Icon: Music,
     description:
       "Profesyonel ses ışık sistemleri kiralama hizmeti. Konser, tiyatro, konferans ve özel etkinlikleriniz için komple ses ve ışık çözümleri.",
     image: "/img/ses-isik/ses-sistemi.webp",
@@ -103,7 +104,7 @@ const DEFAULT_SERVICES = [
   {
     id: "cadir",
     title: "Çadır Kiralama",
-    icon: "⛺",
+    Icon: Tent,
     description:
       "Açık hava etkinlikleri için profesyonel çadır kiralama ve kurulumları. Su geçirmez, rüzgar dayanıklı çadır sistemleri ve aksesuarları.",
     image: "/img/galeri/cadir-kiralama-1.webp",
@@ -118,7 +119,7 @@ const DEFAULT_SERVICES = [
   {
     id: "masa-sandalye",
     title: "Masa Sandalye Kiralama",
-    icon: "🪑",
+    Icon: Users,
     description:
       "Toplantı, davet, düğün ve özel etkinlikler için profesyonel masa sandalye kiralama hizmeti. Şık ve konforlu çözümler.",
     image: "/img/hizmet-masa.webp",
@@ -343,10 +344,12 @@ function ServicesTabsComponent({
                       `}
                     >
                       <span
-                        className="text-xl md:text-2xl drop-shadow-sm"
+                        className="flex items-center justify-center"
                         aria-hidden="true"
                       >
-                        {service.icon}
+                        {service.Icon
+                          ? <service.Icon size={22} />
+                          : <span className="text-xl md:text-2xl drop-shadow-sm">{service.icon}</span>}
                       </span>
                       <span className="text-center leading-tight">
                         {service.title}

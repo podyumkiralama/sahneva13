@@ -10,6 +10,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { Layout, Monitor, Layers, Tent } from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -975,25 +976,25 @@ function RelatedServices() {
     { 
       href: "/podyum-kiralama", 
       title: "Podyum Kiralama", 
-      icon: "📐", 
+      Icon: Layout, 
       desc: "Profesyonel sahne platformları ve podyum sistemleri"
     },
     { 
       href: "/led-ekran-kiralama", 
       title: "LED Ekran Kiralama", 
-      icon: "🖥️", 
+      Icon: Monitor, 
       desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri"
     },
     { 
       href: "/sahne-kiralama", 
       title: "Sahne Kiralama", 
-      icon: "🛠️", 
+      Icon: Layers, 
       desc: "Portatif ve modüler sahne sistemleri kiralama"
     },
     { 
       href: "/cadir-kiralama", 
       title: "Çadır Kiralama", 
-      icon: "🎪", 
+      Icon: Tent, 
       desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri"
     },
   ];
@@ -1033,10 +1034,10 @@ function RelatedServices() {
                 aria-label={`${service.title} - ${service.desc}`}
               >
                 <div 
-                  className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" 
+                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 
                   aria-hidden="true"
                 >
-                  {service.icon}
+                  <service.Icon size={36} aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}

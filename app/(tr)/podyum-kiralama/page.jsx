@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { Tent, Briefcase, Monitor, Music } from "lucide-react";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 1800; // 30 Dakika ISR
@@ -209,10 +210,10 @@ const FAQ_ITEMS = [
 ];
 
 const RELATED_SERVICES = [
-  { href: "/cadir-kiralama", title: "Çadır Kiralama", icon: "🏕️", desc: "Profesyonel çadır sistemleri ve kurulum hizmetleri" },
-  { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", icon: "🏢", desc: "Profesyonel etkinlik yönetimi ve organizasyon çözümleri" },
-  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", icon: "🖥️", desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri" },
-  { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", icon: "🎵", desc: "Profesyonel ses ve ışık sistemleri kiralama" },
+  { href: "/cadir-kiralama", title: "Çadır Kiralama", Icon: Tent, desc: "Profesyonel çadır sistemleri ve kurulum hizmetleri" },
+  { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", Icon: Briefcase, desc: "Profesyonel etkinlik yönetimi ve organizasyon çözümleri" },
+  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", Icon: Monitor, desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri" },
+  { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", Icon: Music, desc: "Profesyonel ses ve ışık sistemleri kiralama" },
 ];
 
 const GALLERY_IMAGES = [
@@ -1246,8 +1247,8 @@ function RelatedServicesSection() {
                 href={service.href}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center h-full flex flex-col"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                  <service.Icon size={36} aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}

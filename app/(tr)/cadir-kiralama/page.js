@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { Music, Layers, Users, Monitor } from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -1136,25 +1137,25 @@ function RelatedServices() {
     {
       href: "/ses-isik-sistemleri",
       title: "Ses & Işık Sistemleri",
-      icon: "🎵",
+      Icon: Music,
       desc: "Çadır etkinlikleri için profesyonel ses ve ışık çözümleri",
     },
     {
       href: "/sahne-kiralama",
       title: "Sahne Kiralama",
-      icon: "🛠️",
+      Icon: Layers,
       desc: "Konser ve sunumlar için modüler sahne kurulumları",
     },
     {
       href: "/masa-sandalye-kiralama",
       title: "Masa & Sandalye",
-      icon: "🪑",
+      Icon: Users,
       desc: "Konforlu oturma alanları ve tamamlayıcı mobilyalar",
     },
     {
       href: "/led-ekran-kiralama",
       title: "LED Ekran Kiralama",
-      icon: "📺",
+      Icon: Monitor,
       desc: "Sunum ve sahne için yüksek çözünürlüklü ekranlar",
     },
   ];
@@ -1192,10 +1193,10 @@ function RelatedServices() {
                 aria-label={`${service.title} - ${service.desc}`}
               >
                 <div
-                  className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
-                  {service.icon}
+                  <service.Icon size={36} aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
                   {service.title}
