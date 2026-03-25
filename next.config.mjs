@@ -158,10 +158,7 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
   },
 
-  experimental: {
-    scrollRestoration: true,
-    optimizePackageImports: ["lucide-react", "@headlessui/react"],
-  },
+  optimizePackageImports: ["lucide-react", "@headlessui/react"],
 
   // DÜZELTME: modularizeImports ve optimizePackageImports aynı anda kullanılmamalı.
   // optimizePackageImports ("lucide-react" için) tek başına en iyi performansı verir. Bu yüzden modularizeImports tamamen kaldırıldı.
