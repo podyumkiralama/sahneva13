@@ -253,33 +253,33 @@ export default function PrivacyPolicyPage() {
                   1. Topladığımız Veriler
                 </h2>
                 <p className="mt-3">
-                  Sahneva olarak hizmetlerimizi sunarken, sizinle kurduğumuz iletişim ve yasal
-                  yükümlülüklerimiz kapsamında bazı kişisel verilerinizi işleyebiliriz.
+                  Teklif istediğinizde veya bizi aradığınızda verdiğiniz ad, telefon ve
+                  e-posta bilgilerini kaydediyoruz. Etkinliğin yeri, tarihi ve kurulum
+                  gereksinimleri ekibimizi doğru planlamamız için gerekiyor. Fatura
+                  kesmemiz gerektiğinde şirket ya da vergi bilgilerini de alıyoruz.
                 </p>
                 <h3 className="mt-4 text-base font-semibold text-slate-50">
-                  1.1. Kullanıcı Tarafından Sağlanan Veriler
+                  1.1. Siz Paylaştığınızda
                 </h3>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>Teklif ve iletişim formlarında paylaşılan bilgiler</li>
                   <li>Ad, soyad, telefon numarası, e-posta adresi</li>
-                  <li>Firma unvanı, görev bilgisi (paylaşıldıysa)</li>
-                  <li>Etkinlik türü, tarih, lokasyon gibi proje detayları</li>
-                  <li>WhatsApp veya telefon yoluyla ilettiğiniz bilgiler</li>
+                  <li>Firma unvanı veya görev bilgisi (paylaşıldıysa)</li>
+                  <li>Etkinlik türü, tarih ve lokasyon gibi proje detayları</li>
+                  <li>WhatsApp ya da e-posta yoluyla ilettiğiniz ekipman talepleri</li>
                 </ul>
 
                 <h3 className="mt-4 text-base font-semibold text-slate-50">
-                  1.2. Otomatik Olarak Toplanan Veriler
+                  1.2. Otomatik Olarak
                 </h3>
                 <p className="mt-2">
-                  Siteyi ziyaret ettiğinizde bazı veriler otomatik olarak toplanır ve anonim
-                  istatistikler üretmek için kullanılır:
+                  Sitenin hangi bölümlerinin işe yaradığını anlamak için Google Analytics
+                  kullanıyoruz. Bu araç bize toplu istatistikler sunuyor; sizi bireysel
+                  olarak tanımlamıyor:
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>IP adresi (anonimleştirilmiş olarak)</li>
-                  <li>Tarayıcı türü, işletim sistemi, cihaz türü</li>
-                  <li>Ziyaret edilen sayfalar, tıklanan bağlantılar</li>
-                  <li>Oturum süresi, sayfada kalma süresi</li>
-                  <li>Çerez (cookie) verileri ve GA4 analitik verileri</li>
+                  <li>Hangi sayfaların ziyaret edildiği ve ne kadar kalındığı</li>
+                  <li>Tarayıcı türü ve ekran boyutu gibi teknik bilgiler</li>
+                  <li>Anonimleştirilmiş IP adresi</li>
                 </ul>
               </section>
 
@@ -289,28 +289,24 @@ export default function PrivacyPolicyPage() {
                   id="isleme-amaclari-baslik"
                   className="text-xl font-semibold text-slate-50"
                 >
-                  2. Kişisel Verilerin İşlenme Amaçları
+                  2. Bu Bilgileri Neden Kullanıyoruz?
                 </h2>
                 <p className="mt-3">
-                  Toplanan kişisel verileriniz aşağıdaki amaçlarla KVKK ve ilgili mevzuata uygun
-                  olarak işlenmektedir:
+                  Temel amacımız size hizmet verebilmek. Aldığınız teklifi hazırlamak,
+                  kurulum ekibini doğru adrese yönlendirmek ve etkinlik sonrası destek
+                  sağlamak için bu bilgilere ihtiyacımız var.
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>Hizmetlerimiz hakkında size bilgi vermek ve teklif oluşturmak</li>
-                  <li>
-                    Podyum, sahne, LED ekran, ses ve ışık sistemleri kiralama taleplerinizi
-                    değerlendirmek
-                  </li>
-                  <li>Müşteri memnuniyetini ölçmek ve iyileştirme çalışmaları yapmak</li>
-                  <li>Site performansını, kullanıcı deneyimini ve içerikleri optimize etmek</li>
-                  <li>
-                    Güvenlik, dolandırıcılık önleme ve kötüye kullanımın tespiti gibi teknik ve
-                    hukuki denetimler yürütmek
-                  </li>
-                  <li>
-                    Rızanız bulunması halinde kampanya, duyuru ve pazarlama içerikleri iletmek
-                  </li>
+                  <li>Podyum, sahne, LED ekran, ses ve ışık sistemi tekliflerini hazırlamak</li>
+                  <li>Kurulum ve taşıma operasyonlarını planlamak</li>
+                  <li>Fatura düzenlemek ve muhasebe kayıtlarını tutmak</li>
+                  <li>Sitenin hangi içeriklerinin daha faydalı olduğunu görmek</li>
+                  <li>Açıkça izin verdiğinizde kampanya veya duyuru iletmek</li>
                 </ul>
+                <p className="mt-2">
+                  Pazarlama e-postası göndermek gibi bir alışkanlığımız yok; bunu
+                  yapmadan önce her seferinde açıkça izin alırız.
+                </p>
               </section>
 
               {/* 3. Hukuki Dayanak */}
@@ -319,20 +315,20 @@ export default function PrivacyPolicyPage() {
                   id="hukuki-dayanak-baslik"
                   className="text-xl font-semibold text-slate-50"
                 >
-                  3. Kişisel Verilerin İşlenmesinin Hukuki Dayanakları
+                  3. Yasal Dayanaklarımız
                 </h2>
                 <p className="mt-3">
-                  Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;)
-                  ve ilgili mevzuat kapsamında aşağıdaki hukuki sebeplere dayanarak işlenmektedir:
+                  6698 sayılı KVKK çerçevesinde birkaç farklı hukuki sebebe dayanıyoruz.
+                  Teklif vermekten kurulum yapmaya kadar her adımda sözleşme hazırlığı ve
+                  ifası geçerli. Fatura ve muhasebe kayıtları için vergi ve ticaret
+                  mevzuatından doğan yükümlülüklerimizi yerine getiriyoruz. Analitik için
+                  ise meşru menfaat sebebine dayanıyoruz; bu kapsamdaki veriler anonimdir.
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>Açık rızanızın bulunması</li>
-                  <li>Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması</li>
+                  <li>Sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması</li>
                   <li>Hukuki yükümlülüklerimizin yerine getirilmesi</li>
-                  <li>
-                    Temel hak ve özgürlüklerinize zarar vermemek kaydıyla Sahneva&apos;nın meşru
-                    menfaatleri
-                  </li>
+                  <li>Sahneva&apos;nın meşru menfaatleri (sitenin iyileştirilmesi gibi)</li>
+                  <li>Açık rızanızın bulunması (pazarlama gibi durumlarda)</li>
                 </ul>
               </section>
 
@@ -342,19 +338,18 @@ export default function PrivacyPolicyPage() {
                   id="saklama-sureleri-baslik"
                   className="text-xl font-semibold text-slate-50"
                 >
-                  4. Kişisel Verilerin Saklanma Süreleri
+                  4. Verileri Ne Kadar Saklıyoruz?
                 </h2>
                 <p className="mt-3">
-                  Kişisel verileriniz, ilgili mevzuatta öngörülen süreler ve işleme amaçlarımızın
-                  gerektirdiği süre boyunca saklanmakta; bu sürelerin sonunda ise silinmekte,
-                  anonim hale getirilmekte veya yok edilmektedir.
+                  Her verinin saklama süresi, neden toplandığına göre değişiyor. İşimiz
+                  bitince verilerinizi tutmayı bırakıyoruz ya da anonimleştiriyoruz.
                 </p>
                 <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60">
                   <table className="min-w-full text-left text-xs sm:text-sm">
                     <thead className="bg-slate-900/80 text-slate-300">
                       <tr>
                         <th className="px-4 py-3 font-semibold">Veri Türü</th>
-                        <th className="px-4 py-3 font-semibold">Yaklaşık Saklama Süresi</th>
+                        <th className="px-4 py-3 font-semibold">Saklama Süresi</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5 text-slate-200">
@@ -367,12 +362,16 @@ export default function PrivacyPolicyPage() {
                         <td className="px-4 py-3">3 yıl</td>
                       </tr>
                       <tr>
+                        <td className="px-4 py-3">Fatura ve muhasebe kayıtları</td>
+                        <td className="px-4 py-3">Vergi mevzuatı gereği 5–10 yıl</td>
+                      </tr>
+                      <tr>
                         <td className="px-4 py-3">Analitik ve istatistik verileri</td>
-                        <td className="px-4 py-3">26 aya kadar (GA4 varsayılan süreleri)</td>
+                        <td className="px-4 py-3">26 aya kadar (GA4 varsayılanı)</td>
                       </tr>
                       <tr>
                         <td className="px-4 py-3">Çerez verileri</td>
-                        <td className="px-4 py-3">Tarayıcı ayarlarına ve çerez türüne göre değişir</td>
+                        <td className="px-4 py-3">Tarayıcı ayarlarına ve çerez türüne göre</td>
                       </tr>
                     </tbody>
                   </table>
@@ -385,107 +384,95 @@ export default function PrivacyPolicyPage() {
                   id="veri-aktarimi-baslik"
                   className="text-xl font-semibold text-slate-50"
                 >
-                  5. Kişisel Verilerin Aktarılması
+                  5. Kiminle Paylaşıyoruz?
                 </h2>
                 <p className="mt-3">
-                  Kişisel verileriniz, yalnızca işbu Gizlilik Politikası&apos;nda belirtilen amaçlar
-                  doğrultusunda ve yasal sınırlar içerisinde aşağıdaki taraflarla paylaşılabilir:
+                  Verilerinizi yalnızca işin gerektirdiği ölçüde ve aşağıdaki taraflarla
+                  paylaşıyoruz. Hiçbir koşulda üçüncü kişilere satmıyor ya da izinsiz
+                  pazarlama amacıyla aktarmıyoruz.
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>Yetkili kamu kurum ve kuruluşları (yasal zorunluluk halinde)</li>
-                  <li>Sunucu, barındırma (hosting) ve altyapı sağlayıcılarımız</li>
-                  <li>Google Analytics ve Google Tag Manager gibi analitik hizmet sağlayıcıları</li>
-                  <li>Teknik destek ve danışmanlık aldığımız çözüm ortaklarımız</li>
-                  <li>Hukuki süreçler kapsamında avukatlar ve hukuk danışmanları (gerekirse)</li>
+                  <li>Lojistik ve taşıma hizmetleri sağlayıcıları (kurulum operasyonları için)</li>
+                  <li>Muhasebe yazılımı ve barındırma altyapısı sağlayıcıları</li>
+                  <li>Google Analytics — anonim kullanım istatistikleri için</li>
+                  <li>Hukuki zorunluluk doğduğunda yetkili kamu kurumları</li>
                 </ul>
                 <p className="mt-2">
-                  Verileriniz hiçbir koşulda üçüncü kişilere satılmaz veya izinsiz pazarlama amacıyla
-                  paylaşılmaz.
+                  Bu tedarikçilerin tamamıyla KVKK&apos;ya uygun gizlilik sözleşmeleri yapıyoruz.
                 </p>
               </section>
 
               {/* 6. Haklarınız */}
               <section id="haklariniz" aria-labelledby="haklariniz-baslik">
                 <h2 id="haklariniz-baslik" className="text-xl font-semibold text-slate-50">
-                  6. Veri Sahibi Olarak Haklarınız
+                  6. Haklarınız
                 </h2>
                 <p className="mt-3">
-                  KVKK madde 11 uyarınca, Sahneva&apos;ya başvurarak aşağıdaki haklara sahipsiniz:
+                  KVKK&apos;nın 11. maddesi size birçok hak tanıyor. Bunları kullanmak için
+                  resmi bir form doldurmak zorunda değilsiniz; e-posta yeterli.
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
-                  <li>İşlenmişse buna ilişkin bilgi talep etme</li>
-                  <li>İşleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
-                  <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
-                  <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
-                  <li>İşlenmesini gerektiren sebeplerin ortadan kalkması halinde silinmesini veya yok edilmesini isteme</li>
-                  <li>
-                    Yapılan düzeltme, silme veya yok etme işlemlerinin, verilerin aktarıldığı üçüncü
-                    kişilere bildirilmesini isteme
-                  </li>
-                  <li>
-                    İşlenen verilerin otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize
-                    bir sonucun ortaya çıkmasına itiraz etme
-                  </li>
-                  <li>KVKK&apos;ya aykırı olarak işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+                  <li>Verilerinizin işlenip işlenmediğini ve nasıl kullanıldığını sorabilirsiniz</li>
+                  <li>Yanlış ya da eksik bir bilgi varsa düzeltilmesini isteyebilirsiniz</li>
+                  <li>Saklama amacı bittiğinde silinmesini talep edebilirsiniz</li>
+                  <li>Verilerinizin hangi üçüncü kişilere aktarıldığını öğrenebilirsiniz</li>
+                  <li>Otomatik karar sistemlerinin sizi olumsuz etkileyen sonuçlarına itiraz edebilirsiniz</li>
+                  <li>KVKK&apos;ya aykırı işlemden doğan zararın giderilmesini isteyebilirsiniz</li>
                 </ul>
                 <p className="mt-2">
-                  Haklarınıza ilişkin taleplerinizi aşağıda belirtilen iletişim kanalları üzerinden
-                  Sahneva&apos;ya iletebilirsiniz.
+                  Talebinizi{" "}
+                  <a href={`mailto:${MAIL}`} className="text-sky-300 underline-offset-2 hover:underline">
+                    {MAIL}
+                  </a>{" "}
+                  adresine iletmeniz yeterli. 30 gün içinde yanıtlıyoruz.
                 </p>
               </section>
 
               {/* 7. Güvenlik */}
               <section id="guvenlik" aria-labelledby="guvenlik-baslik">
                 <h2 id="guvenlik-baslik" className="text-xl font-semibold text-slate-50">
-                  7. Veri Güvenliğine İlişkin Tedbirler
+                  7. Veri Güvenliği
                 </h2>
                 <p className="mt-3">
-                  Sahneva olarak, kişisel verilerinizi yetkisiz erişime, kayba veya kötüye kullanıma
-                  karşı korumak için teknik ve idari tedbirler almaktayız:
+                  Sitemiz HTTPS ile şifreli bağlantı üzerinden çalışıyor. Sistemlerimize
+                  erişim yalnızca yetkili ekip üyeleriyle sınırlı; sunucu altyapısı
+                  düzenli olarak güncelleniyor. Bir güvenlik sorunu tespit ettiğimizde
+                  KVKK&apos;nın öngördüğü süreler içinde hem sizi hem de ilgili kurumu
+                  bilgilendiririz.
                 </p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
-                  <li>HTTPS üzerinden şifrelenmiş veri aktarımı</li>
-                  <li>Güvenlik duvarları ve erişim kontrol mekanizmaları</li>
+                  <li>HTTPS üzerinden şifrelenmiş veri iletimi</li>
+                  <li>Yetkisiz erişimi önleyen erişim kontrol mekanizmaları</li>
                   <li>Düzenli güncellenen sunucu ve yazılım altyapısı</li>
-                  <li>Yetkili personel dışındaki erişimlerin kısıtlanması</li>
-                  <li>Gerekli durumlarda yedekleme ve kurtarma prosedürleri</li>
+                  <li>Gerektiğinde yedekleme ve kurtarma prosedürleri</li>
                 </ul>
               </section>
 
               {/* 8. Çerezler */}
               <section id="cerezler" aria-labelledby="cerezler-baslik">
                 <h2 id="cerezler-baslik" className="text-xl font-semibold text-slate-50">
-                  8. Çerezler (Cookies)
+                  8. Çerezler
                 </h2>
                 <p className="mt-3">
-                  Web sitemizde kullanıcı deneyimini iyileştirmek, performansı analiz etmek ve
-                  içerikleri geliştirmek amacıyla çerezler kullanılmaktadır.
+                  Sitemizde iki tür çerez kullanıyoruz: sitenin çalışması için zorunlu
+                  olanlar ve kullanımı ölçen analitik çerezler. Reklam amaçlı çerez
+                  kullanmıyoruz.
                 </p>
-                <h3 className="mt-3 text-base font-semibold text-slate-50">
-                  8.1. Kullanılan Çerez Türleri
-                </h3>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
                   <li>
-                    <strong>Zorunlu çerezler:</strong> Sitenin temel fonksiyonlarının çalışması için
-                    gereklidir.
+                    <strong>Zorunlu çerezler:</strong> Form gönderimleri ve gezinti gibi
+                    temel fonksiyonlar için gerekli; bunlar olmadan site düzgün çalışmaz.
                   </li>
                   <li>
-                    <strong>Analitik ve performans çerezleri:</strong> Google Analytics 4 ile site
-                    kullanımına dair anonim istatistikler üretir.
-                  </li>
-                  <li>
-                    <strong>Fonksiyonel çerezler:</strong> Tercihlerinizi (dil, tema vb.) hatırlamaya
-                    yardımcı olabilir.
-                  </li>
-                  <li>
-                    <strong>Reklam ve hedefleme çerezleri (varsa):</strong> Google Ads gibi platformlar
-                    üzerinden yeniden pazarlama yapılmasına imkân tanır.
+                    <strong>Analitik çerezler (GA4):</strong> Hangi sayfaların daha
+                    faydalı olduğunu toplu ve anonim olarak ölçer; kişisel profil
+                    oluşturmaz.
                   </li>
                 </ul>
                 <p className="mt-2">
-                  Çerezleri tarayıcınızın ayarları üzerinden yönetebilir, silebilir veya tamamen
-                  engelleyebilirsiniz. Ancak bu durumda sitenin bazı bölümleri düzgün çalışmayabilir.
+                  Tarayıcınızın ayarlarından çerezleri yönetebilir ya da tamamen
+                  engelleyebilirsiniz. Zorunlu çerezleri kapatırsanız sitenin bazı
+                  bölümleri beklendiği gibi çalışmayabilir.
                 </p>
               </section>
 
@@ -495,12 +482,14 @@ export default function PrivacyPolicyPage() {
                   id="degisiklikler-baslik"
                   className="text-xl font-semibold text-slate-50"
                 >
-                  9. Gizlilik Politikasında Yapılabilecek Değişiklikler
+                  9. Değişiklikler
                 </h2>
                 <p className="mt-3">
-                  Bu Gizlilik Politikası, yasal düzenlemeler ve Sahneva&apos;nın veri işleme
-                  faaliyetlerindeki değişikliklere bağlı olarak güncellenebilir. Güncel sürüm her zaman
-                  <span className="px-1 text-sky-300">/gizlilik-politikasi</span> adresinde yayımlanır.
+                  Hizmet kapsamımız veya yasal düzenlemeler değiştiğinde bu sayfayı
+                  güncelliyoruz. Önemli bir değişiklik olduğunda bunu burada açıkça
+                  belirtiyoruz. Güncel metin her zaman{" "}
+                  <span className="text-sky-300">/gizlilik-politikasi</span> adresinde
+                  bulunabilir.
                 </p>
               </section>
 

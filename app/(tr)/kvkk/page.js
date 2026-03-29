@@ -53,10 +53,10 @@ export default function KvkkPage() {
 
       <section className="space-y-6 text-neutral-800 leading-7">
         <p>
-          Bu KVKK ve Gizlilik Politikası, <strong>Sahneva</strong> (“Şirket”) tarafından
-          sağlanan hizmetler kapsamında kişisel verilerin 6698 sayılı Kişisel Verilerin
-          Korunması Kanunu (“<strong>KVKK</strong>”) ve ilgili mevzuata uygun olarak
-          işlenmesine ilişkin esasları açıklar.
+          Sahne, podyum, LED ekran ve ses–ışık ekipmanı kiralama süreçlerimizde sizinle iletişim
+          kurabilmek ve işlerinizi doğru planlayabilmek için bazı kişisel bilgilere ihtiyaç
+          duyuyoruz. Bu bilgileri nasıl kullandığımızı, kimlerle paylaştığımızı ve haklarınızı
+          açık bir şekilde anlatmak istedik.
         </p>
 
         <div className="rounded-xl border bg-white p-4">
@@ -68,98 +68,109 @@ export default function KvkkPage() {
           </p>
         </div>
 
-        <h2 className="text-xl font-semibold">1. İşlediğimiz Kişisel Veriler</h2>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>İletişim bilgileri: ad–soyad, e-posta, telefon, şirket/kurum bilgisi.</li>
-          <li>Teklif ve sözleşme verileri: talep içeriği, hizmet kapsamı, faturalama bilgileri.</li>
-          <li>Etkinlik operasyon verileri: kurulum adresi, tarih/saat, teknik gereksinimler.</li>
-          <li>İşlem ve denetim kayıtları: log bilgileri, talep–yanıt geçmişi.</li>
-          <li>Çerez/analitik verileri: sayfa görüntüleme, trafik kaynakları (toplu/anonim).</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold">2. İşleme Amaçlarımız</h2>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>Hizmet sunumu, tekliflendirme, sözleşme kurulması ve ifası.</li>
-          <li>Müşteri ilişkileri ve destek süreçlerinin yürütülmesi.</li>
-          <li>Finans ve muhasebe işlemleri, faturalama.</li>
-          <li>Operasyon planlama (saha kurulumları, lojistik, teknik destek).</li>
-          <li>Güvenlik ve denetim, hukuki yükümlülüklere uyum.</li>
-          <li>Web sitesi kullanım deneyimini iyileştirme ve performans analizi.</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold">3. Hukuki Sebepler</h2>
+        <h2 className="text-xl font-semibold">1. Hangi Bilgileri Topluyoruz?</h2>
         <p>
-          KVKK m.5/2 uyarınca; <em>sözleşmenin kurulması/ifası</em>, <em>hukuki yükümlülük</em>,
-          <em>meşru menfaat</em> ve <em>bir hakkın tesisi/kullanılması/korunması</em> hukuki
-          sebeplerine dayanarak veri işleriz. Açık rıza gerektiren hallerde açık rızanızı alırız.
+          Teklif formu doldurduğunuzda veya bizi aradığınızda paylaştığınız ad, telefon ve
+          e-posta gibi iletişim bilgilerini kaydediyoruz. Etkinliğin yapılacağı yer, tarih ve
+          ekipman gereksinimleri de operasyon planlaması için bize gerekiyor. Bunların yanı sıra
+          fatura düzenleyebilmek için şirket veya vergi bilgilerini alıyoruz. Web sitemizi
+          ziyaret ettiğinizde ise hangi sayfaların ilgi gördüğünü anlamak için Google Analytics
+          aracılığıyla anonim kullanım istatistikleri topluyoruz; bu veriler kişiselleştirilmiş
+          değil, yalnızca toplu hâlde işleniyor.
         </p>
 
-        <h2 className="text-xl font-semibold">4. Toplama Yöntemleri</h2>
+        <h2 className="text-xl font-semibold">2. Bu Bilgileri Neden Kullanıyoruz?</h2>
         <p>
-          Veriler; web sitemizdeki formlar, telefon/WhatsApp görüşmesi, e-posta yazışmaları,
-          teklif–sözleşme süreçleri ve saha operasyonları sırasında elde edilir.
+          Temel amacımız size hizmet sunmak. Aldığınız teklifi hazırlamak, kurulum ekibini
+          doğru yere yönlendirmek, fatura kesmek ve etkinlik sonrası destek vermek için bu
+          bilgileri kullanıyoruz. Sitenin hangi bölümlerinin daha faydalı olduğunu görmek ve
+          içerikleri geliştirmek için de analitik verilerden yararlanıyoruz. Pazarlama e-postası
+          göndermek gibi bir alışkanlığımız yok; bunu yapmadan önce açıkça izin alırız.
         </p>
 
-        <h2 className="text-xl font-semibold">5. Aktarım ve Veri İşleyenler</h2>
+        <h2 className="text-xl font-semibold">3. Yasal Dayanaklarımız</h2>
         <p>
-          Hizmetin ifası için gerekli hallerde; kargo/lojistik, finans, muhasebe, barındırma
-          (hosting), bulut altyapı ve teknik servis sağlayıcılarıyla sınırlı olarak veri paylaşımı
-          yapılabilir. Tüm tedarikçilerle KVKK’ya uygun sözleşmeler yapılır.
+          6698 sayılı KVKK çerçevesinde verilerinizi işlerken birkaç farklı hukuki sebebe
+          dayanıyoruz. Sözleşme hazırlığı ve ifası en sık başvurduğumuz sebep: teklif
+          vermeden kurulum yapmaya kadar her adımda buna ihtiyaç var. Fatura ve muhasebe
+          kayıtları için ise vergi ve ticaret mevzuatından doğan yasal yükümlülüklerimizi
+          yerine getiriyoruz. Analitik ve site performansı için meşru menfaat sebebine
+          dayanıyoruz; bu kapsamda topladığımız veriler tamamen anonimdir.
+        </p>
+
+        <h2 className="text-xl font-semibold">4. Bilgileri Nasıl Topluyoruz?</h2>
+        <p>
+          Web sitemizdeki teklif ve iletişim formları, telefon veya WhatsApp görüşmeleri,
+          e-posta yazışmaları ve kurulum günlerindeki saha koordinasyonu sırasında bilgi
+          topluyoruz. Hiçbir zaman sosyal medya veya üçüncü taraflardan bilgi satın almıyoruz.
+        </p>
+
+        <h2 className="text-xl font-semibold">5. Kimlerle Paylaşıyoruz?</h2>
+        <p>
+          Kurulum için gereken lojistik ve taşıma hizmetleri, muhasebe yazılımı ve barındırma
+          altyapısı gibi iş ortaklarımızla yalnızca ilgili işin gerektirdiği kadarını
+          paylaşıyoruz. Tüm bu tedarikçilerle KVKK'ya uygun sözleşmeler yapıyoruz. Yetkili
+          kamu kurumları talep ettiğinde yasal zorunluluk olduğu için bilgi verebiliyoruz;
+          bunun dışında verilerinizi kimseye satmıyor ya da ticari amaçla devretmiyoruz.
         </p>
 
         <h2 className="text-xl font-semibold">6. Yurt Dışına Aktarım</h2>
         <p>
-          Barındırma/analitik gibi bazı hizmetler yurt dışında konumlanabilir. Bu hallerde KVKK
-          m.9 uyarınca açık rıza veya Kurul’un uygun bulduğu güvenceler sağlanarak aktarım
-          gerçekleştirilir.
+          Google Analytics ve kullandığımız bazı bulut altyapı hizmetleri yurt dışı
+          sunucularında çalışıyor. Bu aktarımlar, KVKK'nın 9. maddesi kapsamında gerekli
+          güvenceler sağlanarak gerçekleştiriliyor. Söz konusu hizmetlerin gizlilik
+          politikaları, ilgili sağlayıcıların kendi sitelerinde yayınlanıyor.
         </p>
 
-        <h2 className="text-xl font-semibold">7. Saklama Süreleri</h2>
+        <h2 className="text-xl font-semibold">7. Ne Kadar Saklıyoruz?</h2>
         <ul className="list-disc pl-6 space-y-1">
-          <li>Teklif–sözleşme ve fatura verileri: Vergi/TTK mevzuatındaki asgari süreler (genelde 5–10 yıl).</li>
-          <li>İletişim ve destek kayıtları: müşteri ilişkileri ve zamanaşımı süreleriyle sınırlı.</li>
-          <li>Çerez/analitik: amaçla orantılı, mümkün olduğunca kısa ve anonimleştirilmiş.</li>
+          <li>Teklif, sözleşme ve fatura kayıtları: vergi ve ticaret mevzuatının gerektirdiği süreler (genellikle 5–10 yıl).</li>
+          <li>İletişim ve proje yazışmaları: olası anlaşmazlıklara karşı zamanaşımı süreleriyle orantılı biçimde.</li>
+          <li>Analitik veriler: Google Analytics varsayılan saklama süreleri çerçevesinde ve anonim olarak.</li>
         </ul>
-
-        <h2 className="text-xl font-semibold">8. Çerezler ve Analitik</h2>
         <p>
-          Sitede zorunlu çerezler ve Google Analytics 4 (“GA4”) kullanılabilir. GA4, sayfa
-          görüntüleme ve etkileşimleri toplu olarak ölçer. Tarayıcı ayarlarından çerez tercihlerinizi
-          yönetebilir, reklam kişiselleştirmesini kapatabilirsiniz. GA çerezleri hakkında daha fazla
-          bilgi için Google’ın ilgili sayfalarına bakabilirsiniz.
+          Saklama amacı ortadan kalktığında veriler güvenli biçimde siliniyor ya da
+          anonimleştiriliyor.
         </p>
 
-        <h2 className="text-xl font-semibold">9. KVKK m.11 Kapsamındaki Haklarınız</h2>
-        <p>Veri sahibi olarak bize başvurarak:</p>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
-          <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
-          <li>Amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
-          <li>Yurt içinde/dışında aktarıldığı üçüncü kişileri bilme,</li>
-          <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
-          <li>KVKK m.7 kapsamındaki şartlarla silinmesini/yok edilmesini isteme,</li>
-          <li>Aktarıldığı üçüncü kişilere bildirilmesini talep etme,</li>
-          <li>Otomatik analiz sonucu aleyhinize sonuca itiraz etme,</li>
-          <li>Meşru menfaatlerinize aykırı sonuç doğurması halinde işlenmesine itiraz etme</li>
-        </ul>
+        <h2 className="text-xl font-semibold">8. Çerezler</h2>
         <p>
-          taleplerini iletebilirsiniz. Başvurularınızı{" "}
+          Sitemizde yalnızca zorunlu çerezler ve Google Analytics 4 analitik çerezleri
+          kullanıyoruz. GA4 sayfa görüntüleme ve tıklama gibi etkileşimleri toplu olarak
+          ölçüyor; bireysel ziyaretçi profili çıkarmıyor. Tarayıcınızın çerez ayarlarından
+          bu çerezleri istediğiniz zaman silebilir veya engelleyebilirsiniz. Zorunlu çerezler
+          dışındakileri kapatırsanız sitenin bazı bölümleri beklendiği gibi çalışmayabilir.
+        </p>
+
+        <h2 className="text-xl font-semibold">9. Haklarınız</h2>
+        <p>
+          KVKK'nın 11. maddesi size şu hakları tanıyor: verilerinizin işlenip işlenmediğini
+          sorabilir, işleniyorsa hangi amaçla kullanıldığını öğrenebilirsiniz. Yanlış veya
+          eksik bir bilgi varsa düzeltilmesini isteyebilirsiniz. Saklama gerekçesi ortadan
+          kalkmışsa silinmesini talep edebilirsiniz. Otomatik bir sistemin sizi olumsuz
+          etkileyen bir karar almasına itiraz etme hakkınız da bulunuyor.
+        </p>
+        <p>
+          Bu haklardan herhangi birini kullanmak için{" "}
           <a className="text-[#6d28d9] hover:underline" href="mailto:info@sahneva.com">
             info@sahneva.com
           </a>{" "}
-          adresine gönderebilirsiniz.
+          adresine e-posta atmanız yeterli. Talebinizi en geç 30 gün içinde yanıtlıyoruz.
         </p>
 
         <h2 className="text-xl font-semibold">10. Güvenlik</h2>
         <p>
-          Uygun teknik ve idari tedbirlerle verilerinizi koruruz (erişim yetkilendirme, loglama,
-          şifreleme ve ihtiyaç olduğunda anonim/pseudonimleştirme gibi).
+          Site HTTPS ile şifreli bağlantı üzerinden çalışıyor. Sistemlerimize erişim yalnızca
+          yetkili çalışanlarla sınırlı ve sunucu altyapısı düzenli olarak güncelleniyor.
+          Bir güvenlik ihlali fark ettiğimizde KVKK'nın öngördüğü sürelerde hem sizi hem
+          de ilgili kurumu bilgilendiriyoruz.
         </p>
 
         <h2 className="text-xl font-semibold">11. Değişiklikler</h2>
         <p>
-          Bu politika güncellenebilir. Güncel sürüm her zaman{" "}
-          <strong>https://sahneva.com/kvkk</strong> adresinde yayınlanır.
+          Hizmet kapsamımız veya yasal düzenlemeler değiştiğinde bu sayfayı güncelliyoruz.
+          Önemli bir değişiklik olduğunda bunu burada açıkça belirtiyoruz. Güncel metin
+          her zaman <strong>sahneva.com/kvkk</strong> adresinde bulunabilir.
         </p>
       </section>
     </div>
