@@ -162,7 +162,7 @@ export default function VideoEmbed({
           {!thumbFailed ? (
             <img
               src={currentThumb}
-              alt=""
+              alt={title}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               decoding="async"
