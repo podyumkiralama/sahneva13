@@ -144,7 +144,7 @@ const RELATED_SERVICES = [
 /* ================== 3. META DATA ================== */
 export const metadata = {
   title:
-    "Konser İçin Podyum Kiralama | Festival ve Canlı Performans Sahne Çözümleri | Sahneva",
+    "Konser İçin Podyum Kiralama | Festival Sahne Çözümleri",
   description:
     "Konser & festival podyum kiralama: ana platform, yan kule, FOH, uçtan uca teknik destek. Profesyonel kurulum, İstanbul ve Türkiye geneli hızlı hizmet.",
   alternates: { canonical: `${ORIGIN}/konser-icin-podyum-kiralama`, languages: { "tr-TR": `${ORIGIN}/konser-icin-podyum-kiralama`, "x-default": `${ORIGIN}/konser-icin-podyum-kiralama` } },
