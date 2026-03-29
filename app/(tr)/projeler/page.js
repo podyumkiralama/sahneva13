@@ -9,7 +9,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 
 export const metadata = {
   title: "Projeler | Etkinlik Sahne ve LED Referanslarımız",
-  description: "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
+  description: "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",
   alternates: {
     canonical: "https://www.sahneva.com/projeler",
     languages: {
@@ -21,7 +21,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Projeler | Sahneva",
-    description: "Gerçekleşen projelerimizin arşivi.",
+    description: "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",
     url: "https://www.sahneva.com/projeler",
     type: "website",
     locale: "tr_TR",
@@ -39,7 +39,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Projeler | Sahneva",
     description:
-      "Gerçekleştirdiğimiz seçili projelerden örnekler. Sahne, podyum, LED ekran, ses-ışık kurulumları.",
+      "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
