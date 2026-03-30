@@ -230,6 +230,14 @@ const FAQ_ITEMS = [
     q: "Etkinliğim için hangi çözünürlüğü seçmeliyim?",
     a: "Eğer izleyiciler ekrana 3 metreden daha yakınsa P2.5, 5 metre ve üzeri mesafelerde P2.9 veya P3.9 idealdir. Lansman ve sunum ağırlıklı projelerde yüksek piksel yoğunluğu (P2.5) metin okunabilirliği için kritiktir."
   },
+  {
+  q: "İstanbul içinde hangi ilçelere LED ekran kurulumu yapıyorsunuz?",
+  a: "Avrupa yakasında Beylikdüzü'nden Beşiktaş'a, Anadolu yakasında Kadıköy'den Tuzla'ya kadar tüm ilçelere kendi araçlarımızla kurulum yapıyoruz. Beyoğlu, Şişli ve Ataşehir gibi merkezi noktalardaki otel ve kongre merkezlerine 2 saat içinde teknik ekip ulaştırabiliyoruz."
+},
+{
+  q: "İstanbul dışındaki çevre iller (Bursa, Kocaeli, Sakarya) için nakliye ücreti alınıyor mu?",
+  a: "Sahneva olarak Marmara Bölgesi'ndeki komşu illerimize (Kocaeli, Tekirdağ, Yalova, Bursa, Sakarya) lojistik operasyonlarımızı optimize ettik. Proje büyüklüğüne göre bu illerdeki nakliye maliyetlerini minimuma indiriyoruz veya tamamen ücretsiz sağlıyoruz."
+}
 ];
 
 function FAQ() {
@@ -959,51 +967,76 @@ function UseCases() {
     </section>
   );
 }
-/* ================== Bölgesel Hizmet Kapsamı ================== */
+/* ================== Bölgesel Hizmet Kapsamı (Geliştirilmiş) ================== */
 function RegionalService() {
   const regions = [
-    { name: "İstanbul Avrupa Yakası", detail: "Beşiktaş, Şişli, Fatih, Bakırköy ve çevresinde hızlı kurulum." },
-    { name: "İstanbul Anadolu Yakası", detail: "Kadıköy, Üsküdar, Ataşehir, Ümraniye bölgelerine teknik destek." },
-    { name: "Marmara Bölgesi", detail: "Kocaeli, Bursa, Tekirdağ, Sakarya ve Yalova'ya aynı gün lojistik." },
-    { name: "Türkiye Geneli", detail: "Kendi araçlarımız ve ekiplerimizle 81 ilde profesyonel operasyon." }
+    { 
+      name: "İstanbul Avrupa Yakası", 
+      detail: "Beylikdüzü, Bakırköy, Şişli ve Beşiktaş odaklı hızlı mobil ekipler.",
+      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane"
+    },
+    { 
+      name: "İstanbul Anadolu Yakası", 
+      detail: "Kadıköy, Ataşehir ve Ümraniye depolarımızla anlık sevkiyat.",
+      districts: "Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy"
+    },
+    { 
+      name: "Marmara & Çevre İller", 
+      detail: "Kocaeli, Bursa, Tekirdağ ve Sakarya'ya özel lojistik ağımız.",
+      districts: "Yalova, Edirne, Balıkesir, Bilecik"
+    }
   ];
 
   return (
     <section className="py-20 bg-white" aria-labelledby="bolgesel-hizmet-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
             <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              İstanbul ve Çevre İllerde <span className="text-blue-700">Hızlı Kurulum</span>
+              İstanbul ve Marmara'da <span className="text-blue-700">Yerel Güç</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Sahneva Organizasyon olarak, İstanbul merkezli depolarımız ve uzman teknik ekiplerimizle Marmara Bölgesi başta olmak üzere Türkiye'nin her noktasına kesintisiz hizmet sağlıyoruz.
+            <p className="text-xl text-gray-600 mb-8">
+              Etkinliğiniz nerede olursa olsun, trafik ve mesafe engeline takılmadan profesyonel LED ekran kurulumu sağlıyoruz.
             </p>
-            <div className="grid sm:grid-cols-2 gap-6">
+            
+            <div className="space-y-8">
               {regions.map((region) => (
-                <div key={region.name} className="border-l-4 border-blue-600 pl-4">
-                  <h3 className="font-bold text-gray-900 text-lg">{region.name}</h3>
-                  <p className="text-gray-600 text-sm">{region.detail}</p>
+                <div key={region.name} className="group p-6 bg-gray-50 rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors">
+                  <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
+                  <p className="text-gray-700 mb-3">{region.detail}</p>
+                  <div className="text-sm text-gray-500 italic">Hizmet Alanı: {region.districts}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:w-1/2 bg-blue-50 rounded-3xl p-8 border border-blue-100">
-            <h3 className="text-2xl font-black text-blue-900 mb-4">Lojistik Avantajlarımız</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700 font-medium">Aynı gün keşif ve hızlı kurulum imkanı.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700 font-medium">Yerinde teknik destek ve operatör hizmeti.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700 font-medium">Kendi nakliye araçlarımızla düşük lojistik maliyeti.</span>
-              </li>
-            </ul>
+
+          <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl">
+            <h3 className="text-2xl font-black mb-6 flex items-center gap-3 text-blue-400">
+              <Truck size={28} /> Yerel Avantajlarımız
+            </h3>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Zap className="text-blue-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg">Trafik & Ulaşım Kolaylığı</h4>
+                  <p className="text-white/70 text-sm">İki yakadaki depo noktalarımız sayesinde İstanbul trafiğinde zaman kaybetmiyoruz.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Settings className="text-blue-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg">Yerinde Hızlı Müdahale</h4>
+                  <p className="text-white/70 text-sm">Etkinlik süresince bölgede hazır bekleyen teknik ekiplerimizle anlık destek sağlıyoruz.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><RotateCcw className="text-blue-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg">Bölgesel Lojistik Ağı</h4>
+                  <p className="text-white/70 text-sm">Kocaeli, Bursa ve Tekirdağ gibi çevre illere özel araçlarımızla indirimli nakliye imkanı.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1120,6 +1153,13 @@ function Articles() {
                 <li>Düğün, özel davet ve canlı yayın prodüksiyonları</li>
                 <li>AVM ve perakende alanlarında reklam gösterimleri</li>
               </ul>
+                    <h4>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h4>
+ <p>
+  Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
+  Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
+  Bu nedenle, İstanbul'un her iki yakasında bulunan teknik ekiplerimiz, etkinlikten saatler önce mekânda hazır bulunarak 
+  montaj ve sinyal testlerini tamamlamaktadır.
+</p>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
                 <h5 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h5>
