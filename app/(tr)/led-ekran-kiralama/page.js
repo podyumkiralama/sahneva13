@@ -959,7 +959,57 @@ function UseCases() {
     </section>
   );
 }
+/* ================== Bölgesel Hizmet Kapsamı ================== */
+function RegionalService() {
+  const regions = [
+    { name: "İstanbul Avrupa Yakası", detail: "Beşiktaş, Şişli, Fatih, Bakırköy ve çevresinde hızlı kurulum." },
+    { name: "İstanbul Anadolu Yakası", detail: "Kadıköy, Üsküdar, Ataşehir, Ümraniye bölgelerine teknik destek." },
+    { name: "Marmara Bölgesi", detail: "Kocaeli, Bursa, Tekirdağ, Sakarya ve Yalova'ya aynı gün lojistik." },
+    { name: "Türkiye Geneli", detail: "Kendi araçlarımız ve ekiplerimizle 81 ilde profesyonel operasyon." }
+  ];
 
+  return (
+    <section className="py-20 bg-white" aria-labelledby="bolgesel-hizmet-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="lg:w-1/2">
+            <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              İstanbul ve Çevre İllerde <span className="text-blue-700">Hızlı Kurulum</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              Sahneva Organizasyon olarak, İstanbul merkezli depolarımız ve uzman teknik ekiplerimizle Marmara Bölgesi başta olmak üzere Türkiye'nin her noktasına kesintisiz hizmet sağlıyoruz.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {regions.map((region) => (
+                <div key={region.name} className="border-l-4 border-blue-600 pl-4">
+                  <h3 className="font-bold text-gray-900 text-lg">{region.name}</h3>
+                  <p className="text-gray-600 text-sm">{region.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="lg:w-1/2 bg-blue-50 rounded-3xl p-8 border border-blue-100">
+            <h3 className="text-2xl font-black text-blue-900 mb-4">Lojistik Avantajlarımız</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
+                <span className="text-gray-700 font-medium">Aynı gün keşif ve hızlı kurulum imkanı.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
+                <span className="text-gray-700 font-medium">Yerinde teknik destek ve operatör hizmeti.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
+                <span className="text-gray-700 font-medium">Kendi nakliye araçlarımızla düşük lojistik maliyeti.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
