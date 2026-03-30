@@ -74,9 +74,9 @@ const PRICE_MULTIPLIERS = {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
+  title: "LED Ekran Kiralama: İç ve Dış Mekan Çözümleri",
   description:
-    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
+    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık ve uzman kurulum hizmeti.",
   keywords:
     "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
