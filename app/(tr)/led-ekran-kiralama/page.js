@@ -1508,6 +1508,7 @@ export default function Page() {
       <Technical />
       <WhySahneva />
       <UseCases />
+      <RegionalService />
       <Articles />
       <FAQ />
       <RelatedServices />
