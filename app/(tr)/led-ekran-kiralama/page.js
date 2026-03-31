@@ -241,15 +241,86 @@ const FAQ_ITEMS = [
     a: "Eğer izleyiciler ekrana 3 metreden daha yakınsa P2.5, 5 metre ve üzeri mesafelerde P2.9 veya P3.9 idealdir. Lansman ve sunum ağırlıklı projelerde yüksek piksel yoğunluğu (P2.5) metin okunabilirliği için kritiktir."
   },
   {
-  q: "İstanbul içinde hangi ilçelere LED ekran kurulumu yapıyorsunuz?",
-  a: "Avrupa yakasında Beylikdüzü'nden Beşiktaş'a, Anadolu yakasında Kadıköy'den Tuzla'ya kadar tüm ilçelere kendi araçlarımızla kurulum yapıyoruz. Beyoğlu, Şişli ve Ataşehir gibi merkezi noktalardaki otel ve kongre merkezlerine 2 saat içinde teknik ekip ulaştırabiliyoruz."
-},
-{
-  q: "İstanbul dışındaki çevre iller (Bursa, Kocaeli, Sakarya) için nakliye ücreti alınıyor mu?",
-  a: "Sahneva olarak Marmara Bölgesi'ndeki komşu illerimize (Kocaeli, Tekirdağ, Yalova, Bursa, Sakarya) lojistik operasyonlarımızı optimize ettik. Proje büyüklüğüne göre bu illerdeki nakliye maliyetlerini minimuma indiriyoruz veya tamamen ücretsiz sağlıyoruz."
-}
+    q: "İstanbul içinde hangi ilçelere LED ekran kurulumu yapıyorsunuz?",
+    a: "Avrupa yakasında Beylikdüzü'nden Beşiktaş'a, Anadolu yakasında Kadıköy'den Tuzla'ya kadar tüm ilçelere kendi araçlarımızla kurulum yapıyoruz. Beyoğlu, Şişli ve Ataşehir gibi merkezi noktalardaki otel ve kongre merkezlerine 2 saat içinde teknik ekip ulaştırabiliyoruz."
+  },
+  {
+    q: "İstanbul dışındaki çevre iller (Bursa, Kocaeli, Sakarya) için nakliye ücreti alınıyor mu?",
+    a: "Sahneva olarak Marmara Bölgesi'ndeki komşu illerimize (Kocaeli, Tekirdağ, Yalova, Bursa, Sakarya) lojistik operasyonlarımızı optimize ettik. Proje büyüklüğüne göre bu illerdeki nakliye maliyetlerini minimuma indiriyoruz veya tamamen ücretsiz sağlıyoruz."
+  }
 ];
 
+/* ================== Galeri Verileri ================== */
+const GALLERY_IMAGES = [
+  { 
+    src: "/img/galeri/led-ekran-kiralama-1.webp", 
+    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-2.webp", 
+    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-3.webp",
+    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-4.webp",
+    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-5.webp", 
+    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-6.webp", 
+    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-7.webp", 
+    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-8.webp",
+    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi" 
+  },
+];
+
+const VIDEO_GALLERY = [
+  {
+    id: "1R5Av0x5ouA",
+    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
+    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "JNzGlNzNRuk",
+    title: "LED Ekran Kurulum Süreci",
+    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "j1Tr5l8DVW8",
+    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
+    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
+    uploadDate: "2026-01-15T00:00:00+03:00",
+  },
+  {
+    id: "HNDZ-wYVKLw",
+    title: "LED Ekran Kurulum Detayları",
+    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "173gBurWSRQ",
+    title: "Etkinlik LED Ekran Örnekleri",
+    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+];
+
+
+/* ================== Sık Sorulan Sorular ================== */
 function FAQ() {
   return (
     <section className="py-20 bg-white" aria-labelledby="sss-baslik">
@@ -479,74 +550,6 @@ function Services() {
     </section>
   );
 }
-/* ================== Galeri ================== */
-const GALLERY_IMAGES = [
-  { 
-    src: "/img/galeri/led-ekran-kiralama-1.webp", 
-    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-2.webp", 
-    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-4.webp",
-    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-5.webp", 
-    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-6.webp", 
-    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-7.webp", 
-    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-8.webp",
-    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi" 
-  },
-];
-
-const VIDEO_GALLERY = [
-  {
-    id: "1R5Av0x5ouA",
-    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
-    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "JNzGlNzNRuk",
-    title: "LED Ekran Kurulum Süreci",
-    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "j1Tr5l8DVW8",
-    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
-    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
-    uploadDate: "2026-01-15T00:00:00+03:00",
-  },
-  {
-    id: "HNDZ-wYVKLw",
-    title: "LED Ekran Kurulum Detayları",
-    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "173gBurWSRQ",
-    title: "Etkinlik LED Ekran Örnekleri",
-    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-];
 
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO + Video + Metin Linki) ================== */
 function Gallery() {
@@ -597,7 +600,7 @@ function Gallery() {
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         
-        {/* 1. Kısa Giriş Paragrafı ile Çerçeveleme */}
+        {/* Kısa Giriş Paragrafı ile Çerçeveleme */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
@@ -607,7 +610,7 @@ function Gallery() {
           </p>
         </div>
 
-        {/* 2. Başarı Hikayeleri Grid */}
+        {/* Başarı Hikayeleri Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {SUCCESS_STORIES.map((story, index) => (
             <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
@@ -653,7 +656,7 @@ function Gallery() {
           ))}
         </div>
 
-        {/* 3. Görsel Galeri Alanı */}
+        {/* Görsel Galeri Alanı */}
         <div className="text-center mb-10">
           <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
           <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel kurulum karelerimiz</p>
@@ -662,7 +665,7 @@ function Gallery() {
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        {/* 4. Video Galerisi Alanı */}
+        {/* Video Galerisi Alanı */}
         <div className="mt-20 mb-10">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
@@ -703,7 +706,7 @@ function Gallery() {
           </div>
         </div>
 
-        {/* 5. Galeriye Yönlendiren Net ve Açık Çağrı (Metin Linki SEO Optimizasyonlu) */}
+        {/* Galeriye Yönlendiren Net ve Açık Çağrı (Metin Linki SEO Optimizasyonlu) */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -733,6 +736,7 @@ function Gallery() {
     </section>
   );
 }
+
 /* ================== Teknik Karşılaştırma Tablosu ================== */
 function TechnicalComparison() {
   return (
@@ -1074,6 +1078,7 @@ function UseCases() {
     </section>
   );
 }
+
 /* ================== Bölgesel Hizmet Kapsamı (Geliştirilmiş) ================== */
 function RegionalService() {
   const regions = [
@@ -1150,6 +1155,7 @@ function RegionalService() {
     </section>
   );
 }
+
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
@@ -1223,18 +1229,19 @@ function Articles() {
                 <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
-                  tercih edilerek daha net ve dengeli görüntü elde edilir.
+                  terci edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
+              
               <h4>Neden Fiyatlar Değişiyor?</h4>
-<p>
-  LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
-  izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
-  P3.9 ve üzeri modeller ise geniş alanlarda maliyet avantajı sağlar.
-</p>
-<p>
-  Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
-</p>                    
+              <p>
+                LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
+                izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
+                P3.9 ve üzeri modeller ise geniş alanlarda maliyet avantajı sağlar.
+              </p>
+              <p>
+                Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
+              </p>
 
               <h4>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h4>
               <ul>
@@ -1260,13 +1267,14 @@ function Articles() {
                 <li>Düğün, özel davet ve canlı yayın prodüksiyonları</li>
                 <li>AVM ve perakende alanlarında reklam gösterimleri</li>
               </ul>
-                    <h4>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h4>
- <p>
-  Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
-  Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
-  Bu nedenle, İstanbul'un her iki yakasında bulunan teknik ekiplerimiz, etkinlikten saatler önce mekânda hazır bulunarak 
-  montaj ve sinyal testlerini tamamlamaktadır.
-</p>
+              
+              <h4>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h4>
+              <p>
+                Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
+                Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
+                Bu nedenle, İstanbul'un her iki yakasında bulunan teknik ekiplerimiz, etkinlikten saatler önce mekânda hazır bulunarak 
+                montaj ve sinyal testlerini tamamlamaktadır.
+              </p>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
                 <h5 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h5>
@@ -1424,6 +1432,7 @@ function CTA() {
     </section>
   );
 }
+
 /* ================== JSON-LD (LED Ekran Kiralama) — FINAL ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
@@ -1537,7 +1546,7 @@ function JsonLd() {
     name: "Etkinlik LED Ekran Kiralama Hizmeti",
     description:
       "Konser, festival, fuar, kurumsal lansman ve özel etkinlikler için LED ekran çözümleri.",
-    serviceType: USE_CASES.map((uc) => uc.text),
+    serviceType: USE_CASES.map((uc) => uc.title),
     provider: providerRef,
     areaServed: {
       "@type": "AdministrativeArea",
