@@ -183,34 +183,44 @@ const SERVICES = [
 const USE_CASES = [
   {
     Icon: Music,
-    text: "Konser, festival ve sahne performansları",
-    desc: "Ana sahne LED ekranları ve yan ekran çözümleri"
+    text: "Konser, Festival ve Sahne Performansları",
+    desc: "Devasa LED duvarlar ve yan ekranlar ile canlı performansı en arka sıradaki izleyiciye bile yüksek netlikte ulaştırıyoruz."
   },
   {
     Icon: Briefcase,
-    text: "Kurumsal lansman ve toplantılar",
-    desc: "Profesyonel sunum ve marka gösterimi"
+    text: "Kurumsal Lansman ve Toplantılar",
+    desc: "Ürün tanıtımları ve vizyon sunumları için P2.5 ultra yüksek çözünürlükle markanızın prestijini en üst seviyeye taşıyoruz."
   },
   {
     Icon: Tent,
-    text: "Fuar, sergi ve ticari etkinlikler",
-    desc: "Stand tasarımı ve etkileşimli ekranlar"
+    text: "Fuar, Sergi ve Stand Organizasyonları",
+    desc: "Modüler yapımızla stand alanınıza özel kreatif ekran tasarımları oluşturarak ziyaretçi trafiğini ve marka etkileşiminizi artırıyoruz."
   },
   {
     Icon: Activity,
-    text: "Spor etkinlikleri ve stadyumlar",
-    desc: "Dev ekranlar ve skorboard sistemleri"
-  },
-  {
-    Icon: Tv,
-    text: "AVM ve perakende mekanları",
-    desc: "Reklam ve bilgilendirme ekranları"
+    text: "Spor Organizasyonları ve Stadyumlar",
+    desc: "Canlı skor entegrasyonu, anlık tekrar (re-play) ve reklam alanları ile spor heyecanını dev ekranlara yansıtıyoruz."
   },
   {
     Icon: Camera,
-    text: "Düğün ve özel davetler",
-    desc: "Fotoğraf/video gösterimi ve canlı yayın"
+    text: "Düğün, Nişan ve Özel Davetler",
+    desc: "Hayatınızın en özel anlarını canlı yayın, anı videoları ve estetik görsel şovlar ile unutulmaz bir prodüksiyona dönüştürüyoruz."
   },
+  {
+    Icon: Users, // Yeni eklendi
+    text: "Belediye ve Kamu Etkinlikleri",
+    desc: "Milli bayramlar, mitingler ve halk konserlerinde IP65 dış mekan ekranlarımızla binlerce kişiye kesintisiz bilgi ve görüntü aktarımı sağlıyoruz."
+  },
+  {
+    Icon: Tv,
+    text: "Açık Hava Reklamcılığı ve Digital Signage",
+    desc: "Yüksek trafikli alanlarda güneş ışığı altında bile net görünen ekranlarımızla geniş kitlelere 7/24 ulaşım sağlıyoruz."
+  },
+  {
+    Icon: Headphones, // Reji vurgusu için
+    text: "Canlı Yayın ve TV Stüdyo Uygulamaları",
+    desc: "3840Hz yenileme hızı sayesinde kameralarda titreme (flicker) yapmayan, stüdyo kalitesinde arka plan çözümleri sunuyoruz."
+  }
 ];
 
 const FAQ_ITEMS = [
@@ -923,45 +933,29 @@ function UseCases() {
             Kullanım <span className="text-blue-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
-            LED ekran çözümlerimizin tercih edildiği başlıca etkinlik türleri ve özel çözümlerimiz
+            Sektör bağımsız, her türlü organizasyon için özelleştirilebilir LED ekran teknolojileri sunuyoruz.
           </p>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" role="list">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto" role="list">
           {USE_CASES.map((uc) => (
             <div
               key={uc.text}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
+              className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 hover:border-white/50 transition-all duration-500 group flex flex-col h-full"
               role="listitem"
             >
-              <div className="flex flex-col items-start gap-4">
-                <div className="text-white bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300">
-                  <uc.Icon size={28} aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
-                    {uc.text}
-                  </h3>
-                  <p className="text-white/70 text-lg leading-relaxed">
-                    {uc.desc}
-                  </p>
-                </div>
+              <div className="text-white bg-blue-600/30 rounded-2xl p-4 w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
+                <uc.Icon size={24} aria-hidden="true" />
               </div>
+              <h3 className="text-white font-bold text-xl mb-3 group-hover:text-blue-300 transition-colors">
+                {uc.text}
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                {uc.desc}
+              </p>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
-          >
-            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
-            <span>Etkinliğiniz için Özel Çözüm Alın</span>
-          </Link>
         </div>
       </div>
     </section>
