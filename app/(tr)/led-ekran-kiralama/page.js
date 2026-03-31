@@ -1229,7 +1229,7 @@ function Articles() {
                 <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
-                  terci edilerek daha net ve dengeli görüntü elde edilir.
+                  tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
               
