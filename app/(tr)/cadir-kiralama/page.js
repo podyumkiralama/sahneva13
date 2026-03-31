@@ -198,24 +198,24 @@ const FAQ_ITEMS = [
 const PRICING_ITEMS = [
   {
     title: "5x5 Çadır",
-    price: "9.000 TL + nakliye",
+    price: "9.000 TL",
     description: "Etkinlik ve davetler için 25 m² pagoda çadır paketi.",
   },
   {
     title: "4x4 Çadır",
-    price: "8.000 TL + nakliye",
+    price: "8.000 TL",
     description: "Orta ölçekli kurulumlar için 16 m² çadır çözümü.",
   },
   {
     title: "3x3 Çadır",
-    price: "7.000 TL + nakliye",
+    price: "7.000 TL",
     description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
   },
   {
-    title: "Geniş Açıklıklı Çadırlar",
+    title: "Büyük Çadırlar",
     price: "430 TL / m²",
     description:
-      "10 m, 20 m, 30 m ve 40 m genişlik seçenekleri. Uzunluk tercihinize göre belirlenir. Büyük ölçekli etkinlikler içindir.",
+      "10m, 20m, 30m, 40m genişlik seçenekleri. Büyük ölçekli etkinlikler içindir.",
   },
 ];
 
@@ -567,7 +567,7 @@ function Services() {
   );
 }
 
-/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (SEO + Video + Metin Linki) ================== */
+/* ================== Geliştirilmiş Galeri ================== */
 function Gallery() {
   const SUCCESS_STORIES = [
     {
@@ -615,8 +615,6 @@ function Gallery() {
   return (
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        
-        {/* 1. Kısa Giriş Paragrafı */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
@@ -626,7 +624,6 @@ function Gallery() {
           </p>
         </div>
 
-        {/* 2. Başarı Hikayeleri Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {SUCCESS_STORIES.map((story, index) => (
             <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
@@ -672,7 +669,6 @@ function Gallery() {
           ))}
         </div>
 
-        {/* 3. SEO LİSTESİ: Kısa Okunabilir Uygulama Listesi */}
         <div className="mb-16 bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
           <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">Popüler Çadır Uygulama ve Kiralama Seçeneklerimiz</h3>
           <p className="text-gray-600 mb-6">Bugüne kadar gerçekleştirdiğimiz bazı uygulama örnekleri ve aranan hizmetlerimiz:</p>
@@ -696,7 +692,6 @@ function Gallery() {
           </ul>
         </div>
 
-        {/* 4. Görsel Galeri Alanı */}
         <div className="text-center mb-10">
           <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
           <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel çadır kurulum karelerimiz</p>
@@ -705,7 +700,6 @@ function Gallery() {
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        {/* 5. Video Galerisi Alanı */}
         <div className="mt-20 mb-10">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
@@ -746,7 +740,6 @@ function Gallery() {
           </div>
         </div>
 
-        {/* 6. YÖNLENDİRME METNİ VE BUTON */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -756,12 +749,10 @@ function Gallery() {
               Daha Fazla İlham Mı Arıyorsunuz?
             </h4>
             
-            {/* Ahrefs/Google Botları için doğrudan HTML Metin Linki */}
             <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
               Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun çadır çözümünü birlikte tasarlayalım.
             </p>
             
-            {/* Kullanıcılar İçin Etkileşimli Buton */}
             <Link
               href="/projeler"
               className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
@@ -772,6 +763,41 @@ function Gallery() {
           </div>
         </div>
 
+      </div>
+    </section>
+  );
+}
+
+/* ================== Fiyatlandırma (EKSİK OLAN BİLEŞEN EKLENDİ) ================== */
+function PricingSection() {
+  return (
+    <section className="py-20 bg-white" aria-labelledby="fiyatlandirma-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 id="fiyatlandirma-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            Şeffaf <span className="text-blue-600">Fiyatlandırma</span> (2026)
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Sürpriz maliyetler olmadan, ihtiyacınıza uygun çadır kiralama seçenekleri
+          </p>
+        </div>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {PRICING_ITEMS.map((item, index) => (
+            <div key={index} className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col group">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+              <div className="text-3xl font-black text-blue-600 mb-4">{item.price} <span className="text-base text-gray-500 font-normal">+ nakliye</span></div>
+              <p className="text-gray-600 flex-grow">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center bg-blue-50/50 rounded-2xl p-6 border border-blue-100 max-w-4xl mx-auto">
+          <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
+            <span className="text-blue-500 font-bold" aria-hidden="true">ℹ️</span>
+            Yukarıdaki fiyatlar baz kiralama bedelleridir. Proje büyüklüğü, lojistik mesafe, zemin kaplama ve iklimlendirme taleplerinize göre nihai teklif saha keşfi sonrası sunulur.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -1163,7 +1189,6 @@ function RegionalService() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
-          {/* Sol Taraf: Bölgesel Dağılım */}
           <div className="space-y-8">
             {regions.map((region) => (
               <div key={region.name} className="group p-6 bg-white rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
@@ -1176,7 +1201,6 @@ function RegionalService() {
             ))}
           </div>
 
-          {/* Sağ Taraf: Operasyonel Güvence */}
           <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
             
@@ -1218,7 +1242,6 @@ function RegionalService() {
           </div>
         </div>
 
-        {/* Lojistik ve Fiyatlandırma Karşılaştırma Tablosu */}
         <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
           <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -1260,12 +1283,10 @@ function RegionalService() {
             </table>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
 
 /* ================== Tamamlayıcı Hizmetler ================== */
 function RelatedServices() {
