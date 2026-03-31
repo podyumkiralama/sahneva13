@@ -1,5 +1,4 @@
 // app/(tr)/cadir-kiralama/page.jsx
-
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -10,29 +9,15 @@ import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { 
   Monitor, 
-  Sun, 
   Shield, 
   Zap, 
-  Settings, 
   MessageCircle, 
   CheckCircle, 
-  Layout, 
-  ArrowRight, 
-  Camera, 
-  Layers, 
-  Activity, 
-  Users, 
-  Music, 
-  Briefcase, 
-  Tent, 
-  Tv, 
-  Headphones, 
-  Cpu, 
   Eye, 
   Truck, 
-  Lock, 
-  RotateCcw, 
-  Gauge 
+  Layers, 
+  Users, 
+  Music 
 } from "lucide-react";
 
 /* ================== Sabitler ================== */
@@ -118,6 +103,21 @@ export const metadata = {
   },
 };
 
+export function Head() {
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="/img/cadir/hero.webp"
+        fetchPriority="high"
+        type="image/webp"
+        imageSizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
+      />
+    </>
+  );
+}
+
 /* ================== Yardımcılar & Sabitler ================== */
 const slugify = (s) =>
   s
@@ -157,21 +157,19 @@ const VIDEO_EMBEDS = [
   },
 ];
 
-const VIDEO_PROOFS = [
-  {
-    src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp",
-    alt: "Büyük ölçekli çadır kurulumu - etkinlik alanında profesyonel kurulum",
-    title: "Büyük Ölçekli Kurulum",
-    description:
-      "Geniş katılımlı organizasyonlar için yüksek kapasiteli çadır kurulumu.",
-  },
-  {
-    src: "/img/cadir/sahneva-cadir-kurulumu.webp",
-    alt: "Sahneva çadır kurulumu - ekip çalışması ve hızlı montaj",
-    title: "Sahneva Kurulum Ekibi",
-    description:
-      "Sahneva ekibiyle hızlı, güvenli ve estetik kurulum süreçleri.",
-  },
+const GALLERY_IMAGES = [
+  { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
+  { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır - Özel davetler için atmosfer" },
+  { src: "/img/cadir/3.webp", alt: "Endüstriyel çadır kurulumu - Depolama ve üretim alanı çözümü" },
+  { src: "/img/cadir/4.webp", alt: "Fuar çadırı - Profesyonel sergi ve tanıtım alanı" },
+  { src: "/img/cadir/5.webp", alt: "Aydınlatmalı çadır - Gece etkinlikleri için LED aydınlatma" },
+  { src: "/img/cadir/6.webp", alt: "Konser çadırı - Açık hava etkinliği için çadır çözümü" },
+  { src: "/img/cadir/7.webp", alt: "Kurulum ekibi - Profesyonel çadır kurulum süreci" },
+  { src: "/img/cadir/8.webp", alt: "Markalama - Kurumsal etkinlikler için çözümler" },
+  { src: "/img/cadir/9.webp", alt: "Çadır iç düzeni - Kurumsal etkinlik planı" },
+  { src: "/img/cadir/10.webp", alt: "Geniş açıklıklı çadır - Etkinlik alanı düzeni" },
+  { src: "/img/cadir/11.webp", alt: "Dekorasyon ve aydınlatma - Özel etkinlik atmosferi" },
+  { src: "/img/cadir/12.webp", alt: "Çadır kurulum detayı - Profesyonel uygulama" },
 ];
 
 const FAQ_ITEMS = [
@@ -332,6 +330,8 @@ function Hero() {
           alt={HERO.alt}
           fill
           priority
+          loading="eager"
+          fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
           quality={85}
@@ -1662,9 +1662,6 @@ function JsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  /* ÖNEMLİ DÜZELTME: Destructuring yaparken `buildServiceProductSchema` undefined dönerse 
-   sunucunun çökmemesi (SSR Crash Error) için güvenli bir boş obje ({}) oluşturuyoruz. 
-  */
   const schemaResult = buildServiceProductSchema({
     slug: "/cadir-kiralama",
     locale: "tr-TR",
