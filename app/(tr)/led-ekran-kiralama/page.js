@@ -548,78 +548,115 @@ const VIDEO_GALLERY = [
   },
 ];
 
+/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
+  // Yeni Eklenen: Başarı Hikayeleri
+  const SUCCESS_STORIES = [
+    {
+      title: "Milli Uzay Programı Lansmanı",
+      category: "Devlet & Kamu Etkinliği",
+      challenge: "Beştepe Kongre Merkezi'nde 360° senkronize görüntü akışı ve kavisli tasarım ihtiyacı.",
+      solution: "P2.5 yüksek çözünürlüklü kavisli LED paneller ve Novastar işlemcilerle sıfır gecikmeli yayın sağlandı.",
+      result: "Türkiye'nin en önemli vizyon projelerinden birine 700+ başarılı proje deneyimimizle teknik katkı sağladık."
+    },
+    {
+      title: "Uluslararası Teknoloji Fuarı",
+      category: "Kurumsal & Fuar",
+      challenge: "Yüksek tavanlı fuar alanında havada duran yaratıcı bir LED box tasarımı talebi.",
+      solution: "Hafif kasa modülleri ve profesyonel truss sistemleri kullanılarak güvenli bir görsel alan oluşturuldu.",
+      result: "Stand trafiği %40 artış gösterdi ve markanın dijital görünürlüğü maksimize edildi."
+    }
+  ];
+
+  // Yeni Eklenen: Müşteri Yorumları
+  const REVIEWS = [
+    { name: "Etkinlik Ajansı", comment: "Açık hava festivalinde gün ışığında bile LED ekran parlaklığı kusursuzdu. Teknik ekip çok profesyonel." },
+    { name: "Kurumsal İletişim Müdürü", comment: "Lansmanımızda kavisli LED ekran kullanımı markamıza büyük prestij kattı. Sahneva ekibine teşekkürler." }
+  ];
+
   return (
-    <section className="py-14 bg-white" aria-labelledby="galeri-baslik">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        
+        {/* 1. Kısım: Başlık */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Proje <span className="text-blue-700">Galerimiz</span>
+            Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Gerçekleştirdiğimiz başarılı LED ekran kurulumlarından örnekler
+            Sadece ekran kiralamıyoruz; her projeye özel teknik mühendislik ve görsel tasarım çözümleri üretiyoruz.
           </p>
         </div>
 
+        {/* 2. Kısım: Proje Hikayeleri (Rakiplerin Önüne Geçiren Kısım) */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {SUCCESS_STORIES.map((story) => (
+            <article key={story.title} className="bg-gray-50 rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+              <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-4">
+                {story.category}
+              </span>
+              <h3 className="text-2xl font-black text-gray-900 mb-6">{story.title}</h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-sm font-black text-blue-600 uppercase tracking-widest mb-1">Müşteri İhtiyacı</h4>
+                  <p className="text-gray-700">{story.challenge}</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-green-600 uppercase tracking-widest mb-1">Teknik Çözüm</h4>
+                  <p className="text-gray-700">{story.solution}</p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 italic text-gray-600 font-medium">
+                  "{story.result}"
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* 3. Kısım: Müşteri Yorumları (Güven Oluşturma) */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {REVIEWS.map((r, i) => (
+            <div key={i} className="bg-blue-50/50 p-8 rounded-3xl border border-blue-100 relative">
+              <div className="text-blue-600 text-6xl absolute top-2 right-6 opacity-20">”</div>
+              <p className="text-gray-700 text-lg italic mb-4">"{r.comment}"</p>
+              <div className="font-black text-gray-900">— {r.name}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* 4. Kısım: Senin Eski Resim Galerisi Componentin */}
+        <div className="text-center mb-10">
+          <h3 className="text-3xl font-black text-gray-900 mb-4">Uygulama Resimlerimiz</h3>
+        </div>
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        <div className="mt-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Video <span className="text-blue-700">Galerisi</span>
-            </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Gerçek kurulumlarımızdan seçilmiş kısa videolar
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {VIDEO_GALLERY.map((video) => (
-              <article
-                key={video.id}
-                className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-                aria-labelledby={`video-${video.id}-title`}
-              >
-                <div className="relative w-full aspect-video bg-black">
-                  <VideoEmbed
-                    videoId={video.id}
-                    title={video.title}
-                    thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                  />
-                </div>
-                <div className="p-5">
-                  <h4
-                    id={`video-${video.id}-title`}
-                    className="text-lg font-bold text-gray-900 mb-2"
-                  >
-                    {video.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed line-clamp-2">{video.description}</p>
-                </div>
-              </article>
+        {/* 5. Kısım: Rakip Stratejisi (Etiketler ve Tümünü Gör Butonu) */}
+        <div className="mt-16 bg-blue-50 rounded-3xl p-8 md:p-12 text-center border border-blue-100">
+          <h4 className="text-2xl font-black text-blue-900 mb-6 italic">
+            "Sahnede Risk Almayın, 10+ Yıllık Deneyimle Profesyonel Çözümü Seçin."
+          </h4>
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {["İstanbul Led Ekran Kiralama", "Konser Led Ekran", "Fuar Görüntü Sistemleri", "Kiralık Dev Ekran", "Düğün Led Ekran", "Skorboard Kurulumu"].map((tag) => (
+              <span key={tag} className="bg-white px-4 py-2 rounded-xl text-sm font-semibold text-gray-600 border border-gray-200 shadow-sm">
+                #{tag}
+              </span>
             ))}
           </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Daha fazla projemizi incelemek için galerimizi keşfedin
-          </p>
           <Link
             href="/projeler"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-300"
+            className="inline-flex items-center justify-center font-bold px-10 py-5 rounded-2xl bg-blue-700 text-white hover:bg-blue-800 transform transition-all duration-300 hover:scale-105 shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
           >
-            <Eye size={20} aria-hidden="true" className="mr-3" />
-            <span>Tüm Projeleri Görüntüle</span>
+            <Eye size={20} className="mr-3" aria-hidden="true" />
+            <span className="text-lg">Tüm Uygulama Resimlerini Gör</span>
           </Link>
         </div>
+
       </div>
     </section>
   );
 }
-
 /* ================== Teknik Karşılaştırma Tablosu ================== */
 function TechnicalComparison() {
   return (
