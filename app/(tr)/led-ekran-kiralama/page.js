@@ -548,12 +548,13 @@ const VIDEO_GALLERY = [
   },
 ];
 
-/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
+/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO Sürümü) ================== */
 function Gallery() {
   const SUCCESS_STORIES = [
     {
-      title: "2021 Milli Uzay Programı Lansmanı",
+      title: "360° Senkronize Deneyim: Milli Uzay Programı Lansmanı", // Vurgulu Başlık
       category: "Devlet & Kamu Etkinliği",
+      transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.", // 1 Cümlelik Etki
       before: "Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, 360° kavisli devasa bir görsel alana ihtiyaç duyulması.",
       after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
       result: "700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
@@ -561,8 +562,9 @@ function Gallery() {
       client: "Organizasyon Komitesi"
     },
     {
-      title: "Premium Kır Düğünü Organizasyonu",
+      title: "Güneş Altında Kusursuz Görüntü: Premium Açık Hava Düğünü",
       category: "Özel Davet & Düğün",
+      transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
       before: "Gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle sahnede gösterilen anı videolarının görünmeme riski.",
       after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
       result: "Arka sıralardaki misafirler dahil herkes canlı yayın bağlantılarını sinema kalitesinde izledi.",
@@ -570,21 +572,23 @@ function Gallery() {
       client: "Gelin & Damat"
     },
     {
-      title: "AVM İçi E-Spor Turnuvası",
+      title: "Titreşimsiz Akıcı Yayın: AVM İçi E-Spor Turnuvası",
       category: "Spor & Eğlence",
+      transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
       before: "Dar bir kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
-      after: "Hızlı kurulan (Click-lock) paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
+      after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
       result: "Katılımcılar oyun heyecanını dev ekranda anlık yaşadı, AVM'nin o bölgesindeki etkinlik trafiği %40 arttı.",
       quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
       client: "Etkinlik Koordinatörü"
     },
     {
-      title: "Uluslararası Teknoloji Fuarı",
+      title: "Havada Asılı LED Box ile Fuar Standında Maksimum İlgi",
       category: "Kurumsal Fuar",
+      transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
       before: "Yüzlerce standın olduğu alanda markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
       after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
       result: "Standın görünürlüğü tüm holde sağlandı, ziyaretçi etkileşimi önceki yıla oranla ciddi ölçüde arttı.",
-      quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging (askı) uzmanlığına hayran kaldık.",
+      quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
       client: "Kurumsal İletişim Müdürü"
     }
   ];
@@ -593,25 +597,35 @@ function Gallery() {
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         
+        {/* Kısa Giriş Paragrafı ile Çerçeveleme */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Farklı ölçeklerdeki etkinlikler için geliştirdiğimiz özel teknik çözümler ve mutlu müşterilerimiz.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            Projelerimizin kalitesi, etkinliğinizin en büyük güvencesidir. Referanslarımız ve uygulama örneklerimizle, sıradan mekanları nasıl büyüleyici sahnelere dönüştürdüğümüzü keşfedin.
           </p>
         </div>
 
         {/* Başarı Hikayeleri Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {SUCCESS_STORIES.map((story, index) => (
-            <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+            <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
+              
               <div className="mb-4">
                 <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-wider">
                   {story.category}
                 </span>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-6">{story.title}</h3>
+              
+              {/* Vurgulu Başlık */}
+              <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">{story.title}</h3>
+              
+              {/* Etkinlik Öncesi/Sonrası 1 Cümlelik Etki */}
+              <p className="text-blue-700 font-semibold italic text-base mb-6 pb-6 border-b border-gray-100">
+                ✨ {story.transformation}
+              </p>
               
               <div className="space-y-5 flex-grow">
                 <div className="relative pl-4 border-l-4 border-orange-400">
@@ -628,13 +642,13 @@ function Gallery() {
                 </div>
               </div>
 
-              {/* Müşteri Yorumu Alanı */}
-              <div className="mt-8 pt-6 border-t border-gray-100">
+              {/* Müşteri Geri Bildirimi */}
+              <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
                 <div className="flex gap-3">
-                  <MessageCircle className="text-blue-200 flex-shrink-0" size={32} />
+                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} />
                   <div>
-                    <p className="text-gray-600 italic text-sm mb-2">"{story.quote}"</p>
-                    <p className="text-xs font-bold text-gray-900">— {story.client}</p>
+                    <p className="text-gray-700 italic text-sm mb-2 font-medium">"{story.quote}"</p>
+                    <p className="text-xs font-black text-gray-900 uppercase tracking-wider">— {story.client}</p>
                   </div>
                 </div>
               </div>
@@ -642,39 +656,34 @@ function Gallery() {
           ))}
         </div>
 
-        {/* Uygulama Resimleri */}
+        {/* Görsel Galeri Alanı */}
         <div className="text-center mb-10">
-          <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Uygulama Resimlerimiz</h3>
-          <p className="text-lg text-gray-600 mb-8">Sahadan en güncel kareler</p>
+          <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
+          <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel kurulum karelerimiz</p>
         </div>
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        {/* Galeriye Yönlendiren Net Çağrı (SEO ve Dönüşüm Hedefli) */}
+        {/* Galeriye Yönlendiren Net ve Açık Çağrı */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           
           <div className="relative z-10">
-            <h4 className="text-2xl md:text-3xl font-black text-white mb-6">
-              Projelerimizi Yakından İnceleyin
+            <h4 className="text-3xl md:text-4xl font-black text-white mb-6">
+              Daha Fazla İlham Mı Arıyorsunuz?
             </h4>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              {["İstanbul Led Ekran Kiralama", "Dev Ekran Kiralama", "Fuar Görüntü Sistemleri", "Konser Led Ekran", "Açık Hava Sineması", "Düğün Led Ekran"].map((tag) => (
-                <span key={tag} className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl text-sm font-semibold text-blue-100 border border-white/20">
-                  #{tag}
-                </span>
-              ))}
-            </div>
+            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+              Yüzlerce başarılı projemizin yer aldığı geniş galerimizi inceleyin, etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
+            </p>
             
             <Link
               href="/projeler"
               className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
             >
               <Eye size={24} className="mr-3" aria-hidden="true" />
-              <span className="text-lg">Tüm Uygulama Görsellerini İncele</span>
+              <span className="text-lg">Tüm Uygulama Galerisine Git</span>
             </Link>
           </div>
         </div>
