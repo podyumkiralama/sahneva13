@@ -1,4 +1,5 @@
 // app/(tr)/cadir-kiralama/page.jsx
+
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -7,7 +8,32 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import { Music, Layers, Users, Monitor } from "lucide-react";
+import { 
+  Monitor, 
+  Sun, 
+  Shield, 
+  Zap, 
+  Settings, 
+  MessageCircle, 
+  CheckCircle, 
+  Layout, 
+  ArrowRight, 
+  Camera, 
+  Layers, 
+  Activity, 
+  Users, 
+  Music, 
+  Briefcase, 
+  Tent, 
+  Tv, 
+  Headphones, 
+  Cpu, 
+  Eye, 
+  Truck, 
+  Lock, 
+  RotateCcw, 
+  Gauge 
+} from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -124,9 +150,9 @@ const HERO = {
 
 const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
-  "Endüstriyel iklimlendirme (klima) ve hava yönetimi",
-  "Proje bazlı internet ve enerji altyapısı çözümleri",
-  "Uçtan uca saha yönetimi ve operasyon koordinasyonu",
+  "Endüstriyel iklimlendirme (klima/ısıtıcı) ve hava yönetimi",
+  "Proje bazlı zemin kaplama, internet ve enerji altyapısı",
+  "Uçtan uca saha yönetimi ve güvenli operasyon koordinasyonu",
 ];
 
 const VIDEO_EMBEDS = [
@@ -177,9 +203,13 @@ const FAQ_ITEMS = [
     a: "Evet, çadırlarımız 90 km/s rüzgar hızına dayanıklıdır. TS EN 13782 standartlarına uygun üretilmiş alüminyum iskelet ve 650 gr/m² UV dayanımlı branda kullanıyoruz. Yağmur oluğu sistemi ile su tahliyesi sorunsuz şekilde sağlanır.",
   },
   {
-    q: "Hangi şehirlerde hizmet veriyorsunuz?",
-    a: "Türkiye'nin 81 ilinde profesyonel çadır kiralama hizmeti sunuyoruz. İstanbul, Ankara, İzmir gibi büyükşehirlerde daha hızlı kurulum süreleri sağlarken, tüm illerde standart hizmet kalitemizi koruyoruz.",
+    q: "Kadıköy, Şişli, Beşiktaş gibi merkezi yerlerde acil çadır kurulumu yapıyor musunuz?",
+    a: "Evet. İstanbul Avrupa ve Anadolu yakalarındaki depolarımız sayesinde merkezi ilçelere trafiğe takılmadan, aynı gün veya saatler içinde ulaşıp hızlı kurulum sağlayabiliyoruz.",
   },
+  {
+    q: "Kocaeli, Bursa, Tekirdağ gibi çevre illere kiralama ve nakliye süreçleri nasıl işliyor?",
+    a: "Marmara Bölgesi ve çevre illere kendi lojistik ağımızla hizmet veriyoruz. Uzaklık bazlı nakliye maliyetini ilk teklifte şeffaf olarak iletiyor, konaklama veya sürpriz masraf çıkarmadan anahtar teslim kurulum yapıyoruz."
+  }
 ];
 
 const PRICING_ITEMS = [
@@ -199,11 +229,11 @@ const PRICING_ITEMS = [
     description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
   },
   {
-  title: "Geniş Açıklıklı Çadırlar (10 / 20 / 30 / 40 m)",
-  price: "430 TL / m²",
-  description:
-    "Genişlik seçenekleri 10 m, 20 m, 30 m ve 40 m’dir. Uzunluk müşteri tercihine göre belirlenir. Büyük ölçekli etkinlikler için ideal çözümdür.",
-},
+    title: "Geniş Açıklıklı Çadırlar",
+    price: "430 TL / m²",
+    description:
+      "10 m, 20 m, 30 m ve 40 m genişlik seçenekleri. Uzunluk tercihinize göre belirlenir. Büyük ölçekli etkinlikler içindir.",
+  },
 ];
 
 const STANDARDS = [
@@ -217,40 +247,40 @@ const STANDARDS = [
   },
   {
     feature: "Kurulum Süresi",
-    standard: "4 - 8 saat (Express Kurulum Seçeneği ile)",
+    standard: "2 - 8 saat (Express Kurulum Seçeneği ile)",
   },
   {
     feature: "Ekstra Donanım",
-    standard: "Akustik çözümler, kablo gizleme, LED entegrasyonu",
+    standard: "İklimlendirme, akustik çözüm, LED entegrasyonu",
   },
 ];
 
 const CHALLENGES = [
   {
-    title: "Akustik Çözümler",
+    title: "İklimlendirme ve Havalandırma",
     description:
-      "Dome yapıların içindeki yankı problemini doğru konumlandırma ve kalibrasyon ile yönetiyoruz.",
+      "Açık alandaki zorlu hava şartlarına karşı, çadır içini dev sanyal klimalar veya endüstriyel ısıtıcılarla tamamen izole ediyoruz.",
   },
   {
-    title: "Görünmez Kablo Güvenliği",
+    title: "Güvenli Zemin ve Ankraj",
     description:
-      "Tüm kablolama altyapısını zemin altına veya estetik kanallara alarak hem güvenliği hem de görsel şıklığı sağlıyoruz.",
+      "Çim, toprak veya beton zemin fark etmeksizin, alana zarar vermeyen profesyonel çelik ağırlıklar veya zemin çivileriyle sıfır riskli sabitleme yapıyoruz.",
   },
 ];
 
 const INSTALLATION_STEPS = [
   { title: "Keşif", description: "Lazer ölçümleme ve zemin analizi." },
   {
-    title: "3D Modelleme",
-    description: "Etkinlikten önce çadırın iç yerleşimini dijital ortamda görün.",
+    title: "Projelendirme",
+    description: "İhtiyaca uygun çadır tipi, ankraj ve yerleşim planı.",
   },
   {
     title: "Hızlı Montaj",
-    description: "Boş bir alandan anahtar teslim etkinlik alanına dönüşüm.",
+    description: "Boş bir alandan güvenli, iklimlendirmeli etkinlik alanına dönüşüm.",
   },
   {
     title: "Teknik Destek",
-    description: "Etkinlik boyunca sahada hazır bekleyen uzman ekip.",
+    description: "Etkinlik boyunca sahada güvenliği sağlayan uzman ekip.",
   },
 ];
 
@@ -265,43 +295,44 @@ const SERVICES = [
   {
     icon: "🔮",
     title: "Şeffaf Dome Çadırlar",
-    description: "Gece aydınlatmasına uygun şeffaf çadır sistemleri",
-    features: ["Weather-proof yapı", "LED aydınlatma", "Davet organizasyonları", "Özel etkinlikler"],
+    description: "Doğa manzaralı, gece aydınlatmasına uygun şeffaf çadır sistemleri",
+    features: ["Weather-proof yapı", "Tamamen şeffaf yüzey", "Davet organizasyonları", "Estetik aydınlatma"],
   },
   {
     icon: "🏭",
     title: "Endüstriyel Çadırlar",
-    description: "Geniş açıklıklı depolama ve üretim alanı çözümleri",
-    features: ["Forklift girişi", "Geniş açıklık", "Uzun süreli kullanım", "Dayanıklı yapı"],
+    description: "Geniş açıklıklı, kolonsuz depolama ve üretim alanı çözümleri",
+    features: ["Kolonsuz dev alan", "Uzun süreli kullanım", "Ağır hava şartlarına direnç", "Depo / Fabrika eki"],
   },
   {
     icon: "🎪",
     title: "Fuar & Sergi Çadırları",
-    description: "Profesyonel fuar ve sergi alanları için optimize edilmiş sistemler",
-    features: ["Hızlı kurulum", "Stand uyumu", "Profesyonel görünüm", "Markalama desteği"],
+    description: "Profesyonel fuar ve sergi alanları için optimize edilmiş dev sistemler",
+    features: ["Stand uyumu", "Geniş yürüyüş yolları", "Profesyonel görünüm", "İklimlendirme"],
   },
   {
     icon: "💡",
-    title: "Aydınlatma & Elektrik",
-    description: "Aydınlatma sistemleri ve elektrik altyapı çözümleri",
-    features: ["LED aydınlatma", "Güç dağıtım", "Acil aydınlatma", "Enerji çözümleri"],
+    title: "Aydınlatma & İklimlendirme",
+    description: "Çadır içi aydınlatma, ısıtma/soğutma ve elektrik altyapı çözümleri",
+    features: ["Salon tipi klima", "Endüstriyel ısıtıcı", "LED & Truss aydınlatma", "Güç dağıtımı"],
   },
   {
     icon: "🔧",
-    title: "Kurulum & Teknik Destek",
-    description: "Kurulum, söküm ve 7/24 teknik destek hizmetleri",
-    features: ["Profesyonel kurulum", "Söküm hizmeti", "7/24 destek", "Acil müdahale"],
+    title: "Kurulum & Zemin Kaplama",
+    description: "Zemin eşitleme, podyum, halı kaplama ve güvenli söküm hizmetleri",
+    features: ["Podyum zemin", "Protokol halısı", "Söküm hizmeti", "7/24 destek"],
   },
 ];
 
 const USE_CASES = [
-  { icon: "💍", text: "Düğün, kına ve özel davetler", desc: "Özel günler için şık çadır çözümleri" },
-  { icon: "🎪", text: "Fuar, sergi ve lansmanlar", desc: "Profesyonel tanıtım alanları" },
-  { icon: "🎤", text: "Konser, festival ve etkinlikler", desc: "Açık hava etkinlikleri için çözümler" },
-  { icon: "🏛️", text: "Belediye ve kurumsal etkinlikler", desc: "Kurumsal organizasyonlar" },
-  { icon: "🏭", text: "Endüstriyel ve depolama", desc: "Geçici depolama ve üretim alanları" },
-  { icon: "🏫", text: "Okul ve eğitim etkinlikleri", desc: "Eğitim kurumları için çözümler" },
+  { icon: "💍", text: "Düğün, kına ve özel davetler", desc: "Özel günler için şık ve şeffaf çadır çözümleri" },
+  { icon: "🎪", text: "Fuar, sergi ve lansmanlar", desc: "Markanızı öne çıkaran geniş açıklıklı tanıtım alanları" },
+  { icon: "🎤", text: "Konser, festival ve etkinlikler", desc: "Kulis, sağlık ve operasyon çadır çözümleri" },
+  { icon: "🏛️", text: "Belediye ve kurumsal etkinlikler", desc: "Miting, iftar ve törenler için güvenli protokol alanları" },
+  { icon: "🏭", text: "Endüstriyel ve depolama", desc: "Fabrikalar için geçici kolonsuz üretim ve depo çadırları" },
+  { icon: "🏫", text: "Okul ve eğitim etkinlikleri", desc: "Mezuniyet, bahar şenliği ve kermesler için çözümler" },
 ];
+
 
 /* ================== HERO ================== */
 function Hero() {
@@ -356,10 +387,10 @@ function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Düğün • Fuar • Festival • Lansman • Özel Etkinlikler
+          Düğün • Fuar • Festival • Lansman • Depolama • Özel Etkinlikler
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Pagoda çadırlar, şeffaf dome sistemleri ve endüstriyel çadırlar ile
+          Pagoda çadırlar, şeffaf sistemler ve dev endüstriyel çadırlar ile
           <span className="font-semibold text-white"> anahtar teslim çözümler</span>
         </p>
 
@@ -371,9 +402,7 @@ function Hero() {
             aria-label="WhatsApp üzerinden hemen teklif alın"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
           >
-            <span aria-hidden="true" className="text-xl mr-2">
-              💬
-            </span>
+            <span aria-hidden="true" className="text-xl mr-2">💬</span>
             <span className="text-base">Hemen Teklif Al</span>
           </Link>
 
@@ -382,34 +411,26 @@ function Hero() {
             aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
           >
-            <span aria-hidden="true" className="text-xl mr-2">
-              🎯
-            </span>
+            <span aria-hidden="true" className="text-xl mr-2">🎯</span>
             <span className="text-base">Hizmetlerimiz</span>
           </Link>
         </div>
 
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              ⭐
-            </span>
-            <div className="text-xl font-black text-white">4.8/5</div>
-            <div className="text-white/80 text-sm">180+ Değerlendirme</div>
+            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
+            <div className="text-xl font-black text-white">4.9/5</div>
+            <div className="text-white/80 text-sm">Doğrulanmış Puan</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🏆
-            </span>
-            <div className="text-xl font-black text-white">850+</div>
-            <div className="text-white/80 text-sm">Etkinlik</div>
+            <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
+            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-white/80 text-sm">Başarılı Proje</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🚀
-            </span>
+            <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
             <div className="text-xl font-black text-white">81 İl</div>
-            <div className="text-white/80 text-sm">Hizmet</div>
+            <div className="text-white/80 text-sm">Lojistik Ağı</div>
           </div>
         </div>
       </div>
@@ -438,13 +459,8 @@ function TurnkeyInfrastructure() {
                 “Sıfırdan Kurulum” Odaklı Anahtar Teslim Çadır Altyapısı
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Sadece çadır kiralama değil; iklimlendirme, internet altyapısı ve
-                enerji sistemleriyle
-                <strong className="text-gray-900">
-                  {" "}
-                  uçtan uca saha yönetimi
-                </strong>{" "}
-                sunuyoruz.
+                Sadece çadır kiralama değil; iklimlendirme, zemin kaplama ve enerji sistemleriyle
+                <strong className="text-gray-900"> uçtan uca saha yönetimi </strong> sunuyoruz.
               </p>
               <ul className="space-y-3 text-gray-700">
                 {TURNKEY_FEATURES.map((feature) => (
@@ -465,7 +481,7 @@ function TurnkeyInfrastructure() {
               <div className="space-y-3 text-gray-600 text-base">
                 <p>🔧 Saha keşfi ve zemin analizi</p>
                 <p>⚡ Enerji sürekliliği ve güvenlik</p>
-                <p>📡 İnternet altyapı planlaması</p>
+                <p>🏗️ Podyum ve Zemin Kaplama</p>
                 <p>🌡️ Endüstriyel iklimlendirme</p>
               </div>
               <Link
@@ -504,8 +520,7 @@ function Services() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Çadır kiralama hizmetlerimiz: keşif, projelendirme, kurulum, teknik
-            destek ve söküm
+            Çadır kiralama hizmetlerimiz: keşif, projelendirme, kurulum, iklimlendirme ve teknik destek
           </p>
         </div>
 
@@ -560,9 +575,7 @@ function Services() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
-            <span aria-hidden="true" className="text-xl mr-3">
-              📞
-            </span>
+            <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Detaylı Teklif için İletişime Geçin</span>
           </Link>
         </div>
@@ -571,207 +584,211 @@ function Services() {
   );
 }
 
-/* ================== Görsel Kanıtlar ================== */
-function VideoEvidence() {
-  return (
-    <section
-      className="py-20 bg-gradient-to-b from-white to-blue-50/60 nc-CadirKiralamaPage-section-video"
-      aria-labelledby="gorsel-kanit-baslik"
-    >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2
-            id="gorsel-kanit-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
-          >
-            Görsel{" "}
-            <span className="gradient-text gradient-text--safe-xl">Kanıtlar</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Kurulumdan dijital sahneye uzanan operasyon gücünü öne çıkan
-            görsellerle gösteriyoruz.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {VIDEO_PROOFS.map((proof) => (
-            <article
-              key={proof.title}
-              className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500"
-            >
-              <div className="relative aspect-[16/9]">
-                <Image
-                  src={proof.src}
-                  alt={proof.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-6 md:p-8">
-                <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-                  {proof.title}
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {proof.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-10 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {VIDEO_EMBEDS.map((video) => (
-            <article
-              key={video.videoId}
-              className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500"
-            >
-              <div className="relative aspect-[16/9]">
-                <VideoEmbed videoId={video.videoId} title={video.title} />
-              </div>
-              <div className="p-6 md:p-8">
-                <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-                  {video.title}
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {video.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500">
-            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
-            kurulum detayları proje bazında netleştirilir.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================== Fiyatlandırma ================== */
-function PricingSection() {
-  return (
-    <section
-      id="fiyatlar"
-      className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
-      aria-labelledby="fiyatlar-baslik"
-    >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2
-            id="fiyatlar-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
-          >
-            2026 Çadır{" "}
-            <span className="gradient-text gradient-text--safe-xl">Kiralama</span>{" "}
-            Fiyatları
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Net ölçü bazlı fiyatlar ve büyük ölçekli çadır çözümleri için güncel
-            metrekare bedelleri.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRICING_ITEMS.map((item, index) => (
-            <article
-              key={item.title}
-              id={`fiyat-${index + 1}`}
-              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
-            >
-              <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
-              <p className="text-2xl font-black text-blue-700">{item.price}</p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {item.description}
-              </p>
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${item.title} için WhatsApp üzerinden teklif alın`}
-                className="mt-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus-ring"
-              >
-                <span aria-hidden="true">💬</span>
-                WhatsApp’tan Teklif Al
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500">
-            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre
-            kurulum detayları proje bazında netleştirilir. İstanbul içi nakliye
-            8.000–12.000 TL arası mesafeye göre değişmektedir; müşteri isterse
-            kendi nakliyesini getirebilir.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================== Galeri ================== */
-const GALLERY_IMAGES = [
-  { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
-  { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır - Özel davetler için atmosfer" },
-  { src: "/img/cadir/3.webp", alt: "Endüstriyel çadır kurulumu - Depolama ve üretim alanı çözümü" },
-  { src: "/img/cadir/4.webp", alt: "Fuar çadırı - Profesyonel sergi ve tanıtım alanı" },
-  { src: "/img/cadir/5.webp", alt: "Aydınlatmalı çadır - Gece etkinlikleri için LED aydınlatma" },
-  { src: "/img/cadir/6.webp", alt: "Konser çadırı - Açık hava etkinliği için çadır çözümü" },
-  { src: "/img/cadir/7.webp", alt: "Kurulum ekibi - Profesyonel çadır kurulum süreci" },
-  { src: "/img/cadir/8.webp", alt: "Markalama - Kurumsal etkinlikler için çözümler" },
-  { src: "/img/cadir/9.webp", alt: "Çadır iç düzeni - Kurumsal etkinlik planı" },
-  { src: "/img/cadir/10.webp", alt: "Geniş açıklıklı çadır - Etkinlik alanı düzeni" },
-  { src: "/img/cadir/11.webp", alt: "Dekorasyon ve aydınlatma - Özel etkinlik atmosferi" },
-  { src: "/img/cadir/12.webp", alt: "Çadır kurulum detayı - Profesyonel uygulama" },
-];
-
+/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (SEO + Video + Metin Linki) ================== */
 function Gallery() {
+  const SUCCESS_STORIES = [
+    {
+      title: "Devasa Kapalı Alan: Teknofest Fuar Çadırı",
+      category: "Kurumsal & Fuar Etkinliği",
+      transformation: "Rüzgarlı açık alan, binlerce ziyaretçiyi ağırlayacak güvenli bir teknoloji üssüne dönüştü.",
+      before: "Açık fuar alanında rüzgar ve hava şartlarına dayanıklı, devasa ve kolonsuz bir kapalı alana ihtiyaç duyulması.",
+      after: "10-20 metre geniş açıklıklı endüstriyel tip çadırlar, tonlarca beton ağırlıkla ankre edilerek kusursuz bir şekilde kuruldu.",
+      result: "Ziyaretçiler olumsuz hava şartlarından etkilenmeden konforla fuarı gezdi, projeye %100 operasyonel güvence sağlandı.",
+      quote: "Böylesine zorlu bir sahada rüzgara ve yağmura karşı tam koruma sağladılar. Profesyonel bir ekipti.",
+      client: "Teknofest Operasyon Komitesi"
+    },
+    {
+      title: "Doğayla İç İçe: Sarıyer Premium Şeffaf Kır Düğünü",
+      category: "Özel Davet & Düğün",
+      transformation: "Yağmur riski taşıyan kır alanı, manzarayı kapatmayan lüks ve ışıltılı bir şeffaf salona evrildi.",
+      before: "Orman içindeki düğünde yağmur riski bulunmasına rağmen, çiftin doğal manzarayı kapatmak istememesi.",
+      after: "Tavanı ve yanları tamamen şeffaf dome ve pagoda çadırlar kuruldu, iç mekan estetik LED aydınlatmalarla süslendi.",
+      result: "Gece ışıklandırmasıyla masalsı bir atmosfer yaratıldı, misafirler manzaradan kopmadan doğanın tadını çıkardı.",
+      quote: "Şeffaf çadır sayesinde yağmur yağarken gökyüzünü izlemek hayatımızın en güzel anlarındandı.",
+      client: "Gelin & Damat"
+    },
+    {
+      title: "Acil Alan İhtiyacı: Kocaeli Fabrika Endüstriyel Çadır",
+      category: "Endüstriyel & Depolama",
+      transformation: "Fabrikanın boş bahçesi, 48 saat içinde iklimlendirmeli ve güvenli bir üretim tesisine dönüştürüldü.",
+      before: "Artan üretim kapasitesi nedeniyle Kocaeli'ndeki fabrikaya acil ve geniş bir kapalı alan (depo) ihtiyacı doğması.",
+      after: "Ağır iş makinesi ve forkliftlerin rahatça girebileceği, yüksek tavanlı 20x40m endüstriyel çadır sistemi hızla inşa edildi.",
+      result: "Müşterimiz kalıcı inşaat maliyeti ödemeden ve vakit kaybetmeden üretim kapasitesini başarıyla artırdı.",
+      quote: "Betonarme bir depo yapmak aylarca sürecekken, ekipler iki günde bize devasa bir tesis kurdu.",
+      client: "Fabrika Tedarik Müdürü"
+    },
+    {
+      title: "Prestijli Karşılama: Beşiktaş Kurumsal Lansman Çadırı",
+      category: "Marka & Lansman",
+      transformation: "Sıradan bir açık otel otoparkı, markanın VIP misafirlerini ağırladığı lüks bir fuaye alanına dönüştü.",
+      before: "Lansman öncesi misafir karşılama (fuaye) alanı için otelin açık bölümünün estetik bir mekana çevrilme ihtiyacı.",
+      after: "Sıralı 5x5 Pagoda çadırlar kuruldu, zemin özel halı ile kaplandı ve alan endüstriyel klimalarla ısıtıldı.",
+      result: "VIP misafirler sıcak ve şık bir ortamda ağırlandı, markanın kurumsal imajı en üst seviyeye taşındı.",
+      quote: "Kusursuz bir zemin ve harika bir iklimlendirme. Çadırın içinde olduğumuzu hissetmedik bile.",
+      client: "Kurumsal İletişim Direktörü"
+    }
+  ];
+
   return (
-    <section
-      className="py-20 bg-white nc-CadirKiralamaPage-section-2"
-      aria-labelledby="galeri-baslik"
-    >
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        
+        {/* 1. Kısa Giriş Paragrafı */}
         <div className="text-center mb-16">
-          <h2
-            id="galeri-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
-          >
-            Proje{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Galerimiz
-            </span>
+          <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+            Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Gerçekleştirdiğimiz başarılı çadır kurulumlarından örnekler
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            Projelerimizin kalitesi, etkinliğinizin en büyük güvencesidir. Referanslarımız ve uygulama örneklerimizle, açık alanları nasıl güvenilir kapalı mekanlara dönüştürdüğümüzü keşfedin.
           </p>
         </div>
 
+        {/* 2. Başarı Hikayeleri Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+          {SUCCESS_STORIES.map((story, index) => (
+            <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
+              
+              <div className="mb-4">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-wider">
+                  {story.category}
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">{story.title}</h3>
+              
+              <p className="text-blue-700 font-semibold italic text-base mb-6 pb-6 border-b border-gray-100">
+                ✨ {story.transformation}
+              </p>
+              
+              <div className="space-y-5 flex-grow">
+                <div className="relative pl-4 border-l-4 border-orange-400">
+                  <h4 className="text-xs font-black text-orange-600 uppercase tracking-widest mb-1">Durum / İhtiyaç</h4>
+                  <p className="text-gray-700 text-sm">{story.before}</p>
+                </div>
+                <div className="relative pl-4 border-l-4 border-blue-500">
+                  <h4 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Teknik Çözüm</h4>
+                  <p className="text-gray-700 text-sm">{story.after}</p>
+                </div>
+                <div className="relative pl-4 border-l-4 border-green-500">
+                  <h4 className="text-xs font-black text-green-600 uppercase tracking-widest mb-1">Etki / Sonuç</h4>
+                  <p className="text-gray-900 font-medium text-sm">{story.result}</p>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
+                <div className="flex gap-3">
+                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} />
+                  <div>
+                    <p className="text-gray-700 italic text-sm mb-2 font-medium">"{story.quote}"</p>
+                    <p className="text-xs font-black text-gray-900 uppercase tracking-wider">— {story.client}</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* 3. SEO LİSTESİ: Kısa Okunabilir Uygulama Listesi */}
+        <div className="mb-16 bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
+          <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">Popüler Çadır Uygulama ve Kiralama Seçeneklerimiz</h3>
+          <p className="text-gray-600 mb-6">Bugüne kadar gerçekleştirdiğimiz bazı uygulama örnekleri ve aranan hizmetlerimiz:</p>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "İstanbul Çadır Kiralama",
+              "Şeffaf Çadır Kiralama",
+              "Organizasyonlar İçin Kiralık Çadır",
+              "Fuar ve Etkinlik Çadırı Kiralama",
+              "Düğün ve Nişan Çadırı",
+              "Kiralık Dev Endüstriyel Çadır",
+              "Pagoda Çadır Kiralama",
+              "Çadır Kiralama ve Kurulumu",
+              "Çadır, Zemin ve İklimlendirme Sistemleri"
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-center gap-3 text-gray-800 font-semibold text-sm md:text-base">
+                <span className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 4. Görsel Galeri Alanı */}
+        <div className="text-center mb-10">
+          <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
+          <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel çadır kurulum karelerimiz</p>
+        </div>
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Daha fazla projemizi incelemek için galerimizi keşfedin
-          </p>
-          <Link
-            href="/projeler"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus-ring"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">
-              📸
-            </span>
-            <span>Tüm Projeleri Görüntüle</span>
-          </Link>
+        {/* 5. Video Galerisi Alanı */}
+        <div className="mt-20 mb-10">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Video <span className="text-blue-700">Galerisi</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Zorlu kurulumlarımızdan ve saha operasyonlarımızdan seçilmiş kısa videolar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {VIDEO_EMBEDS.map((video) => (
+              <article
+                key={video.videoId}
+                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+                aria-labelledby={`video-${video.videoId}-title`}
+              >
+                <div className="relative w-full aspect-video bg-black">
+                  <VideoEmbed
+                    videoId={video.videoId}
+                    title={video.title}
+                    thumbnailUrl={`https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`}
+                  />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h4
+                    id={`video-${video.videoId}-title`}
+                    className="text-xl font-black text-gray-900 mb-3"
+                  >
+                    {video.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                    {video.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
+
+        {/* 6. YÖNLENDİRME METNİ VE BUTON */}
+        <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+          
+          <div className="relative z-10">
+            <h4 className="text-3xl md:text-4xl font-black text-white mb-6">
+              Daha Fazla İlham Mı Arıyorsunuz?
+            </h4>
+            
+            {/* Ahrefs/Google Botları için doğrudan HTML Metin Linki */}
+            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun çadır çözümünü birlikte tasarlayalım.
+            </p>
+            
+            {/* Kullanıcılar İçin Etkileşimli Buton */}
+            <Link
+              href="/projeler"
+              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus-ring"
+            >
+              <Eye size={24} className="mr-3" aria-hidden="true" />
+              <span className="text-lg">Tüm Resimleri Gör</span>
+            </Link>
+          </div>
+        </div>
+
       </div>
     </section>
   );
@@ -1011,10 +1028,10 @@ function InstallationProcess() {
 /* ================== İstatistik Bant ================== */
 function StatsBand() {
   const stats = [
-    { value: "850+", label: "Başarılı Etkinlik", icon: "🎪" },
+    { value: "700+", label: "Başarılı Etkinlik", icon: "🎪" },
     { value: "40+", label: "Kurumsal Müşteri", icon: "🏢" },
-    { value: "81", label: "İlde Hizmet", icon: "🗺️" },
-    { value: "8+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: "81 İL", label: "Kendi Araçlarımızla Kurulum", icon: "🗺️" },
+    { value: "10+", label: "Yıllık Deneyim", icon: "⭐" },
   ];
 
   return (
@@ -1041,13 +1058,13 @@ function StatsBand() {
                 </div>
                 <h3
                   id={`cadir-stat-${index}-value`}
-                  className="text-4xl md:text-5xl font-black mb-2 text-white drop-shadow-lg"
+                  className="text-3xl md:text-4xl font-black mb-2 text-white drop-shadow-lg"
                 >
                   {stat.value}
                 </h3>
                 <p
                   id={`cadir-stat-${index}-label`}
-                  className="text-blue-100 text-lg font-semibold"
+                  className="text-blue-100 text-sm md:text-base font-semibold"
                 >
                   {stat.label}
                 </p>
@@ -1087,11 +1104,12 @@ function UseCases() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" role="list">
           {USE_CASES.map((uc) => (
             <div
               key={uc.text}
               className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
+              role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
                 <div
@@ -1120,9 +1138,7 @@ function UseCases() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
-            <span aria-hidden="true" className="text-xl mr-3">
-              💬
-            </span>
+            <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
           </Link>
         </div>
@@ -1130,6 +1146,143 @@ function UseCases() {
     </section>
   );
 }
+
+/* ================== Bölgesel Hizmet Kapsamı ================== */
+function RegionalService() {
+  const regions = [
+    { 
+      name: "İstanbul Avrupa Yakası", 
+      detail: "Fuar, lansman ve toplantılar için Şişli, Beşiktaş ve Beylikdüzü odaklı hızlı mobil ekiplerimizle sahadayız.",
+      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane, Şişli, Beşiktaş, Beylikdüzü"
+    },
+    { 
+      name: "İstanbul Anadolu Yakası", 
+      detail: "Düğün, konser ve kurumsal etkinlikler için Kadıköy, Ataşehir ve Ümraniye depolarımızdan anlık sevkiyat.",
+      districts: "Kadıköy, Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy, Ataşehir"
+    },
+    { 
+      name: "Marmara, Çevre İller & Türkiye Geneli", 
+      detail: "Özel araç filomuzla çevre illere ve İç Anadolu'ya kadar profesyonel hizmet ulaştırıyoruz.",
+      districts: "Tekirdağ, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu ve Ankara"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50" aria-labelledby="bolgesel-hizmet-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            İstanbul, Marmara ve Çevre İllerde <span className="text-blue-700">Lider Güç</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Başta İstanbul içi konser, düğün, fuar ve lansman organizasyonları olmak üzere; çevre illerdeki tüm etkinliklerinize kendi araç filomuz ve uzman kadromuzla teknik destek sağlıyoruz.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+          {/* Sol Taraf: Bölgesel Dağılım */}
+          <div className="space-y-8">
+            {regions.map((region) => (
+              <div key={region.name} className="group p-6 bg-white rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
+                <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
+                <p className="text-gray-700 mb-3">{region.detail}</p>
+                <div className="text-sm font-semibold text-blue-800 bg-blue-100/50 p-3 rounded-xl border border-blue-100">
+                  📍 Kapsam: {region.districts}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Sağ Taraf: Operasyonel Güvence */}
+          <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
+            
+            <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
+              <Shield size={28} /> Operasyonel Güvence & Lojistik
+            </h3>
+            
+            <div className="space-y-8 relative z-10">
+              <div className="flex gap-4">
+                <div className="bg-red-500/20 p-3 rounded-xl h-fit"><CheckCircle className="text-red-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg text-red-300">Açık Alanda "Kötü Sürprizlere" Son</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    Sahneva olarak <strong>%100 dış mekan (outdoor) uyumlu, 90km/s rüzgar dayanımlı ve su geçirmez</strong> sistemler kuruyor; zorlu hava şartlarında kusursuz alan garantisi veriyoruz.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4">
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg">Şeffaf Nakliye ve Fiyatlandırma</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    İstanbul içi projelerde lojistik maliyetlerini minimize ederken; <strong>Bursa, İzmit, Ankara, Tekirdağ</strong> gibi çevre illere yapılan operasyonlarda nakliye ve personel konaklama detaylarını ilk teklifte şeffafça sunuyoruz.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" /></div>
+                <div>
+                  <h4 className="font-bold text-lg">Trafik & Ulaşım Avantajı</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    İstanbul'un iki yakasında konumlanmış ekiplerimiz sayesinde, farklı ilçelerdeki kurulumlara aynı hızda, trafik engeline takılmadan ulaşıyoruz.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Lojistik ve Fiyatlandırma Karşılaştırma Tablosu */}
+        <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
+          <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-black text-gray-900">Bölgesel Lojistik ve Operasyon Karşılaştırması</h3>
+              <p className="text-gray-600 mt-2 text-lg">İstanbul içi ve çevre illerdeki çadır kiralama hizmet standartlarımızın şeffaf dökümü.</p>
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead>
+                <tr>
+                  <th className="px-8 py-6 font-black text-gray-900 w-1/4 bg-gray-50 border-b-2 border-gray-200">Hizmet Kriteri</th>
+                  <th className="px-8 py-6 font-black text-blue-800 w-3/8 bg-blue-50 border-b-2 border-blue-200">İstanbul İçi (Avrupa & Anadolu)</th>
+                  <th className="px-8 py-6 font-black text-green-800 w-3/8 bg-green-50 border-b-2 border-green-200">Çevre İller (Marmara Bölgesi)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Kurulum Süresi</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Acil durumlarda 2-4 saatte hızlı express kurulum</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum</td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Nakliye Ücreti</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">İlçe bazlı 8.000 TL - 12.000 TL (Müşteri dilerse kendi nakliyesi)</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Kilometre bazlı şeffaf, indirimli ve sabit fiyat garantisi</td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Saha Desteği</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek, konaklama ücreti yok</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Projeye tahsisli, konaklamalı tam zamanlı operasyon desteği</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Zemin & İklimlendirme</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Beton/çim zemine uygun ağırlık ve klimalı sistemler</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Zorlu hava şartlarına karşı dev endüstriyel ısıtıcılar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 
 /* ================== Tamamlayıcı Hizmetler ================== */
 function RelatedServices() {
@@ -1171,8 +1324,7 @@ function RelatedServices() {
             id="ek-hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Ek{" "}
-            <span className="text-blue-700">Hizmetler</span>
+            Ek <span className="text-blue-700">Hizmetler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Çadır kurulumunuzu uçtan uca tamamlayacak diğer profesyonel çözümler
@@ -1208,13 +1360,6 @@ function RelatedServices() {
             ))}
           </div>
         </nav>
-
-        <div className="sr-only">
-          <p>
-            Bu bölümde çadır kiralama hizmetinizi tamamlayacak ek çözümler
-            listelenmiştir. Kartları seçerek ilgili sayfaya ilerleyebilirsiniz.
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -1244,7 +1389,6 @@ function Articles() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* ================== Ana Makale ================== */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
             <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
@@ -1262,13 +1406,11 @@ function Articles() {
                 </div>
 
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                  Profesyonel Çadır Kiralama: Etkinlik Başarınız İçin Tam
-                  Kapsamlı Çözümler
+                  Profesyonel Çadır Kiralama: Etkinlik Başarınız İçin Tam Kapsamlı Çözümler
                 </h3>
 
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Kurumsal standartlar, hızlı kurulum süreçleri ve ölçülebilir
-                  kalite yaklaşımı ile güvenli çözümler
+                  Kurumsal standartlar, hızlı kurulum süreçleri ve ölçülebilir kalite yaklaşımı ile güvenli çözümler
                 </p>
               </div>
             </header>
@@ -1279,16 +1421,10 @@ function Articles() {
                   <div className="space-y-6">
                     <h4>Profesyonel Çadır Kiralama Yaklaşımımız</h4>
                     <p>
-                      <strong>Sahneva</strong>, çadır kiralama hizmetlerinde yalnızca
-                      fiziksel kurulum değil; planlama, güvenlik ve operasyonel
-                      sürekliliği birlikte ele alır. Her proje öncesinde alan keşfi
-                      yapılır, zemin yapısı analiz edilir ve çadır sistemleri bu
-                      verilere göre projelendirilir.
+                      <strong>Sahneva</strong>, çadır kiralama hizmetlerinde yalnızca fiziksel kurulum değil; planlama, güvenlik ve operasyonel sürekliliği birlikte ele alır. Her proje öncesinde alan keşfi yapılır, zemin yapısı analiz edilir ve çadır sistemleri bu verilere göre projelendirilir.
                     </p>
                     <p>
-                      Düğün, fuar, konser veya kurumsal organizasyon fark etmeksizin tüm
-                      projelerde aynı kalite standartları uygulanır. Böylece etkinlik
-                      süresince hem güvenlik hem de görsel bütünlük korunur.
+                      Düğün, fuar, konser veya kurumsal organizasyon fark etmeksizin tüm projelerde aynı kalite standartları uygulanır. Böylece etkinlik süresince hem güvenlik hem de görsel bütünlük korunur.
                     </p>
                   </div>
 
@@ -1301,9 +1437,7 @@ function Articles() {
                       <li>Fuar ve sergi alanlarına özel çadır uygulamaları</li>
                     </ul>
                     <p>
-                      Tüm sistemler TS EN standartlarına uygun malzemelerle kurulmakta,
-                      profesyonel ankraj ve sabitleme yöntemleriyle güvenli hâle
-                      getirilmektedir.
+                      Tüm sistemler TS EN standartlarına uygun malzemelerle kurulmakta, profesyonel ankraj ve sabitleme yöntemleriyle güvenli hâle getirilmektedir.
                     </p>
                   </div>
                 </div>
@@ -1321,23 +1455,14 @@ function Articles() {
                     </summary>
                     <div className="mt-4 space-y-4 text-gray-700">
                       <p>
-                        <strong>Organizasyon çadır kiralama</strong>, açık veya yarı açık alanlarda
-                        gerçekleştirilen etkinlikler için profesyonel, geçici ve güvenli mekân
-                        oluşturma çözümüdür. Sahneva, çadır sistemlerini yalnızca fiziksel bir yapı
-                        olarak değil; teknik altyapısı, güvenliği ve operasyonel planlaması yapılmış
-                        bir etkinlik alanı olarak ele alır.
+                        <strong>Organizasyon çadır kiralama</strong>, açık veya yarı açık alanlarda gerçekleştirilen etkinlikler için profesyonel, geçici ve güvenli mekân oluşturma çözümüdür. Sahneva, çadır sistemlerini yalnızca fiziksel bir yapı olarak değil; teknik altyapısı, güvenliği ve operasyonel planlaması yapılmış bir etkinlik alanı olarak ele alır.
                       </p>
                       <p>
-                        Kurumsal lansmanlar, festivaller, belediye organizasyonları ve özel etkinliklerde
-                        kullanılan <strong>etkinlik çadırı kiralama</strong> çözümleri; katılımcı konforu,
-                        hava koşullarına dayanıklılık ve marka algısını doğrudan etkiler.
+                        Kurumsal lansmanlar, festivaller, belediye organizasyonları ve özel etkinliklerde kullanılan <strong>etkinlik çadırı kiralama</strong> çözümleri; katılımcı konforu, hava koşullarına dayanıklılık ve marka algısını doğrudan etkiler.
                       </p>
                       <h4>Kurulum Süreci Nasıl İlerler?</h4>
                       <p>
-                        Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra
-                        çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman
-                        yerleşimi belirlenir. Kurulum, uzman ekipler tarafından kısa sürede
-                        tamamlanır ve etkinlik öncesi tüm kontroller yapılır.
+                        Kurulum süreci, saha keşfi ile başlar. Alan ölçümleri alındıktan sonra çadırın konumlandırması, giriş–çıkış noktaları ve teknik ekipman yerleşimi belirlenir. Kurulum, uzman ekipler tarafından kısa sürede tamamlanır ve etkinlik öncesi tüm kontroller yapılır.
                       </p>
                       <ul>
                         <li>Saha keşfi ve ölçümleme</li>
@@ -1361,21 +1486,14 @@ function Articles() {
                     </summary>
                     <div className="mt-4 space-y-4 text-gray-700">
                       <p>
-                        <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin
-                        birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle
-                        kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü
-                        bir alan oluşturur.
+                        <strong>Düğün çadır kiralama</strong>, estetik görünüm ile teknik güvenliğin birlikte sağlanmasını gerektirir. Pagoda ve şeffaf çadır sistemleri, özellikle kır düğünleri ve açık hava davetlerinde hem şık bir atmosfer hem de kontrollü bir alan oluşturur.
                       </p>
                       <p>
-                        Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama
-                        ve dekorasyon uyumluluğu ile birlikte planlayarak, etkinlik boyunca sorunsuz
-                        bir deneyim sunar.
+                        Sahneva, düğün organizasyonlarında çadır kurulumunu; aydınlatma, zemin kaplama ve dekorasyon uyumluluğu ile birlikte planlayarak, etkinlik boyunca sorunsuz bir deneyim sunar.
                       </p>
                       <h4>Hangi Etkinlikler İçin Uygundur?</h4>
                       <p>
-                        Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine
-                        uyarlanabilir. Açık hava düğünlerinden büyük ölçekli fuarlara kadar her
-                        etkinlik için ölçeklenebilir çözümler sunuyoruz.
+                        Çadır kiralama çözümlerimiz, çok farklı organizasyon türlerine uyarlanabilir. Açık hava düğünlerinden büyük ölçekli fuarlara kadar her etkinlik için ölçeklenebilir çözümler sunuyoruz.
                       </p>
                       <ul>
                         <li>Düğün, nişan ve özel davet organizasyonları</li>
@@ -1399,52 +1517,17 @@ function Articles() {
                     </summary>
                     <div className="mt-4 space-y-4 text-gray-700">
                       <p>
-                        <strong>Büyük çadır kiralama</strong>, standart organizasyonlara kıyasla daha
-                        yüksek mühendislik, lojistik ve saha yönetimi gerektirir. Fuar alanları,
-                        festival sahaları ve kamu projelerinde kullanılan büyük açıklıklı çadır
-                        sistemleri; vinçli kurulum ve profesyonel ekip koordinasyonu ile hayata geçirilir.
+                        <strong>Büyük çadır kiralama</strong>, standart organizasyonlara kıyasla daha yüksek mühendislik, lojistik ve saha yönetimi gerektirir. Fuar alanları, festival sahaları ve kamu projelerinde kullanılan büyük açıklıklı çadır sistemleri; vinçli kurulum ve profesyonel ekip koordinasyonu ile hayata geçirilir.
                       </p>
                       <p>
-                        Sahneva, büyük ölçekli organizasyonlarda yalnızca çadır kurulumu değil;
-                        zamanlama, güvenlik ve teknik altyapı yönetimi ile anahtar teslim çözümler
-                        sunar. Bu yaklaşım, kurumsal etkinliklerin planlanan takvim içinde güvenle
-                        gerçekleşmesini sağlar.
+                        Sahneva, büyük ölçekli organizasyonlarda yalnızca çadır kurulumu değil; zamanlama, güvenlik ve teknik altyapı yönetimi ile anahtar teslim çözümler sunar. Bu yaklaşım, kurumsal etkinliklerin planlanan takvim içinde güvenle gerçekleşmesini sağlar.
                       </p>
                       <h4>Neden Sahneva?</h4>
                       <p>
-                        Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon
-                        gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla,
-                        her ölçekte organizasyon için güvenilir çözüm ortağıyız.
+                        Sahneva, çadır kiralama hizmetlerinde deneyim, teknik altyapı ve operasyon gücünü bir arada sunar. Türkiye genelinde 81 ilde hizmet veren yapımızla, her ölçekte organizasyon için güvenilir çözüm ortağıyız.
                       </p>
                       <p>
-                        <strong>
-                          8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip
-                        </strong>{" "}
-                        ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
-                      </p>
-                    </div>
-                  </details>
-
-                  <details className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 open:border-blue-200 open:bg-blue-50/40">
-                    <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900">
-                      <span>Etkinlik Çadırı Kiralama Neden Profesyonel Yapılmalıdır?</span>
-                      <span
-                        aria-hidden="true"
-                        className="ml-4 flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300 group-open:rotate-180"
-                      >
-                        ⌄
-                      </span>
-                    </summary>
-                    <div className="mt-4 space-y-4 text-gray-700">
-                      <p>
-                        Profesyonel <strong>etkinlik çadırı kiralama</strong> hizmeti; yalnızca çadırın
-                        kurulmasını değil, etkinlik süresince yaşanabilecek tüm teknik ve operasyonel
-                        ihtiyaçların önceden planlanmasını kapsar.
-                      </p>
-                      <p>
-                        Sahneva, Türkiye genelinde sunduğu çadır kiralama hizmetlerinde; deneyimli
-                        ekip, güçlü teknik altyapı ve saha yönetimi ile her ölçekte etkinlik için
-                        güvenilir çözüm ortağı olarak konumlanır.
+                        <strong>8+ yıllık deneyim, yüzlerce başarılı etkinlik ve profesyonel ekip</strong> ile etkinliğinizin sorunsuz ilerlemesini sağlıyoruz.
                       </p>
                     </div>
                   </details>
@@ -1453,7 +1536,6 @@ function Articles() {
             </div>
           </article>
 
-          {/* ================== Yan Kart 1 ================== */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
             <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
@@ -1467,9 +1549,7 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <p>
-                  Çadır kurulum sürecimiz keşif ve planlama ile başlar. Alanın zemin türüne
-                  göre profesyonel sabitleme yöntemi belirlenir; güvenlik ekipleri ve
-                  teknik ihtiyaçlar (elektrik, aydınlatma, iklimlendirme) projeye entegre edilir.
+                  Çadır kurulum sürecimiz keşif ve planlama ile başlar. Alanın zemin türüne göre profesyonel sabitleme yöntemi belirlenir; güvenlik ekipleri ve teknik ihtiyaçlar (elektrik, aydınlatma, iklimlendirme) projeye entegre edilir.
                 </p>
 
                 <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
@@ -1493,7 +1573,6 @@ function Articles() {
             </div>
           </article>
 
-          {/* ================== Yan Kart 2 ================== */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
             <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
@@ -1507,9 +1586,7 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <p>
-                  Her etkinliğin ihtiyacı farklıdır. Düğün ve davetlerde estetik ve konfor
-                  odaklı düzen kurarken, fuar ve kurumsal etkinliklerde akış, giriş–çıkış
-                  ve markalama planını öne alırız.
+                  Her etkinliğin ihtiyacı farklıdır. Düğün ve davetlerde estetik ve konfor odaklı düzen kurarken, fuar ve kurumsal etkinliklerde akış, giriş–çıkış ve markalama planını öne alırız.
                 </p>
 
                 <div className="bg-blue-50 rounded-2xl p-5 mt-6 border border-blue-200">
@@ -1519,7 +1596,7 @@ function Articles() {
                   <ul className="text-gray-700 space-y-2 text-base">
                     <li>Düğün & özel davet — ışık & dekor entegrasyonu</li>
                     <li>Fuar & sergi — stand uyumu ve yönlendirme</li>
-                    <li>Kurumsal etkinlik — sahne/LED/teknik planlama</li>
+                    <li>Kurumsal etkinlik — iklimlendirme ve zemin planlama</li>
                   </ul>
                 </div>
               </div>
@@ -1531,70 +1608,65 @@ function Articles() {
   );
 }
 
-/* ================== SSS ================== */
-function FAQ() {
+/* ================== Fiyatlandırma ================== */
+function PricingSection() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section
+      id="fiyatlar"
+      className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
+      aria-labelledby="fiyatlar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2
-            id="sss-baslik"
+            id="fiyatlar-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Sık Sorulan{" "}
-            <span className="gradient-text gradient-text--safe-xl">Sorular</span>
+            2026 Çadır{" "}
+            <span className="gradient-text gradient-text--safe-xl">Kiralama</span>{" "}
+            Fiyatları
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Çadır kiralama hakkında merak edilen sorular ve cevapları
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Net ölçü bazlı fiyatlar ve büyük ölçekli çadır çözümleri için güncel metrekare bedelleri.
           </p>
         </div>
 
-        <div className="space-y-6">
-          {FAQ_ITEMS.map((faq, index) => (
-            <details
-              key={index}
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {PRICING_ITEMS.map((item, index) => (
+            <article
+              key={item.title}
+              id={`fiyat-${index + 1}`}
+              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
             >
-              <summary
-                className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                role="button"
+              <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+              <p className="text-2xl font-black text-blue-700">{item.price}</p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {item.description}
+              </p>
+              <Link
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.title} için WhatsApp üzerinden teklif alın`}
+                className="mt-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus-ring"
               >
-                <span className="pr-4">{faq.q}</span>
-                <span
-                  aria-hidden="true"
-                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
-                >
-                  ⌄
-                </span>
-              </summary>
-
-              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
-                {faq.a}
-              </div>
-            </details>
+                <span aria-hidden="true">💬</span>
+                WhatsApp’tan Teklif Al
+              </Link>
+            </article>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre kurulum detayları proje bazında netleştirilir. İstanbul içi nakliye 8.000–12.000 TL arası mesafeye göre değişmektedir; müşteri isterse kendi nakliyesini getirebilir.
           </p>
-          <Link
-            href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
-            role="button"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">
-              📚
-            </span>
-            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
-          </Link>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ================== JSON-LD (Çadır Kiralama) — FINAL SAFE ================== */
 function JsonLd() {
@@ -1609,7 +1681,6 @@ function JsonLd() {
     locale: "tr-TR",
   });
 
-  /* ================== OFFER CATALOG ================== */
   const offerCatalogId = `${pageUrl}#offer-catalog`;
 
   const offerCatalogNode = {
@@ -1647,8 +1718,6 @@ function JsonLd() {
         availability: "https://schema.org/InStock",
         description: "25 m² etkinlik ve davetler için pagoda çadır paketi. (Nakliye hariç)",
       },
-
-      /* ✅ m² bazlı fiyat */
       {
         "@type": "Offer",
         "@id": `${pageUrl}#offer-m2`,
@@ -1680,7 +1749,6 @@ function JsonLd() {
     ],
   };
 
-  /* ================== SERVICE ================== */
   const baseService = {
     "@type": "Service",
     name: "Çadır Kiralama",
@@ -1701,7 +1769,6 @@ function JsonLd() {
     provider,
   };
 
-  /* ================== WEBPAGE ================== */
   const webPageNode = {
     "@type": "WebPage",
     "@id": webPageId,
@@ -1720,7 +1787,6 @@ function JsonLd() {
     },
   };
 
-  /* ================== FAQ ================== */
   const faqNode = {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
@@ -1731,7 +1797,6 @@ function JsonLd() {
     })),
   };
 
-  /* ================== VIDEO ================== */
   const videoNodes = (VIDEO_EMBEDS || []).map((video) => ({
     "@type": "VideoObject",
     name: video.title,
@@ -1783,16 +1848,16 @@ export default function Page() {
       <JsonLd />
       <Hero />
       <TurnkeyInfrastructure />
+      <StatsBand />
       <Services />
-      <PricingSection />
-      <VideoEvidence />
       <Gallery />
+      <PricingSection />
       <Technical />
       <StandardsTable />
       <ChallengesSolutions />
       <InstallationProcess />
-      <StatsBand />
       <UseCases />
+      <RegionalService />
       <Articles />
       <FAQ />
       <RelatedServices />
