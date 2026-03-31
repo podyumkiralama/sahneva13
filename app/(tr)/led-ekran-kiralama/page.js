@@ -548,13 +548,13 @@ const VIDEO_GALLERY = [
   },
 ];
 
-/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO Sürümü) ================== */
+/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO + Video + Metin Linki) ================== */
 function Gallery() {
   const SUCCESS_STORIES = [
     {
-      title: "360° Senkronize Deneyim: Milli Uzay Programı Lansmanı", // Vurgulu Başlık
+      title: "360° Senkronize Deneyim: Milli Uzay Programı Lansmanı",
       category: "Devlet & Kamu Etkinliği",
-      transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.", // 1 Cümlelik Etki
+      transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
       before: "Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, 360° kavisli devasa bir görsel alana ihtiyaç duyulması.",
       after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
       result: "700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
@@ -597,7 +597,7 @@ function Gallery() {
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         
-        {/* Kısa Giriş Paragrafı ile Çerçeveleme */}
+        {/* 1. Kısa Giriş Paragrafı ile Çerçeveleme */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
@@ -607,7 +607,7 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Başarı Hikayeleri Grid */}
+        {/* 2. Başarı Hikayeleri Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {SUCCESS_STORIES.map((story, index) => (
             <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
@@ -619,10 +619,8 @@ function Gallery() {
                 </span>
               </div>
               
-              {/* Vurgulu Başlık */}
               <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">{story.title}</h3>
               
-              {/* Etkinlik Öncesi/Sonrası 1 Cümlelik Etki */}
               <p className="text-blue-700 font-semibold italic text-base mb-6 pb-6 border-b border-gray-100">
                 ✨ {story.transformation}
               </p>
@@ -642,7 +640,6 @@ function Gallery() {
                 </div>
               </div>
 
-              {/* Müşteri Geri Bildirimi */}
               <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
                 <div className="flex gap-3">
                   <MessageCircle className="text-blue-300 flex-shrink-0" size={32} />
@@ -656,7 +653,7 @@ function Gallery() {
           ))}
         </div>
 
-        {/* Görsel Galeri Alanı */}
+        {/* 3. Görsel Galeri Alanı */}
         <div className="text-center mb-10">
           <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
           <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel kurulum karelerimiz</p>
@@ -665,7 +662,48 @@ function Gallery() {
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
         </div>
 
-        {/* Galeriye Yönlendiren Net ve Açık Çağrı */}
+        {/* 4. Video Galerisi Alanı */}
+        <div className="mt-20 mb-10">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Video <span className="text-blue-700">Galerisi</span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Gerçek kurulumlarımızdan ve saha operasyonlarımızdan seçilmiş kısa videolar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {VIDEO_GALLERY.map((video) => (
+              <article
+                key={video.id}
+                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+                aria-labelledby={`video-${video.id}-title`}
+              >
+                <div className="relative w-full aspect-video bg-black">
+                  <VideoEmbed
+                    videoId={video.id}
+                    title={video.title}
+                    thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                  />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h4
+                    id={`video-${video.id}-title`}
+                    className="text-xl font-black text-gray-900 mb-3"
+                  >
+                    {video.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                    {video.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* 5. Galeriye Yönlendiren Net ve Açık Çağrı (Metin Linki SEO Optimizasyonlu) */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -674,10 +712,13 @@ function Gallery() {
             <h4 className="text-3xl md:text-4xl font-black text-white mb-6">
               Daha Fazla İlham Mı Arıyorsunuz?
             </h4>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Yüzlerce başarılı projemizin yer aldığı geniş galerimizi inceleyin, etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
+            
+            {/* Ahrefs/Google Botları için doğrudan HTML Metin Linki */}
+            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
             </p>
             
+            {/* Kullanıcılar İçin Etkileşimli Buton */}
             <Link
               href="/projeler"
               className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
