@@ -74,9 +74,9 @@ const PRICE_MULTIPLIERS = {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama: İç ve Dış Mekan Çözümleri",
+  title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
   description:
-    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık ve uzman kurulum hizmeti.",
+    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
   keywords:
     "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
@@ -233,94 +233,19 @@ const FAQ_ITEMS = [
     a: "Temel fark parlaklık ve dayanıklılıktır. İç mekan ekranlar 800-1500 nit parlaklık sunarken, dış mekan ekranlar güneş ışığında görünürlük için 5000-6500 nit parlaklığa ve IP65 su geçirmezlik korumasına sahiptir. Ayrıca dış mekan modellerinde piksel aralığı genellikle daha geniştir (P3.9, P4.8)."
   },
   {
-    q: "LED ekran kurulumu ne kadar sürer?",
-    a: "Standart bir 15-30 m² LED ekran kurulumu, teknik ekibimiz tarafından yaklaşık 2-4 saat içinde tamamlanır. Kurulum sonrasında renk kalibrasyonu ve görüntü testleri yapılarak sistem operatörümüze teslim edilir."
+    q: "Kadıköy, Şişli veya Beşiktaş gibi merkezi ilçelerde acil kurulum mümkün mü?",
+    a: "Evet, İstanbul içi operasyonlarımızda her iki yakadaki depolarımız sayesinde, acil taleplerde trafiğe takılmadan aynı gün veya birkaç saat içinde mobil ekiplerimizle hızlı kurulum yapabiliyoruz. Erken saatte mobilize olarak İstanbul trafiğini ekarte ediyoruz."
   },
   {
-    q: "Etkinliğim için hangi çözünürlüğü seçmeliyim?",
-    a: "Eğer izleyiciler ekrana 3 metreden daha yakınsa P2.5, 5 metre ve üzeri mesafelerde P2.9 veya P3.9 idealdir. Lansman ve sunum ağırlıklı projelerde yüksek piksel yoğunluğu (P2.5) metin okunabilirliği için kritiktir."
+    q: "Kocaeli, Bursa veya Tekirdağ gibi çevre iller için hafta sonu teknik destek ve nakliye ücreti nasıl hesaplanıyor?",
+    a: "Çevre illerdeki hafta sonu etkinlikleriniz için 7/24 kesintisiz destek sunuyoruz. Nakliye ve varsa personel konaklama maliyetlerini ilk teklifimizde tamamen şeffaf bir şekilde listeliyoruz; sonradan gizli ücret çıkarmıyoruz."
   },
   {
-    q: "İstanbul içinde hangi ilçelere LED ekran kurulumu yapıyorsunuz?",
-    a: "Avrupa yakasında Beylikdüzü'nden Beşiktaş'a, Anadolu yakasında Kadıköy'den Tuzla'ya kadar tüm ilçelere kendi araçlarımızla kurulum yapıyoruz. Beyoğlu, Şişli ve Ataşehir gibi merkezi noktalardaki otel ve kongre merkezlerine 2 saat içinde teknik ekip ulaştırabiliyoruz."
-  },
-  {
-    q: "İstanbul dışındaki çevre iller (Bursa, Kocaeli, Sakarya) için nakliye ücreti alınıyor mu?",
-    a: "Sahneva olarak Marmara Bölgesi'ndeki komşu illerimize (Kocaeli, Tekirdağ, Yalova, Bursa, Sakarya) lojistik operasyonlarımızı optimize ettik. Proje büyüklüğüne göre bu illerdeki nakliye maliyetlerini minimuma indiriyoruz veya tamamen ücretsiz sağlıyoruz."
+    q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
+    a: "Kesinlikle. Özellikle açık hava etkinliklerinde sürpriz yağışlara karşı %100 su ve toz geçirmez (IP65 standardında) dış mekan panelleri kurarak yayınınızı güvence altına alıyoruz."
   }
 ];
 
-/* ================== Galeri Verileri ================== */
-const GALLERY_IMAGES = [
-  { 
-    src: "/img/galeri/led-ekran-kiralama-1.webp", 
-    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-2.webp", 
-    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-4.webp",
-    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-5.webp", 
-    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-6.webp", 
-    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-7.webp", 
-    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş" 
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-8.webp",
-    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi" 
-  },
-];
-
-const VIDEO_GALLERY = [
-  {
-    id: "1R5Av0x5ouA",
-    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
-    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "JNzGlNzNRuk",
-    title: "LED Ekran Kurulum Süreci",
-    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "j1Tr5l8DVW8",
-    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
-    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
-    uploadDate: "2026-01-15T00:00:00+03:00",
-  },
-  {
-    id: "HNDZ-wYVKLw",
-    title: "LED Ekran Kurulum Detayları",
-    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "173gBurWSRQ",
-    title: "Etkinlik LED Ekran Örnekleri",
-    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-];
-
-
-/* ================== Sık Sorulan Sorular ================== */
 function FAQ() {
   return (
     <section className="py-20 bg-white" aria-labelledby="sss-baslik">
@@ -460,7 +385,7 @@ function Hero() {
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <div className="mb-2 text-blue-300"><Users size={24} aria-hidden="true" /></div>
-            <div className="text-xl font-black text-white">300+</div>
+            <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Proje</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -551,21 +476,90 @@ function Services() {
   );
 }
 
-/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO + Video + Metin Linki) ================== */
+/* ================== Galeri Verileri ================== */
+const GALLERY_IMAGES = [
+  { 
+    src: "/img/galeri/led-ekran-kiralama-1.webp", 
+    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-2.webp", 
+    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-3.webp",
+    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-4.webp",
+    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-5.webp", 
+    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-6.webp", 
+    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-7.webp", 
+    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş" 
+  },
+  { 
+    src: "/img/galeri/led-ekran-kiralama-8.webp",
+    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi" 
+  },
+];
+
+const VIDEO_GALLERY = [
+  {
+    id: "1R5Av0x5ouA",
+    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
+    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "JNzGlNzNRuk",
+    title: "LED Ekran Kurulum Süreci",
+    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "j1Tr5l8DVW8",
+    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
+    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
+    uploadDate: "2026-01-15T00:00:00+03:00",
+  },
+  {
+    id: "HNDZ-wYVKLw",
+    title: "LED Ekran Kurulum Detayları",
+    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "173gBurWSRQ",
+    title: "Etkinlik LED Ekran Örnekleri",
+    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+];
+
+/* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
- const SUCCESS_STORIES = [
+  const SUCCESS_STORIES = [
     {
-      title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı", // Ankara vurgusu
+      title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı",
       category: "Devlet & Kamu Etkinliği",
       transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
       before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
       after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
-      result: "700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
+      result: "2012'den bugüne edindiğimiz 10 yılı aşkın tecrübe ve 700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
       quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
       client: "Organizasyon Komitesi"
     },
     {
-      title: "Sarıyer Premium Açık Hava Kır Düğünü", // İstanbul ilçe vurgusu
+      title: "Sarıyer Premium Açık Hava Kır Düğünü",
       category: "Özel Davet & Düğün",
       transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
       before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
@@ -575,7 +569,7 @@ function Gallery() {
       client: "Gelin & Damat"
     },
     {
-      title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası", // Çevre il vurgusu
+      title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası",
       category: "Spor & Eğlence",
       transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
       before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
@@ -585,7 +579,7 @@ function Gallery() {
       client: "Etkinlik Koordinatörü"
     },
     {
-      title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box", // Fuar lokasyonu vurgusu
+      title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box",
       category: "Kurumsal Fuar",
       transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
       before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
@@ -600,7 +594,7 @@ function Gallery() {
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         
-        {/* Kısa Giriş Paragrafı ile Çerçeveleme */}
+        {/* Kısa Giriş Paragrafı */}
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
@@ -656,6 +650,30 @@ function Gallery() {
           ))}
         </div>
 
+        {/* SEO LİSTESİ: Kısa Okunabilir Uygulama Listesi */}
+        <div className="mb-16 bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
+          <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">Popüler Uygulama ve Kiralama Seçeneklerimiz</h3>
+          <p className="text-gray-600 mb-6">Bugüne kadar gerçekleştirdiğimiz bazı uygulama örnekleri ve popüler hizmetlerimiz:</p>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "İstanbul Led Ekran Kiralama",
+              "Büyük Led Ekran Kiralama",
+              "Organizasyonlar İçin Kiralık Led Ekranlar",
+              "Led Ekran, Ses ve Işık Sistemleri Kiralama",
+              "Geniş Led Ekran Kiralama",
+              "Kiralık Dev Led Ekran",
+              "Etkinlik Led Ekran Kiralama",
+              "Led Ekran Kiralama ve Kurulum",
+              "Kiralık Led Ekran ve Görüntü Sistemleri"
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-center gap-3 text-gray-800 font-semibold text-sm md:text-base">
+                <span className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Görsel Galeri Alanı */}
         <div className="text-center mb-10">
           <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
@@ -706,7 +724,7 @@ function Gallery() {
           </div>
         </div>
 
-        {/* Galeriye Yönlendiren Net ve Açık Çağrı (Metin Linki SEO Optimizasyonlu) */}
+        {/* YÖNLENDİRME METNİ VE BUTON */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -716,18 +734,16 @@ function Gallery() {
               Daha Fazla İlham Mı Arıyorsunuz?
             </h4>
             
-            {/* Ahrefs/Google Botları için doğrudan HTML Metin Linki */}
             <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
+              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
             </p>
             
-            {/* Kullanıcılar İçin Etkileşimli Buton */}
             <Link
               href="/projeler"
               className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
             >
               <Eye size={24} className="mr-3" aria-hidden="true" />
-              <span className="text-lg">Tüm Uygulama Galerisine Git</span>
+              <span className="text-lg">Tüm Resimleri Gör</span>
             </Link>
           </div>
         </div>
@@ -907,13 +923,13 @@ function Technical() {
   );
 }
 
-/* ================== İstatistik Bant (Kompakt) ================== */
+/* ================== İstatistik Bant (Güncellenmiş) ================== */
 function StatsBand() {
   const stats = [
-    { value: "300+", label: "Başarılı Proje" },
+    { value: "700+", label: "Başarılı Proje" },
     { value: "50+", label: "Kurumsal Müşteri" },
-    { value: "81 İL", label: "Kendi Araçlarımızla Hızlı Kurulum" },
-    { value: "5+", label: "Yıl Deneyim" },
+    { value: "81 İL", label: "Kendi Araçlarımızla Kurulum" },
+    { value: "10+", label: "Yıllık Deneyim" },
   ];
 
   return (
@@ -1040,7 +1056,7 @@ function WhySahneva() {
   );
 }
 
-/* ================== Kullanım Alanları (Final Patch) ================== */
+/* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
     <section id="kullanim-alanlari" className="py-20 bg-slate-950" aria-labelledby="kullanim-alanlari-baslik">
@@ -1079,43 +1095,43 @@ function UseCases() {
   );
 }
 
-/* ================== Bölgesel Hizmet Kapsamı (Geliştirilmiş Bölgesel SEO) ================== */
+/* ================== Bölgesel Hizmet Kapsamı ================== */
 function RegionalService() {
   const regions = [
     { 
       name: "İstanbul Avrupa Yakası", 
-      detail: "Fuar, lansman ve toplantılar için Şişli, Beşiktaş ve Beylikdüzü odaklı hızlı mobil ekiplerimizle sahadayız.",
-      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane, Şişli, Beşiktaş, Beylikdüzü, Çorlu"
+      detail: "Trafiğin yoğun olduğu Şişli, Beşiktaş ve fuar merkezi Beylikdüzü'nde erken saatte mobilize olan hızlı kurulum ekiplerimiz.",
+      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane, Şişli, Beşiktaş, Beylikdüzü"
     },
     { 
       name: "İstanbul Anadolu Yakası", 
-      detail: "Düğün, konser ve kurumsal etkinlikler için Kadıköy, Ataşehir ve Ümraniye depolarımızdan anlık sevkiyat.",
+      detail: "Kadıköy, Ataşehir ve Ümraniye depolarımızdan, köprü trafiğine takılmadan anlık sevkiyat ve aynı gün müdahale.",
       districts: "Kadıköy, Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy, Ataşehir"
     },
     { 
-      name: "Marmara, Çevre İller & Türkiye Geneli", 
-      detail: "Özel araç filomuzla çevre illere ve İç Anadolu'ya kadar profesyonel hizmet ulaştırıyoruz.",
-      districts: "Tekirdağ, Kırklareli, Edirne, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu ve Ankara"
+      name: "Marmara & Çevre İller", 
+      detail: "Özel araç filomuz ve konaklamalı teknik ekiplerimizle, Marmara'nın değişken hava şartlarına uygun IP65 dış mekan çözümleri.",
+      districts: "Tekirdağ, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu, Edirne"
     }
   ];
 
   return (
-    <section className="py-20 bg-white" aria-labelledby="bolgesel-hizmet-baslik">
+    <section className="py-20 bg-gray-50" aria-labelledby="bolgesel-hizmet-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
             İstanbul, Marmara ve Çevre İllerde <span className="text-blue-700">Lider Güç</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Başta İstanbul içi konser, düğün, mezuniyet, fuar ve lansman organizasyonları olmak üzere; çevre illerdeki tüm davet ve etkinliklerinize kendi araç filomuz ve uzman kadromuzla teknik destek sağlıyoruz.
+            Bölgenizin coğrafi ve lojistik dinamiklerini biliyoruz. İstanbul trafiğine özel erken kurulum stratejilerimiz ve çevre illere özel şeffaf nakliye çözümlerimizle etkinliklerinizi güvence altına alıyoruz.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Sol Taraf: Bölgesel Dağılım ve Hedef Kelimeler */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+          {/* Sol Taraf: Bölgesel Dağılım */}
           <div className="space-y-8">
             {regions.map((region) => (
-              <div key={region.name} className="group p-6 bg-gray-50 rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
+              <div key={region.name} className="group p-6 bg-white rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
                 <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
                 <p className="text-gray-700 mb-3">{region.detail}</p>
                 <div className="text-sm font-semibold text-blue-800 bg-blue-100/50 p-3 rounded-xl border border-blue-100">
@@ -1125,51 +1141,96 @@ function RegionalService() {
             ))}
           </div>
 
-          {/* Sağ Taraf: Operasyonel Güvence ve Lojistik Fiyatlandırma (Rakibi Alt Eden Kısım) */}
+          {/* Sağ Taraf: Operasyonel Güvence */}
           <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
             
             <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
-              <Shield size={28} /> Operasyonel Güvence & Lojistik
+              <Shield size={28} /> Operasyonel Avantajlarımız
             </h3>
             
             <div className="space-y-8 relative z-10">
               <div className="flex gap-4">
-                <div className="bg-red-500/20 p-3 rounded-xl h-fit"><CheckCircle className="text-red-400" /></div>
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg text-red-300">Açık Alanda "Kötü Sürprizlere" Son</h4>
+                  <h4 className="font-bold text-lg">Trafik ve Zaman Yönetimi</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    Bazı firmalar dış mekan etkinliklerinde gerekli hassasiyeti göstermeyerek sizi riskle baş başa bırakır. Sahneva olarak <strong>%100 dış mekan (outdoor) uyumlu, IP65 su geçirmez</strong> sistemler kuruyor; yağmur ve güneş altında kusursuz yayın garantisi veriyoruz.
+                    Megakent İstanbul'un trafiğine karşı etkinlikten saatler önce alana giriyoruz. Asya ve Avrupa yakasındaki bağımsız ekiplerimizle gecikme riskini sıfırlıyoruz.
                   </p>
                 </div>
               </div>
               
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" /></div>
+                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Şeffaf Nakliye ve Fiyatlandırma</h4>
+                  <h4 className="font-bold text-lg">Hava Şartlarına Tam Uyum</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    İstanbul içi projelerde lojistik maliyetlerini minimize ederken; <strong>Bursa, İzmit, Ankara, Düzce, Tekirdağ</strong> gibi çevre illere yapılan operasyonlarda nakliye ve personel konaklama detaylarını ilk teklifte şeffafça sunuyoruz. Gizli maliyet çıkarmiyoruz.
+                    Marmara'nın değişken havasına karşı, özellikle açık hava etkinliklerinde %100 IP65 su ve toz geçirmez dış mekan panelleriyle yayını güvenceye alıyoruz.
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-4">
-                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" /></div>
+                <div className="bg-orange-500/20 p-3 rounded-xl h-fit"><Users className="text-orange-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Trafik & Ulaşım Avantajı</h4>
+                  <h4 className="font-bold text-lg">Şeffaf Çevre İl Lojistiği</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    İstanbul'un iki yakasında konumlanmış ekiplerimiz sayesinde, Kadıköy'deki bir konser ile Beylikdüzü'ndeki bir fuar kurulumuna aynı hızda, trafik engeline takılmadan ulaşıyoruz.
+                    Bursa, Tekirdağ, Kocaeli gibi illere giden konaklamalı teknik ekiplerimiz için nakliye ve ulaşım bedelleri ilk teklifte sabittir. Gizli maliyet çıkmaz.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Lojistik ve Fiyatlandırma Karşılaştırma Tablosu */}
+        <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
+          <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-black text-gray-900">Bölgesel Lojistik ve Operasyon Karşılaştırması</h3>
+              <p className="text-gray-600 mt-2 text-lg">İstanbul içi ve çevre illerdeki hizmet standartlarımızın şeffaf dökümü.</p>
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead>
+                <tr>
+                  <th className="px-8 py-6 font-black text-gray-900 w-1/4 bg-gray-50 border-b-2 border-gray-200">Hizmet Kriteri</th>
+                  <th className="px-8 py-6 font-black text-blue-800 w-3/8 bg-blue-50 border-b-2 border-blue-200">İstanbul İçi (Avrupa & Anadolu)</th>
+                  <th className="px-8 py-6 font-black text-green-800 w-3/8 bg-green-50 border-b-2 border-green-200">Çevre İller (Marmara Bölgesi)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Müdahale & Kurulum</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Acil durumlarda aynı gün 2-4 saatte hızlı kurulum</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum</td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Nakliye Ücretlendirmesi</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Çoğu merkezi ilçede fiyata dahil / Ücretsiz nakliye</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Kilometre bazlı şeffaf, indirimli ve sabit fiyat garantisi</td>
+                </tr>
+                <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Teknik Ekip & Konaklama</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek, konaklama ücreti yok</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Projeye tahsisli, konaklamalı tam zamanlı operatör desteği</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-8 py-5 font-bold text-gray-800">Operasyonel Çözüm</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Trafik yoğunluğuna karşı sabah erken saatte sevkiyat</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Değişken hava şartlarına özel IP65 korumalı donanım</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
+
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
@@ -1243,7 +1304,7 @@ function Articles() {
                 <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
-                  tercih edilerek daha net ve dengeli görüntü elde edilir.
+                  terci edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
               
@@ -1447,7 +1508,7 @@ function CTA() {
   );
 }
 
-/* ================== JSON-LD (LED Ekran Kiralama) — FINAL ================== */
+/* ================== JSON-LD (LED Ekran Kiralama) ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
   const pageDescription = metadata.description;
