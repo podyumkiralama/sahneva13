@@ -183,43 +183,43 @@ const SERVICES = [
 const USE_CASES = [
   {
     Icon: Music,
-    text: "Konser, Festival ve Sahne Performansları",
-    desc: "Devasa LED duvarlar ve yan ekranlar ile canlı performansı en arka sıradaki izleyiciye bile yüksek netlikte ulaştırıyoruz."
+    title: "Konser ve Festival Alanları",
+    desc: "Devasa LED duvarlar ile canlı performansı en arka sıradaki izleyiciye bile yüksek netlikte ulaştırıyoruz."
   },
   {
     Icon: Briefcase,
-    text: "Kurumsal Lansman ve Toplantılar",
-    desc: "Ürün tanıtımları ve vizyon sunumları için P2.5 ultra yüksek çözünürlükle markanızın prestijini en üst seviyeye taşıyoruz."
+    title: "Ürün Lansmanları ve Kurumsal Toplantılar",
+    desc: "P2.5 ultra yüksek çözünürlükle sunumlarınızda ve marka tanıtımlarınızda maksimum prestij sağlıyoruz."
   },
   {
     Icon: Tent,
-    text: "Fuar, Sergi ve Stand Organizasyonları",
-    desc: "Modüler yapımızla stand alanınıza özel kreatif ekran tasarımları oluşturarak ziyaretçi trafiğini ve marka etkileşiminizi artırıyoruz."
-  },
-  {
-    Icon: Activity,
-    text: "Spor Organizasyonları ve Stadyumlar",
-    desc: "Canlı skor entegrasyonu, anlık tekrar (re-play) ve reklam alanları ile spor heyecanını dev ekranlara yansıtıyoruz."
-  },
-  {
-    Icon: Camera,
-    text: "Düğün, Nişan ve Özel Davetler",
-    desc: "Hayatınızın en özel anlarını canlı yayın, anı videoları ve estetik görsel şovlar ile unutulmaz bir prodüksiyona dönüştürüyoruz."
-  },
-  {
-    Icon: Users, // Yeni eklendi
-    text: "Belediye ve Kamu Etkinlikleri",
-    desc: "Milli bayramlar, mitingler ve halk konserlerinde IP65 dış mekan ekranlarımızla binlerce kişiye kesintisiz bilgi ve görüntü aktarımı sağlıyoruz."
+    title: "Fuar ve Stand Organizasyonları",
+    desc: "Kreatif ekran tasarımlarıyla stand alanınızda ziyaretçi trafiğini ve etkileşimi artırıyoruz."
   },
   {
     Icon: Tv,
-    text: "Açık Hava Reklamcılığı ve Digital Signage",
-    desc: "Yüksek trafikli alanlarda güneş ışığı altında bile net görünen ekranlarımızla geniş kitlelere 7/24 ulaşım sağlıyoruz."
+    title: "Açık Hava Reklamcılığı",
+    desc: "Şehir meydanlarında ve AVM önlerinde, gün ışığında bile net görünen ekranlarla büyük kitlelere ulaşıyoruz."
   },
   {
-    Icon: Headphones, // Reji vurgusu için
-    text: "Canlı Yayın ve TV Stüdyo Uygulamaları",
-    desc: "3840Hz yenileme hızı sayesinde kameralarda titreme (flicker) yapmayan, stüdyo kalitesinde arka plan çözümleri sunuyoruz."
+    Icon: Users,
+    title: "Belediye ve Kamu Etkinlikleri",
+    desc: "Milli bayramlar, törenler ve kutlamalarda IP65 dış mekan ekranlarımızla güvenilir görsel çözüm sunuyoruz."
+  },
+  {
+    Icon: Camera,
+    title: "Düğün, Nişan ve Özel Davetler",
+    desc: "Hayatınızın en özel anlarını canlı yayın ve estetik görsel şovlar ile unutulmaz bir prodüksiyona dönüştürüyoruz."
+  },
+  {
+    Icon: Activity,
+    title: "Spor Organizasyonları",
+    desc: "Stadyumlarda anlık skorboard entegrasyonu ve reklam alanları ile spor heyecanını dev ekranlara taşıyoruz."
+  },
+  {
+    Icon: Headphones,
+    title: "Canlı Yayın ve Stüdyo Uygulamaları",
+    desc: "3840Hz yenileme hızı sayesinde kameralarda titreme yapmayan, profesyonel arka plan çözümleri sağlıyoruz."
   }
 ];
 
@@ -923,38 +923,38 @@ function WhySahneva() {
   );
 }
 
-/* ================== Kullanım Alanları ================== */
+/* ================== Kullanım Alanları (Final Patch) ================== */
 function UseCases() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="kullanim-alanlari-baslik">
+    <section id="kullanim-alanlari" className="py-20 bg-slate-950" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-blue-300">Alanları</span>
+            LED Ekran <span className="text-blue-400">Kullanım Alanları</span>
           </h2>
-          <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
-            Sektör bağımsız, her türlü organizasyon için özelleştirilebilir LED ekran teknolojileri sunuyoruz.
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            Sektörel ihtiyaçlara özel, yüksek performanslı dijital görüntüleme çözümleri.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto" role="list">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
           {USE_CASES.map((uc) => (
-            <div
-              key={uc.text}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 hover:border-white/50 transition-all duration-500 group flex flex-col h-full"
+            <article
+              key={uc.title}
+              className="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
               role="listitem"
             >
-              <div className="text-white bg-blue-600/30 rounded-2xl p-4 w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
-                <uc.Icon size={24} aria-hidden="true" />
+              <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform">
+                <uc.Icon size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-white font-bold text-xl mb-3 group-hover:text-blue-300 transition-colors">
-                {uc.text}
+              <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
+                {uc.title}
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-white/60 text-sm leading-relaxed border-t border-white/10 pt-3">
                 {uc.desc}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
