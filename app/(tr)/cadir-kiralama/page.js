@@ -118,21 +118,6 @@ export const metadata = {
   },
 };
 
-export function Head() {
-  return (
-    <>
-      <link
-        rel="preload"
-        as="image"
-        href="/img/cadir/hero.webp"
-        fetchPriority="high"
-        type="image/webp"
-        imageSizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
-      />
-    </>
-  );
-}
-
 /* ================== Yardımcılar & Sabitler ================== */
 const slugify = (s) =>
   s
@@ -259,7 +244,7 @@ const CHALLENGES = [
   {
     title: "İklimlendirme ve Havalandırma",
     description:
-      "Açık alandaki zorlu hava şartlarına karşı, çadır içini dev sanyal klimalar veya endüstriyel ısıtıcılarla tamamen izole ediyoruz.",
+      "Açık alandaki zorlu hava şartlarına karşı, çadır içini dev salon tipi klimalar veya endüstriyel ısıtıcılarla tamamen izole ediyoruz.",
   },
   {
     title: "Güvenli Zemin ve Ankraj",
@@ -347,8 +332,6 @@ function Hero() {
           alt={HERO.alt}
           fill
           priority
-          loading="eager"
-          fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
           quality={85}
@@ -400,7 +383,7 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400 shadow-lg"
           >
             <span aria-hidden="true" className="text-xl mr-2">💬</span>
             <span className="text-base">Hemen Teklif Al</span>
@@ -409,7 +392,7 @@ function Hero() {
           <Link
             href="#hizmetler"
             aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
           >
             <span aria-hidden="true" className="text-xl mr-2">🎯</span>
             <span className="text-base">Hizmetlerimiz</span>
@@ -488,7 +471,7 @@ function TurnkeyInfrastructure() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-bold text-white hover:scale-105 transition-transform duration-300 focus-ring"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-bold text-white hover:scale-105 transition-transform duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
               >
                 Operasyon Planı İsteyin
               </Link>
@@ -573,7 +556,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Detaylı Teklif için İletişime Geçin</span>
@@ -781,7 +764,7 @@ function Gallery() {
             {/* Kullanıcılar İçin Etkileşimli Buton */}
             <Link
               href="/projeler"
-              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus-ring"
+              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
             >
               <Eye size={24} className="mr-3" aria-hidden="true" />
               <span className="text-lg">Tüm Resimleri Gör</span>
@@ -1029,7 +1012,7 @@ function InstallationProcess() {
 function StatsBand() {
   const stats = [
     { value: "700+", label: "Başarılı Etkinlik", icon: "🎪" },
-    { value: "40+", label: "Kurumsal Müşteri", icon: "🏢" },
+    { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "81 İL", label: "Kendi Araçlarımızla Kurulum", icon: "🗺️" },
     { value: "10+", label: "Yıllık Deneyim", icon: "⭐" },
   ];
@@ -1136,7 +1119,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
@@ -1608,67 +1591,70 @@ function Articles() {
   );
 }
 
-/* ================== Fiyatlandırma ================== */
-function PricingSection() {
+/* ================== SSS ================== */
+function FAQ() {
   return (
-    <section
-      id="fiyatlar"
-      className="py-20 bg-gradient-to-b from-blue-50/60 to-white"
-      aria-labelledby="fiyatlar-baslik"
-    >
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+      <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2
-            id="fiyatlar-baslik"
+            id="sss-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            2026 Çadır{" "}
-            <span className="gradient-text gradient-text--safe-xl">Kiralama</span>{" "}
-            Fiyatları
+            Sık Sorulan{" "}
+            <span className="gradient-text gradient-text--safe-xl">Sorular</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Net ölçü bazlı fiyatlar ve büyük ölçekli çadır çözümleri için güncel metrekare bedelleri.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Çadır kiralama hakkında merak edilen sorular ve cevapları
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRICING_ITEMS.map((item, index) => (
-            <article
-              key={item.title}
-              id={`fiyat-${index + 1}`}
-              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col gap-4 hover:shadow-2xl transition-all duration-500"
+        <div className="space-y-6">
+          {FAQ_ITEMS.map((faq, index) => (
+            <details
+              key={index}
+              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
             >
-              <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
-              <p className="text-2xl font-black text-blue-700">{item.price}</p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {item.description}
-              </p>
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${item.title} için WhatsApp üzerinden teklif alın`}
-                className="mt-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus-ring"
+              <summary
+                className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
+                role="button"
               >
-                <span aria-hidden="true">💬</span>
-                WhatsApp’tan Teklif Al
-              </Link>
-            </article>
+                <span className="pr-4">{faq.q}</span>
+                <span
+                  aria-hidden="true"
+                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                >
+                  ⌄
+                </span>
+              </summary>
+
+              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                {faq.a}
+              </div>
+            </details>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500">
-            Fiyatlara KDV dahil değildir. Nakliye ve saha koşullarına göre kurulum detayları proje bazında netleştirilir. İstanbul içi nakliye 8.000–12.000 TL arası mesafeye göre değişmektedir; müşteri isterse kendi nakliyesini getirebilir.
+        <div className="text-center mt-12">
+          <p className="text-gray-600 text-lg mb-6">
+            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
           </p>
+          <Link
+            href="/sss"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
+            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-3">📚</span>
+            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
+          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-
-/* ================== JSON-LD (Çadır Kiralama) — FINAL SAFE ================== */
+/* ================== JSON-LD (Çadır Kiralama) — SSR SAFE ================== */
 function JsonLd() {
   const pageUrl = `${ORIGIN}/cadir-kiralama`;
   const pageDescription = metadata?.description || "";
@@ -1676,10 +1662,16 @@ function JsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  const { service: serviceSchema, products } = buildServiceProductSchema({
+  /* ÖNEMLİ DÜZELTME: Destructuring yaparken `buildServiceProductSchema` undefined dönerse 
+   sunucunun çökmemesi (SSR Crash Error) için güvenli bir boş obje ({}) oluşturuyoruz. 
+  */
+  const schemaResult = buildServiceProductSchema({
     slug: "/cadir-kiralama",
     locale: "tr-TR",
-  });
+  }) || {};
+  
+  const serviceSchema = schemaResult.service || {};
+  const productNodes = schemaResult.products || [];
 
   const offerCatalogId = `${pageUrl}#offer-catalog`;
 
@@ -1762,10 +1754,10 @@ function JsonLd() {
   };
 
   const serviceNode = {
-    ...(serviceSchema || {}),
+    ...serviceSchema,
     ...baseService,
     "@type": "Service",
-    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
+    "@id": serviceSchema["@id"] || `${pageUrl}#service`,
     provider,
   };
 
@@ -1806,8 +1798,6 @@ function JsonLd() {
     embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
   }));
-
-  const productNodes = products ?? [];
 
   const jsonLd = {
     "@context": "https://schema.org",
