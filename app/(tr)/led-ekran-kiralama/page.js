@@ -553,42 +553,42 @@ function Services() {
 
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri (Final SEO + Video + Metin Linki) ================== */
 function Gallery() {
-  const SUCCESS_STORIES = [
+ const SUCCESS_STORIES = [
     {
-      title: "360° Senkronize Deneyim: Milli Uzay Programı Lansmanı",
+      title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı", // Ankara vurgusu
       category: "Devlet & Kamu Etkinliği",
       transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
-      before: "Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, 360° kavisli devasa bir görsel alana ihtiyaç duyulması.",
+      before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
       after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
       result: "700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
       quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
       client: "Organizasyon Komitesi"
     },
     {
-      title: "Güneş Altında Kusursuz Görüntü: Premium Açık Hava Düğünü",
+      title: "Sarıyer Premium Açık Hava Kır Düğünü", // İstanbul ilçe vurgusu
       category: "Özel Davet & Düğün",
       transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
-      before: "Gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle sahnede gösterilen anı videolarının görünmeme riski.",
+      before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
       after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
       result: "Arka sıralardaki misafirler dahil herkes canlı yayın bağlantılarını sinema kalitesinde izledi.",
       quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
       client: "Gelin & Damat"
     },
     {
-      title: "Titreşimsiz Akıcı Yayın: AVM İçi E-Spor Turnuvası",
+      title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası", // Çevre il vurgusu
       category: "Spor & Eğlence",
       transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
-      before: "Dar bir kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
+      before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
       after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
       result: "Katılımcılar oyun heyecanını dev ekranda anlık yaşadı, AVM'nin o bölgesindeki etkinlik trafiği %40 arttı.",
       quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
       client: "Etkinlik Koordinatörü"
     },
     {
-      title: "Havada Asılı LED Box ile Fuar Standında Maksimum İlgi",
+      title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box", // Fuar lokasyonu vurgusu
       category: "Kurumsal Fuar",
       transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
-      before: "Yüzlerce standın olduğu alanda markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
+      before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
       after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
       result: "Standın görünürlüğü tüm holde sağlandı, ziyaretçi etkileşimi önceki yıla oranla ciddi ölçüde arttı.",
       quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
@@ -1079,73 +1079,88 @@ function UseCases() {
   );
 }
 
-/* ================== Bölgesel Hizmet Kapsamı (Geliştirilmiş) ================== */
+/* ================== Bölgesel Hizmet Kapsamı (Geliştirilmiş Bölgesel SEO) ================== */
 function RegionalService() {
   const regions = [
     { 
       name: "İstanbul Avrupa Yakası", 
-      detail: "Beylikdüzü, Bakırköy, Şişli ve Beşiktaş odaklı hızlı mobil ekipler.",
-      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane"
+      detail: "Fuar, lansman ve toplantılar için Şişli, Beşiktaş ve Beylikdüzü odaklı hızlı mobil ekiplerimizle sahadayız.",
+      districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane, Şişli, Beşiktaş, Beylikdüzü, Çorlu"
     },
     { 
       name: "İstanbul Anadolu Yakası", 
-      detail: "Kadıköy, Ataşehir ve Ümraniye depolarımızla anlık sevkiyat.",
-      districts: "Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy"
+      detail: "Düğün, konser ve kurumsal etkinlikler için Kadıköy, Ataşehir ve Ümraniye depolarımızdan anlık sevkiyat.",
+      districts: "Kadıköy, Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy, Ataşehir"
     },
     { 
-      name: "Marmara & Çevre İller", 
-      detail: "Kocaeli, Bursa, Tekirdağ ve Sakarya'ya özel lojistik ağımız.",
-      districts: "Yalova, Edirne, Balıkesir, Bilecik"
+      name: "Marmara, Çevre İller & Türkiye Geneli", 
+      detail: "Özel araç filomuzla çevre illere ve İç Anadolu'ya kadar profesyonel hizmet ulaştırıyoruz.",
+      districts: "Tekirdağ, Kırklareli, Edirne, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu ve Ankara"
     }
   ];
 
   return (
     <section className="py-20 bg-white" aria-labelledby="bolgesel-hizmet-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            İstanbul, Marmara ve Çevre İllerde <span className="text-blue-700">Lider Güç</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Başta İstanbul içi konser, düğün, mezuniyet, fuar ve lansman organizasyonları olmak üzere; çevre illerdeki tüm davet ve etkinliklerinize kendi araç filomuz ve uzman kadromuzla teknik destek sağlıyoruz.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              İstanbul ve Marmara'da <span className="text-blue-700">Yerel Güç</span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Etkinliğiniz nerede olursa olsun, trafik ve mesafe engeline takılmadan profesyonel LED ekran kurulumu sağlıyoruz.
-            </p>
-            
-            <div className="space-y-8">
-              {regions.map((region) => (
-                <div key={region.name} className="group p-6 bg-gray-50 rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors">
-                  <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
-                  <p className="text-gray-700 mb-3">{region.detail}</p>
-                  <div className="text-sm text-gray-500 italic">Hizmet Alanı: {region.districts}</div>
+          {/* Sol Taraf: Bölgesel Dağılım ve Hedef Kelimeler */}
+          <div className="space-y-8">
+            {regions.map((region) => (
+              <div key={region.name} className="group p-6 bg-gray-50 rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
+                <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
+                <p className="text-gray-700 mb-3">{region.detail}</p>
+                <div className="text-sm font-semibold text-blue-800 bg-blue-100/50 p-3 rounded-xl border border-blue-100">
+                  📍 Kapsam: {region.districts}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl">
-            <h3 className="text-2xl font-black mb-6 flex items-center gap-3 text-blue-400">
-              <Truck size={28} /> Yerel Avantajlarımız
+          {/* Sağ Taraf: Operasyonel Güvence ve Lojistik Fiyatlandırma (Rakibi Alt Eden Kısım) */}
+          <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
+            
+            <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
+              <Shield size={28} /> Operasyonel Güvence & Lojistik
             </h3>
-            <div className="space-y-6">
+            
+            <div className="space-y-8 relative z-10">
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Zap className="text-blue-400" /></div>
+                <div className="bg-red-500/20 p-3 rounded-xl h-fit"><CheckCircle className="text-red-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Trafik & Ulaşım Kolaylığı</h4>
-                  <p className="text-white/70 text-sm">İki yakadaki depo noktalarımız sayesinde İstanbul trafiğinde zaman kaybetmiyoruz.</p>
+                  <h4 className="font-bold text-lg text-red-300">Açık Alanda "Kötü Sürprizlere" Son</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    Bazı firmalar dış mekan etkinliklerinde gerekli hassasiyeti göstermeyerek sizi riskle baş başa bırakır. Sahneva olarak <strong>%100 dış mekan (outdoor) uyumlu, IP65 su geçirmez</strong> sistemler kuruyor; yağmur ve güneş altında kusursuz yayın garantisi veriyoruz.
+                  </p>
                 </div>
               </div>
+              
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Settings className="text-blue-400" /></div>
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Yerinde Hızlı Müdahale</h4>
-                  <p className="text-white/70 text-sm">Etkinlik süresince bölgede hazır bekleyen teknik ekiplerimizle anlık destek sağlıyoruz.</p>
+                  <h4 className="font-bold text-lg">Şeffaf Nakliye ve Fiyatlandırma</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    İstanbul içi projelerde lojistik maliyetlerini minimize ederken; <strong>Bursa, İzmit, Ankara, Düzce, Tekirdağ</strong> gibi çevre illere yapılan operasyonlarda nakliye ve personel konaklama detaylarını ilk teklifte şeffafça sunuyoruz. Gizli maliyet çıkarmiyoruz.
+                  </p>
                 </div>
               </div>
+
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><RotateCcw className="text-blue-400" /></div>
+                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Bölgesel Lojistik Ağı</h4>
-                  <p className="text-white/70 text-sm">Kocaeli, Bursa ve Tekirdağ gibi çevre illere özel araçlarımızla indirimli nakliye imkanı.</p>
+                  <h4 className="font-bold text-lg">Trafik & Ulaşım Avantajı</h4>
+                  <p className="text-white/80 text-sm mt-1 leading-relaxed">
+                    İstanbul'un iki yakasında konumlanmış ekiplerimiz sayesinde, Kadıköy'deki bir konser ile Beylikdüzü'ndeki bir fuar kurulumuna aynı hızda, trafik engeline takılmadan ulaşıyoruz.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1155,7 +1170,6 @@ function RegionalService() {
     </section>
   );
 }
-
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
