@@ -7,16 +7,20 @@ import Image from "next/image";
 import NavbarMobile from "@/components/NavbarMobile.client";
 import NavbarSearchDropdown from "@/components/NavbarSearchDropdown.client";
 import ServicesDropdownBehavior from "@/components/ServicesDropdownBehavior.client";
+import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
 const FOCUS_RING_CLASS =
   "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
 
-const NAVBAR_WHATSAPP_MESSAGE = encodeURIComponent(
+const TR_WHATSAPP_MESSAGE = encodeURIComponent(
   "Merhaba, Sahneva ile etkinlik ekipmanları için teklif ve destek almak istiyorum.",
+);
+const EN_WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hello, I would like to get a quote and support for event equipment from Sahneva.",
 );
 
 // Keep the same data so existing text/SEO stays consistent.
-const SERVICE_LINKS = [
+const TR_SERVICE_LINKS = [
   {
     href: "/podyum-kiralama",
     label: "Podyum Kiralama",
@@ -67,7 +71,7 @@ const SERVICE_LINKS = [
   },
 ];
 
-const RESEARCH_LINKS = [
+const TR_RESEARCH_LINKS = [
   {
     href: "/iletisim",
     label: "İletişim",
@@ -107,8 +111,40 @@ function DesktopNavLink({ href, children }) {
   );
 }
 
-export default function Navbar(props) {
-  const whatsappHref = `https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`;
+export default function Navbar({ locale = "tr", ...props }) {
+  const isEn = locale === "en";
+  const navContent = isEn ? LOCALE_CONTENT.en.navbar : null;
+
+  const SERVICE_LINKS = isEn
+    ? (navContent?.serviceLinks ?? LOCALE_CONTENT.en.navbar.serviceLinks)
+    : TR_SERVICE_LINKS;
+
+  const RESEARCH_LINKS = isEn
+    ? (navContent?.researchLinks ?? LOCALE_CONTENT.en.navbar.researchLinks)
+    : TR_RESEARCH_LINKS;
+
+  const whatsappMessage = isEn ? EN_WHATSAPP_MESSAGE : TR_WHATSAPP_MESSAGE;
+  const whatsappHref = `https://wa.me/905453048671?text=${whatsappMessage}&utm_source=navbar&utm_medium=desktop_whatsapp`;
+
+  const homeHref = isEn ? "/en" : "/";
+  const aboutHref = isEn ? "/en/about" : "/hakkimizda";
+  const blogHref = isEn ? "/en/blog" : "/blog";
+  const servicesHref = isEn ? "/en/services" : "/hizmetler";
+
+  const aboutLabel = isEn ? "About Us" : "Hakkımızda";
+  const blogLabel = isEn ? "Blog" : "Blog";
+  const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
+  const exploreLabel = isEn ? "Explore Us" : "Bizi Araştırın";
+  const exploreSubtitle = isEn ? "Process, contact and information pages" : "Süreç, iletişim ve bilgi sayfaları";
+  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
+  const viewAllLabel = isEn ? "View All Services" : "Tümünü gör";
+  const whatsappLabel = isEn ? "WhatsApp Support" : "WhatsApp Destek";
+  const logoAriaLabel = isEn ? "Sahneva - Home" : "Sahneva - Ana Sayfa";
+  const megaBadge = isEn ? "Sahneva" : "Sahneva Organizasyon";
+  const megaTitle = isEn ? "Services" : "Hizmetler";
+  const megaImageAlt = isEn
+    ? "Sahneva services: stage, podium, LED screen, sound-light and more"
+    : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
 
   return (
     <>
@@ -126,9 +162,9 @@ export default function Navbar(props) {
         <div className="container">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
-              href="/"
+              href={homeHref}
               className={`flex items-center gap-3 group ${FOCUS_RING_CLASS}`}
-              aria-label="Sahneva - Ana Sayfa"
+              aria-label={logoAriaLabel}
             >
               <Image
                 src="/img/logo.webp"
@@ -144,8 +180,8 @@ export default function Navbar(props) {
 
             {/* Desktop */}
             <div className="hidden lg:flex items-center gap-4">
-              <DesktopNavLink href="/hakkimizda">Hakkımızda</DesktopNavLink>
-              <DesktopNavLink href="/blog">Blog</DesktopNavLink>
+              <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>
+              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
 
               {/* Services: native <details> => low JS */}
               <details
@@ -160,7 +196,7 @@ export default function Navbar(props) {
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
-                    Hizmetler
+                    {servicesDropdownLabel}
                     <svg
                       className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
@@ -189,13 +225,13 @@ export default function Navbar(props) {
                     <div className="rounded-3xl border border-neutral-200 bg-white shadow-2xl overflow-hidden">
                       <div className="grid gap-6 p-6 lg:grid-cols-[360px_1fr] items-stretch">
                         <Link
-                          href="/hizmetler"
+                          href={servicesHref}
                           className={`group relative overflow-hidden rounded-2xl border border-neutral-200 ${FOCUS_RING_CLASS}`}
                         >
                           <div className="relative min-h-[360px] h-full bg-[#0B1120]">
                             <Image
                               src="/img/nav/hizmetler-mega.webp"
-                              alt="Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası"
+                              alt={megaImageAlt}
                               fill
                               sizes="(max-width: 1024px) 100vw, 360px"
                               className="object-cover object-center"
@@ -209,16 +245,16 @@ export default function Navbar(props) {
 
                             <div className="relative z-10 p-5">
                               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white ring-1 ring-white/20">
-                                Sahneva Organizasyon
+                                {megaBadge}
                               </div>
                               <div className="mt-3 text-3xl font-black tracking-tight text-white">
-                                Hizmetler
+                                {megaTitle}
                               </div>
                               <p className="mt-2 text-sm font-medium text-white/85">
-                                Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.
+                                {servicesSubtitle}
                               </p>
                               <div className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-white">
-                                Tümünü gör <span aria-hidden="true">›</span>
+                                {viewAllLabel} <span aria-hidden="true">›</span>
                               </div>
                             </div>
                           </div>
@@ -273,7 +309,7 @@ export default function Navbar(props) {
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
-                    Bizi Araştırın
+                    {exploreLabel}
                     <svg
                       className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
@@ -304,10 +340,10 @@ export default function Navbar(props) {
                         id="nav-research-title"
                         className="text-base font-extrabold text-neutral-900"
                       >
-                        Bizi Araştırın
+                        {exploreLabel}
                       </div>
                       <p className="mt-1 text-xs font-medium text-neutral-600">
-                        Süreç, iletişim ve bilgi sayfaları
+                        {exploreSubtitle}
                       </p>
                     </div>
 
@@ -353,7 +389,7 @@ export default function Navbar(props) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp Destek – yeni sekmede açılır"
+                aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
                 className={`ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-white text-sm font-bold
                   bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
                   transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105
@@ -362,7 +398,7 @@ export default function Navbar(props) {
                 <span aria-hidden="true" className="text-base">
                   💬
                 </span>
-                <span>WhatsApp Destek</span>
+                <span>{whatsappLabel}</span>
               </a>
             </div>
 
