@@ -175,6 +175,21 @@ const nextConfig = {
       },
       { source: "/faq", destination: "/en/faq", permanent: true },
       { source: "/faq/", destination: "/en/faq", permanent: true },
+      {
+        source: "/blog/2026-cadir-kiralama-rehberi-organizasyon-icin-secenekler",
+        destination: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/ses-sistemlerinde-2026-yenilikleri-mikrofon-ve-line-array",
+        destination: "/blog/ses-sistemlerinde-2026-yenilikleri-trendler",
+        permanent: true,
+      },
+      {
+        source: "/blog/2026-led-ekran-trendleri-cob-ve-sahne-tasarimi",
+        destination: "/blog/led-ekran-teknoloji-trendleri-2026",
+        permanent: true,
+      },
     ];
   },
 
