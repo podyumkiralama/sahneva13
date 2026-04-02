@@ -639,7 +639,7 @@ export const metadata = {
     title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye | Sahneva",
     description:
       "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation for corporate events, concerts and public activations across Türkiye.",
-    url: buildCanonical("/en"),
+    url: EN_HOME_URL,
     type: "website",
     locale: "en_US",
     siteName: "Sahneva",
