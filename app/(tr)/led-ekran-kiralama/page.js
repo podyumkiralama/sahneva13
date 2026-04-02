@@ -1331,6 +1331,17 @@ function Articles() {
                 ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
               </p>
 
+              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/img/galeri/led-ekran-kiralama-9.webp"
+                  alt="İç mekan ve dış mekan LED ekran kiralama uygulaması"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6 my-6">
                 <h5 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840Hz Yenileme Hızı</h5>
                 <p className="text-gray-700 mb-0">
@@ -1383,6 +1394,17 @@ function Articles() {
                 yayın sırasında kesinti riskini azaltır ve içerik akışının sorunsuz ilerlemesini sağlar.
               </p>
 
+              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/img/galeri/led-ekran-kiralama-14.webp"
+                  alt="LED ekran kiralama kurulum süreci ve teknik ekip"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               <h4>Hangi Etkinliklerde Kullanılır?</h4>
               <ul>
                 <li>Konser, festival ve sahne performansları</li>
@@ -1391,6 +1413,17 @@ function Articles() {
                 <li>Düğün, özel davet ve canlı yayın prodüksiyonları</li>
                 <li>AVM ve perakende alanlarında reklam gösterimleri</li>
               </ul>
+
+              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/img/galeri/led-ekran-kiralama-20.webp"
+                  alt="Konser ve etkinliklerde LED ekran kiralama uygulaması"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
               
               <h4>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h4>
               <p>
