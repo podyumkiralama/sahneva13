@@ -1,27 +1,47 @@
 // app/en/faq/page.js
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Frequently Asked Questions | Sahneva",
+  title: "Frequently Asked Questions | Event Rental FAQ Guide",
   description:
     "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
-  alternates: { canonical: "https://www.sahneva.com/en/faq" },
+  alternates: {
+    canonical: `${SITE_URL}/en/faq`,
+    languages: {
+      "tr-TR": `${SITE_URL}/sss`,
+      en: `${SITE_URL}/en/faq`,
+      ar: `${SITE_URL}/ar/faq`,
+      "x-default": `${SITE_URL}/en/faq`,
+    },
+  },
   openGraph: {
     title: "Frequently Asked Questions | Sahneva",
     description:
-      "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
-    url: "https://www.sahneva.com/en/faq",
+      "Detailed answers about stage, LED screen, sound-light and tent rental processes.",
+    url: `${SITE_URL}/en/faq`,
     type: "website",
+    siteName: "Sahneva",
     locale: "en_US",
     images: [
       {
-        url: "https://www.sahneva.com/img/hero-bg.webp",
+        url: `${SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva – Frequently Asked Questions about event technology rentals",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequently Asked Questions | Sahneva",
+    description:
+      "Detailed answers about stage, LED screen, sound-light and tent rental processes.",
+    images: [`${SITE_URL}/img/hero-bg.webp`],
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 /* ================== DATA ================== */
@@ -216,6 +236,12 @@ const FAQ_CATEGORIES = [
         a: "Extensions are possible subject to availability. Additional day rates and logistics are detailed in the contract.",
       },
     ],
+    links: [
+      {
+        href: "/en/tent-rental",
+        label: "Tent rental details and current pricing",
+      },
+    ],
   },
   {
     id: "contract",
@@ -292,55 +318,70 @@ function injectLinks(text) {
 function CategoryChips() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8">
-      {FAQ_CATEGORIES.map((category) => (
-        <a key={category.id} href={`#${category.id}`} className="faq-chip px-3 py-2 rounded-full text-sm">
-          <span className="mr-1">{category.icon}</span>
-          {category.title}
+      {FAQ_CATEGORIES.map((c) => (
+        <a
+          key={c.id}
+          href={`#${c.id}`}
+          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100 transition-colors"
+        >
+          <span className="mr-1">{c.icon}</span>
+          {c.title}
         </a>
       ))}
     </div>
   );
 }
 
-function FaqSection({ id, icon, title, items }) {
+function FaqSection({ id, icon, title, items, links }) {
   return (
-    <section id={id} className="scroll-mt-28 mb-8 rounded-2xl faq-glass p-5 md:p-7">
-      
-        <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold mb-5">
+    <section
+      id={id}
+      className="scroll-mt-28 mb-8 rounded-2xl bg-slate-900/70 border border-slate-700/60 p-5 md:p-7 shadow-[0_20px_60px_rgba(15,23,42,0.45)]"
+    >
+        <h2 className="flex items-center gap-2 text-xl md:text-2xl font-bold mb-5 text-slate-100">
           <span className="text-lg md:text-xl">{icon}</span>
           {title}
         </h2>
-      
 
-      
         <div className="space-y-3">
           {items.map((item) => (
-
-              <details key={item.q} className="faq-card group rounded-xl bg-white p-4">
-                <summary
-                  className="cursor-pointer select-none list-none font-semibold leading-7 flex items-center justify-between"
-                  role="button"
+            <details key={item.q} className="faq-card group rounded-xl bg-slate-950/70 border border-slate-700/70 p-4 text-slate-100">
+              <summary
+                className="cursor-pointer select-none list-none font-semibold leading-7 flex items-center justify-between text-slate-100"
+                role="button"
+              >
+                <span className="pr-3">{item.q}</span>
+                <svg
+                  className="ml-2 h-5 w-5 text-slate-300 transition-transform group-open:rotate-90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
                 >
-                  <span className="pr-3">{item.q}</span>
-                  <svg
-                    className="ml-2 h-5 w-5 text-slate-500 transition-transform group-open:rotate-90"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 4l8 8-8 8" />
-                  </svg>
-                </summary>
-                <div className="faq-anim mt-3 text-neutral/90 leading-relaxed">
-                  {injectLinks(item.a)}
-                </div>
-              </details>
-            
+                  <path d="M8 4l8 8-8 8" />
+                </svg>
+              </summary>
+              <div className="faq-anim mt-3 text-slate-300 leading-relaxed">
+                {injectLinks(item.a)}
+              </div>
+            </details>
           ))}
         </div>
-      
+
+        {links?.length ? (
+          <div className="mt-5 flex flex-col gap-2 text-sm text-slate-300">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 font-semibold text-cyan-200 hover:text-cyan-100"
+              >
+                <span aria-hidden="true">🔗</span>
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+        ) : null}
     </section>
   );
 }
@@ -361,52 +402,55 @@ export default function FaqPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://www.sahneva.com/en/faq#faq",
+    "@id": `${SITE_URL}/en/faq#faq`,
     inLanguage: "en-US",
     mainEntity,
   };
 
+  const breadcrumbItems = [
+    { name: "Home", url: `${SITE_URL}/en` },
+    { name: "FAQ", url: `${SITE_URL}/en/faq` },
+  ];
+
   return (
     <>
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <div className="container py-10 md:py-14">
+      <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
+        <div className="container py-10 md:py-14 text-slate-100">
         
-          <h1 className="text-3xl md:text-[34px] font-extrabold tracking-tight text-center mb-6">
+          <h1 className="text-3xl md:text-[34px] font-extrabold tracking-tight text-center mb-6 text-white">
             Frequently Asked Questions
           </h1>
-        
 
-        
           <CategoryChips />
-        
 
         <div className="space-y-6">
-          {FAQ_CATEGORIES.map((category) => (
-            <FaqSection key={category.id} {...category} />
+          {FAQ_CATEGORIES.map((c) => (
+            <FaqSection key={c.id} {...c} />
           ))}
         </div>
 
-        
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="tel:+905453048671"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-white hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-400"
             >
-              📞 Call Sahneva
+              📞 Get a Quote Now
             </a>
             <a
               href="https://wa.me/905453048671?text=Hello%2C+I%27d+like+to+request+an+event+production+quote."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 font-semibold hover:bg-neutral-50"
-              aria-label="Chat on WhatsApp (opens in a new tab)"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100"
+              aria-label="Ask on WhatsApp – opens in a new tab"
             >
-              💬 Chat on WhatsApp
-              <span className="sr-only">(opens in a new tab)</span>
+              💬 Ask on WhatsApp
             </a>
           </div>
         
+        </div>
       </div>
     </>
   );

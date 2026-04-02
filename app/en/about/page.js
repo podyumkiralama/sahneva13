@@ -1,6 +1,8 @@
 // app/en/about/page.js
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -26,19 +28,25 @@ export const metadata = {
         url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
-        alt: "Sahneva Team - Professional Event Technologies",
+        alt: "Sahneva Team – Professional Event Technologies, 10+ years of experience",
       },
     ],
     type: "website",
     locale: "en_US",
+    siteName: "Sahneva",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Sahneva – Professional Event Technologies",
+    description:
+      "Professional event solutions across Türkiye with 10+ years of expertise. 700+ successful projects and 98% client satisfaction.",
+    images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: { index: true, follow: true },
 };
 
 export const revalidate = 3600;
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
+const SITE_URL = BASE_SITE_URL;
 
 /* ───── STRUCTURED DATA ───── */
 function AboutStructuredData() {
@@ -50,6 +58,7 @@ function AboutStructuredData() {
     name: "About Us | Sahneva - Professional Event Technologies",
     description:
       "Professional stage rentals, LED screens, sound-light systems and event production services",
+    image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
     mainEntity: { "@id": ORGANIZATION_ID },
     inLanguage: "en-US",
   };
@@ -70,6 +79,11 @@ export default function AboutPage() {
   const PHONE = "+905453048671";
   const WA_TEXT = "Hello%2C+I'm+messaging+from+the+about+page.+I+would+like+to+get+more+information.";
   const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+  const baseUrl = SITE_URL;
+  const breadcrumbItems = [
+    { name: "Home", url: `${baseUrl}/en` },
+    { name: "About Us", url: `${baseUrl}/en/about` },
+  ];
 
   const TIMELINE = [
     {
@@ -149,156 +163,211 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <AboutStructuredData />
 
-      {/* HERO */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]" aria-labelledby="hero-title">
-        <div className="absolute inset-0">
-          <Image
-            src="/img/hakkimizda-hero-corporate.webp"
-            alt="Sahneva professional crew with more than a decade of event technology experience"
-            fill
-            priority
-            fetchPriority="high"
-            className="object-cover"
-            sizes="100vw"
-            quality={85}
-           
-            blurDataURL={BLUR_DATA_URL}
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+    {/* HERO */}
+<section
+  className="
+    relative overflow-hidden bg-slate-950 text-white
+    pt-16 md:pt-20
+    min-h-[75svh] md:min-h-[70vh]
+    flex items-center
+  "
+  aria-labelledby="hero-title"
+>
+  {/* FULL-BLEED BACKGROUND */}
+  <div className="absolute inset-0 pointer-events-none">
+    <Image
+      src="/img/hakkimizda-hero-corporate.webp"
+      alt="Sahneva professional crew with more than a decade of event technology experience"
+      fill
+      priority
+      fetchPriority="high"
+      className="object-cover object-center"
+      sizes="100vw"
+      quality={85}
+      placeholder="blur"
+      blurDataURL={BLUR_DATA_URL}
+    />
+
+    {/* readability overlay */}
+    <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+
+    {/* gradient */}
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.62) 100%)",
+      }}
+    />
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(2,6,23,0.74) 0%, rgba(2,6,23,0.18) 45%, rgba(2,6,23,0.82) 100%)",
+      }}
+    />
+
+    {/* grid overlay */}
+    <div
+      className="absolute inset-0 opacity-30"
+      aria-hidden="true"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
+    />
+
+    {/* glow blobs */}
+    <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+    <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
+  </div>
+
+  {/* CONTENT */}
+  <div className="relative z-10 w-full">
+    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+      <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
+        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
+          <span className="relative flex w-2 h-2" aria-hidden="true">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
+          </span>
+          <span className="text-sm font-bold text-white">
+            Trusted partner since 2012
+          </span>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-            <span className="relative flex w-2 h-2" aria-hidden="true">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-            </span>
-            <span className="text-sm font-bold text-white">Trusted partner since 2012</span>
-          </div>
+        <h1
+          id="hero-title"
+          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
+        >
+          About Us <span className="text-blue-200">Sahneva</span>
+        </h1>
 
-          <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-            About <span className="gradient-text gradient-text--safe-xl">Sahneva</span>
-          </h1>
+        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
+          Event Technologies • 10+ Years of Expertise • 700+ Productions
+        </p>
 
-          <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-            Event technologies • 10+ years of expertise • 700+ productions
-          </p>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
-            As Türkiye's <span className="font-semibold text-white">leading event technology partner</span>, we combine technical excellence with creative execution in every project.
-          </p>
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
+          As Türkiye's{" "}
+          <span className="font-semibold text-white">
+            leading event technology partner
+          </span>{" "}
+          we combine technical excellence with creative vision in every project
+        </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-            <Link
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
+          <Link
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contact us instantly on WhatsApp"
-              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-              role="button"
-            >
-              <span aria-hidden="true" className="text-xl mr-2">💬</span>
-              <span className="text-base">Chat on WhatsApp</span>
-            </Link>
+            aria-label="Contact us instantly on WhatsApp – opens in a new tab"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg min-h-[44px]"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-2">
+              💬
+            </span>
+            <span className="text-base">Get in Touch</span>
+          </Link>
 
-            <Link
+          <Link
             href="#timeline"
             aria-label="Discover our company timeline"
-              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-              role="button"
-            >
-              <span aria-hidden="true" className="text-xl mr-2">📖</span>
-              <span className="text-base">Our Story</span>
-            </Link>
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg min-h-[44px]"
+            role="button"
+          >
+            <span aria-hidden="true" className="text-xl mr-2">
+              📖
+            </span>
+            <span className="text-base">Our Story</span>
+          </Link>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              🎬
+            </span>
+            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-white/80 text-sm">Completed projects</div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">🎬</span>
-              <div className="text-xl font-black text-white">700+</div>
-              <div className="text-white/80 text-sm">Completed projects</div>
-            </div>
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-              <div className="text-xl font-black text-white">12+</div>
-              <div className="text-white/80 text-sm">Years of experience</div>
-            </div>
-            <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-              <span className="text-2xl mb-2" aria-hidden="true">🗺️</span>
-              <div className="text-xl font-black text-white">81</div>
-              <div className="text-white/80 text-sm">Cities served</div>
-            </div>
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              ⭐
+            </span>
+            <div className="text-xl font-black text-white">12+</div>
+            <div className="text-white/80 text-sm">Years of experience</div>
+          </div>
+
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              🗺️
+            </span>
+            <div className="text-xl font-black text-white">81</div>
+            <div className="text-white/80 text-sm">Cities served</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
 
-      <div className="relative">
+  {/* safe bottom fade */}
+  <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/10" />
+</section>
+
         {/* WHO WE ARE */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="who-we-are-title">
+        <section
+          className="py-16 md:py-20 bg-white"
+          aria-labelledby="who-we-are-title"
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 id="who-we-are-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-                Who
-                <span className="gradient-text gradient-text--safe-xl"> We Are</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Your trusted event technology partner since 2012
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  <strong className="text-blue-600">Sahneva</strong> has been one of Türkiye's
-                  <strong> leading event production companies</strong> since 2012. With a team specialised in stage rentals, LED walls, sound-light systems and professional installation,
-                  we bring every event to life through technical excellence and creative vision.
+            <div className="grid gap-10 lg:grid-cols-2 items-center">
+              <div className="order-2 lg:order-1">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">
+                  Who Are We?
                 </p>
-
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Our mission is to deliver <strong>reliable, innovative and customer-focused</strong> solutions that handle your technical infrastructure seamlessly and amplify your brand value.
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  {[
-                    { number: "700+", label: "Completed projects" },
-                    { number: "98%", label: "Satisfaction rate" },
-                    { number: "81", label: "Cities covered" },
-                    { number: "15+", label: "Expert crew" },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-4 bg-white rounded-xl shadow-lg border border-gray-100"
-                      aria-label={`${stat.number} ${stat.label}`}
-                    >
-                      <div className="text-2xl font-black text-blue-600">{stat.number}</div>
-                      <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                    </div>
-                  ))}
+                <h2
+                  id="who-we-are-title"
+                  className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-5"
+                >
+                  Your trusted event technology partner since 2012
+                </h2>
+                <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
+                  <p>
+                    <strong className="text-blue-600">Sahneva</strong> has been one of Türkiye's
+                    leading event production companies since 2012. With a team specialised in stage
+                    rentals, LED walls, sound-light systems and professional installation,
+                    we bring every event to life through technical excellence and creative vision.
+                  </p>
+                  <p>
+                    Our mission is to deliver <strong>reliable, innovative and customer-focused</strong> solutions
+                    that handle your technical infrastructure seamlessly and amplify your brand value.
+                  </p>
                 </div>
               </div>
-
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="order-1 lg:order-2">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                   <Image
                     src="/img/ekip-calisma.webp"
                     alt="Sahneva professional crew preparing a stage and technical setup"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                    sizes="(max-width: 1024px) 100vw, 600px"
+                    width={720}
+                    height={540}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-tr from-slate-900/25 via-transparent to-white/10"
+                    aria-hidden="true"
                   />
                 </div>
-                <div
-                  className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl -z-10"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl -z-10"
-                  aria-hidden="true"
-                />
               </div>
             </div>
           </div>
@@ -534,7 +603,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-      </div>
     </div>
   );
 }
