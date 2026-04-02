@@ -243,6 +243,10 @@ const FAQ_ITEMS = [
   {
     q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
     a: "Kesinlikle. Özellikle açık hava etkinliklerinde sürpriz yağışlara karşı %100 su ve toz geçirmez (IP65 standardında) dış mekan panelleri kurarak yayınınızı güvence altına alıyoruz."
+  },
+  {
+    q: "Daha önce bizimkine benzer bir etkinlikte nasıl bir çözüm sundunuz?",
+    a: "Her etkinlik tipi için gerçek uygulama örneklerimiz var. Örneğin: Kocaeli'de 500+ izleyicili e-spor turnuvasında 3840Hz yenileme hızıyla titremesiz oyun yayını sağladık. TÜYAP'ta havada asılı 4 cepheli LED Box ile stand görünürlüğünü %45 artırdık. Sarıyer düğününde 6500 nit parlaklıkla güneş altında kristal netlik elde ettik. Belediye meydan konserinde 8.000+ kişiye %97 memnuniyetle ulaştık. Sizi en yakın referansımızla eşleştirip teknik detayları paylaşabiliriz."
   }
 ];
 
@@ -480,35 +484,43 @@ function Services() {
 const GALLERY_IMAGES = [
   { 
     src: "/img/galeri/led-ekran-kiralama-1.webp", 
-    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi" 
+    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi",
+    caption: "Konser & Festival | P3.9 Outdoor | 10×6 m — 3.000+ izleyici kapasiteli açık hava etkinliği"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-2.webp", 
-    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış" 
+    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış",
+    caption: "Kurumsal Gala | P2.9 Indoor | 8×3 m — Ürün lansmanı, İstanbul"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü" 
+    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü",
+    caption: "Açık Hava Festivali | P3.9 Outdoor | 6500 nit — Tam güneş ışığında kristal netlik"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-4.webp",
-    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş" 
+    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş",
+    caption: "Fuar & Stand | LED Box 4 Cepheli | TÜYAP — Havada asılı truss kurulum"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-5.webp", 
-    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler" 
+    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler",
+    caption: "Spor Organizasyonu | P3.9 Outdoor | Skor takip + canlı yayın entegrasyonu"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-6.webp", 
-    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi" 
+    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi",
+    caption: "Düğün & Özel Davet | P3.9 Outdoor | 6500 nit — Sarıyer, İstanbul"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-7.webp", 
-    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş" 
+    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş",
+    caption: "Canlı Yayın & Stüdyo | P2.5 Indoor | 3840 Hz — Kamerada titreme sıfır"
   },
   { 
     src: "/img/galeri/led-ekran-kiralama-8.webp",
-    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi" 
+    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi",
+    caption: "AVM & Reklam | P3.9 Indoor/Outdoor | E-spor etkinliği, Kocaeli İzmit"
   },
 ];
 
@@ -554,7 +566,7 @@ function Gallery() {
       transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
       before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
       after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
-      result: "2012'den bugüne edindiğimiz 10 yılı aşkın tecrübe ve 700'den fazla başarılı proje deneyimimizle, Türkiye'nin vizyon projelerinden birine kusursuz teknik katkı sunduk.",
+      result: "300+ kişilik kongre katılımcısına kesintisiz canlı yayın sunuldu; 8 saatlik etkinlik boyunca sıfır teknik arıza ve %100 müşteri memnuniyeti raporlandı.",
       quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
       client: "Organizasyon Komitesi"
     },
@@ -564,7 +576,7 @@ function Gallery() {
       transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
       before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
       after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
-      result: "Arka sıralardaki misafirler dahil herkes canlı yayın bağlantılarını sinema kalitesinde izledi.",
+      result: "250+ davetlinin tamamı, en arka sıradaki misafirler dahil, canlı yayın görüntüsünü sinema kalitesinde izledi; kurulum etkinlik başlamadan 2 saat önce tamamlandı.",
       quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
       client: "Gelin & Damat"
     },
@@ -574,7 +586,7 @@ function Gallery() {
       transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
       before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
       after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
-      result: "Katılımcılar oyun heyecanını dev ekranda anlık yaşadı, AVM'nin o bölgesindeki etkinlik trafiği %40 arttı.",
+      result: "500+ izleyiciye anlık skor ve oyun yayını aksaklıksız iletildi; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
       quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
       client: "Etkinlik Koordinatörü"
     },
@@ -584,9 +596,29 @@ function Gallery() {
       transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
       before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
       after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
-      result: "Standın görünürlüğü tüm holde sağlandı, ziyaretçi etkileşimi önceki yıla oranla ciddi ölçüde arttı.",
+      result: "Stand ziyaretçi süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü tüm holde sağlandı.",
       quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
       client: "Kurumsal İletişim Müdürü"
+    },
+    {
+      title: "Üniversite Mezuniyet Töreni: 2.000 Kişilik Dev Salon",
+      category: "Eğitim & Tören",
+      transformation: "Projeksiyon ışığının yetersiz kaldığı devasa salon, her köşeye eşit parlaklık sunan LED wall ile dönüştü.",
+      before: "Ankara'da 2.000 kişilik üniversite mezuniyet salonunda projektörün uzak tribünlere yetmemesi ve görüntü solgunluğu sorunu.",
+      after: "P2.9 yüksek çözünürlüklü 12m × 4m LED ekran, salonun ön cephesine monte edilerek tüm oturma sektörlerine eşit parlaklık sağlandı.",
+      result: "2.000 mezun ve ailesine kesintisiz görsel deneyim sunuldu; etkinlik sonrası anket %98 memnuniyet, kurulum standart projeksiyon sistemine göre %30 daha hızlı tamamlandı.",
+      quote: "En arka sıradaki veliler bile konuşmacının yüzünü net gördü. LED ekran olmasa bu organizasyon yarısı kadar başarılı olurdu.",
+      client: "Üniversite Organizasyon Koordinatörü"
+    },
+    {
+      title: "Cumhuriyet Bayramı Kutlaması: İlçe Meydanı Konseri",
+      category: "Belediye & Açık Hava",
+      transformation: "Meydan kalabalığında sahneden kopuk kalan vatandaşlar, 8.000 kişiyi saran dijital deneyimle buluştu.",
+      before: "İstanbul'da kalabalık meydan etkinliğinde sahne arkasındaki ve yan kesimlerdeki vatandaşların sanatçıyı görmekte zorlanması.",
+      after: "IP65 korumalı P3.9 dış mekan LED ekranlar sahnenin iki yanına konumlandırılarak 180° görüş açısı ve 6500 nit parlaklık sağlandı.",
+      result: "8.000+ vatandaşın katıldığı etkinlikte sıfır teknik arıza kaydedildi; belediye etkinlik raporuna göre katılımcı memnuniyeti %97 olarak ölçüldü.",
+      quote: "Sahneyi göremeyenler artık sorun değil. Her iki yanımızdaki ekranlar şehrin en büyük konserini mümkün kıldı.",
+      client: "Belediye Kültür Müdürlüğü"
     }
   ];
 
@@ -595,7 +627,7 @@ function Gallery() {
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* Kısa Giriş Paragrafı */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
           </h2>
@@ -603,6 +635,23 @@ function Gallery() {
             Projelerimizin kalitesi, etkinliğinizin en büyük güvencesidir. Referanslarımız ve uygulama örneklerimizle, sıradan mekanları nasıl büyüleyici sahnelere dönüştürdüğümüzü keşfedin.
           </p>
         </div>
+
+        {/* Sektör & Şehir Çeşitliliği Özeti */}
+        <ul className="mb-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" aria-label="Hizmet verdiğimiz sektörler">
+          {[
+            { icon: "🎵", label: "Konser & Festival" },
+            { icon: "🏛️", label: "Devlet & Belediye" },
+            { icon: "🎓", label: "Eğitim & Tören" },
+            { icon: "🏢", label: "Kurumsal & Fuar" },
+            { icon: "🎮", label: "Spor & E-Spor" },
+            { icon: "💍", label: "Düğün & Davet" },
+          ].map((sector) => (
+            <li key={sector.label} className="flex flex-col items-center gap-2 bg-white rounded-2xl p-4 border border-gray-200 shadow-sm text-center">
+              <span className="text-2xl" aria-hidden="true">{sector.icon}</span>
+              <span className="text-sm font-bold text-gray-700 leading-tight">{sector.label}</span>
+            </li>
+          ))}
+        </ul>
 
         {/* Başarı Hikayeleri Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
@@ -677,7 +726,7 @@ function Gallery() {
         {/* Görsel Galeri Alanı */}
         <div className="text-center mb-10">
           <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
-          <p className="text-lg text-gray-600 mb-8">Farklı etkinlik tiplerinden en güncel kurulum karelerimiz</p>
+          <p className="text-lg text-gray-600 mb-8">Her görselin altında etkinlik tipi, teknik çözüm ve uygulama detayını bulabilirsiniz</p>
         </div>
         <div className="max-w-7xl mx-auto">
           <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />

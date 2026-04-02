@@ -231,36 +231,42 @@ function CaseGallery({
           aria-label="Proje galerisi"
         >
           {displayImages.map((img, index) => (
-            <button
-              key={`${img.src}-${index}`}
-              type="button"
-              className="relative aspect-[4/3] sm:aspect-[16/9] min-h-[52px] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
-              onClick={() => openLightbox(index)}
-              aria-label={`${
-                img.alt || `Galerideki ${index + 1}. görsel`
-              } - Görseli büyüt`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt || `Galerideki ${index + 1}. görsel`}
-                fill
-                sizes="(max-width: 767px) 50vw, 25vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                // Performans: sadece ilk görsel eager, diğerleri lazy
-                loading={index < priorityCount ? "eager" : "lazy"}
-                decoding="async"
-                quality={65}
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span
-                  className="bg-black/50 text-white rounded-full p-2 transform scale-75 group-hover:scale-100 transition-transform duration-300"
-                  aria-hidden="true"
-                >
-                  🔍
-                </span>
-              </div>
-            </button>
+            <div key={`${img.src}-${index}`} className="flex flex-col">
+              <button
+                type="button"
+                className="relative aspect-[4/3] sm:aspect-[16/9] min-h-[52px] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
+                onClick={() => openLightbox(index)}
+                aria-label={`${
+                  img.alt || `Galerideki ${index + 1}. görsel`
+                } - Görseli büyüt`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt || `Galerideki ${index + 1}. görsel`}
+                  fill
+                  sizes="(max-width: 767px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  // Performans: sadece ilk görsel eager, diğerleri lazy
+                  loading={index < priorityCount ? "eager" : "lazy"}
+                  decoding="async"
+                  quality={65}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span
+                    className="bg-black/50 text-white rounded-full p-2 transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                    aria-hidden="true"
+                  >
+                    🔍
+                  </span>
+                </div>
+              </button>
+              {img.caption && (
+                <p className="mt-2 text-sm text-gray-500 leading-snug px-1 text-center">
+                  {img.caption}
+                </p>
+              )}
+            </div>
           ))}
         </div>
       )}
