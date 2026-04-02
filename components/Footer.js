@@ -11,7 +11,7 @@ const FOCUS_RING_CLASS =
 const SOCIAL_LINKS = [
   {
     href: "https://www.instagram.com/sahnevaorganizasyon",
-    label: "Sahneva Instagram hesabı",
+    label: "Sahneva Instagram",
     title: "Instagram",
     icon: "📷",
     gradient: "from-blue-500/30 via-purple-500/30 to-pink-500/20",
@@ -19,14 +19,14 @@ const SOCIAL_LINKS = [
   },
   {
     href: "https://www.youtube.com/@sahneva",
-    label: "Sahneva YouTube kanalı",
+    label: "Sahneva YouTube",
     title: "YouTube",
     icon: "▶",
     gradient: "from-red-500/30 via-orange-400/30 to-yellow-400/20",
   },
 ];
 
-const SERVICES = [
+const TR_SERVICES = [
   { href: "/podyum-kiralama", label: "Podyum Kiralama" },
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
   { href: "/ses-isik-sistemleri", label: "Ses Işık Sistemleri" },
@@ -34,7 +34,7 @@ const SERVICES = [
   { href: "/cadir-kiralama", label: "Çadır Kiralama" },
 ];
 
-const QUICK_LINKS = [
+const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/podyum-kiralama-fiyatlari", label: "Podyum Kiralama Fiyatları" },
@@ -46,7 +46,7 @@ const QUICK_LINKS = [
   },
 ];
 
-const POPULAR_PAGES = [
+const TR_POPULAR_PAGES = [
   { href: "/masa-sandalye-kiralama", label: "Masa & Sandalye Kiralama" },
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },
@@ -58,11 +58,13 @@ const BUSINESS_LINKS = [
   {
     href: "https://g.page/r/CZhkMzkNOdgnEBI",
     label: "Google Haritalar'da bizi bulun",
+    labelEn: "Find us on Google Maps",
     icon: "📍",
   },
   {
     href: "https://g.page/r/CZhkMzkNOdgnEBI/review",
     label: "Google'da yorum yazın",
+    labelEn: "Write a Google review",
     icon: "⭐",
   },
 ];
@@ -141,15 +143,59 @@ export default function Footer({
   role: roleOverride,
   descriptionId: descriptionIdProp,
   headingId: headingIdProp,
+  locale = "tr",
 }) {
+  const isEn = locale === "en";
   const instanceId = useId();
   const currentYear = new Date().getFullYear();
 
-  const footerStrings = LOCALE_CONTENT?.tr?.footer || {
-    ariaLabel: "Site altbilgisi",
-    description:
-      "İletişim bilgileri, hizmet bağlantıları ve sosyal medya hesaplarının bulunduğu altbilgi alanı",
-  };
+  const footerStrings = isEn
+    ? LOCALE_CONTENT?.en?.footer
+    : LOCALE_CONTENT?.tr?.footer || {
+        ariaLabel: "Site altbilgisi",
+        description:
+          "İletişim bilgileri, hizmet bağlantıları ve sosyal medya hesaplarının bulunduğu altbilgi alanı",
+      };
+
+  const SERVICES = isEn ? (footerStrings?.services ?? TR_SERVICES) : TR_SERVICES;
+  const QUICK_LINKS = isEn ? (footerStrings?.quickLinks ?? TR_QUICK_LINKS) : TR_QUICK_LINKS;
+  const POPULAR_PAGES = isEn ? (footerStrings?.popularPages ?? TR_POPULAR_PAGES) : TR_POPULAR_PAGES;
+
+  const servicesTitle = isEn ? (footerStrings?.servicesTitle ?? "Our Services") : "Hizmetlerimiz";
+  const quickLinksTitle = isEn ? (footerStrings?.quickLinksTitle ?? "Quick Links") : "Hızlı Erişim";
+  const popularPagesTitle = isEn ? (footerStrings?.popularPagesTitle ?? "Popular Pages") : "Popüler Sayfalar";
+  const contactTitle = isEn ? "Contact Information" : "İletişim Bilgileri";
+  const officeTitle = isEn ? (footerStrings?.officeTitle ?? "Main Office") : "Merkez Ofis";
+  const address = isEn ? (footerStrings?.address ?? "Kağıthane, Istanbul") : "Kağıthane, İstanbul";
+  const nationwide = isEn ? "Nationwide service" : "Türkiye geneli hizmet";
+  const workingHoursLabel = isEn ? (footerStrings?.workingHours ?? "Working Hours") : "Çalışma Saatleri";
+  const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Mon–Sat 09:00–23:00") : "Pzt-Cts 09:00-23:00";
+  const socialMediaLabel = isEn ? "Follow us on social media" : "Sosyal medya hesaplarımız";
+  const privacyLinkLabel = isEn ? (footerStrings?.privacyLink ?? "Privacy Policy") : "KVKK Aydınlatma Metni";
+  const privacyHref = isEn ? "/en/data-protection" : "/kvkk";
+  const backToTopLabel = isEn ? (footerStrings?.backToTop ?? "Back to top") : "Başa dön";
+  const copyrightDesc = isEn
+    ? (footerStrings?.copyrightDesc ?? "Nationwide professional stage rental, podium rental, LED screen rental, sound and light systems, tent rental and table-chair rental services.")
+    : "Türkiye genelinde profesyonel sahne kiralama, podyum kiralama, LED ekran kiralama, ses ışık sistemleri, çadır kiralama ve masa sandalye kiralama hizmetleri.";
+  const rightsLabel = isEn ? "All rights reserved." : "Tüm hakları saklıdır.";
+
+  const aboutDesc = isEn
+    ? (footerStrings?.about ?? "Nationwide professional stage, podium, LED screen, sound and light rental services across Türkiye.")
+    : "Türkiye genelinde profesyonel sahne, podyum, LED ekran, ses ve ışık kiralama hizmetleri.";
+
+  const brandSubtitle = isEn
+    ? "Professional event production and organization services."
+    : "Profesyonel etkinlik prodüksiyon ve organizasyon firması hizmetleri.";
+
+  const brandDesc1 = isEn
+    ? (<span className="block">Across Türkiye: <span className="text-blue-300 font-semibold">stage rental, podium rental, LED screen rental</span>, sound and light systems and truss rental with full-scale setup.</span>)
+    : (<span className="block">Türkiye genelinde{" "}<span className="text-blue-300 font-semibold">sahne kiralama, podyum kiralama, LED ekran kiralama</span>, ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.</span>);
+
+  const brandDesc2 = isEn
+    ? (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fair, concert, corporate event and graduation organizations with tent rental and table-chair rental solutions.</span>)
+    : (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fuar, konser, kurumsal etkinlik ve mezuniyet organizasyonlarında çadır kiralama ile masa sandalye kiralama çözümlerinde yanınızdayız.</span>);
+
+  const aboutHeading = isEn ? "About Sahneva" : "Sahneva Hakkında";
 
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;
@@ -157,7 +203,7 @@ export default function Footer({
     ariaDescribedby ?? descriptionIdProp ?? `site-footer-desc-${instanceId}`;
 
   const ariaLabelledbyValue = ariaLabel ? undefined : computedHeadingId;
-  const footerDescription = footerStrings.description;
+  const footerDescription = footerStrings?.description;
 
   return (
     <footer
@@ -200,7 +246,7 @@ export default function Footer({
       {/* Görünmez ana başlık (SR için) */}
       {!ariaLabel && !ariaLabelledby && (
         <h2 id={computedHeadingId} className="sr-only">
-          {footerStrings.ariaLabel}
+          {footerStrings?.ariaLabel}
         </h2>
       )}
 
@@ -214,7 +260,7 @@ export default function Footer({
       {/* Üst grid */}
       <div
         className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start gap-6 xl:gap-8 pt-8 pb-8 md:pt-10 md:pb-10 px-6"
-        aria-label="Altbilgi: hizmetler, hızlı erişim ve iletişim"
+        aria-label={isEn ? "Footer: services, quick links and contact" : "Altbilgi: hizmetler, hızlı erişim ve iletişim"}
       >
         {/* 1. SÜTUN: Marka & Sosyal */}
         <section aria-labelledby="ft-brand" className="lg:col-span-1">
@@ -227,7 +273,7 @@ export default function Footer({
             "
           >
             <h3 id="ft-brand" className="sr-only">
-              Sahneva Hakkında
+              {aboutHeading}
             </h3>
 
             <div className="flex items-center gap-3">
@@ -250,23 +296,14 @@ export default function Footer({
               <div>
                 <p className="text-sm font-semibold text-white">Sahneva</p>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Profesyonel etkinlik prodüksiyon ve organizasyon firması hizmetleri.
+                  {brandSubtitle}
                 </p>
               </div>
             </div>
 
             <p className="text-sm leading-relaxed text-gray-300 max-w-prose">
-              <span className="block">
-                Türkiye genelinde{" "}
-                <span className="text-blue-300 font-semibold">
-                  sahne kiralama, podyum kiralama, LED ekran kiralama
-                </span>
-                , ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.
-              </span>
-              <span className="block mt-1 text-slate-300/90 leading-relaxed">
-                Festival, fuar, konser, kurumsal etkinlik ve mezuniyet organizasyonlarında çadır
-                kiralama ile masa sandalye kiralama çözümlerinde yanınızdayız.
-              </span>
+              {brandDesc1}
+              {brandDesc2}
             </p>
           </div>
         </section>
@@ -288,7 +325,7 @@ export default function Footer({
                 gradient-text gradient-text--safe-xl
               "
             >
-              Hizmetlerimiz
+              {servicesTitle}
             </h3>
             <ul className="space-y-0.5 text-sm text-gray-300">
               {SERVICES.map((link) => (
@@ -321,7 +358,7 @@ export default function Footer({
                 gradient-text gradient-text--safe-xl
               "
             >
-              Hızlı Erişim
+              {quickLinksTitle}
             </h3>
             <ul className="space-y-0.5 text-sm text-gray-300">
               {QUICK_LINKS.map((link) => (
@@ -338,7 +375,7 @@ export default function Footer({
             </ul>
 
             <div className="mt-6">
-              <h4 className="text-sm font-semibold text-slate-200 mb-2">Popüler Sayfalar</h4>
+              <h4 className="text-sm font-semibold text-slate-200 mb-2">{popularPagesTitle}</h4>
               <ul className="space-y-0.5 text-sm text-gray-300">
                 {POPULAR_PAGES.map((link) => (
                   <FooterLink
@@ -371,7 +408,7 @@ export default function Footer({
                 gradient-text gradient-text--safe-xl
               "
             >
-              İletişim Bilgileri
+              {contactTitle}
             </h3>
 
             <address className="not-italic space-y-3 text-sm text-gray-300">
@@ -387,9 +424,9 @@ export default function Footer({
                   📍
                 </span>
                 <div>
-                  <span className="block text-white font-medium mb-0.5">Merkez Ofis</span>
-                  <span className="block text-gray-200">Kağıthane, İstanbul</span>
-                  <span className="block text-gray-100 text-xs mt-0.5">Türkiye geneli hizmet</span>
+                  <span className="block text-white font-medium mb-0.5">{officeTitle}</span>
+                  <span className="block text-gray-200">{address}</span>
+                  <span className="block text-gray-100 text-xs mt-0.5">{nationwide}</span>
                 </div>
               </div>
 
@@ -443,38 +480,41 @@ export default function Footer({
                   🕒
                 </span>
                 <div>
-                  <span className="block text-white font-medium mb-0.5">Çalışma Saatleri</span>
-                  <span className="block text-gray-200">Pzt-Cts 09:00-23:00</span>
+                  <span className="block text-white font-medium mb-0.5">{workingHoursLabel}</span>
+                  <span className="block text-gray-200">{workingHoursValue}</span>
                 </div>
               </div>
             </address>
 
-            <nav className="pt-2 flex flex-col gap-2" aria-label="İşletme bağlantıları">
-              {BUSINESS_LINKS.map(({ href, label, icon }) => (
-                <a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`
-                    group inline-flex items-center gap-2 text-xs text-gray-300
-                    hover:text-white transition-all duration-300 ${FOCUS_RING_CLASS}
-                  `}
-                  aria-label={`${label} – yeni sekmede açılır`}
-                >
-                  <span
-                    className="group-hover:scale-110 transition-transform duration-300"
-                    aria-hidden="true"
+            <nav className="pt-2 flex flex-col gap-2" aria-label={isEn ? "Business links" : "İşletme bağlantıları"}>
+              {BUSINESS_LINKS.map(({ href, label, labelEn, icon }) => {
+                const displayLabel = isEn ? labelEn : label;
+                return (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
+                      group inline-flex items-center gap-2 text-xs text-gray-300
+                      hover:text-white transition-all duration-300 ${FOCUS_RING_CLASS}
+                    `}
+                    aria-label={`${displayLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
                   >
-                    {icon}
-                  </span>
-                  {label}
-                </a>
-              ))}
+                    <span
+                      className="group-hover:scale-110 transition-transform duration-300"
+                      aria-hidden="true"
+                    >
+                      {icon}
+                    </span>
+                    {displayLabel}
+                  </a>
+                );
+              })}
             </nav>
 
-            <nav className="border-t border-white/10 pt-3" aria-label="Sosyal medya">
-              <p className="text-xs font-medium text-slate-400 mb-2">Sosyal medya hesaplarımız</p>
+            <nav className="border-t border-white/10 pt-3" aria-label={isEn ? "Social media" : "Sosyal medya"}>
+              <p className="text-xs font-medium text-slate-400 mb-2">{socialMediaLabel}</p>
               <ul className="flex gap-2">
                 {SOCIAL_LINKS.map((link) => (
                   <SocialLink key={link.href} sizeClass="h-9 w-9" {...link} />
@@ -488,29 +528,27 @@ export default function Footer({
       {/* Alt Telif Satırı */}
       <div className="relative border-t border-white/10 text-center py-5 bg-black/40 backdrop-blur-md">
         <div className="container mx-auto px-6 relative z-10">
-          {/* İSTEDİĞİN AYAR: text-[13px] + text-gray-400 */}
           <p className="mb-2 text-[13px] text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Türkiye genelinde profesyonel sahne kiralama, podyum kiralama, LED ekran kiralama, ses
-            ışık sistemleri, çadır kiralama ve masa sandalye kiralama hizmetleri.
+            {copyrightDesc}
           </p>
 
           <p className="mb-3 text-sm text-gray-300">
             © <span>{currentYear}</span>{" "}
-            <span className="text-white font-medium">Sahneva</span> — Tüm hakları saklıdır.
+            <span className="text-white font-medium">Sahneva</span> — {rightsLabel}
           </p>
 
           <nav
-            aria-label="Altbilgi bağlantıları"
+            aria-label={isEn ? "Footer links" : "Altbilgi bağlantıları"}
             className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-gray-300"
           >
             <Link
-              href="/kvkk"
+              href={privacyHref}
               className={`
                 hover:text-white transition-colors underline underline-offset-4
                 ${FOCUS_RING_CLASS}
               `}
             >
-              KVKK Aydınlatma Metni
+              {privacyLinkLabel}
             </Link>
             <span className="hidden sm:inline text-white/30" aria-hidden="true">
               •
@@ -522,7 +560,7 @@ export default function Footer({
                 ${FOCUS_RING_CLASS}
               `}
             >
-              Başa dön
+              {backToTopLabel}
             </a>
           </nav>
         </div>

@@ -1,52 +1,213 @@
-import SiteHeader from "../../components/i18n/SiteHeader";
-import SiteFooter from "../../components/i18n/SiteFooter";
+import Script from "next/script";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
+import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import DocumentDirection from "@/components/i18n/DocumentDirection.client";
+import {
+  BASE_SITE_URL,
+  LOCAL_BUSINESS_ID,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 const content = LOCALE_CONTENT.en;
 
+const EDITOR_ID = `${BASE_SITE_URL}/#editor-en`;
+const LOGO_ID = `${BASE_SITE_URL}/#logo`;
+const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
+const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
+const EN_PAGE_URL = `${BASE_SITE_URL}/en`;
+
+/* ================== JSON-LD: GLOBAL GRAPH (English) ================== */
+const globalJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "@id": LOGO_ID,
+      url: LOGO_URL,
+      contentUrl: LOGO_URL,
+    },
+
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Sahneva",
+      url: BASE_SITE_URL,
+      logo: { "@id": LOGO_ID },
+      description:
+        "Professional event production company offering stage, podium, LED screen, sound-light and tent rental services nationwide across Türkiye.",
+      knowsAbout: [
+        "podium rental",
+        "stage rental",
+        "modular stage rental",
+        "LED screen rental",
+        "tent rental",
+        "corporate event organization",
+      ],
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+905453048671",
+        contactType: "customer service",
+        areaServed: "TR",
+        availableLanguage: ["tr", "en", "ar"],
+      },
+    },
+
+    {
+      "@type": "Person",
+      "@id": EDITOR_ID,
+      name: "Sahneva Editor",
+      url: BASE_SITE_URL,
+      worksFor: { "@id": ORGANIZATION_ID },
+    },
+
+    {
+      "@type": "LocalBusiness",
+      "@id": LOCAL_BUSINESS_ID,
+      name: "Sahneva",
+      url: BASE_SITE_URL,
+      image: OG_IMAGE_URL,
+      logo: { "@id": LOGO_ID },
+      telephone: "+905453048671",
+      priceRange: "₺₺₺",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.0961692,
+        longitude: 28.9792127,
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Anadolu Caddesi No:61A, Hamidiye Mahallesi",
+        addressLocality: "Istanbul",
+        addressRegion: "Istanbul",
+        postalCode: "34400",
+        addressCountry: "TR",
+      },
+      openingHours: "Mo-Su 00:00-23:59",
+      areaServed: "TR",
+      parentOrganization: { "@id": ORGANIZATION_ID },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: BASE_SITE_URL,
+      name: "Sahneva",
+      alternateName: "Sahneva Organizasyon",
+      description:
+        "Professional event production solutions for stage, podium, LED screen, sound-light and tent rentals.",
+      inLanguage: "en-US",
+      about: [
+        "stage rental",
+        "podium rental",
+        "LED screen rental",
+        "tent rental",
+        "corporate events",
+      ],
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  ],
+};
+
+const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
+
+/* ================== META ================== */
 export const metadata = {
+  metadataBase: new URL(BASE_SITE_URL),
   title: {
-    default: "Sahneva | Stage, LED Wall, Sound & Lighting Rentals in Türkiye",
+    default: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
     template: "%s | Sahneva",
   },
-  description:
-    "Nationwide stage, LED wall, sound and lighting rentals with turnkey technical crews across Türkiye.",
+  applicationName: "Sahneva",
+  description: content.meta.description,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    title: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
+    description: content.meta.description,
+    url: buildCanonical("/en"),
+    siteName: "Sahneva",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva – stage, podium, LED screen, sound-light and tent rental services across Türkiye",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
+    description: content.meta.description,
+    images: [OG_IMAGE_URL],
+  },
   alternates: {
     canonical: buildCanonical("/en"),
     languages: buildAlternateLanguages(),
   },
 };
 
+export const viewport = {
+  themeColor: "#6d28d9",
+};
+
 export default function EnglishLayout({ children }) {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-neutral-900">
-      <DocumentDirection lang="en" dir={content.direction} />
-      <div id="_main_header">
-        <SiteHeader
-          locale="en"
-          strings={{ ...content.header, direction: content.direction }}
-        />
-      </div>
-      <main
-        id="_main_content"
-        className="flex-1 pb-16 pt-0 focus-ring scroll-mt-4"
-        role="main"
-        aria-label="Main content"
-        tabIndex={-1}
-      >
-        {children}
-      </main>
+    <>
+      <Script
+        id="global-ld-json-en"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
+      />
 
-      <div id="_main_footer">
-        <SiteFooter strings={content.footer} />
+      <div className="min-h-screen text-slate-100 flex flex-col">
+        <header
+          id="_main_header"
+          aria-label="Sahneva site header and main navigation"
+          className="w-full relative z-50"
+        >
+          <Navbar locale="en" />
+        </header>
+
+        <main
+          id="_main_content"
+          aria-label="Sahneva main content"
+          tabIndex={-1}
+          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+        >
+          <div className="w-full overflow-visible">{children}</div>
+        </main>
+
+        <Footer
+          id="_main_footer"
+          ariaLabel="Sahneva site footer"
+          descriptionId="_main_footer_desc"
+          locale="en"
+        />
+        <StickyVideoRailClient />
+        <SpeedInsights />
       </div>
-      <SpeedInsights />
-    </div>
+    </>
   );
 }
