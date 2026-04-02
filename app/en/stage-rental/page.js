@@ -35,7 +35,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
         className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
         aria-hidden="true"
       />
-      <span className="sr-only">Loading gallery...</span>
+      <span className="sr-only">Loading gallery…</span>
     </div>
   ),
 });
@@ -398,7 +398,7 @@ function Hero() {
                 <span className="text-2xl mb-2" aria-hidden="true">
                   🚀
                 </span>
-                <div className="text-xl font-black text-white">81 Cities</div>
+                <div className="text-xl font-black text-white">81 Provinces</div>
                 <div className="text-white/80 text-sm">Coverage</div>
               </div>
             </div>
@@ -1596,6 +1596,8 @@ function JsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
+  // Uses the Turkish slug to look up shared product schema data (no en-US entry exists).
+  // The actual page URL and inLanguage are overridden below.
   const { service: serviceSchema, products } = buildServiceProductSchema({
     slug: "/sahne-kiralama",
     locale: "tr-TR",
