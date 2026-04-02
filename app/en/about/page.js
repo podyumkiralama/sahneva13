@@ -254,7 +254,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
-          As Türkiye&apos;s{" "}
+          As Türkiye's{" "}
           <span className="font-semibold text-white">
             leading event technology partner
           </span>{" "}
@@ -342,7 +342,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
                   <p>
-                    <strong className="text-blue-600">Sahneva</strong> has been one of Türkiye&apos;s
+                    <strong className="text-blue-600">Sahneva</strong> has been one of Türkiye's
                     leading event production companies since 2012. With a team specialised in stage
                     rentals, LED walls, sound-light systems and professional installation,
                     we bring every event to life through technical excellence and creative vision.
