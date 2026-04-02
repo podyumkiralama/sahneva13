@@ -1,6 +1,8 @@
 // app/en/services/page.js
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -8,37 +10,43 @@ export const metadata = {
   description:
     "Professional stage rentals, LED walls, sound-light systems, podiums, tents and full event production across Türkiye.",
   alternates: {
-    canonical: "https://www.sahneva.com/en/services",
+    canonical: `${BASE_SITE_URL}/en/services`,
     languages: {
-      "tr-TR": "https://www.sahneva.com/hizmetler",
-      "en": "https://www.sahneva.com/en/services",
-      "ar": "https://www.sahneva.com/ar/services",
-      "x-default": "https://www.sahneva.com/en/services",
+      "tr-TR": `${BASE_SITE_URL}/hizmetler`,
+      "en": `${BASE_SITE_URL}/en/services`,
+      "ar": `${BASE_SITE_URL}/ar/services`,
+      "x-default": `${BASE_SITE_URL}/en/services`,
     },
   },
   openGraph: {
     title: "Our Services | Sahneva - Professional Event Solutions",
     description:
       "Stage, LED wall, sound-light, podium, tent rentals and turnkey event production services across Türkiye.",
-    url: "https://www.sahneva.com/en/services",
+    url: `${BASE_SITE_URL}/en/services`,
     images: [
       {
-        url: "https://www.sahneva.com/img/hizmetler-hero.webp",
+        url: `${BASE_SITE_URL}/img/hizmetler-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Services - Professional Event Equipment",
+        alt: "Sahneva Services – Stage, LED wall, sound-light and tent rental services",
       },
     ],
     type: "website",
     locale: "en_US",
+    siteName: "Sahneva",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Services | Sahneva - Professional Event Solutions",
+    description:
+      "Stage, LED wall, sound-light, podium, tent rentals and turnkey event production services across Türkiye.",
+    images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],
   },
   robots: { index: true, follow: true },
 };
 
 export const revalidate = 3600;
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
+const SITE_URL = BASE_SITE_URL;
 
 /* ───── STRUCTURED DATA ───── */
 function ServicesStructuredData() {
@@ -48,8 +56,10 @@ function ServicesStructuredData() {
     name: "Sahneva Services",
     description:
       "Professional stage rentals, LED walls, sound-light systems, podium, tent rentals and event production services",
-      provider: { "@id": ORGANIZATION_ID },
+    image: `${SITE_URL}/img/hizmetler-hero.webp`,
+    provider: { "@id": ORGANIZATION_ID },
     areaServed: "TR",
+    inLanguage: "en-US",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Event Equipment Rental Services",
@@ -258,6 +268,13 @@ function ServicesTabsFallback() {
 
 /* ───── MAIN COMPONENT ───── */
 export default function EnglishServicesPage() {
+  const baseUrl = SITE_URL;
+  const canonical = `${baseUrl}/en/services`;
+  const breadcrumbItems = [
+    { name: "Home", url: `${baseUrl}/en` },
+    { name: "Services", url: canonical },
+  ];
+
   const QUICK_ACCESS = [
     {
       href: "#stage-services",
@@ -337,7 +354,8 @@ export default function EnglishServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white text-neutral-900 overflow-hidden">
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <ServicesStructuredData />
 
       {/* Skip to Main Content */}
@@ -348,100 +366,134 @@ export default function EnglishServicesPage() {
         Skip to main content
       </a>
 
-      {/* HERO SECTION */}
-      <section
-        className="relative min-h-[70vh] 2xl:min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-16 lg:pt-20"
-        aria-labelledby="hero-title"
-      >
-        <div className="absolute inset-0">
-          <Image
-            src="/img/hizmetler-hero.webp"
-            alt="Sahneva Services - Professional Event Equipment and Technology Solutions"
-            fill
-            priority
-            fetchPriority="high"
-            quality={80}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-            className="object-cover object-center nc-ServicesPage-hero-1"
-          />
-        </div>
+    {/* HERO SECTION */}
+<section
+  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
+  aria-labelledby="hero-title"
+>
+  {/* FULL-BLEED BACKGROUND */}
+  <div className="absolute inset-0 pointer-events-none">
+    <Image
+      src="/img/hizmetler-hero.webp"
+      alt="Sahneva Services - Professional Event Equipment and Technology Solutions"
+      fill
+      priority
+      fetchPriority="high"
+      quality={80}
+      sizes="100vw"
+      className="object-cover object-center"
+    />
 
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/60 to-purple-900/70"
-          aria-hidden="true"
-        />
+    {/* readability overlay */}
+    <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute inset-0 flex items-center justify-center opacity-5" aria-hidden="true">
-          <span className="text-[120px] lg:text-[180px] font-black text-white tracking-wider select-none">
-            SERVICES
+    {/* gradient */}
+    <div
+      className="absolute inset-0"
+      aria-hidden="true"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,58,138,0.35) 45%, rgba(88,28,135,0.28) 100%)",
+      }}
+    />
+
+    {/* grid overlay */}
+    <div
+      className="absolute inset-0 opacity-35"
+      aria-hidden="true"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
+    />
+
+    {/* glow blobs */}
+    <div className="absolute -top-28 -right-28 w-96 h-96 bg-purple-500/14 rounded-full blur-3xl" />
+    <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-blue-500/14 rounded-full blur-3xl" />
+  </div>
+
+  {/* BIG BACKGROUND TEXT */}
+  <div
+    className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
+    aria-hidden="true"
+  >
+    <span className="text-[120px] lg:text-[180px] font-black text-white/5 tracking-wider">
+      SERVICES
+    </span>
+  </div>
+
+  {/* CONTENT */}
+  <div className="relative z-10">
+    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
+      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+        <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md rounded-full px-6 py-3 border border-white/30 mb-6">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true" />
+          <span className="text-white/90 text-sm font-medium">
+            Nationwide Professional Service
           </span>
         </div>
 
-        <div className="relative z-10 container text-center text-white">
-          <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">Nationwide Professional Service</span>
-            </div>
+        <h1
+          id="hero-title"
+          className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
+        >
+          <span className="block">PROFESSIONAL</span>
+          <span className="text-blue-200">Services</span>
+        </h1>
 
-            <h1
-              id="hero-title"
-              className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
-            >
-              <span className="block">PROFESSIONAL</span>
-              <span className="gradient-text gradient-text--safe-xl">
-                Services
+        <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
+          From stages and LED walls to full-scale production,
+          <br />
+          <strong className="text-blue-300">premium solutions under one roof</strong>
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a
+            href="#service-list"
+            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            aria-label="Browse our services"
+          >
+            <span className="flex items-center gap-2">
+              Explore Services
+              <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                →
               </span>
-            </h1>
+            </span>
+          </a>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-              From stages and LED walls to full-scale production,
-              <br />
-              <strong className="text-blue-300">premium solutions under one roof</strong>
-            </p>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a
-                href="#service-list"
-                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                aria-label="Browse our services"
-              >
-                <span className="flex items-center gap-2">
-                  Explore Services
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
-              </a>
-
-              <a
-                href="tel:+905453048671"
-                className="group bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                aria-label="Call now for more information"
-              >
-                📞 Call Now
-              </a>
-            </div>
-          </div>
+          <a
+            href="tel:+905453048671"
+            className="group bg-white/20 backdrop-blur-md hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            aria-label="Call now for more information"
+          >
+            📞 Call Now
+          </a>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Scroll hint */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true">
+    <div className="animate-bounce">
+      <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
+      </div>
+    </div>
+  </div>
 
-      <div id="main" className="relative">
+  {/* bottom transition */}
+  <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+</section>
+
+<div id="main" className="relative" style={{ color: "#0f172a" }}>
         {/* QUICK ACCESS CARDS */}
         <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                All
-                <span className="gradient-text gradient-text--safe-xl">
-                  &nbsp;Services
-                </span>
+                All <span className="text-blue-700">Services</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Access every piece of equipment and support you need from a single partner
@@ -482,10 +534,7 @@ export default function EnglishServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Why
-                <span className="gradient-text gradient-text--safe-xl">
-                  &nbsp;Sahneva?
-                </span>
+                Why <span className="text-blue-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 10+ years of expertise and specialised teams that deliver exceptional results
@@ -517,10 +566,7 @@ export default function EnglishServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Turnkey
-                <span className="gradient-text gradient-text--safe-xl">
-                  &nbsp;Event Solutions
-                </span>
+                Turnkey <span className="text-blue-700">Event Solutions</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 We manage every step professionally from stage installation to full production management
@@ -537,12 +583,9 @@ export default function EnglishServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Additional
-                <span className="gradient-text gradient-text--safe-xl">
-                  &nbsp;Services
-                </span>
+                Additional <span className="text-blue-200">Services</span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Complementary support to keep every aspect of your event running flawlessly
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8" />
@@ -557,7 +600,7 @@ export default function EnglishServicesPage() {
                     </span>
                     Event Management & Production
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Event planning and management",
                       "Technical production coordination",
@@ -580,7 +623,7 @@ export default function EnglishServicesPage() {
                     </span>
                     Logistics & Support Services
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Equipment transport and installation",
                       "Technical staffing",
@@ -605,7 +648,7 @@ export default function EnglishServicesPage() {
                     </span>
                     Media & Visuals
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Professional photography",
                       "Video production and live streaming",
@@ -628,7 +671,7 @@ export default function EnglishServicesPage() {
                     </span>
                     Design & Decor
                   </h3>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-white/90">
                     {[
                       "Venue design and decoration",
                       "Lighting design",
