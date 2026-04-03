@@ -450,7 +450,7 @@ export default function PodiumRentalPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-neutral-900 mb-2">Price Calculator</h2>
           <p className="text-neutral-600 mb-8">Enter your dimensions for an instant estimate.</p>
-          <PriceEstimatorPodyum />
+          <PriceEstimatorPodyum unitPrices={UNIT_PRICES} />
         </div>
       </section>
 
@@ -562,7 +562,13 @@ export default function PodiumRentalPage() {
         </div>
       </section>
 
-      <ServiceBlogLinks currentSlug="podium-rental" />
+      <ServiceBlogLinks
+        title="Guides on this topic"
+        links={[
+          { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Choosing a Podium by Event Type" },
+          { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Why Choose a Podium Stage?" },
+        ]}
+      />
     </div>
   );
 }
