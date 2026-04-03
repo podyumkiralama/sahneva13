@@ -1116,10 +1116,8 @@ function JsonLd() {
   };
 
   return (
-    <Script
-      id="ld-json-led-screen"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
