@@ -4,7 +4,7 @@
 // VERİLER (SEO Odaklı Teknik Detaylar)
 // —————————————————————————————————————————
 
-const SEO_TECH_FEATURES = [
+const DEFAULT_TECH_FEATURES = [
   "LED ekran, projeksiyon, mapping ve sahne ışıklandırmada son nesil ekipman kullanımı",
   "Uydu, fiber ve 5G destekli canlı yayın altyapısı ile kesintisiz yayın",
   "Çok kameralı çekim, karıştırıcı ve ses masasıyla eş zamanlı yönetim",
@@ -12,7 +12,7 @@ const SEO_TECH_FEATURES = [
   "Özel içerik oluşturma, video prodüksiyon ve post-prodüksiyon desteği",
 ];
 
-const SEO_INFRA_FEATURES = [
+const DEFAULT_INFRA_FEATURES = [
   "Kurumsal etkinlikler için modüler sahne ve truss sistemleri",
   "600 m²'ye kadar LED ekran kapasitesi ve yüksek parlaklık seçenekleri",
   "Büyük ölçekli konser ve kongreler için profesyonel ses ve akustik düzenlemeler",
@@ -29,11 +29,16 @@ const DEFAULT_DICTIONARY = {
   sectionDescription:
     "LED ekran kiralama teknolojisi, ses ışık sistemleri ve güvenilir altyapı çözümleriyle kurumsal organizasyon ihtiyaçlarını tek çatı altında topluyoruz.",
   card1Title: "Teknik Çözümler",
+  card1DescPrefix: "olarak ",
   card1Desc:
     "projelerinize özel sahne kurulumu, LED ekran kiralama, görüntü ve yayın çözümlerini tek çatı altında sunuyoruz.",
+  card1FeaturesAriaLabel: "Teknik Çözümler özellikleri",
+  card1Features: DEFAULT_TECH_FEATURES,
   card2Title: "Büyük Kapasite ve Altyapı",
   card2Desc:
     "farklı ölçeklerdeki etkinlikler için Türkiye genelinde lojistik, kurulum ve operasyon desteği sağlıyoruz.",
+  card2FeaturesAriaLabel: "Büyük Kapasite ve Altyapı özellikleri",
+  card2Features: DEFAULT_INFRA_FEATURES,
 };
 
 // —————————————————————————————————————————
@@ -105,7 +110,7 @@ export default function TechCapabilities({ dictionary: dictionaryOverride }) {
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
                   <strong className="text-blue-400 font-bold">Sahneva</strong>{" "}
-                  olarak {dictionary.card1Desc}
+                  {dictionary.card1DescPrefix}{dictionary.card1Desc}
                 </p>
               </div>
             </div>
@@ -114,9 +119,9 @@ export default function TechCapabilities({ dictionary: dictionaryOverride }) {
 
             <ul
               className="grid gap-4"
-              aria-label={`${dictionary.card1Title} özellikleri`}
+              aria-label={dictionary.card1FeaturesAriaLabel}
             >
-              {SEO_TECH_FEATURES.map((item, index) => (
+              {dictionary.card1Features.map((item, index) => (
                 <li
                   key={index}
                   className="flex gap-4 text-slate-300 text-sm md:text-base group/li items-start"
@@ -154,9 +159,9 @@ export default function TechCapabilities({ dictionary: dictionaryOverride }) {
 
             <ul
               className="grid gap-4"
-              aria-label={`${dictionary.card2Title} özellikleri`}
+              aria-label={dictionary.card2FeaturesAriaLabel}
             >
-              {SEO_INFRA_FEATURES.map((item, index) => (
+              {dictionary.card2Features.map((item, index) => (
                 <li
                   key={index}
                   className="flex gap-4 text-slate-300 text-sm md:text-base group/li items-start"

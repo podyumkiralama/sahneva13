@@ -23,7 +23,17 @@ const filterRoutes = (routes, query) => {
   }).slice(0, MAX_RESULTS);
 };
 
-export default function NavbarSearchDropdown() {
+export default function NavbarSearchDropdown({ locale = "tr" }) {
+  const isEn = locale === "en";
+  const searchButtonLabel = isEn ? "Search" : "Ara";
+  const searchAriaLabel = isEn ? "Search the site" : "Site içinde arama";
+  const searchInputLabel = isEn ? "Search the site" : "Site içinde arama yapın";
+  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : "Örn: LED ekran kiralama...";
+  const searchHint = isEn
+    ? "Press Enter to go to the search page."
+    : "Enter ile arama sayfasına gidebilirsiniz.";
+  const noResults = isEn ? "No matching page found." : "Eşleşen bir sayfa bulunamadı.";
+  const viewAllLabel = isEn ? "View all results" : "Tüm sonuçları gör";
   const router = useRouter();
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
@@ -74,21 +84,21 @@ export default function NavbarSearchDropdown() {
       <button
         type="button"
         className={`inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-bold text-neutral-800 border border-transparent hover:border-neutral-200 hover:bg-neutral-50 transition-all duration-200 ${FOCUS_RING_CLASS}`}
-        aria-label="Site içinde arama"
+        aria-label={searchAriaLabel}
         aria-expanded={open ? "true" : "false"}
         onClick={() => setOpen((prev) => !prev)}
       >
         <span className="text-lg" aria-hidden="true">
           🔍
         </span>
-        <span className="hidden xl:inline">Ara</span>
+        <span className="hidden xl:inline">{searchButtonLabel}</span>
       </button>
 
       {open && (
         <div className="absolute right-0 mt-3 w-[min(480px,90vw)] rounded-2xl border border-neutral-200 bg-white shadow-2xl z-[80]">
           <form onSubmit={handleSubmit} className="p-4 border-b border-neutral-100">
             <label htmlFor="navbar-search-input" className="sr-only">
-              Site içinde arama yapın
+              {searchInputLabel}
             </label>
             <div className="relative">
               <span
@@ -103,19 +113,19 @@ export default function NavbarSearchDropdown() {
                 type="text"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Örn: LED ekran kiralama..."
+                placeholder={searchPlaceholder}
                 className="w-full rounded-xl border border-neutral-200 bg-white py-2.5 pl-9 pr-3 text-sm text-neutral-800 focus-ring"
               />
             </div>
             <p className="mt-2 text-xs text-neutral-500">
-              Enter ile arama sayfasına gidebilirsiniz.
+              {searchHint}
             </p>
           </form>
 
           <div className="max-h-[320px] overflow-y-auto">
             {results.length === 0 ? (
               <div className="px-4 py-6 text-sm text-neutral-500">
-                Eşleşen bir sayfa bulunamadı.
+                {noResults}
               </div>
             ) : (
               <ul className="divide-y divide-neutral-100">
@@ -145,7 +155,7 @@ export default function NavbarSearchDropdown() {
               onClick={() => setOpen(false)}
               className={`inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-800 ${FOCUS_RING_CLASS}`}
             >
-              Tüm sonuçları gör
+              {viewAllLabel}
               <span aria-hidden="true">→</span>
             </Link>
           </div>

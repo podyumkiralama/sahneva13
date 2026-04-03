@@ -594,6 +594,10 @@ const PROJECT_GALLERIES_EN = {
 };
 
 const PROJECTS_DICT_EN = {
+  title: "Project Gallery",
+  subtitle:
+    "We have been a professional solutions partner in over 500 corporate events, concerts, fairs and event organisation projects.",
+  statsLabel: "Completed projects",
   exploreAria: "Open gallery — {{title}} ({{count}} projects)",
   exploreHiddenLabel: "Open gallery — {{title}} ({{count}} projects)",
   hoverCta: "View gallery",
@@ -713,11 +717,28 @@ const TECH_CAPABILITIES_DICT_EN = {
   sectionDescription:
     "LED wall technology, sound-light systems and reliable infrastructure solutions covering all corporate event needs under one roof.",
   card1Title: "Technical Solutions",
+  card1DescPrefix: "", // Turkish uses "olarak " before the description; English doesn't need a prefix
   card1Desc:
     "bespoke stage builds, LED wall rentals, media playback and broadcast solutions delivered turnkey for your project.",
+  card1FeaturesAriaLabel: "Technical Solutions features",
+  card1Features: [
+    "Next-gen equipment for LED screens, projection, mapping and stage lighting",
+    "Uninterrupted broadcast via satellite, fibre and 5G-backed live streaming infrastructure",
+    "Simultaneous management with multi-camera shoots, mixers and audio desks",
+    "Interactive solutions and dynamic graphics systems for audience engagement",
+    "Custom content creation, video production and post-production support",
+  ],
   card2Title: "Large-Scale Capacity & Infrastructure",
   card2Desc:
     "nationwide logistics, installation and technical operation support for events of every scale across Türkiye.",
+  card2FeaturesAriaLabel: "Large-Scale Capacity & Infrastructure features",
+  card2Features: [
+    "Modular stage and truss systems for corporate events",
+    "Up to 600 m² LED screen capacity and high-brightness options",
+    "Professional sound and acoustic setups for large-scale concerts and congresses",
+    "Redundant power infrastructure and generator integration",
+    "Nationwide logistics, installation and technical operation management across Türkiye",
+  ],
 };
 
 const WHY_CHOOSE_US_DICT_EN = {

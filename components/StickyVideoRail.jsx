@@ -90,6 +90,7 @@ function StickyVideoRailInner({
   ariaLabelledby,
   ariaDescribedby,
   role,
+  locale = "tr",
 }) {
   const [isMounted, setIsMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -114,9 +115,14 @@ function StickyVideoRailInner({
   const computedRole =
     role ?? (ariaLabel || ariaLabelledby ? "region" : undefined);
 
-  const accessibleTitle = "Sahneva Video Galerisi";
-  const accessibleDescription =
-    "Sahneva'nın öne çıkan videolarını oynatmak ve listedeki diğer kliplere geçiş yapmak için sürüklenebilir, açılır bir oynatıcı.";
+  const isEn = locale === "en";
+  const accessibleTitle = isEn ? "Sahneva Video Gallery" : "Sahneva Video Galerisi";
+  const accessibleDescription = isEn
+    ? "A draggable, expandable video player to watch Sahneva's featured videos and switch between clips in the playlist."
+    : "Sahneva'nın öne çıkan videolarını oynatmak ve listedeki diğer kliplere geçiş yapmak için sürüklenebilir, açılır bir oynatıcı.";
+  const watchVideosLabel = isEn ? "Watch Videos" : "Videoları Görüntüle";
+  const openLabel = isEn ? "Open" : "Aç";
+  const openPlayerAriaLabel = isEn ? "Open video player" : "Video oynatıcıyı aç";
 
   const currentVideo = VIDEOS[activeIndex];
   const playlistForExpanded = VIDEOS.filter((_, i) => i !== activeIndex);
@@ -480,13 +486,13 @@ function StickyVideoRailInner({
           setIsOpen(true);
         }}
         className="fixed z-[60] bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs sm:text-sm shadow-lg border border-white/20 hover:from-purple-700 hover:to-blue-700 transition-all duration-200 group"
-        aria-label="Video oynatıcıyı aç"
+        aria-label={openPlayerAriaLabel}
       >
         <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
           ▶
         </span>
-        <span className="hidden sm:inline font-medium">Videoları Görüntüle</span>
-        <span className="sm:hidden font-medium">Aç</span>
+        <span className="hidden sm:inline font-medium">{watchVideosLabel}</span>
+        <span className="sm:hidden font-medium">{openLabel}</span>
       </button>
     );
   }
@@ -702,6 +708,7 @@ export default function StickyVideoRail({
   ariaLabelledby,
   ariaDescribedby,
   role,
+  locale = "tr",
   ...props
 }) {
   return (
@@ -717,6 +724,7 @@ export default function StickyVideoRail({
         ariaLabelledby={ariaLabelledby}
         ariaDescribedby={ariaDescribedby}
         role={role}
+        locale={locale}
       />
     </DeferredHydration>
   );
