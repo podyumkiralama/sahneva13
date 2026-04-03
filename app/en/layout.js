@@ -205,7 +205,7 @@ export default function EnglishLayout({ children }) {
           descriptionId="_main_footer_desc"
           locale="en"
         />
-        <StickyVideoRailClient />
+        <StickyVideoRailClient locale="en" />
         <SpeedInsights />
       </div>
     </>

@@ -383,7 +383,7 @@ export default function Navbar({ locale = "tr", ...props }) {
                 </div>
               </details>
 
-              <NavbarSearchDropdown />
+              <NavbarSearchDropdown locale={locale} />
 
               <a
                 href={whatsappHref}

@@ -10,7 +10,7 @@ const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
   loading: () => null,
 });
 
-export default function StickyVideoRailClient() {
+export default function StickyVideoRailClient({ locale = "tr" }) {
   const [shouldRender, setShouldRender] = useState(false);
   const pathname = usePathname();
   const shouldHide = pathname === "/cadir-kiralama";
@@ -36,5 +36,5 @@ export default function StickyVideoRailClient() {
   if (shouldHide) return null;
 
   if (!shouldRender) return null;
-  return <StickyVideoRailLazy />;
+  return <StickyVideoRailLazy locale={locale} />;
 }
