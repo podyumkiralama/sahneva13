@@ -1,19 +1,52 @@
 // app/en/led-screen-rental/page.js
+
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import dynamic from "next/dynamic";
-
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import VideoEmbed from "@/components/VideoEmbed.client";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import {
+  Monitor,
+  Sun,
+  Shield,
+  Zap,
+  Settings,
+  MessageCircle,
+  CheckCircle,
+  Layout,
+  ArrowRight,
+  Camera,
+  Layers,
+  Activity,
+  Users,
+  Music,
+  Briefcase,
+  Tent,
+  Tv,
+  Headphones,
+  Cpu,
+  Eye,
+  Truck,
+  Lock,
+  RotateCcw,
+  Gauge,
+} from "lucide-react";
 
 /* ================== Constants ================== */
 export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const LOCAL_BUSINESS_ID = `${ORIGIN}/#local`;
+const PAGE_LAST_MODIFIED = getLastModifiedForFile(
+  "app/en/led-screen-rental/page.js",
+  "2026-01-14"
+);
 const PHONE = "+905453048671";
 const WA_TEXT =
-  "Hello%2C+I'd+like+to+request+a+quote+for+LED+screen+rental.+Event+type%3A+%5Bconcert%2Fexpo%2Flaunch%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Screen+size%3A+%5Bxxx%5D.";
-const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+  "Hello, I'd like to request a professional quote for our LED screen rental project. Event type: [Concert/Expo/Wedding], Date: [Date], City: [City].";
+const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
 
 // Base64 blur placeholder
 const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
