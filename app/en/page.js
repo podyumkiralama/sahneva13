@@ -685,6 +685,11 @@ const CORPORATE_EVENTS_ADVANTAGES_EN = [
 
 const CORPORATE_EVENTS_DICT_EN = {
   sectionTitleSr: "Corporate event solutions showcase",
+  headingPrefix: "Your Solution Partner",
+  headingHighlight: "Among Corporate Event Companies",
+  headingSuffix: "in Istanbul",
+  introText:
+    "We manage every step of event organization and technical production from a single hub, staging your brand's prestige to global standards.",
   highlightPill: "Why Sahneva?",
   highlightTitlePrefix: "Our edge in",
   highlightTitleAccent: "corporate production",
@@ -748,6 +753,33 @@ const WHY_CHOOSE_US_DICT_EN = {
   sectionTitleSuffix: "?",
   sectionDesc:
     "10+ years of experience, modern equipment and an expert team at your service for every detail of your event.",
+  advantagesGroupAriaLabel: "Sahneva Infrastructure Advantages",
+  bigLeftTitle: "End-to-End Technical Service & Professional Solutions",
+  bigLeftDesc:
+    "Sahneva provides complete technical solutions for stages, podiums, LED screens and sound-lighting systems across Türkiye.",
+  bigLeftFeatures: [
+    "IP65 outdoor LED panels, 4500+ nit brightness",
+    "Professional line-array sound systems, digital mixing infrastructure",
+    "Modular podium and stage platforms, truss rental solutions",
+    "DMX-controlled lighting systems and ambient lighting",
+  ],
+  bigRightTitle: "Robust Infrastructure for Large-Scale Events",
+  bigRightDesc:
+    "We serve concerts, rallies, festivals, fairs and outdoor events with high-capacity equipment infrastructure.",
+  bigRightFeatures: [
+    "100 m²+ LED screen installation (P3.9 outdoor, P2.6 indoor)",
+    "Line-array sound systems (JBL, RCF, dB etc.)",
+    "Truss tower systems and roof stage solutions",
+    "Generator, UPS and redundant power infrastructure",
+  ],
+  features: [
+    { title: "High Customer Satisfaction", desc: "Over 98% customer satisfaction rate. References and reviews are our strongest indicator.", stat: "98% Satisfaction" },
+    { title: "Fast Setup & Delivery", desc: "Same-day professional installation for stage, LED screen and sound-lighting setups.", stat: "2–6 Hours" },
+    { title: "Premium LED Technology", desc: "High brightness and clarity with P2–P6 indoor/outdoor LED screens.", stat: "P2–P6" },
+    { title: "Expert Technical Team", desc: "10+ years of experience in stage, sound, lighting and LED — expert technical crew.", stat: "15+ Experts" },
+    { title: "Competitive Pricing Guarantee", desc: "Transparent and predictable pricing that fits your budget without compromising quality.", stat: "30% Savings" },
+    { title: "Nationwide Service", desc: "Production support across all 81 provinces from our Istanbul-based team.", stat: "81 Provinces" },
+  ],
 };
 
 const FAQ_DICT_EN = {
@@ -769,6 +801,11 @@ const FAQ_DICT_EN = {
   contactMail: "info@sahneva.com",
   contactMailHref: "mailto:info@sahneva.com",
   regionTitleSr: "Frequently asked questions content region",
+  whatsappActionText: "Send a Quick Message",
+  newTabHint: "opens in new tab",
+  seeAllHref: "/en/faq",
+  seeAllLabel: "See all questions",
+  seeAllAriaLabel: "View all questions on the FAQ page",
 };
 
 /* ================== Metadata ================== */
