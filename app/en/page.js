@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 import HeroSection from "@/components/HeroSection";
 import HeroBelow from "@/components/HeroBelow";
+import { HERO_FEATURES_EN } from "@/lib/heroFeatures";
 
 import ServicesTabs from "@/components/ServicesTabs";
 import CorporateEvents from "@/components/CorporateEvents";
@@ -434,6 +435,125 @@ const SERVICES_EN = [
   },
 ];
 
+const HERO_DICT_EN = {
+  keywords: [
+    { text: "Stage Rental", color: "text-blue-200" },
+    { text: "LED Screen Rental", color: "text-purple-200" },
+    { text: "Sound & Lighting", color: "text-cyan-200" },
+    { text: "Podium Setup", color: "text-emerald-200" },
+  ],
+  keywordsAriaLabel: "Featured services",
+  badge: "Nationwide \u2022 Rapid Setup \u2022 Same-Day Activation",
+  titleLine1Prefix: "with Sahneva",
+  titleLine1: "Event Production",
+  titleLine2: "One Team, One Roof, One Solution",
+  description:
+    "With <strong class=\"text-white\">500+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
+  ctaCall: "Call Now",
+  ctaCallAria: "Call Sahneva now",
+  ctaWhatsapp: "WhatsApp Quote",
+  ctaWhatsappAria: "Get a WhatsApp quote \u2014 opens in new tab",
+  ctaQuote: "Get a Quote",
+  ctaQuoteAria: "Jump to the quote section",
+  quoteAnchor: "#get-a-quote",
+  whatsappText:
+    "Hello%2C+I%27m+reaching+out+from+your+website.+I%27d+like+to+get+a+detailed+quote.",
+};
+
+const HERO_BELOW_DICT_EN = {
+  processSteps: [
+    {
+      title: "Discovery & Planning",
+      desc: "Venue measurements, capacity and concept verification to select the right package",
+      badge: "1",
+    },
+    {
+      title: "Setup & Testing",
+      desc: "Field crew, safety and backup power checks with same-day activation",
+      badge: "2",
+    },
+    {
+      title: "Live Management",
+      desc: "Operator, director and technical lead for uninterrupted event flow",
+      badge: "3",
+    },
+  ],
+  features: HERO_FEATURES_EN,
+  featuresAriaLabel: "Featured service advantages",
+  processAriaLabel: "Project workflow steps",
+  consultationTitle: "Free Professional Consultation",
+  consultationDesc:
+    "Let us plan the <strong>ideal stage and podium rental solution</strong> for your event and match LED screen rental options to your budget \u2014 at no charge. <span class=\"block mt-1 text-yellow-300 font-medium\">\u26a1 Detailed quote guaranteed within 2 hours.</span>",
+  consultationCta: "Get a Quote",
+  consultationCtaHref: "#get-a-quote",
+  sectionBadge: "Process & Assurance",
+  sectionTitle: "From setup to teardown \u2014 one team, one timeline",
+  sectionDesc:
+    "The Sahneva team handles discovery, static calculations, LED content prep, truss rental and on-stage operations under one roof \u2014 delivering both speed and flawless execution.",
+  srHeading: "Stage Rental Service Features and Consultation",
+};
+
+const CORPORATE_INTRO_DICT_EN = {
+  badge: "Corporate Events & Event Production",
+  heading: "For your brand,",
+  headingHighlight: "end-to-end stage and technical management",
+  description:
+    "For launches, dealer meetings, conferences and trade fairs; we manage the full technical infrastructure \u2014 <strong>stage, LED screen rental, sound-lighting and truss structures</strong> \u2014 through a single team. We absorb technical risk and design a flawlessly executed event flow.",
+  linkHref: "/en/corporate-events",
+  linkText: "Corporate event solutions",
+  linkSuffix: " \u2014 see our step-by-step process.",
+  processHeading: "End-to-end technical management",
+  processSteps: [
+    {
+      step: "1",
+      title: "Discovery & Brief",
+      text: "We clarify needs through venue and flow analysis.",
+    },
+    {
+      step: "2",
+      title: "Technical Design",
+      text: "We design 3D stage plans, sound-lighting and LED layouts.",
+    },
+    {
+      step: "3",
+      title: "Setup & Testing",
+      text: "All stage, sound-lighting and video systems installed with redundancy.",
+    },
+    {
+      step: "4",
+      title: "Live Management",
+      text: "Full-day direction, technical oversight and post-event teardown.",
+    },
+  ],
+  techStandardsHeading: "Our technical standards",
+  techStandards: [
+    "Acoustic & power load calculations",
+    "3D stage & LED layout plan",
+    "Redundant audio and video lines",
+    "Truss static and load checks",
+    "Colour calibration & brightness control",
+    "Emergency scenario and backup system",
+  ],
+  stats: [
+    { value: "250+", label: "Corporate events" },
+    { value: "15+", label: "Years of field experience" },
+    { value: "7/24", label: "Technical support" },
+  ],
+  imageAlt:
+    "Corporate launch stage setup with LED screen rental and professional lighting systems at a live event.",
+  imageBadge1: "Live Direction",
+  imageCaption: "Corporate launch stage setup",
+  imageCaptionSub:
+    "Istanbul \u2022 2000+ attendees \u2022 Multi-camera live stream & full technical production",
+  card1Label: "Single-point management",
+  card1Text:
+    "We bring stage, LED screen, sound-lighting, truss, generator and direction crews under one technical team. You manage the entire process through a single point of contact.",
+  card2Label: "Sahneva Events",
+  card2Badge: "Your corporate solutions partner",
+  card2Text:
+    "Work with a team that understands your brand approach and simplifies technical language. We track every step from brief to teardown on your behalf.",
+};
+
 const SERVICES_DICT_EN = {
   sectionPill: "Professional Service",
   sectionTitlePrefix: "Stage rental, LED wall rental and",
@@ -672,9 +792,9 @@ export default function EnglishHomePage() {
       <StructuredData />
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
-      <HeroSection />
+      <HeroSection dictionary={HERO_DICT_EN} />
       <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
-        <HeroBelow />
+        <HeroBelow dictionary={HERO_BELOW_DICT_EN} />
       </div>
 
       <div id="get-a-quote" className="sr-only" />
@@ -715,7 +835,7 @@ export default function EnglishHomePage() {
       </div>
 
       <div className="bg-black py-0 m-0 w-full">
-        <CorporateIntro />
+        <CorporateIntro dictionary={CORPORATE_INTRO_DICT_EN} />
       </div>
 
       {/* Why Choose Us */}
