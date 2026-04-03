@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
