@@ -66,7 +66,14 @@ export const metadata = {
   title: "LED Screen Rental | Professional LED Wall Rentals",
   description:
     "P2–P6 pixel pitch, 4K processors and ultra-bright LED wall rentals. Indoor/outdoor, concert, expo and corporate event solutions across Turkey.",
-  alternates: { canonical: `${ORIGIN}/en/led-screen-rental` },
+  alternates: {
+    canonical: `${ORIGIN}/en/led-screen-rental`,
+    languages: {
+      "tr-TR": `${ORIGIN}/led-ekran-kiralama`,
+      "en": `${ORIGIN}/en/led-screen-rental`,
+      "x-default": `${ORIGIN}/en/led-screen-rental`,
+    },
+  },
   openGraph: {
     title: "LED Screen Rental | Professional Solutions",
     description:
@@ -381,10 +388,10 @@ const GALLERY_IMAGES = [
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section className="py-20 bg-white" aria-labelledby="gallery-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="gallery-heading" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Project <span className="gradient-text gradient-text--safe-xl">gallery</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1110,7 +1117,7 @@ function JsonLd() {
 
   return (
     <Script
-      id="ld-json-led-ekran"
+      id="ld-json-led-screen"
       type="application/ld+json"
       strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

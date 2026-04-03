@@ -33,7 +33,14 @@ export const metadata = {
   title: "Sound & Lighting Rental | Concert-Grade AV Systems",
   description:
     "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
-  alternates: { canonical: `${ORIGIN}/en/sound-light-rental` },
+  alternates: {
+    canonical: `${ORIGIN}/en/sound-light-rental`,
+    languages: {
+      "tr-TR": `${ORIGIN}/ses-isik-sistemleri`,
+      "en": `${ORIGIN}/en/sound-light-rental`,
+      "x-default": `${ORIGIN}/en/sound-light-rental`,
+    },
+  },
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",
     description:

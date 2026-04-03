@@ -51,7 +51,7 @@ export const metadata = {
       "tr-TR": `${ORIGIN}/sahne-kiralama`,
       en: `${ORIGIN}/en/stage-rental`,
       ar: `${ORIGIN}/ar/stage-rental`,
-      "x-default": `${ORIGIN}/sahne-kiralama`,
+      "x-default": `${ORIGIN}/en/stage-rental`,
     },
   },
   openGraph: {

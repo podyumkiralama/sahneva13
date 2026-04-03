@@ -443,10 +443,10 @@ function Technical() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="infrastructure-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="infrastructure-heading" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Technical <span className="gradient-text gradient-text--safe-xl">Infrastructure</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
