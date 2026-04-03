@@ -77,6 +77,11 @@ const FOCUS_RING_CLASS =
 
 const DEFAULT_DICTIONARY = {
   sectionTitleSr: "Kurumsal etkinlik çözümleri ve hizmet detayları",
+  headingPrefix: "İstanbul'da",
+  headingHighlight: "Kurumsal Organizasyon Yapan Firmalar",
+  headingSuffix: "Arasında Çözüm Ortağınız",
+  introText:
+    "Etkinlik organizasyonu ve teknik prodüksiyon süreçlerinde tüm aşamaları tek merkezden yönetiyor, markanızın prestijini global standartlarda sahneliyoruz.",
   highlightPill: "Neden Biz?",
   highlightTitlePrefix: "Kurumsal Süreçlerde",
   highlightTitleAccent: "Güvenilir Çözüm Ortağınız",
@@ -209,20 +214,18 @@ export default function CorporateEvents({
             id={ariaLabel ? undefined : computedHeadingId}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
           >
-            İstanbul&apos;da{" "}
+            {dictionary.headingPrefix}{" "}
             <span className="gradient-text gradient-text--safe-xl">
-              Kurumsal Organizasyon Yapan Firmalar
+              {dictionary.headingHighlight}
             </span>{" "}
-            Arasında Çözüm Ortağınız
+            {dictionary.headingSuffix}
           </h2>
 
           <p
             id={introId}
             className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Etkinlik organizasyonu ve teknik prodüksiyon süreçlerinde tüm aşamaları
-            tek merkezden yönetiyor, markanızın prestijini global standartlarda
-            sahneliyoruz.
+            {dictionary.introText}
           </p>
         </div>
 

@@ -37,6 +37,11 @@ const DEFAULT_DICTIONARY = {
   contactMailHref: "mailto:info@sahneva.com",
 
   regionTitleSr: "Sıkça sorulan sorular bölümü içeriği",
+  whatsappActionText: "Hızlı Mesaj Gönder",
+  newTabHint: "yeni sekmede açılır",
+  seeAllHref: "/sss",
+  seeAllLabel: "Tüm soruları gör",
+  seeAllAriaLabel: "Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle",
 };
 
 function mergeDictionary(base, override = {}) {
@@ -239,7 +244,7 @@ function SupportCard({ dictionary }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-green-500/30 transition-all group ${FOCUS_RING_CLASS}`}
-          aria-label={`${dictionary.supportWhatsappLabel} – yeni sekmede açılır`}
+          aria-label={`${dictionary.supportWhatsappLabel} – ${dictionary.newTabHint}`}
         >
           <span className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
             📱
@@ -249,7 +254,7 @@ function SupportCard({ dictionary }) {
               {dictionary.supportWhatsappLabel}
             </span>
             <span className="block text-sm font-bold text-white group-hover:text-green-300 transition-colors">
-              Hızlı Mesaj Gönder
+              {dictionary.whatsappActionText}
             </span>
           </div>
         </a>
@@ -370,12 +375,12 @@ export default function Faq({
               ))}
               <div className="pt-4">
                 <a
-                  href="/sss"
+                  href={dictionary.seeAllHref}
                   className={`inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 hover:border-sky-300/70 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
-                  aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+                  aria-label={dictionary.seeAllAriaLabel}
                 >
                   <span aria-hidden="true">📚</span>
-                  Tüm soruları gör
+                  {dictionary.seeAllLabel}
                 </a>
               </div>
             </div>

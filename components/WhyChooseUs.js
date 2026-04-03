@@ -65,6 +65,31 @@ const DEFAULT_DICTIONARY = {
   sectionTitleHighlight: "Sahneva",
   sectionTitleSuffix: "'yı Tercih Etmelisiniz?",
   sectionDesc: "10+ yıllık deneyim, modern ekipmanlar ve uzman ekibimizle etkinliğinizin her detayı için yanınızdayız.",
+  advantagesGroupAriaLabel: "Sahneva Altyapı Avantajları",
+  bigLeftTitle: "Uçtan Uca Teknik Hizmet ve Profesyonel Çözümler",
+  bigLeftDesc: "Sahneva olarak Türkiye genelinde sahne, podyum, LED ekran ve ses ışık sistemleri alanlarında komple teknik çözümler sunuyoruz.",
+  bigLeftFeatures: [
+    "IP65 dış mekân LED paneller, 4500+ nit parlaklık",
+    "Profesyonel line-array ses sistemleri, dijital miksaj altyapısı",
+    "Modüler podyum ve sahne platformları, truss kiralama çözümleri",
+    "DMX kontrollü ışık sistemleri ve ambiyans aydınlatma",
+  ],
+  bigRightTitle: "Büyük Ölçekli Etkinlikler İçin Güçlü Altyapı",
+  bigRightDesc: "Konser, miting, festival, fuar ve açık hava etkinlikleri için yüksek kapasiteli ekipman altyapımızla hizmet veriyoruz.",
+  bigRightFeatures: [
+    "100 m²+ LED ekran kurulumu (P3.9 outdoor, P2.6 indoor)",
+    "Line-array ses sistemleri (JBL, RCF, dB vb.)",
+    "Truss kule sistemleri ve roof sahne çözümleri",
+    "Jeneratör, UPS ve yedekli enerji altyapısı",
+  ],
+  features: [
+    { title: "Yüksek Müşteri Memnuniyeti", desc: "%98'in üzerinde müşteri memnuniyeti. Referanslar ve yorumlar bizim için en güçlü gösterge.", stat: "%98 Memnuniyet" },
+    { title: "Hızlı Kurulum ve Teslimat", desc: "Sahne, LED ekran ve ses-ışık kurulumlarında aynı gün içinde profesyonel montaj.", stat: "2–6 Saat" },
+    { title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6" },
+    { title: "Uzman Teknik Ekip", desc: "10+ yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.", stat: "15+ Uzman" },
+    { title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "%30 Tasarruf" },
+    { title: "Türkiye Geneli Hizmet", desc: "İstanbul merkezli ekibimizle 81 ilde etkinlik prodüksiyon desteği sağlıyoruz.", stat: "81 İl" },
+  ],
 };
 
 const toDomId = (value = "") =>
@@ -102,22 +127,21 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
           <p className="mt-5 text-slate-300 text-base md:text-lg leading-relaxed">{dictionary.sectionDesc}</p>
         </header>
 
-        <div role="group" aria-label="Sahneva Altyapı Avantajları" className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div role="group" aria-label={dictionary.advantagesGroupAriaLabel} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <article aria-labelledby={bigLeftTitleId} className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8 shadow-[0_18px_45px_rgba(15,23,42,0.8)]">
             <div className="flex items-start gap-3">
               <div className="text-3xl" aria-hidden="true">🚀</div>
               <h3 id={bigLeftTitleId} className="text-xl md:text-2xl font-bold text-white leading-snug">
-                Uçtan Uca Teknik Hizmet ve Profesyonel Çözümler
+                {dictionary.bigLeftTitle}
               </h3>
             </div>
             <p className="mt-4 text-slate-200 text-sm md:text-base leading-relaxed">
-              Sahneva olarak Türkiye genelinde sahne, podyum, LED ekran ve ses ışık sistemleri alanlarında komple teknik çözümler sunuyoruz.
+              {dictionary.bigLeftDesc}
             </p>
             <ul className="mt-5 space-y-2 text-sm md:text-[15px] text-slate-200 leading-relaxed">
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>IP65 dış mekân LED paneller, 4500+ nit parlaklık</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>Profesyonel line-array ses sistemleri, dijital miksaj altyapısı</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>Modüler podyum ve sahne platformları, truss kiralama çözümleri</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>DMX kontrollü ışık sistemleri ve ambiyans aydınlatma</span></li>
+              {(dictionary.bigLeftFeatures ?? DEFAULT_DICTIONARY.bigLeftFeatures).map((item) => (
+                <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>{item}</span></li>
+              ))}
             </ul>
           </article>
 
@@ -125,24 +149,24 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
             <div className="flex items-start gap-3">
               <div className="text-3xl" aria-hidden="true">🎤</div>
               <h3 id={bigRightTitleId} className="text-xl md:text-2xl font-bold text-white leading-snug">
-                Büyük Ölçekli Etkinlikler İçin Güçlü Altyapı
+                {dictionary.bigRightTitle}
               </h3>
             </div>
             <p className="mt-4 text-slate-200 text-sm md:text-base leading-relaxed">
-              Konser, miting, festival, fuar ve açık hava etkinlikleri için yüksek kapasiteli ekipman altyapımızla hizmet veriyoruz.
+              {dictionary.bigRightDesc}
             </p>
             <ul className="mt-5 space-y-2 text-sm md:text-[15px] text-slate-200 leading-relaxed">
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>100 m²+ LED ekran kurulumu (P3.9 outdoor, P2.6 indoor)</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>Line-array ses sistemleri (JBL, RCF, dB vb.)</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>Truss kule sistemleri ve roof sahne çözümleri</span></li>
-              <li className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>Jeneratör, UPS ve yedekli enerji altyapısı</span></li>
+              {(dictionary.bigRightFeatures ?? DEFAULT_DICTIONARY.bigRightFeatures).map((item) => (
+                <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>{item}</span></li>
+              ))}
             </ul>
           </article>
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {DEFAULT_FEATURES.map((feature) => {
-            const featureTitleId = `why-adv-${toDomId(feature.title)}-title`;
+          {DEFAULT_FEATURES.map((feature, index) => {
+            const dictFeature = (dictionary.features ?? DEFAULT_DICTIONARY.features)[index] ?? feature;
+            const featureTitleId = `why-adv-${toDomId(dictFeature.title)}-title`;
             return (
               <li key={feature.title}>
                 <article
@@ -203,7 +227,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
                       </div>
                     </div>
 
-                    <span className={`inline-flex items-center text-[11px] font-semibold px-3 py-1 rounded-full ${feature.pillClass}`}>{feature.stat}</span>
+                    <span className={`inline-flex items-center text-[11px] font-semibold px-3 py-1 rounded-full ${feature.pillClass}`}>{dictFeature.stat}</span>
 
                     <h4
                       id={featureTitleId}
@@ -214,10 +238,10 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
                         transition-colors duration-300
                       `}
                     >
-                      {feature.title}
+                      {dictFeature.title}
                     </h4>
 
-                    <p className="text-slate-200 text-sm leading-relaxed">{feature.desc}</p>
+                    <p className="text-slate-200 text-sm leading-relaxed">{dictFeature.desc}</p>
                   </div>
                 </article>
               </li>
