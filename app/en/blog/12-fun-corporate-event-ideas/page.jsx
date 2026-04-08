@@ -136,7 +136,7 @@ function FaqSchema() {
               },
             },
           ],
-        }).replace(/</g, "\u003c"),
+        }).replace(/</g, "\\u003c"),
       }}
     />
   );
