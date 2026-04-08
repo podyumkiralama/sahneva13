@@ -1,0 +1,416 @@
+// app/en/blog/page.jsx
+import Link from "next/link";
+import Image from "next/image";
+import { readdir } from "fs/promises";
+import { existsSync } from "fs";
+import path from "path";
+import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
+
+/* ================== RUNTIME & ISR ================== */
+export const runtime = "nodejs";
+export const revalidate = 1800;
+
+/* ================== CONSTANTS ================== */
+const ORIGIN = "https://www.sahneva.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN;
+
+function getBaseUrl() {
+  return normalizeBaseUrl(SITE_URL || ORIGIN);
+}
+
+/* ================== META DATA ================== */
+export const metadata = {
+  title: "Blog | Event & Organization Guides",
+  description:
+    "Expert guides on corporate event management, stage rental, LED screen technology, sound and lighting systems.",
+  alternates: { canonical: `${getBaseUrl()}/en/blog`, languages: { "en-US": `${getBaseUrl()}/en/blog`, "x-default": `${getBaseUrl()}/en/blog` } },
+  openGraph: {
+    title: "Sahneva | Event Technologies Guide",
+    description:
+      "Up-to-date blog posts from the Sahneva team on corporate events and technical equipment.",
+    url: `${getBaseUrl()}/en/blog`,
+    type: "website",
+    locale: "en_US",
+    siteName: "Sahneva",
+    images: [
+      {
+        url: `${ORIGIN}/img/blog/default.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva – event technologies and organization guides blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sahneva Blog | Event Technologies and Organization Guides",
+    description:
+      "Expert guides on corporate event management, stage rental, LED screen technology, sound and lighting systems.",
+    images: [`${ORIGIN}/img/blog/default.webp`],
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+};
+
+/* ================== HELPERS ================== */
+function safeDateString(date) {
+  if (!date) return null;
+
+  const raw = String(date).trim();
+  if (!raw) return null;
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+    return `${raw}T00:00:00+03:00`;
+  }
+
+  const d = new Date(raw);
+  return Number.isNaN(d.getTime()) ? null : raw;
+}
+
+function normalizePostMeta(slug, rawMeta = {}) {
+  const fallbackTitle = slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (l) => l.toUpperCase());
+
+  const ogImage = Array.isArray(rawMeta?.openGraph?.images)
+    ? rawMeta.openGraph.images[0]
+    : null;
+  const ogImageUrl =
+    typeof ogImage === "string"
+      ? ogImage
+      : typeof ogImage?.url === "string"
+        ? ogImage.url
+        : null;
+  const imageFromOg = ogImageUrl
+    ? ogImageUrl.replace(/^https?:\/\/[^/]+/i, "")
+    : null;
+
+  return {
+    slug,
+    title: rawMeta.title || fallbackTitle,
+    description: rawMeta.description || "No description entered for this article.",
+    date: safeDateString(rawMeta.date),
+    image: rawMeta.image || imageFromOg || "/img/blog/default.webp",
+    category: rawMeta.category || "General",
+    readTime: rawMeta.readTime || "3 min read",
+    draft: rawMeta.draft === true,
+    author: rawMeta.author || "Sahneva Editor",
+    modifiedDate: rawMeta.modifiedDate || null,
+  };
+}
+
+/* ================== GET BLOG POSTS ================== */
+async function getBlogPosts() {
+  try {
+    const blogDir = path.join(process.cwd(), "app", "en", "blog");
+
+    if (!existsSync(blogDir)) {
+      console.warn(`[Blog] Directory not found: ${blogDir}`);
+      return [];
+    }
+
+    const items = await readdir(blogDir, { withFileTypes: true });
+    const posts = [];
+
+    for (const item of items) {
+      if (!item.isDirectory()) continue;
+
+      const postSlug = item.name;
+
+      if (
+        postSlug.startsWith(".") ||
+        postSlug.startsWith("_") ||
+        postSlug === "api"
+      ) {
+        continue;
+      }
+
+      const pageJsPath = path.join(blogDir, postSlug, "page.js");
+      const pageJsxPath = path.join(blogDir, postSlug, "page.jsx");
+      if (!existsSync(pageJsPath) && !existsSync(pageJsxPath)) continue;
+
+      try {
+        const postModule = await import(`./${postSlug}/page`);
+        const postMetadata = postModule?.metadata || {};
+        const fileRelativePath = existsSync(pageJsxPath)
+          ? `app/en/blog/${postSlug}/page.jsx`
+          : `app/en/blog/${postSlug}/page.js`;
+        const modifiedDate = `${getLastModifiedForFile(fileRelativePath, "2026-02-01")}T00:00:00+03:00`;
+        const normalized = normalizePostMeta(postSlug, { ...postMetadata, modifiedDate });
+        if (normalized.draft) continue;
+
+        posts.push(normalized);
+      } catch (error) {
+        console.warn(`[Blog] Error reading ${postSlug}.`, error);
+        continue;
+      }
+    }
+
+    posts.sort((a, b) => {
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
+    });
+    return posts;
+  } catch (error) {
+    console.error("[Blog] Critical read error:", error);
+    return [];
+  }
+}
+
+/* ================== JSON-LD ================== */
+function BlogJsonLd({ posts, baseUrl }) {
+  if (!posts?.length) return null;
+
+  const site = String(baseUrl || "").replace(/\/$/, "");
+  const orgId = `${site}/#org`;
+  const editorId = `${site}/#editor`;
+  const blogUrl = `${site}/en/blog`;
+
+  const title =
+    typeof metadata?.title === "string"
+      ? metadata.title
+      : metadata?.title?.default || "Sahneva Blog";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": `${blogUrl}#blog`,
+        url: blogUrl,
+        name: title,
+        description: metadata?.description,
+        publisher: { "@id": orgId },
+        inLanguage: "en-US",
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${blogUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: site,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: blogUrl,
+          },
+        ],
+      },
+
+      ...posts.map((post) => {
+        const postUrl = `${blogUrl}/${post.slug}`;
+        const img = String(post.image || "");
+        const absImg = /^https?:\/\//i.test(img) ? img : `${site}${img}`;
+
+        return {
+          "@type": "BlogPosting",
+          "@id": `${postUrl}#blogposting`,
+          url: postUrl,
+          headline: post.title,
+          description: post.description,
+          image: absImg,
+          datePublished: post.date || undefined,
+          dateModified: post.modifiedDate || post.date || undefined,
+          inLanguage: "en-US",
+          author: { "@id": editorId },
+          publisher: { "@id": orgId },
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": postUrl,
+          },
+          isPartOf: {
+            "@id": `${blogUrl}#blog`,
+          },
+        };
+      }),
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}
+
+/* ================== BLOG CARD ================== */
+function BlogCard({ post, isFeatured = false }) {
+  const formattedDate = post.date
+    ? new Date(post.date).toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
+
+  return (
+    <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+      <Link
+        href={`/en/blog/${post.slug}`}
+        className="flex flex-col h-full"
+        aria-label={post.title}
+      >
+        <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={isFeatured}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+          <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-blue-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+            {post.category}
+          </span>
+        </div>
+
+        <div className="flex flex-col flex-1 p-6">
+          <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
+            {formattedDate && (
+              <time dateTime={post.date} className="flex items-center gap-1">
+                📅 {formattedDate}
+              </time>
+            )}
+            {formattedDate && (
+              <span className="w-1 h-1 bg-gray-400 rounded-full" />
+            )}
+            <span className="flex items-center gap-1">⏱️ {post.readTime}</span>
+          </div>
+
+          <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+            {post.title}
+          </h2>
+
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 flex-1">
+            {post.description}
+          </p>
+
+          <div className="pt-4 mt-auto border-t border-gray-100 flex items-center justify-between">
+            <span className="text-blue-600 text-sm font-semibold group-hover:underline">
+              Read More
+            </span>
+            <span className="text-gray-600 text-lg transition-transform group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </div>
+      </Link>
+    </article>
+  );
+}
+
+/* ================== MAIN PAGE ================== */
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+  const hasPosts = posts.length > 0;
+  const baseUrl = getBaseUrl();
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <BlogJsonLd posts={posts} baseUrl={baseUrl} />
+
+      <section className="relative bg-[#0f172a] text-white py-24 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+            Sahneva{" "}
+            <span className="gradient-text gradient-text--safe-xl">
+              Blog
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+            The latest trends in the world of event technologies, technical guides and organization tips.
+          </p>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 -mt-12 relative z-20 pb-20">
+        <div className="bg-white rounded-xl shadow-lg p-4 mb-12 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-12 border border-gray-100">
+          <div className="text-center">
+            <span className="block text-2xl font-bold text-blue-600">
+              {posts.length}
+            </span>
+            <span className="text-xs text-gray-600 uppercase tracking-wider font-semibold">
+              Articles
+            </span>
+          </div>
+          <div className="hidden md:block w-px h-10 bg-gray-200" />
+          <div className="text-center">
+            <span className="block text-2xl font-bold text-purple-600">
+              {hasPosts ? "Active" : "-"}
+            </span>
+            <span className="text-xs text-gray-600 uppercase tracking-wider font-semibold">
+              Status
+            </span>
+          </div>
+        </div>
+
+        {hasPosts ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post, index) => (
+              <BlogCard key={post.slug} post={post} isFeatured={index === 0} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-dashed border-gray-300 text-center">
+            <div className="text-6xl mb-4 opacity-50">📝</div>
+            <h3 className="text-xl font-semibold text-gray-900">No Articles Yet</h3>
+            <p className="text-gray-600 mt-2">
+              Blog content is being prepared, please check back later.
+            </p>
+            <Link href="/" className="mt-6 text-blue-600 hover:underline">
+              Go to Homepage
+            </Link>
+          </div>
+        )}
+
+        <div className="mt-24 bg-blue-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Join Our Newsletter
+            </h3>
+            <p className="text-blue-100 mb-8">
+              Be the first to hear about our new articles and event industry news.
+            </p>
+
+            <form className="flex flex-col sm:flex-row gap-3">
+              <label htmlFor="newsletter-email" className="sr-only">
+                Newsletter email address
+              </label>
+              <input
+                id="newsletter-email"
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-400 px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-xs text-blue-300 mt-4 opacity-70">
+              No spam, just valuable content.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
