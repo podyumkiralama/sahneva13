@@ -176,7 +176,7 @@ export default function Page() {
 
         <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
-            A product launch is the critical moment when your brand&apos;s new story begins. The
+            A product launch is the critical moment when your brand's new story begins. The
             lasting impact of this moment is directly tied not only to the product being
             presented, but also to the technical quality of the presentation itself.
           </p>
@@ -229,8 +229,8 @@ export default function Page() {
         <p>
           Product videos — the heart of the launch — come to life on our{" "}
           <Link href="/en/led-screen-rental">LED screens</Link> with 4500+ nit brightness. We
-          don&apos;t just project images; with 360° laser-LED synchronization, we invite
-          attendees into your brand&apos;s world.
+          don't just project images; with 360° laser-LED synchronization, we invite
+          attendees into your brand's world.
         </p>
 
         <h3>🔊 Sound, Lighting and Direction Management</h3>
@@ -242,7 +242,7 @@ export default function Page() {
 
         <h3>🏕️ Prestigious Outdoor Solutions (Tent &amp; Dome)</h3>
         <p>
-          If you&apos;re looking for an extraordinary venue, we create a prestigious atmosphere
+          If you're looking for an extraordinary venue, we create a prestigious atmosphere
           even outdoors with transparent <Link href="/en/tent-rental">tents</Link> and pneumatic
           dome structures capable of 360° projection mapping.
         </p>
@@ -256,7 +256,7 @@ export default function Page() {
               <tr>
                 <th scope="col" className="p-4 font-bold">Phase</th>
                 <th scope="col" className="p-4 font-bold">Process</th>
-                <th scope="col" className="p-4 font-bold">Sahneva&apos;s Role</th>
+                <th scope="col" className="p-4 font-bold">Sahneva's Role</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -322,7 +322,7 @@ export default function Page() {
           <div className="p-6 md:p-8">
             <p className="text-gray-700 leading-relaxed mb-4">
               At the 2021 National Space Program Launch at Beştepe Congress Center, we made a
-              technical contribution to one of Turkey&apos;s most important vision projects with
+              technical contribution to one of Turkey's most important vision projects with
               our pneumatic dome structure and 360° synchronized technology solutions.
             </p>
             <Link
