@@ -1,6 +1,5 @@
 // app/gizlilik-politikasi/page.jsx
 import Link from "next/link";
-import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 export const revalidate = 1800;
@@ -72,9 +71,11 @@ export default function PrivacyPolicyPage() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       {/* JSON-LD */}
-      <Script id="ld-json-privacy" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(jsonLd)}
-      </Script>
+      <script
+        id="ld-json-privacy"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
 
       <div className="bg-slate-950 text-slate-50">
         {/* Hero / Başlık */}
