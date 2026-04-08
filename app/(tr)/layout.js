@@ -1,5 +1,4 @@
 // app/(tr)/(site)/layout.jsx
-import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
@@ -177,10 +176,9 @@ export const viewport = {
 export default function TurkishLayout({ children }) {
   return (
     <>
-      <Script
+      <script
         id="global-ld-json"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
 

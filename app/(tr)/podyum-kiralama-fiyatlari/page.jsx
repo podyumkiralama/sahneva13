@@ -1,7 +1,6 @@
 // app/(tr)/podyum-kiralama-fiyatlari/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
@@ -323,10 +322,10 @@ export default function Page() {
         ]}
       />
 
-      <Script
+      <script
         id="ld-json-podyum-fiyat"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
       <main className="bg-white">

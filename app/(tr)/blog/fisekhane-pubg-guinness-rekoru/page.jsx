@@ -1,7 +1,6 @@
 // app/(tr)/blog/fisekhane-pubg-guinness-rekoru/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
@@ -158,10 +157,9 @@ function ArticleSchema() {
   const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 
   return (
-    <Script
+    <script
       id="pubg-fisekhane-ld-json"
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: safe }}
     />
   );

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import BlogLayout from "@/components/blog/BlogLayout";
 import {
   BASE_SITE_URL,
@@ -102,7 +101,7 @@ export default function Page() {
 
   return (
     <>
-      <Script
+      <script
         id="ld-article-etkinlik-teknik-kesif"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}

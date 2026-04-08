@@ -77,7 +77,7 @@ export default function CasePage() {
     <div className="overflow-x-hidden">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       {/* HERO */}
       <section className="relative h-[340px] flex items-center justify-center text-white">
@@ -279,7 +279,7 @@ export default function CasePage() {
             description:
               "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekranla scaff ve truss altyapısı kullanılan, 2 günde 60 kişilik ekiple tamamlanan büyük ölçekli kurulum.",
             image: IMAGES.map((i) => `${SITE_URL}${i.src}`),
-          }),
+          }).replace(/</g, '\\u003c'),
         }}
       />
     </div>

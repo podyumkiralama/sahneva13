@@ -1,4 +1,3 @@
-import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
@@ -174,10 +173,9 @@ export const viewport = {
 export default function EnglishLayout({ children }) {
   return (
     <>
-      <Script
+      <script
         id="global-ld-json-en"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />
 
