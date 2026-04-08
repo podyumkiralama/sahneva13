@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
       <script
         id="ld-json-privacy-en"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\u003c') }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
       <div className="bg-slate-950 text-slate-50">
