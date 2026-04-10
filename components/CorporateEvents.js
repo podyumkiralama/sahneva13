@@ -173,11 +173,29 @@ export default function CorporateEvents({
                   item
                 ) : (
                   <div className="space-y-2">
-                    {item.icon ? (
-                      <span className="text-base" aria-hidden="true">
-                        {item.icon}
-                      </span>
-                    ) : null}
+                    {(() => {
+                      const IconComponent =
+                        typeof item.icon === "function" ? item.icon : null;
+                      const iconText = typeof item.icon === "string" ? item.icon : null;
+
+                      if (IconComponent) {
+                        return (
+                          <span className="text-base" aria-hidden="true">
+                            <IconComponent size={18} />
+                          </span>
+                        );
+                      }
+
+                      if (iconText) {
+                        return (
+                          <span className="text-base" aria-hidden="true">
+                            {iconText}
+                          </span>
+                        );
+                      }
+
+                      return null;
+                    })()}
                     <p className="font-semibold text-white">{item.label}</p>
                     {item.desc ? <p className="text-slate-300">{item.desc}</p> : null}
                   </div>
