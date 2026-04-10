@@ -1,5 +1,6 @@
 // components/HeroSection.js
 import Link from "next/link";
+import RichText from "@/components/RichText";
 
 const DEFAULT_KEYWORDS = [
   { text: "Sahne Kiralama", color: "text-blue-200" },
@@ -117,8 +118,9 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
             <p
               id="hero-desc"
               className="mx-auto max-w-3xl text-base leading-relaxed text-white/90 [text-shadow:0_10px_26px_rgba(0,0,0,0.45)] md:text-xl md:leading-loose"
-              dangerouslySetInnerHTML={{ __html: d.description }}
-            />
+            >
+              <RichText text={d.description} />
+            </p>
 
             <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a

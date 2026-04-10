@@ -10,6 +10,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import JsonLd from "@/components/seo/JsonLd";
 
 import { HOME_PAGE_TITLE, getOgImageUrl } from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -355,23 +356,12 @@ const HOME_JSON_LD = {
   ],
 };
 
-const homeJsonLdSafe = JSON.stringify(HOME_JSON_LD).replace(/</g, "\\u003c");
 const BREADCRUMB_ITEMS = [{ name: "Ana Sayfa", url: `${HOME_URL}` }];
-
-function StructuredData() {
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: homeJsonLdSafe }}
-    />
-  );
-}
 
 export default function HomePage() {
   return (
     <div className="overflow-x-hidden bg-black">
-      <StructuredData />
+      <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
       <HeroSection />

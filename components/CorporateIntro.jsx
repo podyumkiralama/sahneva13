@@ -1,6 +1,7 @@
 // components/CorporateIntro.jsx
 import Image from "next/image";
 import Link from "next/link";
+import RichText from "@/components/RichText";
 
 const CheckIcon = () => (
   <svg
@@ -110,7 +111,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
           </h2>
 
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-[15px]">
-            <span dangerouslySetInnerHTML={{ __html: d.description }} />{" "}
+            <RichText text={d.description} />{" "}
             <Link
               href={d.linkHref}
               className="font-semibold text-cyan-200 underline underline-offset-4 hover:text-cyan-100"

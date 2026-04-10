@@ -11,6 +11,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import JsonLd from "@/components/seo/JsonLd";
 
 import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -321,18 +322,7 @@ const HOME_JSON_LD = {
   ],
 };
 
-const homeJsonLdSafe = JSON.stringify(HOME_JSON_LD).replace(/</g, "\\u003c");
 const BREADCRUMB_ITEMS = [{ name: "Home", url: EN_HOME_URL }];
-
-function StructuredData() {
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: homeJsonLdSafe }}
-    />
-  );
-}
 
 /* ================== English component data ================== */
 
@@ -847,7 +837,7 @@ export const metadata = {
 export default function EnglishHomePage() {
   return (
     <div className="overflow-x-hidden bg-black">
-      <StructuredData />
+      <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
       <HeroSection dictionary={HERO_DICT_EN} />
