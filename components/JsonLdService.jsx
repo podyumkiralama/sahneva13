@@ -1,5 +1,5 @@
 // components/JsonLdService.tsx  (veya .jsx)
-import { headers } from "next/headers";
+import JsonLd from "@/components/seo/JsonLd";
 
 const absUrl = (site, path = "") => {
   if (!path) return site.replace(/\/+$/,"");
@@ -22,8 +22,6 @@ export default async function JsonLdService({
   images = [],
 }) {
   if (!service) return null;
-
-  const nonce = (await headers()).get("x-nonce") || undefined;
 
   const slug = encodeURIComponent(String(service.slug || "").replace(/^\/+/, ""));
   const pageUrl = absUrl(site, slug);
@@ -64,11 +62,5 @@ export default async function JsonLdService({
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
   });
 
-  return (
-    <script
-      nonce={nonce}
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLd data={data} />;
 }

@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { headers } from "next/headers";
+import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -123,8 +123,6 @@ const globalJsonLd = {
   ],
 };
 
-const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
-
 /* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
@@ -172,16 +170,9 @@ export const viewport = {
 };
 
 export default async function EnglishLayout({ children }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
   return (
     <>
-      <script
-        id="global-ld-json-en"
-        nonce={nonce}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
-      />
+      <JsonLd id="global-ld-json-en" data={globalJsonLd} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">
         <header

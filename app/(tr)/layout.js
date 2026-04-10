@@ -2,7 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
-import { headers } from "next/headers";
+import JsonLd from "@/components/seo/JsonLd";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -125,9 +125,6 @@ const globalJsonLd = {
   ],
 };
 
-const globalJsonLdSafe = JSON.stringify(globalJsonLd).replace(/</g, "\\u003c");
-
-
 /* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
@@ -175,16 +172,9 @@ export const viewport = {
 };
 
 export default async function TurkishLayout({ children }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
   return (
     <>
-      <script
-        id="global-ld-json"
-        nonce={nonce}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
-      />
+      <JsonLd id="global-ld-json" data={globalJsonLd} />
 
       {/* ✅ TEK WRAPPER: Header + Main + Footer */}
       <div className="min-h-screen text-slate-100 flex flex-col">
