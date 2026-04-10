@@ -12,7 +12,12 @@ import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import JsonLd from "@/components/seo/JsonLd";
 
-import { HOME_PAGE_TITLE, getOgImageUrl } from "@/lib/seo/seoConfig";
+import {
+  HOME_PAGE_TITLE,
+  buildAlternateLanguages,
+  buildCanonical,
+  getOgImageUrl,
+} from "@/lib/seo/seoConfig";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
@@ -59,12 +64,61 @@ const CATALOG_ID = `${HOME_URL}#catalog`;
 const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
+const HOME_PAGE_DESCRIPTION =
+  "Sahneva ile profesyonel sahne, podyum, LED ekran, ses ve ışık sistemleri kiralama çözümlerini keşfedin. İstanbul merkezli, Türkiye geneli hızlı kurulum.";
 const PRICING_DISCLAIMER =
   "Fiyatlar; şehir, gün, metraj, kurulum ve ekipmana göre değişebilir. Net teklif için iletişime geçin.";
 
 const ogUrl =
   getOgImageUrl?.({ path: "/img/hero-bg.webp", absolute: true }) ??
   `${BASE_SITE_URL}/img/hero-bg.webp`;
+
+export const metadata = {
+  title: HOME_PAGE_TITLE,
+  description: HOME_PAGE_DESCRIPTION,
+  alternates: {
+    canonical: buildCanonical("/"),
+    languages: buildAlternateLanguages(),
+  },
+  openGraph: {
+    title: HOME_PAGE_TITLE,
+    description: HOME_PAGE_DESCRIPTION,
+    url: HOME_URL,
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Sahneva",
+    images: [
+      {
+        url: ogUrl,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva sahne, podyum, LED ekran ve ses ışık kiralama çözümleri",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_PAGE_TITLE,
+    description: HOME_PAGE_DESCRIPTION,
+    images: [ogUrl],
+  },
+  keywords: [
+    "sahne kiralama",
+    "podyum kiralama",
+    "LED ekran kiralama",
+    "ses ışık kiralama",
+    "çadır kiralama",
+    "etkinlik prodüksiyonu",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
@@ -74,8 +128,7 @@ const HOME_JSON_LD = {
       "@id": WEBPAGE_ID,
       url: HOME_URL,
       name: HOME_PAGE_TITLE,
-      description:
-        "Sahneva ile profesyonel sahne, podyum, LED ekran, ses ve ışık sistemleri kiralama çözümlerini keşfedin. İstanbul merkezli, Türkiye geneli hızlı kurulum.",
+      description: HOME_PAGE_DESCRIPTION,
       inLanguage: "tr-TR",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
