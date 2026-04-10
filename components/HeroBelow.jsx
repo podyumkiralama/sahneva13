@@ -1,5 +1,6 @@
 // components/HeroBelow.jsx
 import { HERO_FEATURES_TR } from "@/lib/heroFeatures";
+import RichText from "@/components/RichText";
 
 const DEFAULT_PROCESS_STEPS = [
   {
@@ -87,8 +88,9 @@ function ConsultationCard({ title, desc, ctaText, ctaHref }) {
 
             <p
               className="text-slate-200 text-base leading-relaxed max-w-2xl"
-              dangerouslySetInnerHTML={{ __html: desc }}
-            />
+            >
+              <RichText text={desc} />
+            </p>
           </div>
 
           <div className="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">

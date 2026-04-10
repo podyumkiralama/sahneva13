@@ -5,6 +5,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import ServicesTabs from "@/components/ServicesTabs";
 import ProjectsGallery from "@/components/ProjectsGallery";
 import Faq from "@/components/Faq";
+import JsonLd from "@/components/seo/JsonLd";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { FAQ_ITEMS_AR } from "@/lib/faqData";
@@ -576,13 +577,7 @@ function StructuredData() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLd data={data} suppressHydrationWarning />;
 }
 
 function HeroBackgroundImage({ alt = HERO_IMAGE_ALT_AR, ariaHidden = false }) {
