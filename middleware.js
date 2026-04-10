@@ -23,6 +23,7 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     "'self'",
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
+    "'unsafe-inline'", // Eski tarayıcılar için geriye dönük uyumluluk (nonce destekleyenlerde yok sayılır)
     "'unsafe-eval'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
