@@ -10,6 +10,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
 
 /* ================== Sabitler ================== */
@@ -1111,7 +1112,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD (FINAL / NO RATING) ================== */
-function JsonLd() {
+function SoundLightJsonLd() {
   const pageUrl = `${ORIGIN}/ses-isik-sistemleri`;
   const pageDescription = metadata?.description || "";
   const webPageId = `${pageUrl}#webpage`;
@@ -1177,12 +1178,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-ses-isik"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-ses-isik"
+        data={jsonLd}
+      />
+    );
 }
 
 /* ================== Sayfa Bileşeni ================== */
@@ -1198,7 +1198,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <SoundLightJsonLd />
       <Hero />
       <FeaturedBrands />
       <Services />

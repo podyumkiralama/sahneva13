@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
+import JsonLd from "@/components/seo/JsonLd";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const HERO_IMAGE = "/img/projeler/kapali-alan-led/1.webp";
@@ -75,10 +76,7 @@ export default function CasePage() {
 
   return (
     <div className="overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={jsonLd} />
       {/* HERO */}
       <section className="relative h-[340px] flex items-center justify-center text-white">
   {/* Arka plan görseli */}
@@ -268,19 +266,15 @@ export default function CasePage() {
         </div>
       </section>
 
-      {/* JSON-LD: Project */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+      <JsonLd
+        data={{
             "@context": "https://schema.org",
             "@type": "Project",
             name: "Kapalı Alan LED ve Sahne Kurulumu (Protokol Seviyesi)",
             description:
               "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekranla scaff ve truss altyapısı kullanılan, 2 günde 60 kişilik ekiple tamamlanan büyük ölçekli kurulum.",
             image: IMAGES.map((i) => `${SITE_URL}${i.src}`),
-          }).replace(/</g, '\\u003c'),
-        }}
+          }}
       />
     </div>
   );

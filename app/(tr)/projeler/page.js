@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const revalidate = 1800;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -57,12 +58,7 @@ function ProjectsStructuredData() {
     inLanguage: "tr-TR",
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLd data={schema} />;
 }
 
 export default async function ProjectsIndexPage() {

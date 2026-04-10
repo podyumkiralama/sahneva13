@@ -2,6 +2,7 @@ import Image from "next/image";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const ORIGIN = "https://www.sahneva.com";
@@ -67,15 +68,6 @@ export const metadata = {
   date: PUBLISH_DATE,
   robots: { index: true, follow: true },
 };
-
-function JsonLd({ data }) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
-  );
-}
 
 function buildArticleJsonLd() {
   return {

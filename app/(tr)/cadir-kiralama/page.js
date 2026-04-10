@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -1676,7 +1677,7 @@ function FAQ() {
 }
 
 /* ================== JSON-LD (Çadır Kiralama) — SSR SAFE ================== */
-function JsonLd() {
+function TentRentalJsonLd() {
   const pageUrl = `${ORIGIN}/cadir-kiralama`;
   const pageDescription = metadata?.description || "";
   const webPageId = `${pageUrl}#webpage`;
@@ -1829,15 +1830,7 @@ function JsonLd() {
     ],
   };
 
-  const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
-
-  return (
-    <script
-      id="ld-json-cadir"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: safe }}
-    />
-  );
+  return <JsonLdScript id="ld-json-cadir" data={jsonLd} />;
 }
 
 /* ================== Sayfa Bileşeni ================== */
@@ -1853,7 +1846,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <TentRentalJsonLd />
       <Hero />
       <TurnkeyInfrastructure />
       <StatsBand />

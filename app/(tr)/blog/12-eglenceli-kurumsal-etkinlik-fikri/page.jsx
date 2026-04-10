@@ -1,6 +1,7 @@
 // app/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
@@ -91,54 +92,42 @@ function ArticleSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
 function FaqSchema() {
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "Kurumsal etkinlik nedir?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Kurumsal etkinlik; bir şirket tarafından çalışanları, müşterileri veya paydaşları için düzenlenen, belirli iş hedeflerine ulaşmayı ya da profesyonel ilişkileri geliştirmeyi amaçlayan planlı organizasyonlardır.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Kurumsal etkinlikler neden önemlidir?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Kurumsal etkinlikler, başarıyı görünür kılmak, iş motivasyonunu artırmak ve çalışanlara teşvik sağlamak açısından önemli bir rol oynar. Networking fırsatları sunar, ekip çalışmasını destekler ve bilgi paylaşımını teşvik eder.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "2026'da öne çıkan kurumsal etkinlik trendleri nelerdir?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "2026'da AI entegrasyonu, sürdürülebilirlik ve karbon nötr etkinlikler, wellbeing odaklı aktiviteler, micro-experience formatlar ve immersive/duyusal tasarım kurumsal etkinliklerin merkezine oturdu.",
-              },
-            },
-          ],
-        }).replace(/</g, '\\u003c'),
-      }}
-    />
-  );
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Kurumsal etkinlik nedir?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Kurumsal etkinlik; bir şirket tarafından çalışanları, müşterileri veya paydaşları için düzenlenen, belirli iş hedeflerine ulaşmayı ya da profesyonel ilişkileri geliştirmeyi amaçlayan planlı organizasyonlardır.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Kurumsal etkinlikler neden önemlidir?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Kurumsal etkinlikler, başarıyı görünür kılmak, iş motivasyonunu artırmak ve çalışanlara teşvik sağlamak açısından önemli bir rol oynar. Networking fırsatları sunar, ekip çalışmasını destekler ve bilgi paylaşımını teşvik eder.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "2026'da öne çıkan kurumsal etkinlik trendleri nelerdir?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "2026'da AI entegrasyonu, sürdürülebilirlik ve karbon nötr etkinlikler, wellbeing odaklı aktiviteler, micro-experience formatlar ve immersive/duyusal tasarım kurumsal etkinliklerin merkezine oturdu.",
+        },
+      },
+    ],
+  };
+
+  return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
 /* ================== YARDIMCI BILEŞENLER ================== */

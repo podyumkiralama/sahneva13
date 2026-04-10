@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import {
   Monitor,
@@ -1596,7 +1597,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD (LED Ekran Kiralama) ================== */
-function JsonLd() {
+function LedScreenJsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
   const pageDescription = metadata.description;
 
@@ -1797,12 +1798,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-led-ekran"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-led-ekran"
+        data={jsonLd}
+      />
+    );
 }
 
 /* ================== Sayfa Bileşeni ================== */
@@ -1818,7 +1818,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <LedScreenJsonLd />
       <Hero />
       <StatsBand />
       <Services />

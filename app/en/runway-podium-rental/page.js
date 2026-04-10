@@ -5,6 +5,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== 1. SETTINGS & CONSTANTS ================== */
 export const revalidate = 1800;
@@ -207,12 +208,7 @@ function StructuredData() {
     ].filter(Boolean),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLd data={schema} />;
 }
 
 function HeroSection() {

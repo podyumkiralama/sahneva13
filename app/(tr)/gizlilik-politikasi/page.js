@@ -1,6 +1,7 @@
 // app/gizlilik-politikasi/page.jsx
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const revalidate = 1800;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -71,10 +72,9 @@ export default function PrivacyPolicyPage() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       {/* JSON-LD */}
-      <script
+      <JsonLd
         id="ld-json-privacy"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        data={jsonLd}
       />
 
       <div className="bg-slate-950 text-slate-50">

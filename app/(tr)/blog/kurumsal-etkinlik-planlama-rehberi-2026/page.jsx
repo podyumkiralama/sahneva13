@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
@@ -204,10 +205,9 @@ export default function Page() {
 
   return (
     <>
-      <script
+      <JsonLd
         id="ld-blogposting"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        data={jsonLd}
       />
 
       <div className="bg-white">

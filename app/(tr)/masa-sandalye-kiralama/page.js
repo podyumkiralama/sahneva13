@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLdScript from "@/components/seo/JsonLd";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
@@ -1616,7 +1617,7 @@ function CTA() {
 /* ================== JSON-LD ================== */
 /* Burada next/script yerine düz <script> kullanıyoruz.
    Böylece bu sayfa için ekstra client-side JS yükü oluşmuyor. */
-function JsonLd() {
+function TableChairJsonLd() {
   const pageUrl = `${ORIGIN}/masa-sandalye-kiralama`;
   const pageDescription = metadata.description;
 
@@ -1666,12 +1667,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-masa-sandalye"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-masa-sandalye"
+        data={jsonLd}
+      />
+    );
 }
 
 
@@ -1688,7 +1688,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <TableChairJsonLd />
       <Hero />
       <Services />
       <Packages />

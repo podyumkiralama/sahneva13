@@ -8,6 +8,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
 
 /* ================== Constants ================== */
@@ -1586,7 +1587,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD ================== */
-function JsonLd() {
+function StageJsonLd() {
   const pageUrl = `${ORIGIN}/en/stage-rental`;
   const pageDescription = metadata?.description || "";
   const webPageId = `${pageUrl}#webpage`;
@@ -1641,12 +1642,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-stage"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-stage"
+        data={jsonLd}
+      />
+    );
 }
 
 /* ================== Page Component ================== */
@@ -1662,7 +1662,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <StageJsonLd />
       <Hero />
       <Services />
       <Packages />

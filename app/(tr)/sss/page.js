@@ -1,5 +1,6 @@
 // app/sss/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -398,10 +399,7 @@ export default function FaqPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       {/* JSON-LD – SSR ile direkt HTML içinde */}
       {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-        />
+      <JsonLd data={jsonLd} />
       )}
 
       <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
