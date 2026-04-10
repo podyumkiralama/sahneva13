@@ -39,7 +39,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
   const inputRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const { routes } = useSearchIndex();
+  const { routes } = useSearchIndex(open);
 
   const results = useMemo(() => filterRoutes(routes, query), [routes, query]);
   const trimmedQuery = query.trim();

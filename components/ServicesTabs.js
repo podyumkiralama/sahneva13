@@ -160,7 +160,7 @@ function mergeDictionary(base, override = {}) {
   return result;
 }
 
-function ServiceCard({ service, dictionary, imageAltTemplate, priority = false }) {
+function ServiceCard({ service, dictionary, imageAltTemplate }) {
   return (
     <article className="relative overflow-hidden rounded-3xl border border-slate-800 bg-[#020617] shadow-2xl">
       <div className="relative h-64 overflow-hidden">
@@ -175,8 +175,8 @@ function ServiceCard({ service, dictionary, imageAltTemplate, priority = false }
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           quality={72}
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
+          loading="lazy"
+          fetchPriority="auto"
         />
 
         <div
@@ -315,7 +315,6 @@ export default function ServicesTabs({
               service={service}
               dictionary={dictionary}
               imageAltTemplate={imageAltTemplate}
-              priority={index < 2}
             />
           ))}
         </div>

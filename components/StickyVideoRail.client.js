@@ -13,7 +13,9 @@ const StickyVideoRailLazy = dynamic(() => import("./StickyVideoRail"), {
 export default function StickyVideoRailClient({ locale = "tr" }) {
   const [shouldRender, setShouldRender] = useState(false);
   const pathname = usePathname();
-  const shouldHide = pathname === "/cadir-kiralama";
+  const isHome =
+    pathname === "/" || pathname === "/en" || pathname === "/ar";
+  const shouldHide = pathname === "/cadir-kiralama" || isHome;
 
   useEffect(() => {
     if (shouldHide || typeof window === "undefined" || shouldRender) return;
