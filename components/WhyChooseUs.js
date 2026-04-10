@@ -1,7 +1,4 @@
 // components/WhyChooseUs.js
-"use client";
-import { useMemo } from "react";
-
 const ICON_CLASS = "w-7 h-7";
 
 const CheckStarIcon = ({ className }) => (
@@ -102,7 +99,7 @@ const toDomId = (value = "") =>
     .replace(/-+/g, "-");
 
 export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
-  const dictionary = useMemo(() => ({ ...DEFAULT_DICTIONARY, ...dictionaryOverride }), [dictionaryOverride]);
+  const dictionary = { ...DEFAULT_DICTIONARY, ...dictionaryOverride };
   const bigLeftTitleId = "why-big-tech-title";
   const bigRightTitleId = "why-big-scale-title";
 

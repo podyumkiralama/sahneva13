@@ -1,6 +1,4 @@
 // components/CorporateIntro.jsx
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -212,13 +210,8 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                   className="object-cover transition-transform duration-[900ms] hover:scale-[1.04]"
                   decoding="async"
                   loading="lazy"
+                  quality={72}
                   placeholder="empty"
-                  onError={(e) => {
-                    const img = e.currentTarget;
-                    img.style.display = "none";
-                    const parent = img.parentElement;
-                    if (parent) parent.style.backgroundColor = "#020617";
-                  }}
                 />
 
                 {/* Üst rozetler */}

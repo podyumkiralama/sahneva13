@@ -20,6 +20,7 @@ export const revalidate = 3600;
 
 /* ================== Dinamik bileşenler ================== */
 const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
+  ssr: false,
   loading: () => (
     <div
       className="flex justify-center items-center h-64"

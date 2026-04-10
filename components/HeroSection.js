@@ -1,4 +1,5 @@
 // components/HeroSection.js
+import Image from "next/image";
 import Link from "next/link";
 
 const DEFAULT_KEYWORDS = [
@@ -61,19 +62,16 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Responsive hero image: only one source downloads based on viewport */}
-        <picture>
-          <source media="(max-width: 639px)" srcSet="/img/hero-bg-mobile.webp" />
-          <source media="(min-width: 640px)" srcSet="/img/hero-bg-desktop.webp" />
-          <img
-            src="/img/hero-bg-desktop.webp"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-          />
-        </picture>
+        <Image
+          src="/img/hero-bg-desktop.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          quality={74}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
 
         {/* Film (okunurluk) */}
         <div className="absolute inset-0 bg-black/45" />
