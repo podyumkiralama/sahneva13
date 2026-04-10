@@ -6,7 +6,6 @@ export const revalidate = 86400; // 24 saatte bir yenile (sayfa bazlı kurallar 
 import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
-import { NonceProvider } from "@/app/NonceContext";
 import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
@@ -33,7 +32,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") ?? "";
-  const nonce = headersList.get("x-nonce") ?? undefined;
 
   let lang = "tr";
   let dir = "ltr";
@@ -52,10 +50,8 @@ export default async function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="flex flex-col">
-        <NonceProvider nonce={nonce}>
-          <SkipLinks locale={lang} />
-          {children}
-        </NonceProvider>
+        <SkipLinks locale={lang} />
+        {children}
       </body>
     </html>
   );
