@@ -166,10 +166,40 @@ export default function CorporateEvents({
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {advantages.map((item) => (
               <div
-                key={item}
+                key={typeof item === "string" ? item : item.label}
                 className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300"
               >
-                {item}
+                {typeof item === "string" ? (
+                  item
+                ) : (
+                  <div className="space-y-2">
+                    {(() => {
+                      const IconComponent =
+                        typeof item.icon === "function" ? item.icon : null;
+                      const iconText = typeof item.icon === "string" ? item.icon : null;
+
+                      if (IconComponent) {
+                        return (
+                          <span className="text-base" aria-hidden="true">
+                            <IconComponent size={18} />
+                          </span>
+                        );
+                      }
+
+                      if (iconText) {
+                        return (
+                          <span className="text-base" aria-hidden="true">
+                            {iconText}
+                          </span>
+                        );
+                      }
+
+                      return null;
+                    })()}
+                    <p className="font-semibold text-white">{item.label}</p>
+                    {item.desc ? <p className="text-slate-300">{item.desc}</p> : null}
+                  </div>
+                )}
               </div>
             ))}
           </div>

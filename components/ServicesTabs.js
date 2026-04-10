@@ -1,6 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Layers, Layout, Monitor, Music, Tent, Users } from "lucide-react";
+import { Layers, Monitor, Music, Tent, Users } from "lucide-react";
+
+const PodiumIcon = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <rect x="3" y="4" width="18" height="5" rx="1.5" />
+    <path d="M6 9v7a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9" />
+    <path d="M10 18v2" />
+    <path d="M14 18v2" />
+  </svg>
+);
 
 const TechCheckIcon = () => (
   <svg
@@ -47,7 +65,7 @@ const DEFAULT_SERVICES = [
   {
     id: "podyum",
     title: "Podyum Kiralama",
-    Icon: Layout,
+    Icon: PodiumIcon,
     description:
       "Modüler podyum sistemleri, özel tasarım podyumlar ve protokol masaları. Toplantı, lansman ve ödül törenleri için profesyonel çözümler.",
     image: "/img/hizmet-podyum.webp",
@@ -161,6 +179,10 @@ function mergeDictionary(base, override = {}) {
 }
 
 function ServiceCard({ service, dictionary, imageAltTemplate }) {
+  const IconComponent =
+    typeof service.Icon === "function" ? service.Icon : null;
+  const iconEmoji = typeof service.icon === "string" ? service.icon : null;
+
   return (
     <article className="relative overflow-hidden rounded-3xl border border-slate-800 bg-[#020617] shadow-2xl">
       <div className="relative h-64 overflow-hidden">
@@ -192,7 +214,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
 
         <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400 text-slate-950 shadow-lg">
-            <service.Icon size={22} />
+            {IconComponent ? <IconComponent size={22} /> : <span aria-hidden="true">{iconEmoji ?? "⭐"}</span>}
           </span>
           <h3 className="text-2xl font-black text-white">{service.title}</h3>
         </div>
@@ -309,7 +331,7 @@ export default function ServicesTabs({
         )}
 
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <ServiceCard
               key={service.id}
               service={service}
