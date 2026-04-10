@@ -1,6 +1,7 @@
 // app/en/faq/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLd from "@/components/seo/JsonLd";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -412,7 +413,7 @@ export default function FaqPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <JsonLd data={jsonLd} />
 
       <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
         <div className="container py-10 md:py-14 text-slate-100">

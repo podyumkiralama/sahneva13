@@ -1,6 +1,7 @@
 // app/en/regional-rental/page.js
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLdScript from "@/components/seo/JsonLd";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -38,7 +39,7 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
-function JsonLd({ services, faqs, steps }) {
+function RegionalRentalJsonLd({ services, faqs, steps }) {
   const orgId = `${SITE}/#org`;
   const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
@@ -122,10 +123,7 @@ function JsonLd({ services, faqs, steps }) {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
+    <JsonLdScript data={jsonLd} />
   );
 }
 
@@ -187,7 +185,7 @@ export default function Page() {
 
   return (
     <main className="relative overflow-hidden">
-      <JsonLd services={services} faqs={faqs} steps={steps} />
+      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} />
       <RegionalRentalClient regions={regions} services={services} faqs={faqs} steps={steps} />
     </main>
   );

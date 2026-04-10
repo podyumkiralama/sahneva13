@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== ISR ================== */
 export const revalidate = 1800;
@@ -173,10 +174,7 @@ function TrussJsonLd() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
+    <JsonLd data={jsonLd} />
   );
 }
 
