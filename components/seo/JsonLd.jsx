@@ -1,13 +1,13 @@
-import { headers } from "next/headers";
+import { useNonce } from "@/app/NonceContext";
 
 function serializeJsonLd(data) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
-export default async function JsonLd({ data, id, suppressHydrationWarning = false }) {
+export default function JsonLd({ data, id, suppressHydrationWarning = false }) {
   if (!data) return null;
 
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const nonce = useNonce();
 
   return (
     <script
