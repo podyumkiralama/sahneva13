@@ -1,7 +1,4 @@
 // components/ServicesTabs.js
-"use client";
-
-import { useRef, useState, useCallback, useMemo, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Layers, Layout, Monitor, Music, Tent, Users } from "lucide-react";
@@ -182,7 +179,7 @@ function mergeDictionary(base, override = {}) {
 // ANA BİLEŞEN
 // —————————————————————————————————————————
 
-function ServicesTabsComponent({
+export default function ServicesTabs({
   servicesData = DEFAULT_SERVICES,
   dictionary: dictionaryOverride,
   ariaLabelledBy,
@@ -190,69 +187,13 @@ function ServicesTabsComponent({
   ariaLabel,
   regionLabelId = "services-section-title",
 }) {
-  const services = useMemo(
-    () =>
-      Array.isArray(servicesData) && servicesData.length
-        ? servicesData
-        : DEFAULT_SERVICES,
-    [servicesData]
-  );
+  const services =
+    Array.isArray(servicesData) && servicesData.length
+      ? servicesData
+      : DEFAULT_SERVICES;
 
-  const dictionary = useMemo(
-    () => mergeDictionary(DEFAULT_DICTIONARY, dictionaryOverride),
-    [dictionaryOverride]
-  );
-
+  const dictionary = mergeDictionary(DEFAULT_DICTIONARY, dictionaryOverride);
   const imageAltTemplate = dictionary?.imageAlt ?? DEFAULT_DICTIONARY.imageAlt;
-
-  const [activeTab, setActiveTab] = useState(() => services[0]?.id ?? "");
-  const [imageErrors, setImageErrors] = useState({});
-  const listRef = useRef(null);
-
-  const handleImageError = useCallback((serviceId) => {
-    setImageErrors((prev) => ({ ...prev, [serviceId]: true }));
-  }, []);
-
-  const imageErrorHandlers = useMemo(
-    () =>
-      services.reduce((acc, service) => {
-        acc[service.id] = () => handleImageError(service.id);
-        return acc;
-      }, {}),
-    [handleImageError, services]
-  );
-
-  const getImageSrc = useCallback(
-    (service) =>
-      imageErrors[service.id] ? "/img/placeholder-service.webp" : service.image,
-    [imageErrors]
-  );
-
-  // Klavye navigasyonu (tablar arası)
-  const onKeyDownTabs = useCallback((e) => {
-    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
-    e.preventDefault();
-
-    const buttons = listRef.current?.querySelectorAll('[role="tab"]');
-    if (!buttons?.length) return;
-
-    const currentIndex = Array.from(buttons).findIndex(
-      (b) => b.getAttribute("aria-selected") === "true"
-    );
-
-    const move = (index) => {
-      const next = buttons[index];
-      if (!next) return;
-      const id = next.id.replace("tab-", "");
-      setActiveTab(id);
-      next.focus();
-    };
-
-    if (e.key === "ArrowRight") move((currentIndex + 1) % buttons.length);
-    if (e.key === "ArrowLeft") move((currentIndex - 1 + buttons.length) % buttons.length);
-    if (e.key === "Home") move(0);
-    if (e.key === "End") move(buttons.length - 1);
-  }, []);
 
   if (!services.length) return null;
 
@@ -267,7 +208,7 @@ function ServicesTabsComponent({
       aria-describedby={computedDescribedBy}
       aria-label={ariaLabel}
     >
-      {/* Arka Plan – Faq.jsx ile aynı ton/grid/glow */}
+      {/* Arka Plan */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
         <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
@@ -306,87 +247,51 @@ function ServicesTabsComponent({
           </div>
         )}
 
-        {/* ——— İÇERİK ——— */}
-        <div className="w-full">
-          {/* SEKMELER */}
-          <div className="mb-8">
-            <div
-              ref={listRef}
-              className="focus:outline-none"
-              role="tablist"
-              aria-label={dictionary.tablistLabel}
-              aria-orientation="horizontal"
-              onKeyDown={onKeyDownTabs}
+        {/* ——— HİZMET AKORDEON ——— */}
+        <div className="w-full space-y-3">
+          {services.map((service, index) => (
+            <details
+              key={service.id}
+              open={index === 0 ? true : undefined}
+              className="group relative overflow-hidden bg-[#020617] border border-slate-800 shadow-2xl rounded-xl"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                {services.map((service) => {
-                  const isActive = activeTab === service.id;
-                  return (
-                    <button
-                      key={service.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={isActive ? "true" : "false"}
-                      aria-controls={`panel-${service.id}`}
-                      id={`tab-${service.id}`}
-                      tabIndex={isActive ? 0 : -1}
-                      onClick={() => setActiveTab(service.id)}
-                      className={`
-                        group relative flex items-center justify-center gap-2 px-4 py-3
-                        font-bold text-xs md:text-sm rounded-xl
-                        transition-all duration-200
-                        focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                        ${
-                          isActive
-                            ? "text-white bg-indigo-600 shadow-lg shadow-indigo-500/40 border border-indigo-300/80"
-                            : "text-slate-100 bg-slate-950/80 border border-slate-700 hover:bg-slate-900 hover:border-indigo-300/60 hover:text-white"
-                        }
-                      `}
-                    >
-                      <span
-                        className="flex items-center justify-center"
-                        aria-hidden="true"
-                      >
-                        {service.Icon
-                          ? <service.Icon size={22} />
-                          : <span className="text-xl md:text-2xl drop-shadow-sm">{service.icon}</span>}
-                      </span>
-                      <span className="text-center leading-tight">
-                        {service.title}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+              {/* Özet: akordeon başlığı */}
+              <summary className="flex items-center gap-3 px-5 py-4 cursor-pointer list-none select-none text-slate-100 hover:text-white hover:bg-slate-900/60 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-indigo-400/60 group-open:bg-indigo-600/20 group-open:border-b group-open:border-slate-700">
+                <span
+                  className="flex items-center justify-center shrink-0"
+                  aria-hidden="true"
+                >
+                  {service.Icon
+                    ? <service.Icon size={22} />
+                    : <span className="text-xl drop-shadow-sm">{service.icon}</span>}
+                </span>
+                <span className="font-bold text-sm md:text-base leading-tight">
+                  {service.title}
+                </span>
+                {/* Chevron */}
+                <svg
+                  className="ml-auto w-4 h-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
 
-          {/* PANEL */}
-          {services.map((service) => {
-            const isActive = activeTab === service.id;
+              {/* Panel içeriği */}
+              <div>
+                {/* Hafif arka plan dokusu */}
+                <div
+                  className="pointer-events-none absolute inset-0 z-0"
+                  aria-hidden="true"
+                >
+                  <div className="grid-overlay" />
+                </div>
 
-            return (
-              <div
-                key={service.id}
-                className={`relative overflow-hidden bg-[#020617] border border-slate-800 shadow-2xl transition-all duration-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-600/40 ${
-                  isActive ? "block" : "hidden"
-                }`}
-                role="tabpanel"
-                id={`panel-${service.id}`}
-                aria-labelledby={`tab-${service.id}`}
-                aria-live={isActive ? "polite" : undefined}
-                aria-atomic={isActive ? "true" : undefined}
-                tabIndex={isActive ? 0 : -1}
-              >
-{/* Hafif arka plan dokusu */}
-<div
-  className="pointer-events-none absolute inset-0 z-0"
-  aria-hidden="true"
->
-  <div className="grid-overlay" />
-</div>
-
-<div className="relative z-10 grid lg:grid-cols-[1.08fr_0.92fr] gap-0 min-h-[460px]">
+                <div className="relative z-10 grid lg:grid-cols-[1.08fr_0.92fr] gap-0 min-h-[460px]">
 
                   {/* SOL: METİN */}
                   <div className="p-7 md:p-9 flex flex-col justify-center order-2 lg:order-1">
@@ -411,10 +316,10 @@ function ServicesTabsComponent({
                         {service.features.map((feature, idx) => (
                           <li
                             key={idx}
-                            className="group flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/15 transition-colors"
+                            className="group/feat flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/15 transition-colors"
                           >
                             <TechCheckIcon />
-                            <span className="text-xs md:text-sm font-medium text-slate-200 group-hover:text-white transition-colors">
+                            <span className="text-xs md:text-sm font-medium text-slate-200 group-hover/feat:text-white transition-colors">
                               {feature}
                             </span>
                           </li>
@@ -425,7 +330,7 @@ function ServicesTabsComponent({
                     <div className="mt-auto pt-2">
                       <Link
                         href={service.href}
-                        className="group inline-flex items-center gap-3 bg-cyan-400 text-slate-950 font-bold text-base px-6 py-3 rounded-lg shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.7)] hover:translate-y-[-2px] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/60 focus:ring-offset-2 focus:ring-offset-slate-950"
+                        className="group/cta inline-flex items-center gap-3 bg-cyan-400 text-slate-950 font-bold text-base px-6 py-3 rounded-lg shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.7)] hover:translate-y-[-2px] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/60 focus:ring-offset-2 focus:ring-offset-slate-950"
                         title={formatTitleTemplate(
                           dictionary.ctaTitle,
                           service.title,
@@ -435,7 +340,7 @@ function ServicesTabsComponent({
                       >
                         <span>{dictionary.ctaLabel}</span>
                         <div
-                          className="w-6 h-6 rounded-full bg-cyan-500/80 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-cyan-400 transition-colors"
+                          className="w-6 h-6 rounded-full bg-cyan-500/80 flex items-center justify-center group-hover/cta:bg-slate-900 group-hover/cta:text-cyan-400 transition-colors"
                           aria-hidden="true"
                         >
                           <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -445,21 +350,20 @@ function ServicesTabsComponent({
                   </div>
 
                   {/* SAĞ: GÖRSEL */}
-                  <div className="relative order-1 lg:order-2 h-[260px] lg:h-auto min-h-full overflow-hidden group">
+                  <div className="relative order-1 lg:order-2 h-[260px] lg:h-auto min-h-full overflow-hidden group/img">
                     <Image
-                      src={getImageSrc(service)}
+                      src={service.image}
                       alt={formatTitleTemplate(
                         imageAltTemplate,
                         service.title,
                         DEFAULT_DICTIONARY.imageAlt
                       )}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105 nc-ServicesTabs-image-1"
+                      className="object-cover transition-transform duration-700 group-hover/img:scale-105 nc-ServicesTabs-image-1"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       quality={78}
                       loading="lazy"
                       decoding="async"
-                      onError={imageErrorHandlers[service.id]}
                     />
 
                     <div
@@ -485,15 +389,10 @@ function ServicesTabsComponent({
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </details>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-const ServicesTabs = memo(ServicesTabsComponent);
-ServicesTabs.displayName = "ServicesTabs";
-
-export default ServicesTabs;
