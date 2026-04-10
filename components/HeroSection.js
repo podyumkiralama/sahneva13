@@ -29,7 +29,7 @@ const DEFAULT_DICTIONARY = {
 };
 
 const CTA_BASE =
-  "w-full sm:w-auto min-w-[180px] min-h-[44px] inline-flex items-center justify-center gap-2 font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
+  "w-full sm:w-auto min-w-[180px] min-h-[44px] inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
 
 function KeywordPills({ keywords, ariaLabel }) {
   return (
@@ -97,15 +97,9 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
       <div className="relative z-10">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl text-center">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/70 px-5 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md">
-              <span
-                className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
-                aria-hidden="true"
-              />
-              <span className="text-xs font-extrabold text-white md:text-sm">
-                {d.badge}
-              </span>
-            </div>
+            <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-xs font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md md:text-sm">
+              {d.badge}
+            </p>
 
             <h1
               id="hero-title"
@@ -132,7 +126,6 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
                 className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
                 aria-label={d.ctaCallAria}
               >
-                <span aria-hidden="true">T</span>
                 {d.ctaCall}
               </a>
 
@@ -143,7 +136,6 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
                 className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
                 aria-label={d.ctaWhatsappAria}
               >
-                <span aria-hidden="true">W</span>
                 {d.ctaWhatsapp}
               </a>
 
@@ -152,7 +144,6 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
                 className={`${CTA_BASE} border border-white/20 bg-white/10 text-white hover:bg-white/15`}
                 aria-label={d.ctaQuoteAria}
               >
-                <span aria-hidden="true">+</span>
                 {d.ctaQuote}
               </Link>
             </div>
