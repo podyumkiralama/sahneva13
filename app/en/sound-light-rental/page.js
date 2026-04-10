@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== Constants ================== */
 export const revalidate = 1800;
@@ -1030,7 +1031,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD ================== */
-function JsonLd() {
+function SoundLightJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1067,12 +1068,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-sound-light"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-sound-light"
+        data={jsonLd}
+      />
+    );
 }
 
 /* ================== Page component ================== */
@@ -1088,7 +1088,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <SoundLightJsonLd />
       <Hero />
       <Services />
       <Gallery />

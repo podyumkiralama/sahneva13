@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLdScript from "@/components/seo/JsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
@@ -1326,7 +1327,7 @@ const FAQ_ITEMS = [
 
 
 /* ================== JSON-LD ================== */
-function JsonLd() {
+function CorporateEventsJsonLd() {
   const pageUrl = `${ORIGIN}/en/corporate-events`;
   const pageDescription = metadata?.description || "";
   const webPageId = `${pageUrl}#webpage`;
@@ -1378,15 +1379,7 @@ function JsonLd() {
     ],
   };
 
-  const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
-
-  return (
-    <script
-      id="ld-json-corporate-events"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: safe }}
-    />
-  );
+  return <JsonLdScript id="ld-json-corporate-events" data={jsonLd} />;
 }
 
 function FAQ() {
@@ -1544,7 +1537,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <CorporateEventsJsonLd />
       <Hero breadcrumbItems={breadcrumbItems} />
       <IntroSection />
       <ShowcaseSection />

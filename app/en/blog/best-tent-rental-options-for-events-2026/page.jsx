@@ -1,6 +1,7 @@
 // app/en/blog/best-tent-rental-options-for-events-2026/page.jsx
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 
 import heroImg from "@/public/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
 import clearTopImg from "@/public/img/blog/kurumsal-etkinlik-cadir.webp";
@@ -145,13 +146,7 @@ function ArticleSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <JsonLd data={schema} suppressHydrationWarning />;
 }
 
 /* ================== PAGE ================== */

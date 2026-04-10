@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== Constants ================== */
 export const revalidate = 1800;
@@ -1026,7 +1027,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD ================== */
-function JsonLd() {
+function TentJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1063,12 +1064,11 @@ function JsonLd() {
   };
 
   return (
-    <script
-      id="ld-json-tent"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+      <JsonLdScript
+        id="ld-json-tent"
+        data={jsonLd}
+      />
+    );
 }
 
 /* ================== Page component ================== */
@@ -1084,7 +1084,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <TentJsonLd />
       <Hero />
       <Services />
       <Gallery />

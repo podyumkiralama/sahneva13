@@ -1,6 +1,7 @@
 // app/(site)/hakkimizda/page.js
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
@@ -63,12 +64,7 @@ function AboutStructuredData() {
     inLanguage: "tr-TR",
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLd data={schema} />;
 }
 
 // Base64 blur placeholder

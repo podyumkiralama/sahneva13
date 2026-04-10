@@ -4,6 +4,7 @@ import Image from "next/image";
 import { readdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+import JsonLd from "@/components/seo/JsonLd";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
@@ -233,15 +234,7 @@ function BlogJsonLd({ posts, baseUrl }) {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-      }}
-    />
-  );
+  return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
 /* ================== BLOG CARD ================== */

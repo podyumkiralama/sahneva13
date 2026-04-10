@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import stageWideImg from "@/public/img/blog/led-2026-sahne-genis.webp";
@@ -163,15 +164,7 @@ function ArticleSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
-      }}
-    />
-  );
+  return <JsonLd data={schema} suppressHydrationWarning />;
 }
 
 /* ================== UI COMPONENTS ================== */

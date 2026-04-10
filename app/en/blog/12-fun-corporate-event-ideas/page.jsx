@@ -1,6 +1,7 @@
 // app/en/blog/12-fun-corporate-event-ideas/page.jsx
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
@@ -92,54 +93,42 @@ function ArticleSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
 function FaqSchema() {
-  return (
-    <script
-      type="application/ld+json"
-      suppressHydrationWarning
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "What is a corporate event?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "A corporate event is a planned organization arranged by a company for its employees, clients or stakeholders, aimed at achieving specific business goals or developing professional relationships.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Why are corporate events important?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Corporate events play a critical role in making success visible, boosting work motivation and providing incentives for employees. They offer networking opportunities, support teamwork and encourage knowledge sharing.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "What are the leading corporate event trends for 2026?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "In 2026, AI integration, sustainability and carbon-neutral events, wellbeing-focused activities, micro-experience formats and immersive/sensory design have moved to the center of corporate events.",
-              },
-            },
-          ],
-        }).replace(/</g, "\\u003c"),
-      }}
-    />
-  );
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is a corporate event?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A corporate event is a planned organization arranged by a company for its employees, clients or stakeholders, aimed at achieving specific business goals or developing professional relationships.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why are corporate events important?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Corporate events play a critical role in making success visible, boosting work motivation and providing incentives for employees. They offer networking opportunities, support teamwork and encourage knowledge sharing.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What are the leading corporate event trends for 2026?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "In 2026, AI integration, sustainability and carbon-neutral events, wellbeing-focused activities, micro-experience formats and immersive/sensory design have moved to the center of corporate events.",
+        },
+      },
+    ],
+  };
+
+  return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
 /* ================== HELPER COMPONENTS ================== */

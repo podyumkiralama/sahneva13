@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -128,16 +128,7 @@ function ArticleSchema() {
     ],
   };
 
-  const safe = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
-
-  return (
-    <Script
-      id="article-ld-json"
-      type="application/ld+json"
-      strategy="afterInteractive"
-      dangerouslySetInnerHTML={{ __html: safe }}
-    />
-  );
+  return <JsonLd id="article-ld-json" data={jsonLd} />;
 }
 
 /* ================== PAGE ================== */

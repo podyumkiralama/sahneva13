@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
@@ -327,10 +328,9 @@ export default function Page() {
         ]}
       />
 
-      <script
+      <JsonLd
         id="ld-json-podyum-fiyat"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        data={jsonLd}
       />
 
       <main className="bg-white">

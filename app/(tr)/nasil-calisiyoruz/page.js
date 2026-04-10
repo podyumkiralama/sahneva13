@@ -1,6 +1,7 @@
 // app/(tr)/nasil-calisiyoruz/page.js
 import HowItWorksClient from "./HowItWorksClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== SEO METADATA ================== */
 const SITE =
@@ -38,7 +39,7 @@ export const metadata = {
 };
 
 /* ================== JSON-LD ================== */
-function JsonLd({ stepsData, faqs }) {
+function HowWeWorkJsonLd({ stepsData, faqs }) {
   const orgId = `${SITE}/#org`;
   const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
@@ -107,12 +108,7 @@ function JsonLd({ stepsData, faqs }) {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
-  );
+  return <JsonLdScript data={jsonLd} />;
 }
 
 export default function HowItWorksPage() {
@@ -214,7 +210,7 @@ export default function HowItWorksPage() {
 
   return (
     <main className="relative overflow-hidden">
-      <JsonLd stepsData={stepsData} faqs={faqs} />
+      <HowWeWorkJsonLd stepsData={stepsData} faqs={faqs} />
       <HowItWorksClient stepsData={stepsData} faqs={faqs} />
     </main>
   );

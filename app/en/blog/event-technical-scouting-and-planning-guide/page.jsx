@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import BlogLayout from "@/components/blog/BlogLayout";
+import JsonLd from "@/components/seo/JsonLd";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -102,10 +102,9 @@ export default function Page() {
 
   return (
     <>
-      <Script
+      <JsonLd
         id="ld-article-event-technical-scouting"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        data={jsonLd}
       />
 
       <BlogLayout
