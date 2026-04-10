@@ -2,7 +2,6 @@
 
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
-@plugin "@tailwindcss/forms";
 
 /* Theme tokens (v4) */
 @theme {
@@ -182,72 +181,6 @@
     background-size: 24px 24px;
   }
 
-  .blog-content img {
-    width: 100% !important;
-    max-width: 900px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 40px auto !important;
-    border-radius: 16px !important;
-  }
-
-  /* Next/Image wrapper safety */
-  .blog-content span > img {
-    max-width: 900px !important;
-  }
-
-  .blog-scope img {
-    width: 100% !important;
-    max-width: 1100px !important;
-    max-height: 520px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 40px auto !important;
-    border-radius: 14px !important;
-    object-fit: cover !important;
-  }
-
-  .blog-scope figure span {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-  }
-
-  .blog-scope figure span > img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 520px !important;
-    object-fit: cover !important;
-  }
-
-  .blog-scope .blog-hero img,
-  .blog-scope [data-blog-hero] img {
-    max-width: 1300px !important;
-    max-height: 560px !important;
-    margin-top: 24px !important;
-    margin-bottom: 40px !important;
-  }
-
-  .blog-scope .aspect-video {
-    width: 100% !important;
-    max-width: 1100px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .blog-scope iframe {
-    width: 100% !important;
-    max-width: 1100px !important;
-    max-height: 520px !important;
-    aspect-ratio: 16 / 9;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    border-radius: 14px !important;
-  }
 }
 
 /* Accessibility */
