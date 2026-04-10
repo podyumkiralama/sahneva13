@@ -199,12 +199,12 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
       </div>
 
       <div className="p-6 md:p-7">
-        <p className="border-l-2 border-cyan-500/70 pl-4 text-sm leading-relaxed text-slate-200 md:text-base">
+        <p className="border-l-2 border-cyan-400 pl-4 text-sm leading-relaxed text-white/90 md:text-base">
           {service.description}
         </p>
 
         <div className="mt-6">
-          <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/80">
+          <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90">
             <span className="h-[2px] w-4 bg-cyan-500" aria-hidden="true" />
             {dictionary.featuresHeading}
           </h4>
@@ -212,10 +212,10 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-center gap-2.5 rounded-xl border border-white/8 bg-white/5 p-3"
+                className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3"
               >
                 <TechCheckIcon />
-                <span className="text-sm font-medium text-slate-200">{feature}</span>
+                <span className="text-sm font-medium text-white/90">{feature}</span>
               </li>
             ))}
           </ul>
@@ -234,7 +234,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           >
             <span>{dictionary.ctaLabel}</span>
             <span
-              className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/80 transition-colors group-hover:bg-slate-900 group-hover:text-cyan-400"
+              className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/90 text-white transition-colors group-hover:bg-slate-950 group-hover:text-cyan-300"
               aria-hidden="true"
             >
               <ArrowRightIcon className="h-3.5 w-3.5" />
