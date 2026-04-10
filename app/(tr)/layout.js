@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
+import { headers } from "next/headers";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -173,11 +174,14 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default function TurkishLayout({ children }) {
+export default async function TurkishLayout({ children }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <>
       <script
         id="global-ld-json"
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />

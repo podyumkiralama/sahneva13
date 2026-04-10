@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
 import path from "path";
 import { existsSync } from "fs";
 import { readdir } from "fs/promises";
@@ -102,7 +103,7 @@ async function getSeoArticles(limit = 6) {
 }
 
 // JSON-LD (Rich Snippet) ÜRET
-function ArticlesJsonLd({ items }) {
+function ArticlesJsonLd({ items, nonce }) {
   if (!items?.length) return null;
 
   const list = items.map((a, i) => {
@@ -135,6 +136,7 @@ function ArticlesJsonLd({ items }) {
   return (
     <script
       id="home-articles-jsonld"
+      nonce={nonce}
       type="application/ld+json"
       suppressHydrationWarning
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
@@ -147,6 +149,7 @@ export default async function SeoArticles({
   compact = false,
   title = "Teknik Bilgi & SEO Makaleleri",
 }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   // 🔥 Blog klasöründen makaleleri çek
   const items = await getSeoArticles(6);
   if (!items.length) return null;
@@ -267,7 +270,7 @@ export default async function SeoArticles({
           })}
         </ul>
 
-        <ArticlesJsonLd items={items} />
+        <ArticlesJsonLd items={items} nonce={nonce} />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { headers } from "next/headers";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -170,11 +171,14 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default function EnglishLayout({ children }) {
+export default async function EnglishLayout({ children }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <>
       <script
         id="global-ld-json-en"
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: globalJsonLdSafe }}
       />

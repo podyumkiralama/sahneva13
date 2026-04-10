@@ -16,14 +16,14 @@ const compact = (obj) =>
     )
   );
 
-export default function JsonLdService({
+export default async function JsonLdService({
   site = "https://www.sahneva.com",
   service,
   images = [],
 }) {
   if (!service) return null;
 
-  const nonce = headers().get("x-nonce") || undefined;
+  const nonce = (await headers()).get("x-nonce") || undefined;
 
   const slug = encodeURIComponent(String(service.slug || "").replace(/^\/+/, ""));
   const pageUrl = absUrl(site, slug);
