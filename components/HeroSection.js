@@ -5,25 +5,25 @@ import Link from "next/link";
 const DEFAULT_KEYWORDS = [
   { text: "Sahne Kiralama", color: "text-blue-200" },
   { text: "LED Ekran Kiralama", color: "text-purple-200" },
-  { text: "Ses & Işık Sistemleri", color: "text-cyan-200" },
+  { text: "Ses & I\u015f\u0131k Sistemleri", color: "text-cyan-200" },
   { text: "Podyum Kurulumu", color: "text-emerald-200" },
 ];
 
 const DEFAULT_DICTIONARY = {
   keywords: DEFAULT_KEYWORDS,
-  keywordsAriaLabel: "Öne çıkan hizmetler",
-  badge: "Türkiye Geneli • Hızlı Kurulum • Aynı Gün Devreye Alma",
+  keywordsAriaLabel: "\u00d6ne \u00e7\u0131kan hizmetler",
+  badge: "T\u00fcrkiye Geneli \u2022 H\u0131zl\u0131 Kurulum \u2022 Ayn\u0131 G\u00fcn Devreye Alma",
   titleLine1Prefix: "Sahneva ile",
-  titleLine1: "Etkinlik Prodüksiyonu",
-  titleLine2: "Tek Ekip, Tek Çatı, Tek Çözüm",
+  titleLine1: "Etkinlik Prod\u00fcksiyonu",
+  titleLine2: "Tek Ekip, Tek \u00c7at\u0131, Tek \u00c7\u00f6z\u00fcm",
   description:
-    "Sahne kiralama, LED ekran kiralama, ses-ışık sistemleri ve podyum kurulumunda <strong>500+ proje</strong> deneyimiyle Türkiye genelinde anahtar teslim çözümler sunuyoruz.",
+    "Sahne kiralama, LED ekran kiralama, ses-\u0131\u015f\u0131k sistemleri ve podyum kurulumunda <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim \u00e7\u00f6z\u00fcmler sunuyoruz.",
   ctaCall: "Hemen Ara",
-  ctaCallAria: "Hemen ara — Sahneva'yı telefonla arayın",
+  ctaCallAria: "Hemen ara - Sahneva'y\u0131 telefonla aray\u0131n",
   ctaWhatsapp: "WhatsApp Teklif",
-  ctaWhatsappAria: "WhatsApp teklif — yeni sekmede açılır",
+  ctaWhatsappAria: "WhatsApp teklif - yeni sekmede a\u00e7\u0131l\u0131r",
   ctaQuote: "Hemen Teklif Al",
-  ctaQuoteAria: "Hemen teklif al bölümüne git",
+  ctaQuoteAria: "Hemen teklif al b\u00f6l\u00fcm\u00fcne git",
   quoteAnchor: "#teklif-al",
   whatsappText:
     "Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.",
@@ -35,13 +35,13 @@ const CTA_BASE =
 function KeywordPills({ keywords, ariaLabel }) {
   return (
     <ul
-      className="flex flex-wrap justify-center gap-2 mt-4 mb-4 max-w-4xl mx-auto list-none p-0"
+      className="mx-auto mb-4 mt-4 flex max-w-4xl list-none flex-wrap justify-center gap-2 p-0"
       aria-label={ariaLabel}
     >
       {keywords.map((k) => (
         <li key={k.text}>
           <span
-            className={`text-sm md:text-base font-semibold px-3 py-1 rounded-lg border border-white/10 bg-white/10 ${k.color}`}
+            className={`rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-sm font-semibold md:text-base ${k.color}`}
           >
             {k.text}
           </span>
@@ -56,11 +56,10 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
 
   return (
     <section
-      className="relative bg-[#0B1120] text-white overflow-hidden py-20 md:py-24 lg:py-28"
+      className="relative overflow-hidden bg-[#0B1120] py-20 text-white md:py-24 lg:py-28"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
-      {/* Background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/img/hero-bg-desktop.webp"
@@ -73,10 +72,8 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        {/* Film (okunurluk) */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Mavi-mor vibe (daha az mor) */}
         <div
           className="absolute inset-0"
           style={{
@@ -85,62 +82,50 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           }}
         />
 
-        {/* Grid overlay — globals.css ile uyumlu */}
         <div className="grid-overlay opacity-35" />
-
-        {/* Glow blobs */}
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
+        <div className="absolute -left-28 -top-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
         <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10">
-        {/* ✅ Üst boşluk azaltıldı: py yerine pt/pb */}
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Badge: daha belirgin */}
-            <div className="inline-flex items-center gap-3 bg-black/70 backdrop-blur-md rounded-full px-5 py-2 border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/70 px-5 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md">
               <span
-                className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
                 aria-hidden="true"
               />
-              <span className="text-xs md:text-sm font-extrabold text-white">
+              <span className="text-xs font-extrabold text-white md:text-sm">
                 {d.badge}
               </span>
             </div>
 
-            {/* Title */}
             <h1
               id="hero-title"
-              className="mt-3 md:mt-4 text-4xl md:text-6xl lg:text-7xl font-black leading-[1.15] drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)]"
+              className="mt-3 text-4xl font-black leading-[1.15] drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] md:mt-4 md:text-6xl lg:text-7xl"
             >
               {d.titleLine1Prefix}{" "}
               <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
                 {d.titleLine1}
               </span>
-              <span className="block text-white">
-                {d.titleLine2}
-              </span>
+              <span className="block text-white">{d.titleLine2}</span>
             </h1>
 
-            {/* Pills */}
             <KeywordPills keywords={d.keywords} ariaLabel={d.keywordsAriaLabel} />
 
-            {/* Description */}
             <p
               id="hero-desc"
-              className="text-base md:text-xl text-white/90 leading-relaxed md:leading-loose max-w-3xl mx-auto [text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
+              className="mx-auto max-w-3xl text-base leading-relaxed text-white/90 [text-shadow:0_10px_26px_rgba(0,0,0,0.45)] md:text-xl md:leading-loose"
               dangerouslySetInnerHTML={{ __html: d.description }}
             />
 
-            {/* CTAs */}
-            <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="tel:+905453048671"
                 className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
                 aria-label={d.ctaCallAria}
               >
-                <span aria-hidden="true">📞</span>
+                <span aria-hidden="true">T</span>
                 {d.ctaCall}
               </a>
 
@@ -151,16 +136,16 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
                 className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
                 aria-label={d.ctaWhatsappAria}
               >
-                <span aria-hidden="true">💬</span>
+                <span aria-hidden="true">W</span>
                 {d.ctaWhatsapp}
               </a>
 
               <Link
                 href={d.quoteAnchor}
-                className={`${CTA_BASE} bg-white/10 text-white border border-white/20 hover:bg-white/15`}
+                className={`${CTA_BASE} border border-white/20 bg-white/10 text-white hover:bg-white/15`}
                 aria-label={d.ctaQuoteAria}
               >
-                <span aria-hidden="true">🎯</span>
+                <span aria-hidden="true">+</span>
                 {d.ctaQuote}
               </Link>
             </div>
@@ -168,20 +153,18 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
         </div>
       </div>
 
-      {/* Scroll cue */}
       <div
-        className="hidden lg:block absolute bottom-5 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 lg:block"
         aria-hidden="true"
       >
         <div className="animate-bounce motion-reduce:animate-none">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
+          <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/50">
+            <div className="mt-2 h-3 w-1 rounded-full bg-white/70" />
           </div>
         </div>
       </div>
 
-      {/* ✅ HeroBelow ile geçiş: daha az “beyaz band” hissi */}
-      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent to-slate-950 pointer-events-none" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-slate-950" />
     </section>
   );
 }

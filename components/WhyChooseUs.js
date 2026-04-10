@@ -60,7 +60,7 @@ const DEFAULT_DICTIONARY = {
   sectionPill: "Avantajlarımız",
   sectionTitlePrefix: "Neden",
   sectionTitleHighlight: "Sahneva",
-  sectionTitleSuffix: "'yı Tercih Etmelisiniz?",
+  sectionTitleSuffix: "'yı Tercih Etmelisiniz",
   sectionDesc: "10+ yıllık deneyim, modern ekipmanlar ve uzman ekibimizle etkinliğinizin her detayı için yanınızdayız.",
   advantagesGroupAriaLabel: "Sahneva Altyapı Avantajları",
   bigLeftTitle: "Uçtan Uca Teknik Hizmet ve Profesyonel Çözümler",
@@ -136,7 +136,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
               {dictionary.bigLeftDesc}
             </p>
             <ul className="mt-5 space-y-2 text-sm md:text-[15px] text-slate-200 leading-relaxed">
-              {(dictionary.bigLeftFeatures ?? DEFAULT_DICTIONARY.bigLeftFeatures).map((item) => (
+              {(dictionary.bigLeftFeatures  DEFAULT_DICTIONARY.bigLeftFeatures).map((item) => (
                 <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>{item}</span></li>
               ))}
             </ul>
@@ -153,7 +153,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
               {dictionary.bigRightDesc}
             </p>
             <ul className="mt-5 space-y-2 text-sm md:text-[15px] text-slate-200 leading-relaxed">
-              {(dictionary.bigRightFeatures ?? DEFAULT_DICTIONARY.bigRightFeatures).map((item) => (
+              {(dictionary.bigRightFeatures  DEFAULT_DICTIONARY.bigRightFeatures).map((item) => (
                 <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-fuchsia-400" aria-hidden="true">•</span><span>{item}</span></li>
               ))}
             </ul>
@@ -162,7 +162,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {DEFAULT_FEATURES.map((feature, index) => {
-            const dictFeature = (dictionary.features ?? DEFAULT_DICTIONARY.features)[index] ?? feature;
+            const dictFeature = (dictionary.features  DEFAULT_DICTIONARY.features)[index]  feature;
             const featureTitleId = `why-adv-${toDomId(dictFeature.title)}-title`;
             return (
               <li key={feature.title}>

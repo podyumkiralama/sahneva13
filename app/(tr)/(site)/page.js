@@ -313,7 +313,7 @@ const HOME_JSON_LD = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Sahne, podyum ve LED ekran kiralama hizmetini hangi şehirlerde veriyorsunuz?",
+          name: "Sahne, podyum ve LED ekran kiralama hizmetini hangi şehirlerde veriyorsunuz",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sahneva olarak İstanbul merkezli çalışıyor ve Türkiye genelinde sahne, podyum, LED ekran, ses-ışık sistemleri ve çadır kiralama hizmeti sunuyoruz. Şehir dışı projelerde nakliye ve konaklama planlamasını ekibimizle birlikte organize ediyoruz.",
@@ -321,7 +321,7 @@ const HOME_JSON_LD = {
         },
         {
           "@type": "Question",
-          name: "Kiralama sürecinde keşif ve fiyat teklifi nasıl ilerliyor?",
+          name: "Kiralama sürecinde keşif ve fiyat teklifi nasıl ilerliyor",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Talebiniz geldikten sonra etkinlik alanı, katılımcı sayısı ve ihtiyaç duyduğunuz ekipmanları birlikte netleştiriyoruz. Gerekirse ücretsiz keşif yapıyor, ardından sahne, podyum, LED ekran ve ses-ışık sistemleri için detaylı ve kalem kalem ayrılmış teklif paylaşıyoruz.",
@@ -329,7 +329,7 @@ const HOME_JSON_LD = {
         },
         {
           "@type": "Question",
-          name: "Kurulum ve söküm hizmete dahil mi?",
+          name: "Kurulum ve söküm hizmete dahil mi",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Evet. Tüm sahne, podyum, LED ekran ve ses-ışık kiralamalarında profesyonel ekip tarafından kurulum, etkinlik süresince teknik takip ve etkinlik bitiminde söküm hizmeti standart olarak dahildir.",
@@ -337,7 +337,7 @@ const HOME_JSON_LD = {
         },
         {
           "@type": "Question",
-          name: "Sahne ve LED ekran kiralama fiyatları neye göre değişiyor?",
+          name: "Sahne ve LED ekran kiralama fiyatları neye göre değişiyor",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Fiyatlar; sahne veya podyum ölçüsü, LED ekran metrekaresi ve piksel aralığı, ses-ışık sistemi kapasitesi, etkinlik günü sayısı ve şehir içi/dışı olmasına göre değişir. Bütçenize uygun birkaç farklı paket seçeneği sunuyoruz.",
@@ -345,7 +345,7 @@ const HOME_JSON_LD = {
         },
         {
           "@type": "Question",
-          name: "Etkinlikten ne kadar önce rezervasyon yapmalıyım?",
+          name: "Etkinlikten ne kadar önce rezervasyon yapmalıyım",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Özellikle yüksek sezonda (bahar-yaz dönemi) sahne, podyum ve LED ekran stoklarının dolmaması için en az 2–3 hafta öncesinden rezervasyon yapmanızı öneriyoruz. Acil projeler için ise aynı hafta içinde hızlı kurulum yapabildiğimiz durumlar da oluyor.",

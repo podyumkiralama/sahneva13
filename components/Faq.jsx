@@ -1,7 +1,7 @@
 import { FAQ_ITEMS } from "../lib/faqData";
 
 const FAQ_WHATSAPP_MESSAGE = encodeURIComponent(
-  "Merhaba, SSS bolumunden ulasiyorum. Etkinlik ve ekipman kiralama icin bilgi almak istiyorum.",
+  "Merhaba, SSS bölümünden ulaşıyorum. Etkinlik ve ekipman kiralama için bilgi almak istiyorum.",
 );
 
 const FOCUS_RING_CLASS =
@@ -9,27 +9,27 @@ const FOCUS_RING_CLASS =
 
 const DEFAULT_DICTIONARY = {
   sectionPill: "Merak Edilenler",
-  sectionTitlePrefix: "Kiralama Sureci ve",
-  sectionTitleHighlight: "Sikca Sorulanlar",
+  sectionTitlePrefix: "Kiralama Süreci ve",
+  sectionTitleHighlight: "Sıkça Sorulanlar",
   sectionDesc:
-    "Sahne, LED ekran, ses-isik sistemleri ve teknik operasyon surecleri hakkinda akliniza takilan tum sorulari yanitliyoruz.",
-  supportTitle: "Cevabi bulamadiniz mi?",
+    "Sahne, LED ekran, ses-ışık sistemleri ve teknik operasyon süreçleri hakkında aklınıza takılan tüm soruları yanıtlıyoruz.",
+  supportTitle: "Cevabı bulamadınız mı?",
   supportDesc:
-    "Projeniz ozel bir cozum gerektiriyor olabilir. Uzman teknik ekibimizle gorusun.",
-  supportPhoneLabel: "Bizi Arayin",
+    "Projeniz özel bir çözüm gerektiriyor olabilir. Uzman teknik ekibimizle görüşün.",
+  supportPhoneLabel: "Bizi Arayın",
   supportWhatsappLabel: "WhatsApp Destek",
-  supportMailLabel: "E-posta Gonder",
+  supportMailLabel: "E-posta Gönder",
   contactPhone: "+90 545 304 86 71",
   contactPhoneHref: "tel:+905453048671",
   contactWhatsappHref: `https://wa.me/905453048671?text=${FAQ_WHATSAPP_MESSAGE}`,
   contactMail: "info@sahneva.com",
   contactMailHref: "mailto:info@sahneva.com",
-  regionTitleSr: "Sikca sorulan sorular bolumu icerigi",
-  whatsappActionText: "Hizli Mesaj Gonder",
-  newTabHint: "yeni sekmede acilir",
+  regionTitleSr: "Sıkça sorulan sorular bölümü içeriği",
+  whatsappActionText: "Hızlı Mesaj Gönder",
+  newTabHint: "yeni sekmede açılır",
   seeAllHref: "/sss",
-  seeAllLabel: "Tum sorulari gor",
-  seeAllAriaLabel: "Sik Sorulan Sorular sayfasindaki tum sorulari goruntule",
+  seeAllLabel: "Tüm soruları gör",
+  seeAllAriaLabel: "Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle",
 };
 
 function mergeDictionary(base, override = {}) {
@@ -105,7 +105,7 @@ function SupportCard({ dictionary }) {
           className={`group flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-3 transition-all hover:border-sky-500/30 hover:bg-white/10 ${FOCUS_RING_CLASS}`}
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/10 text-sky-400 transition-colors group-hover:bg-sky-500 group-hover:text-white">
-            Tel
+            T
           </span>
           <div className="min-w-0">
             <span className="block text-xs font-medium text-slate-400">
@@ -125,7 +125,7 @@ function SupportCard({ dictionary }) {
           aria-label={`${dictionary.supportWhatsappLabel} - ${dictionary.newTabHint}`}
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-400 transition-colors group-hover:bg-green-500 group-hover:text-white">
-            WA
+            W
           </span>
           <div className="min-w-0">
             <span className="block text-xs font-medium text-slate-400">

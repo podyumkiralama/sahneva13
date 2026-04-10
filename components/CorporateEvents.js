@@ -82,7 +82,7 @@ const DEFAULT_DICTIONARY = {
   headingSuffix: "Arasında Çözüm Ortağınız",
   introText:
     "Etkinlik organizasyonu ve teknik prodüksiyon süreçlerinde tüm aşamaları tek merkezden yönetiyor, markanızın prestijini global standartlarda sahneliyoruz.",
-  highlightPill: "Neden Biz?",
+  highlightPill: "Neden Biz",
   highlightTitlePrefix: "Kurumsal Süreçlerde",
   highlightTitleAccent: "Güvenilir Çözüm Ortağınız",
   advantagesAriaLabel: "Sahneva kurumsal hizmet avantajları",
@@ -108,7 +108,7 @@ const DEFAULT_DICTIONARY = {
   phoneCtaAria: "Kurumsal destek hattını ara: +90 545 304 86 71",
 
   whatsappCtaLabel: "Hızlı Teklif Al",
-  whatsappCtaHref: `https://wa.me/905453048671?text=${WHATSAPP_CORPORATE_MESSAGE}&utm_source=homepage&utm_medium=corporate_whatsapp`,
+  whatsappCtaHref: `https://wa.me/905453048671text=${WHATSAPP_CORPORATE_MESSAGE}&utm_source=homepage&utm_medium=corporate_whatsapp`,
   whatsappCtaAria: "WhatsApp üzerinden kurumsal fiyat teklifi isteyin",
   whatsappSrHint: "(yeni pencerede açılır)",
 
@@ -118,7 +118,7 @@ const DEFAULT_DICTIONARY = {
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
 
 function resolveTitleTemplate(template, title) {
-  const source = template ?? DEFAULT_DICTIONARY.cardCtaAria;
+  const source = template  DEFAULT_DICTIONARY.cardCtaAria;
   if (typeof source === "function") return source(title);
   if (typeof source === "string") return source.replace(TITLE_TEMPLATE_TOKEN, title);
   return title;
@@ -171,11 +171,11 @@ export default function CorporateEvents({
   const cardCtaAriaTemplate = dictionary.cardCtaAria;
 
   const supportStats = Array.isArray(dictionary.supportStats)
-    ? dictionary.supportStats
+     dictionary.supportStats
     : DEFAULT_DICTIONARY.supportStats;
 
   // Sabit ID’ler (stabil)
-  const computedHeadingId = ariaLabelledby ?? "corporate-events-heading";
+  const computedHeadingId = ariaLabelledby  "corporate-events-heading";
   const introId = "corporate-events-intro";
   const advantagesHeadingId = "corporate-events-advantages-heading";
   const bannerTitleId = "corporate-events-banner-title";
@@ -183,21 +183,21 @@ export default function CorporateEvents({
   const phoneHintId = "corporate-events-phone-hint";
   const whatsappHintId = "corporate-events-whatsapp-hint";
 
-  const phoneDescription = dictionary.phoneCtaAria?.trim();
-  const whatsappDescription = [dictionary.whatsappCtaAria?.trim(), dictionary.whatsappSrHint?.trim()]
+  const phoneDescription = dictionary.phoneCtaAria.trim();
+  const whatsappDescription = [dictionary.whatsappCtaAria.trim(), dictionary.whatsappSrHint.trim()]
     .filter(Boolean)
     .join(" — ");
 
-  const phoneAriaDescribedBy = phoneDescription ? phoneHintId : undefined;
-  const whatsappAriaDescribedBy = whatsappDescription ? whatsappHintId : undefined;
+  const phoneAriaDescribedBy = phoneDescription  phoneHintId : undefined;
+  const whatsappAriaDescribedBy = whatsappDescription  whatsappHintId : undefined;
 
-  const computedDescribedBy = ariaDescribedby ?? introId;
+  const computedDescribedBy = ariaDescribedby  introId;
   return (
     <section
       className="relative py-16 md:py-24 2xl:py-28 bg-[#0B1120] overflow-hidden"
       role={role}
       aria-label={ariaLabel}
-      aria-labelledby={ariaLabel ? undefined : computedHeadingId}
+      aria-labelledby={ariaLabel  undefined : computedHeadingId}
       aria-describedby={computedDescribedBy}
     >
       {/* Arka Plan Efektleri */}
@@ -211,7 +211,7 @@ export default function CorporateEvents({
         {/* SEO & Giriş */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2
-            id={ariaLabel ? undefined : computedHeadingId}
+            id={ariaLabel  undefined : computedHeadingId}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
           >
             {dictionary.headingPrefix}{" "}
@@ -233,11 +233,11 @@ export default function CorporateEvents({
         <div className="grid gap-6 lg:gap-8 md:grid-cols-3 mb-16 lg:mb-24">
           {cards.map((card, i) => {
             const cardCtaLabel =
-              dictionary.cardCtaLabels?.[card.slug] ?? dictionary.cardCtaLabel;
+              dictionary.cardCtaLabels.[card.slug]  dictionary.cardCtaLabel;
 
             const cardCtaAria = resolveTitleTemplate(cardCtaAriaTemplate, card.title);
             const cardAccessibleLabel = cardCtaAria
-              ? `${cardCtaLabel} — ${cardCtaAria}`
+               `${cardCtaLabel} — ${cardCtaAria}`
               : cardCtaLabel;
 
             return (
