@@ -32,6 +32,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") ?? "";
+  const nonce = headersList.get("x-nonce") ?? undefined;
 
   let lang = "tr";
   let dir = "ltr";
@@ -49,6 +50,9 @@ export default async function RootLayout({ children }) {
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
+      <head>
+        {nonce ? <meta name="csp-nonce" content={nonce} /> : null}
+      </head>
        <body className="min-h-screen antialiased flex flex-col font-sans">
         <SkipLinks locale={lang} />
         {children}
