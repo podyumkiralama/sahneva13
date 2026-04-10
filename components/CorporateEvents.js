@@ -108,7 +108,7 @@ const DEFAULT_DICTIONARY = {
   phoneCtaAria: "Kurumsal destek hattını ara: +90 545 304 86 71",
 
   whatsappCtaLabel: "Hızlı Teklif Al",
-  whatsappCtaHref: `https://wa.me/905453048671text=${WHATSAPP_CORPORATE_MESSAGE}&utm_source=homepage&utm_medium=corporate_whatsapp`,
+  whatsappCtaHref: `https://wa.me/905453048671?text=${WHATSAPP_CORPORATE_MESSAGE}&utm_source=homepage&utm_medium=corporate_whatsapp`,
   whatsappCtaAria: "WhatsApp üzerinden kurumsal fiyat teklifi isteyin",
   whatsappSrHint: "(yeni pencerede açılır)",
 
@@ -118,7 +118,7 @@ const DEFAULT_DICTIONARY = {
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
 
 function resolveTitleTemplate(template, title) {
-  const source = template  DEFAULT_DICTIONARY.cardCtaAria;
+  const source = template ?? DEFAULT_DICTIONARY.cardCtaAria;
   if (typeof source === "function") return source(title);
   if (typeof source === "string") return source.replace(TITLE_TEMPLATE_TOKEN, title);
   return title;
