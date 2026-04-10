@@ -77,6 +77,7 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     ${frameAncestors}
     base-uri 'self';
     object-src 'none';
+    require-trusted-types-for 'script';
     upgrade-insecure-requests;
     img-src 'self' data: blob: https:;
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
