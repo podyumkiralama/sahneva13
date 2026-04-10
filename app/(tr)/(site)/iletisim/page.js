@@ -1,5 +1,6 @@
 // app/(site)/iletisim/page.jsx
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
@@ -69,10 +70,7 @@ function ContactStructuredData() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
-    />
+    <JsonLd data={schema} />
   );
 }
 
