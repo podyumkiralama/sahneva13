@@ -1,6 +1,6 @@
 // components/HeroSection.js
+import Image from "next/image";
 import Link from "next/link";
-import { preload } from "react-dom";
 
 const DEFAULT_KEYWORDS = [
   { text: "Sahne Kiralama", color: "text-blue-200" },
@@ -53,16 +53,6 @@ function KeywordPills({ keywords, ariaLabel }) {
 
 export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
   const d = { ...DEFAULT_DICTIONARY, ...dictionaryOverride };
-  preload("/img/hero-bg-desktop.webp", {
-    as: "image",
-    fetchPriority: "high",
-    media: "(min-width: 640px)",
-  });
-  preload("/img/hero-bg-mobile.webp", {
-    as: "image",
-    fetchPriority: "high",
-    media: "(max-width: 639px)",
-  });
 
   return (
     <section
@@ -72,22 +62,28 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <picture>
-          <source
-            srcSet="/img/hero-bg-mobile.webp"
-            media="(max-width: 639px)"
-            type="image/webp"
-          />
-          <img
-            src="/img/hero-bg-desktop.webp"
-            alt=""
-            fetchPriority="high"
-            loading="eager"
-            width={1600}
-            height={900}
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-        </picture>
+        {/* Mobile image */}
+        <Image
+          src="/img/hero-bg-mobile.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center sm:hidden"
+          sizes="100vw"
+          quality={80}
+        />
+        {/* Desktop image */}
+        <Image
+          src="/img/hero-bg-desktop.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center hidden sm:block"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          quality={70}
+        />
 
         {/* Film (okunurluk) */}
         <div className="absolute inset-0 bg-black/45" />
