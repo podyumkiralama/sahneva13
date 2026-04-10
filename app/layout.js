@@ -32,6 +32,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") ?? "";
+  const nonce = headersList.get("x-nonce") ?? undefined;
 
   let lang = "tr";
   let dir = "ltr";

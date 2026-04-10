@@ -39,8 +39,14 @@ function loadGAScript(gaId) {
   window.__gaInitialized = true;
 
   const script = document.createElement("script");
+  const cspNonce = document
+    .querySelector('meta[name="csp-nonce"]')
+    ?.getAttribute("content");
   script.id = "ga-script";
   script.setAttribute("data-gtag-loader", "true");
+  if (cspNonce) {
+    script.setAttribute("nonce", cspNonce);
+  }
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
   document.head.appendChild(script);
