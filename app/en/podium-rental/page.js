@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import JsonLd from "@/components/seo/JsonLd";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
 
 export const revalidate = 1800;
@@ -238,7 +238,7 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
-function JsonLd({ faqs }) {
+function PodiumRentalJsonLd({ faqs }) {
   const orgId = `${ORIGIN}/#org`;
   const webId = `${ORIGIN}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
@@ -298,7 +298,7 @@ function JsonLd({ faqs }) {
     ],
   };
 
-  return <JsonLd data={jsonLd} />;
+  return <JsonLdScript data={jsonLd} />;
 }
 
 export default function PodiumRentalPage() {
@@ -309,7 +309,7 @@ export default function PodiumRentalPage() {
 
   return (
     <div className="relative">
-      <JsonLd faqs={FAQ_ITEMS} />
+      <PodiumRentalJsonLd faqs={FAQ_ITEMS} />
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={ORIGIN} />
 
       {/* Hero Section */}

@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import JsonLd from "@/components/seo/JsonLd";
+import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import {
   Monitor,
@@ -1078,7 +1078,7 @@ function CTA() {
 }
 
 /* ================== JSON-LD ================== */
-function JsonLd() {
+function LedScreenJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1114,7 +1114,7 @@ function JsonLd() {
     ],
   };
 
-  return <JsonLd data={jsonLd} />;
+  return <JsonLdScript data={jsonLd} />;
 }
 
 /* ================== Page component ================== */
@@ -1130,7 +1130,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      <JsonLd />
+      <LedScreenJsonLd />
       <Hero />
       <Services />
       <Gallery />
