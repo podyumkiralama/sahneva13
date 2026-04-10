@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
 export const revalidate = 1800;
@@ -45,15 +46,11 @@ export const metadata = {
     "Corporate Events | Professional Event Production | Sahneva",
   description:
     "Stage, LED screen, sound and lighting production solutions for corporate events in Istanbul. Turnkey rental, professional crew. Request a quote today.",
-  alternates: {
-    canonical: `${ORIGIN}/en/corporate-events`,
-    languages: {
-      "tr-TR": `${ORIGIN}/kurumsal-organizasyon`,
-      en: `${ORIGIN}/en/corporate-events`,
-      ar: `${ORIGIN}/ar/corporate-events`,
-      "x-default": `${ORIGIN}/en/corporate-events`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/kurumsal-organizasyon",
+    en: "/en/corporate-events",
+    xDefault: "/en/corporate-events",
+  }),
   openGraph: {
     title:
       "Corporate Events | Professional Event Production | Sahneva",

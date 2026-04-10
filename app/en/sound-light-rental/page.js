@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
 export const revalidate = 1800;
@@ -32,14 +33,11 @@ export const metadata = {
   title: "Sound & Lighting Rental | Concert-Grade AV Systems",
   description:
     "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
-  alternates: {
-    canonical: `${ORIGIN}/en/sound-light-rental`,
-    languages: {
-      "tr-TR": `${ORIGIN}/ses-isik-sistemleri`,
-      "en": `${ORIGIN}/en/sound-light-rental`,
-      "x-default": `${ORIGIN}/en/sound-light-rental`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/ses-isik-sistemleri",
+    en: "/en/sound-light-rental",
+    xDefault: "/en/sound-light-rental",
+  }),
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",
     description:

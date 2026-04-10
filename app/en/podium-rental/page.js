@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
@@ -212,14 +213,11 @@ export const metadata = {
   title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
   description:
     "Professional modular podium rental across Türkiye. Stage platforms for concerts, weddings, corporate events and graduations. Delivery, setup and teardown included. Get a quote now.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${ORIGIN}/podyum-kiralama`,
-      en: PAGE_URL,
-      "x-default": `${ORIGIN}/podyum-kiralama`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/podyum-kiralama",
+    en: PAGE_PATH,
+    xDefault: PAGE_PATH,
+  }),
   openGraph: {
     title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
     description:

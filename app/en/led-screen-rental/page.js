@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
@@ -66,14 +67,11 @@ export const metadata = {
   title: "LED Screen Rental | Professional LED Wall Rentals",
   description:
     "P2–P6 pixel pitch, 4K processors and ultra-bright LED wall rentals. Indoor/outdoor, concert, expo and corporate event solutions across Turkey.",
-  alternates: {
-    canonical: `${ORIGIN}/en/led-screen-rental`,
-    languages: {
-      "tr-TR": `${ORIGIN}/led-ekran-kiralama`,
-      "en": `${ORIGIN}/en/led-screen-rental`,
-      "x-default": `${ORIGIN}/en/led-screen-rental`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/led-ekran-kiralama",
+    en: "/en/led-screen-rental",
+    xDefault: "/en/led-screen-rental",
+  }),
   openGraph: {
     title: "LED Screen Rental | Professional Solutions",
     description:

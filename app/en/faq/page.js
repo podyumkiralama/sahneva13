@@ -1,5 +1,6 @@
 // app/en/faq/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -8,15 +9,11 @@ export const metadata = {
   title: "Frequently Asked Questions | Event Rental FAQ Guide",
   description:
     "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
-  alternates: {
-    canonical: `${SITE_URL}/en/faq`,
-    languages: {
-      "tr-TR": `${SITE_URL}/sss`,
-      en: `${SITE_URL}/en/faq`,
-      ar: `${SITE_URL}/ar/faq`,
-      "x-default": `${SITE_URL}/en/faq`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/sss",
+    en: "/en/faq",
+    xDefault: "/en/faq",
+  }),
   openGraph: {
     title: "Frequently Asked Questions | Sahneva",
     description:

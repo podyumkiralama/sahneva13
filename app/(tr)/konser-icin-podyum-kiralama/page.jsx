@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
@@ -147,7 +148,11 @@ export const metadata = {
     "Konser İçin Podyum Kiralama | Festival Sahne Çözümleri",
   description:
     "Konser & festival podyum kiralama: ana platform, yan kule, FOH, uçtan uca teknik destek. Profesyonel kurulum, İstanbul ve Türkiye geneli hızlı hizmet.",
-  alternates: { canonical: `${ORIGIN}/konser-icin-podyum-kiralama`, languages: { "tr-TR": `${ORIGIN}/konser-icin-podyum-kiralama`, "x-default": `${ORIGIN}/konser-icin-podyum-kiralama` } },
+  alternates: buildLanguageAlternates({
+    tr: "/konser-icin-podyum-kiralama",
+    en: "/en/concert-podium-rental",
+    xDefault: "/en/concert-podium-rental",
+  }),
   openGraph: {
     title: "Konser İçin Podyum Kiralama | Sahneva",
     description:

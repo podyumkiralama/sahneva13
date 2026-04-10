@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -47,7 +48,11 @@ export const metadata = {
     "Kurumsal Organizasyon Şirketleri | Etkinlik Kiralama",
   description:
     "İstanbul'daki kurumsal organizasyonlara sahne, LED ekran, ses-ışık prodüksiyon çözümleri. Anahtar teslim kiralama, profesyonel ekip. Hemen teklif alın.",
-  alternates: { canonical: `${ORIGIN}/kurumsal-organizasyon`, languages: { "tr-TR": `${ORIGIN}/kurumsal-organizasyon`, "x-default": `${ORIGIN}/kurumsal-organizasyon` } },
+  alternates: buildLanguageAlternates({
+    tr: "/kurumsal-organizasyon",
+    en: "/en/corporate-events",
+    xDefault: "/en/corporate-events",
+  }),
   openGraph: {
     title:
       "Kurumsal Organizasyon Şirketleri | Etkinlik Kiralama",

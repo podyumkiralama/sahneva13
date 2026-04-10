@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
@@ -31,7 +32,11 @@ export const metadata = {
   title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
   description:
     "2026 podyum kiralama fiyatları: m² bazlı, halı-skört dahil, İstanbul içi nakliye, kurulum ve söküm sabit bedel. Defile ve konserler için teklif isteyin.",
-  alternates: { canonical: url, languages: { "tr-TR": url, "x-default": url } },
+  alternates: buildLanguageAlternates({
+    tr: slug,
+    en: "/en/podium-rental-prices",
+    xDefault: "/en/podium-rental-prices",
+  }),
   openGraph: {
     type: "website",
     url,

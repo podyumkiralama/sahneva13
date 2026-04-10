@@ -1,5 +1,6 @@
 // app/en/regional-rental/page.js
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -12,14 +13,11 @@ export const metadata = {
   title: "Regional Rental | Event Equipment Across Turkey",
   description:
     "LED screen, truss, stage/podium, and sound-lighting system rentals across Turkey. Select your city, get a fast quote; installation, testing, and dismantling included.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${SITE}/bolgesel-kiralama`,
-      en: PAGE_URL,
-      "x-default": `${SITE}/bolgesel-kiralama`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/bolgesel-kiralama",
+    en: PAGE_PATH,
+    xDefault: PAGE_PATH,
+  }),
   openGraph: {
     type: "website",
     url: PAGE_URL,

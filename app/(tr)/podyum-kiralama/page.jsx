@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
@@ -263,7 +264,11 @@ export const metadata = {
   title: "Podyum Kiralama | Profesyonel Sahne Çözümleri",
   description:
     "Modüler podyum kiralama: 1×1 ve 2×1 paneller, kaymaz kaplama, halı ve skört opsiyonları. İstanbul geneli profesyonel hizmet ve saha yönetimi.",
-  alternates: { canonical: `${ORIGIN}/podyum-kiralama`, languages: { "tr-TR": `${ORIGIN}/podyum-kiralama`, "x-default": `${ORIGIN}/podyum-kiralama` } },
+  alternates: buildLanguageAlternates({
+    tr: "/podyum-kiralama",
+    en: "/en/podium-rental",
+    xDefault: "/en/podium-rental",
+  }),
   openGraph: {
     title: "Podyum Kiralama | Sahneva",
     description:

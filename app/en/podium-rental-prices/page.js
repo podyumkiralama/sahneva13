@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
@@ -31,14 +32,11 @@ export const metadata = {
   title: "Podium Rental Prices 2026 | Istanbul Current m² List",
   description:
     "2026 podium rental prices: m² based, carpet-skirt included, fixed Istanbul transportation, installation and dismantling. Request a quote for fashion shows and concerts.",
-  alternates: {
-    canonical: url,
-    languages: {
-      "tr-TR": `${BASE_SITE_URL}/podyum-kiralama-fiyatlari`,
-      en: url,
-      "x-default": `${BASE_SITE_URL}/podyum-kiralama-fiyatlari`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/podyum-kiralama-fiyatlari",
+    en: slug,
+    xDefault: slug,
+  }),
   openGraph: {
     type: "website",
     url,

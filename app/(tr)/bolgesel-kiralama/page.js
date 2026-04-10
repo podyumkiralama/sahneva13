@@ -1,5 +1,6 @@
 // app/(tr)/bolgesel-kiralama/page.js
 import RegionalRentalClient from "./RegionalRentalClient";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -12,10 +13,11 @@ export const metadata = {
   title: "Bölgesel Kiralama | Türkiye Geneli Etkinlik Ekipman",
   description:
     "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık sistemleri kiralama. Şehrinizi seçin, hızlı teklif alın; kurulum, test ve söküm dahil.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: { "tr-TR": PAGE_URL, "x-default": PAGE_URL },
-  },
+  alternates: buildLanguageAlternates({
+    tr: PAGE_PATH,
+    en: "/en/regional-rental",
+    xDefault: "/en/regional-rental",
+  }),
   openGraph: {
     type: "website",
     url: PAGE_URL,

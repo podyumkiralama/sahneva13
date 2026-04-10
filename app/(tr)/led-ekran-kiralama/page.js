@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
@@ -79,7 +80,11 @@ export const metadata = {
     "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
   keywords:
     "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
-  alternates: { canonical: `${ORIGIN}/led-ekran-kiralama` },
+  alternates: buildLanguageAlternates({
+    tr: "/led-ekran-kiralama",
+    en: "/en/led-screen-rental",
+    xDefault: "/en/led-screen-rental",
+  }),
   openGraph: {
     title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
     description:

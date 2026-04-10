@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
@@ -47,14 +48,11 @@ export const metadata = {
   title: "Sahne Kiralama | Profesyonel Sahne Çözümleri",
   description:
     "Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. 81 ilde hızlı kurulum ve teknik destek.",
-  alternates: {
-    canonical: `${ORIGIN}/sahne-kiralama`,
-    languages: {
-      "tr-TR": `${ORIGIN}/sahne-kiralama`,
-      "en": `${ORIGIN}/en/stage-rental`,
-      "x-default": `${ORIGIN}/en/stage-rental`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/sahne-kiralama",
+    en: "/en/stage-rental",
+    xDefault: "/en/stage-rental",
+  }),
   openGraph: {
     title: "Sahne Kiralama | Sahneva",
     description:

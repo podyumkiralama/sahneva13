@@ -3,6 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
 /* ================== ISR ================== */
@@ -56,7 +57,11 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: PAGE_URL, languages: { "tr-TR": PAGE_URL, "x-default": PAGE_URL } },
+  alternates: buildLanguageAlternates({
+    tr: "/truss-kiralama",
+    en: "/en/truss-rental",
+    xDefault: "/en/truss-rental",
+  }),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

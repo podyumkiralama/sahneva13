@@ -1,5 +1,6 @@
 // app/en/how-we-work/page.js
 import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== SEO METADATA ================== */
 const SITE =
@@ -13,14 +14,11 @@ export const metadata = {
   title: "How We Work | Sahneva Event Process",
   description:
     "At Sahneva, the process is planned end-to-end: needs analysis, quote, technical survey, installation, and post-event dismantling.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${SITE}/nasil-calisiyoruz`,
-      en: PAGE_URL,
-      "x-default": `${SITE}/nasil-calisiyoruz`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/nasil-calisiyoruz",
+    en: PAGE_PATH,
+    xDefault: PAGE_PATH,
+  }),
   openGraph: {
     type: "website",
     url: PAGE_URL,

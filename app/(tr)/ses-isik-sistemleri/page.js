@@ -8,6 +8,7 @@ import { join } from "node:path";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
 
@@ -39,7 +40,11 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Ses ve Işık Sistemleri Kiralama | Profesyonel Çözümler",
   description: "Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. 81 ilde canlı operasyon desteği.",
-  alternates: { canonical: `${ORIGIN}/ses-isik-sistemleri`, languages: { "tr-TR": `${ORIGIN}/ses-isik-sistemleri`, "x-default": `${ORIGIN}/ses-isik-sistemleri` } },
+  alternates: buildLanguageAlternates({
+    tr: "/ses-isik-sistemleri",
+    en: "/en/sound-light-rental",
+    xDefault: "/en/sound-light-rental",
+  }),
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
     description: "Türkiye genelinde uçtan uca ses & ışık çözümleri: keşif, projelendirme, kurulum, canlı miksaj ve söküm.",

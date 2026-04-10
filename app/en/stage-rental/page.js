@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
@@ -45,15 +46,11 @@ export const metadata = {
   title: "Stage Rental | Professional Stage Solutions | Sahneva",
   description:
     "Turnkey stage rental in Turkey: truss, modular decks, LED screens, sound & lighting for concerts, conferences and festivals. Nationwide crew and fast setup.",
-  alternates: {
-    canonical: `${ORIGIN}/en/stage-rental`,
-    languages: {
-      "tr-TR": `${ORIGIN}/sahne-kiralama`,
-      en: `${ORIGIN}/en/stage-rental`,
-      ar: `${ORIGIN}/ar/stage-rental`,
-      "x-default": `${ORIGIN}/en/stage-rental`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/sahne-kiralama",
+    en: "/en/stage-rental",
+    xDefault: "/en/stage-rental",
+  }),
   openGraph: {
     title: "Stage Rental | Professional Stage Solutions | Sahneva",
     description:

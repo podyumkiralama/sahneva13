@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 
@@ -134,7 +135,11 @@ export const metadata = {
   title: "Defile & Podyum Kiralama | Moda Etkinlik Sahnesi",
   description:
     "Defile & moda podyum kiralama: T/U tipi, düz runway, LED arka plan, projeksiyon mapping + tam teknik destek. İstanbul profesyonel etkinlik sahneleri.",
-  alternates: { canonical: `${ORIGIN}/defile-podyum-kiralama`, languages: { "tr-TR": `${ORIGIN}/defile-podyum-kiralama`, "x-default": `${ORIGIN}/defile-podyum-kiralama` } },
+  alternates: buildLanguageAlternates({
+    tr: "/defile-podyum-kiralama",
+    en: "/en/runway-podium-rental",
+    xDefault: "/en/runway-podium-rental",
+  }),
   openGraph: {
     title: "Defile & Podyum Kiralama | Sahneva",
     description:

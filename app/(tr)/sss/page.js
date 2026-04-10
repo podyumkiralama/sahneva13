@@ -2,6 +2,7 @@
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -10,7 +11,11 @@ export const metadata = {
   title: "Sık Sorulan Sorular | Kiralama SSS Rehberi",
   description:
     "Podyum, LED ekran, ses-ışık ve çadır kiralama; kurulum, elektrik, izinler ve fiyatlandırma hakkında detaylı SSS.",
-  alternates: { canonical: `${SITE_URL}/sss`, languages: { "tr-TR": `${SITE_URL}/sss`, "x-default": `${SITE_URL}/sss` } },
+  alternates: buildLanguageAlternates({
+    tr: "/sss",
+    en: "/en/faq",
+    xDefault: "/en/faq",
+  }),
   openGraph: {
     title: "Sık Sorulan Sorular | Sahneva",
     description:
