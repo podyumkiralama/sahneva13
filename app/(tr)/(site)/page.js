@@ -382,7 +382,10 @@ export default function HomePage() {
       <div id="teklif-al" className="sr-only" />
 
       {/* Hizmetler */}
-      <section aria-labelledby="hizmetler-title" className="bg-black">
+      <section
+        aria-labelledby="hizmetler-title"
+        className="content-visibility-auto bg-black"
+      >
         <h2 id="hizmetler-title" className="sr-only">Hizmetler</h2>
         <p className="sr-only">
           Türkiye geneli sahne kiralama, podyum kiralama, LED ekran kiralama, ses-ışık sistemleri,
@@ -393,7 +396,10 @@ export default function HomePage() {
       </section>
 
       {/* Projeler */}
-      <section aria-labelledby="projeler-title" className="bg-black">
+      <section
+        aria-labelledby="projeler-title"
+        className="content-visibility-auto bg-black"
+      >
         <h2 id="projeler-title" className="sr-only">Projelerimiz</h2>
         <p className="sr-only">
           500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
@@ -403,26 +409,26 @@ export default function HomePage() {
       </section>
 
       {/* Teknik */}
-      <div className="bg-slate-900 py-10">
+      <div className="content-visibility-auto bg-slate-900 py-10">
         <TechCapabilities />
       </div>
 
       {/* Kurumsal */}
-      <div className="bg-slate-50 py-0 m-0 w-full">
+      <div className="content-visibility-auto bg-slate-50 py-0 m-0 w-full">
         <CorporateEvents />
       </div>
 
-      <div className="bg-black py-0 m-0 w-full">
+      <div className="content-visibility-auto bg-black py-0 m-0 w-full">
         <CorporateIntro />
       </div>
 
       {/* Why Choose Us */}
-      <div className="w-full p-0 m-0">
+      <div className="content-visibility-auto w-full p-0 m-0">
         <WhyChooseUs />
       </div>
 
       {/* FAQ */}
-      <div className="w-full bg-transparent p-0 m-0">
+      <div className="content-visibility-auto w-full bg-transparent p-0 m-0">
         <Faq />
       </div>
     </div>

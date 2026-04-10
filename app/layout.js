@@ -6,7 +6,6 @@ export const revalidate = 86400; // 24 saatte bir yenile (sayfa bazlı kurallar 
 import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
-import NewTabAccessibility from "@/components/NewTabAccessibility.client";
 import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
@@ -51,8 +50,7 @@ export default async function RootLayout({ children }) {
       suppressHydrationWarning
     >
        <body className="min-h-screen antialiased flex flex-col font-sans">
-        <SkipLinks />
-        <NewTabAccessibility />
+        <SkipLinks locale={lang} />
         {children}
       </body>
     </html>

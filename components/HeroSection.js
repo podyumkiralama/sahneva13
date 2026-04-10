@@ -1,5 +1,4 @@
 // components/HeroSection.js
-import Image from "next/image";
 import Link from "next/link";
 
 const DEFAULT_KEYWORDS = [
@@ -61,30 +60,38 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
       aria-describedby="hero-desc"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <Image
-          src="/img/hero-bg-desktop.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          quality={74}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet="/img/hero-bg-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcSet="/img/hero-bg-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/img/hero-bg-desktop.webp"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+        </picture>
 
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-slate-950/52" />
 
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(30,58,138,0.28) 0%, rgba(88,28,135,0.10) 55%, rgba(2,6,23,0.78) 100%)",
+              "linear-gradient(145deg, rgba(30,58,138,0.18) 0%, rgba(88,28,135,0.06) 48%, rgba(2,6,23,0.72) 100%)",
           }}
         />
 
-        <div className="grid-overlay opacity-35" />
-        <div className="absolute -left-28 -top-28 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/8 blur-3xl" />
+        <div className="grid-overlay opacity-20" />
+        <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-blue-500/8 blur-3xl" />
       </div>
 
       <div className="relative z-10">
@@ -149,17 +156,6 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
                 {d.ctaQuote}
               </Link>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 lg:block"
-        aria-hidden="true"
-      >
-        <div className="animate-bounce motion-reduce:animate-none">
-          <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/50">
-            <div className="mt-2 h-3 w-1 rounded-full bg-white/70" />
           </div>
         </div>
       </div>

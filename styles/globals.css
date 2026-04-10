@@ -312,6 +312,11 @@
     border: 0;
   }
 
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
+
   @media (min-width: 1536px) {
     .max-w-7xl {
       max-width: var(--container-max-2xl);
