@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const revalidate = 1800;
 
@@ -60,10 +61,7 @@ function ProjectsStructuredData() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
-    />
+    <JsonLd data={schema} />
   );
 }
 

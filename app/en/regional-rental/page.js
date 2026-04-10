@@ -1,6 +1,7 @@
 // app/en/regional-rental/page.js
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLd from "@/components/seo/JsonLd";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -122,10 +123,7 @@ function JsonLd({ services, faqs, steps }) {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
+    <JsonLd data={jsonLd} />
   );
 }
 

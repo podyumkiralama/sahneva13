@@ -1,6 +1,7 @@
 // app/en/how-we-work/page.js
 import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== SEO METADATA ================== */
 const SITE =
@@ -108,10 +109,7 @@ function JsonLd({ stepsData, faqs }) {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-    />
+    <JsonLd data={jsonLd} />
   );
 }
 
