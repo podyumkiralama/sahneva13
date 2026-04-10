@@ -103,13 +103,18 @@ export function middleware(request) {
   });
 
   response.headers.set("x-nonce", nonce);
+  const cspOptions = {
+    nonce,
+    siteUrl: request.nextUrl.origin,
+    isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
+  };
+  const enforcedCsp = buildCsp(cspOptions);
+  const trustedTypesReportOnlyCsp = `${enforcedCsp} require-trusted-types-for 'script';`;
+
+  response.headers.set("Content-Security-Policy", enforcedCsp);
   response.headers.set(
-    "Content-Security-Policy",
-    buildCsp({
-      nonce,
-      siteUrl: request.nextUrl.origin,
-      isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
-    })
+    "Content-Security-Policy-Report-Only",
+    trustedTypesReportOnlyCsp
   );
 
   return response;

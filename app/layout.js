@@ -49,7 +49,7 @@ export default async function RootLayout({ children }) {
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
-       <body className="min-h-screen antialiased flex flex-col font-sans">
+      <body className="flex flex-col">
         <SkipLinks locale={lang} />
         {children}
       </body>
