@@ -30,7 +30,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Tent Rental | Pagoda, Clear Span & Dome Structures | Sahneva",
+  title: "Tent Rental | Pagoda, Clear Span & Dome Structures",
   description:
     "Pagoda, clear-span and dome tent rentals with flooring, climate control, lighting and nationwide installation for events across Türkiye.",
   alternates: {

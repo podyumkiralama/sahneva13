@@ -10,7 +10,7 @@ export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 
 export const metadata = {
-  title: "Projects | Our Stage & LED Screen References | Sahneva",
+  title: "Projects | Our Stage & LED Screen References",
   description:
     "Browse Sahneva's completed concert, corporate event and activation projects. Stage, podium, LED screen and sound-lighting references across Türkiye.",
   alternates: {
