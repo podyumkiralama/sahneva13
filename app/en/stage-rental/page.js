@@ -17,6 +17,8 @@ const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
 const SITE_URL = ORIGIN;
 const PHONE = "+905453048671";
+const PAGE_TITLE = "Stage Rental | Professional Stage Solutions";
+const PAGE_TITLE_BRANDED = `${PAGE_TITLE} | Sahneva`;
 const WA_TEXT =
   "Hello%2C+I%27d+like+to+request+a+quote+for+stage+rental.+Event+type%3A+%5Bconcert%2Fconference%2Flaunch%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Estimated+audience%3A+%5Bxxx%5D%2C+Stage+size%3A+%5Bsqm%5D.";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
@@ -44,7 +46,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Stage Rental | Professional Stage Solutions",
+  title: PAGE_TITLE,
   description:
     "Turnkey stage rental in Turkey: truss, modular decks, LED screens, sound & lighting for concerts, conferences and festivals. Nationwide crew and fast setup.",
   alternates: buildLanguageAlternates({
@@ -54,7 +56,7 @@ export const metadata = {
     xDefault: "/en/stage-rental",
   }),
   openGraph: {
-    title: "Stage Rental | Professional Stage Solutions | Sahneva",
+    title: PAGE_TITLE_BRANDED,
     description:
       "Turnkey stage production with truss, podium, LED screen, sound and lighting for concerts, conferences, launches and festivals.",
     url: `${ORIGIN}/en/stage-rental`,
@@ -72,7 +74,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stage Rental | Professional Stage Solutions | Sahneva",
+    title: PAGE_TITLE_BRANDED,
     description:
       "Concert, conference, launch and festival stage rentals with truss, LED, sound and lighting systems.",
     images: [`${ORIGIN}/img/hizmet-sahne.webp`],
@@ -1631,7 +1633,7 @@ function StageJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Stage Rental | Professional Stage Solutions | Sahneva",
+        name: PAGE_TITLE_BRANDED,
         description: pageDescription,
         url: pageUrl,
         inLanguage: "en-US",
