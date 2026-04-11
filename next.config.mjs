@@ -172,6 +172,11 @@ const nextConfig = {
         destination: "/sahne-kiralama",
         permanent: true,
       },
+      {
+        source: "/site.webmanifest",
+        destination: "/manifest.json",
+        permanent: true,
+      },
       { source: "/faq", destination: "/en/faq", permanent: true },
       { source: "/faq/", destination: "/en/faq", permanent: true },
       {
