@@ -1,15 +1,6 @@
 (() => {
   if (!window.trustedTypes || window.trustedTypes.defaultPolicy) return;
 
-  const BLOCKED_ELEMENTS = new Set([
-    "SCRIPT",
-    "IFRAME",
-    "OBJECT",
-    "EMBED",
-    "LINK",
-    "META",
-  ]);
-  const URL_ATTRIBUTES = new Set(["href", "src", "xlink:href", "formaction"]);
   const TRUSTED_SCRIPT_ORIGINS = new Set([
     window.location.origin,
     "https://www.googletagmanager.com",
@@ -21,45 +12,19 @@
     "https://static.cloudflareinsights.com",
   ]);
 
-  function isUnsafeUrl(value) {
-    const trimmedValue = String(value || "").trim();
-    if (!trimmedValue) return false;
-
-    try {
-      const url = new URL(trimmedValue, window.location.origin);
-      return ["javascript:", "data:", "vbscript:"].includes(url.protocol);
-    } catch {
-      return true;
-    }
-  }
-
   function sanitizeHtml(value) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(String(value ?? ""), "text/html");
-
-    const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_ELEMENT);
-    const blockedNodes = [];
-
-    while (walker.nextNode()) {
-      const element = walker.currentNode;
-      if (BLOCKED_ELEMENTS.has(element.tagName)) {
-        blockedNodes.push(element);
-        continue;
-      }
-
-      for (const attribute of [...element.attributes]) {
-        const attributeName = attribute.name.toLowerCase();
-        if (
-          attributeName.startsWith("on") ||
-          (URL_ATTRIBUTES.has(attributeName) && isUnsafeUrl(attribute.value))
-        ) {
-          element.removeAttribute(attribute.name);
-        }
-      }
-    }
-
-    blockedNodes.forEach((node) => node.remove());
-    return doc.body.innerHTML;
+    return String(value ?? "")
+      .replace(/<\s*(script|iframe|object|embed|link|meta)\b[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi, "")
+      .replace(/<\s*(script|iframe|object|embed|link|meta)\b[^>]*\/?\s*>/gi, "")
+      .replace(/\s+on[a-z0-9_-]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+      .replace(
+        /\s+(href|src|xlink:href|formaction)\s*=\s*(["'])?\s*(javascript:|data:|vbscript:)[\s\S]*?\2/gi,
+        ""
+      )
+      .replace(
+        /\s+(href|src|xlink:href|formaction)\s*=\s*(javascript:|data:|vbscript:)[^\s>]*/gi,
+        ""
+      );
   }
 
   function allowTrustedScriptUrl(value) {
