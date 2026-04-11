@@ -19,6 +19,8 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
+const LOGO_ID = `${SITE_URL}/#logo`;
+const LOGO_URL = `${SITE_URL}/img/logo.png`;
 
 const PAGE_PATH = "/truss-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
@@ -109,23 +111,47 @@ function TrussStructuredData() {
   }));
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": ORGANIZATION_ID,
-        name: "Sahneva Organizasyon",
-        url: ORIGIN,
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": LOCAL_BUSINESS_ID,
-        name: "Sahneva Organizasyon",
-        url: ORIGIN,
-        parentOrganization: { "@id": ORGANIZATION_ID },
-        telephone: PHONE,
-        areaServed: "TR",
-      },
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": LOGO_ID,
+          url: LOGO_URL,
+          contentUrl: LOGO_URL,
+        },
+        {
+          "@type": "Organization",
+          "@id": ORGANIZATION_ID,
+          name: "Sahneva Organizasyon",
+          url: ORIGIN,
+          logo: { "@id": LOGO_ID },
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": LOCAL_BUSINESS_ID,
+          name: "Sahneva Organizasyon",
+          url: ORIGIN,
+          image: OG_IMAGE,
+          logo: { "@id": LOGO_ID },
+          parentOrganization: { "@id": ORGANIZATION_ID },
+          telephone: PHONE,
+          priceRange: "₺₺₺",
+          openingHours: "Mo-Su 00:00-23:59",
+          areaServed: "TR",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Anadolu Caddesi No:61A, Hamidiye Mahallesi",
+            addressLocality: "İstanbul",
+            addressRegion: "İstanbul",
+            postalCode: "34400",
+            addressCountry: "TR",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 41.0961692,
+            longitude: 28.9792127,
+          },
+        },
       {
         "@type": "WebPage",
         "@id": `${PAGE_URL}#webpage`,
