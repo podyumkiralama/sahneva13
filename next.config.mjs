@@ -177,6 +177,36 @@ const nextConfig = {
         destination: "/manifest.json",
         permanent: true,
       },
+      {
+        source: "/arama",
+        destination: "/search",
+        permanent: true,
+      },
+      {
+        source: "/public/img/led/:path*",
+        destination: "/img/led/:path*",
+        permanent: true,
+      },
+      {
+        source: "/-0",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog-1",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/$",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/&",
+        destination: "/",
+        permanent: true,
+      },
       { source: "/faq", destination: "/en/faq", permanent: true },
       { source: "/faq/", destination: "/en/faq", permanent: true },
       {
