@@ -229,6 +229,15 @@ function CityCard({ name, desc, href, imgSrc }) {
   );
 }
 
+function buildCityBriefHref(baseHref, cityName) {
+  const params = new URLSearchParams({
+    konu: "bolgesel-kiralama",
+    sehir: cityName,
+  });
+
+  return `${baseHref}?${params.toString()}`;
+}
+
 function FaqItem({ q, a }) {
   return (
     <details className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:bg-white/[0.045]">
@@ -512,7 +521,7 @@ export default function RegionalRentalClient({ regions, services, faqs, steps })
                 name={r.name}
                 desc={r.desc}
                 imgSrc={cityImages[r.slug]}
-                href="/iletisim"
+                href={buildCityBriefHref(CTA_BRIEF, r.name)}
               />
             </Reveal>
           ))}
