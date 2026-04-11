@@ -1131,7 +1131,6 @@ function SoundLightJsonLd() {
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    inLanguage: "tr-TR",
     offers: {
       "@type": "AggregateOffer",
       url: `${pageUrl}#teklif`,
@@ -1150,7 +1149,6 @@ function SoundLightJsonLd() {
     "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
     provider,
     url: pageUrl,
-    mainEntityOfPage: { "@id": webPageId },
   };
 
   const serviceId = serviceNode["@id"];

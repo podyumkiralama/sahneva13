@@ -13,7 +13,7 @@ const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 export const metadata = {
   title: "Regional Rental | Event Equipment Across Turkey",
   description:
-    "LED screen, truss, stage/podium, and sound-lighting system rentals across Turkey. Select your city, get a fast quote; installation, testing, and dismantling included.",
+    "LED screen, truss, stage and sound-lighting rentals across Turkey. Select your city and get installation, testing and dismantling.",
   alternates: buildLanguageAlternates({
     tr: "/bolgesel-kiralama",
     en: PAGE_PATH,

@@ -147,7 +147,7 @@ const RELATED_SERVICES = [
 export const metadata = {
   title: "Concert Podium Rental | Festival Stage Solutions",
   description:
-    "Concert & festival podium rental: main platform, side towers, FOH, end-to-end technical support. Professional installation, fast service in Istanbul and across Turkey.",
+    "Concert and festival podium rental with main platforms, side towers, FOH areas and end-to-end technical support across Turkey.",
   alternates: buildLanguageAlternates({
     tr: "/konser-icin-podyum-kiralama",
     en: "/en/concert-podium-rental",
@@ -202,11 +202,10 @@ function StructuredData() {
         "@type": "Service",
         name: "Concert Podium Rental",
         description: metadata.description,
-        provider: { "@id": ORGANIZATION_ID },
-        areaServed: { "@type": "AdministrativeArea", name: "Turkey" },
-        serviceType: "Concert Stage Installation",
-        inLanguage: "en-US",
-      },
+          provider: { "@id": ORGANIZATION_ID },
+          areaServed: { "@type": "AdministrativeArea", name: "Turkey" },
+          serviceType: "Concert Stage Installation",
+        },
       buildFaqSchema(FAQ_ITEMS.map((f) => ({ question: f.q, answer: f.a }))),
     ],
   };

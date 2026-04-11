@@ -19,7 +19,7 @@ const IMG_LED = "/img/blog/mezuniyet-toreni-led-ekran.webp";
 
 const TITLE = "Graduation Events 2026 Istanbul Guide";
 const DESCRIPTION =
-  "Istanbul graduation ceremony guide 2026: stage, LED screen, sound-lighting and live broadcast planning. Trends, budget tips and professional organization recommendations.";
+  "Istanbul graduation ceremony guide 2026: stage, LED screen, sound-lighting, live broadcast planning, trends and budget tips.";
 const AUTHOR_NAME = "Sahneva Editorial Team";
 
 const PUBLISH_DATE = "2026-02-10T09:00:00+03:00";

@@ -42,7 +42,7 @@ const IMG_CONFETTI = "/img/blog/fisekhane-pubg-rekor-ani.webp";
 export const metadata = {
   title: "Fişekhane PUBG Mobile Guinness World Record™",
   description:
-    "At the PUBG Mobile event held at Fişekhane, we provided the stage/podium, LED screen, sound-lighting, technical support and live broadcast/filming infrastructure.",
+      "At the Fişekhane PUBG Mobile event, we provided stage, podium, LED screen, sound-lighting and live broadcast infrastructure.",
   image: HERO_IMAGE,
   alternates: { canonical: BLOG_URL },
   openGraph: {

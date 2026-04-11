@@ -75,7 +75,7 @@ const WA_URL = LEADMAGNET_WA;
 export const metadata = {
   title: "Choosing the Right Podium for Your Event",
   description:
-    "Guide to choosing the right podium: the best solutions for weddings, corporate events, concerts and rallies. T-shape, flat runway and professional rental tips at Sahneva.",
+      "Guide to choosing the right podium for weddings, corporate events, concerts and rallies: height, surface, stairs and safety tips.",
   alternates: {
     canonical: BLOG_URL,
     languages: {

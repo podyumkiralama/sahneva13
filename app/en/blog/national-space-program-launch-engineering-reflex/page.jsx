@@ -19,7 +19,7 @@ const IMG_AKUSTIK = "/img/blog/milli-uzay-programi-akustik.webp";
 
 const TITLE = "National Space Program Launch (2021): A Perfect Stage Designed with Sahneva's Engineering Reflex";
 const DESCRIPTION =
-  "At the 2021 National Space Program Launch, Sahneva engineered a pneumatic dome, silent acoustic solutions and 360° laser–LED synchronization with precision engineering.";
+  "At the 2021 National Space Program Launch, Sahneva engineered a pneumatic dome, silent acoustics and 360° laser-LED synchronization.";
 
 const PUBLISH_DATE = "2021-02-09T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/en/blog/national-space-program-launch-engineering-reflex/page.jsx", "2026-02-05T00:00:00+03:00");

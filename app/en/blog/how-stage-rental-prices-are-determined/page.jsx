@@ -20,7 +20,7 @@ const IMG_RIDER = "/img/blog/sahne-kiralama-fiyatlari-teknik-rider.webp";
 
 const TITLE = "How Are Stage Rental Prices Determined?";
 const DESCRIPTION =
-  "Stage rental prices are based on m². They become clear with truss, LED, sound-lighting and rider details. Share your technical requirements for an estimated budget.";
+  "Stage rental prices depend on m², truss, LED, sound-lighting and rider details. Share requirements for an estimated budget.";
 const AUTHOR_NAME = "Sahneva Editorial Team";
 const FEATURED_IMAGE = HERO_IMG;
 const HERO_IMAGE = HERO_IMG;

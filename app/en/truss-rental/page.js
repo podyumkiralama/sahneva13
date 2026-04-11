@@ -25,7 +25,7 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
 const TITLE = "Truss Rental | Aluminum Truss Systems";
 const DESCRIPTION =
-  "Truss rental and installation for all types including square, triangular, circle, and arch. Transportation, assembly, dismantling, and on-site technical team support for LED screen, sound-lighting rigging, and stage portal.";
+  "Truss rental for square, triangular, circle and arch systems. Transport, assembly, dismantling and technical team support included.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
@@ -148,10 +148,9 @@ function TrussJsonLd() {
         provider: { "@id": LOCAL_BUSINESS_ID },
         areaServed: "TR",
         url: PAGE_URL,
-        description:
-          "Truss rental and professional installation and dismantling service including square truss, triangular truss, circle/oval truss, and arch (gate) truss for any event.",
-        inLanguage: "en-US",
-        offers: {
+          description:
+            "Truss rental and professional installation and dismantling service including square truss, triangular truss, circle/oval truss, and arch (gate) truss for any event.",
+          offers: {
           "@type": "Offer",
           url: PAGE_URL,
           availability: "https://schema.org/InStock",

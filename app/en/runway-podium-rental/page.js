@@ -188,11 +188,10 @@ function StructuredData() {
         "@type": "Service",
         name: "Runway & Podium Rental",
         description: metadata.description,
-        provider: { "@id": ORGANIZATION_ID },
-        areaServed: { "@type": "AdministrativeArea", name: "Istanbul" },
-        serviceType: "Runway Podium Rental",
-        inLanguage: "en-US",
-        hasOfferCatalog: {
+          provider: { "@id": ORGANIZATION_ID },
+          areaServed: { "@type": "AdministrativeArea", name: "Istanbul" },
+          serviceType: "Runway Podium Rental",
+          hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Runway Podium Rental Services",
           itemListElement: SERVICES.map((s) => ({

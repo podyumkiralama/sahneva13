@@ -211,9 +211,9 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 const OG_IMAGE = `${ORIGIN}/img/podyum/hero.webp`;
 
 export const metadata = {
-  title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
+  title: "Podium Rental | Modular Stage & Platform Systems",
   description:
-    "Professional modular podium rental across Türkiye. Stage platforms for concerts, weddings, corporate events and graduations. Delivery, setup and teardown included. Get a quote now.",
+    "Modular podium rental across Turkey for concerts, weddings and corporate events. Delivery, setup and teardown included.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: PAGE_PATH,
@@ -284,7 +284,6 @@ function PodiumRentalJsonLd({ faqs }) {
         provider: { "@id": orgId },
         areaServed: { "@type": "Country", name: "Türkiye" },
         description: "Professional modular podium and stage platform rental with setup and teardown across Türkiye.",
-        inLanguage: "en-US",
       },
       {
         "@type": "FAQPage",

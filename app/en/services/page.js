@@ -57,11 +57,10 @@ function ServicesStructuredData() {
     name: "Sahneva Services",
     description:
       "Professional stage rentals, LED walls, sound-light systems, podium, tent rentals and event production services",
-    image: `${SITE_URL}/img/hizmetler-hero.webp`,
-    provider: { "@id": ORGANIZATION_ID },
-    areaServed: "TR",
-    inLanguage: "en-US",
-    hasOfferCatalog: {
+      image: `${SITE_URL}/img/hizmetler-hero.webp`,
+      provider: { "@id": ORGANIZATION_ID },
+      areaServed: "TR",
+      hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Event Equipment Rental Services",
       itemListElement: [
