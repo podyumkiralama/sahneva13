@@ -159,10 +159,9 @@ function buildJsonLd() {
     areaServed: [
       { "@type": "Country", name: "Turkey" },
       { "@type": "AdministrativeArea", name: "Istanbul" },
-    ],
-    serviceType: "Podium rental pricing and quoting (platform/carpet/skirt/transportation)",
-    inLanguage: "en-US",
-    offers: [
+      ],
+      serviceType: "Podium rental pricing and quoting (platform/carpet/skirt/transportation)",
+      offers: [
       {
         "@type": "Offer",
         name: "Platform (Modular Podium) — 2026",

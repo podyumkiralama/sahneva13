@@ -284,7 +284,6 @@ function PodiumRentalJsonLd({ faqs }) {
         provider: { "@id": orgId },
         areaServed: { "@type": "Country", name: "Türkiye" },
         description: "Professional modular podium and stage platform rental with setup and teardown across Türkiye.",
-        inLanguage: "en-US",
       },
       {
         "@type": "FAQPage",

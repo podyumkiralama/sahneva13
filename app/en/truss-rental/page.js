@@ -148,10 +148,9 @@ function TrussJsonLd() {
         provider: { "@id": LOCAL_BUSINESS_ID },
         areaServed: "TR",
         url: PAGE_URL,
-        description:
-          "Truss rental and professional installation and dismantling service including square truss, triangular truss, circle/oval truss, and arch (gate) truss for any event.",
-        inLanguage: "en-US",
-        offers: {
+          description:
+            "Truss rental and professional installation and dismantling service including square truss, triangular truss, circle/oval truss, and arch (gate) truss for any event.",
+          offers: {
           "@type": "Offer",
           url: PAGE_URL,
           availability: "https://schema.org/InStock",
