@@ -74,7 +74,7 @@ const ogUrl =
   `${BASE_SITE_URL}/img/hero-bg.webp`;
 
 export const metadata = {
-  title: HOME_PAGE_TITLE,
+  title: { absolute: HOME_PAGE_TITLE },
   description: HOME_PAGE_DESCRIPTION,
   alternates: {
     canonical: buildCanonical("/"),
