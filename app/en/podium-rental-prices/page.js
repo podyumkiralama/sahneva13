@@ -32,7 +32,7 @@ const BLUR_DATA_URL =
 export const metadata = {
   title: "Podium Rental Prices 2026 | Istanbul Current m² List",
   description:
-    "2026 podium rental prices: m² based, carpet-skirt included, fixed Istanbul transportation, installation and dismantling. Request a quote for fashion shows and concerts.",
+    "2026 podium rental prices by m² with carpet, skirt, Istanbul transport, setup and dismantling. Request a fast quote.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama-fiyatlari",
     en: slug,

@@ -34,7 +34,7 @@ const AUTHOR_NAME = "Sahneva Editorial Team";
 
 const TITLE = "2026 Tent Rental Guide: Best Options for Events";
 const DESCRIPTION =
-  "From corporate events to weddings, from trade fairs to festivals: the 2026 tent rental guide. Quickly learn about the right tent selection, installation process and costs.";
+  "2026 tent rental guide for corporate events, weddings, trade fairs and festivals. Learn tent selection, setup process and cost factors.";
 
 /* ================== META DATA ================== */
 export const metadata = {

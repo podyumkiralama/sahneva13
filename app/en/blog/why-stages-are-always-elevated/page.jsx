@@ -43,7 +43,7 @@ const IMAGES = {
 export const metadata = {
   title: "Why Are Stages Always Elevated? A 2,500-Year-Old Secret",
   description:
-    "From ancient platforms to modern concert stages: the 2,500-year evolution of the stage, the birth of elevated spaces and their transformation into today's LED-truss technologies.",
+    "From ancient platforms to modern concert stages: how elevated spaces evolved into today's LED and truss stage technologies.",
 
   alternates: { canonical: BLOG_URL, languages: { "tr-TR": `${SITE_URL}/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir`, "en-US": BLOG_URL, "x-default": BLOG_URL } },
 
