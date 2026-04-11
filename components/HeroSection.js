@@ -17,7 +17,7 @@ const DEFAULT_DICTIONARY = {
   titleLine1: "Etkinlik Prod\u00fcksiyonu",
   titleLine2: "Tek Ekip, Tek \u00c7at\u0131, Tek \u00c7\u00f6z\u00fcm",
   description:
-    "Sahne kiralama, LED ekran kiralama, ses-\u0131\u015f\u0131k sistemleri ve podyum kurulumunda <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim \u00e7\u00f6z\u00fcmler sunuyoruz.",
+    "Sahneva ile <strong>etkinlik prod\u00fcksiyonu</strong>; sahne kiralama, LED ekran kiralama, ses-\u0131\u015f\u0131k sistemleri ve podyum kurulumunda tek ekip, tek \u00e7at\u0131 ve tek \u00e7\u00f6z\u00fcm anlay\u0131\u015f\u0131yla ilerler. <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim \u00e7\u00f6z\u00fcmler sunuyoruz.",
   ctaCall: "Hemen Ara",
   ctaCallAria: "Hemen ara - Sahneva'y\u0131 telefonla aray\u0131n",
   ctaWhatsapp: "WhatsApp Teklif",
@@ -74,7 +74,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           />
           <img
             src="/img/hero-bg-desktop.webp"
-            alt=""
+            alt="Sahneva etkinlik prod\u00fcksiyonu i\u00e7in sahne, LED ekran, ses-\u0131\u015f\u0131k ve podyum kurulumu"
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-center"
