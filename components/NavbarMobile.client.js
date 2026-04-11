@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 
 const FOCUS_RING_CLASS =
   "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
@@ -31,12 +31,19 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
     [],
   );
 
-  // Close menu on route change
-  useEffect(() => {
+  const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
+    if (restoreFocus) {
+      buttonRef.current?.focus();
+    }
     setOpen(false);
     setServicesOpen(false);
     setResearchOpen(false);
-  }, [pathname]);
+  }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    closeMenu({ restoreFocus: false });
+  }, [closeMenu, pathname]);
 
   // Scroll lock when open
   useEffect(() => {
@@ -56,14 +63,11 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
     if (!open) return;
     const onKey = (e) => {
       if (e.key !== "Escape") return;
-      setOpen(false);
-      setServicesOpen(false);
-      setResearchOpen(false);
-      requestAnimationFrame(() => buttonRef.current?.focus());
+      closeMenu();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [closeMenu, open]);
 
   // Basic focus trap (only when open)
   useEffect(() => {
@@ -112,11 +116,13 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
         ref={buttonRef}
         type="button"
         onClick={() => {
-          setOpen((v) => !v);
-          if (!open) {
-            setServicesOpen(false);
-            setResearchOpen(false);
+          if (open) {
+            closeMenu({ restoreFocus: false });
+            return;
           }
+          setOpen((v) => !v);
+          setServicesOpen(false);
+          setResearchOpen(false);
         }}
         className={
           "lg:hidden inline-flex items-center justify-center p-3 rounded-xl bg-white border border-neutral-200 hover:bg-neutral-50 transition-all duration-200 min-h-[44px] min-w-[44px] transform hover:scale-105 " +
@@ -157,6 +163,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
         aria-labelledby={headingId}
         aria-describedby={descId}
         aria-hidden={!open}
+        inert={!open ? "" : undefined}
         data-open={open ? "true" : undefined}
         className={`lg:hidden fixed z-50 left-0 right-0 top-16 bg-white border-t border-neutral-200 shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
           open
@@ -175,7 +182,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
           <div className="px-5 py-6 space-y-3 max-h-[80vh] overflow-y-auto">
             <Link
               href="/hakkimizda"
-              onClick={() => setOpen(false)}
+              onClick={() => closeMenu()}
               className={`flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 transform hover:scale-[1.02] ${
                 FOCUS_RING_CLASS
               }`}
@@ -188,7 +195,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
 
             <Link
               href="/blog"
-              onClick={() => setOpen(false)}
+              onClick={() => closeMenu()}
               className={`flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 transform hover:scale-[1.02] ${
                 FOCUS_RING_CLASS
               }`}
@@ -232,7 +239,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                     <Link
                       key={href}
                       href={href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => closeMenu()}
                       className={`flex items-start gap-3 px-3 py-2 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-all duration-200 w-full transform hover:scale-[1.01] ${
                         FOCUS_RING_CLASS
                       }`}
@@ -288,7 +295,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                     <Link
                       key={href}
                       href={href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => closeMenu()}
                       className={`flex items-start gap-3 px-3 py-2 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-all duration-200 w-full transform hover:scale-[1.01] ${FOCUS_RING_CLASS}`}
                     >
                       <span
@@ -331,7 +338,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                 className={`mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-white text-sm font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 min-h-[44px] border border-green-700/20 ${
                   FOCUS_RING_CLASS
                 }`}
-                onClick={() => setOpen(false)}
+                onClick={() => closeMenu()}
               >
                 <span aria-hidden="true" className="text-base">
                   🚀
@@ -351,9 +358,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
             : "opacity-0 pointer-events-none invisible"
         }`}
         onClick={() => {
-          setOpen(false);
-          setServicesOpen(false);
-          setResearchOpen(false);
+          closeMenu();
         }}
         aria-hidden="true"
         data-open={open ? "true" : undefined}
