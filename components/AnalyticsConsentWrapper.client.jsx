@@ -6,6 +6,32 @@ import { useEffect } from "react";
 const CONSENT_KEY = "user_analytics_consent";
 const GA_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_ID;
+const TRUSTED_SCRIPT_POLICY = "sahneva#script-url";
+const GTAG_ORIGIN = "https://www.googletagmanager.com";
+const GTAG_PATH = "/gtag/js";
+
+function createTrustedScriptUrl(url) {
+  if (typeof window === "undefined" || !window.trustedTypes) return url;
+
+  window.__sahnevaTrustedScriptPolicy =
+    window.__sahnevaTrustedScriptPolicy ||
+    window.trustedTypes.createPolicy(TRUSTED_SCRIPT_POLICY, {
+      createScriptURL(value) {
+        const parsedUrl = new URL(value, window.location.origin);
+        if (
+          parsedUrl.origin === GTAG_ORIGIN &&
+          parsedUrl.pathname === GTAG_PATH &&
+          parsedUrl.searchParams.has("id")
+        ) {
+          return parsedUrl.toString();
+        }
+
+        throw new TypeError(`Blocked untrusted script URL: ${value}`);
+      },
+    });
+
+  return window.__sahnevaTrustedScriptPolicy.createScriptURL(url);
+}
 
 // Consent Mode başlangıç durumu (default: denied)
 function initConsentMode() {
@@ -39,16 +65,12 @@ function loadGAScript(gaId) {
   window.__gaInitialized = true;
 
   const script = document.createElement("script");
-  const cspNonce = document
-    .querySelector('meta[name="csp-nonce"]')
-    ?.getAttribute("content");
   script.id = "ga-script";
   script.setAttribute("data-gtag-loader", "true");
-  if (cspNonce) {
-    script.setAttribute("nonce", cspNonce);
-  }
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+  script.src = createTrustedScriptUrl(
+    `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`
+  );
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
