@@ -27,14 +27,6 @@ export default function robots() {
       },
     ],
 
-    sitemap: [
-      `${host}/sitemap.xml`,
-      `${host}/sitemap-pages.xml`,
-      `${host}/sitemap-blog.xml`,
-      `${host}/sitemap-en.xml`,
-      `${host}/sitemap-en-blog.xml`,
-      `${host}/sitemap-ar.xml`,
-      `${host}/sitemap-projects.xml`,
-    ],
+    sitemap: [`${host}/sitemap.xml`],
   };
 }
