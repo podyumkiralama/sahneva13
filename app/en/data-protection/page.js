@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Data Protection & Privacy Policy | Sahneva",
+  title: "Data Protection & Privacy Policy",
   description:
     "Sahneva's data protection and privacy policy: how we collect, use, store and protect your personal data in compliance with KVKK and GDPR.",
   alternates: {

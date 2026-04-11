@@ -44,7 +44,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title:
-    "Corporate Events | Professional Event Production | Sahneva",
+    "Corporate Events | Professional Event Production",
   description:
     "Stage, LED screen, sound and lighting production solutions for corporate events in Istanbul. Turnkey rental, professional crew. Request a quote today.",
   alternates: buildLanguageAlternates({
