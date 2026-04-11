@@ -150,10 +150,6 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
         aria-hidden="true"
       />
 
-      <h2 id="hero-supporting-title" className="sr-only">
-        {d.srHeading}
-      </h2>
-
       <div className="home-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="max-w-3xl space-y-2">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
@@ -164,9 +160,9 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
             {d.sectionBadge}
           </p>
 
-          <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
+          <h2 id="hero-supporting-title" className="text-2xl md:text-3xl font-black text-white leading-tight">
             {d.sectionTitle}
-          </h3>
+          </h2>
 
           <p className="text-slate-200/80 text-base md:text-lg leading-relaxed max-w-3xl">
             {d.sectionDesc}

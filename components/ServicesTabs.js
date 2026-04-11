@@ -230,10 +230,10 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         </p>
 
         <div className="mt-6">
-          <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90">
+          <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90">
             <span className="h-[2px] w-4 bg-cyan-500" aria-hidden="true" />
             {dictionary.featuresHeading}
-          </h4>
+          </p>
           <ul className="grid gap-3 sm:grid-cols-2">
             {service.features.map((feature) => (
               <li
