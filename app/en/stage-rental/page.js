@@ -44,7 +44,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Stage Rental | Professional Stage Solutions | Sahneva",
+  title: "Stage Rental | Professional Stage Solutions",
   description:
     "Turnkey stage rental in Turkey: truss, modular decks, LED screens, sound & lighting for concerts, conferences and festivals. Nationwide crew and fast setup.",
   alternates: buildLanguageAlternates({
