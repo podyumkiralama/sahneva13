@@ -350,6 +350,79 @@ export default function EnglishServicesPage() {
     },
   ];
 
+  const PLANNING_GUIDES = [
+    {
+      href: "/en/blog/event-technical-scouting-and-planning-guide",
+      title: "Technical scouting and planning",
+      description: "Venue checks, infrastructure planning and production requirements before the event.",
+    },
+    {
+      href: "/en/blog/technical-production-pricing-guide-2026",
+      title: "Technical production pricing guide",
+      description: "How stage, LED, sound, lighting and tent requirements affect production budgets.",
+    },
+    {
+      href: "/en/blog/corporate-event-planning-guide-2026",
+      title: "Corporate event planning guide",
+      description: "A practical guide for corporate launches, meetings and brand events.",
+    },
+    {
+      href: "/en/blog/12-fun-corporate-event-ideas",
+      title: "Corporate event ideas",
+      description: "Creative formats for internal meetings, team events and gala concepts.",
+    },
+    {
+      href: "/en/blog/product-launch-event-organization",
+      title: "Product launch organization",
+      description: "Stage, LED screen and technical production planning for product launches.",
+    },
+    {
+      href: "/en/blog/fisekhane-pubg-guinness-world-record",
+      title: "PUBG Guinness World Record case",
+      description: "A real project example covering stage, LED, sound-light and broadcast infrastructure.",
+    },
+    {
+      href: "/en/blog/pmgc-world-finals-behind-the-scenes",
+      title: "PMGC world finals behind the scenes",
+      description: "Event production notes from a large-scale esports stage setup.",
+    },
+    {
+      href: "/en/blog/graduation-events-2026-istanbul-guide",
+      title: "Graduation events guide",
+      description: "Stage, LED screen, sound-lighting and flow planning for graduation ceremonies.",
+    },
+    {
+      href: "/en/blog/best-tent-rental-options-for-events-2026",
+      title: "Tent rental options",
+      description: "How to choose event tents for corporate events, fairs and outdoor productions.",
+    },
+    {
+      href: "/en/blog/dome-tent-revolution-pneumatic-360-mapping",
+      title: "Dome tent and 360 mapping",
+      description: "Temporary structures and immersive mapping ideas for corporate events.",
+    },
+    {
+      href: "/en/blog/choosing-the-right-podium-for-your-event",
+      title: "Choosing the right podium",
+      description: "Podium height, layout, stairs and surface choices for different event types.",
+    },
+    {
+      href: "/en/blog/why-podium-stages-are-preferred",
+      title: "Why podium stages are preferred",
+      description: "Visibility, safety and installation advantages of modular podium systems.",
+    },
+    {
+      href: "/en/blog/sound-system-innovations-2026-trends",
+      title: "Sound system trends",
+      description: "Microphones, line-array systems and audio planning trends for 2026 events.",
+    },
+    {
+      href: "/en/concert-podium-rental",
+      title: "Concert podium rental",
+      description: "Festival stages, main platforms, side towers and FOH podium planning.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-neutral-900 overflow-hidden">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
@@ -572,6 +645,43 @@ export default function EnglishServicesPage() {
             </div>
 
             <ServicesTabsFallback />
+          </div>
+        </section>
+
+        <section className="py-20 bg-gradient-to-br from-white to-slate-50">
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+                Event <span className="text-blue-700">Planning Guides</span>
+              </h2>
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+                Browse related guides before requesting a quote, so equipment, logistics and timing decisions are clearer.
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {PLANNING_GUIDES.map((guide) => (
+                <Link
+                  key={guide.href}
+                  href={guide.href}
+                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+                >
+                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-blue-700 transition-colors">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+                    {guide.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700">
+                    Read guide
+                    <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                      →
+                    </span>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

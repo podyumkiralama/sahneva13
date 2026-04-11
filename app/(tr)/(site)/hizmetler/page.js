@@ -337,6 +337,29 @@ export default function ServicesPage() {
     }
   ];
 
+  const PLANNING_GUIDES = [
+    {
+      href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
+      title: "Etkinlik teknik keşif rehberi",
+      description: "Mekan analizi, altyapı kontrolü ve kurulum planlama adımlarını teklif öncesi netleştirin.",
+    },
+    {
+      href: "/konser-icin-podyum-kiralama",
+      title: "Konser için podyum kiralama",
+      description: "Festival ve konserlerde ana platform, yan kule ve FOH alanı planlamasını inceleyin.",
+    },
+    {
+      href: "/podyum-kiralama-fiyatlari",
+      title: "Podyum kiralama fiyatları",
+      description: "Metrekare, yükseklik, kaplama ve nakliye kalemlerinin bütçeye etkisini görün.",
+    },
+    {
+      href: "/blog/teknik-produksiyon-fiyatlandirma-rehberi-2026",
+      title: "Teknik prodüksiyon fiyatlandırma",
+      description: "Sahne, LED ekran, ses-ışık ve çadır kalemlerinde bütçe planlama rehberi.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-neutral-900 overflow-hidden">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
@@ -562,6 +585,43 @@ export default function ServicesPage() {
             </div>
 
             <ServicesTabsFallback />
+          </div>
+        </section>
+
+        <section className="py-20 bg-gradient-to-br from-white to-slate-50">
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+                Planlama <span className="text-blue-700">Rehberleri</span>
+              </h2>
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+                Teklif almadan önce ekipman, keşif ve bütçe kararlarını daha netleştirmek için ilgili rehberlere göz atın.
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {PLANNING_GUIDES.map((guide) => (
+                <Link
+                  key={guide.href}
+                  href={guide.href}
+                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+                >
+                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-blue-700 transition-colors">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+                    {guide.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700">
+                    Rehberi incele
+                    <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                      →
+                    </span>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
