@@ -17,6 +17,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/bolgesel-kiralama",
     en: PAGE_PATH,
+    canonical: PAGE_PATH,
     xDefault: PAGE_PATH,
   }),
   openGraph: {

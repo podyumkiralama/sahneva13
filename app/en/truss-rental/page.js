@@ -59,6 +59,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/truss-kiralama",
     en: "/en/truss-rental",
+    canonical: "/en/truss-rental",
     xDefault: "/en/truss-rental",
   }),
   openGraph: {

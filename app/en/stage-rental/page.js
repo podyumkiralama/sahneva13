@@ -50,6 +50,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/sahne-kiralama",
     en: "/en/stage-rental",
+    canonical: "/en/stage-rental",
     xDefault: "/en/stage-rental",
   }),
   openGraph: {

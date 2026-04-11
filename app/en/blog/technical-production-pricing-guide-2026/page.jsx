@@ -22,7 +22,7 @@ const PUBLISH_DATE = "2026-04-07T00:00:00+03:00";
 export const metadata = {
   title: "Technical Production and Stage Rental Pricing Guide (2026)",
   description:
-    "Stage, sound, lighting, LED screen and tent rental pricing strategies. Package model, demand-based pricing, add-on service profitability and approaches tailored to the market.",
+    "Stage, sound, lighting, LED screen and tent rental pricing strategies: package model, demand-based pricing and add-on services.",
   alternates: { canonical: url },
   image: FEATURED_IMAGE,
   openGraph: {

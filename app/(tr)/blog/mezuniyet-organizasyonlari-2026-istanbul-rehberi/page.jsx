@@ -28,7 +28,14 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/mezuniyet-or
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/graduation-events-2026-istanbul-guide`,
+      "x-default": `${SITE_URL}/en/blog/graduation-events-2026-istanbul-guide`,
+    },
+  },
   image: HERO_IMG,
   openGraph: {
     title: `${TITLE} | Sahneva`,

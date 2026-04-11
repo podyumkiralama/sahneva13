@@ -43,6 +43,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/blog/neden-podyum-sahne-tercih-edilir`,
       "en-US": BLOG_URL,
+      "x-default": BLOG_URL,
     },
   },
   image: HERO_IMG,

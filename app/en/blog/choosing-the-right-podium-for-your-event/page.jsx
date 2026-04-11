@@ -81,6 +81,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/blog/etkinlige-gore-podyum-tercihi`,
       "en-US": BLOG_URL,
+      "x-default": BLOG_URL,
     },
   },
   image: FEATURED_IMAGE,

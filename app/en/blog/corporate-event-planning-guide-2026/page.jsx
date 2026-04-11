@@ -35,6 +35,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${BASE_SITE_URL}/blog/kurumsal-etkinlik-planlama-rehberi-2026`,
       "en-US": url,
+      "x-default": url,
     },
   },
   image: FEATURED_IMAGE,

@@ -42,7 +42,7 @@ export const metadata = {
   description: DESCRIPTION,
   alternates: {
     canonical: BLOG_URL,
-    languages: { "tr-TR": `${SITE_URL}/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026`, "en-US": BLOG_URL },
+    languages: { "tr-TR": `${SITE_URL}/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026`, "en-US": BLOG_URL, "x-default": BLOG_URL },
   },
   image: FEATURED_IMAGE,
   openGraph: {

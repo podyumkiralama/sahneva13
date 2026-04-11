@@ -26,9 +26,9 @@ const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Product Launch Event Organization: Stage, LED Screen and Technical Production | Sahneva",
+  title: "Product Launch Event Organization",
   description:
-    "Professional stage, LED screen, sound-lighting and technical production solutions to make your product launch unforgettable. Turnkey launch organization across Turkey with Sahneva.",
+    "Stage, LED screen, sound-lighting and technical production for product launches. Turnkey setup and operation across Turkey.",
   alternates: {
     canonical: BLOG_URL,
   },

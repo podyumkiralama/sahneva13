@@ -18,6 +18,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/nasil-calisiyoruz",
     en: PAGE_PATH,
+    canonical: PAGE_PATH,
     xDefault: PAGE_PATH,
   }),
   openGraph: {

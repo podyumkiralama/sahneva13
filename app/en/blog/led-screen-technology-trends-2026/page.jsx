@@ -52,7 +52,7 @@ export const metadata = {
     "2026 LED screen trends: COB panels, ultra-low pixel pitch, HDR stage design. Technical guide and innovations for launches, festivals and corporate events.",
   alternates: {
     canonical: BLOG_URL,
-    languages: { "tr-TR": `${SITE_URL}/blog/led-ekran-teknoloji-trendleri-2026`, "en-US": BLOG_URL },
+    languages: { "tr-TR": `${SITE_URL}/blog/led-ekran-teknoloji-trendleri-2026`, "en-US": BLOG_URL, "x-default": BLOG_URL },
   },
   image: FEATURED_IMAGE,
   openGraph: {

@@ -164,44 +164,43 @@ export default function CorporateEvents({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item) => (
-              <div
-                key={typeof item === "string" ? item : item.label}
-                className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300"
-              >
-                {typeof item === "string" ? (
-                  item
-                ) : (
-                  <div className="space-y-2">
-                    {(() => {
-                      const IconComponent =
-                        typeof item.icon === "function" ? item.icon : null;
-                      const iconText = typeof item.icon === "string" ? item.icon : null;
+            {advantages.map((item, index) => {
+              const hasDetails = item && typeof item === "object";
+              const label = hasDetails ? item.label : item;
+              const desc = hasDetails ? item.desc : null;
+              const icon = hasDetails ? item.icon : null;
+              const colorClasses = hasDetails
+                ? `${item.bg ?? "bg-white"} ${item.border ?? "border-white/20"} text-slate-950`
+                : "border-white/10 bg-white/5 text-slate-300";
 
-                      if (IconComponent) {
-                        return (
-                          <span className="text-base" aria-hidden="true">
-                            <IconComponent size={18} />
-                          </span>
-                        );
-                      }
-
-                      if (iconText) {
-                        return (
-                          <span className="text-base" aria-hidden="true">
-                            {iconText}
-                          </span>
-                        );
-                      }
-
-                      return null;
-                    })()}
-                    <p className="font-semibold text-white">{item.label}</p>
-                    {item.desc ? <p className="text-slate-300">{item.desc}</p> : null}
-                  </div>
-                )}
-              </div>
-            ))}
+              return (
+                <div
+                  key={hasDetails ? `${label ?? "advantage"}-${index}` : item}
+                  className={`rounded-xl border p-5 text-sm ${colorClasses}`}
+                >
+                  {hasDetails ? (
+                    <>
+                      {icon ? (
+                        <span
+                          aria-hidden="true"
+                          className="mb-3 inline-flex text-xl leading-none"
+                        >
+                          {icon}
+                        </span>
+                      ) : null}
+                      <p className="font-bold leading-snug">{label}</p>
+                      {desc ? (
+                        <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                          {desc}
+                        </p>
+                      ) : null}
+                    </>
+                  ) : (
+                    item
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 

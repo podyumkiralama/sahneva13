@@ -179,9 +179,7 @@ function mergeDictionary(base, override = {}) {
 }
 
 function ServiceCard({ service, dictionary, imageAltTemplate }) {
-  const IconComponent =
-    typeof service.Icon === "function" ? service.Icon : null;
-  const iconEmoji = typeof service.icon === "string" ? service.icon : null;
+  const ServiceIcon = service.Icon;
 
   return (
     <article className="relative overflow-hidden rounded-3xl border border-slate-800 bg-[#020617] shadow-2xl">
@@ -214,7 +212,13 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
 
         <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400 text-slate-950 shadow-lg">
-            {IconComponent ? <IconComponent size={22} /> : <span aria-hidden="true">{iconEmoji ?? "⭐"}</span>}
+            {ServiceIcon ? (
+              <ServiceIcon size={22} />
+            ) : (
+              <span aria-hidden="true" className="text-lg leading-none">
+                {service.icon ?? "•"}
+              </span>
+            )}
           </span>
           <h3 className="text-2xl font-black text-white">{service.title}</h3>
         </div>

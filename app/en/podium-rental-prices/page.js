@@ -36,6 +36,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama-fiyatlari",
     en: slug,
+    canonical: slug,
     xDefault: slug,
   }),
   openGraph: {
