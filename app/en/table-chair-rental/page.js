@@ -268,8 +268,7 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Request an instant quote on WhatsApp"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-            role="button">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg">
             <span aria-hidden="true" className="text-xl mr-2">💬</span>
             <span className="text-base">Get a Quote Now</span>
           </Link>
@@ -277,8 +276,7 @@ function Hero() {
           <Link
             href="#packages"
             aria-label="View ready-to-go packages"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-            role="button">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg">
             <span aria-hidden="true" className="text-xl mr-2">🎯</span>
             <span className="text-base">See Packages</span>
           </Link>
@@ -356,8 +354,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Request a tailored quote</span>
           </Link>
@@ -457,8 +454,7 @@ function Packages() {
                     href={`${WHATSAPP}&package=${encodeURIComponent(pkg.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-                    role="button">
+                    className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
                     <span aria-hidden="true" className="text-xl mr-2">💬</span>
                     <span>Request this package</span>
                   </Link>
@@ -716,8 +712,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Plan your seating layout</span>
           </Link>
@@ -1009,7 +1004,6 @@ function FAQ() {
               aria-labelledby={`faq-${index}`}>
               <summary
                 className="flex items-center justify-between gap-4 p-6 cursor-pointer"
-                role="button"
               >
                 <h3 id={`faq-${index}`} className="text-lg md:text-xl font-bold text-gray-900">
                   {item.question}
@@ -1129,8 +1123,7 @@ function CTA() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/en/contact"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
-                role="button">
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg">
                 <span aria-hidden="true" className="text-xl mr-3">📞</span>
                 <span className="text-lg">Request a proposal</span>
               </Link>
@@ -1138,8 +1131,7 @@ function CTA() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-                role="button">
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg">
                 <span aria-hidden="true" className="text-xl mr-3">💬</span>
                 <span className="text-lg">Chat on WhatsApp</span>
               </a>

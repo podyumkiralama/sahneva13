@@ -266,7 +266,6 @@ export default function HakkimizdaPage() {
             rel="noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg min-h-[44px]"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               💬
@@ -278,7 +277,6 @@ export default function HakkimizdaPage() {
             href="#tarihce"
             aria-label="Şirket tarihçemizi öğrenin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg min-h-[44px]"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               📖

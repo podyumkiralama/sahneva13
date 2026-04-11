@@ -534,8 +534,6 @@ export default function LedTrends2026Page() {
                     >
                       <summary
                         className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
-                        role="button"
-                        tabIndex={0}
                       >
                         {item.question}
                         <span className="ml-4 flex-shrink-0 transition-transform group-open:rotate-180 text-gray-600">

@@ -194,7 +194,6 @@ export default function ArabicAboutPage() {
               rel="noopener noreferrer"
               aria-label="تواصل معنا فوراً عبر واتساب"
               className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-              role="button"
             >
               <span aria-hidden="true" className="text-xl ml-2">💬</span>
               <span className="text-base">تواصل عبر واتساب</span>
@@ -204,7 +203,6 @@ export default function ArabicAboutPage() {
               href="#timeline"
               aria-label="اكتشف مسيرتنا"
               className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-              role="button"
             >
               <span aria-hidden="true" className="text-xl ml-2">📖</span>
               <span className="text-base">قصّتنا</span>

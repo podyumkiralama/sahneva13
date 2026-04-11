@@ -1639,7 +1639,6 @@ function FAQ() {
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                role="button"
               >
                 <span className="pr-4">{faq.q}</span>
                 <span
@@ -1665,7 +1664,6 @@ function FAQ() {
             href="/sss"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
             aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">📚</span>
             <span className="text-lg">Tüm SSS'yi Görüntüle</span>

@@ -45,6 +45,7 @@ export default async function RootLayout({ children }) {
   return (
     <html
       lang={lang}
+      xmlLang={lang}
       dir={dir}
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning

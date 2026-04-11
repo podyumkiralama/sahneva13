@@ -211,7 +211,6 @@ function Hero() {
             rel="noopener noreferrer"
             aria-label="Request a WhatsApp proposal now"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">💬</span>
             <span className="text-base">Get a quote</span>
@@ -221,7 +220,6 @@ function Hero() {
             href="#services"
             aria-label="Discover our services"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">🎯</span>
             <span className="text-base">Our services</span>
@@ -302,7 +300,6 @@ function Services() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Contact our engineers</span>
@@ -373,7 +370,6 @@ function Gallery() {
           <Link
             href="/en/projects"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus-ring"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">📸</span>
             <span>See all projects</span>
@@ -472,7 +468,6 @@ function Technical() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Plan a technical visit</span>
@@ -572,7 +567,6 @@ function UseCases() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Request a tailored setup</span>
@@ -860,8 +854,6 @@ function FAQ() {
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                tabIndex={0}
-                role="button"
               >
                 <span className="pr-4">{faq.q}</span>
                 <span
@@ -1005,7 +997,6 @@ function CTA() {
               <Link
                 href="/en/contact"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
-                role="button"
               >
                 <span aria-hidden="true" className="text-xl mr-3">📞</span>
                 <span className="text-lg">Request a proposal</span>
@@ -1015,7 +1006,6 @@ function CTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-                role="button"
               >
                 <span aria-hidden="true" className="text-xl mr-3">💬</span>
                 <span className="text-lg">Chat on WhatsApp</span>
