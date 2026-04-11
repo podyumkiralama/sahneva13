@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import useSearchIndex from "@/lib/useSearchIndex";
@@ -36,6 +36,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
   const viewAllLabel = isEn ? "View all results" : "Tüm sonuçları gör";
   const router = useRouter();
   const wrapperRef = useRef(null);
+  const buttonRef = useRef(null);
   const inputRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -44,19 +45,26 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
   const results = useMemo(() => filterRoutes(routes, query), [routes, query]);
   const trimmedQuery = query.trim();
 
+  const closeSearch = useCallback(({ restoreFocus = true } = {}) => {
+    if (restoreFocus) {
+      buttonRef.current?.focus();
+    }
+    setOpen(false);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
 
     const onClick = (event) => {
       if (!wrapperRef.current) return;
       if (!wrapperRef.current.contains(event.target)) {
-        setOpen(false);
+        closeSearch({ restoreFocus: false });
       }
     };
 
     const onKey = (event) => {
       if (event.key === "Escape") {
-        setOpen(false);
+        closeSearch();
       }
     };
 
@@ -68,25 +76,32 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
       document.removeEventListener("mousedown", onClick);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [closeSearch, open]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const target = trimmedQuery
       ? `/search?q=${encodeURIComponent(trimmedQuery)}`
       : "/search";
-    setOpen(false);
+    closeSearch({ restoreFocus: false });
     router.push(target);
   };
 
   return (
     <div ref={wrapperRef} className="relative">
       <button
+        ref={buttonRef}
         type="button"
         className={`inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-bold text-neutral-800 border border-transparent hover:border-neutral-200 hover:bg-neutral-50 transition-all duration-200 ${FOCUS_RING_CLASS}`}
         aria-label={searchAriaLabel}
         aria-expanded={open ? "true" : "false"}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {
+          if (open) {
+            closeSearch({ restoreFocus: false });
+            return;
+          }
+          setOpen(true);
+        }}
       >
         <span className="text-lg" aria-hidden="true">
           🔍
@@ -133,7 +148,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
                   <li key={route.href}>
                     <Link
                       href={route.href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => closeSearch()}
                       className={`flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 transition-colors ${FOCUS_RING_CLASS}`}
                     >
                       <span className="text-lg" aria-hidden="true">
@@ -152,7 +167,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
           <div className="border-t border-neutral-100 px-4 py-3">
             <Link
               href={trimmedQuery ? `/search?q=${encodeURIComponent(trimmedQuery)}` : "/search"}
-              onClick={() => setOpen(false)}
+              onClick={() => closeSearch()}
               className={`inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-800 ${FOCUS_RING_CLASS}`}
             >
               {viewAllLabel}
