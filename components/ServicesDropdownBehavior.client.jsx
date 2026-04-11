@@ -63,6 +63,7 @@ export default function ServicesDropdownBehavior({ detailsId, panelId }) {
       // Any link click inside the details should close it
       const link = t.closest("a[href]");
       if (link && detailsEl.contains(link)) {
+        if (summary instanceof HTMLElement) summary.focus();
         close();
       }
     };
