@@ -188,6 +188,21 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/img/sahneva-logo.svg",
+        destination: "/img/logo.svg",
+        permanent: true,
+      },
+      {
+        source: "/led-ekran-kiralama-1",
+        destination: "/led-ekran-kiralama",
+        permanent: true,
+      },
+      {
+        source: "/led-ekran-kiralama-2",
+        destination: "/led-ekran-kiralama",
+        permanent: true,
+      },
+      {
         source: "/-0",
         destination: "/",
         permanent: true,
@@ -222,6 +237,41 @@ const nextConfig = {
       {
         source: "/blog/2026-led-ekran-trendleri-cob-ve-sahne-tasarimi",
         destination: "/blog/led-ekran-teknoloji-trendleri-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi-2",
+        destination: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
+        permanent: true,
+      },
+      {
+        source: "/blog/neden-podyum-sahne-tercih-edilir-2",
+        destination: "/blog/neden-podyum-sahne-tercih-edilir",
+        permanent: true,
+      },
+      {
+        source: "/blog/fisekhane-pubg-guinness-rekoru-2",
+        destination: "/blog/fisekhane-pubg-guinness-rekoru",
+        permanent: true,
+      },
+      {
+        source: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping-2",
+        destination: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
+        permanent: true,
+      },
+      {
+        source: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi-2",
+        destination: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi",
+        permanent: true,
+      },
+      {
+        source: "/blog/pmgc-dunya-finali-sahne-arkasi-2",
+        destination: "/blog/pmgc-dunya-finali-sahne-arkasi",
+        permanent: true,
+      },
+      {
+        source: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi-2",
+        destination: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi",
         permanent: true,
       },
     ];
