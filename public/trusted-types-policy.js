@@ -34,10 +34,10 @@
   }
 
   function sanitizeHtml(value) {
-    const template = document.createElement("template");
-    template.innerHTML = String(value ?? "");
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(String(value ?? ""), "text/html");
 
-    const walker = document.createTreeWalker(template.content, NodeFilter.SHOW_ELEMENT);
+    const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_ELEMENT);
     const blockedNodes = [];
 
     while (walker.nextNode()) {
@@ -59,7 +59,7 @@
     }
 
     blockedNodes.forEach((node) => node.remove());
-    return template.innerHTML;
+    return doc.body.innerHTML;
   }
 
   function allowTrustedScriptUrl(value) {
