@@ -92,6 +92,22 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     .trim();
 }
 
+const QUERY_VARIANT_NOINDEX_PATHS = new Set([
+  "/iletisim",
+  "/en/contact",
+  "/ar/contact",
+]);
+
+function shouldNoindexQueryVariant(request) {
+  const { pathname, searchParams } = request.nextUrl;
+
+  if (!QUERY_VARIANT_NOINDEX_PATHS.has(pathname)) {
+    return false;
+  }
+
+  return Array.from(searchParams.keys()).length > 0;
+}
+
 export function middleware(request) {
   const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
@@ -111,6 +127,10 @@ export function middleware(request) {
       isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
     })
   );
+
+  if (shouldNoindexQueryVariant(request)) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
+  }
 
   return response;
 }
