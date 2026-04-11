@@ -122,7 +122,7 @@ function SupportCard({ dictionary }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`group flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-3 transition-all hover:border-green-500/30 hover:bg-white/10 ${FOCUS_RING_CLASS}`}
-          aria-label={`${dictionary.supportWhatsappLabel} – ${dictionary.newTabHint}`}
+          aria-label={`${dictionary.supportWhatsappLabel}: ${dictionary.whatsappActionText} – ${dictionary.newTabHint}`}
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-400 transition-colors group-hover:bg-green-500 group-hover:text-white">
             W
