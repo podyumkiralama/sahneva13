@@ -131,6 +131,25 @@ function ArticleSchema() {
         ],
       },
       {
+        "@type": "Organization",
+        "@id": orgId,
+        name: "Sahneva",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${SITE_URL}/#logo`,
+          url: `${SITE_URL}/img/logo.png`,
+          contentUrl: `${SITE_URL}/img/logo.png`,
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": editorId,
+        name: AUTHOR_NAME,
+        url: SITE_URL,
+        worksFor: { "@id": orgId },
+      },
+      {
         "@type": "FAQPage",
         "@id": `${BLOG_URL}#faq`,
         mainEntity: FAQ_ITEMS.map((item) => ({
