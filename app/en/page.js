@@ -845,7 +845,7 @@ export default function EnglishHomePage() {
         <HeroBelow dictionary={HERO_BELOW_DICT_EN} />
       </div>
 
-      <div id="get-a-quote" className="sr-only" />
+      <div id="get-a-quote" aria-hidden="true" />
 
       {/* Services */}
       <section aria-labelledby="services-title" className="bg-black">

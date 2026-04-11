@@ -418,7 +418,7 @@ export default function HomePage() {
         <HeroBelow />
       </div>
 
-      <div id="teklif-al" className="sr-only" />
+      <div id="teklif-al" aria-hidden="true" />
 
       {/* Hizmetler */}
       <section
