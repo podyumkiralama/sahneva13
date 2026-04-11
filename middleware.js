@@ -87,6 +87,8 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     worker-src 'self' blob:;
     frame-src ${frameSrc};
     form-action 'self' https://formspree.io https://wa.me;
+    trusted-types default nextjs#bundler nextjs#unsafe-build-policy;
+    require-trusted-types-for 'script';
   `
     .replace(/\s{2,}/g, " ")
     .trim();
