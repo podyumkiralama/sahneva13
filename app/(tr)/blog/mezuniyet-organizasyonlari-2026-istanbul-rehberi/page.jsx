@@ -16,6 +16,8 @@ const HERO_IMG = "/img/blog/mezuniyet-toreni-sahnesi.webp";
 const IMG_STAGE = "/img/blog/mezuniyet-toreni-sahnesi.webp";
 const IMG_SHOW = "/img/blog/mezuniyet-toreni-gorsel-sow.webp";
 const IMG_LED = "/img/blog/mezuniyet-toreni-led-ekran.webp";
+const VIDEO_PRIMARY_ID = "w28sVIG7U08";
+const VIDEO_SECONDARY_ID = "pWpVKKHSdwQ";
 
 const TITLE = "Mezuniyet Organizasyonları 2026 Rehberi";
 const DESCRIPTION =
@@ -82,6 +84,10 @@ function buildArticleJsonLd() {
     "@type": "BlogPosting",
     "@id": `${BLOG_URL}#article`,
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
+    video: [
+      { "@id": `${BLOG_URL}#video-mezuniyet-produksiyon` },
+      { "@id": `${BLOG_URL}#video-mezuniyet-toreni` },
+    ],
     headline: TITLE,
     description: DESCRIPTION,
     image: [`${SITE_URL}${HERO_IMG}`],
@@ -100,6 +106,48 @@ function buildArticleJsonLd() {
       logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
     },
     keywords: metadata.keywords,
+  };
+}
+
+function buildVideoJsonLd() {
+  const videos = [
+    {
+      "@id": `${BLOG_URL}#video-mezuniyet-produksiyon`,
+      name: "Mezuniyet organizasyonu sahne ve prodüksiyon örneği",
+      description:
+        "Mezuniyet organizasyonu için sahne, LED ekran, ses-ışık ve teknik prodüksiyon örneği.",
+      videoId: VIDEO_PRIMARY_ID,
+    },
+    {
+      "@id": `${BLOG_URL}#video-mezuniyet-toreni`,
+      name: "İstanbul mezuniyet töreni organizasyonu video örneği",
+      description:
+        "İstanbul mezuniyet töreni organizasyonlarında sahne akışı, görsel düzen ve teknik altyapı örneği.",
+      videoId: VIDEO_SECONDARY_ID,
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": videos.map((video) => ({
+      "@type": "VideoObject",
+      "@id": video["@id"],
+      name: video.name,
+      description: video.description,
+      thumbnailUrl: [`https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`],
+      uploadDate: PUBLISH_DATE,
+      embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
+      contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
+      inLanguage: "tr-TR",
+      isFamilyFriendly: true,
+      mainEntityOfPage: { "@id": BLOG_URL },
+      publisher: {
+        "@type": "Organization",
+        name: "Sahneva Organizasyon",
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
+      },
+    })),
   };
 }
 
@@ -150,6 +198,7 @@ export default function BlogPostGraduationGuide() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd data={buildArticleJsonLd()} />
+      <JsonLd data={buildVideoJsonLd()} />
       <JsonLd data={buildFaqJsonLd()} />
 
       <BlogLayout
@@ -578,9 +627,9 @@ export default function BlogPostGraduationGuide() {
 
         <div className="my-10 grid gap-6 lg:grid-cols-2">
           <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
-              src="https://www.youtube.com/embed/w28sVIG7U08?si=LrHhdmuHGqyFTVhi"
+              <iframe
+                className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
+                src={`https://www.youtube.com/embed/${VIDEO_PRIMARY_ID}?si=LrHhdmuHGqyFTVhi`}
               title="Mezuniyet organizasyonu sahne ve prodüksiyon örneği"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -589,9 +638,9 @@ export default function BlogPostGraduationGuide() {
             />
           </div>
           <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
-              src="https://www.youtube.com/embed/pWpVKKHSdwQ?si=8zWBDwbdN0U8W5kg"
+              <iframe
+                className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
+                src={`https://www.youtube.com/embed/${VIDEO_SECONDARY_ID}?si=8zWBDwbdN0U8W5kg`}
               title="İstanbul mezuniyet töreni organizasyonu video örneği"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
