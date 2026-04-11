@@ -422,10 +422,9 @@ export default function HomePage() {
 
       {/* Hizmetler */}
       <section
-        aria-labelledby="hizmetler-title"
+        aria-label="Hizmetler"
         className="content-visibility-auto bg-black"
       >
-        <h2 id="hizmetler-title" className="sr-only">Hizmetler</h2>
         <p className="sr-only">
           Türkiye geneli sahne kiralama, podyum kiralama, LED ekran kiralama, ses-ışık sistemleri,
           truss kiralama, çadır kiralama ve masa-sandalye kiralama çözümleri.
@@ -436,10 +435,9 @@ export default function HomePage() {
 
       {/* Projeler */}
       <section
-        aria-labelledby="projeler-title"
+        aria-label="Projelerimiz"
         className="content-visibility-auto bg-black"
       >
-        <h2 id="projeler-title" className="sr-only">Projelerimiz</h2>
         <p className="sr-only">
           500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
         </p>
