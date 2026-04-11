@@ -647,19 +647,11 @@ function StickyVideoRailInner({
               return (
                 <label
                   key={video.id}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      handleChangeVideo(idx);
-                    }
-                  }}
                   className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors border-r-2 cursor-pointer ${
                     isActive
                       ? "bg-blue-500/20 border-blue-500"
                       : "hover:bg-slate-700/50 border-transparent"
-                  } focus-ring`}
+                  } focus-within:ring-2 focus-within:ring-blue-400 focus-within:ring-inset rounded-sm`}
                 >
                   <input
                     type="radio"

@@ -338,7 +338,6 @@ function FaqSection({ id, icon, title, items, links }) {
               <details key={it.q} className="faq-card group rounded-xl bg-slate-950/70 border border-slate-700/70 p-4 text-slate-100">
                 <summary
                   className="cursor-pointer select-none list-none font-semibold leading-7 flex items-center justify-between text-slate-100"
-                  role="button"
                 >
                   <span className="pr-3">{it.q}</span>
                   <svg

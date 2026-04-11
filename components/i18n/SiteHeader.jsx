@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 
 const focusRingClass = "focus-ring";
@@ -15,6 +15,13 @@ export default function SiteHeader({ locale, strings }) {
 
   const direction = strings.direction ?? (locale === "ar" ? "rtl" : "ltr");
   const homeHref = locale === "tr" ? "/" : `/${locale}`;
+
+  const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
+    if (restoreFocus) {
+      toggleButtonRef.current?.focus();
+    }
+    setOpen(false);
+  }, []);
 
   const ariaStrings = useMemo(
     () => ({
@@ -65,8 +72,7 @@ export default function SiteHeader({ locale, strings }) {
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        setOpen(false);
-        toggleButtonRef.current?.focus();
+        closeMenu();
       }
       if (event.key === "Tab" && focusable.length > 0) {
         if (event.shiftKey) {
@@ -90,7 +96,7 @@ export default function SiteHeader({ locale, strings }) {
         previouslyFocusedElement.current.focus();
       }
     };
-  }, [open]);
+  }, [closeMenu, open]);
 
   return (
     <header
@@ -145,7 +151,13 @@ export default function SiteHeader({ locale, strings }) {
           <button
             type="button"
             ref={toggleButtonRef}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              if (open) {
+                closeMenu({ restoreFocus: false });
+              } else {
+                setOpen(true);
+              }
+            }}
             className={`lg:hidden inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-3 text-neutral-700 shadow-sm ${focusRingClass}`}
             aria-expanded={open}
             aria-controls={mobileMenuId}
@@ -177,6 +189,7 @@ export default function SiteHeader({ locale, strings }) {
         aria-modal={open ? "true" : undefined}
         aria-hidden={!open}
         hidden={!open}
+        inert={!open ? "" : undefined}
         aria-label={ariaStrings.nav}
         className="lg:hidden border-t border-neutral-200 bg-white shadow-xl"
       >
@@ -190,7 +203,7 @@ export default function SiteHeader({ locale, strings }) {
                 key={item.href}
                 href={item.href}
                 className={`block rounded-lg px-4 py-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 ${focusRingClass}`}
-                onClick={() => setOpen(false)}
+                onClick={() => closeMenu()}
               >
                 {item.label}
               </Link>
@@ -201,6 +214,7 @@ export default function SiteHeader({ locale, strings }) {
               rel="noopener noreferrer"
               className={`flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3 text-sm font-bold text-white ${focusRingClass}`}
               aria-label={`${strings.whatsappLabel} – yeni sekmede açılır`}
+              onClick={() => closeMenu()}
             >
               <span aria-hidden="true">💬</span>
               {strings.whatsappLabel}

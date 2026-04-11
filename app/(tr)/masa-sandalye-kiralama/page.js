@@ -337,7 +337,6 @@ function Hero() {
             rel="noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen teklif alın"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               💬
@@ -349,7 +348,6 @@ function Hero() {
             href="#paketler"
             aria-label="Paketlerimiz hakkında daha fazla bilgi edinin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               🎯
@@ -664,7 +662,6 @@ function Packages() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-                      role="button"
                       aria-label={`${pkg.name} paketi için WhatsApp üzerinden teklif al`}
                     >
                       <span
@@ -1430,7 +1427,6 @@ function FAQ() {
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                role="button"
               >
                 <span className="pr-4">{faq.q}</span>
                 <span

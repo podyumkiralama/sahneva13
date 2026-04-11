@@ -245,7 +245,6 @@ function Hero() {
             rel="noopener noreferrer"
             aria-label="Request an LED screen quote on WhatsApp (opens in a new tab)"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">💬</span>
             <span className="text-base">Get a fast quote</span>
@@ -256,7 +255,6 @@ function Hero() {
             href="#services"
             aria-label="Explore our LED screen services"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-2">🎯</span> 
             <span className="text-base">Our services</span>
@@ -337,7 +335,6 @@ function Services() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button"
             aria-label="Request a detailed proposal on WhatsApp (opens in a new tab)"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
@@ -410,7 +407,6 @@ function Gallery() {
           <Link
             href="/en/projects"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus-ring"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">📸</span>
             <span>View all projects</span>
@@ -598,7 +594,6 @@ function UseCases() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            role="button"
             aria-label="Request a tailored solution for your event on WhatsApp (opens in a new tab)"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
@@ -901,8 +896,6 @@ function FAQ() {
                 >
                   <summary
                     className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
-                    role="button"
-                    tabIndex={0}
                   >
                     <span className="pr-4">{faq.q}</span>
                     <span
@@ -929,7 +922,6 @@ function FAQ() {
             href="/en/faq#led"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
   aria-label="Explore all LED screen FAQs"
-            role="button"
           >
             <span aria-hidden="true" className="text-xl mr-3">📚</span>
             <span className="text-lg">View LED screen FAQs</span>
@@ -1050,7 +1042,6 @@ function CTA() {
               <Link
                 href="/en/contact"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
-                role="button"
               >
                 <span aria-hidden="true" className="text-xl mr-3">📞</span>
                 <span className="text-lg">Request a proposal</span>
@@ -1060,7 +1051,6 @@ function CTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-                role="button"
                 aria-label="Message us on WhatsApp (opens in a new tab)"
               >
                 <span aria-hidden="true" className="text-xl mr-3">💬</span>
