@@ -32,6 +32,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/blog/kurumsal-etkinlik-yonetimi`,
       "en-US": BLOG_URL,
+      "x-default": BLOG_URL,
     },
   },
   image: HERO_IMAGE,

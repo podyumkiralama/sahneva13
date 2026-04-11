@@ -37,7 +37,7 @@ const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: BLOG_URL, languages: { "tr-TR": `${SITE_URL}/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir`, "en-US": BLOG_URL } },
+  alternates: { canonical: BLOG_URL, languages: { "tr-TR": `${SITE_URL}/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir`, "en-US": BLOG_URL, "x-default": BLOG_URL } },
   image: HERO_IMG,
   openGraph: {
     title: `${TITLE} | Sahneva`,

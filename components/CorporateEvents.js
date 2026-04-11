@@ -164,14 +164,43 @@ export default function CorporateEvents({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item) => (
-              <div
-                key={item}
-                className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300"
-              >
-                {item}
-              </div>
-            ))}
+            {advantages.map((item, index) => {
+              const hasDetails = item && typeof item === "object";
+              const label = hasDetails ? item.label : item;
+              const desc = hasDetails ? item.desc : null;
+              const icon = hasDetails ? item.icon : null;
+              const colorClasses = hasDetails
+                ? `${item.bg ?? "bg-white"} ${item.border ?? "border-white/20"} text-slate-950`
+                : "border-white/10 bg-white/5 text-slate-300";
+
+              return (
+                <div
+                  key={hasDetails ? `${label ?? "advantage"}-${index}` : item}
+                  className={`rounded-xl border p-5 text-sm ${colorClasses}`}
+                >
+                  {hasDetails ? (
+                    <>
+                      {icon ? (
+                        <span
+                          aria-hidden="true"
+                          className="mb-3 inline-flex text-xl leading-none"
+                        >
+                          {icon}
+                        </span>
+                      ) : null}
+                      <p className="font-bold leading-snug">{label}</p>
+                      {desc ? (
+                        <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                          {desc}
+                        </p>
+                      ) : null}
+                    </>
+                  ) : (
+                    item
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 

@@ -24,9 +24,9 @@ const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba,
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Ürün Lansmanı Organizasyonu: Sahne, LED Ekran ve Teknik Prodüksiyon | Sahneva",
+  title: "Ürün Lansmanı Organizasyonu",
   description:
-    "Ürün lansmanınızı unutulmaz kılacak profesyonel sahne, LED ekran, ses-ışık ve teknik prodüksiyon çözümleri. Sahneva ile Türkiye genelinde anahtar teslim lansman organizasyonu.",
+    "Ürün lansmanı için sahne, LED ekran, ses-ışık ve teknik prodüksiyon çözümleri. Türkiye genelinde anahtar teslim kurulum.",
   alternates: {
     canonical: BLOG_URL,
   },

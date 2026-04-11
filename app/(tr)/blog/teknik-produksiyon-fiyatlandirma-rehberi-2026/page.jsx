@@ -20,9 +20,9 @@ const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-04-07T00:00:00+03:00";
 
 export const metadata = {
-  title: "Teknik Prodüksiyon ve Sahne Kiralama Fiyatlandırma Rehberi (2026)",
+  title: "Teknik Prodüksiyon Fiyatlandırma Rehberi 2026",
   description:
-    "Sahne, ses, ışık, LED ekran ve çadır kiralama fiyatlandırma stratejileri. Paket modeli, talep bazlı fiyatlandırma, ek hizmet kârlılığı ve Türkiye pazarına özel yaklaşımlar.",
+    "Sahne, ses, ışık, LED ekran ve çadır kiralamada paket modeli, talep bazlı fiyatlandırma ve ek hizmet stratejileri.",
   alternates: { canonical: url },
   image: FEATURED_IMAGE,
   openGraph: {

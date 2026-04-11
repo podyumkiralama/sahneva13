@@ -55,7 +55,7 @@ export const metadata = {
   image: HERO_IMAGE,
   alternates: {
     canonical: BLOG_URL,
-    languages: { "tr-TR": `${SITE_URL}/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping`, "en-US": BLOG_URL },
+    languages: { "tr-TR": `${SITE_URL}/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping`, "en-US": BLOG_URL, "x-default": BLOG_URL },
   },
   openGraph: {
     title: "Dome Tent Revolution at Corporate Events: Pneumatic Structure and 360° Mapping",

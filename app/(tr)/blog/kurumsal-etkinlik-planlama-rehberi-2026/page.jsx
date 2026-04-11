@@ -24,7 +24,14 @@ export const metadata = {
   title: "2026 Kurumsal Etkinlik Planlama Rehberi",
   description:
     "Kurumsal etkinlik planlama rehberi: strateji, bütçe, zaman çizelgesi, sahne-LED-çadır, run-of-show ve indirilebilir kontrol listesi.",
-  alternates: { canonical: url },
+  alternates: {
+    canonical: url,
+    languages: {
+      "tr-TR": url,
+      "en-US": `${BASE_SITE_URL}/en/blog/corporate-event-planning-guide-2026`,
+      "x-default": `${BASE_SITE_URL}/en/blog/corporate-event-planning-guide-2026`,
+    },
+  },
   image: FEATURED_IMAGE,
   openGraph: {
     title: "2026 Kurumsal Etkinlik Planlama Rehberi | Sahneva",

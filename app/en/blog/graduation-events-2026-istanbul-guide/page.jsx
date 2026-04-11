@@ -36,6 +36,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi`,
       "en-US": BLOG_URL,
+      "x-default": BLOG_URL,
     },
   },
   image: HERO_IMG,

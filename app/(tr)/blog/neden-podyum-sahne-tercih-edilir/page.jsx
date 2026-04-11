@@ -33,7 +33,14 @@ export const metadata = {
   title: "Neden Podyum Sahne Tercih Edilir?",
   description:
     "Podyum sahne nedir, neden tercih edilir? Görünürlükten güvenliğe, kurulum kolaylığından podyum sahnelerin etkinliklerde sunduğu avantajlar.",
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/why-podium-stages-are-preferred`,
+      "x-default": `${SITE_URL}/en/blog/why-podium-stages-are-preferred`,
+    },
+  },
   image: HERO_IMG,
   openGraph: {
     title: "Neden Podyum Sahne Tercih Edilir? | Sahneva",

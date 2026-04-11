@@ -138,6 +138,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/defile-podyum-kiralama",
     en: "/en/runway-podium-rental",
+    canonical: "/en/runway-podium-rental",
     xDefault: "/en/runway-podium-rental",
   }),
   openGraph: {

@@ -28,7 +28,7 @@ const IMG_PROTOKOL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/protokol-sa
 export const metadata = {
   title: "12 Fun Corporate Event Ideas (2026 Updated)",
   description: "12 creative corporate event ideas that balance professionalism with fun. Workshops, sports, mystery dinners, bingo, gala nights and more!",
-  alternates: { canonical: BLOG_URL, languages: { "tr-TR": `${SITE_URL}/blog/12-eglenceli-kurumsal-etkinlik-fikri`, "en-US": BLOG_URL } },
+  alternates: { canonical: BLOG_URL, languages: { "tr-TR": `${SITE_URL}/blog/12-eglenceli-kurumsal-etkinlik-fikri`, "en-US": BLOG_URL, "x-default": BLOG_URL } },
   category: "Corporate Events",
   keywords: ["corporate event", "fun event ideas", "team event", "company event", "corporate organization", "event ideas"],
   openGraph: {

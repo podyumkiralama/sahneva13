@@ -27,7 +27,14 @@ const IMG_PROTOKOL = "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/protokol-sa
 export const metadata = {
   title: "12 Eğlenceli Kurumsal Etkinlik Fikri (2026 Güncel)",
   description: "Profesyonellik ile eğlenceyi bir arada sunan 12 yaratıcı kurumsal etkinlik fikri. Atölye, spor, cinayet gizemi, bingo, gala ve daha fazlası!",
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/12-fun-corporate-event-ideas`,
+      "x-default": `${SITE_URL}/en/blog/12-fun-corporate-event-ideas`,
+    },
+  },
   category: "Kurumsal Etkinlik",
   keywords: ["kurumsal etkinlik", "eğlenceli etkinlik", "ekip etkinliği", "şirket organizasyonu", "kurumsal organizasyon", "etkinlik fikirleri"],
   openGraph: {

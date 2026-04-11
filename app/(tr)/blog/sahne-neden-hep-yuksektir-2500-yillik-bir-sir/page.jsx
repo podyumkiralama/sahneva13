@@ -47,7 +47,14 @@ export const metadata = {
   description:
     "Antik platformlardan modern konser sahnelerine: sahnenin 2500 yıllık evrimi, yükseltilmiş alanın doğuşu ve günümüz LED-truss teknolojilerine dönüşümü.",
 
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/why-stages-are-always-elevated`,
+      "x-default": `${SITE_URL}/en/blog/why-stages-are-always-elevated`,
+    },
+  },
 
   // ✅ BLOG KARTI SADECE BUNU OKUYOR
   image: FEATURED_IMAGE,

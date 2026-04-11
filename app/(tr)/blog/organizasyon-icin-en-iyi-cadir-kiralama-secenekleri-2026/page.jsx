@@ -38,7 +38,14 @@ const DESCRIPTION =
 export const metadata = {
   title: `${TITLE}`,
   description: DESCRIPTION,
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/best-tent-rental-options-for-events-2026`,
+      "x-default": `${SITE_URL}/en/blog/best-tent-rental-options-for-events-2026`,
+    },
+  },
   image: FEATURED_IMAGE,
   openGraph: {
     title: `${TITLE} | Sahneva`,

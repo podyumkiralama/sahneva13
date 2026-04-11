@@ -7,7 +7,15 @@ export const metadata = {
   title: "KVKK ve Gizlilik Politikası | Kişisel Veri Koruması",
   description:
     "Sahneva KVKK ve Gizlilik Politikası: kişisel verilerin işlenmesi, saklanması, aktarımı ve haklarınız hakkında bilgilendirme.",
-  alternates: { canonical: `${SITE_URL}/kvkk`, languages: { "tr-TR": `${SITE_URL}/kvkk`, "x-default": `${SITE_URL}/kvkk` } },
+  alternates: {
+    canonical: `${SITE_URL}/kvkk`,
+    languages: {
+      "tr-TR": `${SITE_URL}/kvkk`,
+      en: `${SITE_URL}/en/data-protection`,
+      "en-US": `${SITE_URL}/en/data-protection`,
+      "x-default": `${SITE_URL}/en/data-protection`,
+    },
+  },
   openGraph: {
     title: "KVKK / Gizlilik | Sahneva",
     description:

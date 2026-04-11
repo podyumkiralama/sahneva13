@@ -73,7 +73,14 @@ export const metadata = {
   title: "Etkinliğe Göre Podyum Tercihi",
   description:
     "Doğru podyum seçimi rehberi: düğün, kurumsal, konser, miting için en uygun çözümler. T tipi, düz runway ve profesyonel kiralama ipuçları Sahneva’da.",
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/choosing-the-right-podium-for-your-event`,
+      "x-default": `${SITE_URL}/en/blog/choosing-the-right-podium-for-your-event`,
+    },
+  },
   image: FEATURED_IMAGE,
   openGraph: {
     title: "Etkinliğe Göre Podyum Tercihi | Sahneva Blog",

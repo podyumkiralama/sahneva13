@@ -30,6 +30,11 @@ export const metadata = {
     "Kurumsal organizasyonlarınızda kusursuz bir akış için sahne, podyum, LED ekran, ses-ışık ve çadır kiralama rehberi. Lansman ve bayi toplantısı ipuçları.",
   alternates: {
     canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/corporate-event-management`,
+      "x-default": `${SITE_URL}/en/blog/corporate-event-management`,
+    },
   },
   image: HERO_IMAGE,
   openGraph: {

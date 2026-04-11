@@ -58,6 +58,11 @@ export const metadata = {
   image: HERO_IMAGE,
   alternates: {
     canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/dome-tent-revolution-pneumatic-360-mapping`,
+      "x-default": `${SITE_URL}/en/blog/dome-tent-revolution-pneumatic-360-mapping`,
+    },
   },
   openGraph: {
     title:

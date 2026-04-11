@@ -12,7 +12,8 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/kvkk`,
       en: `${SITE_URL}/en/data-protection`,
-      "x-default": `${SITE_URL}/kvkk`,
+      "en-US": `${SITE_URL}/en/data-protection`,
+      "x-default": `${SITE_URL}/en/data-protection`,
     },
   },
   openGraph: {

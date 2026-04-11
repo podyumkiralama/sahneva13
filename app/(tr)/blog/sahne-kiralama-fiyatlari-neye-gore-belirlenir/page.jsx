@@ -38,7 +38,14 @@ const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/how-stage-rental-prices-are-determined`,
+      "x-default": `${SITE_URL}/en/blog/how-stage-rental-prices-are-determined`,
+    },
+  },
   image: HERO_IMG,
   openGraph: {
     title: `${TITLE} | Sahneva`,

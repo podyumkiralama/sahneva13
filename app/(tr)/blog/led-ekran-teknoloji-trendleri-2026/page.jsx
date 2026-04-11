@@ -54,7 +54,14 @@ export const metadata = {
   title: "2026 LED Ekran Trendleri: COB ve Sahne Tasarımı",
   description:
     "2026 LED ekran trendleri: COB paneller, ultra düşük piksel, HDR sahne tasarımı. Lansman, festival ve kurumsal etkinlikler için teknik rehber ve yenilikler.",
-  alternates: { canonical: BLOG_URL },
+  alternates: {
+    canonical: BLOG_URL,
+    languages: {
+      "tr-TR": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/led-screen-technology-trends-2026`,
+      "x-default": `${SITE_URL}/en/blog/led-screen-technology-trends-2026`,
+    },
+  },
 
   // ✅ Blog kartlarında öne çıkan görselin gelmesi için
   image: FEATURED_IMAGE,

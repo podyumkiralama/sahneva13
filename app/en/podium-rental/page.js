@@ -208,7 +208,7 @@ const GALLERY_IMAGES = [
 
 const PAGE_PATH = "/en/podium-rental";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
-const OG_IMAGE = `${ORIGIN}/img/podyum/podyum-kiralama-hero.webp`;
+const OG_IMAGE = `${ORIGIN}/img/podyum/hero.webp`;
 
 export const metadata = {
   title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
@@ -217,6 +217,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: PAGE_PATH,
+    canonical: PAGE_PATH,
     xDefault: PAGE_PATH,
   }),
   openGraph: {
@@ -351,7 +352,7 @@ export default function PodiumRentalPage() {
             </div>
             <div className="relative">
               <Image
-                src="/img/podyum/podyum-kiralama-hero.webp"
+                src="/img/podyum/hero.webp"
                 alt="Sahneva podium rental – professional modular stage platforms"
                 width={640}
                 height={480}
