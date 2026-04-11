@@ -512,7 +512,7 @@ export default function RegionalRentalClient({ regions, services, faqs, steps })
                 name={r.name}
                 desc={r.desc}
                 imgSrc={cityImages[r.slug]}
-                href={`/iletisim?konu=bolgesel-kiralama&sehir=${encodeURIComponent(r.name)}`}
+                href="/iletisim"
               />
             </Reveal>
           ))}
