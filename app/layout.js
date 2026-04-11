@@ -6,6 +6,7 @@ export const revalidate = 86400; // 24 saatte bir yenile (sayfa bazlı kurallar 
 import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
+import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }) {
     >
       <body className="flex flex-col">
         <SkipLinks locale={lang} />
+        <AnalyticsConsentWrapper />
         {children}
       </body>
     </html>
