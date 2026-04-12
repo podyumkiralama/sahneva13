@@ -2,7 +2,7 @@
 
 export default function robots() {
   const host = "https://www.sahneva.com";
-  const disallow = ["/api/", "/private/", "/search"];
+  const disallow = ["/api/", "/private/"];
 
   return {
     rules: [
