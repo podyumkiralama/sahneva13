@@ -89,12 +89,11 @@ export default function AnalyticsConsentWrapper() {
   useEffect(() => {
     if (!GA_ID) return;
 
-    let idleHandle;
     let timeoutHandle;
     let listenersAttached = false;
     let activated = false;
 
-    const events = ["pointerdown", "keydown", "touchstart", "scroll"];
+    const events = ["pointerdown", "keydown", "touchstart", "wheel"];
 
     const activate = () => {
       if (activated) return;
@@ -135,9 +134,6 @@ export default function AnalyticsConsentWrapper() {
           window.removeEventListener(event, handleInteraction)
         );
       }
-      if (idleHandle && typeof window !== "undefined" && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleHandle);
-      }
       if (timeoutHandle && typeof window !== "undefined") {
         window.clearTimeout(timeoutHandle);
       }
@@ -149,10 +145,13 @@ export default function AnalyticsConsentWrapper() {
         window.addEventListener(event, handleInteraction, { passive: true })
       );
 
-      if ("requestIdleCallback" in window) {
-        idleHandle = window.requestIdleCallback(activate, { timeout: 6000 });
-      } else {
-        timeoutHandle = window.setTimeout(activate, 3500);
+      const connection = navigator.connection;
+      const shouldSkipLateLoad =
+        connection?.saveData ||
+        ["slow-2g", "2g"].includes(connection?.effectiveType);
+
+      if (!shouldSkipLateLoad) {
+        timeoutHandle = window.setTimeout(activate, 15000);
       }
     }
 

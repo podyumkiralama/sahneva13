@@ -10,6 +10,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import DeferredHydration from "@/components/DeferredHydration.client";
 import JsonLd from "@/components/seo/JsonLd";
 
 import {
@@ -56,6 +57,22 @@ const Faq = dynamic(() => import("@/components/Faq"), {
     </div>
   ),
 });
+
+function SectionLoading({ label, height = "h-48" }) {
+  return (
+    <div
+      className={`flex ${height} items-center justify-center`}
+      role="status"
+      aria-label={label}
+    >
+      <div
+        className="h-10 w-10 rounded-full border-b-2 border-blue-500"
+        aria-hidden="true"
+      />
+      <span className="sr-only">{label}</span>
+    </div>
+  );
+}
 
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
@@ -442,7 +459,13 @@ export default function HomePage() {
           500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
         </p>
         <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
-        <ProjectsGallery />
+        <DeferredHydration
+          fallback={<SectionLoading label="Projeler yükleniyor" height="h-80" />}
+          rootMargin="600px"
+          idleTimeout={7000}
+        >
+          <ProjectsGallery />
+        </DeferredHydration>
       </section>
 
       {/* Teknik */}
@@ -466,7 +489,13 @@ export default function HomePage() {
 
       {/* FAQ */}
       <div className="content-visibility-auto w-full bg-transparent p-0 m-0">
-        <Faq />
+        <DeferredHydration
+          fallback={<SectionLoading label="SSS yükleniyor" height="h-64" />}
+          rootMargin="500px"
+          idleTimeout={9000}
+        >
+          <Faq />
+        </DeferredHydration>
       </div>
     </div>
   );
