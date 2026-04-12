@@ -93,7 +93,7 @@ export default function AnalyticsConsentWrapper() {
     let listenersAttached = false;
     let activated = false;
 
-    const events = ["pointerdown", "keydown", "touchstart", "scroll"];
+    const events = ["pointerdown", "keydown", "touchstart", "wheel", "focusin"];
 
     const activate = () => {
       if (activated) return;

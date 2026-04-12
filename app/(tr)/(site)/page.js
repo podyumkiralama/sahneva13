@@ -66,7 +66,7 @@ function SectionLoading({ label, height = "h-48" }) {
       aria-label={label}
     >
       <div
-        className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-500"
+        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
         aria-hidden="true"
       />
       <span className="sr-only">{label}</span>
