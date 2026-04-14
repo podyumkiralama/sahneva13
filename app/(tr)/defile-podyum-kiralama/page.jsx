@@ -424,6 +424,15 @@ function ContentSection() {
                 çözümlerinden backstage planlamasına kadar tüm süreci uçtan uca yönetiyoruz.
               </p>
 
+              <p>
+                Moda dışındaki kurumsal, tören ve genel etkinlik platform ihtiyaçları için{" "}
+                <Link href="/podyum-kiralama">
+                  podyum kiralama
+                </Link>{" "}
+                ana hizmet sayfamızdaki modüler sistem, ölçü ve kurulum detaylarını
+                inceleyebilirsiniz.
+              </p>
+
               {/* 3 içerik görseli */}
               <div className="not-prose mt-8 grid gap-4 md:grid-cols-3 items-start">
                 {CONTENT_IMAGES.map((img) => (
