@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const GRID_ASPECTS = [
   "aspect-[4/5]",
@@ -30,6 +31,7 @@ function CaseGallery({
   priorityCount = 1,
 }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const lastFocus = useRef(null);
@@ -48,6 +50,10 @@ function CaseGallery({
   const hiddenCount = Math.max(images.length - displayImages.length, 0);
   const mainImage = displayImages[activeIndex] || displayImages[0];
   const currentImage = images[currentIndex];
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setActiveIndex(0);
@@ -317,18 +323,19 @@ function CaseGallery({
         </p>
       )}
 
-      {open && currentImage && (
-        <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="case-gallery-title"
-          aria-describedby="case-gallery-description"
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 p-3 backdrop-blur-xl sm:p-5"
-          onClick={handleBackdropClick}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
+      {mounted && open && currentImage
+        ? createPortal(
+            <div
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="case-gallery-title"
+              aria-describedby="case-gallery-description"
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 p-3 backdrop-blur-xl sm:p-5"
+              onClick={handleBackdropClick}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
           <h2 id="case-gallery-title" className="sr-only">
             Görsel galerisi
           </h2>
@@ -445,8 +452,10 @@ function CaseGallery({
               ))}
             </div>
           )}
-        </div>
-      )}
+            </div>,
+            document.body
+          )
+        : null}
     </div>
   );
 }
