@@ -679,7 +679,7 @@ function Gallery() {
               
               <div className="space-y-5 flex-grow">
                 <div className="relative pl-4 border-l-4 border-orange-400">
-                  <h4 className="text-xs font-black text-orange-600 uppercase tracking-widest mb-1">Durum / İhtiyaç</h4>
+                  <h4 className="text-xs font-black text-orange-800 uppercase tracking-widest mb-1">Durum / İhtiyaç</h4>
                   <p className="text-gray-700 text-sm">{story.before}</p>
                 </div>
                 <div className="relative pl-4 border-l-4 border-blue-500">
@@ -687,7 +687,7 @@ function Gallery() {
                   <p className="text-gray-700 text-sm">{story.after}</p>
                 </div>
                 <div className="relative pl-4 border-l-4 border-green-500">
-                  <h4 className="text-xs font-black text-green-600 uppercase tracking-widest mb-1">Etki / Sonuç</h4>
+                  <h4 className="text-xs font-black text-green-800 uppercase tracking-widest mb-1">Etki / Sonuç</h4>
                   <p className="text-gray-900 font-medium text-sm">{story.result}</p>
                 </div>
               </div>
@@ -1703,20 +1703,6 @@ function LedScreenJsonLd() {
     author: providerRef,
   };
 
-  const eventServiceSchema = {
-    "@type": "Service",
-    "@id": `${pageUrl}#eventservice`,
-    name: "Etkinlik LED Ekran Kiralama Hizmeti",
-    description:
-      "Konser, festival, fuar, kurumsal lansman ve özel etkinlikler için LED ekran çözümleri.",
-    serviceType: USE_CASES.map((uc) => uc.title),
-    provider: providerRef,
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Türkiye",
-    },
-  };
-
   const videoObjects = VIDEO_GALLERY.map((video, index) => ({
     "@type": "VideoObject",
     "@id": `${pageUrl}#video-${index + 1}`,
@@ -1789,7 +1775,6 @@ function LedScreenJsonLd() {
       webpageSchema,
       serviceNode,
       productNode,
-      eventServiceSchema,
       ratingNode,
       ...videoObjects,
       ...reviews,
