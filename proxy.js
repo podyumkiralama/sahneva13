@@ -108,7 +108,7 @@ function shouldNoindexQueryVariant(request) {
   return Array.from(searchParams.keys()).length > 0;
 }
 
-export function middleware(request) {
+export function proxy(request) {
   const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
