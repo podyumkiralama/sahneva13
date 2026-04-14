@@ -20,7 +20,7 @@ const LIGHTBOX_RING =
   "focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black";
 
 function getImageAlt(image, index) {
-  return image?.alt || `Proje galerisi gorseli ${index + 1}`;
+  return image?.alt || `Proje galerisi görseli ${index + 1}`;
 }
 
 function CaseGallery({
@@ -112,8 +112,7 @@ function CaseGallery({
   );
 
   useEffect(() => {
-    if (!open) return;
-
+    if (!open) return undefined;
     const body = document.body;
     scrollYRef.current = window.scrollY;
     const previousStyles = {
@@ -130,6 +129,20 @@ function CaseGallery({
       body.style.width = "100%";
       closeBtnRef.current?.focus();
     });
+
+    return () => {
+      window.cancelAnimationFrame(lockFrame);
+      body.style.position = previousStyles.position;
+      body.style.top = previousStyles.top;
+      body.style.overflow = previousStyles.overflow;
+      body.style.width = previousStyles.width;
+      window.scrollTo(0, scrollYRef.current);
+      lastFocus.current?.focus?.();
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return undefined;
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -154,7 +167,7 @@ function CaseGallery({
 
       const focusable = Array.from(
         dialogRef.current.querySelectorAll(
-          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
         )
       );
       if (!focusable.length) return;
@@ -175,15 +188,7 @@ function CaseGallery({
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.cancelAnimationFrame(lockFrame);
       window.removeEventListener("keydown", handleKeyDown);
-
-      body.style.position = previousStyles.position;
-      body.style.top = previousStyles.top;
-      body.style.overflow = previousStyles.overflow;
-      body.style.width = previousStyles.width;
-      window.scrollTo(0, scrollYRef.current);
-      lastFocus.current?.focus?.();
     };
   }, [closeLightbox, navigate, open]);
 
@@ -197,7 +202,7 @@ function CaseGallery({
             type="button"
             className={`group relative mx-auto block aspect-[4/3] max-h-[62vh] min-h-[220px] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${FOCUS_RING}`}
             onClick={() => openLightbox(activeIndex)}
-            aria-label={`${getImageAlt(mainImage, activeIndex)} - buyuk gorseli ac`}
+            aria-label={`${getImageAlt(mainImage, activeIndex)} - büyük görseli aç`}
           >
             {mainImage && (
               <Image
@@ -214,7 +219,7 @@ function CaseGallery({
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent opacity-80" />
             <span className="absolute bottom-5 left-5 rounded-full bg-white/95 px-4 py-2 text-sm font-black text-slate-950 shadow-lg">
-              Galeriyi ac
+              Galeriyi aç
             </span>
           </button>
 
@@ -232,7 +237,7 @@ function CaseGallery({
                   setActiveIndex(index);
                   setCurrentIndex(index);
                 }}
-                aria-label={`${getImageAlt(img, index)} - onizleme`}
+                aria-label={`${getImageAlt(img, index)} - önizleme`}
               >
                 <Image
                   src={img.src}
@@ -268,7 +273,7 @@ function CaseGallery({
                     index === 0 ? "aspect-[4/3] h-full" : aspect
                   }`}
                   onClick={() => openLightbox(index)}
-                  aria-label={`${getImageAlt(img, index)} - gorseli buyut`}
+                  aria-label={`${getImageAlt(img, index)} - görseli büyüt`}
                 >
                   <Image
                     src={img.src}
@@ -290,7 +295,7 @@ function CaseGallery({
                   </span>
                   {isLastVisible && (
                     <span className="absolute inset-0 flex items-center justify-center bg-slate-950/70 text-center text-lg font-black text-white backdrop-blur-sm">
-                      +{hiddenCount} gorsel
+                      +{hiddenCount} görsel
                     </span>
                   )}
                 </button>
@@ -307,8 +312,8 @@ function CaseGallery({
 
       {hasHiddenImages && (
         <p className="sr-only">
-          Galeride {hiddenCount} adet daha gorsel bulunuyor. Lightbox acildiginda
-          tum gorseller gezilebilir.
+          Galeride {hiddenCount} adet daha görsel bulunuyor. Lightbox açıldığında
+          tüm görseller gezilebilir.
         </p>
       )}
 
@@ -325,11 +330,11 @@ function CaseGallery({
           onTouchEnd={handleTouchEnd}
         >
           <h2 id="case-gallery-title" className="sr-only">
-            Gorsel galerisi
+            Görsel galerisi
           </h2>
           <p id="case-gallery-description" className="sr-only">
             {getImageAlt(currentImage, currentIndex)}. {currentIndex + 1} /{" "}
-            {images.length}. Escape ile kapatabilir, ok tuslariyla gezebilirsiniz.
+            {images.length}. Escape ile kapatabilir, ok tuşlarıyla gezebilirsiniz.
           </p>
 
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/70 to-transparent" />
@@ -361,7 +366,7 @@ function CaseGallery({
                 type="button"
                 className={`absolute left-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
                 onClick={handlePrev}
-                aria-label="Onceki gorsel"
+                aria-label="Önceki görsel"
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -377,7 +382,7 @@ function CaseGallery({
                 type="button"
                 className={`absolute right-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
                 onClick={handleNext}
-                aria-label="Sonraki gorsel"
+                aria-label="Sonraki görsel"
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -424,11 +429,11 @@ function CaseGallery({
                       : "border-white/20 opacity-60 hover:opacity-100"
                   }`}
                   onClick={() => setCurrentIndex(index)}
-                  aria-label={`${index + 1}. gorsele git`}
+                  aria-label={`${index + 1}. görsele git`}
                 >
                   <Image
                     src={img.src}
-                    alt={`${getImageAlt(img, index)} kucuk onizleme`}
+                    alt={`${getImageAlt(img, index)} küçük önizleme`}
                     fill
                     sizes="80px"
                     className="object-cover"

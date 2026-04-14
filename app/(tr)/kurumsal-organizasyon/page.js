@@ -1136,8 +1136,7 @@ function Gallery() {
             <CaseGallery
               images={GALLERY_IMAGES}
               visibleCount={8}
-              priorityCount={4}
-              layout="featured"
+              priorityCount={2}
             />
           </div>
         </Card>
