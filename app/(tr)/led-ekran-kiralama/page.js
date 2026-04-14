@@ -1703,20 +1703,6 @@ function LedScreenJsonLd() {
     author: providerRef,
   };
 
-  const eventServiceSchema = {
-    "@type": "Service",
-    "@id": `${pageUrl}#eventservice`,
-    name: "Etkinlik LED Ekran Kiralama Hizmeti",
-    description:
-      "Konser, festival, fuar, kurumsal lansman ve özel etkinlikler için LED ekran çözümleri.",
-    serviceType: USE_CASES.map((uc) => uc.title),
-    provider: providerRef,
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Türkiye",
-    },
-  };
-
   const videoObjects = VIDEO_GALLERY.map((video, index) => ({
     "@type": "VideoObject",
     "@id": `${pageUrl}#video-${index + 1}`,
@@ -1789,7 +1775,6 @@ function LedScreenJsonLd() {
       webpageSchema,
       serviceNode,
       productNode,
-      eventServiceSchema,
       ratingNode,
       ...videoObjects,
       ...reviews,

@@ -126,20 +126,6 @@ function buildJsonLd() {
     28 * UNIT_PRICES.skirt_ml_week +
     UNIT_PRICES.ist_nakliye;
 
-  const breadcrumb = {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: BASE_SITE_URL },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Podyum Kiralama",
-        item: `${BASE_SITE_URL}/podyum-kiralama`,
-      },
-      { "@type": "ListItem", position: 3, name: "Podyum Kiralama Fiyatları", item: url },
-    ],
-  };
-
  const aggregateOffer = {
   "@type": "AggregateOffer",
   priceCurrency: UNIT_PRICES.currency,
@@ -251,7 +237,7 @@ function buildJsonLd() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webpage, breadcrumb, mainService, aggregateOffer, faqPage, howTo],
+    "@graph": [webpage, mainService, aggregateOffer, faqPage, howTo],
   };
 }
 
