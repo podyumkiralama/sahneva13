@@ -91,13 +91,17 @@ const ogUrl =
   `${BASE_SITE_URL}/img/hero-bg.webp`;
 
 export const metadata = {
-  title: HOME_PAGE_TITLE,
+  title: {
+    absolute: HOME_PAGE_TITLE,
+  },
   description: HOME_PAGE_DESCRIPTION,
   alternates: {
     canonical: buildCanonical("/"),
     languages: buildAlternateLanguages(),
   },
   openGraph: {
+    title: HOME_PAGE_TITLE,
+    description: HOME_PAGE_DESCRIPTION,
     url: HOME_URL,
     type: "website",
     locale: "tr_TR",
@@ -113,6 +117,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: HOME_PAGE_TITLE,
+    description: HOME_PAGE_DESCRIPTION,
     images: [ogUrl],
   },
   keywords: [

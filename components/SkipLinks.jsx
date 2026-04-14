@@ -1,8 +1,8 @@
 const STRINGS = {
   tr: {
-    toMain: "Ana icerige gec",
-    toHeader: "Ust menuye gec",
-    toFooter: "Alt bilgiye gec",
+    toMain: "Ana içeriğe geç",
+    toHeader: "Üst menüye geç",
+    toFooter: "Alt bilgiye geç",
   },
   en: {
     toMain: "Skip to main content",
