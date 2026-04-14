@@ -426,7 +426,7 @@ function ContentSection() {
 
               <p>
                 Moda dışındaki kurumsal, tören ve genel etkinlik platform ihtiyaçları için{" "}
-                <Link href="/podyum-kiralama">
+                <Link className="font-semibold text-violet-700 underline underline-offset-4" href="/podyum-kiralama">
                   podyum kiralama
                 </Link>{" "}
                 ana hizmet sayfamızdaki modüler sistem, ölçü ve kurulum detaylarını
