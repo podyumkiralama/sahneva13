@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import path from "node:path";
 
 const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
 const ONE_MONTH_IN_SECONDS = ONE_DAY_IN_SECONDS * 30;
@@ -136,6 +137,9 @@ const htmlRobotsHeaders = [
 ];
 
 const nextConfig = {
+  turbopack: {
+    root: path.resolve(process.cwd()),
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
@@ -291,10 +295,7 @@ const nextConfig = {
       // 3) Next static chunklar: 1 yıl immutable
       {
         source: "/_next/static/(.*)",
-        headers: [
-          ...longTermCacheHeaders,
-          { key: "X-Robots-Tag", value: "noindex, nofollow" },
-        ],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
 
       // 4) Web App Manifest: doğru MIME tipi + kısa vadeli önbellek
