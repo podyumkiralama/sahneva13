@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -21,7 +21,6 @@ const EDITOR_ID = `${BASE_SITE_URL}/#editor-en`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
-const EN_PAGE_URL = `${BASE_SITE_URL}/en`;
 
 /* ================== JSON-LD: GLOBAL GRAPH (English) ================== */
 const globalJsonLd = {
@@ -199,7 +198,7 @@ export default async function EnglishLayout({ children }) {
           locale="en"
         />
         <StickyVideoRailClient locale="en" />
-        <SpeedInsights />
+        <DeferredSpeedInsights />
       </div>
     </>
   );

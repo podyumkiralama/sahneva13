@@ -1,6 +1,6 @@
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -46,7 +46,7 @@ export default function ArabicLayout({ children }) {
       <div id="_main_footer">
         <SiteFooter strings={content.footer} />
       </div>
-      <SpeedInsights />
+      <DeferredSpeedInsights />
     </div>
   );
 }

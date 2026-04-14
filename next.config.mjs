@@ -12,93 +12,8 @@ const isPreview =
 
 const siteUrl = process.env.SITE_URL ?? "https://www.sahneva.com";
 
-/* -------------------- Security Headers (CSP) -------------------- */
+/* -------------------- Security Headers -------------------- */
 const securityHeaders = (() => {
-  const SCRIPT_SRC = [
-    "'self'",
-    "'unsafe-eval'", // GTM ve Clarity için gerekli
-    "https://www.googletagmanager.com",
-    "https://www.google-analytics.com",
-    "https://va.vercel-scripts.com",
-    "https://vercel.live",
-    "https://www.clarity.ms",
-    "https://scripts.clarity.ms",
-    "https://k.clarity.ms",
-    "https://z.clarity.ms",
-    "https://l.clarity.ms",
-    "https://static.cloudflareinsights.com",
-  ].join(" ");
-
-  const SCRIPT_SRC_ELEM = [
-    "'self'",
-    "'unsafe-inline'",
-    "https://www.googletagmanager.com",
-    "https://www.google-analytics.com",
-    "https://va.vercel-scripts.com",
-    "https://vercel.live",
-    "https://www.clarity.ms",
-    "https://scripts.clarity.ms",
-    "https://k.clarity.ms",
-    "https://z.clarity.ms",
-    "https://l.clarity.ms",
-    "https://static.cloudflareinsights.com",
-  ].join(" ");
-
-  const CONNECT_SRC = [
-    "'self'",
-    "https://vitals.vercel-insights.com",
-    "https://www.google-analytics.com",
-    "https://region1.google-analytics.com",
-    "https://stats.g.doubleclick.net",
-    "https://www.clarity.ms",
-    "https://scripts.clarity.ms",
-    "https://k.clarity.ms",
-    "https://z.clarity.ms",
-    "https://l.clarity.ms",
-    "https://*.clarity.ms",
-    "https://static.cloudflareinsights.com",
-    "wss://*.pusher.com",
-    siteUrl,
-  ].join(" ");
-
-  const FRAME_SRC = [
-    "'self'",
-    "https://www.google.com",
-    "https://www.youtube.com",
-    "https://www.youtube-nocookie.com",
-    "https://player.vimeo.com",
-    "https://vercel.live",
-    "https://*.vercel.live",
-    "https://www.google.com/maps",
-    "https://maps.google.com",
-    "https://google.com/maps",
-    "https://*.google.com",
-  ].join(" ");
-
-  const FRAME_ANCESTORS = isPreview
-    ? "frame-ancestors 'self' https://vercel.live https://*.vercel.live;"
-    : "frame-ancestors 'none';";
-
-  const csp = `
-    default-src 'self';
-    ${FRAME_ANCESTORS}
-    base-uri 'self';
-    object-src 'none';
-    upgrade-insecure-requests;
-    img-src 'self' data: blob: https:;
-    font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    script-src ${SCRIPT_SRC};
-    script-src-elem ${SCRIPT_SRC_ELEM};
-    script-src-attr 'none';
-    connect-src ${CONNECT_SRC};
-    worker-src 'self' blob:;
-    frame-src ${FRAME_SRC};
-    form-action 'self' https://formspree.io https://wa.me;
-  `
-    .replace(/\s{2,}/g, " ")
-    .trim();
-
   const base = [
     { key: "X-DNS-Prefetch-Control", value: "on" },
     { key: "X-XSS-Protection", value: "1; mode=block" },
@@ -292,7 +207,7 @@ const nextConfig = {
         headers: htmlRobotsHeaders,
       },
 
-      // 3) Next static chunklar: 1 yıl immutable
+      // 3) Next static chunklar: Cache-Control Next.js tarafindan yonetilir
       {
         source: "/_next/static/(.*)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
