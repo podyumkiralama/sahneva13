@@ -395,6 +395,14 @@ function ArticlesSection() {
               yerleşimi, ışık tasarımı ve LED entegrasyonu sahne planlamasının
               ayrılmaz bir parçasıdır.
             </p>
+            <p className="text-gray-700 text-lg leading-relaxed mt-4">
+              Konser dışındaki genel modüler platform ihtiyaçları için{" "}
+              <Link className="font-semibold text-blue-700 underline underline-offset-4" href="/podyum-kiralama">
+                podyum kiralama
+              </Link>{" "}
+              ana hizmet sayfamızdaki ölçü, kurulum ve teknik destek kapsamını
+              inceleyebilirsiniz.
+            </p>
           </div>
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
             <Image

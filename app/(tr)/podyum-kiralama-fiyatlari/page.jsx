@@ -392,6 +392,14 @@ export default function Page() {
                   <b>İstanbul içi nakliye</b> kalemlerine göre hesaplanır.
                 </p>
 
+                <p className="mx-auto mb-6 max-w-3xl text-sm md:text-base text-white/75">
+                  Genel hizmet kapsamı, kurulum süreci ve modüler platform seçenekleri için{" "}
+                  <Link className="font-semibold text-white underline underline-offset-4" href="/podyum-kiralama">
+                    podyum kiralama
+                  </Link>{" "}
+                  ana sayfasını inceleyebilirsiniz.
+                </p>
+
                 <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                   <Link
                     href="/podyum-kiralama"
