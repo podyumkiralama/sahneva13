@@ -2,13 +2,26 @@
 "use client";
 
 import Image from "next/image";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+const GRID_ASPECTS = [
+  "aspect-[4/5]",
+  "aspect-[16/10]",
+  "aspect-[1/1]",
+  "aspect-[5/4]",
+  "aspect-[3/4]",
+  "aspect-[16/9]",
+];
+
+const FOCUS_RING =
+  "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
+
+const LIGHTBOX_RING =
+  "focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+
+function getImageAlt(image, index) {
+  return image?.alt || `Proje galerisi gorseli ${index + 1}`;
+}
 
 function CaseGallery({
   images = [],
@@ -23,57 +36,86 @@ function CaseGallery({
   const scrollYRef = useRef(0);
   const dialogRef = useRef(null);
   const closeBtnRef = useRef(null);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
+  const displayImages = useMemo(
+    () => (visibleCount ? images.slice(0, visibleCount) : images),
+    [images, visibleCount]
+  );
+
+  const hasHiddenImages =
+    Boolean(visibleCount) && images.length > displayImages.length;
+  const hiddenCount = Math.max(images.length - displayImages.length, 0);
+  const mainImage = displayImages[activeIndex] || displayImages[0];
+  const currentImage = images[currentIndex];
+
+  useEffect(() => {
+    setActiveIndex(0);
+    setCurrentIndex(0);
+  }, [images]);
+
   const openLightbox = useCallback(
     (index) => {
+      if (!images.length) return;
       lastFocus.current = document.activeElement;
-      setCurrentIndex(index);
+      setCurrentIndex(Math.min(Math.max(index, 0), images.length - 1));
       setOpen(true);
     },
-    []
+    [images.length]
   );
 
   const closeLightbox = useCallback(() => {
     setOpen(false);
   }, []);
 
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [images]);
-
   const navigate = useCallback(
     (direction) => {
       setCurrentIndex((prev) => {
         if (!images.length) return prev;
-
-        if (direction === "prev") {
-          return prev === 0 ? images.length - 1 : prev - 1;
-        }
+        if (direction === "prev") return prev === 0 ? images.length - 1 : prev - 1;
         return prev === images.length - 1 ? 0 : prev + 1;
       });
     },
     [images.length]
   );
 
+  const handlePrev = useCallback(() => navigate("prev"), [navigate]);
+  const handleNext = useCallback(() => navigate("next"), [navigate]);
+
   const handleBackdropClick = useCallback(
     (event) => {
-      if (event.target === event.currentTarget) {
-        closeLightbox();
-      }
+      if (event.target === event.currentTarget) closeLightbox();
     },
     [closeLightbox]
   );
 
-  const handlePrev = useCallback(() => navigate("prev"), [navigate]);
-  const handleNext = useCallback(() => navigate("next"), [navigate]);
+  const handleTouchStart = useCallback((event) => {
+    const touch = event.touches?.[0];
+    if (!touch) return;
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }, []);
 
-  // Lightbox açıkken body scroll kilidi + klavye kontrolleri
+  const handleTouchEnd = useCallback(
+    (event) => {
+      if (images.length <= 1) return;
+      const touch = event.changedTouches?.[0];
+      if (!touch) return;
+
+      const deltaX = touch.clientX - touchStartRef.current.x;
+      const deltaY = touch.clientY - touchStartRef.current.y;
+      if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+      if (deltaX > 0) handlePrev();
+      else handleNext();
+    },
+    [handleNext, handlePrev, images.length]
+  );
+
   useEffect(() => {
     if (!open) return;
 
     const body = document.body;
     scrollYRef.current = window.scrollY;
-
-    // Scroll kilidi
     const previousStyles = {
       position: body.style.position,
       top: body.style.top,
@@ -81,137 +123,126 @@ function CaseGallery({
       width: body.style.width,
     };
 
-    let focusRafId;
-    let styleRafId = window.requestAnimationFrame(() => {
+    const lockFrame = window.requestAnimationFrame(() => {
       body.style.position = "fixed";
       body.style.top = `-${scrollYRef.current}px`;
       body.style.overflow = "hidden";
       body.style.width = "100%";
-
-      const focusElement = closeBtnRef.current || dialogRef.current;
-      if (focusElement) {
-        focusRafId = window.requestAnimationFrame(() => focusElement.focus());
-      }
+      closeBtnRef.current?.focus();
     });
 
-    // Klavye olayları
-    const handleKeyDown = (e) => {
-      switch (e.key) {
-        case "Escape":
-          e.preventDefault();
-          closeLightbox();
-          break;
-        case "ArrowLeft":
-          e.preventDefault();
-          navigate("prev");
-          break;
-        case "ArrowRight":
-          e.preventDefault();
-          navigate("next");
-          break;
-        default:
-          break;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        navigate("prev");
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        navigate("next");
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const current = document.activeElement;
+
+      if (event.shiftKey && current === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && current === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // Temizleme
     return () => {
+      window.cancelAnimationFrame(lockFrame);
       window.removeEventListener("keydown", handleKeyDown);
 
-      if (styleRafId) window.cancelAnimationFrame(styleRafId);
-      if (focusRafId) window.cancelAnimationFrame(focusRafId);
-
-      window.requestAnimationFrame(() => {
-        body.style.position = previousStyles.position;
-        body.style.top = previousStyles.top;
-        body.style.overflow = previousStyles.overflow;
-        body.style.width = previousStyles.width;
-
-        if (scrollYRef.current !== undefined) {
-          window.scrollTo(0, scrollYRef.current);
-        }
-
-        if (lastFocus.current?.focus) {
-          window.requestAnimationFrame(() => lastFocus.current.focus());
-        }
-      });
+      body.style.position = previousStyles.position;
+      body.style.top = previousStyles.top;
+      body.style.overflow = previousStyles.overflow;
+      body.style.width = previousStyles.width;
+      window.scrollTo(0, scrollYRef.current);
+      lastFocus.current?.focus?.();
     };
-  }, [closeLightbox, navigate, open, images.length]);
+  }, [closeLightbox, navigate, open]);
 
-  // Görüntülenecek thumbnail'leri belirle
-  const displayImages = useMemo(
-    () => (visibleCount ? images.slice(0, visibleCount) : images),
-    [images, visibleCount]
-  );
-
-  const mainImage = displayImages[activeIndex] || displayImages[0];
+  if (!images.length) return null;
 
   return (
     <div className="w-full">
-      {/* Thumbnail Grid */}
       {layout === "featured" ? (
-        <div className="space-y-4" aria-label="Proje galerisi">
+        <div className="space-y-5" aria-label="Proje galerisi">
           <button
             type="button"
-            className="relative w-full max-w-4xl mx-auto aspect-[4/3] sm:aspect-[16/9] min-h-[52px] max-h-[60vh] overflow-hidden rounded-2xl border-2 border-gray-200 bg-gray-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group focus-ring"
+            className={`group relative mx-auto block aspect-[4/3] max-h-[62vh] min-h-[220px] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${FOCUS_RING}`}
             onClick={() => openLightbox(activeIndex)}
-            aria-label={`${
-              mainImage?.alt || "Galerideki görsel"
-            } - Görseli büyüt`}
+            aria-label={`${getImageAlt(mainImage, activeIndex)} - buyuk gorseli ac`}
           >
             {mainImage && (
               <Image
-                key={mainImage?.src || "main-image"}
+                key={mainImage.src}
                 src={mainImage.src}
-                alt={mainImage.alt || "Galerideki görsel"}
+                alt={getImageAlt(mainImage, activeIndex)}
                 fill
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 72vw"
+                className="object-cover transition duration-700 group-hover:scale-105"
                 loading="eager"
                 decoding="async"
-                quality={75}
+                quality={78}
               />
             )}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span
-                className="bg-black/50 text-white rounded-full p-2 transform scale-75 group-hover:scale-100 transition-transform duration-300"
-                aria-hidden="true"
-              >
-                🔍
-              </span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent opacity-80" />
+            <span className="absolute bottom-5 left-5 rounded-full bg-white/95 px-4 py-2 text-sm font-black text-slate-950 shadow-lg">
+              Galeriyi ac
+            </span>
           </button>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
             {displayImages.map((img, index) => (
               <button
                 key={`${img.src}-${index}`}
                 type="button"
-                className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-white transition-all duration-300 focus-ring ${
+                className={`relative aspect-[4/3] overflow-hidden rounded-2xl border bg-white transition duration-300 ${FOCUS_RING} ${
                   index === activeIndex
-                    ? "border-blue-500 shadow-md"
-                    : "border-gray-200 hover:border-blue-400 hover:shadow-lg"
+                    ? "border-blue-600 shadow-lg shadow-blue-900/15"
+                    : "border-slate-200 hover:border-blue-400 hover:shadow-md"
                 }`}
                 onClick={() => {
                   setActiveIndex(index);
                   setCurrentIndex(index);
                 }}
-                aria-label={`${
-                  img.alt || `Galerideki ${index + 1}. görsel`
-                } - Önizleme`}
+                aria-label={`${getImageAlt(img, index)} - onizleme`}
               >
                 <Image
                   src={img.src}
-                  alt={img.alt || `Galerideki ${index + 1}. görsel`}
+                  alt={getImageAlt(img, index)}
                   fill
                   sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
                   className="object-cover"
                   loading={index < priorityCount ? "eager" : "lazy"}
                   decoding="async"
-                  quality={75}
+                  quality={65}
                 />
               </button>
             ))}
@@ -219,214 +250,189 @@ function CaseGallery({
         </div>
       ) : (
         <div
-          className={`grid gap-3 ${
-            displayImages.length === 1
-              ? "grid-cols-1 max-w-md mx-auto"
-              : displayImages.length === 2
-              ? "grid-cols-2 max-w-2xl mx-auto"
-              : displayImages.length === 3
-              ? "grid-cols-3 max-w-3xl mx-auto"
-              : "grid-cols-2 md:grid-cols-4"
-          }`}
+          className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4"
           aria-label="Proje galerisi"
         >
-          {displayImages.map((img, index) => (
-            <div key={`${img.src}-${index}`} className="flex flex-col">
-              <button
-                type="button"
-                className="relative aspect-[4/3] sm:aspect-[16/9] min-h-[52px] overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-blue-500 hover:shadow-lg transition-all duration-300 group focus-ring"
-                onClick={() => openLightbox(index)}
-                aria-label={`${
-                  img.alt || `Galerideki ${index + 1}. görsel`
-                } - Görseli büyüt`}
+          {displayImages.map((img, index) => {
+            const isLastVisible = hasHiddenImages && index === displayImages.length - 1;
+            const aspect = GRID_ASPECTS[index % GRID_ASPECTS.length];
+
+            return (
+              <figure
+                key={`${img.src}-${index}`}
+                className={`${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt || `Galerideki ${index + 1}. görsel`}
-                  fill
-                  sizes="(max-width: 767px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  // Performans: sadece ilk görsel eager, diğerleri lazy
-                  loading={index < priorityCount ? "eager" : "lazy"}
-                  decoding="async"
-                  quality={65}
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span
-                    className="bg-black/50 text-white rounded-full p-2 transform scale-75 group-hover:scale-100 transition-transform duration-300"
-                    aria-hidden="true"
-                  >
-                    🔍
+                <button
+                  type="button"
+                  className={`group relative block w-full overflow-hidden rounded-[1.4rem] border border-slate-200 bg-slate-100 shadow-lg shadow-slate-900/5 transition duration-300 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl ${FOCUS_RING} ${
+                    index === 0 ? "aspect-[4/3] h-full" : aspect
+                  }`}
+                  onClick={() => openLightbox(index)}
+                  aria-label={`${getImageAlt(img, index)} - gorseli buyut`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={getImageAlt(img, index)}
+                    fill
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 50vw"
+                        : "(max-width: 768px) 50vw, 25vw"
+                    }
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                    loading={index < priorityCount ? "eager" : "lazy"}
+                    decoding="async"
+                    quality={index === 0 ? 74 : 62}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+                  <span className="absolute left-3 top-3 rounded-full bg-black/65 px-2.5 py-1 text-xs font-bold text-white opacity-0 backdrop-blur transition duration-300 group-hover:opacity-100">
+                    {index + 1} / {images.length}
                   </span>
-                </div>
-              </button>
-              {img.caption && (
-                <p className="mt-2 text-sm text-gray-500 leading-snug px-1 text-center">
-                  {img.caption}
-                </p>
-              )}
-            </div>
-          ))}
+                  {isLastVisible && (
+                    <span className="absolute inset-0 flex items-center justify-center bg-slate-950/70 text-center text-lg font-black text-white backdrop-blur-sm">
+                      +{hiddenCount} gorsel
+                    </span>
+                  )}
+                </button>
+                {img.caption && (
+                  <figcaption className="mt-2 px-1 text-center text-sm leading-snug text-slate-600">
+                    {img.caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          })}
         </div>
       )}
 
-      {/* Gizli görseller için bilgi (screen reader için) */}
-      {visibleCount && images.length > visibleCount && (
+      {hasHiddenImages && (
         <p className="sr-only">
-          Galeride {images.length - visibleCount} adet daha görsel bulunmaktadır.
-          Lightbox açıldığında tüm görselleri görebilirsiniz.
+          Galeride {hiddenCount} adet daha gorsel bulunuyor. Lightbox acildiginda
+          tum gorseller gezilebilir.
         </p>
       )}
 
-      {/* Lightbox/Modal */}
-      {open && (
+      {open && currentImage && (
         <div
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
-          aria-labelledby="lightbox-title"
-          aria-describedby="lightbox-description"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 nc-CaseGallery-lightbox-1"
+          aria-labelledby="case-gallery-title"
+          aria-describedby="case-gallery-description"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 p-3 backdrop-blur-xl sm:p-5"
           onClick={handleBackdropClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          {/* Erişilebilir başlık ve açıklama */}
-          <h2 id="lightbox-title" className="sr-only">
-            Görsel Galerisi
+          <h2 id="case-gallery-title" className="sr-only">
+            Gorsel galerisi
           </h2>
-          <p id="lightbox-description" className="sr-only">
-            {images[currentIndex]?.alt || "Görsel"}.
-            {images.length > 1
-              ? ` ${currentIndex + 1} / ${images.length}. `
-              : " "}
-            Esc tuşuyla kapatabilir, sol ve sağ ok tuşlarıyla gezinebilirsiniz.
+          <p id="case-gallery-description" className="sr-only">
+            {getImageAlt(currentImage, currentIndex)}. {currentIndex + 1} /{" "}
+            {images.length}. Escape ile kapatabilir, ok tuslariyla gezebilirsiniz.
           </p>
 
-          {/* Kapat butonu */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/70 to-transparent" />
+
           <button
             ref={closeBtnRef}
             type="button"
-            className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 focus-ring backdrop-blur-sm"
+            className={`absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 ${LIGHTBOX_RING}`}
             onClick={closeLightbox}
             aria-label="Galeriyi kapat"
           >
-            <span aria-hidden="true">✕</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
           </button>
 
-          {/* Görsel sayacı */}
-          {images.length > 1 && (
-            <div className="absolute top-4 left-4 z-10 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-              <span className="font-medium">{currentIndex + 1}</span>
-              <span className="mx-1">/</span>
-              <span>{images.length}</span>
-            </div>
-          )}
-
-          {/* Önceki butonu */}
-            {images.length > 1 && (
-              <button
-                type="button"
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-200 focus-ring backdrop-blur-sm md:left-6"
-                onClick={handlePrev}
-                aria-label="Önceki görsel"
-              >
-                <span aria-hidden="true" className="text-2xl">
-                ‹
-              </span>
-            </button>
-          )}
-
-          {/* Ana görsel container */}
-          <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
-            <div className="relative w-full h-full max-h-[80vh] flex items-center justify-center">
-              <Image
-                key={images[currentIndex]?.src}
-                src={images[currentIndex]?.src || ""}
-                alt={
-                  images[currentIndex]?.alt ||
-                  `Galerideki ${currentIndex + 1}. görsel`
-                }
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                className="object-contain"
-                quality={90}
-                loading="eager"
-                decoding="async"
-              />
-            </div>
+          <div className="absolute left-4 top-4 z-20 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-sm font-bold text-white backdrop-blur">
+            {currentIndex + 1} / {images.length}
           </div>
 
-          {/* Sonraki butonu */}
-            {images.length > 1 && (
+          {images.length > 1 && (
+            <>
               <button
                 type="button"
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-200 focus-ring backdrop-blur-sm md:right-6"
-                onClick={handleNext}
-                aria-label="Sonraki görsel"
+                className={`absolute left-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
+                onClick={handlePrev}
+                aria-label="Onceki gorsel"
               >
-                <span aria-hidden="true" className="text-2xl">
-                ›
-              </span>
-            </button>
-          )}
-
-          {/* Görsel açıklaması */}
-          {images[currentIndex]?.alt && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 bg-black/70 text-white px-4 py-2 rounded-lg max-w-2xl text-center backdrop-blur-sm">
-              <p className="text-sm font-medium">
-                {images[currentIndex].alt}
-              </p>
-            </div>
-          )}
-
-          {/* Mobil navigasyon */}
-          {images.length > 1 && (
-              <div className="md:hidden absolute bottom-4 inset-x-4 flex justify-between">
-                <button
-                  type="button"
-                  className="flex-1 max-w-[120px] bg-white/10 hover:bg-white/20 text-white py-3 rounded-l-lg transition-colors duration-200 focus-ring"
-                  onClick={handlePrev}
-                  aria-label="Önceki görsel"
-                >
-                  Önceki
-                </button>
-                <button
-                  type="button"
-                  className="flex-1 max-w-[120px] bg-white/10 hover:bg-white/20 text-white py-3 rounded-r-lg transition-colors duration-200 focus-ring"
-                  onClick={handleNext}
-                  aria-label="Sonraki görsel"
-                >
-                  Sonraki
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M15 18l-6-6 6-6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
-            </div>
+              <button
+                type="button"
+                className={`absolute right-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
+                onClick={handleNext}
+                aria-label="Sonraki gorsel"
+              >
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M9 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </>
           )}
 
-          {/* Küçük resim önizlemeleri (desktop) */}
+          <div className="relative h-[78vh] w-full max-w-7xl">
+            <Image
+              key={currentImage.src}
+              src={currentImage.src}
+              alt={getImageAlt(currentImage, currentIndex)}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 92vw, 1200px"
+              className="object-contain"
+              quality={90}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          {currentImage.caption || currentImage.alt ? (
+            <div className="absolute inset-x-4 bottom-20 z-20 mx-auto max-w-3xl rounded-2xl border border-white/10 bg-black/55 px-4 py-3 text-center text-sm font-medium text-white shadow-2xl backdrop-blur md:bottom-24">
+              {currentImage.caption || currentImage.alt}
+            </div>
+          ) : null}
+
           {images.length > 1 && (
-            <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 gap-2 max-w-full overflow-x-auto px-4 py-2">
+            <div className="absolute inset-x-3 bottom-3 z-20 mx-auto flex max-w-5xl items-center gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-black/45 p-2 backdrop-blur">
               {images.map((img, index) => (
                 <button
-                  key={`thumb-${index}`}
+                  key={`${img.src}-thumb-${index}`}
                   type="button"
-                  className={`flex-shrink-0 w-16 h-12 relative rounded border-2 transition-all duration-200 focus-ring ${
+                  className={`relative h-14 w-20 flex-none overflow-hidden rounded-xl border transition ${LIGHTBOX_RING} ${
                     index === currentIndex
-                      ? "border-white scale-110"
-                      : "border-white/30 hover:border-white/60"
+                      ? "border-white opacity-100"
+                      : "border-white/20 opacity-60 hover:opacity-100"
                   }`}
                   onClick={() => setCurrentIndex(index)}
-                  aria-label={`${
-                    index + 1
-                  }. görsele git: ${
-                    img.alt || `Galerideki ${index + 1}. görsel`
-                  }`}
+                  aria-label={`${index + 1}. gorsele git`}
                 >
                   <Image
                     src={img.src}
-                    alt={img.alt || `Galerideki ${index + 1}. görsel küçük önizleme`}
+                    alt={`${getImageAlt(img, index)} kucuk onizleme`}
                     fill
-                    sizes="64px"
-                    className="object-cover rounded"
-                    quality={50}
+                    sizes="80px"
+                    className="object-cover"
+                    quality={45}
                     loading="lazy"
                     decoding="async"
                   />
