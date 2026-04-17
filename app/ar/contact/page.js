@@ -4,7 +4,7 @@ const AR_CONTACT_URL = buildCanonical("/ar/contact");
 const AR_CONTACT_OG_IMAGE_URL = `${SITE_URL}/img/hero-bg.webp`;
 
 export const metadata = {
-  title: "تواصل مع سحنيفا",
+  title: "تواصل معنا",
   description:
     "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا. نغطي كافة المدن بفرق متخصصة جاهزة للتركيب السريع.",
   openGraph: {
