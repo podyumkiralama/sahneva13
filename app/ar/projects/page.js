@@ -1,4 +1,4 @@
-import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const AR_PROJECTS_URL = buildCanonical("/ar/projects");
 const AR_PROJECTS_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
@@ -25,7 +25,12 @@ export const metadata = {
   },
   alternates: {
     canonical: AR_PROJECTS_URL,
-    languages: buildAlternateLanguages(),
+    languages: {
+      "tr-TR": `${SITE_URL}/projeler`,
+      en: `${SITE_URL}/en/projects`,
+      ar: AR_PROJECTS_URL,
+      "x-default": `${SITE_URL}/en/projects`,
+    },
   },
 };
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 const AR_ABOUT_URL = buildCanonical("/ar/about");
@@ -14,7 +14,12 @@ export const metadata = {
     "أكثر من 10 سنوات من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.",
   alternates: {
     canonical: AR_ABOUT_URL,
-    languages: buildAlternateLanguages(),
+    languages: {
+      "tr-TR": `${SITE_URL}/hakkimizda`,
+      en: `${SITE_URL}/en/about`,
+      ar: AR_ABOUT_URL,
+      "x-default": `${SITE_URL}/en/about`,
+    },
   },
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",

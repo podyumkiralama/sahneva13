@@ -1,4 +1,4 @@
-import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
 const AR_CONTACT_OG_IMAGE_URL = `${SITE_URL}/img/hero-bg.webp`;
@@ -25,7 +25,12 @@ export const metadata = {
   },
   alternates: {
     canonical: AR_CONTACT_URL,
-    languages: buildAlternateLanguages(),
+    languages: {
+      "tr-TR": `${SITE_URL}/iletisim`,
+      en: `${SITE_URL}/en/contact`,
+      ar: AR_CONTACT_URL,
+      "x-default": `${SITE_URL}/en/contact`,
+    },
   },
 };
 

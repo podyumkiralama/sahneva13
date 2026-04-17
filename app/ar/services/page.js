@@ -1,5 +1,5 @@
 import { LOCALE_CONTENT } from "../../../lib/i18n/localeContent";
-import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const { services } = LOCALE_CONTENT.ar.home;
 const AR_SERVICES_URL = buildCanonical("/ar/services");
@@ -27,7 +27,12 @@ export const metadata = {
   },
   alternates: {
     canonical: AR_SERVICES_URL,
-    languages: buildAlternateLanguages(),
+    languages: {
+      "tr-TR": `${SITE_URL}/hizmetler`,
+      en: `${SITE_URL}/en/services`,
+      ar: AR_SERVICES_URL,
+      "x-default": `${SITE_URL}/en/services`,
+    },
   },
 };
 
