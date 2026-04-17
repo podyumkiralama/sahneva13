@@ -1,6 +1,9 @@
 import { LOCALE_CONTENT } from "../../../lib/i18n/localeContent";
+import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const { services } = LOCALE_CONTENT.ar.home;
+const AR_SERVICES_URL = buildCanonical("/ar/services");
+const AR_SERVICES_OG_IMAGE_URL = `${SITE_URL}/img/hizmet-sahne.webp`;
 
 export const metadata = {
   title: "خدمات تجهيز الفعاليات",
@@ -10,12 +13,12 @@ export const metadata = {
     title: "خدمات تجهيز الفعاليات | سحنيفا",
     description:
       "تعرف على حلول سحنيفا للمنصات، شاشات LED، أنظمة الصوت والإضاءة، الخيام وتجهيزات الجلوس مع تشغيل كامل.",
-    url: "https://www.sahneva.com/ar/services",
+    url: AR_SERVICES_URL,
     type: "website",
     locale: "ar_AR",
     images: [
       {
-        url: "https://www.sahneva.com/img/hizmet-sahne.webp",
+        url: AR_SERVICES_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "سحنيفا – خدمات تجهيز الفعاليات: منصات، شاشات LED، صوت وإضاءة",
@@ -23,13 +26,8 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.sahneva.com/ar/services",
-    languages: {
-      "tr-TR": "https://www.sahneva.com/hizmetler",
-      "en": "https://www.sahneva.com/en/services",
-      "ar": "https://www.sahneva.com/ar/services",
-      "x-default": "https://www.sahneva.com/en/services",
-    },
+    canonical: AR_SERVICES_URL,
+    languages: buildAlternateLanguages(),
   },
 };
 

@@ -9,6 +9,11 @@ import JsonLd from "@/components/seo/JsonLd";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { FAQ_ITEMS_AR } from "@/lib/faqData";
+import {
+  SITE_URL,
+  buildAlternateLanguages,
+  buildCanonical,
+} from "@/lib/seo/seoConfig";
 
 const { home } = LOCALE_CONTENT.ar;
 
@@ -36,10 +41,9 @@ const HERO_FEATURES_AR = [
   },
 ];
 
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
-).replace(/\/$/, "");
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
+const AR_PAGE_URL = buildCanonical("/ar");
+const AR_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
 
 const WHY_SAHNEVA_FEATURES_AR = [
   {
@@ -385,35 +389,32 @@ export const metadata = {
   description:
     "سحنيفا تقدم خدمات تأجير منصات الأحداث وشاشات LED وأنظمة الصوت والإضاءة مع تركيب وتشغيل احترافي كامل في جميع المدن التركية لجميع أنواع الفعاليات والمؤتمرات.",
   openGraph: {
-    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | سحنيفا",
+    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | Sahneva",
     description:
       "سحنيفا تقدم خدمات تأجير منصات الأحداث وشاشات LED وأنظمة الصوت والإضاءة مع تركيب وتشغيل احترافي كامل في جميع المدن التركية لجميع أنواع الفعاليات والمؤتمرات.",
-    url: "https://www.sahneva.com/ar",
+    url: AR_PAGE_URL,
     type: "website",
     locale: "ar_AR",
     siteName: "Sahneva",
     images: [
       {
-        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        url: AR_OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "سحنيفا – تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا",
+        alt: "Sahneva – تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | سحنيفا",
+    title: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة في تركيا | Sahneva",
     description:
       "سحنيفا تقدم خدمات تأجير منصات الأحداث وشاشات LED وأنظمة الصوت والإضاءة مع تركيب وتشغيل احترافي كامل في جميع المدن التركية لجميع أنواع الفعاليات والمؤتمرات.",
   },
   alternates: {
-    canonical: "https://www.sahneva.com/ar",
+    canonical: AR_PAGE_URL,
     languages: {
-      "tr-TR": "https://www.sahneva.com/",
-      en: "https://www.sahneva.com/en",
-      ar: "https://www.sahneva.com/ar",
-      "x-default": "https://www.sahneva.com/",
+      ...buildAlternateLanguages(),
     },
   },
 };
@@ -424,17 +425,17 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://www.sahneva.com/ar#webpage",
-        url: "https://www.sahneva.com/ar",
-        name: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة | سحنيفا",
+        "@id": `${AR_PAGE_URL}#webpage`,
+        url: AR_PAGE_URL,
+        name: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة | Sahneva",
         inLanguage: "ar",
         about: { "@id": ORGANIZATION_ID },
       },
       {
         "@type": "OfferCatalog",
-        "@id": "https://www.sahneva.com/ar#catalog",
+        "@id": `${AR_PAGE_URL}#catalog`,
         name: "خدمات تقنيات الفعاليات",
-        url: "https://www.sahneva.com/ar",
+        url: AR_PAGE_URL,
         itemListElement: [
           {
             "@type": "Offer",
@@ -546,25 +547,25 @@ function StructuredData() {
       },
       {
         "@type": "Service",
-        "@id": "https://www.sahneva.com/ar#service",
+        "@id": `${AR_PAGE_URL}#service`,
         name: "حلول تقنيات الفعاليات",
         description:
           "حلول متكاملة للمنصات، شاشات LED، الصوت، الإضاءة والخيام مع فرق تشغيل محترفة في كل تركيا.",
-        url: "https://www.sahneva.com/ar",
+        url: AR_PAGE_URL,
         areaServed: { "@type": "Country", name: "TR" },
         provider: { "@id": ORGANIZATION_ID },
       },
       {
         "@type": "ImageObject",
-        "@id": "https://www.sahneva.com/ar#og",
-        contentUrl: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        "@id": `${AR_PAGE_URL}#og`,
+        contentUrl: AR_OG_IMAGE_URL,
         width: 1200,
         height: 630,
       },
       {
         "@type": "FAQPage",
-        "@id": "https://www.sahneva.com/ar#faq",
-        url: "https://www.sahneva.com/ar",
+        "@id": `${AR_PAGE_URL}#faq`,
+        url: AR_PAGE_URL,
         mainEntity: FAQ_ITEMS_AR.map((item) => ({
           "@type": "Question",
           name: item.question,

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { getSearchIndex } from "@/lib/searchIndex";
+import { SITE_URL } from "@/lib/seo/seoConfig";
 
-const SEARCH_URL = "https://www.sahneva.com/search";
+const SEARCH_URL = `${SITE_URL}/search`;
+const SEARCH_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
 
 export const metadata = {
   title: "Site İçi Arama",
@@ -15,7 +17,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        url: SEARCH_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "Sahneva Site İçi Arama",
