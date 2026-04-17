@@ -503,9 +503,9 @@ function Packages() {
 
   // Basit fiyatlandırma (gerçek projede API'den gelebilir)
   const packagePrices = {
-    "mini-sahne": 15000,
-    "standart-sahne": 25000,
-    "konser-sahnesi": 50000,
+    "mini-sahne": 19500,
+    "standart-sahne": 32500,
+    "konser-sahnesi": 65000,
   };
 
   return (
@@ -1340,7 +1340,7 @@ function Articles() {
 const FAQ_ITEMS = [
   {
     q: "Sahne kiralama fiyatları ne kadar?",
-    a: "Sahne kiralama fiyatları sahne büyüklüğüne ve ekipmanlara göre değişmektedir. Mini sahne (16 m²) 15.000 TL, standart sahne (24 m²) 25.000 TL, konser sahnesi (48 m²) 50.000 TL'den başlayan fiyatlarla. Profesyonel kurulum, ses-ışık sistemleri ve teknik ekip hizmetleri paket fiyatlarına dahildir.",
+    a: "Sahne kiralama fiyatları sahne büyüklüğüne ve ekipmanlara göre değişmektedir. Mini sahne (16 m²) 19.500 TL, standart sahne (24 m²) 32.500 TL, konser sahnesi (48 m²) 65.000 TL'den başlayan fiyatlarla. Profesyonel kurulum, ses-ışık sistemleri ve teknik ekip hizmetleri paket fiyatlarına dahildir.",
   },
   {
     q: "Sahne kurulumu ne kadar sürer?",

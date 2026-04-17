@@ -503,9 +503,9 @@ function Packages() {
     }).format(n);
 
   const packagePrices = {
-    "mini-stage": 15000,
-    "standard-stage": 25000,
-    "concert-stage": 50000,
+    "mini-stage": 19500,
+    "standard-stage": 32500,
+    "concert-stage": 65000,
   };
 
   return (
@@ -1344,7 +1344,7 @@ const FAQ_ITEMS = [
   {
     question: "How much does stage rental cost?",
     answer:
-      "Pricing depends on stage size and technical scope. Mini Stage (16 m²) starts at 15,000 TL, Standard Stage (24 m²) at 25,000 TL and Concert Stage (48 m²) at 50,000 TL. All packages include professional setup, sound and lighting systems and technical crew support.",
+      "Pricing depends on stage size and technical scope. Mini Stage (16 m²) starts at 19,500 TL, Standard Stage (24 m²) at 32,500 TL and Concert Stage (48 m²) at 65,000 TL. All packages include professional setup, sound and lighting systems and technical crew support.",
   },
   {
     question: "How long does installation take?",
