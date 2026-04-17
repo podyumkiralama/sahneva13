@@ -2,29 +2,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
+const AR_ABOUT_URL = buildCanonical("/ar/about");
+const AR_ABOUT_OG_IMAGE_URL = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
+
 export const metadata = {
-  title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
+  title: "من نحن",
   description:
     "أكثر من 10 سنوات من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.",
   alternates: {
-    canonical: "https://www.sahneva.com/ar/about",
+    canonical: AR_ABOUT_URL,
     languages: {
-      "tr-TR": "https://www.sahneva.com/hakkimizda",
-      "en": "https://www.sahneva.com/en/about",
-      "ar": "https://www.sahneva.com/ar/about",
-      "x-default": "https://www.sahneva.com/en/about",
+      "tr-TR": `${SITE_URL}/hakkimizda`,
+      en: `${SITE_URL}/en/about`,
+      ar: AR_ABOUT_URL,
+      "x-default": `${SITE_URL}/en/about`,
     },
   },
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:
       "حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد لأكثر من 10 سنوات. أكثر من 700 مشروع ناجح ونسبة رضا 98%.",
-    url: "https://www.sahneva.com/ar/about",
+    url: AR_ABOUT_URL,
     images: [
       {
-        url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
+        url: AR_ABOUT_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "فريق سحنيفا - تقنيات الفعاليات الاحترافية",
@@ -38,7 +42,6 @@ export const metadata = {
 
 export const revalidate = 3600;
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 
 /* ───── STRUCTURED DATA ───── */
@@ -46,8 +49,8 @@ function AboutStructuredData() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${SITE_URL}/ar/about#webpage`,
-    url: `${SITE_URL}/ar/about`,
+    "@id": `${AR_ABOUT_URL}#webpage`,
+    url: AR_ABOUT_URL,
     name: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:
       "خدمات تأجير المنصات الاحترافية وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات",

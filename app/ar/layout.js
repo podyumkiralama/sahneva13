@@ -13,10 +13,11 @@ const content = LOCALE_CONTENT.ar;
 export const metadata = {
   title: {
     default: "سحنڤا | تأجير المسارح وشاشات LED والصوت والإضاءة في تركيا",
-    template: "%s | سحنڤا",
+    template: "%s | Sahneva",
   },
   description:
     "تأجير المسارح وشاشات LED وأنظمة الصوت والإضاءة مع فرق فنية كاملة في جميع أنحاء تركيا.",
+  applicationName: "Sahneva Organizasyon",
   alternates: {
     canonical: buildCanonical("/ar"),
     languages: buildAlternateLanguages(),

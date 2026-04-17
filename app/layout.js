@@ -8,6 +8,7 @@ import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import { headers } from "next/headers";
+import { SITE_URL } from "@/lib/seo/seoConfig";
 
 /* ================== VIEWPORT ================== */
 export const viewport = {
@@ -17,7 +18,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "https://www.sahneva.com"),
+  metadataBase: new URL(SITE_URL),
   manifest: "/manifest.json",
   icons: {
     icon: [

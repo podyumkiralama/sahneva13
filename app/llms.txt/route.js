@@ -4,8 +4,8 @@ import path from "path";
 import { services, projects } from "@/lib/data";
 import { SEO_ARTICLES } from "@/lib/articlesData";
 import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
+import { SITE_URL } from "@/lib/seo/seoConfig";
 
-const SITE = "https://www.sahneva.com";
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
 const DEFAULT_LANG = "tr-TR";
 
@@ -54,7 +54,7 @@ function clean(pathStr) {
 
   let parsedPath = p;
   try {
-    const u = new URL(p, SITE);
+    const u = new URL(p, SITE_URL);
     parsedPath = u.pathname;
   } catch {
     parsedPath = p;
@@ -250,7 +250,7 @@ function formatEntry({
   keywords,
 }) {
   const fields = [
-    `url=${SITE}${path}`,
+    `url=${SITE_URL}${path}`,
     `title=${quote(title)}`,
     `priority=${Number(priority || 0).toFixed(2)}`,
     `lang=${DEFAULT_LANG}`,
@@ -293,7 +293,7 @@ export async function GET() {
     "# Sahneva için LLM odaklı en iyi içerik ve referans sayfa listesi",
     "# Daha verimli tarama için öncelik sıralı bağlantılar",
     `generated=${generatedAt}`,
-    `site=${SITE}`,
+    `site=${SITE_URL}`,
     "version=1.1",
     "primary_lang=tr-TR",
     "crawl_hint=prioritize-high-priority-urls",
