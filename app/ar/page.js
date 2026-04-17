@@ -413,9 +413,7 @@ export const metadata = {
   },
   alternates: {
     canonical: AR_PAGE_URL,
-    languages: {
-      ...buildAlternateLanguages(),
-    },
+    languages: buildAlternateLanguages(),
   },
 };
 

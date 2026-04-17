@@ -9,7 +9,7 @@ const AR_ABOUT_URL = buildCanonical("/ar/about");
 const AR_ABOUT_OG_IMAGE_URL = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
 
 export const metadata = {
-  title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
+  title: "من نحن",
   description:
     "أكثر من 10 سنوات من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.",
   alternates: {
