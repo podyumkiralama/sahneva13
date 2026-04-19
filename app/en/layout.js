@@ -36,7 +36,8 @@ const globalJsonLd = {
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
-      name: "Sahneva",
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       url: BASE_SITE_URL,
       logo: { "@id": LOGO_ID },
       description:
@@ -73,7 +74,8 @@ const globalJsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
-      name: "Sahneva",
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       url: BASE_SITE_URL,
       image: OG_IMAGE_URL,
       logo: { "@id": LOGO_ID },
@@ -105,8 +107,8 @@ const globalJsonLd = {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       url: BASE_SITE_URL,
-      name: "Sahneva",
-      alternateName: "Sahneva Organizasyon",
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       description:
         "Professional event production solutions for stage, podium, LED screen, sound-light and tent rentals.",
       inLanguage: "en-US",
@@ -129,7 +131,7 @@ export const metadata = {
     default: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
     template: "%s | Sahneva",
   },
-  applicationName: "Sahneva",
+  applicationName: "Sahneva Organizasyon",
   description: content.meta.description,
   robots: {
     index: true,

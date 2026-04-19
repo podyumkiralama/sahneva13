@@ -28,6 +28,6 @@ export default function robots() {
       },
     ],
 
-    sitemap: [`${host}/sitemap.xml`],
+    sitemap: [`${SITE_URL}/sitemap.xml`],
   };
 }

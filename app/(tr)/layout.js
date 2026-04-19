@@ -39,6 +39,7 @@ const globalJsonLd = {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
       name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       url: BASE_SITE_URL,
       logo: { "@id": LOGO_ID },
       description:
@@ -77,6 +78,7 @@ const globalJsonLd = {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
       name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
       url: BASE_SITE_URL,
       image: OG_IMAGE_URL,
       logo: { "@id": LOGO_ID },
@@ -132,7 +134,7 @@ export const metadata = {
     default: HOME_PAGE_TITLE,
     template: `%s | Sahneva`,
   },
-  applicationName: "Sahneva",
+  applicationName: "Sahneva Organizasyon",
   description: content.meta.description,
   robots: {
     index: true,

@@ -1,3 +1,8 @@
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+
+const AR_PROJECTS_URL = buildCanonical("/ar/projects");
+const AR_PROJECTS_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
+
 export const metadata = {
   title: "أعمال مختارة",
   description:
@@ -6,12 +11,12 @@ export const metadata = {
     title: "أعمال مختارة | سحنيفا",
     description:
       "نماذج من فعاليات سحنيفا تشمل إطلاقات الشركات، الحفلات الجماهيرية والمهرجانات الرياضية في مدن تركيا المختلفة.",
-    url: "https://www.sahneva.com/ar/projects",
+    url: AR_PROJECTS_URL,
     type: "website",
     locale: "ar_AR",
     images: [
       {
-        url: "https://www.sahneva.com/img/og/sahneva-og.webp",
+        url: AR_PROJECTS_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "سحنيفا – مشاريع وفعاليات منجزة",
@@ -19,12 +24,12 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.sahneva.com/ar/projects",
+    canonical: AR_PROJECTS_URL,
     languages: {
-      "tr-TR": "https://www.sahneva.com/projeler",
-      "en": "https://www.sahneva.com/en/projects",
-      "ar": "https://www.sahneva.com/ar/projects",
-      "x-default": "https://www.sahneva.com/en/projects",
+      "tr-TR": `${SITE_URL}/projeler`,
+      en: `${SITE_URL}/en/projects`,
+      ar: AR_PROJECTS_URL,
+      "x-default": `${SITE_URL}/en/projects`,
     },
   },
 };

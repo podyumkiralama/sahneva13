@@ -1,17 +1,22 @@
+import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+
+const AR_CONTACT_URL = buildCanonical("/ar/contact");
+const AR_CONTACT_OG_IMAGE_URL = `${SITE_URL}/img/hero-bg.webp`;
+
 export const metadata = {
-  title: "تواصل مع سحنيفا",
+  title: "تواصل معنا",
   description:
     "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا. نغطي كافة المدن بفرق متخصصة جاهزة للتركيب السريع.",
   openGraph: {
     title: "تواصل مع سحنيفا",
     description:
       "تواصل مع فريق سحنيفا لطلب عروض الأسعار، التخطيط التقني أو الدعم العاجل في جميع أنحاء تركيا. نغطي كافة المدن بفرق متخصصة جاهزة للتركيب السريع.",
-    url: "https://www.sahneva.com/ar/contact",
+    url: AR_CONTACT_URL,
     type: "website",
     locale: "ar_AR",
     images: [
       {
-        url: "https://www.sahneva.com/img/hero-bg.webp",
+        url: AR_CONTACT_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "سحنيفا – تواصل معنا لحلول تقنيات الفعاليات",
@@ -19,12 +24,12 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.sahneva.com/ar/contact",
+    canonical: AR_CONTACT_URL,
     languages: {
-      "tr-TR": "https://www.sahneva.com/iletisim",
-      en: "https://www.sahneva.com/en/contact",
-      ar: "https://www.sahneva.com/ar/contact",
-      "x-default": "https://www.sahneva.com/en/contact",
+      "tr-TR": `${SITE_URL}/iletisim`,
+      en: `${SITE_URL}/en/contact`,
+      ar: AR_CONTACT_URL,
+      "x-default": `${SITE_URL}/en/contact`,
     },
   },
 };
