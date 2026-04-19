@@ -9,7 +9,6 @@ import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 import { headers } from "next/headers";
-import { SITE_URL } from "@/lib/seo/seoConfig";
 
 /* ================== VIEWPORT ================== */
 export const viewport = {
