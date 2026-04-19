@@ -1,3 +1,4 @@
+import { Buffer } from "node:buffer";
 import { NextResponse } from "next/server";
 
 export const config = {
@@ -7,15 +8,7 @@ export const config = {
 };
 
 function generateNonce() {
-  const bytes = new Uint8Array(16);
-  crypto.getRandomValues(bytes);
-
-  let binary = "";
-  for (const byte of bytes) {
-    binary += String.fromCharCode(byte);
-  }
-
-  return btoa(binary);
+  return Buffer.from(crypto.randomUUID()).toString("base64");
 }
 
 function buildCsp({ nonce, siteUrl, isPreview }) {
@@ -23,7 +16,6 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     "'self'",
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
-    "'unsafe-inline'", // Eski tarayıcılar için geriye dönük uyumluluk (nonce destekleyenlerde yok sayılır)
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",

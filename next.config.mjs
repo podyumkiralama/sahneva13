@@ -10,7 +10,10 @@ const isPreview =
   process.env.VERCEL_ENV === "preview" ||
   process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
-const siteUrl = process.env.SITE_URL ?? "https://www.sahneva.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.SITE_URL ??
+  "https://www.sahneva.com";
 
 /* -------------------- Security Headers -------------------- */
 const securityHeaders = (() => {
@@ -77,6 +80,7 @@ const nextConfig = {
   },
 
   env: {
+    NEXT_PUBLIC_SITE_URL: siteUrl,
     SITE_URL: siteUrl,
     NEXT_PUBLIC_APP_ENV: process.env.NODE_ENV ?? "development",
   },
