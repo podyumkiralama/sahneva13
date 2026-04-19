@@ -45,12 +45,15 @@ const DEFAULT_DICTIONARY = {
 // ANA BİLEŞEN (Server Component)
 // —————————————————————————————————————————
 
-export default function TechCapabilities({ dictionary: dictionaryOverride }) {
+export default function TechCapabilities({
+  dictionary: dictionaryOverride,
+  sectionPaddingClassName = "py-16 md:py-20 2xl:py-24",
+}) {
   const dictionary = { ...DEFAULT_DICTIONARY, ...(dictionaryOverride || {}) };
 
   return (
     <section
-      className="relative bg-[#0B1120] pt-16 pb-8 md:pt-20 md:pb-10 2xl:pt-24 2xl:pb-12 overflow-hidden"
+      className={`relative bg-[#0B1120] ${sectionPaddingClassName} overflow-hidden`}
       aria-labelledby="tech-capabilities-title"
     >
       {/* Arka Plan Efekti - Grid + Glow */}

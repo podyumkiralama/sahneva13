@@ -475,13 +475,13 @@ export default function HomePage() {
       </section>
 
       {/* Teknik */}
-      <div className="content-visibility-auto bg-slate-900 pt-10 pb-0">
-        <TechCapabilities />
+      <div className="content-visibility-auto bg-[#0B1120] py-0">
+        <TechCapabilities sectionPaddingClassName="pt-16 pb-8 md:pt-20 md:pb-10 2xl:pt-24 2xl:pb-12" />
       </div>
 
       {/* Kurumsal */}
       <div className="content-visibility-auto bg-slate-50 py-0 m-0 w-full">
-        <CorporateEvents />
+        <CorporateEvents sectionPaddingClassName="pt-8 pb-16 md:pt-10 md:pb-24 2xl:pt-12 2xl:pb-28" />
       </div>
 
       <div className="content-visibility-auto bg-black py-0 m-0 w-full">
