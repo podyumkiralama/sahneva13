@@ -76,7 +76,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
     if (!node) return;
 
     const selectors =
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [contenteditable="true"], [tabindex]:not([tabindex="-1"])';
     const focusables = Array.from(node.querySelectorAll(selectors)).filter(
       (el) => el instanceof HTMLElement && !el.hasAttribute("disabled"),
     );

@@ -127,6 +127,23 @@ export default function Navbar({
       pathname === href || (href !== "/" && pathname?.startsWith(href)),
     [pathname]
   );
+
+  const closeMobileMenu = useCallback(({ restoreFocus = false } = {}) => {
+    const activeElement = document.activeElement;
+    if (
+      activeElement instanceof HTMLElement &&
+      mobileMenuRef.current?.contains(activeElement)
+    ) {
+      activeElement.blur();
+    }
+
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+
+    if (restoreFocus) {
+      requestAnimationFrame(() => toggleButtonRef.current?.focus());
+    }
+  }, []);
 <Link
   href="/search"
   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50"
@@ -275,9 +292,8 @@ export default function Navbar({
       const wasMobileOpen = mobileOpen;
       const wasServicesOpen = servicesOpen;
 
-      setMobileOpen(false);
+      closeMobileMenu({ restoreFocus: false });
       setServicesOpen(false);
-      setMobileServicesOpen(false);
 
       if (wasMobileOpen || wasServicesOpen) {
         requestAnimationFrame(() => {
@@ -289,16 +305,15 @@ export default function Navbar({
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, [mobileOpen, servicesOpen]);
+  }, [closeMobileMenu, mobileOpen, servicesOpen]);
 
   // route change -> close
   useEffect(() => {
     if (mobileOpen || servicesOpen || mobileServicesOpen) {
-      setMobileOpen(false);
+      closeMobileMenu({ restoreFocus: false });
       setServicesOpen(false);
-      setMobileServicesOpen(false);
     }
-  }, [pathname]);
+  }, [closeMobileMenu, mobileOpen, mobileServicesOpen, pathname, servicesOpen]);
 
   // body scroll lock for mobile
   useEffect(() => {
@@ -803,6 +818,7 @@ export default function Navbar({
         aria-labelledby={MOBILE_MENU_HEADING_ID}
         aria-describedby={MOBILE_MENU_DESCRIPTION_ID}
         aria-hidden={!mobileOpen}
+        inert={!mobileOpen ? "" : undefined}
         data-open={mobileOpen ? "true" : undefined}
         className={`
           lg:hidden fixed z-50 left-0 right-0 top-16 bg-white border-t border-neutral-200
@@ -831,7 +847,7 @@ export default function Navbar({
           <div className="px-5 py-6 space-y-3 max-h-[80vh] overflow-y-auto">
             <Link
               href="/hakkimizda"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
                 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
@@ -845,7 +861,7 @@ export default function Navbar({
 
             <Link
               href="/blog"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
                 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
@@ -896,6 +912,8 @@ export default function Navbar({
   id="mobile-services-list"
   role="region"
   aria-labelledby="mobile-services-button"
+  aria-hidden={!mobileServicesOpen}
+  inert={!mobileServicesOpen ? "" : undefined}
   className={`
     overflow-hidden transition-all duration-300 ease-in-out
     ${mobileServicesOpen ? "max-h-[700px] opacity-100 py-2" : "max-h-0 opacity-0 py-0"}
@@ -907,7 +925,7 @@ export default function Navbar({
                     <Link
                       key={href}
                       href={href}
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() => closeMobileMenu({ restoreFocus: false })}
                       className={`
                         flex items-start gap-3 px-3 py-2 text-sm text-neutral-700
                         hover:bg-blue-50 hover:text-blue-700 rounded-md
@@ -937,7 +955,7 @@ export default function Navbar({
 
             <Link
               href="/iletisim"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
                 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
@@ -965,7 +983,7 @@ export default function Navbar({
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Destek – yeni sekmede açılır"
                 className={`${mobileWhatsappBtnClass} mt-4`}
-                onClick={() => setMobileOpen(false)}
+                onClick={() => closeMobileMenu({ restoreFocus: false })}
               >
                 <span aria-hidden="true" className="text-base">🚀</span>
                 <span>WhatsApp Destek</span>
@@ -982,8 +1000,7 @@ export default function Navbar({
           ${mobileOpen ? "opacity-100 pointer-events-auto visible" : "opacity-0 pointer-events-none invisible"}
         `}
         onClick={() => {
-          setMobileOpen(false);
-          setMobileServicesOpen(false);
+          closeMobileMenu({ restoreFocus: true });
         }}
         aria-hidden="true"
         data-open={mobileOpen ? "true" : undefined}

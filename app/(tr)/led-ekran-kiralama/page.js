@@ -822,7 +822,11 @@ function TechnicalComparison() {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div
+          className="overflow-x-auto"
+          tabIndex={0}
+          aria-label="Piksel aralığı ve izleme mesafesi karşılaştırma tablosunu yatay kaydır"
+        >
           <table className="w-full text-left">
             <thead>
               <tr className="bg-white border-b border-gray-100">
@@ -1246,7 +1250,11 @@ function RegionalService() {
               <p className="text-gray-600 mt-2 text-lg">İstanbul içi ve çevre illerdeki hizmet standartlarımızın şeffaf dökümü.</p>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div
+            className="overflow-x-auto"
+            tabIndex={0}
+            aria-label="Bölgesel lojistik ve operasyon karşılaştırma tablosunu yatay kaydır"
+          >
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
                 <tr>

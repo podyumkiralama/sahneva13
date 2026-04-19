@@ -311,7 +311,7 @@ export default function ContactPage() {
                           href={WHATSAPP_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-green-600 hover:text-green-700 font-medium"
+                          className="text-green-800 hover:text-green-900 font-medium"
                           aria-label="WhatsApp üzerinden hızlı mesaj gönder (yeni sekmede açılır)"
                         >
                           Hızlı Mesaj Gönder
@@ -568,7 +568,7 @@ export default function ContactPage() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                    className="group bg-green-800 hover:bg-green-900 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                     aria-label="WhatsApp'tan acil destek iste (yeni sekmede açılır)"
                   >
                     <span className="flex items-center justify-center gap-2">
@@ -607,7 +607,7 @@ export default function ContactPage() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center text-green-600 font-bold text-sm"
+          className="flex flex-col items-center text-green-800 font-bold text-sm"
           aria-label="WhatsApp üzerinden Sahneva'ya yaz (yeni sekmede açılır)"
         >
           <span className="text-lg">💬</span>
