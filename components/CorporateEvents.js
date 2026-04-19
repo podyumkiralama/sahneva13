@@ -142,9 +142,9 @@ export default function CorporateEvents({
                   <Link
                     href={dictionary.cardCtaHref}
                     className={`inline-flex items-center gap-2 text-xs font-bold text-white transition-colors hover:text-blue-400 ${FOCUS_RING_CLASS}`}
-                    aria-label={`${dictionary.cardCtaLabel} - ${card.title}`}
                   >
                     <span>{dictionary.cardCtaLabel}</span>
+                    <span className="sr-only"> - {card.title}</span>
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>

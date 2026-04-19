@@ -93,7 +93,6 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
         ref={buttonRef}
         type="button"
         className={`inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-bold text-neutral-800 border border-transparent hover:border-neutral-200 hover:bg-neutral-50 transition-all duration-200 ${FOCUS_RING_CLASS}`}
-        aria-label={searchAriaLabel}
         aria-expanded={open ? "true" : "false"}
         onClick={() => {
           if (open) {
@@ -106,7 +105,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
         <span className="text-lg" aria-hidden="true">
           🔍
         </span>
-        <span className="hidden xl:inline">{searchButtonLabel}</span>
+        <span className="sr-only xl:not-sr-only">{searchButtonLabel}</span>
       </button>
 
       {open && (

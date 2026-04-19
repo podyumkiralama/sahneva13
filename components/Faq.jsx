@@ -122,7 +122,6 @@ function SupportCard({ dictionary }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`group flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-3 transition-all hover:border-green-500/30 hover:bg-white/10 ${FOCUS_RING_CLASS}`}
-          aria-label={`${dictionary.supportWhatsappLabel}: ${dictionary.whatsappActionText} – ${dictionary.newTabHint}`}
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-400 transition-colors group-hover:bg-green-500 group-hover:text-white">
             W
@@ -133,6 +132,7 @@ function SupportCard({ dictionary }) {
             </span>
             <span className="block text-sm font-bold text-white group-hover:text-green-300">
               {dictionary.whatsappActionText}
+              <span className="sr-only"> – {dictionary.newTabHint}</span>
             </span>
           </div>
         </a>
@@ -232,10 +232,13 @@ export default function Faq({
                 <a
                   href={dictionary.seeAllHref}
                   className={`inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 transition-colors hover:border-sky-300/70 hover:text-white ${FOCUS_RING_CLASS}`}
-                  aria-label={dictionary.seeAllAriaLabel}
                 >
                   <span aria-hidden="true">+</span>
                   {dictionary.seeAllLabel}
+                  {dictionary.seeAllAriaLabel &&
+                  dictionary.seeAllAriaLabel !== dictionary.seeAllLabel ? (
+                    <span className="sr-only"> - {dictionary.seeAllAriaLabel}</span>
+                  ) : null}
                 </a>
               </div>
             </div>
