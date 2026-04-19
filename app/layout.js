@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
-import { SITE_URL } from "@/lib/seo/seoConfig";
+import { BASE_SITE_URL } from "@/lib/seo/seoConfig";
 import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
@@ -18,7 +18,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(BASE_SITE_URL),
   manifest: "/manifest.json",
   icons: {
     icon: [
