@@ -67,6 +67,7 @@ export default function CorporateEvents({
   cards = DEFAULT_CARDS,
   advantages = DEFAULT_ADVANTAGES,
   dictionary: dictionaryOverride,
+  sectionPaddingClassName = "py-16 md:py-24 2xl:py-28",
   role,
   ariaLabel,
   ariaLabelledby,
@@ -82,7 +83,7 @@ export default function CorporateEvents({
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0B1120] pt-8 pb-16 md:pt-10 md:pb-24 2xl:pt-12 2xl:pb-28"
+      className={`relative overflow-hidden bg-[#0B1120] ${sectionPaddingClassName}`}
       role={role}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabel ? undefined : computedHeadingId}
