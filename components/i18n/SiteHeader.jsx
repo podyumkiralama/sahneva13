@@ -116,6 +116,7 @@ export default function SiteHeader({ locale, strings }) {
       </div>
       <nav
         className="container mx-auto px-4 sm:px-6 lg:px-8"
+        role="navigation"
         aria-label={ariaStrings.nav}
       >
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -195,6 +196,7 @@ export default function SiteHeader({ locale, strings }) {
       >
         <nav
           id="primary-navigation-mobile"
+          role="navigation"
           aria-label={ariaStrings.nav}
         >
           <div className="container mx-auto px-4 py-4 space-y-2">

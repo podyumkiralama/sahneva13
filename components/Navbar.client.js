@@ -103,7 +103,7 @@ export default function Navbar({
     ariaLabel || ariaLabelledby ? ariaLabelledby : computedHeadingId;
   const resolvedAriaDescribedby = ariaDescribedby ?? computedDescriptionId;
 
-  const navRole = roleOverride;
+  const navRole = roleOverride ?? "navigation";
   const shouldRenderHeading = !resolvedAriaLabel && !ariaLabelledby;
   const shouldRenderDescription = !ariaDescribedby;
 
@@ -451,7 +451,6 @@ export default function Navbar({
         onClick={() => setServicesOpen(false)}
         onKeyDown={(event) => handleServiceItemKeyDown(event, index)}
         aria-current={active(href) ? "page" : undefined}
-        role="menuitem"
         tabIndex={isOpen ? 0 : -1}
       >
         <span
@@ -568,7 +567,7 @@ export default function Navbar({
                     }
                     ${FOCUS_RING_CLASS}
                   `}
-                  aria-haspopup="menu"
+                  aria-haspopup="true"
                   aria-expanded={servicesOpen ? "true" : "false"}
                   aria-controls={servicesMenuId}
                   onClick={() =>
@@ -673,9 +672,7 @@ export default function Navbar({
                           {/* Sağ kolonlar: ARIA MENU */}
                           <div
                             id={servicesMenuId}
-                            role="menu"
                             aria-label="Hizmetler menüsü"
-                            aria-orientation="vertical"
                             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
                           >
                             {serviceCols.map((col, colIndex) => {

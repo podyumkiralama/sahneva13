@@ -8,7 +8,6 @@ export default function ExternalLink({
   href,
   children,
   className = "",
-  title,
   target = "_blank",
   rel,
   nofollow = false,
@@ -64,6 +63,9 @@ export default function ExternalLink({
         : `${baseAriaLabel} – yeni sekmede açılır`
       : "Yeni sekmede açılır"
     : baseAriaLabel;
+  const shouldUseAriaLabel = Boolean(ariaLabel) || !visibleText;
+  const shouldRenderNewTabHint =
+    isNewTab && visibleText && !hasNewTabHint(visibleText);
 
   // 2) REL güvenliği + nofollow (isteğe bağlı)
   let computedRel = rel || "";
@@ -105,8 +107,7 @@ export default function ExternalLink({
       href={href}
       target={target}
       rel={computedRel || undefined}
-      title={title}
-      aria-label={computedAriaLabel}
+      aria-label={shouldUseAriaLabel ? computedAriaLabel : undefined}
       className={className}
       itemProp={itemPropValue}
       data-external-link="true"
@@ -114,6 +115,9 @@ export default function ExternalLink({
     >
       {/* Görünür içerik */}
       {children}
+      {shouldRenderNewTabHint ? (
+        <span className="sr-only"> (yeni sekmede açılır)</span>
+      ) : null}
     </a>
   );
 }

@@ -78,6 +78,7 @@ export default function Accordion({ items = [], variant = "light" }) {
           >
             {/* ✅ İYİLEŞTİRİLDİ: Soru butonu SEO optimizasyonu */}
             <button
+              type="button"
               className={styles.btnBase}
               aria-expanded={isOpen}
               aria-controls={answerId}
