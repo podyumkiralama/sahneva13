@@ -475,7 +475,7 @@ export default function HomePage() {
       </section>
 
       {/* Teknik */}
-      <div className="content-visibility-auto bg-slate-900 py-10">
+      <div className="content-visibility-auto bg-slate-900 pt-10 pb-0">
         <TechCapabilities />
       </div>
 
