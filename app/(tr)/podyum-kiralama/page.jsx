@@ -498,7 +498,7 @@ function ServicesSection() {
             teknik destek ve söküm
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 max-w-7xl mx-auto">
           {SERVICES.map((service, idx) => (
             <article
               key={idx}
@@ -591,7 +591,7 @@ function PackagesSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-white [content-visibility:auto] [contain-intrinsic-size:1px_1100px]">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -602,7 +602,7 @@ function PackagesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 max-w-7xl mx-auto">
           {PACKAGES.map((pkg, index) => {
             const prices = calculatePackagePrice(pkg.layout);
             return (
@@ -670,7 +670,7 @@ function PackagesSection() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full min-h-[52px] inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+                    className="mt-2 w-full min-h-[56px] inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
                     <span className="text-lg mr-2">💬</span> Hemen Teklif Al
                   </Link>
@@ -692,7 +692,7 @@ function PackagesSection() {
 
 function GallerySection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50 [content-visibility:auto] [contain-intrinsic-size:1px_1200px]">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
