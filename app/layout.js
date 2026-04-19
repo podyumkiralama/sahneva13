@@ -7,8 +7,8 @@ import "../styles/globals.css";
 import { inter } from "./fonts";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
-import { headers } from "next/headers";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { headers } from "next/headers";
 
 /* ================== VIEWPORT ================== */
 export const viewport = {
