@@ -312,9 +312,9 @@ export default function ContactPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-green-800 hover:text-green-900 font-medium"
-                          aria-label="WhatsApp üzerinden hızlı mesaj gönder (yeni sekmede açılır)"
                         >
                           Hızlı Mesaj Gönder
+                          <span className="sr-only"> (yeni sekmede açılır)</span>
                         </a>
                       </InfoRow>
                       <InfoRow label="E-posta" icon="✉️">
@@ -323,6 +323,7 @@ export default function ContactPage() {
                           className="text-purple-600 hover:text-purple-700 font-medium"
                         >
                           {MAIL}
+                          <span className="sr-only"> (e-posta uygulamasını açar)</span>
                         </a>
                       </InfoRow>
                     </div>
@@ -382,7 +383,6 @@ export default function ContactPage() {
                           required
                           autoComplete="name"
                           inputMode="text"
-                          title="Teklif hazırlarken sizi doğru hitapla arayabilmemiz için adınızı yazın."
                         />
                         <p id="name-help" className="mt-2 text-xs text-neutral-500">
                           Teklifi hangi kişiyle paylaşacağımızı ve gerektiğinde kimi arayacağımızı belirtin.
@@ -405,7 +405,6 @@ export default function ContactPage() {
                           required
                           autoComplete="tel"
                           inputMode="tel"
-                          title="Ülke kodu dahil ulaşılabilir bir numara yazın."
                         />
                         <p id="phone-help" className="mt-2 text-xs text-neutral-500">
                           Ülke koduyla birlikte yazarsanız ekibimiz sizi arayarak detayları hızla netleştirebilir.
@@ -430,7 +429,6 @@ export default function ContactPage() {
                         required
                         autoComplete="email"
                         inputMode="email"
-                        title="Teklif ve çizimleri gönderebileceğimiz geçerli bir e-posta yazın."
                       />
                       <p id="email-help" className="mt-2 text-xs text-neutral-500">
                         Teklif, teknik çizimler ve onay süreçleri için bu adresi kullanacağız.
@@ -484,7 +482,6 @@ export default function ContactPage() {
                         className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60 resize-none"
                         required
                         autoComplete="off"
-                        title="Tarih, konum, kitle büyüklüğü ve teknik ihtiyaçları paylaşın."
                       />
                       <p id="message-help" className="mt-2 text-xs text-neutral-500">
                         Tarih, mekan, hedef kitle ve ihtiyaç duyduğunuz ekipmanları yazdığınızda teklif süreci hızlanır.
@@ -508,6 +505,7 @@ export default function ContactPage() {
                       className="hidden"
                       tabIndex={-1}
                       autoComplete="off"
+                      aria-hidden="true"
                     />
 
                     <button
@@ -630,9 +628,16 @@ export default function ContactPage() {
 function ContactCard({ icon, title, info, description, href, color, buttonText }) {
   const headingId = `iletisim-kart-${title.toLowerCase().replace(/[^a-z0-9çğıöşü]+/gi, "-")}`;
   const descriptionId = `${headingId}-aciklama`;
+  const isExternal = typeof href === "string" && /^https?:\/\//.test(href);
+  const opensMailApp = typeof href === "string" && href.startsWith("mailto:");
+  const extraHint = isExternal
+    ? " (yeni sekmede açılır)"
+    : opensMailApp
+      ? " (e-posta uygulamasını açar)"
+      : "";
 
   return (
-    <article
+    <div
       className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
       role="listitem"
       aria-labelledby={headingId}
@@ -653,15 +658,17 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       </p>
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         aria-describedby={`${headingId} ${descriptionId}`}
-        aria-label={`${title} – ${buttonText} (yeni sekmede açılır)`}
         className={`inline-flex items-center justify-center bg-gradient-to-r ${color} hover:shadow-xl text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg`}
       >
-        <span className="flex items-center gap-2">{buttonText}</span>
+        <span className="flex items-center gap-2">
+          {buttonText}
+          {extraHint ? <span className="sr-only">{extraHint}</span> : null}
+        </span>
       </a>
-    </article>
+    </div>
   );
 }
 

@@ -530,6 +530,7 @@ export default function ProjectsGallery({
       </div>
 
       <button
+        type="button"
         ref={closeBtn}
         className={`
           absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
@@ -558,6 +559,7 @@ export default function ProjectsGallery({
       {openState.items.length > 1 && (
         <>
           <button
+            type="button"
             onClick={prev}
             className="
               hidden md:flex absolute left-6 top-1/2 -translate-y-1/2
@@ -572,6 +574,7 @@ export default function ProjectsGallery({
           </button>
 
           <button
+            type="button"
             onClick={next}
             className="
               hidden md:flex absolute right-6 top-1/2 -translate-y-1/2
@@ -610,6 +613,7 @@ export default function ProjectsGallery({
         {openState.items.length > 1 && (
           <div className="absolute inset-x-0 -bottom-2 flex items-center justify-between px-6 md:hidden text-white/80 text-sm">
             <button
+              type="button"
               onClick={prev}
               className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
               aria-label={normalizedDictionary.mobilePrevLabel}
@@ -626,6 +630,7 @@ export default function ProjectsGallery({
             </span>
 
             <button
+              type="button"
               onClick={next}
               className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
               aria-label={normalizedDictionary.mobileNextLabel}

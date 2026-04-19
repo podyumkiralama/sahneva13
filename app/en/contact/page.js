@@ -307,10 +307,10 @@ export default function ContactPage() {
                           href={WHATSAPP_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-green-600 hover:text-green-700 font-medium"
-                          aria-label="Message us on WhatsApp (opens in a new tab)"
+                          className="text-green-800 hover:text-green-900 font-medium"
                         >
                           Message Now
+                          <span className="sr-only"> (opens in a new tab)</span>
                         </a>
                       </InfoRow>
                       <InfoRow label="Email" icon="✉️">
@@ -319,6 +319,7 @@ export default function ContactPage() {
                           className="text-purple-600 hover:text-purple-700 font-medium"
                         >
                           {MAIL}
+                          <span className="sr-only"> (opens your email app)</span>
                         </a>
                       </InfoRow>
                     </div>
@@ -377,7 +378,6 @@ export default function ContactPage() {
                           required
                           autoComplete="name"
                           inputMode="text"
-                          title="Please enter your full name so we can address your proposal."
                         />
                         <p id="name-help" className="mt-2 text-xs text-neutral-500">
                           Tell us who to contact for the proposal and follow-up questions.
@@ -400,7 +400,6 @@ export default function ContactPage() {
                           required
                           autoComplete="tel"
                           inputMode="tel"
-                          title="Add your country code and a reachable number for confirmation calls."
                         />
                         <p id="phone-help" className="mt-2 text-xs text-neutral-500">
                           Include the country code so our team can call or message you back promptly.
@@ -425,7 +424,6 @@ export default function ContactPage() {
                         required
                         autoComplete="email"
                         inputMode="email"
-                        title="Use a valid business email so we can send your quote and drawings."
                       />
                       <p id="email-help" className="mt-2 text-xs text-neutral-500">
                         We will share your proposal and any technical drawings at this address.
@@ -477,7 +475,6 @@ export default function ContactPage() {
                         className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60 resize-none"
                         required
                         autoComplete="off"
-                        title="Share timing, location, audience size and any technical requirements."
                       />
                       <p id="message-help" className="mt-2 text-xs text-neutral-500">
                         Include the date, venue, audience size and any specific equipment so we can tailor your quote.
@@ -501,6 +498,7 @@ export default function ContactPage() {
                       className="hidden"
                       tabIndex={-1}
                       autoComplete="off"
+                      aria-hidden="true"
                     />
 
                     <button
@@ -561,7 +559,7 @@ export default function ContactPage() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+              className="group bg-green-800 hover:bg-green-900 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                     aria-label="Request emergency support on WhatsApp (opens in a new tab)"
                   >
                     <span className="flex items-center justify-center gap-2">
@@ -598,7 +596,7 @@ export default function ContactPage() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center text-green-600 font-bold text-sm"
+              className="flex flex-col items-center text-green-800 font-bold text-sm"
           aria-label="Message Sahneva on WhatsApp (opens in a new tab)"
         >
           <span className="text-lg">💬</span>
@@ -621,9 +619,16 @@ export default function ContactPage() {
 function ContactCard({ icon, title, info, description, href, color, buttonText }) {
   const headingId = `contact-card-${title.toLowerCase().replace(/[^a-z0-9]+/gi, "-")}`;
   const descriptionId = `${headingId}-description`;
+  const isExternal = typeof href === "string" && /^https?:\/\//.test(href);
+  const opensMailApp = typeof href === "string" && href.startsWith("mailto:");
+  const extraHint = isExternal
+    ? " (opens in a new tab)"
+    : opensMailApp
+      ? " (opens your email app)"
+      : "";
 
   return (
-    <article
+    <div
       className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
       role="listitem"
       aria-labelledby={headingId}
@@ -644,15 +649,17 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       </p>
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         aria-describedby={`${headingId} ${descriptionId}`}
-        aria-label={`${title} – ${buttonText} (opens in a new tab)`}
         className={`inline-flex items-center justify-center bg-gradient-to-r ${color} hover:shadow-xl text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg`}
       >
-        <span className="flex items-center gap-2">{buttonText}</span>
+        <span className="flex items-center gap-2">
+          {buttonText}
+          {extraHint ? <span className="sr-only">{extraHint}</span> : null}
+        </span>
       </a>
-    </article>
+    </div>
   );
 }
 

@@ -97,7 +97,6 @@ const FooterLink = ({
 const SocialLink = ({
   href,
   label,
-  title,
   icon,
   gradient,
   rel,
@@ -112,7 +111,6 @@ const SocialLink = ({
         target="_blank"
         rel={relValue}
         aria-label={`${label} – yeni sekmede açılır`}
-        title={title || label}
         className={`
           group relative inline-flex ${sizeClass} items-center justify-center rounded-2xl
           bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10
@@ -460,12 +458,15 @@ export default function Footer({
                 >
                   ✉️
                 </span>
-                <a
-                  href="mailto:info@sahneva.com"
-                  className={`text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
-                >
-                  info@sahneva.com
-                </a>
+                  <a
+                    href="mailto:info@sahneva.com"
+                    className={`text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
+                  >
+                    info@sahneva.com
+                    <span className="sr-only">
+                      {isEn ? " (opens your email app)" : " (e-posta uygulamasını açar)"}
+                    </span>
+                  </a>
               </div>
 
               {/* Çalışma saatleri */}

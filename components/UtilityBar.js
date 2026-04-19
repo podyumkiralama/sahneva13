@@ -588,6 +588,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
         } bottom-6 z-50`}
       >
         <button
+          type="button"
           onClick={() => setIsActive(true)}
           className="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
           aria-label="Erişilebilirlik ayarlarını aç"
@@ -622,6 +623,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
 
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={togglePanelPosition}
               className="w-8 h-8 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
               aria-label={`Paneli ${
@@ -631,6 +633,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
               {panelPosition === "right" ? "◀" : "▶"}
             </button>
             <button
+              type="button"
               onClick={() => setIsActive(false)}
               className="w-8 h-8 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
               aria-label="Erişilebilirlik panelini kapat"
@@ -650,6 +653,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
             { id: "tools", label: "Araçlar", icon: "🛠️" },
           ].map((tab) => (
             <button
+              type="button"
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex-1 flex flex-col items-center py-3 text-xs font-medium transition-colors ${
@@ -735,6 +739,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
                 </h4>
                 <div className="flex items-center gap-3">
                   <button
+                    type="button"
                     onClick={() => setFontSizeWithSave(fontSize - 2)}
                     className="flex-1 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-bold text-lg transition-colors"
                   >
@@ -744,6 +749,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
                     {fontSize}px
                   </div>
                   <button
+                    type="button"
                     onClick={() => setFontSizeWithSave(fontSize + 2)}
                     className="flex-1 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-bold text-lg transition-colors"
                   >
@@ -945,6 +951,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
         <div className="border-t border-gray-200 bg-gray-50 p-3">
           <div className="flex justify-end">
             <button
+              type="button"
               onClick={() => setIsActive(false)}
               className="px-4 py-2 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm"
             >
