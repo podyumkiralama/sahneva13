@@ -748,13 +748,15 @@ export default function Navbar({
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp Destek – yeni sekmede açılır"
                 className={whatsappBtnClass}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
                 </span>
-                <span>WhatsApp Destek</span>
+                <span>
+                  WhatsApp Destek
+                  <span className="sr-only"> (yeni sekmede açılır)</span>
+                </span>
               </a>
             </div>
 
@@ -978,12 +980,14 @@ export default function Navbar({
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=mobile_whatsapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp Destek – yeni sekmede açılır"
                 className={`${mobileWhatsappBtnClass} mt-4`}
                 onClick={() => closeMobileMenu({ restoreFocus: false })}
               >
                 <span aria-hidden="true" className="text-base">🚀</span>
-                <span>WhatsApp Destek</span>
+                <span>
+                  WhatsApp Destek
+                  <span className="sr-only"> (yeni sekmede açılır)</span>
+                </span>
               </a>
             </div>
           </div>

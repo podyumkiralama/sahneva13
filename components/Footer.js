@@ -110,7 +110,6 @@ const SocialLink = ({
         href={href}
         target="_blank"
         rel={relValue}
-        aria-label={`${label} – yeni sekmede açılır`}
         className={`
           group relative inline-flex ${sizeClass} items-center justify-center rounded-2xl
           bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10
@@ -128,6 +127,7 @@ const SocialLink = ({
         <span aria-hidden="true" className="text-xl relative z-10">
           {icon}
         </span>
+        <span className="sr-only">{label} (yeni sekmede açılır)</span>
       </a>
     </li>
   );
@@ -500,7 +500,6 @@ export default function Footer({
                       group inline-flex items-center gap-2 text-xs text-gray-300
                       hover:text-white transition-all duration-300 ${FOCUS_RING_CLASS}
                     `}
-                    aria-label={`${displayLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
                   >
                     <span
                       className="group-hover:scale-110 transition-transform duration-300"
@@ -509,6 +508,9 @@ export default function Footer({
                       {icon}
                     </span>
                     {displayLabel}
+                    <span className="sr-only">
+                      {isEn ? " (opens in a new tab)" : " (yeni sekmede açılır)"}
+                    </span>
                   </a>
                 );
               })}
