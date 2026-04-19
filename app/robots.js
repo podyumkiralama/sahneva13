@@ -1,7 +1,8 @@
 // app/robots.js
+import { SITE_URL } from "@/lib/seo/seoConfig";
 
 export default function robots() {
-  const host = "https://www.sahneva.com";
+  const host = SITE_URL;
   const disallow = ["/api/", "/private/", "/search"];
 
   return {
