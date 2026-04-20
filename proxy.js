@@ -103,7 +103,6 @@ function shouldNoindexQueryVariant(request) {
 export function proxy(request) {
   const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
   requestHeaders.set("x-nonce", nonce);
 
   const response = NextResponse.next({
