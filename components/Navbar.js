@@ -162,9 +162,9 @@ export default function Navbar({ locale = "tr", ...props }) {
     <>
       <nav
         {...props}
-        className="fixed top-0 inset-x-0 z-50 overflow-hidden border-b border-cyan-300/15 bg-[#050A18]/88 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+        className="fixed top-0 inset-x-0 z-50 border-b border-cyan-300/15 bg-[#050A18]/88 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl"
       >
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_50%,rgba(34,211,238,0.24),transparent_32%),radial-gradient(circle_at_84%_40%,rgba(59,130,246,0.2),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,48px_48px]" />
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
         </div>
