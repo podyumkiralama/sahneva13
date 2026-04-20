@@ -134,13 +134,11 @@ export default function Navbar({ locale = "tr", ...props }) {
   const blogHref = isEn ? "/en/blog" : "/blog";
   const servicesHref = isEn ? "/en/services" : "/hizmetler";
   const projectsHref = isEn ? "/en/projects" : "/projeler";
-  const corporateHref = isEn ? "/en/corporate-events" : "/kurumsal-organizasyon";
   const otherLocaleHref = isEn ? "/" : "/en";
 
   const aboutLabel = isEn ? "About Us" : "Hakkımızda";
   const blogLabel = isEn ? "Blog" : "Blog";
   const projectsLabel = isEn ? "Projects" : "Projeler";
-  const corporateLabel = isEn ? "Corporate" : "Kurumsal";
   const quoteLabel = isEn ? "Get Quote" : "Teklif Al";
   const otherLocaleLabel = isEn ? "TR" : "EN";
   const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
@@ -309,6 +307,9 @@ export default function Navbar({ locale = "tr", ...props }) {
               </details>
 
               {/* ✅ Only ONE "Bizi Araştırın" (after Services, as you wanted) */}
+              <DesktopNavLink href={projectsHref}>{projectsLabel}</DesktopNavLink>
+              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
+
               <details
                 id="nav-research-details"
                 className="relative group"
@@ -397,10 +398,6 @@ export default function Navbar({ locale = "tr", ...props }) {
                   </div>
                 </div>
               </details>
-
-              <DesktopNavLink href={projectsHref}>{projectsLabel}</DesktopNavLink>
-              <DesktopNavLink href={corporateHref}>{corporateLabel}</DesktopNavLink>
-              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
 
               <NavbarSearchDropdown locale={locale} />
 
