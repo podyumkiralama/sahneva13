@@ -92,7 +92,6 @@ export default function Navbar({
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const computedHeadingId = headingIdProp ?? `navbar-heading-${instanceId}`;
   const computedDescriptionId =
@@ -129,8 +128,7 @@ export default function Navbar({
     [pathname]
   );
 
-  const isHomePage = pathname === "/";
-  const isDarkNav = isHomePage && !isScrolled;
+  const isDarkNav = false;
 
   const closeMobileMenu = useCallback(({ restoreFocus = false } = {}) => {
     const activeElement = document.activeElement;
@@ -167,6 +165,15 @@ export default function Navbar({
     />
   </svg>
 </Link>
+
+  const whatsappBtnClass = useMemo(
+    () =>
+      `ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-white text-sm font-bold
+       bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
+       transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105
+       min-h-[44px] border border-green-700/20 ${FOCUS_RING_CLASS}`,
+    []
+  );
 
   const mobileWhatsappBtnClass = useMemo(
     () =>
@@ -408,51 +415,25 @@ export default function Navbar({
     };
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const NavLink = useCallback(
     ({ href, children, className = "" }) => (
       <Link
         href={href}
         className={`
-          group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] transition-colors duration-200 xl:text-[15px]
+          relative text-[15px] font-bold transition-all duration-200 px-4 py-2.5 rounded-xl
           ${
             active(href)
-              ? isDarkNav
-                ? "text-cyan-100"
-                : "text-blue-700"
-              : isDarkNav
-                ? "text-slate-200 hover:text-cyan-100"
-                : "text-neutral-900 hover:text-blue-700"
+              ? "text-blue-700 bg-blue-50 border border-blue-200"
+              : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 hover:border hover:border-neutral-200 border border-transparent"
           }
           ${FOCUS_RING_CLASS} ${className}
         `}
         aria-current={active(href) ? "page" : undefined}
       >
         {children}
-        <span
-          className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-200 ${
-            active(href)
-              ? isDarkNav
-                ? "w-full bg-cyan-300"
-                : "w-full bg-current"
-              : isDarkNav
-                ? "w-0 bg-cyan-300 group-hover:w-full"
-                : "w-0 bg-current group-hover:w-full"
-          }`}
-          aria-hidden="true"
-        />
       </Link>
     ),
-    [active, isDarkNav]
+    [active]
   );
 
   const ServiceLink = useCallback(
@@ -534,18 +515,8 @@ export default function Navbar({
         aria-labelledby={resolvedAriaLabel ? undefined : resolvedAriaLabelledby}
         aria-describedby={resolvedAriaDescribedby}
         role={navRole}
-        className={`fixed top-0 inset-x-0 z-50 overflow-hidden border-b backdrop-blur-xl transition-all duration-300 ${
-          isDarkNav
-            ? "border-cyan-300/15 bg-[#050A18]/82 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
-            : "border-neutral-200/80 bg-white/95 shadow-lg"
-        }`}
+        className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg"
       >
-        {isDarkNav && (
-          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_50%,rgba(34,211,238,0.24),transparent_32%),radial-gradient(circle_at_84%_40%,rgba(59,130,246,0.2),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,48px_48px]" />
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
-          </div>
-        )}
         {shouldRenderHeading && (
           <p id={computedHeadingId} className="sr-only">
             {headerStrings.navLabel}
@@ -557,7 +528,7 @@ export default function Navbar({
           </p>
         )}
 
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href="/"
@@ -571,19 +542,16 @@ export default function Navbar({
                 height={40}
                 decoding="async"
                 sizes="(max-width: 768px) 120px, 160px"
-                className="h-8 w-auto transition duration-200 group-hover:scale-105 xl:h-10"
+                className="h-8 lg:h-10 w-auto transition-transform duration-200 group-hover:scale-105"
               />
 
             </Link>
 
             <div
-              className={`hidden lg:flex items-center gap-3 rounded-full px-4 py-2 transition-all duration-300 xl:gap-4 2xl:gap-5 ${
-                isDarkNav
-                  ? "border border-white/10 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                  : "border border-neutral-200/80 bg-white/75 shadow-sm"
-              }`}
+              className="hidden lg:flex items-center gap-4"
             >
               <NavLink href="/hakkimizda">Hakkımızda</NavLink>
+              <NavLink href="/blog">Blog</NavLink>
 
               {/* Hizmetler */}
               <div
@@ -595,15 +563,11 @@ export default function Navbar({
                   id={servicesBtnId}
                   type="button"
                   className={`
-                    group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] transition-colors duration-200 xl:text-[15px]
+                    relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 group border
                     ${
                       servicesOpen
-                        ? isDarkNav
-                          ? "text-cyan-100"
-                          : "text-blue-700"
-                        : isDarkNav
-                          ? "text-slate-200 hover:text-cyan-100"
-                          : "text-neutral-900 hover:text-blue-700"
+                        ? "text-blue-700 bg-blue-50 border-blue-200"
+                        : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200"
                     }
                     ${FOCUS_RING_CLASS}
                   `}
@@ -623,9 +587,7 @@ export default function Navbar({
                   <span className="flex items-center gap-2">
                     Hizmetler
                     <svg
-                      className={`h-3.5 w-3.5 ${
-                        isDarkNav ? "text-cyan-300" : "text-blue-600"
-                      } transition-transform duration-200 ${
+                      className={`w-4 h-4 transition-transform duration-200 ${
                         servicesOpen ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -641,12 +603,6 @@ export default function Navbar({
                       />
                     </svg>
                   </span>
-                  <span
-                    className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-200 ${
-                      servicesOpen ? "w-full" : "w-0 group-hover:w-full"
-                    } ${isDarkNav ? "bg-cyan-300" : "bg-current"}`}
-                    aria-hidden="true"
-                  />
                 </button>
 
                 {/* hover köprüsü */}
