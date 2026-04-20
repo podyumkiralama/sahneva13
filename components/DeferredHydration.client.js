@@ -54,6 +54,9 @@ export default function DeferredHydration({
     let observer;
     let idleId = null;
     let idleUsingRaf = false;
+    let scrollSettleId = null;
+    let isScrolling = false;
+    let hydrateAfterScroll = false;
     let cancelled = false;
 
     const hydrateNow = () => {
@@ -66,6 +69,17 @@ export default function DeferredHydration({
         observer = undefined;
       }
 
+      cancelScheduledHydration();
+    };
+
+    const cancelScrollSettle = () => {
+      if (scrollSettleId !== null) {
+        window.clearTimeout(scrollSettleId);
+        scrollSettleId = null;
+      }
+    };
+
+    const cancelScheduledHydration = () => {
       if (idleId !== null) {
         if (!idleUsingRaf && "cancelIdleCallback" in window) {
           window.cancelIdleCallback(idleId);
@@ -76,6 +90,58 @@ export default function DeferredHydration({
       }
     };
 
+    const scheduleHydration = (timeout = idleTimeout) => {
+      if (cancelled || hasHydratedRef.current || idleId !== null) return;
+      if (timeout == null || timeout < 0) return;
+
+      const runWhenSettled = () => {
+        idleId = null;
+
+        if (cancelled || hasHydratedRef.current) return;
+
+        if (isScrolling) {
+          hydrateAfterScroll = true;
+          return;
+        }
+
+        hydrateNow();
+      };
+
+      if ("requestIdleCallback" in window) {
+        idleUsingRaf = false;
+        idleId = window.requestIdleCallback(runWhenSettled, { timeout });
+        return;
+      }
+
+      idleUsingRaf = true;
+      const start = performance.now();
+
+      const loop = () => {
+        if (performance.now() - start >= timeout) {
+          runWhenSettled();
+          return;
+        }
+        idleId = requestAnimationFrame(loop);
+      };
+
+      idleId = requestAnimationFrame(loop);
+    };
+
+    const handleScroll = () => {
+      isScrolling = true;
+      cancelScrollSettle();
+
+      scrollSettleId = window.setTimeout(() => {
+        isScrolling = false;
+        scrollSettleId = null;
+
+        if (hydrateAfterScroll) {
+          hydrateAfterScroll = false;
+          scheduleHydration(700);
+        }
+      }, 140);
+    };
+
     // --- SEO GÜVENLİĞİ: Eğer giren bir botsa, beklemeden hydrate et ---
     if (isBot()) {
       hydrateNow();
@@ -83,13 +149,15 @@ export default function DeferredHydration({
     }
     // ------------------------------------------------------------------
 
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     // Görünür olunca hydrate et
     if ("IntersectionObserver" in window && ref.current) {
       observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             if (entry.isIntersecting) {
-              hydrateNow();
+              scheduleHydration(1200);
               break;
             }
           }
@@ -104,35 +172,7 @@ export default function DeferredHydration({
     }
 
     // Tarayıcı boşta kalınca yedek hydrate
-    const scheduleIdle = () => {
-      if (idleTimeout == null || idleTimeout < 0) return;
-
-      if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(
-          (deadline) => {
-            if (deadline.timeRemaining() > 10) {
-              hydrateNow();
-            }
-          },
-          { timeout: idleTimeout }
-        );
-      } else {
-        idleUsingRaf = true;
-        const start = performance.now();
-
-        const loop = () => {
-          if (performance.now() - start >= idleTimeout) {
-            hydrateNow();
-            return;
-          }
-          idleId = requestAnimationFrame(loop);
-        };
-
-        idleId = requestAnimationFrame(loop);
-      }
-    };
-
-    scheduleIdle();
+    scheduleHydration();
 
     return () => {
       cancelled = true;
@@ -142,13 +182,10 @@ export default function DeferredHydration({
         observer = undefined;
       }
 
-      if (idleId !== null) {
-        if (!idleUsingRaf && "cancelIdleCallback" in window) {
-          window.cancelIdleCallback(idleId);
-        } else {
-          cancelAnimationFrame(idleId);
-        }
-      }
+      cancelScheduledHydration();
+
+      cancelScrollSettle();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [rootMargin, idleTimeout, forceHydrate]);
 
