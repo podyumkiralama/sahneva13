@@ -65,10 +65,6 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   trailingSlash: false,
 
-  experimental: {
-    optimizeCss: true,
-  },
-
   compiler: {
     removeConsole: isProd ? { exclude: ["error", "warn"] } : false,
   },
