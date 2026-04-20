@@ -1,3 +1,4 @@
+import { Buffer } from "node:buffer";
 import { NextResponse } from "next/server";
 
 export const config = {
@@ -6,26 +7,15 @@ export const config = {
   ],
 };
 
-function buildCsp({ siteUrl, isPreview }) {
+function generateNonce() {
+  return Buffer.from(crypto.randomUUID()).toString("base64");
+}
+
+function buildCsp({ nonce, siteUrl, isPreview }) {
   const scriptSrc = [
     "'self'",
-    "https://www.googletagmanager.com",
-    "https://www.google-analytics.com",
-    "https://va.vercel-scripts.com",
-    "https://vercel.live",
-    "https://www.clarity.ms",
-    "https://scripts.clarity.ms",
-    "https://k.clarity.ms",
-    "https://z.clarity.ms",
-    "https://l.clarity.ms",
-    "https://static.cloudflareinsights.com",
-  ].join(" ");
-
-  const scriptSrcElem = [
-    "'self'",
-    // Next.js static output still emits inline bootstrap/RSC scripts. Keep this
-    // scoped to script elements while script-src-attr stays locked down.
-    "'unsafe-inline'",
+    `'nonce-${nonce}'`,
+    "'strict-dynamic'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
@@ -83,7 +73,7 @@ function buildCsp({ siteUrl, isPreview }) {
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     script-src ${scriptSrc};
-    script-src-elem ${scriptSrcElem};
+    script-src-elem ${scriptSrc};
     script-src-attr 'none';
     connect-src ${connectSrc};
     worker-src 'self' blob:;
@@ -111,15 +101,20 @@ function shouldNoindexQueryVariant(request) {
 }
 
 export function proxy(request) {
+  const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  requestHeaders.set("x-nonce", nonce);
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },
   });
 
+  response.headers.set("x-nonce", nonce);
   response.headers.set(
     "Content-Security-Policy",
     buildCsp({
+      nonce,
       siteUrl: request.nextUrl.origin,
       isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
     })
