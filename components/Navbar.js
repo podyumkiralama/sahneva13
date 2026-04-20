@@ -102,6 +102,7 @@ function DesktopNavLink({ href, children }) {
   return (
     <Link
       href={href}
+      prefetch={false}
       className={`relative text-[15px] font-bold transition-all duration-200 px-4 py-2.5 rounded-xl
       text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border border-transparent hover:border-neutral-200
       ${FOCUS_RING_CLASS}`}
@@ -226,6 +227,7 @@ export default function Navbar({ locale = "tr", ...props }) {
                       <div className="grid gap-6 p-6 lg:grid-cols-[360px_1fr] items-stretch">
                         <Link
                           href={servicesHref}
+                          prefetch={false}
                           className={`group relative overflow-hidden rounded-2xl border border-neutral-200 ${FOCUS_RING_CLASS}`}
                         >
                           <div className="relative min-h-[360px] h-full bg-[#0B1120]">
@@ -265,6 +267,7 @@ export default function Navbar({ locale = "tr", ...props }) {
                             <Link
                               key={s.href}
                               href={s.href}
+                              prefetch={false}
                               className={`group flex items-start gap-3 rounded-xl px-5 py-3.5 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 ${FOCUS_RING_CLASS}`}
                             >
                               <span
