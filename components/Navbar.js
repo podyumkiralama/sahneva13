@@ -135,16 +135,12 @@ export default function Navbar({ locale = "tr", ...props }) {
   const servicesHref = isEn ? "/en/services" : "/hizmetler";
   const projectsHref = isEn ? "/en/projects" : "/projeler";
   const corporateHref = isEn ? "/en/corporate-events" : "/kurumsal-organizasyon";
-  const faqHref = isEn ? "/en/faq" : "/sss";
-  const contactHref = isEn ? "/en/contact" : "/iletisim";
   const otherLocaleHref = isEn ? "/" : "/en";
 
   const aboutLabel = isEn ? "About Us" : "Hakkımızda";
   const blogLabel = isEn ? "Blog" : "Blog";
   const projectsLabel = isEn ? "Projects" : "Projeler";
   const corporateLabel = isEn ? "Corporate" : "Kurumsal";
-  const faqLabel = isEn ? "FAQ" : "SSS";
-  const contactLabel = isEn ? "Contact" : "İletişim";
   const quoteLabel = isEn ? "Get Quote" : "Teklif Al";
   const otherLocaleLabel = isEn ? "TR" : "EN";
   const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
@@ -169,8 +165,8 @@ export default function Navbar({ locale = "tr", ...props }) {
         {/* Tiny client island: closes the <details> on outside click / Esc / link click */}
         <ServicesDropdownBehavior detailsId="nav-services-details" />
         <ServicesDropdownBehavior
-          detailsId="nav-contact-details"
-          panelId="nav-contact-panel"
+          detailsId="nav-research-details"
+          panelId="nav-research-panel"
         />
 
         <div className="container relative">
@@ -314,17 +310,17 @@ export default function Navbar({ locale = "tr", ...props }) {
 
               {/* ✅ Only ONE "Bizi Araştırın" (after Services, as you wanted) */}
               <details
-                id="nav-contact-details"
+                id="nav-research-details"
                 className="relative group"
                 data-nav-dropdown="true"
               >
                 <summary
-                  id="nav-contact-summary"
+                  id="nav-research-summary"
                   className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
-                    {contactLabel}
+                    {exploreLabel}
                     <svg
                       className="h-3.5 w-3.5 text-blue-600 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
@@ -347,19 +343,19 @@ export default function Navbar({ locale = "tr", ...props }) {
                 </summary>
 
                 <div
-                  id="nav-contact-panel"
+                  id="nav-research-panel"
                   data-dropdown-panel
                   role="region"
-                  aria-labelledby="nav-contact-title"
+                  aria-labelledby="nav-research-title"
                   className="hidden group-open:block absolute right-0 top-full mt-2 z-[70] w-[min(420px,90vw)]"
                 >
                   <div className="rounded-2xl border border-neutral-200 bg-white shadow-2xl p-4">
                     <div className="px-2 pt-1">
                       <div
-                        id="nav-contact-title"
+                        id="nav-research-title"
                         className="text-base font-extrabold text-neutral-900"
                       >
-                        {contactLabel}
+                        {exploreLabel}
                       </div>
                       <p className="mt-1 text-xs font-medium text-neutral-600">
                         {exploreSubtitle}
@@ -405,7 +401,6 @@ export default function Navbar({ locale = "tr", ...props }) {
               <DesktopNavLink href={projectsHref}>{projectsLabel}</DesktopNavLink>
               <DesktopNavLink href={corporateHref}>{corporateLabel}</DesktopNavLink>
               <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
-              <DesktopNavLink href={faqHref}>{faqLabel}</DesktopNavLink>
 
               <NavbarSearchDropdown locale={locale} />
 
