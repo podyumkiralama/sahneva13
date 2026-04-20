@@ -18,7 +18,6 @@ const content = LOCALE_CONTENT.ar;
 
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
-  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
