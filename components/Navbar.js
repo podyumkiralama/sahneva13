@@ -169,8 +169,8 @@ export default function Navbar({ locale = "tr", ...props }) {
         {/* Tiny client island: closes the <details> on outside click / Esc / link click */}
         <ServicesDropdownBehavior detailsId="nav-services-details" />
         <ServicesDropdownBehavior
-          detailsId="nav-research-details"
-          panelId="nav-research-panel"
+          detailsId="nav-contact-details"
+          panelId="nav-contact-panel"
         />
 
         <div className="container relative">
@@ -313,22 +313,20 @@ export default function Navbar({ locale = "tr", ...props }) {
               </details>
 
               {/* ✅ Only ONE "Bizi Araştırın" (after Services, as you wanted) */}
-              <div className="hidden">
               <details
-                id="nav-research-details"
+                id="nav-contact-details"
                 className="relative group"
                 data-nav-dropdown="true"
               >
                 <summary
-                  id="nav-research-summary"
-                  className={`list-none cursor-pointer select-none relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 border
-                    text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200
+                  id="nav-contact-summary"
+                  className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
-                    {exploreLabel}
+                    {contactLabel}
                     <svg
-                      className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
+                      className="h-3.5 w-3.5 text-blue-600 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -342,22 +340,26 @@ export default function Navbar({ locale = "tr", ...props }) {
                       />
                     </svg>
                   </span>
+                  <span
+                    className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full group-open:w-full"
+                    aria-hidden="true"
+                  />
                 </summary>
 
                 <div
-                  id="nav-research-panel"
+                  id="nav-contact-panel"
                   data-dropdown-panel
                   role="region"
-                  aria-labelledby="nav-research-title"
+                  aria-labelledby="nav-contact-title"
                   className="hidden group-open:block absolute right-0 top-full mt-2 z-[70] w-[min(420px,90vw)]"
                 >
                   <div className="rounded-2xl border border-neutral-200 bg-white shadow-2xl p-4">
                     <div className="px-2 pt-1">
                       <div
-                        id="nav-research-title"
+                        id="nav-contact-title"
                         className="text-base font-extrabold text-neutral-900"
                       >
-                        {exploreLabel}
+                        {contactLabel}
                       </div>
                       <p className="mt-1 text-xs font-medium text-neutral-600">
                         {exploreSubtitle}
@@ -399,13 +401,11 @@ export default function Navbar({ locale = "tr", ...props }) {
                   </div>
                 </div>
               </details>
-              </div>
 
               <DesktopNavLink href={projectsHref}>{projectsLabel}</DesktopNavLink>
               <DesktopNavLink href={corporateHref}>{corporateLabel}</DesktopNavLink>
               <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
               <DesktopNavLink href={faqHref}>{faqLabel}</DesktopNavLink>
-              <DesktopNavLink href={contactHref}>{contactLabel}</DesktopNavLink>
 
               <NavbarSearchDropdown locale={locale} />
 
