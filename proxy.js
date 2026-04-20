@@ -9,6 +9,22 @@ export const config = {
 function buildCsp({ siteUrl, isPreview }) {
   const scriptSrc = [
     "'self'",
+    "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
+    "https://va.vercel-scripts.com",
+    "https://vercel.live",
+    "https://www.clarity.ms",
+    "https://scripts.clarity.ms",
+    "https://k.clarity.ms",
+    "https://z.clarity.ms",
+    "https://l.clarity.ms",
+    "https://static.cloudflareinsights.com",
+  ].join(" ");
+
+  const scriptSrcElem = [
+    "'self'",
+    // Next.js static output still emits inline bootstrap/RSC scripts. Keep this
+    // scoped to script elements while script-src-attr stays locked down.
     "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
@@ -67,7 +83,7 @@ function buildCsp({ siteUrl, isPreview }) {
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     script-src ${scriptSrc};
-    script-src-elem ${scriptSrc};
+    script-src-elem ${scriptSrcElem};
     script-src-attr 'none';
     connect-src ${connectSrc};
     worker-src 'self' blob:;
