@@ -92,7 +92,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
       <button
         ref={buttonRef}
         type="button"
-        className={`inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/50 bg-cyan-300/10 text-cyan-100 transition-colors hover:bg-cyan-300/18 hover:text-white ${FOCUS_RING_CLASS}`}
+        className={`inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-800 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 ${FOCUS_RING_CLASS}`}
         aria-expanded={open ? "true" : "false"}
         onClick={() => {
           if (open) {
