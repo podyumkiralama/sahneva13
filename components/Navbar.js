@@ -102,12 +102,12 @@ function DesktopNavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className={`group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-slate-200 transition-colors duration-200 hover:text-cyan-100 xl:text-[15px]
+      className={`group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
       ${FOCUS_RING_CLASS}`}
     >
       {children}
       <span
-        className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-cyan-300 transition-all duration-200 group-hover:w-full"
+        className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full"
         aria-hidden="true"
       />
     </Link>
@@ -164,12 +164,8 @@ export default function Navbar({ locale = "tr", ...props }) {
     <>
       <nav
         {...props}
-        className="fixed top-0 inset-x-0 z-50 border-b border-cyan-300/15 bg-[#050A18]/88 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+        className="fixed top-0 inset-x-0 z-50 border-b border-neutral-200/80 bg-white/95 shadow-lg backdrop-blur-xl"
       >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_50%,rgba(34,211,238,0.24),transparent_32%),radial-gradient(circle_at_84%_40%,rgba(59,130,246,0.2),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,48px_48px]" />
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
-        </div>
         {/* Tiny client island: closes the <details> on outside click / Esc / link click */}
         <ServicesDropdownBehavior detailsId="nav-services-details" />
         <ServicesDropdownBehavior
@@ -197,7 +193,7 @@ export default function Navbar({ locale = "tr", ...props }) {
             </Link>
 
             {/* Desktop */}
-            <div className="hidden lg:flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] xl:gap-4 2xl:gap-5">
+            <div className="hidden lg:flex items-center gap-3 rounded-full border border-neutral-200/80 bg-white/75 px-4 py-2 shadow-sm xl:gap-4 2xl:gap-5">
               <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>
 
               {/* Services: native <details> => low JS */}
@@ -208,13 +204,13 @@ export default function Navbar({ locale = "tr", ...props }) {
               >
                 <summary
                   id="nav-services-summary"
-                  className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-slate-200 transition-colors duration-200 hover:text-cyan-100 xl:text-[15px]
+                  className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
                     {servicesDropdownLabel}
                     <svg
-                      className="h-3.5 w-3.5 text-cyan-300 transition-transform duration-200 group-open:rotate-180"
+                      className="h-3.5 w-3.5 text-blue-600 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -229,7 +225,7 @@ export default function Navbar({ locale = "tr", ...props }) {
                     </svg>
                   </span>
                   <span
-                    className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-cyan-300 transition-all duration-200 group-hover:w-full group-open:w-full"
+                    className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full group-open:w-full"
                     aria-hidden="true"
                   />
                 </summary>
@@ -416,7 +412,7 @@ export default function Navbar({ locale = "tr", ...props }) {
               <Link
                 href={otherLocaleHref}
                 hrefLang={isEn ? "tr" : "en"}
-                className={`inline-flex min-h-[44px] items-center text-sm font-black text-cyan-100 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
+                className={`inline-flex min-h-[44px] items-center text-sm font-black text-neutral-900 transition-colors hover:text-blue-700 ${FOCUS_RING_CLASS}`}
               >
                 {otherLocaleLabel}
               </Link>
@@ -426,7 +422,7 @@ export default function Navbar({ locale = "tr", ...props }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
-                className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 text-sm font-black text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.28)] transition-all duration-200 hover:bg-cyan-200 ${FOCUS_RING_CLASS}`}
+                className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#0B1120] px-5 text-sm font-black text-white shadow-lg shadow-blue-900/15 transition-all duration-200 hover:bg-blue-900 ${FOCUS_RING_CLASS}`}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
