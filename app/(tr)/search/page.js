@@ -6,12 +6,12 @@ const SEARCH_URL = `${SITE_URL}/search`;
 const SEARCH_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
 
 export const metadata = {
-  title: "Site İçi Arama",
-  description: "Sahneva sayfaları arasında anahtar kelime ile arama yapın.",
+  title: "Site Ä°Ã§i Arama",
+  description: "Sahneva sayfalarÄ± arasÄ±nda anahtar kelime ile arama yapÄ±n.",
   alternates: { canonical: SEARCH_URL },
   openGraph: {
-    title: "Site İçi Arama | Sahneva",
-    description: "Sahneva sayfaları arasında anahtar kelime ile arama yapın.",
+    title: "Site Ä°Ã§i Arama | Sahneva",
+    description: "Sahneva sayfalarÄ± arasÄ±nda anahtar kelime ile arama yapÄ±n.",
     url: SEARCH_URL,
     type: "website",
     locale: "tr_TR",
@@ -20,7 +20,7 @@ export const metadata = {
         url: SEARCH_OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Sahneva Site İçi Arama",
+        alt: "Sahneva Site Ä°Ã§i Arama",
       },
     ],
   },
@@ -40,25 +40,26 @@ const filterRoutes = (routes, query) => {
   });
 };
 
-export default function SearchPage({ searchParams }) {
-  const query = typeof searchParams?.q === "string" ? searchParams.q : "";
+export default async function SearchPage({ searchParams }) {
+  const params = await searchParams;
+  const query = typeof params?.q === "string" ? params.q : "";
   const routes = getSearchIndex();
   const results = filterRoutes(routes, query);
 
   return (
     <section className="container py-12 lg:py-16">
       <div className="max-w-3xl">
-        <p className="text-sm font-semibold text-blue-600">Site İçi Arama</p>
+        <p className="text-sm font-semibold text-blue-600">Site Ä°Ã§i Arama</p>
         <h1 className="mt-2 text-3xl font-black text-neutral-900 lg:text-4xl">
-          Aradığınız sayfayı hızlıca bulun
+          AradÄ±ÄŸÄ±nÄ±z sayfayÄ± hÄ±zlÄ±ca bulun
         </h1>
         <p className="mt-3 text-neutral-600">
-          Anahtar kelimenizi yazın, ilgili sayfaları hemen listeleyelim.
+          Anahtar kelimenizi yazÄ±n, ilgili sayfalarÄ± hemen listeleyelim.
         </p>
 
         <form action="/search" method="get" className="mt-6">
           <label htmlFor="search-page-input" className="sr-only">
-            Site içinde arama yapın
+            Site iÃ§inde arama yapÄ±n
           </label>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <input
@@ -66,7 +67,7 @@ export default function SearchPage({ searchParams }) {
               name="q"
               defaultValue={query}
               type="text"
-              placeholder="Örn: truss kiralama, iletişim..."
+              placeholder="Ã–rn: truss kiralama, iletiÅŸim..."
               className="flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 focus-ring"
             />
             <button
@@ -82,14 +83,14 @@ export default function SearchPage({ searchParams }) {
           <div className="border-b border-neutral-100 px-5 py-4">
             <p className="text-sm font-semibold text-neutral-900">
               {query.trim()
-                ? `"${query}" için ${results.length} sonuç`
+                ? `"${query}" iÃ§in ${results.length} sonuÃ§`
                 : `${results.length} sayfa listeleniyor`}
             </p>
           </div>
 
           {results.length === 0 ? (
             <div className="px-5 py-10 text-sm text-neutral-500">
-              Aradığınız anahtar kelimeyle eşleşen bir sayfa bulunamadı.
+              AradÄ±ÄŸÄ±nÄ±z anahtar kelimeyle eÅŸleÅŸen bir sayfa bulunamadÄ±.
             </div>
           ) : (
             <ul className="divide-y divide-neutral-100">

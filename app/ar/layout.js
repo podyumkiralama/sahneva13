@@ -1,16 +1,32 @@
+export const revalidate = 86400;
+
+import "../../styles/globals.css";
+import { inter } from "../fonts";
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
 import {
+  BASE_SITE_URL,
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import DocumentDirection from "@/components/i18n/DocumentDirection.client";
+import SkipLinks from "@/components/SkipLinks";
+import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 
 const content = LOCALE_CONTENT.ar;
 
 export const metadata = {
+  metadataBase: new URL(BASE_SITE_URL),
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  },
   title: {
     default: "سحنڤا | تأجير المسارح وشاشات LED والصوت والإضاءة في تركيا",
     template: "%s | Sahneva",
@@ -24,10 +40,25 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#6d28d9",
+};
+
 export default function ArabicLayout({ children }) {
   return (
+    <html
+      lang="ar"
+      xmlLang="ar"
+      dir={content.direction}
+      className={`${inter.variable} font-sans`}
+      suppressHydrationWarning
+    >
+      <body className="flex flex-col" dir={content.direction}>
+        <SkipLinks locale="ar" />
+        <AnalyticsConsentWrapper />
     <div className="flex min-h-screen flex-col bg-white text-neutral-900">
-      <DocumentDirection lang="ar" dir={content.direction} />
       <div id="_main_header">
         <SiteHeader
           locale="ar"
@@ -49,5 +80,7 @@ export default function ArabicLayout({ children }) {
       </div>
       <DeferredSpeedInsights />
     </div>
+      </body>
+    </html>
   );
 }
