@@ -73,10 +73,14 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
             type="image/webp"
           />
           <img
-            src="/img/hero-bg-desktop.webp"
+            src="/img/hero-bg-mobile.webp"
             alt="Sahneva etkinlik prod\u00fcksiyonu i\u00e7in sahne, LED ekran, ses-\u0131\u015f\u0131k ve podyum kurulumu"
+            width="768"
+            height="1024"
             fetchPriority="high"
+            loading="eager"
             decoding="async"
+            sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </picture>
@@ -104,10 +108,10 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
 
             <h1
               id="hero-title"
-              className="mt-3 text-4xl font-black leading-[1.15] drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] md:mt-4 md:text-6xl lg:text-7xl"
+              className="mt-3 text-4xl font-black leading-[1.12] md:mt-4 md:text-6xl md:leading-[1.15] md:drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] lg:text-7xl"
             >
               {d.titleLine1Prefix}{" "}
-              <span className="text-blue-200 [text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+              <span className="text-blue-200 md:[text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
                 {d.titleLine1}
               </span>
               <span className="block text-white">{d.titleLine2}</span>
@@ -117,7 +121,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
 
             <p
               id="hero-desc"
-              className="mx-auto max-w-3xl text-base leading-relaxed text-white/90 [text-shadow:0_10px_26px_rgba(0,0,0,0.45)] md:text-xl md:leading-loose"
+              className="mx-auto max-w-3xl text-base leading-relaxed text-white/90 md:text-xl md:leading-loose md:[text-shadow:0_10px_26px_rgba(0,0,0,0.45)]"
             >
               <RichText text={d.description} />
             </p>
