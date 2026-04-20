@@ -136,6 +136,7 @@ export default function Navbar({ locale = "tr", ...props }) {
   const projectsHref = isEn ? "/en/projects" : "/projeler";
   const corporateHref = isEn ? "/en/corporate-events" : "/kurumsal-organizasyon";
   const faqHref = isEn ? "/en/faq" : "/sss";
+  const contactHref = isEn ? "/en/contact" : "/iletisim";
   const otherLocaleHref = isEn ? "/" : "/en";
 
   const aboutLabel = isEn ? "About Us" : "Hakkımızda";
@@ -143,6 +144,7 @@ export default function Navbar({ locale = "tr", ...props }) {
   const projectsLabel = isEn ? "Projects" : "Projeler";
   const corporateLabel = isEn ? "Corporate" : "Kurumsal";
   const faqLabel = isEn ? "FAQ" : "SSS";
+  const contactLabel = isEn ? "Contact" : "İletişim";
   const quoteLabel = isEn ? "Get Quote" : "Teklif Al";
   const otherLocaleLabel = isEn ? "TR" : "EN";
   const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
@@ -407,6 +409,7 @@ export default function Navbar({ locale = "tr", ...props }) {
               <DesktopNavLink href={corporateHref}>{corporateLabel}</DesktopNavLink>
               <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
               <DesktopNavLink href={faqHref}>{faqLabel}</DesktopNavLink>
+              <DesktopNavLink href={contactHref}>{contactLabel}</DesktopNavLink>
 
               <NavbarSearchDropdown locale={locale} />
 
