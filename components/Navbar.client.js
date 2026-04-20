@@ -92,6 +92,7 @@ export default function Navbar({
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const computedHeadingId = headingIdProp ?? `navbar-heading-${instanceId}`;
   const computedDescriptionId =
@@ -128,6 +129,9 @@ export default function Navbar({
     [pathname]
   );
 
+  const isHomePage = pathname === "/";
+  const isDarkNav = isHomePage && !isScrolled;
+
   const closeMobileMenu = useCallback(({ restoreFocus = false } = {}) => {
     const activeElement = document.activeElement;
     if (
@@ -163,15 +167,6 @@ export default function Navbar({
     />
   </svg>
 </Link>
-
-  const whatsappBtnClass = useMemo(
-    () =>
-      `ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-white text-sm font-bold
-       bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
-       transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105
-       min-h-[44px] border border-green-700/20 ${FOCUS_RING_CLASS}`,
-    []
-  );
 
   const mobileWhatsappBtnClass = useMemo(
     () =>
@@ -413,25 +408,47 @@ export default function Navbar({
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const NavLink = useCallback(
     ({ href, children, className = "" }) => (
       <Link
         href={href}
         className={`
-          relative text-[15px] font-bold transition-all duration-200 px-4 py-2.5 rounded-xl
+          group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] transition-colors duration-200 xl:text-[15px]
           ${
             active(href)
-              ? "text-blue-700 bg-blue-50 border border-blue-200"
-              : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 hover:border hover:border-neutral-200 border border-transparent"
+              ? isDarkNav
+                ? "text-white"
+                : "text-blue-700"
+              : isDarkNav
+                ? "text-white/88 hover:text-white"
+                : "text-neutral-900 hover:text-blue-700"
           }
           ${FOCUS_RING_CLASS} ${className}
         `}
         aria-current={active(href) ? "page" : undefined}
       >
         {children}
+        <span
+          className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-200 ${
+            active(href)
+              ? "w-full bg-current"
+              : "w-0 bg-current group-hover:w-full"
+          }`}
+          aria-hidden="true"
+        />
       </Link>
     ),
-    [active]
+    [active, isDarkNav]
   );
 
   const ServiceLink = useCallback(
@@ -513,8 +530,18 @@ export default function Navbar({
         aria-labelledby={resolvedAriaLabel ? undefined : resolvedAriaLabelledby}
         aria-describedby={resolvedAriaDescribedby}
         role={navRole}
-        className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg"
+        className={`fixed top-0 inset-x-0 z-50 overflow-hidden border-b backdrop-blur-xl transition-all duration-300 ${
+          isDarkNav
+            ? "border-white/10 bg-[#2f2aa5]/82 shadow-none"
+            : "border-neutral-200/80 bg-white/95 shadow-lg"
+        }`}
       >
+        {isDarkNav && (
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+            <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_center,rgba(255,255,255,0.5)_1.2px,transparent_1.2px)] [background-size:18px_18px]" />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" />
+          </div>
+        )}
         {shouldRenderHeading && (
           <p id={computedHeadingId} className="sr-only">
             {headerStrings.navLabel}
@@ -526,7 +553,7 @@ export default function Navbar({
           </p>
         )}
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href="/"
@@ -540,14 +567,15 @@ export default function Navbar({
                 height={40}
                 decoding="async"
                 sizes="(max-width: 768px) 120px, 160px"
-                className="h-8 lg:h-10 w-auto transition-transform duration-200 group-hover:scale-105"
+                className={`h-8 w-auto transition duration-200 group-hover:scale-105 xl:h-10 ${
+                  isDarkNav ? "brightness-0 invert" : ""
+                }`}
               />
 
             </Link>
 
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-5 2xl:gap-7">
               <NavLink href="/hakkimizda">Hakkımızda</NavLink>
-              <NavLink href="/blog">Blog</NavLink>
 
               {/* Hizmetler */}
               <div
@@ -559,11 +587,15 @@ export default function Navbar({
                   id={servicesBtnId}
                   type="button"
                   className={`
-                    relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 group border
+                    group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] transition-colors duration-200 xl:text-[15px]
                     ${
                       servicesOpen
-                        ? "text-blue-700 bg-blue-50 border-blue-200"
-                        : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200"
+                        ? isDarkNav
+                          ? "text-white"
+                          : "text-blue-700"
+                        : isDarkNav
+                          ? "text-white/88 hover:text-white"
+                          : "text-neutral-900 hover:text-blue-700"
                     }
                     ${FOCUS_RING_CLASS}
                   `}
@@ -583,7 +615,7 @@ export default function Navbar({
                   <span className="flex items-center gap-2">
                     Hizmetler
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${
+                      className={`h-3.5 w-3.5 text-red-400 transition-transform duration-200 ${
                         servicesOpen ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -599,6 +631,12 @@ export default function Navbar({
                       />
                     </svg>
                   </span>
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-current transition-all duration-200 ${
+                      servicesOpen ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                    aria-hidden="true"
+                  />
                 </button>
 
                 {/* hover köprüsü */}
@@ -742,19 +780,52 @@ export default function Navbar({
                 )}
               </div>
 
-              <NavLink href="/iletisim">İletişim</NavLink>
+              <NavLink href="/projeler">Projeler</NavLink>
+              <NavLink href="/kurumsal-organizasyon">Kurumsal</NavLink>
+              <NavLink href="/blog">Blog</NavLink>
+              <NavLink href="/sss">SSS</NavLink>
+
+              <Link
+                href="/en"
+                hrefLang="en"
+                className={`inline-flex min-h-[44px] items-center text-sm font-black transition-colors ${FOCUS_RING_CLASS} ${
+                  isDarkNav
+                    ? "text-white hover:text-blue-100"
+                    : "text-neutral-900 hover:text-blue-700"
+                }`}
+              >
+                EN
+              </Link>
+              <Link
+                href="/search"
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors ${FOCUS_RING_CLASS} ${
+                  isDarkNav
+                    ? "border-red-400/70 text-red-300 hover:bg-white/10 hover:text-white"
+                    : "border-neutral-200 text-neutral-800 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                }`}
+              >
+                <span className="sr-only">Site içinde arama</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
+                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" strokeWidth="2" />
+                  <path d="M16.5 16.5 21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </Link>
 
               <a
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={whatsappBtnClass}
+                className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-black transition-all duration-200 ${FOCUS_RING_CLASS} ${
+                  isDarkNav
+                    ? "bg-white text-[#24207c] shadow-lg shadow-black/10 hover:bg-blue-50"
+                    : "bg-[#24207c] text-white shadow-lg shadow-blue-900/15 hover:bg-blue-800"
+                }`}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
                 </span>
                 <span>
-                  WhatsApp Destek
+                  Teklif Al
                   <span className="sr-only"> (yeni sekmede açılır)</span>
                 </span>
               </a>
