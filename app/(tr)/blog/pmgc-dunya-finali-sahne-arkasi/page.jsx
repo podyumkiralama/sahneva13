@@ -161,9 +161,8 @@ export default function Page() {
           { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "🧱" },
           { href: "/led-ekran-kiralama", label: "LED Ekran", icon: "🟦" },
         ]}
-        whatsappUrl={WA_URL}
       >
-
+        <Breadcrumbs />
           <p>
             Bazı projeler vardır, sadece bir "iş" değil, bir mühendislik ve dayanıklılık testidir.
             2023 yılında Ülker Arena’nın devasa hacminde gerçekleşen PUBG Mobile Global
