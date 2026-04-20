@@ -182,6 +182,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
           <div className="px-5 py-6 space-y-3 max-h-[80vh] overflow-y-auto">
             <Link
               href="/hakkimizda"
+              prefetch={false}
               onClick={() => closeMenu()}
               className={`flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 transform hover:scale-[1.02] ${
                 FOCUS_RING_CLASS
@@ -195,6 +196,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
 
             <Link
               href="/blog"
+              prefetch={false}
               onClick={() => closeMenu()}
               className={`flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 transform hover:scale-[1.02] ${
                 FOCUS_RING_CLASS
@@ -239,6 +241,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                     <Link
                       key={href}
                       href={href}
+                      prefetch={false}
                       onClick={() => closeMenu()}
                       className={`flex items-start gap-3 px-3 py-2 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-all duration-200 w-full transform hover:scale-[1.01] ${
                         FOCUS_RING_CLASS
@@ -295,6 +298,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                     <Link
                       key={href}
                       href={href}
+                      prefetch={false}
                       onClick={() => closeMenu()}
                       className={`flex items-start gap-3 px-3 py-2 text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-all duration-200 w-full transform hover:scale-[1.01] ${FOCUS_RING_CLASS}`}
                     >
