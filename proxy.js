@@ -14,8 +14,9 @@ function generateNonce() {
 function buildCsp({ nonce, siteUrl, isPreview }) {
   const scriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
+    // Next.js emits inline bootstrap/RSC scripts in the HTML. Keep inline
+    // execution scoped to script elements while script-src-attr stays locked.
+    "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
@@ -104,7 +105,6 @@ export function proxy(request) {
   const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
-  requestHeaders.set("x-nonce", nonce);
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },
