@@ -102,14 +102,11 @@ function DesktopNavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className={`group relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
+      className={`relative text-[15px] font-bold transition-all duration-200 px-4 py-2.5 rounded-xl
+      text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border border-transparent hover:border-neutral-200
       ${FOCUS_RING_CLASS}`}
     >
       {children}
-      <span
-        className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full"
-        aria-hidden="true"
-      />
     </Link>
   );
 }
@@ -133,14 +130,9 @@ export default function Navbar({ locale = "tr", ...props }) {
   const aboutHref = isEn ? "/en/about" : "/hakkimizda";
   const blogHref = isEn ? "/en/blog" : "/blog";
   const servicesHref = isEn ? "/en/services" : "/hizmetler";
-  const projectsHref = isEn ? "/en/projects" : "/projeler";
-  const otherLocaleHref = isEn ? "/" : "/en";
 
   const aboutLabel = isEn ? "About Us" : "Hakkımızda";
   const blogLabel = isEn ? "Blog" : "Blog";
-  const projectsLabel = isEn ? "Projects" : "Projeler";
-  const quoteLabel = isEn ? "Get Quote" : "Teklif Al";
-  const otherLocaleLabel = isEn ? "TR" : "EN";
   const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
   const exploreLabel = isEn ? "Explore Us" : "Bizi Araştırın";
   const exploreSubtitle = isEn ? "Process, contact and information pages" : "Süreç, iletişim ve bilgi sayfaları";
@@ -158,7 +150,7 @@ export default function Navbar({ locale = "tr", ...props }) {
     <>
       <nav
         {...props}
-        className="fixed top-0 inset-x-0 z-50 border-b border-neutral-200/80 bg-white/95 shadow-lg backdrop-blur-xl"
+        className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg"
       >
         {/* Tiny client island: closes the <details> on outside click / Esc / link click */}
         <ServicesDropdownBehavior detailsId="nav-services-details" />
@@ -167,7 +159,7 @@ export default function Navbar({ locale = "tr", ...props }) {
           panelId="nav-research-panel"
         />
 
-        <div className="container relative">
+        <div className="container">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href={homeHref}
@@ -187,8 +179,9 @@ export default function Navbar({ locale = "tr", ...props }) {
             </Link>
 
             {/* Desktop */}
-            <div className="hidden lg:flex items-center gap-3 rounded-full border border-neutral-200/80 bg-white/75 px-4 py-2 shadow-sm xl:gap-4 2xl:gap-5">
+            <div className="hidden lg:flex items-center gap-4">
               <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>
+              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
 
               {/* Services: native <details> => low JS */}
               <details
@@ -198,13 +191,14 @@ export default function Navbar({ locale = "tr", ...props }) {
               >
                 <summary
                   id="nav-services-summary"
-                  className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
+                  className={`list-none cursor-pointer select-none relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 border
+                    text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
                     {servicesDropdownLabel}
                     <svg
-                      className="h-3.5 w-3.5 text-blue-600 transition-transform duration-200 group-open:rotate-180"
+                      className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -218,10 +212,6 @@ export default function Navbar({ locale = "tr", ...props }) {
                       />
                     </svg>
                   </span>
-                  <span
-                    className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full group-open:w-full"
-                    aria-hidden="true"
-                  />
                 </summary>
 
                 <div
@@ -307,9 +297,6 @@ export default function Navbar({ locale = "tr", ...props }) {
               </details>
 
               {/* ✅ Only ONE "Bizi Araştırın" (after Services, as you wanted) */}
-              <DesktopNavLink href={projectsHref}>{projectsLabel}</DesktopNavLink>
-              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
-
               <details
                 id="nav-research-details"
                 className="relative group"
@@ -317,13 +304,14 @@ export default function Navbar({ locale = "tr", ...props }) {
               >
                 <summary
                   id="nav-research-summary"
-                  className={`group list-none cursor-pointer select-none relative inline-flex min-h-[44px] items-center px-1 py-2 text-[14px] font-extrabold tracking-[-0.01em] text-neutral-900 transition-colors duration-200 hover:text-blue-700 xl:text-[15px]
+                  className={`list-none cursor-pointer select-none relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 border
+                    text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200
                     ${FOCUS_RING_CLASS}`}
                 >
                   <span className="flex items-center gap-2">
                     {exploreLabel}
                     <svg
-                      className="h-3.5 w-3.5 text-blue-600 transition-transform duration-200 group-open:rotate-180"
+                      className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -337,10 +325,6 @@ export default function Navbar({ locale = "tr", ...props }) {
                       />
                     </svg>
                   </span>
-                  <span
-                    className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-200 group-hover:w-full group-open:w-full"
-                    aria-hidden="true"
-                  />
                 </summary>
 
                 <div
@@ -401,25 +385,20 @@ export default function Navbar({ locale = "tr", ...props }) {
 
               <NavbarSearchDropdown locale={locale} />
 
-              <Link
-                href={otherLocaleHref}
-                hrefLang={isEn ? "tr" : "en"}
-                className={`inline-flex min-h-[44px] items-center text-sm font-black text-neutral-900 transition-colors hover:text-blue-700 ${FOCUS_RING_CLASS}`}
-              >
-                {otherLocaleLabel}
-              </Link>
-
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
-                className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#0B1120] px-5 text-sm font-black text-white shadow-lg shadow-blue-900/15 transition-all duration-200 hover:bg-blue-900 ${FOCUS_RING_CLASS}`}
+                className={`ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-white text-sm font-bold
+                  bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
+                  transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105
+                  min-h-[44px] border border-green-700/20 ${FOCUS_RING_CLASS}`}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
                 </span>
-                <span>{quoteLabel}</span>
+                <span>{whatsappLabel}</span>
               </a>
             </div>
 
