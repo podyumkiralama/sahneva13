@@ -427,10 +427,10 @@ export default function Navbar({
           ${
             active(href)
               ? isDarkNav
-                ? "text-white"
+                ? "text-cyan-100"
                 : "text-blue-700"
               : isDarkNav
-                ? "text-white/88 hover:text-white"
+                ? "text-slate-200 hover:text-cyan-100"
                 : "text-neutral-900 hover:text-blue-700"
           }
           ${FOCUS_RING_CLASS} ${className}
@@ -441,8 +441,12 @@ export default function Navbar({
         <span
           className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-200 ${
             active(href)
-              ? "w-full bg-current"
-              : "w-0 bg-current group-hover:w-full"
+              ? isDarkNav
+                ? "w-full bg-cyan-300"
+                : "w-full bg-current"
+              : isDarkNav
+                ? "w-0 bg-cyan-300 group-hover:w-full"
+                : "w-0 bg-current group-hover:w-full"
           }`}
           aria-hidden="true"
         />
@@ -532,14 +536,14 @@ export default function Navbar({
         role={navRole}
         className={`fixed top-0 inset-x-0 z-50 overflow-hidden border-b backdrop-blur-xl transition-all duration-300 ${
           isDarkNav
-            ? "border-white/10 bg-[#2f2aa5]/82 shadow-none"
+            ? "border-cyan-300/15 bg-[#050A18]/82 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
             : "border-neutral-200/80 bg-white/95 shadow-lg"
         }`}
       >
         {isDarkNav && (
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_center,rgba(255,255,255,0.5)_1.2px,transparent_1.2px)] [background-size:18px_18px]" />
-            <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_50%,rgba(34,211,238,0.24),transparent_32%),radial-gradient(circle_at_84%_40%,rgba(59,130,246,0.2),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,48px_48px]" />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
           </div>
         )}
         {shouldRenderHeading && (
@@ -567,14 +571,18 @@ export default function Navbar({
                 height={40}
                 decoding="async"
                 sizes="(max-width: 768px) 120px, 160px"
-                className={`h-8 w-auto transition duration-200 group-hover:scale-105 xl:h-10 ${
-                  isDarkNav ? "brightness-0 invert" : ""
-                }`}
+                className="h-8 w-auto transition duration-200 group-hover:scale-105 xl:h-10"
               />
 
             </Link>
 
-            <div className="hidden lg:flex items-center gap-4 xl:gap-5 2xl:gap-7">
+            <div
+              className={`hidden lg:flex items-center gap-3 rounded-full px-4 py-2 transition-all duration-300 xl:gap-4 2xl:gap-5 ${
+                isDarkNav
+                  ? "border border-white/10 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                  : "border border-neutral-200/80 bg-white/75 shadow-sm"
+              }`}
+            >
               <NavLink href="/hakkimizda">Hakkımızda</NavLink>
 
               {/* Hizmetler */}
@@ -591,10 +599,10 @@ export default function Navbar({
                     ${
                       servicesOpen
                         ? isDarkNav
-                          ? "text-white"
+                          ? "text-cyan-100"
                           : "text-blue-700"
                         : isDarkNav
-                          ? "text-white/88 hover:text-white"
+                          ? "text-slate-200 hover:text-cyan-100"
                           : "text-neutral-900 hover:text-blue-700"
                     }
                     ${FOCUS_RING_CLASS}
@@ -615,7 +623,9 @@ export default function Navbar({
                   <span className="flex items-center gap-2">
                     Hizmetler
                     <svg
-                      className={`h-3.5 w-3.5 text-red-400 transition-transform duration-200 ${
+                      className={`h-3.5 w-3.5 ${
+                        isDarkNav ? "text-cyan-300" : "text-blue-600"
+                      } transition-transform duration-200 ${
                         servicesOpen ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -632,9 +642,9 @@ export default function Navbar({
                     </svg>
                   </span>
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-current transition-all duration-200 ${
+                    className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-200 ${
                       servicesOpen ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+                    } ${isDarkNav ? "bg-cyan-300" : "bg-current"}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -790,7 +800,7 @@ export default function Navbar({
                 hrefLang="en"
                 className={`inline-flex min-h-[44px] items-center text-sm font-black transition-colors ${FOCUS_RING_CLASS} ${
                   isDarkNav
-                    ? "text-white hover:text-blue-100"
+                    ? "text-cyan-100 hover:text-white"
                     : "text-neutral-900 hover:text-blue-700"
                 }`}
               >
@@ -800,7 +810,7 @@ export default function Navbar({
                 href="/search"
                 className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors ${FOCUS_RING_CLASS} ${
                   isDarkNav
-                    ? "border-red-400/70 text-red-300 hover:bg-white/10 hover:text-white"
+                    ? "border-cyan-300/50 bg-cyan-300/10 text-cyan-100 hover:bg-cyan-300/18 hover:text-white"
                     : "border-neutral-200 text-neutral-800 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                 }`}
               >
@@ -815,11 +825,11 @@ export default function Navbar({
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-black transition-all duration-200 ${FOCUS_RING_CLASS} ${
-                  isDarkNav
-                    ? "bg-white text-[#24207c] shadow-lg shadow-black/10 hover:bg-blue-50"
-                    : "bg-[#24207c] text-white shadow-lg shadow-blue-900/15 hover:bg-blue-800"
-                }`}
+                  className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-black transition-all duration-200 ${FOCUS_RING_CLASS} ${
+                    isDarkNav
+                      ? "bg-cyan-300 text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.28)] hover:bg-cyan-200"
+                      : "bg-[#0B1120] text-white shadow-lg shadow-blue-900/15 hover:bg-blue-900"
+                  }`}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
