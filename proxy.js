@@ -1,4 +1,3 @@
-import { Buffer } from "node:buffer";
 import { NextResponse } from "next/server";
 
 export const config = {
@@ -7,15 +6,10 @@ export const config = {
   ],
 };
 
-function generateNonce() {
-  return Buffer.from(crypto.randomUUID()).toString("base64");
-}
-
-function buildCsp({ nonce, siteUrl, isPreview }) {
+function buildCsp({ siteUrl, isPreview }) {
   const scriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
+    "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
@@ -101,19 +95,15 @@ function shouldNoindexQueryVariant(request) {
 }
 
 export function proxy(request) {
-  const nonce = generateNonce();
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },
   });
 
-  response.headers.set("x-nonce", nonce);
   response.headers.set(
     "Content-Security-Policy",
     buildCsp({
-      nonce,
       siteUrl: request.nextUrl.origin,
       isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
     })
