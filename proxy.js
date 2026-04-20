@@ -23,8 +23,8 @@ function buildCsp({ siteUrl, isPreview }) {
 
   const scriptSrcElem = [
     "'self'",
-    // Next.js static output still emits inline bootstrap/RSC scripts. Keep this
-    // scoped to script elements while script-src-attr stays locked down.
+    // Next.js emits inline bootstrap/RSC scripts in the HTML. Keep inline
+    // execution scoped to script elements while script-src-attr stays locked.
     "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
@@ -112,6 +112,7 @@ function shouldNoindexQueryVariant(request) {
 
 export function proxy(request) {
   const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
 
   const response = NextResponse.next({
     request: { headers: requestHeaders },

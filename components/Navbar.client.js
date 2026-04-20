@@ -128,8 +128,6 @@ export default function Navbar({
     [pathname]
   );
 
-  const isDarkNav = false;
-
   const closeMobileMenu = useCallback(({ restoreFocus = false } = {}) => {
     const activeElement = document.activeElement;
     if (
@@ -547,9 +545,7 @@ export default function Navbar({
 
             </Link>
 
-            <div
-              className="hidden lg:flex items-center gap-4"
-            >
+            <div className="hidden lg:flex items-center gap-4">
               <NavLink href="/hakkimizda">Hakkımızda</NavLink>
               <NavLink href="/blog">Blog</NavLink>
 
@@ -746,52 +742,19 @@ export default function Navbar({
                 )}
               </div>
 
-              <NavLink href="/projeler">Projeler</NavLink>
-              <NavLink href="/kurumsal-organizasyon">Kurumsal</NavLink>
-              <NavLink href="/blog">Blog</NavLink>
-              <NavLink href="/sss">SSS</NavLink>
-
-              <Link
-                href="/en"
-                hrefLang="en"
-                className={`inline-flex min-h-[44px] items-center text-sm font-black transition-colors ${FOCUS_RING_CLASS} ${
-                  isDarkNav
-                    ? "text-cyan-100 hover:text-white"
-                    : "text-neutral-900 hover:text-blue-700"
-                }`}
-              >
-                EN
-              </Link>
-              <Link
-                href="/search"
-                className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors ${FOCUS_RING_CLASS} ${
-                  isDarkNav
-                    ? "border-cyan-300/50 bg-cyan-300/10 text-cyan-100 hover:bg-cyan-300/18 hover:text-white"
-                    : "border-neutral-200 text-neutral-800 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
-                }`}
-              >
-                <span className="sr-only">Site içinde arama</span>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" strokeWidth="2" />
-                  <path d="M16.5 16.5 21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </Link>
+              <NavLink href="/iletisim">İletişim</NavLink>
 
               <a
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                  className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-black transition-all duration-200 ${FOCUS_RING_CLASS} ${
-                    isDarkNav
-                      ? "bg-cyan-300 text-slate-950 shadow-[0_0_28px_rgba(34,211,238,0.28)] hover:bg-cyan-200"
-                      : "bg-[#0B1120] text-white shadow-lg shadow-blue-900/15 hover:bg-blue-900"
-                  }`}
+                className={whatsappBtnClass}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
                 </span>
                 <span>
-                  Teklif Al
+                  WhatsApp Destek
                   <span className="sr-only"> (yeni sekmede açılır)</span>
                 </span>
               </a>
