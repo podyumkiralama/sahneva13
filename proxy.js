@@ -1,4 +1,3 @@
-import { Buffer } from "node:buffer";
 import { NextResponse } from "next/server";
 
 export const config = {
@@ -7,16 +6,9 @@ export const config = {
   ],
 };
 
-function generateNonce() {
-  return Buffer.from(crypto.randomUUID()).toString("base64");
-}
-
-function buildCsp({ nonce, siteUrl, isPreview }) {
-  const scriptSrc = [
+function buildCsp({ siteUrl, isPreview }) {
+  const scriptSources = [
     "'self'",
-    // Next.js emits inline bootstrap/RSC scripts in the HTML. Keep inline
-    // execution scoped to script elements while script-src-attr stays locked.
-    "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://va.vercel-scripts.com",
@@ -27,6 +19,17 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     "https://z.clarity.ms",
     "https://l.clarity.ms",
     "https://static.cloudflareinsights.com",
+  ];
+
+  const scriptSrc = scriptSources.join(" ");
+
+  // Next.js App Router emits static inline bootstrap/RSC script elements.
+  // Keep that exception scoped to script elements; inline event handlers stay
+  // blocked by script-src-attr 'none', and script-src remains strict.
+  const scriptElementSrc = [
+    scriptSources[0],
+    "'unsafe-inline'",
+    ...scriptSources.slice(1),
   ].join(" ");
 
   const connectSrc = [
@@ -74,7 +77,7 @@ function buildCsp({ nonce, siteUrl, isPreview }) {
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     script-src ${scriptSrc};
-    script-src-elem ${scriptSrc};
+    script-src-elem ${scriptElementSrc};
     script-src-attr 'none';
     connect-src ${connectSrc};
     worker-src 'self' blob:;
@@ -102,19 +105,11 @@ function shouldNoindexQueryVariant(request) {
 }
 
 export function proxy(request) {
-  const nonce = generateNonce();
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  const response = NextResponse.next();
 
-  const response = NextResponse.next({
-    request: { headers: requestHeaders },
-  });
-
-  response.headers.set("x-nonce", nonce);
   response.headers.set(
     "Content-Security-Policy",
     buildCsp({
-      nonce,
       siteUrl: request.nextUrl.origin,
       isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
     })
