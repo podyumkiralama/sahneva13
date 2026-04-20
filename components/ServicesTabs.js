@@ -250,7 +250,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         <div className="mt-6">
           <Link
             href={service.href}
-            className="group inline-flex items-center gap-3 rounded-xl bg-cyan-400 px-6 py-3 text-base font-bold text-slate-950 shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(34,211,238,0.5)] focus:outline-none focus:ring-4 focus:ring-cyan-500/50 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="group inline-flex items-center gap-3 rounded-xl bg-cyan-200 px-6 py-3 text-base font-extrabold text-slate-950 shadow-[0_0_20px_rgba(165,243,252,0.28)] ring-1 ring-cyan-50/80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_28px_rgba(165,243,252,0.42)] focus:outline-none focus:ring-4 focus:ring-cyan-200/70 focus:ring-offset-2 focus:ring-offset-slate-950"
             title={formatTitleTemplate(
               dictionary.ctaTitle,
               service.title,
@@ -260,7 +260,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           >
             <span>{dictionary.ctaLabel}</span>
             <span
-              className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/90 text-white transition-colors group-hover:bg-slate-950 group-hover:text-cyan-300"
+                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-white transition-colors group-hover:bg-cyan-950 group-hover:text-cyan-100"
               aria-hidden="true"
             >
               <ArrowRightIcon className="h-3.5 w-3.5" />
