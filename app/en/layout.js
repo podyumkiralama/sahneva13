@@ -1,14 +1,8 @@
-export const revalidate = 86400;
-
-import "../../styles/globals.css";
-import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import JsonLd from "@/components/seo/JsonLd";
-import SkipLinks from "@/components/SkipLinks";
-import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -133,14 +127,6 @@ const globalJsonLd = {
 /* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-  },
   title: {
     default: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
     template: "%s | Sahneva",
@@ -181,23 +167,12 @@ export const metadata = {
 };
 
 export const viewport = {
-  width: "device-width",
-  initialScale: 1,
   themeColor: "#6d28d9",
 };
 
 export default async function EnglishLayout({ children }) {
   return (
-    <html
-      lang="en"
-      xmlLang="en"
-      dir="ltr"
-      className={`${inter.variable} font-sans`}
-      suppressHydrationWarning
-    >
-      <body className="flex flex-col">
-        <SkipLinks locale="en" />
-        <AnalyticsConsentWrapper />
+    <>
       <JsonLd id="global-ld-json-en" data={globalJsonLd} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">
@@ -227,7 +202,6 @@ export default async function EnglishLayout({ children }) {
         <StickyVideoRailClient locale="en" />
         <DeferredSpeedInsights />
       </div>
-      </body>
-    </html>
+    </>
   );
 }
