@@ -945,7 +945,7 @@ function UseCases() {
           {USE_CASES.map((uc) => (
             <div
               key={uc.text}
-              className="rounded-3xl border border-white/30 bg-white/10 p-6 backdrop-blur-lg transition-all duration-500 hover:border-white/50 lg:hover:scale-105 sm:p-8"
+              className="group rounded-3xl border border-white/30 bg-white/10 p-6 backdrop-blur-lg transition-all duration-500 hover:border-white/50 lg:hover:scale-105 sm:p-8"
               role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
