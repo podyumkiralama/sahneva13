@@ -246,7 +246,7 @@ function GuideImage({ src, alt, caption }) {
 
 function PodyumGallery() {
   return (
-    <section className="not-prose my-12">
+    <section id="podyum-galeri" className="not-prose my-10 scroll-mt-28">
       <div className="mb-5">
         <p className="m-0 text-sm font-black uppercase tracking-wide text-blue-700">
           Podyum kiralama uygulama galerisi
@@ -260,18 +260,18 @@ function PodyumGallery() {
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {GALLERY_IMAGES.map((image, index) => (
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {GALLERY_IMAGES.map((image) => (
           <figure
             key={image.src}
-            className={index === 0 ? "overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm sm:col-span-2" : "overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"}
+            className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
           >
-            <div className="relative aspect-[4/3] bg-gray-100">
+            <div className="relative aspect-video bg-gray-100">
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes={index === 0 ? "(max-width: 768px) 100vw, 900px" : "(max-width: 768px) 100vw, 440px"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 className="object-cover"
                 loading="lazy"
               />
