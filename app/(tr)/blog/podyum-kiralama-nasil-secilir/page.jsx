@@ -35,6 +35,39 @@ const IMG_MEASURE = "/img/blog/kurumsal-sahne-podyum-yerlesim.webp";
 const IMG_DETAIL = "/img/blog/kurumsal-etkinlik-podyum-detay.webp";
 const IMG_STAGE = "/img/blog/podyum-sahne-profesyonel-etkinlik.webp";
 
+const GALLERY_IMAGES = [
+  {
+    src: "/img/podyum/25.webp",
+    alt: "Kapalı alanda beyaz yüzeyli profesyonel podyum kiralama kurulumu",
+    title: "Kapalı Alan Sahnesi",
+    caption: "Kurumsal sunum ve protokol etkinliklerinde temiz yüzey, doğru yükseklik ve arka plan planı birlikte düşünülür.",
+  },
+  {
+    src: "/img/podyum/28.webp",
+    alt: "Lansman ve defile için parlak yüzeyli podyum kiralama örneği",
+    title: "Lansman ve Runway",
+    caption: "Marka lansmanı ya da defile formatında podyum yüzeyi, ışık yansıması ve yürüyüş aksı kararın merkezindedir.",
+  },
+  {
+    src: "/img/podyum/31.webp",
+    alt: "Açık alanda kademeli modüler podyum kiralama uygulaması",
+    title: "Açık Alan Kademesi",
+    caption: "Dış mekan kurulumlarında zemin eğimi, dengeleme ve izleyici görüş açısı podyum ölçüsünü doğrudan etkiler.",
+  },
+  {
+    src: "/img/podyum/37.webp",
+    alt: "Bahçe etkinliği için siyah kaplamalı modüler podyum kiralama",
+    title: "Siyah Kaplama Podyum",
+    caption: "Siyah yüzey, gala, kokteyl ve sahne performanslarında daha sade ve teknik bir görünüm sağlar.",
+  },
+  {
+    src: "/img/podyum/39.webp",
+    alt: "Podyum kiralama öncesi panel, ayak ve yüzey kurulum detayı",
+    title: "Kurulum Detayı",
+    caption: "Panel birleşimleri, ayak yüksekliği ve yüzey dengesi etkinlik başlamadan önce kontrol edilmelidir.",
+  },
+];
+
 const WA_URL =
   "https://wa.me/905453048671?text=" +
   encodeURIComponent(
@@ -132,7 +165,7 @@ function ArticleJsonLd() {
         "@id": `${BLOG_URL}#blogposting`,
         headline: metadata.title,
         description: metadata.description,
-        image: [`${SITE_URL}${HERO_IMG}`],
+        image: [`${SITE_URL}${HERO_IMG}`, ...GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`)],
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
@@ -197,6 +230,51 @@ function GuideImage({ src, alt, caption }) {
         {caption}
       </figcaption>
     </figure>
+  );
+}
+
+function PodyumGallery() {
+  return (
+    <section className="not-prose my-12">
+      <div className="mb-5">
+        <p className="m-0 text-sm font-black uppercase tracking-wide text-blue-700">
+          Podyum kiralama uygulama galerisi
+        </p>
+        <h2 className="m-0 mt-2 text-2xl font-black text-gray-950">
+          Farklı Etkinliklerde Podyum Seçimi Nasıl Görünür?
+        </h2>
+        <p className="m-0 mt-3 max-w-3xl text-base leading-relaxed text-gray-600">
+          Aşağıdaki örnekler, podyum kiralama kararında yüzey kaplaması, yükseklik, zemin
+          dengesi ve kullanım senaryosunun nasıl değiştiğini gösterir.
+        </p>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {GALLERY_IMAGES.map((image, index) => (
+          <figure
+            key={image.src}
+            className={index === 0 ? "overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm sm:col-span-2" : "overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"}
+          >
+            <div className="relative aspect-[4/3] bg-gray-100">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes={index === 0 ? "(max-width: 768px) 100vw, 900px" : "(max-width: 768px) 100vw, 440px"}
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="p-4">
+              <span className="block text-sm font-black text-gray-950">{image.title}</span>
+              <span className="mt-1 block text-sm leading-relaxed text-gray-600">
+                {image.caption}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -372,6 +450,8 @@ export default function Page() {
           üzerinde bulunacak ekipmanlar ve kurulum-söküm saatleri netleştirilmelidir. Bu bilgiler
           paylaşıldığında hem gereksiz maliyetler azalır hem de kritik teknik kalemler gözden kaçmaz.
         </p>
+
+        <PodyumGallery />
 
         <h2>6. LED Ekran, Ses ve Işıkla Birlikte Planlamak Neden Önemli?</h2>
         <p>
