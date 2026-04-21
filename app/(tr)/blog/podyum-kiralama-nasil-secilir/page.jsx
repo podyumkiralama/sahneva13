@@ -21,6 +21,9 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile(
   "2026-04-21T09:00:00+03:00"
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
+const ARTICLE_TITLE = "Podyum Kiralama Nasıl Seçilir?";
+const META_DESCRIPTION =
+  "Podyum kiralama için doğru ölçü, yükseklik, zemin, güvenlik ve fiyat kriterlerini öğrenin; etkinliğiniz için uygun platformu seçin.";
 
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const PODIUM_PRICE_PATH = "/podyum-kiralama-fiyatlari";
@@ -75,9 +78,8 @@ const WA_URL =
   );
 
 export const metadata = {
-  title: "Podyum Kiralama Nasıl Seçilir? Ölçü, Yükseklik ve Güvenlik Rehberi",
-  description:
-    "Podyum kiralama seçimi için ölçü, yükseklik, zemin, taşıma kapasitesi, fiyat ve tamamlayıcı teknik ekipmanları adım adım açıklayan Sahneva rehberi.",
+  title: ARTICLE_TITLE,
+  description: META_DESCRIPTION,
   alternates: {
     canonical: BLOG_URL,
     languages: {
@@ -87,9 +89,8 @@ export const metadata = {
   },
   image: HERO_IMG,
   openGraph: {
-    title: "Podyum Kiralama Nasıl Seçilir? | Sahneva Blog",
-    description:
-      "Etkinliğe uygun podyum ölçüsü, yüksekliği, zemin kontrolü ve güvenli kurulum kriterleri.",
+    title: `${ARTICLE_TITLE} | Sahneva`,
+    description: META_DESCRIPTION,
     url: BLOG_URL,
     type: "article",
     locale: "tr_TR",
@@ -105,10 +106,20 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podyum Kiralama Nasıl Seçilir?",
-    description:
-      "Podyum kiralama öncesi ölçü, yükseklik, zemin, güvenlik ve fiyat kriterlerini kontrol edin.",
+    title: `${ARTICLE_TITLE} | Sahneva`,
+    description: META_DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMG}`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   keywords: [
     "podyum kiralama",
@@ -163,8 +174,8 @@ function ArticleJsonLd() {
       {
         "@type": "BlogPosting",
         "@id": `${BLOG_URL}#blogposting`,
-        headline: metadata.title,
-        description: metadata.description,
+        headline: ARTICLE_TITLE,
+        description: META_DESCRIPTION,
         image: [`${SITE_URL}${HERO_IMG}`, ...GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`)],
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
@@ -326,7 +337,7 @@ export default function Page() {
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: "Podyum Kiralama Nasıl Seçilir?", url: BLOG_URL },
+    { name: ARTICLE_TITLE, url: BLOG_URL },
   ];
 
   return (
@@ -339,11 +350,10 @@ export default function Page() {
         breadcrumbItems={breadcrumbItems}
         heroImage={{
           src: HERO_IMG,
-          alt: "Etkinliğe uygun podyum kiralama seçimi",
+          alt: ARTICLE_TITLE,
         }}
         pills={["Podyum Kiralama", "Seçim Rehberi", "Teknik Planlama"]}
-        title="Podyum Kiralama Nasıl Seçilir?"
-        highlight="Ölçü, Yükseklik ve Güvenlik Rehberi"
+        title={ARTICLE_TITLE}
         description={metadata.description}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
