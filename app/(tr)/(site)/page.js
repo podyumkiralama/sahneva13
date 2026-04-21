@@ -446,7 +446,7 @@ export default function HomePage() {
       {/* Hizmetler */}
       <section
         aria-label="Hizmetler"
-        className="content-visibility-auto bg-black"
+        className="content-visibility-auto cv-home-services bg-black"
       >
         <p className="sr-only">
           Türkiye geneli sahne kiralama, podyum kiralama, LED ekran kiralama, ses-ışık sistemleri,
@@ -459,7 +459,7 @@ export default function HomePage() {
       {/* Projeler */}
       <section
         aria-label="Projelerimiz"
-        className="content-visibility-auto bg-black"
+        className="content-visibility-auto cv-home-projects bg-black"
       >
         <p className="sr-only">
           500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
@@ -475,26 +475,26 @@ export default function HomePage() {
       </section>
 
       {/* Teknik */}
-      <div className="content-visibility-auto bg-[#0B1120] py-0">
+      <div className="content-visibility-auto cv-home-tech bg-[#0B1120] py-0">
         <TechCapabilities sectionPaddingClassName="pt-16 pb-8 md:pt-20 md:pb-10 2xl:pt-24 2xl:pb-12" />
       </div>
 
       {/* Kurumsal */}
-      <div className="content-visibility-auto bg-slate-50 py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-events bg-slate-50 py-0 m-0 w-full">
         <CorporateEvents sectionPaddingClassName="pt-8 pb-16 md:pt-10 md:pb-24 2xl:pt-12 2xl:pb-28" />
       </div>
 
-      <div className="content-visibility-auto bg-black py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-intro bg-black py-0 m-0 w-full">
         <CorporateIntro />
       </div>
 
       {/* Why Choose Us */}
-      <div className="content-visibility-auto w-full p-0 m-0">
+      <div className="content-visibility-auto cv-home-why w-full p-0 m-0">
         <WhyChooseUs />
       </div>
 
       {/* FAQ */}
-      <div className="content-visibility-auto w-full bg-transparent p-0 m-0">
+      <div className="content-visibility-auto cv-home-faq w-full bg-transparent p-0 m-0">
         <DeferredHydration
           fallback={<SectionLoading label="SSS yükleniyor" height="h-64" />}
           rootMargin="500px"
