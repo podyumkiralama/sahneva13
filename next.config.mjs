@@ -54,6 +54,21 @@ const htmlRobotsHeaders = [
   },
 ];
 
+const verificationFileHeaders = [
+  {
+    key: "Content-Type",
+    value: "text/plain; charset=utf-8",
+  },
+  {
+    key: "Cache-Control",
+    value: "public, max-age=0, must-revalidate, no-transform",
+  },
+  {
+    key: "X-Robots-Tag",
+    value: "noindex, nofollow",
+  },
+];
+
 const nextConfig = {
   turbopack: {
     root: path.resolve(process.cwd()),
@@ -204,6 +219,11 @@ const nextConfig = {
     return [
       // 1) Her şeyde güvenlik başlıkları
       { source: "/(.*)", headers: securityHeaders },
+
+      {
+        source: "/yandex_ae074bf9d9cbad2b.html",
+        headers: verificationFileHeaders,
+      },
 
       // 2) DÜZELTME: Sayfalar için sadece Robots başlığı basıyoruz, Cache-Control Next.js'e bırakıldı.
       {
