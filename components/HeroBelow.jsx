@@ -31,9 +31,9 @@ const DEFAULT_DICTIONARY = {
   consultationCta: "Hemen Teklif Al",
   consultationCtaHref: "#teklif-al",
   sectionBadge: "Süreç & Güvence",
-  sectionTitle: "Kurulum-sökümden canlı yönetimine kadar tek ekip, tek zaman çizelgesi",
+  sectionTitle: "Keşiften kuruluma tek ekip, net zaman çizelgesi",
   sectionDesc:
-    "Sahneva ekibi keşif, statik hesap, LED içerik hazırlığı, truss kiralama ve sahne üstü operasyonu aynı çatı altında toparlar; bu da hem hız hem de hatasız teslimat sağlar.",
+    "Sahneva; keşif, statik kontrol, LED içerik hazırlığı, truss kiralama ve sahne üstü operasyonu aynı plan içinde toplar. Böylece etkinlik günü kimin neyi yöneteceği baştan bellidir.",
   srHeading: "Sahne Kiralama Hizmet Özellikleri ve Danışmanlık",
 };
 
@@ -160,11 +160,11 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
             {d.sectionBadge}
           </p>
 
-          <h2 id="hero-supporting-title" className="text-2xl md:text-3xl font-black text-white leading-tight">
+          <h2 id="hero-supporting-title" className="max-w-2xl text-2xl font-black leading-tight text-white text-balance md:text-3xl">
             {d.sectionTitle}
           </h2>
 
-          <p className="text-slate-200/80 text-base md:text-lg leading-relaxed max-w-3xl">
+          <p className="max-w-3xl text-base leading-relaxed text-slate-200/80 md:text-lg">
             {d.sectionDesc}
           </p>
         </div>
