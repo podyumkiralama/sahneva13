@@ -314,31 +314,31 @@ function Hero() {
         {/* ✅ Navbar çakışmasını burada çözüyoruz */}
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
+            <div className="inline-flex max-w-full items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-3 py-2 sm:px-4 border border-white/30 mb-6">
               <span className="relative flex w-2 h-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
               </span>
-              <span className="text-sm font-bold text-white">
+              <span className="text-xs font-bold text-white sm:text-sm">
                 Türkiye Geneli Profesyonel Kurulum
               </span>
             </div>
 
             <h1
               id="hero-title"
-              className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
+              className="mx-auto mb-4 max-w-[22rem] text-balance text-3xl font-black leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)] sm:max-w-4xl sm:text-4xl md:text-6xl lg:text-7xl"
             >
-              Profesyonel{" "}
-              <span className="text-blue-200">
+              <span className="block sm:inline">Profesyonel</span>{" "}
+              <span className="block text-blue-200 sm:inline">
                 Sahne Kiralama
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
               Konser • Konferans • Lansman • Miting • Festival
             </p>
 
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
               Truss sistemleri, modüler podyum, LED ekranlar ile
               <span className="font-semibold text-white">
                 {" "}
@@ -352,7 +352,7 @@ function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp üzerinden hemen teklif alın"
-                className="inline-flex min-h-[44px] items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
+                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus-ring sm:w-auto sm:max-w-none sm:px-8"
               >
                 <span aria-hidden="true" className="text-xl mr-2">
                   💬
@@ -363,7 +363,7 @@ function Hero() {
               <Link
                 href="#paketler"
                 aria-label="Paketlerimiz hakkında daha fazla bilgi edinin"
-                className="inline-flex min-h-[44px] items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transition-all duration-300 focus-ring shadow-lg"
+                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl border-2 border-white/50 bg-slate-900/85 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:border-white/70 hover:bg-slate-900/95 focus-ring sm:w-auto sm:max-w-none sm:px-8"
               >
                 <span aria-hidden="true" className="text-xl mr-2">
                   🎯
@@ -372,29 +372,29 @@ function Hero() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-              <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                <span className="text-2xl mb-2" aria-hidden="true">
+            <div className="grid w-full max-w-sm grid-cols-3 gap-2 mx-auto sm:max-w-xl sm:gap-4">
+              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
+                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
                   ⭐
                 </span>
-                <div className="text-xl font-black text-white">4.9/5</div>
-                <div className="text-white/80 text-sm">183+ Değerlendirme</div>
+                <div className="text-lg font-black text-white sm:text-xl">8+</div>
+                <div className="text-xs leading-snug text-white/80 sm:text-sm">Yıl Deneyim</div>
               </div>
 
-              <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                <span className="text-2xl mb-2" aria-hidden="true">
+              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
+                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
                   🏆
                 </span>
-                <div className="text-xl font-black text-white">300+</div>
-                <div className="text-white/80 text-sm">Proje</div>
+                <div className="text-lg font-black text-white sm:text-xl">300+</div>
+                <div className="text-xs leading-snug text-white/80 sm:text-sm">Proje</div>
               </div>
 
-              <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                <span className="text-2xl mb-2" aria-hidden="true">
+              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
+                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
                   🚀
                 </span>
-                <div className="text-xl font-black text-white">81 İl</div>
-                <div className="text-white/80 text-sm">Hizmet</div>
+                <div className="text-lg font-black text-white sm:text-xl">81 İl</div>
+                <div className="text-xs leading-snug text-white/80 sm:text-sm">Hizmet</div>
               </div>
             </div>
           </div>
@@ -417,7 +417,7 @@ function Services() {
         <div className="text-center mb-16">
           <h2
             id="hizmetler-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Profesyonel{" "}
             <span className="text-blue-700">
@@ -436,7 +436,7 @@ function Services() {
             return (
               <div key={id} className="group">
                 <article
-                  className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col"
+                  className="flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 shadow-xl transition-all duration-500 hover:shadow-2xl lg:group-hover:scale-105 sm:p-8"
                   aria-labelledby={id}
                 >
                   <div
@@ -518,7 +518,7 @@ function Packages() {
         <div className="text-center mb-16">
           <h2
             id="paketler-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Hazır{" "}
             <span className="text-blue-700">
@@ -536,8 +536,8 @@ function Packages() {
               <div
                 className={`bg-white rounded-3xl border-2 shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 h-full flex flex-col ${
                   pkg.badge === "Popüler"
-                    ? "border-blue-500 ring-4 ring-blue-500/20 transform scale-105 group-hover:scale-110"
-                    : "border-gray-100 group-hover:scale-105"
+                    ? "border-blue-500 ring-4 ring-blue-500/20 lg:scale-105 lg:group-hover:scale-110"
+                    : "border-gray-100 lg:group-hover:scale-105"
                 }`}
               >
                 {/* Header */}
@@ -679,7 +679,7 @@ function Gallery() {
         <div className="text-center mb-16">
           <h2
             id="galeri-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Proje{" "}
             <span className="text-blue-700">
@@ -804,7 +804,7 @@ function Technical() {
         <div className="text-center mb-16">
           <h2
             id="altyapi-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Teknik{" "}
             <span className="text-blue-700">
@@ -820,8 +820,8 @@ function Technical() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {technicalItems.map((item) => (
             <div key={item.category} className="group">
-              <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl group-hover:scale-105 transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+              <div className="h-full rounded-3xl border-2 border-gray-100 bg-white p-6 shadow-lg transition-all duration-500 hover:shadow-xl lg:group-hover:scale-105 sm:p-8">
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold leading-tight text-gray-900 transition-colors group-hover:text-blue-600 sm:text-2xl">
                   <span className="text-3xl" aria-hidden="true">
                     {item.category === "podyum" && "🎭"}
                     {item.category === "truss" && "🏗️"}
@@ -882,7 +882,7 @@ function StatsBand() {
               aria-labelledby={`sahne-stat-${index}-value`}
               aria-describedby={`sahne-stat-${index}-label`}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 group-hover:bg-white/20 transition-all duration-500 group-hover:scale-105">
+              <div className="rounded-3xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm transition-all duration-500 group-hover:bg-white/20 lg:group-hover:scale-105 sm:p-8">
                 <div
                   className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
@@ -921,7 +921,7 @@ function UseCases() {
         <div className="text-center mb-16">
           <h2
             id="kullanim-alanlari-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Kullanım{" "}
             <span className="text-blue-700">
@@ -945,7 +945,7 @@ function UseCases() {
           {USE_CASES.map((uc) => (
             <div
               key={uc.text}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
+              className="rounded-3xl border border-white/30 bg-white/10 p-6 backdrop-blur-lg transition-all duration-500 hover:border-white/50 lg:hover:scale-105 sm:p-8"
               role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
@@ -997,7 +997,7 @@ function Articles() {
         <div className="text-center mb-16">
           <h2
             id="bilgi-rehber-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Bilgi &{" "}
             <span className="text-blue-700">
@@ -1363,7 +1363,7 @@ function FAQ() {
         <div className="text-center mb-16">
           <h2
             id="sss-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Sık Sorulan{" "}
             <span className="text-blue-700">
@@ -1383,7 +1383,7 @@ function FAQ() {
           {FAQ_ITEMS.map((faq, index) => (
             <details
               key={index}
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+              className="group rounded-3xl border-2 border-transparent bg-gray-50 p-6 transition-all duration-500 hover:bg-gray-100 open:border open:border-blue-200 open:bg-blue-50 sm:p-8"
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
@@ -1464,7 +1464,7 @@ function RelatedServices() {
         <div className="text-center mb-16">
           <h2
             id="tamamlayici-hizmetler-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Tamamlayıcı{" "}
             <span className="text-blue-700">
@@ -1487,7 +1487,7 @@ function RelatedServices() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
+                className="group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 text-center shadow-xl transition-all duration-500 hover:border-blue-200 hover:shadow-2xl focus-ring lg:hover:scale-105 sm:p-8"
                 aria-label={`${service.title} - ${service.desc}`}
               >
                 <div
