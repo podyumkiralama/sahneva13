@@ -3,21 +3,27 @@ import Link from "next/link";
 import RichText from "@/components/RichText";
 
 const DEFAULT_KEYWORDS = [
-  { text: "Sahne Kiralama", color: "text-blue-200" },
-  { text: "LED Ekran Kiralama", color: "text-purple-200" },
-  { text: "Ses & I\u015f\u0131k Sistemleri", color: "text-cyan-200" },
-  { text: "Podyum Kurulumu", color: "text-emerald-200" },
+  { text: "Kurumsal Lansman", color: "text-blue-200" },
+  { text: "Konser & Festival", color: "text-purple-200" },
+  { text: "Sahne + LED", color: "text-cyan-200" },
+  { text: "Podyum & Ses", color: "text-emerald-200" },
 ];
 
 const DEFAULT_DICTIONARY = {
   keywords: DEFAULT_KEYWORDS,
   keywordsAriaLabel: "\u00d6ne \u00e7\u0131kan hizmetler",
-  badge: "T\u00fcrkiye Geneli \u2022 H\u0131zl\u0131 Kurulum \u2022 Ayn\u0131 G\u00fcn Devreye Alma",
+  badge: "Kurumsal Etkinlik \u2022 Konser \u2022 Lansman \u2022 Festival",
   titleLine1Prefix: "Sahneva ile",
-  titleLine1: "Etkinlik Prod\u00fcksiyonu",
-  titleLine2: "Tek Ekip, Tek \u00c7at\u0131, Tek \u00c7\u00f6z\u00fcm",
+  titleLine1: "Sahne, LED ve Podyum",
+  titleLine2: "Tek Ekipten Kurulum",
   description:
-    "Sahneva ile <strong>etkinlik prod\u00fcksiyonu</strong>; sahne kiralama, LED ekran kiralama, ses-\u0131\u015f\u0131k sistemleri ve podyum kurulumunda tek ekip, tek \u00e7at\u0131 ve tek \u00e7\u00f6z\u00fcm anlay\u0131\u015f\u0131yla ilerler. <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim \u00e7\u00f6z\u00fcmler sunuyoruz.",
+    "Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.",
+  proofPoints: [
+    { value: "500+", label: "Tamamlanan proje" },
+    { value: "81 il", label: "T\u00fcrkiye geneli kurulum" },
+    { value: "2-6 saat", label: "H\u0131zl\u0131 devreye alma" },
+    { value: "Tek ekip", label: "Sahne, LED, ses ve podyum" },
+  ],
   ctaCall: "Hemen Ara",
   ctaCallAria: "Hemen ara - Sahneva'y\u0131 telefonla aray\u0131n",
   ctaWhatsapp: "WhatsApp Teklif",
@@ -30,21 +36,42 @@ const DEFAULT_DICTIONARY = {
 };
 
 const CTA_BASE =
-  "w-full sm:w-auto min-w-[180px] min-h-[44px] inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
+  "w-full max-w-sm sm:w-auto sm:min-w-[180px] min-h-[44px] inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
 
 function KeywordPills({ keywords, ariaLabel }) {
   return (
     <ul
-      className="mx-auto mb-4 mt-4 flex max-w-4xl list-none flex-wrap justify-center gap-2 p-0"
+      className="mx-auto mb-4 mt-4 flex max-w-full list-none flex-wrap justify-center gap-2 p-0 md:max-w-4xl"
       aria-label={ariaLabel}
     >
       {keywords.map((k) => (
         <li key={k.text}>
           <span
-            className={`rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-sm font-semibold md:text-base ${k.color}`}
+            className={`rounded-lg border border-white/10 bg-white/10 px-2.5 py-1 text-xs font-semibold sm:text-sm md:text-base ${k.color}`}
           >
             {k.text}
           </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ProofStrip({ items }) {
+  if (!items?.length) return null;
+
+  return (
+    <ul className="mx-auto mt-7 grid w-full max-w-sm list-none grid-cols-2 gap-2 p-0 sm:max-w-4xl md:grid-cols-4">
+      {items.map((item) => (
+        <li key={`${item.value}-${item.label}`}>
+          <div className="h-full rounded-2xl border border-white/15 bg-black/35 px-2 py-2.5 text-center shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-md md:px-3 md:py-3">
+            <span className="block text-base font-black leading-tight text-white md:text-xl">
+              {item.value}
+            </span>
+            <span className="mt-1 block text-[10px] font-semibold leading-snug text-white/75 md:text-xs">
+              {item.label}
+            </span>
+          </div>
         </li>
       ))}
     </ul>
@@ -101,19 +128,21 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
 
       <div className="relative z-10">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-5xl overflow-hidden text-center">
             <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-xs font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md md:text-sm">
               {d.badge}
             </p>
 
             <h1
               id="hero-title"
-              className="mt-3 text-4xl font-black leading-[1.12] md:mt-4 md:text-6xl md:leading-[1.15] md:drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] lg:text-7xl"
+              aria-label={`${d.titleLine1Prefix} ${d.titleLine1} ${d.titleLine2}`}
+              className="mx-auto mt-3 max-w-[22rem] text-[2rem] font-black leading-[1.08] tracking-tight sm:max-w-5xl sm:text-4xl md:mt-4 md:text-6xl md:leading-[1.15] md:drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] lg:text-7xl"
             >
-              {d.titleLine1Prefix}{" "}
-              <span className="text-blue-200 md:[text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+              <span className="block sm:inline">{d.titleLine1Prefix}</span>{" "}
+              <span className="block text-blue-200 sm:inline md:[text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
                 {d.titleLine1}
               </span>
+              {" "}
               <span className="block text-white">{d.titleLine2}</span>
             </h1>
 
@@ -126,7 +155,9 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
               <RichText text={d.description} />
             </p>
 
-            <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <ProofStrip items={d.proofPoints} />
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="tel:+905453048671"
                 className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
