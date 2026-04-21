@@ -1337,6 +1337,7 @@ export default function Page() {
       <RelatedServicesSection />
       <ServiceBlogLinks
         links={[
+          { href: "/blog/podyum-kiralama-nasil-secilir", label: "Podyum Kiralama Nasıl Seçilir?" },
           { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Etkinliğe Göre Podyum Tercihi" },
           { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Neden Podyum Sahne Tercih Edilir?" },
         ]}
