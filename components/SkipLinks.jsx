@@ -17,7 +17,7 @@ const STRINGS = {
 };
 
 const LINK_CLASSNAME =
-  "inline-flex items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus-ring";
+  "sr-only focus:not-sr-only focus:fixed focus:left-2 focus:z-[9999] inline-flex items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus-ring";
 
 const SKIP_TARGETS = [
   { id: "_main_content", key: "toMain" },
@@ -39,10 +39,15 @@ export default function SkipLinks({ locale = "tr" }) {
   return (
     <nav
       aria-label={strings.toMain}
-      className="sr-only focus-within:not-sr-only fixed left-2 top-2 z-[9999] space-y-2"
+      className="fixed left-2 top-2 z-[9999] pointer-events-none"
     >
-      {SKIP_TARGETS.map(({ id, key }) => (
-        <a key={id} href={`#${id}`} className={LINK_CLASSNAME}>
+      {SKIP_TARGETS.map(({ id, key }, index) => (
+        <a
+          key={id}
+          href={`#${id}`}
+          className={`${LINK_CLASSNAME} pointer-events-auto`}
+          style={{ top: `${0.5 + index * 3}rem` }}
+        >
           {strings[key]}
         </a>
       ))}
