@@ -14,6 +14,7 @@ import {
 } from "@/lib/seo/seoConfig";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 
 const content = LOCALE_CONTENT.ar;
 
@@ -47,7 +48,7 @@ export const viewport = {
 };
 
 export default async function ArabicLayout({ children }) {
-  await headers();
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   return (
     <html
@@ -57,6 +58,9 @@ export default async function ArabicLayout({ children }) {
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
+      <head>
+        <TrustedTypesPolicy nonce={nonce} />
+      </head>
       <body className="flex flex-col" dir={content.direction}>
         <SkipLinks locale="ar" />
         <AnalyticsConsentWrapper />

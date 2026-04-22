@@ -10,6 +10,7 @@ import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -198,6 +199,9 @@ export default async function EnglishLayout({ children }) {
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
+      <head>
+        <TrustedTypesPolicy nonce={nonce} />
+      </head>
       <body className="flex flex-col">
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
