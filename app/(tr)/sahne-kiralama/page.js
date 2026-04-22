@@ -9,7 +9,17 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
-import { Music, Layout, Monitor, Layers } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarCheck,
+  ClipboardCheck,
+  Layout,
+  Layers,
+  MessageCircle,
+  Monitor,
+  Music,
+  Ruler,
+} from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 1800;
@@ -271,6 +281,45 @@ const PACKAGES = [
   },
 ];
 
+const FLOW_STEPS = [
+  {
+    title: "Etkinlik bilgisini netleştirelim",
+    desc: "Tarih, lokasyon, etkinlik türü ve tahmini katılımcı sayısı yeterli.",
+    Icon: ClipboardCheck,
+  },
+  {
+    title: "Sahne ölçeğini birlikte seçelim",
+    desc: "Konuşma, konser, lansman veya tören akışı için uygun m2 ve yükseklik belirlenir.",
+    Icon: Ruler,
+  },
+  {
+    title: "Kurulum planını onaylayalım",
+    desc: "Nakliye, kurulum, teknik test, etkinlik günü destek ve söküm tek planda toplanır.",
+    Icon: CalendarCheck,
+  },
+];
+
+const PACKAGE_GUIDE = [
+  {
+    href: "#fiyat-1",
+    label: "Mini Sahne",
+    bestFor: "Söyleşi, toplantı, butik iç mekan",
+    detail: "4x4 m, hızlı kurulum",
+  },
+  {
+    href: "#fiyat-2",
+    label: "Standart Sahne",
+    bestFor: "Lansman, AVM etkinliği, kurumsal sunum",
+    detail: "6x4 m, en dengeli paket",
+  },
+  {
+    href: "#fiyat-3",
+    label: "Konser Sahnesi",
+    bestFor: "Festival, konser, açık alan etkinliği",
+    detail: "8x6 m, LED ve line array altyapı",
+  },
+];
+
 /* ================== HERO (FINAL – no overlap, no -mt) ================== */
 function Hero() {
   return (
@@ -397,6 +446,120 @@ function Hero() {
                 <div className="text-xs leading-snug text-white/80 sm:text-sm">Hizmet</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Teklif Akisi ================== */
+function RentalFlow() {
+  return (
+    <section
+      id="teklif-akisi"
+      className="bg-white py-14 sm:py-16"
+      aria-labelledby="teklif-akisi-baslik"
+    >
+      <div className="container mx-auto px-4">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-blue-700">
+              Hızlı karar akışı
+            </p>
+            <h2
+              id="teklif-akisi-baslik"
+              className="max-w-2xl break-words text-2xl font-black leading-tight text-gray-950 sm:text-4xl md:text-5xl"
+            >
+              Sahne kiralamada önce ihtiyacı netleştirelim, sonra paketi seçelim.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-600">
+              En doğru teklif için önce etkinlik formatını, sahne ölçüsünü ve
+              kurulum şartlarını sade bir akışta topluyoruz. Hazır paketlerden
+              biri uygunsa aynı gün hızlı teklif hazırlanabilir.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl bg-green-600 px-6 py-3 font-bold text-white shadow-lg transition hover:bg-green-700 hover:no-underline focus-ring sm:w-auto"
+              >
+                <MessageCircle size={20} aria-hidden="true" />
+                WhatsApp ile Başlayın
+              </Link>
+              <Link
+                href="#paketler"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl border border-gray-300 bg-white px-6 py-3 font-bold text-gray-950 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 hover:no-underline focus-ring sm:w-auto"
+              >
+                Paketleri Karşılaştır
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            {FLOW_STEPS.map((step, index) => (
+              <article
+                key={step.title}
+                className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-sm sm:p-6"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white">
+                  <step.Icon size={23} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="mb-1 text-sm font-black uppercase tracking-wide text-blue-700">
+                    Adım {index + 1}
+                  </div>
+                  <h3 className="text-xl font-black leading-snug text-gray-950">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-gray-600">
+                    {step.desc}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-7xl rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h3 className="text-2xl font-black text-gray-950">
+                Hangi paket size daha yakın?
+              </h3>
+              <p className="mt-1 text-gray-600">
+                Etkinlik tipine göre başlangıç paketini seçip detayları
+                teklif aşamasında netleştirebiliriz.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {PACKAGE_GUIDE.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group rounded-2xl border border-white bg-white p-5 shadow-sm transition hover:border-blue-300 hover:shadow-md hover:no-underline focus-ring"
+              >
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <h4 className="text-xl font-black text-gray-950">
+                    {item.label}
+                  </h4>
+                  <ArrowRight
+                    size={19}
+                    className="text-blue-700 transition group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </div>
+                <p className="text-base font-semibold text-gray-700">
+                  {item.bestFor}
+                </p>
+                <p className="mt-2 text-sm text-gray-500">{item.detail}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -1653,8 +1816,9 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StageJsonLd />
       <Hero />
-      <Services />
+      <RentalFlow />
       <Packages />
+      <Services />
       <Gallery />
       <Technical />
       <StatsBand />
