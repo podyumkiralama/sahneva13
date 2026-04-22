@@ -1,6 +1,7 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
+import { headers } from "next/headers";
 import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -187,6 +188,8 @@ export const viewport = {
 };
 
 export default async function EnglishLayout({ children }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html
       lang="en"
@@ -198,7 +201,7 @@ export default async function EnglishLayout({ children }) {
       <body className="flex flex-col">
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
-      <JsonLd id="global-ld-json-en" data={globalJsonLd} />
+      <JsonLd id="global-ld-json-en" data={globalJsonLd} nonce={nonce} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">
         <header

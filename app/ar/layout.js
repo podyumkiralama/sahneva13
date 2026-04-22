@@ -1,6 +1,7 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
+import { headers } from "next/headers";
 import { inter } from "../fonts";
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
@@ -45,7 +46,9 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default function ArabicLayout({ children }) {
+export default async function ArabicLayout({ children }) {
+  await headers();
+
   return (
     <html
       lang="ar"

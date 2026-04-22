@@ -2,6 +2,7 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
+import { headers } from "next/headers";
 import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -190,6 +191,8 @@ export const viewport = {
 };
 
 export default async function TurkishLayout({ children }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html
       lang="tr"
@@ -201,7 +204,7 @@ export default async function TurkishLayout({ children }) {
       <body className="flex flex-col">
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
-      <JsonLd id="global-ld-json" data={globalJsonLd} />
+      <JsonLd id="global-ld-json" data={globalJsonLd} nonce={nonce} />
 
       {/* ✅ TEK WRAPPER: Header + Main + Footer */}
       <div className="min-h-screen text-slate-100 flex flex-col">

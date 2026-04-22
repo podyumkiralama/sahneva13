@@ -6,30 +6,17 @@ export const config = {
   ],
 };
 
-function buildCsp({ siteUrl, isPreview }) {
-  const scriptSources = [
+function createNonce() {
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+  return btoa(String.fromCharCode(...bytes));
+}
+
+function buildCsp({ siteUrl, isPreview, nonce }) {
+  const strictScriptSrc = [
     "'self'",
-    "https://www.googletagmanager.com",
-    "https://www.google-analytics.com",
-    "https://va.vercel-scripts.com",
-    "https://vercel.live",
-    "https://www.clarity.ms",
-    "https://scripts.clarity.ms",
-    "https://k.clarity.ms",
-    "https://z.clarity.ms",
-    "https://l.clarity.ms",
-    "https://static.cloudflareinsights.com",
-  ];
-
-  const scriptSrc = scriptSources.join(" ");
-
-  // Next.js App Router emits static inline bootstrap/RSC script elements.
-  // Keep that exception scoped to script elements; inline event handlers stay
-  // blocked by script-src-attr 'none', and script-src remains strict.
-  const scriptElementSrc = [
-    scriptSources[0],
-    "'unsafe-inline'",
-    ...scriptSources.slice(1),
+    `'nonce-${nonce}'`,
+    "'strict-dynamic'",
   ].join(" ");
 
   const connectSrc = [
@@ -76,13 +63,15 @@ function buildCsp({ siteUrl, isPreview }) {
     img-src 'self' data: blob: https:;
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    script-src ${scriptSrc};
-    script-src-elem ${scriptElementSrc};
+    script-src ${strictScriptSrc};
+    script-src-elem ${strictScriptSrc};
     script-src-attr 'none';
     connect-src ${connectSrc};
     worker-src 'self' blob:;
     frame-src ${frameSrc};
     form-action 'self' https://formspree.io https://wa.me;
+    trusted-types sahneva#script-url nextjs#bundler default;
+    require-trusted-types-for 'script';
   `
     .replace(/\s{2,}/g, " ")
     .trim();
@@ -105,14 +94,26 @@ function shouldNoindexQueryVariant(request) {
 }
 
 export function proxy(request) {
-  const response = NextResponse.next();
+  const nonce = createNonce();
+  const csp = buildCsp({
+    siteUrl: request.nextUrl.origin,
+    isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
+    nonce,
+  });
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("Content-Security-Policy", csp);
+
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 
   response.headers.set(
     "Content-Security-Policy",
-    buildCsp({
-      siteUrl: request.nextUrl.origin,
-      isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
-    })
+    csp
   );
 
   if (shouldNoindexQueryVariant(request)) {
