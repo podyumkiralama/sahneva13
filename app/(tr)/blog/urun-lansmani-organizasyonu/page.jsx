@@ -1,5 +1,4 @@
 // app/blog/urun-lansmani-organizasyonu/page.jsx
-import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
@@ -17,9 +16,6 @@ const HERO_IMAGE = "/img/kurumsal/lansman.webp";
 const FEATURED_IMAGE = HERO_IMAGE;
 const OG_IMAGE = HERO_IMAGE;
 const IMAGES = null;
-const STAGE_SERVICE_PATH = "/sahne-kiralama";
-const PODIUM_SERVICE_PATH = "/podyum-kiralama";
-const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, ürün lansmanı için teklif almak istiyorum.");
 
 /* ================== META DATA ================== */

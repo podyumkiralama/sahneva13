@@ -1,5 +1,4 @@
 // app/en/blog/product-launch-event-organization/page.jsx
-import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
@@ -19,9 +18,6 @@ const HERO_IMAGE = "/img/kurumsal/lansman.webp";
 const FEATURED_IMAGE = HERO_IMAGE;
 const OG_IMAGE = HERO_IMAGE;
 const IMAGES = null;
-const STAGE_SERVICE_PATH = "/en/stage-rental";
-const PODIUM_SERVICE_PATH = "/en/podium-rental";
-const LED_SERVICE_PATH = "/en/led-screen-rental";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I'd like to get a quote for a product launch.");
 
 /* ================== META DATA ================== */
