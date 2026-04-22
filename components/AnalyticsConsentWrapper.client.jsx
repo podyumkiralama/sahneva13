@@ -126,7 +126,7 @@ export default function AnalyticsConsentWrapper() {
       }
     };
 
-    const scheduleActivation = (timeout = 1200) => {
+    const scheduleActivation = (timeout = 250) => {
       if (activated || activationHandle || typeof window === "undefined") return;
 
       if ("requestIdleCallback" in window) {
@@ -145,7 +145,7 @@ export default function AnalyticsConsentWrapper() {
         window.clearTimeout(timeoutHandle);
         timeoutHandle = null;
       }
-      scheduleActivation();
+      scheduleActivation(250);
     };
 
     const cleanupInteractionListeners = () => {
