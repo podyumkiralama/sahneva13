@@ -17,7 +17,7 @@ const STRINGS = {
 };
 
 const LINK_CLASSNAME =
-  "sr-only focus:not-sr-only focus:fixed focus:left-2 focus:z-[9999] inline-flex items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus-ring";
+  "fixed -left-[10000px] -top-[10000px] z-[9999] inline-flex min-h-[44px] items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus:left-2 focus:top-[var(--skip-top)] focus-ring";
 
 const SKIP_TARGETS = [
   { id: "_main_content", key: "toMain" },
@@ -45,8 +45,8 @@ export default function SkipLinks({ locale = "tr" }) {
         <a
           key={id}
           href={`#${id}`}
-          className={`${LINK_CLASSNAME} pointer-events-auto`}
-          style={{ top: `${0.5 + index * 3}rem` }}
+          className={LINK_CLASSNAME}
+          style={{ "--skip-top": `${0.5 + index * 3}rem` }}
         >
           {strings[key]}
         </a>

@@ -164,7 +164,7 @@ export default function Navbar({ locale = "tr", ...props }) {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href={homeHref}
-              className={`flex items-center gap-3 group ${FOCUS_RING_CLASS}`}
+              className={`flex min-h-[44px] min-w-[44px] items-center gap-3 group ${FOCUS_RING_CLASS}`}
               aria-label={logoAriaLabel}
             >
               <Image

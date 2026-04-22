@@ -83,7 +83,7 @@ const FooterLink = ({
       target={target}
       rel={rel}
       className={`
-        group flex items-center py-1.5 pl-2 border-l-2 border-transparent
+        group flex min-h-[44px] items-center py-2 pl-2 border-l-2 border-transparent
         transition-all duration-200 rounded-sm text-gray-300
         hover:pl-3 hover:text-white ${hoverColorClass} ${FOCUS_RING_CLASS}
       `}
@@ -176,10 +176,6 @@ export default function Footer({
     ? (footerStrings?.copyrightDesc ?? "Nationwide professional stage rental, podium rental, LED screen rental, sound and light systems, tent rental and table-chair rental services.")
     : "Türkiye genelinde profesyonel sahne kiralama, podyum kiralama, LED ekran kiralama, ses ışık sistemleri, çadır kiralama ve masa sandalye kiralama hizmetleri.";
   const rightsLabel = isEn ? "All rights reserved." : "Tüm hakları saklıdır.";
-
-  const aboutDesc = isEn
-    ? (footerStrings?.about ?? "Nationwide professional stage, podium, LED screen, sound and light rental services across Türkiye.")
-    : "Türkiye genelinde profesyonel sahne, podyum, LED ekran, ses ve ışık kiralama hizmetleri.";
 
   const brandSubtitle = isEn
     ? "Professional event production and organization services."
@@ -293,7 +289,7 @@ export default function Footer({
               </div>
               <div>
                 <p className="text-sm font-semibold text-white">Sahneva</p>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-300 leading-relaxed">
                   {brandSubtitle}
                 </p>
               </div>
@@ -424,7 +420,7 @@ export default function Footer({
                 <div>
                   <span className="block text-white font-medium mb-0.5">{officeTitle}</span>
                   <span className="block text-gray-200">{address}</span>
-                  <span className="block text-gray-100 text-xs mt-0.5">{nationwide}</span>
+                  <span className="block text-gray-100 text-sm mt-0.5">{nationwide}</span>
                 </div>
               </div>
 
@@ -441,7 +437,7 @@ export default function Footer({
                 </span>
                 <a
                   href="tel:+905453048671"
-                  className={`text-gray-200 hover:text-white font-medium transition-colors ${FOCUS_RING_CLASS}`}
+                    className={`inline-flex min-h-[44px] items-center text-gray-200 hover:text-white font-medium transition-colors ${FOCUS_RING_CLASS}`}
                 >
                   +90 545 304 8671
                 </a>
@@ -460,7 +456,7 @@ export default function Footer({
                 </span>
                   <a
                     href="mailto:info@sahneva.com"
-                    className={`text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
+                    className={`inline-flex min-h-[44px] items-center text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
                   >
                     info@sahneva.com
                     <span className="sr-only">
@@ -497,7 +493,7 @@ export default function Footer({
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`
-                      group inline-flex items-center gap-2 text-xs text-gray-300
+                      group inline-flex min-h-[44px] items-center gap-2 text-sm text-gray-300
                       hover:text-white transition-all duration-300 ${FOCUS_RING_CLASS}
                     `}
                   >
@@ -517,10 +513,10 @@ export default function Footer({
             </nav>
 
             <nav className="border-t border-white/10 pt-3" aria-label={isEn ? "Social media" : "Sosyal medya"}>
-              <p className="text-xs font-medium text-slate-400 mb-2">{socialMediaLabel}</p>
+              <p className="text-sm font-medium text-slate-400 mb-2">{socialMediaLabel}</p>
               <ul className="flex gap-2">
                 {SOCIAL_LINKS.map((link) => (
-                  <SocialLink key={link.href} sizeClass="h-9 w-9" {...link} />
+                  <SocialLink key={link.href} {...link} />
                 ))}
               </ul>
             </nav>
@@ -531,7 +527,7 @@ export default function Footer({
       {/* Alt Telif Satırı */}
       <div className="relative border-t border-white/10 text-center py-5 bg-black/40 backdrop-blur-md">
         <div className="container mx-auto px-6 relative z-10">
-          <p className="mb-2 text-[13px] text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          <p className="mb-2 text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto">
             {copyrightDesc}
           </p>
 
@@ -547,7 +543,7 @@ export default function Footer({
             <Link
               href={privacyHref}
               className={`
-                hover:text-white transition-colors underline underline-offset-4
+                inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
                 ${FOCUS_RING_CLASS}
               `}
             >
@@ -559,7 +555,7 @@ export default function Footer({
             <a
               href="#_main_content"
               className={`
-                hover:text-white transition-colors underline underline-offset-4
+                inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
                 ${FOCUS_RING_CLASS}
               `}
             >

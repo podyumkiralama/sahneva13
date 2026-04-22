@@ -216,7 +216,7 @@ export default async function SeoArticles({
                     )}
 
                     {a.category && (
-                      <span className="absolute top-2 left-2 text-[10px] font-semibold text-white bg-blue-600/90 rounded-full px-2 py-1 shadow-sm">
+                      <span className="absolute left-2 top-2 rounded-full bg-blue-600/90 px-2 py-1 text-sm font-semibold text-white shadow-sm">
                         {a.category}
                       </span>
                     )}
@@ -224,7 +224,7 @@ export default async function SeoArticles({
 
                   {/* İçerik */}
                   <div className="flex flex-1 flex-col p-4 sm:p-5">
-                    <div className="mb-2 flex flex-wrap items-center gap-2 text-[11px] text-neutral-500">
+                    <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-neutral-500">
                       {formattedDate && (
                         <time dateTime={a.datePublished || ""}>
                           📅 {formattedDate}

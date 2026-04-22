@@ -672,7 +672,7 @@ function StickyVideoRailInner({
                       fetchPriority="low"
                     />
                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                      <span className="text-white text-[10px]">▶</span>
+                      <span className="text-sm text-white">▶</span>
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">

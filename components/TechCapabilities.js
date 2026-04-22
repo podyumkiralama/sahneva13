@@ -67,7 +67,7 @@ export default function TechCapabilities({
         <div className="text-center max-w-4xl mx-auto mb-14 md:mb-16">
           {/* Hap Etiket */}
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider shadow-sm">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-[0.16em] shadow-sm">
               <span
                 className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"
                 aria-hidden="true"

@@ -112,7 +112,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 2xl:py-24">
         <header className="max-w-4xl mx-auto mb-16 text-center md:text-left">
-          <p className="text-xs md:text-[13px] font-semibold tracking-[0.22em] uppercase text-slate-300/90">{dictionary.sectionPill}</p>
+          <p className="text-sm font-semibold tracking-[0.16em] uppercase text-slate-300/90">{dictionary.sectionPill}</p>
           <h2 id="why-choose-title" className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-slate-50">
             <span className="block">
               {dictionary.sectionTitlePrefix}{" "}
@@ -225,7 +225,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
                       </div>
                     </div>
 
-                    <span className={`inline-flex items-center text-[11px] font-semibold px-3 py-1 rounded-full ${feature.pillClass}`}>{dictFeature.stat}</span>
+                    <span className={`inline-flex items-center text-sm font-semibold px-3 py-1 rounded-full ${feature.pillClass}`}>{dictFeature.stat}</span>
 
                     <h4
                       id={featureTitleId}

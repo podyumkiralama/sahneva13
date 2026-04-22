@@ -108,7 +108,7 @@ function SupportCard({ dictionary }) {
             T
           </span>
           <div className="min-w-0">
-            <span className="block text-xs font-medium text-slate-400">
+            <span className="block text-sm font-medium text-slate-400">
               {dictionary.supportPhoneLabel}
             </span>
             <span className="block break-words text-sm font-bold text-white group-hover:text-sky-300">
@@ -127,7 +127,7 @@ function SupportCard({ dictionary }) {
             W
           </span>
           <div className="min-w-0">
-            <span className="block text-xs font-medium text-slate-400">
+            <span className="block text-sm font-medium text-slate-400">
               {dictionary.supportWhatsappLabel}
             </span>
             <span className="block text-sm font-bold text-white group-hover:text-green-300">
@@ -145,7 +145,7 @@ function SupportCard({ dictionary }) {
             @
           </span>
           <div className="min-w-0">
-            <span className="block text-xs font-medium text-slate-400">
+            <span className="block text-sm font-medium text-slate-400">
               {dictionary.supportMailLabel}
             </span>
             <span className="block break-words text-sm font-bold text-white group-hover:text-purple-300">
@@ -196,7 +196,7 @@ export default function Faq({
         {!ariaLabelledBy && (
           <div className="mx-auto mb-16 max-w-4xl text-center">
             <div className="mb-4 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-sky-200 shadow-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-sky-200 shadow-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-sky-400" aria-hidden="true" />
                 {dictionary.sectionPill}
               </span>
