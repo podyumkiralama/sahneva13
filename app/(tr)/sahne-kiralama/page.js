@@ -772,6 +772,10 @@ function Packages() {
                           + KDV
                         </span>
                       </div>
+                      <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                        Tahmini bütçedir; tarih, lokasyon, kurulum şartları ve
+                        ek teknik ihtiyaçlara göre netleştirilir.
+                      </p>
                     </div>
                   </div>
                 </div>
