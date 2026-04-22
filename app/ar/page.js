@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import heroImg from "@/public/img/hero-bg.webp";
 import CorporateEvents from "@/components/CorporateEvents";
 import ServicesTabs from "@/components/ServicesTabs";
 import ProjectsGallery from "@/components/ProjectsGallery";
@@ -16,6 +15,16 @@ import {
 } from "@/lib/seo/seoConfig";
 
 const { home } = LOCALE_CONTENT.ar;
+
+const HERO_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjUiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjUiIGZpbGw9IiMwYjBmMWEiLz48L3N2Zz4=";
+
+const heroImg = {
+  src: "/img/hero-bg.webp",
+  width: 1600,
+  height: 1066,
+  blurDataURL: HERO_BLUR_DATA_URL,
+};
 
 const HERO_IMAGE_ALT_AR =
   "خلفية تعرض منصة مع شاشة LED وهيكل تعليق وإضاءة من فريق ساهنيفا للتقنيات الحدثية";
@@ -582,13 +591,14 @@ function StructuredData() {
 function HeroBackgroundImage({ alt = HERO_IMAGE_ALT_AR, ariaHidden = false }) {
   return (
     <Image
-      src={heroImg}
+      src={heroImg.src}
       alt={ariaHidden ? "" : alt}
       fill
       priority
       fetchPriority="high"
       sizes="100vw"
       placeholder="blur"
+      blurDataURL={heroImg.blurDataURL}
       quality={70}
       className="absolute inset-0 h-full w-full object-cover object-center"
       style={{ filter: "brightness(0.7) contrast(1.1) saturate(1.05)" }}

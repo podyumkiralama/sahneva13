@@ -11,6 +11,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import DeferredHydration from "@/components/DeferredHydration.client";
 import JsonLd from "@/components/seo/JsonLd";
 
 import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/seo/seoConfig";
@@ -53,6 +54,22 @@ const Faq = dynamic(() => import("@/components/Faq"), {
     </div>
   ),
 });
+
+function SectionLoading({ label, height = "h-48" }) {
+  return (
+    <div
+      className={`flex ${height} items-center justify-center`}
+      role="status"
+      aria-label={label}
+    >
+      <div
+        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">{label}</span>
+    </div>
+  );
+}
 
 const EN_HOME_URL = `${BASE_SITE_URL}/en`;
 const WEBPAGE_ID = `${EN_HOME_URL}#webpage`;
@@ -848,7 +865,10 @@ export default function EnglishHomePage() {
       <div id="get-a-quote" aria-hidden="true" />
 
       {/* Services */}
-      <section aria-labelledby="services-title" className="bg-black">
+      <section
+        aria-labelledby="services-title"
+        className="content-visibility-auto cv-home-services bg-black"
+      >
         <h2 id="services-title" className="sr-only">Services</h2>
         <p className="sr-only">
           Stage rental, podium rental, LED wall rental, sound-lighting systems, truss rental, tent
@@ -859,22 +879,31 @@ export default function EnglishHomePage() {
       </section>
 
       {/* Projects */}
-      <section aria-labelledby="projects-title" className="bg-black">
+      <section
+        aria-labelledby="projects-title"
+        className="content-visibility-auto cv-home-projects bg-black"
+      >
         <h2 id="projects-title" className="sr-only">Our Projects</h2>
         <p className="sr-only">
           Professional partner for 500+ corporate events, concerts, fairs and activations.
         </p>
         <a className="sr-only" href="/en/projects">View projects</a>
-        <ProjectsGallery galleries={PROJECT_GALLERIES_EN} dictionary={PROJECTS_DICT_EN} />
+        <DeferredHydration
+          fallback={<SectionLoading label="Loading projects" height="h-80" />}
+          rootMargin="600px"
+          idleTimeout={7000}
+        >
+          <ProjectsGallery galleries={PROJECT_GALLERIES_EN} dictionary={PROJECTS_DICT_EN} />
+        </DeferredHydration>
       </section>
 
       {/* Technical */}
-      <div className="bg-slate-900 py-10">
+      <div className="content-visibility-auto cv-home-tech bg-slate-900 py-10">
         <TechCapabilities dictionary={TECH_CAPABILITIES_DICT_EN} />
       </div>
 
       {/* Corporate */}
-      <div className="bg-slate-50 py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-events bg-slate-50 py-0 m-0 w-full">
         <CorporateEvents
           cards={CORPORATE_EVENTS_CARDS_EN}
           advantages={CORPORATE_EVENTS_ADVANTAGES_EN}
@@ -882,17 +911,17 @@ export default function EnglishHomePage() {
         />
       </div>
 
-      <div className="bg-black py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-intro bg-black py-0 m-0 w-full">
         <CorporateIntro dictionary={CORPORATE_INTRO_DICT_EN} />
       </div>
 
       {/* Why Choose Us */}
-      <div className="w-full p-0 m-0">
+      <div className="content-visibility-auto cv-home-why w-full p-0 m-0">
         <WhyChooseUs dictionary={WHY_CHOOSE_US_DICT_EN} />
       </div>
 
       {/* FAQ */}
-      <div className="w-full bg-transparent p-0 m-0">
+      <div className="content-visibility-auto cv-home-faq w-full bg-transparent p-0 m-0">
         <Faq items={FAQ_ITEMS_EN} dictionary={FAQ_DICT_EN} />
       </div>
     </div>

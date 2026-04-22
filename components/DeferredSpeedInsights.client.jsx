@@ -1,12 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-
-const SpeedInsights = dynamic(() => import("@vercel/speed-insights/next").then((mod) => mod.SpeedInsights), {
-  ssr: false,
-  loading: () => null,
-});
 
 const SLOW_CONNECTION_TYPES = new Set(["slow-2g", "2g"]);
 
@@ -24,34 +18,48 @@ function canLoadInsights() {
 }
 
 export default function DeferredSpeedInsights() {
-  const [shouldRender, setShouldRender] = useState(false);
+  const [SpeedInsights, setSpeedInsights] = useState(null);
 
   useEffect(() => {
     if (!canLoadInsights()) return;
-    if (shouldRender) return;
+    if (SpeedInsights) return;
 
     let idleHandle;
     let timeoutHandle;
+    let cancelled = false;
 
-    const schedule = () => setShouldRender(true);
+    const loadInsights = () => {
+      import("@vercel/speed-insights/next")
+        .then((mod) => {
+          if (!cancelled) {
+            setSpeedInsights(() => mod.SpeedInsights);
+          }
+        })
+        .catch(() => undefined);
+    };
 
     if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      idleHandle = window.requestIdleCallback(schedule, { timeout: 5000 });
+      idleHandle = window.requestIdleCallback(loadInsights, { timeout: 5000 });
     } else if (typeof window !== "undefined") {
-      timeoutHandle = window.setTimeout(schedule, 3200);
+      timeoutHandle = window.setTimeout(loadInsights, 3200);
     }
 
     return () => {
-      if (idleHandle && typeof window !== "undefined" && "cancelIdleCallback" in window) {
+      cancelled = true;
+      if (
+        idleHandle &&
+        typeof window !== "undefined" &&
+        "cancelIdleCallback" in window
+      ) {
         window.cancelIdleCallback(idleHandle);
       }
       if (timeoutHandle && typeof window !== "undefined") {
         window.clearTimeout(timeoutHandle);
       }
     };
-  }, [shouldRender]);
+  }, [SpeedInsights]);
 
-  if (!shouldRender) {
+  if (!SpeedInsights) {
     return null;
   }
 
