@@ -894,6 +894,7 @@ function Gallery() {
           </p>
           <Link
             href="/projeler"
+            prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">
@@ -1248,6 +1249,7 @@ function Articles() {
                       genelinde{" "}
                       <Link
                         href="/sahne-kiralama"
+                        prefetch={false}
                         className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4"
                       >
                         profesyonel sahne kiralama
@@ -1600,6 +1602,7 @@ function FAQ() {
           </p>
           <Link
             href="/sss"
+            prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
             aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
@@ -1675,6 +1678,7 @@ function RelatedServices() {
               <Link
                 key={service.href}
                 href={service.href}
+                prefetch={false}
                 className="group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 text-center shadow-xl transition-all duration-500 hover:border-blue-200 hover:shadow-2xl focus-ring lg:hover:scale-105 sm:p-8"
                 aria-label={`${service.title} - ${service.desc}`}
               >
@@ -1732,6 +1736,7 @@ function CTA() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/iletisim"
+                prefetch={false}
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
               >
                 <span aria-hidden="true" className="text-xl mr-3">

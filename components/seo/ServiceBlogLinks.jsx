@@ -15,6 +15,7 @@ export default function ServiceBlogLinks({ title = "Bu konuya dair rehberler", l
             <li key={link.href}>
               <Link
                 href={link.href}
+                prefetch={false}
                 className="flex h-full items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-white"
               >
                 <span aria-hidden="true" className="text-lg">

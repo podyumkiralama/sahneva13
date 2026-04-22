@@ -80,6 +80,7 @@ const FooterLink = ({
   <li>
     <Link
       href={href}
+      prefetch={false}
       target={target}
       rel={rel}
       className={`
@@ -542,6 +543,7 @@ export default function Footer({
           >
             <Link
               href={privacyHref}
+              prefetch={false}
               className={`
                 inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
                 ${FOCUS_RING_CLASS}
