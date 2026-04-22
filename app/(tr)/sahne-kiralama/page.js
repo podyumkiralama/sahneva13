@@ -341,7 +341,7 @@ function Hero() {
           fetchPriority="high"
           className="object-cover object-center"
           sizes={HERO.sizes}
-          quality={85}
+          quality={75}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />

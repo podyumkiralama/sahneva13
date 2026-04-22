@@ -293,7 +293,7 @@ function CaseGallery({
                     className="object-cover transition duration-700 group-hover:scale-105"
                     loading={index < priorityCount ? "eager" : "lazy"}
                     decoding="async"
-                    quality={index === 0 ? 74 : 62}
+                    quality={index === 0 ? 68 : 60}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
                   <span className="absolute left-3 top-3 rounded-full bg-black/65 px-2.5 py-1 text-xs font-bold text-white opacity-0 backdrop-blur transition duration-300 group-hover:opacity-100">
