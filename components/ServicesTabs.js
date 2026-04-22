@@ -153,6 +153,8 @@ const DEFAULT_DICTIONARY = {
 };
 
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
+const SERVICE_CARD_IMAGE_SIZES =
+  "(max-width: 1023px) calc(100vw - 32px), (max-width: 1279px) calc((100vw - 56px) / 2), 400px";
 
 function formatTitleTemplate(template, title, fallback) {
   const source = template ?? fallback;
@@ -193,8 +195,8 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           )}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          quality={72}
+          sizes={SERVICE_CARD_IMAGE_SIZES}
+          quality={68}
           loading="lazy"
           fetchPriority="auto"
         />
