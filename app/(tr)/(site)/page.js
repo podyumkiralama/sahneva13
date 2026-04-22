@@ -19,7 +19,6 @@ import {
   buildCanonical,
   getOgImageUrl,
 } from "@/lib/seo/seoConfig";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 /* ================== ISR ================== */
@@ -428,13 +427,10 @@ const HOME_JSON_LD = {
   ],
 };
 
-const BREADCRUMB_ITEMS = [{ name: "Ana Sayfa", url: `${HOME_URL}` }];
-
 export default function HomePage() {
   return (
     <div className="overflow-x-hidden bg-black">
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
-      <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
       <HeroSection />
       <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
