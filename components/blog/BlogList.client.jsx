@@ -14,18 +14,20 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString("tr-TR", {
     day: "numeric",
     month: "long",
+    timeZone: "Europe/Istanbul",
     year: "numeric",
   });
 }
 
 function BlogCard({ post, index }) {
   const formattedDate = formatDate(post.date);
+  const shouldPrefetch = index < 3;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-xl">
       <Link
         href={`/blog/${post.slug}`}
-        prefetch={false}
+        prefetch={shouldPrefetch}
         className="flex h-full flex-col"
         aria-label={post.title}
       >
@@ -51,7 +53,11 @@ function BlogCard({ post, index }) {
         <div className="flex flex-1 flex-col p-6">
           <div className="mb-3 flex flex-wrap items-center gap-3 text-sm text-gray-600">
             {formattedDate ? (
-              <time dateTime={post.date} className="flex items-center gap-1">
+              <time
+                dateTime={post.date}
+                className="flex items-center gap-1"
+                suppressHydrationWarning
+              >
                 {formattedDate}
               </time>
             ) : null}
