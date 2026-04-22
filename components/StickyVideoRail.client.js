@@ -1,4 +1,4 @@
-// components/StickyVideoRail.client.js
+﻿// components/StickyVideoRail.client.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -20,19 +20,36 @@ export default function StickyVideoRailClient({ locale = "tr" }) {
   useEffect(() => {
     if (shouldHide || typeof window === "undefined" || shouldRender) return;
 
-    const scheduleRender = () => setShouldRender(true);
+    let idleId = null;
+    let timerId = null;
+    let didSchedule = false;
 
-    // Tarayıcı boşta kalınca yükle (tercih edilen)
+    const scheduleRender = () => {
+      if (didSchedule) return;
+      didSchedule = true;
+      setShouldRender(true);
+    };
+
+    const onIntent = () => scheduleRender();
+
+    window.addEventListener("scroll", onIntent, { passive: true, once: true });
+    window.addEventListener("pointerdown", onIntent, { passive: true, once: true });
+    window.addEventListener("keydown", onIntent, { once: true });
+
+    // Kritik ilk yuklemeyi rahat birak; etkilesim yoksa daha sonra yukle.
     if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(scheduleRender, { timeout: 2000 });
-      return () => {
-        if ("cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
-      };
+      idleId = window.requestIdleCallback(scheduleRender, { timeout: 12000 });
+    } else {
+      timerId = window.setTimeout(scheduleRender, 12000);
     }
 
-    // Fallback
-    const timerId = window.setTimeout(scheduleRender, 2000);
-    return () => window.clearTimeout(timerId);
+    return () => {
+      window.removeEventListener("scroll", onIntent);
+      window.removeEventListener("pointerdown", onIntent);
+      window.removeEventListener("keydown", onIntent);
+      if (idleId && "cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+      if (timerId) window.clearTimeout(timerId);
+    };
   }, [shouldHide, shouldRender]);
 
   if (shouldHide) return null;
