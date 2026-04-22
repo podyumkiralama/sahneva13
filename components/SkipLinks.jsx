@@ -17,7 +17,7 @@ const STRINGS = {
 };
 
 const LINK_CLASSNAME =
-  "fixed -left-[10000px] -top-[10000px] z-[9999] inline-flex min-h-[44px] items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus:left-2 focus:top-[var(--skip-top)] focus-ring";
+  "fixed -left-[10000px] -top-[10000px] z-[9999] inline-flex min-h-[44px] items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus:left-2 focus:top-[var(--skip-top)] focus-ring pointer-events-auto";
 
 const SKIP_TARGETS = [
   { id: "_main_content", key: "toMain" },
