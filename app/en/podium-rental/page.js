@@ -12,7 +12,6 @@ export const revalidate = 1800;
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
 
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
   "Hello, I would like to get a quote for podium rental."
