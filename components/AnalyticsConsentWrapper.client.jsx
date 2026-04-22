@@ -145,7 +145,7 @@ export default function AnalyticsConsentWrapper() {
         window.clearTimeout(timeoutHandle);
         timeoutHandle = null;
       }
-      scheduleActivation(250);
+      scheduleActivation();
     };
 
     const cleanupInteractionListeners = () => {
