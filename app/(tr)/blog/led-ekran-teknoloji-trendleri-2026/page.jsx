@@ -5,14 +5,31 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 // Statik image importları (public/img/blog/)
-import stageWideImg from "@/public/img/blog/led-2026-sahne-genis.webp";
-import cobMacroImg from "@/public/img/blog/cob-led-macro.webp";
 
 // Yeni eklenen görseller (sen yükledin)
-import pixelPitchComparison from "@/public/img/blog/pixel-pitch-karsilastirma.webp";
-import cobSmdComparison from "@/public/img/blog/cob-smd-yapisal-fark.webp";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+
+const stageWideImg = {
+  src: "/img/blog/led-2026-sahne-genis.webp",
+  width: 2816,
+  height: 1382,
+};
+const cobMacroImg = {
+  src: "/img/blog/cob-led-macro.webp",
+  width: 2614,
+  height: 1561,
+};
+const pixelPitchComparison = {
+  src: "/img/blog/pixel-pitch-karsilastirma.webp",
+  width: 1536,
+  height: 1024,
+};
+const cobSmdComparison = {
+  src: "/img/blog/cob-smd-yapisal-fark.webp",
+  width: 1536,
+  height: 1024,
+};
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -257,7 +274,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={stageWideImg}
+                    src={stageWideImg.src}
                     alt="Geniş LED ekranlı modern kurumsal sahne ve ışık tasarımı"
                     width={stageWideImg.width}
                     height={stageWideImg.height}
@@ -282,7 +299,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={pixelPitchComparison}
+                    src={pixelPitchComparison.src}
                     alt="LED ekranlarda fine-pitch ve daha geniş piksel aralığını temsil eden genel karşılaştırma görseli"
                     width={pixelPitchComparison.width}
                     height={pixelPitchComparison.height}
@@ -303,7 +320,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={cobMacroImg}
+                    src={cobMacroImg.src}
                     alt="COB LED panel yüzeyinin yakın plan görünümü"
                     width={cobMacroImg.width}
                     height={cobMacroImg.height}
@@ -318,7 +335,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={cobSmdComparison}
+                    src={cobSmdComparison.src}
                     alt="COB ve SMD LED yapılarını temsil eden karşılaştırma görseli"
                     width={cobSmdComparison.width}
                     height={cobSmdComparison.height}

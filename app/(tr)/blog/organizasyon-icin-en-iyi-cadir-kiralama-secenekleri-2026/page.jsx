@@ -2,11 +2,24 @@ import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
-import heroImg from "@/public/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
-import clearTopImg from "@/public/img/blog/kurumsal-etkinlik-cadir.webp";
-import domeImg from "@/public/img/blog/dome-cadir-ic-mekan.webp";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+
+const heroImg = {
+  src: "/img/blog/pagoda-cadir-kurumsal-etkinlik.webp",
+  width: 1536,
+  height: 1024,
+};
+const clearTopImg = {
+  src: "/img/blog/kurumsal-etkinlik-cadir.webp",
+  width: 4000,
+  height: 3000,
+};
+const domeImg = {
+  src: "/img/blog/dome-cadir-ic-mekan.webp",
+  width: 1919,
+  height: 897,
+};
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -227,7 +240,7 @@ export default function Page() {
                 </p>
                 <figure>
                   <Image
-                    src={heroImg}
+                    src={heroImg.src}
                     alt="Kurumsal etkinliklerde pagoda çadır kurulumu"
                     width={heroImg.width}
                     height={heroImg.height}
@@ -253,7 +266,7 @@ export default function Page() {
                 </p>
                 <figure>
                   <Image
-                    src={clearTopImg}
+                    src={clearTopImg.src}
                     alt="Şeffaf tavanlı düğün çadırı kurulumu"
                     width={clearTopImg.width}
                     height={clearTopImg.height}
@@ -283,7 +296,7 @@ export default function Page() {
                 </p>
                 <figure>
                   <Image
-                    src={domeImg}
+                    src={domeImg.src}
                     alt="Festival ve sergi alanları için geniş modül çadır örneği"
                     width={domeImg.width}
                     height={domeImg.height}

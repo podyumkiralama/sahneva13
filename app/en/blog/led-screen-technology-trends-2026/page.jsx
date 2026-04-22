@@ -5,12 +5,29 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
-import stageWideImg from "@/public/img/blog/led-2026-sahne-genis.webp";
-import cobMacroImg from "@/public/img/blog/cob-led-macro.webp";
-import pixelPitchComparison from "@/public/img/blog/pixel-pitch-karsilastirma.webp";
-import cobSmdComparison from "@/public/img/blog/cob-smd-yapisal-fark.webp";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+
+const stageWideImg = {
+  src: "/img/blog/led-2026-sahne-genis.webp",
+  width: 2816,
+  height: 1382,
+};
+const cobMacroImg = {
+  src: "/img/blog/cob-led-macro.webp",
+  width: 2614,
+  height: 1561,
+};
+const pixelPitchComparison = {
+  src: "/img/blog/pixel-pitch-karsilastirma.webp",
+  width: 1536,
+  height: 1024,
+};
+const cobSmdComparison = {
+  src: "/img/blog/cob-smd-yapisal-fark.webp",
+  width: 1536,
+  height: 1024,
+};
 
 /* ================== CONFIGURATION & CONSTANTS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
@@ -245,7 +262,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={stageWideImg}
+                    src={stageWideImg.src}
                     alt="Modern corporate stage with wide LED screen and lighting design"
                     width={stageWideImg.width}
                     height={stageWideImg.height}
@@ -270,7 +287,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={pixelPitchComparison}
+                    src={pixelPitchComparison.src}
                     alt="General comparison image representing fine-pitch and wider pixel pitch on LED screens"
                     width={pixelPitchComparison.width}
                     height={pixelPitchComparison.height}
@@ -291,7 +308,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={cobMacroImg}
+                    src={cobMacroImg.src}
                     alt="Close-up view of a COB LED panel surface"
                     width={cobMacroImg.width}
                     height={cobMacroImg.height}
@@ -306,7 +323,7 @@ export default function LedTrends2026Page() {
 
                 <figure className="my-10 not-prose">
                   <Image
-                    src={cobSmdComparison}
+                    src={cobSmdComparison.src}
                     alt="Comparison image representing COB and SMD LED structural difference"
                     width={cobSmdComparison.width}
                     height={cobSmdComparison.height}
