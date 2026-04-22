@@ -90,6 +90,8 @@ export default function AnalyticsConsentWrapper() {
     if (!GA_ID) return;
 
     let timeoutHandle;
+    let activationHandle;
+    let activationUsingIdle = false;
     let listenersAttached = false;
     let activated = false;
 
@@ -98,6 +100,7 @@ export default function AnalyticsConsentWrapper() {
     const activate = () => {
       if (activated) return;
       activated = true;
+      activationHandle = null;
 
       initConsentMode();
 
@@ -123,19 +126,50 @@ export default function AnalyticsConsentWrapper() {
       }
     };
 
-    const handleInteraction = () => {
-      activate();
-      cleanup();
+    const scheduleActivation = (timeout = 1200) => {
+      if (activated || activationHandle || typeof window === "undefined") return;
+
+      if ("requestIdleCallback" in window) {
+        activationUsingIdle = true;
+        activationHandle = window.requestIdleCallback(activate, { timeout });
+        return;
+      }
+
+      activationUsingIdle = false;
+      activationHandle = window.setTimeout(activate, timeout);
     };
 
-    const cleanup = () => {
+    const handleInteraction = () => {
+      cleanupInteractionListeners();
+      if (timeoutHandle) {
+        window.clearTimeout(timeoutHandle);
+        timeoutHandle = null;
+      }
+      scheduleActivation();
+    };
+
+    const cleanupInteractionListeners = () => {
       if (listenersAttached) {
         events.forEach((event) =>
           window.removeEventListener(event, handleInteraction)
         );
+        listenersAttached = false;
       }
+    };
+
+    const cleanup = () => {
+      cleanupInteractionListeners();
       if (timeoutHandle && typeof window !== "undefined") {
         window.clearTimeout(timeoutHandle);
+        timeoutHandle = null;
+      }
+      if (activationHandle && typeof window !== "undefined") {
+        if (activationUsingIdle && "cancelIdleCallback" in window) {
+          window.cancelIdleCallback(activationHandle);
+        } else {
+          window.clearTimeout(activationHandle);
+        }
+        activationHandle = null;
       }
     };
 
@@ -151,7 +185,7 @@ export default function AnalyticsConsentWrapper() {
         ["slow-2g", "2g"].includes(connection?.effectiveType);
 
       if (!shouldSkipLateLoad) {
-        timeoutHandle = window.setTimeout(activate, 15000);
+        timeoutHandle = window.setTimeout(() => scheduleActivation(1), 15000);
       }
     }
 

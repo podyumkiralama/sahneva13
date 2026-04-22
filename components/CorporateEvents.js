@@ -129,7 +129,7 @@ export default function CorporateEvents({
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-transparent to-transparent opacity-90" />
-                <div className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/50 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                <div className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md">
                   {card.badge}
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function CorporateEvents({
                 <div className="border-t border-white/10 pt-4">
                   <Link
                     href={dictionary.cardCtaHref}
-                    className={`inline-flex items-center gap-2 text-xs font-bold text-white transition-colors hover:text-blue-400 ${FOCUS_RING_CLASS}`}
+                    className={`inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-white transition-colors hover:text-blue-400 ${FOCUS_RING_CLASS}`}
                   >
                     <span>{dictionary.cardCtaLabel}</span>
                     <span className="sr-only"> - {card.title}</span>
@@ -193,7 +193,7 @@ export default function CorporateEvents({
                       ) : null}
                       <p className="font-bold leading-snug">{label}</p>
                       {desc ? (
-                        <p className={`mt-2 text-xs leading-relaxed ${descColor}`}>
+                        <p className={`mt-2 text-sm leading-relaxed ${descColor}`}>
                           {desc}
                         </p>
                       ) : null}
@@ -251,7 +251,7 @@ export default function CorporateEvents({
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-blue-200/80 md:text-sm">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-blue-200/80">
               {supportStats.map((label) => (
                 <div key={label} className="flex items-center gap-1.5">
                   <div

@@ -92,7 +92,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl md:mb-12">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-300 shadow-[0_0_18px_rgba(8,47,73,0.8)]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-cyan-300 shadow-[0_0_18px_rgba(8,47,73,0.8)]">
             <span
               className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.9)]"
               aria-hidden="true"
@@ -114,7 +114,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
             <RichText text={d.description} />{" "}
             <Link
               href={d.linkHref}
-              className="font-semibold text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
+              className="inline-flex min-h-[44px] items-center font-semibold text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
             >
               {d.linkText}
             </Link>
@@ -136,14 +136,14 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                     key={item.step}
                     className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3.5 transition-colors hover:border-cyan-500/60 hover:bg-slate-900/90"
                   >
-                    <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full border border-cyan-500/70 bg-slate-950 text-[11px] font-bold text-cyan-300 shadow-[0_0_14px_rgba(8,47,73,0.9)]">
+                    <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-cyan-500/70 bg-slate-950 text-sm font-bold text-cyan-300 shadow-[0_0_14px_rgba(8,47,73,0.9)]">
                       {item.step}
                     </div>
                     <div>
-                      <div className="text-[13px] font-semibold text-slate-50">
+                      <div className="text-sm font-semibold text-slate-50">
                         {item.title}
                       </div>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                      <p className="mt-1 text-sm leading-relaxed text-slate-300">
                         {item.text}
                       </p>
                     </div>
@@ -165,7 +165,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                   {d.techStandards.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <CheckIcon />
-                      <span className="text-xs font-medium text-slate-200 sm:text-sm">
+                      <span className="text-sm font-medium text-slate-200">
                         {item}
                       </span>
                     </li>
@@ -183,7 +183,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                   <div className="text-lg font-bold leading-tight text-cyan-300">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                  <div className="text-sm uppercase tracking-[0.14em] text-slate-400">
                     {stat.label}
                   </div>
                 </div>
@@ -206,11 +206,11 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                 />
 
                 <div className="absolute left-3 top-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/60 bg-emerald-500/25 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-100 backdrop-blur-md">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/60 bg-emerald-500/25 px-3 py-1 text-sm font-semibold text-emerald-100 backdrop-blur-md">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 animate-pulse" />
                     {d.imageBadge1}
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-cyan-400/70 bg-cyan-500/25 px-2.5 py-0.5 text-[11px] font-semibold text-cyan-100 backdrop-blur-md">
+                  <span className="inline-flex items-center rounded-full border border-cyan-400/70 bg-cyan-500/25 px-2.5 py-0.5 text-sm font-semibold text-cyan-100 backdrop-blur-md">
                     P3.9 LED Screen
                   </span>
                 </div>
@@ -219,7 +219,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                   <h3 className="text-sm font-semibold text-white sm:text-base">
                     {d.imageCaption}
                   </h3>
-                  <p className="mt-1 text-[11px] text-slate-200 sm:text-xs">
+                  <p className="mt-1 text-sm text-slate-200">
                     {d.imageCaptionSub}
                   </p>
                 </div>
@@ -235,11 +235,11 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                   >
                     S
                   </span>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-400">
                     {d.card1Label}
                   </p>
                 </div>
-                <p className="text-xs leading-relaxed text-slate-200 sm:text-sm">
+                <p className="text-sm leading-relaxed text-slate-200">
                   {d.card1Text}
                 </p>
               </div>
@@ -248,20 +248,20 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                 <div className="mb-2 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span
-                      className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500 text-[13px] font-bold text-slate-950 shadow-[0_0_18px_rgba(34,211,238,0.9)]"
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500 text-sm font-bold text-slate-950 shadow-[0_0_18px_rgba(34,211,238,0.9)]"
                       aria-hidden="true"
                     >
                       +
                     </span>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-200">
+                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-cyan-200">
                       {d.card2Label}
                     </p>
                   </div>
-                  <span className="text-[10px] font-semibold text-cyan-200/80">
+                  <span className="text-sm font-semibold text-cyan-200/80">
                     {d.card2Badge}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed text-sky-50/90 sm:text-sm">
+                <p className="text-sm leading-relaxed text-sky-50/90">
                   {d.card2Text}
                 </p>
               </div>

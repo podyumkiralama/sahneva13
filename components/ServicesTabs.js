@@ -205,7 +205,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         />
 
         <div className="absolute left-4 top-4">
-          <span className="rounded-full border border-white/20 bg-black/55 px-3 py-1 text-xs font-bold text-white backdrop-blur">
+          <span className="rounded-full border border-white/20 bg-black/55 px-3 py-1 text-sm font-bold text-white backdrop-blur">
             {dictionary.imageBadgeLabel}
           </span>
         </div>
@@ -230,7 +230,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         </p>
 
         <div className="mt-6">
-          <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90">
+          <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white/90">
             <span className="h-[2px] w-4 bg-cyan-500" aria-hidden="true" />
             {dictionary.featuresHeading}
           </p>
@@ -309,7 +309,7 @@ export default function ServicesTabs({
         {!ariaLabelledBy && (
           <div className="mx-auto mb-10 max-w-4xl text-center md:mb-12">
             <div className="mb-3 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 shadow-md">
+              <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 shadow-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" aria-hidden="true" />
                 {dictionary.sectionPill}
               </span>

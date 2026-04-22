@@ -530,7 +530,7 @@ export default function Navbar({
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link
               href="/"
-              className={`flex items-center gap-3 group ${FOCUS_RING_CLASS}`}
+              className={`flex min-h-[44px] min-w-[44px] items-center gap-3 group ${FOCUS_RING_CLASS}`}
               aria-label="Sahneva - Ana Sayfa"
             >
               <Image

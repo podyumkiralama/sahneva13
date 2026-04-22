@@ -47,7 +47,7 @@ function KeywordPills({ keywords, ariaLabel }) {
       {keywords.map((k) => (
         <li key={k.text}>
           <span
-            className={`rounded-lg border border-white/10 bg-white/10 px-2.5 py-1 text-xs font-semibold sm:text-sm md:text-base ${k.color}`}
+            className={`rounded-lg border border-white/10 bg-white/10 px-2.5 py-1 text-sm font-semibold md:text-base ${k.color}`}
           >
             {k.text}
           </span>
@@ -68,7 +68,7 @@ function ProofStrip({ items }) {
             <span className="block text-base font-black leading-tight text-white md:text-xl">
               {item.value}
             </span>
-            <span className="mt-1 block text-[10px] font-semibold leading-snug text-white/75 md:text-xs">
+            <span className="mt-1 block text-sm font-semibold leading-tight text-white/75">
               {item.label}
             </span>
           </div>
@@ -123,13 +123,13 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
         />
 
         <div className="grid-overlay opacity-20" />
-        <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-blue-500/8 blur-3xl" />
+        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-500/8 blur-3xl" />
       </div>
 
       <div className="relative z-10">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl overflow-hidden text-center">
-            <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-xs font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md md:text-sm">
+            <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-sm font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md">
               {d.badge}
             </p>
 

@@ -68,7 +68,7 @@ function HeroFeatureGrid({ features, ariaLabel }) {
 function ConsultationCard({ title, desc, ctaText, ctaHref }) {
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-indigo-900 rounded-2xl p-1 border border-white/10 shadow-2xl">
-      <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute right-0 top-0 -mt-10 h-40 w-40 rounded-full bg-white/10 blur-3xl pointer-events-none" />
 
       <div className="bg-slate-950/30 rounded-xl p-5 md:p-7 backdrop-blur-[2px] h-full">
         <div className="flex flex-col md:flex-row items-center gap-6">
@@ -152,7 +152,7 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
 
       <div className="home-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="max-w-3xl space-y-2">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+          <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
             <span
               className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"
               aria-hidden="true"
