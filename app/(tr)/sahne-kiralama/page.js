@@ -401,7 +401,7 @@ function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp üzerinden hemen teklif alın"
-                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus-ring sm:w-auto sm:max-w-none sm:px-8"
+                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl bg-green-700 px-6 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green-800 hover:shadow-xl focus-ring sm:w-auto sm:max-w-none sm:px-8"
               >
                 <span aria-hidden="true" className="text-xl mr-2">
                   💬
@@ -484,7 +484,7 @@ function RentalFlow() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl bg-green-600 px-6 py-3 font-bold text-white shadow-lg transition hover:bg-green-700 hover:no-underline focus-ring sm:w-auto"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl bg-green-700 px-6 py-3 font-bold text-white shadow-lg transition hover:bg-green-800 hover:no-underline focus-ring sm:w-auto"
               >
                 <MessageCircle size={20} aria-hidden="true" />
                 WhatsApp ile Başlayın
@@ -709,10 +709,10 @@ function Packages() {
                     <div
                       className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-bold ${
                         pkg.badge === "Popüler"
-                          ? "bg-orange-500"
+                          ? "bg-orange-800"
                           : pkg.badge === "Profesyonel"
                           ? "bg-blue-600"
-                          : "bg-green-500"
+                          : "bg-green-700"
                       }`}
                     >
                       {pkg.badge}
@@ -786,7 +786,7 @@ function Packages() {
                     href={`${WHATSAPP}&package=${encodeURIComponent(pkg.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+                    className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-green-700 text-white hover:scale-105 hover:bg-green-800 transform transition-all duration-300 hover:shadow-xl focus-ring"
                   >
                     <span aria-hidden="true" className="text-xl mr-2">
                       💬
@@ -1544,7 +1544,6 @@ function FAQ() {
 
         <div
           className="space-y-6"
-          role="list"
           aria-label="Sık sorulan sorular listesi"
         >
           {FAQ_ITEMS.map((faq, index) => (
