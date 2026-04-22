@@ -28,6 +28,9 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
 
   try {
     window.trustedTypes.createPolicy("default", {
+      createHTML(value) {
+        return value;
+      },
       createScriptURL(value) {
         if (isAllowedScriptUrl(value)) return value;
         throw new TypeError("Blocked untrusted script URL: " + value);
