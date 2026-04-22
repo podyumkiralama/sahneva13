@@ -36,14 +36,6 @@ function safeReadConsent() {
   }
 }
 
-function safeWriteConsent(value) {
-  try {
-    window.localStorage.setItem(CONSENT_KEY, value);
-  } catch {
-    // localStorage can be unavailable in restricted browser modes.
-  }
-}
-
 function initConsentMode() {
   if (typeof window === "undefined") return;
 
@@ -88,9 +80,7 @@ function loadGAScript(gaId) {
   window.gtag = window.gtag || gtag;
 
   window.gtag("js", new Date());
-  window.gtag("config", gaId, {
-    anonymize_ip: true,
-  });
+  window.gtag("config", gaId);
 }
 
 export function activateAnalyticsConsent(gaId) {
@@ -99,13 +89,7 @@ export function activateAnalyticsConsent(gaId) {
   initConsentMode();
 
   const stored = safeReadConsent();
-  const isGranted = stored === "granted" || stored === null;
-
-  if (!isGranted) return;
-
-  if (stored === null) {
-    safeWriteConsent("granted");
-  }
+  if (stored !== "granted") return;
 
   window.gtag("consent", "update", {
     ad_storage: "granted",
