@@ -80,6 +80,49 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     .trim();
 }
 
+function isLocalHost(hostname) {
+  return (
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === "::1"
+  );
+}
+
+function getRequestHost(request) {
+  const host = (
+    request.headers.get("x-forwarded-host") ??
+    request.headers.get("host") ??
+    request.nextUrl.host
+  )
+    .split(",")[0]
+    .trim();
+  const [hostname, port] = host.split(":");
+
+  if (!port || isLocalHost(hostname) || port === "80" || port === "443") {
+    return host;
+  }
+
+  return hostname;
+}
+
+function getRequestHostname(request) {
+  return getRequestHost(request).split(":")[0];
+}
+
+function shouldRedirectToHttps(request) {
+  const forwardedProto = request.headers.get("x-forwarded-proto");
+  const { protocol } = request.nextUrl;
+  const hostname = getRequestHostname(request);
+
+  if (isLocalHost(hostname)) return false;
+
+  return protocol === "http:" || forwardedProto === "http";
+}
+
+function applySecurityHeaders(response, { csp }) {
+  response.headers.set("Content-Security-Policy", csp);
+}
+
 const QUERY_VARIANT_NOINDEX_PATHS = new Set([
   "/iletisim",
   "/en/contact",
@@ -97,10 +140,19 @@ function shouldNoindexQueryVariant(request) {
 }
 
 export function proxy(request) {
+  if (shouldRedirectToHttps(request)) {
+    const url = new URL(
+      `${request.nextUrl.pathname}${request.nextUrl.search}`,
+      `https://${getRequestHost(request)}`
+    );
+    return NextResponse.redirect(url, 308);
+  }
+
   const nonce = createNonce();
+  const isPreview = request.nextUrl.hostname.endsWith("vercel.app");
   const csp = buildCsp({
     siteUrl: request.nextUrl.origin,
-    isPreview: request.nextUrl.hostname.endsWith("vercel.app"),
+    isPreview,
     nonce,
   });
 
@@ -114,10 +166,7 @@ export function proxy(request) {
     },
   });
 
-  response.headers.set(
-    "Content-Security-Policy",
-    csp
-  );
+  applySecurityHeaders(response, { csp });
 
   if (shouldNoindexQueryVariant(request)) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
