@@ -562,7 +562,26 @@ function PodiumFlowSection() {
             </ul>
           </div>
 
-          <aside className="rounded-3xl border border-blue-200 bg-blue-50 p-6 md:p-8 flex flex-col justify-between">
+          <aside className="self-start overflow-hidden rounded-3xl border border-blue-200 bg-blue-50 shadow-sm">
+            <div className="relative aspect-[16/10] bg-blue-100">
+              <Image
+                src="/img/podyum/9.webp"
+                alt="Kurumsal etkinlik için kurulmuş podyum sistemi"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 520px"
+                quality={62}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-5 right-5 text-lg font-black text-white">
+                Kurulum öncesi ölçü, yükseklik ve kaplama birlikte netleşir.
+              </p>
+            </div>
+
+            <div className="p-6 md:p-8">
             <div>
               <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-5">
                 Hangi paketle başlamalı?
@@ -580,6 +599,24 @@ function PodiumFlowSection() {
               </ul>
             </div>
 
+            <dl className="mt-7 grid grid-cols-3 gap-3">
+              {[
+                ["12-48 m²", "Hazır paket"],
+                ["40-100 cm", "Yükseklik"],
+                ["2-6 saat", "Kurulum"],
+              ].map(([value, label]) => (
+                <div
+                  key={label}
+                  className="rounded-2xl border border-blue-200 bg-white/80 p-3 text-center"
+                >
+                  <dt className="text-xs font-bold uppercase tracking-wide text-gray-600">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-sm font-black text-blue-800">{value}</dd>
+                </div>
+              ))}
+            </dl>
+
             <div className="mt-8 flex flex-col gap-3">
               <a
                 href={WHATSAPP_URL}
@@ -595,6 +632,7 @@ function PodiumFlowSection() {
               >
                 Paketleri incele
               </Link>
+            </div>
             </div>
           </aside>
         </div>
