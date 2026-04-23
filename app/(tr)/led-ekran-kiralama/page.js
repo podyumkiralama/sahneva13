@@ -460,7 +460,7 @@ function QuickSelectionGuide() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-7 xl:gap-8 items-start">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-5 xl:gap-6 items-start">
           <div className="space-y-5">
             {QUICK_SELECTION_STEPS.map((step, index) => (
               <article
@@ -493,7 +493,7 @@ function QuickSelectionGuide() {
             ))}
           </div>
 
-          <aside className="lg:sticky lg:top-24 self-start max-w-[23rem] xl:max-w-[24rem] lg:ml-auto">
+          <aside className="lg:sticky lg:top-24 self-start max-w-[23rem] xl:max-w-[24rem]">
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
               <div className="relative aspect-[16/10]">
                 <Image
