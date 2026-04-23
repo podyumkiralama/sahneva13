@@ -5,10 +5,11 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import VideoEmbed from "@/components/VideoEmbed.client";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import {
   Monitor,
   Sun,
@@ -42,7 +43,11 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const PAGE_LAST_MODIFIED = getLastModifiedForFile("app/(tr)/led-ekran-kiralama/page.js", "2026-01-14");
+const PAGE_LAST_MODIFIED = getLastModifiedForFile(
+  "app/(tr)/led-ekran-kiralama/page.js",
+  "2026-01-14"
+);
+const PAGE_PUBLISHED_DATE = PAGE_LAST_MODIFIED;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
@@ -54,8 +59,7 @@ const getServiceWhatsappLink = (title) => {
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
 
-// Base64 blur placeholder
-const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAFA3PEY8MlBGQUZaVVBfeMiCeG5uePWvuZHI////////////////////////////////////////////////////2wBDAVVaWnhpeOuCguv/////////////////////////////////////////////////////////////////////////wAARCAADAAQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwBmKKKKGB//2Q==";
+const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 
 /* ================== Dinamik galeri (CaseGallery) ================== */
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
@@ -66,13 +70,54 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
     </div>
   )
 });
+
 /*fiyat*/
-const PRICE_MULTIPLIERS = {
-  "P2.5": 1.5,
-  "P2.9": 1.2,
-  "P3.9": 1.0,
-  "P4.8": 0.8,
+const LED_PRICING = {
+  aggregateOffer: {
+    lowPrice: "1800",
+    highPrice: "2800",
+    priceCurrency: "TRY",
+  },
+  aggregateRating: {
+    ratingValue: "4.9",
+    ratingCount: "2",
+    bestRating: "5",
+    worstRating: "1",
+  },
 };
+
+const LED_PIXEL_ROWS = [
+  {
+    model: "P2.5",
+    badge: "%50 daha premium",
+    badgeClass: "bg-purple-100 text-purple-700",
+    clarity: "Ultra High HD",
+    costIndex: "💰💰💰💰",
+    distance: "2.5m ve üzeri",
+    refreshRate: "3840Hz",
+    usage: "Lansman, fuar, yakın izleme",
+  },
+  {
+    model: "P2.9",
+    badge: "En dengeli seçim",
+    badgeClass: "bg-blue-100 text-blue-700",
+    clarity: "High Definition",
+    costIndex: "💰💰💰",
+    distance: "3m ve üzeri",
+    refreshRate: "3840Hz",
+    usage: "İç mekan etkinlikler, hibrit kullanım",
+  },
+  {
+    model: "P3.9",
+    badge: "En çok tercih edilen",
+    badgeClass: "bg-green-100 text-green-700",
+    clarity: "Standard HD",
+    costIndex: "💰💰",
+    distance: "4m ve üzeri",
+    refreshRate: "3840Hz",
+    usage: "Dış mekan, konser, festival",
+  },
+];
 
 /* ================== META ================== */
 export const metadata = {
@@ -138,7 +183,7 @@ const slugify = (s) =>
 const HERO = {
   src: "/img/hizmet-led-ekran.webp",
   alt: "Profesyonel LED ekran kurulumu - Konser sahnesinde büyük LED wall ve görsel şov",
-  sizes: "(max-width: 768px) 100vw, 100vw",
+  sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 100vw, 1440px",
 };
 
 const SERVICES = [
@@ -283,6 +328,7 @@ function FAQ() {
                 >
                   <summary
                     id={headingId}
+                    aria-controls={`${panelId}-content`}
                     className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
                   >
                     <span className="pr-4 flex-1">{faq.q}</span>
@@ -294,7 +340,10 @@ function FAQ() {
                     </span>
                   </summary>
 
-                  <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
+                  <div
+                    id={`${panelId}-content`}
+                    className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0"
+                  >
                     <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
                       <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
                     </div>
@@ -391,7 +440,7 @@ function Hero() {
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <div className="mb-2 text-yellow-300"><CheckCircle size={24} aria-hidden="true" /></div>
             <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">2 Doğrulanmış Değerlendirme</div>
+            <div className="text-white/80 text-sm">Doğrulanmış değerlendirmeler</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <div className="mb-2 text-blue-300"><Users size={24} aria-hidden="true" /></div>
@@ -679,15 +728,15 @@ function Gallery() {
               
               <div className="space-y-5 flex-grow">
                 <div className="relative pl-4 border-l-4 border-orange-400">
-                  <h4 className="text-xs font-black text-orange-800 uppercase tracking-widest mb-1">Durum / İhtiyaç</h4>
+                  <p className="text-xs font-black text-orange-800 uppercase tracking-widest mb-1">Durum / İhtiyaç</p>
                   <p className="text-gray-700 text-sm">{story.before}</p>
                 </div>
                 <div className="relative pl-4 border-l-4 border-blue-500">
-                  <h4 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Teknik Çözüm</h4>
+                  <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Teknik Çözüm</p>
                   <p className="text-gray-700 text-sm">{story.after}</p>
                 </div>
                 <div className="relative pl-4 border-l-4 border-green-500">
-                  <h4 className="text-xs font-black text-green-800 uppercase tracking-widest mb-1">Etki / Sonuç</h4>
+                  <p className="text-xs font-black text-green-800 uppercase tracking-widest mb-1">Etki / Sonuç</p>
                   <p className="text-gray-900 font-medium text-sm">{story.result}</p>
                 </div>
               </div>
@@ -757,7 +806,7 @@ function Gallery() {
                 aria-labelledby={`video-${video.id}-title`}
               >
                 <div className="relative w-full aspect-video bg-black">
-                  <VideoEmbed
+                  <LazyVideoEmbed
                     videoId={video.id}
                     title={video.title}
                     thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
@@ -785,9 +834,9 @@ function Gallery() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           
           <div className="relative z-10">
-            <h4 className="text-3xl md:text-4xl font-black text-white mb-6">
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
               Daha Fazla İlham Mı Arıyorsunuz?
-            </h4>
+            </h3>
             
             <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
               Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
@@ -814,7 +863,7 @@ function TechnicalComparison() {
     <div className="max-w-5xl mx-auto mt-12">
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
         <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
-          <h3 className="text-xl md:text-2xl font-black text-gray-900">
+          <h3 id="technical-comparison-title" className="text-xl md:text-2xl font-black text-gray-900">
             Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
           </h3>
           <p className="text-gray-600 mt-1">
@@ -824,6 +873,8 @@ function TechnicalComparison() {
 
         <div
           className="overflow-x-auto"
+          role="region"
+          aria-labelledby="technical-comparison-title"
           tabIndex={0}
           aria-label="Piksel aralığı ve izleme mesafesi karşılaştırma tablosunu yatay kaydır"
         >
@@ -839,45 +890,26 @@ function TechnicalComparison() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4">
-                  <span className="font-semibold text-gray-900">P2.5</span>
-                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                    %{Math.round((PRICE_MULTIPLIERS["P2.5"] - 1) * 100)} daha premium
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-gray-700">Ultra High HD</td>
-                <td className="px-6 py-4 text-gray-700">💰💰💰💰</td>
-                <td className="px-6 py-4 text-gray-700">2.5m ve üzeri</td>
-                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
-                <td className="px-6 py-4 text-gray-700">Lansman, fuar, yakın izleme</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4">
-                  <span className="font-semibold text-gray-900">P2.9</span>
-                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
-                    En dengeli seçim
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-gray-700">High Definition</td>
-                <td className="px-6 py-4 text-gray-700">💰💰💰</td>
-                <td className="px-6 py-4 text-gray-700">3m ve üzeri</td>
-                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
-                <td className="px-6 py-4 text-gray-700">İç mekan etkinlikler, hibrit kullanım</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4">
-                  <span className="font-semibold text-gray-900">P3.9</span>
-                  <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-                    En çok tercih edilen
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-gray-700">Standard HD</td>
-                <td className="px-6 py-4 text-gray-700">💰💰</td>
-                <td className="px-6 py-4 text-gray-700">4m ve üzeri</td>
-                <td className="px-6 py-4 font-semibold text-blue-700">3840Hz</td>
-                <td className="px-6 py-4 text-gray-700">Dış mekan, konser, festival</td>
-              </tr>
+              {LED_PIXEL_ROWS.map((row, index) => (
+                <tr
+                  key={row.model}
+                  className={index < LED_PIXEL_ROWS.length - 1 ? "border-b border-gray-100" : undefined}
+                >
+                  <td className="px-6 py-4">
+                    <span className="font-semibold text-gray-900">{row.model}</span>
+                    <span
+                      className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-bold ${row.badgeClass}`}
+                    >
+                      {row.badge}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-gray-700">{row.clarity}</td>
+                  <td className="px-6 py-4 text-gray-700">{row.costIndex}</td>
+                  <td className="px-6 py-4 text-gray-700">{row.distance}</td>
+                  <td className="px-6 py-4 font-semibold text-blue-700">{row.refreshRate}</td>
+                  <td className="px-6 py-4 text-gray-700">{row.usage}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -946,7 +978,10 @@ function Technical() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {technicalItems.map((item) => (
+          {technicalItems.map((item) => {
+            const detailsId = `${slugify(item.title)}-details`;
+
+            return (
             <div key={item.category} className="group">
               <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
@@ -959,10 +994,13 @@ function Technical() {
                   {item.description}
                 </p>
                 <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
-                  <summary className="cursor-pointer select-none font-semibold text-gray-900">
+                  <summary
+                    aria-controls={detailsId}
+                    className="cursor-pointer select-none font-semibold text-gray-900"
+                  >
                     Detayları gör
                   </summary>
-                  <ul className="mt-3 space-y-2">
+                  <ul id={detailsId} className="mt-3 space-y-2">
                     {item.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3 text-gray-700">
                         <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full flex-shrink-0" aria-hidden="true" />
@@ -973,7 +1011,8 @@ function Technical() {
                 </details>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
 
         <TechnicalComparison />
@@ -1246,12 +1285,14 @@ function RegionalService() {
         <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
           <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h3 className="text-2xl md:text-3xl font-black text-gray-900">Bölgesel Lojistik ve Operasyon Karşılaştırması</h3>
+              <h3 id="regional-ops-table-title" className="text-2xl md:text-3xl font-black text-gray-900">Bölgesel Lojistik ve Operasyon Karşılaştırması</h3>
               <p className="text-gray-600 mt-2 text-lg">İstanbul içi ve çevre illerdeki hizmet standartlarımızın şeffaf dökümü.</p>
             </div>
           </div>
           <div
             className="overflow-x-auto"
+            role="region"
+            aria-labelledby="regional-ops-table-title"
             tabIndex={0}
             aria-label="Bölgesel lojistik ve operasyon karşılaştırma tablosunu yatay kaydır"
           >
@@ -1320,14 +1361,14 @@ function Articles() {
 
           <div className="p-8 md:p-10">
             <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-blue-500">
-              <h4>LED Ekran Kiralama Nedir?</h4>
+              <h3>LED Ekran Kiralama Nedir?</h3>
               <p>
                 <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
                 kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Satın alma maliyeti olmadan profesyonel ekipman
                 kullanmanıza olanak tanır.
               </p>
 
-              <h4>Neden LED Ekran Kiralama Tercih Edilmeli?</h4>
+              <h3>Neden LED Ekran Kiralama Tercih Edilmeli?</h3>
               <p>
                 Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, maliyet ve operasyon açısından çok daha esnek bir çözüm sunar.
                 Doğru planlama ile hem izleyici deneyimi artar hem de teknik riskler minimuma iner.
@@ -1339,7 +1380,7 @@ function Articles() {
                 <li>İç mekan ve dış mekan için farklı parlaklık/koruma alternatifleri</li>
               </ul>
 
-              <h4>İç Mekan ve Dış Mekan LED Ekran Farkı</h4>
+              <h3>İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
               <p>
                 İç mekan LED ekranlarda (P2.5 / P2.9) yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
                 ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
@@ -1357,7 +1398,7 @@ function Articles() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6 my-6">
-                <h5 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840Hz Yenileme Hızı</h5>
+                <h4 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840Hz Yenileme Hızı</h4>
                 <p className="text-gray-700 mb-0">
                   Unilumin URMIII panellerinin 3840Hz yenileme hızı, televizyon çekimlerinde ve canlı yayınlarda
                   ekranda <strong>titreme (flicker) oluşmasını engeller</strong>. Yüksek gri skala derinliği sayesinde kamera
@@ -1366,7 +1407,7 @@ function Articles() {
               </div>
 
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6 mb-8">
-                <h5 className="font-black text-green-700 text-lg mb-3">Flip-shield ile Sıfır Piksel Hasarı Garantisi</h5>
+                <h4 className="font-black text-green-700 text-lg mb-3">Flip-shield ile Sıfır Piksel Hasarı Garantisi</h4>
                 <p className="text-gray-700 mb-0">
                   Unilumin URMIII teknolojisindeki <strong>Flip-shield köşe koruma mekanizması</strong>, kurulum sırasında
                   panellerin en hassas noktaları olan köşeleri otomatik olarak korur. Bu sayede piksel hasarı riski
@@ -1375,14 +1416,14 @@ function Articles() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl p-6 my-8">
-                <h5 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h5>
+                <h4 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
                   terci edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
               
-              <h4>Neden Fiyatlar Değişiyor?</h4>
+              <h3>Neden Fiyatlar Değişiyor?</h3>
               <p>
                 LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
                 izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
@@ -1392,7 +1433,7 @@ function Articles() {
                 Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
               </p>
 
-              <h4>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h4>
+              <h3>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h3>
               <ul>
                 <li>Toplam ekran alanı (m²)</li>
                 <li>Piksel aralığı (P2.5, P2.9, P3.9, P4)</li>
@@ -1402,7 +1443,7 @@ function Articles() {
                 <li>Canlı yayın, reji ve kamera entegrasyon ihtiyaçları</li>
               </ul>
 
-              <h4>Kurulum Süreci Nasıl İlerler?</h4>
+              <h3>Kurulum Süreci Nasıl İlerler?</h3>
               <p>
                 Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
                 yayın sırasında kesinti riskini azaltır ve içerik akışının sorunsuz ilerlemesini sağlar.
@@ -1419,7 +1460,7 @@ function Articles() {
                 />
               </div>
 
-              <h4>Hangi Etkinliklerde Kullanılır?</h4>
+              <h3>Hangi Etkinliklerde Kullanılır?</h3>
               <ul>
                 <li>Konser, festival ve sahne performansları</li>
                 <li>Kurumsal toplantı ve lansmanlar</li>
@@ -1439,7 +1480,7 @@ function Articles() {
                 />
               </div>
               
-              <h4>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h4>
+              <h3>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h3>
               <p>
                 Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
                 Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
@@ -1448,7 +1489,7 @@ function Articles() {
               </p>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
-                <h5 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h5>
+                <h4 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h4>
                 <p className="text-yellow-800 mb-0">
                   Doğru planlanan bir <strong>LED ekran kiralama</strong> hizmeti, etkinliğinizin görsel etkisini artırır, marka algısını güçlendirir
                   ve katılımcı deneyimini belirgin şekilde iyileştirir. İhtiyaca uygun teknik seçim + uzman operasyon = başarılı etkinlik.
@@ -1620,10 +1661,10 @@ function LedScreenJsonLd() {
   const ratingNode = {
     "@type": "AggregateRating",
     "@id": ratingNodeId,
-    ratingValue: "4.9",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "2",
+    ratingValue: LED_PRICING.aggregateRating.ratingValue,
+    bestRating: LED_PRICING.aggregateRating.bestRating,
+    worstRating: LED_PRICING.aggregateRating.worstRating,
+    ratingCount: LED_PRICING.aggregateRating.ratingCount,
     itemReviewed: localBusinessRef,
   };
 
@@ -1643,9 +1684,9 @@ function LedScreenJsonLd() {
     },
     offers: {
       "@type": "AggregateOffer",
-      priceCurrency: "TRY",
-      lowPrice: "1800",
-      highPrice: "2800",
+      priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
+      lowPrice: LED_PRICING.aggregateOffer.lowPrice,
+      highPrice: LED_PRICING.aggregateOffer.highPrice,
       availability: "https://schema.org/InStock",
       url: pageUrl,
     },
@@ -1672,9 +1713,9 @@ function LedScreenJsonLd() {
     },
     offers: {
       "@type": "AggregateOffer",
-      priceCurrency: "TRY",
-      lowPrice: "1800",
-      highPrice: "2800",
+      priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
+      lowPrice: LED_PRICING.aggregateOffer.lowPrice,
+      highPrice: LED_PRICING.aggregateOffer.highPrice,
       availability: "https://schema.org/InStock",
       url: pageUrl,
     },
@@ -1706,7 +1747,7 @@ function LedScreenJsonLd() {
       height: 630,
       caption: "Sahneva — Profesyonel LED Ekran Kiralama Hizmetleri",
     },
-    datePublished: "2024-01-01",
+    datePublished: PAGE_PUBLISHED_DATE,
     dateModified: PAGE_LAST_MODIFIED,
     author: providerRef,
   };
