@@ -257,7 +257,7 @@ function Hero() {
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">1200+</div>
+            <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Etkinlik</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -540,7 +540,7 @@ function Technical() {
 /* ================== İstatistik Bant ================== */
 function StatsBand() {
   const stats = [
-    { value: "1200+", label: "Başarılı Etkinlik", icon: "🎪" },
+    { value: "700+", label: "Başarılı Proje", icon: "??" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "81", label: "İlde Hizmet", icon: "🗺️" },
     { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
@@ -781,7 +781,7 @@ function Articles() {
                     Neden Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>10+ yıllık deneyim, 1200+ başarılı etkinlik ve 81 ilde hizmet</strong> ile 
+                    <strong>10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet</strong> ile 
                     ses ve ışık sistemleri konusunda güvenilir çözüm ortağınız. Profesyonel ekipman, 
                     uzman ekip ve 7/24 teknik destek garantisi.
                   </p>

@@ -33,7 +33,7 @@ function StatsCounter() {
       };
 
       increment(700, 'projects');
-      increment(12, 'experience');
+      increment(10, 'experience');
       increment(81, 'cities');
     }
     return () => {

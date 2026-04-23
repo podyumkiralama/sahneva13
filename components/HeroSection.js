@@ -17,9 +17,9 @@ const DEFAULT_DICTIONARY = {
   titleLine1: "Sahne, LED ve Podyum",
   titleLine2: "Tek Ekipten Kurulum",
   description:
-    "Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>500+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.",
+    "Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>700+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.",
   proofPoints: [
-    { value: "500+", label: "Tamamlanan proje" },
+    { value: "700+", label: "Tamamlanan proje" },
     { value: "81 il", label: "T\u00fcrkiye geneli kurulum" },
     { value: "2-6 saat", label: "H\u0131zl\u0131 devreye alma" },
     { value: "Tek ekip", label: "Sahne, LED, ses ve podyum" },

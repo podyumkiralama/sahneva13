@@ -793,7 +793,7 @@ export default function Page() {
                   Sahneva olarak sahne, ses-ışık, LED ekran ve çadır
                   kiralama konularında{" "}
                   <strong className="font-semibold text-slate-900">
-                    300+ kurumsal projede
+                    700+ ba?ar?l? projede
                   </strong>{" "}
                   edindiğimiz deneyimle, teknik keşiften kuruluma kadar tüm
                   süreci tek elden yönetiyoruz. Hızlı teklif için

@@ -1143,7 +1143,7 @@ function Technical() {
 
 function StatsBand() {
   const stats = [
-    { value: "500+", label: "Corporate Events" },
+    { value: "700+", label: "Successful Projects" },
     { value: "50+", label: "Corporate Clients" },
     { value: "81", label: "Cities Served" },
     { value: "10+ yrs", label: "Experience" },

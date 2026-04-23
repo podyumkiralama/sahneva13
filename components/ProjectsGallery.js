@@ -59,7 +59,7 @@ const DEFAULT_GALLERIES = {
 const DEFAULT_DICTIONARY = {
   title: "Proje Galerisi",
   subtitle:
-    "500'den fazla kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.",
+    "700+ kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.",
   hoverCta: "Projeyi incele",
   statsLabel: "Tamamlanan proje",
   dialogAria: "{{title}} projesi",

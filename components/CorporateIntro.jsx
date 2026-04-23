@@ -58,7 +58,7 @@ const DEFAULT_DICTIONARY = {
     "Acil durum senaryosu ve yedek sistem",
   ],
   stats: [
-    { value: "250+", label: "Kurumsal etkinlik" },
+    { value: "700+", label: "Ba?ar?l? proje" },
     { value: "15+", label: "Y\u0131ll\u0131k saha deneyimi" },
     { value: "7/24", label: "Teknik destek" },
   ],

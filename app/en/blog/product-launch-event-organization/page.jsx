@@ -172,7 +172,7 @@ export default function Page() {
         </div>
 
         <p>
-          As Sahneva, with 10+ years of experience gained since 2012 and over 1,200 successful
+          As Sahneva, with 10+ years of experience and 700+ successful
           projects, we never leave this critical moment to chance. We deliver flawless technical
           production solutions across Turkey.
         </p>

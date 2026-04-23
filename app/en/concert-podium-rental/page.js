@@ -219,7 +219,7 @@ function HeroSection() {
   const stats = [
     { icon: "🎤", value: "500+", label: "Concerts & Festivals" },
     { icon: "🇹🇷", value: "Nationwide", label: "Service Area" },
-    { icon: "⏱️", value: "8+ Years", label: "Stage Experience" },
+    { icon: "??", value: "10+ Years", label: "Field Experience" },
     { icon: "🛡️", value: "Engineering", label: "Certified Systems" },
   ];
 

@@ -389,7 +389,7 @@ function Hero() {
                 <span className="text-2xl mb-2" aria-hidden="true">
                   🏆
                 </span>
-                <div className="text-xl font-black text-white">300+</div>
+                <div className="text-xl font-black text-white">700+</div>
                 <div className="text-white/80 text-sm">Projects</div>
               </div>
 
@@ -1186,7 +1186,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      8+ years of experience, 300+ successful projects and
+                      10+ years of experience, 700+ successful projects and
                       nationwide service across 81 cities
                     </strong>{" "}
                     make Sahneva a reliable stage partner. We deploy the latest
@@ -1568,7 +1568,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Nationwide service • ⏰ 24/7 technical support • ⭐ 8+ years
+              📍 Nationwide service • ⏰ 24/7 technical support • ⭐ 10+ years
               of experience
             </div>
           </div>

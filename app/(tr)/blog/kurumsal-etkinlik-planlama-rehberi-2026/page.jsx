@@ -806,7 +806,7 @@ export default function Page() {
                   Etkinliğinizi şansa bırakmayın
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-slate-700">
-                  Sahneva olarak <strong className="font-semibold text-slate-900">300+ kurumsal projede</strong>{" "}
+                  Sahneva olarak <strong className="font-semibold text-slate-900">700+ ba?ar?l? projede</strong>{" "}
                   edindiğimiz deneyimle, <strong className="font-semibold text-slate-900">81 ilde</strong> teknik
                   keşiften yayın zincirine kadar tüm süreci tek elden yönetiyoruz.
                   Hızlı teklif için WhatsApp’tan yazın; çoğu projede{" "}

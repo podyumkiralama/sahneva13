@@ -368,7 +368,7 @@ function Hero() {
             <span className="text-2xl mb-2" aria-hidden="true">
               🏆
             </span>
-            <div className="text-xl font-black text-white">300+</div>
+            <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Proje</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -1226,7 +1226,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      5+ yıllık deneyim, 300+ başarılı proje ve 81 ilde hizmet
+                      10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
                     </strong>{" "}
                     ile masa sandalye kiralama konusunda güvenilir çözüm
                     ortağınız. Geniş envanter, uzman ekip ve 7/24 teknik destek

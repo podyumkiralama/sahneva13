@@ -826,7 +826,7 @@ export default function Page() {
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-slate-700">
                   At Sahneva, with experience from{" "}
-                  <strong className="font-semibold text-slate-900">300+ corporate projects</strong>,
+                  <strong className="font-semibold text-slate-900">700+ successful projects</strong>,
                   we manage the entire process from technical survey to broadcast chain — all under
                   one roof, across{" "}
                   <strong className="font-semibold text-slate-900">81 provinces</strong>. Message us

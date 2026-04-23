@@ -234,7 +234,7 @@ function Hero() {
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">1200+</div>
+            <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Events delivered</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -481,7 +481,7 @@ function Technical() {
 /* ================== Statistics band ================== */
 function StatsBand() {
   const stats = [
-    { value: "1200+", label: "Events delivered", icon: "🎪" },
+    { value: "700+", label: "Successful Projects", icon: "??" },
     { value: "50+", label: "Enterprise clients", icon: "🏢" },
     { value: "81", label: "Provinces served", icon: "🗺️" },
     { value: "10+", label: "Years of experience", icon: "⭐" },
@@ -707,7 +707,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>10+ years of experience, 1200+ successful events and nationwide coverage</strong>
+                    <strong>10+ years of experience, 700+ successful projects and nationwide coverage</strong>
                     make us a trusted production partner. Premium equipment, specialised crews and 24/7 technical support are included with every project.
                   </p>
                 </div>

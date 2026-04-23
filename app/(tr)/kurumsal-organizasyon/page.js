@@ -1189,7 +1189,7 @@ function Technical() {
 
 function StatsBand() {
   const stats = [
-    { value: "500+", label: "Kurumsal Etkinlik" },
+    { value: "700+", label: "Ba?ar?l? Proje" },
     { value: "50+", label: "Kurumsal Müşteri" },
     { value: "81", label: "İlde Hizmet" },
     { value: "10+ yıl", label: "Deneyim" },

@@ -998,10 +998,10 @@ function TechnicalSection() {
 
 function StatsSection() {
   const stats = [
-    { value: "600+", label: "Başarılı Etkinlik", icon: "🎪" },
+    { value: "700+", label: "Başarılı Proje", icon: "??" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "2-6", label: "Saat Kurulum", icon: "⏱️" },
-    { value: "8+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: "10+", label: "Yıl Deneyim", icon: "?" },
   ];
   return (
     <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
@@ -1178,7 +1178,7 @@ function ArticlesSection() {
                   <span aria-hidden="true">💎</span> Neden Sahneva?
                 </h5>
                 <p className="mb-0 text-yellow-800">
-                  <strong>8+ yıllık deneyim, 600+ başarılı etkinlik ve İstanbul geneli hizmet</strong> ile podyum kiralama konusunda güvenilir çözüm ortağınız.
+                  <strong>10+ yıllık deneyim, 700+ başarılı proje ve İstanbul geneli hizmet</strong> ile podyum kiralama konusunda güvenilir çözüm ortağınız.
                   Profesyonel ekipman, uzman ekip ve teknik destek opsiyonları.
                 </p>
               </aside>

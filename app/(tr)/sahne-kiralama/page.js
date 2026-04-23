@@ -409,7 +409,7 @@ function Hero() {
                 <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
                   ⭐
                 </span>
-                <div className="text-lg font-black text-white sm:text-xl">8+</div>
+                <div className="text-lg font-black text-white sm:text-xl">10+</div>
                 <div className="text-xs leading-snug text-white/80 sm:text-sm">Yıl Deneyim</div>
               </div>
 
@@ -417,7 +417,7 @@ function Hero() {
                 <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
                   🏆
                 </span>
-                <div className="text-lg font-black text-white sm:text-xl">300+</div>
+                <div className="text-lg font-black text-white sm:text-xl">700+</div>
                 <div className="text-xs leading-snug text-white/80 sm:text-sm">Proje</div>
               </div>
 
@@ -1377,7 +1377,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      8+ yıllık deneyim, 300+ başarılı proje ve 81 ilde hizmet
+                      10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
                     </strong>{" "}
                     ile sahne kiralama konusunda güvenilir çözüm ortağınız. En
                     son teknoloji ekipman, uzman ekip ve 7/24 teknik destek
@@ -1757,7 +1757,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 8+ yıl deneyim
+              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 10+ yıl deneyim
             </div>
           </div>
         </div>

@@ -290,7 +290,7 @@ function Hero() {
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">300+</div>
+            <div className="text-xl font-black text-white">700+</div>
             <div className="text-white/80 text-sm">Projects Delivered</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -851,7 +851,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>5+ years of experience, 300+ successful projects and service across 81 provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
+                    <strong>10+ years of experience, 700+ successful projects and service across 81 provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
                   </p>
                 </div>
               </div>

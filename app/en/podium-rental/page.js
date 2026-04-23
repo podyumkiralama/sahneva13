@@ -365,7 +365,7 @@ export default function PodiumRentalPage() {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { value: "500+", label: "Events" },
+              { value: "700+", label: "Successful Projects" },
               { value: "12 m²", label: "Min. Size" },
               { value: "81", label: "Cities" },
               { value: "24/7", label: "Support" },

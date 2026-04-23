@@ -701,7 +701,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>8+ years of experience, 850+ successful events and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
+                    <strong>10+ years of experience, 700+ successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
                   </p>
                 </div>
               </div>
@@ -1008,7 +1008,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service across 81 cities • ⏰ 24/7 technical support • ⭐ 8+ years of experience
+              📍 Service across 81 cities • ⏰ 24/7 technical support • ⭐ 10+ years of experience
             </div>
           </div>
         </div>

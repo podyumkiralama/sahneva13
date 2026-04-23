@@ -455,7 +455,7 @@ const HERO_DICT_EN = {
   titleLine1: "Event Production",
   titleLine2: "One Team, One Roof, One Solution",
   description:
-    "With <strong class=\"text-white\">500+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
+    "With <strong class=\"text-white\">700+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
   ctaCall: "Call Now",
   ctaCallAria: "Call Sahneva now",
   ctaWhatsapp: "WhatsApp Quote",
@@ -543,7 +543,7 @@ const CORPORATE_INTRO_DICT_EN = {
   ],
   stats: [
     { value: "250+", label: "Corporate events" },
-    { value: "15+", label: "Years of field experience" },
+    { value: "10+", label: "Years of field experience" },
     { value: "7/24", label: "Technical support" },
   ],
   imageAlt:
@@ -885,7 +885,7 @@ export default function EnglishHomePage() {
       >
         <h2 id="projects-title" className="sr-only">Our Projects</h2>
         <p className="sr-only">
-          Professional partner for 500+ corporate events, concerts, fairs and activations.
+          Professional partner for 700+ corporate events, concerts, fairs and activations.
         </p>
         <a className="sr-only" href="/en/projects">View projects</a>
         <DeferredHydration

@@ -458,7 +458,7 @@ export default function HomePage() {
         className="content-visibility-auto cv-home-projects bg-black"
       >
         <p className="sr-only">
-          500'den fazla kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
+          700+ kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
         </p>
         <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
         <DeferredHydration
