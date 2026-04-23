@@ -322,14 +322,14 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
               </div>
             </details>
 
-            <div className="mt-4 rounded-2xl border border-green-700/20 bg-gradient-to-r from-emerald-700 to-green-600 p-4 shadow-xl">
+            <div className="mt-4 rounded-2xl border border-emerald-200 bg-white p-4 shadow-lg">
               <div className="flex items-start gap-3">
                 <span aria-hidden="true" className="text-2xl">
                   💬
                 </span>
-                <div className="space-y-1 text-white">
+                <div className="space-y-1 text-neutral-900">
                   <p className="text-lg font-extrabold">WhatsApp Destek</p>
-                  <p className="text-sm font-medium text-emerald-50">
+                  <p className="text-sm font-medium text-neutral-600">
                     WhatsApp üzerinden anında teklif alın ve sorularınızı iletin.
                   </p>
                 </div>
@@ -339,7 +339,7 @@ export default function NavbarMobile({ serviceLinks, researchLinks }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Destek – yeni sekmede açılır"
-                className={`mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-white text-sm font-bold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 min-h-[44px] border border-green-700/20 ${
+                className={`mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold bg-emerald-50 text-emerald-800 hover:bg-emerald-100 transition-all duration-200 shadow-sm hover:shadow-md min-h-[44px] border border-emerald-200 ${
                   FOCUS_RING_CLASS
                 }`}
                 onClick={() => closeMenu()}

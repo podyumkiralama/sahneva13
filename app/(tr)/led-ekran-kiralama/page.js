@@ -634,8 +634,8 @@ function Hero() {
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/62 via-purple-800/48 to-blue-950/72" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/68 via-transparent to-purple-900/42" aria-hidden="true" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
@@ -654,9 +654,9 @@ function Hero() {
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Konser • Fuar • Lansman • Festival • Kurumsal Etkinlikler
         </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık ile 
-          <span className="font-semibold text-white"> profesyonel görsel çözümler</span>
+        <p className="text-balance text-lg md:text-xl text-white/85 max-w-[38rem] mx-auto leading-relaxed font-normal mb-6">
+          P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık ile etkinliğinize uygun{" "}
+          <span className="font-semibold text-white md:whitespace-nowrap">profesyonel görsel çözümler</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">

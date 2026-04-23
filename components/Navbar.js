@@ -394,10 +394,10 @@ export default function Navbar({ locale = "tr", ...props }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
-                className={`ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-white text-sm font-bold
-                  bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
-                  transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105
-                  min-h-[44px] border border-green-700/20 ${FOCUS_RING_CLASS}`}
+                className={`ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold
+                  bg-white text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800
+                  transition-all duration-200 shadow-sm hover:shadow-md
+                  min-h-[44px] border border-emerald-200 ${FOCUS_RING_CLASS}`}
               >
                 <span aria-hidden="true" className="text-base">
                   💬
