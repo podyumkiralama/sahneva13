@@ -7,7 +7,17 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
-import { Tent, Briefcase, Monitor, Music } from "lucide-react";
+import {
+  ArrowRight,
+  Briefcase,
+  CalendarCheck,
+  ClipboardCheck,
+  MessageCircle,
+  Monitor,
+  Music,
+  Ruler,
+  Tent,
+} from "lucide-react";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 1800; // 30 Dakika ISR
@@ -42,12 +52,6 @@ const calculatePackagePrice = (layout) => {
 };
 
 /* ================== 3. DİNAMİK BİLEŞENLER ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  loading: () => (
-    <div className="h-96 w-full bg-gray-100 animate-pulse rounded-3xl border border-gray-200" />
-  ),
-});
-
 const PriceEstimatorPodyum = dynamic(
   () => import("@/components/PriceEstimatorPodyum"),
   {
@@ -142,6 +146,35 @@ const PACKAGES = [
     ],
     note: "Büyük konser/miting sahneleri için.",
   },
+];
+
+const FLOW_STEPS = [
+  {
+    Icon: Ruler,
+    title: "Ölçü ve zemin netleşir",
+    text: "Etkinlik alanı, yükseklik, m² ihtiyacı ve zemin durumu birlikte değerlendirilir.",
+  },
+  {
+    Icon: ClipboardCheck,
+    title: "Paket veya özel plan seçilir",
+    text: "Mini, orta, pro paketlerden biri ya da mekâna özel podyum planı hazırlanır.",
+  },
+  {
+    Icon: CalendarCheck,
+    title: "Kurulum saati planlanır",
+    text: "Nakliye, kurulum, dengeleme, söküm ve etkinlik takvimi tek akışta netleştirilir.",
+  },
+  {
+    Icon: MessageCircle,
+    title: "Net teklif paylaşılır",
+    text: "Kaplama, skirt, rampa, korkuluk ve şehir dışı ihtiyaçları dahil edilerek teklif verilir.",
+  },
+];
+
+const PACKAGE_GUIDE = [
+  "Konuşma, nikâh veya küçük sunum için 12 m² mini podyum yeterli olur.",
+  "Canlı müzik, lansman ve okul etkinliği için 24 m² orta podyum daha dengeli görünür.",
+  "Konser, festival ve kalabalık sahne kullanımı için 48 m² ve üzeri özel plan önerilir.",
 ];
 
 const USE_CASES = [
@@ -433,14 +466,14 @@ function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-9">
-              <Link
+              <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
               >
                 <span className="text-xl mr-2">💬</span> Hemen Teklif Al
-              </Link>
+              </a>
 
               <Link
                 href="#hizmetler"
@@ -478,6 +511,94 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+    </section>
+  );
+}
+
+function PodiumFlowSection() {
+  return (
+    <section
+      id="teklif-akisi"
+      className="py-16 bg-white"
+      aria-labelledby="teklif-akisi-title"
+    >
+      <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_0.82fr] gap-8 items-stretch">
+          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6 md:p-8">
+            <p className="text-sm font-black uppercase tracking-widest text-blue-700 mb-3">
+              Doğru ölçü, doğru bütçe
+            </p>
+            <h2
+              id="teklif-akisi-title"
+              className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-5"
+            >
+              Podyum kiralama sürecini daha net ve hızlı ilerletiyoruz
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
+              İlk ekranda paketleri görüp yaklaşık bütçeyi anlayabilir, ardından
+              m² hesaplayıcı ile kendi alanınıza göre hızlı bir tahmin alabilirsiniz.
+              Final teklif; zemin, yükseklik, kaplama, rampa, korkuluk ve şehir
+              dışı nakliye gibi detaylar netleşince paylaşılır.
+            </p>
+
+            <ul className="mt-8 grid sm:grid-cols-2 gap-4">
+              {FLOW_STEPS.map(({ Icon, title, text }) => (
+                <li
+                  key={title}
+                  className="rounded-2xl bg-white border border-gray-200 p-5 shadow-sm"
+                >
+                  <div
+                    className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white"
+                    aria-hidden="true"
+                  >
+                    <Icon size={22} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-lg font-black text-gray-900 mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">{text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <aside className="rounded-3xl border border-blue-200 bg-blue-50 p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-5">
+                Hangi paketle başlamalı?
+              </h3>
+              <ul className="space-y-4">
+                {PACKAGE_GUIDE.map((item) => (
+                  <li key={item} className="flex gap-3 text-gray-800 leading-relaxed">
+                    <ArrowRight
+                      className="mt-1 h-5 w-5 flex-shrink-0 text-blue-700"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-green-700 px-6 py-3 font-black text-white shadow-lg transition hover:bg-green-800"
+              >
+                WhatsApp ile ölçü paylaş
+              </a>
+              <Link
+                href="#paketler"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border-2 border-blue-700 px-6 py-3 font-black text-blue-800 transition hover:bg-blue-100"
+              >
+                Paketleri incele
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </div>
     </section>
   );
 }
@@ -522,14 +643,14 @@ function ServicesSection() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">📞</span> Detaylı Teklif için İletişime Geçin
-          </Link>
+          </a>
         </div>
       </div>
     </section>
@@ -569,7 +690,11 @@ function CalculatorSection() {
               </p>
               <p className="mt-2 text-blue-800/80 text-sm">
                 2026 birim fiyat listesi için{" "}
-                <Link className="underline font-semibold" href="/podyum-kiralama-fiyatlari">
+                <Link
+                  className="underline font-semibold"
+                  href="/podyum-kiralama-fiyatlari"
+                  prefetch={false}
+                >
                   podyum kiralama fiyatları
                 </Link>{" "}
                 sayfasını inceleyebilirsiniz.
@@ -591,10 +716,13 @@ function PackagesSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-white">
+    <section id="paketler" className="py-20 bg-white" aria-labelledby="paketler-title">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2
+            id="paketler-title"
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+          >
             Podyum <span className="text-blue-700">Paketlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -618,6 +746,7 @@ function PackagesSection() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={62}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4">
@@ -655,6 +784,10 @@ function PackagesSection() {
                           {formatTRY(prices.total)}
                         </span>
                       </div>
+                      <p className="pt-2 text-xs leading-relaxed text-gray-600">
+                        Tahmini bütçedir; zemin, kurulum saati, ek güvenlik ekipmanı
+                        ve şehir dışı nakliye durumuna göre netleşir.
+                      </p>
                     </div>
                   </div>
 
@@ -666,14 +799,14 @@ function PackagesSection() {
                 </div>
 
                 <div className="p-6 pt-0">
-                  <Link
+                  <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-2 w-full min-h-[56px] inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
                     <span className="text-lg mr-2">💬</span> Hemen Teklif Al
-                  </Link>
+                  </a>
                 </div>
               </article>
             );
@@ -691,6 +824,8 @@ function PackagesSection() {
 }
 
 function GallerySection() {
+  const visibleImages = GALLERY_IMAGES.slice(0, 8);
+
   return (
     <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
       <div className="container mx-auto px-4">
@@ -703,14 +838,27 @@ function GallerySection() {
           </p>
         </div>
         <div className="max-w-7xl mx-auto">
-          <CaseGallery
-            images={GALLERY_IMAGES.map((src) => ({
-              src,
-              alt: "Profesyonel podyum kurulum projesi - Sahneva",
-            }))}
-            visibleCount={8}
-            priorityCount={3}
-          />
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {visibleImages.map((src, index) => (
+              <li key={src}>
+                <figure className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-sm">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={src}
+                      alt={`Sahneva podyum kiralama proje örneği ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 300px"
+                      quality={58}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
+                    />
+                  </div>
+                </figure>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="text-center mt-12">
           <p className="text-gray-600 text-lg mb-6">
@@ -718,6 +866,7 @@ function GallerySection() {
           </p>
           <Link
             href="/projeler"
+            prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300"
           >
             <span className="text-xl mr-3">📸</span> Tüm Projeleri Görüntüle
@@ -757,6 +906,7 @@ function VisualShowcaseSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 1024px) 50vw, 25vw"
+                  quality={60}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm md:text-base leading-snug">
@@ -880,14 +1030,14 @@ function UseCasesSection() {
           ))}
         </ul>
         <div className="text-center mt-12">
-          <Link
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">💬</span> Etkinliğiniz için Özel Çözüm Alın
-          </Link>
+          </a>
         </div>
       </div>
     </section>
@@ -950,6 +1100,7 @@ function ArticlesSection() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        quality={58}
                       />
                     </div>
                   </figure>
@@ -1068,6 +1219,7 @@ function ProcessAndTipsSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={58}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
               </div>
@@ -1150,12 +1302,14 @@ function ProcessAndTipsSection() {
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Link
                 href="/ses-isik-sistemleri"
+                prefetch={false}
                 className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
               >
                 Ses &amp; Işık Sistemleri →
               </Link>
               <Link
                 href="/led-ekran-kiralama"
+                prefetch={false}
                 className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
               >
                 LED Ekran Kiralama →
@@ -1193,24 +1347,26 @@ function FAQSection() {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <ul className="space-y-6">
           {FAQ_ITEMS.map((faq, index) => (
-            <details
-              key={index}
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
-            >
-              <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
-                <span className="pr-4">{faq.q}</span>
-                <span className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
-                  ⌄
-                </span>
-              </summary>
-              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
-                {faq.a}
-              </div>
-            </details>
+            <li key={index}>
+              <details className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border">
+                <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
+                  <span className="pr-4">{faq.q}</span>
+                  <span
+                    className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    ⌄
+                  </span>
+                </summary>
+                <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                  {faq.a}
+                </div>
+              </details>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="text-center mt-12">
           <p className="text-gray-600 text-lg mb-6">
@@ -1218,6 +1374,7 @@ function FAQSection() {
           </p>
           <Link
             href="/sss"
+            prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span className="text-xl mr-3">📚</span>
@@ -1246,6 +1403,7 @@ function RelatedServicesSection() {
             <li key={service.href} className="h-full">
               <Link
                 href={service.href}
+                prefetch={false}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center h-full flex flex-col"
               >
                 <div className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
@@ -1281,6 +1439,7 @@ function CTASection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/iletisim"
+                prefetch={false}
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
               >
                 <span className="text-xl mr-3">📞</span> Hemen Teklif Al
@@ -1297,7 +1456,11 @@ function CTASection() {
 
             <p className="mt-6 text-sm text-white/80">
               2026 birim fiyat listesi için{" "}
-              <Link className="underline font-semibold" href="/podyum-kiralama-fiyatlari">
+              <Link
+                className="underline font-semibold"
+                href="/podyum-kiralama-fiyatlari"
+                prefetch={false}
+              >
                 fiyatlar sayfası
               </Link>{" "}
               kısmına göz atabilirsiniz.
@@ -1323,15 +1486,16 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
-      <ServicesSection />
-      <CalculatorSection />
+      <PodiumFlowSection />
       <PackagesSection />
+      <CalculatorSection />
+      <ServicesSection />
       <GallerySection />
       <VisualShowcaseSection />
       <TechnicalSection />
       <StatsSection />
       <UseCasesSection />
-            <ProcessAndTipsSection />
+      <ProcessAndTipsSection />
       <ArticlesSection />
       <FAQSection />
       <RelatedServicesSection />
