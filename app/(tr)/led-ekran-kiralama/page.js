@@ -439,8 +439,8 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <div className="mb-2 text-yellow-300"><CheckCircle size={24} aria-hidden="true" /></div>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">Doğrulanmış değerlendirmeler</div>
+            <div className="text-xl font-black text-white">10+</div>
+            <div className="text-white/80 text-sm">Yıllık Deneyim</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <div className="mb-2 text-blue-300"><Users size={24} aria-hidden="true" /></div>
