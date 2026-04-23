@@ -453,14 +453,14 @@ function QuickSelectionGuide() {
             id="led-secim-rehberi-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5"
           >
-            Doğru LED Ekranı <span className="text-blue-700">3 Adımda Seçin</span>
+            Doğru LED Ekranı <span className="text-blue-700 normal-case">3 adımda seçin</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Sayfayı baştan sona incelemeden önce, projeniz için doğru panel tipini ve teklif akışını hızlıca netleştirebilirsiniz.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 xl:gap-12 items-start">
+        <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-8 xl:gap-10 items-start">
           <div className="space-y-5">
             {QUICK_SELECTION_STEPS.map((step, index) => (
               <article
@@ -481,7 +481,7 @@ function QuickSelectionGuide() {
                       {step.points.map((point) => (
                         <li
                           key={point}
-                          className="rounded-2xl border border-gray-100 bg-slate-50 px-4 py-3 text-sm font-semibold text-gray-700"
+                          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[13px] md:text-sm font-semibold text-slate-800"
                         >
                           {point}
                         </li>
@@ -493,7 +493,7 @@ function QuickSelectionGuide() {
             ))}
           </div>
 
-          <aside className="lg:sticky lg:top-24 self-start">
+          <aside className="lg:sticky lg:top-24 self-start max-w-[22rem] xl:max-w-[24rem] lg:ml-auto">
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
               <div className="relative aspect-[4/3]">
                 <Image
@@ -509,18 +509,18 @@ function QuickSelectionGuide() {
                   Hızlı seçim özeti
                 </div>
                 <div className="absolute inset-x-5 bottom-5 flex flex-wrap gap-3">
-                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
+                  <div className="rounded-2xl bg-white/10 px-4 py-3.5 backdrop-blur">
                     <div className="text-xs uppercase tracking-wide text-white/70">Parlaklık</div>
                     <div className="text-lg font-black">1500 - 6500 nit</div>
                   </div>
-                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
+                  <div className="rounded-2xl bg-white/10 px-4 py-3.5 backdrop-blur">
                     <div className="text-xs uppercase tracking-wide text-white/70">Kurulum</div>
                     <div className="text-lg font-black">Hızlı rigging</div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 md:p-7">
+              <div className="p-7 md:p-8">
                 <h3 className="text-2xl font-black">Projeye göre hızlı öneri</h3>
                 <p className="mt-2 text-white/75 leading-relaxed">
                   Teknik tabloya geçmeden önce en sık kullanılan üç senaryo için kısa yönlendirme:
@@ -1413,12 +1413,11 @@ function UseCases() {
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {USE_CASES.map((uc) => (
-            <article
+            <li
               key={uc.title}
               className="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
-              role="listitem"
             >
               <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform">
                 <uc.Icon size={32} strokeWidth={1.5} />
@@ -1429,9 +1428,9 @@ function UseCases() {
               <p className="text-white/60 text-sm leading-relaxed border-t border-white/10 pt-3">
                 {uc.desc}
               </p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

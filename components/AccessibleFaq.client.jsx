@@ -6,14 +6,14 @@ export default function AccessibleFaq({ items }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="space-y-4" role="list" aria-label="Sık sorulan sorular listesi">
+    <ul className="space-y-4" aria-label="Sık sorulan sorular listesi">
       {items.map((faq, index) => {
         const isOpen = index === openIndex;
         const buttonId = `faq-button-${index}`;
         const panelId = `faq-panel-${index}`;
 
         return (
-          <article key={faq.q} role="listitem">
+          <li key={faq.q} className="list-none">
             <div
               className={`rounded-3xl border-2 transition-all duration-300 ${
                 isOpen
@@ -54,9 +54,9 @@ export default function AccessibleFaq({ items }) {
                 </p>
               </div>
             </div>
-          </article>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
