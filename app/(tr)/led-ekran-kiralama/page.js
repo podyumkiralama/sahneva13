@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
@@ -192,42 +193,42 @@ const SERVICES = [
     title: "İç Mekan LED Ekranlar",
     description: "P2.5-P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
     features: ["P2.5/P2.9 piksel", "800-1500 nit parlaklık", "4K çözünürlük", "Hızlı kurulum"],
-    cta: { label: "Detaylı Bilgi", href: getServiceWhatsappLink("İç Mekan LED Ekranlar") },
+    cta: { label: "Detaylı Bilgi" },
   },
   {
     Icon: Sun,
     title: "Dış Mekan LED Ekranlar",
     description: "P3.9 piksel aralığı ve yüksek parlaklık ile açık hava çözümleri",
     features: ["P3.9 piksel", "5000-6500+ nit", "IP65 su geçirmez", "UV dayanıklı"],
-    cta: { label: "Teklif Al", href: getServiceWhatsappLink("Dış Mekan LED Ekranlar") },
+    cta: { label: "Teklif Al" },
   },
   {
     Icon: Layers,
     title: "Video Wall Sistemleri",
     description: "Modüler yapıda esnek video wall ve kreatif ekran çözümleri",
     features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol", "Kavisli tasarım (-10°/+10°)"],
-    cta: { label: "Kreatif Çözüm Planla", href: getServiceWhatsappLink("Video Wall Sistemleri") },
+    cta: { label: "Kreatif Çözüm Planla" },
   },
   {
     Icon: Cpu,
     title: "Kontrol & Yayın Sistemleri",
     description: "Profesyonel video işleme, kontrol ve canlı yayın sistemleri",
     features: ["Novastar işlemciler", "4K scaler", "Medya sunucular", "Canlı yayın", "3840Hz yenileme hızı"],
-    cta: { label: "Yayın Desteği", href: getServiceWhatsappLink("Kontrol & Yayın Sistemleri") },
+    cta: { label: "Yayın Desteği" },
   },
   {
     Icon: Zap,
     title: "Kurulum & Rigging",
     description: "Profesyonel kurulum, truss sistemleri ve güvenlik çözümleri",
     features: ["Ground stack", "Truss rigging", "Güvenlik sistemleri", "Hızlı montaj", "Click-lock hızlı kilit"],
-    cta: { label: "Kurulum Planı", href: getServiceWhatsappLink("Kurulum & Rigging") },
+    cta: { label: "Kurulum Planı" },
   },
   {
     Icon: Headphones,
     title: "Operatör & Teknik Destek",
     description: "Deneyimli operatörler ve 7/24 teknik destek hizmeti",
     features: ["Profesyonel operatör", "İçerik yönetimi", "7/24 teknik destek", "Acil müdahale"],
-    cta: { label: "Operatör Talep Et", href: getServiceWhatsappLink("Operatör & Teknik Destek") },
+    cta: { label: "Operatör Talep Et" },
   },
 ];
 
@@ -274,6 +275,122 @@ const USE_CASES = [
   }
 ];
 
+const QUICK_SELECTION_STEPS = [
+  {
+    Icon: Layout,
+    title: "Etkinlik tipini netleştirin",
+    description:
+      "Konser, fuar, lansman ya da açık hava etkinliği için ekranın kullanım biçimi ilk teknik kararı belirler.",
+    points: ["İç mekan / dış mekan", "Yakın izleme / uzak izleme", "Sunum / canlı yayın / reklam"],
+  },
+  {
+    Icon: Eye,
+    title: "Piksel aralığını seçin",
+    description:
+      "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır, bütçe de gereksiz yükselmez.",
+    points: ["P2.5: premium iç mekan", "P2.9: dengeli hibrit çözüm", "P3.9: açık hava ve geniş alan"],
+  },
+  {
+    Icon: MessageCircle,
+    title: "Ölçü ve şehir bilgisini paylaşın",
+    description:
+      "m², kurulum saati ve şehir bilgisi geldiğinde teknik ekip doğru panel, taşıma ve kurulum planını aynı çizgide çıkarır.",
+    points: ["Tahmini ekran ölçüsü", "Kurulum / söküm saatleri", "Şehir ve mekan tipi"],
+  },
+];
+
+const QUICK_SELECTION_SCENARIOS = [
+  {
+    title: "Lansman ve fuar standı",
+    recommendation: "P2.5 / P2.9",
+    detail: "Yakın izleme ve sunum netliği için yüksek çözünürlüklü iç mekan panel önerilir.",
+  },
+  {
+    title: "Kurumsal etkinlik ve hibrit sahne",
+    recommendation: "P2.9",
+    detail: "Salon içi kullanımda netlik ve bütçe dengesini en iyi kuran çözüm.",
+  },
+  {
+    title: "Konser, festival ve açık hava",
+    recommendation: "P3.9",
+    detail: "Güneş altında görünürlük, geniş alan hakimiyeti ve güçlü dış mekan dayanımı sağlar.",
+  },
+];
+
+const ARTICLE_SECTIONS = [
+  { id: "led-ekran-nedir", label: "LED ekran kiralama nedir?" },
+  { id: "neden-tercih-edilir", label: "Neden tercih edilir?" },
+  { id: "ic-dis-mekan-farki", label: "İç / dış mekan farkı" },
+  { id: "fiyatlar-neden-degisir", label: "Fiyatlar neden değişir?" },
+  { id: "fiyatlari-etkileyenler", label: "Fiyatı etkileyen faktörler" },
+  { id: "kurulum-sureci", label: "Kurulum süreci" },
+  { id: "kullanim-senaryolari", label: "Hangi etkinliklerde kullanılır?" },
+  { id: "istanbul-kurulum-sureci", label: "İstanbul operasyon süreci" },
+];
+
+const SUCCESS_STORIES = [
+  {
+    title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı",
+    category: "Devlet & Kamu Etkinliği",
+    transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
+    before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
+    after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
+    result: "300+ kişilik kongre katılımcısına kesintisiz canlı yayın sunuldu; 8 saatlik etkinlik boyunca sıfır teknik arıza ve %100 müşteri memnuniyeti raporlandı.",
+    quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
+    client: "Organizasyon Komitesi",
+  },
+  {
+    title: "Sarıyer Premium Açık Hava Kır Düğünü",
+    category: "Özel Davet & Düğün",
+    transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
+    before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
+    after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
+    result: "250+ davetlinin tamamı, en arka sıradaki misafirler dahil, canlı yayın görüntüsünü sinema kalitesinde izledi; kurulum etkinlik başlamadan 2 saat önce tamamlandı.",
+    quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
+    client: "Gelin & Damat",
+  },
+  {
+    title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası",
+    category: "Spor & Eğlence",
+    transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
+    before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
+    after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
+    result: "500+ izleyiciye anlık skor ve oyun yayını aksaklıksız iletildi; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
+    quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
+    client: "Etkinlik Koordinatörü",
+  },
+  {
+    title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box",
+    category: "Kurumsal Fuar",
+    transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
+    before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
+    after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
+    result: "Stand ziyaretçi süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü tüm holde sağlandı.",
+    quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
+    client: "Kurumsal İletişim Müdürü",
+  },
+  {
+    title: "Üniversite Mezuniyet Töreni: 2.000 Kişilik Dev Salon",
+    category: "Eğitim & Tören",
+    transformation: "Projeksiyon ışığının yetersiz kaldığı devasa salon, her köşeye eşit parlaklık sunan LED wall ile dönüştü.",
+    before: "Ankara'da 2.000 kişilik üniversite mezuniyet salonunda projektörün uzak tribünlere yetmemesi ve görüntü solgunluğu sorunu.",
+    after: "P2.9 yüksek çözünürlüklü 12m × 4m LED ekran, salonun ön cephesine monte edilerek tüm oturma sektörlerine eşit parlaklık sağlandı.",
+    result: "2.000 mezun ve ailesine kesintisiz görsel deneyim sunuldu; etkinlik sonrası anket %98 memnuniyet, kurulum standart projeksiyon sistemine göre %30 daha hızlı tamamlandı.",
+    quote: "En arka sıradaki veliler bile konuşmacının yüzünü net gördü. LED ekran olmasa bu organizasyon yarısı kadar başarılı olurdu.",
+    client: "Üniversite Organizasyon Koordinatörü",
+  },
+  {
+    title: "Cumhuriyet Bayramı Kutlaması: İlçe Meydanı Konseri",
+    category: "Belediye & Açık Hava",
+    transformation: "Meydan kalabalığında sahneden kopuk kalan vatandaşlar, 8.000 kişiyi saran dijital deneyimle buluştu.",
+    before: "İstanbul'da kalabalık meydan etkinliğinde sahne arkasındaki ve yan kesimlerdeki vatandaşların sanatçıyı görmekte zorlanması.",
+    after: "IP65 korumalı P3.9 dış mekan LED ekranlar sahnenin iki yanına konumlandırılarak 180° görüş açısı ve 6500 nit parlaklık sağlandı.",
+    result: "8.000+ vatandaşın katıldığı etkinlikte sıfır teknik arıza kaydedildi; belediye etkinlik raporuna göre katılımcı memnuniyeti %97 olarak ölçüldü.",
+    quote: "Sahneyi göremeyenler artık sorun değil. Her iki yanımızdaki ekranlar şehrin en büyük konserini mümkün kıldı.",
+    client: "Belediye Kültür Müdürlüğü",
+  },
+];
+
 const FAQ_ITEMS = [
   {
     q: "LED ekran kiralama fiyatları nasıl belirlenir?",
@@ -314,45 +431,7 @@ function FAQ() {
           </p>
         </div>
 
-        <div className="space-y-4" role="list" aria-label="Sık sorulan sorular listesi">
-          {FAQ_ITEMS.map((faq, index) => {
-            const panelId = `faq-panel-${index}`;
-            const headingId = `faq-heading-${index}`;
-
-            return (
-              <article key={faq.q} role="listitem">
-                <details
-                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden"
-                  id={panelId}
-                  aria-labelledby={headingId}
-                >
-                  <summary
-                    id={headingId}
-                    aria-controls={`${panelId}-content`}
-                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
-                  >
-                    <span className="pr-4 flex-1">{faq.q}</span>
-                    <span
-                      aria-hidden="true"
-                      className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
-                    >
-                      ⌄
-                    </span>
-                  </summary>
-
-                  <div
-                    id={`${panelId}-content`}
-                    className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0"
-                  >
-                    <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
-                      <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
-                    </div>
-                  </div>
-                </details>
-              </article>
-            );
-          })}
-        </div>
+        <AccessibleFaq items={FAQ_ITEMS} />
 
         <div className="text-center mt-12">
           <p className="text-gray-600 text-lg mb-6">
@@ -366,6 +445,136 @@ function FAQ() {
             <ArrowRight size={20} aria-hidden="true" className="mr-3" />
             <span className="text-lg">Tüm SSS'yi Görüntüle</span>
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function QuickSelectionGuide() {
+  return (
+    <section
+      id="led-secim-rehberi"
+      className="py-16 md:py-20 bg-gradient-to-b from-white to-slate-50"
+      aria-labelledby="led-secim-rehberi-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-12 md:mb-16">
+          <h2
+            id="led-secim-rehberi-baslik"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5"
+          >
+            Doğru LED Ekranı <span className="text-blue-700">3 Adımda Seçin</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Sayfayı baştan sona incelemeden önce, projeniz için doğru panel tipini ve teklif akışını hızlıca netleştirebilirsiniz.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 xl:gap-12 items-start">
+          <div className="space-y-5">
+            {QUICK_SELECTION_STEPS.map((step, index) => (
+              <article
+                key={step.title}
+                className="rounded-[2rem] border border-gray-200 bg-white p-6 md:p-8 shadow-sm"
+              >
+                <div className="flex items-start gap-5">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+                    <step.Icon size={28} aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-2 text-sm font-bold uppercase tracking-wide text-blue-700">
+                      Adım {index + 1}
+                    </div>
+                    <h3 className="text-2xl font-black text-gray-900">{step.title}</h3>
+                    <p className="mt-3 text-gray-600 leading-relaxed">{step.description}</p>
+                    <ul className="mt-5 grid gap-3 md:grid-cols-3">
+                      {step.points.map((point) => (
+                        <li
+                          key={point}
+                          className="rounded-2xl border border-gray-100 bg-slate-50 px-4 py-3 text-sm font-semibold text-gray-700"
+                        >
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="lg:sticky lg:top-24 self-start">
+            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/img/galeri/led-ekran-kiralama-3.webp"
+                  alt="Kurumsal etkinlikte kullanılan profesyonel LED ekran kurulumu"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                <div className="absolute left-5 top-5 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
+                  Hızlı seçim özeti
+                </div>
+                <div className="absolute inset-x-5 bottom-5 flex flex-wrap gap-3">
+                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
+                    <div className="text-xs uppercase tracking-wide text-white/70">Parlaklık</div>
+                    <div className="text-lg font-black">1500 - 6500 nit</div>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
+                    <div className="text-xs uppercase tracking-wide text-white/70">Kurulum</div>
+                    <div className="text-lg font-black">Hızlı rigging</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-7">
+                <h3 className="text-2xl font-black">Projeye göre hızlı öneri</h3>
+                <p className="mt-2 text-white/75 leading-relaxed">
+                  Teknik tabloya geçmeden önce en sık kullanılan üç senaryo için kısa yönlendirme:
+                </p>
+
+                <div className="mt-6 space-y-4">
+                  {QUICK_SELECTION_SCENARIOS.map((scenario) => (
+                    <div
+                      key={scenario.title}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h4 className="font-bold text-white">{scenario.title}</h4>
+                          <p className="mt-2 text-sm leading-relaxed text-white/70">{scenario.detail}</p>
+                        </div>
+                        <span className="shrink-0 rounded-full bg-blue-500/20 px-3 py-1 text-sm font-bold text-blue-200">
+                          {scenario.recommendation}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href={WHATSAPP}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-2xl bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+                  >
+                    WhatsApp ile ölçü paylaş
+                  </a>
+                  <Link
+                    href="#altyapi-baslik"
+                    className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                  >
+                    Teknik detayları incele
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -427,12 +636,12 @@ function Hero() {
           </Link>
 
           <Link
-            href="#hizmetler"
-            aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
+            href="#led-secim-rehberi"
+            aria-label="Doğru LED ekran seçimi rehberine gidin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 backdrop-blur-lg hover:bg-white/30 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white shadow-lg"
           >
             <Monitor size={20} aria-hidden="true" className="mr-2" />
-            <span className="text-base">Hizmetlerimiz</span>
+            <span className="text-base">Doğru LED'i Seç</span>
           </Link>
         </div>
 
@@ -502,7 +711,7 @@ function Services() {
                   {service.cta && (
                     <div className="mt-8">
                       <Link
-                        href={service.cta.href}
+                        href={getServiceWhatsappLink(service.title)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
@@ -614,69 +823,6 @@ const VIDEO_GALLERY = [
 
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
-  const SUCCESS_STORIES = [
-    {
-      title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı",
-      category: "Devlet & Kamu Etkinliği",
-      transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
-      before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
-      after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
-      result: "300+ kişilik kongre katılımcısına kesintisiz canlı yayın sunuldu; 8 saatlik etkinlik boyunca sıfır teknik arıza ve %100 müşteri memnuniyeti raporlandı.",
-      quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
-      client: "Organizasyon Komitesi"
-    },
-    {
-      title: "Sarıyer Premium Açık Hava Kır Düğünü",
-      category: "Özel Davet & Düğün",
-      transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
-      before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
-      after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
-      result: "250+ davetlinin tamamı, en arka sıradaki misafirler dahil, canlı yayın görüntüsünü sinema kalitesinde izledi; kurulum etkinlik başlamadan 2 saat önce tamamlandı.",
-      quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
-      client: "Gelin & Damat"
-    },
-    {
-      title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası",
-      category: "Spor & Eğlence",
-      transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
-      before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
-      after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
-      result: "500+ izleyiciye anlık skor ve oyun yayını aksaklıksız iletildi; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
-      quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
-      client: "Etkinlik Koordinatörü"
-    },
-    {
-      title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box",
-      category: "Kurumsal Fuar",
-      transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
-      before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
-      after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
-      result: "Stand ziyaretçi süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü tüm holde sağlandı.",
-      quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
-      client: "Kurumsal İletişim Müdürü"
-    },
-    {
-      title: "Üniversite Mezuniyet Töreni: 2.000 Kişilik Dev Salon",
-      category: "Eğitim & Tören",
-      transformation: "Projeksiyon ışığının yetersiz kaldığı devasa salon, her köşeye eşit parlaklık sunan LED wall ile dönüştü.",
-      before: "Ankara'da 2.000 kişilik üniversite mezuniyet salonunda projektörün uzak tribünlere yetmemesi ve görüntü solgunluğu sorunu.",
-      after: "P2.9 yüksek çözünürlüklü 12m × 4m LED ekran, salonun ön cephesine monte edilerek tüm oturma sektörlerine eşit parlaklık sağlandı.",
-      result: "2.000 mezun ve ailesine kesintisiz görsel deneyim sunuldu; etkinlik sonrası anket %98 memnuniyet, kurulum standart projeksiyon sistemine göre %30 daha hızlı tamamlandı.",
-      quote: "En arka sıradaki veliler bile konuşmacının yüzünü net gördü. LED ekran olmasa bu organizasyon yarısı kadar başarılı olurdu.",
-      client: "Üniversite Organizasyon Koordinatörü"
-    },
-    {
-      title: "Cumhuriyet Bayramı Kutlaması: İlçe Meydanı Konseri",
-      category: "Belediye & Açık Hava",
-      transformation: "Meydan kalabalığında sahneden kopuk kalan vatandaşlar, 8.000 kişiyi saran dijital deneyimle buluştu.",
-      before: "İstanbul'da kalabalık meydan etkinliğinde sahne arkasındaki ve yan kesimlerdeki vatandaşların sanatçıyı görmekte zorlanması.",
-      after: "IP65 korumalı P3.9 dış mekan LED ekranlar sahnenin iki yanına konumlandırılarak 180° görüş açısı ve 6500 nit parlaklık sağlandı.",
-      result: "8.000+ vatandaşın katıldığı etkinlikte sıfır teknik arıza kaydedildi; belediye etkinlik raporuna göre katılımcı memnuniyeti %97 olarak ölçüldü.",
-      quote: "Sahneyi göremeyenler artık sorun değil. Her iki yanımızdaki ekranlar şehrin en büyük konserini mümkün kıldı.",
-      client: "Belediye Kültür Müdürlüğü"
-    }
-  ];
-
   return (
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -966,7 +1112,7 @@ function Technical() {
   ];
 
   return (
-    <section className="py-14 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section id="teknik-altyapi" className="py-14 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1349,6 +1495,21 @@ function Articles() {
           </p>
         </div>
 
+        <nav
+          aria-label="LED ekran kiralama rehber başlıkları"
+          className="mb-8 flex flex-wrap justify-center gap-3"
+        >
+          {ARTICLE_SECTIONS.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className="inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+            >
+              {section.label}
+            </a>
+          ))}
+        </nav>
+
         <article className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
           <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
@@ -1361,14 +1522,14 @@ function Articles() {
 
           <div className="p-8 md:p-10">
             <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-blue-500">
-              <h3>LED Ekran Kiralama Nedir?</h3>
+              <h3 id="led-ekran-nedir">LED Ekran Kiralama Nedir?</h3>
               <p>
                 <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
                 kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Satın alma maliyeti olmadan profesyonel ekipman
                 kullanmanıza olanak tanır.
               </p>
 
-              <h3>Neden LED Ekran Kiralama Tercih Edilmeli?</h3>
+              <h3 id="neden-tercih-edilir">Neden LED Ekran Kiralama Tercih Edilmeli?</h3>
               <p>
                 Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, maliyet ve operasyon açısından çok daha esnek bir çözüm sunar.
                 Doğru planlama ile hem izleyici deneyimi artar hem de teknik riskler minimuma iner.
@@ -1380,7 +1541,7 @@ function Articles() {
                 <li>İç mekan ve dış mekan için farklı parlaklık/koruma alternatifleri</li>
               </ul>
 
-              <h3>İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
+              <h3 id="ic-dis-mekan-farki">İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
               <p>
                 İç mekan LED ekranlarda (P2.5 / P2.9) yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
                 ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
@@ -1419,11 +1580,11 @@ function Articles() {
                 <h4 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
-                  terci edilerek daha net ve dengeli görüntü elde edilir.
+                  tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
               
-              <h3>Neden Fiyatlar Değişiyor?</h3>
+              <h3 id="fiyatlar-neden-degisir">Neden Fiyatlar Değişiyor?</h3>
               <p>
                 LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
                 izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
@@ -1433,7 +1594,7 @@ function Articles() {
                 Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
               </p>
 
-              <h3>LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h3>
+              <h3 id="fiyatlari-etkileyenler">LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h3>
               <ul>
                 <li>Toplam ekran alanı (m²)</li>
                 <li>Piksel aralığı (P2.5, P2.9, P3.9, P4)</li>
@@ -1443,7 +1604,7 @@ function Articles() {
                 <li>Canlı yayın, reji ve kamera entegrasyon ihtiyaçları</li>
               </ul>
 
-              <h3>Kurulum Süreci Nasıl İlerler?</h3>
+              <h3 id="kurulum-sureci">Kurulum Süreci Nasıl İlerler?</h3>
               <p>
                 Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
                 yayın sırasında kesinti riskini azaltır ve içerik akışının sorunsuz ilerlemesini sağlar.
@@ -1460,7 +1621,7 @@ function Articles() {
                 />
               </div>
 
-              <h3>Hangi Etkinliklerde Kullanılır?</h3>
+              <h3 id="kullanim-senaryolari">Hangi Etkinliklerde Kullanılır?</h3>
               <ul>
                 <li>Konser, festival ve sahne performansları</li>
                 <li>Kurumsal toplantı ve lansmanlar</li>
@@ -1480,7 +1641,7 @@ function Articles() {
                 />
               </div>
               
-              <h3>İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h3>
+              <h3 id="istanbul-kurulum-sureci">İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h3>
               <p>
                 Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
                 Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
@@ -1531,7 +1692,7 @@ function RelatedServices() {
       desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri" 
     },
     {
-      href: getServiceWhatsappLink("Kamera & Reji"),
+      waTitle: "Kamera & Reji",
       title: "Kamera & Reji",
       Icon: Camera,
       desc: "Çok kameralı canlı yayın reji hizmetleri ve anlık görüntü miksajı",
@@ -1568,8 +1729,8 @@ function RelatedServices() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {services.map((service) => (
               <Link
-                key={service.href}
-                href={service.href}
+                key={service.title}
+                href={service.external ? getServiceWhatsappLink(service.waTitle ?? service.title) : service.href}
                 {...(service.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
                 aria-label={`${service.title} - ${service.desc}`}
@@ -1677,7 +1838,7 @@ function LedScreenJsonLd() {
     url: pageUrl,
     provider: providerRef,
     areaServed: {
-      "@type": "State",
+      "@type": "Country",
       name: "Türkiye",
       description:
         "Türkiye'nin 81 ilinde profesyonel LED ekran kiralama hizmeti",
@@ -1777,7 +1938,7 @@ function LedScreenJsonLd() {
       "@type": "Review",
       "@id": `${pageUrl}#review-1`,
       itemReviewed: { "@id": `${pageUrl}#product` },
-      author: { "@type": "Person", name: "Kurumsal Müşteri" },
+      author: { "@type": "Person", name: "Ahmet B." },
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
@@ -1792,7 +1953,7 @@ function LedScreenJsonLd() {
       "@type": "Review",
       "@id": `${pageUrl}#review-2`,
       itemReviewed: { "@id": `${pageUrl}#product` },
-      author: { "@type": "Person", name: "Etkinlik Ajansı" },
+      author: { "@type": "Person", name: "Merve T." },
       reviewRating: {
         "@type": "Rating",
         ratingValue: "4.9",
@@ -1854,15 +2015,16 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
+      <QuickSelectionGuide />
       <StatsBand />
+      <UseCases />
       <Services />
-      <Gallery />
       <Technical />
       <WhySahneva />
-      <UseCases />
+      <Gallery />
       <RegionalService />
-      <Articles />
       <FAQ />
+      <Articles />
       <RelatedServices />
       <ServiceBlogLinks
         links={[
