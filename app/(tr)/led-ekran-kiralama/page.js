@@ -572,7 +572,7 @@ function QuickSelectionGuide() {
 
 function VisualProofStrip() {
   return (
-    <section className="pb-10 md:pb-14 bg-gradient-to-b from-slate-50 to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
+    <section className="pt-10 pb-10 md:pt-14 md:pb-14 bg-gradient-to-b from-slate-900 via-[#11182b] to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 text-center">
           <h2 id="gorsel-ritim-baslik" className="text-3xl md:text-4xl font-black text-white mb-3">
