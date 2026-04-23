@@ -493,9 +493,9 @@ function QuickSelectionGuide() {
             ))}
           </div>
 
-          <aside className="lg:sticky lg:top-24 self-start max-w-[22rem] xl:max-w-[24rem] lg:ml-auto">
+          <aside className="lg:sticky lg:top-24 self-start max-w-[21rem] xl:max-w-[22rem] lg:ml-auto">
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[16/10]">
                 <Image
                   src="/img/galeri/led-ekran-kiralama-3.webp"
                   alt="Kurumsal etkinlikte kullanılan profesyonel LED ekran kurulumu"
@@ -508,34 +508,34 @@ function QuickSelectionGuide() {
                 <div className="absolute left-5 top-5 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
                   Hızlı seçim özeti
                 </div>
-                <div className="absolute inset-x-5 bottom-5 flex flex-wrap gap-3">
-                  <div className="rounded-2xl bg-white/10 px-4 py-3.5 backdrop-blur">
+                <div className="absolute inset-x-5 bottom-4 flex flex-wrap gap-2.5">
+                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
                     <div className="text-xs uppercase tracking-wide text-white/70">Parlaklık</div>
                     <div className="text-lg font-black">1500 - 6500 nit</div>
                   </div>
-                  <div className="rounded-2xl bg-white/10 px-4 py-3.5 backdrop-blur">
+                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
                     <div className="text-xs uppercase tracking-wide text-white/70">Kurulum</div>
                     <div className="text-lg font-black">Hızlı rigging</div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-7 md:p-8">
-                <h3 className="text-2xl font-black">Projeye göre hızlı öneri</h3>
-                <p className="mt-2 text-white/75 leading-relaxed">
+              <div className="p-6 md:p-6.5">
+                <h3 className="text-[1.65rem] font-black leading-tight">Projeye göre hızlı öneri</h3>
+                <p className="mt-2 text-sm text-white/75 leading-relaxed">
                   Teknik tabloya geçmeden önce en sık kullanılan üç senaryo için kısa yönlendirme:
                 </p>
 
-                <div className="mt-6 space-y-4">
+                <div className="mt-5 space-y-3">
                   {QUICK_SELECTION_SCENARIOS.map((scenario) => (
                     <div
                       key={scenario.title}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3.5"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <h4 className="font-bold text-white">{scenario.title}</h4>
-                          <p className="mt-2 text-sm leading-relaxed text-white/70">{scenario.detail}</p>
+                          <h4 className="text-[1.05rem] font-bold leading-snug text-white">{scenario.title}</h4>
+                          <p className="mt-1.5 text-sm leading-relaxed text-white/70">{scenario.detail}</p>
                         </div>
                         <span className="shrink-0 rounded-full bg-blue-500/20 px-3 py-1 text-sm font-bold text-blue-200">
                           {scenario.recommendation}
@@ -545,18 +545,18 @@ function QuickSelectionGuide() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                   <a
                     href={WHATSAPP}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-2xl bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
                   >
                     WhatsApp ile ölçü paylaş
                   </a>
                   <Link
                     href="#teknik-altyapi"
-                    className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
                   >
                     Teknik detayları incele
                   </Link>
