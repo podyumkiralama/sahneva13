@@ -47,7 +47,7 @@ const PAGE_LAST_MODIFIED = getLastModifiedForFile(
   "app/(tr)/led-ekran-kiralama/page.js",
   "2026-01-14"
 );
-const PAGE_PUBLISHED_DATE = PAGE_LAST_MODIFIED;
+const PAGE_PUBLISHED_DATE = "2025-10-25";
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
