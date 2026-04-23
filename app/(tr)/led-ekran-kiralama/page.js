@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
@@ -61,16 +60,6 @@ const getServiceWhatsappLink = (title) => {
 };
 
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
-
-/* ================== Dinamik galeri (CaseGallery) ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  loading: () => (
-    <div className="flex justify-center items-center h-64" role="status" aria-label="Galeri yükleniyor">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
-      <span className="sr-only">Galeri yükleniyor...</span>
-    </div>
-  )
-});
 
 /*fiyat*/
 const LED_PRICING = {
@@ -184,7 +173,7 @@ const slugify = (s) =>
 const HERO = {
   src: "/img/hizmet-led-ekran.webp",
   alt: "Profesyonel LED ekran kurulumu - Konser sahnesinde büyük LED wall ve görsel şov",
-  sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 100vw, 1440px",
+  sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
 const SERVICES = [
@@ -566,7 +555,7 @@ function QuickSelectionGuide() {
                     WhatsApp ile ölçü paylaş
                   </a>
                   <Link
-                    href="#altyapi-baslik"
+                    href="#teknik-altyapi"
                     className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
                   >
                     Teknik detayları incele
@@ -575,6 +564,53 @@ function QuickSelectionGuide() {
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VisualProofStrip() {
+  return (
+    <section className="pb-10 md:pb-14 bg-gradient-to-b from-slate-50 to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="mb-8 text-center">
+          <h2 id="gorsel-ritim-baslik" className="text-3xl md:text-4xl font-black text-white mb-3">
+            Gerçek Kurulumlardan <span className="text-blue-400">Hızlı Görsel Özet</span>
+          </h2>
+          <p className="text-white/70 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+            Sayfadaki teknik akışı desteklemesi için farklı kullanım senaryolarından seçilmiş örnek kurulumları öne çıkardık.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-3">
+          {VISUAL_FLOW_IMAGES.map((item, index) => (
+            <article
+              key={item.src}
+              className={`overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-xl ${
+                index === 0 ? "md:translate-y-6" : index === 2 ? "md:-translate-y-6" : ""
+              }`}
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-x-5 bottom-5">
+                  <div className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+                    {item.eyebrow}
+                  </div>
+                  <h3 className="text-xl font-black text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/75">{item.detail}</p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -821,13 +857,35 @@ const VIDEO_GALLERY = [
   },
 ];
 
+const VISUAL_FLOW_IMAGES = [
+  {
+    src: "/img/galeri/led-ekran-kiralama-2.webp",
+    alt: "Kurumsal etkinlikte kullanılan LED ekran kurulumu",
+    eyebrow: "Kurumsal etkinlik",
+    title: "Yakın izleme için net sunum yüzeyi",
+    detail: "P2.9 indoor kurulum ile lansman ve toplantılarda keskin görüntü.",
+  },
+  {
+    src: "/img/galeri/led-ekran-kiralama-3.webp",
+    alt: "Açık hava etkinliğinde kullanılan yüksek parlaklıklı LED ekran",
+    eyebrow: "Açık hava çözümü",
+    title: "Güneş altında okunabilir güçlü görüntü",
+    detail: "6500 nit parlaklık ile festival ve meydan kurulumlarında yüksek görünürlük.",
+  },
+  {
+    src: "/img/galeri/led-ekran-kiralama-7.webp",
+    alt: "Canlı yayın ve stüdyo için kullanılan LED ekran",
+    eyebrow: "Canlı yayın",
+    title: "Kamera dostu 3840Hz performans",
+    detail: "Stüdyo ve hibrit yayınlarda titreşimsiz görüntü akışı.",
+  },
+];
+
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
   return (
     <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        
-        {/* Kısa Giriş Paragrafı */}
         <div className="text-center mb-12">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
@@ -837,7 +895,6 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Sektör & Şehir Çeşitliliği Özeti */}
         <ul className="mb-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" aria-label="Hizmet verdiğimiz sektörler">
           {[
             { icon: "🎵", label: "Konser & Festival" },
@@ -854,9 +911,56 @@ function Gallery() {
           ))}
         </ul>
 
-        {/* Başarı Hikayeleri Grid */}
+        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr] mb-16">
+          <article className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-slate-900 shadow-xl">
+            <div className="relative aspect-[16/10]">
+              <Image
+                src={GALLERY_IMAGES[0].src}
+                alt={GALLERY_IMAGES[0].alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+              <div className="absolute inset-x-6 bottom-6 max-w-2xl">
+                <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-200 backdrop-blur">
+                  Öne çıkan kurulum
+                </div>
+                <h3 className="text-3xl md:text-4xl font-black text-white">
+                  Konser ve festival sahnelerinde yüksek görünürlük
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
+              </div>
+            </div>
+          </article>
+
+          <div className="grid gap-6">
+            {GALLERY_IMAGES.slice(1, 3).map((image) => (
+              <article
+                key={image.src}
+                className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-lg"
+              >
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
-          {SUCCESS_STORIES.map((story, index) => (
+          {SUCCESS_STORIES.slice(0, 4).map((story, index) => (
             <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
               
@@ -900,40 +1004,35 @@ function Gallery() {
           ))}
         </div>
 
-        {/* SEO LİSTESİ: Kısa Okunabilir Uygulama Listesi */}
-        <div className="mb-16 bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
-          <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">Popüler Uygulama ve Kiralama Seçeneklerimiz</h3>
-          <p className="text-gray-600 mb-6">Bugüne kadar gerçekleştirdiğimiz bazı uygulama örnekleri ve popüler hizmetlerimiz:</p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              "İstanbul Led Ekran Kiralama",
-              "Büyük Led Ekran Kiralama",
-              "Organizasyonlar İçin Kiralık Led Ekranlar",
-              "Led Ekran, Ses ve Işık Sistemleri Kiralama",
-              "Geniş Led Ekran Kiralama",
-              "Kiralık Dev Led Ekran",
-              "Etkinlik Led Ekran Kiralama",
-              "Led Ekran Kiralama ve Kurulum",
-              "Kiralık Led Ekran ve Görüntü Sistemleri"
-            ].map((item, idx) => (
-              <li key={idx} className="flex items-center gap-3 text-gray-800 font-semibold text-sm md:text-base">
-                <span className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></span>
-                {item}
-              </li>
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
+            <p className="text-lg text-gray-600 mb-8">Daha derli toplu bir akış için saha görsellerini sabit oranlı, tek ritimde bir gride aldık.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {GALLERY_IMAGES.slice(3, 8).map((image) => (
+              <article
+                key={image.src}
+                className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
+                </div>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
 
-        {/* Görsel Galeri Alanı */}
-        <div className="text-center mb-10">
-          <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
-          <p className="text-lg text-gray-600 mb-8">Her görselin altında etkinlik tipi, teknik çözüm ve uygulama detayını bulabilirsiniz</p>
-        </div>
-        <div className="max-w-7xl mx-auto">
-          <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
-        </div>
-
-        {/* Video Galerisi Alanı */}
         <div className="mt-20 mb-10">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
@@ -974,7 +1073,6 @@ function Gallery() {
           </div>
         </div>
 
-        {/* YÖNLENDİRME METNİ VE BUTON */}
         <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -2016,6 +2114,7 @@ export default function Page() {
       <LedScreenJsonLd />
       <Hero />
       <QuickSelectionGuide />
+      <VisualProofStrip />
       <StatsBand />
       <UseCases />
       <Services />
