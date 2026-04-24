@@ -1,4 +1,3 @@
-// app/(tr)/bolgesel-kiralama/page.js
 import RegionalRentalClient from "./RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -11,9 +10,9 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 
 export const metadata = {
-  title: "Bölgesel Kiralama | Türkiye Geneli Etkinlik Ekipman",
+  title: "Bölgesel Kiralama | İstanbul, Ankara, İzmir ve Türkiye Geneli",
   description:
-    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık sistemleri kiralama. Şehrinizi seçin, hızlı teklif alın; kurulum, test ve söküm dahil.",
+    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık sistemleri kiralama. İstanbul, Ankara, İzmir, Bursa, Antalya ve çevre iller için kurulum, test ve söküm dahil planlama.",
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     en: "/en/regional-rental",
@@ -24,7 +23,7 @@ export const metadata = {
     url: PAGE_URL,
     title: "Bölgesel Kiralama | Sahneva",
     description:
-      "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum, ses-ışık. Kurulum + operasyon + söküm dahil.",
+      "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum, ses-ışık. Kurulum, operasyon ve söküm dahil.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva Bölgesel Kiralama" }],
     siteName: "Sahneva",
     locale: "tr_TR",
@@ -39,7 +38,7 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
-function RegionalRentalJsonLd({ services, faqs, steps }) {
+function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
   const orgId = `${SITE}/#org`;
   const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
@@ -47,10 +46,19 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
   const catalogId = `${PAGE_URL}#offerCatalog`;
   const faqId = `${PAGE_URL}#faq`;
   const howtoId = `${PAGE_URL}#howto`;
+  const serviceId = `${PAGE_URL}#service`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: "Sahneva Organizasyon",
+        url: SITE,
+        telephone: "+90 545 304 86 71",
+        areaServed: { "@type": "Country", name: "Türkiye" },
+      },
       {
         "@type": "WebSite",
         "@id": webId,
@@ -65,9 +73,9 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
         url: PAGE_URL,
         name: "Bölgesel Kiralama",
         description:
-          "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum, ses-ışık. Kurulum, test ve söküm dahil.",
+          "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum ve ses-ışık sistemleri. Kurulum, test ve söküm dahil.",
         isPartOf: { "@id": webId },
-        about: { "@id": orgId },
+        about: { "@id": serviceId },
         inLanguage: "tr-TR",
         breadcrumb: { "@id": breadcrumbId },
       },
@@ -79,24 +87,33 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
           { "@type": "ListItem", position: 2, name: "Bölgesel Kiralama", item: PAGE_URL },
         ],
       },
-
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        name: "Bölgesel Kiralama",
+        serviceType: "Etkinlik ekipmanı kiralama, kurulum ve operasyon",
+        provider: { "@id": orgId },
+        areaServed: [
+          { "@type": "Country", name: "Türkiye" },
+          ...regions.map((region) => ({ "@type": "City", name: region.name })),
+        ],
+        hasOfferCatalog: { "@id": catalogId },
+      },
       {
         "@type": "OfferCatalog",
         "@id": catalogId,
         name: "Bölgesel Kiralama Hizmetleri",
-        itemListElement: services.map((s, idx) => ({
+        itemListElement: services.map((service, idx) => ({
           "@type": "Offer",
           position: idx + 1,
           itemOffered: {
             "@type": "Service",
-            name: s.title,
-            url: `${SITE}${s.href}`,
+            name: service.title,
+            url: `${SITE}${service.href}`,
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
         })),
       },
-
-      // Mini HowTo: sayfa içi adımlar
       {
         "@type": "HowTo",
         "@id": howtoId,
@@ -104,23 +121,22 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
         description:
           "Brief, teklif, lojistik planlama, kurulum/test, etkinlik operasyonu ve söküm adımlarıyla uçtan uca süreç.",
         inLanguage: "tr-TR",
-        step: steps.map((s, i) => ({
+        step: steps.map((step, i) => ({
           "@type": "HowToStep",
           position: i + 1,
-          name: s.title,
-          text: s.desc,
-          url: `${PAGE_URL}#${s.id}`,
+          name: step.title,
+          text: step.desc,
+          url: `${PAGE_URL}#${step.id}`,
         })),
       },
-
       {
         "@type": "FAQPage",
         "@id": faqId,
         inLanguage: "tr-TR",
-        mainEntity: faqs.map((f) => ({
+        mainEntity: faqs.map((faq) => ({
           "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
         })),
       },
     ],
@@ -131,14 +147,86 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
 
 export default function Page() {
   const regions = [
-    { name: "İstanbul", slug: "istanbul", desc: "Kurumsal etkinlik, fuar, konser ve lansmanlar." },
-    { name: "Ankara", slug: "ankara", desc: "Kongre, salon etkinliği, kamu & kurum organizasyonları." },
-    { name: "İzmir", slug: "izmir", desc: "Açık hava sahne, festival ve sahil etkinlikleri." },
-    { name: "Bursa", slug: "bursa", desc: "Fuar alanları, bayi toplantıları, sahne kurulumları." },
-    { name: "Antalya", slug: "antalya", desc: "Otel etkinlikleri, gala, kongre & turizm organizasyonları." },
-    { name: "Kocaeli", slug: "kocaeli", desc: "Fabrika etkinlikleri, lansman & kurumsal kurulumlar." },
-    { name: "Sakarya", slug: "sakarya", desc: "Açık alan kurulumları, truss & sahne projeleri." },
-    { name: "Tekirdağ", slug: "tekirdag", desc: "Festival, sahne, ses-ışık ve LED ekran kurulumları." },
+    {
+      name: "İstanbul",
+      slug: "istanbul",
+      desc: "Kurumsal etkinlik, fuar, konser ve lansmanlar.",
+      focus:
+        "Yüksek tempolu kurumsal takvim, fuar merkezi erişimi ve aynı gün prova ihtiyaçlarıyla öne çıkar.",
+      planning:
+        "Salon teslim saati, yükleme alanı ve run-of-show akışı ilk briefte netleşirse teklif çok daha sağlam çıkar.",
+      services: ["/led-ekran-kiralama", "/podyum-kiralama", "/ses-isik-sistemleri"],
+    },
+    {
+      name: "Ankara",
+      slug: "ankara",
+      desc: "Kongre, salon etkinliği, kamu ve kurum organizasyonları.",
+      focus:
+        "Kongre merkezleri ve kurumsal salonlarda protokol akışı ile sunum netliği genelde ana belirleyici olur.",
+      planning:
+        "Kürsü, delegasyon oturumu, ekran görünürlüğü ve mikrofon planı aynı teknik tabloda toplandığında operasyon rahatlar.",
+      services: ["/podyum-kiralama", "/ses-isik-sistemleri", "/led-ekran-kiralama"],
+    },
+    {
+      name: "İzmir",
+      slug: "izmir",
+      desc: "Açık hava sahne, festival ve sahil etkinlikleri.",
+      focus:
+        "Açık hava projelerinde rüzgar, zemin ve enerji planı genellikle ekipman listesinden daha kritik hale gelir.",
+      planning:
+        "Sahil ve festival alanlarında LED parlaklığı, truss güvenliği ve kablo güzergahını önden netleştiriyoruz.",
+      services: ["/truss-kiralama", "/led-ekran-kiralama", "/ses-isik-sistemleri"],
+    },
+    {
+      name: "Bursa",
+      slug: "bursa",
+      desc: "Fuar alanları, bayi toplantıları ve sahne kurulumları.",
+      focus:
+        "Fuar ve bayi toplantısı projelerinde hızlı kurulum-söküm penceresi ile marka sunumu aynı anda dengelenmeli.",
+      planning:
+        "Stand yakını ekran kullanımı, sahne akışı ve ses dağılımını mekan sirkülasyonuna göre kuruyoruz.",
+      services: ["/led-ekran-kiralama", "/podyum-kiralama", "/masa-sandalye-kiralama"],
+    },
+    {
+      name: "Antalya",
+      slug: "antalya",
+      desc: "Otel etkinlikleri, gala, kongre ve turizm organizasyonları.",
+      focus:
+        "Otel ve resort projelerinde salon dönüşümleri, gala temposu ve misafir deneyimi aynı plan içinde yönetilmeli.",
+      planning:
+        "Kongre salonundan gala kurulumuna geçişlerde sahne, dekoratif ışık ve ekran içeriğini tek ekipte toplamak süre kazandırır.",
+      services: ["/ses-isik-sistemleri", "/led-ekran-kiralama", "/cadir-kiralama"],
+    },
+    {
+      name: "Kocaeli",
+      slug: "kocaeli",
+      desc: "Fabrika etkinlikleri, lansman ve kurumsal kurulumlar.",
+      focus:
+        "Endüstriyel alanlarda elektrik, yükleme ve güvenlik prosedürleri etkinlik kurgusunun ana parçası olur.",
+      planning:
+        "Fabrika içi lansman ve kurumsal buluşmalarda zemin, kablo geçişi ve ses yayılımını saha kurallarına göre şekillendiriyoruz.",
+      services: ["/truss-kiralama", "/podyum-kiralama", "/ses-isik-sistemleri"],
+    },
+    {
+      name: "Sakarya",
+      slug: "sakarya",
+      desc: "Açık alan kurulumları, truss ve sahne projeleri.",
+      focus:
+        "Belediye etkinlikleri ve geniş açık alan projelerinde kurulum hızı ile saha güvenliği birlikte ele alınmalı.",
+      planning:
+        "Açık alan sahnelerinde yükseklik, bariyerleme, ses kapsaması ve seyir akışını ilk planda kuruyoruz.",
+      services: ["/truss-kiralama", "/podyum-kiralama", "/ses-isik-sistemleri"],
+    },
+    {
+      name: "Tekirdağ",
+      slug: "tekirdag",
+      desc: "Festival, sahne, ses-ışık ve LED ekran kurulumları.",
+      focus:
+        "Festival ve açık hava programlarında lojistik zamanlaması ile dayanımlı ekipman seçimi en kritik iki başlıktır.",
+      planning:
+        "LED ekran görünürlüğü, sahne yerleşimi ve ses-ışık senaryosunu rüzgar ve seyir mesafesine göre dengeliyoruz.",
+      services: ["/led-ekran-kiralama", "/truss-kiralama", "/ses-isik-sistemleri"],
+    },
   ];
 
   const services = [
@@ -150,11 +238,11 @@ export default function Page() {
     { title: "Masa & Sandalye Kiralama", href: "/masa-sandalye-kiralama" },
   ];
 
-  // Sticky nav adımları (sayfa bölümleri)
   const steps = [
     { id: "hizmetler", title: "Hizmetler", desc: "Kiralama kalemlerini seçin ve paketleyin." },
     { id: "surec", title: "Süreç", desc: "Brief → teklif → lojistik → kurulum/test → operasyon → söküm." },
     { id: "bolgeler", title: "Bölgeler", desc: "Şehre göre planlama ve takvim netleşir." },
+    { id: "sehir-notlari", title: "Şehir notları", desc: "Öne çıkan şehirler için pratik planlama farkları." },
     { id: "planlama", title: "Planlama", desc: "Enerji, zemin, yükseklik, güvenlik ve erişim kontrol listesi." },
     { id: "sss", title: "FAQ", desc: "Bölgesel kiralama hakkında sık sorulanlar." },
   ];
@@ -162,7 +250,7 @@ export default function Page() {
   const faqs = [
     {
       q: "Bölgesel kiralama ne demek?",
-      a: "Etkinlik ekipmanlarını (LED ekran, truss, sahne/podyum, ses-ışık) bulunduğunuz şehre göre planlayıp kurulum/söküm dahil uçtan uca hizmet vermemizdir.",
+      a: "Etkinlik ekipmanlarını LED ekran, truss, sahne/podyum ve ses-ışık dahil bulunduğunuz şehre göre planlayıp kurulum ve söküm dahil uçtan uca hizmet vermemizdir.",
     },
     {
       q: "Türkiye genelinde hizmet veriyor musunuz?",
@@ -174,21 +262,21 @@ export default function Page() {
     },
     {
       q: "Aynı projede birden fazla hizmet alabilir miyim?",
-      a: "Evet. LED ekran + truss + sahne/podyum + ses-ışık gibi kalemleri tek paket halinde planlayabiliriz.",
+      a: "Evet. LED ekran, truss, sahne/podyum ve ses-ışık gibi kalemleri tek paket halinde planlayabiliriz.",
     },
     {
       q: "Kurulum ne zaman yapılır?",
-      a: "Proje büyüklüğüne göre 24–48 saat önce kurulum ve test planlanır. Bazı küçük kurulumlar aynı gün tamamlanabilir.",
+      a: "Proje büyüklüğüne göre 24-48 saat önce kurulum ve test planlanır. Bazı küçük kurulumlar aynı gün tamamlanabilir.",
     },
     {
       q: "Güvenlik ve iş sağlığı süreçleri nasıl yönetiliyor?",
-      a: "Kurulumda zemin/ankraj, yükseklik güvenliği, kablolama ve geçiş yolları kontrol edilir. Proje tipine göre ek önlemler planlanır.",
+      a: "Kurulumda zemin ve ankraj, yükseklik güvenliği, kablolama ve geçiş yolları kontrol edilir. Proje tipine göre ek önlemler planlanır.",
     },
   ];
 
   return (
     <main className="relative overflow-hidden">
-      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} />
+      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
       <RegionalRentalClient regions={regions} services={services} faqs={faqs} steps={steps} />
     </main>
   );

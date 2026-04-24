@@ -229,6 +229,39 @@ function CityCard({ name, desc, href, imgSrc }) {
   );
 }
 
+function RegionDetailCard({ region, services }) {
+  return (
+    <SoftCard className="p-5 sm:p-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <h3 className="text-base font-semibold text-white">{region.name}</h3>
+        <Badge>{region.desc}</Badge>
+      </div>
+
+      <p className="mt-4 text-sm leading-6 text-white/75">
+        {region.focus ?? region.desc}
+      </p>
+
+      {region.planning ? (
+        <p className="mt-3 text-sm leading-6 text-white/65">{region.planning}</p>
+      ) : null}
+
+      {services?.length ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {services.map((service) => (
+            <Link
+              key={`${region.slug}-${service.href}`}
+              href={service.href}
+              className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            >
+              {service.title}
+            </Link>
+          ))}
+        </div>
+      ) : null}
+    </SoftCard>
+  );
+}
+
 function buildCityBriefHref(baseHref, cityName) {
   const params = new URLSearchParams({
     konu: "bolgesel-kiralama",
@@ -271,6 +304,14 @@ export default function RegionalRentalClient({ regions, services, faqs, steps })
     });
     return map;
   }, [regions]);
+
+  const servicesByHref = useMemo(() => {
+    const map = {};
+    services.forEach((service) => {
+      map[service.href] = service;
+    });
+    return map;
+  }, [services]);
 
   const ids = useMemo(() => steps.map((s) => s.id), [steps]);
   const activeId = useActiveSection(ids);
@@ -522,6 +563,33 @@ export default function RegionalRentalClient({ regions, services, faqs, steps })
                 desc={r.desc}
                 imgSrc={cityImages[r.slug]}
                 href={buildCityBriefHref(CTA_BRIEF, r.name)}
+              />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="sehir-notlari"
+        className="mx-auto max-w-6xl px-4 pb-14 scroll-mt-28"
+        aria-labelledby="regional-notes-title"
+      >
+        <h2 id="regional-notes-title" className="text-2xl font-semibold text-white">
+          Şehir bazlı planlama notları
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm text-white/70">
+          Ayrı şehir sayfaları üretmek yerine, teklif öncesi gerçekten işimize yarayan planlama farklarını burada topluyoruz.
+          Böylece lojistik, ekip ve ekipman tercihleri daha erken netleşiyor.
+        </p>
+
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          {regions.map((region) => (
+            <Reveal key={`detail-${region.slug}`}>
+              <RegionDetailCard
+                region={region}
+                services={(region.services ?? [])
+                  .map((href) => servicesByHref[href])
+                  .filter(Boolean)}
               />
             </Reveal>
           ))}
