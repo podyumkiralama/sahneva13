@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import IntentBridge from "@/components/seo/IntentBridge";
+import { INTENT_MAP } from "@/lib/seo/intentMap";
 
 function GlowBg() {
   return (
@@ -359,7 +361,20 @@ export default function RegionalRentalClient({ regions, services, faqs, steps })
       </Reveal>
     </div>
   </div>
-</section>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-8">
+        <Reveal>
+          <IntentBridge
+            eyebrow="Intent ayrımı"
+            title="Bu sayfa şehir ve lojistik planlama merkezidir"
+            description="Bölgesel kiralama sayfası, şehir seçimi ve saha planlama niyetini toplar. Hizmetin teknik derinliği için kullanıcıyı ilgili ana hizmet sayfasına yönlendirir; böylece bölgesel hub ile hizmet sayfaları aynı ana kelimede birbirini yemeden birlikte çalışır."
+            primaryPage={INTENT_MAP.regionalHub.primaryPage}
+            supportPages={INTENT_MAP.regionalHub.supportPages}
+            tone="dark"
+          />
+        </Reveal>
+      </section>
 
       {/* STICKY NAV */}
       <StepsNav steps={steps} onGo={scrollToId} navRef={navRef} activeId={activeId} />

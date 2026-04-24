@@ -4,7 +4,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
+import IntentBridge from "@/components/seo/IntentBridge";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { INTENT_MAP } from "@/lib/seo/intentMap";
 
 export const revalidate = 86400;
 
@@ -412,6 +414,17 @@ export default function Page() {
           </div>
 
           <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+        </section>
+
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <IntentBridge
+              title="Bu sayfa fiyat niyetini karşılar"
+              description="Podyum kiralama kümesinde ana ticari karar sayfası hizmet detayını anlatır; bu URL ise ön bütçe, birim fiyat ve örnek hesaplama araştırmasına odaklanır. Böylece aynı konu kümesindeki sayfalar birbirini tekrar etmek yerine farklı kullanıcı niyetlerini karşılar."
+              primaryPage={INTENT_MAP.podiumRental.primaryPage}
+              supportPages={INTENT_MAP.podiumRental.supportPages.filter((page) => page.href !== "/podyum-kiralama-fiyatlari")}
+            />
+          </div>
         </section>
 
         {/* PRICING TABLE */}
