@@ -182,23 +182,31 @@ const USE_CASES = [
 const FAQ_ITEMS = [
   {
     q: "Kurumsal organizasyon şirketleri ne yapar?",
-    a: "Kurumsal organizasyon şirketleri; hedef, içerik akışı, teknik prodüksiyon ve saha operasyonunu birlikte yönetir. Sahne, LED ekran, ses ve ışık gibi kalemleri tek plan üzerinde birleştirir.",
+    a: "Kurumsal organizasyon şirketleri; hedef, içerik akışı, teknik prodüksiyon ve saha operasyonunu birlikte yönetir. Sahne, LED ekran, ses ve ışık gibi kalemleri tek plan üzerinde birleştirir. Yalnızca ekipman temin etmekle kalmaz; etkinlik öncesi keşif, prova planlaması ve etkinlik günü sahne yönetimi de bu kapsamın içine girer.",
   },
   {
     q: "Kurumsal etkinlikte teklif hangi bilgilere göre hazırlanır?",
-    a: "Etkinlik formatı, şehir veya mekân bilgisi, kişi sayısı, süre ve görsel beklenti teklif çalışmasının temelini oluşturur. Detaylı kurgu keşif sonrası netleşir.",
+    a: "Etkinlik formatı, şehir veya mekân bilgisi, kişi sayısı, süre ve görsel beklenti teklif çalışmasının temelini oluşturur. Detaylı kurgu keşif sonrası netleşir. İlk görüşmede bu başlıkları paylaşmanız, daha hızlı bir ön kapsam ve daha doğru bir bütçe aralığı görmenizi sağlar.",
   },
   {
     q: "İstanbul dışındaki projelerde de destek veriyor musunuz?",
-    a: "Evet. İstanbul merkezli operasyon yürütsek de Türkiye genelinde kurulum ve teknik destek sağlayabiliyoruz.",
+    a: "Evet. İstanbul merkezli operasyon yürütsek de Türkiye genelinde kurulum ve teknik destek sağlayabiliyoruz. Ankara, İzmir, Bursa ve diğer büyük şehirlerde ekipman lojistiği ile saha ekibi koordinasyonunu aynı plan üzerinden yürütebiliyoruz.",
   },
   {
     q: "Fiyat aralıkları neden ilk görüşmede kesinleşmiyor?",
-    a: "Sahne ölçüsü, LED metrajı, kurulum süresi, prova yoğunluğu ve teknik ekip planı fiyatı doğrudan etkiler. Bu yüzden ilk paylaşılan rakamlar tahmini bütçe niteliğindedir.",
+    a: "Sahne ölçüsü, LED metrajı, kurulum süresi, prova yoğunluğu ve teknik ekip planı fiyatı doğrudan etkiler. Bu yüzden ilk paylaşılan rakamlar tahmini bütçe niteliğindedir. Mekân keşfi ve teknik kapsam netleştiğinde kalemler daha görünür hale gelir ve sürpriz maliyet ihtimali azalır.",
   },
   {
     q: "Canlı yayın ve hibrit etkinlik altyapısı dahil edilebilir mi?",
-    a: "Evet. Gerekli olduğunda sahne içi görüntüleme, kayıt, streaming ve kontrol akışı da kurumsal etkinlik planına dahil edilir.",
+    a: "Evet. Gerekli olduğunda sahne içi görüntüleme, kayıt, streaming ve kontrol akışı da kurumsal etkinlik planına dahil edilir. Hibrit formatlarda salon içi deneyim ile yayın tarafındaki beklentiyi birlikte düşünmek gerekir; teknik kurgu buna göre ayrıca şekillendirilir.",
+  },
+  {
+    q: "Etkinlik günü sahada kim koordinasyonu yönetir?",
+    a: "Her projede sahadaki ana muhatap teknik koordinatördür. Sahne, ses, ışık ve LED ekranı ayrı ayrı takip eden birden fazla kişiyle değil; tüm akışı tek elden yöneten bir ekip yapısıyla ilerlemek iletişim karmaşasını azaltır.",
+  },
+  {
+    q: "Kurumsal organizasyonda prova süreci nasıl işler?",
+    a: "Prova, teknik senaryonun gerçek koşullarda test edildiği aşamadır. Konuşmacı geçişleri, LED içerik sıralaması, ses seviyeleri ve ışık kurgusu prova sırasında netleşir. Kurulum tamamlandıktan sonra tam prova planlamak, etkinlik günü daha sakin bir operasyon akışı sağlar.",
   },
 ];
 
@@ -395,7 +403,7 @@ function Hero() {
           </div>
 
           <h1 id="hero-title" className="mt-5 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
-            Büyük ölçekli kurumsal etkinliklerde
+            Büyük ölçekli kurumsal etkinliklerde{" "}
             <span className="block text-blue-300">stratejik prodüksiyon partneriniz</span>
           </h1>
 
@@ -448,6 +456,19 @@ function OverviewSection() {
             }
             desc="Kurumsal organizasyon; hedef, içerik ve teknik prodüksiyonun aynı masada yönetildiği, ölçülebilir bir operasyon disiplinidir."
           />
+          <div className="mb-6 space-y-4 text-lg leading-relaxed text-gray-600">
+            <p>
+              Özellikle İstanbul gibi yoğun tempo ve çok paydaşlı şehirlerde, kurumsal etkinliğin başarısı yalnızca sahne
+              kurulumuyla açıklanmaz. Zaman planı, konuşmacı akışı, giriş-çıkış düzeni, teknik prova sırası ve
+              operasyonel iletişim de en az ekipman kadar belirleyicidir. Bu yüzden iyi bir kurumsal organizasyon firması,
+              teknik tedarikçi gibi değil; karar sürecini sadeleştiren bir prodüksiyon ortağı gibi çalışmalıdır.
+            </p>
+            <p>
+              Marka ekipleri genellikle bir yandan görünür bir sahne kalitesi isterken, diğer yandan da sürecin sakin ve
+              öngörülebilir ilerlemesini bekler. Bizim yaklaşımımız tam olarak bu iki ihtiyacı bir araya getirmek üzerine
+              kurulu: güçlü görsel etki, net görev dağılımı ve riskleri önceden görünür hale getiren bir planlama disiplini.
+            </p>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {OVERVIEW_POINTS.map((item) => (
               <Card key={item.title}>
@@ -556,6 +577,19 @@ function PlanningSection() {
         desc="Aşağıdaki adımlar, karar sürecini kısaltır ve sahaya çıkmadan önce riskleri görünür hale getirir."
         center
       />
+
+      <div className="mx-auto mb-8 max-w-4xl space-y-4 text-lg leading-relaxed text-gray-600">
+        <p>
+          Kurumsal etkinlik planlamasında en sık görülen problem, kararların çok geç verilmesi değil; kararın hangi bilgiye
+          dayanarak verildiğinin net olmamasıdır. Format, kişi sayısı, sahne görünürlüğü, mekânın yükleme şartları ve prova
+          süresi gibi başlıklar erken aşamada masaya geldiğinde, hem bütçe görüşmeleri hem de teknik kurgu daha sağlıklı ilerler.
+        </p>
+        <p>
+          Bu bölümdeki adımlar, özellikle konferans, lansman ve gala gibi görünürlüğü yüksek etkinliklerde işin hangi sırayla
+          ele alınması gerektiğini gösterir. Amaç, gereksiz ayrıntıyla kullanıcıyı yormak değil; sahaya çıkmadan önce hangi
+          kararların mutlaka netleşmesi gerektiğini görünür kılmaktır.
+        </p>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         {PLANNING_STEPS.map((item, index) => (
@@ -684,6 +718,20 @@ function TechnicalSection() {
             title="Event organizasyon şirketleri için teknik omurga"
             desc="Sahne, ekran, ses, ışık ve prova planı birlikte tasarlandığında etkinlik günü daha sakin ve öngörülebilir ilerler."
           />
+          <div className="mb-6 space-y-4 text-lg leading-relaxed text-gray-600">
+            <p>
+              Teknik omurga, kullanıcı tarafında çoğu zaman görünmeyen ama etkinliğin bütün algısını etkileyen katmandır.
+              Ekranın doğru yerde konumlanması, ses kapsamasının salon yapısına uygun kurulması, konuşmacı geçişlerinin
+              prova sırasında test edilmesi ve güç altyapısının yedekli düşünülmesi; etkinliğin “kusursuz görünüyor”
+              hissini oluşturan ana başlıklardır.
+            </p>
+            <p>
+              Özellikle bilgi yoğun konferanslar, yatırımcı toplantıları, lansmanlar ve hibrit etkinliklerde teknik altyapı
+              bir gösteri unsuru olmaktan çok bir güven unsuru haline gelir. İçerik görünür değilse, ses net iletilmiyorsa
+              ya da yayın akışı kararsızsa, markanın profesyonel algısı doğrudan etkilenir. Bu yüzden teknik planı en baştan
+              netleştirmek, son dakika telafilerinden çok daha değerlidir.
+            </p>
+          </div>
           <ul className="grid gap-3 text-gray-800">
             {TECHNICAL_POINTS.map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -733,6 +781,11 @@ function StatsAndUseCases() {
 
         <Card dark>
           <div className="text-lg font-black text-white">En sık kurduğumuz etkinlik tipleri</div>
+          <p className="mt-3 text-white/70 leading-relaxed">
+            Bu başlıklar yalnızca hizmet verdiğimiz alanları göstermek için değil, aynı zamanda keşif sürecinde doğru örnek
+            setini hızlıca önermek için de önemlidir. Farklı etkinlik tipleri farklı sahne dili, farklı içerik akışı ve farklı
+            teknik tempo ister.
+          </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {USE_CASES.map((item) => (
               <div key={item} className="rounded-2xl border border-white/10 bg-black/15 px-4 py-3 text-white/85">
@@ -740,6 +793,10 @@ function StatsAndUseCases() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-white/65 leading-relaxed">
+            Bu nedenle kurumsal organizasyon sayfasındaki sayılar bizim için yalnızca bir rozet değil; ölçek, saha deneyimi
+            ve farklı etkinlik formatları arasında tekrar eden operasyon refleksinin kısa bir özeti niteliğindedir.
+          </p>
         </Card>
       </div>
     </SectionShell>
