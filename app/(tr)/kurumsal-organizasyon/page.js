@@ -4,6 +4,7 @@ import Link from "next/link";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
@@ -160,6 +161,30 @@ const GALLERY_IMAGES = [
   {
     src: "/img/kurumsal/8.webp",
     alt: "Kurumsal etkinlik teknik ekran yerleşimi",
+  },
+];
+
+const VIDEO_GALLERY = [
+  {
+    id: "1R5Av0x5ouA",
+    title: "Kurulum ve sahne prodüksiyon akışı",
+    description:
+      "Sahne kurulumu, LED ekran entegrasyonu ve etkinliğe hazırlık temposunu tek akışta gösteren kısa saha videosu.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "JNzGlNzNRuk",
+    title: "Hızlı kurulum ve teknik hazırlık",
+    description:
+      "Dar zamanlı projelerde kurulum hızını ve teknik ekip refleksini gösteren gerçek uygulama kesiti.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "173gBurWSRQ",
+    title: "Etkinlikten gerçek LED ve sahne örnekleri",
+    description:
+      "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
+    uploadDate: "2025-11-17T00:00:00+03:00",
   },
 ];
 
@@ -328,6 +353,16 @@ function CorporateOrganizationJsonLd() {
   const serviceId = `${pageUrl}#service`;
 
   const faqNode = buildFaqSchema(FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })));
+  const videoObjects = VIDEO_GALLERY.map((video, index) => ({
+    "@type": "VideoObject",
+    "@id": `${pageUrl}#video-${index + 1}`,
+    name: video.title,
+    description: video.description,
+    uploadDate: video.uploadDate,
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+  }));
 
   const graph = [
     {
@@ -343,6 +378,7 @@ function CorporateOrganizationJsonLd() {
         url: `${ORIGIN}/img/kurumsal/hero.webp`,
       },
       mainEntity: { "@id": serviceId },
+      hasPart: videoObjects.map((video) => ({ "@id": video["@id"] })),
     },
     {
       "@type": "Service",
@@ -372,6 +408,7 @@ function CorporateOrganizationJsonLd() {
   ];
 
   if (faqNode) graph.push(faqNode);
+  graph.push(...videoObjects);
 
   return <JsonLdScript id="ld-json-kurumsal" data={{ "@context": "https://schema.org", "@graph": graph }} />;
 }
@@ -708,6 +745,49 @@ function GallerySection() {
   );
 }
 
+function VideoShowcaseSection() {
+  return (
+    <SectionShell variant="soft" id="video-galerisi">
+      <H2
+        kicker="Video vitrini"
+        title={
+          <>
+            Gerçek <span className="text-blue-700">kurulum videoları</span>
+          </>
+        }
+        desc="Sayfadaki görsel akışı, sahadan kısa video kesitleriyle destekliyoruz. Videolar yalnızca tıklanınca açılır; böylece sayfa hafif kalır."
+        center
+      />
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {VIDEO_GALLERY.map((video) => (
+          <article
+            key={video.id}
+            className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
+            aria-labelledby={`corporate-video-${video.id}-title`}
+          >
+            <div className="relative w-full aspect-video bg-black">
+              <LazyVideoEmbed
+                videoId={video.id}
+                title={video.title}
+                thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 id={`corporate-video-${video.id}-title`} className="text-xl font-black text-gray-900">
+                {video.title}
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">
+                {video.description}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
+
 function TechnicalSection() {
   return (
     <SectionShell variant="soft" id="teknik-altyapi">
@@ -944,6 +1024,7 @@ export default function Page() {
       <PlanningSection />
       <ServicesSection />
       <GallerySection />
+      <VideoShowcaseSection />
       <TechnicalSection />
       <StatsAndUseCases />
       <FAQSection />
