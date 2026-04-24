@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BlogLayout from "@/components/blog/BlogLayout";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -22,7 +23,11 @@ export const metadata = {
   title: "Event Technical Scouting and Planning Guide",
   description:
     "How to conduct a technical scouting process for events? A guide to venue analysis, infrastructure checks, and production planning steps.",
-  alternates: { canonical: url },
+  alternates: buildLanguageAlternates({
+    canonical: slug,
+    tr: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
+    en: slug,
+  }),
   openGraph: {
     title: "Event Technical Scouting and Planning Guide | Sahneva",
     description:

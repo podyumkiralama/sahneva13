@@ -4,6 +4,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "pmgc-world-finals-behind-the-scenes";
@@ -31,7 +32,11 @@ const VIDEO_THUMB = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 export const metadata = {
   title: "Behind the Scenes of PMGC 2023 World Finals",
   description: DESCRIPTION,
-  alternates: { canonical: BLOG_URL },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: "/blog/pmgc-dunya-finali-sahne-arkasi",
+    en: BLOG_PATH,
+  }),
   image: HERO_IMG,
   openGraph: {
     title: "Behind the Scenes of PMGC 2023 World Finals | Sahneva",

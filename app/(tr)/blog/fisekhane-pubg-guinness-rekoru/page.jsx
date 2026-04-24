@@ -8,6 +8,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(
@@ -46,7 +47,11 @@ export const metadata = {
   description:
     "Fişekhane’de gerçekleşen PUBG Mobile etkinliğinde sahne/podyum, LED ekran, ses-ışık, teknik destek ve canlı yayın/çekim altyapısı tarafımızdan sağlandı.",
   image: HERO_IMAGE,
-  alternates: { canonical: BLOG_URL },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: BLOG_PATH,
+    en: "/en/blog/fisekhane-pubg-guinness-world-record",
+  }),
   openGraph: {
     title: "Fişekhane’de PUBG Mobile Guinness Dünya Rekoru™ | Sahneva Teknik Destek",
     description:

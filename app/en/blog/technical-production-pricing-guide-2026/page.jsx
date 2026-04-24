@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -23,7 +24,11 @@ export const metadata = {
   title: "Technical Production and Stage Rental Pricing Guide (2026)",
   description:
     "Stage, sound, lighting, LED screen and tent rental pricing strategies: package model, demand-based pricing and add-on services.",
-  alternates: { canonical: url },
+  alternates: buildLanguageAlternates({
+    canonical: slug,
+    tr: "/blog/teknik-produksiyon-fiyatlandirma-rehberi-2026",
+    en: slug,
+  }),
   image: FEATURED_IMAGE,
   openGraph: {
     title:

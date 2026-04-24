@@ -8,6 +8,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
@@ -44,7 +45,11 @@ export const metadata = {
   description:
       "At the Fişekhane PUBG Mobile event, we provided stage, podium, LED screen, sound-lighting and live broadcast infrastructure.",
   image: HERO_IMAGE,
-  alternates: { canonical: BLOG_URL },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: "/blog/fisekhane-pubg-guinness-rekoru",
+    en: BLOG_PATH,
+  }),
   openGraph: {
     title: "PUBG Mobile Guinness World Record™ at Fişekhane | Sahneva Technical Support",
     description:

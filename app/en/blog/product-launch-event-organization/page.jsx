@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== CONSTANTS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -25,9 +26,11 @@ export const metadata = {
   title: "Product Launch Event Organization",
   description:
     "Stage, LED screen, sound-lighting and technical production for product launches. Turnkey setup and operation across Turkey.",
-  alternates: {
-    canonical: BLOG_URL,
-  },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: "/blog/urun-lansmani-organizasyonu",
+    en: BLOG_PATH,
+  }),
   image: HERO_IMAGE,
   openGraph: {
     title: "Product Launch Event Organization | Sahneva",

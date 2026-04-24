@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BlogLayout from "@/components/blog/BlogLayout";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -22,7 +23,11 @@ export const metadata = {
   title: "Etkinlik Teknik Keşif ve Planlama Rehberi",
   description:
     "Etkinliklerde teknik keşif süreci nasıl yürütülür? Mekân analizi, altyapı kontrolü ve prodüksiyon planlama adımları rehberi.",
-  alternates: { canonical: url },
+  alternates: buildLanguageAlternates({
+    canonical: slug,
+    tr: slug,
+    en: "/en/blog/event-technical-scouting-and-planning-guide",
+  }),
   openGraph: {
     title: "Etkinlik Teknik Keşif ve Planlama Rehberi | Sahneva",
     description:

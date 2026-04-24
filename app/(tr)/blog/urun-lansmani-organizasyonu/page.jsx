@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -23,9 +24,11 @@ export const metadata = {
   title: "Ürün Lansmanı Organizasyonu",
   description:
     "Ürün lansmanı için sahne, LED ekran, ses-ışık ve teknik prodüksiyon çözümleri. Türkiye genelinde anahtar teslim kurulum.",
-  alternates: {
-    canonical: BLOG_URL,
-  },
+  alternates: buildLanguageAlternates({
+    canonical: "/blog/urun-lansmani-organizasyonu",
+    tr: "/blog/urun-lansmani-organizasyonu",
+    en: "/en/blog/product-launch-event-organization",
+  }),
   image: HERO_IMAGE,
   openGraph: {
     title: "Ürün Lansmanı Organizasyonu | Sahneva",

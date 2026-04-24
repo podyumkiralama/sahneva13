@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -23,7 +24,11 @@ export const metadata = {
   title: "Teknik Prodüksiyon Fiyatlandırma Rehberi 2026",
   description:
     "Sahne, ses, ışık, LED ekran ve çadır kiralamada paket modeli, talep bazlı fiyatlandırma ve ek hizmet stratejileri.",
-  alternates: { canonical: url },
+  alternates: buildLanguageAlternates({
+    canonical: slug,
+    tr: slug,
+    en: "/en/blog/technical-production-pricing-guide-2026",
+  }),
   image: FEATURED_IMAGE,
   openGraph: {
     title:
