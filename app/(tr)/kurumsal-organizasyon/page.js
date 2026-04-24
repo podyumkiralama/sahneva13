@@ -1,5 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ArrowRight,
+  CalendarClock,
+  CirclePlay,
+  Clapperboard,
+  MapPinned,
+  MoveRight,
+  PhoneCall,
+  RadioTower,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -7,6 +19,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 
@@ -42,6 +55,24 @@ const ASSURANCE_ITEMS = [
   "Yedekli güç ve kontrol planı",
   "Saha günü tek operasyon muhatabı",
   "Kurulumdan söküme planlı kapanış",
+];
+
+const HERO_SIGNAL_ITEMS = [
+  {
+    title: "Format okuması",
+    desc: "Konferans, lansman ve gala akışını tek run-of-show üzerinde toplarız.",
+    Icon: Sparkles,
+  },
+  {
+    title: "Zaman disiplini",
+    desc: "Kurulum, prova ve yayın saatini aynı karar masasında netleştiririz.",
+    Icon: CalendarClock,
+  },
+  {
+    title: "Saha hakimiyeti",
+    desc: "İstanbul merkezli planla Türkiye genelinde kurulum refleksi kurarız.",
+    Icon: MapPinned,
+  },
 ];
 
 const OVERVIEW_POINTS = [
@@ -425,7 +456,7 @@ function CorporateOrganizationJsonLd() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden" aria-labelledby="hero-title">
+    <section className="relative overflow-hidden bg-[#070B16]" aria-labelledby="hero-title">
       <div className="absolute inset-0">
         <Image
           src={HERO.src}
@@ -438,62 +469,179 @@ function Hero() {
           quality={88}
           blurDataURL={BLUR_DATA_URL}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120]/92 via-[#0B1120]/65 to-[#0B1120]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04070f]/99 via-[#050b15]/92 via-40% to-[#0B1120]/38" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/95 via-[#04070f]/48 to-black/12" />
+        <div className="absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-[#03060d]/76 via-[#03060d]/52 to-transparent" />
+        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-cyan-400/15 blur-3xl" />
       </div>
 
-      <div className="relative container mx-auto px-4 pb-12 pt-16 md:pb-14 md:pt-20">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
+      <div className="relative container mx-auto px-5 pb-14 pt-40 md:px-8 md:pb-20 md:pt-48 xl:px-10">
+        <div className="max-w-[35rem] md:ml-3 lg:ml-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
             Kurumsal prodüksiyon
           </div>
 
-          <h1 id="hero-title" className="mt-5 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
-            Büyük ölçekli kurumsal etkinliklerde{" "}
-            <span className="block text-blue-300">stratejik prodüksiyon partneriniz</span>
+          <h1
+            id="hero-title"
+            className="mt-6 max-w-[8.6ch] text-[clamp(2.9rem,5.25vw,4.9rem)] font-black leading-[0.98] tracking-tight text-white [text-shadow:0_10px_40px_rgba(0,0,0,0.45)]"
+          >
+            Büyük ölçekli
+            <span className="mt-2 block text-white/92">kurumsal etkinliklerde</span>
+            <span className="mt-2 block text-white">
+              stratejik prodüksiyon partneriniz
+            </span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-            Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde; planlama, risk yönetimi ve yedekli teknik altyapıyla tekliften sahaya kadar kontrollü bir akış kuruyoruz.
+          <p className="mt-7 max-w-[29rem] text-base leading-relaxed text-white/84 md:text-[1.34rem] md:leading-relaxed">
+            Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde; planlama, risk yönetimi ve yedekli
+            teknik altyapıyla tekliften sahaya kadar kontrollü bir akış kuruyoruz.
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
             >
               Hemen teklif al
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <Link
               href="/projeler"
-              className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/90 hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/95 transition hover:bg-white/10"
             >
               Portföyü incele
+              <CirclePlay className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white backdrop-blur">
-              <div className="text-2xl font-black">{stat.value}</div>
-              <div className="mt-1 text-sm text-white/70">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+        <div className="mt-12 grid max-w-6xl gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+          <div className="grid gap-4 sm:grid-cols-3">
+            {HERO_STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[1.75rem] border border-white/10 bg-black/28 px-5 py-5 text-white shadow-[0_24px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur"
+              >
+                <div className="text-2xl font-black md:text-3xl">{stat.value}</div>
+                <div className="mt-1 text-sm text-white/70">{stat.label}</div>
+              </div>
+            ))}
+          </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {ASSURANCE_ITEMS.map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/80 backdrop-blur"
-            >
-              {item}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ASSURANCE_ITEMS.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/10 bg-black/32 px-4 py-3 text-sm font-semibold text-white/84 backdrop-blur"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HeroShowcaseSection() {
+  return (
+    <section className="relative -mt-8 bg-transparent pb-6 md:-mt-14 md:pb-10">
+      <div className="container mx-auto px-4">
+        <div className="relative overflow-hidden rounded-[2.4rem] border border-slate-200/70 bg-white shadow-[0_40px_120px_-55px_rgba(15,23,42,0.45)]">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+          <div className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="relative overflow-hidden bg-slate-950">
+              <div className="relative aspect-[16/12] lg:aspect-auto lg:min-h-[36rem]">
+                <Image
+                  src="/img/kurumsal/8.webp"
+                  alt="Kurumsal etkinlik için sahne ve LED ekran operasyon görüntüsü"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 54vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060914]/88 via-[#060914]/20 to-transparent" />
+                <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 backdrop-blur">
+                    <RadioTower className="h-3.5 w-3.5" aria-hidden="true" />
+                    Show control
+                  </div>
+                  <div className="rounded-full border border-emerald-400/20 bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-200">
+                    Canlı plan akışı
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white md:p-7">
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur">
+                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Operasyon masası</div>
+                      <div className="mt-2 text-lg font-black">Teklif, prova ve sahne günü aynı ritimde ilerler.</div>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur">
+                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Saha temposu</div>
+                      <div className="mt-2 text-lg font-black">Teknik kararlar görünürlüğü ve sakinliği birlikte taşır.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
+
+            <div className="bg-gradient-to-br from-white via-slate-50 to-slate-100 p-6 md:p-8 lg:p-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <span className="h-2 w-2 rounded-full bg-blue-500" aria-hidden="true" />
+                Operasyon kurgusu
+              </div>
+
+              <h2 className="mt-6 max-w-[13ch] text-4xl font-black leading-[0.98] tracking-tight text-slate-950 md:text-5xl">
+                Sahne hissini,
+                <span className="mt-2 block text-blue-700">karar netliğiyle</span>
+                birleştiriyoruz
+              </h2>
+
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+                İyi görünen kurgu tek başına yetmez. Sahne dili, prova akışı, yükleme temposu ve teknik kararların aynı ritimde
+                ilerlemesi gerekir. Bu bölüm o hissi daha ilk ekranda görünür kılmak için var.
+              </p>
+
+              <div className="mt-8 grid gap-4">
+                {HERO_SIGNAL_ITEMS.map(({ title, desc, Icon }) => (
+                  <div
+                    key={title}
+                    className="flex items-start gap-4 rounded-[1.4rem] border border-slate-200 bg-white px-4 py-4 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.35)]"
+                  >
+                    <div className="mt-0.5 rounded-2xl border border-slate-200 bg-slate-50 p-2.5 text-blue-700">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <div className="font-black text-slate-950">{title}</div>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/projeler"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
+                >
+                  Projeleri gör
+                  <MoveRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <a
+                  href={`tel:${PHONE}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 font-bold text-slate-900 transition hover:bg-slate-50"
+                >
+                  Hızlı görüşme
+                  <PhoneCall className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -554,31 +702,120 @@ function OverviewSection() {
 }
 
 function FormatsSection() {
-  return (
-    <SectionShell variant="light" id="formatlar">
-      <H2
-        kicker="Referans akışı"
-        title={
-          <>
-            Hangi <span className="text-blue-700">kurumsal formatlarda</span> değer üretiyoruz?
-          </>
-        }
-        desc="Lansman, bayi toplantısı ve gala gibi farklı formatlarda; aynı operasyon mantığını ihtiyaca göre yeniden kurguluyoruz."
-        center
-      />
+  const formatNotes = [
+    "Medya görünürlüğü + prova akışı",
+    "Sunum netliği + salon ritmi",
+    "Atmosfer kontrolü + protokol düzeni",
+  ];
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {FORMAT_ITEMS.map((item) => (
-          <Card key={item.title} className="overflow-hidden p-0">
-            <div className="relative aspect-[16/10]">
-              <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 30vw" />
+  return (
+    <SectionShell variant="ink" id="formatlar">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <H2
+          kicker="Referans akışı"
+          title={
+            <>
+              Hangi <span className="text-blue-300">kurumsal formatlarda</span> değer üretiyoruz?
+            </>
+          }
+          desc="Lansman, bayi toplantısı ve gala gibi farklı formatlarda; aynı operasyon mantığını ihtiyaca göre yeniden kurguluyoruz."
+          dark
+        />
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          {[
+            "Format değişse de operasyon disiplini değişmez.",
+            "Her kurgu kendi sahne dilini ve prova temposunu taşır.",
+            "Amaç yalnızca kurmak değil, etkinlik gününü sakin tutmaktır.",
+          ].map((item) => (
+            <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm leading-relaxed text-white/70">
+              {item}
             </div>
-            <div className="p-6">
-              <div className="text-xl font-black text-gray-900">{item.title}</div>
-              <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
-            </div>
-          </Card>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-12 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+        {FORMAT_ITEMS.map((item, index) => {
+          const isPrimary = index === 0;
+
+          return (
+            <article
+              key={item.title}
+              className={`group relative overflow-hidden rounded-[2rem] border border-white/10 ${
+                isPrimary ? "min-h-[28rem]" : "min-h-[13.5rem]"
+              }`}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                className="object-cover transition duration-700 group-hover:scale-105"
+                sizes={isPrimary ? "(max-width: 1024px) 100vw, 54vw" : "(max-width: 1024px) 100vw, 36vw"}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+
+              <div className={`absolute inset-0 flex flex-col justify-end p-6 ${isPrimary ? "md:p-8" : ""}`}>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/55">
+                    0{index + 1}
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/70 backdrop-blur">
+                    {formatNotes[index]}
+                  </span>
+                </div>
+
+                <h3 className={`mt-5 max-w-[16ch] font-black text-white ${isPrimary ? "text-3xl md:text-4xl" : "text-2xl"}`}>
+                  {item.title}
+                </h3>
+                <p className={`mt-3 max-w-xl leading-relaxed text-white/72 ${isPrimary ? "text-base md:text-lg" : "text-sm md:text-base"}`}>
+                  {item.desc}
+                </p>
+              </div>
+            </article>
+          );
+        }).reduce((acc, node, index) => {
+          if (index === 0) {
+            acc.push(
+              <div key="format-primary" className="lg:row-span-2">
+                {node}
+              </div>,
+            );
+          } else if (index === 1) {
+            acc.push(
+              <div key="format-secondary" className="grid gap-5">
+                {node}
+                {FORMAT_ITEMS[2] ? (
+                  <article className="group relative min-h-[13.5rem] overflow-hidden rounded-[2rem] border border-white/10">
+                    <Image
+                      src={FORMAT_ITEMS[2].src}
+                      alt={FORMAT_ITEMS[2].alt}
+                      fill
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 36vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/55">03</span>
+                        <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/70 backdrop-blur">
+                          {formatNotes[2]}
+                        </span>
+                      </div>
+                      <h3 className="mt-5 max-w-[16ch] text-2xl font-black text-white">{FORMAT_ITEMS[2].title}</h3>
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/72 md:text-base">
+                        {FORMAT_ITEMS[2].desc}
+                      </p>
+                    </div>
+                  </article>
+                ) : null}
+              </div>,
+            );
+          }
+
+          return acc;
+        }, [])}
       </div>
     </SectionShell>
   );
@@ -702,64 +939,81 @@ function ServicesSection() {
 }
 
 function GallerySection() {
-  const featured = GALLERY_IMAGES[0];
-  const supporting = GALLERY_IMAGES.slice(1);
+  const [featured, ...supporting] = GALLERY_IMAGES;
 
   return (
     <SectionShell variant="light" id="projeler">
-      <H2
-        kicker="Görsel akış"
-        title={
-          <>
-            Kurumsal <span className="text-blue-700">projelerimiz</span>
-          </>
-        }
-        desc="Daha görsel bir akış için sahadaki gerçek kurulumları daha erken aşamada görünür hale getirdik."
-        center
-      />
+      <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <H2
+            kicker="Görsel akış"
+            title={
+              <>
+                Kurumsal <span className="text-blue-700">projelerimizi</span> daha sinematik bir ritimde gösteriyoruz
+              </>
+            }
+            desc="Bu bölümde amaç yalnızca görsel göstermek değil; etkinlik dili, salon ölçeği ve teknik atmosfer arasında nasıl bir kalite standardı kurduğumuzu hissettirmek."
+          />
 
-      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <Card className="overflow-hidden p-0">
-          <div className="relative aspect-[16/10]">
-            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 52vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="text-sm font-semibold text-white/75">Öne çıkan kurulum</div>
-              <div className="mt-2 text-2xl font-black md:text-3xl">
-                Kurumsal sahne, LED ve salon akışını aynı hikayede topluyoruz.
-              </div>
-            </div>
+          <div className="space-y-4 text-lg leading-relaxed text-gray-600">
+            <p>
+              Aynı etkinlik formatını daha önce sahada görmek, ilk keşif görüşmesini daha berrak hale getirir. Böylece ekipman
+              listesi konuşmadan önce sahne dili, salon ritmi ve görünürlük seviyesi üzerine daha doğru karar verilebilir.
+            </p>
           </div>
-        </Card>
 
-        <div className="grid gap-6">
-          <div className="grid grid-cols-2 gap-4">
-            {supporting.map((image) => (
-              <div key={image.src} className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                <div className="relative aspect-[4/3]">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 24vw" />
-                </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {[
+              "Daha fazla proje, daha az sürpriz",
+              "Keşif görüşmesinde daha hızlı ortak zemin",
+              "Format bazlı daha doğru örnek seti",
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 font-semibold text-slate-700">
+                {item}
               </div>
             ))}
           </div>
 
-          <Card>
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <div className="text-sm font-semibold text-slate-600">Portföy akışı</div>
-                <div className="mt-1 text-xl font-black text-gray-900">Daha fazla proje, daha az sürpriz</div>
+          <Link
+            href="/projeler"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
+          >
+            Tüm projeleri gör
+            <MoveRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="grid auto-rows-[11rem] gap-4 sm:grid-cols-2 lg:auto-rows-[12rem]">
+          <article className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-[0_24px_60px_-30px_rgba(15,23,42,0.35)] sm:col-span-2 sm:row-span-2">
+            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 54vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">Öne çıkan kurulum</div>
+              <div className="mt-2 max-w-[14ch] text-3xl font-black leading-tight md:text-4xl">
+                Kurumsal sahne, LED ve salon akışını aynı hikâyede topluyoruz.
               </div>
-              <Link
-                href="/projeler"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-gray-900 hover:bg-slate-50 transition"
-              >
-                Tüm projeleri gör
-              </Link>
             </div>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Aynı etkinlik formatını daha önce sahada görmüş olmak, keşif ve teklif sürecini ciddi ölçüde hızlandırır.
-            </p>
-          </Card>
+          </article>
+
+          {supporting.slice(0, 3).map((image, index) => (
+            <article
+              key={image.src}
+              className={`relative overflow-hidden rounded-[1.75rem] border border-slate-200 shadow-[0_24px_60px_-30px_rgba(15,23,42,0.28)] ${
+                index === 2 ? "sm:col-span-2" : ""
+              }`}
+            >
+              <div className={`relative ${index === 2 ? "aspect-[16/9]" : "aspect-[4/5]"}`}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes={index === 2 ? "(max-width: 1024px) 100vw, 54vw" : "(max-width: 1024px) 50vw, 26vw"}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </SectionShell>
@@ -767,61 +1021,100 @@ function GallerySection() {
 }
 
 function VideoShowcaseSection() {
+  const [featuredVideo, ...secondaryVideos] = VIDEO_GALLERY;
+
   return (
-    <SectionShell variant="soft" id="video-galerisi">
-      <H2
-        kicker="Video vitrini"
-        title={
-          <>
-            Gerçek <span className="text-blue-700">kurulum videoları</span>
-          </>
-        }
-        desc="Sayfadaki görsel akışı, sahadan kısa video kesitleriyle destekliyoruz. Videolar yalnızca tıklanınca açılır; böylece sayfa hafif kalır."
-        center
-      />
+    <SectionShell variant="ink" id="video-galerisi">
+      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        <div>
+          <H2
+            kicker="Video vitrini"
+            title={
+              <>
+                Gerçek <span className="text-blue-300">kurulum videoları</span> ile sahadaki kaliteyi görünür kılıyoruz
+              </>
+            }
+            desc="Video burada dekor değil; tempo, ekip disiplini ve teknik standardı hissettiren bir karar katmanı."
+            dark
+          />
 
-      <div className="mx-auto mb-8 max-w-4xl rounded-[2rem] border border-slate-200 bg-white px-6 py-5 text-center shadow-sm">
-        <p className="text-base leading-relaxed text-slate-600 md:text-lg">
-          Bu bölümdeki videoları dekor olarak değil, karar desteği olarak konumlandırdık. Amaç yalnızca hareket göstermek değil;
-          kurulum temposunu, ekip disiplinini ve sahadaki gerçek prodüksiyon standardını görünür kılmak.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {VIDEO_GALLERY.map((video, index) => (
-          <article
-            key={video.id}
-            className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
-            aria-labelledby={`corporate-video-${video.id}-title`}
-          >
-            <div className="relative w-full aspect-video bg-black">
-              <LazyVideoEmbed
-                videoId={video.id}
-                title={video.title}
-                thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-blue-700">
-                  {video.eyebrow}
-                </span>
-                <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
-                  Video {index + 1}
-                </span>
-              </div>
-              <h3 id={`corporate-video-${video.id}-title`} className="text-xl font-black text-gray-900">
-                {video.title}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">
-                {video.description}
-              </p>
-              <div className="mt-5 border-t border-slate-100 pt-4 text-sm font-medium text-slate-500">
-                Tıklayınca açılır • YouTube üzerinden oynatılır
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_28px_90px_-40px_rgba(0,0,0,0.8)]">
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+              <div className="relative aspect-[16/10]">
+                <LazyVideoEmbed
+                  videoId={featuredVideo.id}
+                  title={featuredVideo.title}
+                  thumbnailUrl={`https://i.ytimg.com/vi/${featuredVideo.id}/hqdefault.jpg`}
+                />
               </div>
             </div>
-          </article>
-        ))}
+
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-blue-200">
+                {featuredVideo.eyebrow}
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
+                Öne çıkan video
+              </span>
+            </div>
+
+            <h3 className="mt-4 max-w-[16ch] text-3xl font-black text-white md:text-4xl">{featuredVideo.title}</h3>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">{featuredVideo.description}</p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {[
+                "Kurulum temposu",
+                "Teknik hazırlık disiplini",
+                "Saha günü gerçek atmosfer",
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/75">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-5">
+          {secondaryVideos.map((video, index) => (
+            <article
+              key={video.id}
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_-40px_rgba(0,0,0,0.85)]"
+              aria-labelledby={`corporate-video-${video.id}-title`}
+            >
+              <div className="grid gap-0 md:grid-cols-[0.92fr_1.08fr]">
+                <div className="relative aspect-video bg-black md:aspect-auto">
+                  <LazyVideoEmbed
+                    videoId={video.id}
+                    title={video.title}
+                    thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                  />
+                </div>
+                <div className="flex flex-col justify-between p-6">
+                  <div>
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="inline-flex rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-blue-200">
+                        {video.eyebrow}
+                      </span>
+                      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/40">
+                        Video {index + 2}
+                      </span>
+                    </div>
+                    <h3 id={`corporate-video-${video.id}-title`} className="mt-4 text-2xl font-black text-white">
+                      {video.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/68 md:text-base">{video.description}</p>
+                  </div>
+
+                  <div className="mt-5 flex items-center gap-2 text-sm font-medium text-white/50">
+                    <Clapperboard className="h-4 w-4" aria-hidden="true" />
+                    Tıklayınca açılır, YouTube üzerinden oynatılır
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </SectionShell>
   );
@@ -1017,50 +1310,99 @@ function RelatedServices() {
 function CTASection() {
   return (
     <SectionShell variant="ink" id="cta">
-      <div className="mx-auto max-w-5xl">
-        <H2
-          kicker="Teklif ve keşif"
-          title="Profesyonel kurumsal çözümlere hazır mısınız?"
-          desc="Etkinlik türü, tarih ve kişi sayısını paylaşın; size uygun kurgu için hızlı bir ön kapsam çıkaralım."
-          dark
-          center
-        />
+      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#08101d] via-[#0B1120] to-[#0f1b33] px-6 py-8 shadow-[0_40px_110px_-45px_rgba(0,0,0,0.95)] md:px-8 md:py-10">
+        <div className="absolute -left-20 top-0 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
-        <div className="grid gap-4 sm:grid-cols-3">
-          <Card dark>
-            <div className="text-xl font-black text-white">WhatsApp'tan yazın</div>
-            <p className="mt-3 text-white/70 leading-relaxed">Hızlı ön bütçe ve kapsam için doğrudan bilgi paylaşın.</p>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition"
-            >
-              Teklif iste
-            </a>
-          </Card>
+        <div className="relative grid gap-8 lg:grid-cols-[1fr_0.92fr] lg:items-start">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+              <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+              Teklif ve keşif
+            </div>
 
-          <Card dark>
-            <div className="text-xl font-black text-white">İletişim formu</div>
-            <p className="mt-3 text-white/70 leading-relaxed">Daha detaylı brief ve mekân bilgisi göndermek isterseniz form üzerinden ilerleyin.</p>
-            <Link
-              href="/iletisim"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-bold text-white hover:bg-white/10 transition"
-            >
-              Formu aç
-            </Link>
-          </Card>
+            <h2 className="mt-6 max-w-[12ch] text-4xl font-black leading-[0.98] tracking-tight text-white md:text-6xl">
+              Profesyonel kurumsal çözümlere
+              <span className="mt-2 block bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
+                hazır mısınız?
+              </span>
+            </h2>
 
-          <Card dark>
-            <div className="text-xl font-black text-white">Telefonla ulaşın</div>
-            <p className="mt-3 text-white/70 leading-relaxed">Müsaitlik, şehir ve kurulum takvimi için doğrudan görüşebilirsiniz.</p>
-            <a
-              href={`tel:${PHONE}`}
-              className="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-bold text-white hover:bg-white/10 transition"
-            >
-              0545 304 86 71
-            </a>
-          </Card>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+              Etkinlik türü, tarih ve kişi sayısını paylaşın; size uygun kurgu için hızlı bir ön kapsam çıkaralım. Amaç,
+              görüşmeye çok belgeyle değil, doğru karar başlıklarıyla başlamak.
+            </p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {[
+                "Hızlı ön kapsam",
+                "Şehir ve takvim kontrolü",
+                "Format bazlı teknik yönlendirme",
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/75">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
+              <div className="flex items-start gap-4">
+                <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-3 text-emerald-200">
+                  <RadioTower className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-xl font-black text-white">WhatsApp'tan yazın</div>
+                  <p className="mt-2 text-white/68 leading-relaxed">Hızlı ön bütçe ve kapsam için doğrudan bilgi paylaşın.</p>
+                </div>
+              </div>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
+              >
+                Teklif iste
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
+                  <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="mt-4 text-lg font-black text-white">İletişim formu</div>
+                <p className="mt-2 text-sm leading-relaxed text-white/68">
+                  Daha detaylı brief ve mekân bilgisi göndermek isterseniz form üzerinden ilerleyin.
+                </p>
+                <Link
+                  href="/iletisim"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
+                >
+                  Formu aç
+                  <MoveRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
+                  <PhoneCall className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="mt-4 text-lg font-black text-white">Telefonla ulaşın</div>
+                <p className="mt-2 text-sm leading-relaxed text-white/68">
+                  Müsaitlik, şehir ve kurulum takvimi için doğrudan görüşebilirsiniz.
+                </p>
+                <a
+                  href={`tel:${PHONE}`}
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
+                >
+                  0545 304 86 71
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </SectionShell>
@@ -1081,6 +1423,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <CorporateOrganizationJsonLd />
       <Hero />
+      <HeroShowcaseSection />
       <OverviewSection />
       <FormatsSection />
       <PackageSection />
@@ -1092,18 +1435,7 @@ export default function Page() {
       <StatsAndUseCases />
       <FAQSection />
       <RelatedServices />
-      <ServiceBlogLinks
-        links={[
-          {
-            href: "/blog/kurumsal-etkinlik-yonetimi",
-            label: "Kurumsal Etkinlik Yönetimi Rehberi",
-          },
-          {
-            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
-            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
-          },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.corporate} links={CONTENT_CLUSTERS.corporate.guides} />
       <CTASection />
     </>
   );

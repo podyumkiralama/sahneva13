@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, ListTree, Network } from "lucide-react";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import styles from "@/components/blog/BlogLayout.module.css";
 
@@ -23,6 +24,8 @@ export default function BlogLayout({
   readTime,
   primaryLinks,
   whatsappUrl,
+  tocItems = [],
+  cornerstoneLinks = [],
   currentSlug,
   currentCategory,
   currentKeywords,
@@ -31,6 +34,10 @@ export default function BlogLayout({
   const formattedDate = publishDate ? formatTrDate(publishDate) : null;
 
   const links = Array.isArray(primaryLinks) ? primaryLinks.filter(Boolean) : [];
+  const safeTocItems = Array.isArray(tocItems) ? tocItems.filter((item) => item?.href && item?.label) : [];
+  const safeCornerstoneLinks = Array.isArray(cornerstoneLinks)
+    ? cornerstoneLinks.filter((item) => item?.href && item?.label)
+    : [];
 
   return (
     <>
@@ -128,6 +135,82 @@ export default function BlogLayout({
       <main className="bg-white py-16">
         <div className="container mx-auto px-4">
           <Breadcrumbs items={breadcrumbItems} />
+
+          {(safeTocItems.length || safeCornerstoneLinks.length) ? (
+            <section
+              aria-label="Makale navigasyonu"
+              className="mb-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]"
+            >
+              {safeTocItems.length ? (
+                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                      <ListTree className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+                        Bu yazıda
+                      </p>
+                      <h2 className="mt-2 text-xl font-black text-slate-950">
+                        Hızlı içerik akışı
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        Uzun rehberlerde doğrudan ilgili bölüme atlayabilmeniz için ana başlıkları burada topladık.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {safeTocItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="group inline-flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-200 hover:text-blue-700"
+                      >
+                        <span>{item.label}</span>
+                        <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {safeCornerstoneLinks.length ? (
+                <div className="rounded-3xl border border-slate-900 bg-slate-950 p-6 text-white">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white">
+                      <Network className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
+                        Cornerstone
+                      </p>
+                      <h2 className="mt-2 text-xl font-black text-white">
+                        Ana hizmet merkezleri
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                        Rehberin bağlandığı ana hizmet sayfalarına buradan geçebilir, detay ve teklif akışını hızlandırabilirsiniz.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 space-y-3">
+                    {safeCornerstoneLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        prefetch={false}
+                        className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10"
+                      >
+                        <span>{item.label}</span>
+                        <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
 
           <article className={`${styles.scope} prose prose-xl lg:prose-2xl max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline`}>
             {children}

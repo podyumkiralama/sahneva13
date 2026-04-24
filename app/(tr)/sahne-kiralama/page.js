@@ -7,6 +7,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import {
   ArrowRight,
@@ -1856,18 +1857,7 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
-      <ServiceBlogLinks
-        links={[
-          {
-            href: "/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir",
-            label: "Sahne Kiralama Fiyatları Neye Göre Belirlenir?",
-          },
-          {
-            href: "/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir",
-            label: "Sahne Neden Hep Yüksektir? 2500 Yıllık Bir Sır",
-          },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
       <CTA />
     </>
   );

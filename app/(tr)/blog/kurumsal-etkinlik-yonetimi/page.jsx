@@ -6,6 +6,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -22,6 +23,19 @@ const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
+const TOC_ITEMS = [
+  { href: "#sahne-podyum", label: "Sahne ve podyum planı" },
+  { href: "#led-ekran", label: "LED ekran kurgusu" },
+  { href: "#ses-isik", label: "Ses ve ışık kontrolü" },
+  { href: "#kurumsal-cadir", label: "Dış mekan ve çadır" },
+  { href: "#teknik-prova", label: "Prova ve etkinlik günü" },
+  { href: "#butce-planlama", label: "Bütçe planlaması" },
+  { href: "#faq", label: "Sık sorulan sorular" },
+];
+const CORNERSTONE_LINKS = [
+  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+  ...CONTENT_CLUSTERS.corporate.relatedServices.slice(0, 3),
+];
 
 /* ================== META DATA ================== */
 export const metadata = {
@@ -177,6 +191,8 @@ export default function BlogPostCorporate() {
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="2\u20134 dk okuma"
+        tocItems={TOC_ITEMS}
+        cornerstoneLinks={CORNERSTONE_LINKS}
         currentSlug={BLOG_URL.split("/").pop()}
         currentCategory={metadata?.category}
         currentKeywords={metadata?.keywords}

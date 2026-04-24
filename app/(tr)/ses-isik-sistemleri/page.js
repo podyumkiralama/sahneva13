@@ -10,6 +10,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
 
@@ -1200,18 +1201,7 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
-      <ServiceBlogLinks
-        links={[
-          {
-            href: "/blog/ses-sistemlerinde-2026-yenilikleri-trendler",
-            label: "Ses Sistemlerinde 2026 Yenilikleri",
-          },
-          {
-            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
-            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
-          },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.soundLight} links={CONTENT_CLUSTERS.soundLight.guides} />
       <CTA />
     </>
   );

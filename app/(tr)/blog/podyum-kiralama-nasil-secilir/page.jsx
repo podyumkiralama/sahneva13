@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
   /\/$/,
@@ -76,6 +77,19 @@ const WA_URL =
   encodeURIComponent(
     "Merhaba, etkinliğim için doğru podyum ölçüsü, yükseklik ve kurulum planı hakkında teklif almak istiyorum."
   );
+const TOC_ITEMS = [
+  { href: "#amac-olcu", label: "Amaç ve ölçü" },
+  { href: "#yukseklik-secimi", label: "Yükseklik seçimi" },
+  { href: "#zemin-yapisi", label: "Zemin yapısı" },
+  { href: "#yuzey-kaplamasi", label: "Yüzey kaplaması" },
+  { href: "#fiyat-kalemleri", label: "Fiyat kalemleri" },
+  { href: "#entegrasyon", label: "LED, ses ve ışık entegrasyonu" },
+  { href: "#sonuc", label: "Sonuç ve brief" },
+];
+const CORNERSTONE_LINKS = [
+  { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama" },
+  ...CONTENT_CLUSTERS.podium.relatedServices,
+];
 
 export const metadata = {
   title: ARTICLE_TITLE,
@@ -358,6 +372,8 @@ export default function Page() {
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime={metadata.readTime}
+        tocItems={TOC_ITEMS}
+        cornerstoneLinks={CORNERSTONE_LINKS}
         currentSlug={SLUG}
         currentCategory={metadata.category}
         currentKeywords={metadata.keywords}
@@ -384,7 +400,7 @@ export default function Page() {
 
         <SelectionTable />
 
-        <h2>1. Etkinliğin Amacı Podyum Ölçüsünü Belirler</h2>
+        <h2 id="amac-olcu">1. Etkinliğin Amacı Podyum Ölçüsünü Belirler</h2>
         <p>
           Bir konuşmacı platformu ile konser sahnesi aynı podyum mantığıyla planlanamaz. Konferans
           veya ürün lansmanı gibi etkinliklerde konuşmacı, kürsü, sandalye ve LED ekran konumu
@@ -403,7 +419,7 @@ export default function Page() {
           caption="Podyum ölçüsü, yalnızca sahne alanını değil, izleyici görüş açısını ve teknik ekip yerleşimini de etkiler."
         />
 
-        <h2>2. Yükseklik Seçimi Görünürlük ve Güvenlik Dengesidir</h2>
+        <h2 id="yukseklik-secimi">2. Yükseklik Seçimi Görünürlük ve Güvenlik Dengesidir</h2>
         <p>
           Podyum yüksekliği arttıkça görünürlük güçlenir; ancak merdiven, korkuluk, sabitleme ve
           erişim planı daha kritik hale gelir. Küçük toplantılarda 40-60 cm yüksekliğindeki bir
@@ -419,7 +435,7 @@ export default function Page() {
           sınırlandırılmalıdır.
         </p>
 
-        <h2>3. Zemin Yapısı Podyumun Stabilitesini Doğrudan Etkiler</h2>
+        <h2 id="zemin-yapisi">3. Zemin Yapısı Podyumun Stabilitesini Doğrudan Etkiler</h2>
         <p>
           Podyum kurulacak alan düz, eğimli, parke, beton, çim veya toprak olabilir. Her zemin farklı
           dengeleme ihtiyacı doğurur. Özellikle açık alanlarda zemin eğimi ve yük dağılımı önceden
@@ -433,7 +449,7 @@ export default function Page() {
           caption="Panel tipi, ayak yüksekliği ve yüzey kaplaması podyumun kullanım amacına göre seçilmelidir."
         />
 
-        <h2>4. Yüzey Kaplaması Etkinlik Algısını Değiştirir</h2>
+        <h2 id="yuzey-kaplamasi">4. Yüzey Kaplaması Etkinlik Algısını Değiştirir</h2>
         <p>
           Aynı podyum sistemi, yüzey kaplamasına göre bambaşka bir algı oluşturabilir. Halı kaplama,
           kurumsal ve protokol etkinliklerinde temiz bir görünüm sağlar. Siyah yüzey konser ve sahne
@@ -447,7 +463,7 @@ export default function Page() {
           kayıtlarında nasıl görüneceği de planlanmış olur.
         </p>
 
-        <h2>5. Podyum Kiralama Fiyatları Hangi Kalemlere Göre Değişir?</h2>
+        <h2 id="fiyat-kalemleri">5. Podyum Kiralama Fiyatları Hangi Kalemlere Göre Değişir?</h2>
         <p>
           <Link href={PODIUM_PRICE_PATH}>Podyum kiralama fiyatları</Link>; platform metrekare hesabı,
           yükseklik, kaplama, merdiven veya rampa ihtiyacı, skört, nakliye, kurulum süresi ve şehir
@@ -463,7 +479,7 @@ export default function Page() {
 
         <PodyumGallery />
 
-        <h2>6. LED Ekran, Ses ve Işıkla Birlikte Planlamak Neden Önemli?</h2>
+        <h2 id="entegrasyon">6. LED Ekran, Ses ve Işıkla Birlikte Planlamak Neden Önemli?</h2>
         <p>
           Podyum kiralama çoğu zaman tek başına düşünülür; ancak etkinliğin gerçek başarısı sahne,
           ekran, ses ve ışığın birlikte çalışmasına bağlıdır. Podyumun arkasına kurulacak{" "}
@@ -501,7 +517,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <h2>Sonuç: Doğru Podyum, Doğru Brief ile Seçilir</h2>
+        <h2 id="sonuc">Sonuç: Doğru Podyum, Doğru Brief ile Seçilir</h2>
         <p>
           Podyum kiralama kararında en doğru sonuç, etkinlik ihtiyacını teknik detaylarla birlikte
           anlatan net bir brief ile alınır. Ölçü, yükseklik, zemin, ekipman ve akış bilgileri baştan

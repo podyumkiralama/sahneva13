@@ -7,6 +7,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
@@ -2124,15 +2125,7 @@ export default function Page() {
       <FAQ />
       <Articles />
       <RelatedServices />
-      <ServiceBlogLinks
-        links={[
-          { href: "/blog/led-ekran-teknoloji-trendleri-2026", label: "2026 LED Ekran Teknoloji Trendleri" },
-          {
-            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
-            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
-          },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.ledScreen} links={CONTENT_CLUSTERS.ledScreen.guides} />
       <CTA />
     </>
   );

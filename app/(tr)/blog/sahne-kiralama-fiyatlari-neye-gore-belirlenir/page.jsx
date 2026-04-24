@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -31,6 +32,19 @@ const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
+const TOC_ITEMS = [
+  { href: "#tek-kalem-hizmet-degil", label: "Tek kalem olmayan yapı" },
+  { href: "#metrekare-hesabi", label: "Metrekare hesabı" },
+  { href: "#teknik-katmanlar", label: "Teknik katmanlar" },
+  { href: "#tahmini-ve-net-fiyat", label: "Tahmini ve net fiyat" },
+  { href: "#rider-etkisi", label: "Rider etkisi" },
+  { href: "#cok-katmanli-etkinlikler", label: "Çok katmanlı etkinlikler" },
+  { href: "#net-fiyat-icin-yol", label: "Net fiyat için hızlı yol" },
+];
+const CORNERSTONE_LINKS = [
+  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
+  ...CONTENT_CLUSTERS.stageRental.relatedServices,
+];
 
 const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
 
@@ -118,6 +132,8 @@ return (
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="7\u20139 dk okuma"
+        tocItems={TOC_ITEMS}
+        cornerstoneLinks={CORNERSTONE_LINKS}
         currentSlug={BLOG_PATH.replace("/blog/", "")}
         currentCategory={metadata?.category}
         currentKeywords={metadata?.keywords}
@@ -146,7 +162,7 @@ return (
               biliyorum.”
             </p>
 
-            <h2>Sahne kiralama neden tek kalem bir hizmet değildir?</h2>
+            <h2 id="tek-kalem-hizmet-degil">Sahne kiralama neden tek kalem bir hizmet değildir?</h2>
             <p>
               Sahne kiralama, çoğu zaman “platform kuruldu, bitti” gibi düşünülür. Oysa sahne,
               etkinliğin omurgasıdır. Sahneyle birlikte düşünülmesi gereken katmanlar vardır:
@@ -173,7 +189,7 @@ return (
             </p>
 
             {/* m2 */}
-            <h2>1) Sahne fiyatını en temelde m² belirler</h2>
+            <h2 id="metrekare-hesabi">1) Sahne fiyatını en temelde m² belirler</h2>
             <p>
               Sahne kiralama fiyatını etkileyen en temel unsur, sahnenin ölçüsüdür (m²). Bunun nedeni basit:
               kullanılan modüler yapı, kaplama alanı ve işçilik planı, ölçüyle birlikte büyür.
@@ -219,7 +235,7 @@ return (
             </p>
 
             {/* teknik katmanlar */}
-            <h2>3) Teknik katmanlar: Truss, LED ekran, ses ve ışık</h2>
+            <h2 id="teknik-katmanlar">3) Teknik katmanlar: Truss, LED ekran, ses ve ışık</h2>
             <p>
               Sahne tek başına düşünülmez. Çoğu etkinlikte sahneye eşlik eden teknik katmanlar vardır.
               Burada fiyatı etkileyen şey “var/yok”tan çok; <strong>adet, marka ve özellik</strong>tir.
@@ -289,7 +305,7 @@ return (
             </p>
 
             {/* tahmini vs net */}
-            <h2>5) Tahmini fiyat vs net fiyat: en kritik ayrım</h2>
+            <h2 id="tahmini-ve-net-fiyat">5) Tahmini fiyat vs net fiyat: en kritik ayrım</h2>
             <p>
               Fiyat konusu konuşulurken iki ayrı dünya vardır:
             </p>
@@ -322,7 +338,7 @@ return (
             </p>
 
             {/* rider */}
-            <h2>6) Teknik rider geldiğinde fiyat neden değişir?</h2>
+            <h2 id="rider-etkisi">6) Teknik rider geldiğinde fiyat neden değişir?</h2>
             <p>
               Teknik rider, etkinliğin gerçek ihtiyaçlarını ortaya koyar. En önemlisi: rider sadece sanatçıdan gelmez.
               Ajanslar, kurumsal ekipler, belediyeler veya siyasi organizasyonlar da “teknik plan/şartname” çıkarabilir.
@@ -383,7 +399,7 @@ return (
             </p>
 
             {/* çok katmanlı */}
-            <h2>8) Çok katmanlı etkinlikler: konser + konuşma + miting gibi senaryolar</h2>
+            <h2 id="cok-katmanli-etkinlikler">8) Çok katmanlı etkinlikler: konser + konuşma + miting gibi senaryolar</h2>
             <p>
               Sahneyi sadece sanatçı için kurmak, birçok projede gerçekçi değildir. Bazı etkinlikler çok katmanlıdır:
               konserin ardından konuşma yapılabilir, aynı sahne protokol akışına göre yeniden kullanılabilir.
@@ -465,7 +481,7 @@ return (
             </div>
 
             {/* CTA */}
-            <h2>Net fiyat için en hızlı yol</h2>
+            <h2 id="net-fiyat-icin-yol">Net fiyat için en hızlı yol</h2>
             <p>
               Net fiyat almak için; etkinlik türünü, mekân/alan bilgisini, istenen sahne ölçüsünü ve teknik katmanları
               (LED, ses-ışık, truss, çadır vb.) mümkün olduğunca net paylaşmak gerekir. Sanatçı veya canlı müzik varsa

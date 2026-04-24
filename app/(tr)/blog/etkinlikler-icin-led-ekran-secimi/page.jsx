@@ -5,6 +5,7 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "etkinlikler-icin-led-ekran-secimi";
@@ -30,6 +31,19 @@ const WA_URL =
   encodeURIComponent(
     "Merhaba, etkinliğim için doğru LED ekran çözümünü belirlemek istiyorum. Teknik analiz ve teklif alabilir miyim?"
   );
+const TOC_ITEMS = [
+  { href: "#neden-eksik-kalir", label: "LED ekran neden kritik" },
+  { href: "#led-ekran-turleri", label: "LED ekran türleri" },
+  { href: "#secim-kriterleri", label: "Seçim kriterleri" },
+  { href: "#etkinlikte-fark", label: "Etkinlikte fark yaratan yönler" },
+  { href: "#kiralama-mi-satin-alma-mi", label: "Kiralama mı satın alma mı" },
+  { href: "#sonuc", label: "Sonuç ve planlama" },
+  { href: "#sss", label: "Sık sorulan sorular" },
+];
+const CORNERSTONE_LINKS = [
+  { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
+  ...CONTENT_CLUSTERS.ledScreen.relatedServices,
+];
 
 export const metadata = {
   title: TITLE,
@@ -227,6 +241,8 @@ export default function Page() {
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
         readTime="7-9 dk okuma"
+        tocItems={TOC_ITEMS}
+        cornerstoneLinks={CORNERSTONE_LINKS}
         currentSlug={SLUG}
         currentCategory="LED Ekran"
         currentKeywords={metadata.keywords}
@@ -264,7 +280,7 @@ export default function Page() {
           caption="Kurumsal konferanslarda ana ekran, yan ekran ve içerik akışı birlikte planlanmalıdır."
         />
 
-        <h2>LED ekran olmadan etkinlik neden eksik kalır?</h2>
+        <h2 id="neden-eksik-kalir">LED ekran olmadan etkinlik neden eksik kalır?</h2>
         <p>
           Büyük salonlarda, açık hava etkinliklerinde ve kurumsal lansmanlarda izleyicinin sahneyi aynı
           kalitede görmesi her zaman mümkün değildir. LED ekran; konuşmacı görüntüsü, marka filmi, sunum,
@@ -277,7 +293,7 @@ export default function Page() {
           alınmalıdır.
         </p>
 
-        <h2>LED ekran türleri ve kullanım alanları</h2>
+        <h2 id="led-ekran-turleri">LED ekran türleri ve kullanım alanları</h2>
 
         <h3>Dış mekan LED ekranlar</h3>
         <p>
@@ -314,7 +330,7 @@ export default function Page() {
           enerji altyapısı ve hızlı test süreci de planlamaya dahil edilmelidir.
         </p>
 
-        <h2>LED ekran seçerken nelere dikkat edilmeli?</h2>
+        <h2 id="secim-kriterleri">LED ekran seçerken nelere dikkat edilmeli?</h2>
         <p>
           LED ekran seçimi sadece ölçü ve fiyat karşılaştırmasıyla yapılmaz. Mekanın fiziksel yapısı,
           izleyici konumu, içerik türü, kamera kullanımı ve etkinliğin süresi birlikte değerlendirilmelidir.
@@ -373,7 +389,7 @@ export default function Page() {
           ]}
         />
 
-        <h2>LED ekranlar etkinliklerde nasıl fark yaratır?</h2>
+        <h2 id="etkinlikte-fark">LED ekranlar etkinliklerde nasıl fark yaratır?</h2>
         <p>
           Doğru LED ekran kullanımı etkinliğin atmosferini tamamen değiştirebilir. Kurumsal etkinliklerde
           sunumları daha etkileyici hale getirir, marka algısını güçlendirir ve program akışını dinamik
@@ -394,7 +410,7 @@ export default function Page() {
           kullanımlar etkinliği daha akılda kalıcı hale getirir.
         </p>
 
-        <h2>LED ekran kiralama mı, satın alma mı?</h2>
+        <h2 id="kiralama-mi-satin-alma-mi">LED ekran kiralama mı, satın alma mı?</h2>
         <p>
           Tek seferlik veya dönemsel etkinliklerde LED ekran kiralama çoğu zaman daha mantıklıdır. Çünkü
           panel seçimi, taşıma, kurulum, teknik ekip, bakım, yedek parça ve söküm süreci profesyonel ekip
@@ -408,7 +424,7 @@ export default function Page() {
           outdoor ekran gerekebilir.
         </p>
 
-        <h2>Sonuç: doğru LED ekran, doğru planlama ile değer yaratır</h2>
+        <h2 id="sonuc">Sonuç: doğru LED ekran, doğru planlama ile değer yaratır</h2>
         <p>
           LED ekran etkinliğin en güçlü görsel araçlarından biridir. Ancak bu gücün ortaya çıkması,
           doğru ekipman seçimi kadar doğru planlama ve profesyonel uygulamaya bağlıdır. Ekran ölçüsü,
@@ -423,7 +439,7 @@ export default function Page() {
           vermemenizi öneririz.
         </p>
 
-        <h2>Sık sorulan sorular</h2>
+        <h2 id="sss">Sık sorulan sorular</h2>
         {FAQ_ITEMS.map((item) => (
           <section key={item.question}>
             <h3>{item.question}</h3>

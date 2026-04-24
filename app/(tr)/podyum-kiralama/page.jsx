@@ -6,6 +6,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
 import {
   ArrowRight,
@@ -1537,13 +1538,7 @@ export default function Page() {
       <ArticlesSection />
       <FAQSection />
       <RelatedServicesSection />
-      <ServiceBlogLinks
-        links={[
-          { href: "/blog/podyum-kiralama-nasil-secilir", label: "Podyum Kiralama Nasıl Seçilir?" },
-          { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Etkinliğe Göre Podyum Tercihi" },
-          { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Neden Podyum Sahne Tercih Edilir?" },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
       <CTASection />
     </>
   );
