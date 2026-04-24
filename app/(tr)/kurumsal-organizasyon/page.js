@@ -37,6 +37,13 @@ const HERO_STATS = [
   { value: "81 il", label: "Hizmet alanı" },
 ];
 
+const ASSURANCE_ITEMS = [
+  "Tek keşif ve tek run-of-show",
+  "Yedekli güç ve kontrol planı",
+  "Saha günü tek operasyon muhatabı",
+  "Kurulumdan söküme planlı kapanış",
+];
+
 const OVERVIEW_POINTS = [
   {
     title: "Tek operasyon masası",
@@ -167,6 +174,7 @@ const GALLERY_IMAGES = [
 const VIDEO_GALLERY = [
   {
     id: "1R5Av0x5ouA",
+    eyebrow: "Kurulum temposu",
     title: "Kurulum ve sahne prodüksiyon akışı",
     description:
       "Sahne kurulumu, LED ekran entegrasyonu ve etkinliğe hazırlık temposunu tek akışta gösteren kısa saha videosu.",
@@ -174,6 +182,7 @@ const VIDEO_GALLERY = [
   },
   {
     id: "JNzGlNzNRuk",
+    eyebrow: "Teknik hazırlık",
     title: "Hızlı kurulum ve teknik hazırlık",
     description:
       "Dar zamanlı projelerde kurulum hızını ve teknik ekip refleksini gösteren gerçek uygulama kesiti.",
@@ -181,6 +190,7 @@ const VIDEO_GALLERY = [
   },
   {
     id: "173gBurWSRQ",
+    eyebrow: "Gerçek uygulama",
     title: "Etkinlikten gerçek LED ve sahne örnekleri",
     description:
       "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
@@ -474,6 +484,17 @@ function Hero() {
             </div>
           ))}
         </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {ASSURANCE_ITEMS.map((item) => (
+            <div
+              key={item}
+              className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/80 backdrop-blur"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -759,8 +780,15 @@ function VideoShowcaseSection() {
         center
       />
 
+      <div className="mx-auto mb-8 max-w-4xl rounded-[2rem] border border-slate-200 bg-white px-6 py-5 text-center shadow-sm">
+        <p className="text-base leading-relaxed text-slate-600 md:text-lg">
+          Bu bölümdeki videoları dekor olarak değil, karar desteği olarak konumlandırdık. Amaç yalnızca hareket göstermek değil;
+          kurulum temposunu, ekip disiplinini ve sahadaki gerçek prodüksiyon standardını görünür kılmak.
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {VIDEO_GALLERY.map((video) => (
+        {VIDEO_GALLERY.map((video, index) => (
           <article
             key={video.id}
             className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
@@ -774,12 +802,23 @@ function VideoShowcaseSection() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-blue-700">
+                  {video.eyebrow}
+                </span>
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+                  Video {index + 1}
+                </span>
+              </div>
               <h3 id={`corporate-video-${video.id}-title`} className="text-xl font-black text-gray-900">
                 {video.title}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">
                 {video.description}
               </p>
+              <div className="mt-5 border-t border-slate-100 pt-4 text-sm font-medium text-slate-500">
+                Tıklayınca açılır • YouTube üzerinden oynatılır
+              </div>
             </div>
           </article>
         ))}
@@ -935,6 +974,30 @@ function RelatedServices() {
         desc="Kurumsal organizasyon sayfasını daha güçlü bir karar merkezi haline getirmek için ilgili çözümleri de aynı akışta topladık."
         center
       />
+
+      <div className="mx-auto mb-8 max-w-5xl rounded-[2rem] border border-slate-200 bg-white px-6 py-6 shadow-sm">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: "Daha hızlı keşif",
+              desc: "İlgili hizmetleri aynı akışta görmek, kapsamı daha kısa sürede netleştirmeye yardımcı olur.",
+            },
+            {
+              title: "Daha az koordinasyon turu",
+              desc: "Sahne, ekran ve teknik altyapıyı ayrı ayrı düşünmek yerine tek bütün olarak karar verebilirsiniz.",
+            },
+            {
+              title: "Daha güçlü proje okuması",
+              desc: "Referans akışı ve hizmet yapısı bir araya geldiğinde teklif görüşmesi daha verimli ilerler.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl bg-slate-50 px-4 py-4">
+              <div className="font-black text-slate-900">{item.title}</div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((item) => (
