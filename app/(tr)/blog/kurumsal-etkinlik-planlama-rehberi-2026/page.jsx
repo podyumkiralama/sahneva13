@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import IntentBridge from "@/components/seo/IntentBridge";
 import JsonLd from "@/components/seo/JsonLd";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
+import { INTENT_MAP } from "@/lib/seo/intentMap";
 import {
   BASE_SITE_URL,
   ORGANIZATION_ID,
@@ -858,6 +860,15 @@ export default function Page() {
                 currentCategory={metadata?.category}
                 currentKeywords={metadata?.keywords}
               />
+
+              <div className="mt-10">
+                <IntentBridge
+                  title="Bu rehber planlama niyetine hizmet eder"
+                  description="Kurumsal etkinlik planlama rehberi, uzun araştırma ve hazırlık niyetini karşılar. Hizmet ve teklif akışının ana merkezi ise kurumsal organizasyon sayfasıdır; bu rehber onu destekler."
+                  primaryPage={INTENT_MAP.corporate.primaryPage}
+                  supportPages={INTENT_MAP.corporate.supportPages.filter((item) => item.href !== "/blog/kurumsal-etkinlik-planlama-rehberi-2026")}
+                />
+              </div>
 
               <BlogRelatedLinks
                 services={[

@@ -1,10 +1,12 @@
 // app/blog/urun-lansmani-organizasyonu/page.jsx
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import IntentBridge from "@/components/seo/IntentBridge";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { INTENT_MAP } from "@/lib/seo/intentMap";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -344,6 +346,15 @@ export default function Page() {
               <span>✉️</span> E-posta Gönderin
             </a>
           </div>
+        </div>
+
+        <div className="not-prose mt-10">
+          <IntentBridge
+            title="Bu yazı kurumsal kümede alt senaryo niyetini karşılar"
+            description="Ürün lansmanı organizasyonu yazısı, kurumsal kümenin lansman odaklı araştırma niyetini hedefler. Ana hizmet ve teklif merkezi ise kurumsal organizasyon sayfasıdır."
+            primaryPage={INTENT_MAP.corporate.primaryPage}
+            supportPages={INTENT_MAP.corporate.supportPages.filter((item) => item.href !== "/blog/urun-lansmani-organizasyonu")}
+          />
         </div>
 
         <BlogRelatedLinks

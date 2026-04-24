@@ -15,12 +15,14 @@ import {
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import IntentBridge from "@/components/seo/IntentBridge";
 import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
+import { INTENT_MAP } from "@/lib/seo/intentMap";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 
 export const revalidate = 1800;
@@ -1435,6 +1437,14 @@ export default function Page() {
       <StatsAndUseCases />
       <FAQSection />
       <RelatedServices />
+      <SectionShell>
+        <IntentBridge
+          title="Kurumsal kümenin ana merkezi bu sayfa"
+          description="Kurumsal organizasyon kümesinde bu URL ana ticari hizmet sayfasıdır. Planlama, yönetim ve lansman yazıları ise araştırma niyetini karşılayan destek içeriklerdir; böylece aynı kelime alanında birbirini tekrar etmek yerine birbirini beslerler."
+          primaryPage={INTENT_MAP.corporate.primaryPage}
+          supportPages={INTENT_MAP.corporate.supportPages}
+        />
+      </SectionShell>
       <ServiceBlogLinks {...CONTENT_CLUSTERS.corporate} links={CONTENT_CLUSTERS.corporate.guides} />
       <CTASection />
     </>
