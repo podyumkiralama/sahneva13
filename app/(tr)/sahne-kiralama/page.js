@@ -27,6 +27,7 @@ const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
 const PHONE = "+905453048671";
 const WA_TEXT =
@@ -1816,6 +1817,16 @@ function StageJsonLd() {
         description: pageDescription,
         url: pageUrl,
         inLanguage: "tr-TR",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
+          width: 1200,
+          height: 630,
+          caption: HERO.alt,
+        },
         mainEntity: { "@id": serviceId },
       },
       ...productNodes,

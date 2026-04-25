@@ -403,6 +403,11 @@ function CorporateOrganizationJsonLd() {
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    inLanguage: "tr-TR",
+    isFamilyFriendly: true,
+    publisher: { "@id": ORGANIZATION_ID },
+    about: { "@id": serviceId },
+    mainEntityOfPage: { "@id": webPageId },
   }));
 
   const graph = [

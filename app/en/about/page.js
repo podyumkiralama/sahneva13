@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import {
+  BASE_SITE_URL,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -53,20 +57,24 @@ const SITE_URL = BASE_SITE_URL;
 function AboutStructuredData() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/en/about#webpage`,
-    url: `${SITE_URL}/en/about`,
-    name: "About Us | Sahneva - Professional Event Technologies",
-    description:
-      "Professional stage rentals, LED screens, sound-light systems and event production services",
-    image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
-    mainEntity: { "@id": ORGANIZATION_ID },
-    inLanguage: "en-US",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${SITE_URL}/en/about#webpage`,
+        url: `${SITE_URL}/en/about`,
+        name: "About Us | Sahneva - Professional Event Technologies",
+        description:
+          "Professional stage rentals, LED screens, sound-light systems and event production services",
+        image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
+        mainEntity: { "@id": ORGANIZATION_ID },
+        inLanguage: "en-US",
+      },
+    ],
   };
 
-  return (
-    <JsonLd data={schema} />
-  );
+  return <JsonLd data={schema} />;
 }
 
 // Base64 blur placeholder

@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import {
+  BASE_SITE_URL,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -53,15 +57,21 @@ const SITE_URL = BASE_SITE_URL;
 function AboutStructuredData() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/hakkimizda#webpage`,
-    url: `${SITE_URL}/hakkimizda`,
-    name: "Hakkımızda | Sahneva - Profesyonel Etkinlik Teknolojileri",
-    description:
-      "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri ve etkinlik prodüksiyon hizmetleri",
-    image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
-    mainEntity: { "@id": ORGANIZATION_ID },
-    inLanguage: "tr-TR",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${SITE_URL}/hakkimizda#webpage`,
+        url: `${SITE_URL}/hakkimizda`,
+        name: "Hakk??m??zda | Sahneva - Profesyonel Etkinlik Teknolojileri",
+        description:
+          "Profesyonel sahne kiralama, LED ekran, ses-??????k sistemleri ve etkinlik prod??ksiyon hizmetleri",
+        image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
+        mainEntity: { "@id": ORGANIZATION_ID },
+        inLanguage: "tr-TR",
+      },
+    ],
   };
 
   return <JsonLd data={schema} />;

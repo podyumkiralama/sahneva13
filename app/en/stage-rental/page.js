@@ -15,6 +15,7 @@ import { Music, Layout, Monitor, Layers } from "lucide-react";
 export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const SITE_URL = ORIGIN;
 const PHONE = "+905453048671";
 const PAGE_TITLE = "Stage Rental | Professional Stage Solutions";
@@ -1626,6 +1627,16 @@ function StageJsonLd() {
         description: pageDescription,
         url: pageUrl,
         inLanguage: "en-US",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
+          width: 1200,
+          height: 630,
+          caption: HERO.alt,
+        },
         mainEntity: { "@id": serviceId },
       },
       ...productNodes,

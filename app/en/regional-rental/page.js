@@ -39,7 +39,7 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
-function RegionalRentalJsonLd({ services, faqs, steps }) {
+function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
   const orgId = `${SITE}/#org`;
   const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
@@ -47,10 +47,19 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
   const catalogId = `${PAGE_URL}#offerCatalog`;
   const faqId = `${PAGE_URL}#faq`;
   const howtoId = `${PAGE_URL}#howto`;
+  const serviceId = `${PAGE_URL}#service`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: "Sahneva Organization",
+        url: SITE,
+        telephone: "+90 545 304 86 71",
+        areaServed: { "@type": "Country", name: "Turkey" },
+      },
       {
         "@type": "WebSite",
         "@id": webId,
@@ -67,7 +76,7 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
         description:
           "Event equipment rental across Turkey: LED screen, truss, stage/podium, and sound-lighting. Installation, testing, and dismantling included.",
         isPartOf: { "@id": webId },
-        about: { "@id": orgId },
+        about: { "@id": serviceId },
         inLanguage: "en-US",
         breadcrumb: { "@id": breadcrumbId },
       },
@@ -78,6 +87,18 @@ function RegionalRentalJsonLd({ services, faqs, steps }) {
           { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/en` },
           { "@type": "ListItem", position: 2, name: "Regional Rental", item: PAGE_URL },
         ],
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        name: "Regional Rental",
+        serviceType: "Event equipment rental, installation, and operations",
+        provider: { "@id": orgId },
+        areaServed: [
+          { "@type": "Country", name: "Turkey" },
+          ...regions.map((region) => ({ "@type": "City", name: region.name })),
+        ],
+        hasOfferCatalog: { "@id": catalogId },
       },
       {
         "@type": "OfferCatalog",
@@ -264,7 +285,7 @@ export default function Page() {
 
   return (
     <main className="relative overflow-hidden">
-      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} />
+      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
       <RegionalRentalClient
         regions={regions}
         services={services}

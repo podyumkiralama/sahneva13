@@ -1,7 +1,12 @@
 // app/en/contact/page.js
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
-import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import {
+  BASE_SITE_URL,
+  LOCAL_BUSINESS_ID,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 const PAGE_URL = `${BASE_SITE_URL}/en/contact`;
 
@@ -58,20 +63,24 @@ const GMB_REVIEW_URL = "https://g.page/r/CZhkMzkNOdgnEBI/review";
 function ContactStructuredData() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Sahneva Contact",
-    description:
-      "Professional stage rental, LED screen and sound-light systems contact information",
-    url: PAGE_URL,
-    image: `${BASE_SITE_URL}/img/hero-bg.webp`,
-    mainEntity: {
-      "@id": ORGANIZATION_ID,
-    },
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${PAGE_URL}#contact-page`,
+        url: PAGE_URL,
+        name: "Sahneva Contact",
+        description:
+          "Professional stage rental, LED screen and sound-light systems contact information",
+        image: `${BASE_SITE_URL}/img/hero-bg.webp`,
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
+        mainEntity: { "@id": LOCAL_BUSINESS_ID },
+        inLanguage: "en-US",
+      },
+    ],
   };
 
-  return (
-    <JsonLd data={schema} />
-  );
+  return <JsonLd data={schema} />;
 }
 
 export default function ContactPage() {
