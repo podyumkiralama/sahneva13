@@ -18,7 +18,7 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
     "'unsafe-inline'",
-    "https:",    
+    "https:",
   ].join(" ");
 
   const connectSrc = [
@@ -95,6 +95,7 @@ function getRequestHost(request) {
   )
     .split(",")[0]
     .trim();
+
   const [hostname, port] = host.split(":");
 
   if (!port || isLocalHost(hostname) || port === "80" || port === "443") {
@@ -144,6 +145,7 @@ export function proxy(request) {
       `${request.nextUrl.pathname}${request.nextUrl.search}`,
       `https://${getRequestHost(request)}`
     );
+
     return NextResponse.redirect(url, 308);
   }
 
