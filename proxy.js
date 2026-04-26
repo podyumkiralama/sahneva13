@@ -18,8 +18,7 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
     "'unsafe-inline'",
-    "https:",
-    "http:",
+    "https:",    
   ].join(" ");
 
   const connectSrc = [
