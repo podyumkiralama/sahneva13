@@ -73,7 +73,6 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     frame-src ${frameSrc};
     form-action 'self' https://formspree.io https://wa.me;
     trusted-types nextjs goog#html sahneva#script-url nextjs#bundler default;
-    require-trusted-types-for 'script';
   `
     .replace(/\s{2,}/g, " ")
     .trim();

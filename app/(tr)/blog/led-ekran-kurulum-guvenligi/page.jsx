@@ -511,9 +511,7 @@ export default function Page() {
         <SourcesBox />
 
         <BlogRelatedLinks
-          title="LED ekran güvenliğiyle ilişkili sayfalar"
-          description="Kurulum güvenliği kararını destekleyen LED ekran, truss, sahne ve kurumsal prodüksiyon sayfalarına buradan geçebilirsiniz."
-          links={[
+          services={[
             { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
             { href: "/truss-kiralama", label: "Truss Kiralama" },
             { href: "/sahne-kiralama", label: "Sahne Kiralama" },
