@@ -137,7 +137,7 @@ export const metadata = {
   },
   image: HERO_IMG,
   category: "LED Ekran",
-  readTime: "8-10 dk okuma",
+  readTime: "10-12 dk okuma",
   keywords: [
     "LED ekran kurulum güvenliği",
     "LED ekran kiralama güvenlik",
@@ -165,7 +165,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Ekran Kurulum Güvenliği",
+    title: "LED Ekran Kurulumu Güvenli mi?",
     description: DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMG}`],
   },
@@ -456,7 +456,7 @@ export default function Page() {
   const breadcrumbItems = [
     { name: "Anasayfa", url: SITE_URL },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: "LED Ekran Kurulum Güvenliği", url: BLOG_URL },
+    { name: "LED Ekran Kurulumu Güvenli mi?", url: BLOG_URL },
   ];
 
   return (
@@ -471,12 +471,12 @@ export default function Page() {
           alt: "Açık hava etkinliğinde LED ekran kurulumu ve teknik güvenlik planı",
         }}
         pills={["Sahneva Blog", "LED Ekran", "ISG & Kurulum Güvenliği"]}
-        title="LED Ekran Kurulum Güvenliği"
-        highlight="Etkinlikler İçin Saha Rehberi"
+        title="LED Ekran Kurulumu Güvenli mi?"
+        highlight="2026 Teknik Saha Rehberi"
         description={DESCRIPTION}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
-        readTime="8-10 dk okuma"
+        readTime="10-12 dk okuma"
         primaryLinks={[
           { href: "/led-ekran-kiralama", label: "LED ekran teklifi al", icon: "→" },
           { href: "/kurumsal-organizasyon", label: "Kurumsal prodüksiyon", icon: "↗" },
