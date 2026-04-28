@@ -26,9 +26,9 @@ const GALLERY_STAGE_IMG = "/img/galeri/led-ekran-kiralama-31.webp";
 const GALLERY_BACKSTAGE_IMG = "/img/galeri/led-ekran-kiralama-32.webp";
 const GALLERY_OUTDOOR_IMG = "/img/galeri/led-ekran-kiralama-30.webp";
 
-const TITLE = "LED Ekran Kurulum Güvenliği | Etkinlikler İçin Saha Rehberi";
+const TITLE = "LED Ekran Kurulumu Güvenli mi? | 2026 Teknik Saha Rehberi";
 const DESCRIPTION =
-  "Kiralık LED ekran kurulumunda taşıyıcı sistem, elektrik, rüzgar, kablolama, ISG, yüksekte çalışma ve mesleki yeterlilik başlıklarıyla güvenli etkinlik rehberi.";
+  "LED ekran kurulumu doğru taşıyıcı sistem, rüzgar hesabı, elektrik güvenliği ve yetkin teknik ekiple güvenlidir. Açık hava, truss, ground support ve ISG kontrolleri için 2026 saha rehberi.";
 
 const WA_URL =
   "https://wa.me/905453048671?text=" +
@@ -37,6 +37,10 @@ const WA_URL =
   );
 
 const TOC_ITEMS = [
+  { href: "#led-ekran-guvenli-mi", label: "LED ekran güvenli mi?" },
+  { href: "#led-ekran-devrilir-mi", label: "LED ekran devrilir mi?" },
+  { href: "#kac-kg", label: "LED ekran kaç kg?" },
+  { href: "#kac-kisi", label: "Kaç kişilik ekip gerekir?" },
   { href: "#neden-guvenlik", label: "Neden kritik" },
   { href: "#kesif", label: "Teknik keşif" },
   { href: "#tasiyici-sistem", label: "Taşıyıcı sistem" },
@@ -64,6 +68,36 @@ const SAFETY_CHECKS = [
 ];
 
 const FAQ_ITEMS = [
+  {
+    question: "LED ekran kurulumu güvenli mi?",
+    answer:
+      "Evet, LED ekran kurulumu doğru taşıyıcı sistem, rüzgar ve zemin kontrolü, elektrik güvenliği, kablo yönetimi ve yetkin teknik ekiple yapıldığında güvenlidir. Risk genellikle panelden değil; yanlış sabitleme, yetersiz ballast, hatalı enerji hattı veya kontrolsüz saha uygulamasından doğar.",
+  },
+  {
+    question: "LED ekran devrilir mi?",
+    answer:
+      "LED ekran doğru taşıyıcı sistem, uygun ballast, sağlam zemin kontrolü ve hava koşullarına göre planlandığında devrilme riski yönetilebilir. Risk çoğunlukla yanlış sabitleme, yetersiz taşıyıcı sistem veya açık hava rüzgar senaryosunun hesaba katılmamasından kaynaklanır.",
+  },
+  {
+    question: "LED ekran yağmurda çalışır mı?",
+    answer:
+      "Outdoor LED ekranlar uygun IP koruma sınıfına sahip olduğunda yağmur koşullarında kullanılabilir. Ancak kablo bağlantıları, enerji dağıtımı, kontrol ekipmanı, kaçak akım koruması ve saha drenajı ayrıca planlanmalıdır.",
+  },
+  {
+    question: "LED ekran kurulumu için kaç kişilik ekip gerekir?",
+    answer:
+      "Ekip sayısı ekran ölçüsüne, kurulum yüksekliğine, mekan koşullarına ve taşıyıcı sistem tipine göre değişir. Küçük iç mekan kurulumları daha az personelle yapılabilirken, açık hava ve truss destekli büyük ekranlarda montaj, elektrik, rigging ve kontrol sistemi için ayrı görev paylaşımı gerekir.",
+  },
+  {
+    question: "LED ekran kurulumu kaç saat sürer?",
+    answer:
+      "Kurulum süresi ekranın metrekare ölçüsüne, mekan erişimine, taşıyıcı sisteme, enerji altyapısına ve test sürecine göre değişir. Güvenli kurulumda yalnızca panel dizilimi değil, görüntü testi, enerji kontrolü ve acil müdahale erişimi de süreye dahildir.",
+  },
+  {
+    question: "Açık hava LED ekran için truss şart mı?",
+    answer:
+      "Her açık hava LED ekran kurulumu için truss şart değildir; ancak ekran ölçüsü, yükseklik, zemin ve rüzgar senaryosu büyüdükçe truss, ground support veya özel taşıyıcı sistem ihtiyacı doğabilir. Bu karar teknik keşifte verilmelidir.",
+  },
   {
     question: "LED ekran kurulumunda en büyük risk nedir?",
     answer:
@@ -160,6 +194,10 @@ function ArticleSchema() {
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".geo-answer", "#sss"],
+        },
         about: [
           { "@type": "Thing", name: "LED ekran kurulum güvenliği" },
           { "@type": "Thing", name: "İş sağlığı ve güvenliği" },
@@ -200,6 +238,45 @@ function ArticleSchema() {
           acceptedAnswer: { "@type": "Answer", text: item.answer },
         })),
       },
+      {
+        "@type": "HowTo",
+        "@id": `${BLOG_URL}#howto`,
+        name: "LED ekran kurulumu güvenli şekilde nasıl planlanır?",
+        description:
+          "Etkinliklerde LED ekran kurulumu için keşif, taşıyıcı sistem, elektrik güvenliği, hava koşulları ve kurulum sonrası test adımları.",
+        supply: [
+          { "@type": "HowToSupply", name: "LED ekran panel sistemi" },
+          { "@type": "HowToSupply", name: "Taşıyıcı sistem veya truss" },
+          { "@type": "HowToSupply", name: "Enerji ve kontrol altyapısı" },
+        ],
+        step: [
+          {
+            "@type": "HowToStep",
+            name: "Teknik keşif yapın",
+            text: "Mekan ölçüsü, zemin, enerji noktası, izleyici akışı ve kurulum saatlerini kontrol edin.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Taşıyıcı sistemi belirleyin",
+            text: "Ekranın askı, ground support, mobil şase veya sahne üstü kurulumla taşınacağını netleştirin.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Elektrik güvenliğini planlayın",
+            text: "Topraklama, kaçak akım, kablo kesiti, güç dağıtımı ve jeneratör senaryosunu kontrol edin.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Açık hava risklerini değerlendirin",
+            text: "Rüzgar, yağmur, sıcaklık, ballast ve acil söküm senaryosunu kurulumdan önce planlayın.",
+          },
+          {
+            "@type": "HowToStep",
+            name: "Kurulum sonrası test yapın",
+            text: "Panel hizası, görüntü akışı, yedek ekipman, kablo güzergahı ve acil erişim noktalarını test edin.",
+          },
+        ],
+      },
     ],
   };
 
@@ -231,6 +308,68 @@ function FieldNote({ title, children }) {
       <h3 className="mt-3 text-2xl font-black text-slate-950">{title}</h3>
       <div className="mt-3 text-base leading-relaxed text-slate-700">{children}</div>
     </div>
+  );
+}
+
+function ShortAnswer() {
+  return (
+    <div className="geo-answer not-prose my-8 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Kısa cevap</p>
+      <p className="mt-3 text-lg leading-relaxed text-slate-800">
+        LED ekran kurulumu, doğru taşıyıcı sistem, rüzgar ve zemin kontrolü, elektrik güvenliği,
+        kablo yönetimi ve yetkin teknik ekiple yapıldığında güvenlidir. Risk genellikle panelden
+        değil; yanlış sabitleme, yetersiz ballast, hatalı enerji hattı ve kontrolsüz saha
+        uygulamasından doğar.
+      </p>
+    </div>
+  );
+}
+
+function TechnicalRanges() {
+  const items = [
+    {
+      title: "Panel ağırlığı",
+      text:
+        "Kullanılan kabin tipine göre değişir. Bu yüzden metrekare başına ağırlık, teklif aşamasında kullanılan panel modeliyle birlikte hesaplanmalıdır.",
+    },
+    {
+      title: "Rüzgar senaryosu",
+      text:
+        "Açık hava kurulumlarında rüzgar yalnızca hava durumu bilgisi olarak değil, taşıyıcı sistem ve ballast kararını etkileyen ana risk olarak ele alınmalıdır.",
+    },
+    {
+      title: "Enerji hattı",
+      text:
+        "Güç dağıtımı, topraklama, kaçak akım koruması, kablo kesiti ve jeneratör senaryosu kurulumdan önce netleştirilmelidir.",
+    },
+    {
+      title: "Ekip planı",
+      text:
+        "Ekran ölçüsü, yükseklik, zemin ve kurulum süresine göre panel montajı, rigging, elektrik ve kontrol sistemi için görev ayrımı yapılmalıdır.",
+    },
+  ];
+
+  return (
+    <section className="not-prose my-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+        Pratik teknik aralıklar
+      </p>
+      <h2 className="mt-3 text-3xl font-black text-slate-950">
+        LED ekran kurulumunda yaklaşık kontrol değerleri
+      </h2>
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
+        Aşağıdaki başlıklar kesin kapasite veya süre vaadi değildir. Panel modeli, truss tipi,
+        zemin, ballast, hava koşulu ve kurulum yüksekliği teknik keşifte birlikte hesaplanmalıdır.
+      </p>
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        {items.map((item) => (
+          <div key={item.title} className="rounded-2xl bg-slate-50 p-5">
+            <p className="m-0 font-black text-slate-950">{item.title}</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -349,12 +488,53 @@ export default function Page() {
         currentCategory="LED Ekran"
         currentKeywords={["LED ekran", "kurulum güvenliği", "ISG", "outdoor LED", "truss"]}
       >
+        <ShortAnswer />
+
         <p>
           LED ekran kiralama tarafında en çok konuşulan konular genellikle pixel pitch, parlaklık, metrekare ve fiyat olur. Oysa etkinlik günü gerçek kaliteyi belirleyen daha sessiz bir katman vardır: ekranın güvenli kurulup kurulmadığı. Özellikle konser, festival, belediye etkinliği, fuar standı, kurumsal lansman ve açık hava organizasyonlarında LED ekran artık yalnızca görüntü yüzeyi değildir; taşıyıcı sistem, elektrik altyapısı, ekip hareketi ve izleyici güvenliğiyle birlikte düşünülmesi gereken bir prodüksiyon unsurudur.
         </p>
 
         <p>
           Bu rehber; LED ekran üretimi ya da satın alma kararından çok, kiralık LED ekranın etkinlik alanında güvenli şekilde kurulmasına odaklanır. Amaç, müşterinin teklif isterken hangi bilgileri paylaşması gerektiğini, organizasyon ekibinin hangi riskleri sorması gerektiğini ve teknik ekibin sahada hangi kontrol sırasını izlemesi gerektiğini anlaşılır hale getirmektir.
+        </p>
+
+        <h2 id="led-ekran-guvenli-mi">LED ekran kurulumu güvenli mi?</h2>
+        <p>
+          Evet, LED ekran kurulumu doğru mühendislik, teknik keşif ve saha kontrolüyle güvenlidir.
+          Ancak ekran ölçüsü büyüdükçe taşıyıcı sistem, rüzgar yükü, enerji hattı, kablo güzergahı
+          ve personel güvenliği birlikte değerlendirilmelidir. Güvenli kurulumun özü paneli hızlıca
+          dizmek değil; ekranın etkinlik boyunca aynı güvenli konumda çalışmasını sağlamaktır.
+        </p>
+
+        <p>
+          Sahneva Organizasyon, <a href="/led-ekran-kiralama">güvenli LED ekran kiralama</a> projelerinde
+          ekranı yalnızca görüntü yüzeyi olarak değil; sahne, <a href="/truss-kiralama">LED ekran taşıyıcı truss sistemi</a>,
+          ses-ışık, enerji, kablo yönetimi ve saha güvenliğiyle birlikte ele alır. Bu yaklaşım özellikle
+          kurumsal lansman, festival, belediye etkinliği ve açık hava organizasyonlarında kurulum riskini azaltır.
+        </p>
+
+        <h2 id="led-ekran-devrilir-mi">LED ekran devrilir mi?</h2>
+        <p>
+          LED ekranın devrilme riski çoğunlukla panelden değil; yanlış taşıyıcı sistemden, yetersiz
+          ballast kullanımından, zeminin hesaba katılmamasından veya açık hava rüzgar senaryosunun
+          planlanmamasından kaynaklanır. Bu yüzden açık hava kurulumlarında ekranın outdoor panel
+          olması tek başına yeterli kabul edilmez.
+        </p>
+
+        <h2 id="kac-kg">LED ekran kaç kg gelir?</h2>
+        <p>
+          LED ekran ağırlığı panel modeline, kabin tipine, metrekare ölçüsüne, taşıyıcı sisteme ve
+          kullanılan aksesuar ekipmanlara göre değişir. Bu nedenle “şu metrekare ekran kesin şu
+          kilogramdır” şeklinde bağlayıcı bir değer vermek doğru değildir. Güvenli teklif için
+          kullanılacak panel modeli ve taşıyıcı sistem birlikte hesaplanmalıdır.
+        </p>
+
+        <h2 id="kac-kisi">LED ekran kurulumu için kaç kişilik ekip gerekir?</h2>
+        <p>
+          Ekip sayısı ekran ölçüsüne, kurulum yüksekliğine, mekan erişimine, taşıyıcı sisteme ve
+          kurulum süresine göre değişir. Küçük iç mekan kurulumlarında daha kompakt ekip yeterli
+          olabilir; açık hava, truss destekli veya yüksek metrekareli projelerde panel montajı,
+          rigging, elektrik ve görüntü kontrolü için görev ayrımı yapılmalıdır.
         </p>
 
         <ImgFigure
@@ -419,6 +599,8 @@ export default function Page() {
         <p>
           Güneş altında uzun süre çalışan panellerde ısı yönetimi, hava sirkülasyonu ve kabin arkasındaki servis erişimi önemlidir. Kış şartlarında ise düşük sıcaklık, nem ve kablo esnekliği gibi pratik başlıklar devreye girer. Bu yüzden açık hava kurulumlarında yalnızca “outdoor panel” ifadesi yeterli değildir; panelin nasıl taşınacağı, nasıl sabitleneceği ve hangi hava senaryosunda nasıl yönetileceği de planın içinde olmalıdır.
         </p>
+
+        <TechnicalRanges />
 
         <h2 id="personel-isg">Personel güvenliği: ISG, yüksekte çalışma ve mesleki yeterlilik</h2>
         <p>
