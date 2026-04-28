@@ -465,7 +465,7 @@ function FormatsSection() {
 
               <div className={`absolute inset-0 flex flex-col justify-end p-6 ${isPrimary ? "md:p-8" : ""}`}>
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/55">
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/80">
                     0{index + 1}
                   </span>
                   <span className="rounded-lg border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-normal text-white/70">
@@ -505,7 +505,7 @@ function FormatsSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
                       <div className="flex items-center justify-between gap-4">
-                        <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/55">03</span>
+                        <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/80">03</span>
                         <span className="rounded-lg border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-normal text-white/70">
                           {formatNotes[2]}
                         </span>
@@ -766,13 +766,13 @@ function VideoShowcaseSection() {
               <span className="rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-normal text-blue-200">
                 {featuredVideo.eyebrow}
               </span>
-              <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-white/55">
+              <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-white/80">
                 Öne çıkan video
               </span>
             </div>
 
             <h3 className="mt-4 max-w-[16ch] text-3xl font-black text-white md:text-4xl">{featuredVideo.title}</h3>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">{featuredVideo.description}</p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">{featuredVideo.description}</p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
@@ -809,17 +809,17 @@ function VideoShowcaseSection() {
                       <span className="inline-flex rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-normal text-blue-200">
                         {video.eyebrow}
                       </span>
-                      <span className="text-[0.68rem] font-semibold uppercase tracking-normal text-white/40">
+                      <span className="text-[0.68rem] font-bold uppercase tracking-normal text-white/85">
                         Video {index + 2}
                       </span>
                     </div>
                     <h3 id={`corporate-video-${video.id}-title`} className="mt-4 text-2xl font-black text-white">
                       {video.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/68 md:text-base">{video.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-white/85 md:text-base">{video.description}</p>
                   </div>
 
-                  <div className="mt-5 flex items-center gap-2 text-sm font-medium text-white/50">
+                  <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-white/80">
                     <Clapperboard className="h-4 w-4" aria-hidden="true" />
                     Tıklayınca açılır, YouTube üzerinden oynatılır
                   </div>
