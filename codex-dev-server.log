@@ -5,12 +5,10 @@
 ▲ Next.js 16.2.4 (Turbopack)
 - Local:         http://127.0.0.1:3000
 - Network:       http://127.0.0.1:3000
-✓ Ready in 1443ms
+✓ Ready in 672ms
 - Experiments (use with caution):
   · optimizePackageImports
 
- GET /kurumsal-organizasyon 200 in 4.0s (next.js: 360ms, proxy.ts: 333ms, application-code: 3.3s)
- GET /kurumsal-organizasyon 200 in 538ms (next.js: 9ms, proxy.ts: 12ms, application-code: 517ms)
- GET /kurumsal-organizasyon 200 in 1501ms (next.js: 39ms, proxy.ts: 24ms, application-code: 1437ms)
- GET /kurumsal-organizasyon 200 in 1469ms (next.js: 29ms, proxy.ts: 605ms, application-code: 835ms)
- GET /kurumsal-organizasyon 200 in 469ms (next.js: 7ms, proxy.ts: 13ms, application-code: 449ms)
+ GET /kurumsal-organizasyon 200 in 2.8s (next.js: 142ms, proxy.ts: 269ms, application-code: 2.4s)
+ GET /kurumsal-organizasyon 200 in 719ms (next.js: 9ms, proxy.ts: 14ms, application-code: 697ms)
+ GET /kurumsal-organizasyon 200 in 593ms (next.js: 12ms, proxy.ts: 15ms, application-code: 566ms)

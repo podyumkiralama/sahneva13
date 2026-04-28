@@ -18,267 +18,47 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
+import {
+  BASE_SITE_URL,
+  LOCAL_BUSINESS_ID,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import {
+  ASSURANCE_ITEMS,
+  FAQ_ITEMS,
+  FORMAT_ITEMS,
+  GALLERY_IMAGES,
+  GUIDE_AUTHOR,
+  GUIDE_CONTENTS,
+  GUIDE_PROMISES,
+  GUIDE_UPDATED,
+  GUIDE_UPDATED_ISO,
+  HERO,
+  HERO_STATS,
+  OVERVIEW_POINTS,
+  PACKAGE_OPTIONS,
+  PLANNING_STEPS,
+  SERVICE_ITEMS,
+  TECHNICAL_POINTS,
+  USE_CASES,
+  VIDEO_GALLERY,
+} from "./data";
 
 export const revalidate = 1800;
 
-const ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://www.sahneva.com";
-
-const ORGANIZATION_ID = `${ORIGIN}/#org`;
-const WEBSITE_ID = `${ORIGIN}/#website`;
+const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";
-const WA_TEXT =
-  "Merhaba%2C+kurumsal+organizasyon+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonferans%2Flansman%2Fgala%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
-const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
-
-const HERO = {
-  src: "/img/kurumsal/hero.webp",
-  alt: "Kurumsal organizasyon için sahne, LED ekran ve salon kurulumu",
-  sizes: "(max-width: 1440px) 100vw, 1440px",
+const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
+  const text = `Merhaba, ${intent} için teklif istiyorum. Etkinlik türü: [konferans/lansman/gala], Tarih: [gg.aa.yyyy], Kişi sayısı: [xxx].`;
+  return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
 
-const HERO_STATS = [
-  { value: "10+ yıl", label: "Deneyim" },
-  { value: "700+", label: "Başarılı proje" },
-  { value: "81 il", label: "Hizmet alanı" },
-];
-
-const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
-const GUIDE_UPDATED = "28 Nisan 2026";
-const GUIDE_UPDATED_ISO = "2026-04-28T00:00:00+03:00";
-
-const ASSURANCE_ITEMS = [
-  "Tek keşif ve tek run-of-show",
-  "Yedekli güç ve kontrol planı",
-  "Saha günü tek operasyon muhatabı",
-  "Kurulumdan söküme planlı kapanış",
-];
-
-const GUIDE_PROMISES = [
-  "Kurumsal organizasyon şirketi seçerken hangi kriterlere bakmanız gerektiği",
-  "Konferans, lansman ve gala formatlarında teknik kapsamın nasıl ayrıştığı",
-  "Sahne, LED ekran, ses, ışık ve prova planının tek akışta nasıl yönetildiği",
-  "Teklif almadan önce bütçeyi etkileyen temel kararların nasıl netleşeceği",
-];
-
-const GUIDE_CONTENTS = [
-  { href: "#ne-sunar", label: "Kurumsal organizasyon ne sunar?" },
-  { href: "#planlama", label: "Planlama akışı nasıl kurulmalı?" },
-  { href: "#formatlar", label: "Hangi etkinlik formatları farklı yaklaşım ister?" },
-  { href: "#teknik-altyapi", label: "Teknik altyapıda kritik kararlar neler?" },
-  { href: "#hizmetler", label: "Hizmet kapsamına neler dahil?" },
-  { href: "#paketler", label: "Kapsam ve teklif nasıl netleşir?" },
-  { href: "#projeler", label: "Referans görseller nasıl okunmalı?" },
-  { href: "#sss", label: "Sık sorulan sorular" },
-];
-
-const OVERVIEW_POINTS = [
-  {
-    title: "Tek operasyon masası",
-    desc: "Sahne, LED ekran, ses, ışık ve saha akışı aynı plan üzerinde ilerler.",
-  },
-  {
-    title: "Yedekli teknik yaklaşım",
-    desc: "Kritik sistemlerde güç, kontrol ve akış için yedek senaryolar oluşturulur.",
-  },
-  {
-    title: "Kurumsal ritme uygun plan",
-    desc: "Protokol, konuşmacı akışı ve prova saatleri marka ekibiyle birlikte netleşir.",
-  },
-  {
-    title: "Tekliften rapora süreklilik",
-    desc: "Keşif, kurulum, etkinlik günü ve söküm tek ekipte toplanır.",
-  },
-];
-
-const FORMAT_ITEMS = [
-  {
-    title: "Lansman ve basın buluşması",
-    desc: "Sahne anlatısı, LED içerik akışı ve medya görünürlüğü aynı prova planına bağlanır.",
-    src: "/img/kurumsal/lansman.webp",
-    alt: "Ürün lansmanı için kurumsal sahne kurulumu",
-  },
-  {
-    title: "Bayi toplantısı ve konferans",
-    desc: "Sunum netliği, oturma düzeni ve salon akustiği birlikte ele alınır.",
-    src: "/img/kurumsal/bayi-toplantisi.webp",
-    alt: "Bayi toplantısı için konferans salonu kurulumu",
-  },
-  {
-    title: "Gala ve ödül gecesi",
-    desc: "Şov akışı, protokol yerleşimi ve sahne atmosferi daha kontrollü ilerler.",
-    src: "/img/kurumsal/kurumsal-sahne-led-ekran.webp",
-    alt: "Gala gecesi için sahne ve LED ekran prodüksiyonu",
-  },
-];
-
-const PACKAGE_OPTIONS = [
-  {
-    title: "Toplantı ve konferans paketi",
-    desc: "Sahne, sunum ekranı, temel ses sistemi ve teknik yönetimle kontrollü bir kurumsal akış.",
-    cta: "Toplantı kapsamını konuş",
-  },
-  {
-    title: "Lansman ve görsel deneyim paketi",
-    desc: "LED ekran, sahne tasarımı, içerik akışı ve prova planıyla daha güçlü bir sahne deneyimi.",
-    cta: "Lansman planı iste",
-  },
-  {
-    title: "Gala ve premium gece paketi",
-    desc: "Protokol düzeni, şov akışı, dekoratif ışık ve operasyon koordinasyonu tek çatı altında.",
-    cta: "Gala keşfi talep et",
-  },
-];
-
-const PLANNING_STEPS = [
-  {
-    title: "Etkinlik formatını netleştirme",
-    desc: "Konferans, lansman, gala veya bayi toplantısı gibi formatı baştan netleştirmek sahne dilini ve ekipman seçimini kolaylaştırır.",
-  },
-  {
-    title: "Mekân ve akış kontrolü",
-    desc: "Salon ölçüsü, yükleme alanı, katılımcı dolaşımı ve protokol düzeni ilk keşifte bir araya getirilir.",
-  },
-  {
-    title: "Teknik senaryo ve prova planı",
-    desc: "LED içerik sırası, konuşmacı geçişi, ses düzeni ve ışık senaryosu prova saatlerine bağlanır.",
-  },
-  {
-    title: "Etkinlik günü ve kapanış",
-    desc: "Kurulum, sahne yönetimi, söküm ve teslim adımları aynı operasyon planıyla kapatılır.",
-  },
-];
-
-const SERVICE_ITEMS = [
-  {
-    title: "Konferans ve seminer organizasyonu",
-    desc: "Konuşmacı sahnesi, sunum ekranı, ses sistemi ve salon akışını birlikte planlıyoruz.",
-  },
-  {
-    title: "Ürün lansman organizasyonu",
-    desc: "Görsel etki, içerik akışı ve marka deneyimi için daha güçlü sahne kurguları hazırlıyoruz.",
-  },
-  {
-    title: "Gala ve ödül töreni",
-    desc: "Şık gece atmosferi, sahne geçişleri ve protokol yerleşimi tek operasyon mantığında ilerliyor.",
-  },
-  {
-    title: "Açık hava ve büyük katılımlı etkinlik",
-    desc: "Güç, görünürlük ve lojistik planı daha geniş saha şartlarına göre ölçekleniyor.",
-  },
-  {
-    title: "Roadshow ve fuar desteği",
-    desc: "Marka standı, mobil kurulum ve tekrar eden etkinlik ritmini hızlandırıyoruz.",
-  },
-  {
-    title: "Teknik altyapı ve operasyon desteği",
-    desc: "Jeneratör, UPS, yedek kontrol ve etkinlik günü koordinasyonu aynı ekipte toplanıyor.",
-  },
-];
-
-const GALLERY_IMAGES = [
-  {
-    src: "/img/kurumsal/konferans.webp",
-    alt: "Kurumsal konferans sahnesi ve ekran kurulumu",
-  },
-  {
-    src: "/img/kurumsal/lansman.webp",
-    alt: "Kurumsal lansman sahnesi",
-  },
-  {
-    src: "/img/kurumsal/bayi-toplantisi.webp",
-    alt: "Bayi toplantısı salon kurulumu",
-  },
-  {
-    src: "/img/kurumsal/7.webp",
-    alt: "Kurumsal gece ve masa düzeni",
-  },
-  {
-    src: "/img/kurumsal/8.webp",
-    alt: "Kurumsal etkinlik teknik ekran yerleşimi",
-  },
-];
-
-const VIDEO_GALLERY = [
-  {
-    id: "1R5Av0x5ouA",
-    eyebrow: "Kurulum temposu",
-    title: "Kurulum ve sahne prodüksiyon akışı",
-    description:
-      "Sahne kurulumu, LED ekran entegrasyonu ve etkinliğe hazırlık temposunu tek akışta gösteren kısa saha videosu.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "JNzGlNzNRuk",
-    eyebrow: "Teknik hazırlık",
-    title: "Hızlı kurulum ve teknik hazırlık",
-    description:
-      "Dar zamanlı projelerde kurulum hızını ve teknik ekip refleksini gösteren gerçek uygulama kesiti.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-  {
-    id: "173gBurWSRQ",
-    eyebrow: "Gerçek uygulama",
-    title: "Etkinlikten gerçek LED ve sahne örnekleri",
-    description:
-      "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-  },
-];
-
-const TECHNICAL_POINTS = [
-  "İzleme mesafesine uygun ekran ve sahne görünürlüğü",
-  "Salon veya açık alan koşullarına uygun ses kapsamı",
-  "Yedekli güç, kontrol ve kritik ekipman planı",
-  "Canlı yayın veya hibrit akış ihtiyaçlarının önceden netleşmesi",
-];
-
-const USE_CASES = [
-  "Konferans ve seminerler",
-  "Ürün lansmanları",
-  "Gala ve ödül törenleri",
-  "Bayi toplantıları",
-  "Fuar ve roadshow projeleri",
-  "Kurumsal kutlama geceleri",
-];
-
-const FAQ_ITEMS = [
-  {
-    q: "Kurumsal organizasyon şirketleri ne yapar?",
-    a: "Kurumsal organizasyon şirketleri; hedef, içerik akışı, teknik prodüksiyon ve saha operasyonunu birlikte yönetir. Sahne, LED ekran, ses ve ışık gibi kalemleri tek plan üzerinde birleştirir. Yalnızca ekipman temin etmekle kalmaz; etkinlik öncesi keşif, prova planlaması ve etkinlik günü sahne yönetimi de bu kapsamın içine girer.",
-  },
-  {
-    q: "Kurumsal etkinlikte teklif hangi bilgilere göre hazırlanır?",
-    a: "Etkinlik formatı, şehir veya mekân bilgisi, kişi sayısı, süre ve görsel beklenti teklif çalışmasının temelini oluşturur. Detaylı kurgu keşif sonrası netleşir. İlk görüşmede bu başlıkları paylaşmanız, daha hızlı bir ön kapsam ve daha doğru bir bütçe aralığı görmenizi sağlar.",
-  },
-  {
-    q: "İstanbul dışındaki projelerde de destek veriyor musunuz?",
-    a: "Evet. İstanbul merkezli operasyon yürütsek de Türkiye genelinde kurulum ve teknik destek sağlayabiliyoruz. Ankara, İzmir, Bursa ve diğer büyük şehirlerde ekipman lojistiği ile saha ekibi koordinasyonunu aynı plan üzerinden yürütebiliyoruz.",
-  },
-  {
-    q: "Fiyat aralıkları neden ilk görüşmede kesinleşmiyor?",
-    a: "Sahne ölçüsü, LED metrajı, kurulum süresi, prova yoğunluğu ve teknik ekip planı fiyatı doğrudan etkiler. Bu yüzden ilk paylaşılan rakamlar tahmini bütçe niteliğindedir. Mekân keşfi ve teknik kapsam netleştiğinde kalemler daha görünür hale gelir ve sürpriz maliyet ihtimali azalır.",
-  },
-  {
-    q: "Canlı yayın ve hibrit etkinlik altyapısı dahil edilebilir mi?",
-    a: "Evet. Gerekli olduğunda sahne içi görüntüleme, kayıt, streaming ve kontrol akışı da kurumsal etkinlik planına dahil edilir. Hibrit formatlarda salon içi deneyim ile yayın tarafındaki beklentiyi birlikte düşünmek gerekir; teknik kurgu buna göre ayrıca şekillendirilir.",
-  },
-  {
-    q: "Etkinlik günü sahada kim koordinasyonu yönetir?",
-    a: "Her projede sahadaki ana muhatap teknik koordinatördür. Sahne, ses, ışık ve LED ekranı ayrı ayrı takip eden birden fazla kişiyle değil; tüm akışı tek elden yöneten bir ekip yapısıyla ilerlemek iletişim karmaşasını azaltır.",
-  },
-  {
-    q: "Kurumsal organizasyonda prova süreci nasıl işler?",
-    a: "Prova, teknik senaryonun gerçek koşullarda test edildiği aşamadır. Konuşmacı geçişleri, LED içerik sıralaması, ses seviyeleri ve ışık kurgusu prova sırasında netleşir. Kurulum tamamlandıktan sonra tam prova planlamak, etkinlik günü daha sakin bir operasyon akışı sağlar.",
-  },
-];
-
 export const metadata = {
-  title: "Kurumsal Organizasyon Rehberi | Sahneva",
+  title: "Kurumsal Organizasyon Rehberi",
   description:
     "Kurumsal organizasyon rehberi: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon süreci.",
   keywords: [
@@ -400,6 +180,7 @@ function CorporateOrganizationJsonLd() {
     name: video.title,
     description: video.description,
     uploadDate: video.uploadDate,
+    duration: video.duration,
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
@@ -435,24 +216,9 @@ function CorporateOrganizationJsonLd() {
       name: "Kurumsal Organizasyon",
       serviceType: "Kurumsal Etkinlik Organizasyonu",
       description: metadata.description,
-      provider: { "@id": ORGANIZATION_ID },
+      provider: { "@id": LOCAL_BUSINESS_ID },
       areaServed: { "@type": "Country", name: "Türkiye" },
       url: pageUrl,
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": `${pageUrl}#localbusiness`,
-      name: "Sahneva",
-      url: pageUrl,
-      telephone: PHONE,
-      image: `${ORIGIN}/img/kurumsal/hero.webp`,
-      areaServed: { "@type": "Country", name: "Türkiye" },
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "TR",
-        addressLocality: "İstanbul",
-      },
-      makesOffer: { "@id": serviceId },
     },
   ];
 
@@ -476,8 +242,13 @@ function Hero() {
         quality={88}
         blurDataURL={BLUR_DATA_URL}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(2 6 23), rgb(2 6 23 / 0.85), rgb(2 6 23 / 0.2)), linear-gradient(to top, rgb(2 6 23), rgb(2 6 23 / 0.25), rgb(2 6 23 / 0.2))",
+        }}
+      />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="max-w-3xl">
@@ -518,9 +289,10 @@ function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={WHATSAPP}
+              href={generateWhatsAppLink("kurumsal organizasyon ana teklif")}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="WhatsApp üzerinden kurumsal organizasyon teklifi almak için mesaj gönderin"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-sky-100"
             >
               Teklif için yaz
@@ -767,32 +539,37 @@ function PackageSection() {
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {PACKAGE_OPTIONS.map((item) => (
-          <Card key={item.title} className="h-full">
-            <div className="text-sm font-semibold text-blue-700">Ön kapsam</div>
-            <h3 className="mt-2 text-2xl font-black text-gray-900">{item.title}</h3>
-            <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
-            <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-900">
-              Tahmini bütçedir; net plan, mekân ve süre bilgisine göre güncellenir.
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
-              >
-                {item.cta}
-              </a>
-              <Link
-                href="#planlama"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-bold text-gray-900 hover:bg-slate-50 transition"
-              >
-                Akışı incele
-              </Link>
-            </div>
-          </Card>
-        ))}
+        {PACKAGE_OPTIONS.map((item) => {
+          const ctaUrl = generateWhatsAppLink(item.whatsappIntent);
+
+          return (
+            <Card key={item.title} className="h-full">
+              <div className="text-sm font-semibold text-blue-700">Ön kapsam</div>
+              <h3 className="mt-2 text-2xl font-black text-gray-900">{item.title}</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
+              <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-900">
+                Tahmini bütçedir; net plan, mekân ve süre bilgisine göre güncellenir.
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={ctaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.title} için WhatsApp üzerinden teklif mesajı gönderin`}
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
+                >
+                  {item.cta}
+                </a>
+                <Link
+                  href="#planlama"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-bold text-gray-900 hover:bg-slate-50 transition"
+                >
+                  Akışı incele
+                </Link>
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </SectionShell>
   );
@@ -858,9 +635,10 @@ function ServicesSection() {
             <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
             <div className="mt-6">
               <a
-                href={WHATSAPP}
+                href={generateWhatsAppLink(item.whatsappIntent)}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${item.title} için WhatsApp üzerinden teklif mesajı gönderin`}
                 className="inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
               >
                 {ctaLabels[index % ctaLabels.length]}
@@ -1243,6 +1021,8 @@ function RelatedServices() {
 }
 
 function CTASection() {
+  const ctaWhatsApp = generateWhatsAppLink("kurumsal organizasyon keşif ve teklif");
+
   return (
     <SectionShell variant="ink" id="cta">
       <div className="relative overflow-hidden rounded-lg border border-white/10 bg-slate-950 px-6 py-8 md:px-8 md:py-10">
@@ -1290,9 +1070,10 @@ function CTASection() {
                 </div>
               </div>
               <a
-                href={WHATSAPP}
+                href={ctaWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp üzerinden kurumsal organizasyon teklifi istemek için mesaj gönderin"
                 className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
               >
                 Teklif iste
@@ -1311,6 +1092,7 @@ function CTASection() {
                 </p>
                 <Link
                   href="/iletisim"
+                  aria-label="Kurumsal organizasyon için iletişim formunu açın"
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
                 >
                   Formu aç
@@ -1328,6 +1110,7 @@ function CTASection() {
                 </p>
                 <a
                   href={`tel:${PHONE}`}
+                  aria-label="Sahneva ile telefonla görüşmek için arayın"
                   className="mt-5 inline-flex w-full items-center justify-center rounded-lg border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
                 >
                   0545 304 86 71
