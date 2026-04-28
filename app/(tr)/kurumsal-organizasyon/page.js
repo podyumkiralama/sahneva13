@@ -2,15 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  CalendarClock,
   CirclePlay,
   Clapperboard,
-  MapPinned,
   MoveRight,
   PhoneCall,
   RadioTower,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
@@ -50,6 +47,10 @@ const HERO_STATS = [
   { value: "81 il", label: "Hizmet alanı" },
 ];
 
+const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
+const GUIDE_UPDATED = "28 Nisan 2026";
+const GUIDE_UPDATED_ISO = "2026-04-28T00:00:00+03:00";
+
 const ASSURANCE_ITEMS = [
   "Tek keşif ve tek run-of-show",
   "Yedekli güç ve kontrol planı",
@@ -57,22 +58,22 @@ const ASSURANCE_ITEMS = [
   "Kurulumdan söküme planlı kapanış",
 ];
 
-const HERO_SIGNAL_ITEMS = [
-  {
-    title: "Format okuması",
-    desc: "Konferans, lansman ve gala akışını tek run-of-show üzerinde toplarız.",
-    Icon: Sparkles,
-  },
-  {
-    title: "Zaman disiplini",
-    desc: "Kurulum, prova ve yayın saatini aynı karar masasında netleştiririz.",
-    Icon: CalendarClock,
-  },
-  {
-    title: "Saha hakimiyeti",
-    desc: "İstanbul merkezli planla Türkiye genelinde kurulum refleksi kurarız.",
-    Icon: MapPinned,
-  },
+const GUIDE_PROMISES = [
+  "Kurumsal organizasyon şirketi seçerken hangi kriterlere bakmanız gerektiği",
+  "Konferans, lansman ve gala formatlarında teknik kapsamın nasıl ayrıştığı",
+  "Sahne, LED ekran, ses, ışık ve prova planının tek akışta nasıl yönetildiği",
+  "Teklif almadan önce bütçeyi etkileyen temel kararların nasıl netleşeceği",
+];
+
+const GUIDE_CONTENTS = [
+  { href: "#ne-sunar", label: "Kurumsal organizasyon ne sunar?" },
+  { href: "#planlama", label: "Planlama akışı nasıl kurulmalı?" },
+  { href: "#formatlar", label: "Hangi etkinlik formatları farklı yaklaşım ister?" },
+  { href: "#teknik-altyapi", label: "Teknik altyapıda kritik kararlar neler?" },
+  { href: "#hizmetler", label: "Hizmet kapsamına neler dahil?" },
+  { href: "#paketler", label: "Kapsam ve teklif nasıl netleşir?" },
+  { href: "#projeler", label: "Referans görseller nasıl okunmalı?" },
+  { href: "#sss", label: "Sık sorulan sorular" },
 ];
 
 const OVERVIEW_POINTS = [
@@ -277,9 +278,9 @@ const FAQ_ITEMS = [
 ];
 
 export const metadata = {
-  title: "Kurumsal Organizasyon Şirketleri | Etkinlik Kiralama",
+  title: "Kurumsal Organizasyon Rehberi | Sahneva",
   description:
-    "İstanbul'daki kurumsal organizasyonlara sahne, LED ekran, ses ve ışık prodüksiyon çözümleri. Anahtar teslim kiralama, profesyonel ekip ve hızlı teklif akışı.",
+    "Kurumsal organizasyon rehberi: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon süreci.",
   keywords: [
     "kurumsal organizasyon",
     "kurumsal etkinlik organizasyonu",
@@ -295,9 +296,9 @@ export const metadata = {
     xDefault: "/en/corporate-events",
   }),
   openGraph: {
-    title: "Kurumsal Organizasyon Şirketleri | Etkinlik Kiralama",
+    title: "Kurumsal Organizasyon Rehberi | Sahneva",
     description:
-      "Kurumsal etkinlikler için sahne, LED ekran, ses ve ışık prodüksiyon çözümleri. Tekliften sahaya kadar kontrollü operasyon akışı.",
+      "Konferans, lansman ve gala etkinliklerinde planlama, sahne, LED ekran, ses, ışık ve saha operasyonunu tek rehber akışında inceleyin.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva",
@@ -313,9 +314,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon Şirketleri | Sahneva",
+    title: "Kurumsal Organizasyon Rehberi | Sahneva",
     description:
-      "Kurumsal etkinliklerde sahne, LED ekran, ses ve ışık prodüksiyon çözümleri.",
+      "Kurumsal etkinliklerde planlama, sahne, LED ekran, ses ve ışık prodüksiyon süreci.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: {
@@ -334,13 +335,13 @@ export const metadata = {
 function SectionShell({ variant = "light", id, children }) {
   const variantClass = {
     light: "bg-white",
-    soft: "bg-gradient-to-b from-white to-slate-50",
-    ink: "bg-[#0B1120] text-white",
+    soft: "bg-slate-50",
+    ink: "bg-slate-950 text-white",
   };
 
   return (
-    <section id={id} className={`${variantClass[variant]} py-16 md:py-20`}>
-      <div className="container mx-auto px-4">{children}</div>
+    <section id={id} className={`${variantClass[variant]} scroll-mt-24 py-14 md:py-16`}>
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">{children}</div>
     </section>
   );
 }
@@ -350,18 +351,17 @@ function H2({ kicker, title, desc, center = false, dark = false }) {
     <header className={`${center ? "mx-auto text-center" : ""} mb-10 max-w-3xl`}>
       {kicker ? (
         <div
-          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold ${
+          className={`text-sm font-semibold uppercase tracking-normal ${
             dark
-              ? "border-white/15 bg-white/5 text-white/80"
-              : "border-slate-200 bg-white text-slate-700"
+              ? "text-sky-200"
+              : "text-blue-700"
           }`}
         >
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
           <span>{kicker}</span>
         </div>
       ) : null}
       <h2
-        className={`mt-5 text-3xl font-black tracking-tight md:text-4xl lg:text-5xl ${
+        className={`mt-3 text-3xl font-black tracking-normal md:text-4xl ${
           dark ? "text-white" : "text-gray-900"
         }`}
       >
@@ -379,8 +379,8 @@ function H2({ kicker, title, desc, center = false, dark = false }) {
 function Card({ children, dark = false, className = "" }) {
   return (
     <div
-      className={`rounded-3xl border p-6 shadow-sm ${className} ${
-        dark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
+      className={`rounded-lg border p-5 ${className} ${
+        dark ? "border-white/10 bg-white/[0.04]" : "border-slate-200 bg-white"
       }`}
     >
       {children}
@@ -417,8 +417,11 @@ function CorporateOrganizationJsonLd() {
       url: pageUrl,
       name: metadata.title,
       description: metadata.description,
+      dateModified: GUIDE_UPDATED_ISO,
       inLanguage: "tr-TR",
       isPartOf: { "@id": WEBSITE_ID },
+      author: { "@id": ORGANIZATION_ID },
+      publisher: { "@id": ORGANIZATION_ID },
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${ORIGIN}/img/kurumsal/hero.webp`,
@@ -461,92 +464,93 @@ function CorporateOrganizationJsonLd() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#070B16]" aria-labelledby="hero-title">
-      <div className="absolute inset-0">
-        <Image
-          src={HERO.src}
-          alt={HERO.alt}
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover"
-          sizes={HERO.sizes}
-          quality={88}
-          blurDataURL={BLUR_DATA_URL}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04070f]/99 via-[#050b15]/92 via-40% to-[#0B1120]/38" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/95 via-[#04070f]/48 to-black/12" />
-        <div className="absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-[#03060d]/76 via-[#03060d]/52 to-transparent" />
-        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-cyan-400/15 blur-3xl" />
-      </div>
+    <section className="relative overflow-hidden bg-slate-950 pb-14 pt-28 text-white md:pb-16 md:pt-36" aria-labelledby="hero-title">
+      <Image
+        src={HERO.src}
+        alt={HERO.alt}
+        fill
+        priority
+        fetchPriority="high"
+        className="object-cover"
+        sizes={HERO.sizes}
+        quality={88}
+        blurDataURL={BLUR_DATA_URL}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20" />
 
-      <div className="relative container mx-auto px-5 pb-14 pt-40 md:px-8 md:pb-20 md:pt-48 xl:px-10">
-        <div className="max-w-[35rem] md:ml-3 lg:ml-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
-            Kurumsal prodüksiyon
-          </div>
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-normal text-sky-200">
+            Kurumsal organizasyon rehberi
+          </p>
 
           <h1
             id="hero-title"
-            className="mt-6 max-w-[8.6ch] text-[clamp(2.9rem,5.25vw,4.9rem)] font-black leading-[0.98] tracking-tight text-white [text-shadow:0_10px_40px_rgba(0,0,0,0.45)]"
+            className="mt-5 max-w-4xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl"
           >
-            Büyük ölçekli
-            <span className="mt-2 block text-white/92">kurumsal etkinliklerde</span>
-            <span className="mt-2 block text-white">
-              stratejik prodüksiyon partneriniz
-            </span>
+            <span className="block">Kurumsal Organizasyon:</span>
+            <span className="block">sahne, LED ekran ve teknik prodüksiyon rehberi</span>
           </h1>
 
-          <p className="mt-7 max-w-[29rem] text-base leading-relaxed text-white/84 md:text-[1.34rem] md:leading-relaxed">
-            Konferans, lansman, gala ve yüksek katılımlı şirket etkinliklerinde; planlama, risk yönetimi ve yedekli
-            teknik altyapıyla tekliften sahaya kadar kontrollü bir akış kuruyoruz.
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/75">
+            <span>Hazırlayan: {GUIDE_AUTHOR}</span>
+            <span aria-hidden="true">|</span>
+            <time dateTime={GUIDE_UPDATED_ISO}>Güncellendi: {GUIDE_UPDATED}</time>
+            <span aria-hidden="true">|</span>
+            <span>10+ yıl saha deneyimi</span>
+          </div>
+
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 md:text-xl md:leading-9">
+            Bu sayfa; konferans, ürün lansmanı, bayi toplantısı ve gala gibi kurumsal etkinliklerde doğru planı kurmak için
+            hazırlanmış ana rehberdir. Amaç yalnızca ekipman listesi çıkarmak değil; hedef, akış, teknik risk ve sahne
+            deneyimini aynı karar sırasına koymaktır.
           </p>
+
+          <ul className="mt-7 grid gap-3 text-white/90 md:grid-cols-2">
+            {GUIDE_PROMISES.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-300" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-sky-100"
             >
-              Hemen teklif al
+              Teklif için yaz
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <Link
-              href="/projeler"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-black/25 px-6 py-3 font-semibold text-white/95 transition hover:bg-white/10"
+              href="#ne-sunar"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white/15"
             >
-              Portföyü incele
+              Rehbere başla
               <CirclePlay className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
 
-        <div className="mt-12 grid max-w-6xl gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-          <div className="grid gap-4 sm:grid-cols-3">
-            {HERO_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-[1.75rem] border border-white/10 bg-black/28 px-5 py-5 text-white shadow-[0_24px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur"
-              >
-                <div className="text-2xl font-black md:text-3xl">{stat.value}</div>
-                <div className="mt-1 text-sm text-white/70">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {HERO_STATS.map((stat) => (
+            <div key={stat.label} className="rounded-lg border border-white/15 bg-black/30 px-4 py-4">
+              <div className="text-2xl font-black text-white">{stat.value}</div>
+              <div className="mt-1 text-sm text-white/70">{stat.label}</div>
+            </div>
+          ))}
+        </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {ASSURANCE_ITEMS.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-black/32 px-4 py-3 text-sm font-semibold text-white/84 backdrop-blur"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {ASSURANCE_ITEMS.map((item) => (
+            <div key={item} className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-white/80">
+              {item}
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -555,103 +559,29 @@ function Hero() {
 
 function HeroShowcaseSection() {
   return (
-    <section className="relative -mt-8 bg-transparent pb-6 md:-mt-14 md:pb-10">
-      <div className="container mx-auto px-4">
-        <div className="relative overflow-hidden rounded-[2.4rem] border border-slate-200/70 bg-white shadow-[0_40px_120px_-55px_rgba(15,23,42,0.45)]">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
-          <div className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="relative overflow-hidden bg-slate-950">
-              <div className="relative aspect-[16/12] lg:aspect-auto lg:min-h-[36rem]">
-                <Image
-                  src="/img/kurumsal/8.webp"
-                  alt="Kurumsal etkinlik için sahne ve LED ekran operasyon görüntüsü"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 54vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060914]/88 via-[#060914]/20 to-transparent" />
-                <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-3">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 backdrop-blur">
-                    <RadioTower className="h-3.5 w-3.5" aria-hidden="true" />
-                    Show control
-                  </div>
-                  <div className="rounded-full border border-emerald-400/20 bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-200">
-                    Canlı plan akışı
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-5 text-white md:p-7">
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur">
-                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Operasyon masası</div>
-                      <div className="mt-2 text-lg font-black">Teklif, prova ve sahne günü aynı ritimde ilerler.</div>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur">
-                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Saha temposu</div>
-                      <div className="mt-2 text-lg font-black">Teknik kararlar görünürlüğü ve sakinliği birlikte taşır.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-white via-slate-50 to-slate-100 p-6 md:p-8 lg:p-10">
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                <span className="h-2 w-2 rounded-full bg-blue-500" aria-hidden="true" />
-                Operasyon kurgusu
-              </div>
-
-              <h2 className="mt-6 max-w-[13ch] text-4xl font-black leading-[0.98] tracking-tight text-slate-950 md:text-5xl">
-                Sahne hissini,
-                <span className="mt-2 block text-blue-700">karar netliğiyle</span>
-                birleştiriyoruz
-              </h2>
-
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
-                İyi görünen kurgu tek başına yetmez. Sahne dili, prova akışı, yükleme temposu ve teknik kararların aynı ritimde
-                ilerlemesi gerekir. Bu bölüm o hissi daha ilk ekranda görünür kılmak için var.
-              </p>
-
-              <div className="mt-8 grid gap-4">
-                {HERO_SIGNAL_ITEMS.map(({ title, desc, Icon }) => (
-                  <div
-                    key={title}
-                    className="flex items-start gap-4 rounded-[1.4rem] border border-slate-200 bg-white px-4 py-4 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.35)]"
-                  >
-                    <div className="mt-0.5 rounded-2xl border border-slate-200 bg-slate-50 p-2.5 text-blue-700">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <div className="font-black text-slate-950">{title}</div>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+    <section className="bg-white pb-12">
+      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
+        <div className="border-y border-slate-200 py-7">
+          <h2 className="text-xl font-black text-slate-950">İçindekiler</h2>
+          <ol className="mt-5 grid gap-3 md:grid-cols-2">
+            {GUIDE_CONTENTS.map((item, index) => (
+              <li key={item.href}>
                 <Link
-                  href="/projeler"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
+                  href={item.href}
+                  className="group flex gap-3 rounded-lg px-2 py-2 text-slate-800 transition hover:bg-slate-50 hover:text-blue-700"
                 >
-                  Projeleri gör
-                  <MoveRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="font-black text-blue-700">{index + 1}.</span>
+                  <span className="font-semibold">{item.label}</span>
                 </Link>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 font-bold text-slate-900 transition hover:bg-slate-50"
-                >
-                  Hızlı görüşme
-                  <PhoneCall className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
   );
 }
+
 
 function OverviewSection() {
   return (
@@ -659,7 +589,7 @@ function OverviewSection() {
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <H2
-            kicker="Kurumsal yaklaşım"
+            kicker="Bölüm 1"
             title={
               <>
                 Kurumsal etkinlik <span className="text-blue-700">organizasyon şirketleri</span> ne sunar?
@@ -717,7 +647,7 @@ function FormatsSection() {
     <SectionShell variant="ink" id="formatlar">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <H2
-          kicker="Referans akışı"
+            kicker="Bölüm 3"
           title={
             <>
               Hangi <span className="text-blue-300">kurumsal formatlarda</span> değer üretiyoruz?
@@ -733,7 +663,7 @@ function FormatsSection() {
             "Her kurgu kendi sahne dilini ve prova temposunu taşır.",
             "Amaç yalnızca kurmak değil, etkinlik gününü sakin tutmaktır.",
           ].map((item) => (
-            <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm leading-relaxed text-white/70">
+            <div key={item} className="rounded-lg border border-white/10 bg-white/5 px-4 py-4 text-sm leading-relaxed text-white/70">
               {item}
             </div>
           ))}
@@ -747,7 +677,7 @@ function FormatsSection() {
           return (
             <article
               key={item.title}
-              className={`group relative overflow-hidden rounded-[2rem] border border-white/10 ${
+              className={`group relative overflow-hidden rounded-lg border border-white/10 ${
                 isPrimary ? "min-h-[28rem]" : "min-h-[13.5rem]"
               }`}
             >
@@ -763,10 +693,10 @@ function FormatsSection() {
 
               <div className={`absolute inset-0 flex flex-col justify-end p-6 ${isPrimary ? "md:p-8" : ""}`}>
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/55">
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/55">
                     0{index + 1}
                   </span>
-                  <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/70 backdrop-blur">
+                  <span className="rounded-lg border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-normal text-white/70">
                     {formatNotes[index]}
                   </span>
                 </div>
@@ -792,7 +722,7 @@ function FormatsSection() {
               <div key="format-secondary" className="grid gap-5">
                 {node}
                 {FORMAT_ITEMS[2] ? (
-                  <article className="group relative min-h-[13.5rem] overflow-hidden rounded-[2rem] border border-white/10">
+                  <article className="group relative min-h-[13.5rem] overflow-hidden rounded-lg border border-white/10">
                     <Image
                       src={FORMAT_ITEMS[2].src}
                       alt={FORMAT_ITEMS[2].alt}
@@ -803,8 +733,8 @@ function FormatsSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
                       <div className="flex items-center justify-between gap-4">
-                        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/55">03</span>
-                        <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/70 backdrop-blur">
+                        <span className="text-[0.7rem] font-semibold uppercase tracking-normal text-white/55">03</span>
+                        <span className="rounded-lg border border-white/10 bg-black/30 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-normal text-white/70">
                           {formatNotes[2]}
                         </span>
                       </div>
@@ -830,7 +760,7 @@ function PackageSection() {
   return (
     <SectionShell variant="soft" id="paketler">
       <H2
-        kicker="Paket akışı"
+        kicker="Bölüm 6"
         title="Kurumsal kapsamı daha hızlı netleştirin"
         desc="İlk görüşmede bütün detayı değil; etkinlik formatını, görsel beklentiyi ve operasyon yoğunluğunu netleştirmek yeterlidir."
         center
@@ -842,7 +772,7 @@ function PackageSection() {
             <div className="text-sm font-semibold text-blue-700">Ön kapsam</div>
             <h3 className="mt-2 text-2xl font-black text-gray-900">{item.title}</h3>
             <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
-            <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-900">
+            <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-900">
               Tahmini bütçedir; net plan, mekân ve süre bilgisine göre güncellenir.
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -850,13 +780,13 @@ function PackageSection() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
+                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
               >
                 {item.cta}
               </a>
               <Link
                 href="#planlama"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-gray-900 hover:bg-slate-50 transition"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-bold text-gray-900 hover:bg-slate-50 transition"
               >
                 Akışı incele
               </Link>
@@ -872,7 +802,7 @@ function PlanningSection() {
   return (
     <SectionShell variant="light" id="planlama">
       <H2
-        kicker="Planlama akışı"
+        kicker="Bölüm 2"
         title="Kurumsal organizasyon nasıl planlanır?"
         desc="Aşağıdaki adımlar, karar sürecini kısaltır ve sahaya çıkmadan önce riskleri görünür hale getirir."
         center
@@ -910,7 +840,7 @@ function ServicesSection() {
   return (
     <SectionShell variant="soft" id="hizmetler">
       <H2
-        kicker="Hizmet kapsamı"
+        kicker="Bölüm 5"
         title={
           <>
             Kurumsal <span className="text-blue-700">hizmetlerimiz</span>
@@ -931,7 +861,7 @@ function ServicesSection() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
+                className="inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
               >
                 {ctaLabels[index % ctaLabels.length]}
               </a>
@@ -951,7 +881,7 @@ function GallerySection() {
       <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
         <div className="lg:sticky lg:top-24 lg:self-start">
           <H2
-            kicker="Görsel akış"
+            kicker="Saha kanıtı"
             title={
               <>
                 Kurumsal <span className="text-blue-700">projelerimizi</span> daha sinematik bir ritimde gösteriyoruz
@@ -973,7 +903,7 @@ function GallerySection() {
               "Keşif görüşmesinde daha hızlı ortak zemin",
               "Format bazlı daha doğru örnek seti",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 font-semibold text-slate-700">
+              <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 font-semibold text-slate-700">
                 {item}
               </div>
             ))}
@@ -981,7 +911,7 @@ function GallerySection() {
 
           <Link
             href="/projeler"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
           >
             Tüm projeleri gör
             <MoveRight className="h-4 w-4" aria-hidden="true" />
@@ -989,11 +919,11 @@ function GallerySection() {
         </div>
 
         <div className="grid auto-rows-[11rem] gap-4 sm:grid-cols-2 lg:auto-rows-[12rem]">
-          <article className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-[0_24px_60px_-30px_rgba(15,23,42,0.35)] sm:col-span-2 sm:row-span-2">
+          <article className="relative overflow-hidden rounded-lg border border-slate-200 sm:col-span-2 sm:row-span-2">
             <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 54vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">Öne çıkan kurulum</div>
+              <div className="text-xs font-semibold uppercase tracking-normal text-white/65">Öne çıkan kurulum</div>
               <div className="mt-2 max-w-[14ch] text-3xl font-black leading-tight md:text-4xl">
                 Kurumsal sahne, LED ve salon akışını aynı hikâyede topluyoruz.
               </div>
@@ -1003,7 +933,7 @@ function GallerySection() {
           {supporting.slice(0, 3).map((image, index) => (
             <article
               key={image.src}
-              className={`relative overflow-hidden rounded-[1.75rem] border border-slate-200 shadow-[0_24px_60px_-30px_rgba(15,23,42,0.28)] ${
+              className={`relative overflow-hidden rounded-lg border border-slate-200 ${
                 index === 2 ? "sm:col-span-2" : ""
               }`}
             >
@@ -1033,7 +963,7 @@ function VideoShowcaseSection() {
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div>
           <H2
-            kicker="Video vitrini"
+            kicker="Video kanıtı"
             title={
               <>
                 Gerçek <span className="text-blue-300">kurulum videoları</span> ile sahadaki kaliteyi görünür kılıyoruz
@@ -1043,8 +973,8 @@ function VideoShowcaseSection() {
             dark
           />
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_28px_90px_-40px_rgba(0,0,0,0.8)]">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+          <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-black">
               <div className="relative aspect-[16/10]">
                 <LazyVideoEmbed
                   videoId={featuredVideo.id}
@@ -1055,10 +985,10 @@ function VideoShowcaseSection() {
             </div>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-blue-200">
+              <span className="rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-normal text-blue-200">
                 {featuredVideo.eyebrow}
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
+              <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-white/55">
                 Öne çıkan video
               </span>
             </div>
@@ -1072,7 +1002,7 @@ function VideoShowcaseSection() {
                 "Teknik hazırlık disiplini",
                 "Saha günü gerçek atmosfer",
               ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/75">
+                <div key={item} className="rounded-lg border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/75">
                   {item}
                 </div>
               ))}
@@ -1084,7 +1014,7 @@ function VideoShowcaseSection() {
           {secondaryVideos.map((video, index) => (
             <article
               key={video.id}
-              className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_-40px_rgba(0,0,0,0.85)]"
+              className="overflow-hidden rounded-lg border border-white/10 bg-white/5"
               aria-labelledby={`corporate-video-${video.id}-title`}
             >
               <div className="grid gap-0 md:grid-cols-[0.92fr_1.08fr]">
@@ -1098,10 +1028,10 @@ function VideoShowcaseSection() {
                 <div className="flex flex-col justify-between p-6">
                   <div>
                     <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-blue-200">
+                      <span className="inline-flex rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-normal text-blue-200">
                         {video.eyebrow}
                       </span>
-                      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/40">
+                      <span className="text-[0.68rem] font-semibold uppercase tracking-normal text-white/40">
                         Video {index + 2}
                       </span>
                     </div>
@@ -1131,7 +1061,7 @@ function TechnicalSection() {
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
           <H2
-            kicker="Teknik altyapı"
+            kicker="Bölüm 4"
             title="Event organizasyon şirketleri için teknik omurga"
             desc="Sahne, ekran, ses, ışık ve prova planı birlikte tasarlandığında etkinlik günü daha sakin ve öngörülebilir ilerler."
           />
@@ -1205,7 +1135,7 @@ function StatsAndUseCases() {
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {USE_CASES.map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-black/15 px-4 py-3 text-white/85">
+              <div key={item} className="rounded-lg border border-white/10 bg-black/15 px-4 py-3 text-white/85">
                 {item}
               </div>
             ))}
@@ -1273,7 +1203,7 @@ function RelatedServices() {
         center
       />
 
-      <div className="mx-auto mb-8 max-w-5xl rounded-[2rem] border border-slate-200 bg-white px-6 py-6 shadow-sm">
+      <div className="mx-auto mb-8 max-w-5xl rounded-lg border border-slate-200 bg-white px-6 py-6">
         <div className="grid gap-4 md:grid-cols-3">
           {[
             {
@@ -1289,7 +1219,7 @@ function RelatedServices() {
               desc: "Referans akışı ve hizmet yapısı bir araya geldiğinde teklif görüşmesi daha verimli ilerler.",
             },
           ].map((item) => (
-            <div key={item.title} className="rounded-2xl bg-slate-50 px-4 py-4">
+            <div key={item.title} className="rounded-lg bg-slate-50 px-4 py-4">
               <div className="font-black text-slate-900">{item.title}</div>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
             </div>
@@ -1299,7 +1229,7 @@ function RelatedServices() {
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((item) => (
-          <Link key={item.href} href={item.href} className="rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+          <Link key={item.href} href={item.href} className="rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
             <Card className="h-full">
               <div className="text-sm font-semibold text-blue-700">İncele</div>
               <div className="mt-2 text-xl font-black text-gray-900">{item.title}</div>
@@ -1315,20 +1245,17 @@ function RelatedServices() {
 function CTASection() {
   return (
     <SectionShell variant="ink" id="cta">
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#08101d] via-[#0B1120] to-[#0f1b33] px-6 py-8 shadow-[0_40px_110px_-45px_rgba(0,0,0,0.95)] md:px-8 md:py-10">
-        <div className="absolute -left-20 top-0 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
-
+      <div className="relative overflow-hidden rounded-lg border border-white/10 bg-slate-950 px-6 py-8 md:px-8 md:py-10">
         <div className="relative grid gap-8 lg:grid-cols-[1fr_0.92fr] lg:items-start">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+            <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-normal text-white/70">
               <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
               Teklif ve keşif
             </div>
 
-            <h2 className="mt-6 max-w-[12ch] text-4xl font-black leading-[0.98] tracking-tight text-white md:text-6xl">
+            <h2 className="mt-6 max-w-2xl text-4xl font-black leading-tight tracking-normal text-white md:text-5xl">
               Profesyonel kurumsal çözümlere
-              <span className="mt-2 block bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
+              <span className="mt-2 block text-sky-200">
                 hazır mısınız?
               </span>
             </h2>
@@ -1344,7 +1271,7 @@ function CTASection() {
                 "Şehir ve takvim kontrolü",
                 "Format bazlı teknik yönlendirme",
               ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/75">
+                <div key={item} className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/75">
                   {item}
                 </div>
               ))}
@@ -1352,9 +1279,9 @@ function CTASection() {
           </div>
 
           <div className="grid gap-4">
-            <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
+            <div className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
               <div className="flex items-start gap-4">
-                <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-3 text-emerald-200">
+                <div className="rounded-lg border border-emerald-400/20 bg-emerald-400/10 p-3 text-emerald-200">
                   <RadioTower className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
@@ -1366,7 +1293,7 @@ function CTASection() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-500"
               >
                 Teklif iste
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -1374,8 +1301,8 @@ function CTASection() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
+              <div className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
                   <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="mt-4 text-lg font-black text-white">İletişim formu</div>
@@ -1384,15 +1311,15 @@ function CTASection() {
                 </p>
                 <Link
                   href="/iletisim"
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
                 >
                   Formu aç
                   <MoveRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
 
-              <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
+              <div className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-3 text-white/80 w-fit">
                   <PhoneCall className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="mt-4 text-lg font-black text-white">Telefonla ulaşın</div>
@@ -1401,7 +1328,7 @@ function CTASection() {
                 </p>
                 <a
                   href={`tel:${PHONE}`}
-                  className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-lg border border-white/20 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
                 >
                   0545 304 86 71
                 </a>
@@ -1430,13 +1357,13 @@ export default function Page() {
       <Hero />
       <HeroShowcaseSection />
       <OverviewSection />
-      <FormatsSection />
-      <PackageSection />
       <PlanningSection />
+      <FormatsSection />
+      <TechnicalSection />
       <ServicesSection />
+      <PackageSection />
       <GallerySection />
       <VideoShowcaseSection />
-      <TechnicalSection />
       <StatsAndUseCases />
       <FAQSection />
       <RelatedServices />

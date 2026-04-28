@@ -10,6 +10,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Hello%2C+I'd+like+to+request+a+quote+for+tent+rental.+Event+type%3A+%5Bwedding%2Ffair%2Fconcert%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Guest+count%3A+%5Bxxx%5D.";
@@ -1019,21 +1020,27 @@ function CTA() {
 
 /* ================== JSON-LD ================== */
 function TentJsonLd() {
+  const pageUrl = `${ORIGIN}/en/tent-rental`;
+  const webPageId = `${pageUrl}#webpage`;
+  const serviceId = `${pageUrl}#service`;
+  const provider = { "@id": ORGANIZATION_ID };
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Tent Rental Service",
         description: "Professional tent rental covering pagoda, transparent dome and industrial structures with nationwide installation and support.",
-          provider: { "@id": ORGANIZATION_ID },
-        areaServed: "TR",
+          provider,
+        areaServed: { "@type": "Country", name: "Turkey" },
         serviceType: "EventProduction",
         offers: {
           "@type": "Offer",
           description: "Professional tent rental packages"
         },
-        url: `${ORIGIN}/en/tent-rental`,
+        url: pageUrl,
+        mainEntityOfPage: { "@id": webPageId },
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.8",
@@ -1043,13 +1050,19 @@ function TentJsonLd() {
       },
       {
         "@type": "WebPage",
+        "@id": webPageId,
         name: "Tent Rental | Professional Event Structures | Sahneva",
         description: "Pagoda, transparent dome and industrial tent rental with flooring, lighting, climate control and nationwide installation.",
-        url: `${ORIGIN}/en/tent-rental`,
-        mainEntity: {
-          "@type": "Service",
-          name: "Tent Rental"
-        }
+        url: pageUrl,
+        inLanguage: "en-US",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
+        },
+        mainEntity: { "@id": serviceId }
       }
     ],
   };

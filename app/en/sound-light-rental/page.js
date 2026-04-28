@@ -11,6 +11,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Hello%2C+I'd+like+to+request+a+quote+for+sound+and+lighting+rental.+Event+type%3A+%5Bconcert%2Fcorporate%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Audience+size%3A+%5Bxxx%5D.";
@@ -1023,21 +1024,27 @@ function CTA() {
 
 /* ================== JSON-LD ================== */
 function SoundLightJsonLd() {
+  const pageUrl = `${ORIGIN}/en/sound-light-rental`;
+  const webPageId = `${pageUrl}#webpage`;
+  const serviceId = `${pageUrl}#service`;
+  const provider = { "@id": ORGANIZATION_ID };
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Sound & Lighting System Rental",
         description: "Professional sound and lighting rental services with line-array speakers, digital consoles, wireless microphones, moving-head lights, truss systems and live operation across Türkiye.",
-          provider: { "@id": ORGANIZATION_ID },
-        areaServed: "TR",
+          provider,
+        areaServed: { "@type": "Country", name: "Turkey" },
         serviceType: "EventProduction",
         offers: {
           "@type": "Offer",
           description: "Professional sound and lighting system rental service"
         },
-        url: `${ORIGIN}/en/sound-light-rental`,
+        url: pageUrl,
+        mainEntityOfPage: { "@id": webPageId },
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
@@ -1047,13 +1054,19 @@ function SoundLightJsonLd() {
       },
       {
         "@type": "WebPage",
+        "@id": webPageId,
         name: "Sound & Lighting Rental | Concert-Grade AV Systems",
         description: "Line-array audio, digital mixing consoles, moving-head lighting and truss systems with nationwide crew support for concerts, festivals and corporate events across Türkiye.",
-        url: `${ORIGIN}/en/sound-light-rental`,
-        mainEntity: {
-          "@type": "Service",
-          name: "Sound & Lighting Rental"
-        }
+        url: pageUrl,
+        inLanguage: "en-US",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
+        },
+        mainEntity: { "@id": serviceId }
       }
     ],
   };

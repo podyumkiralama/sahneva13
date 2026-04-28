@@ -20,6 +20,7 @@ const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
 const PHONE = "+905453048671";
 const WA_TEXT = "Merhaba%2C+ses+ve+isik+sistemleri+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonser%2Fkurumsal%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
@@ -1143,6 +1144,7 @@ function SoundLightJsonLd() {
     "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
     provider,
     url: pageUrl,
+    mainEntityOfPage: { "@id": webPageId },
   };
 
   const serviceId = serviceNode["@id"];
@@ -1162,6 +1164,13 @@ function SoundLightJsonLd() {
           "Konser, festival ve kurumsal etkinlikler için profesyonel ses & ışık sistemleri kiralama. Line array, dijital mikser, hareketli ışık, truss ve canlı operasyon. 81 ilde hizmet.",
         url: pageUrl,
         inLanguage: "tr-TR",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
+        },
         mainEntity: { "@id": serviceId },
       },
       ...productNodes,

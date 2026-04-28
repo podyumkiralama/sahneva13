@@ -17,6 +17,7 @@ const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Merhaba%2C+masa+sandalye+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bdavet%2Fkonferans%2Fkokteyl%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
@@ -1616,6 +1617,7 @@ function CTA() {
 function TableChairJsonLd() {
   const pageUrl = `${ORIGIN}/masa-sandalye-kiralama`;
   const pageDescription = metadata.description;
+  const webPageId = `${pageUrl}#webpage`;
 
   const provider = { "@id": ORGANIZATION_ID };
 
@@ -1634,8 +1636,19 @@ function TableChairJsonLd() {
   };
 
   const serviceNode = serviceSchema
-    ? { ...serviceSchema, ...baseService, provider, url: pageUrl }
-    : { ...baseService, "@id": `${pageUrl}#service`, url: pageUrl };
+    ? {
+        ...serviceSchema,
+        ...baseService,
+        provider,
+        url: pageUrl,
+        mainEntityOfPage: { "@id": webPageId },
+      }
+    : {
+        ...baseService,
+        "@id": `${pageUrl}#service`,
+        url: pageUrl,
+        mainEntityOfPage: { "@id": webPageId },
+      };
 
   const serviceId = serviceNode["@id"] ?? `${pageUrl}#service`;
   serviceNode["@id"] = serviceId;
@@ -1649,13 +1662,19 @@ function TableChairJsonLd() {
       serviceNode,
       {
         "@type": "WebPage",
+        "@id": webPageId,
         name: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
         description: pageDescription,
         url: pageUrl,
-        mainEntity: {
-          "@type": "Service",
-          name: "Masa Sandalye Kiralama",
+        inLanguage: "tr-TR",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
         },
+        mainEntity: { "@id": serviceId },
       },
       ...productNodes,
       ...(faqSchema ? [faqSchema] : []),

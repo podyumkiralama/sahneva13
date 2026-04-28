@@ -10,6 +10,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 export const revalidate = 1800;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Hello%2C+I'd+like+to+request+a+quote+for+table+and+chair+rental.+Event+type%3A+%5Bbanquet%2Fconference%2Fcocktail%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Guest+count%3A+%5Bxxx%5D.";
@@ -1148,22 +1149,28 @@ function CTA() {
 
 /* ================== JSON-LD ================== */
 function TableChairJsonLd() {
+  const pageUrl = `${ORIGIN}/en/table-chair-rental`;
+  const webPageId = `${pageUrl}#webpage`;
+  const serviceId = `${pageUrl}#service`;
+  const provider = { "@id": ORGANIZATION_ID };
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Table and Chair Rental Service",
         description:
           "Professional table and chair rental with Napoleon and conference chairs, banquet and cocktail tables, linen styling and layout planning across Türkiye.",
-          provider: { "@id": ORGANIZATION_ID },
-        areaServed: "TR",
+          provider,
+        areaServed: { "@type": "Country", name: "Turkey" },
         serviceType: "EventProduction",
         offers: {
           "@type": "Offer",
           description: "Professional table and chair rental packages",
         },
-        url: `${ORIGIN}/en/table-chair-rental`,
+        url: pageUrl,
+        mainEntityOfPage: { "@id": webPageId },
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
@@ -1173,14 +1180,20 @@ function TableChairJsonLd() {
       },
       {
         "@type": "WebPage",
+        "@id": webPageId,
         name: "Table & Chair Rental | Banquet & Cocktail Setups",
         description:
           "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
-        url: `${ORIGIN}/en/table-chair-rental`,
-        mainEntity: {
-          "@type": "Service",
-          name: "Table & Chair Rental",
+        url: pageUrl,
+        inLanguage: "en-US",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": serviceId },
+        publisher: provider,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${ORIGIN}${HERO.src}`,
         },
+        mainEntity: { "@id": serviceId },
       },
     ],
   };
