@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 import RegionalRentalClient from "./RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -145,6 +148,43 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
   return <JsonLdScript data={jsonLd} />;
 }
 
+function CityDirectory() {
+  return (
+    <section
+      aria-labelledby="tum-sehirler-baslik"
+      className="relative bg-slate-950 px-4 pb-20 text-white"
+    >
+      <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+            81 il statik kiralama ağı
+          </p>
+          <h2 id="tum-sehirler-baslik" className="mt-3 text-2xl font-black md:text-3xl">
+            Şehriniz için yerel kiralama planını açın
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-white/68">
+            Her şehir sayfası build anında üretilir; şehir adı, yerel operasyon bağlamı
+            ve City tabanlı areaServed schema sinyaliyle çalışır.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          {REGIONAL_CITIES.map((city) => (
+            <Link
+              key={city.slug}
+              href={`/bolgesel-kiralama/${city.slug}`}
+              prefetch={false}
+              className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-bold text-white/82 hover:bg-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            >
+              {city.name} kiralama
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   const regions = [
     {
@@ -278,6 +318,7 @@ export default function Page() {
     <main className="relative overflow-hidden">
       <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
       <RegionalRentalClient regions={regions} services={services} faqs={faqs} steps={steps} />
+      <CityDirectory />
     </main>
   );
 }
