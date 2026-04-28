@@ -1804,7 +1804,12 @@ function StageJsonLd() {
 
   const serviceId = serviceNode["@id"];
   const productNodes = products ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS);
+  const faqSchema = buildFaqSchema(FAQ_ITEMS, {
+    id: `${pageUrl}#faq`,
+    pageId: webPageId,
+    serviceId,
+    inLanguage: "tr-TR",
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
