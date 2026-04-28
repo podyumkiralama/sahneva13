@@ -58,7 +58,7 @@ const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
 };
 
 export const metadata = {
-  title: "Kurumsal Organizasyon Rehberi",
+  title: "Kurumsal Organizasyon Şirketleri | Etkinlik Prodüksiyonu",
   description:
     "Kurumsal organizasyon rehberi: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon süreci.",
   keywords: [
