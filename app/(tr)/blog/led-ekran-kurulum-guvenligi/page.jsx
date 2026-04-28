@@ -313,34 +313,6 @@ function GalleryStrip() {
   );
 }
 
-function SourcesBox() {
-  const sources = [
-    ["Big LED Screen - LED Display Safety", "https://bigledscreen.com.au/led-hire/led-display-safety/"],
-    ["Linsn LED - Rental LED Screen Installation", "https://www.linsnled.com/led-screen-rental-installation.html"],
-    ["Vanguard LED - Outdoor LED Panel Installation Safety", "https://vanguardled.com/blog/safety-considerations-for-outdoor-led-screen-panel-installations-compliance-and-regulations/"],
-    ["LCF LED - Outdoor LED Display Guidance", "https://www.lcf-led.com/articledetail/1689.html"],
-  ];
-
-  return (
-    <aside className="not-prose my-12 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8" aria-label="Yararlanılan kaynaklar">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-slate-500">Kaynak yaklaşımı</p>
-      <h2 className="mt-3 text-2xl font-black text-slate-950">Bu yazı nasıl hazırlandı?</h2>
-      <p className="mt-3 text-base leading-relaxed text-slate-700">
-        Aşağıdaki teknik kaynaklardan güvenlik başlıkları çıkarıldı; içerik Sahneva'nın kiralık LED ekran, konser, fuar, lansman ve açık hava etkinliği saha pratiğine göre yeniden kurgulandı.
-      </p>
-      <ul className="mt-5 grid gap-3">
-        {sources.map(([label, href]) => (
-          <li key={href}>
-            <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">
-              {label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </aside>
-  );
-}
-
 export default function Page() {
   const breadcrumbItems = [
     { name: "Anasayfa", url: SITE_URL },
@@ -507,8 +479,6 @@ export default function Page() {
             </details>
           ))}
         </section>
-
-        <SourcesBox />
 
         <BlogRelatedLinks
           services={[
