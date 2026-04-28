@@ -12,7 +12,7 @@ const SLUG = "led-ekran-kurulum-guvenligi";
 const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 const AUTHOR_NAME = "Sahneva Icerik Ekibi";
-const PUBLISH_DATE = "2026-04-28T09:00:00+03:00";
+const PUBLISH_DATE = "2026-04-29T01:38:43+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile(
   "app/(tr)/blog/led-ekran-kurulum-guvenligi/page.jsx",
   PUBLISH_DATE
