@@ -1,5 +1,14 @@
 import Link from "next/link";
 import { ArrowRight, Compass, Network } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
+
+function toAbsoluteUrl(href) {
+  if (!href) return undefined;
+  if (/^https?:\/\//i.test(href)) return href;
+  return `${SITE_URL}${href.startsWith("/") ? href : `/${href}`}`;
+}
 
 export default function IntentBridge({
   eyebrow = "Intent haritası",
@@ -10,15 +19,41 @@ export default function IntentBridge({
   tone = "light",
 }) {
   const isDark = tone === "dark";
+  const clusterPages = [primaryPage, ...supportPages].filter((page) => page?.href);
+  const itemListSchema = clusterPages.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: title || "Sahneva içerik kümesi",
+        description,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        itemListElement: clusterPages.map((page, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "WebPage",
+            "@id": toAbsoluteUrl(page.href),
+            url: toAbsoluteUrl(page.href),
+            name: page.label,
+            description: page.intent,
+          },
+        })),
+      }
+    : null;
+  const ariaLabel = title
+    ? `${title} içerik kümesi bağlantıları`
+    : "İçerik kümesi bağlantıları";
 
   return (
-    <section
+    <aside
+      aria-label={ariaLabel}
       className={
         isDark
           ? "rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-8"
           : "rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8"
       }
     >
+      <JsonLd data={itemListSchema} />
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="flex items-start gap-3">
@@ -57,7 +92,7 @@ export default function IntentBridge({
               </p>
               <Link
                 href={primaryPage.href}
-                prefetch={false}
+                prefetch={true}
                 className={isDark ? "mt-2 inline-flex items-center gap-2 text-lg font-black text-white hover:text-blue-200" : "mt-2 inline-flex items-center gap-2 text-lg font-black text-slate-950 hover:text-blue-700"}
               >
                 {primaryPage.label}
@@ -116,6 +151,6 @@ export default function IntentBridge({
           </div>
         ) : null}
       </div>
-    </section>
+    </aside>
   );
 }
