@@ -85,7 +85,17 @@ export const metadata = {
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 /* ================== JSON-LD (Service + FAQ + Gallery Images) ================== */

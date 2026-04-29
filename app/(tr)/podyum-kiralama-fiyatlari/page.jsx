@@ -78,7 +78,17 @@ export const metadata = {
       "m² bazlı güncel fiyatlar, örnek hesaplama ve hızlı teklif. İstanbul içi nakliye (kurulum+söküm dahil) sabit bedeli ile 2026 fiyat rehberi.",
     images: [`${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 /* ================== FAQ (2026 / Fiyat Intent) ================== */
