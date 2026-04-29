@@ -20,7 +20,6 @@ import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import {
   BASE_SITE_URL,
-  LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
@@ -56,6 +55,16 @@ const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
   const text = `Merhaba, ${intent} için teklif istiyorum. Etkinlik türü: [konferans/lansman/gala], Tarih: [gg.aa.yyyy], Kişi sayısı: [xxx].`;
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
+
+const HOW_TO_STEPS = [
+  "Hedef ve etkinlik türünü belirle",
+  "Katılımcı sayısı ve mekanı netleştir",
+  "Teknik keşif yap",
+  "Sahne, LED ekran, ses-ışık planını oluştur",
+  "Run-of-show hazırla",
+  "Kurulum ve prova planını yap",
+  "Etkinlik sonrası ölçüm ve raporlama yap",
+];
 
 export const metadata = {
   title: "Kurumsal Organizasyon Şirketleri | Etkinlik Prodüksiyonu",
@@ -172,8 +181,30 @@ function CorporateOrganizationJsonLd() {
   const pageUrl = `${ORIGIN}/kurumsal-organizasyon`;
   const webPageId = `${pageUrl}#webpage`;
   const serviceId = `${pageUrl}#service`;
+  const howToId = `${pageUrl}#kurumsal-etkinlik-planlama-howto`;
 
   const faqNode = buildFaqSchema(FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })));
+  const howToNode = {
+    "@type": "HowTo",
+    "@id": howToId,
+    name: "Kurumsal etkinlik nasıl planlanır?",
+    description:
+      "Kurumsal etkinlik planlamasında hedef, mekan, teknik keşif, sahne, LED ekran, ses-ışık, run-of-show, prova ve raporlama adımlarını içeren kısa süreç.",
+    inLanguage: "tr-TR",
+    totalTime: "P14D",
+    supply: [
+      { "@type": "HowToSupply", name: "Etkinlik briefi" },
+      { "@type": "HowToSupply", name: "Mekan planı" },
+      { "@type": "HowToSupply", name: "Teknik prodüksiyon ihtiyaç listesi" },
+    ],
+    step: HOW_TO_STEPS.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step,
+      text: step,
+      url: `${pageUrl}#planlama`,
+    })),
+  };
   const videoObjects = VIDEO_GALLERY.map((video, index) => ({
     "@type": "VideoObject",
     "@id": `${pageUrl}#video-${index + 1}`,
@@ -196,6 +227,12 @@ function CorporateOrganizationJsonLd() {
       "@type": "WebPage",
       "@id": webPageId,
       url: pageUrl,
+      isRelatedTo: [
+        { "@id": `${ORIGIN}/sahne-kiralama#service` },
+        { "@id": `${ORIGIN}/led-ekran-kiralama#service` },
+        { "@id": `${ORIGIN}/ses-isik-sistemleri#service` },
+        { "@id": `${ORIGIN}/truss-kiralama#service` },
+      ],
       name: metadata.title,
       description: metadata.description,
       dateModified: GUIDE_UPDATED_ISO,
@@ -208,21 +245,35 @@ function CorporateOrganizationJsonLd() {
         url: `${ORIGIN}/img/kurumsal/hero.webp`,
       },
       mainEntity: { "@id": serviceId },
-      hasPart: videoObjects.map((video) => ({ "@id": video["@id"] })),
+      hasPart: [
+        { "@id": howToId },
+        ...videoObjects.map((video) => ({ "@id": video["@id"] })),
+      ],
     },
     {
       "@type": "Service",
       "@id": serviceId,
-      name: "Kurumsal Organizasyon",
-      serviceType: "Kurumsal Etkinlik Organizasyonu",
+      name: "Kurumsal Organizasyon ve Teknik Prodüksiyon",
+      serviceType: [
+        "Kurumsal etkinlik organizasyonu",
+        "Ürün lansmanı organizasyonu",
+        "Bayi toplantısı organizasyonu",
+        "Gala ve konferans prodüksiyonu",
+        "Sahne, LED ekran, ses-ışık ve truss kurulumu",
+      ],
       description: metadata.description,
-      provider: { "@id": LOCAL_BUSINESS_ID },
-      areaServed: { "@type": "Country", name: "Türkiye" },
+      provider: { "@id": ORGANIZATION_ID },
+      brand: { "@id": ORGANIZATION_ID },
+      areaServed: [
+        { "@type": "Country", name: "Türkiye" },
+        { "@type": "City", name: "İstanbul" },
+      ],
       url: pageUrl,
     },
   ];
 
   if (faqNode) graph.push(faqNode);
+  graph.push(howToNode);
   graph.push(...videoObjects);
 
   return <JsonLdScript id="ld-json-kurumsal" data={{ "@context": "https://schema.org", "@graph": graph }} />;
@@ -348,6 +399,52 @@ function HeroShowcaseSection() {
               </li>
             ))}
           </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GeoAnswerSection() {
+  return (
+    <section className="bg-white pt-8 pb-6" aria-labelledby="kurumsal-organizasyon-nedir">
+      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
+        <div className="rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+            Kısa cevap
+          </p>
+          <h2 id="kurumsal-organizasyon-nedir" className="mt-3 text-2xl font-black text-slate-950 md:text-3xl">
+            Kurumsal organizasyon nedir?
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-slate-800">
+            Kurumsal organizasyon; markaların lansman, bayi toplantısı, gala, konferans,
+            festival, çalışan etkinliği veya protokol programlarını hedef, mekan, sahne,
+            LED ekran, ses-ışık, teknik keşif, run-of-show ve saha operasyonu ile birlikte
+            planladığı profesyonel etkinlik sürecidir. Başarılı bir kurumsal etkinlikte
+            yaratıcı fikir kadar teknik altyapı, zaman planı ve güvenli kurulum da belirleyicidir.
+          </p>
+          <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_0.9fr]">
+            <div className="rounded-2xl border border-blue-100 bg-white p-5">
+              <h3 className="text-lg font-black text-slate-950">
+                Kurumsal organizasyon firması ne yapar?
+              </h3>
+              <p className="mt-2 leading-relaxed text-slate-700">
+                Etkinliğin hedefini, mekanını, sahne düzenini, LED ekran ihtiyacını,
+                ses-ışık sistemlerini, teknik keşfini, run-of-show akışını, ekip görevlerini
+                ve kurulum operasyonunu tek plan içinde yönetir.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-white">
+              <h3 className="text-lg font-black">
+                Teknik tedarikçi farkı
+              </h3>
+              <p className="mt-2 leading-relaxed text-white/85">
+                Sahneva, yalnızca konsept planlayan bir ajans gibi değil; sahne, podyum,
+                LED ekran, truss, ses-ışık, çadır ve teknik ekip kurulumunu sahada yöneten
+                teknik prodüksiyon tedarikçisi olarak çalışır.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1138,6 +1235,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <CorporateOrganizationJsonLd />
       <Hero />
+      <GeoAnswerSection />
       <HeroShowcaseSection />
       <OverviewSection />
       <PlanningSection />

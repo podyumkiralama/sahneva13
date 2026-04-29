@@ -223,6 +223,22 @@ export const USE_CASES = [
 
 export const FAQ_ITEMS = [
   {
+    q: "Kurumsal organizasyon nedir?",
+    a: "Kurumsal organizasyon; şirketlerin lansman, bayi toplantısı, gala, konferans, festival, çalışan etkinliği veya protokol programlarını hedef, mekan, teknik altyapı, sahne, LED ekran, ses-ışık ve operasyon planıyla birlikte yürüttüğü profesyonel etkinlik sürecidir.",
+  },
+  {
+    q: "Kurumsal organizasyon firması ne yapar?",
+    a: "Kurumsal organizasyon firması etkinliğin hedefini, mekanını, sahne düzenini, LED ekran ihtiyacını, ses-ışık sistemlerini, teknik keşfini, run-of-show akışını, ekip görevlerini ve kurulum operasyonunu planlar.",
+  },
+  {
+    q: "Kurumsal etkinlik nasıl planlanır?",
+    a: "Kurumsal etkinlik planlaması hedefin netleşmesiyle başlar. Ardından mekan, katılımcı sayısı, sahne, LED ekran, ses-ışık, karşılama, akış planı, teknik ekip ve risk senaryoları birlikte değerlendirilir.",
+  },
+  {
+    q: "Kurumsal lansman için hangi ekipmanlar gerekir?",
+    a: "Kurumsal lansmanlarda genellikle sahne veya podyum, LED ekran, ses sistemi, ışık sistemi, truss, dekoratif alanlar, karşılama ekipmanları, kontrol masası ve gerektiğinde canlı yayın altyapısı gerekir.",
+  },
+  {
     q: "Kurumsal organizasyon şirketleri ne yapar?",
     a: "Kurumsal organizasyon şirketleri; hedef, içerik akışı, teknik prodüksiyon ve saha operasyonunu birlikte yönetir. Sahne, LED ekran, ses ve ışık gibi kalemleri tek plan üzerinde birleştirir. Yalnızca ekipman temin etmekle kalmaz; etkinlik öncesi keşif, prova planlaması ve etkinlik günü sahne yönetimi de bu kapsamın içine girer.",
   },
