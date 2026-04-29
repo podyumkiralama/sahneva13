@@ -15,7 +15,7 @@ const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 export const metadata = {
   title: "Bölgesel Kiralama | İstanbul, Ankara, İzmir ve Türkiye Geneli",
   description:
-    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık sistemleri kiralama. İstanbul, Ankara, İzmir, Bursa, Antalya ve çevre iller için kurulum, test ve söküm dahil planlama.",
+    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık kiralama. İstanbul, Ankara, İzmir ve Antalya için kurulum dahil planlama.",
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     en: "/en/regional-rental",

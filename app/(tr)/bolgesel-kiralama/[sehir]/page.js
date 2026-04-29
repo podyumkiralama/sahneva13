@@ -37,13 +37,12 @@ function getCityOrThrow(slug) {
 export async function generateMetadata({ params }) {
   const { sehir } = await params;
   const city = getCityOrThrow(sehir);
-  const context = getCityContext(city);
   const path = `/bolgesel-kiralama/${city.slug}`;
   const url = `${SITE}${path}`;
 
   return {
     title: `${city.name} Kiralama | Sahne, LED Ekran, Truss ve Ses Işık`,
-    description: `${city.name} için ${context.meta}. Sahneva; keşif, lojistik, kurulum, test, etkinlik günü operasyonu ve söküm akışını tek ekipte planlar.`,
+    description: `${city.name} için sahne, LED ekran, truss ve ses-ışık kiralama. Keşif, lojistik, kurulum, test ve söküm tek ekipte planlanır.`,
     alternates: {
       canonical: url,
       languages: {
