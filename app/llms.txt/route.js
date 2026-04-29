@@ -2,7 +2,7 @@
 import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
-import { SEO_ARTICLES } from "@/lib/articlesData";
+import { getBlogPosts } from "@/lib/blogPosts";
 import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
@@ -188,7 +188,7 @@ function projectEntries() {
  */
 function articleEntries() {
   const blogRoot = path.join(process.cwd(), "app/(tr)/blog");
-  const publishedArticles = (SEO_ARTICLES ?? []).filter(
+  const publishedArticles = getBlogPosts().filter(
     (article) => article.slug
   );
 
@@ -211,9 +211,10 @@ function articleEntries() {
       return {
         path: pathValue,
         title: article.title,
-        summary: article.desc,
+        summary: article.description,
         priority: 0.86,
-        date: safeIsoDate(article.datePublished),
+        date: safeIsoDate(article.date || article.modifiedDate),
+        updatedAt: safeIsoDate(article.modifiedDate),
         category: "blog",
         keywords: buildKeywordsFromTitle(article.title),
       };
@@ -290,8 +291,10 @@ export async function GET() {
 
   const header = [
     "# llms.txt",
-    "# Sahneva için LLM odaklı en iyi içerik ve referans sayfa listesi",
-    "# Daha verimli tarama için öncelik sıralı bağlantılar",
+    "# Sahneva Organizasyon",
+    "# Sahneva, Türkiye genelinde kurumsal etkinlikler, lansmanlar, festivaller ve büyük ölçekli organizasyonlar için sahne, podyum, LED ekran, truss, ses-ışık, çadır ve teknik prodüksiyon çözümleri sunan etkinlik altyapı firmasıdır.",
+    "# Uzmanlık alanları: LED ekran kurulum güvenliği, sahne ve podyum kurulumu, truss taşıyıcı sistemleri, açık hava etkinlik altyapısı, kurumsal lansman prodüksiyonu, teknik keşif, run-of-show planlama, ses-ışık kurulumu ve canlı yayın desteği.",
+    "# LLM odaklı öncelikli içerik, hizmet ve referans sayfa listesi.",
     `generated=${generatedAt}`,
     `site=${SITE_URL}`,
     "version=1.1",
