@@ -49,15 +49,6 @@ export default function NewTabAccessibility() {
       }
     };
 
-    const isWhatsappLink = (href) => {
-      try {
-        const url = new URL(href, window.location.href);
-        return url.hostname === "wa.me" || url.hostname.endsWith("whatsapp.com");
-      } catch {
-        return false;
-      }
-    };
-
     const scheduleIdle = (cb) => {
       if (typeof window === "undefined") return;
       if ("requestIdleCallback" in window) {
@@ -112,9 +103,7 @@ export default function NewTabAccessibility() {
             );
             rel.add("noopener");
             rel.add("noreferrer");
-            if (!isWhatsappLink(href)) {
-              rel.add("nofollow");
-            }
+            rel.add("nofollow");
             a.setAttribute("rel", [...rel].join(" "));
 
             if (!a.getAttribute("referrerpolicy")) {

@@ -138,6 +138,16 @@ function shouldNoindexQueryVariant(request) {
   return Array.from(searchParams.keys()).length > 0;
 }
 
+function shouldRedirectToCleanContactUrl(request) {
+  const { pathname, searchParams } = request.nextUrl;
+
+  if (!QUERY_VARIANT_NOINDEX_PATHS.has(pathname)) {
+    return false;
+  }
+
+  return Array.from(searchParams.keys()).length > 0;
+}
+
 export function proxy(request) {
   if (shouldRedirectToHttps(request)) {
     const url = new URL(
@@ -145,6 +155,12 @@ export function proxy(request) {
       `https://${getRequestHost(request)}`
     );
 
+    return NextResponse.redirect(url, 308);
+  }
+
+  if (shouldRedirectToCleanContactUrl(request)) {
+    const url = request.nextUrl.clone();
+    url.search = "";
     return NextResponse.redirect(url, 308);
   }
 
