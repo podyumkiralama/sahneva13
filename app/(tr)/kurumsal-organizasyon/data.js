@@ -15,15 +15,15 @@ export const GUIDE_UPDATED = "29 Nisan 2026";
 export const GUIDE_UPDATED_ISO = "2026-04-29T00:00:00+03:00";
 
 export const BRAND_LOGOS = [
-  { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik logo", width: 230, height: 68 },
-  { src: "/img/ses-isik/dpa.png", alt: "DPA Microphones logo", width: 180, height: 58 },
-  { src: "/img/ses-isik/lacoustics.png", alt: "L-Acoustics logo", width: 240, height: 62 },
-  { src: "/img/ses-isik/meyer.png", alt: "Meyer Sound logo", width: 230, height: 82 },
-  { src: "/img/ses-isik/shure.png", alt: "Shure logo", width: 200, height: 56 },
-  { src: "/img/ses-isik/sennheiser.webp", alt: "Sennheiser logo", width: 240, height: 62 },
-  { src: "/img/ses-isik/yamaha.png", alt: "Yamaha logo", width: 240, height: 62 },
-  { src: "/img/ses-isik/riedel.png", alt: "Riedel logo", width: 220, height: 60 },
-  { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com logo", width: 220, height: 64 },
+  { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik ses sistemi markası", width: 230, height: 68 },
+  { src: "/img/ses-isik/dpa.png", alt: "DPA mikrofon markası", width: 180, height: 58 },
+  { src: "/img/ses-isik/lacoustics.png", alt: "L-Acoustics ses sistemi markası", width: 240, height: 62 },
+  { src: "/img/ses-isik/meyer.png", alt: "Meyer Sound hoparlör sistemi markası", width: 230, height: 82 },
+  { src: "/img/ses-isik/shure.png", alt: "Shure mikrofon ve kablosuz sistem markası", width: 200, height: 56 },
+  { src: "/img/ses-isik/sennheiser.webp", alt: "Sennheiser mikrofon ve ses ekipmanı markası", width: 240, height: 62 },
+  { src: "/img/ses-isik/yamaha.png", alt: "Yamaha dijital mikser ve ses ekipmanı markası", width: 240, height: 62 },
+  { src: "/img/ses-isik/riedel.png", alt: "Riedel interkom ve yayın iletişim sistemi markası", width: 220, height: 60 },
+  { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com interkom sistemi markası", width: 220, height: 64 },
 ];
 
 export const ASSURANCE_ITEMS = [

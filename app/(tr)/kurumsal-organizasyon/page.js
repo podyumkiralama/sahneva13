@@ -557,7 +557,7 @@ function BrandLogoRailSection() {
                   >
                     <Image
                       src={brand.src}
-                      alt={index >= BRAND_LOGOS.length ? "" : brand.alt}
+                      alt={brand.alt}
                       width={brand.width}
                       height={brand.height}
                       className="max-h-11 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
