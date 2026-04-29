@@ -67,7 +67,7 @@ const HOW_TO_STEPS = [
 ];
 
 export const metadata = {
-  title: "Kurumsal Organizasyon Şirketleri | Etkinlik Prodüksiyonu",
+  title: "Kurumsal Organizasyon Şirketleri | Teknik Prodüksiyon Rehberi",
   description:
     "Kurumsal organizasyon rehberi: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon süreci.",
   keywords: [
@@ -191,7 +191,6 @@ function CorporateOrganizationJsonLd() {
     description:
       "Kurumsal etkinlik planlamasında hedef, mekan, teknik keşif, sahne, LED ekran, ses-ışık, run-of-show, prova ve raporlama adımlarını içeren kısa süreç.",
     inLanguage: "tr-TR",
-    totalTime: "P14D",
     supply: [
       { "@type": "HowToSupply", name: "Etkinlik briefi" },
       { "@type": "HowToSupply", name: "Mekan planı" },
@@ -409,7 +408,7 @@ function GeoAnswerSection() {
   return (
     <section className="bg-white pt-8 pb-6" aria-labelledby="kurumsal-organizasyon-nedir">
       <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
-        <div className="rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+        <div className="geo-answer rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
             Kısa cevap
           </p>
