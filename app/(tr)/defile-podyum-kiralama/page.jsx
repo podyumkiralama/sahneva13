@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -249,13 +250,29 @@ export const metadata = {
 /* ================== 5. BİLEŞENLER ================== */
 
 function StructuredData() {
+  const pageUrl = `${ORIGIN}/defile-podyum-kiralama`;
+  const serviceId = `${pageUrl}#service`;
+  const webPageId = `${pageUrl}#webpage`;
+  const gallerySchema = buildImageGallerySchema({
+    images: CONTENT_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Defile podyum kiralama galeri görselleri",
+  });
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Defile & Podyum Kiralama",
         description: metadata.description,
+        url: pageUrl,
+        image: gallerySchema.imageUrls,
+        mainEntityOfPage: { "@id": webPageId },
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
         serviceType: "Defile Podyum Kiralama",
@@ -272,6 +289,23 @@ function StructuredData() {
           })),
         },
       },
+      {
+        "@type": "WebPage",
+        "@id": webPageId,
+        url: pageUrl,
+        name: metadata.title,
+        description: metadata.description,
+        inLanguage: "tr-TR",
+        isPartOf: { "@id": `${ORIGIN}/#website` },
+        mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}${HERO_IMAGE}`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
+      },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
     ].filter(Boolean),
   };

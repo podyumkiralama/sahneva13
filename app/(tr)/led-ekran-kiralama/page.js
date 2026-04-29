@@ -11,6 +11,7 @@ import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import {
   Monitor,
   Sun,
@@ -1908,6 +1909,9 @@ function CTA() {
 function LedScreenJsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
   const pageDescription = metadata.description;
+  const serviceId = `${pageUrl}#service`;
+  const productId = `${pageUrl}#product`;
+  const webPageId = `${pageUrl}#webpage`;
 
   const providerRef = {
     "@id": ORGANIZATION_ID,
@@ -1929,7 +1933,7 @@ function LedScreenJsonLd() {
 
   const serviceNode = {
     "@type": "Service",
-    "@id": `${pageUrl}#service`,
+    "@id": serviceId,
     name: "LED Ekran Kiralama",
     description: pageDescription,
     serviceType: "LED Ekran Kiralama Hizmeti",
@@ -1956,16 +1960,15 @@ function LedScreenJsonLd() {
 
   const productNode = {
     "@type": "Product",
-    "@id": `${pageUrl}#product`,
+    "@id": productId,
     name: "İç ve Dış Mekan LED Ekran Kiralama",
     description:
       "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla 4K çözünürlük ve yüksek parlaklık sunan profesyonel LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için uzman kurulum.",
     category: "EventLedScreenRental",
-    image: `${ORIGIN}/img/hizmet-led-ekran.webp`,
     brand: providerRef,
     url: pageUrl,
     isRelatedTo: {
-      "@id": `${pageUrl}#service`,
+      "@id": serviceId,
     },
     aggregateRating: {
       "@id": ratingNodeId,
@@ -1982,22 +1985,19 @@ function LedScreenJsonLd() {
 
   const webpageSchema = {
     "@type": "WebPage",
-    "@id": `${pageUrl}#webpage`,
+    "@id": webPageId,
     name: metadata.title,
     description: pageDescription,
     url: pageUrl,
     inLanguage: "tr-TR",
     mainEntity: {
-      "@id": `${pageUrl}#service`,
+      "@id": serviceId,
     },
-    hasPart: VIDEO_GALLERY.map((video, index) => ({
-      "@id": `${pageUrl}#video-${index + 1}`,
-    })),
     isPartOf: {
       "@id": `${ORIGIN}#website`,
     },
     about: {
-      "@id": `${pageUrl}#service`,
+      "@id": serviceId,
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
@@ -2024,12 +2024,31 @@ function LedScreenJsonLd() {
     isFamilyFriendly: true,
     publisher: providerRef,
     about: {
-      "@id": `${pageUrl}#service`,
+      "@id": serviceId,
     },
     mainEntityOfPage: {
-      "@id": `${pageUrl}#webpage`,
+      "@id": webPageId,
     },
   }));
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "LED ekran kiralama galeri görselleri",
+  });
+
+  serviceNode.image = gallerySchema.imageUrls;
+  productNode.image = [`${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  webpageSchema.image = [`${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  webpageSchema.hasPart = [
+    ...VIDEO_GALLERY.map((video, index) => ({
+      "@id": `${pageUrl}#video-${index + 1}`,
+    })),
+    ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+    ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+  ];
 
   const reviews = [
     {
@@ -2084,6 +2103,8 @@ function LedScreenJsonLd() {
       serviceNode,
       productNode,
       ratingNode,
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       ...videoObjects,
       ...reviews,
       faqSchema,

@@ -6,6 +6,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -1156,6 +1157,16 @@ function SoundLightJsonLd() {
     serviceId,
     inLanguage: "tr-TR",
   });
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Ses ışık sistemleri galeri görselleri",
+  });
+
+  serviceNode.image = gallerySchema.imageUrls;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1177,7 +1188,14 @@ function SoundLightJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
       },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       ...productNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],

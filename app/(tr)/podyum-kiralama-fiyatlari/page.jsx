@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 
 export const revalidate = 86400;
 
@@ -27,6 +28,21 @@ const UNIT_PRICES = {
 
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+
+const PRICE_GALLERY_IMAGES = [
+  {
+    src: "/img/podyum/6.webp",
+    alt: "Kurulum sırasında podyum modüllerinin hizalanması ve yüzey hazırlığı",
+  },
+  {
+    src: "/img/podyum/7.webp",
+    alt: "Tamamlanmış podyum uygulamasında kenar bitişi ve yüzey kalitesi",
+  },
+  {
+    src: "/img/podyum/8.webp",
+    alt: "Etkinlik alanında tamamlanan podyumun kullanım anından bir görünüm",
+  },
+];
 
 /* ================== SEO METADATA ================== */
 export const metadata = {
@@ -112,6 +128,16 @@ function tl(n) {
 
 /* ================== JSON-LD ================== */
 function buildJsonLd() {
+  const serviceId = `${url}#service`;
+  const webPageId = `${url}#webpage`;
+  const gallerySchema = buildImageGallerySchema({
+    images: PRICE_GALLERY_IMAGES,
+    origin: BASE_SITE_URL,
+    pageUrl: url,
+    serviceId,
+    webPageId,
+    name: "Podyum kiralama fiyatları galeri görselleri",
+  });
   // Mini: 12 m² + halı + 14 m skört + İstanbul nakliye (kurulum+söküm dahil)
   const exampleLow =
     12 * UNIT_PRICES.platform_m2_week +
@@ -140,7 +166,11 @@ function buildJsonLd() {
 
   const mainService = {
     "@type": "Service",
+    "@id": serviceId,
     name: "Podyum Kiralama Fiyatları (m² Bazlı) — 2026",
+    url,
+    image: gallerySchema.imageUrls,
+    mainEntityOfPage: { "@id": webPageId },
     provider: { "@id": ORGANIZATION_ID },
     areaServed: [
       { "@type": "Country", name: "Türkiye" },
@@ -222,7 +252,7 @@ function buildJsonLd() {
 
   const webpage = {
     "@type": "WebPage",
-    "@id": url,
+    "@id": webPageId,
     url,
     name: "Podyum Kiralama Fiyatları 2026",
     isPartOf: { "@id": WEBSITE_ID },
@@ -233,11 +263,28 @@ function buildJsonLd() {
       "@type": "ImageObject",
       url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
     },
+    image: [
+      `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
+      ...gallerySchema.imageUrls,
+    ],
+    mainEntity: { "@id": serviceId },
+    hasPart: [
+      ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+      ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+    ],
   };
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webpage, mainService, aggregateOffer, faqPage, howTo],
+    "@graph": [
+      webpage,
+      mainService,
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
+      aggregateOffer,
+      faqPage,
+      howTo,
+    ],
   };
 }
 

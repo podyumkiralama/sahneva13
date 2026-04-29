@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -23,6 +24,25 @@ const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 /* ================== 2. İÇERİK VERİLERİ ================== */
+const CONCERT_GALLERY_IMAGES = [
+  {
+    src: "/img/podyum/konser-1.webp",
+    alt: "Konser için podyum ve sahne kurulumu",
+  },
+  {
+    src: "/img/podyum/konser-2.webp",
+    alt: "Festival sahnesi podyum ve teknik prodüksiyon alanı",
+  },
+  {
+    src: "/img/podyum/konser-3.webp",
+    alt: "Açık hava konseri için modüler podyum kurulumu",
+  },
+  {
+    src: "/img/podyum/konser-4.webp",
+    alt: "Konser podyumu, ses ışık ve LED entegrasyonu",
+  },
+];
+
 const SERVICES = [
   {
     icon: "🎤",
@@ -264,17 +284,50 @@ export const metadata = {
 
 // --- JSON-LD ---
 function StructuredData() {
+  const pageUrl = `${ORIGIN}/konser-icin-podyum-kiralama`;
+  const serviceId = `${pageUrl}#service`;
+  const webPageId = `${pageUrl}#webpage`;
+  const gallerySchema = buildImageGallerySchema({
+    images: CONCERT_GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Konser podyum kiralama galeri görselleri",
+  });
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Konser İçin Podyum Kiralama",
         description: metadata.description,
+        url: pageUrl,
+        image: gallerySchema.imageUrls,
+        mainEntityOfPage: { "@id": webPageId },
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "AdministrativeArea", name: "Türkiye" },
         serviceType: "Konser Sahne Kurulumu",
       },
+      {
+        "@type": "WebPage",
+        "@id": webPageId,
+        url: pageUrl,
+        name: metadata.title,
+        description: metadata.description,
+        inLanguage: "tr-TR",
+        isPartOf: { "@id": `${ORIGIN}/#website` },
+        mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}/img/podyum/konser-hero.webp`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
+      },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       buildFaqSchema(FAQ_ITEMS.map((f) => ({ question: f.q, answer: f.a }))),
     ],
   };

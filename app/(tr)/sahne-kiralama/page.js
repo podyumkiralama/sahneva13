@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -1810,6 +1811,16 @@ function StageJsonLd() {
     serviceId,
     inLanguage: "tr-TR",
   });
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Sahne kiralama galeri görselleri",
+  });
+
+  serviceNode.image = gallerySchema.imageUrls;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1833,7 +1844,14 @@ function StageJsonLd() {
           caption: HERO.alt,
         },
         mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
       },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       ...productNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],

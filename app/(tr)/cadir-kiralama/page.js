@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -1781,6 +1782,17 @@ function TentRentalJsonLd() {
     "@id": serviceSchema["@id"] || `${pageUrl}#service`,
     provider,
   };
+  const serviceId = serviceNode["@id"];
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Çadır kiralama galeri görselleri",
+  });
+
+  serviceNode.image = gallerySchema.imageUrls;
 
   const webPageNode = {
     "@type": "WebPage",
@@ -1789,7 +1801,7 @@ function TentRentalJsonLd() {
     description: pageDescription,
     url: pageUrl,
     inLanguage: "tr-TR",
-    mainEntity: { "@id": serviceNode["@id"] },
+    mainEntity: { "@id": serviceId },
     isPartOf: { "@id": WEBSITE_ID },
     publisher: provider,
     primaryImageOfPage: {
@@ -1798,13 +1810,18 @@ function TentRentalJsonLd() {
       width: 1200,
       height: 630,
     },
+    image: [`${ORIGIN}/img/cadir/hero.webp`, ...gallerySchema.imageUrls],
+    hasPart: [
+      ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+      ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+    ],
   };
 
   const faqNode = {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
     isPartOf: { "@id": webPageId },
-    about: { "@id": serviceNode["@id"] },
+    about: { "@id": serviceId },
     mainEntityOfPage: { "@id": webPageId },
     inLanguage: "tr-TR",
     mainEntity: FAQ_ITEMS.map((faq) => ({
@@ -1830,6 +1847,8 @@ function TentRentalJsonLd() {
       webPageNode,
       serviceNode,
       offerCatalogNode,
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       faqNode,
       ...productNodes,
       ...videoNodes,

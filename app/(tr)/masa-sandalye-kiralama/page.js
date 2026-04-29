@@ -8,6 +8,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 
@@ -1660,6 +1661,16 @@ function TableChairJsonLd() {
     serviceId,
     inLanguage: "tr-TR",
   });
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES,
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Masa sandalye kiralama galeri görselleri",
+  });
+
+  serviceNode.image = gallerySchema.imageUrls;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1680,7 +1691,14 @@ function TableChairJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
       },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       ...productNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],

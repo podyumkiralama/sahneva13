@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -345,6 +346,21 @@ export const metadata = {
 
 // --- JSON-LD ---
 function StructuredData() {
+  const pageUrl = `${ORIGIN}/podyum-kiralama`;
+  const serviceId = `${pageUrl}#service`;
+  const webPageId = `${pageUrl}#webpage`;
+  const gallerySchema = buildImageGallerySchema({
+    images: GALLERY_IMAGES.map((src, index) => ({
+      src,
+      alt: `Podyum kiralama galeri görseli ${index + 1}`,
+    })),
+    origin: ORIGIN,
+    pageUrl,
+    serviceId,
+    webPageId,
+    name: "Podyum kiralama galeri görselleri",
+  });
+
   const offerCatalogItems = PACKAGES.map((pkg) => {
     const prices = calculatePackagePrice(pkg.layout);
     return {
@@ -387,8 +403,12 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId,
         name: "Podyum Kiralama",
         description: metadata.description,
+        url: pageUrl,
+        image: gallerySchema.imageUrls,
+        mainEntityOfPage: { "@id": webPageId },
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
         hasOfferCatalog: {
@@ -397,6 +417,23 @@ function StructuredData() {
           itemListElement: offerCatalogItems,
         },
       },
+      {
+        "@type": "WebPage",
+        "@id": webPageId,
+        url: pageUrl,
+        name: metadata.title,
+        description: metadata.description,
+        inLanguage: "tr-TR",
+        isPartOf: { "@id": `${ORIGIN}/#website` },
+        mainEntity: { "@id": serviceId },
+        image: [`${ORIGIN}/img/podyum/hero.webp`, ...gallerySchema.imageUrls],
+        hasPart: [
+          ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
+          ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
+        ],
+      },
+      ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
+      ...gallerySchema.imageNodes,
       ...productSchemas,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
     ].filter(Boolean),
