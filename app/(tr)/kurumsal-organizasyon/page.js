@@ -4,10 +4,14 @@ import {
   ArrowRight,
   CirclePlay,
   Clapperboard,
+  ClipboardCheck,
   MoveRight,
+  MonitorCheck,
   PhoneCall,
   RadioTower,
+  Ruler,
   ShieldCheck,
+  Zap,
 } from "lucide-react";
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
@@ -910,6 +914,26 @@ function TechnicalDiscoveryMap() {
 }
 
 function TechnicalDiscoveryInfographic() {
+  const discoveryOutputs = [
+    {
+      Icon: Ruler,
+      text: "Sahne, LED ekran, ses-ışık ve truss için net yerleşim planı",
+    },
+    {
+      Icon: ClipboardCheck,
+      text: "Kurulum-söküm saatleri ve saha ekip görev dağılımı",
+    },
+    {
+      Icon: Zap,
+      text: "Enerji, kablo, yükleme ve güvenlik ihtiyaçları",
+    },
+    {
+      Icon: MonitorCheck,
+      text: "Daha gerçekçi bütçe ve daha az son dakika değişikliği",
+    },
+  ];
+  const discoveryCta = generateWhatsAppLink("kurumsal organizasyon teknik keşif randevusu");
+
   return (
     <SectionShell variant="soft" id="teknik-kesif">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -919,23 +943,30 @@ function TechnicalDiscoveryInfographic() {
             title="Etkinlik günü sürpriz yaşamamak için saha önce okunur"
             desc="Teknik keşif; mekanın ölçü, enerji, taşıyıcı sistem, görüş açısı, akustik ve operasyon risklerini tekliften önce görünür hale getiren kısa ama kritik kontroldür."
           />
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
             <h3 className="text-xl font-black text-slate-950">
               Keşif çıktısında ne olur?
             </h3>
-            <ul className="mt-5 grid gap-3 text-sm font-semibold leading-relaxed text-slate-700">
-              {[
-                "Sahne, LED ekran, ses-ışık ve truss için net yerleşim planı",
-                "Kurulum-söküm saatleri ve saha ekip görev dağılımı",
-                "Enerji, kablo, yükleme ve güvenlik ihtiyaçları",
-                "Daha gerçekçi bütçe ve daha az son dakika değişikliği",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
-                  <span>{item}</span>
+            <ul className="mt-7 grid gap-4 text-sm font-semibold leading-relaxed text-slate-700">
+              {discoveryOutputs.map(({ Icon, text }) => (
+                <li key={text} className="flex gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 ring-1 ring-blue-100">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span className="pt-1.5">{text}</span>
                 </li>
               ))}
             </ul>
+            <a
+              href={discoveryCta}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp üzerinden ücretsiz teknik keşif randevusu oluşturun"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-black text-white transition hover:bg-blue-500"
+            >
+              Ücretsiz keşif randevusu oluştur
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
 
@@ -1477,10 +1508,10 @@ export default function Page() {
       <HeroShowcaseSection />
       <OverviewSection />
       <PlanningSection />
-      <TechnicalDiscoveryInfographic />
       <FormatsSection />
       <TechnicalSection />
       <ServicesSection />
+      <TechnicalDiscoveryInfographic />
       <PackageSection />
       <GallerySection />
       <VideoShowcaseSection />
