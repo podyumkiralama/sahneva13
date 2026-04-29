@@ -142,6 +142,10 @@ export const metadata = {
         height: 630,
         alt: HERO.alt,
       },
+      ...GALLERY_IMAGES.slice(0, 3).map((image) => ({
+        url: `${ORIGIN}${image.src}`,
+        alt: image.alt,
+      })),
     ],
   },
   twitter: {
@@ -225,6 +229,7 @@ function CorporateOrganizationJsonLd() {
   const webPageId = `${pageUrl}#webpage`;
   const serviceId = `${pageUrl}#service`;
   const howToId = `${pageUrl}#kurumsal-etkinlik-planlama-howto`;
+  const galleryId = `${pageUrl}#image-gallery`;
 
   const faqNode = buildFaqSchema(FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })));
   const howToNode = {
@@ -263,6 +268,18 @@ function CorporateOrganizationJsonLd() {
     about: { "@id": serviceId },
     mainEntityOfPage: { "@id": webPageId },
   }));
+  const galleryImageObjects = GALLERY_IMAGES.map((image, index) => ({
+    "@type": "ImageObject",
+    "@id": `${pageUrl}#gallery-image-${index + 1}`,
+    url: `${ORIGIN}${image.src}`,
+    contentUrl: `${ORIGIN}${image.src}`,
+    caption: image.alt,
+    name: image.alt,
+    inLanguage: "tr-TR",
+    representativeOfPage: index === 0,
+    about: { "@id": serviceId },
+    mainEntityOfPage: { "@id": webPageId },
+  }));
 
   const graph = [
     {
@@ -286,10 +303,16 @@ function CorporateOrganizationJsonLd() {
         "@type": "ImageObject",
         url: `${ORIGIN}/img/kurumsal/hero.webp`,
       },
+      image: [
+        `${ORIGIN}/img/kurumsal/hero.webp`,
+        ...GALLERY_IMAGES.slice(0, 5).map((image) => `${ORIGIN}${image.src}`),
+      ],
       mainEntity: { "@id": serviceId },
       hasPart: [
         { "@id": howToId },
+        { "@id": galleryId },
         ...videoObjects.map((video) => ({ "@id": video["@id"] })),
+        ...galleryImageObjects.map((image) => ({ "@id": image["@id"] })),
       ],
     },
     {
@@ -304,6 +327,7 @@ function CorporateOrganizationJsonLd() {
         "Sahne, LED ekran, ses-ışık ve truss kurulumu",
       ],
       description: metadata.description,
+      image: GALLERY_IMAGES.slice(0, 5).map((image) => `${ORIGIN}${image.src}`),
       provider: { "@id": ORGANIZATION_ID },
       brand: { "@id": ORGANIZATION_ID },
       areaServed: [
@@ -312,11 +336,22 @@ function CorporateOrganizationJsonLd() {
       ],
       url: pageUrl,
     },
+    {
+      "@type": "CollectionPage",
+      "@id": galleryId,
+      name: "Kurumsal organizasyon proje görselleri",
+      url: `${pageUrl}#projeler`,
+      inLanguage: "tr-TR",
+      isPartOf: { "@id": webPageId },
+      about: { "@id": serviceId },
+      hasPart: galleryImageObjects.map((image) => ({ "@id": image["@id"] })),
+    },
   ];
 
   if (faqNode) graph.push(faqNode);
   graph.push(howToNode);
   graph.push(...videoObjects);
+  graph.push(...galleryImageObjects);
 
   return <JsonLdScript id="ld-json-kurumsal" data={{ "@context": "https://schema.org", "@graph": graph }} />;
 }
