@@ -5,6 +5,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
@@ -141,6 +142,73 @@ const RELATED_SERVICES = [
     icon: "🎵",
     desc: "Profesyonel ses ve ışık sistemleri kiralama",
   },
+];
+
+const GUIDE_CONTENTS = [
+  { href: "#konser-sahne-olcusu", label: "Konser podyum olcusu nasil belirlenir?" },
+  { href: "#konser-rider", label: "Teknik rider ve platform ihtiyaci" },
+  { href: "#konser-guvenlik", label: "Acik alan guvenligi ve zemin" },
+  { href: "#konser-fiyat", label: "Konser podyum fiyat kalemleri" },
+];
+
+const GUIDE_CHAPTERS = [
+  {
+    id: "konser-sahne-olcusu",
+    title: "Sahne olcusu sanatci, ekipman ve seyirci alanina gore netlesir",
+    body:
+      "Konser podyumu planlanirken yalnizca sahne genisligi degil; davul riseri, yan platform, ekip gecisleri, LED ekran ve teknik ekip alanlari birlikte hesaplanir.",
+    points: [
+      "Ana performans alani ve sanatci sayisi",
+      "Davul, DJ veya orkestra icin yukseltilmis platform",
+      "Yan sahne, merdiven, rampa ve teknik gecisler",
+      "LED ekran ve truss entegrasyonu",
+    ],
+  },
+  {
+    id: "konser-rider",
+    title: "Teknik rider sahne planinin kisa yoludur",
+    body:
+      "Sanatci rider'i varsa sahne olcusu, enerji, FOH, monitor, backline ve riser ihtiyaclari daha hizli netlesir. Rider yoksa etkinlik turune gore pratik bir teknik brief hazirlanir.",
+    points: [
+      "FOH ve monitor platformlari",
+      "Kablo kanallari ve sahne arkasi gecisleri",
+      "Soundcheck ve prova saatleri",
+      "Teknik ekip icin operasyon alani",
+    ],
+  },
+  {
+    id: "konser-guvenlik",
+    title: "Acik hava kurulumunda zemin ve hava kosullari kritik rol oynar",
+    body:
+      "Festival veya acik alan konserlerinde yukseklik, zemin egimi, ruzgar, bariyer ve seyirci yogunlugu sahne guvenligini dogrudan etkiler.",
+    points: [
+      "Zemin kot farki ve ayak dengeleme",
+      "Ruzgar ve ekipman sabitleme planı",
+      "Seyirci bariyeri ve sahne on guvenligi",
+      "Kurulum-sokum icin arac giris guzergahi",
+    ],
+  },
+  {
+    id: "konser-fiyat",
+    title: "Fiyat; ana platformdan teknik destek suresine kadar hesaplanir",
+    body:
+      "Konser podyum kiralama teklifinde metrekare, yukseklik, ek platformlar, nakliye, kurulum ekibi, etkinlik gun sayisi ve sahada teknik destek ihtiyaci birlikte degerlendirilir.",
+    points: [
+      "m2, yukseklik ve kaplama ihtiyaci",
+      "FOH, davul riseri ve yan platformlar",
+      "LED/truss/ses-isik entegrasyonu",
+      "Sehir, nakliye ve ekip konaklama ihtimali",
+    ],
+  },
+];
+
+const GUIDE_CHECKLIST = [
+  "Sanatci rider'i veya sahne olcu talebi",
+  "Etkinlik tarihi, sehir ve mekan tipi",
+  "Tahmini seyirci sayisi ve sahne konumu",
+  "LED ekran, truss, ses ve isik ihtiyaci",
+  "FOH, davul riseri, yan sahne ve merdiven ihtiyaci",
+  "Kurulum, soundcheck ve sokum saatleri",
 ];
 
 /* ================== 3. META DATA ================== */
@@ -677,6 +745,20 @@ export default function KonserIcinPodyumKiralamaPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
+      <ServiceGuideShowcase
+        eyebrow="Konser podyum rehberi"
+        title="Konser sahnesi icin podyum kararini teknik brief ile netlestirin"
+        description="Konser aramalarinda kullanici hem fiyat hem de guvenli sahne kurulumu ister. Bu rehber olcu, rider, guvenlik ve teklif bilgisini ayni akista toplar."
+        contents={GUIDE_CONTENTS}
+        chapters={GUIDE_CHAPTERS}
+        checklist={GUIDE_CHECKLIST}
+        cta={{
+          href: WHATSAPP_URL,
+          label: "Konser sahne briefi gonder",
+          ariaLabel: "WhatsApp uzerinden konser podyum kiralama briefi gonder",
+        }}
+        theme="amber"
+      />
       <ServicesSection />
       <ArticlesSection />
       <FAQSection />

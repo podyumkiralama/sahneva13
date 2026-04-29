@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== ISR ================== */
@@ -173,6 +174,73 @@ const TRUSS_GALLERY_IMAGES = [
   { src: "/img/truss/truss-6.webp", alt: "Kurumsal etkinlik sahne portalı truss kurulumu" },
   { src: "/img/truss/truss-7.webp", alt: "Festival sahnesinde geniş açıklıklı truss kurulumu" },
   { src: "/img/truss/truss-8.webp", alt: "Açık alanda ışık ve ses rigging için truss sistemi" },
+];
+
+const GUIDE_CONTENTS = [
+  { href: "#truss-kurgu-secimi", label: "Truss kurgusu nasil secilir?" },
+  { href: "#truss-guvenlik", label: "Guvenlik ve yuk planlamasi" },
+  { href: "#truss-fiyat", label: "Fiyati etkileyen kalemler" },
+  { href: "#truss-entegrasyon", label: "LED, isik ve sahne entegrasyonu" },
+];
+
+const GUIDE_CHAPTERS = [
+  {
+    id: "truss-kurgu-secimi",
+    title: "Truss kurgusu etkinlik formatina gore secilmeli",
+    body:
+      "Kare, ucgen, circle veya gate truss secimi yalnizca gorunume gore yapilmaz. Tasiyacak ekipman, aciklik, yukseklik, zemin ve seyirci yerlesimi ayni anda degerlendirilir.",
+    points: [
+      "Konser ve festival icin yuk tasima kapasitesi yuksek kare truss",
+      "Fuar, giris taki ve marka alanlari icin gate veya ozel form",
+      "Merkez sahne ve premium lansmanlar icin circle/oval truss",
+      "Dar alanlarda dekoratif ve hafif kurgu icin ucgen truss",
+    ],
+  },
+  {
+    id: "truss-guvenlik",
+    title: "Guvenlik, kurulumdan once teknik planda cozulu olmalı",
+    body:
+      "Truss kurulumu, ekipman asma noktalari ve ruzgar/zemin kosullari netlesmeden sahaya inmemelidir. Bu sayede operasyon sirasinda ek parca, gecikme veya riskli yuk bindirme ihtimali azalir.",
+    points: [
+      "Yuk dagilimi ve baglanti noktalari",
+      "Zemin tipi, kot farki ve sabitleme ihtiyaci",
+      "LED ekran veya isik agirligi",
+      "Kurulum-sokum saatleri ve saha giris plani",
+    ],
+  },
+  {
+    id: "truss-fiyat",
+    title: "Truss kiralama fiyatı metrajdan fazlasina baglidir",
+    body:
+      "Fiyati truss tipi, toplam metre, yukseklik, motor/ayak ihtiyaci, nakliye, montaj ekibi ve etkinlik suresi birlikte belirler. Bu nedenle teklif formunda yalnizca 'kac metre truss' bilgisi yeterli olmaz.",
+    points: [
+      "Kurgu tipi ve toplam metraj",
+      "Nakliye mesafesi ve kurulum suresi",
+      "Ek destek, base plate, motor veya rigging parcalari",
+      "Sahada teknik ekip bulunma ihtiyaci",
+    ],
+  },
+  {
+    id: "truss-entegrasyon",
+    title: "Truss, teknik produksiyonun tasiyici omurgasidir",
+    body:
+      "LED ekran, ses, isik ve sahne tasarimi birlikte planlandiginda truss yalnizca metal tasiyici degil, etkinligin gorunurlugunu ve operasyon guvenligini belirleyen ana altyapi olur.",
+    points: [
+      "LED ekran frame ve askı kurgusu",
+      "Moving head, wash ve efekt isiklari icin rigging",
+      "Sahne portali ve backdrop tasiyici sistem",
+      "Fuar standi ust konstruksiyon ve marka alanlari",
+    ],
+  },
+];
+
+const GUIDE_CHECKLIST = [
+  "Sehir, mekan ve kurulum alaninin olcusu",
+  "Istenen truss formu: kare, ucgen, gate, circle veya ozel kurgu",
+  "Asilacak LED ekran, isik veya ses ekipmani",
+  "Kurulum ve sokum icin izin verilen saat araligi",
+  "Zemin tipi, acik alan/kapali alan bilgisi ve yukseklik ihtiyaci",
+  "Etkinlik tarihi ve operasyonun kac gun surecegi",
 ];
 
 /* ================== FAQ ================== */
@@ -644,6 +712,19 @@ export default function Page() {
       />
 
       <Hero />
+      <ServiceGuideShowcase
+        eyebrow="Truss kiralama rehberi"
+        title="Truss sistemini dogru secmek icin hizli karar rehberi"
+        description="Arama niyeti yalnizca fiyat degil; guvenli kurgu, ekipman entegrasyonu ve sahada sorunsuz operasyon. Bu rehber karar surecini netlestirir."
+        contents={GUIDE_CONTENTS}
+        chapters={GUIDE_CHAPTERS}
+        checklist={GUIDE_CHECKLIST}
+        cta={{
+          href: WHATSAPP,
+          label: "Truss teklif briefi gonder",
+          ariaLabel: "WhatsApp uzerinden truss kiralama teklif briefi gonder",
+        }}
+      />
       <Content />
       <Gallery />
       <Technical />

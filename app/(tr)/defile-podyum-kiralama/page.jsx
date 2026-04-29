@@ -5,6 +5,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
@@ -129,6 +130,73 @@ const RELATED_SERVICES = [
   { href: "/sahne-kiralama", title: "Sahne Kiralama", icon: "🏗️", desc: "Konser, konferans ve lansman etkinlikleri için sahne" },
   { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", icon: "🖥️", desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri" },
   { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", icon: "🎵", desc: "Profesyonel ses ve ışık sistemleri kiralama" },
+];
+
+const GUIDE_CONTENTS = [
+  { href: "#defile-runway-plani", label: "Runway formu nasil secilir?" },
+  { href: "#defile-gorunurluk", label: "Isik, LED ve kamera acisi" },
+  { href: "#defile-akis", label: "Prova ve etkinlik akisi" },
+  { href: "#defile-fiyat", label: "Defile podyum fiyatini belirleyenler" },
+];
+
+const GUIDE_CHAPTERS = [
+  {
+    id: "defile-runway-plani",
+    title: "Runway formu koleksiyon akisi ve seyirci duzeniyle baslar",
+    body:
+      "Duz, T tipi veya U tipi podyum secimi mekanin prestijinden once gorus acisi, model yuruyus ritmi ve koleksiyon cikis planina gore belirlenmelidir.",
+    points: [
+      "Duz runway: dar salon ve net kamera acisi",
+      "T tipi runway: fotograf ve VIP seyirci gorunurlugu",
+      "U tipi runway: genis seyirci temasi ve daha uzun yuruyus",
+      "Ozel form: marka deneyimi ve lansman koreografisi",
+    ],
+  },
+  {
+    id: "defile-gorunurluk",
+    title: "Podyum, isik ve LED birlikte tasarlaninca premium algi artar",
+    body:
+      "Defile sahnesinde teknik kurgu yalnizca podyumdan ibaret degildir. LED arka plan, sahne isigi, fotograf noktasi ve kamera koridoru ayni planda cozuldugunde marka algisi daha guclu olur.",
+    points: [
+      "LED backdrop veya projeksiyon mapping",
+      "Lookbook ve sosyal medya cekimi icin temiz acilar",
+      "Model cikis noktasi, backstage ve final pozu",
+      "Yuzey kaplamasi: mat, parlak, hali veya ozel renk",
+    ],
+  },
+  {
+    id: "defile-akis",
+    title: "Prova saatleri kurulum planinin merkezinde olmali",
+    body:
+      "Moda etkinliklerinde sahne, ses, isik ve prova ayni gun icinde hizli ilerler. Kurulum ve sokum saatleri prova, styling, makyaj ve misafir girisiyle cakismayacak sekilde planlanmalidir.",
+    points: [
+      "Kurulum teslim saati ve prova baslangici",
+      "Koreografi, muzik ve isik cue listesi",
+      "Backstage gecisleri ve model guvenligi",
+      "Sokum ve mekan teslim plani",
+    ],
+  },
+  {
+    id: "defile-fiyat",
+    title: "Fiyat; metrekare, yuzey, teknik entegrasyon ve sureye gore degisir",
+    body:
+      "Defile podyum kiralama fiyatinda alan olcusu kadar kaplama, LED/isik entegrasyonu, sehir, kurulum zorlugu ve operasyon suresi de etkilidir.",
+    points: [
+      "Runway olcusu ve yukseklik",
+      "Kaplama tipi ve marka rengi uygulamasi",
+      "LED, isik, ses ve kamera ihtiyaci",
+      "Kurulum ekibi, nakliye ve etkinlik suresi",
+    ],
+  },
+];
+
+const GUIDE_CHECKLIST = [
+  "Mekan plani, seyirci oturma duzeni ve tavan yuksekligi",
+  "Runway tipi: duz, T, U veya ozel form",
+  "Koleksiyon akisi, model sayisi ve prova saati",
+  "LED backdrop, isik tasarimi ve ses ihtiyaci",
+  "Yuzey kaplamasi ve marka renkleri",
+  "Etkinlik tarihi, sehir ve kurulum-sokum saatleri",
 ];
 
 /* ================== 4. META DATA ================== */
@@ -798,6 +866,20 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
+      <ServiceGuideShowcase
+        eyebrow="Defile podyum rehberi"
+        title="Moda etkinligi icin podyum, isik ve akisi birlikte planlayin"
+        description="Defile sayfasini yalnizca hizmet tanitimi olmaktan cikarip arama yapan kisinin karar sorularini yanitlayan, taranabilir bir rehber katmaniyla guclendirdik."
+        contents={GUIDE_CONTENTS}
+        chapters={GUIDE_CHAPTERS}
+        checklist={GUIDE_CHECKLIST}
+        cta={{
+          href: WHATSAPP_URL,
+          label: "Defile briefi ile teklif al",
+          ariaLabel: "WhatsApp uzerinden defile podyum kiralama briefi gonder",
+        }}
+        theme="violet"
+      />
       <ServicesSection />
       <ContentSection />
       <UseCasesSection />
