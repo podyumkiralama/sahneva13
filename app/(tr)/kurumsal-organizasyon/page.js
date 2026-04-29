@@ -26,6 +26,7 @@ import {
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import {
   ASSURANCE_ITEMS,
+  BRAND_LOGOS,
   FAQ_ITEMS,
   FORMAT_ITEMS,
   GALLERY_IMAGES,
@@ -442,6 +443,52 @@ function GeoAnswerSection() {
                 LED ekran, truss, ses-ışık, çadır ve teknik ekip kurulumunu sahada yöneten
                 teknik prodüksiyon tedarikçisi olarak çalışır.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BrandLogoRailSection() {
+  const railItems = [...BRAND_LOGOS, ...BRAND_LOGOS];
+
+  return (
+    <section className="bg-white py-6" aria-labelledby="kurumsal-markalar-baslik">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50/80 py-5 shadow-sm">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
+            <div className="px-5 md:w-60 md:shrink-0">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-slate-500">
+                Kullandığımız markalar
+              </p>
+              <h2 id="kurumsal-markalar-baslik" className="mt-1 text-lg font-black text-slate-950">
+                Teknik prodüksiyon altyapısı
+              </h2>
+            </div>
+
+            <div className="relative min-w-0 flex-1 overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-slate-50 to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-slate-50 to-transparent" />
+              <div className="brand-logo-rail flex w-max items-center gap-10 pr-10">
+                {railItems.map((brand, index) => (
+                  <div
+                    key={`${brand.src}-${index}`}
+                    className="flex h-16 w-36 shrink-0 items-center justify-center"
+                    aria-hidden={index >= BRAND_LOGOS.length ? "true" : undefined}
+                  >
+                    <Image
+                      src={brand.src}
+                      alt={index >= BRAND_LOGOS.length ? "" : brand.alt}
+                      width={brand.width}
+                      height={brand.height}
+                      className="max-h-11 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                      sizes="144px"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -1235,6 +1282,7 @@ export default function Page() {
       <CorporateOrganizationJsonLd />
       <Hero />
       <GeoAnswerSection />
+      <BrandLogoRailSection />
       <HeroShowcaseSection />
       <OverviewSection />
       <PlanningSection />
