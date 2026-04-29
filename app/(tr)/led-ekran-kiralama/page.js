@@ -1682,6 +1682,21 @@ function Articles() {
                   tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
+
+              <div className="not-prose my-8 rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+                <h4 className="text-lg font-black text-gray-900">Etkinlik tipine göre LED ekran seçimi</h4>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  Konferans, lansman, festival veya açık hava organizasyonu için ekran ölçüsü,
+                  pixel pitch ve parlaklık kararını daha detaylı görmek isterseniz hazırladığımız
+                  rehberi inceleyebilirsiniz.
+                </p>
+                <Link
+                  href="/blog/etkinlikler-icin-led-ekran-secimi"
+                  className="mt-4 inline-flex items-center font-bold text-blue-700 hover:text-blue-900"
+                >
+                  LED ekran seçimi rehberini oku
+                </Link>
+              </div>
               
               <h3 id="fiyatlar-neden-degisir">Neden Fiyatlar Değişiyor?</h3>
               <p>

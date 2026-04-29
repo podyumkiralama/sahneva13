@@ -22,9 +22,9 @@ const LAUNCH_IMG = "/img/blog/marka-lansmani-led-ekran-standi.webp";
 const OUTDOOR_IMG = "/img/blog/dis-mekan-led-ekran-sahne-kurulumu.webp";
 const AUDITORIUM_IMG = "/img/blog/konferans-salonu-led-ekran-sunumu.webp";
 
-const TITLE = "Etkinlikler İçin LED Ekran Seçimi | LED Ekran Kiralama Rehberi";
+const TITLE = "LED Ekran Seçimi Rehberi";
 const DESCRIPTION =
-  "Etkinlikler için LED ekran seçerken indoor/outdoor kullanım, pixel pitch, parlaklık, görüş açısı, yenileme hızı ve teknik kurulum kriterlerini Sahneva rehberiyle öğrenin.";
+  "Etkinlik için LED ekran seçimi: indoor/outdoor kullanım, pixel pitch, parlaklık, görüş açısı ve güvenli kurulum kriterlerini öğrenin.";
 
 const WA_URL =
   "https://wa.me/905453048671?text=" +
@@ -128,7 +128,7 @@ function ArticleSchema() {
       {
         "@type": "BlogPosting",
         "@id": `${BLOG_URL}#blogposting`,
-        headline: "Etkinlikler İçin LED Ekran Seçimi: LED Ekran Kiralama Rehberi",
+    headline: "LED Ekran Seçimi Rehberi",
         description: DESCRIPTION,
         image: [`${SITE_URL}${HERO_IMG}`, `${SITE_URL}${CONFERENCE_IMG}`, `${SITE_URL}${OUTDOOR_IMG}`],
         datePublished: PUBLISH_DATE,
@@ -220,7 +220,7 @@ export default function Page() {
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: "Etkinlikler İçin LED Ekran Seçimi", url: BLOG_URL },
+    { name: "LED Ekran Seçimi Rehberi", url: BLOG_URL },
   ];
 
   return (
@@ -235,7 +235,7 @@ export default function Page() {
           alt: "Konferans salonunda geniş LED ekran kurulumu ve sahne prodüksiyonu",
         }}
         pills={["LED Ekran", "Kiralama Rehberi", "Etkinlik Prodüksiyonu"]}
-        title="Etkinlikler İçin LED Ekran Seçimi"
+        title="LED Ekran Seçimi Rehberi"
         highlight="Kiralama Rehberi"
         description={DESCRIPTION}
         publishDate={PUBLISH_DATE}
