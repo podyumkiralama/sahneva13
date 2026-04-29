@@ -55,6 +55,28 @@ const CONTACT_CHANNELS = [
   },
 ].filter(Boolean);
 
+const CONTACT_BRIEF_ITEMS = [
+  "نوع الفعالية: مؤتمر، إطلاق منتج، حفل، مهرجان أو اجتماع شركة.",
+  "المدينة والتاريخ والمدة المتوقعة للتركيب والتشغيل.",
+  "عدد الضيوف، مساحة المكان، نقطة التحميل ومعلومات الكهرباء.",
+  "احتياج المنصة، شاشة LED، الصوت، الإضاءة، التراس أو الخيام.",
+];
+
+const CONTACT_RESPONSE_STEPS = [
+  {
+    title: "مراجعة أولية",
+    text: "نراجع تفاصيل الطلب ونحدد الأسئلة التقنية التي تؤثر في السعر والجدول.",
+  },
+  {
+    title: "اقتراح فني",
+    text: "نقترح قائمة معدات مناسبة لطبيعة المكان والجمهور وهدف الفعالية.",
+  },
+  {
+    title: "عرض واضح",
+    text: "نرسل عرضاً يتضمن نطاق العمل، الفريق، مدة التركيب والتكلفة المتوقعة.",
+  },
+];
+
 export default function ArabicContactPage() {
   const contactChannels = Array.isArray(CONTACT_CHANNELS) ? CONTACT_CHANNELS : [];
   const contactCards = [];
@@ -93,6 +115,31 @@ export default function ArabicContactPage() {
       </header>
 
       <div className="grid gap-6 md:grid-cols-3">{contactCards}</div>
+
+      <section className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-6 text-right md:p-8">
+        <h2 className="text-2xl font-black text-neutral-900">معلومات تساعدنا على تسعير أسرع</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-neutral-700">
+          كلما كانت تفاصيل الفعالية أوضح، أصبح بإمكان فريق سحنيفا إعداد عرض أدق
+          للمنصة، شاشة LED، الصوت، الإضاءة، التراس أو تجهيزات الضيافة. لا تحتاج
+          إلى مخطط كامل في البداية؛ يكفي إرسال المعلومات الأساسية لنبدأ التقييم.
+        </p>
+        <ul className="mt-5 grid gap-3 md:grid-cols-2">
+          {CONTACT_BRIEF_ITEMS.map((item) => (
+            <li key={item} className="rounded-2xl border border-white/70 bg-white p-4 text-sm leading-6 text-neutral-700 shadow-sm">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {CONTACT_RESPONSE_STEPS.map((step) => (
+          <article key={step.title} className="rounded-2xl border border-neutral-200 bg-white p-6 text-right shadow-sm">
+            <h2 className="text-lg font-bold text-neutral-900">{step.title}</h2>
+            <p className="mt-3 text-sm leading-6 text-neutral-600">{step.text}</p>
+          </article>
+        ))}
+      </section>
     </div>
   );
 }

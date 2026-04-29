@@ -55,6 +55,25 @@ const PROJECTS = [
   },
 ];
 
+const PROJECT_REVIEW_POINTS = [
+  {
+    title: "هدف الفعالية",
+    text: "نبدأ من الرسالة المطلوبة: إطلاق منتج، اجتماع موزعين، حفل جماهيري أو تجربة علامة تجارية.",
+  },
+  {
+    title: "قراءة المكان",
+    text: "نراجع مساحة الموقع، ارتفاع السقف، الكهرباء، نقاط الدخول، مسار الجمهور ومخاطر الطقس.",
+  },
+  {
+    title: "اختيار التجهيزات",
+    text: "نربط المنصة وشاشة LED والصوت والإضاءة والتراس باحتياج المحتوى وعدد الحضور.",
+  },
+  {
+    title: "تشغيل يوم الحدث",
+    text: "نخطط لفريق التركيب، الاختبار، البروفة، إدارة المحتوى والدعم الفني أثناء الفعالية.",
+  },
+];
+
 export default function ArabicProjectsPage() {
   return (
     <div className="container mx-auto space-y-12 px-4 py-10" dir="rtl">
@@ -74,6 +93,35 @@ export default function ArabicProjectsPage() {
           </article>
         ))}
       </div>
+
+      <section className="rounded-3xl border border-neutral-200 bg-white p-6 text-right shadow-sm md:p-8">
+        <h2 className="text-2xl font-black text-neutral-900">كيف نختار الحل المناسب لكل مشروع؟</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-neutral-600">
+          لا تتعامل سحنيفا مع المشاريع كقائمة معدات ثابتة. في كل فعالية نقرأ
+          هدف العلامة التجارية، المكان، عدد الجمهور، احتياج المحتوى ومستوى
+          المخاطر قبل تحديد المنصة، الشاشة، الصوت، الإضاءة والتراس. هذا الأسلوب
+          يساعد العميل على الحصول على ميزانية واقعية وتجربة بصرية أكثر ثباتاً.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-4">
+          {PROJECT_REVIEW_POINTS.map((point) => (
+            <article key={point.title} className="rounded-2xl border border-neutral-100 bg-neutral-50 p-4">
+              <h3 className="text-base font-bold text-neutral-900">{point.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">{point.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-3xl bg-neutral-950 p-6 text-right text-white md:p-8">
+        <h2 className="text-2xl font-black">من الفكرة إلى التشغيل الميداني</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-neutral-300">
+          تعرض هذه الصفحة نماذج مختصرة فقط. يمكن لفريقنا تجهيز مشاريع داخلية
+          وخارجية في إسطنبول، أنقرة، إزمير، أنطاليا ومدن تركية أخرى، مع إدارة
+          فنية تشمل المعاينة، المخطط، النقل، التركيب، الاختبار، البروفة والدعم
+          أثناء الحدث. الهدف هو أن يرى الجمهور تجربة منظمة، وأن يعرف العميل أن
+          التفاصيل التقنية تحت السيطرة.
+        </p>
+      </section>
     </div>
   );
 }

@@ -5,6 +5,28 @@ const { services } = LOCALE_CONTENT.ar.home;
 const AR_SERVICES_URL = buildCanonical("/ar/services");
 const AR_SERVICES_OG_IMAGE_URL = `${SITE_URL}/img/hizmet-sahne.webp`;
 
+const SERVICE_PLANNING_POINTS = [
+  "تحديد نوع الفعالية وعدد الضيوف وهدف العلامة التجارية.",
+  "معاينة المكان، الكهرباء، نقاط التحميل، الارتفاع ومسارات الجمهور.",
+  "اختيار المنصة، شاشة LED، الصوت، الإضاءة، التراس أو الخيام حسب الحاجة.",
+  "إعداد جدول التركيب، الاختبار، البروفة والدعم الفني أثناء الحدث.",
+];
+
+const SERVICE_PROCESS_STEPS = [
+  {
+    title: "اكتشاف تقني",
+    text: "نحلل المكان قبل التسعير حتى لا تظهر مفاجآت في يوم التركيب.",
+  },
+  {
+    title: "تصميم الحل",
+    text: "نختار المعدات وفق الرؤية، الميزانية، أمان التركيب وتجربة الجمهور.",
+  },
+  {
+    title: "تنفيذ ميداني",
+    text: "يتابع فريقنا النقل، التركيب، الاختبار، التشغيل والتفكيك بخطة واضحة.",
+  },
+];
+
 export const metadata = {
   title: "خدمات تجهيز الفعاليات",
   description:
@@ -64,6 +86,32 @@ export default function ArabicServicesPage() {
           </section>
         ))}
       </div>
+
+      <section className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-6 text-right md:p-8">
+        <h2 className="text-2xl font-black text-neutral-900">كيف نخطط خدمات تجهيز الفعاليات؟</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-neutral-700">
+          تعتمد جودة الفعالية على الربط بين التصميم والتقنية والتشغيل. لذلك
+          ندرس موقع الحدث قبل تحديد المعدات، ثم نبني حلاً يناسب طبيعة الجمهور
+          والمحتوى ووقت التركيب. يمكن حجز كل خدمة بشكل مستقل، أو دمجها ضمن
+          إنتاج كامل للفعاليات المؤسسية، الحفلات، المهرجانات وإطلاق المنتجات.
+        </p>
+        <ul className="mt-5 grid gap-3 md:grid-cols-2">
+          {SERVICE_PLANNING_POINTS.map((point) => (
+            <li key={point} className="rounded-2xl border border-white/70 bg-white p-4 text-sm leading-6 text-neutral-700 shadow-sm">
+              {point}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {SERVICE_PROCESS_STEPS.map((step) => (
+          <article key={step.title} className="rounded-2xl border border-neutral-200 bg-white p-6 text-right shadow-sm">
+            <h2 className="text-lg font-bold text-neutral-900">{step.title}</h2>
+            <p className="mt-3 text-sm leading-6 text-neutral-600">{step.text}</p>
+          </article>
+        ))}
+      </section>
     </div>
   );
 }
