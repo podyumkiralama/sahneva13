@@ -67,6 +67,34 @@ const HOW_TO_STEPS = [
   "Etkinlik sonrası ölçüm ve raporlama yap",
 ];
 
+const TECHNICAL_DISCOVERY_STEPS = [
+  {
+    title: "Mekan okuması",
+    desc: "Salon ölçüsü, tavan yüksekliği, yükleme alanı, giriş-çıkış ve izleyici akışı birlikte değerlendirilir.",
+    note: "Alan",
+  },
+  {
+    title: "Enerji ve taşıyıcı kontrolü",
+    desc: "Güç noktaları, kablo güzergahı, truss/podyum yerleşimi ve yük güvenliği etkinlikten önce netleşir.",
+    note: "Altyapı",
+  },
+  {
+    title: "Görüş ve ses kapsaması",
+    desc: "Sahne, LED ekran, hoparlör, ışık ve kamera açıları katılımcının deneyimine göre konumlandırılır.",
+    note: "Deneyim",
+  },
+  {
+    title: "Risk ve yedek senaryo",
+    desc: "Kurulum süresi, hava/zemin riski, yedek güç, teknik ekip ve acil müdahale planı görünür hale gelir.",
+    note: "Güvenlik",
+  },
+  {
+    title: "Teklif ve run-of-show",
+    desc: "Keşif çıktısı; net ekipman listesi, saha görevleri, prova akışı ve gerçekçi bütçe kalemlerine dönüşür.",
+    note: "Plan",
+  },
+];
+
 export const metadata = {
   title: "Kurumsal Organizasyon Şirketleri | Teknik Prodüksiyon Rehberi",
   description:
@@ -754,6 +782,67 @@ function PlanningSection() {
   );
 }
 
+function TechnicalDiscoveryInfographic() {
+  return (
+    <SectionShell variant="soft" id="teknik-kesif">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <H2
+            kicker="Teknik keşif"
+            title="Etkinlik günü sürpriz yaşamamak için saha önce okunur"
+            desc="Teknik keşif; mekanın ölçü, enerji, taşıyıcı sistem, görüş açısı, akustik ve operasyon risklerini tekliften önce görünür hale getiren kısa ama kritik kontroldür."
+          />
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-black text-slate-950">
+              Keşif çıktısında ne olur?
+            </h3>
+            <ul className="mt-5 grid gap-3 text-sm font-semibold leading-relaxed text-slate-700">
+              {[
+                "Sahne, LED ekran, ses-ışık ve truss için net yerleşim planı",
+                "Kurulum-söküm saatleri ve saha ekip görev dağılımı",
+                "Enerji, kablo, yükleme ve güvenlik ihtiyaçları",
+                "Daha gerçekçi bütçe ve daha az son dakika değişikliği",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 p-5 text-white shadow-sm md:p-6">
+          <div className="absolute inset-x-8 top-16 hidden h-px bg-gradient-to-r from-blue-300/0 via-blue-300/45 to-blue-300/0 lg:block" aria-hidden="true" />
+          <div className="grid gap-4 md:grid-cols-5 lg:grid-cols-5">
+            {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
+              <article
+                key={step.title}
+                className="relative rounded-2xl border border-white/10 bg-white/[0.06] p-4"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-400 text-sm font-black text-slate-950">
+                    {index + 1}
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/70">
+                    {step.note}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-lg font-black leading-tight text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/72">
+                  {step.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SectionShell>
+  );
+}
+
 function ServicesSection() {
   const ctaLabels = ["Teklif al", "Kapsamı sor", "Planı konuş"];
 
@@ -1286,6 +1375,7 @@ export default function Page() {
       <HeroShowcaseSection />
       <OverviewSection />
       <PlanningSection />
+      <TechnicalDiscoveryInfographic />
       <FormatsSection />
       <TechnicalSection />
       <ServicesSection />
