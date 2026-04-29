@@ -72,26 +72,36 @@ const TECHNICAL_DISCOVERY_STEPS = [
     title: "Mekan okuması",
     desc: "Salon ölçüsü, tavan yüksekliği, yükleme alanı, giriş-çıkış ve izleyici akışı birlikte değerlendirilir.",
     note: "Alan",
+    compact: "Mekan ölçüsü / yükleme / izleyici akışı",
+    position: "left-6 top-8",
   },
   {
     title: "Enerji ve taşıyıcı kontrolü",
     desc: "Güç noktaları, kablo güzergahı, truss/podyum yerleşimi ve yük güvenliği etkinlikten önce netleşir.",
     note: "Altyapı",
+    compact: "Enerji / kablo / truss / yük güvenliği",
+    position: "right-6 top-8",
   },
   {
     title: "Görüş ve ses kapsaması",
     desc: "Sahne, LED ekran, hoparlör, ışık ve kamera açıları katılımcının deneyimine göre konumlandırılır.",
     note: "Deneyim",
+    compact: "Görüş açısı / ses kapsaması / kamera",
+    position: "right-8 bottom-10",
   },
   {
     title: "Risk ve yedek senaryo",
     desc: "Kurulum süresi, hava/zemin riski, yedek güç, teknik ekip ve acil müdahale planı görünür hale gelir.",
     note: "Güvenlik",
+    compact: "Hava / zemin / yedek güç / acil plan",
+    position: "left-8 bottom-10",
   },
   {
     title: "Teklif ve run-of-show",
     desc: "Keşif çıktısı; net ekipman listesi, saha görevleri, prova akışı ve gerçekçi bütçe kalemlerine dönüşür.",
     note: "Plan",
+    compact: "Ekip listesi / prova / bütçe",
+    position: "left-1/2 top-5 -translate-x-1/2",
   },
 ];
 
@@ -782,6 +792,123 @@ function PlanningSection() {
   );
 }
 
+function TechnicalDiscoveryMap() {
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 p-5 text-white shadow-sm md:p-6">
+      <div className="absolute inset-0 opacity-35" aria-hidden="true">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(148,163,184,0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.13) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+      </div>
+      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-3xl" aria-hidden="true" />
+      <div className="absolute right-10 top-10 h-32 w-32 rounded-full bg-sky-300/10 blur-2xl" aria-hidden="true" />
+
+      <div className="relative min-h-[31rem] hidden lg:block">
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 640 500"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="technical-discovery-line" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="rgb(125 211 252)" stopOpacity="0.12" />
+              <stop offset="50%" stopColor="rgb(96 165 250)" stopOpacity="0.62" />
+              <stop offset="100%" stopColor="rgb(125 211 252)" stopOpacity="0.12" />
+            </linearGradient>
+          </defs>
+          {[
+            "M320 245 C240 185 180 120 120 92",
+            "M320 245 C400 185 460 120 520 92",
+            "M320 245 C410 280 470 350 512 408",
+            "M320 245 C230 280 170 350 128 408",
+            "M320 245 C320 160 320 88 320 58",
+          ].map((line) => (
+            <path
+              key={line}
+              d={line}
+              fill="none"
+              stroke="url(#technical-discovery-line)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="5 9"
+            />
+          ))}
+        </svg>
+
+        <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-blue-300/35 bg-blue-400/12 text-center shadow-[0_0_70px_rgba(59,130,246,0.26)]">
+          <div className="text-[0.68rem] font-black uppercase tracking-[0.18em] text-blue-200">
+            Teknik keşif
+          </div>
+          <div className="mt-3 max-w-[9rem] text-2xl font-black leading-tight text-white">
+            Saha okunur
+          </div>
+          <p className="mt-2 max-w-[8.5rem] text-xs font-semibold leading-relaxed text-white/70">
+            Risk görünür.
+          </p>
+        </div>
+
+        {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
+          <article
+            key={step.title}
+            className={`absolute w-48 rounded-2xl border border-white/10 bg-white/[0.075] p-4 backdrop-blur-sm ${step.position}`}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-sm font-black text-blue-200">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-white/65">
+                {step.note}
+              </span>
+            </div>
+            <h3 className="mt-4 text-base font-black leading-tight text-white">
+              {step.title}
+            </h3>
+            <p className="mt-2 text-xs font-semibold leading-relaxed text-white/68">
+              {step.compact}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <div className="relative grid gap-4 lg:hidden">
+        <div className="rounded-2xl border border-blue-300/30 bg-blue-400/12 p-5 text-center">
+          <div className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+            Teknik keşif
+          </div>
+          <div className="mt-2 text-2xl font-black text-white">Saha okunur, risk görünür.</div>
+        </div>
+        {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
+          <article
+            key={step.title}
+            className="rounded-2xl border border-white/10 bg-white/[0.06] p-4"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-400 text-sm font-black text-slate-950">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/70">
+                {step.note}
+              </span>
+            </div>
+            <h3 className="mt-5 text-lg font-black leading-tight text-white">
+              {step.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/72">
+              {step.compact}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TechnicalDiscoveryInfographic() {
   return (
     <SectionShell variant="soft" id="teknik-kesif">
@@ -812,32 +939,7 @@ function TechnicalDiscoveryInfographic() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 p-5 text-white shadow-sm md:p-6">
-          <div className="absolute inset-x-8 top-16 hidden h-px bg-gradient-to-r from-blue-300/0 via-blue-300/45 to-blue-300/0 lg:block" aria-hidden="true" />
-          <div className="grid gap-4 md:grid-cols-5 lg:grid-cols-5">
-            {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
-              <article
-                key={step.title}
-                className="relative rounded-2xl border border-white/10 bg-white/[0.06] p-4"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-400 text-sm font-black text-slate-950">
-                    {index + 1}
-                  </span>
-                  <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/70">
-                    {step.note}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-lg font-black leading-tight text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/72">
-                  {step.desc}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
+        <TechnicalDiscoveryMap />
       </div>
     </SectionShell>
   );
