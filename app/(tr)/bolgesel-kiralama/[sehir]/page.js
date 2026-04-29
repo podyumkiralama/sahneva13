@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
   const url = `${SITE}${path}`;
 
   return {
-    title: `${city.name} Kiralama | Sahne, LED Ekran, Truss ve Ses Işık`,
+    title: `${city.name} Etkinlik Kiralama`,
     description: `${city.name} için sahne, LED ekran, truss ve ses-ışık kiralama. Keşif, lojistik, kurulum, test ve söküm tek ekipte planlanır.`,
     alternates: {
       canonical: url,

@@ -13,7 +13,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 
 export const metadata = {
-  title: "Bölgesel Kiralama | İstanbul, Ankara, İzmir ve Türkiye Geneli",
+  title: "Bölgesel Kiralama | Türkiye Geneli",
   description:
     "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık kiralama. İstanbul, Ankara, İzmir ve Antalya için kurulum dahil planlama.",
   alternates: buildLanguageAlternates({
