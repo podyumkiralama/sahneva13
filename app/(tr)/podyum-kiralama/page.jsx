@@ -297,7 +297,7 @@ const PROCESS_STEP_IMAGES = [
 
 /* ================== 5. META DATA ================== */
 export const metadata = {
-  title: "Podyum Kiralama | Profesyonel Sahne Çözümleri",
+  title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri",
   description:
     "Modüler podyum kiralama: 1×1 ve 2×1 paneller, kaymaz kaplama, halı ve skört opsiyonları. İstanbul geneli profesyonel hizmet ve saha yönetimi.",
   alternates: buildLanguageAlternates({
@@ -306,7 +306,7 @@ export const metadata = {
     xDefault: "/en/podium-rental",
   }),
   openGraph: {
-    title: "Podyum Kiralama | Sahneva",
+    title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
     description:
       "Modüler podyum sistemleri, kaymaz kaplama ve profesyonel hizmet.",
     url: `${ORIGIN}/podyum-kiralama`,
@@ -324,7 +324,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podyum Kiralama | Profesyonel Sahne Çözümleri | Sahneva",
+    title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
     description:
       "Modüler podyum sistemleri, kaymaz kaplama, halı ve skört seçenekleriyle İstanbul geneli profesyonel kurulum hizmeti.",
     images: [`${ORIGIN}/img/podyum/hero.webp`],
@@ -490,7 +490,7 @@ function HeroSection() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-              Profesyonel <span className="text-blue-200">Podyum Kiralama</span>
+              Profesyonel <span className="text-blue-200">Podyum Kiralama ve Kurulumu</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-3">
@@ -498,7 +498,7 @@ function HeroSection() {
             </p>
 
             <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-              Modüler podyum sistemleri, kaymaz kaplama ve{" "}
+              İstanbul&apos;da kiralık podyum ihtiyacı için modüler sistemler, kaymaz kaplama ve{" "}
               <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
               ile anahtar teslim çözümler
             </p>
