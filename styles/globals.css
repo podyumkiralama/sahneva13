@@ -267,6 +267,7 @@
   .brand-logo-rail {
     animation: brand-logo-rail-scroll 42s linear infinite;
     will-change: transform;
+    backface-visibility: hidden;
   }
 
   .brand-logo-rail:hover {
