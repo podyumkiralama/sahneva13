@@ -323,6 +323,32 @@ function HeroSection() {
   );
 }
 
+function QuickAnswerSection() {
+  return (
+    <section className="bg-white py-10" aria-labelledby="runway-quick-answer">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
+            Quick answer
+          </p>
+          <h2 id="runway-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
+            A runway stage should fit the collection, venue, and camera angles.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            For fashion events, the main choices are runway shape, height, surface,
+            lighting, LED backdrop, backstage flow, and rehearsal time.
+          </p>
+          <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-3">
+            <li className="rounded-xl bg-white px-4 py-3">Straight, T, or U runway</li>
+            <li className="rounded-xl bg-white px-4 py-3">Mat, gloss, or carpet finish</li>
+            <li className="rounded-xl bg-white px-4 py-3">LED and lighting plan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServicesSection() {
   return (
     <section
@@ -788,6 +814,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
+      <QuickAnswerSection />
       <ServicesSection />
       <ContentSection />
       <UseCasesSection />

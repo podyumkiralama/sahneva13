@@ -409,6 +409,33 @@ function Hero() {
   );
 }
 
+function QuickAnswer() {
+  return (
+    <section className="bg-white py-10" aria-labelledby="stage-rental-quick-answer">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+            Quick answer
+          </p>
+          <h2 id="stage-rental-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
+            Stage rental covers the platform, roof or truss, and technical setup.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            A good stage plan starts with event type, audience size, venue access, power,
+            sound, lighting, and LED screen needs. Sahneva handles setup, show support,
+            and dismantling with one field team.
+          </p>
+          <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-3">
+            <li className="rounded-xl bg-white px-4 py-3">1. Pick stage size</li>
+            <li className="rounded-xl bg-white px-4 py-3">2. Check venue access</li>
+            <li className="rounded-xl bg-white px-4 py-3">3. Plan sound, light, LED</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Services ================== */
 function Services() {
   return (
@@ -1672,6 +1699,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StageJsonLd />
       <Hero />
+      <QuickAnswer />
       <Services />
       <Packages />
       <Gallery />

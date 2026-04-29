@@ -299,6 +299,32 @@ function HeroSection() {
   );
 }
 
+function QuickAnswerSection() {
+  return (
+    <section className="bg-white py-10" aria-labelledby="concert-podium-quick-answer">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+            Quick answer
+          </p>
+          <h2 id="concert-podium-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
+            Concert podium rental includes the main stage and support platforms.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            A concert setup usually needs a main platform, side platforms, FOH,
+            drum riser, cable routes, truss, LED screen, sound, and lighting.
+          </p>
+          <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-3">
+            <li className="rounded-xl bg-white px-4 py-3">Stage size and height</li>
+            <li className="rounded-xl bg-white px-4 py-3">Artist rider needs</li>
+            <li className="rounded-xl bg-white px-4 py-3">Safety and weather plan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // --- SERVICES ---
 function ServicesSection() {
   return (
@@ -653,6 +679,7 @@ export default function ConcertPodiumRentalPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
+      <QuickAnswerSection />
       <ServicesSection />
       <ArticlesSection />
       <FAQSection />

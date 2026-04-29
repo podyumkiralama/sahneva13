@@ -43,8 +43,9 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title:
-    "Corporate Events | Professional Event Production",
+  title: {
+    absolute: "Corporate Events | Professional Event Production | Sahneva",
+  },
   description:
     "Stage, LED screen, sound and lighting production solutions for corporate events in Istanbul. Turnkey rental, professional crew. Request a quote today.",
   alternates: buildLanguageAlternates({
@@ -592,6 +593,31 @@ function Hero({ breadcrumbItems }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function QuickAnswerSection() {
+  return (
+    <SectionShell variant="soft" id="quick-answer">
+      <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+          Quick answer
+        </p>
+        <h2 className="mt-3 text-2xl font-black text-slate-950">
+          Corporate event production turns a company brief into a live experience.
+        </h2>
+        <p className="mt-3 text-base leading-relaxed text-slate-700">
+          The process covers goals, venue, stage, LED screen, sound, lighting,
+          guest flow, rehearsal, and event-day operation.
+        </p>
+        <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-4">
+          <li className="rounded-xl bg-white px-4 py-3">Brief</li>
+          <li className="rounded-xl bg-white px-4 py-3">Technical scout</li>
+          <li className="rounded-xl bg-white px-4 py-3">Run of show</li>
+          <li className="rounded-xl bg-white px-4 py-3">Field team</li>
+        </ul>
+      </div>
+    </SectionShell>
   );
 }
 
@@ -1540,6 +1566,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <CorporateEventsJsonLd />
       <Hero breadcrumbItems={breadcrumbItems} />
+      <QuickAnswerSection />
       <IntroSection />
       <ShowcaseSection />
       <SelectionSection />
