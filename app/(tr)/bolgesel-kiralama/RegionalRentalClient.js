@@ -494,13 +494,9 @@ function RegionDetailCard({ region, services }) {
   );
 }
 
-function buildCityBriefHref(baseHref, cityName) {
-  const params = new URLSearchParams({
-    konu: "bolgesel-kiralama",
-    sehir: cityName,
-  });
-
-  return `${baseHref}?${params.toString()}`;
+function buildCityPageHref(locale, citySlug) {
+  if (locale === "en") return "/en/regional-rental#regions";
+  return `/bolgesel-kiralama/${citySlug}`;
 }
 
 function FaqItem({ q, a, prompt }) {
@@ -750,7 +746,7 @@ export default function RegionalRentalClient({
               <CityCard
                 region={region}
                 imgSrc={cityImages[region.slug]}
-                href={buildCityBriefHref(ctaBrief, region.name)}
+                href={buildCityPageHref(locale, region.slug)}
                 copy={copy}
               />
             </Reveal>

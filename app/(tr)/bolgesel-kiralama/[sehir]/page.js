@@ -182,7 +182,7 @@ export default async function CityRegionalRentalPage({ params }) {
   const { sehir } = await params;
   const city = getCityOrThrow(sehir);
   const context = getCityContext(city);
-  const quoteHref = `/iletisim?konu=bolgesel-kiralama&sehir=${encodeURIComponent(city.name)}`;
+  const cityHref = `/bolgesel-kiralama/${city.slug}`;
 
   return (
     <main className="bg-slate-950 text-white">
@@ -208,7 +208,7 @@ export default async function CityRegionalRentalPage({ params }) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={quoteHref}
+                href={`${cityHref}#teklif-bilgileri`}
                 className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-black text-slate-950 hover:bg-white/90"
               >
                 {city.name} için teklif al
@@ -261,7 +261,7 @@ export default async function CityRegionalRentalPage({ params }) {
         ))}
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="teklif-bilgileri" className="mx-auto max-w-6xl scroll-mt-24 px-4 pb-16">
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
           <h2 className="text-2xl font-black">{city.name} teklifinde hangi bilgiler hız kazandırır?</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
