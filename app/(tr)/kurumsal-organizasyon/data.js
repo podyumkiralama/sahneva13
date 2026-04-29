@@ -11,8 +11,8 @@ export const HERO_STATS = [
 ];
 
 export const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
-export const GUIDE_UPDATED = "28 Nisan 2026";
-export const GUIDE_UPDATED_ISO = "2026-04-28T00:00:00+03:00";
+export const GUIDE_UPDATED = "29 Nisan 2026";
+export const GUIDE_UPDATED_ISO = "2026-04-29T00:00:00+03:00";
 
 export const ASSURANCE_ITEMS = [
   "Tek keşif ve tek run-of-show",
