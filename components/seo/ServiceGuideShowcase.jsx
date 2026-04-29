@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ServiceGuideShowcase({
@@ -8,6 +9,7 @@ export default function ServiceGuideShowcase({
   chapters = [],
   checklist = [],
   cta,
+  visual,
   theme = "blue",
 }) {
   const accent = {
@@ -101,6 +103,36 @@ export default function ServiceGuideShowcase({
                 </Link>
               ) : null}
             </div>
+
+            {visual?.src ? (
+              <figure
+                className={`mt-5 overflow-hidden rounded-3xl border ${accent.border} bg-white shadow-sm`}
+              >
+                <div className="relative aspect-[4/3] bg-slate-100">
+                  <Image
+                    src={visual.src}
+                    alt={visual.alt || ""}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) calc(100vw - 2rem), 360px"
+                    quality={78}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+                  {visual.title ? (
+                    <figcaption className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="text-lg font-black leading-tight text-white">
+                        {visual.title}
+                      </p>
+                      {visual.caption ? (
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-white/85">
+                          {visual.caption}
+                        </p>
+                      ) : null}
+                    </figcaption>
+                  ) : null}
+                </div>
+              </figure>
+            ) : null}
           </aside>
 
           <div className="space-y-5">

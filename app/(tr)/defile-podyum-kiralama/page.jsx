@@ -878,6 +878,12 @@ export default function Page() {
           label: "Defile briefi ile teklif al",
           ariaLabel: "WhatsApp uzerinden defile podyum kiralama briefi gonder",
         }}
+        visual={{
+          src: HERO_IMAGE,
+          alt: "Moda defilesi icin profesyonel podyum kurulumu",
+          title: "Runway, isik ve marka algisi",
+          caption: "Defile podyumu seyirci, kamera ve koleksiyon akisi dusunulerek tasarlanir.",
+        }}
         theme="violet"
       />
       <ServicesSection />

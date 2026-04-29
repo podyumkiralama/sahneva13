@@ -724,6 +724,12 @@ export default function Page() {
           label: "Truss teklif briefi gonder",
           ariaLabel: "WhatsApp uzerinden truss kiralama teklif briefi gonder",
         }}
+        visual={{
+          src: "/img/truss/truss-1.webp",
+          alt: "Konser sahnesinde kare truss kurulumu",
+          title: "Gercek saha kurulumu",
+          caption: "Truss formu, yuk tasima ve teknik ekipman entegrasyonu ayni planda cozulur.",
+        }}
       />
       <Content />
       <Gallery />

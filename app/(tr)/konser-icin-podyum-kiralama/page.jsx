@@ -757,6 +757,12 @@ export default function KonserIcinPodyumKiralamaPage() {
           label: "Konser sahne briefi gonder",
           ariaLabel: "WhatsApp uzerinden konser podyum kiralama briefi gonder",
         }}
+        visual={{
+          src: "/img/podyum/konser-hero.webp",
+          alt: "Konser icin profesyonel podyum ve sahne kurulumu",
+          title: "Konser sahnesi teknik brief ile baslar",
+          caption: "Ana platform, riser, FOH ve LED entegrasyonu ayni operasyon planinda netlesir.",
+        }}
         theme="amber"
       />
       <ServicesSection />
