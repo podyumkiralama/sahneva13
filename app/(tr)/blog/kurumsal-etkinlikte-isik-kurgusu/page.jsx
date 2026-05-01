@@ -11,8 +11,8 @@ const SLUG = "kurumsal-etkinlikte-isik-kurgusu";
 const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 const AUTHOR_NAME = "Sahneva Prodüksiyon Ekibi";
-const PUBLISH_DATE = "2026-05-01T09:00:00+03:00";
-const MODIFIED_DATE = "2026-05-01T09:00:00+03:00";
+const PUBLISH_DATE = "2026-05-01T13:45:00+03:00";
+const MODIFIED_DATE = "2026-05-01T13:50:00+03:00";
 
 const HERO_IMAGE = "/img/blog/kurumsal-etkinlikte-isik-kurgusu-hero.webp";
 const BACKSTAGE_IMAGE =
@@ -29,7 +29,7 @@ const STAGE_WIDE_IMAGE =
 const OUTDOOR_LIGHTING_IMAGE =
   "/img/blog/etkinlik-teknik-kesif-ve-planlama-rehberi/stad-aydinlatma-show.webp";
 
-const TITLE = "Kurumsal Etkinlikte Işık Kurgusu";
+const TITLE = "Kurumsal Etkinlikte Işık Kurgusu Nasıl Olmalı?";
 const DESCRIPTION =
   "Kurumsal etkinlikte ışık kurgusu; sahne, LED ekran, kamera ve marka atmosferini birlikte planlayan profesyonel prodüksiyon rehberi.";
 
@@ -171,7 +171,7 @@ function ArticleSchema() {
       {
         "@type": "BlogPosting",
         "@id": articleId,
-        headline: "Kurumsal Etkinlikte Doğru Işık Kurgusu Nasıl Olmalı?",
+        headline: TITLE,
         description: DESCRIPTION,
         image: { "@id": imageId },
         author: { "@id": editorId },
@@ -188,6 +188,64 @@ function ArticleSchema() {
           { "@type": "Thing", name: "Canlı yayın prodüksiyonu" },
         ],
         keywords: metadata.keywords,
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${BLOG_URL}#howto`,
+        name: "Kurumsal etkinlikte ışık kurgusu nasıl planlanır?",
+        description:
+          "Kurumsal etkinlikte ışık kurgusunu teknik keşiften prova ve final kontrole kadar planlama adımları.",
+        inLanguage: "tr-TR",
+        mainEntityOfPage: { "@id": webpageId },
+        image: { "@id": imageId },
+        supply: [
+          { "@type": "HowToSupply", name: "Sahne planı" },
+          { "@type": "HowToSupply", name: "LED ekran içerik akışı" },
+          { "@type": "HowToSupply", name: "Kamera ve canlı yayın planı" },
+        ],
+        tool: [
+          { "@type": "HowToTool", name: "Truss ve sahne ışık sistemi" },
+          { "@type": "HowToTool", name: "Işık kontrol masası" },
+          { "@type": "HowToTool", name: "Fresnel, wash, beam, moving head ve LED bar armatürler" },
+        ],
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Teknik keşif yapın",
+            text: "Mekan yüksekliği, sahne ölçüsü, truss noktaları, enerji altyapısı, kablo güzergahı ve kurulum süresini sahada değerlendirin.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Etkinlik formatını netleştirin",
+            text: "Konferans, ürün lansmanı, gala, ödül töreni veya açık hava etkinliği gibi formata göre ışığın önceliğini belirleyin.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Odak noktalarını belirleyin",
+            text: "Konuşmacı alanı, ürün reveal noktası, ödül teslim alanı, podyum, fotoğraf noktası ve marka logosu için ayrı ışık kararları alın.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 4,
+            name: "LED ekran ve kamera dengesini test edin",
+            text: "LED ekran parlaklığı, ön ışık seviyesi, kamera pozlaması, yayın kadrajı ve refresh davranışını prova sırasında birlikte kontrol edin.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 5,
+            name: "Ekipman seçimini yapın",
+            text: "Fresnel, wash, beam, moving head, LED bar ve profile spot gibi armatürleri etkinliğin hedefi, mekan ölçeği ve bütçesine göre seçin.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 6,
+            name: "Prova ve final kontrolü yapın",
+            text: "Işık geçişlerini, sahne akışını, konuşmacı görünürlüğünü, kamera görüntüsünü ve kritik final anlarını etkinlik öncesi test edin.",
+          },
+        ],
       },
       {
         "@type": "Organization",
@@ -262,7 +320,7 @@ function ImgFigure({ src, alt, caption, aspect = "wide", position = "center" }) 
 
 function AnswerBox() {
   return (
-    <section id="kisa-cevap" className="not-prose my-10 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+    <section id="kisa-cevap" className="geo-answer not-prose my-10 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
       <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
         Kısa cevap
       </p>
