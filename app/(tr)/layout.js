@@ -12,6 +12,7 @@ import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
+import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -219,6 +220,7 @@ export default async function TurkishLayout({ children }) {
       <body className="flex flex-col">
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
+        <ServiceWorkerRegistration />
       <JsonLd id="global-ld-json" data={globalJsonLd} nonce={nonce} />
 
       {/* ✅ TEK WRAPPER: Header + Main + Footer */}

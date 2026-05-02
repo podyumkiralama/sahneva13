@@ -12,6 +12,7 @@ import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
+import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -216,6 +217,7 @@ export default async function EnglishLayout({ children }) {
       <body className="flex flex-col">
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
+        <ServiceWorkerRegistration />
       <JsonLd id="global-ld-json-en" data={globalJsonLd} nonce={nonce} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">

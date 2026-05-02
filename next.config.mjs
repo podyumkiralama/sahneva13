@@ -69,6 +69,21 @@ const verificationFileHeaders = [
   },
 ];
 
+const serviceWorkerHeaders = [
+  {
+    key: "Content-Type",
+    value: "application/javascript; charset=utf-8",
+  },
+  {
+    key: "Cache-Control",
+    value: "public, max-age=0, must-revalidate",
+  },
+  {
+    key: "Service-Worker-Allowed",
+    value: "/",
+  },
+];
+
 const nextConfig = {
   turbopack: {
     root: path.resolve(process.cwd()),
@@ -251,6 +266,11 @@ const nextConfig = {
             value: `public, max-age=${ONE_DAY_IN_SECONDS}, stale-while-revalidate=${ONE_DAY_IN_SECONDS * 7}`,
           },
         ],
+      },
+
+      {
+        source: "/sw.js",
+        headers: serviceWorkerHeaders,
       },
 
       // 5) Dosya uzantılı assetler: 1 yıl immutable

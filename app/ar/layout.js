@@ -16,6 +16,7 @@ import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
+import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 
 const content = LOCALE_CONTENT.ar;
 
@@ -75,6 +76,7 @@ export default async function ArabicLayout({ children }) {
       <body className="flex flex-col" dir={content.direction}>
         <SkipLinks locale="ar" />
         <AnalyticsConsentWrapper />
+        <ServiceWorkerRegistration />
     <div className="flex min-h-screen flex-col bg-white text-neutral-900">
       <div id="_main_header">
         <SiteHeader
