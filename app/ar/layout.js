@@ -21,6 +21,7 @@ const content = LOCALE_CONTENT.ar;
 
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -36,6 +37,14 @@ export const metadata = {
   description:
     "تأجير المسارح وشاشات LED وأنظمة الصوت والإضاءة مع فرق فنية كاملة في جميع أنحاء تركيا.",
   applicationName: "Sahneva Organizasyon",
+  appleWebApp: {
+    capable: true,
+    title: "Sahneva",
+    statusBarStyle: "black-translucent",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   alternates: {
     canonical: buildCanonical("/ar"),
     languages: buildAlternateLanguages(),

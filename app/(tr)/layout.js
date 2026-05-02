@@ -139,6 +139,7 @@ const globalJsonLd = {
 /* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -152,6 +153,14 @@ export const metadata = {
     template: `%s | Sahneva`,
   },
   applicationName: "Sahneva Organizasyon",
+  appleWebApp: {
+    capable: true,
+    title: "Sahneva",
+    statusBarStyle: "black-translucent",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   description: content.meta.description,
   robots: {
     index: true,
