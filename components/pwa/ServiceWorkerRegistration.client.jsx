@@ -31,7 +31,7 @@ export default function ServiceWorkerRegistration() {
         return;
       }
 
-      timerHandle = window.setTimeout(registerServiceWorker, 10000);
+      timerHandle = window.setTimeout(registerServiceWorker, 1000);
     };
 
     if (document.readyState === "complete") {
