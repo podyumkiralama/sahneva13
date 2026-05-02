@@ -55,7 +55,7 @@ const GALLERY = [
 ];
 
 const SERVICES = [
-  { href: "/dome-cadir-kiralama", label: "Dome çadır kurulumu", icon: TentTree },
+  { href: "/cadir-kiralama", label: "Dome çadır kurulumu", icon: TentTree },
   { href: "/podyum-kiralama", label: "Podyum ve zemin altyapısı", icon: Layers3 },
   { href: "/ses-isik-sistemleri", label: "Ambiyans ışık planı", icon: Lightbulb },
   { href: "/led-ekran-kiralama", label: "LED ekran ve teknik prodüksiyon", icon: Film },
@@ -256,6 +256,56 @@ export default function SahaDomeProjectPage() {
               fuar alanının mevcut teknik koşulları dikkate alınarak planlandı ve sahadaki ekip
               koordinasyonuyla tamamlandı.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative px-4 pb-16 sm:px-6 lg:px-8" aria-labelledby="brand-position-title">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute bottom-0 right-16 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-blue-950/15 backdrop-blur md:p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <SectionEyebrow>Teknik Üretim</SectionEyebrow>
+              <h2 id="brand-position-title" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
+                Ajans Değil, Teknik Üretim Gücü
+              </h2>
+            </div>
+            <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+              SAHA 2026 dome çadır kurulumu, hazır bir dekor uygulaması ya da standart ekipman
+              kiralama işi olarak ele alınmadı. Dome yapının taşıyıcı sistemi, kaplama uygulaması,
+              zemin oturumu, özel giriş alanı ve ambiyans ışık planı aynı teknik bütünün parçaları
+              olarak değerlendirildi. Bu yaklaşım, Sahneva’nın projelerde yalnızca ekipman sağlayan
+              değil, sahada uygulanabilir çözüm üreten teknik prodüksiyon markası olarak
+              konumlanmasını sağlar.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Kendi teknik mutfağımız",
+                text: "Dome yapı, zemin, kaplama ve giriş alanı sahadaki uygulama bilgisiyle birlikte planlandı.",
+              },
+              {
+                title: "Tek elden koordinasyon",
+                text: "Farklı teknik parçalar ayrı ayrı değil, aynı proje akışı içinde yönetildi.",
+              },
+              {
+                title: "Kurulumdan gösteriye",
+                text: "Dome çadır alanı, final etkinlik deneyimi ve lazer gösteri altyapısı düşünülerek hazırlandı.",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur"
+              >
+                <h3 className="text-lg font-black text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

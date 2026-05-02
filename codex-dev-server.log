@@ -767,3 +767,15 @@
  GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 465ms (next.js: 13ms, proxy.ts: 9ms, application-code: 442ms)
  GET /ses-isik-sistemleri 200 in 1875ms (next.js: 74ms, proxy.ts: 13ms, application-code: 1788ms)
  GET /led-ekran-kiralama 200 in 3.3s (next.js: 56ms, proxy.ts: 9ms, application-code: 3.2s)
+ GET /sitemap-projects.xml 200 in 68ms (next.js: 21ms, application-code: 48ms)
+ GET /sitemap.xml 200 in 642ms (next.js: 615ms, application-code: 27ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 584ms (next.js: 150ms, proxy.ts: 119ms, application-code: 316ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 151ms (next.js: 10ms, proxy.ts: 8ms, application-code: 133ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 133ms (next.js: 10ms, proxy.ts: 8ms, application-code: 115ms)
+ GET /sitemap-projects.xml 200 in 63ms (next.js: 51ms, application-code: 12ms)
+✓ Compiled in 207ms
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 571ms (next.js: 140ms, proxy.ts: 91ms, application-code: 340ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 175ms (next.js: 7ms, proxy.ts: 27ms, application-code: 142ms)
+✓ Compiled in 557ms
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 1005ms (next.js: 156ms, proxy.ts: 113ms, application-code: 735ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 332ms (next.js: 37ms, proxy.ts: 18ms, application-code: 277ms)
