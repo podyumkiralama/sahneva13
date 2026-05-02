@@ -26,7 +26,7 @@ export default function ServiceWorkerRegistration() {
     const scheduleRegistration = () => {
       if ("requestIdleCallback" in window) {
         idleHandle = window.requestIdleCallback(registerServiceWorker, {
-          timeout: 10000,
+          timeout: 1000,
         });
         return;
       }
