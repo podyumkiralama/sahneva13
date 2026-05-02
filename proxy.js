@@ -27,6 +27,7 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     "https://www.google-analytics.com",
     "https://region1.google-analytics.com",
     "https://stats.g.doubleclick.net",
+    "https://www.google.com",
     "https://www.clarity.ms",
     "https://scripts.clarity.ms",
     "https://k.clarity.ms",
