@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { STATIC_CSP_NONCE } from "./lib/security/staticCsp";
 
 export const config = {
   matcher: [
@@ -10,7 +9,6 @@ export const config = {
 function buildCsp({ siteUrl, isPreview }) {
   const strictScriptSrc = [
     "'self'",
-    `'nonce-${STATIC_CSP_NONCE}'`,
     "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
