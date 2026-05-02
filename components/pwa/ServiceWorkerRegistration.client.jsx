@@ -14,7 +14,10 @@ export default function ServiceWorkerRegistration() {
 
     const registerServiceWorker = async () => {
       try {
-        await navigator.serviceWorker.register("/sw.js", { scope: "/" });
+        await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v2", {
+          scope: "/",
+          updateViaCache: "none",
+        });
       } catch {
         // PWA registration is progressive enhancement; keep the page silent if blocked.
       }

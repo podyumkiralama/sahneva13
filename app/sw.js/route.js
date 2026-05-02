@@ -1,4 +1,4 @@
-const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v1";
+const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
