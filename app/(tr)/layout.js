@@ -7,6 +7,7 @@ import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
+import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
@@ -250,6 +251,7 @@ export default async function TurkishLayout({ children }) {
           descriptionId="_main_footer_desc"
         />
         <StickyVideoRailClient />
+        <DeferredSpeedInsights />
       </div>
       </body>
     </html>
