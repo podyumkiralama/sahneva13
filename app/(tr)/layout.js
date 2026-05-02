@@ -13,6 +13,7 @@ import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
+import SpeculationRules from "@/components/performance/SpeculationRules";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -216,6 +217,7 @@ export default async function TurkishLayout({ children }) {
       <head>
         <TrustedTypesPolicy nonce={nonce} />
         <CloudflareWebAnalytics nonce={nonce} />
+        <SpeculationRules locale="tr" nonce={nonce} />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="tr" />

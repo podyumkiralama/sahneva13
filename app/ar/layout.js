@@ -17,6 +17,7 @@ import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
+import SpeculationRules from "@/components/performance/SpeculationRules";
 
 const content = LOCALE_CONTENT.ar;
 
@@ -72,6 +73,7 @@ export default async function ArabicLayout({ children }) {
       <head>
         <TrustedTypesPolicy nonce={nonce} />
         <CloudflareWebAnalytics nonce={nonce} />
+        <SpeculationRules locale="ar" nonce={nonce} />
       </head>
       <body className="flex flex-col" dir={content.direction}>
         <SkipLinks locale="ar" />
