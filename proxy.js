@@ -11,6 +11,7 @@ function buildCsp({ siteUrl, isPreview }) {
   const strictScriptSrc = [
     "'self'",
     `'nonce-${STATIC_CSP_NONCE}'`,
+    "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://static.cloudflareinsights.com",
