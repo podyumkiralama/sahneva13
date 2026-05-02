@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ListTree, Network } from "lucide-react";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
-import styles from "@/components/blog/BlogLayout.module.css";
 
 /**
  * Sahneva BlogLayout
@@ -212,7 +211,7 @@ export default function BlogLayout({
             </section>
           ) : null}
 
-          <article className={`${styles.scope} prose prose-xl lg:prose-2xl max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline`}>
+          <article className="blog-layout-scope prose prose-xl lg:prose-2xl max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
             {children}
           </article>
 
