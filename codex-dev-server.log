@@ -530,3 +530,11 @@
   · optimizePackageImports
 
  GET /kurumsal-organizasyon 200 in 5.3s (next.js: 1140ms, proxy.ts: 267ms, application-code: 3.9s)
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+✓ Ready in 724ms
+- Experiments (use with caution):
+  · optimizePackageImports
+
+ GET /kurumsal-organizasyon 200 in 5.4s (next.js: 1587ms, proxy.ts: 251ms, application-code: 3.6s)

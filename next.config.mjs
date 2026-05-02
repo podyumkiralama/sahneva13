@@ -84,6 +84,17 @@ const serviceWorkerHeaders = [
   },
 ];
 
+const sitemapStylesheetHeaders = [
+  {
+    key: "Content-Type",
+    value: "text/xsl; charset=utf-8",
+  },
+  {
+    key: "Cache-Control",
+    value: `public, max-age=${ONE_DAY_IN_SECONDS}, stale-while-revalidate=${ONE_DAY_IN_SECONDS * 7}`,
+  },
+];
+
 const nextConfig = {
   turbopack: {
     root: path.resolve(process.cwd()),
@@ -271,6 +282,11 @@ const nextConfig = {
       {
         source: "/sw.js",
         headers: serviceWorkerHeaders,
+      },
+
+      {
+        source: "/sitemap.xsl",
+        headers: sitemapStylesheetHeaders,
       },
 
       // 5) Dosya uzantılı assetler: 1 yıl immutable
