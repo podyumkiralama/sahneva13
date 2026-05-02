@@ -64,7 +64,7 @@ const SERVICES = [
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "SAHA 2026 Dome Çadır Kurulumu | Sahneva Organizasyon",
+  title: "SAHA 2026 Dome Çadır Kurulumu",
   description:
     "SAHA 2026 kapsamında kapalı fuar alanında dome çadır, özel giriş yapısı, zemin altyapısı ve ambiyans aydınlatmasıyla hazırlanan özel etkinlik alanı kurulumu.",
   alternates: {
