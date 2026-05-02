@@ -692,3 +692,5 @@
  GET /kurumsal-organizasyon 200 in 936ms (next.js: 89ms, proxy.ts: 53ms, application-code: 794ms)
  GET /kurumsal-organizasyon 200 in 560ms (next.js: 8ms, proxy.ts: 9ms, application-code: 543ms)
  GET /kurumsal-organizasyon 200 in 238ms (next.js: 6ms, proxy.ts: 8ms, application-code: 224ms)
+✓ Compiled in 218ms
+ GET /kurumsal-organizasyon 200 in 409ms (next.js: 113ms, proxy.ts: 53ms, application-code: 242ms)
