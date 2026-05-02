@@ -1,7 +1,6 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
-import { headers } from "next/headers";
 import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -200,9 +199,7 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default async function EnglishLayout({ children }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
+export default function EnglishLayout({ children }) {
   return (
     <html
       lang="en"
@@ -212,15 +209,15 @@ export default async function EnglishLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <TrustedTypesPolicy nonce={nonce} />
-        <CloudflareWebAnalytics nonce={nonce} />
-        <SpeculationRules locale="en" nonce={nonce} />
+        <TrustedTypesPolicy />
+        <CloudflareWebAnalytics />
+        <SpeculationRules locale="en" />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-      <JsonLd id="global-ld-json-en" data={globalJsonLd} nonce={nonce} />
+      <JsonLd id="global-ld-json-en" data={globalJsonLd} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">
         <header

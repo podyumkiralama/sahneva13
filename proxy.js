@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { STATIC_CSP_NONCE } from "./lib/security/staticCsp";
 
 export const config = {
   matcher: [
@@ -6,19 +7,18 @@ export const config = {
   ],
 };
 
-function createNonce() {
-  const bytes = new Uint8Array(16);
-  crypto.getRandomValues(bytes);
-  return btoa(String.fromCharCode(...bytes));
-}
-
-function buildCsp({ siteUrl, isPreview, nonce }) {
+function buildCsp({ siteUrl, isPreview }) {
   const strictScriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
-    "'unsafe-inline'",
-    "https:",
+    `'nonce-${STATIC_CSP_NONCE}'`,
+    "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
+    "https://static.cloudflareinsights.com",
+    "https://www.clarity.ms",
+    "https://scripts.clarity.ms",
+    "https://va.vercel-scripts.com",
+    "https://vercel.live",
+    "https://*.vercel.live",
   ].join(" ");
 
   const connectSrc = [
@@ -166,23 +166,13 @@ export function proxy(request) {
     return NextResponse.redirect(url, 308);
   }
 
-  const nonce = createNonce();
   const isPreview = request.nextUrl.hostname.endsWith("vercel.app");
   const csp = buildCsp({
     siteUrl: request.nextUrl.origin,
     isPreview,
-    nonce,
   });
 
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("Content-Security-Policy", csp);
-
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  const response = NextResponse.next();
 
   applySecurityHeaders(response, { csp });
 

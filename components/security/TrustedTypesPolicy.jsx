@@ -1,3 +1,5 @@
+import { STATIC_CSP_NONCE } from "@/lib/security/staticCsp";
+
 const TRUSTED_TYPES_POLICY_SOURCE = `
 (() => {
   if (!window.trustedTypes || window.__sahnevaTrustedTypesPolicyReady) return;
@@ -44,7 +46,7 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
 })();
 `;
 
-export default function TrustedTypesPolicy({ nonce }) {
+export default function TrustedTypesPolicy({ nonce = STATIC_CSP_NONCE }) {
   return (
     <script
       id="trusted-types-policy"

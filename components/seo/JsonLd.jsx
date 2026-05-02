@@ -1,3 +1,5 @@
+import { STATIC_CSP_NONCE } from "@/lib/security/staticCsp";
+
 function serializeJsonLd(data) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
@@ -5,7 +7,7 @@ function serializeJsonLd(data) {
 export default function JsonLd({
   data,
   id,
-  nonce,
+  nonce = STATIC_CSP_NONCE,
   suppressHydrationWarning = false,
 }) {
   if (!data) return null;

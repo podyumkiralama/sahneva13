@@ -1,7 +1,6 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
-import { headers } from "next/headers";
 import { inter } from "../fonts";
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
@@ -59,9 +58,7 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default async function ArabicLayout({ children }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
+export default function ArabicLayout({ children }) {
   return (
     <html
       lang="ar"
@@ -71,9 +68,9 @@ export default async function ArabicLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <TrustedTypesPolicy nonce={nonce} />
-        <CloudflareWebAnalytics nonce={nonce} />
-        <SpeculationRules locale="ar" nonce={nonce} />
+        <TrustedTypesPolicy />
+        <CloudflareWebAnalytics />
+        <SpeculationRules locale="ar" />
       </head>
       <body className="flex flex-col" dir={content.direction}>
         <SkipLinks locale="ar" />

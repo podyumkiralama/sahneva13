@@ -2,7 +2,6 @@
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
-import { headers } from "next/headers";
 import { inter } from "../fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -204,9 +203,7 @@ export const viewport = {
   themeColor: "#6d28d9",
 };
 
-export default async function TurkishLayout({ children }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
+export default function TurkishLayout({ children }) {
   return (
     <html
       lang="tr"
@@ -216,15 +213,15 @@ export default async function TurkishLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <TrustedTypesPolicy nonce={nonce} />
-        <CloudflareWebAnalytics nonce={nonce} />
-        <SpeculationRules locale="tr" nonce={nonce} />
+        <TrustedTypesPolicy />
+        <CloudflareWebAnalytics />
+        <SpeculationRules locale="tr" />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-      <JsonLd id="global-ld-json" data={globalJsonLd} nonce={nonce} />
+      <JsonLd id="global-ld-json" data={globalJsonLd} />
 
       {/* ✅ TEK WRAPPER: Header + Main + Footer */}
       <div className="min-h-screen text-slate-100 flex flex-col">

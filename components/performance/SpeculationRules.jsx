@@ -1,3 +1,5 @@
+import { STATIC_CSP_NONCE } from "@/lib/security/staticCsp";
+
 const SPECULATION_RULES_BY_LOCALE = {
   tr: [
     "/hizmetler",
@@ -36,7 +38,7 @@ function buildSpeculationRules(locale) {
   };
 }
 
-export default function SpeculationRules({ locale = "tr", nonce }) {
+export default function SpeculationRules({ locale = "tr", nonce = STATIC_CSP_NONCE }) {
   return (
     <script
       id={`speculation-rules-${locale}`}
