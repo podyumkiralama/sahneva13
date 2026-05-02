@@ -216,7 +216,14 @@ export default function Footer({
       tabIndex={-1}
     >
       {/* Dekoratif arka plan efektleri */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.25) 100%)",
+        }}
+      >
         {/* Grid overlay */}
         <div className="absolute inset-0 opacity-60">
           <div
@@ -235,7 +242,6 @@ export default function Footer({
         <div className="absolute -bottom-40 right-0 w-96 h-96 bg-purple-500/25 blur-3xl rounded-full" />
 
         {/* ekstra hafif vignette (kontrastı bozmadan derinlik) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/25" />
       </div>
 
       {/* Görünmez ana başlık (SR için) */}

@@ -722,3 +722,5 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [browser] Image with src "/img/podyum/21.webp" is using quality "58" which is not configured in images.qualities [45, 60, 65, 68, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 58, 60, 65, 68, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 72, 75, 78, 80, 85, 88, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 

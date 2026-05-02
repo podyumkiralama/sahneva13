@@ -11,6 +11,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
+import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   buildAlternateLanguages,
@@ -201,6 +202,7 @@ export default async function EnglishLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy nonce={nonce} />
+        <CloudflareWebAnalytics nonce={nonce} />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="en" />

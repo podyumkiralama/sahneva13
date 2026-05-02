@@ -35,6 +35,7 @@ function buildCsp({ siteUrl, isPreview, nonce }) {
     "https://l.clarity.ms",
     "https://*.clarity.ms",
     "https://static.cloudflareinsights.com",
+    "https://cloudflareinsights.com",
     "wss://*.pusher.com",
     siteUrl,
   ].join(" ");

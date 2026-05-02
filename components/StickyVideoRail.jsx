@@ -82,8 +82,6 @@ const VIDEOS = [
 ];
 
 const INITIAL_POSITION = { x: -24, y: -24 };
-const AUTO_OPEN_SCROLL_Y = 200; // daha “erken” ama yine de user-driven
-const IDLE_FALLBACK_MS = 8000;  // hiç scroll yoksa 8sn sonra
 
 function StickyVideoRailInner({
   ariaLabel,
@@ -101,7 +99,6 @@ function StickyVideoRailInner({
   const [position, setPosition] = useState(INITIAL_POSITION);
   const [dragging, setDragging] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [hasAutoShown, setHasAutoShown] = useState(false);
 
   const dragRef = useRef(null);
   const startPosRef = useRef({ mouseX: 0, mouseY: 0, x: 0, y: 0 });
@@ -130,6 +127,8 @@ function StickyVideoRailInner({
   // İlk mount + mobile tespiti
   useEffect(() => {
     setIsMounted(true);
+    setIsOpen(true);
+    setIsMinimized(true);
     if (typeof window !== "undefined") {
       setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     }
@@ -141,8 +140,6 @@ function StickyVideoRailInner({
 
     const onKeyDown = (e) => {
       if (e.key !== "Escape") return;
-      // ESC: açık olsun/olmasın "bu sayfada bir daha otomatik açma"
-      setHasAutoShown(true);
       setIsOpen(false);
       setIsExpanded(false);
       setIsMinimized(false);
@@ -151,48 +148,6 @@ function StickyVideoRailInner({
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isMounted]);
-
-  // Scroll ile otomatik gösterme (ultra düşük maliyet: passive + RAF throttling)
-  useEffect(() => {
-    if (!isMounted || hasAutoShown) return;
-
-    let ticking = false;
-
-    const autoOpen = () => {
-      if (hasAutoShown) return;
-      setHasAutoShown(true);
-
-      if (isMobile) {
-        setIsOpen(true);
-        setIsMinimized(true);
-      } else {
-        setIsOpen(true);
-        setIsMinimized(false);
-      }
-    };
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        if (window.scrollY > AUTO_OPEN_SCROLL_Y && !hasAutoShown) autoOpen();
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // Idle fallback: kullanıcı hiç scroll yapmazsa, biraz sonra aç (çok hafif)
-    let idleTimer = window.setTimeout(() => {
-      if (!hasAutoShown) autoOpen();
-    }, IDLE_FALLBACK_MS);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(idleTimer);
-    };
-  }, [isMounted, hasAutoShown, isMobile]);
 
   // Drag hareketi (dependency fix: position eklendi)
   useEffect(() => {
@@ -276,9 +231,7 @@ function StickyVideoRailInner({
     setIsExpanded(false);
   };
 
-  // Kapat: bu sayfada bir daha otomatik açma
   const handleClose = () => {
-    setHasAutoShown(true);
     setIsOpen(false);
     setIsExpanded(false);
     setIsMinimized(false);

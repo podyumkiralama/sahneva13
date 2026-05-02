@@ -15,6 +15,7 @@ import {
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
+import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 
 const content = LOCALE_CONTENT.ar;
 
@@ -60,6 +61,7 @@ export default async function ArabicLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy nonce={nonce} />
+        <CloudflareWebAnalytics nonce={nonce} />
       </head>
       <body className="flex flex-col" dir={content.direction}>
         <SkipLinks locale="ar" />
