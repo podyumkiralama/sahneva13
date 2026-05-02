@@ -280,18 +280,13 @@ const nextConfig = {
       },
 
       {
-        source: "/sw.js",
-        headers: serviceWorkerHeaders,
-      },
-
-      {
         source: "/sitemap.xsl",
         headers: sitemapStylesheetHeaders,
       },
 
       // 5) Dosya uzantılı assetler: 1 yıl immutable
       {
-        source: "/(.*)\\.(ico|png|jpg|jpeg|webp|avif|svg|gif|woff2|css|js)",
+        source: "/(.*)\\.(ico|png|jpg|jpeg|webp|avif|svg|gif|woff2|css)",
         headers: longTermCacheHeaders,
       },
 
@@ -299,6 +294,13 @@ const nextConfig = {
       {
         source: "/_next/(.*)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+
+      // Service worker genel *.js cache kuralından sonra gelmeli; aksi halde
+      // immutable cache header'ı SW güncellemelerini engelleyebilir.
+      {
+        source: "/sw.js",
+        headers: serviceWorkerHeaders,
       },
     ];
   },
