@@ -18,7 +18,8 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
     if (url.origin === window.location.origin) {
       return (
         url.pathname.startsWith("/_next/") ||
-        url.pathname.startsWith("/_vercel/speed-insights/")
+        url.pathname.startsWith("/_vercel/speed-insights/") ||
+        url.pathname === "/sw.js"
       );
     }
 
