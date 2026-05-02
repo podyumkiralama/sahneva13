@@ -141,6 +141,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/dome-cadir-kiralama",
+        destination: "/cadir-kiralama",
+        permanent: true,
+      },
+      {
         source: "/site.webmanifest",
         destination: "/manifest.json",
         permanent: true,
