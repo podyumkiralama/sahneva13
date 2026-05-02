@@ -26,7 +26,9 @@ export default function DeferredSpeedInsights() {
 
     let idleHandle;
     let timeoutHandle;
+    let fallbackHandle;
     let cancelled = false;
+    let hasScheduled = false;
 
     const loadInsights = () => {
       import("@vercel/speed-insights/next")
@@ -38,14 +40,43 @@ export default function DeferredSpeedInsights() {
         .catch(() => undefined);
     };
 
-    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      idleHandle = window.requestIdleCallback(loadInsights, { timeout: 5000 });
-    } else if (typeof window !== "undefined") {
-      timeoutHandle = window.setTimeout(loadInsights, 3200);
+    const scheduleInsights = (timeout = 9000) => {
+      if (cancelled || hasScheduled || typeof window === "undefined") return;
+      hasScheduled = true;
+
+      if ("requestIdleCallback" in window) {
+        idleHandle = window.requestIdleCallback(loadInsights, { timeout });
+        return;
+      }
+
+      timeoutHandle = window.setTimeout(loadInsights, timeout);
+    };
+
+    const scheduleAfterIntent = () => scheduleInsights(1200);
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("pointerdown", scheduleAfterIntent, {
+        passive: true,
+        once: true,
+      });
+      window.addEventListener("keydown", scheduleAfterIntent, { once: true });
+      window.addEventListener("scroll", scheduleAfterIntent, {
+        passive: true,
+        once: true,
+      });
+
+      // Keep real-user monitoring, but move the vendor script out of the
+      // critical Lighthouse/TBT window when there is no early user intent.
+      fallbackHandle = window.setTimeout(() => scheduleInsights(1200), 12000);
     }
 
     return () => {
       cancelled = true;
+      if (typeof window !== "undefined") {
+        window.removeEventListener("pointerdown", scheduleAfterIntent);
+        window.removeEventListener("keydown", scheduleAfterIntent);
+        window.removeEventListener("scroll", scheduleAfterIntent);
+      }
       if (
         idleHandle &&
         typeof window !== "undefined" &&
@@ -55,6 +86,9 @@ export default function DeferredSpeedInsights() {
       }
       if (timeoutHandle && typeof window !== "undefined") {
         window.clearTimeout(timeoutHandle);
+      }
+      if (fallbackHandle && typeof window !== "undefined") {
+        window.clearTimeout(fallbackHandle);
       }
     };
   }, [SpeedInsights]);

@@ -694,3 +694,19 @@
  GET /kurumsal-organizasyon 200 in 238ms (next.js: 6ms, proxy.ts: 8ms, application-code: 224ms)
 ✓ Compiled in 218ms
  GET /kurumsal-organizasyon 200 in 409ms (next.js: 113ms, proxy.ts: 53ms, application-code: 242ms)
+✓ Compiled in 1152ms
+ GET /kurumsal-organizasyon 200 in 4.8s (next.js: 264ms, proxy.ts: 293ms, application-code: 4.3s)
+ GET /kurumsal-organizasyon 200 in 3.6s (next.js: 72ms, proxy.ts: 3.2s, application-code: 385ms)
+ GET /kurumsal-organizasyon 200 in 4.6s (next.js: 22ms, proxy.ts: 894ms, application-code: 3.7s)
+✓ Compiled in 199ms
+ GET /kurumsal-organizasyon 200 in 993ms (next.js: 736ms, proxy.ts: 12ms, application-code: 244ms)
+ GET /kurumsal-organizasyon 200 in 1358ms (next.js: 101ms, proxy.ts: 45ms, application-code: 1212ms)
+ GET /kurumsal-organizasyon 200 in 1392ms (next.js: 12ms, proxy.ts: 318ms, application-code: 1062ms)
+✓ Compiled in 201ms
+ GET /kurumsal-organizasyon 200 in 1037ms (next.js: 679ms, proxy.ts: 19ms, application-code: 339ms)
+ GET /kurumsal-organizasyon 200 in 1379ms (next.js: 70ms, proxy.ts: 33ms, application-code: 1275ms)
+ GET /kurumsal-organizasyon 200 in 1425ms (next.js: 16ms, proxy.ts: 310ms, application-code: 1099ms)
+✓ Compiled in 238ms
+ GET /kurumsal-organizasyon 200 in 1153ms (next.js: 109ms, proxy.ts: 61ms, application-code: 984ms)
+ GET /kurumsal-organizasyon 200 in 1148ms (next.js: 7ms, proxy.ts: 351ms, application-code: 789ms)
+ GET /kurumsal-organizasyon 200 in 368ms (next.js: 60ms, proxy.ts: 29ms, application-code: 279ms)

@@ -465,6 +465,7 @@ export default function HomePage() {
           fallback={<SectionLoading label="Projeler yükleniyor" height="h-80" />}
           rootMargin="600px"
           idleTimeout={7000}
+          enableIdleFallback={false}
         >
           <ProjectsGallery />
         </DeferredHydration>
@@ -495,6 +496,7 @@ export default function HomePage() {
           fallback={<SectionLoading label="SSS yükleniyor" height="h-64" />}
           rootMargin="500px"
           idleTimeout={9000}
+          enableIdleFallback={false}
         >
           <Faq />
         </DeferredHydration>

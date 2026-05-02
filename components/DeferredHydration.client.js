@@ -30,6 +30,7 @@ export default function DeferredHydration({
   fallback = null,
   rootMargin = "200px",
   idleTimeout = 3000,
+  enableIdleFallback = true,
   as: Component = "div",
   className,
   forceHydrate = false,
@@ -171,8 +172,11 @@ export default function DeferredHydration({
       observer.observe(ref.current);
     }
 
-    // Tarayıcı boşta kalınca yedek hydrate
-    scheduleHydration();
+    // Tarayıcı boşta kalınca yedek hydrate. Sayfanın altındaki ağır
+    // bloklarda kapatılabilir; bu ilk yükleme TBT'sini temiz tutar.
+    if (enableIdleFallback) {
+      scheduleHydration();
+    }
 
     return () => {
       cancelled = true;
@@ -187,7 +191,7 @@ export default function DeferredHydration({
       cancelScrollSettle();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [rootMargin, idleTimeout, forceHydrate]);
+  }, [rootMargin, idleTimeout, enableIdleFallback, forceHydrate]);
 
   const busy = !isHydrated && Boolean(fallback);
 
