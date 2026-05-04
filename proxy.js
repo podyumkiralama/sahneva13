@@ -57,6 +57,10 @@ function buildCsp({ siteUrl, isPreview }) {
     ? "frame-ancestors 'self' https://vercel.live https://*.vercel.live;"
     : "frame-ancestors 'none';";
 
+  const trustedTypesPolicy = isPreview
+    ? "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url;"
+    : "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url; require-trusted-types-for 'script';";
+
   return `
     default-src 'self';
     ${frameAncestors}
@@ -73,8 +77,7 @@ function buildCsp({ siteUrl, isPreview }) {
     worker-src 'self' blob:;
     frame-src ${frameSrc};
     form-action 'self' https://formspree.io https://wa.me;
-    trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url;
-    require-trusted-types-for 'script';
+    ${trustedTypesPolicy}
   `
     .replace(/\s{2,}/g, " ")
     .trim();
