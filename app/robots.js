@@ -2,7 +2,7 @@
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
 export default function robots() {
-  const disallow = ["/api/", "/private/", "/search"];
+   const disallow = ["/api/", "/private/"];
 
   return {
     rules: [
