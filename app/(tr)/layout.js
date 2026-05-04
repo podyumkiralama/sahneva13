@@ -89,7 +89,21 @@ export const metadata = {
 export default function TurkishLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} font-sans`}>
+      <head>
+        <TrustedTypesPolicy />
+        <CloudflareWebAnalytics />
+        <SpeculationRules locale="tr" />
+        <link
+          rel="search"
+          type="application/opensearchdescription+xml"
+          title="Sahneva Organizasyon"
+          href="/opensearch.xml"
+        />
+      </head>
       <body>
+        <SkipLinks locale="tr" />
+        <AnalyticsConsentWrapper />
+        <ServiceWorkerRegistration />
         <JsonLd id="global-ld-json" data={globalJsonLd} />
         <Navbar />
         {children}
