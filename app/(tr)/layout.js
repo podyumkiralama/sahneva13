@@ -224,6 +224,12 @@ export default function TurkishLayout({ children }) {
         <TrustedTypesPolicy />
         <CloudflareWebAnalytics />
         <SpeculationRules locale="tr" />
+        <link
+          rel="search"
+          type="application/opensearchdescription+xml"
+          title="Sahneva Organizasyon"
+          href="/opensearch.xml"
+      />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="tr" />
