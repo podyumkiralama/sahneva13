@@ -117,32 +117,32 @@ const globalJsonLd = {
       ],
     },
 
-{
-  "@type": "WebSite",
-  "@id": WEBSITE_ID,
-  url: BASE_SITE_URL,
-  name: "Sahneva Organizasyon",
-  alternateName: "Sahneva",
-  description:
-    "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
-  inLanguage: "tr-TR",
-  about: [
-    "sahne kiralama",
-    "podyum kiralama",
-    "led ekran kiralama",
-    "çadır kiralama",
-    "kurumsal organizasyon",
-  ],
-  publisher: { "@id": ORGANIZATION_ID },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: BASE_SITE_URL,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      description:
+        "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
+      inLanguage: "tr-TR",
+      about: [
+        "sahne kiralama",
+        "podyum kiralama",
+        "led ekran kiralama",
+        "çadır kiralama",
+        "kurumsal organizasyon",
+      ],
+      publisher: { "@id": ORGANIZATION_ID },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
-    "query-input": "required name=search_term_string",
-  },
-},
   ],
 };
 
@@ -229,41 +229,41 @@ export default function TurkishLayout({ children }) {
           type="application/opensearchdescription+xml"
           title="Sahneva Organizasyon"
           href="/opensearch.xml"
-      />
+        />
       </head>
       <body className="flex flex-col">
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-      <JsonLd id="global-ld-json" data={globalJsonLd} />
+        <JsonLd id="global-ld-json" data={globalJsonLd} />
 
-      {/* ✅ TEK WRAPPER: Header + Main + Footer */}
-      <div className="min-h-screen text-slate-100 flex flex-col">
-        <header
-          id="_main_header"
-          aria-label="Sahneva site başlığı ve ana gezinme"
-          className="w-full relative z-50"
-        >
-          <Navbar />
-        </header>
+        {/* ✅ TEK WRAPPER: Header + Main + Footer */}
+        <div className="min-h-screen text-slate-100 flex flex-col">
+          <header
+            id="_main_header"
+            aria-label="Sahneva site başlığı ve ana gezinme"
+            className="w-full relative z-50"
+          >
+            <Navbar />
+          </header>
 
-        <main
-          id="_main_content"
-          aria-label="Sahneva ana içerik"
-          tabIndex={-1}
-          className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
-        >
-          <div className="w-full overflow-visible">{children}</div>
-        </main>
+          <main
+            id="_main_content"
+            aria-label="Sahneva ana içerik"
+            tabIndex={-1}
+            className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
+          >
+            <div className="w-full overflow-visible">{children}</div>
+          </main>
 
-        <Footer
-          id="_main_footer"
-          ariaLabel="Sahneva site altbilgi"
-          descriptionId="_main_footer_desc"
-        />
-        <StickyVideoRailClient />
-        <DeferredSpeedInsights />
-      </div>
+          <Footer
+            id="_main_footer"
+            ariaLabel="Sahneva site altbilgi"
+            descriptionId="_main_footer_desc"
+          />
+          <StickyVideoRailClient />
+          <DeferredSpeedInsights />
+        </div>
       </body>
     </html>
   );
