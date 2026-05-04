@@ -1,4 +1,4 @@
-// app/(tr)/(site)/layout.jsx
+// app/(tr)/layout.jsx
 export const revalidate = 86400;
 
 import "../../styles/globals.css";
@@ -28,11 +28,12 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 
+import { buildDynamicOgImage, buildDynamicTwitterImages } from "@/lib/seo/dynamicOg";
+
 const content = LOCALE_CONTENT.tr;
 
 const EDITOR_ORGANIZATION_ID = `${BASE_SITE_URL}/#editor`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
-const OG_IMAGE_URL = `${BASE_SITE_URL}/img/og/sahneva-og.webp`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 
 /* ================== JSON-LD: GLOBAL GRAPH ================== */
@@ -45,153 +46,17 @@ const globalJsonLd = {
       url: LOGO_URL,
       contentUrl: LOGO_URL,
     },
-
-    {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      logo: { "@id": LOGO_ID },
-      description:
-        "Türkiye genelinde sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri sunan profesyonel etkinlik prodüksiyon markası.",
-      knowsAbout: [
-        "podyum kiralama",
-        "sahne kiralama",
-        "modüler sahne kiralama",
-        "led ekran kiralama",
-        "çadır kiralama",
-        "kurumsal organizasyon",
-        "kurumsal etkinlik organizasyonu",
-      ],
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+905453048671",
-        contactType: "customer service",
-        areaServed: "TR",
-        availableLanguage: ["tr", "en", "ar"],
-      },
-    },
-
-    {
-      "@type": "Person",
-      "@id": EDITOR_ORGANIZATION_ID,
-      name: "Sahneva Editör",
-      url: BASE_SITE_URL,
-      worksFor: { "@id": ORGANIZATION_ID },
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": LOCAL_BUSINESS_ID,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      image: OG_IMAGE_URL,
-      logo: { "@id": LOGO_ID },
-      telephone: "+905453048671",
-      priceRange: "₺₺₺",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 41.0961692,
-        longitude: 28.9792127,
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Anadolu Caddesi No:61A, Hamidiye Mahallesi",
-        addressLocality: "İstanbul",
-        addressRegion: "İstanbul",
-        postalCode: "34400",
-        addressCountry: "TR",
-      },
-      openingHours: "Mo-Su 00:00-23:59",
-      areaServed: "TR",
-      parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
-    },
-
-    {
-      "@type": "WebSite",
-      "@id": WEBSITE_ID,
-      url: BASE_SITE_URL,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      description:
-        "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
-      inLanguage: "tr-TR",
-      about: [
-        "sahne kiralama",
-        "podyum kiralama",
-        "led ekran kiralama",
-        "çadır kiralama",
-        "kurumsal organizasyon",
-      ],
-      publisher: { "@id": ORGANIZATION_ID },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
   ],
 };
 
 /* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
-  manifest: "/manifest.json",
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-  },
   title: {
     default: HOME_PAGE_TITLE,
     template: `%s | Sahneva`,
   },
-  applicationName: "Sahneva Organizasyon",
-  appleWebApp: {
-    capable: true,
-    title: "Sahneva",
-    statusBarStyle: "black-translucent",
-  },
-  formatDetection: {
-    telephone: false,
-  },
   description: content.meta.description,
-  keywords: [
-    "sahne kiralama",
-    "podyum kiralama",
-    "led ekran kiralama",
-    "ses ışık sistemleri",
-    "çadır kiralama",
-    "truss kiralama",
-    "kurumsal organizasyon",
-    "kurumsal etkinlik organizasyonu",
-    "etkinlik prodüksiyonu",
-    "organizasyon teknik altyapı",
-    "istanbul sahne kiralama",
-    "istanbul podyum kiralama",
-    "sahneva organizasyon",
-  ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
   openGraph: {
     title: HOME_PAGE_TITLE,
     description: content.meta.description,
@@ -200,19 +65,20 @@ export const metadata = {
     type: "website",
     locale: "tr_TR",
     images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
-        alt: "Sahneva Organizasyon – sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri",
-      },
+      buildDynamicOgImage({
+        title: HOME_PAGE_TITLE,
+        description: content.meta.description,
+      }),
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: HOME_PAGE_TITLE,
     description: content.meta.description,
-    images: [OG_IMAGE_URL],
+    images: buildDynamicTwitterImages({
+      title: HOME_PAGE_TITLE,
+      description: content.meta.description,
+    }),
   },
   alternates: {
     canonical: buildCanonical("/"),
@@ -220,65 +86,16 @@ export const metadata = {
   },
 };
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#6d28d9",
-};
-
 export default function TurkishLayout({ children }) {
   return (
-    <html
-      lang="tr"
-      xmlLang="tr"
-      dir="ltr"
-      className={`${inter.variable} font-sans`}
-      suppressHydrationWarning
-    >
-      <head>
-        <TrustedTypesPolicy />
-        <CloudflareWebAnalytics />
-        <SpeculationRules locale="tr" />
-        <link
-          rel="search"
-          type="application/opensearchdescription+xml"
-          title="Sahneva Organizasyon"
-          href="/opensearch.xml"
-        />
-      </head>
-      <body className="flex flex-col">
-        <SkipLinks locale="tr" />
-        <AnalyticsConsentWrapper />
-        <ServiceWorkerRegistration />
+    <html lang="tr" className={`${inter.variable} font-sans`}>
+      <body>
         <JsonLd id="global-ld-json" data={globalJsonLd} />
-
-        {/* ✅ TEK WRAPPER: Header + Main + Footer */}
-        <div className="min-h-screen text-slate-100 flex flex-col">
-          <header
-            id="_main_header"
-            aria-label="Sahneva site başlığı ve ana gezinme"
-            className="w-full relative z-50"
-          >
-            <Navbar />
-          </header>
-
-          <main
-            id="_main_content"
-            aria-label="Sahneva ana içerik"
-            tabIndex={-1}
-            className="relative flex-1 focus:outline-none scroll-mt-24 min-h-[1px]"
-          >
-            <div className="w-full overflow-visible">{children}</div>
-          </main>
-
-          <Footer
-            id="_main_footer"
-            ariaLabel="Sahneva site altbilgi"
-            descriptionId="_main_footer_desc"
-          />
-          <StickyVideoRailClient />
-          <DeferredSpeedInsights />
-        </div>
+        <Navbar />
+        {children}
+        <Footer />
+        <StickyVideoRailClient />
+        <DeferredSpeedInsights />
       </body>
     </html>
   );
