@@ -3,6 +3,9 @@
 /* Plugins (v4) */
 @plugin "@tailwindcss/typography";
 
+@custom-variant nav-dark (&:where(.nav-dark, .nav-dark *));
+@custom-variant nav-light (&:where(.nav-light, .nav-light *));
+
 /* Theme tokens (v4) */
 @theme {
   --font-sans: var(--font-inter),

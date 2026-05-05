@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
+import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
 
 const focusRingClass = "focus-ring";
 
@@ -102,7 +104,7 @@ export default function SiteHeader({ locale, strings }) {
     <header
       tabIndex={-1}
       aria-label={ariaStrings.header}
-      className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/70"
+      className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/95 backdrop-blur-md nav-dark:border-white/10 nav-dark:bg-[#0B1120]/95"
       dir={direction}
     >
       <div
@@ -121,8 +123,8 @@ export default function SiteHeader({ locale, strings }) {
       >
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href={homeHref} className={`flex items-center gap-3 ${focusRingClass}`}>
-            <span className="text-2xl font-black text-indigo-600">Sahneva</span>
-            <span className="hidden sm:block text-sm text-neutral-500 font-medium">
+            <span className="text-2xl font-black text-indigo-600 nav-dark:text-white">Sahneva</span>
+            <span className="hidden sm:block text-sm text-neutral-500 font-medium nav-dark:text-slate-300">
               {strings.tagline}
             </span>
           </Link>
@@ -132,11 +134,13 @@ export default function SiteHeader({ locale, strings }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg ${focusRingClass}`}
+                className={`text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
               >
                 {item.label}
               </Link>
             ))}
+            <LanguageSwitcher locale={locale} />
+            <ThemeSwitcher />
             <a
               href={strings.whatsappHref}
               target="_blank"
@@ -159,7 +163,7 @@ export default function SiteHeader({ locale, strings }) {
                 setOpen(true);
               }
             }}
-            className={`lg:hidden inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-3 text-neutral-700 shadow-sm ${focusRingClass}`}
+            className={`lg:hidden inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-3 text-neutral-700 shadow-sm nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white ${focusRingClass}`}
             aria-expanded={open}
             aria-controls={mobileMenuId}
             aria-haspopup="true"
@@ -192,7 +196,7 @@ export default function SiteHeader({ locale, strings }) {
         hidden={!open}
         inert={!open ? "" : undefined}
         aria-label={ariaStrings.nav}
-        className="lg:hidden border-t border-neutral-200 bg-white shadow-xl"
+        className="lg:hidden border-t border-neutral-200 bg-white shadow-xl nav-dark:border-white/10 nav-dark:bg-[#0B1120]"
       >
         <nav
           id="primary-navigation-mobile"
@@ -200,11 +204,15 @@ export default function SiteHeader({ locale, strings }) {
           aria-label={ariaStrings.nav}
         >
           <div className="container mx-auto px-4 py-4 space-y-2">
+            <div className="mb-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 nav-dark:border-white/10 nav-dark:bg-white/[0.06]">
+              <LanguageSwitcher locale={locale} />
+              <ThemeSwitcher />
+            </div>
             {strings.links.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block rounded-lg px-4 py-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 ${focusRingClass}`}
+                className={`block rounded-lg px-4 py-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 nav-dark:text-slate-100 nav-dark:hover:bg-white/10 ${focusRingClass}`}
                 onClick={() => closeMenu()}
               >
                 {item.label}

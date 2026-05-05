@@ -8,6 +8,7 @@ import NavbarMobile from "@/components/NavbarMobile.client";
 import NavbarSearchDropdown from "@/components/NavbarSearchDropdown.client";
 import ServicesDropdownBehavior from "@/components/ServicesDropdownBehavior.client";
 import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
 const FOCUS_RING_CLASS =
@@ -79,7 +80,7 @@ export default function Navbar({ locale = "tr", ...props }) {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href={homeHref} prefetch={false} className={`relative flex min-h-[44px] min-w-[160px] items-center gap-3 group ${FOCUS_RING_CLASS}`} aria-label={logoAriaLabel}>
               <Image src="/img/logo.webp" alt="Sahneva Logo" width={160} height={40} decoding="async" sizes="(max-width: 768px) 120px, 160px" className="h-8 lg:h-10 w-auto transition-all duration-200 group-hover:scale-105 nav-dark:opacity-0" style={{ width: "auto" }} />
-              <Image src="/img/logo-dark.webp" alt="Sahneva Logo" width={160} height={40} decoding="async" sizes="(max-width: 768px) 120px, 160px" className="absolute left-0 h-8 lg:h-10 w-auto opacity-0 transition-all duration-200 group-hover:scale-105 nav-dark:opacity-100" style={{ width: "auto" }} />
+              <Image src="/img/sahneva-logo-dark-theme.png" alt="Sahneva Logo" width={160} height={75} decoding="async" sizes="(max-width: 768px) 120px, 160px" className="absolute left-0 h-8 lg:h-10 w-auto opacity-0 transition-all duration-200 group-hover:scale-105 nav-dark:opacity-100" style={{ width: "auto" }} />
             </Link>
             <div className="hidden lg:flex items-center gap-4">
               <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>
@@ -114,10 +115,11 @@ export default function Navbar({ locale = "tr", ...props }) {
                 </div>
               </details>
               <NavbarSearchDropdown locale={locale} />
+              <LanguageSwitcher locale={locale} />
               <ThemeSwitcher />
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`} className={`ml-2 inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold bg-white text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800 transition-all duration-200 shadow-sm hover:shadow-md min-h-[44px] border border-emerald-200 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 nav-dark:hover:text-emerald-200 nav-dark:border-white/10 ${FOCUS_RING_CLASS}`}><span aria-hidden="true" className="text-base">💬</span><span>{whatsappLabel}</span></a>
             </div>
-            <NavbarMobile serviceLinks={SERVICE_LINKS} researchLinks={RESEARCH_LINKS} />
+            <NavbarMobile locale={locale} serviceLinks={SERVICE_LINKS} researchLinks={RESEARCH_LINKS} />
           </div>
         </div>
       </nav>
