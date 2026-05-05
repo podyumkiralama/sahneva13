@@ -130,6 +130,11 @@ const globalJsonLd = {
         "corporate events",
       ],
       publisher: { "@id": ORGANIZATION_ID },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${BASE_SITE_URL}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     },
   ],
 };

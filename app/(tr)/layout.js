@@ -46,6 +46,20 @@ const globalJsonLd = {
       url: LOGO_URL,
       contentUrl: LOGO_URL,
     },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: BASE_SITE_URL,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      inLanguage: "tr-TR",
+      publisher: { "@id": ORGANIZATION_ID },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${BASE_SITE_URL}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
   ],
 };
 

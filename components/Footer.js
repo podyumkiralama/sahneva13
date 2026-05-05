@@ -70,6 +70,12 @@ const BUSINESS_LINKS = [
 ];
 
 /* --- Yardımcı Bileşen: Standart Footer Link --- */
+const LANGUAGE_LINKS = [
+  { href: "/", label: "TR", text: "Türkçe", hrefLang: "tr-TR", locale: "tr" },
+  { href: "/en", label: "EN", text: "English", hrefLang: "en", locale: "en" },
+  { href: "/ar", label: "AR", text: "العربية", hrefLang: "ar", locale: "ar" },
+];
+
 const FooterLink = ({
   href,
   children,
@@ -547,6 +553,35 @@ export default function Footer({
             aria-label={isEn ? "Footer links" : "Altbilgi bağlantıları"}
             className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-gray-300"
           >
+            {LANGUAGE_LINKS.map((item) => {
+              const isActive = locale === item.locale;
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  hrefLang={item.hrefLang}
+                  prefetch={false}
+                  aria-current={isActive ? "page" : undefined}
+                  title={item.text}
+                  className={`
+                    inline-flex min-h-[36px] items-center rounded-full border px-3 text-xs font-bold no-underline
+                    transition-colors
+                    ${
+                      isActive
+                        ? "border-blue-400/70 bg-blue-500/15 text-blue-100"
+                        : "border-white/10 bg-white/5 text-slate-300 hover:border-white/25 hover:bg-white/10 hover:text-white"
+                    }
+                    ${FOCUS_RING_CLASS}
+                  `}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <span className="hidden sm:inline text-white/20" aria-hidden="true">
+              /
+            </span>
             <Link
               href={privacyHref}
               prefetch={false}

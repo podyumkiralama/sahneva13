@@ -79,6 +79,27 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
     };
   }, [closeSearch, open]);
 
+  useEffect(() => {
+    const onSlashShortcut = (event) => {
+      if (event.key !== "/" || event.metaKey || event.ctrlKey || event.altKey) return;
+
+      const target = event.target;
+      const isTyping =
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement ||
+        target?.isContentEditable;
+
+      if (isTyping) return;
+
+      event.preventDefault();
+      setOpen(true);
+    };
+
+    document.addEventListener("keydown", onSlashShortcut);
+    return () => document.removeEventListener("keydown", onSlashShortcut);
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const target = trimmedQuery
