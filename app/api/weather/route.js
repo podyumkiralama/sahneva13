@@ -27,18 +27,56 @@ function normalizeCity(value) {
   return CITY_COORDINATES[key] ? key : "istanbul";
 }
 
-function formatDailyForecast(day) {
-  const weather = day.weather?.[0];
+function getLocalDateKey(timestamp, timezoneOffsetSeconds = 0) {
+  const localDate = new Date((timestamp + timezoneOffsetSeconds) * 1000);
+  return localDate.toISOString().slice(0, 10);
+}
+
+function pickRepresentativeForecast(items = []) {
+  if (!items.length) return null;
+
+  return items.reduce((closest, item) => {
+    const itemHour = new Date((item.dt ?? 0) * 1000).getUTCHours();
+    const closestHour = new Date((closest.dt ?? 0) * 1000).getUTCHours();
+    return Math.abs(itemHour - 12) < Math.abs(closestHour - 12) ? item : closest;
+  }, items[0]);
+}
+
+function summarizeForecastDay(items = []) {
+  const representative = pickRepresentativeForecast(items);
+  const weather = representative?.weather?.[0] ?? items[0]?.weather?.[0];
 
   return {
-    dt: day.dt,
+    dt: representative?.dt ?? items[0]?.dt,
     description: weather?.description ?? "Tahmin bilgisi bekleniyor",
     icon: weather?.icon ?? null,
-    tempMin: Math.round(day.temp?.min ?? 0),
-    tempMax: Math.round(day.temp?.max ?? 0),
-    precipitationProbability: Math.round((day.pop ?? 0) * 100),
-    windSpeed: Number(day.wind_speed ?? 0),
+    tempMin: Math.round(
+      Math.min(...items.map((item) => Number(item.main?.temp_min ?? item.main?.temp ?? 0))),
+    ),
+    tempMax: Math.round(
+      Math.max(...items.map((item) => Number(item.main?.temp_max ?? item.main?.temp ?? 0))),
+    ),
+    precipitationProbability: Math.round(
+      Math.max(...items.map((item) => Number(item.pop ?? 0))) * 100,
+    ),
+    windSpeed: Number(
+      Math.max(...items.map((item) => Number(item.wind?.speed ?? 0))).toFixed(1),
+    ),
   };
+}
+
+function buildDailyForecast(list = [], timezoneOffsetSeconds = 0) {
+  const grouped = new Map();
+
+  for (const item of list) {
+    if (!item?.dt) continue;
+    const key = getLocalDateKey(item.dt, timezoneOffsetSeconds);
+    const group = grouped.get(key) ?? [];
+    group.push(item);
+    grouped.set(key, group);
+  }
+
+  return Array.from(grouped.values()).slice(0, 5).map(summarizeForecastDay);
 }
 
 export async function GET(request) {
@@ -61,10 +99,9 @@ export async function GET(request) {
   const cityKey = normalizeCity(searchParams.get("city"));
   const city = CITY_COORDINATES[cityKey];
 
-  const url = new URL("https://api.openweathermap.org/data/3.0/onecall");
+  const url = new URL("https://api.openweathermap.org/data/2.5/forecast");
   url.searchParams.set("lat", String(city.lat));
   url.searchParams.set("lon", String(city.lon));
-  url.searchParams.set("exclude", "current,minutely,hourly,alerts");
   url.searchParams.set("units", "metric");
   url.searchParams.set("lang", "tr");
   url.searchParams.set("appid", apiKey);
@@ -88,14 +125,15 @@ export async function GET(request) {
     }
 
     const data = await response.json();
-    const daily = Array.isArray(data.daily)
-      ? data.daily.slice(0, 7).map(formatDailyForecast)
+    const timezoneOffsetSeconds = Number(data.city?.timezone ?? 0);
+    const daily = Array.isArray(data.list)
+      ? buildDailyForecast(data.list, timezoneOffsetSeconds)
       : [];
 
     return createJsonResponse({
       city: city.name,
       cityKey,
-      timezone: data.timezone ?? "Europe/Istanbul",
+      timezone: data.city?.timezone ?? "Europe/Istanbul",
       daily,
     });
   } catch {
