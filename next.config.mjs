@@ -166,6 +166,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/img/logo-dark.webp",
+        destination: "/img/sahneva-logo-dark-theme.png",
+        permanent: true,
+      },
+      {
         source: "/led-ekran-kiralama-1",
         destination: "/led-ekran-kiralama",
         permanent: true,
