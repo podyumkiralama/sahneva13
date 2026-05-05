@@ -67,11 +67,11 @@ function getRiskTone(day) {
 
 function WeatherSkeleton() {
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-      {Array.from({ length: 7 }).map((_, index) => (
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      {Array.from({ length: 5 }).map((_, index) => (
         <div
           key={index}
-          className="min-h-[174px] animate-pulse rounded-3xl border border-white/10 bg-white/[0.06] p-4"
+          className="min-h-[168px] animate-pulse rounded-3xl border border-white/10 bg-white/[0.06] p-4"
         >
           <div className="h-4 w-20 rounded-full bg-white/15" />
           <div className="mt-5 h-5 w-28 rounded-full bg-white/10" />
@@ -123,12 +123,12 @@ export default function EventWeatherWidget({
 
         if (!Array.isArray(data?.daily) || data.daily.length === 0) {
           setForecast([]);
-          setMessage("Bu şehir için 7 günlük tahmin verisi bulunamadı.");
+          setMessage("Bu şehir için 5 günlük tahmin verisi bulunamadı.");
           setStatus("empty");
           return;
         }
 
-        setForecast(data.daily);
+        setForecast(data.daily.slice(0, 5));
         setStatus("success");
       } catch (error) {
         if (!isMounted || error.name === "AbortError") return;
@@ -148,7 +148,7 @@ export default function EventWeatherWidget({
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0B1120] py-16 text-white sm:py-20"
+      className="relative overflow-hidden bg-[#0B1120] py-14 text-white sm:py-18 lg:py-20"
       aria-labelledby="event-weather-title"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -179,7 +179,7 @@ export default function EventWeatherWidget({
         </div>
 
         <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.05] p-4 shadow-[0_24px_80px_rgba(15,23,42,0.45)] backdrop-blur sm:p-6">
-          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(240px,360px)_1fr] lg:items-end">
             <div>
               <label
                 htmlFor="event-weather-city"
@@ -191,7 +191,7 @@ export default function EventWeatherWidget({
                 id="event-weather-city"
                 value={selectedCity}
                 onChange={(event) => setSelectedCity(event.target.value)}
-                className="mt-2 min-h-[44px] w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 text-sm font-bold text-white outline-none transition-colors focus:border-blue-300 focus:ring-2 focus:ring-blue-500 sm:w-64"
+                className="mt-2 min-h-[44px] w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 text-sm font-bold text-white outline-none transition-colors focus:border-blue-300 focus:ring-2 focus:ring-blue-500"
               >
                 {CITIES.map((city) => (
                   <option key={city.key} value={city.key}>
@@ -201,14 +201,14 @@ export default function EventWeatherWidget({
               </select>
             </div>
 
-            <p className="max-w-xl text-sm leading-relaxed text-slate-400">
-              {selectedCityLabel} için 7 günlük tahmin; rüzgar, yağış ve zemin
+            <p className="text-sm leading-relaxed text-slate-400 lg:max-w-3xl lg:justify-self-end lg:text-right">
+              {selectedCityLabel} için 5 günlük tahmin; rüzgar, yağış ve zemin
               hazırlığı açısından ön keşif niteliğindedir. Nihai kurulum kararı
               saha koşullarına göre verilir.
             </p>
           </div>
 
-          <div className="min-h-[174px]" aria-live="polite">
+          <div className="min-h-[168px]" aria-live="polite">
             {status === "loading" ? (
               <div>
                 <div className="mb-4 flex items-center gap-2 text-sm font-bold text-blue-100">
@@ -232,54 +232,54 @@ export default function EventWeatherWidget({
             ) : null}
 
             {status === "success" ? (
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 {forecast.map((day) => {
                   const risk = getRiskTone(day);
 
                   return (
                     <article
                       key={day.dt}
-                      className="rounded-3xl border border-white/10 bg-slate-950/55 p-4 shadow-lg"
+                      className="min-h-[168px] rounded-3xl border border-white/10 bg-slate-950/55 p-4 shadow-lg"
                     >
-                      <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-sm font-black text-white">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="max-w-[7.5rem] text-sm font-black leading-tight text-white">
                           {formatForecastDay(day.dt)}
                         </h3>
                         <span
-                          className={`rounded-full border px-2 py-1 text-[11px] font-extrabold ${risk.className}`}
+                          className={`shrink-0 rounded-full border px-2 py-1 text-[11px] font-extrabold leading-tight ${risk.className}`}
                         >
                           {risk.label}
                         </span>
                       </div>
-                      <p className="mt-3 min-h-[40px] text-sm font-medium capitalize leading-snug text-slate-300">
+                      <p className="mt-3 min-h-[34px] text-sm font-medium capitalize leading-snug text-slate-300">
                         {day.description}
                       </p>
 
-                      <dl className="mt-4 space-y-3 text-sm">
-                        <div className="flex items-center justify-between gap-3">
+                      <dl className="mt-4 space-y-2.5 text-sm">
+                        <div className="flex items-center justify-between gap-2">
                           <dt className="flex items-center gap-2 text-slate-400">
-                            <ThermometerSun aria-hidden="true" className="h-4 w-4" />
+                            <ThermometerSun aria-hidden="true" className="h-4 w-4 shrink-0" />
                             Sıcaklık
                           </dt>
-                          <dd className="font-black text-white">
+                          <dd className="text-right font-black leading-tight text-white">
                             {day.tempMin}° / {day.tempMax}°
                           </dd>
                         </div>
-                        <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center justify-between gap-2">
                           <dt className="flex items-center gap-2 text-slate-400">
-                            <CloudRain aria-hidden="true" className="h-4 w-4" />
+                            <CloudRain aria-hidden="true" className="h-4 w-4 shrink-0" />
                             Yağış
                           </dt>
                           <dd className="font-black text-white">
                             %{day.precipitationProbability}
                           </dd>
                         </div>
-                        <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center justify-between gap-2">
                           <dt className="flex items-center gap-2 text-slate-400">
-                            <Wind aria-hidden="true" className="h-4 w-4" />
+                            <Wind aria-hidden="true" className="h-4 w-4 shrink-0" />
                             Rüzgar
                           </dt>
-                          <dd className="font-black text-white">
+                          <dd className="text-right font-black leading-tight text-white">
                             {Number(day.windSpeed).toFixed(1)} m/s
                           </dd>
                         </div>
@@ -303,8 +303,8 @@ export default function EventWeatherWidget({
             rel="noopener noreferrer"
             className="inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 text-sm font-black text-white shadow-lg shadow-emerald-950/30 transition-colors hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-[#0B1120]"
           >
-            <MessageCircle aria-hidden="true" className="h-5 w-5" />
-            WhatsApp teklif al
+            <MessageCircle aria-hidden="true" className="h-4 w-4" />
+            Teklif Al
           </a>
         </div>
       </div>
