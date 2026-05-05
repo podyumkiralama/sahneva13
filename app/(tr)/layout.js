@@ -52,11 +52,23 @@ const globalJsonLd = {
       url: BASE_SITE_URL,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
+      description:
+        "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
       inLanguage: "tr-TR",
+      about: [
+        "sahne kiralama",
+        "podyum kiralama",
+        "led ekran kiralama",
+        "çadır kiralama",
+        "kurumsal organizasyon",
+      ],
       publisher: { "@id": ORGANIZATION_ID },
       potentialAction: {
         "@type": "SearchAction",
-        target: `${BASE_SITE_URL}/search?q={search_term_string}`,
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
+        },
         "query-input": "required name=search_term_string",
       },
     },
