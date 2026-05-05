@@ -339,7 +339,7 @@ function HeroSection() {
   const stats = [
     { icon: "🎤", value: "500+", label: "Konser & Festival" },
     { icon: "🇹🇷", value: "Türkiye Geneli", label: "Hizmet Alanı" },
-    { icon: "⏱️", value: "8+ Yıl", label: "Sahne Deneyimi" },
+    { icon: "⏱️", value: "10+ Yıl", label: "Sahne Deneyimi" },
     { icon: "🛡️", value: "Mühendislik", label: "Onaylı Sistemler" },
   ];
 

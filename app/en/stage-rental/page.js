@@ -892,7 +892,7 @@ function StatsBand() {
     { value: "300+", label: "Stage Installations", icon: "🏆" },
     { value: "50+", label: "Concert Projects", icon: "🎵" },
     { value: "81", label: "Cities Served", icon: "🗺️" },
-    { value: "8+", label: "Years of Experience", icon: "⭐" },
+    { value: "10+", label: "Years of Experience", icon: "⭐" },
   ];
 
   return (
@@ -1140,7 +1140,7 @@ function Articles() {
                     Event type and audience size are the most critical factors
                     when selecting a stage. We recommend 12–24 m² for small
                     events (50–100 guests), 24–48 m² for mid-size events
-                    (100–300 guests) and 48+ m² for large events (300+
+                    (100–300 guests) and 48 m² or more for large events (300+
                     guests). For outdoor events, wind loading and ground
                     stability should always be assessed first.
                   </p>

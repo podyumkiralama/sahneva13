@@ -647,7 +647,7 @@ function UseCasesSection() {
 function StatsSection() {
   const stats = [
     { value: "300+", label: "Fashion Events", icon: "👗" },
-    { value: "8+", label: "Years Experience", icon: "⭐" },
+    { value: "10+", label: "Years Experience", icon: "⭐" },
     { value: "End-to-End", label: "Service", icon: "🚀" },
     { value: "TS EN", label: "Safety Standard", icon: "🛡️" },
   ];

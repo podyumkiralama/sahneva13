@@ -733,7 +733,7 @@ function UseCasesSection() {
 function StatsSection() {
   const stats = [
     { value: "300+", label: "Moda Etkinliği", icon: "👗" },
-    { value: "8+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
     { value: "Uçtan", label: "Uca Hizmet", icon: "🚀" },
     { value: "TS EN", label: "Güvenlik Standardı", icon: "🛡️" },
   ];

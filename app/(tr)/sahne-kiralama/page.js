@@ -1071,7 +1071,7 @@ function StatsBand() {
     { value: "300+", label: "Sahne Kurulumu", icon: "🏆" },
     { value: "50+", label: "Konser Projesi", icon: "🎵" },
     { value: "81", label: "İlde Hizmet", icon: "🗺️" },
-    { value: "8+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
   ];
 
   return (
@@ -1320,7 +1320,7 @@ function Articles() {
                     Sahne seçiminde etkinlik türü ve katılımcı sayısı en kritik
                     faktördür. Küçük etkinlikler (50-100 kişi) için 12-24 m², orta
                     ölçekli etkinlikler (100-300 kişi) için 24-48 m², büyük
-                    etkinlikler (300+ kişi) için 48+ m² sahne alanı öneriyoruz.
+                    etkinlikler (300+ kişi) için 48 m² ve üzeri sahne alanı öneriyoruz.
                     Açık hava etkinliklerinde ise rüzgar yükü ve zemin stabilitesi
                     öncelikli değerlendirilmelidir.
                   </p>

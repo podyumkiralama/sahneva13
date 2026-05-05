@@ -539,7 +539,7 @@ export default function HakkimizdaPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "Teknik altyapıda sıfır hata hedefi",
-                    "Müşteri memnuniyetinde %98+ başarı",
+                    "Müşteri memnuniyetinde %98 ve üzeri başarı",
                     "Sürekli inovasyon ve ekipman yenileme",
                     "Çevreye duyarlı, sürdürülebilir çözümler",
                   ].map((item, index) => (

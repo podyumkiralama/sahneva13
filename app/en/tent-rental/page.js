@@ -492,7 +492,7 @@ function StatsBand() {
     { value: "850+", label: "Successful events", icon: "🎪" },
     { value: "40+", label: "Enterprise clients", icon: "🏢" },
     { value: "81", label: "Cities served", icon: "🗺️" },
-    { value: "8+", label: "Years of expertise", icon: "⭐" },
+    { value: "10+", label: "Years of expertise", icon: "⭐" },
   ];
 
   return (
