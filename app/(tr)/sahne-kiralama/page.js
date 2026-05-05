@@ -1,6 +1,7 @@
 ﻿// app/sahne-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
@@ -34,6 +35,19 @@ const PHONE = "+905453048671";
 const WA_TEXT =
   "Merhaba%2C+sahne+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bkonser%2Fkonferans%2Flansman%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Katilimci+sayisi%3A+%5Bxxx%5D%2C+Tahmini+sahne+olcusu%3A+%5Bm%C2%B2%5D.";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+
+const EventWeatherWidget = dynamic(
+  () => import("@/components/EventWeatherWidget"),
+  {
+    loading: () => (
+      <section className="bg-[#0B1120] py-16 sm:py-20" aria-hidden="true">
+        <div className="container mx-auto px-4">
+          <div className="min-h-[420px] rounded-3xl border border-white/10 bg-white/[0.05]" />
+        </div>
+      </section>
+    ),
+  },
+);
 
 // Base64 blur placeholder
 const BLUR_DATA_URL =
@@ -1886,6 +1900,7 @@ export default function Page() {
       <Services />
       <Gallery />
       <Technical />
+      <EventWeatherWidget />
       <StatsBand />
       <UseCases />
       <Articles />

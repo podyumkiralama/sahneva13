@@ -55,6 +55,19 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   ),
 });
 
+const EventWeatherWidget = dynamic(
+  () => import("@/components/EventWeatherWidget"),
+  {
+    loading: () => (
+      <section className="bg-[#0B1120] py-16 sm:py-20" aria-hidden="true">
+        <div className="container mx-auto px-4">
+          <div className="min-h-[420px] rounded-3xl border border-white/10 bg-white/[0.05]" />
+        </div>
+      </section>
+    ),
+  },
+);
+
 /* ================== META ================== */
 export const metadata = {
   title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
@@ -1881,6 +1894,7 @@ export default function Page() {
       <Technical />
       <StandardsTable />
       <ChallengesSolutions />
+      <EventWeatherWidget />
       <InstallationProcess />
       <UseCases />
       <RegionalService />
