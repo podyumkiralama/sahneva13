@@ -73,6 +73,7 @@ export default function ArabicLayout({ children }) {
         <SpeculationRules locale="ar" />
       </head>
       <body className="flex flex-col" dir={content.direction}>
+        <span id="_page_top" className="sr-only" aria-hidden="true" />
         <SkipLinks locale="ar" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />

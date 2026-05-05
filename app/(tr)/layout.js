@@ -127,6 +127,7 @@ export default function TurkishLayout({ children }) {
         />
       </head>
       <body>
+        <span id="_page_top" className="sr-only" aria-hidden="true" />
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />

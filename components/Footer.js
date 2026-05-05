@@ -596,7 +596,7 @@ export default function Footer({
               •
             </span>
             <a
-              href="#_main_content"
+              href="#_page_top"
               className={`
                 inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
                 ${FOCUS_RING_CLASS}

@@ -222,6 +222,7 @@ export default function EnglishLayout({ children }) {
         <SpeculationRules locale="en" />
       </head>
       <body className="flex flex-col">
+        <span id="_page_top" className="sr-only" aria-hidden="true" />
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
