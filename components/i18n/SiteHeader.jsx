@@ -205,8 +205,8 @@ export default function SiteHeader({ locale, strings }) {
         >
           <div className="container mx-auto px-4 py-4 space-y-2">
             <div className="mb-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 nav-dark:border-white/10 nav-dark:bg-white/[0.06]">
-              <LanguageSwitcher locale={locale} />
-              <ThemeSwitcher />
+              <LanguageSwitcher locale={locale} align="left" />
+              <ThemeSwitcher align="left" />
             </div>
             {strings.links.map((item) => (
               <Link

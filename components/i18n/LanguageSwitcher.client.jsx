@@ -57,7 +57,7 @@ function getLocaleLinks(pathname, currentLocale) {
   }));
 }
 
-export default function LanguageSwitcher({ locale = "tr" }) {
+export default function LanguageSwitcher({ locale = "tr", align = "right" }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -68,6 +68,7 @@ export default function LanguageSwitcher({ locale = "tr" }) {
     () => getLocaleLinks(pathname, currentLocale),
     [currentLocale, pathname],
   );
+  const menuAlignClass = align === "left" ? "left-0" : "right-0";
 
   useEffect(() => {
     if (!open) return;
@@ -106,7 +107,7 @@ export default function LanguageSwitcher({ locale = "tr" }) {
         <div
           role="menu"
           aria-label="Dil seçimi"
-          className="absolute right-0 top-full z-[90] mt-2 w-56 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]"
+          className={`absolute ${menuAlignClass} top-full z-[90] mt-2 w-56 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]`}
         >
           {links.map((item) => (
             <Link

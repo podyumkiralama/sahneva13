@@ -27,7 +27,7 @@ function applyNavbarTheme(value) {
   document.documentElement.classList.toggle("nav-light", selected === "light");
 }
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ align = "right" }) {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("system");
   const rootRef = useRef(null);
@@ -67,6 +67,7 @@ export default function ThemeSwitcher() {
 
   const activeOption = OPTIONS.find((option) => option.value === theme) || OPTIONS[2];
   const ActiveIcon = activeOption.Icon;
+  const menuAlignClass = align === "left" ? "left-0" : "right-0";
 
   const selectTheme = (value) => {
     localStorage.setItem("sahneva-navbar-theme", value);
@@ -93,7 +94,7 @@ export default function ThemeSwitcher() {
         <div
           role="menu"
           aria-label="Tema seçimi"
-          className="absolute right-0 top-full z-[90] mt-2 w-56 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]"
+          className={`absolute ${menuAlignClass} top-full z-[90] mt-2 w-56 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]`}
         >
           {OPTIONS.map((option) => {
             const selected = option.value === theme;
