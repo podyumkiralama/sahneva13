@@ -51,7 +51,6 @@ const PAGE_LAST_MODIFIED = getLastModifiedForFile(
 );
 const PAGE_PUBLISHED_DATE = "2025-10-25";
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PHONE = "+905453048671";
 const WA_TEXT = "Merhaba, LED ekran kiralama projemiz için profesyonel teklif almak istiyoruz. Etkinlik türü: [Konser/Fuar/Düğün], Tarih: [Tarih], Şehir: [Şehir].";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
@@ -1932,20 +1931,6 @@ function LedScreenJsonLd() {
     "@id": ORGANIZATION_ID,
   };
 
-  const localBusinessRef = { "@id": LOCAL_BUSINESS_ID };
-
-  const ratingNodeId = `${pageUrl}#rating`;
-
-  const ratingNode = {
-    "@type": "AggregateRating",
-    "@id": ratingNodeId,
-    ratingValue: LED_PRICING.aggregateRating.ratingValue,
-    bestRating: LED_PRICING.aggregateRating.bestRating,
-    worstRating: LED_PRICING.aggregateRating.worstRating,
-    ratingCount: LED_PRICING.aggregateRating.ratingCount,
-    itemReviewed: localBusinessRef,
-  };
-
   const serviceNode = {
     "@type": "Service",
     "@id": serviceId,
@@ -1968,9 +1953,6 @@ function LedScreenJsonLd() {
       availability: "https://schema.org/InStock",
       url: pageUrl,
     },
-    aggregateRating: {
-      "@id": ratingNodeId,
-    },
   };
 
   const productNode = {
@@ -1986,7 +1968,11 @@ function LedScreenJsonLd() {
       "@id": serviceId,
     },
     aggregateRating: {
-      "@id": ratingNodeId,
+      "@type": "AggregateRating",
+      ratingValue: LED_PRICING.aggregateRating.ratingValue,
+      bestRating: LED_PRICING.aggregateRating.bestRating,
+      worstRating: LED_PRICING.aggregateRating.worstRating,
+      ratingCount: LED_PRICING.aggregateRating.ratingCount,
     },
     offers: {
       "@type": "AggregateOffer",
@@ -2068,8 +2054,6 @@ function LedScreenJsonLd() {
   const reviews = [
     {
       "@type": "Review",
-      "@id": `${pageUrl}#review-1`,
-      itemReviewed: { "@id": `${pageUrl}#product` },
       author: { "@type": "Person", name: "Ahmet B." },
       reviewRating: {
         "@type": "Rating",
@@ -2083,8 +2067,6 @@ function LedScreenJsonLd() {
     },
     {
       "@type": "Review",
-      "@id": `${pageUrl}#review-2`,
-      itemReviewed: { "@id": `${pageUrl}#product` },
       author: { "@type": "Person", name: "Merve T." },
       reviewRating: {
         "@type": "Rating",
@@ -2097,6 +2079,7 @@ function LedScreenJsonLd() {
       datePublished: "2024-03-05",
     },
   ];
+  productNode.review = reviews;
 
   const faqSchema = {
     "@type": "FAQPage",
@@ -2117,11 +2100,9 @@ function LedScreenJsonLd() {
       webpageSchema,
       serviceNode,
       productNode,
-      ratingNode,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...videoObjects,
-      ...reviews,
       faqSchema,
     ],
   };
