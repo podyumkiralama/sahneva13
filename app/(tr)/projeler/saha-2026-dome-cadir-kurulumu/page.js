@@ -204,7 +204,7 @@ export default function SahaDomeProjectPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/iletisim?konu=saha-2026-dome-cadir"
+                href="/iletisim"
                 className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50"
               >
                 Benzer Proje İçin Teklif Al
