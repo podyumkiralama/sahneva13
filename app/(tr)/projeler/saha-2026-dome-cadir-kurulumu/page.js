@@ -20,10 +20,10 @@ const HERO_IMAGE = {
 };
 
 const VIDEO = {
-  src: "/videos/projects/saha-2026-dome-cadir-kurulum.mp4",
-  poster: "/images/projects/saha-2026-dome-cadir-video-poster.webp",
-  posterWidth: 1280,
-  posterHeight: 720,
+  url: "https://www.youtube.com/watch?v=x-BYu0vgO2E",
+  id: "x-BYu0vgO2E",
+  embed: "https://www.youtube-nocookie.com/embed/x-BYu0vgO2E?rel=0&modestbranding=1",
+  thumbnail: "https://img.youtube.com/vi/x-BYu0vgO2E/hqdefault.jpg",
 };
 
 const GALLERY = [
@@ -145,13 +145,13 @@ export default function SahaDomeProjectPage() {
       {
         "@type": "VideoObject",
         "@id": `${PAGE_URL}#video`,
-        name: "SAHA 2026 Dome Çadır Kurulum Videosu",
+        name: "SAHA 2026 Dome Çadır Tamamlanmış Proje Videosu",
         description:
-          "SAHA 2026 kapsamında kapalı fuar alanında hazırlanan dome çadır, özel giriş alanı ve kurulum sürecinden saha videosu.",
-        thumbnailUrl: `${SITE_URL}${VIDEO.poster}`,
+          "SAHA 2026 kapsamında tamamlanan dome çadır uygulamasının final görünümünü ve sahadaki etkinlik atmosferini gösteren proje videosu.",
+        thumbnailUrl: VIDEO.thumbnail,
         uploadDate: PUBLISHED_AT,
-        contentUrl: `${SITE_URL}${VIDEO.src}`,
-        embedUrl: PAGE_URL,
+        contentUrl: VIDEO.url,
+        embedUrl: VIDEO.embed,
         inLanguage: "tr-TR",
       },
       {
@@ -277,7 +277,7 @@ export default function SahaDomeProjectPage() {
               SAHA 2026 dome çadır kurulumu, hazır bir dekor uygulaması ya da standart ekipman
               kiralama işi olarak ele alınmadı. Dome yapının taşıyıcı sistemi, kaplama uygulaması,
               zemin oturumu, özel giriş alanı ve ambiyans ışık planı aynı teknik bütünün parçaları
-              olarak değerlendirildi. Bu yaklaşım, Sahneva’nın projelerde yalnızca ekipman sağlayan
+              olarak değerlendirildi. Bu yaklaşım, Sahneva&apos;nın projelerde yalnızca ekipman sağlayan
               değil, sahada uygulanabilir çözüm üreten teknik prodüksiyon markası olarak
               konumlanmasını sağlar.
             </p>
@@ -348,29 +348,29 @@ export default function SahaDomeProjectPage() {
           <div className="mb-7 text-center">
             <SectionEyebrow>Proje Videosu</SectionEyebrow>
             <h2 id="project-video-title" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
-              SAHA 2026 Dome Çadır Kurulum Videosu
+              SAHA 2026 Dome Çadır Tamamlanmış Proje Videosu
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
-              Dome çadır taşıyıcı sisteminden kaplama ve özel giriş alanına uzanan kurulum sürecinden
-              kısa bir saha videosu.
+              Dome çadır uygulamasının final görünümünü, alan atmosferini ve tamamlanmış proje deneyimini gösteren kısa video.
             </p>
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-4">
-            <video
-              className="aspect-video w-full rounded-2xl bg-black object-cover"
-              controls
-              preload="metadata"
-              poster={VIDEO.poster}
-              playsInline
-              aria-label="SAHA 2026 dome çadır kurulum süreci videosu"
-            >
-              <source src={VIDEO.src} type="video/mp4" />
-              Tarayıcınız video etiketini desteklemiyor.
-            </video>
+            <div className="overflow-hidden rounded-2xl bg-black">
+              <div className="aspect-video w-full">
+                <iframe
+                  className="h-full w-full"
+                  src={VIDEO.embed}
+                  title="SAHA 2026 dome çadır tamamlanmış proje videosu"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed text-slate-400">
-            Video, kapalı fuar alanında dome çadır taşıyıcı sisteminin kurulumu, kaplama uygulaması ve
-            özel giriş alanına ilerleyen saha sürecini göstermektedir.
+            Video, SAHA 2026 dome çadır uygulamasının tamamlanmış proje halini ve sahadaki final deneyimini göstermektedir.
           </p>
         </div>
       </section>
@@ -461,7 +461,7 @@ export default function SahaDomeProjectPage() {
               rel="noopener noreferrer"
               className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-3 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-emerald-600"
             >
-              WhatsApp’tan Teklif Al
+              WhatsApp&apos;tan Teklif Al
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
