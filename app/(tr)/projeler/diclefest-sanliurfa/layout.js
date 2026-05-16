@@ -10,6 +10,7 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
   }
 
   .diclefest-tight-scope > main figure {
+    align-self: start !important;
     border-radius: 1.35rem !important;
   }
 
@@ -20,7 +21,17 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
   }
 
   .diclefest-tight-scope > main figure [class*="aspect-"] {
+    aspect-ratio: 16 / 10 !important;
     margin-bottom: 0 !important;
+  }
+
+  .diclefest-tight-scope > main figure img {
+    object-fit: cover !important;
+    background: transparent !important;
+  }
+
+  .diclefest-tight-scope > main .grid {
+    align-items: start !important;
   }
 
   .diclefest-tight-scope > main .grid.gap-5 {
@@ -56,6 +67,10 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     .diclefest-tight-scope > main > section:first-of-type {
       padding-top: 5.75rem !important;
       padding-bottom: 2.25rem !important;
+    }
+
+    .diclefest-tight-scope > main figure [class*="aspect-"] {
+      aspect-ratio: 4 / 3 !important;
     }
 
     .diclefest-tight-scope > main figure figcaption {
