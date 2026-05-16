@@ -279,6 +279,59 @@
   }
 }
 
+@keyframes sahnevaStripeBlob {
+  0% {
+    transform: rotate(10deg) translate3d(0, 0, 0) scale(1);
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: rotate(9deg) translate3d(-14px, 8px, 0) scale(1.028);
+    background-position: 100% 46%;
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: rotate(10deg) translate3d(0, 0, 0) scale(1);
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+}
+
+@keyframes sahnevaStripeLines {
+  0% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+    background-position: 0 0;
+    opacity: 0.16;
+  }
+
+  50% {
+    transform: rotate(10deg) translate3d(-8px, 6px, 0);
+    background-position: 32px 18px;
+    opacity: 0.22;
+  }
+
+  100% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+    background-position: 0 0;
+    opacity: 0.16;
+  }
+}
+
+@keyframes sahnevaStripeSoft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translate3d(-20px, 12px, 0) scale(1.12);
+    opacity: 0.82;
+  }
+}
+
 /* Utilities */
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
@@ -378,6 +431,26 @@
     backface-visibility: hidden;
   }
 
+  .sahneva-stripe-blob {
+    animation: sahnevaStripeBlob 18s ease-in-out infinite;
+    will-change: transform, opacity, background-position;
+    transform-origin: top right;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-stripe-lines {
+    animation: sahnevaStripeLines 24s linear infinite;
+    will-change: transform, opacity, background-position;
+    transform-origin: top right;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-stripe-soft {
+    animation: sahnevaStripeSoft 18s ease-in-out infinite;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
   @media (max-width: 767px) {
     .brand-logo-rail {
       animation-duration: 58s;
@@ -469,6 +542,15 @@
     .max-w-7xl {
       max-width: var(--container-max-3xl);
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sahneva-stripe-blob,
+  .sahneva-stripe-lines,
+  .sahneva-stripe-soft {
+    animation: none;
+    will-change: auto;
   }
 }
 
