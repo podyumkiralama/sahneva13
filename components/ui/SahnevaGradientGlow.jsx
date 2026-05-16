@@ -9,23 +9,23 @@ export default function SahnevaGradientGlow({
     : "absolute inset-0 overflow-hidden pointer-events-none";
 
   const heroStageShellClass = isHero
-    ? "absolute inset-y-[-8%] left-[34%] right-[-26%] md:left-[44%] md:right-[-16%] lg:left-[47%] lg:right-[-10%]"
+    ? "absolute inset-y-[-12%] left-[40%] right-[-18%] md:left-[48%] md:right-[-10%] lg:left-[50%] lg:right-[-6%]"
     : "";
 
   const heroStagePlateClass = isHero
-    ? "absolute inset-y-[10%] left-[4%] right-[10%] rounded-[3rem] bg-[radial-gradient(circle_at_34%_18%,rgba(255,255,255,0.08),transparent_16%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(15,23,42,0.02)_30%,rgba(15,23,42,0.08)_100%)] opacity-70"
+    ? "absolute inset-y-[8%] left-[2%] right-[6%] rounded-[38%] bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.07),transparent_12%),radial-gradient(circle_at_78%_22%,rgba(165,243,252,0.08),transparent_14%),radial-gradient(circle_at_58%_74%,rgba(59,130,246,0.08),transparent_20%)] blur-2xl opacity-85"
     : "";
 
   const heroStageGlowClass = isHero
-    ? "absolute inset-y-[2%] left-[2%] right-[4%] rounded-[3.4rem] bg-[radial-gradient(circle_at_20%_28%,rgba(125,211,252,0.14),transparent_18%),radial-gradient(circle_at_52%_22%,rgba(59,130,246,0.18),transparent_26%),radial-gradient(circle_at_86%_18%,rgba(129,140,248,0.14),transparent_18%),radial-gradient(circle_at_64%_68%,rgba(45,212,191,0.06),transparent_22%)] blur-3xl opacity-88"
+    ? "absolute inset-y-[0%] left-[0%] right-[0%] rounded-[42%] bg-[radial-gradient(circle_at_24%_20%,rgba(125,211,252,0.18),transparent_16%),radial-gradient(circle_at_52%_26%,rgba(59,130,246,0.26),transparent_24%),radial-gradient(circle_at_84%_16%,rgba(129,140,248,0.20),transparent_18%),radial-gradient(circle_at_70%_62%,rgba(34,211,238,0.10),transparent_20%)] blur-3xl opacity-92"
     : "";
 
   const heroStageContentsClass = isHero
-    ? "absolute inset-y-[3%] left-[8%] right-[-2%] md:left-[16%] md:right-[-6%]"
+    ? "absolute inset-y-[2%] left-[4%] right-[-4%] md:left-[10%] md:right-[-8%]"
     : "";
 
   const blobClass = isHero
-    ? "absolute -right-[24%] -top-[18%] h-[42rem] w-[55rem] rotate-[14deg] rounded-bl-[74%] rounded-tl-[28%] md:-right-[14%] md:-top-[16%] md:h-[50rem] md:w-[66rem] lg:-right-[10%] lg:h-[56rem] lg:w-[74rem]"
+    ? "absolute -right-[12%] -top-[10%] h-[34rem] w-[42rem] rotate-[18deg] rounded-[44%] md:-right-[6%] md:top-[-8%] md:h-[42rem] md:w-[52rem] lg:-right-[2%] lg:h-[48rem] lg:w-[60rem]"
     : "absolute -right-28 -top-36 h-[24rem] w-[24rem] rotate-[-16deg] rounded-bl-[42%] md:-right-16 md:-top-32 md:h-[32rem] md:w-[32rem]";
 
   const sideGlowClass = isHero
@@ -39,7 +39,7 @@ export default function SahnevaGradientGlow({
     ? "radial-gradient(ellipse at 82% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,.98) 24%, rgba(0,0,0,.78) 42%, rgba(0,0,0,.26) 58%, transparent 78%)"
     : "linear-gradient(135deg, transparent 12%, rgba(0,0,0,0.72) 32%, rgba(0,0,0,1) 54%, rgba(0,0,0,0.7) 72%, transparent 96%)";
   const heroWingMask =
-    "radial-gradient(ellipse at 42% 28%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 56%, rgba(0,0,0,0.92) 68%, rgba(0,0,0,0.56) 80%, transparent 90%)";
+    "radial-gradient(ellipse at 54% 42%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 48%, rgba(0,0,0,0.92) 64%, rgba(0,0,0,0.52) 78%, transparent 90%)";
 
   return (
     <div className={`${wrapperClass} ${className}`} aria-hidden="true">
@@ -51,50 +51,45 @@ export default function SahnevaGradientGlow({
             className={`${blobClass} sahneva-gradient-glow-beam opacity-[0.94] blur-[1px] md:blur-[2px]`}
             style={{
               backgroundImage:
-                "radial-gradient(circle at 18% 22%, rgba(224,242,254,.84), transparent 14%), radial-gradient(circle at 28% 26%, rgba(103,232,249,.72), transparent 18%), radial-gradient(circle at 46% 32%, rgba(56,189,248,.70), transparent 28%), radial-gradient(circle at 66% 24%, rgba(59,130,246,.62), transparent 28%), radial-gradient(circle at 82% 18%, rgba(99,102,241,.54), transparent 24%), radial-gradient(circle at 96% 12%, rgba(139,92,246,.42), transparent 18%), linear-gradient(138deg, rgba(165,243,252,.48) 0%, rgba(34,211,238,.82) 16%, rgba(59,130,246,.76) 42%, rgba(79,70,229,.68) 66%, rgba(107,114,255,.42) 90%)",
-              clipPath: "ellipse(78% 66% at 44% 28%)",
+                "radial-gradient(circle at 14% 20%, rgba(255,255,255,.70), transparent 10%), radial-gradient(circle at 24% 24%, rgba(165,243,252,.68), transparent 16%), radial-gradient(circle at 42% 30%, rgba(56,189,248,.72), transparent 22%), radial-gradient(circle at 62% 30%, rgba(59,130,246,.72), transparent 24%), radial-gradient(circle at 82% 18%, rgba(99,102,241,.56), transparent 18%), linear-gradient(142deg, rgba(191,219,254,.28) 0%, rgba(34,211,238,.74) 12%, rgba(59,130,246,.82) 40%, rgba(79,70,229,.74) 62%, rgba(107,114,255,.32) 92%)",
+              clipPath: "ellipse(84% 72% at 58% 42%)",
               maskImage: heroWingMask,
               WebkitMaskImage: heroWingMask,
             }}
           />
           <div
-            className="absolute -right-[8%] top-[6%] h-[28rem] w-[18rem] rotate-[18deg] rounded-bl-[84%] rounded-tl-[22%] opacity-86 sahneva-gradient-glow-wing-glint md:right-[0%] md:top-[4%] md:h-[38rem] md:w-[24rem]"
+            className="absolute -right-[4%] top-[24%] h-[18rem] w-[32rem] rotate-[22deg] rounded-[48%] opacity-82 sahneva-gradient-glow-wing-glint md:right-[4%] md:top-[22%] md:h-[22rem] md:w-[38rem] lg:right-[6%] lg:top-[20%] lg:h-[24rem] lg:w-[44rem]"
             style={{
               background:
-                "linear-gradient(164deg, rgba(255,255,255,0.38) 0%, rgba(224,242,254,0.28) 10%, rgba(125,211,252,0.16) 18%, rgba(59,130,246,0.16) 36%, rgba(79,70,229,0.08) 56%, rgba(0,0,0,0) 82%)",
-              filter: "blur(8px)",
-              maskImage: heroWingMask,
-              WebkitMaskImage: heroWingMask,
-            }}
-          />
-          <div
-            className="absolute right-[4%] top-[12%] h-[30rem] w-[16rem] rotate-[17deg] rounded-bl-[84%] rounded-tl-[18%] opacity-74 sahneva-gradient-glow-wing-glint md:right-[8%] md:top-[10%] md:h-[38rem] md:w-[20rem]"
-            style={{
-              background:
-                "linear-gradient(170deg, rgba(255,255,255,0.10) 0%, rgba(165,243,252,0.12) 14%, rgba(34,211,238,0.16) 28%, rgba(59,130,246,0.18) 46%, rgba(79,70,229,0.16) 64%, rgba(126,34,206,0.08) 82%, rgba(0,0,0,0) 94%)",
+                "linear-gradient(160deg, rgba(255,255,255,0.22) 0%, rgba(224,242,254,0.18) 10%, rgba(125,211,252,0.16) 26%, rgba(59,130,246,0.24) 48%, rgba(79,70,229,0.22) 66%, rgba(0,0,0,0) 84%)",
               filter: "blur(5px)",
-              maskImage: heroWingMask,
-              WebkitMaskImage: heroWingMask,
+              clipPath: "ellipse(84% 54% at 52% 50%)",
             }}
           />
           <div
-            className="absolute -right-[8%] top-[8%] h-[34rem] w-[28rem] rotate-[14deg] opacity-26 sahneva-gradient-glow-prism md:h-[44rem] md:w-[38rem]"
+            className="absolute right-[2%] top-[0%] h-[30rem] w-[14rem] rotate-[16deg] rounded-[44%] opacity-88 sahneva-gradient-glow-wing-glint md:right-[8%] md:top-[0%] md:h-[38rem] md:w-[18rem]"
             style={{
               background:
-                "repeating-linear-gradient(108deg, rgba(255,255,255,0.26) 0px, rgba(255,255,255,0.26) 1px, rgba(191,219,254,0.16) 2px, rgba(125,211,252,0.12) 4px, rgba(59,130,246,0.08) 6px, transparent 9px, transparent 16px)",
-              maskImage: heroWingMask,
-              WebkitMaskImage: heroWingMask,
+                "linear-gradient(170deg, rgba(255,255,255,0.16) 0%, rgba(191,219,254,0.12) 10%, rgba(125,211,252,0.12) 24%, rgba(59,130,246,0.14) 44%, rgba(79,70,229,0.10) 70%, rgba(0,0,0,0) 96%)",
+              filter: "blur(5px)",
+              clipPath: "ellipse(80% 66% at 46% 40%)",
             }}
           />
-          <div className="absolute right-[19%] top-[12%] h-24 w-24 rounded-full bg-white/10 blur-3xl md:h-36 md:w-36" />
           <div
-            className="absolute inset-y-[8%] left-[14%] right-[20%] rounded-[2.6rem] opacity-38"
+            className="absolute right-[10%] top-[4%] h-[30rem] w-[26rem] rotate-[18deg] opacity-24 sahneva-gradient-glow-prism md:right-[12%] md:h-[38rem] md:w-[34rem]"
             style={{
               background:
-                "linear-gradient(112deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 8%, rgba(255,255,255,0) 18%, rgba(59,130,246,0.05) 54%, rgba(255,255,255,0) 72%)",
-              maskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 18%, rgba(0,0,0,1) 88%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,1) 18%, rgba(0,0,0,1) 88%, transparent 100%)",
+                "repeating-linear-gradient(110deg, rgba(255,255,255,0.22) 0px, rgba(255,255,255,0.22) 1px, rgba(191,219,254,0.15) 2px, rgba(125,211,252,0.10) 4px, rgba(59,130,246,0.08) 6px, transparent 8px, transparent 15px)",
+              clipPath: "ellipse(80% 64% at 54% 42%)",
+            }}
+          />
+          <div className="absolute right-[18%] top-[12%] h-24 w-24 rounded-full bg-white/10 blur-3xl md:h-32 md:w-32" />
+          <div
+            className="absolute inset-y-[10%] left-[18%] right-[26%] rounded-[50%] opacity-44"
+            style={{
+              background:
+                "linear-gradient(108deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 10%, rgba(255,255,255,0) 22%, rgba(59,130,246,0.06) 52%, rgba(255,255,255,0) 72%)",
+              clipPath: "ellipse(74% 64% at 50% 40%)",
             }}
           />
         </div>
