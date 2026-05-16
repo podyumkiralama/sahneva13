@@ -112,16 +112,15 @@ const TECHNICAL_DISCOVERY_STEPS = [
 ];
 
 export const metadata = {
-  title: "Kurumsal Organizasyon Hizmetleri | Sahne, LED Ekran ve Teknik Prodüksiyon",
+  title: "Kurumsal Organizasyon | Sahne ve LED Prodüksiyon",
   description:
-    "Kurumsal organizasyon hizmetleri: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon çözümleri.",
+    "Kurumsal organizasyon projeleri için sahne, LED ekran, ses, ışık ve teknik prodüksiyon çözümleri. Lansman, konferans ve gala etkinlikleri.",
   keywords: [
     "kurumsal organizasyon",
     "kurumsal etkinlik organizasyonu",
     "kurumsal organizasyon şirketleri",
     "istanbul kurumsal organizasyon",
     "kurumsal etkinlik prodüksiyonu",
-    "organizasyon kiralama",
   ],
   alternates: buildLanguageAlternates({
     tr: "/kurumsal-organizasyon",
@@ -130,7 +129,7 @@ export const metadata = {
     xDefault: "/en/corporate-events",
   }),
   openGraph: {
-    title: "Kurumsal Organizasyon Hizmetleri | Sahneva",
+    title: "Kurumsal Organizasyon | Sahneva",
     description:
       "Konferans, lansman ve gala etkinliklerinde sahne, LED ekran, ses, ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
@@ -152,7 +151,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon Hizmetleri | Sahneva",
+    title: "Kurumsal Organizasyon | Sahneva",
     description:
       "Kurumsal etkinliklerde planlama, sahne, LED ekran, ses ve ışık prodüksiyon süreci.",
     images: [`${ORIGIN}${HERO.src}`],
@@ -194,7 +193,7 @@ function SectionShell({ variant = "light", id, children }) {
 
 function H2({ kicker, title, desc, center = false, dark = false }) {
   return (
-    <header className={`${center ? "mx-auto text-center" : ""} mb-10 max-w-3xl`}>
+    <header className={`${center ? "mx-auto text-center" : ""} mb-10 min-w-0 max-w-3xl`}>
       {kicker ? (
         <div
           className={`text-sm font-semibold uppercase tracking-normal ${
@@ -207,14 +206,14 @@ function H2({ kicker, title, desc, center = false, dark = false }) {
         </div>
       ) : null}
       <h2
-        className={`mt-3 text-3xl font-black tracking-normal md:text-4xl ${
+        className={`mt-3 max-w-full break-words text-2xl font-black tracking-normal sm:text-3xl md:text-4xl ${
           dark ? "text-white" : "text-gray-900"
         }`}
       >
         {title}
       </h2>
       {desc ? (
-        <p className={`mt-4 text-lg leading-relaxed ${dark ? "text-white/70" : "text-gray-600"}`}>
+        <p className={`mt-4 max-w-full break-words text-base leading-relaxed sm:text-lg ${dark ? "text-white/70" : "text-gray-600"}`}>
           {desc}
         </p>
       ) : null}
@@ -602,8 +601,7 @@ function GeoAnswerSection() {
             </h2>
           </div>
           <p className="text-lg leading-relaxed text-slate-700">
-            Bu sayfanın odağı ekipman listesi değil; marka algısını taşıyan sahne, LED, ışık, reji ve operasyon kalitesi.
-            Yan lojistik kalemler gerektiğinde planın arka operasyon katmanında çözülür.
+            Odağımız ekipman listesi değil; marka algısını taşıyan sahne, LED, ışık, reji ve operasyon kalitesi.
           </p>
         </div>
       </div>
@@ -670,14 +668,8 @@ function OverviewSection() {
                 Kurumsal etkinlikte <span className="text-blue-700">güçlü görünen</span> tarafı biz kuruyoruz
               </>
             }
-            desc="Hedefimiz kullanıcıya ders anlatmak değil; markanın sahada güçlü, kontrollü ve premium görünmesini sağlamak."
+            desc="Markanın sahada güçlü, kontrollü ve premium görünmesini sağlayan teknik prodüksiyon hattını kuruyoruz."
           />
-          <div className="mb-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-            <p>
-              Büyük bir etkinlikte müşteri uzun açıklama değil; doğru sahne etkisi, net teknik akış ve sakin bir operasyon görmek ister.
-              Bu yüzden sayfanın odağı organizasyon kalemleri değil, sahada ortaya çıkan kalite.
-            </p>
-          </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {OVERVIEW_POINTS.map((item) => (
               <Card key={item.title}>
@@ -1156,10 +1148,10 @@ function GallerySection() {
             kicker="Saha kanıtı"
             title={
               <>
-                Kurumsal müşteri önce <span className="text-blue-300">görmek</span> ister
+                Önce <span className="text-blue-300">görmek</span> ister
               </>
             }
-            desc="Bu yüzden güçlü işleri aşağıda büyük gösteriyoruz. Sahne, LED, ışık, rigging ve kalabalık ölçekli üretimler küçük bir detay değil, karar verdiren kanıt."
+            desc="Gerçek işler, karar verdiren kanıt."
             dark
           />
 
@@ -1615,6 +1607,8 @@ export default function Page() {
       <GeoAnswerSection />
       <BrandLogoRailSection />
       <HeroShowcaseSection />
+      <GallerySection />
+      <VideoShowcaseSection />
       <OverviewSection />
       <PlanningSection />
       <FormatsSection />
@@ -1622,8 +1616,6 @@ export default function Page() {
       <ServicesSection />
       <TechnicalDiscoveryInfographic />
       <PackageSection />
-      <GallerySection />
-      <VideoShowcaseSection />
       <StatsAndUseCases />
       <FAQSection />
       <RelatedServices />
