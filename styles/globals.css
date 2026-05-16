@@ -239,13 +239,43 @@
 @keyframes sahneva-gradient-beam {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(-24deg) scale(1);
-    opacity: 0.88;
+    transform: translate3d(0, 0, 0) rotate(14deg) skewX(-6deg);
+    opacity: 0.92;
   }
 
   50% {
-    transform: translate3d(-1%, 1%, 0) rotate(-21deg) scale(1.03);
-    opacity: 1;
+    transform: translate3d(-1.2%, 1.8%, 0) rotate(15.5deg) skewX(-4deg);
+    opacity: 0.98;
+  }
+}
+
+@keyframes sahneva-gradient-wing-glint {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(18deg);
+    opacity: 0.62;
+  }
+
+  50% {
+    transform: translate3d(-2%, 2%, 0) rotate(19.5deg);
+    opacity: 0.82;
+  }
+}
+
+@keyframes sahneva-gradient-prism-shift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(14deg);
+    opacity: 0.18;
+  }
+
+  50% {
+    transform: translate3d(-2.5%, 1.5%, 0) rotate(15deg);
+    opacity: 0.26;
+  }
+
+  100% {
+    transform: translate3d(-5%, 3%, 0) rotate(16deg);
+    opacity: 0.18;
   }
 }
 
@@ -329,6 +359,20 @@
 
   .sahneva-gradient-glow-beam {
     animation: sahneva-gradient-beam 20s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform-origin: top right;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-gradient-glow-wing-glint {
+    animation: sahneva-gradient-wing-glint 16s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform-origin: top right;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-gradient-glow-prism {
+    animation: sahneva-gradient-prism-shift 24s linear infinite;
     will-change: transform, opacity;
     transform-origin: top right;
     backface-visibility: hidden;

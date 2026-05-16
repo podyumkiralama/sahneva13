@@ -383,7 +383,7 @@ function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.95) 28%, rgba(2,6,23,0.88) 44%, rgba(2,6,23,0.56) 66%, rgba(2,6,23,0.26) 100%), linear-gradient(to top, rgba(2,6,23,0.94), rgba(2,6,23,0.28) 44%, rgba(2,6,23,0.14) 100%)",
+            "linear-gradient(90deg, rgba(2,6,23,0.992) 0%, rgba(2,6,23,0.982) 34%, rgba(2,6,23,0.93) 48%, rgba(2,6,23,0.44) 68%, rgba(2,6,23,0.10) 100%), linear-gradient(180deg, rgba(2,6,23,0.62) 0%, rgba(2,6,23,0.16) 38%, rgba(2,6,23,0.70) 100%)",
         }}
       />
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
