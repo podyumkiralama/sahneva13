@@ -32,7 +32,7 @@ const DICLEFEST_SOURCE_URL = "https://diclefest.com/etkinlikler/";
 
 const IMAGES = {
   domeGeneral: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-genel-alan.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-genel-alan.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa Topçu Meydanı dome çadır ve festival genel alan kurulumu",
@@ -41,7 +41,7 @@ const IMAGES = {
       "Topçu Meydanı’nda kurulan DicleFest Şanlıurfa alanında dome çadır, etkinlik çadırları ve ziyaretçi akışı birlikte planlandı.",
   },
   openArea: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-acik-alan-festival-yerlesimi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-acik-alan-festival-yerlesimi.webp`,
     width: 4096,
     height: 1840,
     alt: "Şanlıurfa DicleFest açık alan festival yerleşimi ve ziyaretçi yönlendirme alanı",
@@ -50,7 +50,7 @@ const IMAGES = {
       "Açık alan festival kurgusunda ziyaretçi dolaşımı, etkinlik çadırları, bariyerleme ve marka alanları aynı operasyon planı içinde ele alındı.",
   },
   domeSquare: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-meydan-kurulumu.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-meydan-kurulumu.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa dome çadır meydan kurulumu",
@@ -58,7 +58,7 @@ const IMAGES = {
     caption: "Dome çadır, festival alanının ana odak noktalarından biri olarak konumlandırıldı.",
   },
   topcuSquare: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-topcu-meydani-festival-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-topcu-meydani-festival-alani.webp`,
     width: 4096,
     height: 1840,
     alt: "Topçu Meydanı DicleFest Şanlıurfa festival alanı ve çadır yerleşimi",
@@ -67,7 +67,7 @@ const IMAGES = {
       "Geniş meydan yapısı, festival alanının çok noktalı deneyim kurgusuna uygun şekilde değerlendirildi.",
   },
   concertSetup: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-konser-alani-sahne-kurulumu.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-konser-alani-sahne-kurulumu.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa konser alanı sahne kurulumu ve seyirci bariyerleri",
@@ -76,7 +76,7 @@ const IMAGES = {
       "Konser alanı; izleyici güvenliği, sahne görünürlüğü, teknik erişim ve saha akışı dikkate alınarak konumlandırıldı.",
   },
   stageBarrier: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-sahne-ve-bariyerleme.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-sahne-ve-bariyerleme.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa sahne kurulumu ve bariyerleme uygulaması",
@@ -85,7 +85,7 @@ const IMAGES = {
       "Sahne çevresindeki bariyerleme, konser alanı güvenliği ve izleyici akışının yönetimi için planlandı.",
   },
   concertAtmosphere: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-konser-atmosferi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-konser-atmosferi.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa konser atmosferi ve izleyici alanı",
@@ -94,7 +94,7 @@ const IMAGES = {
       "Festival programının konser bölümü, meydan etkinliğinin ana buluşma alanlarından biri olarak öne çıktı.",
   },
   ledStage: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-led-ekran-sahne-deneyimi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-led-ekran-sahne-deneyimi.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa sahne LED ekran ve izleyici deneyimi",
@@ -103,7 +103,7 @@ const IMAGES = {
       "Sahne, ekran ve izleyici düzeni, festival deneyiminin güçlü görünmesi için bütüncül şekilde değerlendirildi.",
   },
   tentExperience: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-deneyim-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-deneyim-alani.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa çadır içi deneyim alanı ve marka uygulamaları",
@@ -112,7 +112,7 @@ const IMAGES = {
       "Çadır içi alanlar; ziyaretçi deneyimi, marka görünürlüğü ve etkinlik akışı dikkate alınarak düzenlendi.",
   },
   techStand: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-teknoloji-deneyim-standi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-teknoloji-deneyim-standi.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa teknoloji deneyim standı ve etkinlik çadırı",
@@ -121,7 +121,7 @@ const IMAGES = {
       "Teknoloji ve bilgilendirme alanları, festivalin enerji ve farkındalık temasını destekleyen temas noktaları olarak kurgulandı.",
   },
   indoorStand: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-stant-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-stant-alani.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa çadır içi stant alanı ve ziyaretçi geçiş düzeni",
@@ -130,7 +130,7 @@ const IMAGES = {
       "Stant ve deneyim noktaları, ziyaretçi geçişlerini aksatmayacak şekilde sahaya yerleştirildi.",
   },
   welcomeDesk: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-kayit-ve-karsilama-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-kayit-ve-karsilama-alani.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa karşılama alanı ve etkinlik operasyon masası",
@@ -139,7 +139,7 @@ const IMAGES = {
       "Karşılama ve operasyon noktaları, ziyaretçilerin alana düzenli şekilde yönlendirilmesi için planlandı.",
   },
   tentInterior: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-etkinlik-cadiri-ic-alan.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-etkinlik-cadiri-ic-alan.webp`,
     width: 4096,
     height: 1840,
     alt: "DicleFest Şanlıurfa etkinlik çadırı iç alan düzeni",
@@ -148,7 +148,7 @@ const IMAGES = {
       "Etkinlik çadırları, farklı aktivite ve deneyim alanlarının aynı festival kurgusu içinde çalışmasına imkân verdi.",
   },
   tableTennis: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-masa-tenisi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-masa-tenisi.webp`,
     width: 1840,
     height: 4096,
     alt: "DicleFest Şanlıurfa oyun alanı masa tenisi aktivite bölümü",
@@ -158,7 +158,7 @@ const IMAGES = {
     portrait: true,
   },
   foosball: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-langirt.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-langirt.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa langırt oyun alanı ve aktivite bölümü",
@@ -167,7 +167,7 @@ const IMAGES = {
       "Oyun alanları, ziyaretçilerin festival içinde farklı deneyim noktalarına katılımını artıracak şekilde yerleştirildi.",
   },
   trussGame: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-aktivite-alani-truss-oyun-kurgusu.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-aktivite-alani-truss-oyun-kurgusu.webp`,
     width: 1472,
     height: 3264,
     alt: "DicleFest Şanlıurfa aktivite alanı truss oyun kurgusu",
@@ -177,7 +177,7 @@ const IMAGES = {
     portrait: true,
   },
   tableTennisWide: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-masa-tenisi-aktivite-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-masa-tenisi-aktivite-alani.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa masa tenisi aktivite alanı ve ziyaretçi deneyimi",
@@ -185,7 +185,7 @@ const IMAGES = {
     caption: "Festival alanında farklı yaş gruplarına hitap eden aktivite noktaları oluşturuldu.",
   },
   gamePortrait: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-dikey-kurulum.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-oyun-alani-dikey-kurulum.webp`,
     width: 1472,
     height: 3264,
     alt: "DicleFest Şanlıurfa oyun alanı dikey kurulum detayı",
@@ -194,7 +194,7 @@ const IMAGES = {
     portrait: true,
   },
   youthArea: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-cocuk-ve-genclik-etkinlik-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-cocuk-ve-genclik-etkinlik-alani.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa çocuk ve gençlik etkinlik alanı",
@@ -203,7 +203,7 @@ const IMAGES = {
       "Çocuklara ve gençlere yönelik etkinlik alanları, festivalin katılımcı deneyimini güçlendiren bölümler arasında yer aldı.",
   },
   participantTent: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-etkinlik-cadiri-katilimci-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-etkinlik-cadiri-katilimci-alani.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa etkinlik çadırı katılımcı alanı",
@@ -212,7 +212,7 @@ const IMAGES = {
       "Etkinlik çadırları, ziyaretçilerin farklı içeriklerle temas kurabileceği kontrollü alanlar oluşturdu.",
   },
   photoDecor: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dekor-ve-fotograf-alani.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dekor-ve-fotograf-alani.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa dekor ve fotoğraf alanı marka deneyimi",
@@ -221,7 +221,7 @@ const IMAGES = {
       "Dekor ve fotoğraf alanları, festivalin marka görünürlüğünü ve ziyaretçi paylaşım deneyimini destekledi.",
   },
   brandPoint: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-marka-deneyim-noktasi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-marka-deneyim-noktasi.webp`,
     width: 1472,
     height: 3264,
     alt: "DicleFest Şanlıurfa marka deneyim noktası ve dekor kurulumu",
@@ -231,7 +231,7 @@ const IMAGES = {
     portrait: true,
   },
   decorApps: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dekor-uygulamalari.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dekor-uygulamalari.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa dekor uygulamaları ve marka alanları",
@@ -240,7 +240,7 @@ const IMAGES = {
       "Dekor uygulamaları, festival alanında bütünlüklü bir marka dili oluşturmak için kullanıldı.",
   },
   podiumFloor: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-podyum-zemin-kurulumu.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-podyum-zemin-kurulumu.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa podyum ve zemin kurulumu hazırlık aşaması",
@@ -249,7 +249,7 @@ const IMAGES = {
       "Festival alanındaki zemin ve podyum uygulamaları, saha kullanımına uygun şekilde hazırlandı.",
   },
   platformFloor: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-zemin-platform-hazirligi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-zemin-platform-hazirligi.webp`,
     width: 3264,
     height: 1472,
     alt: "DicleFest Şanlıurfa zemin platform hazırlığı ve açık alan uygulaması",
@@ -258,7 +258,7 @@ const IMAGES = {
       "Açık alan etkinliklerinde zemin hazırlığı, güvenli ve düzenli saha deneyiminin temel parçalarından biridir.",
   },
   platformDetail: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-basamak-ve-platform-detayi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-basamak-ve-platform-detayi.webp`,
     width: 1600,
     height: 721,
     alt: "DicleFest Şanlıurfa basamak ve platform uygulama detayı",
@@ -267,7 +267,7 @@ const IMAGES = {
       "Platform ve basamak detayları, etkinlik alanı içindeki geçişleri destekleyen uygulamalar arasında yer aldı.",
   },
   domeBuild: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-kurulum-sureci.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-kurulum-sureci.webp`,
     width: 4000,
     height: 1848,
     alt: "DicleFest Şanlıurfa dome çadır kurulum süreci",
@@ -275,7 +275,7 @@ const IMAGES = {
     caption: "Dome çadır kurulumu, festival alanının ana yapısal hazırlıklarından biri olarak yürütüldü.",
   },
   domeExterior: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-dis-gorunum.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-dome-cadir-dis-gorunum.webp`,
     width: 4000,
     height: 1848,
     alt: "DicleFest Şanlıurfa dome çadır dış görünüm ve kurulum alanı",
@@ -292,7 +292,7 @@ const IMAGES = {
     portrait: true,
   },
   tentActivityDetail: {
-    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-aktivite-detayi.jpg`,
+    src: `${IMAGE_BASE}/diclefest-sanliurfa-cadir-ici-aktivite-detayi.webp`,
     width: 1472,
     height: 3264,
     alt: "DicleFest Şanlıurfa çadır içi aktivite detayı",
