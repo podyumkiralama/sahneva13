@@ -9,27 +9,32 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     padding-bottom: 2.5rem !important;
   }
 
-  /* Case study bölümlerindeki iki kolon düzeni kısa metin + uzun galeri yüzünden dev boşluk bırakıyordu. */
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 {
+  /* Case study bölümlerinde metin üstte, görseller altta aksın. */
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] {
+    display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
-    gap: 1.5rem !important;
+    gap: 1.35rem !important;
   }
 
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:first-child {
-    max-width: 920px !important;
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:first-child {
+    order: 1 !important;
+    max-width: 980px !important;
   }
 
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:last-child {
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child {
+    order: 2 !important;
     width: 100% !important;
   }
 
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:first-child,
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:last-child {
-    order: initial !important;
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.85rem !important;
   }
 
-  .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:last-child.grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid > figure:first-child:nth-last-child(3),
+  .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid > figure:first-child:nth-last-child(3) ~ figure {
+    grid-column: auto !important;
   }
 
   .diclefest-tight-scope > main figure {
@@ -82,7 +87,7 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
   }
 
   @media (max-width: 1023px) {
-    .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:last-child.grid {
+    .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid {
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
   }
@@ -98,7 +103,7 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
       padding-bottom: 2.1rem !important;
     }
 
-    .diclefest-tight-scope > main section > div.lg\:grid-cols-2 > div:last-child.grid {
+    .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid {
       grid-template-columns: minmax(0, 1fr) !important;
     }
 
