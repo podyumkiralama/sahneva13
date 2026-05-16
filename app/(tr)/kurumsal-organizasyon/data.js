@@ -189,13 +189,29 @@ export const GALLERY_IMAGES = [
 
 export const VIDEO_GALLERY = [
   {
-    id: "1R5Av0x5ouA",
-    eyebrow: "Kurulum temposu",
-    title: "Kurulum ve sahne prodüksiyon akışı",
+    id: "c72ILTyJH4A",
+    eyebrow: "Fuar prodüksiyonu",
+    title: "Helal Fuarı sahne, LED ekran ve teknik prodüksiyon",
     description:
-      "Sahne kurulumu, LED ekran entegrasyonu ve etkinliğe hazırlık temposunu tek akışta gösteren kısa saha videosu.",
+      "Helal Fuarı kapsamında hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumlarından seçilmiş gerçek saha görüntüleri.",
+    uploadDate: "2026-04-29T00:00:00+03:00",
+  },
+  {
+    id: "173gBurWSRQ",
+    eyebrow: "Gerçek uygulama",
+    title: "Kurumsal etkinliklerde sahne ve LED ekran uygulamaları",
+    description:
+      "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
     uploadDate: "2025-11-17T00:00:00+03:00",
-    duration: "PT24S",
+    duration: "PT1M35S",
+  },
+  {
+    id: "x-BYu0vgO2E",
+    eyebrow: "Özel proje alanı",
+    title: "SAHA 2026 dome çadır ve etkinlik alanı kurulumu",
+    description:
+      "Kapalı fuar alanında dome çadır, özel giriş yapısı, zemin altyapısı ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan görüntüler.",
+    uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {
     id: "JNzGlNzNRuk",
@@ -205,15 +221,6 @@ export const VIDEO_GALLERY = [
       "Dar zamanlı projelerde kurulum hızını ve teknik ekip refleksini gösteren gerçek uygulama kesiti.",
     uploadDate: "2025-11-17T00:00:00+03:00",
     duration: "PT1M47S",
-  },
-  {
-    id: "173gBurWSRQ",
-    eyebrow: "Gerçek uygulama",
-    title: "Etkinlikten gerçek LED ve sahne örnekleri",
-    description:
-      "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
-    duration: "PT1M35S",
   },
 ];
 
