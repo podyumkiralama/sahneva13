@@ -1,4 +1,30 @@
 const DICLEFEST_TIGHT_SPACING_CSS = `
+  .diclefest-tight-scope {
+    min-height: 100vh;
+    background: #0B1120;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .diclefest-tight-scope > main {
+    display: contents;
+  }
+
+  .diclefest-tight-scope > main > section:nth-of-type(1) { order: 1; }
+  .diclefest-tight-scope > main > section:nth-of-type(2) { order: 2; }
+  .diclefest-tight-scope > main > section:nth-of-type(3) { order: 3; }
+  .diclefest-tight-scope > main > section:nth-of-type(4) { order: 4; }
+  .diclefest-tight-scope > main > section:nth-of-type(5) { order: 5; }
+  .diclefest-tight-scope > main > section:nth-of-type(6) { order: 6; }
+  .diclefest-tight-scope > main > section:nth-of-type(7) { order: 7; }
+  .diclefest-tight-scope > main > section:nth-of-type(8) { order: 8; }
+  .diclefest-scale-section { order: 9; }
+  .diclefest-tight-scope > main > section:nth-of-type(9) { order: 10; }
+  .diclefest-tight-scope > main > section:nth-of-type(10) { order: 11; }
+  .diclefest-tight-scope > main > section:nth-of-type(11) { order: 12; }
+  .diclefest-tight-scope > main > section:nth-of-type(12) { order: 13; }
+
   .diclefest-tight-scope > main > section {
     padding-top: 2.75rem !important;
     padding-bottom: 2.75rem !important;
