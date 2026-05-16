@@ -19,9 +19,7 @@ import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
-import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import {
   BASE_SITE_URL,
@@ -35,7 +33,6 @@ import {
   FAQ_ITEMS,
   FORMAT_ITEMS,
   GALLERY_IMAGES,
-  GUIDE_CONTENTS,
   GUIDE_PROMISES,
   GUIDE_UPDATED_ISO,
   HERO,
@@ -142,7 +139,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/kurumsal/hero.webp`,
+        url: `${ORIGIN}${HERO.src}`,
         width: 1200,
         height: 630,
         alt: HERO.alt,
@@ -158,7 +155,7 @@ export const metadata = {
     title: "Kurumsal Organizasyon Hizmetleri | Sahneva",
     description:
       "Kurumsal etkinliklerde planlama, sahne, LED ekran, ses ve ışık prodüksiyon süreci.",
-    images: [`${ORIGIN}/img/kurumsal/hero.webp`],
+    images: [`${ORIGIN}${HERO.src}`],
   },
   robots: {
     index: true,
@@ -314,10 +311,10 @@ function CorporateOrganizationJsonLd() {
       publisher: { "@id": ORGANIZATION_ID },
       primaryImageOfPage: {
         "@type": "ImageObject",
-        url: `${ORIGIN}/img/kurumsal/hero.webp`,
+        url: `${ORIGIN}${HERO.src}`,
       },
       image: [
-        `${ORIGIN}/img/kurumsal/hero.webp`,
+        `${ORIGIN}${HERO.src}`,
         ...GALLERY_IMAGES.slice(0, 5).map((image) => `${ORIGIN}${image.src}`),
       ],
       mainEntity: { "@id": serviceId },
@@ -378,7 +375,7 @@ function Hero() {
         fill
         priority
         fetchPriority="high"
-        className="object-cover"
+        className="object-cover object-center"
         sizes={HERO.sizes}
         quality={88}
         blurDataURL={BLUR_DATA_URL}
@@ -387,7 +384,7 @@ function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(2,6,23,0.992) 0%, rgba(2,6,23,0.982) 34%, rgba(2,6,23,0.93) 48%, rgba(2,6,23,0.44) 68%, rgba(2,6,23,0.10) 100%), linear-gradient(180deg, rgba(2,6,23,0.62) 0%, rgba(2,6,23,0.16) 38%, rgba(2,6,23,0.70) 100%)",
+            "linear-gradient(90deg, rgba(2,6,23,0.97) 0%, rgba(2,6,23,0.92) 33%, rgba(2,6,23,0.72) 58%, rgba(2,6,23,0.20) 100%), linear-gradient(180deg, rgba(2,6,23,0.70) 0%, rgba(2,6,23,0.18) 38%, rgba(2,6,23,0.72) 100%)",
         }}
       />
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -405,39 +402,39 @@ function Hero() {
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start xl:gap-10">
         <div className="max-w-3xl lg:max-w-none">
           <p className="text-sm font-semibold uppercase tracking-normal text-sky-200">
-            Kurumsal organizasyon hizmetleri
+            Büyük ölçekli kurumsal prodüksiyon
           </p>
 
           <h1
             id="hero-title"
             className="mt-5 max-w-2xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-[4.6rem] lg:leading-[0.98]"
           >
-            Kurumsal Organizasyon
+            <span className="block">Kurumsal</span>
+            <span className="block">Organizasyon</span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-2xl font-black leading-tight text-sky-100 md:text-3xl">
-            Sahne, LED ekran ve teknik prodüksiyonla uçtan uca etkinlik çözümü.
+          <p className="mt-5 max-w-xl text-xl font-black leading-tight text-sky-100 sm:text-2xl md:text-3xl">
+            Sahne, LED ekran ve teknik prodüksiyon.
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-white/78">
+          <div className="mt-5 grid max-w-2xl gap-2 text-sm font-semibold text-white/78 sm:flex sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-2">
             <span>Tek ekipten keşif ve teklif</span>
-            <span aria-hidden="true">|</span>
+            <span className="hidden sm:inline" aria-hidden="true">|</span>
             <span>Türkiye genelinde kurulum</span>
-            <span aria-hidden="true">|</span>
+            <span className="hidden sm:inline" aria-hidden="true">|</span>
             <span>10+ yıl saha deneyimi</span>
           </div>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-white/85 md:text-lg md:leading-8">
-            Konferans, ürün lansmanı, bayi toplantısı ve gala gibi kurumsal etkinliklerde keşif, planlama, kurulum ve
-            etkinlik günü operasyonunu tek ekipten yönetiyoruz. Amacımız markanız için güçlü bir sahne etkisi ve
-            sorunsuz ilerleyen profesyonel bir süreç kurmak.
+            Lansman, konferans, gala ve büyük ölçekli marka etkinliklerinde sahne etkisini, LED anlatısını ve
+            teknik operasyonu aynı premium çizgide kuruyoruz. Daha az açıklama, daha net görüntü, daha kontrollü saha.
           </p>
 
-          <ul className="mt-7 grid gap-3 text-white/90 md:grid-cols-2">
+          <ul className="mt-7 grid max-w-2xl gap-3 text-sm leading-6 text-white/90 sm:text-base md:grid-cols-2">
             {GUIDE_PROMISES.map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-300" aria-hidden="true" />
-                <span>{item}</span>
+                <span className="min-w-0">{item}</span>
               </li>
             ))}
           </ul>
@@ -569,24 +566,22 @@ function EventSignalPanel() {
 }
 
 function HeroShowcaseSection() {
+  const proofItems = [
+    { label: "Sahne", value: "LED ve ışık omurgası" },
+    { label: "Reji", value: "İçerik, kamera, akış" },
+    { label: "Saha", value: "Kurulum ve prova disiplini" },
+  ];
+
   return (
-    <section className="bg-white pb-12">
-      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
-        <div className="border-y border-slate-200 py-7">
-          <h2 className="text-xl font-black text-slate-950">İçindekiler</h2>
-          <ol className="mt-5 grid gap-3 md:grid-cols-2">
-            {GUIDE_CONTENTS.map((item, index) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="group flex gap-3 rounded-lg px-2 py-2 text-slate-800 transition hover:bg-slate-50 hover:text-blue-700"
-                >
-                  <span className="font-black text-blue-700">{index + 1}.</span>
-                  <span className="font-semibold">{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
+    <section className="bg-white pb-10">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="grid gap-3 border-y border-slate-200 py-5 md:grid-cols-3">
+          {proofItems.map((item) => (
+            <div key={item.label} className="rounded-lg bg-slate-50 px-4 py-4">
+              <div className="text-xs font-black uppercase tracking-[0.16em] text-blue-700">{item.label}</div>
+              <div className="mt-1 text-base font-black text-slate-950">{item.value}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -595,44 +590,21 @@ function HeroShowcaseSection() {
 
 function GeoAnswerSection() {
   return (
-    <section className="bg-white pt-8 pb-6" aria-labelledby="kurumsal-organizasyon-nedir">
-      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
-        <div className="geo-answer rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
-            Kısa cevap
-          </p>
-          <h2 id="kurumsal-organizasyon-nedir" className="mt-3 text-2xl font-black text-slate-950 md:text-3xl">
-            Kurumsal organizasyon nedir?
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-800">
-            Kurumsal organizasyon; markaların lansman, bayi toplantısı, gala, konferans,
-            festival, çalışan etkinliği veya protokol programlarını hedef, mekan, sahne,
-            LED ekran, ses-ışık, teknik keşif, run-of-show ve saha operasyonu ile birlikte
-            planladığı profesyonel etkinlik sürecidir. Başarılı bir kurumsal etkinlikte
-            yaratıcı fikir kadar teknik altyapı, zaman planı ve güvenli kurulum da belirleyicidir.
-          </p>
-          <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_0.9fr]">
-            <div className="rounded-2xl border border-blue-100 bg-white p-5">
-              <h3 className="text-lg font-black text-slate-950">
-                Kurumsal organizasyon firması ne yapar?
-              </h3>
-              <p className="mt-2 leading-relaxed text-slate-700">
-                Etkinliğin hedefini, mekanını, sahne düzenini, LED ekran ihtiyacını,
-                ses-ışık sistemlerini, teknik keşfini, run-of-show akışını, ekip görevlerini
-                ve kurulum operasyonunu tek plan içinde yönetir.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-white">
-              <h3 className="text-lg font-black">
-                Teknik tedarikçi farkı
-              </h3>
-              <p className="mt-2 leading-relaxed text-white/85">
-                Sahneva, yalnızca konsept planlayan bir ajans gibi değil; sahne, podyum,
-                LED ekran, truss, ses-ışık, çadır ve teknik ekip kurulumunu sahada yöneten
-                teknik prodüksiyon tedarikçisi olarak çalışır.
-              </p>
-            </div>
+    <section className="bg-white pt-8 pb-6" aria-labelledby="premium-positioning-title">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="grid gap-6 rounded-lg border border-blue-100 bg-blue-50/75 p-6 md:p-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+              Premium prodüksiyon
+            </p>
+            <h2 id="premium-positioning-title" className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+              Kurumsal müşteri için asıl değer: sahada güven veren görüntü.
+            </h2>
           </div>
+          <p className="text-lg leading-relaxed text-slate-700">
+            Bu sayfanın odağı ekipman listesi değil; marka algısını taşıyan sahne, LED, ışık, reji ve operasyon kalitesi.
+            Yan lojistik kalemler gerektiğinde planın arka operasyon katmanında çözülür.
+          </p>
         </div>
       </div>
     </section>
@@ -692,25 +664,18 @@ function OverviewSection() {
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <H2
-            kicker="Bölüm 1"
+            kicker="Prodüksiyon odağı"
             title={
               <>
-                Kurumsal etkinlik <span className="text-blue-700">organizasyon şirketleri</span> ne sunar?
+                Kurumsal etkinlikte <span className="text-blue-700">güçlü görünen</span> tarafı biz kuruyoruz
               </>
             }
-            desc="Kurumsal organizasyon; hedef, içerik ve teknik prodüksiyonun aynı masada yönetildiği, ölçülebilir bir operasyon disiplinidir."
+            desc="Hedefimiz kullanıcıya ders anlatmak değil; markanın sahada güçlü, kontrollü ve premium görünmesini sağlamak."
           />
-          <div className="mb-6 space-y-4 text-lg leading-relaxed text-gray-600">
+          <div className="mb-6 max-w-2xl text-lg leading-relaxed text-gray-600">
             <p>
-              Özellikle İstanbul gibi yoğun tempo ve çok paydaşlı şehirlerde, kurumsal etkinliğin başarısı yalnızca sahne
-              kurulumuyla açıklanmaz. Zaman planı, konuşmacı akışı, giriş-çıkış düzeni, teknik prova sırası ve
-              operasyonel iletişim de en az ekipman kadar belirleyicidir. Bu yüzden iyi bir kurumsal organizasyon firması,
-              teknik tedarikçi gibi değil; karar sürecini sadeleştiren bir prodüksiyon ortağı gibi çalışmalıdır.
-            </p>
-            <p>
-              Marka ekipleri genellikle bir yandan görünür bir sahne kalitesi isterken, diğer yandan da sürecin sakin ve
-              öngörülebilir ilerlemesini bekler. Bizim yaklaşımımız tam olarak bu iki ihtiyacı bir araya getirmek üzerine
-              kurulu: güçlü görsel etki, net görev dağılımı ve riskleri önceden görünür hale getiren bir planlama disiplini.
+              Büyük bir etkinlikte müşteri uzun açıklama değil; doğru sahne etkisi, net teknik akış ve sakin bir operasyon görmek ister.
+              Bu yüzden sayfanın odağı organizasyon kalemleri değil, sahada ortaya çıkan kalite.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -726,8 +691,8 @@ function OverviewSection() {
         <Card className="overflow-hidden p-0">
           <div className="relative aspect-[16/10]">
             <Image
-              src="/img/kurumsal/konferans.webp"
-              alt="Kurumsal etkinlik sahnesi ve LED ekran kurulumu"
+              src="/img/kurumsal/premium/konferans-podium.webp"
+              alt="Kurumsal konferans sahnesinde LED ekran ve panel prodüksiyonu"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 42vw"
@@ -741,30 +706,30 @@ function OverviewSection() {
 
 function FormatsSection() {
   const formatNotes = [
-    "Medya görünürlüğü + prova akışı",
-    "Sunum netliği + salon ritmi",
-    "Atmosfer kontrolü + protokol düzeni",
+    "Marka sahnesi",
+    "Yönetici akışı",
+    "Gece atmosferi",
   ];
 
   return (
     <SectionShell variant="ink" id="formatlar">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <H2
-            kicker="Bölüm 3"
+          kicker="Formatlar"
           title={
             <>
-              Hangi <span className="text-blue-300">kurumsal formatlarda</span> değer üretiyoruz?
+              Her işte aynı liste değil, <span className="text-blue-300">doğru sahne dili</span>
             </>
           }
-          desc="Lansman, bayi toplantısı ve gala gibi farklı formatlarda; aynı operasyon mantığını ihtiyaca göre yeniden kurguluyoruz."
+          desc="Lansman, konferans ve gala aynı ekipman diliyle kurulmaz. Formatın ağırlığına göre sahne, LED, ses ve ışık yeniden dengelenir."
           dark
         />
 
         <div className="grid gap-4 sm:grid-cols-3">
           {[
-            "Format değişse de operasyon disiplini değişmez.",
-            "Her kurgu kendi sahne dilini ve prova temposunu taşır.",
-            "Amaç yalnızca kurmak değil, etkinlik gününü sakin tutmaktır.",
+            "Görsel imza formatla uyumlu kurulur.",
+            "Teknik prova, sahne ritminin omurgasıdır.",
+            "Saha günü güçlü görünüm kadar sakin akış da önemlidir.",
           ].map((item) => (
             <div key={item} className="rounded-lg border border-white/10 bg-white/5 px-4 py-4 text-sm leading-relaxed text-white/70">
               {item}
@@ -863,9 +828,9 @@ function PackageSection() {
   return (
     <SectionShell variant="soft" id="paketler">
       <H2
-        kicker="Bölüm 6"
+        kicker="Ön kapsam"
         title="Kurumsal kapsamı daha hızlı netleştirin"
-        desc="İlk görüşmede bütün detayı değil; etkinlik formatını, görsel beklentiyi ve operasyon yoğunluğunu netleştirmek yeterlidir."
+        desc="İlk görüşmede uzun brief değil; format, ölçek, sahne beklentisi ve tarih netleşsin. Teknik kapsamı biz sadeleştiririz."
         center
       />
 
@@ -910,22 +875,16 @@ function PlanningSection() {
   return (
     <SectionShell variant="light" id="planlama">
       <H2
-        kicker="Bölüm 2"
-        title="Kurumsal organizasyon nasıl planlanır?"
-        desc="Aşağıdaki adımlar, karar sürecini kısaltır ve sahaya çıkmadan önce riskleri görünür hale getirir."
+        kicker="Planlama"
+        title="Karar süreci kısa, saha planı net olmalı"
+        desc="Kurumsal ekipler zamanı açıklama metinleriyle değil, doğru karar başlıklarıyla kazanır."
         center
       />
 
-      <div className="mx-auto mb-8 max-w-4xl space-y-4 text-lg leading-relaxed text-gray-600">
+      <div className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-gray-600">
         <p>
-          Kurumsal etkinlik planlamasında en sık görülen problem, kararların çok geç verilmesi değil; kararın hangi bilgiye
-          dayanarak verildiğinin net olmamasıdır. Format, kişi sayısı, sahne görünürlüğü, mekânın yükleme şartları ve prova
-          süresi gibi başlıklar erken aşamada masaya geldiğinde, hem bütçe görüşmeleri hem de teknik kurgu daha sağlıklı ilerler.
-        </p>
-        <p>
-          Bu bölümdeki adımlar, özellikle konferans, lansman ve gala gibi görünürlüğü yüksek etkinliklerde işin hangi sırayla
-          ele alınması gerektiğini gösterir. Amaç, gereksiz ayrıntıyla kullanıcıyı yormak değil; sahaya çıkmadan önce hangi
-          kararların mutlaka netleşmesi gerektiğini görünür kılmaktır.
+          Format, kişi sayısı, sahne görünürlüğü, mekân yüklemesi ve prova süresi erken netleştiğinde hem bütçe hem teknik
+          kurgu daha kontrollü ilerler.
         </p>
       </div>
 
@@ -1130,13 +1089,13 @@ function ServicesSection() {
   return (
     <SectionShell variant="soft" id="hizmetler">
       <H2
-        kicker="Bölüm 5"
+        kicker="Prodüksiyon modülleri"
         title={
           <>
-            Kurumsal <span className="text-blue-700">hizmetlerimiz</span>
+            Ana vitrinde sadece <span className="text-blue-700">premium teknik omurga</span>
           </>
         }
-        desc="Planlama, teknik tasarım, kurulum, operasyon ve destek tek hizmet kurgusunda birleşir."
+        desc="Yan lojistik kalemleri öne çıkarmadan; sahne, LED, ışık, reji, rigging ve operasyon güvenine odaklanıyoruz."
         center
       />
 
@@ -1157,7 +1116,7 @@ function ServicesSection() {
                     mod {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="mt-5 text-sm font-semibold text-blue-700">Kurumsal organizasyon</div>
+                <div className="mt-5 text-sm font-semibold text-blue-700">Teknik prodüksiyon</div>
                 <h3 className="mt-2 text-xl font-black text-gray-900">{item.title}</h3>
                 <p className="mt-3 grow text-gray-600 leading-relaxed">{item.desc}</p>
                 <div className="mt-6">
@@ -1182,81 +1141,103 @@ function ServicesSection() {
 }
 
 function GallerySection() {
-  const [featured, ...supporting] = GALLERY_IMAGES;
+  const [featured, second, third, ...supporting] = GALLERY_IMAGES;
+  const proofItems = [
+    "Büyük LED sahne ölçeği",
+    "Kalabalık etkinlik yönetimi",
+    "Truss ve ışık mühendisliği",
+  ];
 
   return (
-    <SectionShell variant="light" id="projeler">
-      <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
-        <div className="lg:sticky lg:top-24 lg:self-start">
+    <SectionShell variant="ink" id="projeler">
+      <div className="grid gap-8">
+        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <H2
             kicker="Saha kanıtı"
             title={
               <>
-                Kurumsal <span className="text-blue-700">projelerimizi</span> daha sinematik bir ritimde gösteriyoruz
+                Kurumsal müşteri önce <span className="text-blue-300">görmek</span> ister
               </>
             }
-            desc="Bu bölümde amaç yalnızca görsel göstermek değil; etkinlik dili, salon ölçeği ve teknik atmosfer arasında nasıl bir kalite standardı kurduğumuzu hissettirmek."
+            desc="Bu yüzden güçlü işleri aşağıda büyük gösteriyoruz. Sahne, LED, ışık, rigging ve kalabalık ölçekli üretimler küçük bir detay değil, karar verdiren kanıt."
+            dark
           />
 
-          <div className="space-y-4 text-lg leading-relaxed text-gray-600">
-            <p>
-              Aynı etkinlik formatını daha önce sahada görmek, ilk keşif görüşmesini daha berrak hale getirir. Böylece ekipman
-              listesi konuşmadan önce sahne dili, salon ritmi ve görünürlük seviyesi üzerine daha doğru karar verilebilir.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {[
-              "Daha fazla proje, daha az sürpriz",
-              "Keşif görüşmesinde daha hızlı ortak zemin",
-              "Format bazlı daha doğru örnek seti",
-            ].map((item) => (
-              <div key={item} className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 font-semibold text-slate-700">
+          <div className="grid gap-3 sm:grid-cols-3">
+            {proofItems.map((item) => (
+              <div key={item} className="rounded-lg border border-white/10 bg-white/[0.07] px-4 py-4 font-semibold text-white/82">
                 {item}
               </div>
             ))}
           </div>
-
-          <Link
-            href="/projeler"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
-          >
-            Tüm projeleri gör
-            <MoveRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
         </div>
 
-        <div className="grid auto-rows-[11rem] gap-4 sm:grid-cols-2 lg:auto-rows-[12rem]">
-          <article className="relative overflow-hidden rounded-lg border border-slate-200 sm:col-span-2 sm:row-span-2">
-            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 54vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-              <div className="text-xs font-semibold uppercase tracking-normal text-white/65">Öne çıkan kurulum</div>
-              <div className="mt-2 max-w-[14ch] text-3xl font-black leading-tight md:text-4xl">
-                Kurumsal sahne, LED ve salon akışını aynı hikâyede topluyoruz.
+        <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
+          <article className="relative min-h-[22rem] overflow-hidden rounded-lg border border-white/10 bg-slate-900 shadow-2xl shadow-blue-950/35 lg:min-h-[32rem]">
+            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 64vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/8 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
+              <div className="text-xs font-black uppercase tracking-normal text-sky-200">Büyük ölçek</div>
+              <div className="mt-2 max-w-xl text-3xl font-black leading-tight md:text-5xl">
+                Sahne gücü saklanmaz, gösterilir.
               </div>
             </div>
           </article>
 
-          {supporting.slice(0, 3).map((image, index) => (
-            <article
-              key={image.src}
-              className={`relative overflow-hidden rounded-lg border border-slate-200 ${
-                index === 2 ? "sm:col-span-2" : ""
-              }`}
-            >
-              <div className={`relative ${index === 2 ? "aspect-[16/9]" : "aspect-[4/5]"}`}>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {[second, third].map((image, index) => (
+              <article key={image.src} className="relative min-h-[15rem] overflow-hidden rounded-lg border border-white/10 bg-slate-900 lg:min-h-0">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover"
-                  sizes={index === 2 ? "(max-width: 1024px) 100vw, 54vw" : "(max-width: 1024px) 50vw, 26vw"}
+                  className="object-cover transition duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 50vw, 26vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-              </div>
-            </article>
-          ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-sm font-black uppercase tracking-normal text-white/82">
+                  Kanıt {String(index + 2).padStart(2, "0")}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid auto-rows-[13rem] gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[15rem]">
+          {supporting.map((image, index) => {
+            const isWide = index % 6 === 0 || index % 6 === 4;
+            const isTall = index % 8 === 3;
+
+            return (
+              <article
+                key={image.src}
+                className={`relative overflow-hidden rounded-lg border border-white/10 bg-slate-900 ${
+                  isWide ? "sm:col-span-2" : ""
+                } ${
+                  isTall ? "lg:row-span-2" : ""
+                }`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition duration-700 hover:scale-105"
+                  sizes={isWide ? "(max-width: 1024px) 100vw, 46vw" : "(max-width: 1024px) 50vw, 23vw"}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent opacity-80" />
+              </article>
+            );
+          })}
+        </div>
+
+        <div>
+          <Link
+            href="/projeler"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-sky-100"
+          >
+            Tüm projeleri gör
+            <MoveRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </SectionShell>
@@ -1373,22 +1354,14 @@ function TechnicalSection() {
       <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
           <H2
-            kicker="Bölüm 4"
-            title="Event organizasyon şirketleri için teknik omurga"
-            desc="Sahne, ekran, ses, ışık ve prova planı birlikte tasarlandığında etkinlik günü daha sakin ve öngörülebilir ilerler."
+            kicker="Teknik omurga"
+            title="Premium görüntünün arkasında teknik disiplin var"
+            desc="Sahne, ekran, ses, ışık ve prova planı birlikte tasarlandığında etkinlik günü daha sakin ve daha güçlü görünür."
           />
-          <div className="mb-6 space-y-4 text-lg leading-relaxed text-gray-600">
+          <div className="mb-6 max-w-2xl text-lg leading-relaxed text-gray-600">
             <p>
-              Teknik omurga, kullanıcı tarafında çoğu zaman görünmeyen ama etkinliğin bütün algısını etkileyen katmandır.
-              Ekranın doğru yerde konumlanması, ses kapsamasının salon yapısına uygun kurulması, konuşmacı geçişlerinin
-              prova sırasında test edilmesi ve güç altyapısının yedekli düşünülmesi; etkinliğin “kusursuz görünüyor”
-              hissini oluşturan ana başlıklardır.
-            </p>
-            <p>
-              Özellikle bilgi yoğun konferanslar, yatırımcı toplantıları, lansmanlar ve hibrit etkinliklerde teknik altyapı
-              bir gösteri unsuru olmaktan çok bir güven unsuru haline gelir. İçerik görünür değilse, ses net iletilmiyorsa
-              ya da yayın akışı kararsızsa, markanın profesyonel algısı doğrudan etkilenir. Bu yüzden teknik planı en baştan
-              netleştirmek, son dakika telafilerinden çok daha değerlidir.
+              Etkinlik gününde izleyici teknik detayı bilmez; ama ekran gecikirse, ses bozulursa veya ışık sahneyi taşımazsa
+              profesyonel algı anında düşer. Biz görünmeyen teknik katmanı bunun için ciddiye alıyoruz.
             </p>
           </div>
           <ul className="grid gap-3 text-gray-800">
@@ -1404,8 +1377,8 @@ function TechnicalSection() {
         <Card className="overflow-hidden p-0">
           <div className="relative aspect-[16/10]">
             <Image
-              src="/img/kurumsal/8.webp"
-              alt="Kurumsal etkinlikte teknik altyapı ve ekran yerleşimi"
+              src="/img/kurumsal/premium/show-kontrol.webp"
+              alt="Kurumsal etkinlikte ışık ve show kontrol masası"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 46vw"
@@ -1422,8 +1395,8 @@ function StatsAndUseCases() {
     <SectionShell variant="ink" id="guven">
       <H2
         kicker="Güven ve ölçek"
-        title="Kurumsal ekiplerin aradığı sakinlik: net akış"
-        desc="Operasyon kalitesi sadece ekipmanla değil, karar verme sürecinin ne kadar sade ilerlediğiyle de ölçülür."
+        title="Büyük işlerde sakin kalabilen ekip"
+        desc="Ölçek büyüdükçe önemli olan daha çok kalem saymak değil, sahada kontrolü kaybetmemektir."
         dark
         center
       />
@@ -1440,11 +1413,6 @@ function StatsAndUseCases() {
 
         <Card dark>
           <div className="text-lg font-black text-white">En sık kurduğumuz etkinlik tipleri</div>
-          <p className="mt-3 text-white/70 leading-relaxed">
-            Bu başlıklar yalnızca hizmet verdiğimiz alanları göstermek için değil, aynı zamanda keşif sürecinde doğru örnek
-            setini hızlıca önermek için de önemlidir. Farklı etkinlik tipleri farklı sahne dili, farklı içerik akışı ve farklı
-            teknik tempo ister.
-          </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {USE_CASES.map((item) => (
               <div key={item} className="rounded-lg border border-white/10 bg-black/15 px-4 py-3 text-white/85">
@@ -1452,10 +1420,6 @@ function StatsAndUseCases() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-white/65 leading-relaxed">
-            Bu nedenle kurumsal organizasyon sayfasındaki sayılar bizim için yalnızca bir rozet değil; ölçek, saha deneyimi
-            ve farklı etkinlik formatları arasında tekrar eden operasyon refleksinin kısa bir özeti niteliğindedir.
-          </p>
         </Card>
       </div>
     </SectionShell>
@@ -1482,62 +1446,38 @@ function RelatedServices() {
   const services = [
     {
       href: "/led-ekran-kiralama",
-      title: "LED Ekran Kiralama",
-      desc: "İçerik görünürlüğü ve sahne etkisini güçlendiren ekran çözümleri",
+      title: "LED ekran prodüksiyonu",
+      desc: "Sahne anlatısını taşıyan yüksek görünürlüklü ekran omurgası",
     },
     {
-      href: "/podyum-kiralama",
-      title: "Podyum Kiralama",
-      desc: "Sunum ve protokol akışına uygun modüler sahne sistemleri",
+      href: "/sahne-kiralama",
+      title: "Sahne ve platform",
+      desc: "Konuşma, performans ve protokol akışına uygun ana sahne kurulumu",
     },
     {
       href: "/ses-isik-sistemleri",
-      title: "Ses ve Işık Sistemleri",
-      desc: "Akustik kapsama ve atmosfer tasarımını destekleyen teknik altyapı",
+      title: "Ses ve ışık tasarımı",
+      desc: "Net ses kapsaması ve marka atmosferini taşıyan ışık kurgusu",
     },
     {
-      href: "/projeler",
-      title: "Projeler",
-      desc: "Gerçek kurulumlar ve referans akışı üzerinden daha fazla örnek",
+      href: "/truss-kiralama",
+      title: "Truss ve rigging",
+      desc: "Büyük sahne, askı ve taşıyıcı sistemleri için teknik altyapı",
     },
   ];
 
   return (
     <SectionShell variant="soft" id="tamamlayici-hizmetler">
       <H2
-        kicker="Tamamlayıcı akış"
+        kicker="Teknik omurga"
         title={
           <>
-            İlgili <span className="text-blue-700">hizmetler ve referanslar</span>
+            Yan hizmet değil, <span className="text-blue-700">ana prodüksiyon katmanları</span>
           </>
         }
-        desc="Kurumsal organizasyon sayfasını daha güçlü bir karar merkezi haline getirmek için ilgili çözümleri de aynı akışta topladık."
+        desc="Bu sayfada premium algıyı taşıyan ana teknik katmanları öne çıkarıyoruz. Lojistik destekler teklif içinde gerektiğinde konuşulur."
         center
       />
-
-      <div className="mx-auto mb-8 max-w-5xl rounded-lg border border-slate-200 bg-white px-6 py-6">
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              title: "Daha hızlı keşif",
-              desc: "İlgili hizmetleri aynı akışta görmek, kapsamı daha kısa sürede netleştirmeye yardımcı olur.",
-            },
-            {
-              title: "Daha az koordinasyon turu",
-              desc: "Sahne, ekran ve teknik altyapıyı ayrı ayrı düşünmek yerine tek bütün olarak karar verebilirsiniz.",
-            },
-            {
-              title: "Daha güçlü proje okuması",
-              desc: "Referans akışı ve hizmet yapısı bir araya geldiğinde teklif görüşmesi daha verimli ilerler.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-lg bg-slate-50 px-4 py-4">
-              <div className="font-black text-slate-900">{item.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((item) => (
@@ -1687,7 +1627,6 @@ export default function Page() {
       <StatsAndUseCases />
       <FAQSection />
       <RelatedServices />
-      <ServiceBlogLinks {...CONTENT_CLUSTERS.corporate} links={CONTENT_CLUSTERS.corporate.guides} />
       <CTASection />
     </>
   );

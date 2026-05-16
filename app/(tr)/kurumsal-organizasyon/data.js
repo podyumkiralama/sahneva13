@@ -1,6 +1,6 @@
 export const HERO = {
-  src: "/img/kurumsal/hero.webp",
-  alt: "Kurumsal organizasyon için sahne, LED ekran ve salon kurulumu",
+  src: "/img/kurumsal/premium/konferans-led-ekran.webp",
+  alt: "Büyük ölçekli kurumsal etkinlikte LED sahne, ışık ve teknik prodüksiyon",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
@@ -34,60 +34,49 @@ export const ASSURANCE_ITEMS = [
 ];
 
 export const GUIDE_PROMISES = [
-  "Tek ekipte keşif, planlama, kurulum ve saha yönetimi",
-  "Konferans, lansman ve gala için format bazlı teknik çözüm",
-  "Sahne, LED ekran, ses, ışık ve prova akışını birlikte yönetim",
-  "Teklif öncesi hızlı ön kapsam ve doğru ekipman yönlendirmesi",
-];
-
-export const GUIDE_CONTENTS = [
-  { href: "#ne-sunar", label: "Kurumsal organizasyon ne sunar?" },
-  { href: "#planlama", label: "Planlama akışı nasıl kurulmalı?" },
-  { href: "#formatlar", label: "Hangi etkinlik formatları farklı yaklaşım ister?" },
-  { href: "#teknik-altyapi", label: "Teknik altyapıda kritik kararlar neler?" },
-  { href: "#hizmetler", label: "Hizmet kapsamına neler dahil?" },
-  { href: "#paketler", label: "Kapsam ve teklif nasıl netleşir?" },
-  { href: "#projeler", label: "Referans görseller nasıl okunmalı?" },
-  { href: "#sss", label: "Sık sorulan sorular" },
+  "Sahne, LED, ışık ve reji aynı teknik plan içinde",
+  "Kurumsal ekipler için net sorumluluk ve tek muhatap",
+  "Prova, yedek akış ve saha günü operasyon disiplini",
+  "Görsel gücü yüksek, marka algısını taşıyan prodüksiyon",
 ];
 
 export const OVERVIEW_POINTS = [
   {
-    title: "Tek operasyon masası",
-    desc: "Sahne, LED ekran, ses, ışık ve saha akışı aynı plan üzerinde ilerler.",
+    title: "Sahne etkisi",
+    desc: "Markanın ölçeğini hissettiren LED, ışık ve sahne mimarisi birlikte kurulur.",
   },
   {
-    title: "Yedekli teknik yaklaşım",
-    desc: "Kritik sistemlerde güç, kontrol ve akış için yedek senaryolar oluşturulur.",
+    title: "Teknik sakinlik",
+    desc: "Konuşma, içerik, müzik, ışık ve geçişler prova akışına bağlanır.",
   },
   {
-    title: "Kurumsal ritme uygun plan",
-    desc: "Protokol, konuşmacı akışı ve prova saatleri marka ekibiyle birlikte netleşir.",
+    title: "Yönetilebilir risk",
+    desc: "Güç, rigging, kablo, yedek sistem ve ekip rol dağılımı önceden görünür olur.",
   },
   {
-    title: "Tekliften rapora süreklilik",
-    desc: "Keşif, kurulum, etkinlik günü ve söküm tek ekipte toplanır.",
+    title: "Premium algı",
+    desc: "Saha görüntüsü, video çıktısı ve katılımcı deneyimi aynı kalite çizgisinde tutulur.",
   },
 ];
 
 export const FORMAT_ITEMS = [
   {
-    title: "Lansman ve basın buluşması",
-    desc: "Sahne anlatısı, LED içerik akışı ve medya görünürlüğü aynı prova planına bağlanır.",
-    src: "/img/kurumsal/lansman.webp",
-    alt: "Ürün lansmanı için kurumsal sahne kurulumu",
+    title: "Lansman ve marka sahnesi",
+    desc: "LED, ışık ve sahne geometrisi ürün hikayesini büyüten tek bir görsel dile dönüşür.",
+    src: "/img/kurumsal/premium/panel-led-sahne.webp",
+    alt: "Kurumsal lansman için LED panel ve sahne prodüksiyonu",
   },
   {
-    title: "Bayi toplantısı ve konferans",
-    desc: "Sunum netliği, oturma düzeni ve salon akustiği birlikte ele alınır.",
-    src: "/img/kurumsal/bayi-toplantisi.webp",
-    alt: "Bayi toplantısı için konferans salonu kurulumu",
+    title: "Zirve, panel ve konferans",
+    desc: "Konuşmacı, ekran, kamera ve salon deneyimi aynı teknik disiplinle yönetilir.",
+    src: "/img/kurumsal/premium/konferans-podium.webp",
+    alt: "Kurumsal konferansta panel sahnesi ve LED ekran kurulumu",
   },
   {
-    title: "Gala ve ödül gecesi",
-    desc: "Şov akışı, protokol yerleşimi ve sahne atmosferi daha kontrollü ilerler.",
-    src: "/img/kurumsal/kurumsal-sahne-led-ekran.webp",
-    alt: "Gala gecesi için sahne ve LED ekran prodüksiyonu",
+    title: "Gala, ödül ve büyük sahne",
+    desc: "Işık show, müzik, protokol ve sahne geçişleri premium bir gece ritmine bağlanır.",
+    src: "/img/kurumsal/premium/sahne-beam-show.webp",
+    alt: "Gala ve ödül gecesi için büyük sahne ışık prodüksiyonu",
   },
 ];
 
@@ -133,57 +122,109 @@ export const PLANNING_STEPS = [
 
 export const SERVICE_ITEMS = [
   {
-    title: "Konferans ve seminer organizasyonu",
-    desc: "Konuşmacı sahnesi, sunum ekranı, ses sistemi ve salon akışını birlikte planlıyoruz.",
-    whatsappIntent: "Konferans ve seminer organizasyonu",
+    title: "Sahne ve LED mimarisi",
+    desc: "Ana sahne, yan ekranlar, içerik yüzeyleri ve izleme açıları tek görsel omurgada çözülür.",
+    whatsappIntent: "Sahne ve LED mimarisi",
   },
   {
-    title: "Ürün lansman organizasyonu",
-    desc: "Görsel etki, içerik akışı ve marka deneyimi için daha güçlü sahne kurguları hazırlıyoruz.",
-    whatsappIntent: "Ürün lansman organizasyonu",
+    title: "Ses, ışık ve atmosfer",
+    desc: "Konuşma netliği, sahne ışığı, beam show ve kamera dostu ışık dengesi birlikte kurulur.",
+    whatsappIntent: "Ses ışık ve atmosfer prodüksiyonu",
   },
   {
-    title: "Gala ve ödül töreni",
-    desc: "Şık gece atmosferi, sahne geçişleri ve protokol yerleşimi tek operasyon mantığında ilerliyor.",
-    whatsappIntent: "Gala ve ödül töreni",
+    title: "Reji ve içerik akışı",
+    desc: "Sunum, video, sahne geçişi, konuşmacı sırası ve canlı yayın ihtiyacı tek masadan yönetilir.",
+    whatsappIntent: "Reji ve içerik akışı",
   },
   {
-    title: "Açık hava ve büyük katılımlı etkinlik",
-    desc: "Güç, görünürlük ve lojistik planı daha geniş saha şartlarına göre ölçekleniyor.",
-    whatsappIntent: "Açık hava ve büyük katılımlı etkinlik",
+    title: "Rigging ve taşıyıcı sistem",
+    desc: "Truss, askı noktaları, yük güvenliği ve sahne üstü teknik kurulum mühendislik disipliniyle ele alınır.",
+    whatsappIntent: "Rigging ve taşıyıcı sistem",
   },
   {
-    title: "Roadshow ve fuar desteği",
-    desc: "Marka standı, mobil kurulum ve tekrar eden etkinlik ritmini hızlandırıyoruz.",
-    whatsappIntent: "Roadshow ve fuar desteği",
+    title: "Prova ve saha koordinasyonu",
+    desc: "Kurulum takvimi, prova saatleri, teknik ekip rolleri ve kritik geçişler etkinlikten önce netleşir.",
+    whatsappIntent: "Prova ve saha koordinasyonu",
   },
   {
-    title: "Teknik altyapı ve operasyon desteği",
-    desc: "Jeneratör, UPS, yedek kontrol ve etkinlik günü koordinasyonu aynı ekipte toplanıyor.",
-    whatsappIntent: "Teknik altyapı ve operasyon desteği",
+    title: "Yedek sistem ve operasyon güveni",
+    desc: "Güç, kontrol, medya oynatma ve kritik ekipmanlar için yedek senaryo görünür tutulur.",
+    whatsappIntent: "Yedek sistem ve operasyon güveni",
   },
 ];
 
 export const GALLERY_IMAGES = [
   {
-    src: "/img/kurumsal/konferans.webp",
-    alt: "Kurumsal konferans sahnesi ve ekran kurulumu",
+    src: "/img/kurumsal/premium/acik-hava-konser.webp",
+    alt: "Açık hava büyük sahne, LED ekran ve ışık prodüksiyonu",
   },
   {
-    src: "/img/kurumsal/lansman.webp",
-    alt: "Kurumsal lansman sahnesi",
+    src: "/img/kurumsal/premium/festival-kalabalik.webp",
+    alt: "Kalabalık açık hava etkinliğinde büyük sahne prodüksiyonu",
   },
   {
-    src: "/img/kurumsal/bayi-toplantisi.webp",
-    alt: "Bayi toplantısı salon kurulumu",
+    src: "/img/kurumsal/premium/truss-sahne-cati.webp",
+    alt: "Büyük sahne çatı ve truss kurulum sistemi",
   },
   {
-    src: "/img/kurumsal/7.webp",
-    alt: "Kurumsal gece ve masa düzeni",
+    src: "/img/kurumsal/premium/saha-referans-05.jpeg",
+    alt: "Sahneva büyük etkinlik prodüksiyonu referansı",
   },
   {
-    src: "/img/kurumsal/8.webp",
-    alt: "Kurumsal etkinlik teknik ekran yerleşimi",
+    src: "/img/kurumsal/premium/panel-led-sahne.webp",
+    alt: "LED ekranlı kurumsal panel sahnesi",
+  },
+  {
+    src: "/img/kurumsal/premium/konferans-led-ekran.webp",
+    alt: "Büyük kurumsal etkinlik için LED sahne ve ışık kurulumu",
+  },
+  {
+    src: "/img/kurumsal/premium/isik-show-beam.webp",
+    alt: "Sahne ışık show ve beam tasarımı",
+  },
+  {
+    src: "/img/kurumsal/premium/sahne-beam-show.webp",
+    alt: "Geniş sahnede beam ışık show prodüksiyonu",
+  },
+  {
+    src: "/img/kurumsal/premium/konser-isik-tasarimi.webp",
+    alt: "Konser sahnesinde ışık tasarımı ve atmosfer",
+  },
+  {
+    src: "/img/kurumsal/premium/truss-outdoor-sahne.webp",
+    alt: "Outdoor sahne taşıyıcı truss sistemi",
+  },
+  {
+    src: "/img/kurumsal/premium/truss-rigging-konser.webp",
+    alt: "Konser sahnesi rigging ve truss konstrüksiyonu",
+  },
+  {
+    src: "/img/kurumsal/premium/konferans-podium.webp",
+    alt: "Kurumsal panel ve konferans sahnesi",
+  },
+  {
+    src: "/img/kurumsal/premium/salon-isik-kurulumu.webp",
+    alt: "Kurumsal etkinlik alanında ışık koridoru ve salon kurulumu",
+  },
+  {
+    src: "/img/kurumsal/premium/show-kontrol.webp",
+    alt: "Işık ve show kontrol masası",
+  },
+  {
+    src: "/img/kurumsal/premium/saha-referans-01.jpeg",
+    alt: "Sahneva saha referansı ve canlı etkinlik prodüksiyonu",
+  },
+  {
+    src: "/img/kurumsal/premium/saha-referans-02.jpeg",
+    alt: "Kurumsal etkinlik sahnesi ve sahne ışıkları",
+  },
+  {
+    src: "/img/kurumsal/premium/saha-referans-03.jpeg",
+    alt: "Büyük ölçekli sahne kurulumu ve LED ekran",
+  },
+  {
+    src: "/img/kurumsal/premium/saha-referans-04.jpeg",
+    alt: "Saha prodüksiyon alanında ışık ve sahne kurulumu",
   },
 ];
 
@@ -208,9 +249,9 @@ export const VIDEO_GALLERY = [
   {
     id: "x-BYu0vgO2E",
     eyebrow: "Özel proje alanı",
-    title: "SAHA 2026 dome çadır ve etkinlik alanı kurulumu",
+    title: "SAHA 2026 özel etkinlik alanı ve fuar prodüksiyonu",
     description:
-      "Kapalı fuar alanında dome çadır, özel giriş yapısı, zemin altyapısı ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan görüntüler.",
+      "Kapalı fuar alanında özel yapı, giriş aksı, zemin altyapısı ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan görüntüler.",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {
@@ -242,47 +283,27 @@ export const USE_CASES = [
 
 export const FAQ_ITEMS = [
   {
-    q: "Kurumsal organizasyon nedir?",
-    a: "Kurumsal organizasyon; şirketlerin lansman, bayi toplantısı, gala, konferans, festival, çalışan etkinliği veya protokol programlarını hedef, mekan, teknik altyapı, sahne, LED ekran, ses-ışık ve operasyon planıyla birlikte yürüttüğü profesyonel etkinlik sürecidir.",
+    q: "Hangi kurumsal etkinliklerde çalışıyorsunuz?",
+    a: "Lansman, konferans, bayi toplantısı, gala, ödül gecesi, fuar ve büyük ölçekli marka etkinliklerinde sahne, LED, ses-ışık ve teknik prodüksiyon kuruyoruz.",
   },
   {
-    q: "Kurumsal organizasyon firması ne yapar?",
-    a: "Kurumsal organizasyon firması etkinliğin hedefini, mekanını, sahne düzenini, LED ekran ihtiyacını, ses-ışık sistemlerini, teknik keşfini, run-of-show akışını, ekip görevlerini ve kurulum operasyonunu planlar.",
+    q: "Sadece ekipman mı sağlıyorsunuz?",
+    a: "Hayır. Ekipmanın yanında keşif, teknik plan, prova, kurulum, saha koordinasyonu ve etkinlik günü operasyon yönetimi de kapsamın parçası olabilir.",
   },
   {
-    q: "Kurumsal etkinlik nasıl planlanır?",
-    a: "Kurumsal etkinlik planlaması hedefin netleşmesiyle başlar. Ardından mekan, katılımcı sayısı, sahne, LED ekran, ses-ışık, karşılama, akış planı, teknik ekip ve risk senaryoları birlikte değerlendirilir.",
+    q: "Teklif için hangi bilgiler yeterli?",
+    a: "Etkinlik tarihi, şehir/mekân, katılımcı sayısı, sahne beklentisi, LED ekran ihtiyacı ve program akışı ilk kapsamı çıkarmak için yeterlidir.",
   },
   {
-    q: "Kurumsal lansman için hangi ekipmanlar gerekir?",
-    a: "Kurumsal lansmanlarda genellikle sahne veya podyum, LED ekran, ses sistemi, ışık sistemi, truss, dekoratif alanlar, karşılama ekipmanları, kontrol masası ve gerektiğinde canlı yayın altyapısı gerekir.",
+    q: "İstanbul dışındaki projelerde destek veriyor musunuz?",
+    a: "Evet. İstanbul merkezli planlama ile Türkiye genelinde büyük kurulum, teknik ekip ve saha operasyonu organize edebiliyoruz.",
   },
   {
-    q: "Kurumsal organizasyon şirketleri ne yapar?",
-    a: "Kurumsal organizasyon şirketleri; hedef, içerik akışı, teknik prodüksiyon ve saha operasyonunu birlikte yönetir. Sahne, LED ekran, ses ve ışık gibi kalemleri tek plan üzerinde birleştirir. Yalnızca ekipman temin etmekle kalmaz; etkinlik öncesi keşif, prova planlaması ve etkinlik günü sahne yönetimi de bu kapsamın içine girer.",
+    q: "Canlı yayın veya kamera akışı dahil edilebilir mi?",
+    a: "Evet. Gerektiğinde reji, kamera, kayıt, streaming ve sahne içi görüntü akışı teknik planın içine alınır.",
   },
   {
-    q: "Kurumsal etkinlikte teklif hangi bilgilere göre hazırlanır?",
-    a: "Etkinlik formatı, şehir veya mekân bilgisi, kişi sayısı, süre ve görsel beklenti teklif çalışmasının temelini oluşturur. Detaylı kurgu keşif sonrası netleşir. İlk görüşmede bu başlıkları paylaşmanız, daha hızlı bir ön kapsam ve daha doğru bir bütçe aralığı görmenizi sağlar.",
-  },
-  {
-    q: "İstanbul dışındaki projelerde de destek veriyor musunuz?",
-    a: "Evet. İstanbul merkezli operasyon yürütsek de Türkiye genelinde kurulum ve teknik destek sağlayabiliyoruz. Ankara, İzmir, Bursa ve diğer büyük şehirlerde ekipman lojistiği ile saha ekibi koordinasyonunu aynı plan üzerinden yürütebiliyoruz.",
-  },
-  {
-    q: "Fiyat aralıkları neden ilk görüşmede kesinleşmiyor?",
-    a: "Sahne ölçüsü, LED metrajı, kurulum süresi, prova yoğunluğu ve teknik ekip planı fiyatı doğrudan etkiler. Bu yüzden ilk paylaşılan rakamlar tahmini bütçe niteliğindedir. Mekân keşfi ve teknik kapsam netleştiğinde kalemler daha görünür hale gelir ve sürpriz maliyet ihtimali azalır.",
-  },
-  {
-    q: "Canlı yayın ve hibrit etkinlik altyapısı dahil edilebilir mi?",
-    a: "Evet. Gerekli olduğunda sahne içi görüntüleme, kayıt, streaming ve kontrol akışı da kurumsal etkinlik planına dahil edilir. Hibrit formatlarda salon içi deneyim ile yayın tarafındaki beklentiyi birlikte düşünmek gerekir; teknik kurgu buna göre ayrıca şekillendirilir.",
-  },
-  {
-    q: "Etkinlik günü sahada kim koordinasyonu yönetir?",
-    a: "Her projede sahadaki ana muhatap teknik koordinatördür. Sahne, ses, ışık ve LED ekranı ayrı ayrı takip eden birden fazla kişiyle değil; tüm akışı tek elden yöneten bir ekip yapısıyla ilerlemek iletişim karmaşasını azaltır.",
-  },
-  {
-    q: "Kurumsal organizasyonda prova süreci nasıl işler?",
-    a: "Prova, teknik senaryonun gerçek koşullarda test edildiği aşamadır. Konuşmacı geçişleri, LED içerik sıralaması, ses seviyeleri ve ışık kurgusu prova sırasında netleşir. Kurulum tamamlandıktan sonra tam prova planlamak, etkinlik günü daha sakin bir operasyon akışı sağlar.",
+    q: "Etkinlik günü sahada kim yönetir?",
+    a: "Sahada teknik koordinatör ana muhataptır. Sahne, LED, ses, ışık ve reji ekipleri tek operasyon akışında ilerler.",
   },
 ];
