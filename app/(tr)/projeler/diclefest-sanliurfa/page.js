@@ -4,6 +4,7 @@ import {
   ArrowRight,
   CalendarDays,
   CheckCircle2,
+  ExternalLink,
   Gamepad2,
   Layers3,
   MapPin,
@@ -26,7 +27,8 @@ const DESCRIPTION =
 const OG_DESCRIPTION =
   "Topçu Meydanı’nda düzenlenen DicleFest Şanlıurfa projesinde dome çadırlar, oyun alanları, konser alanı, dekor uygulamaları ve açık alan festival operasyonu Sahneva koordinasyonunda yönetildi.";
 const PUBLISHED_AT = "2026-05-16T12:00:00+03:00";
-const MODIFIED_AT = "2026-05-16T12:00:00+03:00";
+const MODIFIED_AT = "2026-05-16T17:30:00+03:00";
+const DICLEFEST_SOURCE_URL = "https://diclefest.com/etkinlikler/";
 
 const IMAGES = {
   domeGeneral: {
@@ -598,11 +600,42 @@ export default function DicleFestSanliurfaProjectPage() {
         </div>
       </section>
 
+      <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="etkinlik-bilgisi">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-300/20 bg-blue-400/[0.08] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+            <div>
+              <SectionEyebrow>Etkinlik Bilgisi</SectionEyebrow>
+              <h2 id="etkinlik-bilgisi" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
+                DicleFest Şanlıurfa resmi etkinlik bağlamı
+              </h2>
+            </div>
+            <div className="space-y-5 text-base leading-relaxed text-slate-300 md:text-lg">
+              <p>
+                DicleFest Şanlıurfa, 14–17 Mayıs 2026 tarihleri arasında Şanlıurfa Topçu
+                Meydanı’nda düzenlenen; teknoloji alanları, planetaryum, oyun ve aktivite bölümleri
+                ile konserleri kapsayan açık alan festivalidir. Sahneva bu projede dome çadırlar,
+                etkinlik çadırları, oyun alanları, konser alanı, dekor uygulamaları ve saha operasyonu
+                tarafında görev almıştır.
+              </p>
+              <a
+                href={DICLEFEST_SOURCE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-blue-200/25 bg-white/10 px-5 py-3 text-sm font-black text-blue-100 transition hover:-translate-y-0.5 hover:bg-white/15"
+              >
+                DicleFest resmi etkinlik bilgileri
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="baglantili-hizmetler">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <SectionEyebrow>İç Linkleme</SectionEyebrow>
+              <SectionEyebrow>Bağlantılı Teknik Hizmetler</SectionEyebrow>
               <h2 id="baglantili-hizmetler" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
                 Festival teknik altyapısı tek plan altında ele alındı.
               </h2>
@@ -744,7 +777,6 @@ function MediaGrid({ images, featured = false, gallery = false, compact = false 
         <ImageFigure
           key={image.src}
           image={image}
-          priority={false}
           className={featured && index === 0 ? "sm:col-span-2" : ""}
           compact={compact}
         />
@@ -864,6 +896,30 @@ function buildJsonLd() {
           "festival saha yönetimi",
           "kurumsal organizasyon",
         ],
+        citation: DICLEFEST_SOURCE_URL,
+      },
+      {
+        "@type": "Event",
+        "@id": `${PAGE_URL}#event-context`,
+        name: "DicleFest Şanlıurfa",
+        startDate: "2026-05-14",
+        endDate: "2026-05-17",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Şanlıurfa Topçu Meydanı",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Şanlıurfa",
+            addressCountry: "TR",
+          },
+        },
+        description:
+          "DicleFest Şanlıurfa; teknoloji alanları, planetaryum, oyun ve aktivite bölümleri ile konserleri kapsayan açık alan festivalidir.",
+        url: DICLEFEST_SOURCE_URL,
+        performer: [],
+        provider: { "@id": `${SITE_URL}/#org` },
       },
       {
         "@type": "BreadcrumbList",
