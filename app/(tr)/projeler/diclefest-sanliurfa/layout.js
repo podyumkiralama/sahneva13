@@ -9,6 +9,39 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     padding-bottom: 2.5rem !important;
   }
 
+  .diclefest-tight-scope > main h1,
+  .diclefest-tight-scope > main h2,
+  .diclefest-tight-scope > main h3 {
+    color: #f8fafc !important;
+    text-shadow: 0 1px 18px rgba(2, 6, 23, 0.32) !important;
+  }
+
+  .diclefest-tight-scope > main p,
+  .diclefest-tight-scope > main li,
+  .diclefest-tight-scope > main figcaption {
+    color: #dbe6f3 !important;
+  }
+
+  .diclefest-tight-scope > main [class*="text-slate-300"],
+  .diclefest-tight-scope > main [class*="text-slate-400"] {
+    color: #d7e2f0 !important;
+  }
+
+  .diclefest-tight-scope > main [class*="text-blue-200"],
+  .diclefest-tight-scope > main [class*="text-blue-100"] {
+    color: #dbeafe !important;
+  }
+
+  .diclefest-tight-scope > main .space-y-5 p,
+  .diclefest-tight-scope > main section p {
+    font-weight: 500 !important;
+    letter-spacing: -0.005em !important;
+  }
+
+  .diclefest-tight-scope > main figure figcaption {
+    background: rgba(15, 23, 42, 0.82) !important;
+  }
+
   /* Case study bölümlerinde metin üstte, görseller altta aksın. */
   .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] {
     display: grid !important;
