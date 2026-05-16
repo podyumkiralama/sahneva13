@@ -1265,94 +1265,98 @@ function GallerySection() {
 
 function VideoShowcaseSection() {
   const [featuredVideo, ...secondaryVideos] = VIDEO_GALLERY;
+  const videoProofItems = [
+    "Gerçek kurulum görüntüsü",
+    "Sahne, LED ve ışık akışı",
+    "Saha ekibi çalışma temposu",
+  ];
 
   return (
     <SectionShell variant="ink" id="video-galerisi">
-      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-        <div>
-          <H2
-            kicker="Video kanıtı"
-            title={
-              <>
-                Gerçek <span className="text-blue-300">kurulum videoları</span> ile sahadaki kaliteyi görünür kılıyoruz
-              </>
-            }
-            desc="Video burada dekor değil; tempo, ekip disiplini ve teknik standardı hissettiren bir karar katmanı."
-            dark
-          />
+      <div>
+        <H2
+          kicker="Video kanıtı"
+          title={
+            <>
+              Kurumsal organizasyon kalitesi <span className="text-blue-300">videoda daha net görünür</span>
+            </>
+          }
+          desc="Gerçek sahadan seçilen kurulum görüntüleri; ekip disiplini, LED ekran etkisi ve teknik prodüksiyon temposunu karar aşamasında daha somut gösterir."
+          dark
+        />
 
-          <div className="rounded-lg border border-white/10 bg-white/5 p-4">
-            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-black">
-              <div className="relative aspect-[16/10]">
-                <LazyVideoEmbed
-                  videoId={featuredVideo.id}
-                  title={featuredVideo.title}
-                  thumbnailUrl={`https://i.ytimg.com/vi/${featuredVideo.id}/hqdefault.jpg`}
-                />
-              </div>
+        <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-3 shadow-2xl shadow-blue-950/25 md:p-5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(56,189,248,0.18),transparent_32%),radial-gradient(circle_at_82%_8%,rgba(59,130,246,0.16),transparent_28%)]" aria-hidden="true" />
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-lg border border-white/10 bg-black">
+              <LazyVideoEmbed
+                videoId={featuredVideo.id}
+                title={featuredVideo.title}
+                thumbnailUrl={`https://i.ytimg.com/vi/${featuredVideo.id}/sddefault.jpg`}
+              />
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-normal text-blue-200">
-                {featuredVideo.eyebrow}
-              </span>
-              <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-white/80">
-                Öne çıkan video
-              </span>
-            </div>
-
-            <h3 className="mt-4 max-w-[16ch] text-3xl font-black text-white md:text-4xl">{featuredVideo.title}</h3>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">{featuredVideo.description}</p>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {[
-                "Kurulum temposu",
-                "Teknik hazırlık disiplini",
-                "Saha günü gerçek atmosfer",
-              ].map((item) => (
-                <div key={item} className="rounded-lg border border-white/10 bg-black/20 px-4 py-3 text-sm font-semibold text-white/75">
-                  {item}
+            <div className="mt-5 grid gap-5 rounded-lg border border-white/10 bg-slate-950/62 p-5 md:p-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs font-black uppercase tracking-normal text-blue-200">
+                    {featuredVideo.eyebrow}
+                  </span>
+                  <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-white/80">
+                    Öne çıkan video
+                  </span>
                 </div>
-              ))}
+
+                <h3 className="mt-5 text-3xl font-black leading-tight text-white md:text-4xl">{featuredVideo.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-white/82">{featuredVideo.description}</p>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {videoProofItems.map((item) => (
+                  <div key={item} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.055] px-4 py-3 text-sm font-semibold text-white/78">
+                    <Clapperboard className="h-4 w-4 text-sky-200" aria-hidden="true" />
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="grid gap-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
           {secondaryVideos.map((video, index) => (
             <article
               key={video.id}
-              className="overflow-hidden rounded-lg border border-white/10 bg-white/5"
+              className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] transition hover:border-sky-300/35 hover:bg-white/[0.075]"
               aria-labelledby={`corporate-video-${video.id}-title`}
             >
-              <div className="grid gap-0 md:grid-cols-[0.92fr_1.08fr]">
-                <div className="relative aspect-video bg-black md:aspect-auto">
-                  <LazyVideoEmbed
-                    videoId={video.id}
-                    title={video.title}
-                    thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                  />
-                </div>
-                <div className="flex flex-col justify-between p-6">
-                  <div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-normal text-blue-200">
-                        {video.eyebrow}
-                      </span>
-                      <span className="text-[0.68rem] font-bold uppercase tracking-normal text-white/85">
-                        Video {index + 2}
-                      </span>
-                    </div>
-                    <h3 id={`corporate-video-${video.id}-title`} className="mt-4 text-2xl font-black text-white">
-                      {video.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/85 md:text-base">{video.description}</p>
-                  </div>
+              <div className="overflow-hidden border-b border-white/10 bg-black">
+                <LazyVideoEmbed
+                  videoId={video.id}
+                  title={video.title}
+                  thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/sddefault.jpg`}
+                />
+              </div>
 
-                  <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-white/80">
-                    <Clapperboard className="h-4 w-4" aria-hidden="true" />
-                    Tıklayınca açılır, YouTube üzerinden oynatılır
-                  </div>
+              <div className="p-4 md:p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-normal text-blue-200">
+                    {video.eyebrow}
+                  </span>
+                  <span className="text-[0.68rem] font-bold uppercase tracking-normal text-white/70">
+                    Video {index + 2}
+                  </span>
+                </div>
+
+                <h3 id={`corporate-video-${video.id}-title`} className="mt-4 text-xl font-black leading-tight text-white">
+                  {video.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">{video.description}</p>
+
+                <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-sky-100/85">
+                  <Clapperboard className="h-4 w-4" aria-hidden="true" />
+                  Videoyu oynat
                 </div>
               </div>
             </article>
