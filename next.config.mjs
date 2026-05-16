@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 import path from "node:path";
+import { STATIC_CSP_NONCE } from "./lib/security/staticCsp.js";
 
 const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
 const ONE_MONTH_IN_SECONDS = ONE_DAY_IN_SECONDS * 30;
@@ -18,6 +19,7 @@ const siteUrl =
 function buildContentSecurityPolicy({ siteUrl, isPreview }) {
   const scriptSrc = [
     "'self'",
+    `'nonce-${STATIC_CSP_NONCE}'`,
     "'unsafe-inline'",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
