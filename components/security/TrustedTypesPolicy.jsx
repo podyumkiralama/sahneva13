@@ -12,6 +12,11 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
     ["https://www.clarity.ms", ["/tag/"]],
   ]);
 
+  const firstPartyHashedScriptPattern = new RegExp(
+    "^/[a-z0-9]{8,64}/script\\\\.js$",
+    "i"
+  );
+
   function isAllowedScriptUrl(value) {
     const url = new URL(value, window.location.origin);
 
@@ -20,7 +25,7 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
         url.pathname.startsWith("/_next/") ||
         url.pathname.startsWith("/_vercel/speed-insights/") ||
         url.pathname === "/sw.js" ||
-        /^\/[a-z0-9]{16}\/script\.js$/i.test(url.pathname)
+        firstPartyHashedScriptPattern.test(url.pathname)
       );
     }
 
