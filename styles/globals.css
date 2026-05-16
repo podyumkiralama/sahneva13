@@ -369,6 +369,49 @@
   }
 }
 
+@keyframes corporateStageBeamLeft {
+  0%,
+  100% {
+    transform: translate3d(-5%, -2%, 0) rotate(17deg);
+    opacity: 0.48;
+  }
+
+  50% {
+    transform: translate3d(7%, 1%, 0) rotate(23deg);
+    opacity: 0.78;
+  }
+}
+
+@keyframes corporateStageBeamRight {
+  0%,
+  100% {
+    transform: translate3d(7%, 0, 0) rotate(-19deg);
+    opacity: 0.42;
+  }
+
+  50% {
+    transform: translate3d(-8%, 2%, 0) rotate(-25deg);
+    opacity: 0.72;
+  }
+}
+
+@keyframes corporateStageSweep {
+  0% {
+    transform: translate3d(-38%, 0, 0) rotate(16deg);
+    opacity: 0;
+  }
+
+  18%,
+  72% {
+    opacity: 0.68;
+  }
+
+  100% {
+    transform: translate3d(132%, 0, 0) rotate(16deg);
+    opacity: 0;
+  }
+}
+
 /* Utilities */
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
@@ -514,6 +557,68 @@
     animation: corporateAiLinePulse 5.5s ease-in-out infinite;
   }
 
+  .corporate-stage-lights {
+    pointer-events: none;
+    overflow: hidden;
+    mix-blend-mode: screen;
+  }
+
+  .corporate-stage-beam,
+  .corporate-stage-sweep {
+    position: absolute;
+    display: block;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .corporate-stage-beam {
+    top: -22%;
+    height: 145%;
+    width: 50%;
+    background:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(224, 242, 254, 0.08) 18%,
+        rgba(186, 230, 253, 0.38) 46%,
+        rgba(96, 165, 250, 0.27) 62%,
+        transparent 100%
+      );
+    clip-path: polygon(45% 0%, 82% 100%, 13% 100%);
+    filter: blur(2px);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 22%, rgba(0, 0, 0, 0.76) 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 22%, rgba(0, 0, 0, 0.76) 70%, transparent 100%);
+  }
+
+  .corporate-stage-beam-left {
+    left: 3%;
+    transform-origin: 50% 0%;
+    animation: corporateStageBeamLeft 10s ease-in-out infinite;
+  }
+
+  .corporate-stage-beam-right {
+    right: 5%;
+    transform-origin: 50% 0%;
+    animation: corporateStageBeamRight 11s ease-in-out infinite;
+  }
+
+  .corporate-stage-sweep {
+    inset-block: -18%;
+    left: 0;
+    width: 28%;
+    background:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 28%,
+        rgba(186, 230, 253, 0.42) 50%,
+        rgba(52, 211, 153, 0.18) 62%,
+        transparent 100%
+      );
+    filter: blur(3px);
+    animation: corporateStageSweep 7.5s ease-in-out infinite;
+  }
+
   @media (max-width: 767px) {
     .brand-logo-rail {
       animation-duration: 58s;
@@ -614,7 +719,9 @@
   .sahneva-stripe-soft,
   .corporate-ai-aurora,
   .corporate-ai-scan,
-  .corporate-ai-line {
+  .corporate-ai-line,
+  .corporate-stage-beam,
+  .corporate-stage-sweep {
     animation: none;
     will-change: auto;
   }

@@ -394,6 +394,11 @@ function Hero() {
         <div className="absolute inset-0 grid-overlay opacity-40" />
       </div>
       <div className="absolute inset-0 corporate-ai-aurora opacity-75" aria-hidden="true" />
+      <div className="absolute inset-0 corporate-stage-lights" aria-hidden="true">
+        <span className="corporate-stage-beam corporate-stage-beam-left" />
+        <span className="corporate-stage-beam corporate-stage-beam-right" />
+        <span className="corporate-stage-sweep" />
+      </div>
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B1120] to-transparent" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
