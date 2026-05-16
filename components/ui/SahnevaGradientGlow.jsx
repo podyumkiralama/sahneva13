@@ -7,11 +7,11 @@ export default function SahnevaGradientGlow({
   const wrapperClass = "absolute inset-0 overflow-hidden pointer-events-none";
 
   const blobClass = isHero
-    ? "sahneva-stripe-blob absolute -right-[10%] -top-[16%] h-[820px] w-[1120px] rotate-[10deg] opacity-70 md:-right-[4%] md:-top-[14%] lg:right-0"
+    ? "sahneva-stripe-blob absolute -right-[22%] -top-[26%] h-[800px] w-[1080px] rotate-[14deg] opacity-[0.66] md:-right-[16%] md:-top-[24%] lg:-right-[12%]"
     : "absolute -right-28 -top-36 h-[24rem] w-[24rem] rotate-[-16deg] rounded-bl-[42%] md:-right-16 md:-top-32 md:h-[32rem] md:w-[32rem]";
 
   const sideGlowClass = isHero
-    ? "sahneva-stripe-soft absolute right-[3%] top-[60%] h-44 w-44 rounded-full bg-cyan-200/10 blur-3xl md:right-[6%] md:top-[56%] md:h-52 md:w-52"
+    ? "sahneva-stripe-soft absolute right-[2%] top-[52%] h-36 w-36 rounded-full bg-cyan-200/8 blur-3xl md:right-[5%] md:top-[46%] md:h-44 md:w-44"
     : "absolute right-[10%] top-[20%] h-40 w-40 rounded-full bg-cyan-300/14 blur-3xl md:h-56 md:w-56";
 
   const lowerGlowClass = isHero
@@ -30,25 +30,25 @@ export default function SahnevaGradientGlow({
           className={blobClass}
           style={{
             backgroundImage:
-              "radial-gradient(circle at 96% 88%, rgba(255,255,255,.20), transparent 5%), radial-gradient(circle at 78% 24%, rgba(191,219,254,.16), transparent 16%), radial-gradient(circle at 62% 34%, rgba(56,189,248,.14), transparent 22%), conic-gradient(from 214deg at 99% 90%, rgba(224,242,254,.86) 0deg 10deg, rgba(186,230,253,.74) 10deg 18deg, rgba(125,211,252,.68) 18deg 28deg, rgba(56,189,248,.60) 28deg 42deg, rgba(59,130,246,.54) 42deg 56deg, rgba(79,70,229,.48) 56deg 70deg, rgba(67,56,202,.34) 70deg 82deg, rgba(191,219,254,.16) 82deg 90deg, transparent 90deg 360deg)",
-            backgroundSize: "108% 108%",
-            clipPath: "ellipse(98% 76% at 92% 18%)",
+              "radial-gradient(circle at 96% 88%, rgba(255,255,255,.16), transparent 5%), radial-gradient(circle at 78% 24%, rgba(191,219,254,.12), transparent 15%), radial-gradient(circle at 62% 34%, rgba(56,189,248,.10), transparent 20%), conic-gradient(from 214deg at 99% 90%, rgba(224,242,254,.78) 0deg 10deg, rgba(186,230,253,.66) 10deg 18deg, rgba(125,211,252,.60) 18deg 28deg, rgba(56,189,248,.52) 28deg 42deg, rgba(59,130,246,.46) 42deg 56deg, rgba(79,70,229,.40) 56deg 70deg, rgba(67,56,202,.28) 70deg 82deg, rgba(191,219,254,.12) 82deg 90deg, transparent 90deg 360deg)",
+            backgroundSize: "140% 140%",
+            clipPath: "ellipse(92% 72% at 94% 16%)",
             maskImage:
-              "radial-gradient(ellipse at 99% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 16%, rgba(0,0,0,.96) 28%, rgba(0,0,0,.74) 46%, rgba(0,0,0,.28) 64%, transparent 84%)",
+              "radial-gradient(ellipse at 99% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,.95) 26%, rgba(0,0,0,.70) 42%, rgba(0,0,0,.24) 58%, transparent 78%)",
             WebkitMaskImage:
-              "radial-gradient(ellipse at 99% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 16%, rgba(0,0,0,.96) 28%, rgba(0,0,0,.74) 46%, rgba(0,0,0,.28) 64%, transparent 84%)",
+              "radial-gradient(ellipse at 99% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,.95) 26%, rgba(0,0,0,.70) 42%, rgba(0,0,0,.24) 58%, transparent 78%)",
           }}
         />
         <div
-          className="sahneva-stripe-lines absolute right-[2%] top-[8%] h-[620px] w-[640px] rotate-[10deg] opacity-18 md:right-[4%] md:top-[6%]"
+          className="sahneva-stripe-lines absolute right-[-4%] top-[2%] h-[560px] w-[520px] rotate-[15deg] opacity-[0.14] md:right-[0%] md:top-[0%]"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(110deg, rgba(255,255,255,.15) 0px, rgba(255,255,255,.15) 1px, transparent 2px, transparent 11px)",
+              "repeating-linear-gradient(110deg, rgba(255,255,255,.13) 0px, rgba(255,255,255,.13) 1px, transparent 2px, transparent 11px)",
             backgroundSize: "190px 190px",
             maskImage:
-              "radial-gradient(ellipse at 97% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 14%, rgba(0,0,0,.72) 32%, rgba(0,0,0,.28) 56%, transparent 78%)",
+              "radial-gradient(ellipse at 97% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 14%, rgba(0,0,0,.70) 30%, rgba(0,0,0,.22) 50%, transparent 72%)",
             WebkitMaskImage:
-              "radial-gradient(ellipse at 97% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 14%, rgba(0,0,0,.72) 32%, rgba(0,0,0,.28) 56%, transparent 78%)",
+              "radial-gradient(ellipse at 97% 90%, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 14%, rgba(0,0,0,.70) 30%, rgba(0,0,0,.22) 50%, transparent 72%)",
           }}
         />
         <div className={sideGlowClass} />
