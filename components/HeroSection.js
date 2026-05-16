@@ -64,7 +64,7 @@ function ProofStrip({ items }) {
     <ul className="mx-auto mt-7 grid w-full max-w-sm list-none grid-cols-2 gap-2 p-0 sm:max-w-4xl md:grid-cols-4">
       {items.map((item) => (
         <li key={`${item.value}-${item.label}`}>
-          <div className="h-full rounded-2xl border border-white/15 bg-black/35 px-2 py-2.5 text-center shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-md md:px-3 md:py-3">
+          <div className="h-full rounded-2xl border border-white/15 bg-black/45 px-2 py-2.5 text-center shadow-[0_10px_24px_rgba(0,0,0,0.24)] md:px-3 md:py-3">
             <span className="block text-base font-black leading-tight text-white md:text-xl">
               {item.value}
             </span>
@@ -122,14 +122,13 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           }}
         />
 
-        <div className="grid-overlay opacity-20" />
-        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-500/8 blur-3xl" />
+        <div className="grid-overlay hidden opacity-20 md:block" />
       </div>
 
       <div className="relative z-10">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl overflow-hidden text-center">
-            <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-sm font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md">
+            <p className="inline-flex rounded-full border border-white/15 bg-black/70 px-5 py-2 text-sm font-extrabold text-white shadow-[0_8px_24px_rgba(0,0,0,0.30)]">
               {d.badge}
             </p>
 

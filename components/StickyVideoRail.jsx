@@ -98,7 +98,6 @@ function StickyVideoRailInner({
   const [hasStarted, setHasStarted] = useState(false);
   const [position, setPosition] = useState(INITIAL_POSITION);
   const [dragging, setDragging] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const dragRef = useRef(null);
   const startPosRef = useRef({ mouseX: 0, mouseY: 0, x: 0, y: 0 });
@@ -129,9 +128,6 @@ function StickyVideoRailInner({
     setIsMounted(true);
     setIsOpen(true);
     setIsMinimized(true);
-    if (typeof window !== "undefined") {
-      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-    }
   }, []);
 
   // ESC ile kapatma (aynı sayfada tekrar auto-open olmasın)

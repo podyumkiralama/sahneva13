@@ -12,12 +12,27 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import Link from "next/link";
 
 // ===============================================================
 // GALERİ VERİLERİ — Sabit 3 kategori (A seçildi)
 // ===============================================================
 
 const DEFAULT_GALLERIES = {
+  "DicleFest Şanlıurfa": {
+    href: "/projeler/diclefest-sanliurfa",
+    images: [
+      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-genel-alan.jpg",
+      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-acik-alan-festival-yerlesimi.jpg",
+      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-konser-alani-sahne-kurulumu.jpg",
+      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-oyun-alani-masa-tenisi.jpg",
+      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dekor-ve-fotograf-alani.jpg",
+    ],
+    description:
+      "DicleFest Şanlıurfa’da dome çadırlar, etkinlik çadırları, oyun alanları, konser alanı ve dekor uygulamaları Sahneva koordinasyonunda yönetildi.",
+    stats: "Açık Alan Festival",
+  },
+
   "LED Ekran Kiralama": {
     images: Array.from(
       { length: 36 },
@@ -62,6 +77,7 @@ const DEFAULT_DICTIONARY = {
     "700+ kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.",
   hoverCta: "Projeyi incele",
   statsLabel: "Tamamlanan proje",
+  caseStudyCta: "Vaka çalışmasını aç",
   dialogAria: "{{title}} projesi",
   closeLabel: "Kapat",
   prevLabel: "Önceki görsel",
@@ -201,6 +217,14 @@ const GalleryCard = memo(function GalleryCard({
           <span>{title}</span>
         </h3>
         <p className="mt-2 text-sm text-slate-300">{gallery.description}</p>
+        {gallery.href && (
+          <Link
+            href={gallery.href}
+            className="mt-4 inline-flex min-h-[40px] items-center justify-center rounded-full border border-blue-300/30 bg-blue-400/10 px-4 py-2 text-xs font-black text-blue-100 transition hover:bg-blue-400/20"
+          >
+            {dictionary.caseStudyCta}
+          </Link>
+        )}
       </div>
     </article>
   );

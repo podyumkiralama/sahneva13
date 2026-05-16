@@ -23,7 +23,6 @@ import {
 } from "@/lib/seo/seoConfig";
 import {
   BASE_SITE_URL,
-  LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
@@ -32,7 +31,6 @@ import { buildDynamicOgImage, buildDynamicTwitterImages } from "@/lib/seo/dynami
 
 const content = LOCALE_CONTENT.tr;
 
-const EDITOR_ORGANIZATION_ID = `${BASE_SITE_URL}/#editor`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 
@@ -136,15 +134,32 @@ export default function TurkishLayout({ children }) {
           href="/opensearch.xml"
         />
       </head>
-      <body>
+      <body className="flex flex-col">
         <span id="_page_top" className="sr-only" aria-hidden="true" />
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
         <JsonLd id="global-ld-json" data={globalJsonLd} />
-        <Navbar />
-        {children}
-        <Footer />
+        <header
+          id="_main_header"
+          aria-label="Sahneva site ust menusu ve ana navigasyon"
+          className="relative z-50 w-full"
+        >
+          <Navbar />
+        </header>
+        <main
+          id="_main_content"
+          aria-label="Sahneva ana icerik"
+          tabIndex={-1}
+          className="relative min-h-[1px] flex-1 scroll-mt-24 focus:outline-none"
+        >
+          {children}
+        </main>
+        <Footer
+          id="_main_footer"
+          ariaLabel="Sahneva site alt bilgisi"
+          descriptionId="_main_footer_desc"
+        />
         <StickyVideoRailClient />
         <DeferredSpeedInsights />
       </body>

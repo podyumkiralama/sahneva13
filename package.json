@@ -13,23 +13,23 @@
     "lint": "eslint . --max-warnings=0",
     "analyze": "next experimental-analyze",
     "deps:dedupe": "npm dedupe",
-    "security:check": "npx @next/security-headers-check"
+    "security:check": "node scripts/check-security-headers.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.2.4",
     "@tailwindcss/typography": "0.5.19",
-    "@vercel/speed-insights": "1.2.0",
+    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
-    "next": "^16.2.4",
-    "postcss": "8.5.10",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "next": "^16.2.6",
+    "postcss": "^8.5.14",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
     "@eslint/js": "9.38.0",
     "eslint": "9.38.0",
-    "eslint-config-next": "^16.2.4",
+    "eslint-config-next": "^16.2.6",
     "eslint-plugin-react": "7.37.5",
     "globals": "16.4.0",
     "tailwindcss": "4.2.4",
