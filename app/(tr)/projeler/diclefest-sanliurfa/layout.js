@@ -42,6 +42,89 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     background: rgba(15, 23, 42, 0.82) !important;
   }
 
+  .diclefest-scale-section {
+    padding: 3rem 1rem !important;
+    background: #0B1120;
+  }
+
+  .diclefest-scale-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .diclefest-scale-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.5rem;
+    align-items: end;
+  }
+
+  .diclefest-scale-kicker {
+    margin: 0;
+    color: #dbeafe !important;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .diclefest-scale-title {
+    margin: 0.75rem 0 0;
+    color: #f8fafc !important;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.05;
+    font-weight: 950;
+    letter-spacing: -0.04em;
+  }
+
+  .diclefest-scale-desc {
+    margin: 0;
+    color: #d7e2f0 !important;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .diclefest-scale-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .diclefest-scale-card {
+    min-height: 160px;
+    border: 1px solid rgba(219, 234, 254, 0.16);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 1.1rem;
+    box-shadow: 0 20px 50px rgba(2, 6, 23, 0.24);
+  }
+
+  .diclefest-scale-value {
+    color: #ffffff !important;
+    font-size: clamp(1.8rem, 3vw, 2.75rem);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  .diclefest-scale-label {
+    margin: 0.75rem 0 0;
+    color: #dbeafe !important;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
+  .diclefest-scale-note {
+    margin: 0.55rem 0 0;
+    color: #cbd5e1 !important;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
   /* Case study bölümlerinde metin üstte, görseller altta aksın. */
   .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] {
     display: grid !important;
@@ -119,9 +202,19 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     margin-top: 0.9rem !important;
   }
 
+  @media (max-width: 1180px) {
+    .diclefest-scale-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 1023px) {
     .diclefest-tight-scope > main section > div[class*="lg:grid-cols-2"] > div:last-child.grid {
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .diclefest-scale-head {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -148,13 +241,85 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
       padding: 0.52rem 0.8rem !important;
       font-size: 0.78rem !important;
     }
+
+    .diclefest-scale-section {
+      padding: 2.25rem 1rem !important;
+    }
+
+    .diclefest-scale-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .diclefest-scale-card {
+      min-height: auto;
+    }
   }
 `;
+
+const PROJECT_SCALE = [
+  {
+    value: "25×25 m",
+    label: "Dome çadır",
+    note: "Festival alanının ana deneyim yapısı olarak konumlandırıldı.",
+  },
+  {
+    value: "800 m²",
+    label: "Etkinlik çadırı alanı",
+    note: "Teknoloji, deneyim, oyun ve bilgilendirme alanları için planlandı.",
+  },
+  {
+    value: "1.500 m²",
+    label: "Podyum, zemin ve sahne",
+    note: "Platform, geçiş ve sahne uygulamaları tek saha planıyla yapıldı.",
+  },
+  {
+    value: "150 m²",
+    label: "LED ekran",
+    note: "Sahne ve görsel deneyim kurgusunda kullanılan ekran altyapısı uygulandı.",
+  },
+  {
+    value: "4 adet",
+    label: "Dome içi lazer projeksiyon",
+    note: "Dome alanları içinde etkileşimli görsel deneyim noktaları oluşturuldu.",
+  },
+];
+
+function ProjectScaleSection() {
+  return (
+    <section className="diclefest-scale-section" aria-labelledby="diclefest-proje-olcegi">
+      <div className="diclefest-scale-inner">
+        <div className="diclefest-scale-head">
+          <div>
+            <p className="diclefest-scale-kicker">Sayısal Verilerle Proje Ölçeği</p>
+            <h2 id="diclefest-proje-olcegi" className="diclefest-scale-title">
+              DicleFest Şanlıurfa saha uygulamasının ölçeği
+            </h2>
+          </div>
+          <p className="diclefest-scale-desc">
+            Proje; 25×25 metre dome çadır, 800 m² etkinlik çadırı alanı, 1.500 m² podyum/zemin/sahne uygulaması,
+            150 m² LED ekran ve 4 adet dome içi lazer projeksiyon deneyim alanıyla çok noktalı bir açık alan festival operasyonu olarak yönetildi.
+          </p>
+        </div>
+
+        <div className="diclefest-scale-grid" aria-label="DicleFest Şanlıurfa proje ölçeği verileri">
+          {PROJECT_SCALE.map((item) => (
+            <article className="diclefest-scale-card" key={item.label}>
+              <div className="diclefest-scale-value">{item.value}</div>
+              <h3 className="diclefest-scale-label">{item.label}</h3>
+              <p className="diclefest-scale-note">{item.note}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function DicleFestProjectLayout({ children }) {
   return (
     <div className="diclefest-tight-scope">
       {children}
+      <ProjectScaleSection />
       <style dangerouslySetInnerHTML={{ __html: DICLEFEST_TIGHT_SPACING_CSS }} />
     </div>
   );
