@@ -212,6 +212,43 @@
   }
 }
 
+@keyframes sahneva-gradient-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(-16deg);
+  }
+
+  50% {
+    transform: translate3d(-1.5%, 1.5%, 0) scale(1.04) rotate(-12deg);
+  }
+}
+
+@keyframes sahneva-gradient-sheen {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: translate3d(-1.5%, 1%, 0);
+    opacity: 0.16;
+  }
+}
+
+@keyframes sahneva-gradient-beam {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-24deg) scale(1);
+    opacity: 0.88;
+  }
+
+  50% {
+    transform: translate3d(-1%, 1%, 0) rotate(-21deg) scale(1.03);
+    opacity: 1;
+  }
+}
+
 /* Utilities */
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
@@ -275,6 +312,26 @@
 
   .brand-logo-rail:hover {
     animation-play-state: paused;
+  }
+
+  .sahneva-gradient-glow-float {
+    animation: sahneva-gradient-float 24s ease-in-out infinite;
+    will-change: transform;
+    transform-origin: top right;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-gradient-glow-sheen {
+    animation: sahneva-gradient-sheen 18s ease-in-out infinite;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  .sahneva-gradient-glow-beam {
+    animation: sahneva-gradient-beam 20s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform-origin: top right;
+    backface-visibility: hidden;
   }
 
   @media (max-width: 767px) {

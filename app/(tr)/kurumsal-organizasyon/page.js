@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
+import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
@@ -172,12 +173,20 @@ function SectionShell({ variant = "light", id, children }) {
   const variantClass = {
     light: "bg-white",
     soft: "bg-slate-50",
-    ink: "bg-slate-950 text-white",
+    ink: "relative isolate overflow-hidden bg-[#0B1120] text-white",
   };
 
   return (
     <section id={id} className={`${variantClass[variant]} scroll-mt-24 py-14 md:py-16`}>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">{children}</div>
+      {variant === "ink" ? (
+        <>
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div className="absolute inset-0 grid-overlay opacity-45" />
+          </div>
+          <SahnevaGradientGlow mode="section" />
+        </>
+      ) : null}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">{children}</div>
     </section>
   );
 }
@@ -358,7 +367,7 @@ function CorporateOrganizationJsonLd() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 pb-14 pt-28 text-white md:pb-16 md:pt-36" aria-labelledby="hero-title">
+    <section className="relative isolate overflow-hidden bg-[#0B1120] pb-14 pt-28 text-white md:pb-16 md:pt-36" aria-labelledby="hero-title">
       <Image
         src={HERO.src}
         alt={HERO.alt}
@@ -374,9 +383,13 @@ function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgb(2 6 23), rgb(2 6 23 / 0.85), rgb(2 6 23 / 0.2)), linear-gradient(to top, rgb(2 6 23), rgb(2 6 23 / 0.25), rgb(2 6 23 / 0.2))",
+            "linear-gradient(90deg, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.95) 28%, rgba(2,6,23,0.88) 44%, rgba(2,6,23,0.56) 66%, rgba(2,6,23,0.26) 100%), linear-gradient(to top, rgba(2,6,23,0.94), rgba(2,6,23,0.28) 44%, rgba(2,6,23,0.14) 100%)",
         }}
       />
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 grid-overlay opacity-40" />
+      </div>
+      <SahnevaGradientGlow mode="hero" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="max-w-3xl">
