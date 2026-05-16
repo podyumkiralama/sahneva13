@@ -19,20 +19,6 @@ import Link from "next/link";
 // ===============================================================
 
 const DEFAULT_GALLERIES = {
-  "DicleFest Şanlıurfa": {
-    href: "/projeler/diclefest-sanliurfa",
-    images: [
-      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-genel-alan.jpg",
-      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-acik-alan-festival-yerlesimi.jpg",
-      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-konser-alani-sahne-kurulumu.jpg",
-      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-oyun-alani-masa-tenisi.jpg",
-      "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dekor-ve-fotograf-alani.jpg",
-    ],
-    description:
-      "DicleFest Şanlıurfa’da dome çadırlar, etkinlik çadırları, oyun alanları, konser alanı ve dekor uygulamaları Sahneva koordinasyonunda yönetildi.",
-    stats: "Açık Alan Festival",
-  },
-
   "LED Ekran Kiralama": {
     images: Array.from(
       { length: 36 },
