@@ -34,10 +34,10 @@ export const ASSURANCE_ITEMS = [
 ];
 
 export const GUIDE_PROMISES = [
-  "Kurumsal organizasyon şirketi seçerken hangi kriterlere bakmanız gerektiği",
-  "Konferans, lansman ve gala formatlarında teknik kapsamın nasıl ayrıştığı",
-  "Sahne, LED ekran, ses, ışık ve prova planının tek akışta nasıl yönetildiği",
-  "Teklif almadan önce bütçeyi etkileyen temel kararların nasıl netleşeceği",
+  "Tek ekipte keşif, planlama, kurulum ve saha yönetimi",
+  "Konferans, lansman ve gala için format bazlı teknik çözüm",
+  "Sahne, LED ekran, ses, ışık ve prova akışını birlikte yönetim",
+  "Teklif öncesi hızlı ön kapsam ve doğru ekipman yönlendirmesi",
 ];
 
 export const GUIDE_CONTENTS = [

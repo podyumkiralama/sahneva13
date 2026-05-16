@@ -35,10 +35,8 @@ import {
   FAQ_ITEMS,
   FORMAT_ITEMS,
   GALLERY_IMAGES,
-  GUIDE_AUTHOR,
   GUIDE_CONTENTS,
   GUIDE_PROMISES,
-  GUIDE_UPDATED,
   GUIDE_UPDATED_ISO,
   HERO,
   HERO_STATS,
@@ -70,6 +68,12 @@ const HOW_TO_STEPS = [
   "Run-of-show hazırla",
   "Kurulum ve prova planını yap",
   "Etkinlik sonrası ölçüm ve raporlama yap",
+];
+
+const HERO_SIGNAL_ROWS = [
+  { Icon: Ruler, label: "Mekan okuması", value: "ölçü, yükleme, görüş" },
+  { Icon: MonitorCheck, label: "Görsel omurga", value: "sahne, LED, içerik akışı" },
+  { Icon: Zap, label: "Risk katmanı", value: "güç, prova, yedek plan" },
 ];
 
 const TECHNICAL_DISCOVERY_STEPS = [
@@ -111,9 +115,9 @@ const TECHNICAL_DISCOVERY_STEPS = [
 ];
 
 export const metadata = {
-  title: "Kurumsal Organizasyon Şirketleri | Teknik Prodüksiyon Rehberi",
+  title: "Kurumsal Organizasyon Hizmetleri | Sahne, LED Ekran ve Teknik Prodüksiyon",
   description:
-    "Kurumsal organizasyon rehberi: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon süreci.",
+    "Kurumsal organizasyon hizmetleri: konferans, lansman ve gala için sahne, LED ekran, ses, ışık, planlama ve teknik prodüksiyon çözümleri.",
   keywords: [
     "kurumsal organizasyon",
     "kurumsal etkinlik organizasyonu",
@@ -129,9 +133,9 @@ export const metadata = {
     xDefault: "/en/corporate-events",
   }),
   openGraph: {
-    title: "Kurumsal Organizasyon Rehberi | Sahneva",
+    title: "Kurumsal Organizasyon Hizmetleri | Sahneva",
     description:
-      "Konferans, lansman ve gala etkinliklerinde planlama, sahne, LED ekran, ses, ışık ve saha operasyonunu tek rehber akışında inceleyin.",
+      "Konferans, lansman ve gala etkinliklerinde sahne, LED ekran, ses, ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva",
@@ -151,7 +155,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon Rehberi | Sahneva",
+    title: "Kurumsal Organizasyon Hizmetleri | Sahneva",
     description:
       "Kurumsal etkinliklerde planlama, sahne, LED ekran, ses ve ışık prodüksiyon süreci.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
@@ -389,33 +393,39 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay opacity-40" />
       </div>
+      <div className="absolute inset-0 corporate-ai-aurora opacity-75" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B1120] to-transparent" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
-        <div className="max-w-3xl">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-start xl:gap-10">
+        <div className="max-w-3xl lg:max-w-none">
           <p className="text-sm font-semibold uppercase tracking-normal text-sky-200">
-            Kurumsal organizasyon rehberi
+            Kurumsal organizasyon hizmetleri
           </p>
 
           <h1
             id="hero-title"
-            className="mt-5 max-w-4xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl"
+            className="mt-5 max-w-2xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-[4.6rem] lg:leading-[0.98]"
           >
-            <span className="block">Kurumsal Organizasyon:</span>
-            <span className="block">sahne, LED ekran ve teknik prodüksiyon rehberi</span>
+            Kurumsal Organizasyon
           </h1>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/75">
-            <span>Hazırlayan: {GUIDE_AUTHOR}</span>
+          <p className="mt-5 max-w-2xl text-2xl font-black leading-tight text-sky-100 md:text-3xl">
+            Sahne, LED ekran ve teknik prodüksiyonla uçtan uca etkinlik çözümü.
+          </p>
+
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-white/78">
+            <span>Tek ekipten keşif ve teklif</span>
             <span aria-hidden="true">|</span>
-            <time dateTime={GUIDE_UPDATED_ISO}>Güncellendi: {GUIDE_UPDATED}</time>
+            <span>Türkiye genelinde kurulum</span>
             <span aria-hidden="true">|</span>
             <span>10+ yıl saha deneyimi</span>
           </div>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 md:text-xl md:leading-9">
-            Bu sayfa; konferans, ürün lansmanı, bayi toplantısı ve gala gibi kurumsal etkinliklerde doğru planı kurmak için
-            hazırlanmış ana rehberdir. Amaç yalnızca ekipman listesi çıkarmak değil; hedef, akış, teknik risk ve sahne
-            deneyimini aynı karar sırasına koymaktır.
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/85 md:text-lg md:leading-8">
+            Konferans, ürün lansmanı, bayi toplantısı ve gala gibi kurumsal etkinliklerde keşif, planlama, kurulum ve
+            etkinlik günü operasyonunu tek ekipten yönetiyoruz. Amacımız markanız için güçlü bir sahne etkisi ve
+            sorunsuz ilerleyen profesyonel bir süreç kurmak.
           </p>
 
           <ul className="mt-7 grid gap-3 text-white/90 md:grid-cols-2">
@@ -442,13 +452,15 @@ function Hero() {
               href="#ne-sunar"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white/15"
             >
-              Rehbere başla
+              Hizmetleri incele
               <CirclePlay className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
+        <EventSignalPanel />
+        </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {HERO_STATS.map((stat) => (
             <div key={stat.label} className="rounded-lg border border-white/15 bg-black/30 px-4 py-4">
               <div className="text-2xl font-black text-white">{stat.value}</div>
@@ -466,6 +478,88 @@ function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+function EventSignalPanel() {
+  return (
+    <aside className="relative hidden lg:block" aria-label="Kurumsal organizasyon teknik akış paneli">
+      <div className="relative overflow-hidden rounded-lg border border-white/15 bg-slate-950/82 p-4 shadow-2xl shadow-blue-950/35">
+        <div className="absolute inset-0 corporate-ai-scan opacity-30" aria-hidden="true" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent" aria-hidden="true" />
+
+        <div className="relative">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-200">
+                Sahneva ops
+              </div>
+              <div className="mt-1 text-xl font-black text-white">
+                Teknik akış konsolu
+              </div>
+            </div>
+            <div className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-black uppercase tracking-normal text-emerald-200">
+              canlı plan
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-3">
+            {HERO_SIGNAL_ROWS.map((row, index) => {
+              const Icon = row.Icon;
+
+              return (
+                <div key={row.label} className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-4">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-sky-300/0 via-sky-300/70 to-emerald-300/0 opacity-0 transition group-hover:opacity-100" aria-hidden="true" />
+                  <div className="flex items-start gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-sky-300/20 bg-sky-300/10 text-sky-200">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="flex items-center justify-between gap-3">
+                        <span className="font-black text-white">{row.label}</span>
+                        <span className="font-mono text-xs font-bold text-white/45">0{index + 1}</span>
+                      </span>
+                      <span className="mt-1 block text-sm leading-relaxed text-white/68">{row.value}</span>
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="relative mt-4 overflow-hidden rounded-lg border border-white/10 bg-black/25 p-4">
+            <svg className="h-28 w-full" viewBox="0 0 360 128" role="img" aria-label="Keşiften etkinlik gününe ilerleyen prodüksiyon akışı">
+              <defs>
+                <linearGradient id="hero-signal-line" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stopColor="rgb(56 189 248)" stopOpacity="0.15" />
+                  <stop offset="48%" stopColor="rgb(125 211 252)" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="rgb(16 185 129)" stopOpacity="0.22" />
+                </linearGradient>
+              </defs>
+              <path
+                className="corporate-ai-line"
+                d="M22 86 C82 20 132 104 184 58 S286 22 338 72"
+                fill="none"
+                stroke="url(#hero-signal-line)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              {[34, 112, 184, 260, 326].map((x, index) => (
+                <g key={x}>
+                  <circle cx={x} cy={index % 2 === 0 ? 78 : 52} r="7" fill="rgb(14 165 233)" opacity="0.25" />
+                  <circle cx={x} cy={index % 2 === 0 ? 78 : 52} r="3.5" fill={index === 4 ? "rgb(52 211 153)" : "rgb(125 211 252)"} />
+                </g>
+              ))}
+            </svg>
+            <div className="mt-2 grid grid-cols-3 gap-2 text-[0.68rem] font-black uppercase tracking-normal text-white/55">
+              <span>keşif</span>
+              <span className="text-center">prova</span>
+              <span className="text-right">show</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
   );
 }
 
@@ -845,7 +939,7 @@ function PlanningSection() {
 
 function TechnicalDiscoveryMap() {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 p-5 text-white shadow-sm md:p-6">
+    <div className="relative overflow-hidden rounded-lg border border-sky-300/20 bg-[#070d18] p-5 text-white shadow-2xl shadow-blue-950/20 md:p-6">
       <div className="absolute inset-0 opacity-35" aria-hidden="true">
         <div
           className="absolute inset-0"
@@ -856,8 +950,8 @@ function TechnicalDiscoveryMap() {
           }}
         />
       </div>
-      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-3xl" aria-hidden="true" />
-      <div className="absolute right-10 top-10 h-32 w-32 rounded-full bg-sky-300/10 blur-2xl" aria-hidden="true" />
+      <div className="absolute inset-0 corporate-ai-aurora opacity-35" aria-hidden="true" />
+      <div className="absolute inset-0 corporate-ai-scan opacity-20" aria-hidden="true" />
 
       <div className="relative min-h-[31rem] hidden lg:block">
         <svg
@@ -892,7 +986,7 @@ function TechnicalDiscoveryMap() {
           ))}
         </svg>
 
-        <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-blue-300/35 bg-blue-400/12 text-center shadow-[0_0_70px_rgba(59,130,246,0.26)]">
+        <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-lg border border-blue-300/35 bg-blue-400/12 text-center shadow-[0_0_70px_rgba(59,130,246,0.26)]">
           <div className="text-[0.68rem] font-black uppercase tracking-[0.18em] text-blue-200">
             Teknik keşif
           </div>
@@ -907,8 +1001,9 @@ function TechnicalDiscoveryMap() {
         {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
           <article
             key={step.title}
-            className={`absolute w-48 rounded-2xl border border-white/10 bg-white/[0.075] p-4 backdrop-blur-sm ${step.position}`}
+            className={`absolute w-48 overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 p-4 shadow-lg shadow-black/20 ${step.position}`}
           >
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent" aria-hidden="true" />
             <div className="flex items-center justify-between gap-3">
               <span className="text-sm font-black text-blue-200">
                 {String(index + 1).padStart(2, "0")}
@@ -928,7 +1023,7 @@ function TechnicalDiscoveryMap() {
       </div>
 
       <div className="relative grid gap-4 lg:hidden">
-        <div className="rounded-2xl border border-blue-300/30 bg-blue-400/12 p-5 text-center">
+        <div className="rounded-lg border border-blue-300/30 bg-blue-400/12 p-5 text-center">
           <div className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
             Teknik keşif
           </div>
@@ -937,10 +1032,10 @@ function TechnicalDiscoveryMap() {
         {TECHNICAL_DISCOVERY_STEPS.map((step, index) => (
           <article
             key={step.title}
-            className="rounded-2xl border border-white/10 bg-white/[0.06] p-4"
+            className="rounded-lg border border-white/10 bg-white/[0.06] p-4"
           >
             <div className="flex items-center justify-between gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-400 text-sm font-black text-slate-950">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-400 text-sm font-black text-slate-950">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/70">
@@ -1025,6 +1120,7 @@ function TechnicalDiscoveryInfographic() {
 
 function ServicesSection() {
   const ctaLabels = ["Teklif al", "Kapsamı sor", "Planı konuş"];
+  const serviceIcons = [MonitorCheck, Clapperboard, ShieldCheck, Zap, RadioTower, ClipboardCheck];
 
   return (
     <SectionShell variant="soft" id="hizmetler">
@@ -1040,24 +1136,41 @@ function ServicesSection() {
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {SERVICE_ITEMS.map((item, index) => (
-          <Card key={item.title} className="h-full">
-            <div className="text-sm font-semibold text-blue-700">Kurumsal organizasyon</div>
-            <h3 className="mt-2 text-xl font-black text-gray-900">{item.title}</h3>
-            <p className="mt-3 text-gray-600 leading-relaxed">{item.desc}</p>
-            <div className="mt-6">
-              <a
-                href={generateWhatsAppLink(item.whatsappIntent)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${item.title} için WhatsApp üzerinden teklif mesajı gönderin`}
-                className="inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition"
-              >
-                {ctaLabels[index % ctaLabels.length]}
-              </a>
-            </div>
-          </Card>
-        ))}
+        {SERVICE_ITEMS.map((item, index) => {
+          const Icon = serviceIcons[index % serviceIcons.length];
+
+          return (
+            <Card key={item.title} className="group relative h-full overflow-hidden p-0 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/10">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-400 via-blue-500 to-emerald-400" aria-hidden="true" />
+              <div className="absolute inset-0 corporate-ai-scan opacity-0 transition duration-300 group-hover:opacity-30" aria-hidden="true" />
+              <div className="relative flex h-full flex-col p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-blue-700">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span className="font-mono text-xs font-black uppercase tracking-normal text-slate-400">
+                    mod {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="mt-5 text-sm font-semibold text-blue-700">Kurumsal organizasyon</div>
+                <h3 className="mt-2 text-xl font-black text-gray-900">{item.title}</h3>
+                <p className="mt-3 grow text-gray-600 leading-relaxed">{item.desc}</p>
+                <div className="mt-6">
+                  <a
+                    href={generateWhatsAppLink(item.whatsappIntent)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.title} için WhatsApp üzerinden teklif mesajı gönderin`}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3 font-bold text-white transition hover:bg-blue-500"
+                  >
+                    {ctaLabels[index % ctaLabels.length]}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </SectionShell>
   );

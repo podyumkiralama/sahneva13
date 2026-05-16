@@ -332,6 +332,43 @@
   }
 }
 
+@keyframes corporateAiAuroraDrift {
+  0%,
+  100% {
+    background-position: 0% 50%, 0 0;
+    opacity: 0.72;
+  }
+
+  50% {
+    background-position: 100% 42%, 28px 18px;
+    opacity: 0.86;
+  }
+}
+
+@keyframes corporateAiSignalSweep {
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes corporateAiLinePulse {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.65;
+  }
+
+  50% {
+    stroke-dashoffset: -28;
+    opacity: 1;
+  }
+}
+
 /* Utilities */
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
@@ -451,6 +488,32 @@
     backface-visibility: hidden;
   }
 
+  .corporate-ai-aurora {
+    background-image:
+      linear-gradient(112deg, transparent 0%, rgba(14, 165, 233, 0.08) 22%, rgba(59, 130, 246, 0.24) 38%, rgba(16, 185, 129, 0.12) 52%, transparent 72%),
+      repeating-linear-gradient(116deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 18px);
+    background-size: 160% 160%, 86px 86px;
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.92) 66%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.92) 66%, transparent 100%);
+    animation: corporateAiAuroraDrift 30s ease-in-out infinite;
+    will-change: background-position, opacity;
+    backface-visibility: hidden;
+  }
+
+  .corporate-ai-scan {
+    background-image:
+      linear-gradient(105deg, transparent 0%, rgba(125, 211, 252, 0.12) 38%, rgba(255, 255, 255, 0.18) 50%, rgba(52, 211, 153, 0.1) 62%, transparent 100%);
+    background-size: 220% 100%;
+    animation: corporateAiSignalSweep 9s ease-in-out infinite;
+    will-change: background-position;
+    backface-visibility: hidden;
+  }
+
+  .corporate-ai-line {
+    stroke-dasharray: 10 12;
+    animation: corporateAiLinePulse 5.5s ease-in-out infinite;
+  }
+
   @media (max-width: 767px) {
     .brand-logo-rail {
       animation-duration: 58s;
@@ -548,7 +611,10 @@
 @media (prefers-reduced-motion: reduce) {
   .sahneva-stripe-blob,
   .sahneva-stripe-lines,
-  .sahneva-stripe-soft {
+  .sahneva-stripe-soft,
+  .corporate-ai-aurora,
+  .corporate-ai-scan,
+  .corporate-ai-line {
     animation: none;
     will-change: auto;
   }
