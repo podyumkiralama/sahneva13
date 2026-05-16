@@ -16,7 +16,6 @@ import {
 
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
-import SahnevaShaderGradientLazy from "@/components/ui/SahnevaShaderGradientLazy.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
@@ -390,8 +389,6 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay opacity-40" />
       </div>
-      <SahnevaGradientGlow mode="hero" />
-      <SahnevaShaderGradientLazy />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="max-w-3xl">
