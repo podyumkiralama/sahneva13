@@ -57,6 +57,14 @@ export const OVERVIEW_POINTS = [
     title: "Premium algı",
     desc: "Saha görüntüsü, video çıktısı ve katılımcı deneyimi aynı kalite çizgisinde tutulur.",
   },
+  {
+    title: "Tasarım Stüdyosu Esnekliği, Fabrika Gücü!",
+    desc: "Sahneva olarak kurumsal organizasyon projelerini fabrika disipliniyle sahaya indiriyoruz. 3 boyutlu simülasyonla onaylanan kurgu; sahne, LED ekran, ses-ışık, premium dome çadır, podyum, bistro masa ve tamamlayıcı ekipmanlarla tek operasyon planına dönüşür.",
+  },
+  {
+    title: "Özmal envanter ve tek operasyon",
+    desc: "Aracı maliyetlerini azaltan özmal envanter gücümüz sayesinde fikirden kuruluma kadar daha kontrollü, daha hızlı ve daha şeffaf bir süreç sunarız.",
+  },
 ];
 
 export const FORMAT_ITEMS = [
