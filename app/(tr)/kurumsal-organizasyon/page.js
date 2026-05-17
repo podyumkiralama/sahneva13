@@ -51,6 +51,20 @@ export const revalidate = 1800;
 
 const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";
+const PAGE_TITLE = "Kurumsal Organizasyon Şirketleri | Sahne, LED Ekran ve Teknik Prodüksiyon";
+const PAGE_DESCRIPTION =
+  "Kurumsal organizasyon şirketi arayan markalar için konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, teknik keşif ve saha operasyonu.";
+const OG_TITLE = "Kurumsal Organizasyon Şirketleri | Sahneva";
+const OG_DESCRIPTION =
+  "Konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.";
+const TWITTER_DESCRIPTION =
+  "Kurumsal etkinliklerde sahne, LED ekran, ses-ışık ve teknik prodüksiyon süreci.";
+const HERO_IMAGE_SIZE = { width: 1200, height: 630 };
+const OG_IMAGE_DIMENSIONS = {
+  "/img/kurumsal/premium/acik-hava-konser.webp": { width: 1600, height: 1199 },
+  "/img/kurumsal/premium/festival-kalabalik.webp": { width: 1290, height: 1600 },
+  "/img/kurumsal/premium/truss-sahne-cati.webp": { width: 1600, height: 900 },
+};
 
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
@@ -114,10 +128,9 @@ const TECHNICAL_DISCOVERY_STEPS = [
 
 export const metadata = {
   title: {
-    absolute: "Kurumsal Organizasyon Şirketleri | Sahne, LED Ekran ve Teknik Prodüksiyon",
+    absolute: PAGE_TITLE,
   },
-  description:
-    "Kurumsal organizasyon şirketi arayan markalar için konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, teknik keşif ve saha operasyonu.",
+  description: PAGE_DESCRIPTION,
   keywords: [
     "kurumsal organizasyon",
     "kurumsal etkinlik organizasyonu",
@@ -132,9 +145,8 @@ export const metadata = {
     xDefault: "/en/corporate-events",
   }),
   openGraph: {
-    title: "Kurumsal Organizasyon Şirketleri | Sahneva",
-    description:
-      "Konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.",
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva",
@@ -142,21 +154,20 @@ export const metadata = {
     images: [
       {
         url: `${ORIGIN}${HERO.src}`,
-        width: 1200,
-        height: 630,
+        ...HERO_IMAGE_SIZE,
         alt: HERO.alt,
       },
       ...GALLERY_IMAGES.slice(0, 3).map((image) => ({
         url: `${ORIGIN}${image.src}`,
+        ...OG_IMAGE_DIMENSIONS[image.src],
         alt: image.alt,
       })),
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon Şirketleri | Sahneva",
-    description:
-      "Kurumsal etkinliklerde sahne, LED ekran, ses-ışık ve teknik prodüksiyon süreci.",
+    title: OG_TITLE,
+    description: TWITTER_DESCRIPTION,
     images: [`${ORIGIN}${HERO.src}`],
   },
   robots: {
@@ -308,7 +319,7 @@ function CorporateOrganizationJsonLd() {
         { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-planlama-rehberi-2026#article` },
         { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi#article` },
       ],
-      name: metadata.title,
+      name: PAGE_TITLE,
       description: metadata.description,
       dateModified: GUIDE_UPDATED_ISO,
       inLanguage: "tr-TR",
@@ -318,6 +329,8 @@ function CorporateOrganizationJsonLd() {
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${ORIGIN}${HERO.src}`,
+        ...HERO_IMAGE_SIZE,
+        caption: HERO.alt,
       },
       image: [
         `${ORIGIN}${HERO.src}`,
