@@ -1,6 +1,6 @@
 export const HERO = {
   src: "/img/kurumsal/premium/konferans-led-ekran.webp",
-  alt: "Büyük ölçekli kurumsal etkinlikte LED sahne, ışık ve teknik prodüksiyon",
+  alt: "Kurumsal organizasyon için konferans LED ekran sahne ışık ve teknik prodüksiyon",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
@@ -156,19 +156,19 @@ export const SERVICE_ITEMS = [
 export const GALLERY_IMAGES = [
   {
     src: "/img/kurumsal/premium/acik-hava-konser.webp",
-    alt: "Açık hava büyük sahne, LED ekran ve ışık prodüksiyonu",
+    alt: "Açık hava kurumsal organizasyon için büyük sahne LED ekran ve ışık prodüksiyonu",
   },
   {
     src: "/img/kurumsal/premium/festival-kalabalik.webp",
-    alt: "Kalabalık açık hava etkinliğinde büyük sahne prodüksiyonu",
+    alt: "Kalabalık açık hava etkinliğinde kurumsal sahne ve teknik prodüksiyon",
   },
   {
     src: "/img/kurumsal/premium/truss-sahne-cati.webp",
-    alt: "Büyük sahne çatı ve truss kurulum sistemi",
+    alt: "Lansman ve gala için büyük sahne çatı ve truss kurulum sistemi",
   },
   {
     src: "/img/kurumsal/premium/saha-referans-05.jpeg",
-    alt: "Sahneva büyük etkinlik prodüksiyonu referansı",
+    alt: "Sahneva kurumsal organizasyon teknik prodüksiyon referansı",
   },
   {
     src: "/img/kurumsal/premium/panel-led-sahne.webp",

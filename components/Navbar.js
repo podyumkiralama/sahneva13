@@ -22,14 +22,13 @@ const EN_WHATSAPP_MESSAGE = encodeURIComponent(
 );
 
 const TR_SERVICE_LINKS = [
-  { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "👑", description: "Profesyonel modüler podyum sistemleri" },
+  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon", icon: "🏢", description: "Sahne, LED ekran ve teknik prodüksiyon" },
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama", icon: "🖥️", description: "HD LED ekran ve video wall çözümleri" },
   { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎪", description: "Portatif ve modüler sahne sistemleri" },
-  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon", icon: "🏢", description: "Kurumsal etkinlik organizasyonu ve uçtan uca yönetim" },
+  { href: "/podyum-kiralama", label: "Podyum Kiralama", icon: "👑", description: "Konferans ve protokol için modüler platformlar" },
   { href: "/ses-isik-sistemleri", label: "Ses Işık Sistemleri", icon: "🎭", description: "Konser kalitesinde ses ışık sistemleri" },
   { href: "/truss-kiralama", label: "Truss Kiralama", icon: "🧩", description: "Alüminyum truss, portal ve üst yapı çözümleri" },
-  { href: "/cadir-kiralama", label: "Çadır Kiralama", icon: "⛺", description: "Her türlü etkinlik için çadır çözümleri" },
-  { href: "/masa-sandalye-kiralama", label: "Masa Sandalye Kiralama", icon: "🪑", description: "Toplantı ve davetler için masa sandalye kiralama" },
+  { href: "/cadir-kiralama", label: "Çadır Kiralama", icon: "⛺", description: "Fuar ve özel alanlar için geçici yapı çözümleri" },
 ];
 
 const TR_RESEARCH_LINKS = [

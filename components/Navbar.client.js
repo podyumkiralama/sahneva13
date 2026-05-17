@@ -23,10 +23,16 @@ const NAVBAR_WHATSAPP_MESSAGE = encodeURIComponent(
  */
 const SERVICE_LINKS = [
   {
+    href: "/kurumsal-organizasyon",
+    label: "Kurumsal Organizasyon",
+    icon: "🏢",
+    description: "Sahne, LED ekran ve teknik prodüksiyon",
+  },
+  {
     href: "/podyum-kiralama",
     label: "Podyum Kiralama",
     icon: "👑",
-    description: "Profesyonel modüler podyum sistemleri",
+    description: "Konferans ve protokol için modüler platformlar",
   },
   {
     href: "/led-ekran-kiralama",
@@ -39,12 +45,6 @@ const SERVICE_LINKS = [
     label: "Sahne Kiralama",
     icon: "🎪",
     description: "Portatif ve modüler sahne sistemleri",
-  },
-  {
-    href: "/kurumsal-organizasyon",
-    label: "Kurumsal Organizasyon",
-    icon: "🏢",
-    description: "Kurumsal etkinlik planlama ve uçtan uca organizasyon yönetimi",
   },
   {
     href: "/ses-isik-sistemleri",
@@ -62,13 +62,7 @@ const SERVICE_LINKS = [
     href: "/cadir-kiralama",
     label: "Çadır Kiralama",
     icon: "⛺",
-    description: "Her türlü etkinlik için çadır çözümleri",
-  },
-  {
-    href: "/masa-sandalye-kiralama",
-    label: "Masa Sandalye Kiralama",
-    icon: "🪑",
-    description: "Toplantı ve davetler için masa sandalye",
+    description: "Fuar ve özel alanlar için geçici yapı çözümleri",
   },
 ];
 
@@ -490,8 +484,8 @@ export default function Navbar({
         items: [byHref("/ses-isik-sistemleri"), byHref("/truss-kiralama")].filter(Boolean),
       },
       {
-        title: "Alan & Donanım",
-        items: [byHref("/cadir-kiralama"), byHref("/masa-sandalye-kiralama")].filter(Boolean),
+        title: "Alan Çözümleri",
+        items: [byHref("/cadir-kiralama")].filter(Boolean),
       },
     ];
   }, []);

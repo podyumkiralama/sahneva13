@@ -20,6 +20,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import {
   BASE_SITE_URL,
@@ -112,9 +113,11 @@ const TECHNICAL_DISCOVERY_STEPS = [
 ];
 
 export const metadata = {
-  title: "Kurumsal Organizasyon | Sahne ve LED Prodüksiyon",
+  title: {
+    absolute: "Kurumsal Organizasyon Şirketleri | Sahne, LED Ekran ve Teknik Prodüksiyon",
+  },
   description:
-    "Kurumsal organizasyon projeleri için sahne, LED ekran, ses, ışık ve teknik prodüksiyon çözümleri. Lansman, konferans ve gala etkinlikleri.",
+    "Kurumsal organizasyon şirketi arayan markalar için konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, teknik keşif ve saha operasyonu.",
   keywords: [
     "kurumsal organizasyon",
     "kurumsal etkinlik organizasyonu",
@@ -129,9 +132,9 @@ export const metadata = {
     xDefault: "/en/corporate-events",
   }),
   openGraph: {
-    title: "Kurumsal Organizasyon | Sahneva",
+    title: "Kurumsal Organizasyon Şirketleri | Sahneva",
     description:
-      "Konferans, lansman ve gala etkinliklerinde sahne, LED ekran, ses, ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.",
+      "Konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.",
     url: `${ORIGIN}/kurumsal-organizasyon`,
     type: "website",
     siteName: "Sahneva",
@@ -151,9 +154,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon | Sahneva",
+    title: "Kurumsal Organizasyon Şirketleri | Sahneva",
     description:
-      "Kurumsal etkinliklerde planlama, sahne, LED ekran, ses ve ışık prodüksiyon süreci.",
+      "Kurumsal etkinliklerde sahne, LED ekran, ses-ışık ve teknik prodüksiyon süreci.",
     images: [`${ORIGIN}${HERO.src}`],
   },
   robots: {
@@ -298,8 +301,12 @@ function CorporateOrganizationJsonLd() {
       isRelatedTo: [
         { "@id": `${ORIGIN}/sahne-kiralama#service` },
         { "@id": `${ORIGIN}/led-ekran-kiralama#service` },
+        { "@id": `${ORIGIN}/podyum-kiralama#service` },
         { "@id": `${ORIGIN}/ses-isik-sistemleri#service` },
         { "@id": `${ORIGIN}/truss-kiralama#service` },
+        { "@id": `${ORIGIN}/projeler#webpage` },
+        { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-planlama-rehberi-2026#article` },
+        { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi#article` },
       ],
       name: metadata.title,
       description: metadata.description,
@@ -327,9 +334,11 @@ function CorporateOrganizationJsonLd() {
     {
       "@type": "Service",
       "@id": serviceId,
-      name: "Kurumsal Organizasyon ve Teknik Prodüksiyon",
+      name: "Kurumsal Organizasyon Şirketleri ve Teknik Prodüksiyon",
       serviceType: [
         "Kurumsal etkinlik organizasyonu",
+        "Kurumsal organizasyon şirketi",
+        "Kurumsal organizasyon şirketleri",
         "Ürün lansmanı organizasyonu",
         "Bayi toplantısı organizasyonu",
         "Gala ve konferans prodüksiyonu",
@@ -944,7 +953,7 @@ function TechnicalDiscoveryMap() {
 
         <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-lg border border-blue-300/35 bg-blue-400/12 text-center shadow-[0_0_70px_rgba(59,130,246,0.26)]">
           <div className="text-[0.68rem] font-black uppercase tracking-[0.18em] text-blue-200">
-            Teknik keşif
+            Operasyon planı
           </div>
           <div className="mt-3 max-w-[9rem] text-2xl font-black leading-tight text-white">
             Saha okunur
@@ -981,7 +990,7 @@ function TechnicalDiscoveryMap() {
       <div className="relative grid gap-4 lg:hidden">
         <div className="rounded-lg border border-blue-300/30 bg-blue-400/12 p-5 text-center">
           <div className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
-            Teknik keşif
+            Operasyon planı
           </div>
           <div className="mt-2 text-2xl font-black text-white">Saha okunur, risk görünür.</div>
         </div>
@@ -1037,7 +1046,7 @@ function TechnicalDiscoveryInfographic() {
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <H2
-            kicker="Teknik keşif"
+            kicker="Saha okuması"
             title="Etkinlik günü sürpriz yaşamamak için saha önce okunur"
             desc="Teknik keşif; mekanın ölçü, enerji, taşıyıcı sistem, görüş açısı, akustik ve operasyon risklerini tekliften önce görünür hale getiren kısa ama kritik kontroldür."
           />
@@ -1434,6 +1443,56 @@ function FAQSection() {
   );
 }
 
+function TopicClusterSection() {
+  const cluster = CONTENT_CLUSTERS.corporate;
+  const serviceLinks = [
+    ...cluster.relatedServices,
+    {
+      href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
+      label: "Planlama içeriği",
+      anchorText: "kurumsal etkinlik planlama süreci",
+      intent: "Planlama ve karar hazırlığı",
+    },
+    {
+      href: "/blog/kurumsal-etkinlik-yonetimi",
+      label: "Operasyon içeriği",
+      anchorText: "kurumsal etkinlik yönetimi",
+      intent: "Saha operasyonu ve yönetim niyeti",
+    },
+  ];
+
+  return (
+    <SectionShell variant="soft" id="konu-kumesi">
+      <H2
+        kicker={cluster.eyebrow}
+        title="Kurumsal organizasyon kararını destekleyen bağlantılar"
+        desc={cluster.description}
+        center
+      />
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {serviceLinks.map((item) => (
+          <Link
+            key={`${item.href}-${item.anchorText}`}
+            href={item.href}
+            className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-950/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            <div className="text-xs font-black uppercase tracking-[0.14em] text-blue-700">
+              {item.label}
+            </div>
+            <div className="mt-3 text-lg font-black leading-tight text-slate-950 group-hover:text-blue-700">
+              {item.anchorText}
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              {item.intent}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
+
 function RelatedServices() {
   const services = [
     {
@@ -1618,6 +1677,7 @@ export default function Page() {
       <PackageSection />
       <StatsAndUseCases />
       <FAQSection />
+      <TopicClusterSection />
       <RelatedServices />
       <CTASection />
     </>
