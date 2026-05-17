@@ -3,6 +3,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
@@ -242,13 +243,11 @@ export default function Page() {
             Watch the video below to see the light, LED, and architectural impact of the stage.
           </p>
           <div className="not-prose my-8">
-            <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 shadow-sm" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                className="absolute left-0 top-0 h-full w-full"
-                src={VIDEO_EMBED_URL}
+            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+              <LazyVideoEmbed
+                videoId={VIDEO_ID}
                 title="PMGC 2023 Grand Finals - Istanbul"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                thumbnailUrl={VIDEO_THUMB}
               />
             </div>
           </div>

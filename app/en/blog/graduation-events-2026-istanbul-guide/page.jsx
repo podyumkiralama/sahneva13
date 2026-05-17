@@ -3,6 +3,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const ORIGIN = "https://www.sahneva.com";
@@ -16,6 +17,8 @@ const HERO_IMG = "/img/blog/mezuniyet-toreni-sahnesi.webp";
 const IMG_STAGE = "/img/blog/mezuniyet-toreni-sahnesi.webp";
 const IMG_SHOW = "/img/blog/mezuniyet-toreni-gorsel-sow.webp";
 const IMG_LED = "/img/blog/mezuniyet-toreni-led-ekran.webp";
+const VIDEO_PRIMARY_ID = "w28sVIG7U08";
+const VIDEO_SECONDARY_ID = "pWpVKKHSdwQ";
 
 const TITLE = "Graduation Events 2026 Istanbul Guide";
 const DESCRIPTION =
@@ -593,26 +596,18 @@ export default function BlogPostGraduationGuide() {
         </p>
 
         <div className="my-10 grid gap-6 lg:grid-cols-2">
-          <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
-              src="https://www.youtube.com/embed/w28sVIG7U08?si=LrHhdmuHGqyFTVhi"
+          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+            <LazyVideoEmbed
+              videoId={VIDEO_PRIMARY_ID}
               title="Graduation event stage and production example"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
+              thumbnailUrl={`https://i.ytimg.com/vi/${VIDEO_PRIMARY_ID}/hqdefault.jpg`}
             />
           </div>
-          <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute inset-0 h-full w-full rounded-2xl border border-gray-200"
-              src="https://www.youtube.com/embed/pWpVKKHSdwQ?si=8zWBDwbdN0U8W5kg"
+          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+            <LazyVideoEmbed
+              videoId={VIDEO_SECONDARY_ID}
               title="Istanbul graduation ceremony event video example"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
+              thumbnailUrl={`https://i.ytimg.com/vi/${VIDEO_SECONDARY_ID}/hqdefault.jpg`}
             />
           </div>
         </div>

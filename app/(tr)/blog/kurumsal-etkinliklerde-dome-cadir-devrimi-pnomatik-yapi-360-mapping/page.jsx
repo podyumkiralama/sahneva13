@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
@@ -42,11 +43,9 @@ const IMG_GECE = "/img/blog/dome-cadir-gece-ambiyans.webp"; // ⚠️ .web deği
 
 const YT_URL = "https://www.youtube.com/watch?v=JNzGlNzNRuk";
 const YT_ID = "JNzGlNzNRuk";
-const YT_EMBED = `https://www.youtube-nocookie.com/embed/${YT_ID}?rel=0&modestbranding=1`;
 const YT_THUMB = `https://img.youtube.com/vi/${YT_ID}/hqdefault.jpg`;
 const YT_LASER_URL = "https://youtube.com/shorts/CVdYV5BkF3k";
 const YT_LASER_ID = "CVdYV5BkF3k";
-const YT_LASER_EMBED = `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}?rel=0&modestbranding=1`;
 const YT_LASER_THUMB = `https://img.youtube.com/vi/${YT_LASER_ID}/hqdefault.jpg`;
 
 /* ================== META ================== */
@@ -212,19 +211,10 @@ const Breadcrumbs = () => (
   </nav>
 );
 
-function YouTubeEmbed({ title, embedUrl }) {
+function YouTubeEmbed({ title, videoId, thumbnailUrl }) {
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
-      <div className="aspect-video w-full">
-        <iframe
-          className="h-full w-full"
-          src={embedUrl}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          loading="lazy"
-        />
-      </div>
+    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+      <LazyVideoEmbed videoId={videoId} title={title} thumbnailUrl={thumbnailUrl} />
     </div>
   );
 }
@@ -363,7 +353,8 @@ export default function BlogPostDome360Mapping() {
               <div className="not-prose my-8">
                 <YouTubeEmbed
                   title="Dome Çadır & 360° Mapping Video"
-                  embedUrl={YT_EMBED}
+                  videoId={YT_ID}
+                  thumbnailUrl={YT_THUMB}
                 />
                 <p className="mt-3 text-sm text-gray-600">
                   Video kaynağı:{" "}
@@ -377,7 +368,8 @@ export default function BlogPostDome360Mapping() {
               <div className="not-prose my-8">
                 <YouTubeEmbed
                   title="Lazer Projeksiyon Mapping Video"
-                  embedUrl={YT_LASER_EMBED}
+                  videoId={YT_LASER_ID}
+                  thumbnailUrl={YT_LASER_THUMB}
                 />
                 <p className="mt-3 text-sm text-gray-600">
                   Video kaynağı:{" "}

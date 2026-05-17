@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Film, Layers3, Lightbulb, ShieldCheck, TentTree } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/saha-2026-dome-cadir-kurulumu";
@@ -356,17 +357,11 @@ export default function SahaDomeProjectPage() {
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-4">
             <div className="overflow-hidden rounded-2xl bg-black">
-              <div className="aspect-video w-full">
-                <iframe
-                  className="h-full w-full"
-                  src={VIDEO.embed}
-                  title="SAHA 2026 dome çadır tamamlanmış proje videosu"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <LazyVideoEmbed
+                videoId={VIDEO.id}
+                title="SAHA 2026 dome çadır tamamlanmış proje videosu"
+                thumbnailUrl={VIDEO.thumbnail}
+              />
             </div>
           </div>
           <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed text-slate-400">

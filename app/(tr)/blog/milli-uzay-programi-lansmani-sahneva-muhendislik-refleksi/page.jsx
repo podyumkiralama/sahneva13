@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -298,20 +299,15 @@ export default function Page() {
             izleyebilirsiniz.
           </p>
           <div className="not-prose my-8" aria-labelledby="video-title">
-            <div
-              className="relative w-full overflow-hidden rounded-2xl border border-gray-200 shadow-sm"
-              style={{ paddingTop: "56.25%" }}
-            >
-              <iframe
+            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+              <LazyVideoEmbed
+                videoId={VIDEO_ID}
                 title="Milli Uzay Programı Lansmanı Video"
-                src={VIDEO_EMBED_URL}
-                className="absolute inset-0 h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                thumbnailUrl={VIDEO_THUMB}
               />
             </div>
             <p id="video-title" className="mt-3 text-sm text-gray-600">
-              Video öne çıkan görsel: {VIDEO_THUMB}
+              Milli Uzay Programı Lansmanı video kaydı.
             </p>
           </div>
 
