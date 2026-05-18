@@ -716,85 +716,95 @@ function VisualProofStrip() {
 /* ================== HERO ================== */
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24" aria-labelledby="hero-title">
+    <section className="relative isolate overflow-hidden bg-[#05070d] pt-24 pb-14 md:pt-28 md:pb-20 lg:min-h-[760px] lg:pt-32 lg:pb-24" aria-labelledby="hero-title">
       <div className="absolute inset-0">
         <Image 
           src={HERO.src} 
           alt={HERO.alt} 
           fill 
           priority 
-          className="object-cover"
+          className="object-cover object-center"
           sizes={HERO.sizes}
-          quality={65}
+          quality={82}
           fetchPriority="high"
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
           unoptimized={shouldBypassLedImageOptimizer(HERO.src)}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/62 via-purple-800/48 to-blue-950/72" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/68 via-transparent to-purple-900/42" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.64)_42%,rgba(2,6,23,.24)_72%,rgba(2,6,23,.06)_100%)]" aria-hidden="true" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/70 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#05070d] via-[#05070d]/60 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.14)_1px,transparent_1px)] [background-size:96px_96px]" aria-hidden="true" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">Türkiye Geneli Profesyonel Hizmet</span>
-        </div>
-
-        <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Profesyonel <span className="text-blue-200">LED Ekran Kiralama</span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Konser • Fuar • Lansman • Festival • Kurumsal Etkinlikler
-        </p>
-        <p className="text-balance text-lg md:text-xl text-white/85 max-w-[38rem] mx-auto leading-relaxed font-normal mb-6">
-          300 m² P1.9 indoor LED yatırımı, P2.5/P2.9 indoor ve P3.9 outdoor çözümlerle yakın izleme mesafesinde{" "}
-          <span className="font-semibold text-white md:whitespace-nowrap">profesyonel görsel çözümler</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-green-600 shadow-lg"
-          >
-            <MessageCircle size={20} aria-hidden="true" className="mr-2" />
-            <span className="text-base">Hemen Teklif Al</span>
-          </Link>
-
-          <Link
-            href="#led-secim-rehberi"
-            aria-label="Doğru LED ekran seçimi rehberine gidin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 backdrop-blur-lg hover:bg-white/30 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white shadow-lg"
-          >
-            <Monitor size={20} aria-hidden="true" className="mr-2" />
-            <span className="text-base">Doğru LED'i Seç</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <div className="mb-2 text-yellow-300"><CheckCircle size={24} aria-hidden="true" /></div>
-            <div className="text-xl font-black text-white">10+</div>
-            <div className="text-white/80 text-sm">Yıllık Deneyim</div>
+      <div className="relative z-10 container mx-auto grid max-w-7xl items-end gap-10 px-4 text-white lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
+        <div className="max-w-4xl">
+          <div className="mb-5 inline-flex items-center gap-3 border border-white/20 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
+            <span>300 m² P1.9 indoor LED envanteri</span>
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <div className="mb-2 text-blue-300"><Users size={24} aria-hidden="true" /></div>
-            <div className="text-xl font-black text-white">700+</div>
-            <div className="text-white/80 text-sm">Proje</div>
+
+          <h1 id="hero-title" className="max-w-4xl text-5xl font-black leading-[0.96] text-white md:text-7xl lg:text-8xl">
+            LED Ekran Kiralama
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white/85 md:text-2xl">
+            Gala, lansman, fuar ve konferans sahnelerinde yakın izleme mesafesinde net görüntü,
+            sakin teknik akış ve güçlü marka etkisi.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
+            {["P1.9 yakın izleme", "3840Hz görüntü akışı", "Özmal LED stoğu", "Türkiye geneli kurulum"].map((item) => (
+              <span key={item} className="border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
+                {item}
+              </span>
+            ))}
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <div className="mb-2 text-green-300"><Truck size={24} aria-hidden="true" /></div>
-            <div className="text-xl font-black text-white">81 İl</div>
-            <div className="text-white/80 text-sm">Hizmet</div>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp üzerinden LED ekran kiralama teklifi alın"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-bold text-slate-950 transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+            >
+              <MessageCircle size={20} aria-hidden="true" />
+              <span>Teklif Al</span>
+            </Link>
+
+            <Link
+              href="#p19-yatirim-baslik"
+              aria-label="300 m² P1.9 LED yatırımı bölümüne gidin"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+            >
+              <Monitor size={20} aria-hidden="true" />
+              <span>P1.9 Envanteri Gör</span>
+            </Link>
           </div>
         </div>
+
+        <aside className="hidden border border-white/15 bg-black/30 p-5 backdrop-blur-md lg:block" aria-label="LED ekran hero operasyon özeti">
+          <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+            <CheckCircle size={22} className="text-emerald-300" aria-hidden="true" />
+            <div>
+              <p className="text-sm font-semibold text-white/60">Sahneva LED Ops</p>
+              <p className="text-lg font-black text-white">Premium kurulum akışı</p>
+            </div>
+          </div>
+          <dl className="mt-5 grid gap-4">
+            {[
+              ["300 m²", "P1.9 indoor LED"],
+              ["700+", "tamamlanan proje"],
+              ["81 il", "kurulum operasyonu"],
+            ].map(([value, label]) => (
+              <div key={label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
+                <dt className="text-2xl font-black text-white">{value}</dt>
+                <dd className="text-sm font-medium text-white/70">{label}</dd>
+              </div>
+            ))}
+          </dl>
+        </aside>
       </div>
     </section>
   );
