@@ -81,7 +81,7 @@ const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
 const HOME_PAGE_DESCRIPTION =
-  "Sahneva ile profesyonel sahne, podyum, 300 m² P1.9 indoor LED ekran, ses ve ışık sistemleri kiralama çözümlerini keşfedin. İstanbul merkezli, Türkiye geneli hızlı kurulum.";
+  "Sahneva ile profesyonel sahne, podyum, LED ekran, ses ve ışık sistemleri kiralama çözümlerini keşfedin. İstanbul merkezli, Türkiye geneli hızlı kurulum.";
 const PRICING_DISCLAIMER =
   "Fiyatlar; şehir, gün, metraj, kurulum ve ekipmana göre değişebilir. Net teklif için iletişime geçin.";
 
