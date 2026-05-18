@@ -1,13 +1,13 @@
 export const HERO = {
   src: "/img/kurumsal/premium/konferans-led-ekran.webp",
-  alt: "Kurumsal organizasyon için konferans LED ekran sahne ışık ve teknik prodüksiyon",
+  alt: "Kurumsal organizasyon için konferans LED ekran, 300 m² P1.9 indoor LED yatırımı, sahne ışık ve teknik prodüksiyon",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
 export const HERO_STATS = [
   { value: "10+ yıl", label: "Deneyim" },
   { value: "700+", label: "Başarılı proje" },
-  { value: "81 il", label: "Hizmet alanı" },
+  { value: "300 m²", label: "P1.9 LED stoğu" },
 ];
 
 export const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
@@ -28,6 +28,7 @@ export const BRAND_LOGOS = [
 
 export const ASSURANCE_ITEMS = [
   "Tek keşif ve tek run-of-show",
+  "300 m² P1.9 indoor LED envanteri",
   "Yedekli güç ve kontrol planı",
   "Saha günü tek operasyon muhatabı",
   "Kurulumdan söküme planlı kapanış",
@@ -35,12 +36,21 @@ export const ASSURANCE_ITEMS = [
 
 export const GUIDE_PROMISES = [
   "Sahne, LED, ışık ve reji aynı teknik plan içinde",
+  "300 m² P1.9 yüksek çözünürlüklü indoor LED altyapısı",
   "Kurumsal ekipler için net sorumluluk ve tek muhatap",
   "Prova, yedek akış ve saha günü operasyon disiplini",
   "Görsel gücü yüksek, marka algısını taşıyan prodüksiyon",
 ];
 
 export const OVERVIEW_POINTS = [
+  {
+    title: "300 m² P1.9 indoor LED yatırımı",
+    desc: "Türkiye'de sayılı firmada bulunan P1.9 indoor LED stoğuyla yakın izleme mesafesinde premium görüntü kalitesi kurulur.",
+  },
+  {
+    title: "Özmal görsel prodüksiyon gücü",
+    desc: "LED ekran, sahne, kontrol ve saha ekibi aynı operasyonda ilerler; özmal envanter gücü bütçe, takvim ve kalite kontrolünü görünür kılar.",
+  },
   {
     title: "Sahne etkisi",
     desc: "Markanın ölçeğini hissettiren LED, ışık ve sahne mimarisi birlikte kurulur.",
@@ -130,6 +140,11 @@ export const PLANNING_STEPS = [
 
 export const SERVICE_ITEMS = [
   {
+    title: "P1.9 yüksek çözünürlüklü LED altyapısı",
+    desc: "300 m² P1.9 indoor LED yatırımıyla konferans, lansman, gala ve fuar sahnelerinde yakın izleme mesafesinde premium görüntü kalitesi sağlanır.",
+    whatsappIntent: "P1.9 yüksek çözünürlüklü LED altyapısı",
+  },
+  {
     title: "Sahne ve LED mimarisi",
     desc: "Ana sahne, yan ekranlar, içerik yüzeyleri ve izleme açıları tek görsel omurgada çözülür.",
     whatsappIntent: "Sahne ve LED mimarisi",
@@ -162,6 +177,10 @@ export const SERVICE_ITEMS = [
 ];
 
 export const GALLERY_IMAGES = [
+  {
+    src: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
+  },
   {
     src: "/img/kurumsal/premium/acik-hava-konser.webp",
     alt: "Açık hava kurumsal organizasyon için büyük sahne LED ekran ve ışık prodüksiyonu",
@@ -274,6 +293,8 @@ export const VIDEO_GALLERY = [
 ];
 
 export const TECHNICAL_POINTS = [
+  "300 m² P1.9 indoor LED stoğu ile yakın izleme mesafesinde premium netlik",
+  "Özmal envanter gücüyle LED ekran, kontrol ve yedek modül planının tek ekipte kalması",
   "İzleme mesafesine uygun ekran ve sahne görünürlüğü",
   "Salon veya açık alan koşullarına uygun ses kapsamı",
   "Yedekli güç, kontrol ve kritik ekipman planı",

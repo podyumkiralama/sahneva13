@@ -79,6 +79,16 @@ const LED_PRICING = {
 
 const LED_PIXEL_ROWS = [
   {
+    model: "P1.9",
+    badge: "Yeni premium envanter",
+    badgeClass: "bg-cyan-100 text-cyan-700",
+    clarity: "Ultra Fine Pixel",
+    costIndex: "💰💰💰💰💰",
+    distance: "1.9m ve üzeri",
+    refreshRate: "3840Hz",
+    usage: "Lansman, fuar, gala, konferans, yakın izleme",
+  },
+  {
     model: "P2.5",
     badge: "%50 daha premium",
     badgeClass: "bg-purple-100 text-purple-700",
@@ -114,37 +124,37 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
   description:
-    "İç mekan P2.5/P2.9, dış mekan P3.9 LED ekran kiralama. Konser ve fuarlar için yüksek parlaklık, IP65 dayanıklılık, uzman kurulum ve hızlı teslimat hizmeti.",
+    "300 m² P1.9 indoor LED yatırımı, P2.5/P2.9 iç mekan ve P3.9 dış mekan LED ekran kiralama. Lansman, fuar, gala ve konferanslarda premium görüntü kalitesi.",
   keywords:
-    "led ekran kiralama, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
+    "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildLanguageAlternates({
     tr: "/led-ekran-kiralama",
     en: "/en/led-screen-rental",
     xDefault: "/en/led-screen-rental",
   }),
   openGraph: {
-    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+    title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
     description:
-      "İç mekanda P2.5/P2.9, dış mekanda P3.9 LED ekran kiralama. Yüksek parlaklık, IP65 koruma ve profesyonel kurulum/söküm ekibi.",
+      "Türkiye'de sayılı firmada bulunan 300 m² P1.9 indoor LED yatırımıyla lansman, fuar, gala ve konferanslarda yakın izleme mesafesinde premium görüntü.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
-        width: 1200,
-        height: 630,
-        alt: "LED ekran kiralama – sahnede profesyonel LED wall kurulumu",
+        url: `${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`,
+        width: 1600,
+        height: 739,
+        alt: "LED ekran kiralama – 300 m² P1.9 indoor LED yatırımı ve profesyonel LED wall kurulumu",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Ekran Kiralama | P2.9 & P3.9 LED Wall – Sahneva",
+    title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
     description:
-      "P2.5/P2.9 indoor, P3.9 outdoor LED ekran kiralama. Konser, fuar ve kurumsal etkinliklerde yüksek parlaklık ve uzman kurulum.",
-    images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
+      "300 m² P1.9 indoor LED stoğu, P2.5/P2.9 indoor ve P3.9 outdoor LED ekran kiralama.",
+    images: [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`],
   },
   robots: {
     index: true,
@@ -173,7 +183,7 @@ const slugify = (s) =>
 
 const HERO = {
   src: "/img/hizmet-led-ekran.webp",
-  alt: "Profesyonel LED ekran kurulumu - Konser sahnesinde büyük LED wall ve görsel şov",
+  alt: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapımızla lansman, konferans, fuar, gala ve kurumsal sahne prodüksiyonlarında yakın izleme mesafesinde net, parlak ve premium görüntü kalitesi sunan profesyonel LED wall kurulumu",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
@@ -181,8 +191,8 @@ const SERVICES = [
   {
     Icon: Monitor,
     title: "İç Mekan LED Ekranlar",
-    description: "P2.5-P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
-    features: ["P2.5/P2.9 piksel", "800-1500 nit parlaklık", "4K çözünürlük", "Hızlı kurulum"],
+    description: "P1.9/P2.5/P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
+    features: ["P1.9/P2.5/P2.9 piksel", "300 m² P1.9 indoor LED stoğu", "Yakın izleme netliği", "4K çözünürlük"],
     cta: { label: "Detaylı Bilgi" },
   },
   {
@@ -278,7 +288,7 @@ const QUICK_SELECTION_STEPS = [
     title: "Piksel aralığını seçin",
     description:
       "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır, bütçe de gereksiz yükselmez.",
-    points: ["P2.5: premium iç mekan", "P2.9: dengeli hibrit çözüm", "P3.9: açık hava ve geniş alan"],
+    points: ["P1.9: Yakın izleme premium", "P2.5/P2.9: İç mekan", "P3.9: Açık hava ve geniş alan"],
   },
   {
     Icon: MessageCircle,
@@ -292,13 +302,13 @@ const QUICK_SELECTION_STEPS = [
 const QUICK_SELECTION_SCENARIOS = [
   {
     title: "Lansman ve fuar standı",
-    recommendation: "P2.5 / P2.9",
-    detail: "Yakın izleme ve sunum netliği için yüksek çözünürlüklü iç mekan panel önerilir.",
+    recommendation: "P1.9 / P2.5",
+    detail: "Yakın izleme ve sunum netliği için 300 m² P1.9 indoor LED stoğu dahil yüksek çözünürlüklü iç mekan panel önerilir.",
   },
   {
     title: "Kurumsal etkinlik ve hibrit sahne",
-    recommendation: "P2.9",
-    detail: "Salon içi kullanımda netlik ve bütçe dengesini en iyi kuran çözüm.",
+    recommendation: "P1.9 / P2.9",
+    detail: "Salon içi kullanımda yakın izleme netliği ve bütçe dengesini birlikte kuran çözüm.",
   },
   {
     title: "Konser, festival ve açık hava",
@@ -383,8 +393,12 @@ const SUCCESS_STORIES = [
 
 const FAQ_ITEMS = [
   {
+    q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
+    a: "P1.9 indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi olan salon kurulumlarında tercih edilir. Sahneva'nın 300 m² P1.9 indoor LED yatırımı, yakın izleme mesafesinde premium görüntü kalitesi ve özmal envanter gücü sağlar."
+  },
+  {
     q: "LED ekran kiralama fiyatları nasıl belirlenir?",
-    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve en iyi teknoloji garantisi sunuyoruz."
+    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P1.9, P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve en iyi teknoloji garantisi sunuyoruz."
   },
   {
     q: "İç mekan (Indoor) ve Dış mekan (Outdoor) LED ekran arasındaki fark nedir?",
@@ -571,6 +585,60 @@ function QuickSelectionGuide() {
   );
 }
 
+function P19InvestmentProof() {
+  return (
+    <section className="bg-white py-14 md:py-20" aria-labelledby="p19-yatirim-baslik">
+      <div className="container mx-auto grid max-w-7xl items-center gap-8 px-4 lg:grid-cols-[0.92fr_1.08fr]">
+        <div>
+          <div className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+            Özmal envanter gücü
+          </div>
+          <h2 id="p19-yatirim-baslik" className="text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+            300 m² P1.9 indoor LED yatırımı
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-gray-600 md:text-xl">
+            Türkiye'de sayılı firmada bulunan P1.9 indoor LED altyapısıyla lansman, fuar, gala ve konferanslarda
+            yakın izleme mesafesinde premium görüntü kalitesi kuruyoruz.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {[
+              "P1.9 yakın izleme",
+              "3840Hz yenileme",
+              "Özmal LED stoğu",
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black text-slate-800">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <figure className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl">
+          <div className="relative aspect-[16/9]">
+            <Image
+              src="/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp"
+              alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 54vw"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-transparent to-transparent" />
+          </div>
+          <figcaption className="absolute inset-x-5 bottom-5">
+            <span className="inline-flex rounded-full bg-white/12 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100 backdrop-blur">
+              Gerçek kurulum kanıtı
+            </span>
+            <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-white/86">
+              300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
 function VisualProofStrip() {
   return (
     <section className="pt-10 pb-10 md:pt-14 md:pb-14 bg-gradient-to-b from-slate-900 via-[#11182b] to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
@@ -656,7 +724,7 @@ function Hero() {
           Konser • Fuar • Lansman • Festival • Kurumsal Etkinlikler
         </p>
         <p className="text-balance text-lg md:text-xl text-white/85 max-w-[38rem] mx-auto leading-relaxed font-normal mb-6">
-          P2.5-P3.9 piksel aralığı, 4K çözünürlük ve yüksek parlaklık ile etkinliğinize uygun{" "}
+          300 m² P1.9 indoor LED yatırımı, P2.5/P2.9 indoor ve P3.9 outdoor çözümlerle yakın izleme mesafesinde{" "}
           <span className="font-semibold text-white md:whitespace-nowrap">profesyonel görsel çözümler</span>
         </p>
 
@@ -783,6 +851,11 @@ function Services() {
 
 /* ================== Galeri Verileri ================== */
 const GALLERY_IMAGES = [
+  {
+    src: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
+    caption: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar."
+  },
   { 
     src: "/img/galeri/led-ekran-kiralama-1.webp", 
     alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi",
@@ -860,11 +933,11 @@ const VIDEO_GALLERY = [
 
 const VISUAL_FLOW_IMAGES = [
   {
-    src: "/img/galeri/led-ekran-kiralama-2.webp",
-    alt: "Kurumsal etkinlikte kullanılan LED ekran kurulumu",
-    eyebrow: "Kurumsal etkinlik",
-    title: "Yakın izleme için net sunum yüzeyi",
-    detail: "P2.9 indoor kurulum ile lansman ve toplantılarda keskin görüntü.",
+    src: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
+    eyebrow: "P1.9 indoor LED",
+    title: "300 m² özmal premium görüntü altyapısı",
+    detail: "Yakın izleme mesafesinde dahi net, parlak ve premium görüntü kalitesi.",
   },
   {
     src: "/img/galeri/led-ekran-kiralama-3.webp",
@@ -1169,9 +1242,9 @@ function Technical() {
     {
       category: "piksel",
       title: "Piksel Teknolojileri",
-      description: "P2.5-P3.9 piksel aralığı ile her ihtiyaca uygun çözümler",
+      description: "P1.9-P3.9 piksel aralığı ile yakın izleme ve geniş alan ihtiyaçlarına uygun çözümler",
       Icon: Eye,
-      features: ["P2.5: İç mekan premium", "P3.9: Hibrit kullanım", "P4: Dış mekan standart", "P4.8: Uzak mesafe (opsiyon)"]
+      features: ["P1.9: Yakın izleme premium indoor", "P2.5/P2.9: İç mekan ve hibrit", "P3.9: Açık hava ve geniş alan", "P4.8: Uzak mesafe (opsiyon)"]
     },
     {
       category: "parlaklik",
@@ -1269,8 +1342,8 @@ function Technical() {
 /* ================== İstatistik Bant (Güncellenmiş) ================== */
 function StatsBand() {
   const stats = [
+    { value: "300 m²", label: "P1.9 Indoor LED Stoğu" },
     { value: "700+", label: "Başarılı Proje" },
-    { value: "50+", label: "Kurumsal Müşteri" },
     { value: "81 İL", label: "Kendi Araçlarımızla Kurulum" },
     { value: "10+", label: "Yıllık Deneyim" },
   ];
@@ -1960,7 +2033,7 @@ function LedScreenJsonLd() {
     "@id": productId,
     name: "İç ve Dış Mekan LED Ekran Kiralama",
     description:
-      "İç mekanda P2.5/P2.9, dış mekanda P3.9 piksel aralığıyla 4K çözünürlük ve yüksek parlaklık sunan profesyonel LED ekran kiralama hizmeti. Konser, fuar, festival ve kurumsal etkinlikler için uzman kurulum.",
+      "Sahneva'nın 300 m² P1.9 indoor LED yatırımı ve özmal envanter gücüyle; P1.9/P2.5/P2.9 iç mekan, P3.9 dış mekan piksel aralıklarında yakın izleme mesafesinde premium görüntü kalitesi sunan profesyonel LED ekran kiralama hizmeti. Lansman, fuar, gala, konferans ve kurumsal etkinlikler için uzman kurulum.",
     category: "EventLedScreenRental",
     brand: providerRef,
     url: pageUrl,
@@ -2002,10 +2075,10 @@ function LedScreenJsonLd() {
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
-      width: 1200,
-      height: 630,
-      caption: "Sahneva — Profesyonel LED Ekran Kiralama Hizmetleri",
+      url: `${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`,
+      width: 1600,
+      height: 739,
+      caption: "Sahneva 300 m² P1.9 indoor LED ekran yatırımı",
     },
     datePublished: PAGE_PUBLISHED_DATE,
     dateModified: PAGE_LAST_MODIFIED,
@@ -2041,8 +2114,8 @@ function LedScreenJsonLd() {
   });
 
   serviceNode.image = gallerySchema.imageUrls;
-  productNode.image = [`${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
-  webpageSchema.image = [`${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  productNode.image = [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  webpageSchema.image = [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
   webpageSchema.hasPart = [
     ...VIDEO_GALLERY.map((video, index) => ({
       "@id": `${pageUrl}#video-${index + 1}`,
@@ -2130,6 +2203,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
+      <P19InvestmentProof />
       <QuickSelectionGuide />
       <VisualProofStrip />
       <StatsBand />

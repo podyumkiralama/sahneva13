@@ -61,6 +61,7 @@ const TWITTER_DESCRIPTION =
   "Kurumsal etkinliklerde sahne, LED ekran, ses-ışık ve teknik prodüksiyon süreci.";
 const HERO_IMAGE_SIZE = { width: 1200, height: 630 };
 const OG_IMAGE_DIMENSIONS = {
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp": { width: 1600, height: 739 },
   "/img/kurumsal/premium/acik-hava-konser.webp": { width: 1600, height: 1199 },
   "/img/kurumsal/premium/festival-kalabalik.webp": { width: 1290, height: 1600 },
   "/img/kurumsal/premium/truss-sahne-cati.webp": { width: 1600, height: 900 },
@@ -492,7 +493,7 @@ function Hero() {
           ))}
         </div>
 
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {ASSURANCE_ITEMS.map((item) => (
             <div key={item} className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-white/80">
               {item}
@@ -703,15 +704,20 @@ function OverviewSection() {
         </div>
 
         <Card className="overflow-hidden p-0">
-          <div className="relative aspect-[16/10]">
-            <Image
-              src="/img/kurumsal/premium/konferans-podium.webp"
-              alt="Kurumsal konferans sahnesinde LED ekran ve panel prodüksiyonu"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 42vw"
-            />
-          </div>
+          <figure>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src="/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp"
+                alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+            </div>
+            <figcaption className="border-t border-slate-200 bg-white px-5 py-4 text-sm font-semibold leading-relaxed text-slate-700">
+              300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar.
+            </figcaption>
+          </figure>
         </Card>
       </div>
     </SectionShell>
@@ -1124,9 +1130,9 @@ function ServicesSection() {
 function GallerySection() {
   const [featured, second, third, ...supporting] = GALLERY_IMAGES;
   const proofItems = [
-    "Büyük LED sahne ölçeği",
-    "Kalabalık etkinlik yönetimi",
-    "Truss ve ışık mühendisliği",
+    "300 m² P1.9 indoor LED",
+    "Yakın izleme premium görüntü",
+    "Özmal envanter gücü",
   ];
 
   return (
