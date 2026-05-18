@@ -47,6 +47,28 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const P19_PROOF_IMAGE_SRC =
   "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
+const P19_TECHNICAL_CONTROL_IMAGE_SRC =
+  "/img/led/p19-indoor-led-teknik-masa-kurumsal-konferans-sahneva.webp";
+const LED_CORPORATE_CONFERENCE_IMAGE_SRC =
+  "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp";
+const LED_HYBRID_LAUNCH_IMAGE_SRC =
+  "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp";
+const LED_BALLROOM_LAUNCH_IMAGE_SRC =
+  "/img/led/led-ekran-fuar-lansman-salon-kurulumu-sahneva.webp";
+const LED_GALA_STAGE_IMAGE_SRC =
+  "/img/led/gala-led-sahne-video-wall-sahneva.webp";
+const LED_OUTDOOR_CONCERT_IMAGE_SRC =
+  "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
+const PREMIUM_LED_IMAGE_SRCS = new Set([
+  P19_PROOF_IMAGE_SRC,
+  P19_TECHNICAL_CONTROL_IMAGE_SRC,
+  LED_CORPORATE_CONFERENCE_IMAGE_SRC,
+  LED_HYBRID_LAUNCH_IMAGE_SRC,
+  LED_BALLROOM_LAUNCH_IMAGE_SRC,
+  LED_GALA_STAGE_IMAGE_SRC,
+  LED_OUTDOOR_CONCERT_IMAGE_SRC,
+]);
+const shouldBypassLedImageOptimizer = (src) => PREMIUM_LED_IMAGE_SRCS.has(src);
 const PAGE_LAST_MODIFIED = getLastModifiedForFile(
   "app/(tr)/led-ekran-kiralama/page.js",
   "2026-01-14"
@@ -184,7 +206,7 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/hizmet-led-ekran.webp",
+  src: LED_GALA_STAGE_IMAGE_SRC,
   alt: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapımızla lansman, konferans, fuar, gala ve kurumsal sahne prodüksiyonlarında yakın izleme mesafesinde net, parlak ve premium görüntü kalitesi sunan profesyonel LED wall kurulumu",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
@@ -514,12 +536,13 @@ function QuickSelectionGuide() {
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/img/galeri/led-ekran-kiralama-3.webp"
-                  alt="Kurumsal etkinlikte kullanılan profesyonel LED ekran kurulumu"
+                  src={LED_CORPORATE_CONFERENCE_IMAGE_SRC}
+                  alt="Kurumsal konferans sahnesinde profesyonel LED ekran ve sahne ışık kurulumu"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   loading="lazy"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                 <div className="absolute left-5 top-5 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
@@ -671,7 +694,7 @@ function VisualProofStrip() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   loading="lazy"
-                  unoptimized={item.src === P19_PROOF_IMAGE_SRC}
+                  unoptimized={shouldBypassLedImageOptimizer(item.src)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
@@ -706,6 +729,7 @@ function Hero() {
           fetchPriority="high"
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
+          unoptimized={shouldBypassLedImageOptimizer(HERO.src)}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/62 via-purple-800/48 to-blue-950/72" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950/68 via-transparent to-purple-900/42" aria-hidden="true" />
@@ -860,45 +884,35 @@ const GALLERY_IMAGES = [
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
     caption: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-1.webp", 
-    alt: "Konser sahnesinde kurulmuş büyük LED ekran, kalabalık önünde canlı performans gösterimi",
-    caption: "Konser & Festival | P3.9 Outdoor | 10×6 m — 3.000+ izleyici kapasiteli açık hava etkinliği"
+  {
+    src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
+    alt: "P1.9 indoor LED ekran sahnesinde teknik prodüksiyon kontrol masası ve canlı görüntü akışı",
+    caption: "Teknik operasyon | P1.9 indoor LED | Kontrol masası, görüntü akışı ve sahne yönetimi aynı hatta çalışır."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-2.webp", 
-    alt: "Kurumsal etkinlikte kullanılan LED ekran, sunum sırasında profesyonel aydınlatma ile aydınlatılmış",
-    caption: "Kurumsal Gala | P2.9 Indoor | 8×3 m — Ürün lansmanı, İstanbul"
+  {
+    src: LED_CORPORATE_CONFERENCE_IMAGE_SRC,
+    alt: "Kurumsal konferans sahnesinde LED ekran, sahne ışığı ve oturum düzeni",
+    caption: "Kurumsal konferans | LED ekran + sahne ışık | Oturum düzeninde net ve sakin marka görünürlüğü."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "Açık hava festivalinde yüksek parlaklıklı LED ekran, gün ışığında net görüntü",
-    caption: "Açık Hava Festivali | P3.9 Outdoor | 6500 nit — Tam güneş ışığında kristal netlik"
+  {
+    src: LED_HYBRID_LAUNCH_IMAGE_SRC,
+    alt: "Ürün lansmanı sahnesinde LED wall, kırmızı ışık tasarımı ve kurumsal marka sunumu",
+    caption: "Ürün lansmanı | LED wall + sahne tasarımı | Markanın ana mesajını tek güçlü yüzeyde toplar."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-4.webp",
-    alt: "Fuar standında kullanılan video wall sistemi, marka tanıtımı için optimize edilmiş",
-    caption: "Fuar & Stand | LED Box 4 Cepheli | TÜYAP — Havada asılı truss kurulum"
+  {
+    src: LED_BALLROOM_LAUNCH_IMAGE_SRC,
+    alt: "Fuar ve lansman salonunda geniş LED ekran kurulumu ve kurumsal sahne düzeni",
+    caption: "Fuar ve lansman salonu | Geniş LED ekran | Yakın izleme mesafesinde temiz sunum alanı."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-5.webp", 
-    alt: "Stadyumda dev LED ekran, spor etkinliği sırasında canlı skor ve görüntüler",
-    caption: "Spor Organizasyonu | P3.9 Outdoor | Skor takip + canlı yayın entegrasyonu"
+  {
+    src: LED_GALA_STAGE_IMAGE_SRC,
+    alt: "Gala sahnesinde büyük LED ekran, video wall ve sahne ışık prodüksiyonu",
+    caption: "Gala sahnesi | Video wall + ışık | Premium davetlerde sahne etkisini yükselten yüksek çözünürlüklü akış."
   },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-6.webp", 
-    alt: "Düğün organizasyonunda LED ekran, canlı fotoğraf ve video gösterimi",
-    caption: "Düğün & Özel Davet | P3.9 Outdoor | 6500 nit — Sarıyer, İstanbul"
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-7.webp", 
-    alt: "TV stüdyosunda kullanılan profesyonel LED ekran, canlı yayın için optimize edilmiş",
-    caption: "Canlı Yayın & Stüdyo | P2.5 Indoor | 3840 Hz — Kamerada titreme sıfır"
-  },
-  { 
-    src: "/img/galeri/led-ekran-kiralama-8.webp",
-    alt: "Alışveriş merkezinde reklam LED ekranı, yüksek trafikli alanda marka gösterimi",
-    caption: "AVM & Reklam | P3.9 Indoor/Outdoor | E-spor etkinliği, Kocaeli İzmit"
+  {
+    src: LED_OUTDOOR_CONCERT_IMAGE_SRC,
+    alt: "Açık hava konser sahnesinde büyük LED ekran, kalabalık ve sahne prodüksiyonu",
+    caption: "Açık hava konseri | Büyük LED ekran | Kalabalık alanlarda uzaktan okunabilir görüntü gücü."
   },
 ];
 
@@ -944,18 +958,18 @@ const VISUAL_FLOW_IMAGES = [
     detail: "Yakın izleme mesafesinde dahi net, parlak ve premium görüntü kalitesi.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "Açık hava etkinliğinde kullanılan yüksek parlaklıklı LED ekran",
-    eyebrow: "Açık hava çözümü",
-    title: "Güneş altında okunabilir güçlü görüntü",
-    detail: "6500 nit parlaklık ile festival ve meydan kurulumlarında yüksek görünürlük.",
+    src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
+    alt: "Kurumsal konferans sahnesinde teknik prodüksiyon kontrol masası ve P1.9 LED ekran",
+    eyebrow: "Operasyon kontrolü",
+    title: "Sahne arkasında sakin teknik akış",
+    detail: "Görüntü, ses ve ışık kontrolü tek masada izlenir; sahne akışı kesintisiz tutulur.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-7.webp",
-    alt: "Canlı yayın ve stüdyo için kullanılan LED ekran",
-    eyebrow: "Canlı yayın",
-    title: "Kamera dostu 3840Hz performans",
-    detail: "Stüdyo ve hibrit yayınlarda titreşimsiz görüntü akışı.",
+    src: LED_HYBRID_LAUNCH_IMAGE_SRC,
+    alt: "Kurumsal ürün lansmanı sahnesinde LED wall ve ışık prodüksiyonu",
+    eyebrow: "Lansman sahnesi",
+    title: "Marka mesajını taşıyan tek güçlü yüzey",
+    detail: "Ürün lansmanı ve bayi toplantılarında LED wall sahnenin ana iletişim alanına dönüşür.",
   },
 ];
 
@@ -999,7 +1013,7 @@ function Gallery() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 loading="lazy"
-                unoptimized={GALLERY_IMAGES[0].src === P19_PROOF_IMAGE_SRC}
+                unoptimized={shouldBypassLedImageOptimizer(GALLERY_IMAGES[0].src)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 max-w-2xl">
@@ -1007,7 +1021,7 @@ function Gallery() {
                   Öne çıkan kurulum
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white">
-                  Konser ve festival sahnelerinde yüksek görünürlük
+                  P1.9 indoor LED ile kurumsal sahne ölçeği
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
               </div>
@@ -1028,6 +1042,7 @@ function Gallery() {
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     loading="lazy"
+                    unoptimized={shouldBypassLedImageOptimizer(image.src)}
                   />
                 </div>
                 <div className="p-5">
@@ -1102,6 +1117,7 @@ function Gallery() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     loading="lazy"
+                    unoptimized={shouldBypassLedImageOptimizer(image.src)}
                   />
                 </div>
                 <div className="p-5">
@@ -1725,12 +1741,13 @@ function Articles() {
 
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/img/galeri/led-ekran-kiralama-9.webp"
-                  alt="İç mekan ve dış mekan LED ekran kiralama uygulaması"
-                  width={1200}
-                  height={675}
+                  src={LED_BALLROOM_LAUNCH_IMAGE_SRC}
+                  alt="İç mekan LED ekran kiralama uygulaması ve kurumsal lansman sahnesi"
+                  width={1600}
+                  height={1200}
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
 
@@ -1803,12 +1820,13 @@ function Articles() {
 
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/img/galeri/led-ekran-kiralama-14.webp"
-                  alt="LED ekran kiralama kurulum süreci ve teknik ekip"
-                  width={1200}
-                  height={675}
+                  src={P19_TECHNICAL_CONTROL_IMAGE_SRC}
+                  alt="P1.9 indoor LED ekran kiralama kurulum süreci ve teknik prodüksiyon ekibi"
+                  width={1600}
+                  height={739}
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
 
@@ -1823,12 +1841,13 @@ function Articles() {
 
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/img/galeri/led-ekran-kiralama-20.webp"
-                  alt="Konser ve etkinliklerde LED ekran kiralama uygulaması"
-                  width={1200}
-                  height={675}
+                  src={LED_OUTDOOR_CONCERT_IMAGE_SRC}
+                  alt="Açık hava konser ve etkinliklerde büyük LED ekran kiralama uygulaması"
+                  width={1600}
+                  height={1199}
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
               
@@ -2119,8 +2138,8 @@ function LedScreenJsonLd() {
   });
 
   serviceNode.image = gallerySchema.imageUrls;
-  productNode.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
-  webpageSchema.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  productNode.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls];
+  webpageSchema.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls];
   webpageSchema.hasPart = [
     ...VIDEO_GALLERY.map((video, index) => ({
       "@id": `${pageUrl}#video-${index + 1}`,
