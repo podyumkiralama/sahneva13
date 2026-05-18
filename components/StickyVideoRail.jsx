@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { Play } from "lucide-react";
 import DeferredHydration from "@/components/DeferredHydration.client";
 
 const VIDEOS = [
@@ -435,10 +436,10 @@ function StickyVideoRailInner({
           setIsOpen(true);
         }}
         className="fixed z-[60] bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs sm:text-sm shadow-lg border border-white/20 hover:from-purple-700 hover:to-blue-700 transition-all duration-200 group"
-        aria-label={openPlayerAriaLabel}
+        aria-label={`${watchVideosLabel} - ${openLabel} - ${openPlayerAriaLabel}`}
       >
-        <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
-          ▶
+        <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:scale-110 transition-transform" aria-hidden="true">
+          <Play size={14} fill="currentColor" strokeWidth={2} />
         </span>
         <span className="hidden sm:inline font-medium">{watchVideosLabel}</span>
         <span className="sm:hidden font-medium">{openLabel}</span>

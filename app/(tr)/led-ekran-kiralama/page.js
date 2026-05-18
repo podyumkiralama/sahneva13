@@ -10,7 +10,6 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
-import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import {
   Monitor,
@@ -47,25 +46,43 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const P19_PROOF_IMAGE_SRC =
   "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
+const P19_PROOF_DISPLAY_IMAGE_SRC =
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva-display.webp";
 const P19_TECHNICAL_CONTROL_IMAGE_SRC =
   "/img/led/p19-indoor-led-teknik-masa-kurumsal-konferans-sahneva.webp";
 const LED_CORPORATE_CONFERENCE_IMAGE_SRC =
   "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp";
+const LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC =
+  "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva-aside.webp";
+const LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC =
+  "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva-card.webp";
 const LED_HYBRID_LAUNCH_IMAGE_SRC =
   "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp";
 const LED_BALLROOM_LAUNCH_IMAGE_SRC =
   "/img/led/led-ekran-fuar-lansman-salon-kurulumu-sahneva.webp";
 const LED_GALA_STAGE_IMAGE_SRC =
   "/img/led/gala-led-sahne-video-wall-sahneva.webp";
+const LED_GALA_STAGE_HERO_DESKTOP_IMAGE_SRC =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-desktop.webp";
+const LED_GALA_STAGE_HERO_TABLET_IMAGE_SRC =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-tablet.webp";
+const LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-mobile.webp";
 const LED_OUTDOOR_CONCERT_IMAGE_SRC =
   "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
 const PREMIUM_LED_IMAGE_SRCS = new Set([
   P19_PROOF_IMAGE_SRC,
+  P19_PROOF_DISPLAY_IMAGE_SRC,
   P19_TECHNICAL_CONTROL_IMAGE_SRC,
   LED_CORPORATE_CONFERENCE_IMAGE_SRC,
+  LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC,
+  LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
   LED_HYBRID_LAUNCH_IMAGE_SRC,
   LED_BALLROOM_LAUNCH_IMAGE_SRC,
   LED_GALA_STAGE_IMAGE_SRC,
+  LED_GALA_STAGE_HERO_DESKTOP_IMAGE_SRC,
+  LED_GALA_STAGE_HERO_TABLET_IMAGE_SRC,
+  LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC,
   LED_OUTDOOR_CONCERT_IMAGE_SRC,
 ]);
 const shouldBypassLedImageOptimizer = (src) => PREMIUM_LED_IMAGE_SRCS.has(src);
@@ -83,8 +100,6 @@ const getServiceWhatsappLink = (title) => {
   const text = `Merhaba, ${title} hizmeti için detaylı bilgi ve fiyat teklifi almak istiyorum. Etkinlik tarihi: [gg.aa.yyyy], mekân: [iç/dış], tahmini ekran ölçüsü: [xx m2]`;
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
-
-const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 
 /*fiyat*/
 const LED_PRICING = {
@@ -206,9 +221,10 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: LED_GALA_STAGE_IMAGE_SRC,
+  src: LED_GALA_STAGE_HERO_DESKTOP_IMAGE_SRC,
+  tabletSrc: LED_GALA_STAGE_HERO_TABLET_IMAGE_SRC,
+  mobileSrc: LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC,
   alt: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapımızla lansman, konferans, fuar, gala ve kurumsal sahne prodüksiyonlarında yakın izleme mesafesinde net, parlak ve premium görüntü kalitesi sunan profesyonel LED wall kurulumu",
-  sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
 const SERVICES = [
@@ -468,7 +484,7 @@ function FAQ() {
           <Link
             href="/sss"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
-            aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
+            aria-label="Tüm SSS'yi Görüntüle - Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
             <ArrowRight size={20} aria-hidden="true" className="mr-3" />
             <span className="text-lg">Tüm SSS'yi Görüntüle</span>
@@ -536,7 +552,7 @@ function QuickSelectionGuide() {
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src={LED_CORPORATE_CONFERENCE_IMAGE_SRC}
+                  src={LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC}
                   alt="Kurumsal konferans sahnesinde profesyonel LED ekran ve sahne ışık kurulumu"
                   fill
                   className="object-cover"
@@ -590,7 +606,7 @@ function QuickSelectionGuide() {
                     href={WHATSAPP}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-green-700 px-5 py-3 font-bold text-white shadow-[0_14px_32px_rgba(21,128,61,0.28)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
                   >
                     WhatsApp ile ölçü paylaş
                   </a>
@@ -641,7 +657,7 @@ function P19InvestmentProof() {
         <figure className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl">
           <div className="relative aspect-[16/9]">
             <Image
-              src={P19_PROOF_IMAGE_SRC}
+              src={P19_PROOF_DISPLAY_IMAGE_SRC}
               alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
               fill
               className="object-cover"
@@ -718,19 +734,19 @@ function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#05070d] pt-24 pb-14 md:pt-28 md:pb-20 lg:min-h-[760px] lg:pt-32 lg:pb-24" aria-labelledby="hero-title">
       <div className="absolute inset-0">
-        <Image 
-          src={HERO.src} 
-          alt={HERO.alt} 
-          fill 
-          priority 
-          className="object-cover object-center"
-          sizes={HERO.sizes}
-          quality={82}
-          fetchPriority="high"
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-          unoptimized={shouldBypassLedImageOptimizer(HERO.src)}
-        />
+        <picture>
+          <source media="(max-width: 640px)" srcSet={HERO.mobileSrc} />
+          <source media="(max-width: 1024px)" srcSet={HERO.tabletSrc} />
+          <img
+            src={HERO.src}
+            alt={HERO.alt}
+            width="1440"
+            height="810"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.64)_42%,rgba(2,6,23,.24)_72%,rgba(2,6,23,.06)_100%)]" aria-hidden="true" />
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/70 to-transparent" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#05070d] via-[#05070d]/60 to-transparent" aria-hidden="true" />
@@ -766,7 +782,7 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp üzerinden LED ekran kiralama teklifi alın"
+              aria-label="Teklif Al - WhatsApp üzerinden LED ekran kiralama teklifi alın"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-bold text-slate-950 transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
             >
               <MessageCircle size={20} aria-hidden="true" />
@@ -775,7 +791,7 @@ function Hero() {
 
             <Link
               href="#p19-yatirim-baslik"
-              aria-label="300 m² P1.9 LED yatırımı bölümüne gidin"
+              aria-label="P1.9 Envanteri Gör - 300 m² P1.9 LED yatırımı bölümüne gidin"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
@@ -890,7 +906,7 @@ function Services() {
 /* ================== Galeri Verileri ================== */
 const GALLERY_IMAGES = [
   {
-    src: P19_PROOF_IMAGE_SRC,
+    src: P19_PROOF_DISPLAY_IMAGE_SRC,
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
     caption: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar."
   },
@@ -900,7 +916,7 @@ const GALLERY_IMAGES = [
     caption: "Teknik operasyon | P1.9 indoor LED | Kontrol masası, görüntü akışı ve sahne yönetimi aynı hatta çalışır."
   },
   {
-    src: LED_CORPORATE_CONFERENCE_IMAGE_SRC,
+    src: LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
     alt: "Kurumsal konferans sahnesinde LED ekran, sahne ışığı ve oturum düzeni",
     caption: "Kurumsal konferans | LED ekran + sahne ışık | Oturum düzeninde net ve sakin marka görünürlüğü."
   },
@@ -961,7 +977,7 @@ const VIDEO_GALLERY = [
 
 const VISUAL_FLOW_IMAGES = [
   {
-    src: P19_PROOF_IMAGE_SRC,
+    src: P19_PROOF_DISPLAY_IMAGE_SRC,
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
     eyebrow: "P1.9 indoor LED",
     title: "300 m² özmal premium görüntü altyapısı",
@@ -1492,7 +1508,7 @@ function WhySahneva() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
-            aria-label="Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
+            aria-label="Teknik Danışmanlık Alın - Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
           >
             <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Teknik Danışmanlık Alın</span>
