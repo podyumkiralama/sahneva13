@@ -281,7 +281,7 @@ const USE_CASES = [
   {
     Icon: Briefcase,
     title: "Ürün Lansmanları ve Kurumsal Toplantılar",
-    desc: "P2.5 ultra yüksek çözünürlükle sunumlarınızda ve marka tanıtımlarınızda maksimum prestij sağlıyoruz."
+    desc: "P1.9 indoor LED altyapısıyla yakın izleme mesafesinde ürün detaylarını, sunum içeriklerini ve kurumsal marka mesajını premium netlikte taşıyoruz."
   },
   {
     Icon: Tent,
@@ -1006,10 +1006,10 @@ function Gallery() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Gerçek <span className="text-blue-700">Başarı Hikayelerimiz</span>
+            Gerçek LED Ekran <span className="text-blue-700">Kurulumlarımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
-            Projelerimizin kalitesi, etkinliğinizin en büyük güvencesidir. Referanslarımız ve uygulama örneklerimizle, sıradan mekanları nasıl büyüleyici sahnelere dönüştürdüğümüzü keşfedin.
+            Gerçek saha görselleriyle LED ekran kurulum gücümüzü, sahne entegrasyonunu ve prodüksiyon kalitesini görünür kılıyoruz.
           </p>
         </div>
 
@@ -2073,6 +2073,7 @@ function LedScreenJsonLd() {
       priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
       lowPrice: LED_PRICING.aggregateOffer.lowPrice,
       highPrice: LED_PRICING.aggregateOffer.highPrice,
+      offerCount: 4,
       availability: "https://schema.org/InStock",
       url: pageUrl,
     },
@@ -2102,6 +2103,7 @@ function LedScreenJsonLd() {
       priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
       lowPrice: LED_PRICING.aggregateOffer.lowPrice,
       highPrice: LED_PRICING.aggregateOffer.highPrice,
+      offerCount: 4,
       availability: "https://schema.org/InStock",
       url: pageUrl,
     },
