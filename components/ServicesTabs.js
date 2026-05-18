@@ -155,6 +155,8 @@ const DEFAULT_DICTIONARY = {
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
 const SERVICE_CARD_IMAGE_SIZES =
   "(max-width: 1023px) calc(100vw - 32px), (max-width: 1279px) calc((100vw - 56px) / 2), 400px";
+const P19_PROOF_IMAGE_SRC =
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
 
 function formatTitleTemplate(template, title, fallback) {
   const source = template ?? fallback;
@@ -199,6 +201,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           quality={68}
           loading="lazy"
           fetchPriority="auto"
+          unoptimized={service.image === P19_PROOF_IMAGE_SRC}
         />
 
         <div
