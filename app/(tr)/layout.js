@@ -23,6 +23,7 @@ import {
 } from "@/lib/seo/seoConfig";
 import {
   BASE_SITE_URL,
+  LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
@@ -33,6 +34,7 @@ const content = LOCALE_CONTENT.tr;
 
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
+const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
 
 /* ================== JSON-LD: GLOBAL GRAPH ================== */
 const globalJsonLd = {
@@ -83,6 +85,37 @@ const globalJsonLd = {
           areaServed: "TR",
           availableLanguage: ["tr"],
         },
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": LOCAL_BUSINESS_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      url: BASE_SITE_URL,
+      image: OG_IMAGE_URL,
+      logo: { "@id": LOGO_ID },
+      telephone: "+905453048671",
+      priceRange: "₺₺₺",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.0961692,
+        longitude: 28.9792127,
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Anadolu Caddesi No:61A, Hamidiye Mahallesi",
+        addressLocality: "İstanbul",
+        addressRegion: "İstanbul",
+        postalCode: "34400",
+        addressCountry: "TR",
+      },
+      openingHours: "Mo-Su 00:00-23:59",
+      areaServed: "TR",
+      parentOrganization: { "@id": ORGANIZATION_ID },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
       ],
     },
     {
