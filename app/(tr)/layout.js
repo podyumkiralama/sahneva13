@@ -43,6 +43,47 @@ const globalJsonLd = {
       "@id": LOGO_ID,
       url: LOGO_URL,
       contentUrl: LOGO_URL,
+      caption: "Sahneva Organizasyon logosu",
+    },
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: ["Sahneva", "Sahneva Teknik"],
+      url: BASE_SITE_URL,
+      logo: { "@id": LOGO_ID },
+      image: LOGO_URL,
+      description:
+        "Sahneva Organizasyon; sahne, podyum, LED ekran, ses-ışık, truss, çadır ve kurumsal etkinlik teknik prodüksiyonu alanlarında Türkiye genelinde hizmet veren etkinlik prodüksiyon firmasıdır.",
+      telephone: "+905453048671",
+      foundingLocation: {
+        "@type": "Place",
+        name: "İstanbul, Türkiye",
+      },
+      areaServed: [
+        { "@type": "Country", name: "Türkiye" },
+        { "@type": "City", name: "İstanbul" },
+      ],
+      knowsAbout: [
+        "kurumsal organizasyon",
+        "sahne kiralama",
+        "podyum kiralama",
+        "LED ekran kiralama",
+        "ses ve ışık sistemleri",
+        "truss kiralama",
+        "çadır kiralama",
+        "teknik prodüksiyon",
+        "etkinlik teknik keşfi",
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+905453048671",
+          contactType: "customer service",
+          areaServed: "TR",
+          availableLanguage: ["tr"],
+        },
+      ],
     },
     {
       "@type": "WebSite",
