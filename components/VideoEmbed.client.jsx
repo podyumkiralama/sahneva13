@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { Play } from "lucide-react";
 
 /* ===========================
    YouTube preconnect helpers
@@ -157,7 +158,6 @@ export default function VideoEmbed({
           onMouseEnter={handleWarmup}
           onFocus={handleWarmup}
           className="absolute inset-0 z-10 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-          aria-label={`${title} videosunu oynat`}
         >
           {!thumbFailed ? (
             <img
@@ -180,12 +180,13 @@ export default function VideoEmbed({
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60" aria-hidden="true" />
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-4">
-            <span className="text-7xl drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" aria-hidden="true">
-              ▶
+            <span className="drop-shadow-2xl transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" aria-hidden="true">
+              <Play size={64} fill="currentColor" strokeWidth={1.5} />
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
               Videoyu İzle
             </span>
+            <span className="sr-only">{title}</span>
           </div>
         </button>
       ) : null}
