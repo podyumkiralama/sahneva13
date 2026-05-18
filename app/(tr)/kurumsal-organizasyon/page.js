@@ -70,6 +70,8 @@ const OG_IMAGE_DIMENSIONS = {
 };
 
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
+const shouldBypassImageOptimizer = (src) =>
+  typeof src === "string" && src.startsWith("/img/");
 const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
   const text = `Merhaba, ${intent} için teklif istiyorum. Etkinlik türü: [konferans/lansman/gala], Tarih: [gg.aa.yyyy], Kişi sayısı: [xxx].`;
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
@@ -403,6 +405,7 @@ function Hero() {
         sizes={HERO.sizes}
         quality={88}
         blurDataURL={BLUR_DATA_URL}
+        unoptimized={shouldBypassImageOptimizer(HERO.src)}
       />
       <div
         className="absolute inset-0"
@@ -668,6 +671,7 @@ function BrandLogoRailSection() {
                       height={brand.height}
                       className="max-h-11 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
                       sizes="144px"
+                      unoptimized={shouldBypassImageOptimizer(brand.src)}
                     />
                   </div>
                 ))}
@@ -778,6 +782,7 @@ function FormatsSection() {
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
                 sizes={isPrimary ? "(max-width: 1024px) 100vw, 54vw" : "(max-width: 1024px) 100vw, 36vw"}
+                unoptimized={shouldBypassImageOptimizer(item.src)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
@@ -820,6 +825,7 @@ function FormatsSection() {
                       fill
                       className="object-cover transition duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 36vw"
+                      unoptimized={shouldBypassImageOptimizer(FORMAT_ITEMS[2].src)}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/95 via-[#06101d]/62 to-transparent" />
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
@@ -1164,7 +1170,7 @@ function GallerySection() {
 
         <div className="grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
           <article className="relative min-h-[22rem] overflow-hidden rounded-lg border border-white/10 bg-slate-900 shadow-2xl shadow-blue-950/35 lg:min-h-[32rem]">
-            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 64vw" unoptimized={featured.src === P19_PROOF_IMAGE_SRC} />
+            <Image src={featured.src} alt={featured.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 64vw" unoptimized={shouldBypassImageOptimizer(featured.src)} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/8 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
               <div className="text-xs font-black uppercase tracking-normal text-sky-200">Büyük ölçek</div>
@@ -1183,7 +1189,7 @@ function GallerySection() {
                   fill
                   className="object-cover transition duration-700 hover:scale-105"
                   sizes="(max-width: 1024px) 50vw, 26vw"
-                  unoptimized={image.src === P19_PROOF_IMAGE_SRC}
+                  unoptimized={shouldBypassImageOptimizer(image.src)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-sm font-black uppercase tracking-normal text-white/82">
@@ -1214,7 +1220,7 @@ function GallerySection() {
                   fill
                   className="object-cover transition duration-700 hover:scale-105"
                   sizes={isWide ? "(max-width: 1024px) 100vw, 46vw" : "(max-width: 1024px) 50vw, 23vw"}
-                  unoptimized={image.src === P19_PROOF_IMAGE_SRC}
+                  unoptimized={shouldBypassImageOptimizer(image.src)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent opacity-80" />
               </article>
@@ -1374,6 +1380,7 @@ function TechnicalSection() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 46vw"
+              unoptimized
             />
           </div>
         </Card>

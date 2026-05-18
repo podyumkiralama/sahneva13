@@ -107,6 +107,9 @@ const LIGHTBOX_SIZES =
 const LIGHTBOX_FOCUS_RING =
   "focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black";
 
+const shouldBypassImageOptimizer = (src) =>
+  typeof src === "string" && src.startsWith("/img/");
+
 // ===============================================================
 // GALLERY CARD
 // ===============================================================
@@ -122,6 +125,7 @@ const GalleryCard = memo(function GalleryCard({
   dictionary,
 }) {
   const cover = gallery.images?.[0];
+  const coverSrc = getSrc(cover);
   const [canLoadCover] = useState(true);
 
   const handleOpen = () => open(title, gallery.images, 0);
@@ -139,7 +143,7 @@ const GalleryCard = memo(function GalleryCard({
       >
         {canLoadCover ? (
           <Image
-            src={getSrc(cover)}
+            src={coverSrc}
             alt={fillTemplate(dictionary.lightboxAlt, {
               title,
               index: 1,
@@ -152,6 +156,7 @@ const GalleryCard = memo(function GalleryCard({
             className={`object-cover transition-transform duration-700 ${
               prefersReducedMotion ? "" : "group-hover:scale-110"
             }`}
+            unoptimized={shouldBypassImageOptimizer(coverSrc)}
             onError={() => onError(cover)}
           />
         ) : (
@@ -456,6 +461,9 @@ export default function ProjectsGallery({
     ariaDescribedby ?? `projects-desc-${descriptionId}`;
   const computedRole =
     role ?? (ariaLabel || computedHeadingId ? "region" : undefined);
+  const lightboxImageSrc = openState.isOpen
+    ? getSrc(openState.items[openState.index])
+    : "";
 
   return (
     <section
@@ -608,7 +616,7 @@ export default function ProjectsGallery({
       >
         <Image
           key={openState.items[openState.index]}
-          src={getSrc(openState.items[openState.index])}
+          src={lightboxImageSrc}
           alt={fillTemplate(normalizedDictionary.lightboxAlt, {
             title: openState.title,
             index: openState.index + 1,
@@ -618,6 +626,7 @@ export default function ProjectsGallery({
           className={`object-contain ${
             anim ? "opacity-100 scale-100" : "opacity-0 scale-95"
           } transition-all duration-300`}
+          unoptimized={shouldBypassImageOptimizer(lightboxImageSrc)}
         />
 
         {openState.items.length > 1 && (
