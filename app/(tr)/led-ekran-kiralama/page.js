@@ -83,7 +83,7 @@ const LED_PIXEL_ROWS = [
     badge: "Yeni premium envanter",
     badgeClass: "bg-cyan-100 text-cyan-700",
     clarity: "Ultra Fine Pixel",
-    costIndex: "Premium+",
+    costIndex: "💰💰💰💰💰",
     distance: "1.9m ve üzeri",
     refreshRate: "3840Hz",
     usage: "Lansman, fuar, gala, konferans, yakın izleme",
@@ -122,7 +122,7 @@ const LED_PIXEL_ROWS = [
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED",
+  title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
   description:
     "300 m² P1.9 indoor LED yatırımı, P2.5/P2.9 iç mekan ve P3.9 dış mekan LED ekran kiralama. Lansman, fuar, gala ve konferanslarda premium görüntü kalitesi.",
   keywords:
@@ -288,7 +288,7 @@ const QUICK_SELECTION_STEPS = [
     title: "Piksel aralığını seçin",
     description:
       "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır, bütçe de gereksiz yükselmez.",
-    points: ["P1.9: yakın izleme premium", "P2.5/P2.9: iç mekan", "P3.9: açık hava ve geniş alan"],
+    points: ["P1.9: Yakın izleme premium", "P2.5/P2.9: İç mekan", "P3.9: Açık hava ve geniş alan"],
   },
   {
     Icon: MessageCircle,
@@ -621,7 +621,7 @@ function P19InvestmentProof() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 54vw"
-              loading="eager"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-transparent to-transparent" />
           </div>
@@ -1244,7 +1244,7 @@ function Technical() {
       title: "Piksel Teknolojileri",
       description: "P1.9-P3.9 piksel aralığı ile yakın izleme ve geniş alan ihtiyaçlarına uygun çözümler",
       Icon: Eye,
-      features: ["P1.9: yakın izleme premium indoor", "P2.5/P2.9: iç mekan ve hibrit", "P3.9: açık hava ve geniş alan", "P4.8: uzak mesafe (opsiyon)"]
+      features: ["P1.9: Yakın izleme premium indoor", "P2.5/P2.9: İç mekan ve hibrit", "P3.9: Açık hava ve geniş alan", "P4.8: Uzak mesafe (opsiyon)"]
     },
     {
       category: "parlaklik",

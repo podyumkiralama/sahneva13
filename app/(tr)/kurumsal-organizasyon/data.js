@@ -140,9 +140,9 @@ export const PLANNING_STEPS = [
 
 export const SERVICE_ITEMS = [
   {
-    title: "P1.9 high resolution LED altyapısı",
+    title: "P1.9 yüksek çözünürlüklü LED altyapısı",
     desc: "300 m² P1.9 indoor LED yatırımıyla konferans, lansman, gala ve fuar sahnelerinde yakın izleme mesafesinde premium görüntü kalitesi sağlanır.",
-    whatsappIntent: "P1.9 high resolution LED altyapısı",
+    whatsappIntent: "P1.9 yüksek çözünürlüklü LED altyapısı",
   },
   {
     title: "Sahne ve LED mimarisi",
