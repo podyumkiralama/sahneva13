@@ -45,6 +45,8 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
+const P19_PROOF_IMAGE_SRC =
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
 const PAGE_LAST_MODIFIED = getLastModifiedForFile(
   "app/(tr)/led-ekran-kiralama/page.js",
   "2026-01-14"
@@ -142,7 +144,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`,
+        url: `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
         width: 1600,
         height: 739,
         alt: "LED ekran kiralama – 300 m² P1.9 indoor LED yatırımı ve profesyonel LED wall kurulumu",
@@ -154,7 +156,7 @@ export const metadata = {
     title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
     description:
       "300 m² P1.9 indoor LED stoğu, P2.5/P2.9 indoor ve P3.9 outdoor LED ekran kiralama.",
-    images: [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`],
+    images: [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`],
   },
   robots: {
     index: true,
@@ -616,12 +618,13 @@ function P19InvestmentProof() {
         <figure className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl">
           <div className="relative aspect-[16/9]">
             <Image
-              src="/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp"
+              src={P19_PROOF_IMAGE_SRC}
               alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 54vw"
               priority
+              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-transparent to-transparent" />
           </div>
@@ -668,6 +671,7 @@ function VisualProofStrip() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   loading="lazy"
+                  unoptimized={item.src === P19_PROOF_IMAGE_SRC}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
@@ -852,7 +856,7 @@ function Services() {
 /* ================== Galeri Verileri ================== */
 const GALLERY_IMAGES = [
   {
-    src: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    src: P19_PROOF_IMAGE_SRC,
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
     caption: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar."
   },
@@ -933,7 +937,7 @@ const VIDEO_GALLERY = [
 
 const VISUAL_FLOW_IMAGES = [
   {
-    src: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    src: P19_PROOF_IMAGE_SRC,
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
     eyebrow: "P1.9 indoor LED",
     title: "300 m² özmal premium görüntü altyapısı",
@@ -995,6 +999,7 @@ function Gallery() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 loading="lazy"
+                unoptimized={GALLERY_IMAGES[0].src === P19_PROOF_IMAGE_SRC}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 max-w-2xl">
@@ -2075,7 +2080,7 @@ function LedScreenJsonLd() {
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`,
+      url: `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
       width: 1600,
       height: 739,
       caption: "Sahneva 300 m² P1.9 indoor LED ekran yatırımı",
@@ -2114,8 +2119,8 @@ function LedScreenJsonLd() {
   });
 
   serviceNode.image = gallerySchema.imageUrls;
-  productNode.image = [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
-  webpageSchema.image = [`${ORIGIN}/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  productNode.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
+  webpageSchema.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}/img/hizmet-led-ekran.webp`, ...gallerySchema.imageUrls];
   webpageSchema.hasPart = [
     ...VIDEO_GALLERY.map((video, index) => ({
       "@id": `${pageUrl}#video-${index + 1}`,
