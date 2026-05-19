@@ -47,6 +47,24 @@ const AMATOR_FOOTBALL_PROJECT_SPACING_CSS = `
     line-height: 1.75 !important;
   }
 
+  @media (min-width: 1024px) {
+    .amator-football-project-scope main > section:first-of-type > div:first-child > div:first-child {
+      position: relative !important;
+      padding-bottom: 5.5rem !important;
+    }
+
+    .amator-football-project-scope main > section:first-of-type > div:first-child > div:first-child > div.mt-8 {
+      position: absolute !important;
+      left: calc(100% + clamp(2rem, 4vw, 3.5rem)) !important;
+      bottom: 0 !important;
+      z-index: 20 !important;
+      width: max-content !important;
+      max-width: min(42vw, 620px) !important;
+      margin-top: 0 !important;
+      justify-content: flex-start !important;
+    }
+  }
+
   .amator-football-project-scope main > section:first-of-type figure {
     width: 100% !important;
     max-width: 840px !important;
