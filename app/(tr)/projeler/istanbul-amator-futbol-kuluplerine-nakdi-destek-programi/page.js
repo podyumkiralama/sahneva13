@@ -163,6 +163,16 @@ const SCOPE_ITEMS = [
   "Kapalı alan etkinlik prodüksiyonu",
 ];
 
+const TECHNICAL_MEASUREMENTS = [
+  { label: "Ana sahne", value: "16 x 8 m scaff sistem" },
+  { label: "Ana LED ekran", value: "16 x 6 m" },
+  { label: "Yan LED ekranlar", value: "4 adet, her biri 4 x 2.5 m" },
+  { label: "LED pixel pitch", value: "1.9 mm LED ekran" },
+  { label: "Salon düzeni", value: "2500 sandalye düzeni" },
+  { label: "Ağırlama operasyonu", value: "3000 kişilik catering/ağırlama operasyonu" },
+  { label: "Line array ses", value: "24 adet JBL VTX A12 line array" },
+];
+
 const EQUIPMENT_GROUPS = [
   {
     title: "Ses Sistemi",
@@ -324,7 +334,7 @@ export default function AmateurFootballSupportProjectPage() {
             <h2 id="proje-ozeti" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
               Geniş katılımlı protokol programı için sakin ve güçlü teknik akış.
             </h2>
-            <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-300 md:text-lg">
+            <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-200 md:text-lg">
               <p>
                 {PROJECT_NAME}, Millet Bahçesi Hangar’da gerçekleştirilen kapalı alan protokol
                 etkinliği ölçeğinde bir prodüksiyon çalışmasıdır. Sahneva bu projede yalnızca
@@ -375,6 +385,15 @@ export default function AmateurFootballSupportProjectPage() {
           takibi, salon içi görünürlük, marka algısı ve protokol akışı için ana iletişim yüzeyidir.
         </p>
         <p>
+          <Link href="/led-ekran-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+            P1.9 indoor LED ekran çözümleri
+          </Link>{" "}
+          tarafında yeni premium envanter olarak konumlandırılan altyapı, bu projede yakın izleme
+          mesafesi ve yüksek çözünürlüklü sahne görünürlüğü için kullanıldı. 16 x 6 m ana LED ekran
+          ve 4 adet 4 x 2.5 m yan LED ekran, 3840Hz tazeleme oranı ve 1.9m üzeri izleme mesafesine
+          uygun P1.9 LED envanteriyle planlandı.
+        </p>
+        <p>
           Bu nedenle{" "}
           <Link href="/led-ekran-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
             LED ekran çözümleri
@@ -419,10 +438,15 @@ export default function AmateurFootballSupportProjectPage() {
         images={[IMAGES.platform, IMAGES.salonLayout, IMAGES.wideSalon, IMAGES.flagScene]}
       >
         <p>
-          Sahne yüksekliği, basamak geçişleri, podyum/platform uygulamaları ve salon içi masa düzeni
-          etkinliğin algısını doğrudan etkiler. Bu projede sahne ile salon arasındaki ilişki; protokol
-          masalarının görüş açısı, konuşmacı erişimi, servis akışı ve izleyici deneyimi dikkate
-          alınarak planlandı.
+          Ana sahne 16 x 8 m ölçüsünde scaff sistemle kuruldu. Sahne yüksekliği, basamak geçişleri,
+          podyum/platform yüzeyi, 2500 sandalye düzeni ve 3000 kişilik catering operasyonu aynı salon
+          yerleşimi içinde değerlendirildi.
+        </p>
+        <p>
+          Bu projede sahne ile salon arasındaki ilişki; protokol masalarının görüş açısı, konuşmacı
+          erişimi, servis akışı ve izleyici deneyimi dikkate alınarak planlandı. Böylece sahne,
+          podyum, LED ekran ve salon ağırlama akışı birbirinden kopuk kalmadan aynı teknik yerleşim
+          üzerinde çalıştı.
         </p>
         <p>
           <Link href="/podyum-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
@@ -445,7 +469,7 @@ export default function AmateurFootballSupportProjectPage() {
                 Sahne, LED ekran, reji ve salon düzeninden seçili kareler
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-relaxed text-slate-400">
+            <p className="max-w-xl text-sm leading-relaxed text-slate-300">
               Galeri; kapalı alan protokol etkinliği için hazırlanan ana sahne, LED ekran, yan ekran,
               teknik reji, truss, platform ve salon düzeni detaylarını birlikte gösterir.
             </p>
@@ -511,12 +535,43 @@ function TechnicalEquipmentSection() {
           <h2 id="teknik-ekipman-altyapisi" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
             Teknik ekipman altyapısı
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-slate-200 md:text-lg">
             Bu proje sayfasında etkinlik adı referans bağlamıdır; asıl gösterilen güç Sahneva’nın
             kapalı alanda kurduğu ses, ışık, LED kontrol, teknik reji ve mikrofon altyapısıdır.
             Ekipman omurgası, sahne üzerindeki konuşmacı odağı ile salonun tamamındaki izleme
             deneyimini aynı teknik plan içinde taşımak için seçildi.
           </p>
+        </div>
+
+        <div className="mb-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <article className="rounded-3xl border border-blue-300/20 bg-blue-500/10 p-6 shadow-2xl shadow-blue-950/20 backdrop-blur">
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-blue-100">Teknik Not</p>
+            <h3 className="mt-3 text-2xl font-black tracking-tight text-white">
+              1.9 mm LED ekran ilk kullanım vurgusu
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-slate-200">
+              Bu projede Sahneva, 1.9 mm LED ekran altyapısını ilk kez kullanarak kapalı alan
+              protokol etkinliğinde daha yüksek çözünürlüklü ve yakın mesafeden net izlenebilen
+              bir görsel yüzey oluşturdu.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">
+              Sahneva’nın{" "}
+              <Link href="/led-ekran-kiralama" className="font-black text-blue-100 underline decoration-blue-300/50 underline-offset-4">
+                P1.9 indoor LED ekran çözümleri
+              </Link>{" "}
+              sayfasında yeni premium envanter olarak konumlandırılan P1.9 indoor LED altyapısı,
+              bu referansta ana sahne ve yan ekran görünürlüğünü destekleyen ana görüntü zemini oldu.
+            </p>
+          </article>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {TECHNICAL_MEASUREMENTS.map(({ label, value }) => (
+              <div key={label} className="rounded-2xl border border-white/10 bg-[#0B1120]/70 p-5 shadow-xl shadow-black/15">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-100/90">{label}</p>
+                <p className="mt-2 text-lg font-black leading-snug text-white">{value}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -557,7 +612,7 @@ function CaseSection({ eyebrow, title, icon: Icon, images, children, flip = fals
               {title}
             </h2>
           </div>
-          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-300 md:text-lg">
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-200 md:text-lg">
             {children}
           </div>
         </div>
@@ -705,6 +760,13 @@ function buildJsonLd() {
           "grandMA3 ışık kontrol altyapısı",
           "Pioneer DJM-A9 mixer",
           "Shure mikrofon altyapısı",
+          "16 x 8 m scaff sahne sistemi",
+          "16 x 6 m ana LED ekran",
+          "4 adet 4 x 2.5 m yan LED ekran",
+          "1.9 mm P1.9 indoor LED ekran",
+          "3840Hz tazeleme oranı",
+          "2500 sandalye düzeni",
+          "3000 kişilik catering/ağırlama operasyonu",
         ],
       },
       {
