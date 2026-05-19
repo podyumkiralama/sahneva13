@@ -21,7 +21,7 @@ const PAGE_PATH = "/projeler/diclefest-sanliurfa";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const IMAGE_BASE = "/img/projeler/diclefest-sanliurfa";
 const TITLE = "DicleFest Şanlıurfa Festival Alanı Kurulumu ve Etkinlik Yönetimi";
-const SEO_TITLE = "DicleFest Şanlıurfa Festival Kurulumu | Dome Çadır ve Konser Alanı Yönetimi";
+const SEO_TITLE = "DicleFest Şanlıurfa | Dome Çadır, LED Ekran ve Konser Alanı";
 const DESCRIPTION =
   "Şanlıurfa DicleFest kapsamında dome çadırlar, etkinlik çadırları, oyun alanları, konser alanı, dekor uygulamaları ve festival saha operasyonu Sahneva koordinasyonunda yönetildi.";
 const OG_DESCRIPTION =
@@ -423,7 +423,7 @@ export const metadata = {
   },
   openGraph: {
     type: "article",
-    title: "DicleFest Şanlıurfa Festival Alanı Kurulumu ve Etkinlik Yönetimi",
+    title: SEO_TITLE,
     description: OG_DESCRIPTION,
     url: PAGE_URL,
     siteName: "Sahneva",
@@ -439,7 +439,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DicleFest Şanlıurfa Festival Alanı Kurulumu ve Etkinlik Yönetimi",
+    title: SEO_TITLE,
     description: OG_DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMAGE.src}`],
   },
@@ -657,6 +657,10 @@ export default function DicleFestSanliurfaProjectPage() {
                 ,{" "}
                 <Link href="/truss-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
                   truss sistemleri
+                </Link>
+                ,{" "}
+                <Link href="/cadir-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                  etkinlik çadırı ve dome çadır çözümleri
                 </Link>{" "}
                 ve ziyaretçi yönlendirme başlıkları birbirinden bağımsız değil, aynı saha akışının
                 parçalarıdır.
@@ -918,7 +922,6 @@ function buildJsonLd() {
         description:
           "DicleFest Şanlıurfa; teknoloji alanları, planetaryum, oyun ve aktivite bölümleri ile konserleri kapsayan açık alan festivalidir.",
         url: DICLEFEST_SOURCE_URL,
-        performer: [],
         provider: { "@id": `${SITE_URL}/#org` },
       },
       {
