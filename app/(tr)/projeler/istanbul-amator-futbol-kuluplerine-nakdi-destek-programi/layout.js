@@ -22,6 +22,55 @@ const AMATOR_FOOTBALL_PROJECT_SPACING_CSS = `
     line-height: 1.45 !important;
   }
 
+  /* Hero ve özet dışındaki case-study bloklarında büyük boşluk oluşmasın:
+     metin üstte, görseller altta tam genişlik aksın. */
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.35rem !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:first-child {
+    order: 1 !important;
+    max-width: 980px !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child {
+    order: 2 !important;
+    width: 100% !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child.grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.95rem !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child.grid > figure,
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child.grid > figure[class*="col-span"] {
+    grid-column: auto !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure {
+    border-radius: 1.25rem !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure [class*="aspect-"] {
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure img,
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure [class*="object-contain"] {
+    object-fit: cover !important;
+    background: transparent !important;
+  }
+
+  .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure figcaption {
+    min-height: 4.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
   .amator-football-project-scope main section[aria-labelledby="galeri"] .grid {
     gap: 1rem !important;
     align-items: start !important;
@@ -47,20 +96,20 @@ const AMATOR_FOOTBALL_PROJECT_SPACING_CSS = `
     align-items: center !important;
   }
 
-  .amator-football-project-scope main section:not([aria-labelledby="galeri"]) figure [class*="aspect-[9/16]"] {
-    aspect-ratio: 16 / 11 !important;
-  }
-
-  .amator-football-project-scope main section:not([aria-labelledby="galeri"]) figure [class*="object-contain"] {
-    object-fit: cover !important;
-    background: transparent !important;
+  @media (max-width: 1023px) {
+    .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child.grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
   }
 
   @media (max-width: 767px) {
+    .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) > div[class*="lg:grid-cols-2"] > div:last-child.grid,
     .amator-football-project-scope main section[aria-labelledby="galeri"] .grid {
+      grid-template-columns: minmax(0, 1fr) !important;
       gap: 0.85rem !important;
     }
 
+    .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure [class*="aspect-"],
     .amator-football-project-scope main section[aria-labelledby="galeri"] figure [class*="aspect-"] {
       aspect-ratio: 4 / 3 !important;
     }
@@ -70,6 +119,7 @@ const AMATOR_FOOTBALL_PROJECT_SPACING_CSS = `
       font-size: 0.78rem !important;
     }
 
+    .amator-football-project-scope main section:not(:first-of-type):not([aria-labelledby="proje-ozeti"]):not([aria-labelledby="galeri"]) figure figcaption,
     .amator-football-project-scope main section[aria-labelledby="galeri"] figure figcaption {
       min-height: auto !important;
       display: block !important;
