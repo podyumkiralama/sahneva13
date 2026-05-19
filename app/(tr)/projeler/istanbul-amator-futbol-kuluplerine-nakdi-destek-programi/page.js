@@ -21,8 +21,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const IMAGE_BASE = "/img/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi";
 const PROJECT_NAME = "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı";
 const VENUE_NAME = "Millet Bahçesi Hangar";
-const H1 =
-  "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı Sahne ve LED Ekran Kurulumu";
+const H1 = "Kapalı Alan LED Ekran ve Sahne Kurulumu";
 const SEO_TITLE = "Amatör Futbol Kulüpleri Destek Programı | LED Ekran ve Sahne Kurulumu";
 const DESCRIPTION =
   "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı kapsamında LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve kapalı alan protokol etkinliği kurulumu Sahneva tarafından yönetildi.";
@@ -164,6 +163,49 @@ const SCOPE_ITEMS = [
   "Kapalı alan etkinlik prodüksiyonu",
 ];
 
+const EQUIPMENT_GROUPS = [
+  {
+    title: "Ses Sistemi",
+    description:
+      "Konuşmacı netliği ve salon genelinde kontrollü ses dağılımı için line array omurgası kuruldu.",
+    items: ["24 adet JBL VTX A12 line array ses sistemi"],
+    icon: Volume2,
+  },
+  {
+    title: "Işık Sistemi",
+    description:
+      "Sahne odağı, protokol görünürlüğü ve LED ekranla uyumlu atmosfer için hareketli ışık ve wash grubu birlikte planlandı.",
+    items: [
+      "15 adet Clay Paky K20 B-EYE LED wash",
+      "15 adet Clay Paky Mythos 2",
+      "10 adet Martin MAC Viper",
+      "50 adet FOS Cyclone Pro D2",
+    ],
+    icon: Sparkles,
+  },
+  {
+    title: "LED Kontrol",
+    description:
+      "Ana LED ekran ve yan ekranların içerik akışı, görüntü kararlılığı ve sinyal yönetimi processor altyapısı üzerinden yürütüldü.",
+    items: ["2 adet NovaStar VX1000 processor"],
+    icon: MonitorCheck,
+  },
+  {
+    title: "Teknik Reji",
+    description:
+      "Işık kontrolü, sahne akışı ve teknik masa yönetimi kapalı alan protokol düzenine göre konumlandırıldı.",
+    items: ["1 adet grandMA3 NPU", "1 adet grandMA3 light", "Pioneer DJM-A9 mixer"],
+    icon: RadioTower,
+  },
+  {
+    title: "Mikrofon Altyapısı",
+    description:
+      "Konuşmacı geçişleri ve protokol sunumları için güvenilir Shure mikrofon altyapısı hazırlandı.",
+    items: ["Shure mikrofonlar"],
+    icon: CheckCircle2,
+  },
+];
+
 export const revalidate = 86400;
 
 export const metadata = {
@@ -220,9 +262,9 @@ export default function AmateurFootballSupportProjectPage() {
               {H1}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 md:text-xl">
-              Millet Bahçesi Hangar’da gerçekleştirilen {PROJECT_NAME} kapsamında LED ekran, sahne,
-              podyum, ses-ışık, truss, teknik reji ve salon düzeni Sahneva koordinasyonunda bütüncül
-              bir teknik operasyon planıyla yönetildi.
+              Millet Bahçesi Hangar’da gerçekleştirilen {PROJECT_NAME} referansında Sahneva; LED ekran,
+              sahne, podyum, JBL VTX line array ses sistemi, Clay Paky ve Martin ışık kurgusu,
+              NovaStar LED kontrol ve grandMA3 reji altyapısını tek teknik plan altında yönetti.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -291,6 +333,12 @@ export default function AmateurFootballSupportProjectPage() {
                 destekleyen bütüncül bir kurulum yaklaşımıyla görev aldı.
               </p>
               <p>
+                Bu referansta odak etkinlik anlatısından çok, Sahneva’nın kapalı alanda kurduğu LED
+                ekran, sahne, ses, ışık, mikrofon, LED kontrol ve teknik reji altyapısının sahadaki
+                gücüdür. Ekipman seçimi; salon ölçeği, yakın izleme mesafesi, konuşmacı görünürlüğü
+                ve kesintisiz teknik akış dikkate alınarak yapıldı.
+              </p>
+              <p>
                 Kapalı alan protokol etkinliklerinde sahne, LED ekran, ses-ışık, podyum, truss ve
                 teknik reji birbirinden bağımsız ekipman kalemleri değildir. Metin, görsel ve sahne
                 odağı; programın kurumsal/protokol yapısına uygun kontrollü bir prodüksiyon diliyle
@@ -312,6 +360,8 @@ export default function AmateurFootballSupportProjectPage() {
           </aside>
         </div>
       </section>
+
+      <TechnicalEquipmentSection />
 
       <CaseSection
         eyebrow="LED Ekran ve Sahne Kurgusu"
@@ -449,6 +499,47 @@ function Breadcrumb() {
       <span aria-hidden="true">/</span>
       <span className="text-white">Amatör Futbol Kulüpleri Destek Programı</span>
     </nav>
+  );
+}
+
+function TechnicalEquipmentSection() {
+  return (
+    <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="teknik-ekipman-altyapisi">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 max-w-4xl">
+          <SectionEyebrow>Kullanılan Teknik Sistemler</SectionEyebrow>
+          <h2 id="teknik-ekipman-altyapisi" className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
+            Teknik ekipman altyapısı
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">
+            Bu proje sayfasında etkinlik adı referans bağlamıdır; asıl gösterilen güç Sahneva’nın
+            kapalı alanda kurduğu ses, ışık, LED kontrol, teknik reji ve mikrofon altyapısıdır.
+            Ekipman omurgası, sahne üzerindeki konuşmacı odağı ile salonun tamamındaki izleme
+            deneyimini aynı teknik plan içinde taşımak için seçildi.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {EQUIPMENT_GROUPS.map(({ title, description, items, icon: Icon }) => (
+            <article key={title} className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 shadow-xl shadow-black/20 backdrop-blur">
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-300/20 bg-blue-400/10 text-blue-100">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <h3 className="text-xl font-black tracking-tight text-white">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">{description}</p>
+              <ul className="mt-5 space-y-3">
+                {items.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm font-bold leading-snug text-slate-100">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-200" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -605,6 +696,15 @@ function buildJsonLd() {
           "truss sistemleri",
           "podyum ve platform kurulumu",
           "kurumsal organizasyon",
+          "JBL VTX A12 line array ses sistemi",
+          "Clay Paky K20 B-EYE LED wash",
+          "Clay Paky Mythos 2",
+          "Martin MAC Viper",
+          "FOS Cyclone Pro D2",
+          "NovaStar VX1000 LED processor",
+          "grandMA3 ışık kontrol altyapısı",
+          "Pioneer DJM-A9 mixer",
+          "Shure mikrofon altyapısı",
         ],
       },
       {
