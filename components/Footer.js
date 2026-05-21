@@ -38,6 +38,7 @@ const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/podyum-kiralama-fiyatlari", label: "Podyum Kiralama Fiyatları" },
+  { href: "/led-ekran-kiralama-fiyatlari", label: "LED Ekran Fiyatları" },
   {
     href: "/kvkk",
     label: "KVKK / Gizlilik",

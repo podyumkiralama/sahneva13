@@ -1827,6 +1827,13 @@ function Articles() {
               <p>
                 Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
               </p>
+              <p>
+                Güncel başlangıç m² bedellerini, P1.9 premium indoor LED farkını, NovaStar processor ve teknik reji kapsamını ayrı bir tabloda görmek için{" "}
+                <Link href="/led-ekran-kiralama-fiyatlari">
+                  LED ekran kiralama fiyatları
+                </Link>{" "}
+                sayfasını inceleyebilirsiniz.
+              </p>
 
               <h3 id="fiyatlari-etkileyenler">LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h3>
               <ul>
