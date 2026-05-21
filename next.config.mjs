@@ -276,6 +276,31 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/en/blog-1",
+        destination: "/en/blog",
+        permanent: true,
+      },
+      {
+        source: "/en/contact-0",
+        destination: "/en/contact",
+        permanent: true,
+      },
+      {
+        source: "/en/sound-light-rental-2",
+        destination: "/en/sound-light-rental",
+        permanent: true,
+      },
+      {
+        source: "/en/led-screen-rental-1",
+        destination: "/en/led-screen-rental",
+        permanent: true,
+      },
+      {
+        source: "/img/ses-isik/lacoustics.png-11",
+        destination: "/img/ses-isik/lacoustics.png",
+        permanent: true,
+      },
+      {
         source: "/$",
         destination: "/",
         permanent: true,
@@ -335,6 +360,16 @@ const nextConfig = {
       {
         source: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi-2",
         destination: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/graduation-events-2026-istanbul-guide-2",
+        destination: "/en/blog/graduation-events-2026-istanbul-guide",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/dome-tent-revolution-pneumatic-360-mapping-2",
+        destination: "/en/blog/dome-tent-revolution-pneumatic-360-mapping",
         permanent: true,
       },
     ];
