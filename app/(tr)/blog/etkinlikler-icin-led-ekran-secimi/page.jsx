@@ -271,7 +271,9 @@ export default function Page() {
           <Link href="/sahne-kiralama">sahne kiralama</Link>, podyum,{" "}
           <Link href="/ses-isik-sistemleri">ses ve ışık sistemleri</Link> alanlarında projeye özel
           prodüksiyon çözümleri planlıyoruz. Her projeye tek ekipman değil, sahada birlikte çalışan bir
-          sistem olarak yaklaşıyoruz.
+          sistem olarak yaklaşıyoruz. Ölçü, pixel pitch ve teknik ekip kapsamı bütçeyi belirlediğinde{" "}
+          <Link href="/led-ekran-kiralama-fiyatlari">LED ekran kiralama fiyatları</Link>{" "}
+          sayfası teklif öncesi karar çerçevesini tamamlar.
         </p>
 
         <ImgFigure

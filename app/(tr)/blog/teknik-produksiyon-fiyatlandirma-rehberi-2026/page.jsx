@@ -341,6 +341,17 @@ export default function Page() {
                   daha yüksek kârlılık sağlar.
                 </p>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
+                  LED kaleminde ekran metrekaresi, pixel pitch, kurulum-söküm,
+                  NovaStar processor ve reji kapsamını birlikte görmek için{" "}
+                  <Link
+                    href="/led-ekran-kiralama-fiyatlari"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
+                    LED ekran kiralama fiyatları
+                  </Link>{" "}
+                  sayfasındaki başlangıç fiyat mantığını ayrıca inceleyebilirsiniz.
+                </p>
+                <p className="mt-3 text-sm leading-7 text-slate-700">
                   Yanlış fiyatlandırma düşük doluluk yaratmaz; düşük algı
                   yaratır. Müşteri "ucuz" görünen teklifte kalite şüphesi duyar.
                   Doğru fiyatlandırma ise premium algı ile daha yüksek kabul
