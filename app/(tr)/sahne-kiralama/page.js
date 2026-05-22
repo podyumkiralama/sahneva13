@@ -657,20 +657,6 @@ function Services() {
 
 /* ================== Paketler ================== */
 function Packages() {
-  const formatTRY = (n) =>
-    new Intl.NumberFormat("tr-TR", {
-      style: "currency",
-      currency: "TRY",
-      maximumFractionDigits: 0,
-    }).format(n);
-
-  // Basit fiyatlandırma (gerçek projede API'den gelebilir)
-  const packagePrices = {
-    "mini-sahne": 19500,
-    "standart-sahne": 32500,
-    "konser-sahnesi": 65000,
-  };
-
   return (
     <section
       id="paketler"
@@ -767,10 +753,7 @@ function Packages() {
                         Günlük Kira (İstanbul)
                       </div>
                       <div className="text-3xl font-black text-gray-900 mt-2">
-                        {formatTRY(packagePrices[pkg.id])}
-                        <span className="text-sm text-gray-800 font-normal ml-2">
-                          + KDV
-                        </span>
+                        Fiyat sorunuz
                       </div>
                       <p className="mt-3 text-sm leading-relaxed text-gray-600">
                         Tahmini bütçedir; tarih, lokasyon, kurulum şartları ve
