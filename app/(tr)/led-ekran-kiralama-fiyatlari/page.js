@@ -699,6 +699,28 @@ export default function Page() {
                 </article>
               ))}
             </div>
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+              <h2 className="text-2xl font-black text-slate-950">
+                Fiyat kararını gerçek LED kurulumlarıyla karşılaştırın
+              </h2>
+              <p className="mt-3 max-w-4xl text-base leading-7 text-slate-700">
+                P1.9 yakın izleme netliği, büyük ekran yüzeyi ve teknik reji ihtiyacının sahada nasıl karşılık bulduğunu{" "}
+                <Link
+                  href="/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi"
+                  className="font-black text-blue-700 underline underline-offset-4"
+                >
+                  Millet Bahçesi Hangar P1.9 LED referansında
+                </Link>{" "}
+                görebilirsiniz. Daha geniş sahne, podyum ve LED yüzeyi ilişkisi için{" "}
+                <Link
+                  href="/projeler/kapali-alan-led-sahne-kurulumu"
+                  className="font-black text-blue-700 underline underline-offset-4"
+                >
+                  kapalı alan LED ve sahne kurulumu
+                </Link>{" "}
+                projesi de teklif kapsamını somutlaştırır.
+              </p>
+            </div>
           </div>
         </section>
 

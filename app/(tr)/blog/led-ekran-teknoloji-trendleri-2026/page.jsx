@@ -494,7 +494,11 @@ export default function LedTrends2026Page() {
                 <p>
                   Teklif alırken sadece fiyat sormak yerine, bu kalemlerin içinde nelerin dahil olduğunu netleştirmek gerekir. Hazır buradayken{" "}
                   <Link href={LED_SERVICE_PATH}>LED ekran kiralama</Link>{" "}
-                  sayfamızdan kurulum, ekip ve teknik operasyon kapsamını da inceleyebilirsin.
+                  sayfamızdan kurulum, ekip ve teknik operasyon kapsamını;{" "}
+                  <Link href="/led-ekran-kiralama-fiyatlari">
+                    LED ekran kiralama fiyatları
+                  </Link>{" "}
+                  sayfamızdan m² başlangıç bedeli, P1.9 farkı ve reji kapsamını inceleyebilirsin.
                 </p>
 
                 {/* CHECKLIST + LEAD MAGNET */}
