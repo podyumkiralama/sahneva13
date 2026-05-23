@@ -40,7 +40,7 @@ const UNIT_PRICES = {
   platform_m2_week: 270,
   carpet_m2_week: 130,
   skirt_ml_week: 100,
-  ist_nakliye: 9000, // İstanbul içi sabit (kurulum + söküm dahil)
+  ist_nakliye: 9000, // İstanbul içi temel nakliye (kurulum + söküm dahil)
   currency: "TRY",
 };
 
@@ -70,7 +70,7 @@ const SERVICES = [
     title: "Modüler Podyum Sistemleri",
     description:
       "1×1m ve 2×1m modüler paneller ile esnek ve güvenli sahne çözümleri",
-    features: ["1×1m ve 2×1m paneller", "Kaymaz kaplama", "40-100cm yükseklik", "Hızlı kurulum"],
+    features: ["1×1m ve 2×1m paneller", "Kaymaz kaplama", "10-200cm yükseklik planı", "Hızlı kurulum"],
   },
   {
     icon: "💍",
@@ -118,7 +118,7 @@ const PACKAGES = [
       "6 × (1×2 m) panel – toplam 12 m²",
       "Yükseklik: 40 cm",
       "Kaymaz kaplama",
-      "Nakliye + kurulum + söküm (İstanbul)",
+      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
     ],
     note: "İç mekân konuşma/mini performanslar için ideal.",
   },
@@ -131,7 +131,7 @@ const PACKAGES = [
       "12 × (1×2 m) panel – toplam 24 m²",
       "Yükseklik: 60 cm",
       "Kaymaz kaplama, merdiven",
-      "Nakliye + kurulum + söküm (İstanbul) + yerinde dengeleme",
+      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
     ],
     note: "Kurumsal sahneler ve canlı performanslar için.",
   },
@@ -144,7 +144,7 @@ const PACKAGES = [
       "24 × (1×2 m) panel – toplam 48 m²",
       "Yükseklik: 80–100 cm",
       "Kaymaz kaplama, merdiven, rampa, korkuluk",
-      "Nakliye + kurulum + söküm (İstanbul) + çevre etek/brandalama",
+      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
     ],
     note: "Büyük konser/miting sahneleri için.",
   },
@@ -248,7 +248,7 @@ const TECHNICAL_SPECS = [
     title: "Ölçü & Kombinasyonlar",
     icon: "📐",
     description: "Modüler sistemler ile esnek ölçü ve birleşim seçenekleri",
-    features: ["1×1m ve 2×1m paneller", "40-100cm yükseklik", "İsteğe özel ölçüler", "Karma panel sistemleri"],
+    features: ["1×1m ve 2×1m paneller", "10-200cm yükseklik planı", "İsteğe özel ölçüler", "Karma panel sistemleri"],
   },
   {
     title: "Tamamlayıcı Hizmetler",
@@ -260,7 +260,7 @@ const TECHNICAL_SPECS = [
     title: "Saha Süreci",
     icon: "⚡",
     description: "Nakliye, kurulum, söküm ve zaman planına uygun saha yönetimi",
-    features: ["2-6 saat kurulum", "Profesyonel ekip", "İstanbul içi nakliye", "Söküm hizmeti"],
+    features: ["2-6 saat kurulum", "Profesyonel ekip", "İstanbul ve Türkiye geneli lojistik", "Söküm hizmeti"],
   },
   {
     title: "Teknik Destek",
@@ -273,7 +273,7 @@ const TECHNICAL_SPECS = [
 const FAQ_ITEMS = [
   {
     q: "Podyum kiralama fiyatları nasıl hesaplanır?",
-    a: `Fiyat; alan (m²), halı (m²), skört (metre) ve İstanbul içi nakliye (kurulum+söküm dahil) kalemleriyle hesaplanır. 2026 birim fiyatlarımız: platform ${UNIT_PRICES.platform_m2_week} TL/m², halı ${UNIT_PRICES.carpet_m2_week} TL/m², skört ${UNIT_PRICES.skirt_ml_week} TL/metre, İstanbul içi nakliye ${UNIT_PRICES.ist_nakliye} TL (sabit).`,
+    a: `Fiyat; alan (m²), halı (m²), skört (metre), İstanbul içi temel nakliye ve Türkiye geneli lojistik kapsamına göre hesaplanır. 2026 birim fiyatlarımız: platform ${UNIT_PRICES.platform_m2_week} TL/m², halı ${UNIT_PRICES.carpet_m2_week} TL/m², skört ${UNIT_PRICES.skirt_ml_week} TL/metre, İstanbul içi temel nakliye ${UNIT_PRICES.ist_nakliye} TL. Şehir dışı projelerde lojistik ayrıca planlanır.`,
   },
   {
     q: "Kurulum ne kadar sürer?",
@@ -527,7 +527,7 @@ function HeroSection() {
 
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.74)_42%,rgba(2,6,23,.38)_78%,rgba(2,6,23,.12)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/75 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#05070d] via-[#05070d]/76 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#05070d] via-[#05070d]/[0.76] to-transparent" />
 
         <div
           className="absolute inset-0 opacity-[0.16]"
@@ -538,14 +538,14 @@ function HeroSection() {
           }}
         />
 
-        <div className="absolute left-[-8rem] top-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/18 blur-3xl" />
+        <div className="absolute left-[-8rem] top-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.18] blur-3xl" />
         <div className="absolute right-[-10rem] bottom-[-6rem] h-[30rem] w-[30rem] rounded-full bg-cyan-400/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_25rem] lg:items-center">
           <div className="max-w-4xl">
-            <div className="mb-5 inline-flex items-center gap-3 border border-white/18 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+            <div className="mb-5 inline-flex items-center gap-3 border border-white/[0.18] bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
               <span
                 className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
                 aria-hidden="true"
@@ -557,7 +557,7 @@ function HeroSection() {
               Podyum Kiralama
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/78 md:text-2xl">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/[0.78] md:text-2xl">
               Kurumsal etkinlikler, konserler, fuarlar, lansmanlar ve açık hava organizasyonları için geniş stoklu,
               karolaj planlı ve titreşimsiz modüler podyum sistemleri.
             </p>
@@ -566,7 +566,7 @@ function HeroSection() {
               {HERO_BADGES.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-bold text-white/86 backdrop-blur-md"
+                  className="rounded-full border border-white/[0.14] bg-white/[0.08] px-4 py-2 text-sm font-bold text-white/[0.86] backdrop-blur-md"
                 >
                   {badge}
                 </span>
@@ -586,7 +586,7 @@ function HeroSection() {
 
               <Link
                 href="#podyum-stok-kapasitesi"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/18 bg-white/8 px-7 py-3.5 font-black text-white backdrop-blur-md transition hover:bg-white/14 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.08] px-7 py-3.5 font-black text-white backdrop-blur-md transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
               >
                 Stok Kapasitesini Gör
               </Link>
@@ -596,11 +596,11 @@ function HeroSection() {
               {PODIUM_STOCK_METRICS.map((metric) => (
                 <div
                   key={metric.label}
-                  className="border border-white/12 bg-white/8 p-4 backdrop-blur-xl shadow-[0_18px_50px_rgba(15,23,42,0.22)]"
+                  className="border border-white/[0.12] bg-white/[0.08] p-4 backdrop-blur-xl shadow-[0_18px_50px_rgba(15,23,42,0.22)]"
                 >
                   <div className="text-2xl font-black text-white">{metric.value}</div>
                   <div className="mt-1 text-sm font-bold text-blue-100">{metric.label}</div>
-                  <p className="mt-2 text-xs leading-relaxed text-white/62">
+                  <p className="mt-2 text-xs leading-relaxed text-white/[0.62]">
                     {metric.detail}
                   </p>
                 </div>
@@ -609,7 +609,7 @@ function HeroSection() {
           </div>
 
           <aside className="hidden lg:block lg:justify-self-end">
-            <div className="overflow-hidden border border-white/14 bg-slate-950/58 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden border border-white/[0.14] bg-slate-950/[0.58] shadow-2xl backdrop-blur-xl">
               <div className="relative aspect-[4/5] min-h-[28rem]">
                 <Image
                   src="/img/podyum/9.webp"
@@ -621,7 +621,7 @@ function HeroSection() {
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/36 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/[0.36] to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
                     Kurulum yaklaşımı
@@ -629,17 +629,17 @@ function HeroSection() {
                   <h2 className="mt-2 text-2xl font-black leading-tight">
                     Karolaj, kayıt bağlantıları ve saha kontrolü aynı planda.
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/72">
+                  <p className="mt-3 text-sm leading-relaxed text-white/[0.72]">
                     Podyum yalnızca metrekare hesabı değil; zemin, yükseklik, yük dağılımı ve kullanım süresiyle
                     birlikte projelendirilir.
                   </p>
                   <div className="mt-5 grid grid-cols-2 gap-2.5">
                     <div className="bg-white/10 px-3 py-3 backdrop-blur">
-                      <div className="text-xs uppercase tracking-wide text-white/56">Özel sistem</div>
+                      <div className="text-xs uppercase tracking-wide text-white/[0.56]">Özel sistem</div>
                       <div className="text-lg font-black">2x1 modül</div>
                     </div>
                     <div className="bg-white/10 px-3 py-3 backdrop-blur">
-                      <div className="text-xs uppercase tracking-wide text-white/56">Stabilite</div>
+                      <div className="text-xs uppercase tracking-wide text-white/[0.56]">Stabilite</div>
                       <div className="text-lg font-black">Kayıtlı yapı</div>
                     </div>
                   </div>
@@ -664,20 +664,20 @@ function PodiumStockCapacitySection() {
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.16)_1px,transparent_1px)] [background-size:72px_72px]" />
-        <div className="absolute left-[-14rem] top-10 h-[28rem] w-[28rem] rounded-full bg-blue-500/16 blur-3xl" />
+        <div className="absolute left-[-14rem] top-10 h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.16] blur-3xl" />
         <div className="absolute right-[-14rem] bottom-[-10rem] h-[30rem] w-[30rem] rounded-full bg-cyan-400/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
-            <div className="mb-4 inline-flex border border-blue-300/22 bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+            <div className="mb-4 inline-flex border border-blue-300/[0.22] bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-200">
               Özmal envanter gücü
             </div>
             <h2 id="podyum-stok-title" className="text-3xl font-black leading-tight md:text-5xl">
               Podyum Stok ve Kurulum Kapasitemiz
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/72">
+            <p className="mt-5 text-lg leading-relaxed text-white/[0.72]">
               Sahneva, farklı etkinlik ölçeklerine ve zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
               <Link href="/bolgesel-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
                 Türkiye geneli kurulum
@@ -686,7 +686,7 @@ function PodiumStockCapacitySection() {
               kurumsal etkinlikler, konserler, festival alanları, mezuniyet törenleri, fuarlar, lansmanlar,
               açık hava organizasyonları ve büyük ölçekli geçici zemin kurulumları için proje bazlı planlanır.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-white/72">
+            <p className="mt-4 text-lg leading-relaxed text-white/[0.72]">
               Özellikle geniş alanlı zemin uygulamalarında 10 cm yükseklikte 10.000 m²’ye kadar podyum zemin
               kurulumu yapılabilmektedir. Bu tip kurulumlarda podyum yüzeyi, alanın ölçüsüne ve kullanım amacına
               göre karolaj düzeninde planlanır. Karolaj sistemi sayesinde podyum modülleri düzenli, dengeli ve
@@ -704,7 +704,7 @@ function PodiumStockCapacitySection() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/14 bg-white/8 px-5 py-3 font-black text-white transition hover:bg-white/14 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
+                className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/[0.14] bg-white/[0.08] px-5 py-3 font-black text-white transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
               >
                 Ölçü paylaş, teklif al
               </a>
@@ -715,11 +715,11 @@ function PodiumStockCapacitySection() {
             {PODIUM_STOCK_METRICS.map((metric) => (
               <article
                 key={metric.label}
-                className="border border-white/12 bg-white/7 p-5 shadow-[0_22px_70px_rgba(15,23,42,0.32)] backdrop-blur-xl"
+                className="border border-white/[0.12] bg-white/[0.07] p-5 shadow-[0_22px_70px_rgba(15,23,42,0.32)] backdrop-blur-xl"
               >
                 <p className="text-3xl font-black text-white md:text-4xl">{metric.value}</p>
                 <h3 className="mt-2 text-base font-black text-blue-100">{metric.label}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/64">{metric.detail}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/[0.64]">{metric.detail}</p>
               </article>
             ))}
           </div>
@@ -729,24 +729,24 @@ function PodiumStockCapacitySection() {
           {PODIUM_HEIGHT_CAPACITIES.map((item) => (
             <article
               key={item.height}
-              className="border border-white/12 bg-slate-950/42 p-4 backdrop-blur transition hover:border-blue-300/40 hover:bg-white/8"
+              className="border border-white/[0.12] bg-slate-950/[0.42] p-4 backdrop-blur transition hover:border-blue-300/40 hover:bg-white/[0.08]"
             >
               <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-200">{item.height}</p>
               <p className="mt-3 text-2xl font-black text-white">{item.capacity}</p>
-              <p className="mt-1 text-sm font-semibold text-white/58">{item.note}</p>
+              <p className="mt-1 text-sm font-semibold text-white/[0.58]">{item.note}</p>
             </article>
           ))}
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="border border-blue-300/22 bg-blue-400/10 p-6 shadow-[0_24px_80px_rgba(37,99,235,0.18)] backdrop-blur-xl md:p-8">
+          <article className="border border-blue-300/[0.22] bg-blue-400/10 p-6 shadow-[0_24px_80px_rgba(37,99,235,0.18)] backdrop-blur-xl md:p-8">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-200">
               Güçlendirilmiş özel sistem
             </p>
             <h3 className="mt-3 text-3xl font-black leading-tight md:text-4xl">
               600 m² 2x1 özel podyum
             </h3>
-            <p className="mt-4 text-lg leading-relaxed text-white/72">
+            <p className="mt-4 text-lg leading-relaxed text-white/[0.72]">
               Altı tamamen kayıt dönülmüş 2x1 metre modüllerden oluşan özel podyum sistemi; sahne, performans
               alanı, konuşmacı platformu, protokol alanı ve yüksek stabilite gerektiren kurulumlarda tercih edilir.
               Alt taşıyıcı yapısının kayıtlarla güçlendirilmiş olması sayesinde etkinlik sırasında sarsıntı, titreme
@@ -755,22 +755,22 @@ function PodiumStockCapacitySection() {
           </article>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <article className="border border-white/12 bg-white/7 p-6 backdrop-blur-xl">
+            <article className="border border-white/[0.12] bg-white/[0.07] p-6 backdrop-blur-xl">
               <h3 className="text-2xl font-black leading-tight">
                 Karolaj Planlı Modüler Podyum Kurulumu
               </h3>
-              <p className="mt-4 leading-relaxed text-white/68">
+              <p className="mt-4 leading-relaxed text-white/[0.68]">
                 Geniş metrekareli podyum ve geçici zemin kurulumlarında karolaj planı, sistemin dengeli ve güvenli
                 çalışması için kritik öneme sahiptir. Sahneva, podyum modüllerini gelişigüzel yerleştirmek yerine
                 alan ölçüsü, zemin eğimi, kullanım yoğunluğu ve yük dağılımını dikkate alarak karolaj düzeniyle planlar.
               </p>
             </article>
 
-            <article className="border border-white/12 bg-white/7 p-6 backdrop-blur-xl">
+            <article className="border border-white/[0.12] bg-white/[0.07] p-6 backdrop-blur-xl">
               <h3 className="text-2xl font-black leading-tight">
                 Etkinlik Sırasında Sarsıntı ve Titreme Yapmayan Podyum
               </h3>
-              <p className="mt-4 leading-relaxed text-white/68">
+              <p className="mt-4 leading-relaxed text-white/[0.68]">
                 Podyum kiralama projelerinde yalnızca metrekare ve yükseklik değil, kullanım sırasında oluşabilecek
                 sarsıntı ve titreme de doğru değerlendirilmelidir. Doğru ayak yerleşimi, kayıt bağlantıları,
                 karolaj planı ve saha kontrolü daha tok, dengeli ve güven veren bir kullanım sunar.
@@ -790,7 +790,7 @@ function PodiumStockCapacitySection() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-white/12 bg-white/7 px-4 py-2 text-white/78 transition hover:border-blue-300/40 hover:text-white"
+              className="rounded-full border border-white/[0.12] bg-white/[0.07] px-4 py-2 text-white/[0.78] transition hover:border-blue-300/40 hover:text-white"
             >
               {link.label}
             </Link>
@@ -890,7 +890,7 @@ function PodiumFlowSection() {
             <dl className="mt-7 grid grid-cols-3 gap-3">
               {[
                 ["12-48 m²", "Hazır paket"],
-                ["40-100 cm", "Yükseklik"],
+                ["10-200 cm", "Yükseklik planı"],
                 ["2-6 saat", "Kurulum"],
               ].map(([value, label]) => (
                 <div
@@ -1008,11 +1008,11 @@ function CalculatorSection() {
             <div className="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-200">
               <p className="text-blue-800 text-lg">
                 <strong>
-                  İstanbul içi nakliye (kurulum + söküm dahil):{" "}
+                  İstanbul içi temel nakliye (kurulum + söküm dahil):{" "}
                   {formatTRY(UNIT_PRICES.ist_nakliye)}
                 </strong>
                 <br />
-                *200 m²&apos;ye kadar geçerlidir. Şehir dışı projeler için özel teklif alın.
+                *200 m²&apos;ye kadar İstanbul içi temel nakliye için geçerlidir. Türkiye geneli projelerde lojistik ayrıca planlanır.
               </p>
               <p className="mt-2 text-blue-800/80 text-sm">
                 2026 birim fiyat listesi için{" "}
@@ -1101,11 +1101,11 @@ function PackagesSection() {
                         <span className="font-medium text-gray-900">{formatTRY(prices.carpet + prices.skirt)}</span>
                       </div>
                       <div className="flex justify-between text-gray-700">
-                        <span>Nakliye (İstanbul):</span>
+                        <span>Temel nakliye (İstanbul):</span>
                         <span className="font-medium text-gray-900">{formatTRY(prices.nakliye)}</span>
                       </div>
                       <div className="flex justify-between border-t border-gray-300 pt-2">
-                        <span className="font-bold text-gray-900">Toplam (İstanbul):</span>
+                        <span className="font-bold text-gray-900">Başlangıç toplamı (İstanbul):</span>
                         <span className="font-bold text-blue-700">
                           {formatTRY(prices.total)}
                         </span>
@@ -1286,10 +1286,10 @@ function TechnicalSection() {
 
 function StatsSection() {
   const stats = [
-    { value: "700+", label: "Başarılı Proje", icon: "??" },
+    { value: "700+", label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "2-6", label: "Saat Kurulum", icon: "⏱️" },
-    { value: "10+", label: "Yıl Deneyim", icon: "?" },
+    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (
     <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
@@ -1330,7 +1330,7 @@ function UseCasesSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             Kullanım <span className="text-blue-700">Alanları</span>
           </h2>
-          <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Podyum çözümlerimizin tercih edildiği başlıca etkinlik türleri
           </p>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" />
@@ -1411,7 +1411,7 @@ function ArticlesSection() {
                 Podyum Sistemleri ve Teknolojileri
               </h4>
               <p>
-                <strong>Sahneva</strong>, İstanbul genelinde profesyonel podyum kiralama hizmetleriyle kurumsal standartta
+                <strong>Sahneva</strong>, İstanbul ve Türkiye genelinde profesyonel podyum kiralama hizmetleriyle kurumsal standartta
                 çözümler sunmaktadır. Etkinliğiniz ister düğün, ister konser olsun; detaylı keşif, teknik projelendirme,
                 nakliye, kurulum ve söküm dahil <strong>uçtan uca hizmet</strong> sağlıyoruz.
               </p>
@@ -1439,7 +1439,7 @@ function ArticlesSection() {
               </h4>
               <p>
                 1×1m panellerimiz düzensiz zeminlerde esnek çözümler sunarken, 2×1m paneller ana sahnelerde hızlı kurulum
-                imkanı sağlıyor. 40cm&apos;den 100cm&apos;ye kadar yükseklik seçenekleri mevcuttur.
+                imkanı sağlıyor. 10cm&apos;den 200cm&apos;ye kadar farklı yüksekliklerde podyum kurulumu proje özelinde planlanabilir.
               </p>
 
               <aside className="mt-10 rounded-2xl border-l-4 border-blue-500 bg-blue-50 p-5">
@@ -1466,7 +1466,7 @@ function ArticlesSection() {
                   <span aria-hidden="true">💎</span> Neden Sahneva?
                 </h5>
                 <p className="mb-0 text-yellow-800">
-                  <strong>10+ yıllık deneyim, 700+ başarılı proje ve İstanbul geneli hizmet</strong> ile podyum kiralama konusunda güvenilir çözüm ortağınız.
+                  <strong>10+ yıllık deneyim, 700+ başarılı proje ve İstanbul ile Türkiye geneli operasyon</strong> ile podyum kiralama konusunda güvenilir çözüm ortağınız.
                   Profesyonel ekipman, uzman ekip ve teknik destek opsiyonları.
                 </p>
               </aside>
@@ -1486,7 +1486,7 @@ function ArticlesSection() {
               <ul>
                 <li>Alüminyum karkas ve çelik bağlantı elemanları</li>
                 <li>Kaymaz kaplama ve UV dayanımlı yüzey</li>
-                <li>40-100cm yükseklik seçenekleri</li>
+                <li>10-200cm aralığında proje özelinde yükseklik planı</li>
                 <li>Korkuluk, merdiven ve rampa sistemleri</li>
               </ul>
             </div>
@@ -1531,7 +1531,7 @@ function ProcessAndTipsSection() {
             Podyum Kiralama <span className="text-blue-700">Süreci</span> ve İpuçları
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            İstanbul genelinde podyum kiralama teklifinizi daha hızlı netleştirmek için süreç adımlarını ve kritik noktaları özetledik.
+            İstanbul ve Türkiye genelinde podyum kiralama teklifinizi daha hızlı netleştirmek için süreç adımlarını ve kritik noktaları özetledik.
           </p>
         </div>
 
@@ -1547,7 +1547,7 @@ function ProcessAndTipsSection() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={58}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/[0.35] to-transparent" />
               </div>
             </figure>
           ))}
@@ -1561,14 +1561,14 @@ function ProcessAndTipsSection() {
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
               Podyum kiralama süreci; ölçü (m²) ve yükseklik belirleme, zemin/erişim kontrolü, net fiyatlandırma ve kurulum planlaması adımlarından oluşur.
-              Onay sonrası İstanbul içi nakliye (kurulum + söküm dahil) planlanır ve ekip, belirlenen load-in saatlerinde kurulumu tamamlar.
+              Onay sonrası İstanbul içi temel nakliye veya Türkiye geneli lojistik planlanır ve ekip, belirlenen load-in saatlerinde kurulumu tamamlar.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 { t: "1) Ölçü & yükseklik", d: "m², yükseklik, kullanım amacı" },
                 { t: "2) Zemin & erişim", d: "düz/eğim, kat/merdiven, taşıma mesafesi" },
-                { t: "3) Net fiyat", d: "platform + halı + skört + İstanbul içi nakliye" },
+                { t: "3) Net fiyat", d: "platform + halı + skört + lojistik kapsamı" },
                 { t: "4) Kurulum planı", d: "saat aralığı, güvenlik, söküm" },
               ].map((x) => (
                 <div key={x.t} className="rounded-2xl bg-gray-50 p-4 border border-gray-100">
