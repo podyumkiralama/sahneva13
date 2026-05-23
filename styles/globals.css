@@ -656,6 +656,22 @@
     contain-intrinsic-block-size: 260px;
   }
 
+  .cv-podyum-stock {
+    contain-intrinsic-block-size: 2300px;
+  }
+
+  .cv-podyum-belowfold {
+    contain-intrinsic-block-size: 1200px;
+  }
+
+  .cv-podyum-packages {
+    contain-intrinsic-block-size: 2100px;
+  }
+
+  .cv-podyum-articles {
+    contain-intrinsic-block-size: 3600px;
+  }
+
   @media (min-width: 768px) {
     .cv-home-services {
       contain-intrinsic-block-size: 2800px;
@@ -675,6 +691,22 @@
 
     .cv-home-why {
       contain-intrinsic-block-size: 1700px;
+    }
+
+    .cv-podyum-stock {
+      contain-intrinsic-block-size: 1700px;
+    }
+
+    .cv-podyum-belowfold {
+      contain-intrinsic-block-size: 900px;
+    }
+
+    .cv-podyum-packages {
+      contain-intrinsic-block-size: 1300px;
+    }
+
+    .cv-podyum-articles {
+      contain-intrinsic-block-size: 2800px;
     }
   }
 
@@ -697,6 +729,22 @@
 
     .cv-home-why {
       contain-intrinsic-block-size: 1320px;
+    }
+
+    .cv-podyum-stock {
+      contain-intrinsic-block-size: 1200px;
+    }
+
+    .cv-podyum-belowfold {
+      contain-intrinsic-block-size: 760px;
+    }
+
+    .cv-podyum-packages {
+      contain-intrinsic-block-size: 980px;
+    }
+
+    .cv-podyum-articles {
+      contain-intrinsic-block-size: 2200px;
     }
   }
 

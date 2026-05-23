@@ -78,8 +78,8 @@ export default function Navbar({ locale = "tr", ...props }) {
         <div className="container">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href={homeHref} prefetch={false} className={`relative flex min-h-[44px] min-w-[160px] items-center gap-3 group ${FOCUS_RING_CLASS}`} aria-label={logoAriaLabel}>
-              <Image src="/img/logo.webp" alt="Sahneva Logo" width={160} height={40} decoding="async" sizes="(max-width: 768px) 120px, 160px" className="h-8 lg:h-10 w-auto transition-all duration-200 group-hover:scale-105 nav-dark:opacity-0" style={{ width: "auto" }} />
-              <Image src="/img/sahneva-logo-dark-theme.png" alt="Sahneva Logo" width={160} height={75} decoding="async" sizes="(max-width: 768px) 120px, 160px" className="absolute left-0 h-8 lg:h-10 w-auto opacity-0 transition-all duration-200 group-hover:scale-105 nav-dark:opacity-100" style={{ width: "auto" }} />
+              <Image src="/img/logo-192.webp" alt="Sahneva Logo" width={160} height={74} decoding="async" sizes="(max-width: 768px) 96px, 120px" className="h-8 lg:h-10 w-auto transition-all duration-200 group-hover:scale-105 nav-dark:opacity-0" style={{ width: "auto" }} />
+              <Image src="/img/sahneva-logo-dark-theme-192.webp" alt="Sahneva Logo" width={160} height={75} decoding="async" sizes="(max-width: 768px) 96px, 120px" className="absolute left-0 h-8 lg:h-10 w-auto opacity-0 transition-all duration-200 group-hover:scale-105 nav-dark:opacity-100" style={{ width: "auto" }} />
             </Link>
             <div className="hidden lg:flex items-center gap-4">
               <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>

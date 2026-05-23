@@ -528,12 +528,12 @@ export default function Navbar({
               aria-label="Sahneva - Ana Sayfa"
             >
               <Image
-                src="/img/logo.webp"
+                src="/img/logo-192.webp"
                 alt="Sahneva Logo"
                 width={160}
-                height={40}
+                height={74}
                 decoding="async"
-                sizes="(max-width: 768px) 120px, 160px"
+                sizes="(max-width: 768px) 96px, 120px"
                 className="h-8 lg:h-10 w-auto transition-transform duration-200 group-hover:scale-105"
               />
 

@@ -545,7 +545,7 @@ function HeroSection() {
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_25rem] lg:items-center">
-          <div className="max-w-4xl">
+          <div className="min-w-0 max-w-4xl">
             <div className="mb-5 inline-flex items-center gap-3 border border-white/[0.18] bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
               <span
                 className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
@@ -554,11 +554,11 @@ function HeroSection() {
               <span>Özmal podyum envanteri ve saha kurulumu</span>
             </div>
 
-            <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+            <h1 className="max-w-full text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
               Podyum Kiralama
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/[0.78] md:text-2xl">
+            <p className="mt-6 max-w-full break-words text-base leading-relaxed text-white/[0.78] sm:text-lg md:max-w-3xl md:text-2xl">
               Kurumsal etkinlikler, konserler, fuarlar, lansmanlar ve açık hava organizasyonları için geniş stoklu,
               karolaj planlı ve titreşimsiz modüler podyum sistemleri.
             </p>
@@ -567,7 +567,7 @@ function HeroSection() {
               {HERO_BADGES.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full border border-white/[0.14] bg-white/[0.08] px-4 py-2 text-sm font-bold text-white/[0.86] backdrop-blur-md"
+                  className="min-w-0 max-w-full basis-full whitespace-normal rounded-full border border-white/[0.14] bg-white/[0.08] px-4 py-2 text-center text-sm font-bold leading-snug text-white/[0.86] backdrop-blur-md sm:basis-auto"
                 >
                   {badge}
                 </span>
@@ -660,7 +660,7 @@ function PodiumStockCapacitySection() {
   return (
     <section
       id="podyum-stok-kapasitesi"
-      className="relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
+      className="content-visibility-auto cv-podyum-stock relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
       aria-labelledby="podyum-stok-title"
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -808,7 +808,7 @@ function PodiumFlowSection() {
   return (
     <section
       id="teklif-akisi"
-      className="py-16 bg-white"
+      className="content-visibility-auto cv-podyum-belowfold py-16 bg-white"
       aria-labelledby="teklif-akisi-title"
     >
       <div className="container mx-auto px-4">
@@ -934,7 +934,7 @@ function ServicesSection() {
   return (
     <section
       id="hizmetler"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-b from-white to-blue-50/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -993,7 +993,7 @@ function CalculatorSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1043,7 +1043,7 @@ function PackagesSection() {
     }).format(n);
 
   return (
-    <section id="paketler" className="py-20 bg-white" aria-labelledby="paketler-title">
+    <section id="paketler" className="content-visibility-auto cv-podyum-packages py-20 bg-white" aria-labelledby="paketler-title">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
@@ -1154,7 +1154,7 @@ function GallerySection() {
   const visibleImages = GALLERY_IMAGES.slice(0, 8);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-b from-white to-blue-50/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1207,7 +1207,7 @@ function GallerySection() {
 
 function VisualShowcaseSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
@@ -1251,7 +1251,7 @@ function VisualShowcaseSection() {
 
 function TechnicalSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1293,7 +1293,7 @@ function StatsSection() {
     { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, idx) => (
@@ -1325,7 +1325,7 @@ function StatsSection() {
 
 function UseCasesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -1373,7 +1373,7 @@ function UseCasesSection() {
 
 function ArticlesSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/50">
+    <section className="content-visibility-auto cv-podyum-articles py-20 bg-gradient-to-b from-white to-gray-50/50">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1525,7 +1525,7 @@ function ArticlesSection() {
 // --- PROCESS / KEYWORD-RICH SECTION (NO FAQ) ---
 function ProcessAndTipsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1663,7 +1663,7 @@ function ProcessAndTipsSection() {
 
 function FAQSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1715,7 +1715,7 @@ function FAQSection() {
 
 function RelatedServicesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1751,7 +1751,7 @@ function RelatedServicesSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto cv-podyum-belowfold py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
