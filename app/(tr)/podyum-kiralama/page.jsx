@@ -173,6 +173,49 @@ const FLOW_STEPS = [
   },
 ];
 
+const HERO_BADGES = [
+  "12.000 m² podyum stoğu",
+  "10 cm zemin kurulumunda 10.000 m² kapasite",
+  "Karolaj planlı modüler sistem",
+  "Türkiye geneli kurulum",
+];
+
+const PODIUM_STOCK_METRICS = [
+  {
+    value: "12.000 m²",
+    label: "Toplam podyum stoğu",
+    detail: "Kurumsal etkinlik, konser, fuar, lansman ve açık hava projeleri için planlanan özmal podyum envanteri.",
+  },
+  {
+    value: "10.000 m²",
+    label: "10 cm zemin kurulum kapasitesi",
+    detail: "Geniş alanlı geçici zemin uygulamalarında karolaj planlı, dengeli ve hızlı saha kurulumu.",
+  },
+  {
+    value: "600 m²",
+    label: "Altı kayıt dönülmüş 2x1 özel podyum",
+    detail: "Sahne, protokol ve performans alanlarında yüksek stabilite gerektiren kurulumlar için güçlendirilmiş sistem.",
+  },
+  {
+    value: "81 il",
+    label: "Türkiye geneli operasyon",
+    detail: "Nakliye, kurulum, söküm ve saha koordinasyonu şehir ve etkinlik takvimine göre projelendirilir.",
+  },
+];
+
+const PODIUM_HEIGHT_CAPACITIES = [
+  { height: "10 cm", capacity: "10.000 m²", note: "Geniş zemin kurulumu" },
+  { height: "20 cm", capacity: "4.000 m²", note: "Kurulum kapasitesi" },
+  { height: "40 cm", capacity: "500 m²", note: "Kurulum kapasitesi" },
+  { height: "60 cm", capacity: "500 m²", note: "Kurulum kapasitesi" },
+  { height: "80 cm", capacity: "400 m²", note: "Kurulum kapasitesi" },
+  { height: "100 cm", capacity: "500 m²", note: "Kurulum kapasitesi" },
+  { height: "120 cm", capacity: "300 m²", note: "Kurulum kapasitesi" },
+  { height: "140 cm", capacity: "200 m²", note: "Kurulum kapasitesi" },
+  { height: "175 cm", capacity: "300 m²", note: "Kurulum kapasitesi" },
+  { height: "200 cm", capacity: "150 m²", note: "Kurulum kapasitesi" },
+];
+
 const PACKAGE_GUIDE = [
   "Konuşma, nikâh veya küçük sunum için 12 m² mini podyum yeterli olur.",
   "Canlı müzik, lansman ve okul etkinliği için 24 m² orta podyum daha dengeli görünür.",
@@ -244,6 +287,26 @@ const FAQ_ITEMS = [
     q: "Halı ve skört zorunlu mu?",
     a: "Zorunlu değildir ancak görsel bütünlük ve güvenlik için önerilir. Halı kaymaz özelliktedir, skört ise profesyonel görünüm kazandırır.",
   },
+  {
+    q: "Sahneva’nın podyum stoğu ne kadar?",
+    a: "Sahneva toplamda 12.000 m² podyum stoğuna sahiptir. Bu stok, etkinlik tarihi, şehir, yükseklik ve proje ihtiyacına göre planlanarak kurulur.",
+  },
+  {
+    q: "10 cm podyum zemin kurulumu kaç metrekare yapılabilir?",
+    a: "Geniş zemin uygulamalarında 10 cm yükseklikte 10.000 m²’ye kadar podyum zemin kurulumu yapılabilmektedir. Bu kurulumlar karolaj planı ile dengeli ve güvenli şekilde projelendirilir.",
+  },
+  {
+    q: "Karolaj podyum kurulumunda ne işe yarar?",
+    a: "Karolaj, podyum modüllerinin düzenli ve dengeli bir sistemle yerleştirilmesini sağlar. Yük dağılımını iyileştirir, kullanım stabilitesini artırır ve geniş alanlarda daha güvenli bir geçici zemin oluşturur.",
+  },
+  {
+    q: "Podyum etkinlik sırasında titreme yapar mı?",
+    a: "Doğru ayak yerleşimi, kayıt bağlantıları, karolaj planı ve saha kontrolü ile kurulan profesyonel podyum sistemlerinde sarsıntı ve titreme hissi minimuma indirilir. Sahneva özellikle yüksek stabilite gerektiren alanlarda altı kayıt dönülmüş özel podyum sistemleri kullanabilir.",
+  },
+  {
+    q: "Farklı yüksekliklerde podyum kurulumu yapılabilir mi?",
+    a: "Evet. Sahneva 10 cm’den 200 cm’ye kadar farklı yüksekliklerde podyum kurulumu planlayabilir. Kapasite, istenen yükseklik, metrekare, zemin durumu ve etkinlik kullanımına göre netleştirilir.",
+  },
 ];
 
 const RELATED_SERVICES = [
@@ -299,7 +362,7 @@ const PROCESS_STEP_IMAGES = [
 export const metadata = {
   title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri",
   description:
-    "Modüler podyum kiralama: 1×1 ve 2×1 paneller, kaymaz kaplama, halı ve skört opsiyonları. İstanbul geneli profesyonel hizmet ve saha yönetimi.",
+    "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kurulum kapasitesi, karolaj planlı ve titreşimsiz modüler podyum sistemleriyle Türkiye geneli podyum kiralama.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: "/en/podium-rental",
@@ -308,7 +371,7 @@ export const metadata = {
   openGraph: {
     title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
     description:
-      "Modüler podyum sistemleri, kaymaz kaplama ve profesyonel hizmet.",
+      "12.000 m² podyum stoğu, karolaj planlı modüler sistemler ve Türkiye geneli profesyonel kurulum kapasitesi.",
     url: `${ORIGIN}/podyum-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -326,7 +389,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
     description:
-      "Modüler podyum sistemleri, kaymaz kaplama, halı ve skört seçenekleriyle İstanbul geneli profesyonel kurulum hizmeti.",
+      "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kapasitesi ve karolaj planlı titreşimsiz modüler podyum sistemleri.",
     images: [`${ORIGIN}/img/podyum/hero.webp`],
   },
   robots: {
@@ -410,7 +473,10 @@ function StructuredData() {
         image: gallerySchema.imageUrls,
         mainEntityOfPage: { "@id": webPageId },
         provider: { "@id": ORGANIZATION_ID },
-        areaServed: { "@type": "AdministrativeArea", name: "İstanbul" },
+        areaServed: [
+          { "@type": "Country", name: "Türkiye" },
+          { "@type": "AdministrativeArea", name: "İstanbul" },
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Podyum Kiralama Paketleri",
@@ -444,111 +510,295 @@ function StructuredData() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
+    <section className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32">
       <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/img/podyum/hero.webp"
-          alt="Profesyonel podyum kurulumu"
+          alt="Kurumsal etkinlikler için karolaj planlı modüler podyum kurulumu"
           fill
           priority
           fetchPriority="high"
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
           quality={60}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
 
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/45 via-purple-900/20 to-slate-950/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-purple-900/25" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.74)_42%,rgba(2,6,23,.38)_78%,rgba(2,6,23,.12)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/75 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#05070d] via-[#05070d]/76 to-transparent" />
 
         <div
-          className="absolute inset-0 opacity-35"
+          className="absolute inset-0 opacity-[0.16]"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
+              "linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px)",
+            backgroundSize: "92px 92px",
           }}
         />
 
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
+        <div className="absolute left-[-8rem] top-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/18 blur-3xl" />
+        <div className="absolute right-[-10rem] bottom-[-6rem] h-[30rem] w-[30rem] rounded-full bg-cyan-400/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 px-4 py-2 mb-5">
+      <div className="relative z-10 container mx-auto max-w-7xl px-4">
+        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_25rem] lg:items-center">
+          <div className="max-w-4xl">
+            <div className="mb-5 inline-flex items-center gap-3 border border-white/18 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
               <span
-                className="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_6px_rgba(34,197,94,0.18)]"
+                className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
                 aria-hidden="true"
               />
-              <span className="text-sm font-extrabold text-white">
-                İstanbul Geneli Profesyonel Hizmet
-              </span>
+              <span>Özmal podyum envanteri ve saha kurulumu</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-              Profesyonel <span className="text-blue-200">Podyum Kiralama ve Kurulumu</span>
+            <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+              Podyum Kiralama
             </h1>
 
-            <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-3">
-              Düğün • Konser • Lansman • Festival • Kurumsal Etkinlikler
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/78 md:text-2xl">
+              Kurumsal etkinlikler, konserler, fuarlar, lansmanlar ve açık hava organizasyonları için geniş stoklu,
+              karolaj planlı ve titreşimsiz modüler podyum sistemleri.
             </p>
 
-            <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-              İstanbul&apos;da kiralık podyum ihtiyacı için modüler sistemler, kaymaz kaplama ve{" "}
-              <span className="font-semibold text-white">profesyonel kurulum</span>{" "}
-              ile anahtar teslim çözümler
-            </p>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {HERO_BADGES.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-bold text-white/86 backdrop-blur-md"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-9">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-700 px-7 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
               >
-                <span className="text-xl mr-2">💬</span> Hemen Teklif Al
+                Teklif Al
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </a>
 
               <Link
-                href="#hizmetler"
-                className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-xl transition shadow-lg"
+                href="#podyum-stok-kapasitesi"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/18 bg-white/8 px-7 py-3.5 font-black text-white backdrop-blur-md transition hover:bg-white/14 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
               >
-                <span className="text-xl mr-2">🎯</span> Hizmetlerimiz
+                Stok Kapasitesini Gör
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {[
-                { icon: "⭐", value: "4.8/5", label: "200+ Değerlendirme" },
-                { icon: "🏆", value: "600+", label: "Etkinlik" },
-                { icon: "🚀", value: "2-6 Saat", label: "Kurulum" },
-                { icon: "🛡️", value: "Güvenli", label: "Kaymaz Sistem" },
-              ].map((s) => (
+            <div className="mt-10 hidden gap-3 lg:grid lg:grid-cols-4">
+              {PODIUM_STOCK_METRICS.map((metric) => (
                 <div
-                  key={s.label}
-                  className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/12 px-4 py-4 text-center"
+                  key={metric.label}
+                  className="border border-white/12 bg-white/8 p-4 backdrop-blur-xl shadow-[0_18px_50px_rgba(15,23,42,0.22)]"
                 >
-                  <div className="text-2xl mb-1" aria-hidden="true">
-                    {s.icon}
-                  </div>
-                  <div className="text-xl font-black">{s.value}</div>
-                  <div className="text-sm text-white/70 font-semibold">
-                    {s.label}
-                  </div>
+                  <div className="text-2xl font-black text-white">{metric.value}</div>
+                  <div className="mt-1 text-sm font-bold text-blue-100">{metric.label}</div>
+                  <p className="mt-2 text-xs leading-relaxed text-white/62">
+                    {metric.detail}
+                  </p>
                 </div>
               ))}
             </div>
-
-            <span className="sr-only">Podyum Kiralama - Sahneva Organizasyon</span>
           </div>
+
+          <aside className="hidden lg:block lg:justify-self-end">
+            <div className="overflow-hidden border border-white/14 bg-slate-950/58 shadow-2xl backdrop-blur-xl">
+              <div className="relative aspect-[4/5] min-h-[28rem]">
+                <Image
+                  src="/img/podyum/9.webp"
+                  alt="Kurumsal etkinlik podyum kurulumu ve sahne platformu"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/36 to-transparent" />
+                <div className="absolute inset-x-5 bottom-5">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+                    Kurulum yaklaşımı
+                  </p>
+                  <h2 className="mt-2 text-2xl font-black leading-tight">
+                    Karolaj, kayıt bağlantıları ve saha kontrolü aynı planda.
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-white/72">
+                    Podyum yalnızca metrekare hesabı değil; zemin, yükseklik, yük dağılımı ve kullanım süresiyle
+                    birlikte projelendirilir.
+                  </p>
+                  <div className="mt-5 grid grid-cols-2 gap-2.5">
+                    <div className="bg-white/10 px-3 py-3 backdrop-blur">
+                      <div className="text-xs uppercase tracking-wide text-white/56">Özel sistem</div>
+                      <div className="text-lg font-black">2x1 modül</div>
+                    </div>
+                    <div className="bg-white/10 px-3 py-3 backdrop-blur">
+                      <div className="text-xs uppercase tracking-wide text-white/56">Stabilite</div>
+                      <div className="text-lg font-black">Kayıtlı yapı</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
 
-      <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
+      <div className="relative z-10 h-14 bg-gradient-to-b from-transparent to-[#0B1120]" />
+    </section>
+  );
+}
+
+function PodiumStockCapacitySection() {
+  return (
+    <section
+      id="podyum-stok-kapasitesi"
+      className="relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
+      aria-labelledby="podyum-stok-title"
+    >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.16)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <div className="absolute left-[-14rem] top-10 h-[28rem] w-[28rem] rounded-full bg-blue-500/16 blur-3xl" />
+        <div className="absolute right-[-14rem] bottom-[-10rem] h-[30rem] w-[30rem] rounded-full bg-cyan-400/10 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 container mx-auto max-w-7xl px-4">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <div className="mb-4 inline-flex border border-blue-300/22 bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+              Özmal envanter gücü
+            </div>
+            <h2 id="podyum-stok-title" className="text-3xl font-black leading-tight md:text-5xl">
+              Podyum Stok ve Kurulum Kapasitemiz
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/72">
+              Sahneva, farklı etkinlik ölçeklerine ve zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
+              <Link href="/bolgesel-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                Türkiye geneli kurulum
+              </Link>{" "}
+              yapabilen teknik altyapıya sahiptir. Toplamda 12.000 m² podyum stoğumuz bulunmaktadır. Bu stok;
+              kurumsal etkinlikler, konserler, festival alanları, mezuniyet törenleri, fuarlar, lansmanlar,
+              açık hava organizasyonları ve büyük ölçekli geçici zemin kurulumları için proje bazlı planlanır.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-white/72">
+              Özellikle geniş alanlı zemin uygulamalarında 10 cm yükseklikte 10.000 m²’ye kadar podyum zemin
+              kurulumu yapılabilmektedir. Bu tip kurulumlarda podyum yüzeyi, alanın ölçüsüne ve kullanım amacına
+              göre karolaj düzeninde planlanır. Karolaj sistemi sayesinde podyum modülleri düzenli, dengeli ve
+              güvenli bir zemin oluşturacak şekilde yerleştirilir.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/podyum-kiralama-fiyatlari"
+                className="inline-flex min-h-[46px] items-center justify-center rounded-2xl bg-white px-5 py-3 font-black text-slate-950 transition hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+              >
+                Podyum kiralama fiyatları
+              </Link>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/14 bg-white/8 px-5 py-3 font-black text-white transition hover:bg-white/14 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
+              >
+                Ölçü paylaş, teklif al
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {PODIUM_STOCK_METRICS.map((metric) => (
+              <article
+                key={metric.label}
+                className="border border-white/12 bg-white/7 p-5 shadow-[0_22px_70px_rgba(15,23,42,0.32)] backdrop-blur-xl"
+              >
+                <p className="text-3xl font-black text-white md:text-4xl">{metric.value}</p>
+                <h3 className="mt-2 text-base font-black text-blue-100">{metric.label}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/64">{metric.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          {PODIUM_HEIGHT_CAPACITIES.map((item) => (
+            <article
+              key={item.height}
+              className="border border-white/12 bg-slate-950/42 p-4 backdrop-blur transition hover:border-blue-300/40 hover:bg-white/8"
+            >
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-200">{item.height}</p>
+              <p className="mt-3 text-2xl font-black text-white">{item.capacity}</p>
+              <p className="mt-1 text-sm font-semibold text-white/58">{item.note}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <article className="border border-blue-300/22 bg-blue-400/10 p-6 shadow-[0_24px_80px_rgba(37,99,235,0.18)] backdrop-blur-xl md:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-200">
+              Güçlendirilmiş özel sistem
+            </p>
+            <h3 className="mt-3 text-3xl font-black leading-tight md:text-4xl">
+              600 m² 2x1 özel podyum
+            </h3>
+            <p className="mt-4 text-lg leading-relaxed text-white/72">
+              Altı tamamen kayıt dönülmüş 2x1 metre modüllerden oluşan özel podyum sistemi; sahne, performans
+              alanı, konuşmacı platformu, protokol alanı ve yüksek stabilite gerektiren kurulumlarda tercih edilir.
+              Alt taşıyıcı yapısının kayıtlarla güçlendirilmiş olması sayesinde etkinlik sırasında sarsıntı, titreme
+              ve esneme hissi minimuma indirilir.
+            </p>
+          </article>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <article className="border border-white/12 bg-white/7 p-6 backdrop-blur-xl">
+              <h3 className="text-2xl font-black leading-tight">
+                Karolaj Planlı Modüler Podyum Kurulumu
+              </h3>
+              <p className="mt-4 leading-relaxed text-white/68">
+                Geniş metrekareli podyum ve geçici zemin kurulumlarında karolaj planı, sistemin dengeli ve güvenli
+                çalışması için kritik öneme sahiptir. Sahneva, podyum modüllerini gelişigüzel yerleştirmek yerine
+                alan ölçüsü, zemin eğimi, kullanım yoğunluğu ve yük dağılımını dikkate alarak karolaj düzeniyle planlar.
+              </p>
+            </article>
+
+            <article className="border border-white/12 bg-white/7 p-6 backdrop-blur-xl">
+              <h3 className="text-2xl font-black leading-tight">
+                Etkinlik Sırasında Sarsıntı ve Titreme Yapmayan Podyum
+              </h3>
+              <p className="mt-4 leading-relaxed text-white/68">
+                Podyum kiralama projelerinde yalnızca metrekare ve yükseklik değil, kullanım sırasında oluşabilecek
+                sarsıntı ve titreme de doğru değerlendirilmelidir. Doğru ayak yerleşimi, kayıt bağlantıları,
+                karolaj planı ve saha kontrolü daha tok, dengeli ve güven veren bir kullanım sunar.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div className="mt-9 flex flex-wrap gap-2.5 text-sm font-bold">
+          {[
+            { href: "/sahne-kiralama", label: "sahne kiralama" },
+            { href: "/led-ekran-kiralama", label: "LED ekran kiralama" },
+            { href: "/ses-isik-sistemleri", label: "ses ve ışık sistemleri" },
+            { href: "/truss-kiralama", label: "truss kiralama" },
+            { href: "/kurumsal-organizasyon", label: "kurumsal organizasyon" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-white/12 bg-white/7 px-4 py-2 text-white/78 transition hover:border-blue-300/40 hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
@@ -1562,6 +1812,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
+      <PodiumStockCapacitySection />
       <PodiumFlowSection />
       <PackagesSection />
       <CalculatorSection />
