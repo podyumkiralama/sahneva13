@@ -24,10 +24,10 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
     const skirt = perimeter * unitPrices.skirt_ml_week;
     const paketToplam = base + carpet + skirt;
 
-    // İstanbul içi ≤200 m² sabit 8.000 TL; aksi durumda teklife göre (dahil edilmez)
+    // İstanbul içi ≤200 m² sabit temel nakliye; aksi durumda teklife göre (dahil edilmez)
     const lojistikTL =
       loc === "istanbul" && area <= 200
-        ? 8000
+        ? unitPrices.ist_nakliye
         : null;
 
     const genelToplam = paketToplam + (lojistikTL ?? 0);
@@ -163,7 +163,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
         {/* Alt satır */}
         <div className="mt-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
           <span className="text-xs text-neutral-700">
-            *İstanbul içi ≤200 m² projelerde sabit ₺8.000 uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.
+            *İstanbul içi ≤200 m² projelerde sabit {formatTRY(unitPrices.ist_nakliye)} uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.
           </span>
           <ExternalLink
             href="https://wa.me/905453048671?text=Merhaba%20Sahneva%2C%20Podyum%20fiyat%20hesaplay%C4%B1c%C4%B1s%C4%B1ndan%20yaz%C4%B1yorum."
