@@ -54,25 +54,9 @@ const PAGE_DESCRIPTION =
 const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
 const OG_DESCRIPTION =
   "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran ve teknik prodüksiyonu tek ekipten yöneten premium saha operasyonu.";
+const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
-const HERO_IMAGE_DIMENSIONS = {
-  [HERO.src]: HERO_IMAGE_SIZE,
-  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp": {
-    width: 1600,
-    height: 739,
-  },
-  "/img/kurumsal/premium/konferans-led-ekran.webp": { width: 1600, height: 1067 },
-  "/img/kurumsal/premium/panel-led-sahne.webp": { width: 1600, height: 1200 },
-  "/img/kurumsal/premium/konferans-podium.webp": { width: 1600, height: 1067 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-p19-led-kanit.webp": { width: 900, height: 506 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-konferans-led-kanit.webp": { width: 800, height: 500 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-panel-led-kanit.webp": { width: 800, height: 500 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-panel-led-format.webp": { width: 720, height: 540 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-konferans-podyum-kanit.webp": { width: 720, height: 540 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-gala-isik-kanit.webp": { width: 720, height: 540 },
-  "/img/kurumsal/premium/kurumsal-organizasyon-reji-kontrol-kanit.webp": { width: 720, height: 540 },
-};
 
 const shouldBypassImageOptimizer = (src) =>
   typeof src === "string" && src.startsWith("/img/");
@@ -167,22 +151,18 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}${HERO.src}`,
-        ...HERO_IMAGE_SIZE,
-        alt: HERO.alt,
+        url: `${ORIGIN}${OG_IMAGE}`,
+        width: 1200,
+        height: 630,
+        alt: "Kurumsal organizasyon sahne, LED ekran ve teknik prodüksiyon Sahneva",
       },
-      ...FEATURED_GALLERY.slice(0, 3).map((image) => ({
-        url: `${ORIGIN}${image.src}`,
-        ...(HERO_IMAGE_DIMENSIONS[image.src] ?? { width: 1200, height: 675 }),
-        alt: image.alt,
-      })),
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: OG_TITLE,
     description: PAGE_DESCRIPTION,
-    images: [`${ORIGIN}${HERO.src}`],
+    images: [`${ORIGIN}${OG_IMAGE}`],
   },
   robots: {
     index: true,
