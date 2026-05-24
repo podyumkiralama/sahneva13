@@ -626,6 +626,35 @@
       scroll-snap-type: x proximity;
       -webkit-overflow-scrolling: touch;
     }
+
+    .corporate-stage-lights {
+      mix-blend-mode: normal;
+      opacity: 0.78;
+    }
+
+    .corporate-stage-beam,
+    .corporate-stage-sweep {
+      animation: none;
+      will-change: auto;
+    }
+
+    .corporate-stage-beam {
+      top: -16%;
+      height: 120%;
+      width: 64%;
+      filter: blur(1px);
+      opacity: 0.82;
+    }
+
+    .corporate-stage-beam-left {
+      left: -12%;
+      transform: rotate(8deg);
+    }
+
+    .corporate-stage-beam-right,
+    .corporate-stage-sweep {
+      display: none;
+    }
   }
 
   .cv-home-services {
@@ -662,6 +691,10 @@
 
   .cv-corporate-videos {
     contain-intrinsic-block-size: 1780px;
+  }
+
+  .cv-corporate-positioning {
+    contain-intrinsic-block-size: 1260px;
   }
 
   .cv-corporate-flow {
@@ -713,6 +746,10 @@
       contain-intrinsic-block-size: 980px;
     }
 
+    .cv-corporate-positioning {
+      contain-intrinsic-block-size: 720px;
+    }
+
     .cv-corporate-flow {
       contain-intrinsic-block-size: 560px;
     }
@@ -761,6 +798,10 @@
 
     .cv-corporate-videos {
       contain-intrinsic-block-size: 740px;
+    }
+
+    .cv-corporate-positioning {
+      contain-intrinsic-block-size: 620px;
     }
 
     .cv-corporate-flow {
