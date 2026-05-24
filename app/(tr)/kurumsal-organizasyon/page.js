@@ -607,7 +607,7 @@ function VideoProof() {
           <SectionHeader
             dark
             eyebrow="Saha videoları"
-            title="Hazırlanıyor alanı yok, gerçek uygulama var."
+            title="Gerçek saha videoları ve uygulama örnekleri"
             desc="Video alanları iframe yükü taşımadan gerçek thumbnail ile gelir; tıklayınca YouTube üzerinde açılır."
           />
           <div className="grid gap-3 text-sm font-semibold text-white/[0.78]">
@@ -642,6 +642,7 @@ function VideoProof() {
                 <span className="absolute inset-0 flex items-center justify-center text-white" aria-hidden="true">
                   <CirclePlay size={64} strokeWidth={1.5} />
                 </span>
+                <span className="sr-only">{video.title} videosunu YouTube üzerinde izle</span>
               </a>
               <div className="p-3">
                 <p className="text-xs font-black uppercase tracking-normal text-sky-200">{video.eyebrow}</p>
@@ -820,7 +821,7 @@ function InternalLinks() {
     <Section id="baglantilar" className="bg-slate-50">
       <SectionHeader
         eyebrow="İç link mimarisi"
-        title="Kurumsal organizasyon sayfası ana merkez olarak çalışır."
+        title="Sahne, LED ekran ve proje referansları aynı akışta birleşir"
         desc="LED ekran, sahne, podyum, ses-ışık, truss, proje ve blog sayfaları bu sayfayı ticari niyetin merkezi olarak destekler."
       />
 
