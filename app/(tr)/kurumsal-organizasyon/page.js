@@ -424,7 +424,7 @@ function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.96)_0%,rgba(2,6,23,.86)_36%,rgba(2,6,23,.56)_64%,rgba(2,6,23,.12)_100%)]" />
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#05070d] via-[#05070d]/75 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-0 grid-overlay opacity-35" aria-hidden="true" />
+      <div className="absolute inset-0 hidden grid-overlay opacity-35 md:block" aria-hidden="true" />
       <div className="absolute inset-0 corporate-stage-lights" aria-hidden="true">
         <span className="corporate-stage-beam corporate-stage-beam-left" />
         <span className="corporate-stage-beam corporate-stage-beam-right" />
@@ -658,7 +658,7 @@ function VideoProof() {
 
 function Positioning() {
   return (
-    <Section id="kurumsal-organizasyon" className="bg-slate-50">
+    <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
       <SectionHeader
         eyebrow="Premium konumlandırma"
         title="Kurumsal organizasyon, ekipman listesi değil sahne etkisidir."
@@ -817,7 +817,7 @@ function ProductionStack() {
 
 function InternalLinks() {
   return (
-    <Section id="baglantilar" className="bg-slate-50">
+    <Section id="baglantilar" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
       <SectionHeader
         eyebrow="İç link mimarisi"
         title="Sahne, LED ekran ve proje referansları aynı akışta birleşir"
@@ -857,7 +857,7 @@ function InternalLinks() {
 
 function FAQSection() {
   return (
-    <Section id="sss" dark>
+    <Section id="sss" dark deferredClass="content-visibility-auto cv-corporate-faq">
       <SectionHeader
         dark
         eyebrow="Kısa cevaplar"
