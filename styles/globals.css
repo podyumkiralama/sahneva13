@@ -656,6 +656,34 @@
     contain-intrinsic-block-size: 260px;
   }
 
+  .cv-corporate-proof {
+    contain-intrinsic-block-size: 1820px;
+  }
+
+  .cv-corporate-videos {
+    contain-intrinsic-block-size: 1780px;
+  }
+
+  .cv-corporate-flow {
+    contain-intrinsic-block-size: 1080px;
+  }
+
+  .cv-corporate-formats {
+    contain-intrinsic-block-size: 1420px;
+  }
+
+  .cv-corporate-stack {
+    contain-intrinsic-block-size: 1850px;
+  }
+
+  .cv-corporate-faq {
+    contain-intrinsic-block-size: 980px;
+  }
+
+  .cv-corporate-links {
+    contain-intrinsic-block-size: 960px;
+  }
+
   @media (min-width: 768px) {
     .cv-home-services {
       contain-intrinsic-block-size: 2800px;
@@ -675,6 +703,34 @@
 
     .cv-home-why {
       contain-intrinsic-block-size: 1700px;
+    }
+
+    .cv-corporate-proof {
+      contain-intrinsic-block-size: 1280px;
+    }
+
+    .cv-corporate-videos {
+      contain-intrinsic-block-size: 980px;
+    }
+
+    .cv-corporate-flow {
+      contain-intrinsic-block-size: 560px;
+    }
+
+    .cv-corporate-formats {
+      contain-intrinsic-block-size: 700px;
+    }
+
+    .cv-corporate-stack {
+      contain-intrinsic-block-size: 1160px;
+    }
+
+    .cv-corporate-faq {
+      contain-intrinsic-block-size: 740px;
+    }
+
+    .cv-corporate-links {
+      contain-intrinsic-block-size: 620px;
     }
   }
 
@@ -697,6 +753,34 @@
 
     .cv-home-why {
       contain-intrinsic-block-size: 1320px;
+    }
+
+    .cv-corporate-proof {
+      contain-intrinsic-block-size: 1180px;
+    }
+
+    .cv-corporate-videos {
+      contain-intrinsic-block-size: 740px;
+    }
+
+    .cv-corporate-flow {
+      contain-intrinsic-block-size: 520px;
+    }
+
+    .cv-corporate-formats {
+      contain-intrinsic-block-size: 680px;
+    }
+
+    .cv-corporate-stack {
+      contain-intrinsic-block-size: 980px;
+    }
+
+    .cv-corporate-faq {
+      contain-intrinsic-block-size: 620px;
+    }
+
+    .cv-corporate-links {
+      contain-intrinsic-block-size: 520px;
     }
   }
 

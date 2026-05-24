@@ -1,6 +1,8 @@
 export const HERO = {
-  src: "/img/kurumsal/premium/konferans-led-ekran.webp",
-  alt: "Kurumsal organizasyon için konferans LED ekran, 300 m² P1.9 indoor LED yatırımı, sahne ışık ve teknik prodüksiyon",
+  src: "/img/kurumsal/premium/kurumsal-organizasyon-hero-desktop.webp",
+  tabletSrc: "/img/kurumsal/premium/kurumsal-organizasyon-hero-tablet.webp",
+  mobileSrc: "/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp",
+  alt: "Kurumsal organizasyon için konferans LED ekran, sahne ışık ve teknik prodüksiyon",
   sizes: "(max-width: 1440px) 100vw, 1440px",
 };
 
@@ -11,8 +13,8 @@ export const HERO_STATS = [
 ];
 
 export const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
-export const GUIDE_UPDATED = "29 Nisan 2026";
-export const GUIDE_UPDATED_ISO = "2026-04-29T00:00:00+03:00";
+export const GUIDE_UPDATED = "24 Mayıs 2026";
+export const GUIDE_UPDATED_ISO = "2026-05-24T00:00:00+03:00";
 
 export const BRAND_LOGOS = [
   { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik ses sistemi markası", width: 230, height: 68 },
@@ -67,33 +69,25 @@ export const OVERVIEW_POINTS = [
     title: "Premium algı",
     desc: "Saha görüntüsü, video çıktısı ve katılımcı deneyimi aynı kalite çizgisinde tutulur.",
   },
-  {
-    title: "Tasarım Stüdyosu Esnekliği, Fabrika Gücü!",
-    desc: "Sahneva olarak kurumsal organizasyon projelerini fabrika disipliniyle sahaya indiriyoruz. 3 boyutlu simülasyonla onaylanan kurgu; sahne, LED ekran, ses-ışık, premium dome çadır, podyum, bistro masa ve tamamlayıcı ekipmanlarla tek operasyon planına dönüşür.",
-  },
-  {
-    title: "Özmal envanter ve tek operasyon",
-    desc: "Aracı maliyetlerini azaltan özmal envanter gücümüz sayesinde fikirden kuruluma kadar daha kontrollü, daha hızlı ve daha şeffaf bir süreç sunarız.",
-  },
 ];
 
 export const FORMAT_ITEMS = [
   {
     title: "Lansman ve marka sahnesi",
     desc: "LED, ışık ve sahne geometrisi ürün hikayesini büyüten tek bir görsel dile dönüşür.",
-    src: "/img/kurumsal/premium/panel-led-sahne.webp",
+    src: "/img/kurumsal/premium/kurumsal-organizasyon-panel-led-format.webp",
     alt: "Kurumsal lansman için LED panel ve sahne prodüksiyonu",
   },
   {
     title: "Zirve, panel ve konferans",
     desc: "Konuşmacı, ekran, kamera ve salon deneyimi aynı teknik disiplinle yönetilir.",
-    src: "/img/kurumsal/premium/konferans-podium.webp",
+    src: "/img/kurumsal/premium/kurumsal-organizasyon-konferans-podyum-kanit.webp",
     alt: "Kurumsal konferansta panel sahnesi ve LED ekran kurulumu",
   },
   {
     title: "Gala, ödül ve büyük sahne",
     desc: "Işık show, müzik, protokol ve sahne geçişleri premium bir gece ritmine bağlanır.",
-    src: "/img/kurumsal/premium/sahne-beam-show.webp",
+    src: "/img/kurumsal/premium/kurumsal-organizasyon-gala-isik-kanit.webp",
     alt: "Gala ve ödül gecesi için büyük sahne ışık prodüksiyonu",
   },
 ];
@@ -312,19 +306,19 @@ export const USE_CASES = [
 
 export const FAQ_ITEMS = [
   {
-    q: "Hangi kurumsal etkinliklerde çalışıyorsunuz?",
-    a: "Lansman, konferans, bayi toplantısı, gala, ödül gecesi, fuar ve büyük ölçekli marka etkinliklerinde sahne, LED, ses-ışık ve teknik prodüksiyon kuruyoruz.",
+    q: "Kurumsal organizasyon için hangi etkinliklerde çalışıyorsunuz?",
+    a: "Lansman, konferans, bayi toplantısı, gala, ödül gecesi, fuar ve büyük ölçekli marka etkinliklerinde sahne, LED ekran, ses-ışık, truss, podyum ve teknik reji kuruyoruz.",
   },
   {
     q: "Sadece ekipman mı sağlıyorsunuz?",
-    a: "Hayır. Ekipmanın yanında keşif, teknik plan, prova, kurulum, saha koordinasyonu ve etkinlik günü operasyon yönetimi de kapsamın parçası olabilir.",
+    a: "Hayır. Kurumsal organizasyon projelerinde ekipmanın yanında keşif, teknik plan, prova, kurulum, saha koordinasyonu ve etkinlik günü operasyon yönetimi de kapsamın parçası olabilir.",
   },
   {
     q: "Teklif için hangi bilgiler yeterli?",
-    a: "Etkinlik tarihi, şehir/mekân, katılımcı sayısı, sahne beklentisi, LED ekran ihtiyacı ve program akışı ilk kapsamı çıkarmak için yeterlidir.",
+    a: "Etkinlik tarihi, şehir veya mekan, katılımcı sayısı, sahne beklentisi, LED ekran ihtiyacı ve program akışı ilk kapsamı çıkarmak için yeterlidir.",
   },
   {
-    q: "İstanbul dışındaki projelerde destek veriyor musunuz?",
+    q: "Türkiye genelinde kurumsal organizasyon desteği veriyor musunuz?",
     a: "Evet. İstanbul merkezli planlama ile Türkiye genelinde büyük kurulum, teknik ekip ve saha operasyonu organize edebiliyoruz.",
   },
   {
