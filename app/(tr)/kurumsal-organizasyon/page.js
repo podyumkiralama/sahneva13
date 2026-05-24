@@ -720,7 +720,7 @@ function Formats() {
 
       <div className="grid gap-5 md:grid-cols-3">
         {FORMAT_ITEMS.map((item) => (
-          <article key={item.title} className="group overflow-hidden border border-slate-200 bg-slate-950 text-white shadow-sm">
+          <article key={item.title} className="group overflow-hidden border border-slate-800 bg-[#05070d] text-white shadow-sm">
             <div className="relative aspect-[4/3] bg-slate-900">
               <Image
                 src={item.src}
@@ -736,9 +736,9 @@ function Formats() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             </div>
-            <div className="p-5">
-              <p className="text-xl font-black">{item.title}</p>
-              <p className="mt-3 text-sm leading-7 text-white/[0.70]">{item.desc}</p>
+            <div className="border-t border-white/[0.10] bg-[#05070d] p-5">
+              <p className="text-xl font-black text-white">{item.title}</p>
+              <p className="mt-3 text-sm leading-7 text-white/[0.82]">{item.desc}</p>
             </div>
           </article>
         ))}
