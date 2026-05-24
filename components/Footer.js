@@ -35,7 +35,7 @@ const TR_SERVICES = [
 ];
 
 const TR_QUICK_LINKS = [
-  { href: "/hakkimizda", label: "Hakkımızda" },
+  { href: "/hakkimizda", label: "Sahneva Hakkında" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/podyum-kiralama-fiyatlari", label: "Podyum Kiralama Fiyatları" },
   { href: "/led-ekran-kiralama-fiyatlari", label: "LED Ekran Fiyatları" },
@@ -52,7 +52,7 @@ const TR_POPULAR_PAGES = [
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },
   { href: "/projeler", label: "Projeler" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Sahneva Blog" },
 ];
 
 const BUSINESS_LINKS = [

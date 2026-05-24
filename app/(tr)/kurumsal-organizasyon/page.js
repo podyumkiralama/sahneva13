@@ -116,12 +116,21 @@ const OPERATION_STEPS = [
 ];
 
 const RELATED_LINKS = [
-  { href: "/led-ekran-kiralama", label: "LED ekran kiralama" },
-  { href: "/sahne-kiralama", label: "sahne kiralama" },
-  { href: "/podyum-kiralama", label: "podyum kiralama" },
-  { href: "/ses-isik-sistemleri", label: "ses ve ışık sistemleri" },
-  { href: "/truss-kiralama", label: "truss kiralama" },
-  { href: "/projeler", label: "kurumsal prodüksiyon referansları" },
+  { href: "/led-ekran-kiralama", label: "Kurumsal etkinlik LED ekran çözümleri" },
+  { href: "/sahne-kiralama", label: "Konferans ve gala sahne kurulumu" },
+  { href: "/podyum-kiralama", label: "Protokol podyum ve platform altyapısı" },
+  { href: "/ses-isik-sistemleri", label: "Kurumsal ses ve ışık prodüksiyonu" },
+  { href: "/truss-kiralama", label: "LED ve sahne için truss altyapısı" },
+  { href: "/projeler", label: "Sahneva kurumsal prodüksiyon referansları" },
+];
+
+const SERVICE_CTA_LABELS = [
+  "P1.9 LED kapsamını konuş",
+  "Sahne mimarisini konuş",
+  "Ses ve ışık kapsamını konuş",
+  "Reji akışını konuş",
+  "Rigging planını konuş",
+  "Prova koordinasyonunu konuş",
 ];
 
 export const metadata = {
@@ -463,7 +472,7 @@ function Hero() {
               className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
             >
               <PhoneCall size={20} aria-hidden="true" />
-              <span>Teklif Al</span>
+              <span>Kurumsal Teklif Al</span>
             </a>
             <Link
               href="#saha-kaniti"
@@ -534,9 +543,9 @@ function VisualProof() {
               <p className="mb-2 inline-flex border border-sky-200/[0.24] bg-sky-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-sky-100">
                 300 m² P1.9 indoor LED
               </p>
-              <h3 className="text-2xl font-black text-white md:text-4xl">
+              <p className="text-2xl font-black text-white md:text-4xl">
                 Yakın izleme mesafesinde premium görüntü kalitesi
-              </h3>
+              </p>
             </div>
           </div>
         </article>
@@ -636,7 +645,7 @@ function VideoProof() {
               </a>
               <div className="p-3">
                 <p className="text-xs font-black uppercase tracking-normal text-sky-200">{video.eyebrow}</p>
-                <h3 className="mt-2 text-lg font-black leading-snug text-white">{video.title}</h3>
+                <p className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
                 <p className="mt-2 text-sm leading-6 text-white/[0.68]">{video.description}</p>
               </div>
             </article>
@@ -662,7 +671,7 @@ function Positioning() {
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
               <BadgeCheck size={22} aria-hidden="true" />
             </div>
-            <h3 className="text-xl font-black text-slate-950">{item.title}</h3>
+            <p className="text-xl font-black text-slate-950">{item.title}</p>
             <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
           </article>
         ))}
@@ -690,7 +699,7 @@ function OperationFlow() {
               </span>
               <ClipboardCheck size={22} className="text-emerald-300" aria-hidden="true" />
             </div>
-            <h3 className="mt-8 text-xl font-black text-white">{step.title}</h3>
+            <p className="mt-8 text-xl font-black text-white">{step.title}</p>
             <p className="mt-3 text-sm leading-7 text-white/[0.70]">{step.text}</p>
           </PremiumCard>
         ))}
@@ -727,7 +736,7 @@ function Formats() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             </div>
             <div className="p-5">
-              <h3 className="text-xl font-black">{item.title}</h3>
+              <p className="text-xl font-black">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-white/[0.70]">{item.desc}</p>
             </div>
           </article>
@@ -758,7 +767,7 @@ function ProductionStack() {
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-sky-200/[0.18] bg-sky-300/[0.10] text-sky-200">
                 <Icon size={23} aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-black text-white">{item.title}</h3>
+              <p className="text-xl font-black text-white">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-white/[0.68]">{item.desc}</p>
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
@@ -766,7 +775,7 @@ function ProductionStack() {
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition group-hover:text-white"
               >
-                Kapsam konuş
+                {SERVICE_CTA_LABELS[index] ?? "Teknik kapsamı konuş"}
                 <ArrowRight size={16} aria-hidden="true" />
               </a>
             </PremiumCard>
@@ -776,7 +785,7 @@ function ProductionStack() {
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <h3 className="text-2xl font-black text-white">Teknik kontrol listesi</h3>
+          <p className="text-2xl font-black text-white">Teknik kontrol listesi</p>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-white/[0.76]">
             {TECHNICAL_POINTS.map((item) => (
               <li key={item} className="flex gap-3">
@@ -788,7 +797,7 @@ function ProductionStack() {
         </div>
 
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <h3 className="text-2xl font-black text-white">Hedef etkinlik türleri</h3>
+          <p className="text-2xl font-black text-white">Hedef etkinlik türleri</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {USE_CASES.map((item) => (
               <span key={item} className="border border-white/[0.12] bg-white/[0.06] px-3 py-2 text-sm font-semibold text-white/[0.80]">
@@ -831,7 +840,7 @@ function InternalLinks() {
 
         <div className="border border-slate-200 bg-white p-6">
           <p className="text-sm font-black uppercase tracking-normal text-blue-700">{CLUSTER.eyebrow}</p>
-          <h3 className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</h3>
+          <p className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</p>
           <p className="mt-3 text-sm leading-7 text-slate-600">{CLUSTER.description}</p>
           <div className="mt-5 grid gap-3">
             {CLUSTER.guides.slice(0, 2).map((guide) => (
