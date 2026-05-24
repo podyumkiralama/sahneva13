@@ -543,7 +543,7 @@ function VisualProof() {
               <p className="mb-2 inline-flex border border-sky-200/[0.24] bg-sky-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-sky-100">
                 300 m² P1.9 indoor LED
               </p>
-              <p className="text-2xl font-black text-white md:text-4xl">
+              <p role="heading" aria-level={3} className="text-2xl font-black text-white md:text-4xl">
                 Yakın izleme mesafesinde premium görüntü kalitesi
               </p>
             </div>
@@ -628,7 +628,6 @@ function VideoProof() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative block aspect-video overflow-hidden bg-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
-                aria-label={`${video.title} videosunu YouTube üzerinde aç`}
               >
                 <img
                   src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
@@ -646,7 +645,7 @@ function VideoProof() {
               </a>
               <div className="p-3">
                 <p className="text-xs font-black uppercase tracking-normal text-sky-200">{video.eyebrow}</p>
-                <p className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
+                <p role="heading" aria-level={3} className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
                 <p className="mt-2 text-sm leading-6 text-white/[0.68]">{video.description}</p>
               </div>
             </article>
@@ -672,7 +671,7 @@ function Positioning() {
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
               <BadgeCheck size={22} aria-hidden="true" />
             </div>
-            <p className="text-xl font-black text-slate-950">{item.title}</p>
+            <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">{item.title}</p>
             <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
           </article>
         ))}
@@ -700,7 +699,7 @@ function OperationFlow() {
               </span>
               <ClipboardCheck size={22} className="text-emerald-300" aria-hidden="true" />
             </div>
-            <p className="mt-8 text-xl font-black text-white">{step.title}</p>
+            <p role="heading" aria-level={3} className="mt-8 text-xl font-black text-white">{step.title}</p>
             <p className="mt-3 text-sm leading-7 text-white/[0.70]">{step.text}</p>
           </PremiumCard>
         ))}
@@ -737,7 +736,7 @@ function Formats() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             </div>
             <div className="border-t border-white/[0.10] bg-[#05070d] p-5">
-              <p className="text-xl font-black text-white">{item.title}</p>
+              <p role="heading" aria-level={3} className="text-xl font-black text-white">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-white/[0.82]">{item.desc}</p>
             </div>
           </article>
@@ -768,7 +767,7 @@ function ProductionStack() {
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-sky-200/[0.18] bg-sky-300/[0.10] text-sky-200">
                 <Icon size={23} aria-hidden="true" />
               </div>
-              <p className="text-xl font-black text-white">{item.title}</p>
+              <p role="heading" aria-level={3} className="text-xl font-black text-white">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-white/[0.68]">{item.desc}</p>
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
@@ -786,7 +785,7 @@ function ProductionStack() {
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <p className="text-2xl font-black text-white">Teknik kontrol listesi</p>
+          <p role="heading" aria-level={3} className="text-2xl font-black text-white">Teknik kontrol listesi</p>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-white/[0.76]">
             {TECHNICAL_POINTS.map((item) => (
               <li key={item} className="flex gap-3">
@@ -798,7 +797,7 @@ function ProductionStack() {
         </div>
 
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <p className="text-2xl font-black text-white">Hedef etkinlik türleri</p>
+          <p role="heading" aria-level={3} className="text-2xl font-black text-white">Hedef etkinlik türleri</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {USE_CASES.map((item) => (
               <span key={item} className="border border-white/[0.12] bg-white/[0.06] px-3 py-2 text-sm font-semibold text-white/[0.80]">
@@ -841,7 +840,7 @@ function InternalLinks() {
 
         <div className="border border-slate-200 bg-white p-6">
           <p className="text-sm font-black uppercase tracking-normal text-blue-700">{CLUSTER.eyebrow}</p>
-          <p className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</p>
+          <p role="heading" aria-level={3} className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</p>
           <p className="mt-3 text-sm leading-7 text-slate-600">{CLUSTER.description}</p>
           <div className="mt-5 grid gap-3">
             {CLUSTER.guides.slice(0, 2).map((guide) => (
