@@ -1436,7 +1436,7 @@ function ProcessAndTipsSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-extrabold px-10 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
+            className="inline-flex min-h-[56px] min-w-[180px] touch-manipulation items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-10 py-4 font-extrabold text-white shadow-lg transition hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
           >
             <span className="text-xl mr-2">💬</span> Hızlı Teklif Al
           </a>
@@ -1464,10 +1464,10 @@ function FAQSection() {
           {FAQ_ITEMS.map((faq, index) => (
             <li key={index}>
               <details className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border">
-                <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
+                <summary className="flex min-h-[56px] cursor-pointer touch-manipulation list-none items-center justify-between gap-4 py-2 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
                   <span className="pr-4">{faq.q}</span>
                   <span
-                    className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                    className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-500 group-open:rotate-180"
                     aria-hidden="true"
                   >
                     ⌄
