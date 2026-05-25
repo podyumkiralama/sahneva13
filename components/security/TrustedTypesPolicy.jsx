@@ -7,6 +7,7 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
   const allowedExternalScripts = new Map([
     ["https://www.googletagmanager.com", ["/gtag/js"]],
     ["https://va.vercel-scripts.com", ["/v1/speed-insights/script.js", "/v1/speed-insights/script.debug.js"]],
+    ["https://vercel.live", ["/_next-live/"]],
     ["https://static.cloudflareinsights.com", ["/beacon.min.js"]],
     ["https://scripts.clarity.ms", ["/0.8.45/clarity.js"]],
     ["https://www.clarity.ms", ["/tag/"]],
