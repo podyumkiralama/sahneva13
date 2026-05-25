@@ -18,7 +18,6 @@ import {
   Monitor,
   Music,
   Ruler,
-  Tent,
 } from "lucide-react";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
@@ -74,10 +73,10 @@ const SERVICES = [
     features: ["1×1m ve 2×1m paneller", "Kaymaz kaplama", "10-200cm yükseklik planı", "Hızlı kurulum"],
   },
   {
-    icon: "💍",
-    title: "Düğün & Özel Etkinlik Podyumları",
-    description: "Özel günler için şık ve güvenli podyum çözümleri",
-    features: ["Şık görünüm", "Güvenli yapı", "Halı kaplama", "Özel dekorasyon"],
+    icon: "🏛️",
+    title: "Protokol ve Gala Platformları",
+    description: "Gala, ödül gecesi ve protokol akışı için dengeli, şık ve kontrollü podyum çözümleri",
+    features: ["Protokol yerleşimi", "Tok yürüyüş hissi", "Halı kaplama", "Marka görünürlüğü"],
   },
   {
     icon: "🎤",
@@ -218,15 +217,15 @@ const PODIUM_HEIGHT_CAPACITIES = [
 ];
 
 const PACKAGE_GUIDE = [
-  "Konuşma, nikâh veya küçük sunum için 12 m² mini podyum yeterli olur.",
-  "Canlı müzik, lansman ve okul etkinliği için 24 m² orta podyum daha dengeli görünür.",
+  "Konuşma, panel veya küçük sunum için 12 m² mini podyum yeterli olur.",
+  "Canlı müzik, lansman ve kurumsal toplantı için 24 m² orta podyum daha dengeli görünür.",
   "Konser, festival ve kalabalık sahne kullanımı için 48 m² ve üzeri özel plan önerilir.",
 ];
 
 const USE_CASES = [
-  { icon: "💍", text: "Düğün, nişan ve özel davetler", desc: "Özel günler için şık podyum çözümleri" },
+  { icon: "🏛️", text: "Gala, ödül gecesi ve protokol davetleri", desc: "Kurumsal prestij gerektiren alanlar için kontrollü platformlar" },
   { icon: "🎤", text: "Konser, festival ve sahne performansları", desc: "Profesyonel performanslar için sahneler" },
-  { icon: "🏢", text: "Kurumsal lansman ve toplantılar", desc: "Şirket etkinlikleri için profesyonel çözümler" },
+  { icon: "🏢", text: "Kurumsal lansman, konferans ve toplantılar", desc: "Marka etkinlikleri için profesyonel podyum altyapısı" },
   { icon: "🎓", text: "Mezuniyet törenleri ve okul etkinlikleri", desc: "Eğitim kurumları için podyumlar" },
   { icon: "🏛️", text: "Belediye organizasyonları ve törenler", desc: "Resmi törenler ve etkinlikler" },
   { icon: "🛍️", text: "AVM etkinlikleri ve fuar stantları", desc: "Ticari etkinlikler için çözümler" },
@@ -311,10 +310,10 @@ const FAQ_ITEMS = [
 ];
 
 const RELATED_SERVICES = [
-  { href: "/cadir-kiralama", title: "Çadır Kiralama", Icon: Tent, desc: "Profesyonel çadır sistemleri ve kurulum hizmetleri" },
-  { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", Icon: Briefcase, desc: "Profesyonel etkinlik yönetimi ve organizasyon çözümleri" },
-  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", Icon: Monitor, desc: "Yüksek çözünürlüklü LED ekran ve video wall çözümleri" },
-  { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", Icon: Music, desc: "Profesyonel ses ve ışık sistemleri kiralama" },
+  { href: "/sahne-kiralama", title: "Sahne Kiralama", Icon: Ruler, desc: "Podyum, sahne zemini ve platform altyapısını birlikte planlayın" },
+  { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", Icon: Briefcase, desc: "Lansman, konferans ve gala için tek teknik operasyon akışı" },
+  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", Icon: Monitor, desc: "Sahne arkasında güçlü LED ekran ve video wall çözümleri" },
+  { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", Icon: Music, desc: "Podyum alanını tamamlayan ses, ışık ve atmosfer prodüksiyonu" },
 ];
 
 const GALLERY_IMAGES = [
@@ -334,23 +333,6 @@ const GALLERY_IMAGES = [
   "/img/podyum/14.webp",
   "/img/podyum/15.webp",
   "/img/podyum/16.webp",
-];
-
-const SHOWCASE_IMAGES = [
-  { src: "/img/podyum/9.webp", title: "Kurumsal Lansman Sahnesi" },
-  { src: "/img/podyum/10.webp", title: "Mezuniyet Podyum Kurulumu" },
-  { src: "/img/podyum/11.webp", title: "Konser Performans Alanı" },
-  { src: "/img/podyum/12.webp", title: "AVM Etkinlik Podyumu" },
-  { src: "/img/podyum/13.webp", title: "Fuar Standı Sahneleme" },
-  { src: "/img/podyum/14.webp", title: "Tören ve Ödül Gecesi" },
-  { src: "/img/podyum/15.webp", title: "Festival Sahne Altyapısı" },
-  { src: "/img/podyum/16.webp", title: "Açık Alan Podyum Çözümü" },
-];
-
-const ARTICLE_BREAK_IMAGES = [
-  { src: "/img/podyum/19.webp", alt: "Kurumsal etkinlikte podyum kurulumu" },
-  { src: "/img/podyum/20.webp", alt: "Festival için modüler podyum detayı" },
-  { src: "/img/podyum/21.webp", alt: "Açık alanda podyum ve sahne yerleşimi" },
 ];
 
 const PROCESS_STEP_IMAGES = [
@@ -934,16 +916,15 @@ function ServicesSection() {
   return (
     <section
       id="hizmetler"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="content-visibility-auto py-20 bg-gradient-to-b from-white to-blue-50/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Profesyonel <span className="text-blue-700">Hizmetlerimiz</span>
+            Kurumsal <span className="text-blue-700">Podyum Uygulamaları</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Podyum kiralama hizmetlerimiz: keşif, projelendirme, nakliye, kurulum,
-            teknik destek ve söküm
+            Keşif, karolaj planı, nakliye, kurulum, saha kontrolü ve söküm aynı teknik kapsam içinde yürütülür.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 max-w-7xl mx-auto">
@@ -976,7 +957,7 @@ function ServicesSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
-            <span className="text-xl mr-3">📞</span> Detaylı Teklif için İletişime Geçin
+            <span className="text-xl mr-3">📞</span> Teknik kapsam için iletişime geçin
           </a>
         </div>
       </div>
@@ -993,14 +974,14 @@ function CalculatorSection() {
     }).format(n);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Hızlı <span className="text-blue-700">Fiyat Hesaplama</span>
+            Teklif Aralığını <span className="text-blue-700">Hızlı Çıkarın</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Podyum ölçülerinizi girerek anında fiyat teklifi alın
+            Podyum ölçüsü, kaplama ve lojistik bilgisini girerek satın alma görüşmesi öncesi yaklaşık bütçeyi görün.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
@@ -1151,10 +1132,10 @@ function PackagesSection() {
 }
 
 function GallerySection() {
-  const visibleImages = GALLERY_IMAGES.slice(0, 8);
+  const visibleImages = GALLERY_IMAGES.slice(0, 6);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
+    <section className="content-visibility-auto py-20 bg-gradient-to-b from-white to-blue-50/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1204,54 +1185,9 @@ function GallerySection() {
   );
 }
 
-
-function VisualShowcaseSection() {
-  return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
-            Sahadan <span className="text-purple-700">Canlı Kareler</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            İlk 8 görselin ardından, son projelerimizden seçtiğimiz yeni fotoğraflarla sayfayı daha dinamik hale getirdik.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
-          {SHOWCASE_IMAGES.map((item, idx) => (
-            <article
-              key={item.src}
-              className={`group relative overflow-hidden rounded-3xl border border-gray-200 shadow-lg ${
-                idx % 4 === 0 || idx % 4 === 3 ? "lg:-translate-y-3" : "lg:translate-y-3"
-              } transition-transform duration-500`}
-            >
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  quality={72}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-                <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm md:text-base leading-snug">
-                  {item.title}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 function TechnicalSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1293,7 +1229,7 @@ function StatsSection() {
     { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
+    <section className="content-visibility-auto py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, idx) => (
@@ -1306,12 +1242,12 @@ function StatsSection() {
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                 {stat.icon}
               </div>
-              <h3
+              <p
                 id={`podyum-stat-${idx}-value`}
                 className="text-4xl md:text-5xl font-black mb-1 text-white drop-shadow-lg"
               >
                 {stat.value}
-              </h3>
+              </p>
               <p id={`podyum-stat-${idx}-label`} className="text-blue-100 text-lg font-semibold mb-0">
                 {stat.label}
               </p>
@@ -1325,7 +1261,7 @@ function StatsSection() {
 
 function UseCasesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
+    <section className="content-visibility-auto py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -1371,161 +1307,10 @@ function UseCasesSection() {
   );
 }
 
-function ArticlesSection() {
-  return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/50">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Podyum <span className="text-blue-700">Rehberi</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Podyum kiralama hakkında uzman görüşleri ve teknik bilgiler
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative">
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  📚 Kapsamlı Rehber
-                </span>
-                <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  ⭐ Uzman Görüşü
-                </span>
-                <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
-                  🎯 Pratik Çözümler
-                </span>
-              </div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                Profesyonel Podyum Kiralama: Etkinlik Başarınız İçin Tam Kapsamlı Çözümler
-              </h3>
-              <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                Modüler sistemler, güvenlik standartları ve ölçülebilir kalite garantisi ile etkinliklerinizde
-                mükemmel performans
-              </p>
-            </header>
-            <div className="p-8 md:p-10 prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed">
-              <h4 className="flex items-center gap-3">
-                <span className="inline-flex bg-blue-100 text-blue-600 rounded-2xl p-2">🎭</span>{" "}
-                Podyum Sistemleri ve Teknolojileri
-              </h4>
-              <p>
-                <strong>Sahneva</strong>, İstanbul ve Türkiye genelinde profesyonel podyum kiralama hizmetleriyle kurumsal standartta
-                çözümler sunmaktadır. Etkinliğiniz ister düğün, ister konser olsun; detaylı keşif, teknik projelendirme,
-                nakliye, kurulum ve söküm dahil <strong>uçtan uca hizmet</strong> sağlıyoruz.
-              </p>
-
-              <div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
-                {ARTICLE_BREAK_IMAGES.map((img) => (
-                  <figure key={img.src} className="group relative overflow-hidden rounded-2xl border border-gray-200 shadow-md">
-                    <div className="relative aspect-[4/3]">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        quality={68}
-                      />
-                    </div>
-                  </figure>
-                ))}
-              </div>
-
-              <h4 className="flex items-center gap-3 mt-10">
-                <span className="inline-flex bg-purple-100 text-purple-600 rounded-2xl p-2">🔧</span>{" "}
-                Özel Podyum Sistemleri
-              </h4>
-              <p>
-                1×1m panellerimiz düzensiz zeminlerde esnek çözümler sunarken, 2×1m paneller ana sahnelerde hızlı kurulum
-                imkanı sağlıyor. 10cm&apos;den 200cm&apos;ye kadar farklı yüksekliklerde podyum kurulumu proje özelinde planlanabilir.
-              </p>
-
-              <aside className="mt-10 rounded-2xl border-l-4 border-blue-500 bg-blue-50 p-5">
-                <h5 className="font-black text-blue-700 text-lg mb-2">💡 Profesyonel Kurulum Stratejisi</h5>
-                <p className="mb-0">
-                  Kurulum stratejimiz mekânın topoğrafik yapısına ve etkinlik ihtiyaçlarına göre şekillenir. Düğün etkinliklerinde estetik
-                  ve konfor ön planda tutulurken, konser ve performanslarda dayanıklılık ve güvenlik önceliklendirilir.
-                </p>
-              </aside>
-
-              <h4 className="mt-10 flex items-center gap-3">
-                <span className="inline-flex bg-green-100 text-green-600 rounded-2xl p-2">🚀</span>{" "}
-                Kritik Başarı Faktörleri
-              </h4>
-              <ul>
-                <li><strong>Detaylı keşif ve analiz:</strong> mekan analizi, zemin değerlendirmesi ve risk analizi</li>
-                <li><strong>Teknik projelendirme:</strong> yük dağılımı hesapları, stabilite analizi ve güvenlik planlaması</li>
-                <li><strong>Güvenlik sistemleri:</strong> TS EN standartları, korkuluk sistemleri ve acil durum planları</li>
-                <li><strong>Estetik çözümler:</strong> dekorasyon, halı kaplama ve markalama entegrasyonu</li>
-              </ul>
-
-              <aside className="mt-10 rounded-2xl border-l-4 border-yellow-400 bg-yellow-50 p-5">
-                <h5 className="font-black text-yellow-700 text-lg mb-2 flex items-center gap-2">
-                  <span aria-hidden="true">💎</span> Neden Sahneva?
-                </h5>
-                <p className="mb-0 text-yellow-800">
-                  <strong>10+ yıllık deneyim, 700+ başarılı proje ve İstanbul ile Türkiye geneli operasyon</strong> ile podyum kiralama konusunda güvenilir çözüm ortağınız.
-                  Profesyonel ekipman, uzman ekip ve teknik destek opsiyonları.
-                </p>
-              </aside>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black leading-tight">Teknik Entegrasyon ve Kurulum Süreçleri</h3>
-              <p className="text-blue-100 mt-2 text-lg">Profesyonel kurulum, güvenlik sistemleri ve tamamlayıcı hizmetler</p>
-            </header>
-            <div className="p-6 md:p-8 prose prose-lg max-w-none prose-p:text-gray-600">
-              <p>
-                Podyum kurulum sürecimiz detaylı keşif ve teknik projelendirme ile başlar. Mekanın zemin yapısı, yük dağılımı ve etkinlik ihtiyaçları analiz edilir.
-                Profesyonel kurulum ekibimiz 2-6 saat içinde podyumunuzu montajlar.
-              </p>
-              <ul>
-                <li>Alüminyum karkas ve çelik bağlantı elemanları</li>
-                <li>Kaymaz kaplama ve UV dayanımlı yüzey</li>
-                <li>10-200cm aralığında proje özelinde yükseklik planı</li>
-                <li>Korkuluk, merdiven ve rampa sistemleri</li>
-              </ul>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black leading-tight">Etkinlik Türlerine Özel Çözümler</h3>
-              <p className="text-blue-100 mt-2 text-lg">Her etkinlik türüne özel podyum stratejileri ve teknik çözümler</p>
-            </header>
-            <div className="p-6 md:p-8 prose prose-lg max-w-none prose-p:text-gray-600">
-              <h4 className="flex items-center gap-2 text-lg font-bold">
-                <span className="inline-flex bg-blue-100 text-blue-600 rounded-xl p-2">💍</span> Düğün ve Özel Davetler
-              </h4>
-              <p>Şık tasarım, halı kaplama, dekoratif aydınlatma, konforlu alanlar.</p>
-
-              <h4 className="flex items-center gap-2 text-lg font-bold mt-6">
-                <span className="inline-flex bg-purple-100 text-purple-600 rounded-xl p-2">🎤</span> Konser ve Performanslar
-              </h4>
-              <p>Yüksek dayanıklılık, ses izolasyonu, kablo kanalları, güvenlik ekipmanları.</p>
-
-              <h4 className="flex items-center gap-2 text-lg font-bold mt-6">
-                <span className="inline-flex bg-green-100 text-green-600 rounded-xl p-2">🏢</span> Kurumsal Lansmanlar
-              </h4>
-              <p>Markalı kaplama, rampa ve merdiven, LED entegrasyonu, profesyonel görünüm.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 // --- PROCESS / KEYWORD-RICH SECTION (NO FAQ) ---
 function ProcessAndTipsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1663,7 +1448,7 @@ function ProcessAndTipsSection() {
 
 function FAQSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto py-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1715,7 +1500,7 @@ function FAQSection() {
 
 function RelatedServicesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
+    <section className="content-visibility-auto py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1751,7 +1536,7 @@ function RelatedServicesSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="content-visibility-auto py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
@@ -1819,12 +1604,10 @@ export default function Page() {
       <CalculatorSection />
       <ServicesSection />
       <GallerySection />
-      <VisualShowcaseSection />
       <TechnicalSection />
       <StatsSection />
       <UseCasesSection />
       <ProcessAndTipsSection />
-      <ArticlesSection />
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
