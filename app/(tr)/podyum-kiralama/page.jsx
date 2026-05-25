@@ -917,7 +917,7 @@ function ServicesSection() {
   return (
     <section
       id="hizmetler"
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -975,7 +975,7 @@ function CalculatorSection() {
     }).format(n);
 
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1100px] sm:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1188,7 +1188,7 @@ function GallerySection() {
 
 function TechnicalSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2400px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1262,7 +1262,7 @@ function StatsSection() {
 
 function UseCasesSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -1311,7 +1311,7 @@ function UseCasesSection() {
 // --- PROCESS / KEYWORD-RICH SECTION (NO FAQ) ---
 function ProcessAndTipsSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] lg:[contain-intrinsic-size:auto_1300px] py-20 bg-white">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1300px] py-20 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -1501,7 +1501,7 @@ function FAQSection() {
 
 function RelatedServicesSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1800px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
