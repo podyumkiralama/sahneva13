@@ -219,7 +219,7 @@ function SectionHeader({ eyebrow, title, desc, dark = false, center = false }) {
       {eyebrow ? (
         <p
           className={`text-sm font-black uppercase tracking-normal ${
-            dark ? "text-sky-200" : "text-blue-700"
+            dark ? "text-white" : "text-blue-700"
           }`}
         >
           {eyebrow}
@@ -644,7 +644,7 @@ function VideoProof() {
                 <span className="sr-only">{video.title} videosunu YouTube üzerinde izle</span>
               </a>
               <div className="p-3">
-                <p className="text-xs font-black uppercase tracking-normal text-sky-200">{video.eyebrow}</p>
+                <p className="text-xs font-black uppercase tracking-normal text-white">{video.eyebrow}</p>
                 <p role="heading" aria-level={3} className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
                 <p className="mt-2 text-sm leading-6 text-white/[0.68]">{video.description}</p>
               </div>
@@ -694,7 +694,7 @@ function OperationFlow() {
         {OPERATION_STEPS.map((step, index) => (
           <PremiumCard key={step.title} as="article" className="min-h-full">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-sm font-black uppercase tracking-normal text-sky-200">
+              <span className="text-sm font-black uppercase tracking-normal text-white">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <ClipboardCheck size={22} className="text-emerald-300" aria-hidden="true" />
@@ -887,7 +887,7 @@ function CTASection() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-normal text-sky-200">Teklif briefi</p>
+          <p className="text-sm font-black uppercase tracking-normal text-white">Teklif briefi</p>
           <h2 id="cta-title" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
             Kurumsal organizasyon için doğru sahne etkisini birlikte kuralım.
           </h2>
