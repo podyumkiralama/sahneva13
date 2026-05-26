@@ -16,6 +16,14 @@ const siteUrl =
   "https://www.sahneva.com";
 
 function buildContentSecurityPolicy({ siteUrl, isPreview }) {
+  const siteOrigin = (() => {
+    try {
+      return new URL(siteUrl).origin;
+    } catch {
+      return "https://www.sahneva.com";
+    }
+  })();
+
   const scriptSrc = [
     "'self'",
     "'unsafe-inline'",
@@ -62,6 +70,26 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
     "https://*.google.com",
   ].join(" ");
 
+  const imgSrc = [
+    "'self'",
+    "data:",
+    "blob:",
+    siteOrigin,
+    "https://www.google-analytics.com",
+    "https://www.googletagmanager.com",
+    "https://stats.g.doubleclick.net",
+    "https://www.google.com",
+    "https://*.google.com",
+    "https://*.clarity.ms",
+    "https://c.bing.com",
+    "https://static.cloudflareinsights.com",
+    "https://cloudflareinsights.com",
+    "https://i.ytimg.com",
+    "https://img.youtube.com",
+    "https://vercel.live",
+    "https://*.vercel.live",
+  ].join(" ");
+
   const frameAncestors = isPreview
     ? "frame-ancestors 'self' https://vercel.live https://*.vercel.live;"
     : "frame-ancestors 'none';";
@@ -76,7 +104,7 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
     base-uri 'self';
     object-src 'none';
     upgrade-insecure-requests;
-    img-src 'self' data: blob: https:;
+    img-src ${imgSrc};
     font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     script-src ${scriptSrc};
