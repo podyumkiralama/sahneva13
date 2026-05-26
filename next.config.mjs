@@ -78,7 +78,6 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
     "https://www.google-analytics.com",
     "https://www.googletagmanager.com",
     "https://stats.g.doubleclick.net",
-    "https://www.google.com",
     "https://*.google.com",
     "https://*.clarity.ms",
     "https://c.bing.com",
