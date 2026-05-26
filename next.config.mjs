@@ -16,12 +16,17 @@ const siteUrl =
   "https://www.sahneva.com";
 
 function buildContentSecurityPolicy({ siteUrl, isPreview }) {
+  const fallbackOrigin = "https://www.sahneva.com";
   const siteOrigin = (() => {
     try {
-      return new URL(siteUrl).origin;
+      const url = new URL(siteUrl);
+      if ((url.protocol === "http:" || url.protocol === "https:") && !/[;\s]/.test(url.origin)) {
+        return url.origin;
+      }
     } catch {
-      return "https://www.sahneva.com";
+      return fallbackOrigin;
     }
+    return fallbackOrigin;
   })();
 
   const scriptSrc = [
