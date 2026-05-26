@@ -561,7 +561,7 @@ function HeroSection() {
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-700 px-7 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
               >
                 Teklif Al
@@ -688,7 +688,7 @@ function PodiumStockCapacitySection() {
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/[0.14] bg-white/[0.08] px-5 py-3 font-black text-white transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
               >
                 Ölçü, yükseklik ve şehir bilgisiyle teklif al
@@ -894,7 +894,7 @@ function PodiumFlowSection() {
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-green-700 px-6 py-3 font-black text-white shadow-lg transition hover:bg-green-800"
               >
                 WhatsApp ile ölçü paylaş
@@ -956,7 +956,7 @@ function ServicesSection() {
           <a
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">📞</span> Teknik kapsam için iletişime geçin
@@ -1112,7 +1112,7 @@ function PackagesSection() {
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="mt-2 w-full min-h-[56px] inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
                     <span className="text-lg mr-2">💬</span> Hemen Teklif Al
@@ -1300,7 +1300,7 @@ function UseCasesSection() {
           <a
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">💬</span> Etkinliğiniz için Özel Çözüm Alın
@@ -1450,7 +1450,7 @@ function ProcessAndTipsSection() {
           <a
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex min-h-[56px] min-w-[180px] touch-manipulation items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-10 py-4 font-extrabold text-white shadow-lg transition hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
           >
             <span className="text-xl mr-2">💬</span> Hızlı Teklif Al
@@ -1575,7 +1575,7 @@ function CTASection() {
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
               >
                 <span className="text-xl mr-3">💬</span> WhatsApp&apos;tan Yaz
