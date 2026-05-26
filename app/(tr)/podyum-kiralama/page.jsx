@@ -643,7 +643,7 @@ function PodiumStockCapacitySection() {
   return (
     <section
       id="podyum-stok-kapasitesi"
-      className="relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2600px] md:[contain-intrinsic-size:auto_1900px] lg:[contain-intrinsic-size:auto_1350px] relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
       aria-labelledby="podyum-stok-title"
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -690,7 +690,7 @@ function PodiumStockCapacitySection() {
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/[0.14] bg-white/[0.08] px-5 py-3 font-black text-white transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
               >
-                Ölçü paylaş, teklif al
+                Ölçü, yükseklik ve şehir bilgisiyle teklif al
               </a>
             </div>
           </div>
@@ -1195,7 +1195,9 @@ function TechnicalSection() {
             Teknik <span className="text-blue-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            En son teknoloji ekipmanlar ve profesyonel teknik altyapı ile hizmetinizdeyiz
+            Podyum kurulumu yalnızca platform parçalarının birleştirilmesi değildir. Sahneva, saha keşfi,
+            zemin kot farkı kontrolü, karolaj planı, yük dağılımı, dengeleme ve sarsıntı kontrolünü aynı
+            teknik plan içinde değerlendirerek farklı yüksekliklerde güvenli modüler podyum kurulumu yapar.
           </p>
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -1266,7 +1268,7 @@ function UseCasesSection() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-blue-700">Alanları</span>
+            Kullanım <span className="text-cyan-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Podyum çözümlerimizin tercih edildiği başlıca etkinlik türleri
@@ -1436,7 +1438,7 @@ function ProcessAndTipsSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-extrabold px-10 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
+            className="inline-flex min-h-[56px] min-w-[180px] touch-manipulation items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-10 py-4 font-extrabold text-white shadow-lg transition hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
           >
             <span className="text-xl mr-2">💬</span> Hızlı Teklif Al
           </a>
@@ -1464,10 +1466,10 @@ function FAQSection() {
           {FAQ_ITEMS.map((faq, index) => (
             <li key={index}>
               <details className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border">
-                <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
+                <summary className="flex min-h-[56px] cursor-pointer touch-manipulation list-none items-center justify-between gap-4 py-2 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
                   <span className="pr-4">{faq.q}</span>
                   <span
-                    className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                    className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-500 group-open:rotate-180"
                     aria-hidden="true"
                   >
                     ⌄
