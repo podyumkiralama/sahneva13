@@ -663,7 +663,7 @@ function PodiumStockCapacitySection() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/[0.72]">
               Sahneva, İstanbul podyum kiralama taleplerinden farklı şehirlerdeki büyük ölçekli platform
-              kurulumlarına kadar, zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
+              kurulumlarına kadar zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
               <Link href="/bolgesel-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
                 Türkiye geneli kurulum
               </Link>{" "}
@@ -1397,10 +1397,13 @@ function ProcessAndTipsSection() {
               mutlaka planlanmalıdır. Özellikle konser ve yoğun trafikli organizasyonlarda stabilite kontrolleri kritik önemdedir.
             </p>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              Bu sayfadaki odak; ana sahne kurulumu değil, sahne platformu kiralama, zemin yükseltme,
-              kiralık podyum sahne ve stabil modüler podyum kurulumu ihtiyacıdır. Daha geniş konser veya ana sahne
-              çözümleri için{" "}
-              <Link href="/sahne-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
+              Podyum kiralama projelerinde zemin yükseltme, karolaj planı, kiralık podyum sahne ve stabil
+              modüler podyum kurulumu ayrı değerlendirilir. Daha geniş konser veya ana sahne çözümleri için{" "}
+              <Link
+                href="/sahne-kiralama"
+                prefetch={false}
+                className="font-bold text-blue-700 underline underline-offset-4"
+              >
                 sahne kiralama
               </Link>{" "}
               hizmeti ayrıca incelenebilir.
