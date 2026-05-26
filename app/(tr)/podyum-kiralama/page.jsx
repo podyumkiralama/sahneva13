@@ -543,7 +543,7 @@ function HeroSection() {
 
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/[0.78] md:text-2xl">
               Kurumsal etkinlikler, konserler, fuarlar, lansmanlar ve açık hava organizasyonları için geniş stoklu,
-              karolaj planlı ve titreşimsiz modüler podyum sistemleri.
+              karolaj planlı modüler podyum ve taşınabilir sahne platformu çözümleri.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2.5">
@@ -662,7 +662,8 @@ function PodiumStockCapacitySection() {
               Podyum Stok ve Kurulum Kapasitemiz
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/[0.72]">
-              Sahneva, farklı etkinlik ölçeklerine ve zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
+              Sahneva, İstanbul podyum kiralama taleplerinden farklı şehirlerdeki büyük ölçekli platform
+              kurulumlarına kadar, zemin ihtiyaçlarına uygun geniş podyum stoğu ile{" "}
               <Link href="/bolgesel-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
                 Türkiye geneli kurulum
               </Link>{" "}
@@ -1394,6 +1395,15 @@ function ProcessAndTipsSection() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Podyum kiralama yaparken metrekare hesabı, zemin dengesi, yük taşıma kapasitesi ve güvenlik detayları (kenar bitişi, merdiven/rampa gibi)
               mutlaka planlanmalıdır. Özellikle konser ve yoğun trafikli organizasyonlarda stabilite kontrolleri kritik önemdedir.
+            </p>
+            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+              Bu sayfadaki odak; ana sahne kurulumu değil, sahne platformu kiralama, zemin yükseltme,
+              kiralık podyum sahne ve stabil modüler podyum kurulumu ihtiyacıdır. Daha geniş konser veya ana sahne
+              çözümleri için{" "}
+              <Link href="/sahne-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
+                sahne kiralama
+              </Link>{" "}
+              hizmeti ayrıca incelenebilir.
             </p>
 
             <ul className="mt-6 space-y-2 text-lg text-gray-700 leading-relaxed">
