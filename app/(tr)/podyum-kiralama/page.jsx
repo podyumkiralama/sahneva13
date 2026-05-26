@@ -1397,7 +1397,7 @@ function ProcessAndTipsSection() {
               mutlaka planlanmalıdır. Özellikle konser ve yoğun trafikli organizasyonlarda stabilite kontrolleri kritik önemdedir.
             </p>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              Podyum kiralama projelerinde zemin yükseltme, karolaj planı, kiralık podyum sahne ve stabil
+              Podyum kiralama projelerinde zemin yükseltme, karolaj planı, kiralık podyum ve sahne ile stabil
               modüler podyum kurulumu ayrı değerlendirilir. Daha geniş konser veya ana sahne çözümleri için{" "}
               <Link
                 href="/sahne-kiralama"
