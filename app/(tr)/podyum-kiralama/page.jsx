@@ -643,7 +643,7 @@ function PodiumStockCapacitySection() {
   return (
     <section
       id="podyum-stok-kapasitesi"
-      className="relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2600px] md:[contain-intrinsic-size:auto_1900px] lg:[contain-intrinsic-size:auto_1350px] relative overflow-hidden bg-[#0B1120] py-16 text-white md:py-24"
       aria-labelledby="podyum-stok-title"
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -690,7 +690,7 @@ function PodiumStockCapacitySection() {
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[46px] items-center justify-center rounded-2xl border border-white/[0.14] bg-white/[0.08] px-5 py-3 font-black text-white transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/25"
               >
-                Ölçü paylaş, teklif al
+                Ölçü, yükseklik ve şehir bilgisiyle teklif al
               </a>
             </div>
           </div>
@@ -1195,7 +1195,9 @@ function TechnicalSection() {
             Teknik <span className="text-blue-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            En son teknoloji ekipmanlar ve profesyonel teknik altyapı ile hizmetinizdeyiz
+            Podyum kurulumu yalnızca platform parçalarının birleştirilmesi değildir. Sahneva, saha keşfi,
+            zemin kot farkı kontrolü, karolaj planı, yük dağılımı, dengeleme ve sarsıntı kontrolünü aynı
+            teknik plan içinde değerlendirerek farklı yüksekliklerde güvenli modüler podyum kurulumu yapar.
           </p>
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -1266,7 +1268,7 @@ function UseCasesSection() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-blue-700">Alanları</span>
+            Kullanım <span className="text-cyan-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Podyum çözümlerimizin tercih edildiği başlıca etkinlik türleri
