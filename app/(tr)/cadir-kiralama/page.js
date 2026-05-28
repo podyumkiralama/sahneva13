@@ -40,19 +40,7 @@ const BLUR_DATA_URL =
 
 /* ================== Dinamik galeri (CaseGallery) ================== */
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  loading: () => (
-    <div
-      className="flex justify-center items-center h-64"
-      role="status"
-      aria-label="Galeri yükleniyor"
-    >
-      <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
-        aria-hidden="true"
-      />
-      <span className="sr-only">Galeri yükleniyor...</span>
-    </div>
-  ),
+  loading: () => <GalleryFallbackCards />,
 });
 
 const EventWeatherWidget = dynamic(
@@ -70,9 +58,9 @@ const EventWeatherWidget = dynamic(
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
+  title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
   description:
-    "Pagoda, şeffaf dome, endüstriyel çadır kiralama. Zemin kaplama, aydınlatma ve profesyonel kurulum. Türkiye geneli hızlı hizmet.",
+    "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları, zemin, iklimlendirme ve anahtar teslim kurulum desteği.",
   alternates: {
     canonical: `${ORIGIN}/cadir-kiralama`,
     languages: {
@@ -82,9 +70,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Çadır Kiralama | Sahneva",
+    title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
     description:
-      "Pagoda, şeffaf ve endüstriyel çadır çözümleri. Türkiye geneli profesyonel kurulum ve tamamlayıcı hizmetler.",
+      "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları, zemin ve anahtar teslim kurulum desteği.",
     url: `${ORIGIN}/cadir-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -100,9 +88,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+    title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
     description:
-      "Pagoda, şeffaf dome, endüstriyel çadır kiralama. Zemin kaplama, aydınlatma ve profesyonel kurulum.",
+      "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları.",
     images: [`${ORIGIN}/img/cadir/hero.webp`],
   },
   robots: {
@@ -144,7 +132,7 @@ const slugify = (s) =>
 
 const HERO = {
   src: "/img/cadir/hero.webp",
-  alt: "Profesyonel çadır kurulumu - Pagoda çadır ve etkinlik alanı düzenlemesi",
+  alt: "Çadır kiralama için pagoda, şeffaf ve büyük etkinlik çadırı kurulumu",
   sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px",
 };
 
@@ -168,7 +156,7 @@ const VIDEO_EMBEDS = [
     title: "Teknofest Çadır İç Görünüm • Sahne & Teknik Kurulum",
     uploadDate: "2025-11-17T00:00:00+03:00",
     description:
-      "Teknofest’te kurduğumuz çadırın iç görünümü, sahne, LED ekran, ses ve ışık detayları.",
+      "Teknofest’te kurduğumuz çadırın iç görünümü; sahne, LED ekran, ses, ışık ve güç dağıtım entegrasyonu.",
   },
 ];
 
@@ -187,6 +175,29 @@ const GALLERY_IMAGES = [
   { src: "/img/cadir/12.webp", alt: "Çadır kurulum detayı - Profesyonel uygulama" },
 ];
 
+const GALLERY_FALLBACK_CARDS = [
+  {
+    src: "/img/cadir/1.webp",
+    title: "Pagoda çadır kurulumu",
+    alt: "Pagoda çadır kiralama için karşılama ve fuaye alanı kurulumu",
+  },
+  {
+    src: "/img/cadir/2.webp",
+    title: "Şeffaf çadır davet alanı",
+    alt: "Şeffaf çadır kiralama ile kır düğünü ve premium davet alanı",
+  },
+  {
+    src: "/img/cadir/4.webp",
+    title: "Büyük fuar ve festival çadırı",
+    alt: "Fuar ve festival için büyük etkinlik çadırı kurulumu",
+  },
+  {
+    src: "/img/cadir/3.webp",
+    title: "Endüstriyel depo çadırı",
+    alt: "Endüstriyel çadır kiralama ile geçici depo ve üretim alanı",
+  },
+];
+
 const FAQ_ITEMS = [
   {
     q: "Çadır kiralama fiyatları ne kadar?",
@@ -194,7 +205,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Çadır kurulumu ne kadar sürer?",
-    a: "5×5 metre çadır kurulumu genellikle 2-3 saat, 6×6 metre çadır kurulumu ise 3-4 saat sürmektedir. Büyük ölçekli projelerde kurulum 1 gün önceden tamamlanır. Acil durumlarda express kurulum hizmeti sunuyoruz.",
+    a: "3x3, 4x4 ve 5x5 pagoda çadır kurulumları çoğu projede birkaç saat içinde tamamlanır. Büyük açıklıklı fuar, festival ve endüstriyel çadır projelerinde kurulum genellikle etkinlikten 1 gün önce planlanır.",
   },
   {
     q: "Çadırlar kötü hava koşullarına dayanıklı mı?",
@@ -207,49 +218,169 @@ const FAQ_ITEMS = [
   {
     q: "Kocaeli, Bursa, Tekirdağ gibi çevre illere kiralama ve nakliye süreçleri nasıl işliyor?",
     a: "Marmara Bölgesi ve çevre illere kendi lojistik ağımızla hizmet veriyoruz. Uzaklık bazlı nakliye maliyetini ilk teklifte şeffaf olarak iletiyor, konaklama veya sürpriz masraf çıkarmadan anahtar teslim kurulum yapıyoruz."
-  }
+  },
+  {
+    q: "Çadır kiralama fiyatına neler dahildir?",
+    a: "Standart fiyatlara çadır ekipmanı, kurulum ve söküm işçiliği dahildir. Nakliye, zemin kaplama, iklimlendirme, aydınlatma, masa-sandalye ve uzun süreli saha desteği proje kapsamına göre ayrıca fiyatlandırılır.",
+  },
+  {
+    q: "Çadır kurulumunda zemin zarar görür mü?",
+    a: "Zemin türüne göre ağırlıklandırma, ankraj, çelik ağırlık veya uygun sabitleme yöntemi seçilir. Çim, beton, asfalt ve hassas yüzeylerde zemine zarar vermemek için keşif sonrası kontrollü kurulum planı hazırlanır.",
+  },
+  {
+    q: "Şeffaf çadır ile pagoda çadır arasındaki fark nedir?",
+    a: "Pagoda çadırlar fuaye, karşılama, VIP alan ve küçük etkinliklerde hızlı ve modüler çözüm sağlar. Şeffaf çadırlar ise kır düğünü, lansman ve premium davetlerde manzarayı koruyan daha atmosferik bir alan oluşturur.",
+  },
+  {
+    q: "Büyük çadırlarda iklimlendirme yapılabilir mi?",
+    a: "Evet. Büyük etkinlik ve endüstriyel çadırlarda salon tipi klima, endüstriyel ısıtıcı, hava sirkülasyonu ve güç dağıtım planı proje bazında kurulabilir.",
+  },
+  {
+    q: "Açık hava etkinliklerinde çadır güvenliği nasıl sağlanır?",
+    a: "Rüzgâr dayanımı, B1 alev yürütmez branda, profesyonel ankraj, ağırlıklandırma, yağmur oluğu ve su tahliye planı birlikte değerlendirilir. Etkinlik öncesi bağlantılar ve sabitleme noktaları kontrol edilir.",
+  },
+  {
+    q: "Belediye ve kurumsal etkinlikler için kaç gün önceden planlama gerekir?",
+    a: "Küçük pagoda kurulumları için birkaç gün yeterli olabilir. Fuar, festival, belediye etkinliği ve büyük çadır projelerinde keşif, lojistik, zemin ve güvenlik planı için en az 7-10 gün önceden brief paylaşılması önerilir.",
+  },
 ];
 
 const PRICING_ITEMS = [
   {
-    title: "5x5 Çadır",
-    price: "9.000 TL",
-    description: "Etkinlik ve davetler için 25 m² pagoda çadır paketi.",
+    title: "3x3 Çadır",
+    price: "7.000 TL",
+    description: "Karşılama, kayıt masası ve kompakt stand alanları için 9 m² hızlı kurulum.",
   },
   {
     title: "4x4 Çadır",
     price: "8.000 TL",
-    description: "Orta ölçekli kurulumlar için 16 m² çadır çözümü.",
+    description: "Fuaye, ikram, küçük satış alanı ve orta ölçekli etkinlik noktaları için 16 m².",
   },
   {
-    title: "3x3 Çadır",
-    price: "7.000 TL",
-    description: "Kompakt alanlar için 9 m² hızlı kurulum çadırı.",
+    title: "5x5 Çadır",
+    price: "9.000 TL",
+    description: "VIP alan, lansman, kır daveti ve yüksek görünürlüklü pagoda çadır paketi.",
   },
   {
     title: "Büyük Çadırlar",
     price: "430 TL / m²",
     description:
-      "10m, 20m, 30m, 40m genişlik seçenekleri. Büyük ölçekli etkinlikler içindir.",
+      "Fuar, festival, belediye etkinliği ve endüstriyel alanlar için proje bazlı geniş açıklık.",
+  },
+];
+
+const TENT_SELECTOR_CARDS = [
+  {
+    title: "Pagoda Çadır",
+    badge: "Karşılama ve fuaye",
+    usage: "Karşılama, fuaye, VIP alan, küçük etkinlik ve kayıt noktası",
+    sizing: "3x3, 4x4 ve 5x5 modüllerle alan ihtiyacına göre büyür.",
+    advantage: "Hızlı kurulur, kurumsal görünür ve yan yana çoğaltılabilir.",
+  },
+  {
+    title: "Şeffaf Çadır",
+    badge: "Premium davet",
+    usage: "Kır düğünü, premium davet, lansman ve manzaralı açık alan",
+    sizing: "Manzara, masa düzeni, ışık ve giriş aksına göre planlanır.",
+    advantage: "Mekan hissini kapatmadan hava koşullarına karşı kontrollü alan sağlar.",
+  },
+  {
+    title: "Büyük Etkinlik Çadırı",
+    badge: "Fuar ve festival",
+    usage: "Fuar, festival, belediye etkinliği ve kalabalık organizasyon",
+    sizing: "10, 20, 30 ve 40 m geniş açıklık seçenekleriyle projelendirilir.",
+    advantage: "Geniş açıklık, kontrollü giriş-çıkış ve teknik entegrasyon imkanı sunar.",
+  },
+  {
+    title: "Endüstriyel Çadır",
+    badge: "Uzun süreli alan",
+    usage: "Depo, üretim alanı, geçici kapalı alan ve uzun süreli kullanım",
+    sizing: "Stok, forklift akışı, kapı ölçüsü ve zemin türüne göre tasarlanır.",
+    advantage: "Kalıcı inşaat beklemeden hızlı ve güvenli kapalı alan oluşturur.",
+  },
+];
+
+const TENT_STOCK = [
+  {
+    title: "3x3 Pagoda Çadır",
+    capacity: "120 adet",
+    typeLabel: "Adet stok",
+    group: "Pagoda çadır stokları",
+    description:
+      "Karşılama, kayıt, satış noktası, küçük tanıtım alanı ve VIP destek alanları için hızlı kurulum çözümü.",
+  },
+  {
+    title: "4x4 Pagoda Çadır",
+    capacity: "140 adet",
+    typeLabel: "Adet stok",
+    group: "Pagoda çadır stokları",
+    description:
+      "Fuaye, ikram, bilgilendirme, festival destek alanı ve açık hava etkinliklerinde modüler kullanım.",
+  },
+  {
+    title: "5x5 Pagoda Çadır",
+    capacity: "110 adet",
+    typeLabel: "Adet stok",
+    group: "Pagoda çadır stokları",
+    description:
+      "Kurumsal etkinlik, belediye organizasyonu, fuar, festival ve geniş operasyon alanları için güçlü pagoda çözümü.",
+  },
+  {
+    title: "20 m Açıklıklı Çadır",
+    capacity: "4.000 m²",
+    typeLabel: "Kurulum kapasitesi",
+    group: "Büyük açıklıklı çadır sistemleri",
+    description:
+      "Orta ve büyük ölçekli etkinlikler, fuar alanları, yemek alanları, sergi ve geçici kapalı alan ihtiyaçları.",
+  },
+  {
+    title: "30 m Açıklıklı Çadır",
+    capacity: "2.000 m²",
+    typeLabel: "Kurulum kapasitesi",
+    group: "Büyük açıklıklı çadır sistemleri",
+    description:
+      "Geniş katılımlı kurumsal organizasyonlar, festival alanları ve büyük kapalı etkinlik çözümleri.",
+  },
+  {
+    title: "40 m Açıklıklı Çadır",
+    capacity: "5.000 m²",
+    typeLabel: "Kurulum kapasitesi",
+    group: "Büyük açıklıklı çadır sistemleri",
+    description:
+      "Büyük fuar, festival, konser, belediye etkinliği ve endüstriyel kapalı alan projeleri için yüksek kapasiteli çözüm.",
   },
 ];
 
 const STANDARDS = [
   {
-    feature: "Rüzgar Dayanımı",
-    standard: "90 km/s (TS EN 13782 Sertifikalı)",
+    feature: "Branda Gramajı",
+    standard: "650 gr/m² UV dayanımlı branda",
+    detail: "Güneş, yağmur ve yoğun kullanıma karşı profesyonel dış mekan standardı.",
   },
   {
-    feature: "Branda Kalitesi",
-    standard: "650 gr/m² UV korumalı, B1 alev yürümez",
+    feature: "Yangın Sınıfı",
+    standard: "B1 alev yürütmez malzeme",
+    detail: "Kurumsal, fuar ve belediye etkinliklerinde güvenlik beklentisini destekler.",
   },
   {
-    feature: "Kurulum Süresi",
-    standard: "2 - 8 saat (Express Kurulum Seçeneği ile)",
+    feature: "Rüzgâr Dayanımı",
+    standard: "90 km/s rüzgâr dayanımı",
+    detail: "Açık hava kurulumlarında zemin, açıklık ve hava durumu birlikte değerlendirilir.",
   },
   {
-    feature: "Ekstra Donanım",
-    standard: "İklimlendirme, akustik çözüm, LED entegrasyonu",
+    feature: "Sabitleme",
+    standard: "Profesyonel ankraj ve ağırlıklandırma",
+    detail: "Beton, çim, asfalt ve hassas zeminlere uygun sabitleme yöntemi seçilir.",
+  },
+  {
+    feature: "Su Tahliye",
+    standard: "Yağmur oluğu ve su tahliye planı",
+    detail: "Çadır çevresi, giriş aksı ve eğim durumuna göre kontrollü tahliye planlanır.",
+  },
+  {
+    feature: "Zemin Kontrolü",
+    standard: "Zemin türüne göre sabitleme",
+    detail: "Kot farkı, yüzey hassasiyeti ve yük dağılımı saha keşfinde netleştirilir.",
   },
 ];
 
@@ -262,7 +393,7 @@ const CHALLENGES = [
   {
     title: "Güvenli Zemin ve Ankraj",
     description:
-      "Çim, toprak veya beton zemin fark etmeksizin, alana zarar vermeyen profesyonel çelik ağırlıklar veya zemin çivileriyle sıfır riskli sabitleme yapıyoruz.",
+      "Çim, toprak veya beton zemin fark etmeksizin, alana uygun çelik ağırlıklar veya zemin çivileriyle kontrollü sabitleme yapıyoruz.",
   },
 ];
 
@@ -287,7 +418,7 @@ const SERVICES = [
     icon: "🏕️",
     title: "Pagoda Çadır Sistemleri",
     description:
-      "5×5m ve 6×6m modüler sistemler ile estetik ve fonksiyonel çözümler",
+      "3x3, 4x4 ve 5x5 modüler sistemler ile estetik ve fonksiyonel çözümler",
     features: ["Yüksek tepe noktası", "Modüler birleşim", "Yan branda opsiyonu", "Hızlı kurulum"],
   },
   {
@@ -323,12 +454,48 @@ const SERVICES = [
 ];
 
 const USE_CASES = [
-  { icon: "💍", text: "Düğün, kına ve özel davetler", desc: "Özel günler için şık ve şeffaf çadır çözümleri" },
-  { icon: "🎪", text: "Fuar, sergi ve lansmanlar", desc: "Markanızı öne çıkaran geniş açıklıklı tanıtım alanları" },
-  { icon: "🎤", text: "Konser, festival ve etkinlikler", desc: "Kulis, sağlık ve operasyon çadır çözümleri" },
-  { icon: "🏛️", text: "Belediye ve kurumsal etkinlikler", desc: "Miting, iftar ve törenler için güvenli protokol alanları" },
-  { icon: "🏭", text: "Endüstriyel ve depolama", desc: "Fabrikalar için geçici kolonsuz üretim ve depo çadırları" },
-  { icon: "🏫", text: "Okul ve eğitim etkinlikleri", desc: "Mezuniyet, bahar şenliği ve kermesler için çözümler" },
+  {
+    icon: "💍",
+    text: "Düğün ve özel davet çadırı",
+    desc: "Şeffaf çadır, pagoda çadır, zemin kaplama ve atmosfer aydınlatmasıyla kontrollü davet alanı.",
+    href: "/ses-isik-sistemleri",
+    linkLabel: "ses ve ışık sistemleri",
+  },
+  {
+    icon: "🎪",
+    text: "Fuar ve sergi çadırı",
+    desc: "Marka standları, ziyaretçi akışı ve ürün sergileme için geniş açıklıklı organizasyon çadırı.",
+    href: "/led-ekran-kiralama",
+    linkLabel: "LED ekran kiralama",
+  },
+  {
+    icon: "🎤",
+    text: "Konser ve festival çadırı",
+    desc: "Kulis, sağlık, teknik operasyon ve izleyici destek alanları için hızlı kurulabilen çadır çözümleri.",
+    href: "/sahne-kiralama",
+    linkLabel: "sahne kiralama",
+  },
+  {
+    icon: "🏛️",
+    text: "Belediye ve kurumsal etkinlik çadırı",
+    desc: "Tören, iftar, lansman ve protokol etkinlikleri için güvenli, planlı ve marka uyumlu kurulum.",
+    href: "/kurumsal-organizasyon",
+    linkLabel: "kurumsal organizasyon",
+  },
+  {
+    icon: "🏭",
+    text: "Endüstriyel depo çadırı",
+    desc: "Geçici kapalı alan, üretim destek alanı ve uzun süreli depo ihtiyacı için geniş açıklıklı sistem.",
+    href: "/kurumsal-organizasyon",
+    linkLabel: "kurumsal organizasyon",
+  },
+  {
+    icon: "🏫",
+    text: "Okul, mezuniyet ve kermes çadırı",
+    desc: "Okul bahçesi, mezuniyet, kermes ve dönemsel etkinlikler için ekonomik ve hızlı kurulum.",
+    href: "/podyum-kiralama",
+    linkLabel: "podyum kiralama",
+  },
 ];
 
 
@@ -336,7 +503,7 @@ const USE_CASES = [
 function Hero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
+      className="relative isolate flex items-center justify-center overflow-hidden bg-[#07111f] pt-20 pb-14 text-white md:pb-16 lg:pt-24"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -354,81 +521,244 @@ function Hero() {
           placeholder="blur"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90"
+          className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-blue-950/[0.78] to-cyan-950/[0.86]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(56,189,248,0.28),transparent_34%),radial-gradient(circle_at_82%_14%,rgba(59,130,246,0.24),transparent_32%),linear-gradient(to_top,rgba(2,6,23,0.96),rgba(2,6,23,0.20),rgba(2,6,23,0.76))]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
           aria-hidden="true"
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
+      <div className="relative z-10 container mx-auto px-4 py-12">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-white/[0.10] px-4 py-2 shadow-[0_18px_70px_rgba(14,165,233,0.18)] backdrop-blur-md">
           <span className="relative flex w-2 h-2" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
           </span>
-          <span className="text-sm font-bold text-white">
-            Türkiye Geneli Profesyonel Hizmet
+          <span className="text-sm font-bold text-cyan-50">
+            Pagoda, şeffaf ve büyük çadır çözümleri
           </span>
-        </div>
+          </div>
 
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
-        >
-          Profesyonel{" "}
-          <span className="gradient-text gradient-text--safe-xl">
+          <h1
+            id="hero-title"
+            className="mt-7 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-8xl"
+          >
+            Anahtar Teslim{" "}
+            <span className="block bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
             Çadır Kiralama
-          </span>
-        </h1>
+            </span>
+          </h1>
 
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Düğün • Fuar • Festival • Lansman • Depolama • Özel Etkinlikler
-        </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Pagoda çadırlar, şeffaf sistemler ve dev endüstriyel çadırlar ile
-          <span className="font-semibold text-white"> anahtar teslim çözümler</span>
-        </p>
+          <p className="mt-6 max-w-3xl text-xl font-semibold leading-relaxed text-white/[0.92] md:text-2xl">
+            Pagoda çadır, şeffaf çadır, fuar/festival çadırı ve endüstriyel çadır
+            seçeneklerini zemin, iklimlendirme, aydınlatma ve lojistikle tek ekipten planlıyoruz.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-cyan-50/[0.78] md:text-lg">
+            3x3, 4x4 ve 5x5 pagoda çadırların yanında büyük açıklıklı etkinlik çadırlarıyla
+            düğün, lansman, belediye etkinliği, fuar ve geçici depo alanları için hızlı teklif.
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400 shadow-lg"
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp üzerinden hemen çadır kiralama teklifi alın"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 px-8 py-4 font-black text-white shadow-[0_18px_44px_rgba(16,185,129,0.28)] transition hover:from-emerald-400 hover:to-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+              <span>Hemen Teklif Al</span>
+            </Link>
+
+            <Link
+              href="#cadir-tipleri"
+              aria-label="Çadır tiplerini incele"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/[0.24] bg-white/[0.10] px-8 py-4 font-black text-white shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur-md transition hover:bg-white/[0.16] focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+            >
+              <span>Çadır Tiplerini İncele</span>
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.16] bg-white/[0.08] p-5 backdrop-blur-md">
+              <div className="text-3xl font-black text-white">3x3 - 5x5</div>
+              <div className="mt-2 text-sm font-semibold text-cyan-50/[0.76]">Pagoda çadır paketleri</div>
+            </div>
+            <div className="rounded-2xl border border-white/[0.16] bg-white/[0.08] p-5 backdrop-blur-md">
+              <div className="text-3xl font-black text-white">430 TL/m²</div>
+              <div className="mt-2 text-sm font-semibold text-cyan-50/[0.76]">Büyük çadır başlangıç fiyatı</div>
+            </div>
+            <div className="rounded-2xl border border-white/[0.16] bg-white/[0.08] p-5 backdrop-blur-md">
+              <div className="text-3xl font-black text-white">81 İl</div>
+              <div className="mt-2 text-sm font-semibold text-cyan-50/[0.76]">Türkiye geneli lojistik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Çadır Tipi Karar Kartları ================== */
+function TentSelectorSection() {
+  return (
+    <section
+      id="cadir-tipleri"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] py-16 bg-white"
+      aria-labelledby="cadir-tipleri-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+            Doğru çadırı hızlı seçin
+          </p>
+          <h2
+            id="cadir-tipleri-baslik"
+            className="mt-3 text-3xl font-black leading-tight text-gray-950 md:text-5xl"
           >
-            <span aria-hidden="true" className="text-xl mr-2">💬</span>
-            <span className="text-base">Hemen Teklif Al</span>
-          </Link>
-
-          <Link
-            href="#hizmetler"
-            aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white/95 bg-white/10 backdrop-blur-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">🎯</span>
-            <span className="text-base">Hizmetlerimiz</span>
-          </Link>
+            Hangi Çadır Size Uygun?
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-gray-700">
+            Çadır kiralama kararında ölçü kadar kullanım amacı, zemin, hava koşulu,
+            giriş-çıkış akışı ve teknik entegrasyon da belirleyicidir.
+          </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">Doğrulanmış Puan</div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {TENT_SELECTOR_CARDS.map((item) => (
+            <article
+              key={item.title}
+              className="flex h-full flex-col rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm transition hover:border-blue-200 hover:shadow-xl"
+            >
+              <span className="w-fit rounded-full bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
+                {item.badge}
+              </span>
+              <h3 className="mt-5 text-2xl font-black text-gray-950">{item.title}</h3>
+              <dl className="mt-5 space-y-4 text-sm leading-6 text-gray-700">
+                <div>
+                  <dt className="font-black text-gray-950">Önerilen kullanım</dt>
+                  <dd className="mt-1">{item.usage}</dd>
+                </div>
+                <div>
+                  <dt className="font-black text-gray-950">Ölçü mantığı</dt>
+                  <dd className="mt-1">{item.sizing}</dd>
+                </div>
+                <div>
+                  <dt className="font-black text-gray-950">Avantaj</dt>
+                  <dd className="mt-1">{item.advantage}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Çadır Stok ve Kapasite ================== */
+function TentStockSection() {
+  return (
+    <section
+      id="stok-kapasitesi"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#07111f] py-20 text-white"
+      aria-labelledby="stok-kapasitesi-baslik"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:48px_48px]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-cyan-400/20 blur-[100px]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-blue-500/20 blur-[110px]"
+        aria-hidden="true"
+      />
+
+      <div className="container relative z-10 mx-auto px-4 max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
+          <div>
+            <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+              Stok ve büyük ölçek gücü
+            </p>
+            <h2
+              id="stok-kapasitesi-baslik"
+              className="mt-4 text-4xl font-black leading-tight md:text-5xl"
+            >
+              Çadır Stok ve Kurulum Kapasitesi
+            </h2>
+            <div className="mt-6 space-y-5 text-base leading-8 text-cyan-50/[0.80] md:text-lg">
+              <p>
+                Sahneva, farklı ölçeklerdeki çadır kiralama ihtiyaçları için güçlü
+                stok ve kurulum kapasitesiyle hizmet verir. 3x3, 4x4 ve 5x5 pagoda
+                çadır stoklarının yanı sıra 20 m, 30 m ve 40 m açıklıklı büyük çadır
+                sistemleriyle fuar, festival, belediye etkinliği, kurumsal organizasyon,
+                açık hava daveti ve geçici kapalı alan projeleri için anahtar teslim
+                kurulum yapılabilir.
+              </p>
+              <p>
+                Stok yapımız; 120 adet 3x3 pagoda çadır, 140 adet 4x4 pagoda çadır
+                ve 110 adet 5x5 pagoda çadırdan oluşan güçlü modüler çözümlerle küçük
+                ve orta ölçekli etkinliklere hızlı cevap verebilir. Büyük ölçekli
+                projelerde ise 20 metre açıklıklı çadırlarda 4.000 m², 30 metre
+                açıklıklı çadırlarda 2.000 m² ve 40 metre açıklıklı çadırlarda 5.000 m²
+                kurulum kapasitesiyle geniş alan ihtiyaçlarına çözüm sunulur.
+              </p>
+              <p>
+                Çadır kurulumları yalnızca branda ve taşıyıcı sistem olarak ele alınmaz.
+                Zemin kaplama, halı, aydınlatma, iklimlendirme, masa-sandalye,{" "}
+                <Link href="/sahne-kiralama" className="font-black text-white underline underline-offset-4">
+                  sahne
+                </Link>
+                ,{" "}
+                <Link href="/podyum-kiralama" className="font-black text-white underline underline-offset-4">
+                  podyum
+                </Link>
+                ,{" "}
+                <Link href="/led-ekran-kiralama" className="font-black text-white underline underline-offset-4">
+                  LED ekran
+                </Link>
+                ,{" "}
+                <Link href="/ses-isik-sistemleri" className="font-black text-white underline underline-offset-4">
+                  ses ve ışık sistemleri
+                </Link>{" "}
+                gibi tamamlayıcı ihtiyaçlar da proje kapsamında birlikte planlanabilir.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">700+</div>
-            <div className="text-white/80 text-sm">Başarılı Proje</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 İl</div>
-            <div className="text-white/80 text-sm">Lojistik Ağı</div>
+
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {TENT_STOCK.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
+              >
+                <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
+                  {item.group}
+                </p>
+                <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
+                <div className="mt-5">
+                  <div className="text-4xl font-black leading-none text-white">
+                    {item.capacity}
+                  </div>
+                  <div className="mt-2 text-sm font-bold text-cyan-100/[0.74]">
+                    {item.typeLabel}
+                  </div>
+                </div>
+                <p className="mt-5 text-sm leading-6 text-cyan-50/[0.76]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </div>
@@ -582,6 +912,38 @@ function Services() {
   );
 }
 
+function GalleryFallbackCards() {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" role="status" aria-label="Galeri yükleniyor">
+      {GALLERY_FALLBACK_CARDS.map((item) => (
+        <article
+          key={item.title}
+          className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+        >
+          <div className="relative aspect-[4/3] bg-slate-100">
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover"
+              quality={68}
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/[0.72] via-slate-950/10 to-transparent" />
+            <h3 className="absolute bottom-4 left-4 right-4 text-lg font-black text-white">
+              {item.title}
+            </h3>
+          </div>
+        </article>
+      ))}
+      <span className="sr-only">Galeri görselleri yükleniyor.</span>
+    </div>
+  );
+}
+
 /* ================== Geliştirilmiş Galeri ================== */
 function Gallery() {
   const SUCCESS_STORIES = [
@@ -590,10 +952,9 @@ function Gallery() {
       category: "Kurumsal & Fuar Etkinliği",
       transformation: "Rüzgarlı açık alan, binlerce ziyaretçiyi ağırlayacak güvenli bir teknoloji üssüne dönüştü.",
       before: "Açık fuar alanında rüzgar ve hava şartlarına dayanıklı, devasa ve kolonsuz bir kapalı alana ihtiyaç duyulması.",
-      after: "10-20 metre geniş açıklıklı endüstriyel tip çadırlar, tonlarca beton ağırlıkla ankre edilerek kusursuz bir şekilde kuruldu.",
-      result: "Ziyaretçiler olumsuz hava şartlarından etkilenmeden konforla fuarı gezdi, projeye %100 operasyonel güvence sağlandı.",
-      quote: "Böylesine zorlu bir sahada rüzgara ve yağmura karşı tam koruma sağladılar. Profesyonel bir ekipti.",
-      client: "Teknofest Operasyon Komitesi"
+      after: "10-20 metre geniş açıklıklı endüstriyel çadırlar; LED ekran, sahne, ses-ışık ve güç dağıtımıyla aynı teknik planda kuruldu.",
+      result: "Ziyaretçi akışı, teknik alan ve etkinlik içi operasyon kapalı alan konforuyla yönetildi.",
+      summary: "Uygulama özeti: büyük çadır, sahne, LED ekran, ses ve ışık entegrasyonu tek saha planında tamamlandı.",
     },
     {
       title: "Doğayla İç İçe: Sarıyer Premium Şeffaf Kır Düğünü",
@@ -602,8 +963,7 @@ function Gallery() {
       before: "Orman içindeki düğünde yağmur riski bulunmasına rağmen, çiftin doğal manzarayı kapatmak istememesi.",
       after: "Tavanı ve yanları tamamen şeffaf dome ve pagoda çadırlar kuruldu, iç mekan estetik LED aydınlatmalarla süslendi.",
       result: "Gece ışıklandırmasıyla masalsı bir atmosfer yaratıldı, misafirler manzaradan kopmadan doğanın tadını çıkardı.",
-      quote: "Şeffaf çadır sayesinde yağmur yağarken gökyüzünü izlemek hayatımızın en güzel anlarındandı.",
-      client: "Gelin & Damat"
+      summary: "Uygulama özeti: şeffaf çadır, zemin düzeni ve ambiyans ışığı birlikte planlanarak yağmur riskine karşı kontrollü davet alanı oluşturuldu.",
     },
     {
       title: "Acil Alan İhtiyacı: Kocaeli Fabrika Endüstriyel Çadır",
@@ -612,8 +972,7 @@ function Gallery() {
       before: "Artan üretim kapasitesi nedeniyle Kocaeli'ndeki fabrikaya acil ve geniş bir kapalı alan (depo) ihtiyacı doğması.",
       after: "Ağır iş makinesi ve forkliftlerin rahatça girebileceği, yüksek tavanlı 20x40m endüstriyel çadır sistemi hızla inşa edildi.",
       result: "Müşterimiz kalıcı inşaat maliyeti ödemeden ve vakit kaybetmeden üretim kapasitesini başarıyla artırdı.",
-      quote: "Betonarme bir depo yapmak aylarca sürecekken, ekipler iki günde bize devasa bir tesis kurdu.",
-      client: "Fabrika Tedarik Müdürü"
+      summary: "Uygulama özeti: forklift geçişi, yükleme aksı ve stok akışı dikkate alınarak geçici ama düzenli bir depo hacmi kuruldu.",
     },
     {
       title: "Prestijli Karşılama: Beşiktaş Kurumsal Lansman Çadırı",
@@ -622,8 +981,7 @@ function Gallery() {
       before: "Lansman öncesi misafir karşılama (fuaye) alanı için otelin açık bölümünün estetik bir mekana çevrilme ihtiyacı.",
       after: "Sıralı 5x5 Pagoda çadırlar kuruldu, zemin özel halı ile kaplandı ve alan endüstriyel klimalarla ısıtıldı.",
       result: "VIP misafirler sıcak ve şık bir ortamda ağırlandı, markanın kurumsal imajı en üst seviyeye taşındı.",
-      quote: "Kusursuz bir zemin ve harika bir iklimlendirme. Çadırın içinde olduğumuzu hissetmedik bile.",
-      client: "Kurumsal İletişim Direktörü"
+      summary: "Uygulama özeti: pagoda çadır, halı zemin ve iklimlendirme ile marka lansmanına uygun bir fuaye alanı hazırlandı.",
     }
   ];
 
@@ -673,10 +1031,10 @@ function Gallery() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
                 <div className="flex gap-3">
-                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} />
+                  <CheckCircle className="text-blue-500 flex-shrink-0" size={28} />
                   <div>
-                    <p className="text-gray-700 italic text-sm mb-2 font-medium">"{story.quote}"</p>
-                    <p className="text-xs font-black text-gray-900 uppercase tracking-wider">— {story.client}</p>
+                    <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Uygulama Özeti</p>
+                    <p className="mt-2 text-gray-700 text-sm font-medium leading-6">{story.summary}</p>
                   </div>
                 </div>
               </div>
@@ -783,35 +1141,80 @@ function Gallery() {
   );
 }
 
-/* ================== Fiyatlandırma (EKSİK OLAN BİLEŞEN EKLENDİ) ================== */
+/* ================== Fiyatlandırma ================== */
 function PricingSection() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="fiyatlandirma-baslik">
+    <section
+      className="content-visibility-auto [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
+      aria-labelledby="fiyatlandirma-baslik"
+    >
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 id="fiyatlandirma-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            Şeffaf <span className="text-blue-600">Fiyatlandırma</span> (2026)
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Sürpriz maliyetler olmadan, ihtiyacınıza uygun çadır kiralama seçenekleri
-          </p>
-        </div>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {PRICING_ITEMS.map((item, index) => (
-            <div key={index} className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col group">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{item.title}</h3>
-              <div className="text-3xl font-black text-blue-600 mb-4">{item.price} <span className="text-base text-gray-500 font-normal">+ nakliye</span></div>
-              <p className="text-gray-600 flex-grow">{item.description}</p>
+        <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
+          <div className="relative bg-[#07111f] px-6 py-8 text-white md:px-10">
+            <div
+              className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:42px_42px]"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute right-0 top-0 h-56 w-56 rounded-full bg-cyan-400/20 blur-[80px]"
+              aria-hidden="true"
+            />
+            <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+                  Net başlangıç bedelleri
+                </p>
+                <h2 id="fiyatlandirma-baslik" className="mt-3 text-3xl font-black md:text-5xl">
+                  Çadır Kiralama Fiyatları 2026
+                </h2>
+              </div>
+              <p className="max-w-xl text-base leading-7 text-cyan-50/[0.82]">
+                Ölçü, tarih, şehir, zemin ve ek hizmetler paylaşıldığında nihai teklif
+                aynı gün içinde netleştirilir.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
+            {PRICING_ITEMS.map((item) => (
+              <article
+                key={item.title}
+                className="border-t border-slate-200 p-6 md:border-l md:border-t-0 lg:p-8 first:md:border-l-0"
+              >
+                <h3 className="text-xl font-black text-gray-950">{item.title}</h3>
+                <div className="mt-4 text-3xl font-black text-blue-700">
+                  {item.price}
+                  <span className="ml-2 text-sm font-bold text-gray-500">+ nakliye</span>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-gray-600">{item.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="border-t border-slate-200 bg-blue-50/70 px-6 py-5 md:px-10">
+            <p className="text-sm font-semibold leading-6 text-gray-700">
+              Zemin kaplama, iklimlendirme, aydınlatma, masa-sandalye, şehir dışı
+              lojistik ve uzun süreli kurulumlar proje bazlı fiyatlandırılır.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 text-center bg-blue-50/50 rounded-2xl p-6 border border-blue-100 max-w-4xl mx-auto">
-          <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
-            <span className="text-blue-500 font-bold" aria-hidden="true">ℹ️</span>
-            Yukarıdaki fiyatlar baz kiralama bedelleridir. Proje büyüklüğü, lojistik mesafe, zemin kaplama ve iklimlendirme taleplerinize göre nihai teklif saha keşfi sonrası sunulur.
-          </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+          <Link
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-600 px-8 py-4 font-black text-white shadow-lg transition hover:bg-green-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+          >
+            <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+            Hemen Teklif Al
+          </Link>
+          <Link
+            href="/cadir-kiralama#cadir-tipleri"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 font-black text-slate-900 shadow-sm transition hover:border-blue-300 hover:text-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+          >
+            Çadır Tiplerini İncele
+          </Link>
         </div>
       </div>
     </section>
@@ -823,34 +1226,34 @@ function Technical() {
   const technicalItems = [
     {
       category: "malzeme",
-      title: "Malzeme Kalitesi",
+      title: "Zemin ve Yerleşim Planı",
       description:
-        "Alüminyum iskelet, çelik bağlantı elemanları ve UV dayanımlı branda",
-      features: ["Alüminyum iskelet sistem", "650 gr/m² branda", "Alev yürütmez malzeme", "Çelik bağlantı elemanları"],
+        "Kurulum öncesinde zemin türü, kot farkı, giriş aksı ve yük dağılımı aynı teknik planda değerlendirilir.",
+      features: ["Zemin keşfi", "Kot farkı kontrolü", "Yük dağılımı", "Dengeleme planı"],
     },
     {
       category: "guvenlik",
-      title: "Güvenlik Sistemleri",
-      description: "TS EN standartlarına uygun güvenlik ve stabilite sistemleri",
-      features: ["90 km/s rüzgar dayanımı", "Profesyonel ankraj", "Ağırlıklandırma sistemi", "Yağmur oluğu"],
+      title: "Güvenli Sabitleme",
+      description: "Açık hava kurulumlarında çadır sistemi zemine ve hava koşullarına göre sabitlenir.",
+      features: ["90 km/s rüzgâr dayanımı", "Profesyonel ankraj", "Ağırlıklandırma", "Su tahliye planı"],
     },
     {
       category: "olcu",
-      title: "Ölçü & Kombinasyonlar",
-      description: "Modüler sistemler ile esnek ölçü ve birleşim seçenekleri",
-      features: ["5×5m / 6×6m pagoda", "Proje bazlı ölçülendirme", "10-20m geniş açıklık", "Yan yana birleştirme"],
+      title: "Ölçü ve Çadır Tipi",
+      description: "Pagoda, şeffaf, fuar/festival ve endüstriyel çadırlar kullanım amacına göre seçilir.",
+      features: ["3x3 / 4x4 / 5x5 paket", "10-40 m geniş açıklık", "Modüler büyüme", "Proje bazlı ölçü"],
     },
     {
       category: "kurulum",
-      title: "Kurulum Süreçleri",
-      description: "Hızlı kurulum, söküm ve lojistik hizmetleri",
-      features: ["2-6 saat kurulum", "Profesyonel ekip", "Lojistik desteği", "Söküm hizmeti"],
+      title: "Kurulum ve Saha Ekibi",
+      description: "Lojistik, montaj, söküm ve etkinlik günü saha kontrolü tek operasyon planında ilerler.",
+      features: ["Planlı sevkiyat", "Profesyonel montaj", "Söküm hizmeti", "Saha koordinasyonu"],
     },
     {
       category: "destek",
-      title: "Teknik Destek",
-      description: "7/24 teknik destek ve acil müdahale hizmetleri",
-      features: ["7/24 teknik destek", "Acil müdahale ekibi", "Yedek parça stoğu", "Bakım hizmetleri"],
+      title: "Teknik Entegrasyon",
+      description: "Çadır alanı gerektiğinde sahne, LED ekran, ses-ışık, iklimlendirme ve zemin kaplama ile tamamlanır.",
+      features: ["İklimlendirme", "Aydınlatma", "Enerji dağıtımı", "Sahne ve LED uyumu"],
     },
   ];
 
@@ -871,7 +1274,8 @@ function Technical() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Profesyonel ekipmanlar ve güçlü teknik altyapı ile hizmetinizdeyiz
+            Çadır kurulumu yalnızca branda ve iskelet montajı değildir; zemin,
+            güvenlik, yük dağılımı ve etkinlik akışı birlikte planlanır.
           </p>
         </div>
 
@@ -919,41 +1323,65 @@ function Technical() {
 function StandardsTable() {
   return (
     <section
-      className="py-20 bg-white nc-CadirKiralamaPage-section-standards"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#07111f] py-20 text-white nc-CadirKiralamaPage-section-standards"
       aria-labelledby="sahneva-standartlari-baslik"
     >
-      <div className="container mx-auto px-4">
+      <div
+        className="absolute inset-0 opacity-[0.14] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:46px_46px]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute left-[-8rem] top-10 h-72 w-72 rounded-full bg-cyan-400/[0.18] blur-[90px]"
+        aria-hidden="true"
+      />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-12">
+          <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+            Teknik güvenlik kontrolü
+          </p>
           <h2
             id="sahneva-standartlari-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
+            className="mt-3 text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white"
           >
-            Sahneva{" "}
-            <span className="gradient-text gradient-text--safe-xl">
-              Standartları
-            </span>
+            Sahneva Güvenlik Standardı
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Güven veren teknik detayları şeffaf biçimde paylaşıyoruz.
+          <p className="text-xl text-cyan-50/[0.78] max-w-3xl mx-auto leading-relaxed">
+            Çadır kiralama projelerinde güvenlik; malzeme, sabitleme, su tahliye
+            ve zemin kontrolünün aynı planda yönetilmesiyle sağlanır.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto overflow-hidden rounded-3xl border border-gray-200 shadow-xl">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {STANDARDS.map((row) => (
+            <article
+              key={row.feature}
+              className="rounded-3xl border border-white/[0.14] bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-md"
+            >
+              <p className="text-sm font-black uppercase tracking-wider text-cyan-200">
+                {row.feature}
+              </p>
+              <h3 className="mt-3 text-2xl font-black text-white">{row.standard}</h3>
+              <p className="mt-4 text-sm leading-6 text-cyan-50/[0.74]">{row.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/[0.14] bg-white/[0.06] shadow-xl">
           <div className="overflow-x-auto">
             <table className="min-w-full text-left text-base">
-              <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+              <thead className="bg-white/[0.10] text-white">
                 <tr>
                   <th className="px-6 py-4 font-bold">Özellik</th>
                   <th className="px-6 py-4 font-bold">Standartlarımız</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-white">
+              <tbody className="divide-y divide-white/10">
                 {STANDARDS.map((row) => (
-                  <tr key={row.feature} className="hover:bg-blue-50/40">
-                    <td className="px-6 py-4 font-semibold text-gray-900">
+                  <tr key={row.feature} className="hover:bg-white/[0.08]">
+                    <td className="px-6 py-4 font-semibold text-white">
                       {row.feature}
                     </td>
-                    <td className="px-6 py-4 text-gray-700">{row.standard}</td>
+                    <td className="px-6 py-4 text-cyan-50/[0.78]">{row.standard}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1119,7 +1547,7 @@ function UseCases() {
               Alanları
             </span>
           </h2>
-          <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Çadır çözümlerimizin tercih edildiği başlıca etkinlik türleri
           </p>
           <div
@@ -1149,6 +1577,12 @@ function UseCases() {
                   <p className="text-white/70 text-lg leading-relaxed">
                     {uc.desc}
                   </p>
+                  <Link
+                    href={uc.href}
+                    className="mt-5 inline-flex min-h-[44px] items-center rounded-xl border border-white/[0.18] bg-white/[0.08] px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-white/[0.14] hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+                  >
+                    {uc.linkLabel}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1450,7 +1884,7 @@ function Articles() {
                   <div className="space-y-6">
                     <h4>Kullanılan Çadır Sistemleri</h4>
                     <ul>
-                      <li>Pagoda çadır sistemleri (5×5 m / 6×6 m modüler yapı)</li>
+                      <li>Pagoda çadır sistemleri (3x3, 4x4 ve 5x5 modüler yapı)</li>
                       <li>Şeffaf dome çadır çözümleri</li>
                       <li>Endüstriyel ve geniş açıklıklı çadır sistemleri</li>
                       <li>Fuar ve sergi alanlarına özel çadır uygulamaları</li>
@@ -1795,6 +2229,17 @@ function TentRentalJsonLd() {
     "@id": serviceSchema["@id"] || `${pageUrl}#service`,
     provider,
   };
+  serviceNode.additionalProperty = [
+    ...(Array.isArray(serviceSchema.additionalProperty)
+      ? serviceSchema.additionalProperty
+      : []),
+    ...TENT_STOCK.map((item) => ({
+      "@type": "PropertyValue",
+      name: item.title,
+      value: `${item.capacity} ${item.typeLabel}`,
+      description: item.description,
+    })),
+  ];
   const serviceId = serviceNode["@id"];
   const gallerySchema = buildImageGallerySchema({
     images: GALLERY_IMAGES,
@@ -1810,7 +2255,7 @@ function TentRentalJsonLd() {
   const webPageNode = {
     "@type": "WebPage",
     "@id": webPageId,
-    name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
+    name: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
     description: pageDescription,
     url: pageUrl,
     inLanguage: "tr-TR",
@@ -1886,11 +2331,13 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <TentRentalJsonLd />
       <Hero />
+      <TentSelectorSection />
+      <TentStockSection />
+      <PricingSection />
       <TurnkeyInfrastructure />
       <StatsBand />
       <Services />
       <Gallery />
-      <PricingSection />
       <Technical />
       <StandardsTable />
       <ChallengesSolutions />
@@ -1916,6 +2363,3 @@ export default function Page() {
     </>
   );
 }
-
-
-
