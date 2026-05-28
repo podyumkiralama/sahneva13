@@ -1,4 +1,4 @@
-﻿// app/(tr)/cadir-kiralama/page.jsx
+// app/(tr)/cadir-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -40,11 +40,10 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   loading: () => <GalleryFallbackCards />,
 });
 
-/* ================== META ================== */
 export const metadata = {
-  title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
+  title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
   description:
-    "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları, zemin, iklimlendirme ve anahtar teslim kurulum desteği.",
+    "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf, endüstriyel ve organizasyon çadırı seçenekleriyle Türkiye geneli hizmet.",
   alternates: {
     canonical: `${ORIGIN}/cadir-kiralama`,
     languages: {
@@ -54,9 +53,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
+    title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
-      "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları, zemin ve anahtar teslim kurulum desteği.",
+      "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf, endüstriyel ve organizasyon çadırı seçenekleriyle Türkiye geneli hizmet.",
     url: `${ORIGIN}/cadir-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -72,9 +71,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
+    title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
-      "Pagoda, şeffaf, fuar, festival ve endüstriyel çadır kiralama çözümleri. 3x3, 4x4, 5x5 ve büyük çadır fiyatları.",
+      "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri.",
     images: [`${ORIGIN}/img/cadir/hero.webp`],
   },
   robots: {
@@ -89,7 +88,6 @@ export const metadata = {
     },
   },
 };
-
 export function Head() {
   return (
     <>
