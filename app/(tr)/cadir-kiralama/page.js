@@ -433,7 +433,7 @@ function Hero() {
 
   return (
     <section
-      className="relative isolate flex min-h-[calc(100svh-64px)] items-center overflow-hidden bg-[#07111f] pt-8 pb-8 text-white md:pt-10 md:pb-10 lg:pt-10 lg:pb-10"
+      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-28 pb-8 text-white md:pt-32 md:pb-10 lg:pt-32 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -465,8 +465,8 @@ function Hero() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
-          <div>
+        <div className="mx-auto grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
+          <div className="min-w-0">
             <div className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-white/[0.10] px-4 py-2 shadow-[0_18px_70px_rgba(14,165,233,0.18)] backdrop-blur-md">
               <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -479,7 +479,7 @@ function Hero() {
 
             <h1
               id="hero-title"
-              className="mt-6 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-[5.2rem] xl:text-[5.6rem]"
+              className="mt-6 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-[4.6rem] xl:text-[4.75rem] 2xl:text-[5.35rem]"
             >
               Anahtar Teslim{" "}
               <span className="block bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
@@ -518,7 +518,7 @@ function Hero() {
             </div>
           </div>
 
-          <aside className="relative" aria-label="Çadır kiralama kapasite özeti">
+          <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end" aria-label="Çadır kiralama kapasite özeti">
             <div
               className="absolute -inset-6 rounded-[2.5rem] bg-cyan-400/10 blur-2xl"
               aria-hidden="true"
@@ -538,7 +538,7 @@ function Hero() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {heroMetrics.map((item) => (
                   <div
                     key={item.label}
@@ -565,7 +565,7 @@ function Hero() {
                   {heroFormats.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/[0.16] bg-white/[0.08] px-3 py-1.5 text-sm font-black text-white"
+                      className="whitespace-nowrap rounded-full border border-white/[0.16] bg-white/[0.08] px-3 py-1.5 text-sm font-black text-white"
                     >
                       {item}
                     </span>
