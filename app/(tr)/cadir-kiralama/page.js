@@ -421,16 +421,16 @@ const USE_CASES = [
 
 
 /* ================== HERO ================== */
+const HERO_METRICS = [
+  { value: "370", suffix: "adet", label: "Pagoda çadır stoğu" },
+  { value: "11.000", suffix: "m²", label: "Büyük açıklıklı kapasite" },
+  { value: "7.000 TL", suffix: "+ nakliye", label: "3x3 başlangıç fiyatı" },
+  { value: "90 km/s", suffix: "standart", label: "Rüzgar dayanımı" },
+];
+
+const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
+
 function Hero() {
-  const heroMetrics = [
-    { value: "370", suffix: "adet", label: "Pagoda çadır stoğu" },
-    { value: "11.000", suffix: "m²", label: "Büyük açıklıklı kapasite" },
-    { value: "7.000 TL", suffix: "+ nakliye", label: "3x3 başlangıç fiyatı" },
-    { value: "90 km/s", suffix: "standart", label: "Rüzgar dayanımı" },
-  ];
-
-  const heroFormats = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
-
   return (
     <section
       className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-28 pb-8 text-white md:pt-32 md:pb-10 lg:pt-32 lg:pb-10"
@@ -539,7 +539,7 @@ function Hero() {
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                {heroMetrics.map((item) => (
+                {HERO_METRICS.map((item) => (
                   <div
                     key={item.label}
                     className="rounded-2xl border border-white/[0.16] bg-white/[0.09] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.26)] backdrop-blur-md"
@@ -562,7 +562,7 @@ function Hero() {
                   Kurulum formatları
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {heroFormats.map((item) => (
+                  {HERO_FORMATS.map((item) => (
                     <span
                       key={item}
                       className="whitespace-nowrap rounded-full border border-white/[0.16] bg-white/[0.08] px-3 py-1.5 text-sm font-black text-white"
@@ -589,7 +589,7 @@ function TentSelectorSection() {
   return (
     <section
       id="cadir-tipleri"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] py-16 bg-white"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] py-16 bg-white"
       aria-labelledby="cadir-tipleri-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -646,7 +646,7 @@ function TentStockSection() {
   return (
     <section
       id="stok-kapasitesi"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#07111f] py-20 text-white"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#07111f] py-20 text-white"
       aria-labelledby="stok-kapasitesi-baslik"
     >
       <div
@@ -881,7 +881,7 @@ function Gallery() {
 
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1600px] lg:[contain-intrinsic-size:auto_1320px] bg-slate-50 py-16"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1600px] lg:[contain-intrinsic-size:auto_1320px] bg-slate-50 py-16"
       aria-labelledby="galeri-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
@@ -1004,7 +1004,7 @@ function Gallery() {
 function PricingSection() {
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
       aria-labelledby="fiyatlandirma-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -1080,11 +1080,11 @@ function PricingSection() {
   );
 }
 
-/* ================== Teknik Altyapı ================== */
+/* ================== Sahneva Standartları ================== */
 function StandardsTable() {
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#07111f] py-20 text-white nc-CadirKiralamaPage-section-standards"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#07111f] py-20 text-white nc-CadirKiralamaPage-section-standards"
       aria-labelledby="sahneva-standartlari-baslik"
     >
       <div
@@ -1154,7 +1154,7 @@ function StandardsTable() {
   );
 }
 
-/* ================== Zorluklar ve Çözümler ================== */
+/* ================== Kurulum Süreci ================== */
 function InstallationProcess() {
   return (
     <section
