@@ -435,7 +435,7 @@ function Hero() {
 
   return (
     <section
-      className="relative isolate flex min-h-[calc(100svh-96px)] items-center overflow-hidden bg-[#07111f] pt-20 pb-10 text-white md:pb-14 lg:pt-24"
+      className="relative isolate flex min-h-[calc(100svh-64px)] items-center overflow-hidden bg-[#07111f] pt-8 pb-8 text-white md:pt-10 md:pb-10 lg:pt-10 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -466,8 +466,8 @@ function Hero() {
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-10 md:py-14">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
+      <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-white/[0.10] px-4 py-2 shadow-[0_18px_70px_rgba(14,165,233,0.18)] backdrop-blur-md">
               <span className="relative flex h-2 w-2" aria-hidden="true">
@@ -481,7 +481,7 @@ function Hero() {
 
             <h1
               id="hero-title"
-              className="mt-7 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-[5.8rem]"
+              className="mt-6 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-[5.2rem] xl:text-[5.6rem]"
             >
               Anahtar Teslim{" "}
               <span className="block bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
@@ -489,16 +489,16 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-3xl text-xl font-semibold leading-relaxed text-white/[0.92] md:text-2xl">
+            <p className="mt-5 max-w-3xl text-xl font-semibold leading-relaxed text-white/[0.92] md:text-2xl">
               Pagoda çadır, şeffaf çadır, fuar/festival çadırı ve endüstriyel çadır
               seçeneklerini zemin, iklimlendirme, aydınlatma ve lojistikle tek ekipten planlıyoruz.
             </p>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-cyan-50/[0.78] md:text-lg">
+            <p className="mt-3 max-w-3xl text-base leading-7 text-cyan-50/[0.78] md:text-lg">
               3x3, 4x4 ve 5x5 pagoda çadırların yanında büyük açıklıklı etkinlik çadırlarıyla
               düğün, lansman, belediye etkinliği, fuar ve geçici depo alanları için hızlı teklif.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href={WHATSAPP}
                 target="_blank"
@@ -526,7 +526,7 @@ function Hero() {
               aria-hidden="true"
             />
             <div className="relative">
-              <div className="mb-4 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.16] bg-white/[0.08] px-5 py-4 backdrop-blur-md">
+              <div className="mb-3 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.16] bg-white/[0.08] px-4 py-3 backdrop-blur-md">
                 <div>
                   <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
                     Operasyon özeti
@@ -544,9 +544,9 @@ function Hero() {
                 {heroMetrics.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-2xl border border-white/[0.16] bg-white/[0.09] p-5 shadow-[0_18px_60px_rgba(2,6,23,0.26)] backdrop-blur-md"
+                    className="rounded-2xl border border-white/[0.16] bg-white/[0.09] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.26)] backdrop-blur-md"
                   >
-                    <div className="text-3xl font-black leading-none text-white md:text-4xl">
+                    <div className="text-3xl font-black leading-none text-white md:text-[2.15rem]">
                       {item.value}
                     </div>
                     <div className="mt-2 text-xs font-black uppercase tracking-wider text-cyan-200">
@@ -559,11 +559,11 @@ function Hero() {
                 ))}
               </div>
 
-              <div className="mt-4 rounded-2xl border border-white/[0.16] bg-slate-950/35 p-5 backdrop-blur-md">
+              <div className="mt-3 rounded-2xl border border-white/[0.16] bg-slate-950/35 p-4 backdrop-blur-md">
                 <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
                   Kurulum formatları
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {heroFormats.map((item) => (
                     <span
                       key={item}
@@ -573,7 +573,7 @@ function Hero() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-6 text-cyan-50/[0.74]">
+                <p className="mt-3 text-sm leading-6 text-cyan-50/[0.74]">
                   Pagoda, organizasyon çadırı ve büyük açıklıklı sistemler zemin,
                   aydınlatma ve iklimlendirme ihtiyaçlarıyla birlikte tekliflendirilir.
                 </p>
