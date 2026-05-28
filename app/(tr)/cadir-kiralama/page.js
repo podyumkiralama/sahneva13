@@ -433,7 +433,7 @@ const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-28 pb-8 text-white md:pt-32 md:pb-10 lg:pt-32 lg:pb-10"
+      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -674,7 +674,7 @@ function TentStockSection() {
             >
               Çadır Stok ve Kurulum Kapasitesi
             </h2>
-            <div className="mt-6 space-y-5 text-base leading-8 text-cyan-50/[0.80] md:text-lg">
+            <div className="mt-6 space-y-5 text-base leading-8 text-cyan-50/[0.92] md:text-lg">
               <p>
                 Sahneva, farklı ölçeklerdeki çadır kiralama ihtiyaçları için güçlü
                 stok ve kurulum kapasitesiyle hizmet verir. 3x3, 4x4 ve 5x5 pagoda
