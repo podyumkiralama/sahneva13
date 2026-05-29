@@ -561,25 +561,62 @@ function Hero() {
 /* ================== Çadır Tipi Karar Kartları ================== */
 function TentSelectorSection() {
   return (
-    <section id="cadir-tipleri" className="bg-white py-24" aria-labelledby="cadir-tipleri-baslik">
+    <section
+      id="cadir-tipleri"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] bg-white py-20"
+      aria-labelledby="cadir-tipleri-baslik"
+    >
       <div className="container mx-auto max-w-7xl px-5">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-4 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-blue-700">DOĞRU ÇADIRI SEÇİN</div>
-          <h2 id="cadir-tipleri-baslik" className="text-6xl font-black tracking-tighter text-gray-950">Hangi Çadır Size Uygun?</h2>
-          <p className="mt-4 text-xl text-gray-600">Kullanım amacınıza göre en doğru çözümü seçin</p>
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto mb-4 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-blue-700">
+            DOĞRU ÇADIRI SEÇİN
+          </div>
+          <h2
+            id="cadir-tipleri-baslik"
+            className="text-4xl font-black tracking-tight text-gray-950 md:text-5xl lg:text-6xl"
+          >
+            Hangi Çadır Size Uygun?
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-gray-700 md:text-xl">
+            Çadır kiralama kararında ölçü kadar kullanım amacı, zemin, hava koşulu,
+            giriş-çıkış akışı ve teknik entegrasyon da belirleyicidir.
+          </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {TENT_SELECTOR_CARDS.map((item, i) => (
-            <div key={i} className="group rounded-3xl border border-gray-100 bg-white p-9 transition-all hover:-translate-y-2 hover:shadow-2xl">
-              <div className="mb-8 text-6xl opacity-80 transition group-hover:scale-110">🏕️</div>
-              <div className="mb-3 text-xs font-black tracking-[2px] text-blue-600">{item.badge}</div>
-              <h3 className="text-4xl font-black tracking-tighter text-gray-950">{item.title}</h3>
-              <p className="mt-4 text-[17px] leading-snug text-gray-600">{item.usage}</p>
-              <div className="mt-8 border-t pt-6 text-sm text-gray-500">
-                {item.advantage}
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {TENT_SELECTOR_CARDS.map((item) => (
+            <article
+              key={item.title}
+              className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.12)]"
+            >
+              <div className="mb-7 flex items-center justify-between gap-4">
+                <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
+                  {item.badge}
+                </span>
+                <span className="text-4xl opacity-80 transition group-hover:scale-110" aria-hidden="true">
+                  🏕️
+                </span>
               </div>
-            </div>
+
+              <h3 className="text-2xl font-black tracking-tight text-gray-950">
+                {item.title}
+              </h3>
+
+              <dl className="mt-6 space-y-5 text-sm leading-6 text-gray-700">
+                <div>
+                  <dt className="font-black text-gray-950">Önerilen kullanım</dt>
+                  <dd className="mt-1">{item.usage}</dd>
+                </div>
+                <div>
+                  <dt className="font-black text-gray-950">Ölçü mantığı</dt>
+                  <dd className="mt-1">{item.sizing}</dd>
+                </div>
+                <div className="border-t border-slate-200 pt-5">
+                  <dt className="font-black text-gray-950">Avantaj</dt>
+                  <dd className="mt-1">{item.advantage}</dd>
+                </div>
+              </dl>
+            </article>
           ))}
         </div>
       </div>
