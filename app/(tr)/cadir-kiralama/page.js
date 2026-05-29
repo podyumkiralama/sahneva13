@@ -433,7 +433,7 @@ const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
+      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#0a1429] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -446,138 +446,67 @@ function Hero() {
           fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
-          quality={85}
+          quality={90}
           blurDataURL={BLUR_DATA_URL}
           placeholder="blur"
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-blue-950/[0.78] to-cyan-950/[0.86]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(56,189,248,0.28),transparent_34%),radial-gradient(circle_at_82%_14%,rgba(59,130,246,0.24),transparent_32%),linear-gradient(to_top,rgba(2,6,23,0.96),rgba(2,6,23,0.20),rgba(2,6,23,0.76))]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
-          aria-hidden="true"
-        />
+        {/* Tamamen yeni, daha yumuşak ve lüks overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1429]/95 via-[#0a1429]/80 to-[#0a1429]/90" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_0.8px,transparent_1px)] bg-[length:5px_5px] opacity-30" aria-hidden="true" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
-        <div className="mx-auto grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-white/[0.10] px-4 py-2 shadow-[0_18px_70px_rgba(14,165,233,0.18)] backdrop-blur-md">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-              </span>
-              <span className="text-sm font-bold text-cyan-50">
-                Pagoda, şeffaf ve büyük çadır çözümleri
-              </span>
-            </div>
-
-            <h1
-              id="hero-title"
-              className="mt-6 max-w-4xl text-5xl font-black leading-[0.98] tracking-normal md:text-7xl lg:text-[4.6rem] xl:text-[4.75rem] 2xl:text-[5.35rem]"
-            >
-              Anahtar Teslim{" "}
-              <span className="block bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
-                Çadır Kiralama
-              </span>
-            </h1>
-
-            <p className="mt-5 max-w-3xl text-xl font-semibold leading-relaxed text-white/[0.92] md:text-2xl">
-              Pagoda çadır, şeffaf çadır, fuar/festival çadırı ve endüstriyel çadır
-              seçeneklerini zemin, iklimlendirme, aydınlatma ve lojistikle tek ekipten planlıyoruz.
-            </p>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-cyan-50/[0.78] md:text-lg">
-              3x3, 4x4 ve 5x5 pagoda çadırların yanında büyük açıklıklı etkinlik çadırlarıyla
-              düğün, lansman, belediye etkinliği, fuar ve geçici depo alanları için hızlı teklif.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp üzerinden hemen çadır kiralama teklifi alın"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 px-8 py-4 font-black text-white shadow-[0_18px_44px_rgba(16,185,129,0.28)] transition hover:from-emerald-400 hover:to-green-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                <span>Hemen Teklif Al</span>
-              </Link>
-
-              <Link
-                href="#cadir-tipleri"
-                aria-label="Çadır tiplerini incele"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/[0.24] bg-white/[0.10] px-8 py-4 font-black text-white shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur-md transition hover:bg-white/[0.16] focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
-              >
-                <span>Çadır Tiplerini İncele</span>
-              </Link>
-            </div>
+      <div className="relative z-10 container mx-auto px-5">
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Yeni Premium Badge */}
+          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-1.5 text-sm font-medium backdrop-blur-xl">
+            <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+            <span className="tracking-[1px]">2026 • TÜRKİYE'NİN EN BÜYÜK ÇADIR STOĞU</span>
           </div>
 
-          <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end" aria-label="Çadır kiralama kapasite özeti">
-            <div
-              className="absolute -inset-6 rounded-[2.5rem] bg-cyan-400/10 blur-2xl"
-              aria-hidden="true"
-            />
-            <div className="relative">
-              <div className="mb-3 flex items-center justify-between gap-4 rounded-2xl border border-white/[0.16] bg-white/[0.08] px-4 py-3 backdrop-blur-md">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
-                    Operasyon özeti
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-cyan-50/[0.76]">
-                    Ölçü, stok ve güvenlik aynı planda.
-                  </p>
-                </div>
-                <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-black text-emerald-200">
-                  Hazır stok
-                </span>
-              </div>
+          <h1
+            id="hero-title"
+            className="mx-auto max-w-[18ch] text-[64px] font-black leading-[0.92] tracking-[-2.5px] md:text-[92px] lg:text-[108px] xl:text-[120px]"
+          >
+            ANAHTAR<br />TESLİM<br />
+            <span className="bg-gradient-to-r from-white via-white to-cyan-300 bg-clip-text text-transparent">ÇADIR</span>
+          </h1>
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                {HERO_METRICS.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-white/[0.16] bg-white/[0.09] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.26)] backdrop-blur-md"
-                  >
-                    <div className="text-3xl font-black leading-none text-white md:text-[2.15rem]">
-                      {item.value}
-                    </div>
-                    <div className="mt-2 text-xs font-black uppercase tracking-wider text-cyan-200">
-                      {item.suffix}
-                    </div>
-                    <div className="mt-3 text-sm font-semibold leading-5 text-cyan-50/[0.78]">
-                      {item.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <p className="mx-auto mt-6 max-w-2xl text-2xl font-medium tracking-tight text-white/90 md:text-[27px]">
+            Düğün, fuar, konser ve kurumsal etkinlikler için<br />profesyonel çadır çözümleri
+          </p>
 
-              <div className="mt-3 rounded-2xl border border-white/[0.16] bg-slate-950/35 p-4 backdrop-blur-md">
-                <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
-                  Kurulum formatları
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {HERO_FORMATS.map((item) => (
-                    <span
-                      key={item}
-                      className="whitespace-nowrap rounded-full border border-white/[0.16] bg-white/[0.08] px-3 py-1.5 text-sm font-black text-white"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-3 text-sm leading-6 text-cyan-50/[0.74]">
-                  Pagoda, organizasyon çadırı ve büyük açıklıklı sistemler zemin,
-                  aydınlatma ve iklimlendirme ihtiyaçlarıyla birlikte tekliflendirilir.
-                </p>
-              </div>
-            </div>
-          </aside>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              className="group flex h-[64px] w-full max-w-[280px] items-center justify-center gap-3 rounded-3xl bg-white text-xl font-black text-[#0a1429] transition-all active:scale-[0.985] hover:bg-white/90"
+            >
+              <MessageCircle className="h-6 w-6" />
+              HEMEN TEKLİF AL
+            </Link>
+
+            <Link
+              href="#cadir-tipleri"
+              className="group flex h-[64px] w-full max-w-[280px] items-center justify-center gap-3 rounded-3xl border border-white/40 text-xl font-semibold text-white backdrop-blur-xl transition-all hover:bg-white/10 active:scale-[0.985]"
+            >
+              ÇADIR TİPLERİNİ İNCELE
+            </Link>
+          </div>
+
+          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm text-white/70">
+            <div>370+ Pagoda Çadır</div>
+            <div>11.000 m² Kapasite</div>
+            <div>90 km/s Rüzgar Dayanımı</div>
+            <div>İstanbul • Kocaeli • Bursa</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Alt scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block">
+        <div className="flex flex-col items-center gap-1 text-[10px] tracking-[2px] text-white/50">
+          AŞAĞI KAYDIR
+          <div className="h-8 w-px bg-white/30" />
         </div>
       </div>
     </section>
@@ -587,53 +516,25 @@ function Hero() {
 /* ================== Çadır Tipi Karar Kartları ================== */
 function TentSelectorSection() {
   return (
-    <section
-      id="cadir-tipleri"
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] py-16 bg-white"
-      aria-labelledby="cadir-tipleri-baslik"
-    >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
-            Doğru çadırı hızlı seçin
-          </p>
-          <h2
-            id="cadir-tipleri-baslik"
-            className="mt-3 text-3xl font-black leading-tight text-gray-950 md:text-5xl"
-          >
-            Hangi Çadır Size Uygun?
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-gray-700">
-            Çadır kiralama kararında ölçü kadar kullanım amacı, zemin, hava koşulu,
-            giriş-çıkış akışı ve teknik entegrasyon da belirleyicidir.
-          </p>
+    <section id="cadir-tipleri" className="bg-white py-24" aria-labelledby="cadir-tipleri-baslik">
+      <div className="container mx-auto max-w-7xl px-5">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto mb-4 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-blue-700">DOĞRU ÇADIRI SEÇİN</div>
+          <h2 id="cadir-tipleri-baslik" className="text-6xl font-black tracking-tighter text-gray-950">Hangi Çadır Size Uygun?</h2>
+          <p className="mt-4 text-xl text-gray-600">Kullanım amacınıza göre en doğru çözümü seçin</p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {TENT_SELECTOR_CARDS.map((item) => (
-            <article
-              key={item.title}
-              className="flex h-full flex-col rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm transition hover:border-blue-200 hover:shadow-xl"
-            >
-              <span className="w-fit rounded-full bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
-                {item.badge}
-              </span>
-              <h3 className="mt-5 text-2xl font-black text-gray-950">{item.title}</h3>
-              <dl className="mt-5 space-y-4 text-sm leading-6 text-gray-700">
-                <div>
-                  <dt className="font-black text-gray-950">Önerilen kullanım</dt>
-                  <dd className="mt-1">{item.usage}</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-gray-950">Ölçü mantığı</dt>
-                  <dd className="mt-1">{item.sizing}</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-gray-950">Avantaj</dt>
-                  <dd className="mt-1">{item.advantage}</dd>
-                </div>
-              </dl>
-            </article>
+        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {TENT_SELECTOR_CARDS.map((item, i) => (
+            <div key={i} className="group rounded-3xl border border-gray-100 bg-white p-9 transition-all hover:-translate-y-2 hover:shadow-2xl">
+              <div className="mb-8 text-6xl opacity-80 transition group-hover:scale-110">🏕️</div>
+              <div className="mb-3 text-xs font-black tracking-[2px] text-blue-600">{item.badge}</div>
+              <h3 className="text-4xl font-black tracking-tighter text-gray-950">{item.title}</h3>
+              <p className="mt-4 text-[17px] leading-snug text-gray-600">{item.usage}</p>
+              <div className="mt-8 border-t pt-6 text-sm text-gray-500">
+                {item.advantage}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -904,24 +805,27 @@ function Gallery() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {SUCCESS_STORIES.map((story) => (
+          {SUCCESS_STORIES.map((story, index) => (
             <article
               key={story.title}
-              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_8px_35px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_25px_70px_rgba(59,130,246,0.13)]"
             >
-              <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
-                {story.category}
-              </span>
-              <h3 className="mt-5 text-xl font-black leading-tight text-gray-950">
+              <div className="flex items-start justify-between">
+                <span className="inline-flex rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-1 text-xs font-black uppercase tracking-[0.7px] text-blue-700">
+                  {story.category}
+                </span>
+                <div className="text-xs font-mono text-slate-400">0{index + 1}</div>
+              </div>
+              <h3 className="mt-6 text-[21px] font-black leading-tight tracking-tight text-gray-950 pr-4">
                 {story.title}
               </h3>
-              <p className="mt-4 text-sm font-semibold leading-6 text-blue-700">
+              <p className="mt-4 text-[15px] font-semibold leading-snug text-blue-700">
                 {story.transformation}
               </p>
-              <div className="mt-5 border-t border-slate-100 pt-5">
+              <div className="mt-6 border-t border-slate-100 pt-5">
                 <div className="flex gap-3">
                   <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-500" aria-hidden="true" />
-                  <p className="text-sm leading-6 text-gray-700">{story.summary}</p>
+                  <p className="text-[14.5px] leading-relaxed text-gray-600">{story.summary}</p>
                 </div>
               </div>
             </article>
@@ -1035,19 +939,25 @@ function PricingSection() {
           </div>
 
           <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
-            {PRICING_ITEMS.map((item) => (
-              <article
-                key={item.title}
-                className="border-t border-slate-200 p-6 md:border-l md:border-t-0 lg:p-8 first:md:border-l-0"
-              >
-                <h3 className="text-xl font-black text-gray-950">{item.title}</h3>
-                <div className="mt-4 text-3xl font-black text-blue-700">
-                  {item.price}
-                  <span className="ml-2 text-sm font-bold text-gray-500">+ nakliye</span>
-                </div>
-                <p className="mt-4 text-sm leading-6 text-gray-600">{item.description}</p>
-              </article>
-            ))}
+            {PRICING_ITEMS.map((item, index) => {
+              const isPopular = item.title === "5x5 Çadır";
+              return (
+                <article
+                  key={item.title}
+                  className={`group relative border-t border-slate-200 p-7 md:border-l md:border-t-0 lg:p-8 first:md:border-l-0 transition-all duration-300 ${isPopular ? 'bg-blue-50/60 ring-2 ring-blue-600/70 shadow-[0_15px_50px_rgba(37,99,235,0.15)]' : 'hover:bg-slate-50'}`}
+                >
+                  {isPopular && (
+                    <div className="absolute -top-3 right-6 rounded-full bg-blue-600 px-4 py-0.5 text-xs font-black tracking-widest text-white shadow">EN ÇOK TERCİH EDİLEN</div>
+                  )}
+                  <h3 className="text-[21px] font-black text-gray-950 tracking-tight">{item.title}</h3>
+                  <div className="mt-4 flex items-end gap-1">
+                    <span className="text-[34px] font-black text-blue-700 tracking-tighter">{item.price}</span>
+                    <span className="mb-1 text-sm font-semibold text-gray-500">+ nakliye</span>
+                  </div>
+                  <p className="mt-5 text-[15px] leading-relaxed text-gray-600 pr-2">{item.description}</p>
+                </article>
+              );
+            })}
           </div>
 
           <div className="border-t border-slate-200 bg-blue-50/70 px-6 py-5 md:px-10">
