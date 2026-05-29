@@ -492,6 +492,11 @@ function Hero() {
               Pagoda çadır, şeffaf dome ve büyük açıklıklı sistemlerle<br className="hidden md:block" />
               zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
             </p>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
+              3x3, 4x4 ve 5x5 pagoda çadırların yanında fuar, festival, düğün,
+              belediye etkinliği ve geçici depo alanları için büyük açıklıklı çadır
+              çözümleri sunuyoruz.
+            </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
