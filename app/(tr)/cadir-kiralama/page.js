@@ -433,7 +433,7 @@ const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
+      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#0a1429] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -450,16 +450,17 @@ function Hero() {
           blurDataURL={BLUR_DATA_URL}
           placeholder="blur"
         />
+        {/* Daha premium ve kurumsal renk paleti */}
         <div
-          className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-blue-950/[0.82] to-cyan-950/[0.88]"
+          className="absolute inset-0 bg-gradient-to-br from-[#0a1429]/97 via-[#1e3a8a]/88 to-[#0f172a]/94"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(103,232,249,0.25),transparent_38%),radial-gradient(circle_at_80%_14%,rgba(59,130,246,0.2),transparent_35%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(30,58,138,0.38),transparent_44%),radial-gradient(circle_at_82%_13%,rgba(15,23,42,0.42),transparent_40%)]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 opacity-[0.14] bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:48px_48px]"
+          className="absolute inset-0 opacity-[0.09] bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px]"
           aria-hidden="true"
         />
       </div>
@@ -467,12 +468,12 @@ function Hero() {
       <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
         <div className="mx-auto grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
           <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-2xl border border-cyan-400/40 bg-white/[0.09] px-5 py-2.5 shadow-[0_20px_70px_rgba(103,232,249,0.18)] backdrop-blur-xl">
+            <div className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/[0.06] px-5 py-2.5 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
               <div className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-70" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
               </div>
-              <span className="text-sm font-black tracking-[0.6px] text-cyan-100">
+              <span className="text-sm font-black tracking-[0.6px] text-white/90">
                 2026 STOK HAZIR • TÜRKİYE GENELİ
               </span>
             </div>
@@ -497,7 +498,7 @@ function Hero() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-emerald-500 to-green-600 px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(16,185,129,0.4)] transition-all hover:brightness-110 active:scale-[0.985]"
+                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(30,64,175,0.45)] transition-all hover:brightness-110 active:scale-[0.985]"
               >
                 <MessageCircle className="h-5 w-5 transition group-hover:-rotate-12" />
                 HEMEN TEKLİF AL
@@ -505,7 +506,7 @@ function Hero() {
 
               <Link
                 href="#cadir-tipleri"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.07] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.13] active:scale-[0.985]"
+                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/25 bg-white/[0.05] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.12] active:scale-[0.985]"
               >
                 ÇADIR TİPLERİNİ İNCELE
               </Link>
