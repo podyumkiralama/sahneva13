@@ -483,7 +483,7 @@ function Hero() {
               className="mt-7 max-w-4xl text-[56px] font-black leading-[0.94] tracking-[-1.5px] text-white drop-shadow-[0_5px_25px_rgba(0,0,0,0.45)] md:text-[74px] lg:text-[86px] xl:text-[92px]"
             >
               Anahtar Teslim{" "}
-              <span className="block bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
                 Çadır Kiralama
               </span>
             </h1>
@@ -506,7 +506,7 @@ function Hero() {
 
               <Link
                 href="#cadir-tipleri"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/25 bg-white/[0.05] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.12] active:scale-[0.985]"
+                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.06] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.14] active:scale-[0.985]"
               >
                 ÇADIR TİPLERİNİ İNCELE
               </Link>
@@ -515,12 +515,12 @@ function Hero() {
 
           {/* Sağ taraf - Metrik Kartları (eski hoş hali) */}
           <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end" aria-label="Kapasite özeti">
-            <div className="absolute -inset-6 rounded-[2.8rem] bg-cyan-400/10 blur-3xl" aria-hidden="true" />
+            <div className="absolute -inset-6 rounded-[2.8rem] bg-blue-400/10 blur-3xl" aria-hidden="true" />
             <div className="relative">
               <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/[0.15] bg-white/[0.07] px-5 py-3.5 backdrop-blur-xl">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[1px] text-cyan-200">OPERASYON ÖZETİ</p>
-                  <p className="mt-0.5 text-sm text-cyan-100/80">Ölçü, stok ve güvenlik tek planda</p>
+                  <p className="text-xs font-black uppercase tracking-[1px] text-blue-300">OPERASYON ÖZETİ</p>
+                  <p className="mt-0.5 text-sm text-blue-200/80">Ölçü, stok ve güvenlik tek planda</p>
                 </div>
                 <span className="rounded-full bg-emerald-400/15 px-3.5 py-1 text-xs font-black text-emerald-300">HAZIR STOK</span>
               </div>
@@ -529,14 +529,14 @@ function Hero() {
                 {HERO_METRICS.map((item, i) => (
                   <div key={i} className="rounded-2xl border border-white/[0.12] bg-white/[0.06] p-5 backdrop-blur-xl">
                     <div className="text-[34px] font-black leading-none text-white">{item.value}</div>
-                    <div className="mt-1 text-xs font-black uppercase tracking-widest text-cyan-300">{item.suffix}</div>
-                    <div className="mt-3 text-sm font-semibold text-cyan-100/80">{item.label}</div>
+                    <div className="mt-1 text-xs font-black uppercase tracking-widest text-blue-300">{item.suffix}</div>
+                    <div className="mt-3 text-sm font-semibold text-blue-200/80">{item.label}</div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-4 rounded-2xl border border-white/[0.12] bg-slate-950/40 p-5 backdrop-blur-xl">
-                <p className="text-xs font-black uppercase tracking-widest text-cyan-200">KURULUM FORMATLARI</p>
+                <p className="text-xs font-black uppercase tracking-widest text-blue-300">KURULUM FORMATLARI</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {HERO_FORMATS.map((f, i) => (
                     <span key={i} className="rounded-full border border-white/[0.15] bg-white/[0.07] px-3.5 py-1 text-sm font-black text-white">
@@ -606,7 +606,7 @@ function TentStockSection() {
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-widest text-blue-300">
               Stok ve büyük ölçek gücü
             </p>
             <h2
@@ -661,7 +661,7 @@ function TentStockSection() {
                 key={item.title}
                 className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
               >
-                <p className="text-xs font-black uppercase tracking-widest text-cyan-200">
+                <p className="text-xs font-black uppercase tracking-widest text-blue-300">
                   {item.group}
                 </p>
                 <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
@@ -669,7 +669,7 @@ function TentStockSection() {
                   <div className="text-4xl font-black leading-none text-white">
                     {item.capacity}
                   </div>
-                  <div className="mt-2 text-sm font-bold text-cyan-100/[0.74]">
+                  <div className="mt-2 text-sm font-bold text-blue-200/80">
                     {item.typeLabel}
                   </div>
                 </div>
