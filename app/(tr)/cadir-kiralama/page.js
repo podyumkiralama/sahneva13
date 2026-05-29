@@ -953,25 +953,25 @@ function PricingSection() {
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
-          <div className="relative bg-[#07111f] px-6 py-8 text-white md:px-10">
+          <div className="relative bg-[#0a1429] px-6 py-8 text-white md:px-10">
             <div
-              className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:42px_42px]"
+              className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:44px_44px]"
               aria-hidden="true"
             />
             <div
-              className="absolute right-0 top-0 h-56 w-56 rounded-full bg-cyan-400/20 blur-[80px]"
+              className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#1e3a8a]/30 blur-[90px]"
               aria-hidden="true"
             />
             <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
-                  Net başlangıç bedelleri
+                <p className="text-sm font-black uppercase tracking-widest text-white/70">
+                  NET BAŞLANGIÇ BEDELLERİ
                 </p>
                 <h2 id="fiyatlandirma-baslik" className="mt-3 text-3xl font-black md:text-5xl">
                   Çadır Kiralama Fiyatları 2026
                 </h2>
               </div>
-              <p className="max-w-xl text-base leading-7 text-cyan-50/[0.82]">
+              <p className="max-w-xl text-base leading-7 text-white/75">
                 Ölçü, tarih, şehir, zemin ve ek hizmetler paylaşıldığında nihai teklif
                 aynı gün içinde netleştirilir.
               </p>
