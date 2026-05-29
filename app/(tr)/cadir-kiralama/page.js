@@ -433,7 +433,7 @@ const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#0a1429] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
+      className="relative isolate flex min-h-svh items-center overflow-hidden bg-[#07111f] pt-16 pb-8 text-white md:pt-20 md:pb-10 lg:pt-20 lg:pb-10"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
@@ -446,67 +446,106 @@ function Hero() {
           fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
-          quality={90}
+          quality={88}
           blurDataURL={BLUR_DATA_URL}
           placeholder="blur"
         />
-        {/* Tamamen yeni, daha yumuşak ve lüks overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1429]/95 via-[#0a1429]/80 to-[#0a1429]/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_0.8px,transparent_1px)] bg-[length:5px_5px] opacity-30" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-blue-950/[0.82] to-cyan-950/[0.88]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(103,232,249,0.25),transparent_38%),radial-gradient(circle_at_80%_14%,rgba(59,130,246,0.2),transparent_35%)]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 opacity-[0.14] bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:48px_48px]"
+          aria-hidden="true"
+        />
       </div>
 
-      <div className="relative z-10 container mx-auto px-5">
-        <div className="mx-auto max-w-5xl text-center">
-          {/* Yeni Premium Badge */}
-          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-1.5 text-sm font-medium backdrop-blur-xl">
-            <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-            <span className="tracking-[1px]">2026 • TÜRKİYE'NİN EN BÜYÜK ÇADIR STOĞU</span>
-          </div>
+      <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
+        <div className="mx-auto grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
+          <div className="min-w-0">
+            <div className="inline-flex items-center gap-2 rounded-2xl border border-cyan-400/40 bg-white/[0.09] px-5 py-2.5 shadow-[0_20px_70px_rgba(103,232,249,0.18)] backdrop-blur-xl">
+              <div className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </div>
+              <span className="text-sm font-black tracking-[0.6px] text-cyan-100">
+                2026 STOK HAZIR • TÜRKİYE GENELİ
+              </span>
+            </div>
 
-          <h1
-            id="hero-title"
-            className="mx-auto max-w-[18ch] text-[64px] font-black leading-[0.92] tracking-[-2.5px] md:text-[92px] lg:text-[108px] xl:text-[120px]"
-          >
-            ANAHTAR<br />TESLİM<br />
-            <span className="bg-gradient-to-r from-white via-white to-cyan-300 bg-clip-text text-transparent">ÇADIR</span>
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-2xl font-medium tracking-tight text-white/90 md:text-[27px]">
-            Düğün, fuar, konser ve kurumsal etkinlikler için<br />profesyonel çadır çözümleri
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href={WHATSAPP}
-              target="_blank"
-              className="group flex h-[64px] w-full max-w-[280px] items-center justify-center gap-3 rounded-3xl bg-white text-xl font-black text-[#0a1429] transition-all active:scale-[0.985] hover:bg-white/90"
+            <h1
+              id="hero-title"
+              className="mt-7 max-w-4xl text-[56px] font-black leading-[0.94] tracking-[-1.5px] text-white drop-shadow-[0_5px_25px_rgba(0,0,0,0.45)] md:text-[74px] lg:text-[86px] xl:text-[92px]"
             >
-              <MessageCircle className="h-6 w-6" />
-              HEMEN TEKLİF AL
-            </Link>
+              Anahtar Teslim{" "}
+              <span className="block bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+                Çadır Kiralama
+              </span>
+            </h1>
 
-            <Link
-              href="#cadir-tipleri"
-              className="group flex h-[64px] w-full max-w-[280px] items-center justify-center gap-3 rounded-3xl border border-white/40 text-xl font-semibold text-white backdrop-blur-xl transition-all hover:bg-white/10 active:scale-[0.985]"
-            >
-              ÇADIR TİPLERİNİ İNCELE
-            </Link>
+            <p className="mt-6 max-w-3xl text-[21px] font-semibold leading-[1.4] text-white/[0.94] md:text-[23px]">
+              Pagoda çadır, şeffaf dome ve büyük açıklıklı sistemlerle<br className="hidden md:block" />
+              zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-emerald-500 to-green-600 px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(16,185,129,0.4)] transition-all hover:brightness-110 active:scale-[0.985]"
+              >
+                <MessageCircle className="h-5 w-5 transition group-hover:-rotate-12" />
+                HEMEN TEKLİF AL
+              </Link>
+
+              <Link
+                href="#cadir-tipleri"
+                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.07] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.13] active:scale-[0.985]"
+              >
+                ÇADIR TİPLERİNİ İNCELE
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm text-white/70">
-            <div>370+ Pagoda Çadır</div>
-            <div>11.000 m² Kapasite</div>
-            <div>90 km/s Rüzgar Dayanımı</div>
-            <div>İstanbul • Kocaeli • Bursa</div>
-          </div>
-        </div>
-      </div>
+          {/* Sağ taraf - Metrik Kartları (eski hoş hali) */}
+          <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end" aria-label="Kapasite özeti">
+            <div className="absolute -inset-6 rounded-[2.8rem] bg-cyan-400/10 blur-3xl" aria-hidden="true" />
+            <div className="relative">
+              <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/[0.15] bg-white/[0.07] px-5 py-3.5 backdrop-blur-xl">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[1px] text-cyan-200">OPERASYON ÖZETİ</p>
+                  <p className="mt-0.5 text-sm text-cyan-100/80">Ölçü, stok ve güvenlik tek planda</p>
+                </div>
+                <span className="rounded-full bg-emerald-400/15 px-3.5 py-1 text-xs font-black text-emerald-300">HAZIR STOK</span>
+              </div>
 
-      {/* Alt scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block">
-        <div className="flex flex-col items-center gap-1 text-[10px] tracking-[2px] text-white/50">
-          AŞAĞI KAYDIR
-          <div className="h-8 w-px bg-white/30" />
+              <div className="grid gap-3 sm:grid-cols-2">
+                {HERO_METRICS.map((item, i) => (
+                  <div key={i} className="rounded-2xl border border-white/[0.12] bg-white/[0.06] p-5 backdrop-blur-xl">
+                    <div className="text-[34px] font-black leading-none text-white">{item.value}</div>
+                    <div className="mt-1 text-xs font-black uppercase tracking-widest text-cyan-300">{item.suffix}</div>
+                    <div className="mt-3 text-sm font-semibold text-cyan-100/80">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 rounded-2xl border border-white/[0.12] bg-slate-950/40 p-5 backdrop-blur-xl">
+                <p className="text-xs font-black uppercase tracking-widest text-cyan-200">KURULUM FORMATLARI</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {HERO_FORMATS.map((f, i) => (
+                    <span key={i} className="rounded-full border border-white/[0.15] bg-white/[0.07] px-3.5 py-1 text-sm font-black text-white">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
