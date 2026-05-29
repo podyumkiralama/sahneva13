@@ -587,19 +587,19 @@ function TentStockSection() {
   return (
     <section
       id="stok-kapasitesi"
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#07111f] py-20 text-white"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
       aria-labelledby="stok-kapasitesi-baslik"
     >
       <div
-        className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:48px_48px]"
+        className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:50px_50px]"
         aria-hidden="true"
       />
       <div
-        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-cyan-400/20 blur-[100px]"
+        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#1e3a8a]/25 blur-[110px]"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-blue-500/20 blur-[110px]"
+        className="absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-[#0f172a]/40 blur-[120px]"
         aria-hidden="true"
       />
 
@@ -1034,7 +1034,7 @@ function PricingSection() {
 function StandardsTable() {
   return (
     <section
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#07111f] py-20 text-white nc-CadirKiralamaPage-section-standards"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#0a1429] py-20 text-white nc-CadirKiralamaPage-section-standards"
       aria-labelledby="sahneva-standartlari-baslik"
     >
       <div
