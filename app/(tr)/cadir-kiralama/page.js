@@ -43,19 +43,19 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
   description:
-    "Açık hava etkinlikleri için pagoda, şeffaf ve büyük açıklıklı çadır çözümleri. Keşif, kurulum, zemin, iklimlendirme ve lojistik tek elden planlanır.",
+    "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf, endüstriyel ve organizasyon çadırı seçenekleriyle Türkiye geneli hizmet.",
   alternates: {
     canonical: `${ORIGIN}/cadir-kiralama`,
     languages: {
       "tr-TR": `${ORIGIN}/cadir-kiralama`,
-      en: `${ORIGIN}/en/tent-rental`,
+      "en": `${ORIGIN}/en/tent-rental`,
       "x-default": `${ORIGIN}/en/tent-rental`,
     },
   },
   openGraph: {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
-      "Açık hava etkinlikleri için pagoda, şeffaf ve büyük açıklıklı çadır çözümleri. Keşif, kurulum, zemin, iklimlendirme ve lojistik tek elden planlanır.",
+      "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf, endüstriyel ve organizasyon çadırı seçenekleriyle Türkiye geneli hizmet.",
     url: `${ORIGIN}/cadir-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -65,7 +65,7 @@ export const metadata = {
         url: `${ORIGIN}/img/cadir/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
+        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve endüstriyel çadır çözümleri",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
-      "Açık hava etkinlikleri için profesyonel çadır kiralama çözümleri.",
+      "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri.",
     images: [`${ORIGIN}/img/cadir/hero.webp`],
   },
   robots: {
@@ -88,7 +88,6 @@ export const metadata = {
     },
   },
 };
-
 export function Head() {
   return (
     <>
