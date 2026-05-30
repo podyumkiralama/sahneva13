@@ -24,7 +24,7 @@ export default function KurumsalOrganizasyonLayout({ children }) {
               Marka etkinliklerinde planlama, teknik prodüksiyon ve saha yönetimi aynı akışta ilerler.
             </h2>
             <p className="mt-5 text-base leading-8 text-white/72 md:text-lg">
-              Sahneva olarak organizasyon hizmetleri kapsamında lansman, konferans, gala, bayi toplantısı ve marka etkinliklerini teknik prodüksiyon bakışıyla planlamaya devam ediyoruz. Farklı ölçeklerdeki kurumsal organizasyonları sahne, LED ekran, ses, ışık, truss, reji ve saha koordinasyonuyla tek ekip üzerinden yönetiyoruz.
+              Sahneva olarak organizasyon hizmetleri kapsamında lansman, konferans, gala, bayi toplantısı ve marka etkinliklerini teknik prodüksiyon bakışıyla planlamaya devam ediyoruz. Farklı ölçeklerdeki şirket etkinliklerini sahne, LED ekran, ses, ışık, truss, reji ve saha koordinasyonuyla tek ekip üzerinden yönetiyoruz.
             </p>
             <p className="mt-4 text-base leading-8 text-white/68 md:text-lg">
               Etkinlik hedefi, davetli profili, salon akışı, protokol düzeni, içerik sırası ve teknik riskler ilk brief aşamasında birlikte değerlendirilir. Böylece marka etkinliği yalnızca ekipman kurulumu olarak değil; prova, operasyon, yedek plan ve kapanış süreciyle birlikte yönetilebilir bir prodüksiyon haline gelir.
