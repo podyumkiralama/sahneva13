@@ -43,7 +43,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
   description:
-  description:   "Düğün, fuar, festival, lansman ve kurumsal etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf ve büyük açıklıklı çadır sistemleriyle Türkiye geneli hizmet.",
+    "Düğün, fuar, festival, lansman ve kurumsal etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf ve büyük açıklıklı çadır sistemleriyle Türkiye geneli hizmet.",
   alternates: {
     canonical: `${ORIGIN}/cadir-kiralama`,
     languages: {
@@ -55,7 +55,7 @@ export const metadata = {
   openGraph: {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
-    alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
+      "Düğün, fuar, festival, lansman ve kurumsal etkinlikler için profesyonel çadır kiralama çözümleri. Pagoda, şeffaf ve büyük açıklıklı çadır sistemleriyle Türkiye geneli hizmet.",
     url: `${ORIGIN}/cadir-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -65,7 +65,7 @@ export const metadata = {
         url: `${ORIGIN}/img/cadir/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve endüstriyel çadır çözümleri",
+        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
       },
     ],
   },
