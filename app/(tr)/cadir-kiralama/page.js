@@ -409,7 +409,7 @@ const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-[90svh] items-center overflow-hidden bg-[#0a1429] pt-16 pb-12 text-white md:pt-20 md:pb-16 lg:pt-20 lg:pb-16"
+      className="relative isolate flex min-h-[620px] items-start overflow-hidden bg-[#0a1429] pt-8 pb-10 text-white sm:min-h-[680px] md:min-h-[90svh] md:items-center md:pt-20 md:pb-16 lg:pt-20 lg:pb-16"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0">
