@@ -1045,12 +1045,6 @@ function SoundLightJsonLd() {
         },
         url: pageUrl,
         mainEntityOfPage: { "@id": webPageId },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "250",
-          bestRating: "5"
-        },
       },
       {
         "@type": "WebPage",
