@@ -262,7 +262,7 @@ export default function ContactPage() {
                   <div className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-200">
                     <iframe
                       title="Sahneva Konumu - Profesyonel Etkinlik Ekipmanları"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.7561988118778!2d28.97663777518891!3d41.09737131400938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7eef124ac6d%3A0x27d8390d39336498!2sSahneva%20Organizasyon!5e0!3m2!1str!2str!4v1691234567890!5m2!1str!2str"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.7561988118855!2d28.97663777534253!3d41.096173214009205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7eef124ac6d%3A0x27d8390d39336498!2sSahneva%20Organizasyon!5e0!3m2!1str!2str!4v1780231301073!5m2!1str!2str"
                       width="100%"
                       height="300"
                       className="w-full nc-IletisimPage-map-1"

@@ -93,18 +93,33 @@ const globalJsonLd = {
       priceRange: "₺₺₺",
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 41.0961692,
-        longitude: 28.9792127,
+        latitude: 41.096173214009205,
+        longitude: 28.97663777534253,
       },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Anadolu Caddesi No:61A, Hamidiye Mahallesi",
-        addressLocality: "Istanbul",
+        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
+        addressLocality: "Kagithane",
         addressRegion: "Istanbul",
         postalCode: "34400",
         addressCountry: "TR",
       },
-      openingHours: "Mo-Su 00:00-23:59",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "00:00",
+          closes: "23:59",
+        },
+      ],
       areaServed: "TR",
       parentOrganization: { "@id": ORGANIZATION_ID },
       sameAs: [

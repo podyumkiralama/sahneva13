@@ -175,7 +175,7 @@ export default function Footer({
   const address = isEn ? (footerStrings?.address ?? "Kağıthane, Istanbul") : "Kağıthane, İstanbul";
   const nationwide = isEn ? "Nationwide service" : "Türkiye geneli hizmet";
   const workingHoursLabel = isEn ? (footerStrings?.workingHours ?? "Working Hours") : "Çalışma Saatleri";
-  const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Mon–Sat 09:00–23:00") : "Pzt-Cts 09:00-23:00";
+  const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Open 24 hours") : "7/24 Açık";
   const socialMediaLabel = isEn ? "Follow us on social media" : "Sosyal medya hesaplarımız";
   const privacyLinkLabel = isEn ? (footerStrings?.privacyLink ?? "Privacy Policy") : "KVKK Aydınlatma Metni";
   const privacyHref = isEn ? "/en/data-protection" : "/kvkk";
