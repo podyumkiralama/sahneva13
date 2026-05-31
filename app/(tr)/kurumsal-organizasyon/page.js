@@ -30,6 +30,7 @@ import {
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import {
   ASSURANCE_ITEMS,
+  BRAND_LOGOS,
   FAQ_ITEMS,
   FORMAT_ITEMS,
   GALLERY_IMAGES,
@@ -37,6 +38,8 @@ import {
   HERO,
   HERO_STATS,
   OVERVIEW_POINTS,
+  PACKAGE_OPTIONS,
+  PLANNING_STEPS,
   SERVICE_ITEMS,
   TECHNICAL_POINTS,
   USE_CASES,
@@ -131,6 +134,25 @@ const SERVICE_CTA_LABELS = [
   "Reji akışını konuş",
   "Rigging planını konuş",
   "Prova koordinasyonunu konuş",
+];
+
+const TECHNICAL_DISCOVERY = [
+  {
+    title: "Mekan okuması",
+    text: "Salon ölçüsü, tavan yüksekliği, yükleme alanı, giriş-çıkış ve izleyici akışı birlikte değerlendirilir.",
+  },
+  {
+    title: "Enerji ve taşıyıcı kontrolü",
+    text: "Güç noktaları, kablo güzergahı, truss/podyum yerleşimi ve yük güvenliği etkinlikten önce netleşir.",
+  },
+  {
+    title: "Görüş ve ses kapsaması",
+    text: "Sahne, LED ekran, hoparlör, ışık ve kamera açıları katılımcının deneyimine göre konumlandırılır.",
+  },
+  {
+    title: "Prova ve yedek senaryo",
+    text: "Run-of-show, prova saatleri, yedek güç ve kritik geçişler saha günü başlamadan plana bağlanır.",
+  },
 ];
 
 export const metadata = {
@@ -656,6 +678,30 @@ function VideoProof() {
   );
 }
 
+function TechnicalDiscoverySection() {
+  return (
+    <Section id="teknik-kesif" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
+      <SectionHeader
+        eyebrow="Teknik keşif"
+        title="Mekan, enerji ve sahne akışı aynı planda netleşir."
+        desc="Format, kişi sayısı, sahne görünürlüğü, yükleme koşulları ve prova süresi erken netleştiğinde teknik kapsam daha sağlıklı hazırlanır."
+      />
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {TECHNICAL_DISCOVERY.map((item) => (
+          <article key={item.title} className="border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
+              <ClipboardCheck size={21} aria-hidden="true" />
+            </div>
+            <p role="heading" aria-level={3} className="text-lg font-black text-slate-950">{item.title}</p>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 function Positioning() {
   return (
     <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
@@ -675,6 +721,55 @@ function Positioning() {
             <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
           </article>
         ))}
+      </div>
+    </Section>
+  );
+}
+
+function PackagePlanningSection() {
+  return (
+    <Section id="kapsam-planlama" className="bg-white" deferredClass="content-visibility-auto cv-corporate-packages">
+      <SectionHeader
+        eyebrow="Kapsam ve teklif"
+        title="İlk brief doğru kurulursa teknik kapsam daha net çıkar."
+        desc="Etkinlik formatı, tarih, mekan, kişi sayısı ve sahne beklentisi birlikte değerlendirildiğinde teklif kalemleri daha sağlıklı planlanır."
+      />
+
+      <div className="grid gap-5 lg:grid-cols-[1fr_.9fr]">
+        <div className="grid gap-4 md:grid-cols-3">
+          {PACKAGE_OPTIONS.map((item) => (
+            <article key={item.title} className="border border-slate-200 bg-slate-50 p-6">
+              <p role="heading" aria-level={3} className="text-lg font-black text-slate-950">{item.title}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+              <a
+                href={generateWhatsAppLink(item.whatsappIntent)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700 hover:text-blue-900"
+              >
+                {item.cta}
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div className="border border-slate-200 bg-white p-6 shadow-sm">
+          <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">Planlama akışı</p>
+          <div className="mt-5 grid gap-4">
+            {PLANNING_STEPS.map((step, index) => (
+              <div key={step.title} className="grid grid-cols-[2rem_1fr] gap-4">
+                <span className="flex h-8 w-8 items-center justify-center bg-slate-950 text-xs font-black text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p className="font-black text-slate-950">{step.title}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   );
@@ -855,13 +950,55 @@ function InternalLinks() {
   );
 }
 
+function BrandEquipmentSection() {
+  return (
+    <Section id="ekipman-guveni" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-equipment">
+      <SectionHeader
+        eyebrow="Ekipman ve ekip gücü"
+        title="Ses, görüntü ve iletişim altyapısı sahada aynı ekip tarafından yönetilir."
+        desc="Marka etkinliklerinde görüntü kalitesi kadar konuşma netliği, interkom iletişimi, yedek güç ve saha görev dağılımı da prodüksiyon kalitesini belirler."
+      />
+
+      <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr]">
+        <div className="border border-slate-200 bg-white p-6 shadow-sm">
+          <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">Saha güvence başlıkları</p>
+          <ul className="mt-5 grid gap-3 text-sm leading-7 text-slate-700">
+            {ASSURANCE_ITEMS.map((item) => (
+              <li key={item} className="flex gap-3">
+                <CheckCircle2 size={18} className="mt-1 shrink-0 text-emerald-600" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {BRAND_LOGOS.slice(0, 6).map((brand) => (
+            <div key={brand.src} className="flex min-h-24 items-center justify-center border border-slate-200 bg-white p-4">
+              <Image
+                src={brand.src}
+                alt={brand.alt}
+                width={brand.width}
+                height={brand.height}
+                className="max-h-12 w-auto object-contain opacity-80 grayscale"
+                loading="lazy"
+                unoptimized={shouldBypassImageOptimizer(brand.src)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function FAQSection() {
   return (
     <Section id="sss" dark deferredClass="content-visibility-auto cv-corporate-faq">
       <SectionHeader
         dark
         eyebrow="Kısa cevaplar"
-        title="Karar aşamasındaki sorular"
+        title="Teklif öncesi sorular"
         desc="Teklif öncesinde kapsamı, saha akışını ve teknik sorumlulukları netleştiren kısa cevaplar."
       />
 
@@ -925,11 +1062,14 @@ export default function Page() {
       <main className="bg-white">
         <Hero />
         <VisualProof />
+        <TechnicalDiscoverySection />
         <VideoProof />
         <Positioning />
         <OperationFlow />
         <Formats />
+        <PackagePlanningSection />
         <ProductionStack />
+        <BrandEquipmentSection />
         <FAQSection />
         <InternalLinks />
         <CTASection />
