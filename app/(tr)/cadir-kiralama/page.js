@@ -65,7 +65,7 @@ export const metadata = {
         url: `${ORIGIN}/img/cadir/hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon çadır kiralama – pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
+        alt: "Sahneva Organizasyon çadır kiralama - pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
       },
     ],
   },
@@ -114,7 +114,7 @@ const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
   "İhtiyaca göre klima, ısıtıcı ve hava yönetimi",
   "Proje bazlı zemin kaplama, internet ve enerji altyapısı",
-  "Uçtan uca saha yönetimi ve güvenli operasyon koordinasyonu",
+  "Uçtan uca saha yönetimi ve güvenli kurulum koordinasyonu",
 ];
 
 const VIDEO_EMBEDS = [
@@ -136,8 +136,8 @@ const VIDEO_EMBEDS = [
 
 const GALLERY_IMAGES = [
   { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
-  { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır - Özel davetler için atmosfer" },
-  { src: "/img/cadir/3.webp", alt: "Büyük açıklıklı çadır kurulumu - Geniş kapalı etkinlik alanı çözümü" },
+  { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır kurulumu - özel davetler için atmosfer" },
+  { src: "/img/cadir/3.webp", alt: "Büyük açıklıklı çadır kurulumu - geniş etkinlik alanı çözümü" },
   { src: "/img/cadir/4.webp", alt: "Fuar çadırı - Profesyonel sergi ve tanıtım alanı" },
   { src: "/img/cadir/5.webp", alt: "Aydınlatmalı çadır - Gece etkinlikleri için LED aydınlatma" },
   { src: "/img/cadir/6.webp", alt: "Konser çadırı - Açık hava etkinliği için çadır çözümü" },
@@ -153,13 +153,13 @@ const GALLERY_FALLBACK_CARDS = [
   { src: "/img/cadir/1.webp", title: "Pagoda çadır kurulumu", alt: "Pagoda çadır kiralama için karşılama ve fuaye alanı kurulumu" },
   { src: "/img/cadir/2.webp", title: "Şeffaf çadır davet alanı", alt: "Şeffaf çadır kiralama ile kır düğünü ve premium davet alanı" },
   { src: "/img/cadir/4.webp", title: "Büyük fuar ve festival çadırı", alt: "Fuar ve festival için büyük etkinlik çadırı kurulumu" },
-  { src: "/img/cadir/3.webp", title: "Büyük açıklıklı çadır kurulumu", alt: "Büyük açıklıklı çadır kiralama ile geniş kapalı etkinlik alanı" },
+  { src: "/img/cadir/3.webp", title: "Büyük açıklıklı çadır kurulumu", alt: "Büyük açıklıklı çadır kiralama ile geniş etkinlik alanı" },
 ];
 
 const FAQ_ITEMS = [
   {
     q: "Çadır kiralama fiyatları ne kadar?",
-    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+    a: "Güncel fiyat aralıkları: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
   },
   {
     q: "Çadır kurulumu ne kadar sürer?",
@@ -277,28 +277,28 @@ const TENT_STOCK = [
     capacity: "110 adet",
     typeLabel: "Adet stok",
     group: "Pagoda çadır stokları",
-    description: "Kurumsal etkinlik, belediye organizasyonu, fuar, festival ve geniş operasyon alanları için güçlü pagoda çözümü.",
+    description: "Kurumsal etkinlik, belediye organizasyonu, fuar, festival ve geniş etkinlik alanları için güçlü pagoda çözümü.",
   },
   {
     title: "20 m Açıklıklı Çadır",
     capacity: "4.000 m²",
     typeLabel: "Kurulum kapasitesi",
     group: "Büyük açıklıklı çadır sistemleri",
-    description: "Orta ve büyük ölçekli etkinlikler, fuar alanları, yemek alanları, sergi ve kapalı etkinlik alanı ihtiyaçları.",
+    description: "Orta ve büyük ölçekli etkinlikler, fuar alanları, yemek alanları, sergi ve korunaklı etkinlik alanı ihtiyaçları.",
   },
   {
     title: "30 m Açıklıklı Çadır",
     capacity: "2.000 m²",
     typeLabel: "Kurulum kapasitesi",
     group: "Büyük açıklıklı çadır sistemleri",
-    description: "Geniş katılımlı kurumsal organizasyonlar, festival alanları ve büyük kapalı etkinlik çözümleri.",
+    description: "Geniş katılımlı kurumsal organizasyonlar, festival alanları ve büyük etkinlik çadırı çözümleri.",
   },
   {
     title: "40 m Açıklıklı Çadır",
     capacity: "5.000 m²",
     typeLabel: "Kurulum kapasitesi",
     group: "Büyük açıklıklı çadır sistemleri",
-    description: "Büyük fuar, festival, konser, belediye etkinliği ve geniş kapalı alan projeleri için yüksek kapasiteli çözüm.",
+    description: "Büyük fuar, festival, konser ve belediye etkinliği projeleri için yüksek kapasiteli çözüm.",
   },
 ];
 
@@ -369,7 +369,7 @@ const USE_CASES = [
   {
     icon: "🎤",
     text: "Konser ve festival çadırı",
-    desc: "Kulis, sağlık, teknik operasyon ve izleyici destek alanları için hızlı kurulabilen çadır çözümleri.",
+    desc: "Kulis, sağlık, teknik ekip ve izleyici destek alanları için hızlı kurulabilen çadır çözümleri.",
     href: "/sahne-kiralama",
     linkLabel: "sahne kiralama",
   },
@@ -382,8 +382,8 @@ const USE_CASES = [
   },
   {
     icon: "🏢",
-    text: "Geçici kapalı alan çözümü",
-    desc: "Yemek alanı, protokol bölümü, fuaye veya operasyon destek alanı için geniş açıklıklı sistem.",
+    text: "Geçici etkinlik alanı çözümü",
+    desc: "Yemek alanı, protokol bölümü, fuaye veya destek alanı için geniş açıklıklı sistem.",
     href: "/kurumsal-organizasyon",
     linkLabel: "kurumsal organizasyon",
   },
@@ -449,7 +449,7 @@ function Hero() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
               </div>
               <span className="text-sm font-black tracking-[0.6px] text-white/90">
-                2026 STOK HAZIR • TÜRKİYE GENELİ
+                STOK VE KEŞİF HAZIR • TÜRKİYE GENELİ
               </span>
             </div>
 
@@ -729,7 +729,7 @@ function TurnkeyInfrastructure() {
           <div className="flex flex-col lg:flex-row items-start gap-8">
             <div className="flex-1">
               <p className="text-sm font-bold uppercase tracking-widest text-blue-600 mb-3">
-                Anahtar Teslim Operasyon Gücü
+                Anahtar Teslim Kurulum Gücü
               </p>
               <h2
                 id="anahtar-teslim-baslik"
@@ -769,7 +769,7 @@ function TurnkeyInfrastructure() {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-bold text-white hover:scale-105 transition-transform duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
               >
-                Operasyon Planı İsteyin
+                Kurulum Planı İsteyin
               </Link>
             </div>
           </div>
@@ -818,9 +818,9 @@ function Gallery() {
       title: "Teknofest Fuar Çadırı Kurulumu",
       category: "Kurumsal & Fuar Etkinliği",
       transformation: "Açık fuar alanında büyük açıklıklı çadır, sahne ve teknik altyapı birlikte planlandı.",
-      before: "Açık fuar alanında hava koşullarına uygun, geniş ve kontrollü bir kapalı alana ihtiyaç duyulması.",
+      before: "Açık fuar alanında hava koşullarına uygun, geniş ve kontrollü bir etkinlik alanına ihtiyaç duyulması.",
       after: "Büyük açıklıklı çadır, LED ekran, sahne, ses-ışık ve güç dağıtımı aynı teknik planda kuruldu.",
-      result: "Ziyaretçi akışı, teknik alan ve etkinlik içi operasyon daha kontrollü şekilde yönetildi.",
+      result: "Ziyaretçi akışı, teknik alan ve etkinlik içi kullanım daha kontrollü şekilde yönetildi.",
       summary: "Uygulama özeti: büyük çadır, sahne, LED ekran, ses ve ışık entegrasyonu tek saha planında toplandı.",
     },
     {
@@ -828,17 +828,17 @@ function Gallery() {
       category: "Özel Davet & Düğün",
       transformation: "Yağmur riski olan kır alanında manzarayı kapatmayan şeffaf çadır çözümü uygulandı.",
       before: "Orman içindeki düğünde yağmur riski bulunmasına rağmen, çiftin doğal manzarayı kapatmak istememesi.",
-      after: "Tavanı ve yanları tamamen şeffaf dome ve pagoda çadırlar kuruldu, iç mekan estetik LED aydınlatmalarla hazırlandı.",
+      after: "Şeffaf dome ve pagoda çadırlar kuruldu, iç mekan estetik LED aydınlatmalarla hazırlandı.",
       result: "Gece aydınlatmasıyla davet atmosferi güçlendirildi, alan kontrollü ve konforlu hale getirildi.",
       summary: "Uygulama özeti: şeffaf çadır, zemin düzeni ve ambiyans ışığı birlikte planlanarak yağmur riskine karşı kontrollü davet alanı oluşturuldu.",
     },
     {
       title: "Kocaeli Büyük Açıklıklı Çadır Kurulumu",
-      category: "Kurumsal & Operasyonel Alan",
-      transformation: "Geniş açık alan, kısa sürede kullanıma hazır kapalı operasyon alanı olarak planlandı.",
-      before: "Kocaeli projesinde geniş ve hızlı kurulabilir kapalı alan ihtiyacının ortaya çıkması.",
+      category: "Kurumsal Etkinlik Alanı",
+      transformation: "Geniş açık alan, kısa sürede kullanıma hazır korunaklı etkinlik alanı olarak planlandı.",
+      before: "Kocaeli projesinde geniş ve hızlı kurulabilir etkinlik alanı ihtiyacının ortaya çıkması.",
       after: "Geniş açıklıklı çadır sistemi, giriş-çıkış akışı ve zemin kullanımı dikkate alınarak kuruldu.",
-      result: "Alan, geçici operasyon ihtiyacını karşılayacak şekilde kullanıma hazırlandı.",
+      result: "Alan, etkinlik ihtiyacını karşılayacak şekilde kullanıma hazırlandı.",
       summary: "Uygulama özeti: geniş açıklık, zemin kullanımı ve giriş-çıkış akışı birlikte planlandı.",
     },
     {
@@ -1000,7 +1000,7 @@ function PricingSection() {
                   NET BAŞLANGIÇ BEDELLERİ
                 </p>
                 <h2 id="fiyatlandirma-baslik" className="mt-3 text-3xl font-black md:text-5xl">
-                  Çadır Kiralama Fiyatları 2026
+                  Çadır Kiralama Fiyatları
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-white/75">
@@ -1230,7 +1230,7 @@ function InstallationProcess() {
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Operasyonu adım adım görün.
+            Kurulum akışını adım adım görün.
           </p>
         </div>
 
@@ -1396,7 +1396,7 @@ function TentRentalJsonLd() {
     ],
     offers: {
       "@type": "OfferCatalog",
-      name: "Çadır Kiralama Fiyatları 2026",
+      name: "Çadır Kiralama Fiyatları",
       itemListElement: PRICING_ITEMS.map((item, index) => ({
         "@type": "Offer",
         position: index + 1,
@@ -1434,7 +1434,7 @@ function TentRentalJsonLd() {
   const webPageNode = {
     "@type": "WebPage",
     "@id": webPageId,
-    name: "Çadır Kiralama 2026 | Pagoda, Şeffaf ve Etkinlik Çadırı | Sahneva",
+    name: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri | Sahneva",
     description: pageDescription,
     url: pageUrl,
     inLanguage: "tr-TR",
@@ -1539,11 +1539,11 @@ export default function Page() {
         links={[
           {
             href: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
-            label: "Dome Çadır Rehberi: 360° Mapping",
+            label: "Dome Çadır Rehberi",
           },
           {
-            href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
-            label: "2026 Kurumsal Etkinlik Planlama Rehberi",
+            href: "/blog/kurumsal-etkinlik-yonetimi",
+            label: "Kurumsal Etkinlik Yönetimi Rehberi",
           },
         ]}
       />
