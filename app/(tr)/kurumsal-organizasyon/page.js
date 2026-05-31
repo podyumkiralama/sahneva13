@@ -1015,8 +1015,8 @@ function CTASection() {
             Kurumsal organizasyon için doğru sahne etkisini birlikte kuralım.
           </h2>
           <p className="mt-4 text-base leading-8 text-white/[0.72] md:text-lg">
-            Tarih, mekan, kişi sayısı, sahne beklentisi ve LED ekran ihtiyacını paylaşın. Teknik kapsamı net, sade
-            ve satın alma diliyle geri dönelim.
+            Tarih, mekan, kişi sayısı, sahne beklentisi ve LED ekran ihtiyacını paylaşın. Teknik kapsamı netleştirip
+            sade bir teklif olarak geri dönelim.
           </p>
         </div>
         <a
