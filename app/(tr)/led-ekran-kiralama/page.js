@@ -231,21 +231,21 @@ const SERVICES = [
   {
     Icon: Monitor,
     title: "İç Mekan LED Ekranlar",
-    description: "P1.9/P2.5/P2.9 piksel aralığı ile yüksek çözünürlüklü iç mekan çözümleri",
+    description: "P1.9, P2.5 ve P2.9 seçenekleriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun yüksek çözünürlüklü indoor LED ekran kurulumları.",
     features: ["P1.9/P2.5/P2.9 piksel", "300 m² P1.9 indoor LED stoğu", "Yakın izleme netliği", "4K çözünürlük"],
     cta: { label: "Detaylı Bilgi" },
   },
   {
     Icon: Sun,
     title: "Dış Mekan LED Ekranlar",
-    description: "P3.9 piksel aralığı ve yüksek parlaklık ile açık hava çözümleri",
+    description: "P3.9 dış mekan LED ekranlarla konser, festival, belediye etkinliği ve açık hava organizasyonlarında yüksek parlaklık ve güvenilir görüntü.",
     features: ["P3.9 piksel", "5000-6500+ nit", "IP65 su geçirmez", "UV dayanıklı"],
     cta: { label: "Teklif Al" },
   },
   {
     Icon: Layers,
     title: "Video Wall Sistemleri",
-    description: "Modüler yapıda esnek video wall ve kreatif ekran çözümleri",
+    description: "Modüler LED wall ve video wall kurulumlarında görüntü kontrolü, NovaStar processor, teknik reji ve kreatif ekran tasarımı birlikte planlanır.",
     features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol", "Kavisli tasarım (-10°/+10°)"],
     cta: { label: "Kreatif Çözüm Planla" },
   },
@@ -836,7 +836,14 @@ function Services() {
             Profesyonel <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            LED ekran kiralama hizmetlerimiz: teknik danışmanlık, kurulum, operasyon ve 7/24 destek
+            Indoor LED ekran, outdoor LED ekran, LED wall ve video wall kurulumlarını etkinlik tipine göre; ekran ölçüsü, izleme mesafesi, piksel aralığı, taşıyıcı sistem, reji ve teknik ekip ihtiyacıyla birlikte planlıyoruz.
+          </p>
+          <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Yalnızca başlangıç m² bedellerini ve bütçe aralığını görmek isteyenler için{" "}
+            <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+              güncel LED ekran kiralama fiyatları
+            </Link>{" "}
+            sayfasında ayrı bir fiyat rehberi hazırladık.
           </p>
         </div>
 
