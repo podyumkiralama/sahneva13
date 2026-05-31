@@ -51,12 +51,12 @@ export const revalidate = 1800;
 const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";
 const PAGE_URL = `${ORIGIN}/kurumsal-organizasyon`;
-const PAGE_TITLE = "Kurumsal Organizasyon Şirketleri | Sahne, LED Ekran ve Teknik Prodüksiyon";
+const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
 const PAGE_DESCRIPTION =
-  "Kurumsal organizasyon şirketi arayan markalar için konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, teknik keşif ve saha operasyonu.";
-const OG_TITLE = "Kurumsal Organizasyon Şirketleri | Sahneva";
+  "Kurumsal organizasyon için sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten yöneten premium prodüksiyon.";
+const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
 const OG_DESCRIPTION =
-  "Konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.";
+  "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten planlayın.";
 const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
