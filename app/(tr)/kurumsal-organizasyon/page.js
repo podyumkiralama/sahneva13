@@ -48,12 +48,12 @@ export const revalidate = 1800;
 const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";
 const PAGE_URL = `${ORIGIN}/kurumsal-organizasyon`;
-const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
+const PAGE_TITLE = "Kurumsal Organizasyon Şirketleri | Sahne, LED Ekran ve Teknik Prodüksiyon";
 const PAGE_DESCRIPTION =
-  "Kurumsal organizasyon için sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten yöneten premium prodüksiyon.";
-const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
+  "Kurumsal organizasyon şirketi arayan markalar için konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, teknik keşif ve saha operasyonu.";
+const OG_TITLE = "Kurumsal Organizasyon Şirketleri | Sahneva";
 const OG_DESCRIPTION =
-  "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran ve teknik prodüksiyonu tek ekipten yöneten premium saha operasyonu.";
+  "Konferans, lansman, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık ve saha operasyonunu Sahneva ile tek ekipten planlayın.";
 const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
@@ -687,7 +687,7 @@ function OperationFlow() {
         dark
         eyebrow="Net teknik akış"
         title="Sahada sakin görünen iş, öncesinde doğru planlanmış iştir."
-        desc="Kurumsal etkinlik organizasyonu için gereksiz anlatım yerine karar verdiren net bir üretim akışı kuruyoruz."
+        desc="Etkinlik formatı, mekan, sahne görünürlüğü, teknik ekipman ve prova akışı baştan netleştiğinde saha günü daha kontrollü ilerler."
       />
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -806,8 +806,8 @@ function ProductionStack() {
             ))}
           </div>
           <p className="mt-6 text-sm leading-7 text-white/[0.68]">
-            Kurumsal organizasyon şirketi arayan markalar için karar aşamasında en kritik konu;
-            teknik kapsamın, saha ekibinin ve gerçek uygulama deneyiminin net görünmesidir.
+            Kurumsal organizasyon şirketi arayan markalar için teknik kapsamın,
+            saha ekibinin ve gerçek uygulama deneyiminin net görünmesi önemlidir.
           </p>
         </div>
       </div>
