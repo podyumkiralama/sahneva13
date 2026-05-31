@@ -293,6 +293,36 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/podyum-kiralama-0",
+        destination: "/podyum-kiralama",
+        permanent: true,
+      },
+      {
+        source: "/sahne-kiralama-2",
+        destination: "/sahne-kiralama",
+        permanent: true,
+      },
+      {
+        source: "/podyum-kiralama-fiyatlari-1",
+        destination: "/podyum-kiralama-fiyatlari",
+        permanent: true,
+      },
+      {
+        source: "/iletisim-0",
+        destination: "/iletisim",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler-1",
+        destination: "/hizmetler",
+        permanent: true,
+      },
+      {
+        source: "/_next-live/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/-0",
         destination: "/",
         permanent: true,
@@ -328,6 +358,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/img/sahne/2.webp-1",
+        destination: "/img/sahne/2.webp",
+        permanent: true,
+      },
+      {
         source: "/$",
         destination: "/",
         permanent: true,
@@ -345,6 +380,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026-2",
+        destination: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
+        permanent: true,
+      },
+      {
         source: "/blog/ses-sistemlerinde-2026-yenilikleri-mikrofon-ve-line-array",
         destination: "/blog/ses-sistemlerinde-2026-yenilikleri-trendler",
         permanent: true,
@@ -352,6 +392,11 @@ const nextConfig = {
       {
         source: "/blog/2026-led-ekran-trendleri-cob-ve-sahne-tasarimi",
         destination: "/blog/led-ekran-teknoloji-trendleri-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/led-ekran-kurulum-guvenligi-2",
+        destination: "/blog/led-ekran-kurulum-guvenligi",
         permanent: true,
       },
       {

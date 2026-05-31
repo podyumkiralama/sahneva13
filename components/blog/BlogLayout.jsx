@@ -105,7 +105,7 @@ export default function BlogLayout({
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               {links.slice(0, 3).map((l, idx) => (
                 <Link
-                  key={`${l.href}-${idx}`}
+                  key={`primary-link-${idx}`}
                   href={l.href}
                   className={buttonClass(idx === 0)}
                 >
@@ -162,7 +162,7 @@ export default function BlogLayout({
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     {safeTocItems.map((item) => (
                       <a
-                        key={item.href}
+                        key={`toc-${item.href.replace(/[^a-z0-9_-]/gi, "")}`}
                         href={item.href}
                         className="group inline-flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-200 hover:text-blue-700"
                       >
@@ -196,7 +196,7 @@ export default function BlogLayout({
                   <div className="mt-5 space-y-3">
                     {safeCornerstoneLinks.map((item) => (
                       <Link
-                        key={item.href}
+                        key={`cornerstone-${item.href.replace(/[^a-z0-9_-]/gi, "")}`}
                         href={item.href}
                         prefetch={false}
                         className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10"
@@ -247,7 +247,7 @@ function Breadcrumbs({ items }) {
     <nav aria-label="Breadcrumb" className="mb-8">
       <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
         {items.map((it, idx) => (
-          <li key={`${it.url}-${idx}`} className="flex items-center gap-2">
+          <li key={`breadcrumb-${idx}`} className="flex items-center gap-2">
             {idx > 0 ? <span aria-hidden="true" className="text-gray-400">/</span> : null}
             {idx < items.length - 1 ? (
               <Link href={safePath(it.url)} className="hover:underline">

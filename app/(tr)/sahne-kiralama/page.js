@@ -832,7 +832,7 @@ function StaticGallery({ images, visibleCount = 8, priorityCount = 2 }) {
     >
       {displayImages.map((img, index) => (
         <figure
-          key={`${img.src}-${index}`}
+          key={`stage-gallery-${index}`}
           className={index === 0 ? "md:col-span-2 md:row-span-2" : ""}
         >
           <div
