@@ -517,9 +517,9 @@ function VisualProof() {
     <Section id="saha-kaniti" dark className="pt-10 md:pt-14" deferredClass="content-visibility-auto cv-corporate-proof">
       <SectionHeader
         dark
-        eyebrow="Gerçek saha kanıtı"
-        title="Kurumsal müşteri önce sonucu görmek ister."
-        desc="Sayfanın odağı uzun organizasyon kalemleri değil; sahnede ortaya çıkan kalite, net teknik akış ve güven veren saha görüntüsüdür."
+        eyebrow="Saha referansları"
+        title="Sahne kalitesi gerçek uygulama görüntülerinde görünür."
+        desc="Lansman, konferans ve gala projelerinde LED ekran, sahne, ses-ışık ve reji kurulumlarını gerçek saha örnekleriyle değerlendirilebilir hale getiriyoruz."
       />
 
       <div className="grid gap-5 lg:grid-cols-[1.35fr_.65fr]">
@@ -608,7 +608,7 @@ function VideoProof() {
             dark
             eyebrow="Saha videoları"
             title="Gerçek saha videoları ve uygulama örnekleri"
-            desc="Video alanları iframe yükü taşımadan gerçek thumbnail ile gelir; tıklayınca YouTube üzerinde açılır."
+            desc="Kurulum, prova ve etkinlik anlarından seçilen videolar; sahne, LED ekran, ses-ışık ve reji koordinasyonunu sahadaki haliyle gösterir."
           />
           <div className="grid gap-3 text-sm font-semibold text-white/[0.78]">
             {["Gala ve lansman sahnesi", "Konferans LED ekran akışı", "Teknik reji ve kurulum disiplini"].map((item) => (
@@ -714,7 +714,7 @@ function Formats() {
       <SectionHeader
         eyebrow="Kullanım alanları"
         title="Lansman, konferans ve gala için tek prodüksiyon dili"
-        desc="Sayfa, kurumsal organizasyon kelimesini geniş ama kontrollü bir ticari niyetle taşır: marka sahnesi, konuşmacı akışı ve premium görüntü kalitesi."
+        desc="Kurumsal organizasyon projelerinde marka sahnesi, konuşmacı akışı, LED görüntüsü ve teknik reji aynı prodüksiyon diliyle planlanır."
       />
 
       <div className="grid gap-5 md:grid-cols-3">
@@ -806,8 +806,8 @@ function ProductionStack() {
             ))}
           </div>
           <p className="mt-6 text-sm leading-7 text-white/[0.68]">
-            Bu sayfa, kurumsal organizasyon şirketi arayan markaların karar aşamasına hitap eder. Detay metin değil,
-            doğru teknik kapsam ve güçlü saha kanıtı öne çıkar.
+            Kurumsal organizasyon şirketi arayan markalar için karar aşamasında en kritik konu;
+            teknik kapsamın, saha ekibinin ve gerçek uygulama deneyiminin net görünmesidir.
           </p>
         </div>
       </div>
@@ -819,9 +819,9 @@ function InternalLinks() {
   return (
     <Section id="baglantilar" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
       <SectionHeader
-        eyebrow="İç link mimarisi"
+        eyebrow="Tamamlayıcı hizmetler"
         title="Sahne, LED ekran ve proje referansları aynı akışta birleşir"
-        desc="LED ekran, sahne, podyum, ses-ışık, truss, proje ve blog sayfaları bu sayfayı ticari niyetin merkezi olarak destekler."
+        desc="Kurumsal etkinliklerde sahne, LED ekran, podyum, ses-ışık, truss ve proje referansları aynı teknik planın parçaları olarak değerlendirilir."
       />
 
       <div className="grid gap-5 lg:grid-cols-[1fr_.9fr]">
@@ -862,7 +862,7 @@ function FAQSection() {
         dark
         eyebrow="Kısa cevaplar"
         title="Karar aşamasındaki sorular"
-        desc="Kurumsal müşteri için gereksiz uzun açıklamaları azaltıp, teklif ve operasyon kararını etkileyen başlıklara odaklandık."
+        desc="Teklif öncesinde kapsamı, saha akışını ve teknik sorumlulukları netleştiren kısa cevaplar."
       />
 
       <div className="grid gap-3">

@@ -159,7 +159,7 @@ const GALLERY_FALLBACK_CARDS = [
 const FAQ_ITEMS = [
   {
     q: "Çadır kiralama fiyatları ne kadar?",
-    a: "Güncel fiyat aralıkları: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
   },
   {
     q: "Çadır kurulumu ne kadar sürer?",
@@ -1000,7 +1000,7 @@ function PricingSection() {
                   NET BAŞLANGIÇ BEDELLERİ
                 </p>
                 <h2 id="fiyatlandirma-baslik" className="mt-3 text-3xl font-black md:text-5xl">
-                  Çadır Kiralama Fiyatları
+                  Çadır Kiralama Fiyatları 2026
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-white/75">
@@ -1396,7 +1396,7 @@ function TentRentalJsonLd() {
     ],
     offers: {
       "@type": "OfferCatalog",
-      name: "Çadır Kiralama Fiyatları",
+      name: "Çadır Kiralama Fiyatları 2026",
       itemListElement: PRICING_ITEMS.map((item, index) => ({
         "@type": "Offer",
         position: index + 1,
