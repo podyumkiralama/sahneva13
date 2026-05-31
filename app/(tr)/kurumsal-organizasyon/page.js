@@ -255,7 +255,7 @@ function SectionHeader({ eyebrow, title, desc, dark = false, center = false }) {
         {title}
       </h2>
       {desc ? (
-        <p className={`mt-4 text-base leading-8 md:text-lg ${dark ? "text-white/72" : "text-slate-600"}`}>
+        <p className={`mt-4 text-base leading-8 md:text-lg ${dark ? "text-white/[0.72]" : "text-slate-600"}`}>
           {desc}
         </p>
       ) : null}
