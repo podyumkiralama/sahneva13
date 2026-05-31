@@ -27,7 +27,6 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import {
   ASSURANCE_ITEMS,
   BRAND_LOGOS,
@@ -276,42 +275,7 @@ function PremiumCard({ children, className = "", as: Component = "div" }) {
 function CorporateOrganizationJsonLd() {
   const webPageId = `${PAGE_URL}#webpage`;
   const serviceId = `${PAGE_URL}#service`;
-  const howToId = `${PAGE_URL}#teklif-akisi`;
   const galleryId = `${PAGE_URL}#saha-kaniti`;
-
-  const faqSchema = buildFaqSchema(
-    FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
-    {
-      id: `${PAGE_URL}#faq`,
-      pageId: webPageId,
-      serviceId,
-      inLanguage: "tr-TR",
-    },
-  );
-  const faqNode = faqSchema
-    ? Object.fromEntries(Object.entries(faqSchema).filter(([key]) => key !== "@context"))
-    : null;
-
-  const howToNode = {
-    "@type": "HowTo",
-    "@id": howToId,
-    name: "Kurumsal organizasyon teknik teklif akışı",
-    description:
-      "Kurumsal organizasyon teklifinde brief, mekan, sahne, LED ekran, reji, prova ve saha operasyonu adımlarının netleştirilmesi.",
-    inLanguage: "tr-TR",
-    supply: [
-      { "@type": "HowToSupply", name: "Etkinlik briefi" },
-      { "@type": "HowToSupply", name: "Mekan veya salon bilgisi" },
-      { "@type": "HowToSupply", name: "Sahne, LED ekran ve teknik prodüksiyon ihtiyacı" },
-    ],
-    step: OPERATION_STEPS.map((step, index) => ({
-      "@type": "HowToStep",
-      position: index + 1,
-      name: step.title,
-      text: step.text,
-      url: `${PAGE_URL}#akis`,
-    })),
-  };
 
   const imageObjects = FEATURED_GALLERY.map((image, index) => ({
     "@type": "ImageObject",
@@ -374,7 +338,6 @@ function CorporateOrganizationJsonLd() {
         { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi#article` },
       ],
       hasPart: [
-        { "@id": howToId },
         { "@id": galleryId },
         ...imageObjects.map((image) => ({ "@id": image["@id"] })),
         ...videoObjects.map((video) => ({ "@id": video["@id"] })),
@@ -408,12 +371,9 @@ function CorporateOrganizationJsonLd() {
       about: { "@id": serviceId },
       hasPart: imageObjects.map((image) => ({ "@id": image["@id"] })),
     },
-    howToNode,
     ...imageObjects,
     ...videoObjects,
   ];
-
-  if (faqNode) graph.push(faqNode);
 
   return (
     <JsonLdScript
