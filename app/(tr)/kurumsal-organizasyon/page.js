@@ -27,6 +27,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { buildFaqSchema } from "@/lib/structuredData/faq";
 import {
   ASSURANCE_ITEMS,
   BRAND_LOGOS,
@@ -276,6 +277,18 @@ function CorporateOrganizationJsonLd() {
   const webPageId = `${PAGE_URL}#webpage`;
   const serviceId = `${PAGE_URL}#service`;
   const galleryId = `${PAGE_URL}#saha-kaniti`;
+  const faqSchema = buildFaqSchema(
+    FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
+    {
+      id: `${PAGE_URL}#faq`,
+      pageId: webPageId,
+      serviceId,
+      inLanguage: "tr-TR",
+    },
+  );
+  const faqNode = faqSchema
+    ? Object.fromEntries(Object.entries(faqSchema).filter(([key]) => key !== "@context"))
+    : null;
 
   const imageObjects = FEATURED_GALLERY.map((image, index) => ({
     "@type": "ImageObject",
@@ -338,6 +351,7 @@ function CorporateOrganizationJsonLd() {
         { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi#article` },
       ],
       hasPart: [
+        { "@id": `${PAGE_URL}#faq` },
         { "@id": galleryId },
         ...imageObjects.map((image) => ({ "@id": image["@id"] })),
         ...videoObjects.map((video) => ({ "@id": video["@id"] })),
@@ -374,6 +388,8 @@ function CorporateOrganizationJsonLd() {
     ...imageObjects,
     ...videoObjects,
   ];
+
+  if (faqNode) graph.push(faqNode);
 
   return (
     <JsonLdScript
