@@ -5,7 +5,6 @@ import {
   BadgeCheck,
   Camera,
   CheckCircle2,
-  CirclePlay,
   ClipboardCheck,
   Layers3,
   MonitorCheck,
@@ -17,6 +16,7 @@ import {
 } from "lucide-react";
 
 import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -645,26 +645,12 @@ function VideoProof() {
         <div className="grid gap-4 md:grid-cols-2">
           {FEATURED_VIDEOS.map((video) => (
             <article key={video.id} className="border border-white/[0.10] bg-white/[0.05] p-3">
-              <a
-                href={`https://www.youtube.com/watch?v=${video.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block aspect-video overflow-hidden bg-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
-              >
-                <img
-                  src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                  alt={video.title}
-                  className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
-                <span className="absolute inset-0 bg-gradient-to-t from-black/[0.72] via-black/[0.32] to-black/[0.24]" aria-hidden="true" />
-                <span className="absolute inset-0 flex items-center justify-center text-white" aria-hidden="true">
-                  <CirclePlay size={64} strokeWidth={1.5} />
-                </span>
-                <span className="sr-only">{video.title} videosunu YouTube üzerinde izle</span>
-              </a>
+              <LazyVideoEmbed
+                videoId={video.id}
+                title={video.title}
+                thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/sddefault.jpg`}
+                className="rounded-none shadow-none"
+              />
               <div className="p-3">
                 <p className="text-xs font-black uppercase tracking-normal text-white">{video.eyebrow}</p>
                 <p role="heading" aria-level={3} className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
