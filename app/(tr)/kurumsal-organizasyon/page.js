@@ -630,7 +630,7 @@ function VideoProof() {
             dark
             eyebrow="Saha videoları"
             title="Gerçek saha videoları ve uygulama örnekleri"
-            desc="Kurulum, prova ve etkinlik anlarından seçilen videolar; sahne, LED ekran, ses-ışık ve reji koordinasyonunu sahadaki haliyle gösterir."
+            desc="Gerçek sahadan seçilen kurulum görüntüleri; ekip disiplini, LED ekran etkisi ve teknik prodüksiyon temposunu daha net gösterir."
           />
           <div className="grid gap-3 text-sm font-semibold text-white/[0.78]">
             {["Gala ve lansman sahnesi", "Konferans LED ekran akışı", "Teknik reji ve kurulum disiplini"].map((item) => (
