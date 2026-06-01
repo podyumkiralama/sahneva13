@@ -129,9 +129,9 @@ export default function HakkimizdaPage() {
           lansman, gala ve fuar projelerinde yüksek çözünürlüklü görüntü altyapımızı güçlendirdik.
           Bu yatırım,{" "}
           <Link href="/led-ekran-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
-            LED ekran kiralama
+            LED ekran kiralama projelerinde
           </Link>{" "}
-          projelerinde premium indoor kurulum kapasitemizi destekler.
+          premium iç mekan kurulum kapasitemizi artırdı.
         </>
       ),
       icon: "▦",
