@@ -127,8 +127,9 @@ export default function HakkimizdaPage() {
         <>
           Yakın izleme mesafesine uygun 300 m²{" "}
           <Link href="/led-ekran-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
-            P1.9 indoor LED ekran envanteriyle
+            P1.9 indoor LED ekran
           </Link>{" "}
+          envanteriyle{" "}
           konferans, lansman, gala ve fuar projelerinde yüksek çözünürlüklü görüntü altyapımızı güçlendirdik.
           Bu yatırım, kurumsal projelerde premium iç mekan kurulum kapasitemizi artırdı.
         </>
