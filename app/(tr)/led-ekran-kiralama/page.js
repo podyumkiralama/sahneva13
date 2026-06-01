@@ -643,9 +643,9 @@ function P19InvestmentProof() {
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
-              "P1.9 yakın izleme",
-              "3840Hz yenileme",
-              "Özmal LED stoğu",
+              "P1.9 Yakın İzleme",
+              "3840 Hz Yenileme Hızı",
+              "Özmal LED Envanteri",
             ].map((item) => (
               <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-black text-slate-800">
                 {item}
@@ -672,7 +672,7 @@ function P19InvestmentProof() {
               Gerçek kurulum kanıtı
             </span>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-white/86">
-              300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar.
+              P1.9 LED altyapısı; kamera çekimi, canlı yayın ve salon içi sunumlarda yüksek yenileme hızıyla net, dengeli ve profesyonel bir görüntü akışı sağlar.
             </p>
           </figcaption>
         </figure>
