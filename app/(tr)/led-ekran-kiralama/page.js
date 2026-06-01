@@ -321,21 +321,21 @@ const QUICK_SELECTION_STEPS = [
     title: "Etkinlik tipini netleştirin",
     description:
       "Konser, fuar, lansman ya da açık hava etkinliği için ekranın kullanım biçimi ilk teknik kararı belirler.",
-    points: ["İç mekan / dış mekan", "Yakın izleme / uzak izleme", "Sunum / canlı yayın / reklam"],
+    points: ["İç Mekan / Dış Mekan", "Yakın İzleme / Uzak İzleme", "Sunum / Canlı Yayın / Reklam"],
   },
   {
     Icon: Eye,
     title: "Piksel aralığını seçin",
     description:
       "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır, bütçe de gereksiz yükselmez.",
-    points: ["P1.9: Yakın izleme premium", "P2.5/P2.9: İç mekan", "P3.9: Açık hava ve geniş alan"],
+    points: ["P1.9: Yakın İzleme Premium", "P2.5 / P2.9: İç Mekan", "P3.9: Açık Hava ve Geniş Alan"],
   },
   {
     Icon: MessageCircle,
     title: "Ölçü ve şehir bilgisini paylaşın",
     description:
       "m², kurulum saati ve şehir bilgisi geldiğinde teknik ekip doğru panel, taşıma ve kurulum planını aynı çizgide çıkarır.",
-    points: ["Tahmini ekran ölçüsü", "Kurulum / söküm saatleri", "Şehir ve mekan tipi"],
+    points: ["Tahmini Ekran Ölçüsü", "Kurulum / Söküm Saatleri", "Şehir ve Mekan Tipi"],
   },
 ];
 
@@ -343,17 +343,17 @@ const QUICK_SELECTION_SCENARIOS = [
   {
     title: "Lansman ve fuar standı",
     recommendation: "P1.9 / P2.5",
-    detail: "Yakın izleme ve sunum netliği için 300 m² P1.9 indoor LED stoğu dahil yüksek çözünürlüklü iç mekan panel önerilir.",
+    detail: "Yakın izleme ve sunum netliği için 300 m² P1.9 indoor LED envanterimizle yüksek çözünürlüklü iç mekan panel çözümleri önerilir.",
   },
   {
     title: "Kurumsal etkinlik ve hibrit sahne",
     recommendation: "P1.9 / P2.9",
-    detail: "Salon içi kullanımda yakın izleme netliği ve bütçe dengesini birlikte kuran çözüm.",
+    detail: "Salon içi kullanımda yakın izleme netliği ve bütçe dengesi birlikte planlanır.",
   },
   {
     title: "Konser, festival ve açık hava",
     recommendation: "P3.9",
-    detail: "Güneş altında görünürlük, geniş alan hakimiyeti ve güçlü dış mekan dayanımı sağlar.",
+    detail: "Açık havada görünürlük, geniş alan etkisi ve dış mekan dayanımı öne çıkar.",
   },
 ];
 
@@ -515,7 +515,7 @@ function QuickSelectionGuide() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-5 xl:gap-6 items-start">
+        <div className="grid items-start gap-5 lg:grid-cols-[1.15fr_0.85fr] xl:gap-6">
           <div className="space-y-5">
             {QUICK_SELECTION_STEPS.map((step, index) => (
               <article
@@ -536,7 +536,7 @@ function QuickSelectionGuide() {
                       {step.points.map((point) => (
                         <li
                           key={point}
-                          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[13px] md:text-sm font-semibold text-slate-800"
+                          className="rounded-xl bg-slate-100/80 px-3.5 py-2.5 text-[13px] font-semibold text-slate-700 md:text-sm"
                         >
                           {point}
                         </li>
@@ -550,7 +550,7 @@ function QuickSelectionGuide() {
 
           <aside className="lg:sticky lg:top-24 self-start max-w-[23rem] xl:max-w-[24rem]">
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/9]">
                 <Image
                   src={LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC}
                   alt="Kurumsal konferans sahnesinde profesyonel LED ekran ve sahne ışık kurulumu"
@@ -564,36 +564,26 @@ function QuickSelectionGuide() {
                 <div className="absolute left-5 top-5 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
                   Hızlı seçim özeti
                 </div>
-                <div className="absolute inset-x-5 bottom-4 flex flex-wrap gap-2.5">
-                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-                    <div className="text-xs uppercase tracking-wide text-white/70">Parlaklık</div>
-                    <div className="text-lg font-black">1500 - 6500 nit</div>
-                  </div>
-                  <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-                    <div className="text-xs uppercase tracking-wide text-white/70">Kurulum</div>
-                    <div className="text-lg font-black">Hızlı rigging</div>
-                  </div>
-                </div>
               </div>
 
-              <div className="p-6 md:p-6.5">
-                <h3 className="text-[1.65rem] font-black leading-tight">Projeye göre hızlı öneri</h3>
+              <div className="p-5 md:p-6">
+                <h3 className="text-[1.45rem] font-black leading-tight">Projeye göre hızlı öneri</h3>
                 <p className="mt-2 text-sm text-white/75 leading-relaxed">
-                  Teknik tabloya geçmeden önce en sık kullanılan üç senaryo için kısa yönlendirme:
+                  En sık kullanılan üç senaryo için kısa yönlendirme:
                 </p>
 
-                <div className="mt-5 space-y-3">
+                <div className="mt-4 space-y-2.5">
                   {QUICK_SELECTION_SCENARIOS.map((scenario) => (
                     <div
                       key={scenario.title}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-3.5"
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3"
                     >
-                      <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start justify-between gap-3">
                         <div>
-                          <h4 className="text-[1.05rem] font-bold leading-snug text-white">{scenario.title}</h4>
-                          <p className="mt-1.5 text-sm leading-relaxed text-white/70">{scenario.detail}</p>
+                          <h4 className="text-base font-bold leading-snug text-white">{scenario.title}</h4>
+                          <p className="mt-1.5 text-xs leading-relaxed text-white/70 md:text-[13px]">{scenario.detail}</p>
                         </div>
-                        <span className="shrink-0 rounded-full bg-blue-500/20 px-3 py-1 text-sm font-bold text-blue-200">
+                        <span className="shrink-0 rounded-full bg-blue-500/20 px-2.5 py-1 text-xs font-bold text-blue-200">
                           {scenario.recommendation}
                         </span>
                       </div>
@@ -601,7 +591,7 @@ function QuickSelectionGuide() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-4 flex flex-col gap-2.5 sm:flex-row">
                   <a
                     href={WHATSAPP}
                     target="_blank"
