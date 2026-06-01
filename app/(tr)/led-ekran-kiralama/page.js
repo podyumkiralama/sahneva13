@@ -1288,42 +1288,42 @@ function Technical() {
       title: "Piksel Teknolojileri",
       description: "P1.9-P3.9 piksel aralığı ile yakın izleme ve geniş alan ihtiyaçlarına uygun çözümler",
       Icon: Eye,
-      features: ["P1.9: Yakın izleme premium indoor", "P2.5/P2.9: İç mekan ve hibrit", "P3.9: Açık hava ve geniş alan", "P4.8: Uzak mesafe (opsiyon)"]
+      features: ["P1.9: Yakın İzleme Premium İç Mekan", "P2.5 / P2.9: İç Mekan ve Hibrit", "P3.9: Açık Hava ve Geniş Alan", "P4.8: Uzak Mesafe (Opsiyonel)"]
     },
     {
       category: "parlaklik",
       title: "Parlaklık & Görünürlük",
       description: "Ortam koşullarına göre optimize edilmiş parlaklık seviyeleri",
       Icon: Sun,
-      features: ["İç mekan: 800-1500 nit", "Dış mekan: 3500-6500 nit", "Otomatik parlaklık", "Güneş altında netlik"]
+      features: ["İç Mekan: 800 - 1500 Nit Parlaklık", "Dış Mekan: 3500 - 6500 Nit Parlaklık", "Otomatik Parlaklık Optimizasyonu", "Güneş Işığı Altında Yüksek Netlik"]
     },
     {
       category: "koruma",
       title: "Koruma Sistemleri",
       description: "IP65 su geçirmez koruma ve dayanıklı yapı",
       Icon: Shield,
-      features: ["IP65 ön koruma", "IP54 arka koruma", "UV dayanıklı malzeme", "Toz geçirmez yapı", "Flip-shield köşe koruması"]
+      features: ["IP65 Ön Yüzey Koruması", "IP54 Arka Panel Koruması", "UV Filtreli ve Dayanıklı Malzeme Yapısı", "Toz ve Çevre Koşullarına Karşı Yalıtım", "Flip-Shield Gelişmiş Köşe Koruması"]
     },
     {
       category: "kontrol",
       title: "Kontrol Sistemleri",
       description: "Profesyonel video işleme ve kontrol sistemleri",
       Icon: Settings,
-      features: ["Novastar işlemciler", "4K video scaling", "Medya sunucular", "Uzaktan kontrol", "3840Hz flicker-free yenileme"]
+      features: ["NovaStar Görüntü İşlemcileri", "4K Video Scaling Altyapısı", "Medya Sunucuları", "Uzaktan Kontrol ve Yönetim", "3840 Hz Titreşimsiz Yenileme"]
     },
     {
       category: "kurulum",
       title: "Kurulum Sistemleri",
       description: "Hızlı ve güvenli kurulum için özel sistemler",
       Icon: Zap,
-      features: ["Ground stack", "Truss rigging", "Motorlu asma sistem", "Hızlı kilit mekanizması", "Click-lock tek kişilik kurulum", "Pinch n' Go modül değişim"]
+      features: ["Ground Stack Kurulum Tipi", "Truss ve Rigging Çözümleri", "Motorlu Asma ve Kaldırma Sistemleri", "Hızlı Kilit ve Güvenlik Mekanizması", "Click-Lock Tek Kişilik Hızlı Kurulum", "Pinch n' Go Pratik Modül Değişimi"]
     },
     {
       category: "destek",
       title: "Teknik Destek",
       description: "7/24 teknik destek ve acil müdahale hizmetleri",
       Icon: Headphones,
-      features: ["7/24 teknik destek", "Yedek modül stoğu", "Acil müdahale ekibi", "Uzaktan diagnostik"]
+      features: ["7/24 Teknik Destek Planı", "Anlık Yedek Modül Güvencesi", "Sahada Acil Müdahale Ekibi", "Uzaktan Diagnostik ve Hata Tespiti"]
     }
   ];
 
