@@ -984,8 +984,8 @@ const VISUAL_FLOW_IMAGES = [
     src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
     alt: "Kurumsal konferans sahnesinde teknik prodüksiyon kontrol masası ve P1.9 LED ekran",
     eyebrow: "Operasyon kontrolü",
-    title: "Sahne arkasında sakin teknik akış",
-    detail: "Görüntü, ses ve ışık kontrolü tek masada izlenir; sahne akışı kesintisiz tutulur.",
+    title: "Sahne Arkasında Kontrollü Teknik Operasyon",
+    detail: "Görüntü, ses ve ışık senkronizasyonu tek merkezden yönetilir; operasyonel riskler kontrollü planlama ile azaltılır.",
   },
   {
     src: LED_HYBRID_LAUNCH_IMAGE_SRC,
@@ -1386,7 +1386,7 @@ function Technical() {
 /* ================== İstatistik Bant (Güncellenmiş) ================== */
 function StatsBand() {
   const stats = [
-    { value: "300 m²", label: "P1.9 Indoor LED Stoğu" },
+    { value: "300 m²", label: "P1.9 Indoor LED Envanteri" },
     { value: "700+", label: "Başarılı Proje" },
     { value: "81 İL", label: "Kendi Araçlarımızla Kurulum" },
     { value: "10+", label: "Yıllık Deneyim" },
