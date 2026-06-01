@@ -119,23 +119,23 @@ const LED_PRICING = {
 const LED_PIXEL_ROWS = [
   {
     model: "P1.9",
-    badge: "Yeni premium envanter",
+    badge: "Yeni Premium Envanter",
     badgeClass: "bg-cyan-100 text-cyan-700",
     clarity: "Ultra Fine Pixel",
     costIndex: "💰💰💰💰💰",
-    distance: "1.9m ve üzeri",
-    refreshRate: "3840Hz",
-    usage: "Lansman, fuar, gala, konferans, yakın izleme",
+    distance: "1.9 m ve Üzeri",
+    refreshRate: "3840 Hz",
+    usage: "Lansman, Fuar, Gala, Konferans ve Yakın İzleme",
   },
   {
     model: "P2.5",
-    badge: "%50 daha premium",
+    badge: "Yüksek Çözünürlük Dengesi",
     badgeClass: "bg-purple-100 text-purple-700",
     clarity: "Ultra High HD",
     costIndex: "💰💰💰💰",
-    distance: "2.5m ve üzeri",
-    refreshRate: "3840Hz",
-    usage: "Lansman, fuar, yakın izleme",
+    distance: "2.5 m ve Üzeri",
+    refreshRate: "3840 Hz",
+    usage: "Lansman, Fuar ve Yakın İzleme Sunumları",
   },
   {
     model: "P2.9",
@@ -143,9 +143,9 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-blue-100 text-blue-700",
     clarity: "High Definition",
     costIndex: "💰💰💰",
-    distance: "3m ve üzeri",
-    refreshRate: "3840Hz",
-    usage: "İç mekan etkinlikler, hibrit kullanım",
+    distance: "3 m ve Üzeri",
+    refreshRate: "3840 Hz",
+    usage: "İç Mekan Etkinlikleri ve Hibrit Kullanım",
   },
   {
     model: "P3.9",
@@ -153,9 +153,9 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-green-100 text-green-700",
     clarity: "Standard HD",
     costIndex: "💰💰",
-    distance: "4m ve üzeri",
-    refreshRate: "3840Hz",
-    usage: "Dış mekan, konser, festival",
+    distance: "4 m ve Üzeri",
+    refreshRate: "3840 Hz",
+    usage: "Dış Mekan, Konser ve Festival Sahneleri",
   },
 ];
 
@@ -1418,7 +1418,7 @@ function WhySahneva() {
       Icon: Shield,
       title: "Flip-shield Köşe Koruması",
       description:
-        "Panellerin hassas köşelerini koruyan otomatik mekanizma sayesinde kurulum sırasında piksel hasarı riski sıfıra iner.",
+        "Panellerin hassas köşelerini koruyan otomatik mekanizma sayesinde, kurulum ve taşıma esnasında oluşabilecek piksel hasarı riski minimuma indirilir.",
     },
     {
       Icon: RotateCcw,
@@ -1430,17 +1430,17 @@ function WhySahneva() {
       Icon: Lock,
       title: "Click-lock Hızlı Kurulum",
       description:
-        "Özel kilit mekanizması sayesinde tek kişiyle çok kısa sürede güvenli kurulum. Prodüksiyonda zaman ve iş gücü tasarrufu.",
+        "Özel kilit mekanizması sayesinde tek kişiyle hızlı ve güvenli kurulum olanağı tanır; prodüksiyon süreçlerinde zaman ve iş gücü tasarrufu sağlar.",
     },
     {
       Icon: Zap,
       title: "Pinch n' Go Modül Değişimi",
       description:
-        "Herhangi bir teknik aksaklıkta modüller saniyeler içinde değiştirilebilir; canlı yayın sırasında kesintisiz görüntü garantisi.",
+        "Olası bir teknik aksaklıkta modüller saniyeler içinde değiştirilebilir; canlı yayın ve etkinlik esnasında operasyonel süreklilik desteklenir.",
     },
     {
       Icon: Gauge,
-      title: "3840Hz Kamera Dostu Performans",
+      title: "3840 Hz Kamera Dostu Performans",
       description:
         "Yüksek yenileme hızı ve gri skala derinliği sayesinde TV çekimlerinde ve canlı yayınlarda ekranda titreme (flicker) oluşmaz.",
     },
@@ -1448,7 +1448,7 @@ function WhySahneva() {
       Icon: Activity,
       title: "Türkiye Geneli 81 İl Hizmet",
       description:
-        "Uzman teknik ekibimiz kurulumdan söküme kadar her aşamada yanınızda; sorunsuz operasyonel süreç garantisi.",
+        "Uzman teknik kadromuz kurulumdan söküme kadar her aşamada sahada yer alarak operasyonel süreci planlı ve kontrollü şekilde yönetir.",
     },
   ];
 
