@@ -27,8 +27,8 @@ const SOCIAL_LINKS = [
 ];
 
 const TR_SERVICES = [
-  { href: "/podyum-kiralama", label: "Podyum Kiralama" },
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
+  { href: "/podyum-kiralama", label: "Podyum Kiralama" },
   { href: "/ses-isik-sistemleri", label: "Ses Işık Sistemleri" },
   { href: "/sahne-kiralama", label: "Sahne Kiralama" },
   { href: "/cadir-kiralama", label: "Çadır Kiralama" },
@@ -38,7 +38,6 @@ const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Sahneva Hakkında" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/podyum-kiralama-fiyatlari", label: "Podyum Kiralama Fiyatları" },
-  { href: "/led-ekran-kiralama-fiyatlari", label: "LED Ekran Fiyatları" },
   {
     href: "/kvkk",
     label: "KVKK / Gizlilik",

@@ -29,16 +29,16 @@ const SERVICE_LINKS = [
     description: "Sahne, LED ekran ve teknik prodüksiyon",
   },
   {
-    href: "/podyum-kiralama",
-    label: "Podyum Kiralama",
-    icon: "👑",
-    description: "Konferans ve protokol için modüler platformlar",
-  },
-  {
     href: "/led-ekran-kiralama",
     label: "LED Ekran Kiralama",
     icon: "🖥️",
     description: "HD LED ekran ve video wall çözümleri",
+  },
+  {
+    href: "/podyum-kiralama",
+    label: "Podyum Kiralama",
+    icon: "👑",
+    description: "Konferans ve protokol için modüler platformlar",
   },
   {
     href: "/sahne-kiralama",
