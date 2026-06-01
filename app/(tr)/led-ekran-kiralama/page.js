@@ -905,17 +905,17 @@ const GALLERY_IMAGES = [
   {
     src: P19_PROOF_DISPLAY_IMAGE_SRC,
     alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
-    caption: "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar."
+    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 300 m² P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
   },
   {
     src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
     alt: "P1.9 indoor LED ekran sahnesinde teknik prodüksiyon kontrol masası ve canlı görüntü akışı",
-    caption: "Teknik operasyon | P1.9 indoor LED | Kontrol masası, görüntü akışı ve sahne yönetimi aynı hatta çalışır."
+    caption: "Teknik Operasyon | P1.9 Indoor LED | Merkezi Kontrol Masası | Gerçek Zamanlı Sahne Yönetimi"
   },
   {
     src: LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
     alt: "Kurumsal konferans sahnesinde LED ekran, sahne ışığı ve oturum düzeni",
-    caption: "Kurumsal konferans | LED ekran + sahne ışık | Oturum düzeninde net ve sakin marka görünürlüğü."
+    caption: "Kurumsal Konferans | LED Ekran ve Sahne Işık Altyapısı | Net Marka Görünürlüğü"
   },
   {
     src: LED_HYBRID_LAUNCH_IMAGE_SRC,
@@ -1006,7 +1006,7 @@ function Gallery() {
             Gerçek LED Ekran <span className="text-blue-700">Kurulumlarımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
-            Gerçek saha görselleriyle LED ekran kurulum gücümüzü, sahne entegrasyonunu ve prodüksiyon kalitesini görünür kılıyoruz.
+            Gerçek saha görselleriyle; LED ekran kurulum kapasitemizi, sahne entegrasyon gücümüzü ve prodüksiyon kalitemizi öne çıkarıyoruz.
           </p>
         </div>
 
@@ -1015,9 +1015,9 @@ function Gallery() {
             { icon: "🎵", label: "Konser & Festival" },
             { icon: "🏛️", label: "Devlet & Belediye" },
             { icon: "🎓", label: "Eğitim & Tören" },
-            { icon: "🏢", label: "Kurumsal & Fuar" },
-            { icon: "🎮", label: "Spor & E-Spor" },
-            { icon: "💍", label: "Düğün & Davet" },
+            { icon: "🏢", label: "Kurumsal & Fuar Stantları" },
+            { icon: "🎮", label: "Spor & E-spor" },
+            { icon: "✨", label: "Gala & Davet" },
           ].map((sector) => (
             <li key={sector.label} className="flex flex-col items-center gap-2 bg-white rounded-2xl p-4 border border-gray-200 shadow-sm text-center">
               <span className="text-2xl" aria-hidden="true">{sector.icon}</span>
@@ -1044,7 +1044,7 @@ function Gallery() {
                   Öne çıkan kurulum
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white">
-                  P1.9 indoor LED ile kurumsal sahne ölçeği
+                  P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
               </div>
@@ -1442,7 +1442,7 @@ function WhySahneva() {
       Icon: Gauge,
       title: "3840 Hz Kamera Dostu Performans",
       description:
-        "Yüksek yenileme hızı ve gri skala derinliği sayesinde TV çekimlerinde ve canlı yayınlarda ekranda titreme (flicker) oluşmaz.",
+        "Yüksek yenileme hızı ve gri skala derinliği sayesinde TV çekimi ve canlı yayınlarda flicker riskini azaltan, kamera dostu görüntü akışı sağlar.",
     },
     {
       Icon: Activity,
@@ -1467,7 +1467,7 @@ function WhySahneva() {
             Teknik <span className="text-blue-700">Üstünlüğümüz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle rakipsiz prodüksiyon kalitesi
+            Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle yüksek standartlı prodüksiyon altyapısı
           </p>
           <div
             className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
