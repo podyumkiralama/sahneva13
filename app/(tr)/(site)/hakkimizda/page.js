@@ -125,13 +125,12 @@ export default function HakkimizdaPage() {
       title: "P1.9 Indoor LED Yatırımı",
       description: (
         <>
-          Yakın izleme mesafesine uygun 300 m² P1.9 indoor LED ekran envanteriyle konferans,
-          lansman, gala ve fuar projelerinde yüksek çözünürlüklü görüntü altyapımızı güçlendirdik.
-          Bu yatırım,{" "}
+          Yakın izleme mesafesine uygun 300 m²{" "}
           <Link href="/led-ekran-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
-            LED ekran kiralama projelerinde
+            P1.9 indoor LED ekran envanteriyle
           </Link>{" "}
-          premium iç mekan kurulum kapasitemizi artırdı.
+          konferans, lansman, gala ve fuar projelerinde yüksek çözünürlüklü görüntü altyapımızı güçlendirdik.
+          Bu yatırım, kurumsal projelerde premium iç mekan kurulum kapasitemizi artırdı.
         </>
       ),
       icon: "▦",
