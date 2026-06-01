@@ -62,7 +62,7 @@ const priceRows = [
     scope: "P2.9, P3.9 ve proje ihtiyacına göre seçilen standart panel kurulumları",
   },
   {
-    type: "P1.9 premium indoor LED ekran",
+    type: "P1.9 Indoor LED ekran",
     price: "4.500 TL/m²’den başlayan fiyatlarla",
     scope: "Yakın izleme mesafesi, lansman, gala, konferans ve kapalı alan protokol işleri",
   },
@@ -72,7 +72,7 @@ const priceRows = [
     scope: "Mekan erişimi, rigging, yükleme saati ve ekip planına göre netleşir",
   },
   {
-    type: "NovaStar processor ve teknik reji",
+    type: "NovaStar görüntü işlemcisi ve teknik reji",
     price: "Proje kapsamına göre",
     scope: "İçerik akışı, görüntü kontrolü, canlı kamera ve sunum ihtiyaçlarına göre planlanır",
   },
@@ -87,7 +87,7 @@ const includedItems = [
   "LED panel seçimi ve m² hesabı",
   "Taşıyıcı konstrüksiyon ve kablolama planı",
   "Kurulum, söküm ve saha testleri",
-  "NovaStar processor ve görüntü kontrol altyapısı",
+  "NovaStar görüntü işlemcisi ve görüntü kontrol altyapısı",
   "İçerik akışı, görüntü kontrolü ve teknik reji",
   "Etkinlik süresince teknik ekip desteği",
 ];
@@ -98,7 +98,7 @@ const requiredInfo = [
   "Tahmini ekran ölçüsü ya da sahne genişliği",
   "İzleyici mesafesi ve içerik türü: sunum, kamera, logo, video",
   "Kurulum ve söküm saatleri",
-  "NovaStar processor, reji, kamera veya canlı yayın ihtiyacı",
+  "NovaStar görüntü işlemcisi, reji, kamera veya canlı yayın ihtiyacı",
 ];
 
 const scenarios = [
@@ -113,30 +113,30 @@ const scenarios = [
     title: "Kurumsal lansman / gala",
     meters: "24-40 m² LED ekran",
     screen: "P2.9 veya P1.9 seçenekleri",
-    detail: "NovaStar processor, teknik reji, içerik kontrolü ve sahne akışı birlikte planlanır.",
+    detail: "NovaStar görüntü işlemcisi, teknik reji, içerik kontrolü ve sahne akışı birlikte planlanır.",
     price: "Fiyat ekran tipi, toplam m² ve teknik ekip kapsamına göre belirlenir.",
   },
   {
-    title: "Premium P1.9 kapalı alan etkinliği",
+    title: "P1.9 Indoor LED kapalı alan etkinliği",
     meters: "P1.9 indoor LED ekran",
     screen: "Yakın izleme mesafesi ve yüksek çözünürlük",
     detail: "Lansman, konferans, gala ve protokol etkinliklerinde kamera dostu görüntü kalitesi hedeflenir.",
-    price: "4.500 TL/m²’den başlayan fiyatlarla; reji, processor, kurulum, söküm ve teknik ekip proje kapsamına göre planlanır.",
+    price: "4.500 TL/m²’den başlayan fiyatlarla; reji, görüntü işlemcisi, kurulum, söküm ve teknik ekip proje kapsamına göre planlanır.",
   },
 ];
 
 const faq = [
   {
     q: "LED ekran kiralama fiyatları ne kadar?",
-    a: "2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda 1.800 TL/m²’den, P1.9 premium indoor LED ekranda 4.500 TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.",
+    a: "2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda 1.800 TL/m²’den, P1.9 Indoor LED ekranda 4.500 TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.",
   },
   {
     q: "LED ekran kiralama fiyatı m² bazlı mı hesaplanır?",
-    a: "Evet. Ana hesap toplam LED ekran alanı üzerinden yapılır. Ancak sadece m² yeterli değildir; piksel aralığı, indoor/outdoor kullanım, kurulum zorluğu, NovaStar processor, teknik reji ve teknik ekip kapsamı da bütçeyi etkiler.",
+    a: "Evet. Ana hesap toplam LED ekran alanı üzerinden yapılır. Ancak sadece m² yeterli değildir; piksel aralığı, indoor/outdoor kullanım, kurulum zorluğu, NovaStar görüntü işlemcisi, teknik reji ve teknik ekip kapsamı da bütçeyi etkiler.",
   },
   {
     q: "P1.9 LED ekran kiralama fiyatı neden daha yüksektir?",
-    a: "P1.9 LED ekranlar daha küçük piksel aralığına ve daha yüksek çözünürlüğe sahiptir. Yakın izleme mesafesinde daha keskin görüntü sunduğu için gala, lansman, konferans ve protokol etkinliklerinde premium çözüm olarak fiyatlanır.",
+    a: "P1.9 LED ekranlar daha küçük piksel aralığına ve daha yüksek çözünürlüğe sahiptir. Yakın izleme mesafesinde daha keskin görüntü sunduğu için gala, lansman, konferans ve protokol etkinliklerinde yüksek çözünürlüklü çözüm olarak fiyatlanır.",
   },
   {
     q: "LED ekran kiralama fiyatına kurulum ve söküm dahil mi?",
@@ -144,7 +144,7 @@ const faq = [
   },
   {
     q: "LED ekran için teknik ekip ve reji desteği veriliyor mu?",
-    a: "Evet. Sahneva LED ekran projelerinde teknik ekip, görüntü kontrolü, içerik akışı, NovaStar processor ve gerektiğinde reji desteğini proje kapsamına göre planlar.",
+    a: "Evet. Sahneva LED ekran projelerinde teknik ekip, görüntü kontrolü, içerik akışı, NovaStar görüntü işlemcisi ve gerektiğinde reji desteğini proje kapsamına göre planlar.",
   },
   {
     q: "Indoor ve outdoor LED ekran fiyatları farklı mı?",
@@ -159,8 +159,8 @@ const faq = [
     a: "Etkinlik tarihi, şehir, mekan tipi, tahmini ekran ölçüsü, izleyici mesafesi, içerik türü, kurulum-söküm saatleri, reji ve canlı yayın ihtiyacı teklif için yeterli başlangıç bilgisidir.",
   },
   {
-    q: "NovaStar processor ve teknik reji fiyata dahil mi?",
-    a: "NovaStar processor, görüntü kontrolü ve teknik reji bazı projelerde temel kapsamın parçası olabilir; daha büyük lansman, gala ve konferanslarda kapsam ayrıca netleştirilir.",
+    q: "NovaStar görüntü işlemcisi ve teknik reji fiyata dahil mi?",
+    a: "NovaStar görüntü işlemcisi, görüntü kontrolü ve teknik reji bazı projelerde temel kapsamın parçası olabilir; daha büyük lansman, gala ve konferanslarda kapsam ayrıca netleştirilir.",
   },
   {
     q: "Şehir dışı LED ekran kiralama fiyatı nasıl hesaplanır?",
@@ -171,7 +171,7 @@ const faq = [
 export const metadata = {
   title: "LED Ekran Kiralama Fiyatları 2026 | m², Kurulum ve Teknik Destek",
   description:
-    "2026 LED ekran kiralama fiyatları; indoor, outdoor ve P1.9 premium LED ekran seçeneklerine göre değişir. m² bazlı fiyatlar, kurulum, söküm, NovaStar processor, teknik reji ve ekip desteği Sahneva tarafından proje kapsamına göre planlanır.",
+    "2026 LED ekran kiralama fiyatları; P1.9, P2.5, P2.9 ve P3.9 panel seçeneklerinde m² bazlı başlangıç bedelleri, kurulum, söküm, reji ve lojistik kalemlerine göre hesaplanır.",
   alternates: buildLanguageAlternates({
     tr: SLUG,
     canonical: SLUG,
@@ -190,7 +190,7 @@ export const metadata = {
     url: PAGE_URL,
     title: "LED Ekran Kiralama Fiyatları 2026 | m², Kurulum ve Teknik Destek",
     description:
-      "Standart LED ekran ve P1.9 premium indoor LED ekran için 2026 başlangıç fiyatları, m² hesabı, kurulum, NovaStar processor ve teknik reji kapsamı.",
+      "Standart LED ekran ve P1.9 Indoor LED için 2026 m² bazlı başlangıç bedelleri; kurulum, söküm, görüntü işlemcisi ve teknik reji kalemleri.",
     locale: "tr_TR",
     siteName: "Sahneva",
     images: [
@@ -198,7 +198,7 @@ export const metadata = {
         url: `${BASE_SITE_URL}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "LED ekran kiralama fiyatları 2026 P1.9 indoor LED ekran kurulumu",
+        alt: "LED ekran kiralama fiyatları 2026 P1.9 Indoor LED ekran kurulumu",
       },
     ],
   },
@@ -206,7 +206,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "LED Ekran Kiralama Fiyatları 2026",
     description:
-      "LED ekran m² fiyatı, P1.9 premium indoor LED farkı, kurulum, NovaStar processor ve teknik reji kapsamı.",
+      "LED ekran m² fiyatı, P1.9 Indoor LED farkı, kurulum, NovaStar görüntü işlemcisi ve teknik reji kapsamı.",
     images: [`${BASE_SITE_URL}${HERO_IMAGE}`],
   },
   robots: {
@@ -260,13 +260,13 @@ function buildJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "P1.9 premium indoor LED ekran başlangıç fiyatı",
+        name: "P1.9 Indoor LED ekran başlangıç fiyatı",
         price: String(PRICES.premiumP19),
         priceCurrency: PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
         availability: "https://schema.org/InStock",
         url: `${PAGE_URL}#p19-led-ekran-kiralama-fiyati`,
-        description: "P1.9 premium indoor LED ekran kiralama için m² bazlı başlangıç fiyatı.",
+        description: "P1.9 Indoor LED ekran kiralama için m² bazlı başlangıç fiyatı.",
       },
     ],
   };
@@ -319,7 +319,7 @@ function buildJsonLd() {
       {
         "@type": "HowToStep",
         name: "Teknik kapsamı belirleyin",
-        text: "NovaStar processor, teknik reji, kamera aktarımı, kurulum ve söküm saatleri teklif kapsamına eklenir.",
+        text: "NovaStar görüntü işlemcisi, teknik reji, kamera aktarımı, kurulum ve söküm saatleri teklif kapsamına eklenir.",
       },
       {
         "@type": "HowToStep",
@@ -343,7 +343,7 @@ function buildJsonLd() {
       "@type": "ImageObject",
       url: `${BASE_SITE_URL}${HERO_IMAGE}`,
       caption:
-        "300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar.",
+        "300 m² P1.9 yüksek çözünürlüklü Indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde güçlü görüntü kalitesi sağlar.",
     },
     image: [`${BASE_SITE_URL}${HERO_IMAGE}`, `${BASE_SITE_URL}${TECH_IMAGE}`],
     mainEntity: { "@id": serviceId },
@@ -396,7 +396,7 @@ export default function Page() {
           <div className="absolute inset-0">
             <Image
               src={HERO_IMAGE}
-              alt="LED ekran kiralama fiyatları 2026 için P1.9 indoor LED ekran sahne kurulumu"
+              alt="LED ekran kiralama fiyatları 2026 için P1.9 Indoor LED ekran sahne kurulumu"
               fill
               priority
               fetchPriority="high"
@@ -429,9 +429,18 @@ export default function Page() {
               </h1>
 
               <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-200 md:text-2xl md:leading-10">
-                Standart indoor/outdoor LED ekran, P1.9 premium indoor LED, kurulum, söküm,
-                NovaStar processor, teknik reji ve saha ekibi kapsamını m² hesabıyla birlikte
+                Standart indoor/outdoor LED ekran, P1.9 Indoor LED, kurulum, söküm,
+                NovaStar görüntü işlemcisi, teknik reji ve saha ekibi kapsamını m² hesabıyla birlikte
                 netleştiren fiyat sayfası.
+              </p>
+
+              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 md:text-lg md:leading-8">
+                Bu sayfada m² bazlı başlangıç bedellerini ve fiyatı etkileyen teknik kalemleri inceleyebilirsiniz.
+                Envanter gücü, kurulum senaryoları, rigging, reji ve saha operasyon detayları için ana hizmet sayfamız olan{" "}
+                <Link href="/led-ekran-kiralama" className="font-black text-cyan-100 underline underline-offset-4">
+                  LED Ekran Kiralama
+                </Link>{" "}
+                bölümünü ziyaret edebilirsiniz.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:max-w-3xl">
@@ -446,7 +455,7 @@ export default function Page() {
                 </div>
                 <div className="rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-5 backdrop-blur">
                   <p className="text-sm font-bold uppercase tracking-[0.14em] text-cyan-100">
-                    P1.9 premium indoor
+                    P1.9 Indoor LED
                   </p>
                   <p className="mt-2 text-3xl font-black text-white">
                     {tl(PRICES.premiumP19)} TL/m²
@@ -495,10 +504,10 @@ export default function Page() {
         <section className="relative border-y border-white/10 bg-slate-950 py-8">
           <div className="container mx-auto grid gap-4 px-4 md:grid-cols-4">
             {[
-              ["300 m²", "P1.9 indoor LED stoğu"],
+              ["300 m²", "P1.9 Indoor LED envanteri"],
               ["1.800 TL", "standart m² başlangıç"],
               ["4.500 TL", "P1.9 m² başlangıç"],
-              ["NovaStar", "processor ve reji planı"],
+              ["NovaStar", "görüntü işlemcisi ve reji planı"],
             ].map(([value, label]) => (
               <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <p className="text-3xl font-black text-white">{value}</p>
@@ -514,7 +523,7 @@ export default function Page() {
               <SectionHeader
                 eyebrow="Fiyat Mantığı"
                 title="LED ekran kiralama fiyatları ne kadar?"
-                description="LED ekran fiyatı tek bir katalog rakamıyla doğru okunmaz. Toplam m², piksel aralığı, indoor/outdoor kullanım, kurulum erişimi, NovaStar processor, teknik reji ve şehir dışı lojistik aynı teklif içinde değerlendirilir."
+                description="LED ekran fiyatı tek bir katalog rakamıyla doğru okunmaz. Toplam m², piksel aralığı, indoor/outdoor kullanım, kurulum erişimi, NovaStar görüntü işlemcisi, teknik reji ve şehir dışı lojistik aynı teklif içinde değerlendirilir."
               />
 
               <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-cyan-950/30">
@@ -562,7 +571,7 @@ export default function Page() {
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-slate-700">
                   Standart LED ekran projelerinde fiyat çoğunlukla 1.800 TL/m²’den başlar.
-                  Yakın izleme mesafesinde kullanılan P1.9 premium indoor LED ekranlarda ise
+                  Yakın izleme mesafesinde kullanılan P1.9 Indoor LED ekranlarda ise
                   başlangıç fiyatı 4.500 TL/m² bandına çıkar. Bu fark, piksel yoğunluğu,
                   çözünürlük, kamera dostu görüntü ve teknik kontrol ihtiyacından doğar.
                 </p>
@@ -582,7 +591,7 @@ export default function Page() {
               <div className="grid gap-4">
                 {[
                   ["Standart indoor/outdoor", "1.800 TL/m²", "başlayan fiyat"],
-                  ["P1.9 premium indoor", "4.500 TL/m²", "başlayan fiyat"],
+                  ["P1.9 Indoor LED", "4.500 TL/m²", "başlayan fiyat"],
                   ["Kurulum + söküm", "Proje bazlı", "saha erişimine göre"],
                 ].map(([name, value, note]) => (
                   <div key={name} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
@@ -640,14 +649,14 @@ export default function Page() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <SectionHeader
-                  eyebrow="Premium P1.9"
-                  title="P1.9 indoor LED ekran kiralama fiyatı"
+                  eyebrow="P1.9 Indoor"
+                  title="P1.9 Indoor LED ekran kiralama fiyatı"
                   description="P1.9 LED ekranlar; yakın izleme mesafesi, yüksek çözünürlük, lansman, gala, konferans ve kapalı alan protokol etkinlikleri için tercih edilir. Bu yüzden standart LED panellere göre daha yüksek m² başlangıç fiyatıyla planlanır."
                 />
                 <div className="mt-8 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-6">
                   <p className="text-lg leading-8 text-cyan-50">
-                    Sahneva, premium LED ekran envanterine <strong>300 m² P1.9 indoor LED ekran stoğu</strong> eklemiştir.
-                    Bu özmal envanter gücü, yakın izleme mesafesinde premium görüntü kalitesi isteyen kurumsal sahnelerde
+                    Sahneva, LED ekran envanterine <strong>300 m² P1.9 Indoor LED envanteri</strong> eklemiştir.
+                    Bu özmal envanter gücü, yakın izleme mesafesinde yüksek çözünürlüklü görüntü isteyen kurumsal sahnelerde
                     fiyat/performans kararını daha net hale getirir.
                   </p>
                 </div>
@@ -665,7 +674,7 @@ export default function Page() {
                   unoptimized
                 />
                 <figcaption className="border-t border-white/10 px-5 py-4 text-sm leading-6 text-slate-300">
-                  300 m² P1.9 yüksek çözünürlüklü indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde premium görüntü kalitesi sunar.
+                  300 m² P1.9 yüksek çözünürlüklü Indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde güçlü görüntü kalitesi sağlar.
                 </figcaption>
               </figure>
             </div>
@@ -678,12 +687,12 @@ export default function Page() {
               {[
                 {
                   icon: BadgeCheck,
-                  title: "300 m² P1.9 premium stok",
+                  title: "300 m² P1.9 Indoor LED envanteri",
                   text: "Yakın izleme mesafesinde logo, sunum, ürün görseli ve kamera aktarımı net kalır.",
                 },
                 {
                   icon: Cpu,
-                  title: "NovaStar processor planı",
+                  title: "NovaStar görüntü işlemcisi planı",
                   text: "Görüntü kontrolü, içerik akışı ve ekran konfigürasyonu teknik rejiyle birlikte ele alınır.",
                 },
                 {
@@ -750,7 +759,7 @@ export default function Page() {
               <figure className="overflow-hidden rounded-[2rem] border border-white/10">
                 <Image
                   src={TECH_IMAGE}
-                  alt="P1.9 indoor LED ekran teknik reji NovaStar processor ve görüntü kontrol masası"
+                  alt="P1.9 indoor LED ekran teknik reji NovaStar görüntü işlemcisi ve görüntü kontrol masası"
                   width={1600}
                   height={739}
                   className="h-auto w-full object-cover"
@@ -762,8 +771,8 @@ export default function Page() {
               <div>
                 <SectionHeader
                   eyebrow="Operasyon"
-                  title="Kurulum, söküm, NovaStar processor ve teknik reji"
-                  description="LED ekran projesinde fiyatı belirleyen en önemli farklardan biri operasyon kapsamıdır. Ekran sadece panel değildir; sinyal akışı, scaler/processor ayarı, içerik kontrolü, kablolama, test ve etkinlik anı teknik ekip desteği birlikte planlanır."
+                  title="Kurulum, söküm, NovaStar görüntü işlemcisi ve teknik reji"
+                  description="LED ekran projesinde fiyatı belirleyen en önemli farklardan biri operasyon kapsamıdır. Ekran sadece panel değildir; sinyal akışı, scaler/görüntü işlemcisi ayarı, içerik kontrolü, kablolama, test ve etkinlik anı teknik ekip desteği birlikte planlanır."
                 />
                 <p className="mt-6 text-lg leading-8 text-slate-300">
                   Kurumsal etkinliklerde{" "}
@@ -921,7 +930,7 @@ export default function Page() {
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-slate-200">
                   Ekran ölçüsü, şehir, mekan tipi ve içerik akışını paylaşın; standart LED ekran,
-                  P1.9 indoor LED, NovaStar processor, kurulum-söküm ve teknik ekip kapsamını net teklif olarak hazırlayalım.
+                  P1.9 Indoor LED, NovaStar görüntü işlemcisi, kurulum-söküm ve teknik ekip kapsamını net teklif olarak hazırlayalım.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
