@@ -163,7 +163,7 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
   description:
-    "300 m² P1.9 Indoor LED envanteri, P2.5/P2.9 iç mekan ve P3.9 dış mekan LED ekran çözümleriyle lansman, fuar, gala ve konferans projelerinde kontrollü teknik operasyon.",
+    "300 m² P1.9 Indoor LED envanteri, P2.5/P2.9 iç ve P3.9 dış mekan LED ekran kiralama çözümleriyle lansman, fuar ve galalarda kontrollü teknik operasyon.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildLanguageAlternates({
