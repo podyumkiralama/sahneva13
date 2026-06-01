@@ -120,6 +120,22 @@ export default function HakkimizdaPage() {
         "Yeni nesil ekipman parkı, dijital entegrasyon ve canlı yayın çözümleriyle sektörde fark yarattık. 700+ proje deneyimine ulaştık.",
       icon: "⚡",
     },
+    {
+      year: "2026",
+      title: "P1.9 Indoor LED Yatırımı",
+      description: (
+        <>
+          Yakın izleme mesafesine uygun 300 m² P1.9 indoor LED ekran envanteriyle konferans,
+          lansman, gala ve fuar projelerinde yüksek çözünürlüklü görüntü altyapımızı güçlendirdik.
+          Bu yatırım,{" "}
+          <Link href="/led-ekran-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
+            LED ekran kiralama
+          </Link>{" "}
+          projelerinde premium indoor kurulum kapasitemizi destekler.
+        </>
+      ),
+      icon: "▦",
+    },
   ];
 
   const VALUES = [
