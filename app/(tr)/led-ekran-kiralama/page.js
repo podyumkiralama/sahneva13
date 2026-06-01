@@ -375,16 +375,16 @@ const SUCCESS_STORIES = [
     transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
     before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
     after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
-    result: "300+ kişilik kongre katılımcısına kesintisiz canlı yayın sunuldu; 8 saatlik etkinlik boyunca sıfır teknik arıza ve %100 müşteri memnuniyeti raporlandı.",
-    quote: "Böylesine kritik bir canlı yayında sıfır gecikme ve kusursuz görüntü kalitesiyle yanımızdaydılar.",
+    result: "300+ kişilik kongre katılımcısına yüksek çözünürlüklü canlı yayın aktarıldı; 8 saatlik etkinlik boyunca planlanan teknik akış korunarak yüksek müşteri memnuniyeti sağlandı.",
+    quote: "Böylesine kritik bir canlı yayında yüksek senkronizasyon ve net görüntü kalitesiyle operasyonu başarıyla yönettiler.",
     client: "Organizasyon Komitesi",
   },
   {
     title: "Sarıyer Premium Açık Hava Kır Düğünü",
-    category: "Özel Davet & Düğün",
+    category: "Özel Davet & Gala",
     transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
     before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
-    after: "6500 nit parlaklığa sahip P3.9 Dış Mekan (Outdoor) LED ekran kurularak güneş altında bile %100 netlik elde edildi.",
+    after: "6500 nit parlaklığa sahip P3.9 dış mekan LED ekran kurularak, doğrudan güneş ışığı altında yüksek görünürlük ve netlik sağlandı.",
     result: "250+ davetlinin tamamı, en arka sıradaki misafirler dahil, canlı yayın görüntüsünü sinema kalitesinde izledi; kurulum etkinlik başlamadan 2 saat önce tamamlandı.",
     quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
     client: "Gelin & Damat",
@@ -394,9 +394,9 @@ const SUCCESS_STORIES = [
     category: "Spor & Eğlence",
     transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
     before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
-    after: "Hızlı kurulan paneller ve 3840Hz yenileme hızına sahip ekranlarla titreşimsiz, akıcı oyun yayını yapıldı.",
-    result: "500+ izleyiciye anlık skor ve oyun yayını aksaklıksız iletildi; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
-    quote: "Oyuncuların hızına yetişebilen ve kamerada asla titremeyen tek ekran! Harika bir turnuva oldu.",
+    after: "Hızlı kurulan paneller ve 3840 Hz yenileme hızına sahip ekranlarla, kamera dostu ve yüksek kare hızlı oyun yayını gerçekleştirildi.",
+    result: "500+ izleyiciye anlık skor ve oyun yayını yüksek senkronizasyonla aktarıldı; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
+    quote: "Oyuncuların dinamizmine ayak uyduran, kamera dostu ve güçlü bir ekran kurulumu oldu.",
     client: "Etkinlik Koordinatörü",
   },
   {
@@ -405,7 +405,7 @@ const SUCCESS_STORIES = [
     transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
     before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
     after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
-    result: "Stand ziyaretçi süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü tüm holde sağlandı.",
+    result: "Stant ziyaret süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü hol genelinde güçlendirildi.",
     quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
     client: "Kurumsal İletişim Müdürü",
   },
@@ -920,22 +920,22 @@ const GALLERY_IMAGES = [
   {
     src: LED_HYBRID_LAUNCH_IMAGE_SRC,
     alt: "Ürün lansmanı sahnesinde LED wall, kırmızı ışık tasarımı ve kurumsal marka sunumu",
-    caption: "Ürün lansmanı | LED wall + sahne tasarımı | Markanın ana mesajını tek güçlü yüzeyde toplar."
+    caption: "Ürün Lansmanı | LED Wall & Sahne Tasarımı | Markanın ana mesajını tek ve güçlü bir görsel yüzeyde toplar."
   },
   {
     src: LED_BALLROOM_LAUNCH_IMAGE_SRC,
     alt: "Fuar ve lansman salonunda geniş LED ekran kurulumu ve kurumsal sahne düzeni",
-    caption: "Fuar ve lansman salonu | Geniş LED ekran | Yakın izleme mesafesinde temiz sunum alanı."
+    caption: "Fuar ve Lansman Salonu | Geniş Ölçekli LED Ekran | Yakın izleme mesafesinde yüksek çözünürlüklü sunum alanı sağlar."
   },
   {
     src: LED_GALA_STAGE_IMAGE_SRC,
     alt: "Gala sahnesinde büyük LED ekran, video wall ve sahne ışık prodüksiyonu",
-    caption: "Gala sahnesi | Video wall + ışık | Premium davetlerde sahne etkisini yükselten yüksek çözünürlüklü akış."
+    caption: "Gala Sahnesi | Video Wall & Senkronize Işık | Prestijli organizasyonlarda sahne etkisini artıran yüksek yenileme hızlı görüntü akışı."
   },
   {
     src: LED_OUTDOOR_CONCERT_IMAGE_SRC,
     alt: "Açık hava konser sahnesinde büyük LED ekran, kalabalık ve sahne prodüksiyonu",
-    caption: "Açık hava konseri | Büyük LED ekran | Kalabalık alanlarda uzaktan okunabilir görüntü gücü."
+    caption: "Açık Hava Konseri | Büyük Ölçekli LED Ekran | Geniş ve açık alanlarda uzaktan fark edilebilen yüksek görünürlük performansı."
   },
 ];
 
