@@ -281,17 +281,17 @@ const USE_CASES = [
   {
     Icon: Briefcase,
     title: "Ürün Lansmanları ve Kurumsal Toplantılar",
-    desc: "P1.9 indoor LED altyapısıyla yakın izleme mesafesinde ürün detaylarını, sunum içeriklerini ve kurumsal marka mesajını premium netlikte taşıyoruz."
+    desc: "P1.9 indoor LED altyapısıyla yakın izleme mesafesinde ürün detaylarını, sunum içeriklerini ve kurumsal marka mesajınızı yüksek çözünürlükle sahneye taşıyoruz."
   },
   {
     Icon: Tent,
-    title: "Fuar ve Stand Organizasyonları",
-    desc: "Kreatif ekran tasarımlarıyla stand alanınızda ziyaretçi trafiğini ve etkileşimi artırıyoruz."
+    title: "Fuar ve Stant Organizasyonları",
+    desc: "Kreatif ekran tasarımlarıyla stant alanınızdaki ziyaretçi trafiğini ve marka etkileşimini artırıyoruz."
   },
   {
     Icon: Tv,
     title: "Açık Hava Reklamcılığı",
-    desc: "Şehir meydanlarında ve AVM önlerinde, gün ışığında bile net görünen ekranlarla büyük kitlelere ulaşıyoruz."
+    desc: "Şehir meydanlarında ve AVM önlerinde, güneş ışığında bile yüksek görünürlük sunan ekranlarla hedef kitlenize doğrudan ulaşıyoruz."
   },
   {
     Icon: Users,
@@ -311,7 +311,7 @@ const USE_CASES = [
   {
     Icon: Headphones,
     title: "Canlı Yayın ve Stüdyo Uygulamaları",
-    desc: "3840Hz yenileme hızı sayesinde kameralarda titreme yapmayan, profesyonel arka plan çözümleri sağlıyoruz."
+    desc: "3840 Hz yenileme hızıyla profesyonel kameralarda tarama çizgisi riskini azaltan, yayın standartlarına uygun arka plan çözümleri sağlıyoruz."
   }
 ];
 
