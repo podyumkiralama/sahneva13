@@ -434,14 +434,14 @@ const SUCCESS_STORIES = [
 const FAQ_ITEMS = [
   {
     q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
-    a: "P1.9 indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi olan salon kurulumlarında tercih edilir. Sahneva'nın 300 m² P1.9 indoor LED yatırımı, yakın izleme mesafesinde premium görüntü kalitesi ve özmal envanter gücü sağlar."
+    a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 300 m² genişliğindeki P1.9 Indoor LED envanteri, en yakın izleme açısında bile yüksek çözünürlüklü görüntü kalitesi ve özmal altyapı gücü sağlar."
   },
   {
     q: "LED ekran kiralama fiyatları nasıl belirlenir?",
-    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P1.9, P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve en iyi teknoloji garantisi sunuyoruz."
+    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P1.9, P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve proje ihtiyacına uygun teknik ekipman planlaması sunuyoruz."
   },
   {
-    q: "İç mekan (Indoor) ve Dış mekan (Outdoor) LED ekran arasındaki fark nedir?",
+    q: "İç Mekan (Indoor) ve Dış Mekan (Outdoor) LED Ekran Arasındaki Fark Nedir?",
     a: "Temel fark parlaklık ve dayanıklılıktır. İç mekan ekranlar 800-1500 nit parlaklık sunarken, dış mekan ekranlar güneş ışığında görünürlük için 5000-6500 nit parlaklığa ve IP65 su geçirmezlik korumasına sahiptir. Ayrıca dış mekan modellerinde piksel aralığı genellikle daha geniştir (P3.9, P4.8)."
   },
   {
@@ -450,11 +450,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kocaeli, Bursa veya Tekirdağ gibi çevre iller için hafta sonu teknik destek ve nakliye ücreti nasıl hesaplanıyor?",
-    a: "Çevre illerdeki hafta sonu etkinlikleriniz için 7/24 kesintisiz destek sunuyoruz. Nakliye ve varsa personel konaklama maliyetlerini ilk teklifimizde tamamen şeffaf bir şekilde listeliyoruz; sonradan gizli ücret çıkarmıyoruz."
+    a: "Çevre illerdeki hafta sonu etkinlikleriniz için 7/24 teknik destek planı oluşturuyoruz. Nakliye ve varsa personel konaklama maliyetlerini ilk teklifimizde tamamen şeffaf bir şekilde listeliyoruz; sonradan gizli ücret çıkarmıyoruz."
   },
   {
     q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
-    a: "Kesinlikle. Özellikle açık hava etkinliklerinde sürpriz yağışlara karşı %100 su ve toz geçirmez (IP65 standardında) dış mekan panelleri kurarak yayınınızı güvence altına alıyoruz."
+    a: "Kesinlikle. Özellikle açık hava etkinliklerinde sürpriz yağışlara karşı IP65 koruma sınıfına sahip dış mekan panelleri kurarak yayınınızı güvence altına alıyoruz."
   },
   {
     q: "Daha önce bizimkine benzer bir etkinlikte nasıl bir çözüm sundunuz?",
@@ -943,31 +943,31 @@ const VIDEO_GALLERY = [
   {
     id: "1R5Av0x5ouA",
     title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
-    description: "Dar zamanlarda bile eksiksiz kurulum: sahne prodüksiyonundan canlı yayına hazır hâle getirme sürecini izleyin.",
+    description: "Dar zaman planlamalarında güvenli kurulum; sahne prodüksiyonundan canlı yayına hazırlık ve operasyon sürecini izleyin.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "JNzGlNzNRuk",
     title: "LED Ekran Kurulum Süreci",
-    description: "Click-lock sistemiyle hızlı montaj, sıfır gecikme: etkinlik başlamadan ekranınız test edilmiş ve yayında.",
+    description: "Click-lock sistemiyle hızlı montaj ve yüksek senkronizasyon; etkinlik öncesi testleri tamamlanan aktif ekran altyapısı.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "j1Tr5l8DVW8",
     title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
-    description: "6500 nit parlaklıkla tam güneş ışığında bile kristal netlik: dış mekan etkinliklerinizde görüntü sorunu yaşamazsınız.",
+    description: "6500 nit parlaklıkla doğrudan güneş ışığı altında yüksek görünürlük; açık hava organizasyonlarında güçlü dış mekan görüntü performansı.",
     uploadDate: "2026-01-15T00:00:00+03:00",
   },
   {
     id: "HNDZ-wYVKLw",
     title: "LED Ekran Kurulum Detayları",
-    description: "Kablolama karmaşasına son: optimize edilmiş altyapı ve hızlı görüntü ayarıyla sahne anında hazır.",
+    description: "Kablolama karmaşasını azaltan optimize edilmiş altyapı ve hızlı kalibrasyon ayarlarıyla kontrollü sahne yönetim süreci.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "173gBurWSRQ",
     title: "Etkinlik LED Ekran Örnekleri",
-    description: "Konser, kurumsal gala, fuar: her etkinlik tipinde sorunsuz çalışan LED ekran kurulumlarından gerçek örnekler.",
+    description: "Konser, kurumsal gala ve fuar stantları: farklı etkinlik konseptlerinde operasyonel sürekliliği destekleyen kurulum örnekleri.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
 ];
@@ -1559,7 +1559,7 @@ function RegionalService() {
   const regions = [
     { 
       name: "İstanbul Avrupa Yakası", 
-      detail: "Trafiğin yoğun olduğu Şişli, Beşiktaş ve fuar merkezi Beylikdüzü'nde erken saatte mobilize olan hızlı kurulum ekiplerimiz.",
+      detail: "Trafiğin yoğun olduğu Şişli, Beşiktaş ve fuar merkezi Beylikdüzü gibi lokasyonlarda, erken saatte mobilize olarak hızlı kurulum sağlayan ekiplerimiz sahada yer alır.",
       districts: "Başakşehir, Esenyurt, Fatih, Sarıyer, Kağıthane, Şişli, Beşiktaş, Beylikdüzü"
     },
     { 
@@ -1569,7 +1569,7 @@ function RegionalService() {
     },
     { 
       name: "Marmara & Çevre İller", 
-      detail: "Özel araç filomuz ve konaklamalı teknik ekiplerimizle, Marmara'nın değişken hava şartlarına uygun IP65 dış mekan çözümleri.",
+      detail: "Özel araç filomuz ve konaklamalı teknik ekiplerimizle, Marmara'nın değişken hava şartlarına uygun IP65 dış mekan çözümleri planlarız.",
       districts: "Tekirdağ, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu, Edirne"
     }
   ];
@@ -1614,7 +1614,7 @@ function RegionalService() {
                 <div>
                   <h4 className="font-bold text-lg">Trafik ve Zaman Yönetimi</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    Megakent İstanbul'un trafiğine karşı etkinlikten saatler önce alana giriyoruz. Asya ve Avrupa yakasındaki bağımsız ekiplerimizle gecikme riskini sıfırlıyoruz.
+                    Megakent İstanbul'un trafiğine karşı etkinlikten saatler önce alana giriyoruz. Asya ve Avrupa yakasındaki bağımsız ekiplerimizle operasyonel gecikme riskini minimuma indiriyoruz.
                   </p>
                 </div>
               </div>
@@ -1624,7 +1624,7 @@ function RegionalService() {
                 <div>
                   <h4 className="font-bold text-lg">Hava Şartlarına Tam Uyum</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    Marmara'nın değişken havasına karşı, özellikle açık hava etkinliklerinde %100 IP65 su ve toz geçirmez dış mekan panelleriyle yayını güvenceye alıyoruz.
+                    Marmara'nın değişken havasına karşı, özellikle açık hava etkinliklerinde IP65 koruma sınıfına sahip dış mekan panelleriyle yayın altyapısını güvenceye alıyoruz.
                   </p>
                 </div>
               </div>
@@ -1634,7 +1634,7 @@ function RegionalService() {
                 <div>
                   <h4 className="font-bold text-lg">Şeffaf Çevre İl Lojistiği</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    Bursa, Tekirdağ, Kocaeli gibi illere giden konaklamalı teknik ekiplerimiz için nakliye ve ulaşım bedelleri ilk teklifte sabittir. Gizli maliyet çıkmaz.
+                    Bursa, Tekirdağ, Kocaeli gibi illere giden konaklamalı teknik ekiplerimiz için nakliye ve ulaşım bedelleri ilk teklifte şeffaf şekilde listelenir.
                   </p>
                 </div>
               </div>
@@ -1668,23 +1668,23 @@ function RegionalService() {
               <tbody>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Müdahale & Kurulum</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Acil durumlarda aynı gün 2-4 saatte hızlı kurulum</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Acil taleplerde aynı gün 2-4 saat içinde hızlı kurulum planı.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum sağlanır.</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Nakliye Ücretlendirmesi</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Çoğu merkezi ilçede fiyata dahil / Ücretsiz nakliye</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Kilometre bazlı şeffaf, indirimli ve sabit fiyat garantisi</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Çoğu merkezi ilçede fiyata dahil veya avantajlı nakliye planı.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Kilometre bazlı şeffaf, avantajlı ve sabit fiyat politikası.</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Teknik Ekip & Konaklama</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek, konaklama ücreti yok</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Projeye tahsisli, konaklamalı tam zamanlı operatör desteği</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek; konaklama maliyeti oluşmaz.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Projeye tahsisli, konaklamalı ve tam zamanlı operatör desteği.</td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Operasyonel Çözüm</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Trafik yoğunluğuna karşı sabah erken saatte sevkiyat</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Değişken hava şartlarına özel IP65 korumalı donanım</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Trafik yoğunluğuna karşı sabah erken saatte planlı sevkiyat.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Değişken hava şartlarına uygun IP65 korumalı dış mekan donanımı.</td>
                 </tr>
               </tbody>
             </table>
@@ -1731,7 +1731,7 @@ function Articles() {
               LED Ekran Kiralama: Etkinliklerde Yüksek Etki İçin Doğru Planlama
             </h3>
             <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-              Konserden fuara, kurumsal lansmandan düğüne kadar her organizasyonda güçlü görsel iletişim için profesyonel çözümler
+              Konserden fuara, kurumsal lansmandan gala gecelerine kadar her organizasyonda; güçlü görsel iletişim ve yüksek çözünürlüklü profesyonel çözümler
             </p>
           </header>
 
@@ -1751,9 +1751,9 @@ function Articles() {
               </p>
               <ul>
                 <li>Yüksek satın alma maliyetinden kaçınma</li>
-                <li>Etkinliğe uygun m² ve piksel aralığı seçebilme</li>
+                <li>Etkinliğe uygun m² ve Piksel Aralığı seçebilme</li>
                 <li>Kurulum, söküm ve teknik operasyonun tek ekipten alınması</li>
-                <li>İç mekan ve dış mekan için farklı parlaklık/koruma alternatifleri</li>
+                <li>İç Mekan ve Dış Mekan için farklı parlaklık / koruma alternatifleri</li>
               </ul>
 
               <h3 id="ic-dis-mekan-farki">İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
@@ -1775,20 +1775,20 @@ function Articles() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6 my-6">
-                <h4 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840Hz Yenileme Hızı</h4>
+                <h4 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840 Hz Yenileme Hızı</h4>
                 <p className="text-gray-700 mb-0">
-                  Unilumin URMIII panellerinin 3840Hz yenileme hızı, televizyon çekimlerinde ve canlı yayınlarda
-                  ekranda <strong>titreme (flicker) oluşmasını engeller</strong>. Yüksek gri skala derinliği sayesinde kamera
-                  karşısında profesyonel bir görüntü elde edilir.
+                  Unilumin URMIII panellerinin 3840 Hz yenileme hızı, televizyon çekimleri ve canlı yayınlarda
+                  tarama çizgisi (moiré) ile titreşim (flicker) riskini azaltmaya yardımcı olur. Yüksek gri skala
+                  derinliği sayesinde kamera karşısında daha dengeli bir görüntü akışı elde edilir.
                 </p>
               </div>
 
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6 mb-8">
-                <h4 className="font-black text-green-700 text-lg mb-3">Flip-shield ile Sıfır Piksel Hasarı Garantisi</h4>
+                <h4 className="font-black text-green-700 text-lg mb-3">Flip-Shield ile Gelişmiş Köşe Koruması</h4>
                 <p className="text-gray-700 mb-0">
-                  Unilumin URMIII teknolojisindeki <strong>Flip-shield köşe koruma mekanizması</strong>, kurulum sırasında
-                  panellerin en hassas noktaları olan köşeleri otomatik olarak korur. Bu sayede piksel hasarı riski
-                  sıfıra iner ve kusursuz görüntü kalitesi garanti edilir.
+                  Unilumin URMIII teknolojisindeki <strong>Flip-Shield köşe koruma mekanizması</strong>, kurulum ve taşıma
+                  sırasında panellerin hassas köşe noktalarını korumaya yardımcı olur. Bu yapı, piksel hasarı riskini
+                  azaltarak operasyonel güvenliği destekler.
                 </p>
               </div>
 
@@ -1818,14 +1818,14 @@ function Articles() {
               <h3 id="fiyatlar-neden-degisir">Neden Fiyatlar Değişiyor?</h3>
               <p>
                 LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
-                izleyicinin ekrana yakın olduğu projelerde kusursuz netlik sunar; ancak birim m² maliyeti daha yüksektir.
+                izleyicinin ekrana yakın olduğu projelerde daha yüksek görüntü netliği sağlar; ancak birim m² maliyeti daha yüksektir.
                 P3.9 ve üzeri modeller ise geniş alanlarda maliyet avantajı sağlar.
               </p>
               <p>
                 Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
               </p>
               <p>
-                Güncel başlangıç m² bedellerini, P1.9 premium indoor LED farkını, NovaStar processor ve teknik reji kapsamını ayrı bir tabloda görmek için{" "}
+                Güncel başlangıç m² bedellerini, P1.9 Indoor LED envanterini, NovaStar görüntü işlemcisi ve teknik reji kapsamını ayrı bir tabloda görmek için{" "}
                 <Link href="/led-ekran-kiralama-fiyatlari">
                   LED ekran kiralama fiyatları
                 </Link>{" "}
@@ -1836,16 +1836,16 @@ function Articles() {
               <ul>
                 <li>Toplam ekran alanı (m²)</li>
                 <li>Piksel aralığı (P2.5, P2.9, P3.9, P4)</li>
-                <li>İç mekan / dış mekan tercihi</li>
-                <li>Kiralama süresi (günlük, haftalık, proje bazlı)</li>
-                <li>Kurulum zorluğu, rigging ve teknik ekip sayısı</li>
-                <li>Canlı yayın, reji ve kamera entegrasyon ihtiyaçları</li>
+                <li>İç Mekan / Dış Mekan seçimi</li>
+                <li>Kiralama Süresi (Günlük, Haftalık, Proje Bazlı)</li>
+                <li>Kurulum Zorluğu, Truss / Rigging ve Teknik Ekip Sayısı</li>
+                <li>Canlı Yayın, Reji ve Kamera Entegrasyonu İhtiyaçları</li>
               </ul>
 
               <h3 id="kurulum-sureci">Kurulum Süreci Nasıl İlerler?</h3>
               <p>
                 Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
-                yayın sırasında kesinti riskini azaltır ve içerik akışının sorunsuz ilerlemesini sağlar.
+                yayın sırasında oluşabilecek kesinti riskini azaltır ve içerik akışının kontrollü şekilde yönetilmesine yardımcı olur.
               </p>
 
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
@@ -1863,10 +1863,10 @@ function Articles() {
               <h3 id="kullanim-senaryolari">Hangi Etkinliklerde Kullanılır?</h3>
               <ul>
                 <li>Konser, festival ve sahne performansları</li>
-                <li>Kurumsal toplantı ve lansmanlar</li>
-                <li>Fuar, sergi ve tanıtım organizasyonları</li>
-                <li>Düğün, özel davet ve canlı yayın prodüksiyonları</li>
-                <li>AVM ve perakende alanlarında reklam gösterimleri</li>
+                <li>Kurumsal Toplantı, Kongre ve Lansmanlar</li>
+                <li>Fuar, Sergi ve Stant Organizasyonları</li>
+                <li>Gala, Prestijli Davetler ve Canlı Yayın Prodüksiyonları</li>
+                <li>AVM ve Perakende Alanlarında Dijital Reklam Gösterimleri</li>
               </ul>
 
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
@@ -1911,31 +1911,31 @@ function RelatedServices() {
       href: "/ses-isik-sistemleri", 
       title: "Ses & Işık Sistemleri", 
       Icon: Music, 
-      desc: "Line Array ses sistemleri ve akıllı robot ışık tasarımı ile profesyonel prodüksiyon" 
+      desc: "Line Array ses sistemleri ve akıllı robot ışık tasarımı ile profesyonel prodüksiyon çözümleri." 
     },
     { 
       href: "/sahne-kiralama", 
       title: "Sahne Kiralama", 
       Icon: Layers, 
-      desc: "Modüler sahne sistemleri, güvenli truss yapıları ve estetik sahne dekor uygulamaları" 
+      desc: "Modüler sahne sistemleri, güvenli truss yapıları ve estetik sahne dekor uygulamaları." 
     },
     { 
       href: "/podyum-kiralama", 
       title: "Podyum Kiralama", 
       Icon: Layout, 
-      desc: "Profesyonel sahne platformları ve podyum sistemleri" 
+      desc: "Profesyonel sahne platformları ve podyum sistemleri." 
     },
     { 
       href: "/cadir-kiralama", 
       title: "Çadır Kiralama", 
       Icon: Tent, 
-      desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri" 
+      desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri." 
     },
     {
       waTitle: "Kamera & Reji",
       title: "Kamera & Reji",
       Icon: Camera,
-      desc: "Çok kameralı canlı yayın reji hizmetleri ve anlık görüntü miksajı",
+      desc: "Çok kameralı canlı yayın reji hizmetleri ve anlık görüntü miksajı.",
       external: true,
     },
   ];
@@ -2014,8 +2014,8 @@ function CTA() {
               Profesyonel LED Ekran Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Türkiye'nin 81 ilinde kendi araçlarımız ve uzman ekibimizle hızlı kurulum yapıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
-              rekabetçi fiyat garantisi ile hizmetinizdeyiz.
+              Türkiye'nin 81 ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
+              rekabetçi fiyat politikamızla hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
