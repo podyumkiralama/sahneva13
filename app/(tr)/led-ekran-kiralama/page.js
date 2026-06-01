@@ -765,12 +765,12 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white/85 md:text-2xl">
-            Gala, lansman, fuar ve konferans sahnelerinde yakın izleme mesafesinde net görüntü,
-            sakin teknik akış ve güçlü marka etkisi.
+            Gala, lansman, fuar ve konferans sahnelerinde; yakın izleme mesafesine uygun yüksek çözünürlük,
+            kontrollü teknik operasyon ve güçlü marka etkisi.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
-            {["P1.9 yakın izleme", "3840Hz görüntü akışı", "Özmal LED stoğu", "Türkiye geneli kurulum"].map((item) => (
+            {["P1.9 Yakın İzleme", "3840 Hz Görüntü Akışı", "Özmal LED Envanteri", "Türkiye Geneli Kurulum"].map((item) => (
               <span key={item} className="border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
                 {item}
               </span>
@@ -795,7 +795,7 @@ function Hero() {
               className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
-              <span>P1.9 Envanteri Gör</span>
+              <span>P1.9 Detaylarını İncele</span>
             </Link>
           </div>
         </div>
