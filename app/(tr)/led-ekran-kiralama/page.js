@@ -192,7 +192,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
     description:
-      "300 m² P1.9 indoor LED stoğu, P2.5/P2.9 indoor ve P3.9 outdoor LED ekran kiralama.",
+      "300 m² P1.9 indoor LED envanteri, P2.5/P2.9 indoor ve P3.9 outdoor LED ekran kiralama.",
     images: [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`],
   },
   robots: {
