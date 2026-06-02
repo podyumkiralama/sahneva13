@@ -409,8 +409,10 @@ const ledCalculatorScript = `
     const days = Math.max(Number(data.get("days")) || 1, 1);
     const area = width * height;
     const baseDaily = area * type.sqm;
-    const usesMinimum = area <= 15 || baseDaily < type.minimum;
-    const firstDay = Math.max(baseDaily, type.minimum);
+    const usesMinimum = data.get("screenType") === "standard"
+      ? area <= 15 || baseDaily < type.minimum
+      : baseDaily < type.minimum;
+    const firstDay = usesMinimum ? type.minimum : baseDaily;
     const dayTotal = days <= 1 ? firstDay : firstDay + firstDay * 0.35 * (days - 1);
     const watchout = data.get("watchout") === "on";
     const watchoutPrice = watchout ? 50000 : 0;
