@@ -9,6 +9,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import TentCalculatorCta from "@/components/TentCalculatorCta";
 import { 
   Monitor, 
   MessageCircle, 
@@ -1524,6 +1525,7 @@ export default function Page() {
       <TentRentalJsonLd />
 
       <Hero />
+      <TentCalculatorCta />
       <TentSelectorSection />
       <TentStockSection />
       <PricingSection />
