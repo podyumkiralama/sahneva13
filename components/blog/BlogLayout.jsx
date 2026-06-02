@@ -53,6 +53,7 @@ export default function BlogLayout({
               priority
               sizes="100vw"
               fetchPriority="high"
+              quality={72}
             />
           </div>
         ) : null}

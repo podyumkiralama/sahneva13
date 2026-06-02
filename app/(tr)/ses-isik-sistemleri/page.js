@@ -200,10 +200,9 @@ function Hero() {
           fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
-          quality={85}
-         
+          quality={68}
+          placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
-          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
@@ -277,7 +276,7 @@ function Hero() {
 /* ================== Marka Barı ================== */
 function FeaturedBrands() {
   return (
-    <section className="py-16 bg-gray-100" aria-labelledby="markalar-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_980px] sm:[contain-intrinsic-size:auto_700px] lg:[contain-intrinsic-size:auto_520px] py-16 bg-gray-100" aria-labelledby="markalar-baslik">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <h2
@@ -323,7 +322,7 @@ function FeaturedBrands() {
 /* ================== Hizmetler ================== */
 function Services() {
   return (
-    <section id="hizmetler" className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="hizmetler-baslik">
+    <section id="hizmetler" className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="hizmetler-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -420,7 +419,7 @@ const GALLERY_IMAGES = [
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1400px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -432,7 +431,7 @@ function Gallery() {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
+          <CaseGallery images={GALLERY_IMAGES} visibleCount={8} priorityCount={0} />
         </div>
 
         <div className="text-center mt-12">
@@ -494,7 +493,7 @@ function Technical() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -550,7 +549,7 @@ function StatsBand() {
   ];
   
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-label="Başarı İstatistiklerimiz">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-label="Başarı İstatistiklerimiz">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
@@ -589,7 +588,7 @@ function StatsBand() {
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="kullanim-alanlari-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -642,7 +641,7 @@ function UseCases() {
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="bilgi-rehber-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_4200px] md:[contain-intrinsic-size:auto_3400px] lg:[contain-intrinsic-size:auto_2600px] py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="bilgi-rehber-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -918,7 +917,7 @@ const FAQ_ITEMS = [
 function FAQ() {
   
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">

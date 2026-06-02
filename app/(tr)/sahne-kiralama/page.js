@@ -458,7 +458,7 @@ function RentalFlow() {
   return (
     <section
       id="teklif-akisi"
-      className="bg-white py-14 sm:py-16"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1600px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_820px] bg-white py-14 sm:py-16"
       aria-labelledby="teklif-akisi-baslik"
     >
       <div className="container mx-auto px-4">
@@ -573,7 +573,7 @@ function Services() {
   return (
     <section
       id="hizmetler"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
       aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto px-4">
@@ -660,7 +660,7 @@ function Packages() {
   return (
     <section
       id="paketler"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-b from-gray-50 to-white"
       aria-labelledby="paketler-baslik"
     >
       <div className="container mx-auto px-4">
@@ -863,7 +863,7 @@ function StaticGallery({ images, visibleCount = 8, priorityCount = 2 }) {
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1400px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
@@ -884,7 +884,7 @@ function Gallery() {
           <StaticGallery
             images={GALLERY_IMAGES}
             visibleCount={8}
-            priorityCount={2}
+            priorityCount={0}
           />
         </div>
 
@@ -987,7 +987,7 @@ function Technical() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white"
       aria-labelledby="altyapi-baslik"
     >
       <div className="container mx-auto px-4">
@@ -1059,7 +1059,7 @@ function StatsBand() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
       aria-label="Başarı İstatistiklerimiz"
     >
       <div className="container mx-auto px-4">
@@ -1104,7 +1104,7 @@ function StatsBand() {
 function UseCases() {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1180,7 +1180,7 @@ function UseCases() {
 function Articles() {
   return (
     <section
-      className="py-20 bg-gradient-to-b from-white to-gray-50/50"
+      className="content-visibility-auto [contain-intrinsic-size:auto_4200px] md:[contain-intrinsic-size:auto_3400px] lg:[contain-intrinsic-size:auto_2600px] py-20 bg-gradient-to-b from-white to-gray-50/50"
       aria-labelledby="bilgi-rehber-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -1549,7 +1549,7 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2
@@ -1648,7 +1648,7 @@ function RelatedServices() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1200px] sm:[contain-intrinsic-size:auto_900px] lg:[contain-intrinsic-size:auto_700px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">

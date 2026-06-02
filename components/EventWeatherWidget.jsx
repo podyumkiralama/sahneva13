@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CloudRain,
   Loader2,
@@ -87,11 +87,13 @@ export default function EventWeatherWidget({
   defaultCity = "istanbul",
   whatsappHref = DEFAULT_WHATSAPP_HREF,
 }) {
+  const sectionRef = useRef(null);
   const normalizedDefaultCity = CITY_LABELS[defaultCity] ? defaultCity : "istanbul";
   const [selectedCity, setSelectedCity] = useState(normalizedDefaultCity);
   const [forecast, setForecast] = useState([]);
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
 
   const selectedCityLabel = useMemo(
     () => CITY_LABELS[selectedCity] ?? "İstanbul",
@@ -99,6 +101,31 @@ export default function EventWeatherWidget({
   );
 
   useEffect(() => {
+    if (hasEnteredViewport) return undefined;
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setHasEnteredViewport(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setHasEnteredViewport(true);
+        observer.disconnect();
+      },
+      { rootMargin: "420px 0px" },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [hasEnteredViewport]);
+
+  useEffect(() => {
+    if (!hasEnteredViewport) return undefined;
     let isMounted = true;
     const controller = new AbortController();
 
@@ -144,11 +171,12 @@ export default function EventWeatherWidget({
       isMounted = false;
       controller.abort();
     };
-  }, [selectedCity]);
+  }, [hasEnteredViewport, selectedCity]);
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0B1120] py-14 text-white sm:py-18 lg:py-20"
+      ref={sectionRef}
+      className="content-visibility-auto [contain-intrinsic-size:auto_980px] lg:[contain-intrinsic-size:auto_760px] relative overflow-hidden bg-[#0B1120] py-14 text-white sm:py-18 lg:py-20"
       aria-labelledby="event-weather-title"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
