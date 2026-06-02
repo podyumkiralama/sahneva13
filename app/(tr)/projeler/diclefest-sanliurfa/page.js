@@ -23,9 +23,9 @@ const IMAGE_BASE = "/img/projeler/diclefest-sanliurfa";
 const TITLE = "DicleFest Şanlıurfa Festival Alanı Kurulumu ve Etkinlik Yönetimi";
 const SEO_TITLE = "DicleFest Şanlıurfa | Dome Çadır, LED Ekran ve Konser Alanı";
 const DESCRIPTION =
-  "Şanlıurfa DicleFest kapsamında dome çadırlar, etkinlik çadırları, oyun alanları, konser alanı, dekor uygulamaları ve festival saha operasyonu Sahneva koordinasyonunda yönetildi.";
+  "Şanlıurfa DicleFest’te dome çadır, etkinlik çadırları, oyun alanları, konser alanı, dekor ve festival saha operasyonu Sahneva tarafından yönetildi.";
 const OG_DESCRIPTION =
-  "Topçu Meydanı’nda düzenlenen DicleFest Şanlıurfa projesinde dome çadırlar, oyun alanları, konser alanı, dekor uygulamaları ve açık alan festival operasyonu Sahneva koordinasyonunda yönetildi.";
+  "Topçu Meydanı DicleFest projesinde dome çadır, oyun alanları, konser alanı, dekor ve açık alan festival operasyonu Sahneva tarafından yönetildi.";
 const PUBLISHED_AT = "2026-05-16T12:00:00+03:00";
 const MODIFIED_AT = "2026-05-16T17:30:00+03:00";
 const DICLEFEST_SOURCE_URL = "https://diclefest.com/etkinlikler/";

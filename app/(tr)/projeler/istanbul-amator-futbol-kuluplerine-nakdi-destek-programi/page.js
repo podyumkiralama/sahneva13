@@ -24,9 +24,9 @@ const VENUE_NAME = "Millet Bahçesi Hangar";
 const H1 = "Kapalı Alan LED Ekran ve Sahne Kurulumu";
 const SEO_TITLE = "Amatör Futbol Kulüpleri Destek Programı | LED Ekran ve Sahne Kurulumu";
 const DESCRIPTION =
-  "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı kapsamında LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve kapalı alan protokol etkinliği kurulumu Sahneva tarafından yönetildi.";
+  "İstanbul Amatör Futbol Kulüpleri destek programında LED ekran, sahne, podyum, ses-ışık, truss ve protokol kurulumu Sahneva tarafından yönetildi.";
 const OG_DESCRIPTION =
-  "Kapalı alan protokol etkinliğinde LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve salon düzeni Sahneva koordinasyonunda yönetildi.";
+  "Kapalı alan protokol etkinliğinde LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve salon düzeni Sahneva tarafından yönetildi.";
 const PUBLISHED_AT = "2026-05-19T12:00:00+03:00";
 const MODIFIED_AT = "2026-05-19T12:00:00+03:00";
 

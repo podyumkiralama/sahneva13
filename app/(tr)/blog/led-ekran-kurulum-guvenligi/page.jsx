@@ -28,7 +28,7 @@ const GALLERY_OUTDOOR_IMG = "/img/galeri/led-ekran-kiralama-30.webp";
 
 const TITLE = "LED Ekran Kurulumu Güvenli mi? | 2026 Teknik Saha Rehberi";
 const DESCRIPTION =
-  "LED ekran kurulumu doğru taşıyıcı sistem, rüzgar hesabı, elektrik güvenliği ve yetkin teknik ekiple güvenlidir. Açık hava, truss, ground support ve ISG kontrolleri için 2026 saha rehberi.";
+  "LED ekran kurulumunda taşıyıcı sistem, rüzgar hesabı, elektrik güvenliği, yetkin ekip, truss ve ISG kontrolleri için 2026 saha rehberi.";
 
 const WA_URL =
   "https://wa.me/905453048671?text=" +
