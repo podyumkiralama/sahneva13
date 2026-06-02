@@ -3,7 +3,10 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { getBlogPosts } from "@/lib/blogPosts";
-import { PROJECT_LASTMOD_FALLBACK } from "@/lib/seoLastModified";
+import {
+  PROJECT_LASTMOD_FALLBACK,
+  getLastModifiedDateTimeForFile,
+} from "@/lib/seoLastModified";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
@@ -136,6 +139,20 @@ const STATIC_ENTRIES = [
     category: "static",
     keywords:
       "sahneva,sss,sık sorulan sorular,sahne kiralama süreci,podyum kurulumu,etkinlik hazırlığı",
+  },
+  {
+    path: "/cadir-hesaplama",
+    title: "Çadır Hesaplama Aracı",
+    summary:
+      "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre etkinlik için yaklaşık çadır m² ihtiyacını hesaplayan planlama aracı.",
+    priority: 0.84,
+    updatedAt: getLastModifiedDateTimeForFile(
+      "app/(tr)/cadir-hesaplama/page.jsx",
+      "2026-06-02T00:00:00+03:00"
+    ),
+    category: "tool",
+    keywords:
+      "çadır hesaplama,çadır metrekare hesabı,etkinlik çadırı ölçüsü,kaç kişiye kaç m2 çadır,sahneva",
   },
 ];
 
