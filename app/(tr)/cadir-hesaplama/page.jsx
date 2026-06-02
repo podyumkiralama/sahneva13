@@ -21,6 +21,14 @@ export const metadata = {
     type: "website",
     siteName: "Sahneva",
     locale: "tr_TR",
+    images: [
+      {
+        url: `${ORIGIN}/img/cadir/hero.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Çadır hesaplama aracı - kaç kişiye kaç m² çadır gerekir",
+      },
+    ],
   },
   robots: {
     index: true,
