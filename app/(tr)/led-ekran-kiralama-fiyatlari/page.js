@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import LedCalculatorClient from "../led-ekran-hesaplama/LedCalculatorClient";
 import {
   ArrowRight,
   BadgeCheck,
@@ -47,7 +46,6 @@ const PRICES = {
 };
 
 const quickLinks = [
-  { href: "#led-ekran-hesaplama-araci", label: "Hesaplama aracı" },
   { href: "#led-ekran-kiralama-fiyatlari-ne-kadar", label: "Fiyat ne kadar?" },
   { href: "#ortalama-led-ekran-kiralama-m2-fiyatlari", label: "m² fiyatları" },
   { href: "#indoor-outdoor-led-ekran-fiyat-farki", label: "Indoor / outdoor" },
@@ -79,11 +77,6 @@ const priceRows = [
     scope: "İçerik akışı, görüntü kontrolü, canlı kamera ve sunum ihtiyaçlarına göre planlanır",
   },
   {
-    type: "Watchout / gelişmiş reji",
-    price: "50.000 TL",
-    scope: "Mapping, lansman, senkron video, çoklu ekran ve gelişmiş sahne akışı gereken işlerde opsiyonel eklenir",
-  },
-  {
     type: "Şehir dışı lojistik",
     price: "Ayrıca hesaplanır",
     scope: "Araç, ekip, konaklama, yükleme penceresi ve kurulum şehrine göre tekliflendirilir",
@@ -113,8 +106,8 @@ const scenarios = [
     title: "Küçük indoor toplantı / konferans",
     meters: "12 m² LED ekran",
     screen: "Standart indoor LED ekran",
-    detail: "Küçük ekranlarda sadece m² hesabı yerine minimum kurulum paketi uygulanır; ekip, işlemci, kablolama ve lojistik buna göre planlanır.",
-    price: "Fiyat minimum paket, kurulum zorluğu ve mekan erişimine göre hesaplanır.",
+    detail: "Kurulum ve söküm dahil olup olmayacağı mekan erişimi ve süreye göre netleşir.",
+    price: "Fiyat m² başlangıç bedeli üzerinden proje kapsamına göre hesaplanır.",
   },
   {
     title: "Kurumsal lansman / gala",
@@ -135,15 +128,11 @@ const scenarios = [
 const faq = [
   {
     q: "LED ekran kiralama fiyatları ne kadar?",
-    a: "2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda 1.800 TL/m²’den, P1.9 Indoor LED ekranda 4.500 TL/m²’den başlayan fiyatlarla planlanır. Küçük ekranlarda ise ekip, işlemci, kablolama ve lojistik nedeniyle minimum kurulum paketi uygulanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.",
+    a: "2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda 1.800 TL/m²’den, P1.9 Indoor LED ekranda 4.500 TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.",
   },
   {
     q: "LED ekran kiralama fiyatı m² bazlı mı hesaplanır?",
-    a: "Evet. Ana hesap toplam LED ekran alanı üzerinden yapılır. Ancak sadece m² yeterli değildir; piksel aralığı, indoor/outdoor kullanım, kurulum zorluğu, NovaStar görüntü işlemcisi, teknik reji ve teknik ekip kapsamı da bütçeyi etkiler. 4x3 gibi küçük ekranlarda m² fiyatı yerine minimum iş bedeli uygulanabilir.",
-  },
-  {
-    q: "Watchout her LED ekran işinde gerekli mi?",
-    a: "Hayır. Watchout standart LED kurulumlarında zorunlu değildir. Mapping, lansman, çoklu ekran senkronizasyonu, sahne şovu ve üst düzey kurumsal etkinliklerde isteğe bağlı olarak eklenir. Sahneva hesaplama aracında Watchout opsiyonu 50.000 TL ek hizmet olarak seçilebilir.",
+    a: "Evet. Ana hesap toplam LED ekran alanı üzerinden yapılır. Ancak sadece m² yeterli değildir; piksel aralığı, indoor/outdoor kullanım, kurulum zorluğu, NovaStar görüntü işlemcisi, teknik reji ve teknik ekip kapsamı da bütçeyi etkiler.",
   },
   {
     q: "P1.9 LED ekran kiralama fiyatı neden daha yüksektir?",
@@ -182,7 +171,7 @@ const faq = [
 export const metadata = {
   title: "LED Ekran Kiralama Fiyatları 2026 | m², Kurulum ve Teknik Destek",
   description:
-    "2026 LED ekran kiralama fiyatları; P1.9, P2.5, P2.9 ve P3.9 panel seçeneklerinde m² bazlı başlangıç bedelleri, minimum kurulum paketi, Watchout, kurulum, söküm, reji ve lojistik kalemlerine göre hesaplanır.",
+    "2026 LED ekran kiralama fiyatları; P1.9, P2.5, P2.9 ve P3.9 panel seçeneklerinde m² bazlı başlangıç bedelleri, kurulum, söküm, reji ve lojistik kalemlerine göre hesaplanır.",
   alternates: buildLanguageAlternates({
     tr: SLUG,
     canonical: SLUG,
@@ -192,10 +181,6 @@ export const metadata = {
     "led ekran kiralama fiyatları",
     "led ekran kiralama fiyatları 2026",
     "led ekran m2 fiyatı",
-    "led ekran hesaplama",
-    "led ekran m2 hesaplama",
-    "led ekran fiyat hesaplama",
-    "4x3 led ekran fiyatı",
     "P1.9 LED ekran kiralama fiyatı",
     "indoor LED ekran fiyatı",
     "outdoor LED ekran fiyatı",
@@ -205,7 +190,7 @@ export const metadata = {
     url: PAGE_URL,
     title: "LED Ekran Kiralama Fiyatları 2026 | m², Kurulum ve Teknik Destek",
     description:
-      "Standart LED ekran ve P1.9 Indoor LED için 2026 m² bazlı başlangıç bedelleri; hesaplama aracı, minimum paket, Watchout, kurulum, görüntü işlemcisi ve teknik reji kalemleri.",
+      "Standart LED ekran ve P1.9 Indoor LED için 2026 m² bazlı başlangıç bedelleri; kurulum, söküm, görüntü işlemcisi ve teknik reji kalemleri.",
     locale: "tr_TR",
     siteName: "Sahneva",
     images: [
@@ -221,7 +206,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "LED Ekran Kiralama Fiyatları 2026",
     description:
-      "LED ekran m² fiyatı, hesaplama aracı, minimum paket, P1.9 Indoor LED farkı, kurulum, NovaStar görüntü işlemcisi ve teknik reji kapsamı.",
+      "LED ekran m² fiyatı, P1.9 Indoor LED farkı, kurulum, NovaStar görüntü işlemcisi ve teknik reji kapsamı.",
     images: [`${BASE_SITE_URL}${HERO_IMAGE}`],
   },
   robots: {
@@ -238,21 +223,21 @@ export const metadata = {
 };
 
 function tl(value) {
-  return value.toLocaleString("tr-TR");
+  return new Intl.NumberFormat("tr-TR").format(value);
 }
 
 function buildJsonLd() {
   const webPageId = `${PAGE_URL}#webpage`;
   const serviceId = `${PAGE_URL}#service`;
-  const offerCatalogId = `${PAGE_URL}#offers`;
+  const offerCatalogId = `${PAGE_URL}#offer-catalog`;
   const howToId = `${PAGE_URL}#howto`;
 
   const aggregateOffer = {
     "@type": "AggregateOffer",
+    priceCurrency: PRICES.currency,
     lowPrice: String(PRICES.standard),
     highPrice: String(PRICES.premiumP19),
-    priceCurrency: PRICES.currency,
-    offerCount: "3",
+    offerCount: "2",
     priceValidUntil: PRICE_VALID_UNTIL,
     availability: "https://schema.org/InStock",
     url: PAGE_URL,
@@ -282,16 +267,6 @@ function buildJsonLd() {
         availability: "https://schema.org/InStock",
         url: `${PAGE_URL}#p19-led-ekran-kiralama-fiyati`,
         description: "P1.9 Indoor LED ekran kiralama için m² bazlı başlangıç fiyatı.",
-      },
-      {
-        "@type": "Offer",
-        name: "Watchout / gelişmiş reji opsiyonu",
-        price: "50000",
-        priceCurrency: PRICES.currency,
-        priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
-        url: `${PAGE_URL}#led-ekran-hesaplama-araci`,
-        description: "Mapping, lansman, çoklu ekran senkronizasyonu ve gelişmiş sahne akışı için opsiyonel Watchout hizmeti.",
       },
     ],
   };
@@ -354,18 +329,6 @@ function buildJsonLd() {
     ],
   };
 
-  const webApplication = {
-    "@type": "WebApplication",
-    "@id": `${PAGE_URL}#calculator`,
-    name: "LED Ekran Hesaplama Aracı",
-    url: `${PAGE_URL}#led-ekran-hesaplama-araci`,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    description:
-      "LED ekran en, boy, gün sayısı, iç/dış mekan ve opsiyonel Watchout seçimine göre yaklaşık başlangıç bedeli hesaplayan araç.",
-    provider: { "@id": ORGANIZATION_ID },
-  };
-
   const webPage = {
     "@type": "WebPage",
     "@id": webPageId,
@@ -384,12 +347,11 @@ function buildJsonLd() {
     },
     image: [`${BASE_SITE_URL}${HERO_IMAGE}`, `${BASE_SITE_URL}${TECH_IMAGE}`],
     mainEntity: { "@id": serviceId },
-    hasPart: [{ "@id": `${PAGE_URL}#calculator` }],
   };
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webPage, service, offerCatalog, faqPage, howTo, webApplication],
+    "@graph": [webPage, service, offerCatalog, faqPage, howTo],
   };
 }
 
@@ -473,7 +435,7 @@ export default function Page() {
               </p>
 
               <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 md:text-lg md:leading-8">
-                Bu sayfada m² bazlı başlangıç bedellerini, küçük ekranlarda minimum paket mantığını ve fiyatı etkileyen teknik kalemleri inceleyebilirsiniz.
+                Bu sayfada m² bazlı başlangıç bedellerini ve fiyatı etkileyen teknik kalemleri inceleyebilirsiniz.
                 Envanter gücü, kurulum senaryoları, rigging, reji ve saha operasyon detayları için ana hizmet sayfamız olan{" "}
                 <Link href="/led-ekran-kiralama" className="font-black text-cyan-100 underline underline-offset-4">
                   LED Ekran Kiralama
@@ -512,13 +474,6 @@ export default function Page() {
                   <MessageCircle size={20} aria-hidden="true" />
                   WhatsApp ile fiyat iste
                 </a>
-                <a
-                  href="#led-ekran-hesaplama-araci"
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 px-7 py-4 font-black text-cyan-50 backdrop-blur transition hover:bg-cyan-300/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-200/40"
-                >
-                  <Calculator size={20} aria-hidden="true" />
-                  LED fiyat hesapla
-                </a>
                 <Link
                   href="/led-ekran-kiralama"
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-7 py-4 font-black text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
@@ -546,243 +501,456 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="led-ekran-hesaplama-araci" className="scroll-mt-24">
-          <LedCalculatorClient />
-        </section>
-
         <section className="relative border-y border-white/10 bg-slate-950 py-8">
           <div className="container mx-auto grid gap-4 px-4 md:grid-cols-4">
             {[
               ["300 m²", "P1.9 Indoor LED envanteri"],
               ["1.800 TL", "standart m² başlangıç"],
               ["4.500 TL", "P1.9 m² başlangıç"],
-              ["50.000 TL", "opsiyonel Watchout"],
+              ["NovaStar", "görüntü işlemcisi ve reji planı"],
             ].map(([value, label]) => (
               <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <p className="text-3xl font-black text-white">{value}</p>
-                <p className="mt-1 text-sm font-bold text-slate-300">{label}</p>
+                <p className="mt-1 text-sm font-semibold text-slate-300">{label}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="led-ekran-kiralama-fiyatlari-ne-kadar" className="container mx-auto px-4 py-20">
-          <SectionHeader
-            eyebrow="Fiyat Mantığı"
-            title="LED ekran kiralama fiyatları neye göre belirlenir?"
-            description="LED ekran kiralama fiyatı yalnızca panelin m² bedeli değildir. Ekran tipi, piksel aralığı, toplam ölçü, kurulum yüksekliği, mekan erişimi, teknik reji, görüntü işlemcisi, ekip süresi ve lojistik planı aynı teklifin içinde birlikte değerlendirilir."
-          />
+        <section id="led-ekran-kiralama-fiyatlari-ne-kadar" className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <SectionHeader
+                eyebrow="Fiyat Mantığı"
+                title="LED ekran kiralama fiyatları ne kadar?"
+                description="LED ekran fiyatı tek bir katalog rakamıyla doğru okunmaz. Toplam m², piksel aralığı, indoor/outdoor kullanım, kurulum erişimi, NovaStar görüntü işlemcisi, teknik reji ve şehir dışı lojistik aynı teklif içinde değerlendirilir."
+              />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {[
-              [Monitor, "Ekran tipi", "Indoor, outdoor, P1.9 veya standart panel seçimi görüntü kalitesi ve maliyeti doğrudan etkiler."],
-              [Ruler, "Toplam m²", "En x boy hesabı ilk adımdır; ancak küçük ekranlarda minimum iş bedeli m² hesabının önüne geçebilir."],
-              [Cpu, "Reji ve işlemci", "NovaStar, içerik akışı, canlı kamera, Watchout ve teknik operatör ihtiyacı proje kapsamına göre eklenir."],
-            ].map(([Icon, title, desc]) => (
-              <article key={title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-xl">
-                <Icon className="h-9 w-9 text-cyan-300" aria-hidden="true" />
-                <h3 className="mt-5 text-2xl font-black text-white">{title}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{desc}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="ortalama-led-ekran-kiralama-m2-fiyatlari" className="bg-slate-950/80 px-4 py-20">
-          <div className="container mx-auto">
-            <SectionHeader
-              eyebrow="m² Başlangıç Bedelleri"
-              title="Ortalama LED ekran kiralama m² fiyatları"
-              description="Aşağıdaki fiyatlar başlangıç niteliğindedir. Net teklif; kurulum, söküm, teknik ekip, şehir, mekan ve reji kapsamına göre hazırlanır."
-            />
-
-            <div className="mt-10 overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04]">
-              <table className="w-full min-w-[760px] text-left text-sm">
-                <thead className="bg-cyan-300/10 text-cyan-50">
-                  <tr>
-                    <th className="px-5 py-4 font-black">Kalem</th>
-                    <th className="px-5 py-4 font-black">Başlangıç fiyatı</th>
-                    <th className="px-5 py-4 font-black">Kapsam</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/10 text-slate-300">
-                  {priceRows.map((row) => (
-                    <tr key={row.type}>
-                      <td className="px-5 py-5 font-black text-white">{row.type}</td>
-                      <td className="px-5 py-5 font-bold text-cyan-100">{row.price}</td>
-                      <td className="px-5 py-5 leading-6">{row.scope}</td>
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-cyan-950/30">
+                <table className="min-w-full border-separate border-spacing-0">
+                  <caption className="sr-only">
+                    2026 LED ekran kiralama fiyatları m² başlangıç fiyatları ve proje kapsamı.
+                  </caption>
+                  <thead>
+                    <tr className="bg-white/[0.06] text-left">
+                      <th className="border-b border-white/10 px-5 py-4 text-sm font-black text-white">Kalem</th>
+                      <th className="border-b border-white/10 px-5 py-4 text-sm font-black text-white">Fiyat</th>
+                      <th className="border-b border-white/10 px-5 py-4 text-sm font-black text-white">Kapsam</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {priceRows.map((row) => (
+                      <tr key={row.type}>
+                        <td className="border-b border-white/10 px-5 py-5 align-top text-sm font-bold text-white">
+                          {row.type}
+                        </td>
+                        <td className="border-b border-white/10 px-5 py-5 align-top text-sm font-black text-cyan-200">
+                          {row.price}
+                        </td>
+                        <td className="border-b border-white/10 px-5 py-5 align-top text-sm leading-6 text-slate-300">
+                          {row.scope}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="indoor-outdoor-led-ekran-fiyat-farki" className="container mx-auto px-4 py-20">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
-              <SectionHeader
-                eyebrow="Indoor / Outdoor"
-                title="İç mekan ve dış mekan LED ekran fiyat farkı"
-                description="Indoor LED ekranlarda izleme mesafesi, piksel aralığı ve kamera dostu görüntü ön plana çıkar. Outdoor LED ekranlarda ise parlaklık, IP koruma, rüzgar, taşıyıcı sistem ve enerji planı daha belirleyici olur."
-              />
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <section id="ortalama-led-ekran-kiralama-m2-fiyatlari" className="bg-white py-20 text-slate-950">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+              <div>
+                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+                  Ortalama m² Fiyatları
+                </p>
+                <h2 className="text-3xl font-black leading-tight md:text-5xl">
+                  Ortalama LED ekran kiralama m² fiyatları
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-slate-700">
+                  Standart LED ekran projelerinde fiyat çoğunlukla 1.800 TL/m²’den başlar.
+                  Yakın izleme mesafesinde kullanılan P1.9 Indoor LED ekranlarda ise
+                  başlangıç fiyatı 4.500 TL/m² bandına çıkar. Bu fark, piksel yoğunluğu,
+                  çözünürlük, kamera dostu görüntü ve teknik kontrol ihtiyacından doğar.
+                </p>
+                <p className="mt-5 text-lg leading-8 text-slate-700">
+                  Ana hizmet kapsamını görmek için{" "}
+                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/led-ekran-kiralama">
+                    LED ekran kiralama
+                  </Link>{" "}
+                  sayfasını; platform ve sahne ilişkisini karşılaştırmak için{" "}
+                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/podyum-kiralama-fiyatlari">
+                    podyum kiralama fiyatları
+                  </Link>{" "}
+                  sayfasını inceleyebilirsiniz.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
                 {[
-                  [Gauge, "Parlaklık", "Outdoor ekranlarda gün ışığına karşı yüksek parlaklık gerekir."],
-                  [Truck, "Lojistik", "Açık alan kurulumlarında araç, vinç, ekip ve yükleme penceresi önem kazanır."],
-                  [Layers, "Taşıyıcı sistem", "Truss, sahne, rigging ve güvenli sabitleme fiyatı etkiler."],
-                  [BadgeCheck, "Güvenlik", "Rüzgar, zemin ve elektrik dağıtımı ayrıca değerlendirilir."],
-                ].map(([Icon, title, desc]) => (
-                  <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                    <Icon className="h-6 w-6 text-cyan-300" aria-hidden="true" />
-                    <h3 className="mt-4 font-black text-white">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{desc}</p>
+                  ["Standart indoor/outdoor", "1.800 TL/m²", "başlayan fiyat"],
+                  ["P1.9 Indoor LED", "4.500 TL/m²", "başlayan fiyat"],
+                  ["Kurulum + söküm", "Proje bazlı", "saha erişimine göre"],
+                ].map(([name, value, note]) => (
+                  <div key={name} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                    <p className="text-sm font-black uppercase tracking-[0.12em] text-slate-500">{name}</p>
+                    <p className="mt-2 text-4xl font-black text-slate-950">{value}</p>
+                    <p className="mt-1 text-sm font-bold text-slate-500">{note}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-3 shadow-2xl">
-              <Image
-                src={TECH_IMAGE}
-                alt="Indoor LED ekran teknik masa ve görüntü işlemcisi kurulumu"
-                width={900}
-                height={1100}
-                className="h-full w-full rounded-[24px] object-cover"
-              />
+          </div>
+        </section>
+
+        <section id="indoor-outdoor-led-ekran-fiyat-farki" className="py-20">
+          <div className="container mx-auto px-4">
+            <SectionHeader
+              eyebrow="Teknik Fark"
+              title="Indoor ve outdoor LED ekran fiyat farkı"
+              description="Indoor LED ekranlarda izleme mesafesi, piksel aralığı ve renk doğruluğu fiyatı etkiler. Outdoor LED ekranlarda parlaklık, IP koruma, rüzgar yükü, taşıyıcı sistem ve gün ışığında görünürlük daha belirleyici olur."
+              align="center"
+            />
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {[
+                {
+                  icon: Monitor,
+                  title: "Indoor LED ekran",
+                  items: ["P1.9 / P2.5 / P2.9 seçenekleri", "Yakın izleme mesafesi", "Sunum, gala ve konferans netliği", "Kamera dostu görüntü akışı"],
+                },
+                {
+                  icon: Gauge,
+                  title: "Outdoor LED ekran",
+                  items: ["Yüksek parlaklık", "Açık hava dayanımı", "Festival ve konser görünürlüğü", "Taşıyıcı sistem ve güvenlik planı"],
+                },
+              ].map((card) => (
+                <article key={card.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+                  <card.icon className="text-cyan-300" size={34} aria-hidden="true" />
+                  <h3 className="mt-5 text-2xl font-black text-white">{card.title}</h3>
+                  <ul className="mt-5 space-y-3 text-slate-300">
+                    {card.items.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-300" size={18} aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="p19-led-ekran-kiralama-fiyati" className="bg-slate-950/80 px-4 py-20">
-          <div className="container mx-auto grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="relative overflow-hidden rounded-[32px] border border-cyan-300/20 bg-cyan-300/10 p-3 shadow-2xl">
-              <Image
-                src={GALA_IMAGE}
-                alt="Gala etkinliği için P1.9 indoor LED ekran ve sahne video wall kurulumu"
-                width={1000}
-                height={760}
-                className="rounded-[24px] object-cover"
-              />
+        <section id="p19-led-ekran-kiralama-fiyati" className="bg-slate-950 py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div>
+                <SectionHeader
+                  eyebrow="P1.9 Indoor"
+                  title="P1.9 Indoor LED ekran kiralama fiyatı"
+                  description="P1.9 LED ekranlar; yakın izleme mesafesi, yüksek çözünürlük, lansman, gala, konferans ve kapalı alan protokol etkinlikleri için tercih edilir. Bu yüzden standart LED panellere göre daha yüksek m² başlangıç fiyatıyla planlanır."
+                />
+                <div className="mt-8 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-6">
+                  <p className="text-lg leading-8 text-cyan-50">
+                    Sahneva, LED ekran envanterine <strong>300 m² P1.9 Indoor LED envanteri</strong> eklemiştir.
+                    Bu özmal envanter gücü, yakın izleme mesafesinde yüksek çözünürlüklü görüntü isteyen kurumsal sahnelerde
+                    fiyat/performans kararını daha net hale getirir.
+                  </p>
+                </div>
+              </div>
+
+              <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-cyan-950/40">
+                <Image
+                  src={HERO_IMAGE}
+                  alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
+                  loading="lazy"
+                  unoptimized
+                />
+                <figcaption className="border-t border-white/10 px-5 py-4 text-sm leading-6 text-slate-300">
+                  300 m² P1.9 yüksek çözünürlüklü Indoor LED ekran altyapısı; gala, konferans, lansman ve fuar prodüksiyonlarında yakın izleme mesafesinde güçlü görüntü kalitesi sağlar.
+                </figcaption>
+              </figure>
             </div>
-            <div>
+          </div>
+        </section>
+
+        <section id="300-m2-p19-premium-led-ekran-stogu" className="bg-white py-20 text-slate-950">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-8 lg:grid-cols-3">
+              {[
+                {
+                  icon: BadgeCheck,
+                  title: "300 m² P1.9 Indoor LED envanteri",
+                  text: "Yakın izleme mesafesinde logo, sunum, ürün görseli ve kamera aktarımı net kalır.",
+                },
+                {
+                  icon: Cpu,
+                  title: "NovaStar görüntü işlemcisi planı",
+                  text: "Görüntü kontrolü, içerik akışı ve ekran konfigürasyonu teknik rejiyle birlikte ele alınır.",
+                },
+                {
+                  icon: Truck,
+                  title: "Türkiye geneli saha operasyonu",
+                  text: "Şehir dışı lojistik araç, ekip, yükleme saati ve konaklama kapsamına göre hesaplanır.",
+                },
+              ].map((item) => (
+                <article key={item.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                  <item.icon className="text-blue-700" size={34} aria-hidden="true" />
+                  <h2 className="mt-5 text-2xl font-black">{item.title}</h2>
+                  <p className="mt-3 text-base leading-7 text-slate-700">{item.text}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+              <h2 className="text-2xl font-black text-slate-950">
+                Fiyat kararını gerçek LED kurulumlarıyla karşılaştırın
+              </h2>
+              <p className="mt-3 max-w-4xl text-base leading-7 text-slate-700">
+                P1.9 yakın izleme netliği, büyük ekran yüzeyi ve teknik reji ihtiyacının sahada nasıl karşılık bulduğunu{" "}
+                <Link
+                  href="/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi"
+                  className="font-black text-blue-700 underline underline-offset-4"
+                >
+                  Millet Bahçesi Hangar P1.9 LED referansında
+                </Link>{" "}
+                görebilirsiniz. Daha geniş sahne, podyum ve LED yüzeyi ilişkisi için{" "}
+                <Link
+                  href="/projeler/kapali-alan-led-sahne-kurulumu"
+                  className="font-black text-blue-700 underline underline-offset-4"
+                >
+                  kapalı alan LED ve sahne kurulumu
+                </Link>{" "}
+                projesi de teklif kapsamını somutlaştırır.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="led-ekran-fiyatina-neler-dahil" className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <SectionHeader
-                eyebrow="Premium Çözüm"
-                title="P1.9 Indoor LED ekran fiyatı neden daha yüksektir?"
-                description="P1.9 LED ekranlar yakın izleme mesafesinde daha keskin görüntü verir. Bu yüzden gala, lansman, konferans, protokol ve kamera kaydı olan işlerde tercih edilir. Panel kalitesi, kurulum hassasiyeti, görüntü işlemcisi ve teknik reji ihtiyacı standart ekranlara göre daha yüksek bütçe oluşturur."
+                eyebrow="Kapsam"
+                title="LED ekran kiralama fiyatına neler dahildir?"
+                description="Teklif kapsamı projeye göre değişir; doğru fiyatlandırma için ekran paneli, taşıyıcı kurgu, kurulum, söküm, kablolama, görüntü kontrolü, teknik reji ve ekip desteği aynı tabloda netleştirilmelidir."
               />
-              <div className="mt-8 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-6">
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-cyan-100">P1.9 başlangıç</p>
-                <p className="mt-3 text-4xl font-black text-white">{tl(PRICES.premiumP19)} TL/m²</p>
-                <p className="mt-3 leading-7 text-cyan-50/80">
-                  Net fiyat; toplam m², teknik ekip, reji, içerik akışı, kurulum süresi ve lojistik kapsamına göre hazırlanır.
+              <div className="grid gap-4 sm:grid-cols-2">
+                {includedItems.map((item) => (
+                  <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                    <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-300" size={20} aria-hidden="true" />
+                    <span className="font-semibold leading-7 text-slate-200">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="kurulum-sokum-novastar-processor-teknik-reji" className="bg-slate-950 py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <figure className="overflow-hidden rounded-[2rem] border border-white/10">
+                <Image
+                  src={TECH_IMAGE}
+                  alt="P1.9 indoor LED ekran teknik reji NovaStar görüntü işlemcisi ve görüntü kontrol masası"
+                  width={1600}
+                  height={739}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
+                  unoptimized
+                />
+              </figure>
+              <div>
+                <SectionHeader
+                  eyebrow="Operasyon"
+                  title="Kurulum, söküm, NovaStar görüntü işlemcisi ve teknik reji"
+                  description="LED ekran projesinde fiyatı belirleyen en önemli farklardan biri operasyon kapsamıdır. Ekran sadece panel değildir; sinyal akışı, scaler/görüntü işlemcisi ayarı, içerik kontrolü, kablolama, test ve etkinlik anı teknik ekip desteği birlikte planlanır."
+                />
+                <p className="mt-6 text-lg leading-8 text-slate-300">
+                  Kurumsal etkinliklerde{" "}
+                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/kurumsal-organizasyon">
+                    kurumsal etkinlik teknik prodüksiyonu
+                  </Link>
+                  ,{" "}
+                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/ses-isik-sistemleri">
+                    ses ve ışık sistemleri
+                  </Link>{" "}
+                  ve{" "}
+                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/sahne-kiralama">
+                    sahne kurulumu
+                  </Link>{" "}
+                  aynı teknik akış içinde değerlendirilirse teklif daha doğru çıkar.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="led-ekran-fiyatina-neler-dahil" className="container mx-auto px-4 py-20">
-          <SectionHeader
-            eyebrow="Kapsam"
-            title="LED ekran fiyatına neler dahil edilir?"
-            description="Teklifte yalnızca panel m² bedeli değil, operasyonun sahada sorunsuz çalışmasını sağlayan teknik kalemler de planlanır."
-          />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {includedItems.map((item) => (
-              <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-300" aria-hidden="true" />
-                <p className="font-bold leading-7 text-slate-200">{item}</p>
+        <section id="led-ekran-olcusu-nasil-hesaplanir" className="bg-white py-20 text-slate-950">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div>
+                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+                  m² Hesabı
+                </p>
+                <h2 className="text-3xl font-black leading-tight md:text-5xl">
+                  LED ekran ölçüsü nasıl hesaplanır?
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-slate-700">
+                  LED ekran alanı genellikle genişlik x yükseklik hesabıyla m² olarak bulunur.
+                  Ancak pratikte sahne genişliği, salon görüş açısı, izleyici mesafesi, kamera
+                  aktarımı ve içerik oranı da bu ölçüyü etkiler.
+                </p>
               </div>
-            ))}
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                <div className="flex items-center gap-3">
+                  <Ruler className="text-blue-700" size={32} aria-hidden="true" />
+                  <h3 className="text-2xl font-black">Basit hesap mantığı</h3>
+                </div>
+                <div className="mt-6 rounded-2xl bg-white p-6 font-mono text-lg font-black text-slate-950 shadow-sm">
+                  ekran m² = genişlik x yükseklik
+                </div>
+                <p className="mt-5 text-base leading-7 text-slate-700">
+                  Örnek: 6 m genişlik x 4 m yükseklik = 24 m² LED ekran. Bu ölçüde P2.9,
+                  P3.9 veya P1.9 seçimi; izleyici mesafesi ve içerik kalitesine göre netleşir.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="bg-slate-950/80 px-4 py-20">
-          <div className="container mx-auto grid gap-10 lg:grid-cols-2">
-            <div>
-              <SectionHeader
-                eyebrow="Teklif İçin Gerekli Bilgiler"
-                title="Net LED ekran fiyatı için hangi bilgiler gerekir?"
-                description="Doğru fiyat için ekran ölçüsü kadar saha koşulları da önemlidir. Aşağıdaki bilgiler paylaşıldığında teklif daha hızlı netleşir."
-              />
-            </div>
-            <div className="grid gap-3">
-              {requiredInfo.map((item, index) => (
-                <div key={item} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-300 text-sm font-black text-slate-950">
-                    {index + 1}
-                  </span>
-                  <p className="font-bold leading-7 text-slate-200">{item}</p>
+        <section id="fiyat-teklifi-icin-gereken-bilgiler" className="py-20">
+          <div className="container mx-auto px-4">
+            <SectionHeader
+              eyebrow="Teklif İçin"
+              title="Fiyat teklifi almak için gereken bilgiler"
+              description="Eksik bilgiyle verilen LED ekran fiyatı çoğu zaman yanıltıcı olur. Aşağıdaki bilgiler gelirse m², panel tipi, reji ve lojistik kapsamını daha net hesaplayabiliriz."
+              align="center"
+            />
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {requiredInfo.map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                  <Calculator className="text-cyan-300" size={24} aria-hidden="true" />
+                  <p className="mt-4 font-semibold leading-7 text-slate-200">{item}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="ornek-fiyat-senaryolari" className="container mx-auto px-4 py-20">
-          <SectionHeader
-            eyebrow="Senaryolar"
-            title="Örnek LED ekran fiyat senaryoları"
-            description="Aşağıdaki senaryolar teklif yaklaşımını anlatmak içindir. Net fiyat için tarih, şehir, mekan ve teknik kapsam birlikte değerlendirilir."
-            align="center"
-          />
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {scenarios.map((item) => (
-              <article key={item.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-xl">
-                <p className="text-sm font-black uppercase tracking-[0.14em] text-cyan-300">{item.meters}</p>
-                <h3 className="mt-4 text-2xl font-black text-white">{item.title}</h3>
-                <p className="mt-3 font-bold text-slate-200">{item.screen}</p>
-                <p className="mt-4 leading-7 text-slate-300">{item.detail}</p>
-                <p className="mt-4 rounded-2xl bg-slate-950/70 p-4 text-sm font-bold leading-6 text-cyan-50">
-                  {item.price}
-                </p>
-              </article>
-            ))}
+        <section id="ornek-fiyat-senaryolari" className="bg-white py-20 text-slate-950">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+                Senaryolar
+              </p>
+              <h2 className="text-3xl font-black leading-tight md:text-5xl">
+                Örnek fiyat senaryoları
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-700">
+                Aşağıdaki senaryolar kesin teklif değildir; ekran tipi, m², teknik reji,
+                kurulum-söküm ve lojistik kapsamının nasıl değerlendirildiğini gösterir.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {scenarios.map((scenario) => (
+                <article key={scenario.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                  <Layers className="text-blue-700" size={30} aria-hidden="true" />
+                  <h3 className="mt-5 text-2xl font-black">{scenario.title}</h3>
+                  <ul className="mt-5 space-y-3 text-slate-700">
+                    {[scenario.meters, scenario.screen, scenario.detail, scenario.price].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-1 shrink-0 text-emerald-600" size={18} aria-hidden="true" />
+                        <span className="leading-7">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="faq" className="bg-slate-950/80 px-4 py-20">
-          <div className="container mx-auto max-w-5xl">
+        <section id="faq" className="py-20">
+          <div className="container mx-auto max-w-4xl px-4">
             <SectionHeader
-              eyebrow="Sıkça Sorulan Sorular"
-              title="LED ekran kiralama fiyatları hakkında merak edilenler"
-              description="m² hesabı, P1.9 farkı, kurulum, reji, Watchout ve şehir dışı lojistik gibi fiyatı etkileyen konular."
+              eyebrow="FAQ"
+              title="LED ekran kiralama fiyatları hakkında sık sorulan sorular"
+              description="m² hesabı, P1.9 fiyat farkı, teknik reji, kurulum ve şehir dışı lojistik hakkında en çok gelen sorular."
               align="center"
             />
             <div className="mt-10 space-y-4">
               {faq.map((item) => (
-                <details key={item.q} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 open:bg-white/[0.07]">
-                  <summary className="cursor-pointer list-none text-lg font-black text-white">
+                <details
+                  key={item.q}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 open:border-cyan-300/40 open:bg-cyan-300/10"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-black text-white">
                     {item.q}
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/10 text-cyan-200 transition group-open:rotate-180">
+                      ⌄
+                    </span>
                   </summary>
-                  <p className="mt-4 leading-7 text-slate-300">{item.a}</p>
+                  <p className="mt-5 border-l-4 border-cyan-300 pl-5 leading-8 text-slate-300">
+                    {item.a}
+                  </p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-20">
-          <div className="rounded-[34px] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/15 via-white/[0.05] to-slate-950 p-7 shadow-2xl md:p-10">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <h2 className="text-3xl font-black text-white md:text-5xl">
-                  LED ekran projeniz için net fiyat teklifi alın
-                </h2>
-                <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
-                  Etkinlik tarihi, şehir, mekan, ekran ölçüsü ve teknik kapsamı paylaşın; Sahneva ekibi size m² hesabı, kurulum ve reji kalemleriyle net teklif hazırlasın.
+        <section className="bg-white py-20 text-slate-950">
+          <div className="container mx-auto px-4">
+            <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white md:p-12">
+              <Image
+                src={GALA_IMAGE}
+                alt="Kurumsal gala için LED ekran kiralama fiyat teklifi ve sahne kurulumu"
+                fill
+                sizes="100vw"
+                className="object-cover opacity-25"
+                loading="lazy"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-slate-950/65" />
+              <div className="relative z-10 max-w-3xl">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+                  Teklif CTA
                 </p>
+                <h2 className="mt-3 text-3xl font-black leading-tight md:text-5xl">
+                  LED ekran m², P1.9 ve teknik reji kapsamını birlikte fiyatlandıralım.
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-slate-200">
+                  Ekran ölçüsü, şehir, mekan tipi ve içerik akışını paylaşın; standart LED ekran,
+                  P1.9 Indoor LED, NovaStar görüntü işlemcisi, kurulum-söküm ve teknik ekip kapsamını net teklif olarak hazırlayalım.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-7 py-4 font-black text-slate-950 transition hover:bg-emerald-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
+                  >
+                    <MessageCircle size={20} aria-hidden="true" />
+                    WhatsApp ile ölçü paylaş
+                  </a>
+                  <Link
+                    href="/kurumsal-organizasyon"
+                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-7 py-4 font-black text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+                  >
+                    Kurumsal organizasyon
+                    <ArrowRight size={20} aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-8 py-4 font-black text-slate-950 transition hover:bg-emerald-300"
-              >
-                <MessageCircle size={20} aria-hidden="true" />
-                WhatsApp ile teklif al
-              </a>
             </div>
           </div>
         </section>
