@@ -39,10 +39,10 @@ const pitchOptions = {
 const extras = [
   {
     key: "watchout",
-    label: "Watchout / premium reji",
+    label: "Watchout / gelişmiş reji",
     price: 50000,
     premium: true,
-    description: "Mapping, lansman, senkron video, çoklu ekran ve premium sahne şovlarında önerilir.",
+    description: "Mapping, lansman, senkron video, çoklu ekran ve gelişmiş sahne akışlarında önerilir.",
   },
   {
     key: "truss",
@@ -129,7 +129,7 @@ export default function LedCalculatorClient() {
             LED ekran m² ve fiyat hesaplama
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
-            Ekran ölçüsü, iç/dış mekan seçimi, gün sayısı ve isteğe bağlı Watchout gibi premium reji ihtiyaçlarına göre yaklaşık başlangıç bedelini hesaplayın.
+            Ekran ölçüsü, iç/dış mekan seçimi, gün sayısı ve isteğe bağlı Watchout gibi gelişmiş reji ihtiyaçlarına göre yaklaşık başlangıç bedelini hesaplayın.
           </p>
         </div>
 

@@ -79,9 +79,9 @@ const priceRows = [
     scope: "İçerik akışı, görüntü kontrolü, canlı kamera ve sunum ihtiyaçlarına göre planlanır",
   },
   {
-    type: "Watchout / premium reji",
+    type: "Watchout / gelişmiş reji",
     price: "50.000 TL",
-    scope: "Mapping, lansman, senkron video, çoklu ekran ve premium sahne akışı gereken işlerde opsiyonel eklenir",
+    scope: "Mapping, lansman, senkron video, çoklu ekran ve gelişmiş sahne akışı gereken işlerde opsiyonel eklenir",
   },
   {
     type: "Şehir dışı lojistik",
@@ -143,7 +143,7 @@ const faq = [
   },
   {
     q: "Watchout her LED ekran işinde gerekli mi?",
-    a: "Hayır. Watchout standart LED kurulumlarında zorunlu değildir. Mapping, lansman, çoklu ekran senkronizasyonu, sahne şovu ve premium kurumsal etkinliklerde isteğe bağlı olarak eklenir. Sahneva hesaplama aracında Watchout opsiyonu 50.000 TL ek hizmet olarak seçilebilir.",
+    a: "Hayır. Watchout standart LED kurulumlarında zorunlu değildir. Mapping, lansman, çoklu ekran senkronizasyonu, sahne şovu ve gelişmiş kurumsal etkinliklerde isteğe bağlı olarak eklenir. Sahneva hesaplama aracında Watchout opsiyonu 50.000 TL ek hizmet olarak seçilebilir.",
   },
   {
     q: "P1.9 LED ekran kiralama fiyatı neden daha yüksektir?",
@@ -285,13 +285,13 @@ function buildJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Watchout / premium reji opsiyonu",
+        name: "Watchout / gelişmiş reji opsiyonu",
         price: "50000",
         priceCurrency: PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
         availability: "https://schema.org/InStock",
         url: `${PAGE_URL}#led-ekran-hesaplama-araci`,
-        description: "Mapping, lansman, çoklu ekran senkronizasyonu ve premium sahne akışı için opsiyonel Watchout hizmeti.",
+        description: "Mapping, lansman, çoklu ekran senkronizasyonu ve gelişmiş sahne akışı için opsiyonel Watchout hizmeti.",
       },
     ],
   };
