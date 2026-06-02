@@ -1,212 +1,252 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Calculator, CheckCircle, MessageCircle, Ruler, Tent, Users } from "lucide-react";
+import TentCalculatorClient from "./TentCalculatorClient";
 
-const PHONE = "905453048671";
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
+const ORIGIN = SITE_URL;
 
-const layoutRates = {
-  theatre: { label: "Tiyatro düzeni", sqm: 0.8, note: "Konferans, seminer, tören ve sahne karşısı oturumlar için." },
-  cocktail: { label: "Kokteyl / ayakta", sqm: 1.0, note: "Lansman, fuar, festival ve ayakta karşılama alanları için." },
-  dining: { label: "Yemekli masa düzeni", sqm: 1.6, note: "İftar, gala, düğün ve masa düzenli kurumsal davetler için." },
-  wedding: { label: "Düğün / davet düzeni", sqm: 1.8, note: "Masa, geçiş, dans ve servis boşluğu gereken davetler için." },
+export const revalidate = 1800;
+
+export const metadata = {
+  title: "Çadır Hesaplama Aracı | Kaç Kişiye Kaç m² Çadır Gerekir?",
+  description:
+    "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre etkinliğiniz için önerilen çadır ölçüsünü ve yaklaşık m² ihtiyacını hesaplayın.",
+  alternates: {
+    canonical: `${ORIGIN}/cadir-hesaplama`,
+  },
+  openGraph: {
+    title: "Çadır Hesaplama Aracı | Sahneva",
+    description:
+      "Düğün, fuar, festival, iftar ve kurumsal etkinlikler için kaç m² çadır gerektiğini hesaplayın.",
+    url: `${ORIGIN}/cadir-hesaplama`,
+    type: "website",
+    siteName: "Sahneva",
+    locale: "tr_TR",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
-const extras = [
-  { key: "stage", label: "Sahne alanı", sqm: 40 },
-  { key: "led", label: "LED ekran / teknik alan", sqm: 20 },
-  { key: "dance", label: "Dans alanı", sqm: 50 },
-  { key: "catering", label: "Catering / servis alanı", sqm: 35 },
-  { key: "backstage", label: "Backstage / depo", sqm: 30 },
-  { key: "foyer", label: "Karşılama / fuaye", sqm: 25 },
+const faqItems = [
+  {
+    question: "300 kişilik etkinlik için kaç m² çadır gerekir?",
+    answer:
+      "300 kişilik kokteyl düzeninde yaklaşık 300 m², yemekli masa düzeninde ise yaklaşık 480 m² alan gerekir. Sahne, LED ekran, catering ve karşılama alanı eklendiğinde önerilen çadır ölçüsü genellikle 20x30 m veya 20x40 m seviyesine çıkar.",
+  },
+  {
+    question: "500 kişilik düğün çadırı kaç m² olmalı?",
+    answer:
+      "500 kişilik düğün veya yemekli davetlerde masa aralıkları, servis yolları, dans alanı ve sahne ihtiyacı nedeniyle çoğu projede 900 m² ve üzeri alan planlanır. Net ölçü masa planı ve zemin durumuna göre belirlenmelidir.",
+  },
+  {
+    question: "LED ekran ve sahne alanı çadır hesabını değiştirir mi?",
+    answer:
+      "Evet. Sahne, LED ekran, reji, ses sistemi ve teknik ekip alanı çadır metrajını doğrudan etkiler. Küçük etkinliklerde 40-60 m² ek alan yeterli olabilirken, konser ve festival projelerinde backstage ve teknik alan çok daha geniş planlanır.",
+  },
+  {
+    question: "Pagoda çadır mı büyük açıklıklı çadır mı seçilmeli?",
+    answer:
+      "3x3, 4x4 ve 5x5 pagoda çadırlar karşılama, fuaye, satış noktası ve VIP alan gibi modüler ihtiyaçlarda kullanılır. Kalabalık davet, fuar, festival ve kurumsal etkinliklerde ise 10 m, 20 m, 30 m veya 40 m açıklıklı büyük çadırlar daha doğru çözümdür.",
+  },
+  {
+    question: "Çadır hesaplama sonucu kesin ölçü müdür?",
+    answer:
+      "Hayır. Hesaplama aracı yaklaşık planlama içindir. Net ölçü; zemin tipi, rüzgâr durumu, masa-sandalye yerleşimi, giriş-çıkış aksı, sahne, LED ekran, catering ve güvenlik koridorları değerlendirildikten sonra kesinleşir.",
+  },
 ];
 
-const tentSizes = [
-  { label: "3x3 Pagoda", width: 3, length: 3, type: "Pagoda" },
-  { label: "4x4 Pagoda", width: 4, length: 4, type: "Pagoda" },
-  { label: "5x5 Pagoda", width: 5, length: 5, type: "Pagoda" },
-  { label: "10x20 m Çadır", width: 10, length: 20, type: "Büyük çadır" },
-  { label: "20x20 m Çadır", width: 20, length: 20, type: "Büyük çadır" },
-  { label: "20x30 m Çadır", width: 20, length: 30, type: "Büyük çadır" },
-  { label: "20x40 m Çadır", width: 20, length: 40, type: "Büyük çadır" },
-  { label: "30x40 m Çadır", width: 30, length: 40, type: "Büyük çadır" },
-  { label: "30x60 m Çadır", width: 30, length: 60, type: "Büyük çadır" },
-  { label: "40x60 m Çadır", width: 40, length: 60, type: "Büyük çadır" },
-  { label: "40x100 m Çadır", width: 40, length: 100, type: "Büyük çadır" },
-].map((item) => ({ ...item, area: item.width * item.length }));
+const tableRows = [
+  { people: "100 kişi", cocktail: "100 m²", dining: "160 m²", wedding: "180 m²" },
+  { people: "200 kişi", cocktail: "200 m²", dining: "320 m²", wedding: "360 m²" },
+  { people: "300 kişi", cocktail: "300 m²", dining: "480 m²", wedding: "540 m²" },
+  { people: "500 kişi", cocktail: "500 m²", dining: "800 m²", wedding: "900 m²" },
+  { people: "1000 kişi", cocktail: "1000 m²", dining: "1600 m²", wedding: "1800 m²" },
+];
 
-export default function TentCalculatorPage() {
-  const [people, setPeople] = useState(300);
-  const [layout, setLayout] = useState("cocktail");
-  const [selectedExtras, setSelectedExtras] = useState(["stage", "led"]);
+const relatedLinks = [
+  { href: "/cadir-kiralama", title: "Çadır Kiralama", text: "Pagoda, şeffaf ve büyük açıklıklı çadır sistemleri" },
+  { href: "/sahne-kiralama", title: "Sahne Kiralama", text: "Etkinlik, konser, tören ve festival sahne çözümleri" },
+  { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", text: "İç ve dış mekan LED ekran kurulumları" },
+  { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", text: "Anahtar teslim etkinlik planlama ve saha yönetimi" },
+];
 
-  const result = useMemo(() => {
-    const count = Math.max(Number(people) || 0, 0);
-    const personArea = count * layoutRates[layout].sqm;
-    const extraArea = extras
-      .filter((item) => selectedExtras.includes(item.key))
-      .reduce((total, item) => total + item.sqm, 0);
-    const totalArea = Math.ceil((personArea + extraArea) * 1.12);
-    const recommended = tentSizes.find((tent) => tent.area >= totalArea) || tentSizes[tentSizes.length - 1];
-    const estimatedPrice = recommended.type === "Pagoda" ? null : recommended.area * 430;
+function JsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
-    return { count, personArea: Math.ceil(personArea), extraArea, totalArea, recommended, estimatedPrice };
-  }, [people, layout, selectedExtras]);
-
-  const selectedExtraLabels = extras
-    .filter((item) => selectedExtras.includes(item.key))
-    .map((item) => item.label);
-
-  const whatsappText = encodeURIComponent(
-    `Merhaba, çadır kiralama hesaplama sayfasından teklif istiyorum.\nKişi sayısı: ${people}\nDüzen: ${layoutRates[layout].label}\nEk alanlar: ${selectedExtraLabels.length ? selectedExtraLabels.join(", ") : "Yok"}\nÖnerilen ölçü: ${result.recommended.label}\nYaklaşık ihtiyaç: ${result.totalArea} m²`
-  );
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Çadır Hesaplama Aracı",
+    url: `${ORIGIN}/cadir-hesaplama`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Kişi sayısı ve etkinlik düzenine göre yaklaşık çadır m² ihtiyacını hesaplayan Sahneva aracı.",
+    provider: {
+      "@type": "Organization",
+      name: "Sahneva",
+      url: ORIGIN,
+    },
+  };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
-      <section className="relative isolate overflow-hidden px-4 pb-16 pt-24 md:pb-24 md:pt-32">
-        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:52px_52px]" />
-        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/25 blur-[130px]" />
-        <div className="absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-cyan-400/10 blur-[120px]" />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
+    </>
+  );
+}
 
+export default function TentCalculatorPage() {
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
+      <JsonLd />
+      <TentCalculatorClient />
+
+      <section className="relative border-t border-white/10 bg-[#0B1120] px-4 py-20">
+        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:52px_52px]" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.07] px-5 py-2.5 text-sm font-black text-blue-100 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
-              <Calculator className="h-4 w-4" />
-              ÇADIR HESAPLAMA ARACI
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Planlama Rehberi</p>
+              <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
+                Çadır ölçüsü sadece kişi sayısıyla belirlenmez
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-300">
+                Etkinlik çadırı planlanırken kişi sayısı başlangıç noktasıdır; ancak doğru ölçü için oturma düzeni, masa-sandalye yerleşimi, sahne, LED ekran, catering, backstage, giriş-çıkış aksı ve güvenlik koridorları birlikte değerlendirilmelidir. Bu nedenle aynı 300 kişilik etkinlik, kokteyl düzende daha kompakt çözülebilirken yemekli davet veya düğün düzeninde çok daha geniş bir çadır alanı isteyebilir.
+              </p>
+              <p className="mt-5 text-lg leading-8 text-slate-300">
+                Sahneva, çadır kiralama projelerinde yalnızca metrekare hesabı yapmaz; zeminin çim, beton, asfalt veya hassas yüzey olmasına göre sabitleme yöntemini, rüzgâr durumunu, su tahliye planını, teknik ekipman yerleşimini ve misafir akışını da projeye dahil eder. Bu yaklaşım özellikle belediye etkinlikleri, fuarlar, festivaller, kurumsal lansmanlar ve büyük ölçekli davetlerde güvenli kurulum için önemlidir.
+              </p>
             </div>
-            <h1 className="text-[44px] font-black leading-[0.96] tracking-[-1.4px] md:text-[68px]">
-              Kaç kişiye kaç m² çadır gerekir?
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
-              Kişi sayısı, oturma düzeni ve sahne, LED ekran, catering gibi ek alanlara göre etkinliğiniz için yaklaşık çadır ölçüsünü hesaplayın.
-            </p>
+
+            <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
+              <h3 className="text-2xl font-black">Kişi sayısına göre yaklaşık çadır m² tablosu</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Aşağıdaki değerler teknik alan, sahne, LED ekran, catering ve karşılama bölümü hariç yaklaşık planlama değerleridir.
+              </p>
+              <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
+                <table className="w-full min-w-[620px] text-left text-sm">
+                  <thead className="bg-white/[0.08] text-slate-100">
+                    <tr>
+                      <th className="px-4 py-4 font-black">Kişi</th>
+                      <th className="px-4 py-4 font-black">Kokteyl</th>
+                      <th className="px-4 py-4 font-black">Yemekli</th>
+                      <th className="px-4 py-4 font-black">Düğün/Davet</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/10 text-slate-300">
+                    {tableRows.map((row) => (
+                      <tr key={row.people} className="bg-slate-950/30">
+                        <td className="px-4 py-4 font-bold text-white">{row.people}</td>
+                        <td className="px-4 py-4">{row.cocktail}</td>
+                        <td className="px-4 py-4">{row.dining}</td>
+                        <td className="px-4 py-4">{row.wedding}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0B1120] px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Örnek Kullanımlar</p>
+            <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
+              Hangi etkinlikte nasıl çadır hesabı yapılır?
+            </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-            <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
-              <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                <Users className="h-4 w-4 text-blue-200" />
-                Kişi sayısı
-              </label>
-              <input
-                type="number"
-                min="1"
-                value={people}
-                onChange={(event) => setPeople(event.target.value)}
-                className="mb-7 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-blue-400/30 transition focus:ring-4"
-              />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <article className="rounded-[28px] border border-white/10 bg-white/[0.06] p-6 shadow-xl">
+              <h3 className="text-2xl font-black">Düğün ve davet çadırı</h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Düğünlerde masa aralıkları, gelin yolu, dans alanı, sahne, ışık sistemi ve servis geçişleri hesaba katılmalıdır. Bu yüzden kişi başı alan ihtiyacı kokteyl düzene göre daha yüksektir.
+              </p>
+            </article>
+            <article className="rounded-[28px] border border-white/10 bg-white/[0.06] p-6 shadow-xl">
+              <h3 className="text-2xl font-black">Fuar ve festival çadırı</h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Fuar ve festival projelerinde stand alanları, ziyaretçi akışı, teknik depo, backstage, sağlık noktası ve yönlendirme alanları ayrıca planlanır. Büyük açıklıklı çadırlar bu projelerde daha verimli olur.
+              </p>
+            </article>
+            <article className="rounded-[28px] border border-white/10 bg-white/[0.06] p-6 shadow-xl">
+              <h3 className="text-2xl font-black">Kurumsal etkinlik çadırı</h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Lansman, bayi toplantısı, belediye etkinliği ve kurumsal törenlerde protokol, basın, LED ekran, sahne, karşılama ve catering alanları birlikte düşünülmelidir.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-              <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                <Ruler className="h-4 w-4 text-blue-200" />
-                Oturma / kullanım düzeni
-              </label>
-              <div className="mb-7 grid gap-3 sm:grid-cols-2">
-                {Object.entries(layoutRates).map(([key, item]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => setLayout(key)}
-                    className={`rounded-2xl border px-4 py-4 text-left transition ${
-                      layout === key
-                        ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
-                        : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
-                    }`}
-                  >
-                    <span className="block font-black">{item.label}</span>
-                    <span className="mt-1 block text-xs leading-5 text-slate-400">Yaklaşık {item.sqm} m² / kişi</span>
-                    <span className="mt-2 block text-xs leading-5 text-slate-400">{item.note}</span>
-                  </button>
-                ))}
-              </div>
+      <section className="bg-[#0B1120] px-4 py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Sıkça Sorulan Sorular</p>
+            <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">Çadır hesaplama hakkında merak edilenler</h2>
+          </div>
 
-              <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                <CheckCircle className="h-4 w-4 text-blue-200" />
-                Ek alanlar
-              </label>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {extras.map((item) => {
-                  const active = selectedExtras.includes(item.key);
-                  return (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() =>
-                        setSelectedExtras((current) =>
-                          active ? current.filter((key) => key !== item.key) : [...current, item.key]
-                        )
-                      }
-                      className={`rounded-2xl border px-4 py-4 text-left transition ${
-                        active
-                          ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
-                          : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
-                      }`}
-                    >
-                      <span className="block font-black">{item.label}</span>
-                      <span className="mt-1 block text-xs text-slate-400">+{item.sqm} m²</span>
-                    </button>
-                  );
-                })}
-              </div>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <details key={item.question} className="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-xl open:bg-white/[0.08]">
+                <summary className="cursor-pointer list-none text-lg font-black text-white">
+                  {item.question}
+                </summary>
+                <p className="mt-4 leading-7 text-slate-300">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0B1120] px-4 pb-24">
+        <div className="mx-auto max-w-7xl rounded-[34px] border border-blue-300/20 bg-gradient-to-br from-blue-500/20 via-white/[0.07] to-slate-950 p-6 shadow-2xl md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Ana Hizmet Sayfası</p>
+              <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
+                Net fiyat ve kurulum planı için çadır kiralama sayfasına geçin
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-300">
+                Hesaplama sayfası yaklaşık ölçüyü verir. Stok, fiyat, çadır tipleri, kurulum süreci, zemin sabitleme, nakliye ve anahtar teslim proje detayları için ana çadır kiralama hizmet sayfasını inceleyebilirsiniz.
+              </p>
+              <Link href="/cadir-kiralama" className="mt-7 inline-flex rounded-2xl bg-white px-7 py-4 text-base font-black text-slate-950 transition hover:scale-[1.01]">
+                Çadır kiralama hizmetini incele
+              </Link>
             </div>
 
-            <aside className="rounded-[34px] border border-blue-300/20 bg-gradient-to-br from-blue-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">
-              <div className="mb-7 flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-400/20 ring-1 ring-blue-200/20">
-                  <Tent className="h-7 w-7 text-blue-100" />
-                </div>
-                <div>
-                  <p className="text-sm font-black uppercase tracking-[0.4px] text-blue-100">Önerilen çadır</p>
-                  <h2 className="mt-1 text-3xl font-black tracking-[-0.5px]">{result.recommended.label}</h2>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{result.recommended.type} • {result.recommended.area} m² kurulum alanı</p>
-                </div>
-              </div>
-
-              <div className="grid gap-3">
-                <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
-                  <p className="text-sm text-slate-400">Yaklaşık toplam ihtiyaç</p>
-                  <p className="mt-1 text-4xl font-black">{result.totalArea} m²</p>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                  <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
-                    <p className="text-sm text-slate-400">Kişi alanı</p>
-                    <p className="mt-1 text-2xl font-black">{result.personArea} m²</p>
-                  </div>
-                  <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
-                    <p className="text-sm text-slate-400">Ek alan</p>
-                    <p className="mt-1 text-2xl font-black">{result.extraArea} m²</p>
-                  </div>
-                </div>
-                {result.estimatedPrice ? (
-                  <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
-                    <p className="text-sm text-slate-400">Yaklaşık çadır bedeli</p>
-                    <p className="mt-1 text-3xl font-black">{result.estimatedPrice.toLocaleString("tr-TR")} TL</p>
-                    <p className="mt-2 text-xs leading-5 text-slate-400">430 TL / m² baz alınmıştır. Nakliye, zemin, iklimlendirme ve ek ekipman dahil değildir.</p>
-                  </div>
-                ) : null}
-              </div>
-
-              <a
-                href={`https://wa.me/${PHONE}?text=${whatsappText}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-base font-black text-slate-950 transition hover:scale-[1.01]"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Bu ölçü için teklif al
-              </a>
-
-              <Link
-                href="/cadir-kiralama"
-                className="mt-3 inline-flex w-full items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] px-6 py-4 text-base font-black text-white transition hover:bg-white/[0.1]"
-              >
-                Çadır kiralama sayfasına dön
-              </Link>
-
-              <p className="mt-5 text-sm leading-6 text-slate-300">
-                Bu hesap yaklaşık planlama içindir. Net ölçü; zemin, rüzgâr, masa-sandalye planı, sahne, LED ekran ve giriş-çıkış aksına göre keşif sonrası netleşir.
-              </p>
-            </aside>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {relatedLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-2xl border border-white/10 bg-slate-950/40 p-5 transition hover:bg-white/[0.08]">
+                  <span className="block text-lg font-black text-white">{item.title}</span>
+                  <span className="mt-2 block text-sm leading-6 text-slate-300">{item.text}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
