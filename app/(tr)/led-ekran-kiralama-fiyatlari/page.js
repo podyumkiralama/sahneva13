@@ -46,6 +46,7 @@ const PRICES = {
 };
 
 const quickLinks = [
+  { href: "#led-ekran-hesaplama-araci", label: "Hesaplama aracı" },
   { href: "#led-ekran-kiralama-fiyatlari-ne-kadar", label: "Fiyat ne kadar?" },
   { href: "#ortalama-led-ekran-kiralama-m2-fiyatlari", label: "m² fiyatları" },
   { href: "#indoor-outdoor-led-ekran-fiyat-farki", label: "Indoor / outdoor" },
@@ -377,6 +378,380 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
   );
 }
 
+const ledCalculatorScript = `
+(() => {
+  const root = document.querySelector("[data-led-calculator]");
+  if (!root || root.dataset.ready === "true") return;
+  root.dataset.ready = "true";
+
+  const form = root.querySelector("[data-led-form]");
+  if (!form) return;
+
+  const prices = {
+    standard: { label: "Standart LED ekran", sqm: 1800, minimum: 35000 },
+    p19: { label: "P1.9 Indoor LED", sqm: 4500, minimum: 50000 },
+  };
+
+  const formatPrice = (value) => Math.round(value).toLocaleString("tr-TR") + " TL";
+  const formatArea = (value) =>
+    value.toLocaleString("tr-TR", { maximumFractionDigits: 2 }) + " m²";
+
+  const setText = (selector, value) => {
+    const element = root.querySelector(selector);
+    if (element) element.textContent = value;
+  };
+
+  const calculate = () => {
+    const data = new FormData(form);
+    const type = prices[data.get("screenType")] || prices.standard;
+    const width = Math.max(Number(data.get("width")) || 0, 0);
+    const height = Math.max(Number(data.get("height")) || 0, 0);
+    const days = Math.max(Number(data.get("days")) || 1, 1);
+    const area = width * height;
+    const baseDaily = area * type.sqm;
+    const usesMinimum = area <= 15 || baseDaily < type.minimum;
+    const firstDay = Math.max(baseDaily, type.minimum);
+    const dayTotal = days <= 1 ? firstDay : firstDay + firstDay * 0.35 * (days - 1);
+    const watchout = data.get("watchout") === "on";
+    const watchoutPrice = watchout ? 50000 : 0;
+    const total = dayTotal + watchoutPrice;
+
+    setText("[data-led-area]", formatArea(area));
+    setText("[data-led-daily]", formatPrice(firstDay));
+    setText("[data-led-watchout]", watchout ? "+50.000 TL" : "İsteğe bağlı");
+    setText("[data-led-total]", formatPrice(total));
+    setText(
+      "[data-led-note]",
+      usesMinimum
+        ? "Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır."
+        : "Bu ölçüde hesaplama m² başlangıç bedeli üzerinden yapılır."
+    );
+
+    const message =
+      "Merhaba, LED ekran fiyat hesaplama sonucuna göre teklif almak istiyorum.\\n" +
+      "Ekran tipi: " + type.label + "\\n" +
+      "Ölçü: " + width + "x" + height + " m\\n" +
+      "Toplam alan: " + formatArea(area) + "\\n" +
+      "Gün sayısı: " + days + "\\n" +
+      "Watchout: " + (watchout ? "Evet" : "Hayır") + "\\n" +
+      "Yaklaşık başlangıç bedeli: " + formatPrice(total);
+
+    const whatsapp = root.querySelector("[data-led-whatsapp]");
+    if (whatsapp) {
+      whatsapp.href = "https://wa.me/${PHONE}?text=" + encodeURIComponent(message);
+    }
+  };
+
+  form.addEventListener("input", calculate);
+  form.addEventListener("change", calculate);
+  form.addEventListener("submit", (event) => event.preventDefault());
+  calculate();
+})();
+`;
+
+const calculatorStyles = {
+  section: {
+    background: "#020617",
+    color: "#fff",
+    padding: "80px 0",
+    scrollMarginTop: "6rem",
+  },
+  container: {
+    margin: "0 auto",
+    width: "min(100% - 32px, 1280px)",
+  },
+  shell: {
+    background: "rgba(255, 255, 255, 0.04)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    borderRadius: "1.5rem",
+    boxShadow: "0 25px 70px rgba(8, 47, 73, 0.28)",
+    overflow: "hidden",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+  },
+  panel: {
+    padding: "clamp(24px, 4vw, 32px)",
+  },
+  resultPanel: {
+    background: "rgba(15, 23, 42, 0.72)",
+    borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+    padding: "clamp(24px, 4vw, 32px)",
+  },
+  eyebrow: {
+    color: "#67e8f9",
+    fontSize: "0.875rem",
+    fontWeight: 900,
+    letterSpacing: "0.18em",
+    margin: "0 0 12px",
+    textTransform: "uppercase",
+  },
+  title: {
+    color: "#fff",
+    fontSize: "clamp(30px, 4vw, 48px)",
+    fontWeight: 900,
+    lineHeight: 1.08,
+    margin: 0,
+  },
+  description: {
+    color: "#cbd5e1",
+    fontSize: "clamp(16px, 2vw, 18px)",
+    lineHeight: 1.8,
+    margin: "20px 0 0",
+  },
+  form: {
+    display: "grid",
+    gap: "16px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    marginTop: "32px",
+  },
+  labelText: {
+    color: "#f1f5f9",
+    display: "block",
+    fontSize: "0.875rem",
+    fontWeight: 900,
+    marginBottom: "12px",
+  },
+  input: {
+    background: "rgba(2, 6, 23, 0.72)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    borderRadius: "1rem",
+    boxSizing: "border-box",
+    color: "#fff",
+    fontSize: "1rem",
+    fontWeight: 700,
+    outline: "none",
+    padding: "16px 20px",
+    width: "100%",
+  },
+  checkboxLabel: {
+    alignItems: "flex-start",
+    background: "rgba(255, 255, 255, 0.04)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    borderRadius: "1rem",
+    color: "#cbd5e1",
+    display: "flex",
+    gap: "12px",
+    gridColumn: "1 / -1",
+    lineHeight: 1.6,
+    padding: "20px",
+  },
+  checkbox: {
+    height: "20px",
+    marginTop: "4px",
+    width: "20px",
+  },
+  resultCard: {
+    background: "rgba(103, 232, 249, 0.1)",
+    border: "1px solid rgba(103, 232, 249, 0.3)",
+    borderRadius: "1.5rem",
+    padding: "24px",
+  },
+  resultEyebrow: {
+    color: "#cffafe",
+    fontSize: "0.875rem",
+    fontWeight: 900,
+    letterSpacing: "0.18em",
+    margin: 0,
+    textTransform: "uppercase",
+  },
+  total: {
+    color: "#fff",
+    fontSize: "clamp(42px, 6vw, 56px)",
+    fontWeight: 900,
+    lineHeight: 1,
+    margin: "12px 0 0",
+  },
+  note: {
+    color: "rgba(207, 250, 254, 0.8)",
+    fontSize: "0.875rem",
+    lineHeight: 1.6,
+    margin: "12px 0 0",
+  },
+  rows: {
+    display: "grid",
+    gap: "12px",
+    marginTop: "20px",
+  },
+  row: {
+    alignItems: "center",
+    background: "rgba(255, 255, 255, 0.04)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    borderRadius: "1rem",
+    display: "flex",
+    gap: "16px",
+    justifyContent: "space-between",
+    padding: "16px 20px",
+  },
+  rowLabel: {
+    color: "#cbd5e1",
+    fontSize: "0.875rem",
+    fontWeight: 700,
+  },
+  rowValue: {
+    color: "#fff",
+    fontSize: "1rem",
+    fontWeight: 900,
+  },
+  whatsapp: {
+    alignItems: "center",
+    background: "#34d399",
+    borderRadius: "1rem",
+    color: "#020617",
+    display: "inline-flex",
+    fontWeight: 900,
+    gap: "0.5rem",
+    justifyContent: "center",
+    marginTop: "24px",
+    minHeight: "52px",
+    padding: "1rem 1.75rem",
+    textDecoration: "none",
+    width: "100%",
+  },
+};
+
+function LedPriceCalculatorSection() {
+  return (
+    <section id="led-ekran-hesaplama-araci" style={calculatorStyles.section}>
+      <div style={calculatorStyles.container}>
+        <div
+          data-led-calculator
+          style={calculatorStyles.shell}
+        >
+          <div style={calculatorStyles.grid}>
+            <div style={calculatorStyles.panel}>
+              <p style={calculatorStyles.eyebrow}>
+                Hesaplama Aracı
+              </p>
+              <h2 style={calculatorStyles.title}>
+                LED ekran m² ve fiyat hesaplama
+              </h2>
+              <p style={calculatorStyles.description}>
+                Ekran ölçüsü, gün sayısı, panel tipi ve isteğe bağlı Watchout ihtiyacına göre yaklaşık başlangıç bedelini hesaplayın. Net teklif; kurulum saati, mekan erişimi, reji ve lojistik kapsamıyla birlikte kesinleşir.
+              </p>
+
+              <form data-led-form style={calculatorStyles.form}>
+                <div>
+                  <label htmlFor="led-calc-type" style={calculatorStyles.labelText}>
+                    Ekran tipi
+                  </label>
+                  <select
+                    id="led-calc-type"
+                    name="screenType"
+                    defaultValue="standard"
+                    style={calculatorStyles.input}
+                  >
+                    <option value="standard">Standart indoor / outdoor LED</option>
+                    <option value="p19">P1.9 Indoor LED</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="led-calc-days" style={calculatorStyles.labelText}>
+                    Gün sayısı
+                  </label>
+                  <input
+                    id="led-calc-days"
+                    name="days"
+                    type="number"
+                    min="1"
+                    defaultValue="1"
+                    style={calculatorStyles.input}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="led-calc-width" style={calculatorStyles.labelText}>
+                    En (m)
+                  </label>
+                  <input
+                    id="led-calc-width"
+                    name="width"
+                    type="number"
+                    min="1"
+                    step="0.5"
+                    defaultValue="6"
+                    style={calculatorStyles.input}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="led-calc-height" style={calculatorStyles.labelText}>
+                    Boy (m)
+                  </label>
+                  <input
+                    id="led-calc-height"
+                    name="height"
+                    type="number"
+                    min="1"
+                    step="0.5"
+                    defaultValue="3"
+                    style={calculatorStyles.input}
+                  />
+                </div>
+
+                <label style={calculatorStyles.checkboxLabel}>
+                  <input
+                    name="watchout"
+                    type="checkbox"
+                    style={calculatorStyles.checkbox}
+                  />
+                  <span>
+                    <strong style={{ color: "#fff", display: "block" }}>Watchout / gelişmiş reji</strong>
+                    Mapping, çoklu ekran senkronizasyonu ve gelişmiş sahne akışlarında isteğe bağlı +50.000 TL olarak eklenir.
+                  </span>
+                </label>
+              </form>
+            </div>
+
+            <div style={calculatorStyles.resultPanel}>
+              <div style={calculatorStyles.resultCard}>
+                <p style={calculatorStyles.resultEyebrow}>
+                  Yaklaşık Başlangıç Bedeli
+                </p>
+                <p data-led-total style={calculatorStyles.total}>
+                  35.000 TL
+                </p>
+                <p data-led-note style={calculatorStyles.note}>
+                  Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır.
+                </p>
+              </div>
+
+              <div style={calculatorStyles.rows}>
+                {[
+                  ["Toplam alan", "data-led-area", "18 m²"],
+                  ["İlk gün bedeli", "data-led-daily", "35.000 TL"],
+                  ["Watchout", "data-led-watchout", "İsteğe bağlı"],
+                ].map(([label, attr, fallback]) => (
+                  <div key={label} style={calculatorStyles.row}>
+                    <span style={calculatorStyles.rowLabel}>{label}</span>
+                    <span {...{ [attr]: "" }} style={calculatorStyles.rowValue}>
+                      {fallback}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                data-led-whatsapp
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={calculatorStyles.whatsapp}
+              >
+                <MessageCircle size={20} aria-hidden="true" />
+                Bu hesapla teklif iste
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script dangerouslySetInnerHTML={{ __html: ledCalculatorScript }} />
+    </section>
+  );
+}
+
 export default function Page() {
   const jsonLd = buildJsonLd();
 
@@ -474,6 +849,26 @@ export default function Page() {
                   <MessageCircle size={20} aria-hidden="true" />
                   WhatsApp ile fiyat iste
                 </a>
+                <a
+                  href="#led-ekran-hesaplama-araci"
+                  style={{
+                    alignItems: "center",
+                    background: "rgba(103, 232, 249, 0.1)",
+                    border: "1px solid rgba(103, 232, 249, 0.4)",
+                    borderRadius: "1rem",
+                    color: "#ecfeff",
+                    display: "inline-flex",
+                    fontWeight: 900,
+                    gap: "0.5rem",
+                    justifyContent: "center",
+                    minHeight: "52px",
+                    padding: "1rem 1.75rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  <Calculator size={20} aria-hidden="true" />
+                  LED fiyat hesapla
+                </a>
                 <Link
                   href="/led-ekran-kiralama"
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-7 py-4 font-black text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
@@ -500,6 +895,8 @@ export default function Page() {
             </nav>
           </div>
         </section>
+
+        <LedPriceCalculatorSection />
 
         <section className="relative border-y border-white/10 bg-slate-950 py-8">
           <div className="container mx-auto grid gap-4 px-4 md:grid-cols-4">
