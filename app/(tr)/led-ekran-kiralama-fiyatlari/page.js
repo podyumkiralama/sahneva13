@@ -143,7 +143,7 @@ const faq = [
   },
   {
     q: "Watchout her LED ekran işinde gerekli mi?",
-    a: "Hayır. Watchout standart LED kurulumlarında zorunlu değildir. Mapping, lansman, çoklu ekran senkronizasyonu, sahne şovu ve gelişmiş kurumsal etkinliklerde isteğe bağlı olarak eklenir. Sahneva hesaplama aracında Watchout opsiyonu 50.000 TL ek hizmet olarak seçilebilir.",
+    a: "Hayır. Watchout standart LED kurulumlarında zorunlu değildir. Mapping, lansman, çoklu ekran senkronizasyonu, sahne şovu ve üst düzey kurumsal etkinliklerde isteğe bağlı olarak eklenir. Sahneva hesaplama aracında Watchout opsiyonu 50.000 TL ek hizmet olarak seçilebilir.",
   },
   {
     q: "P1.9 LED ekran kiralama fiyatı neden daha yüksektir?",
