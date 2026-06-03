@@ -1,6 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
@@ -108,6 +109,14 @@ export default function ServicePage({ service }) {
   return (
     <div className="overflow-hidden bg-white">
       <JsonLd data={jsonLd} id={`ru-${service.slug}-jsonld`} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Главная", url: "/ru" },
+          { name: "Услуги", url: "/ru/services" },
+          { name: service.shortTitle, url: service.href },
+        ]}
+        baseUrl={SITE_URL}
+      />
 
       <section className="relative min-h-[72vh] overflow-hidden bg-slate-950 text-white">
         <Image

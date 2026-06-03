@@ -103,6 +103,8 @@ const HERO_DICTIONARY = {
     "%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%20%D0%B2%20%D0%A2%D1%83%D1%80%D1%86%D0%B8%D0%B8.",
 };
 
+const RU_WHATSAPP_HREF = `https://wa.me/905453048671?text=${HERO_DICTIONARY.whatsappText}`;
+
 const HERO_BELOW_DICTIONARY = {
   sectionBadge: "Как мы работаем",
   sectionTitle: "Технический комплект под мероприятие в Турции",
@@ -200,6 +202,39 @@ const RU_EVENT_FORMATS = [
   },
 ];
 
+const RU_HOME_FAQ_ITEMS = [
+  {
+    question: "Как планируется аренда оборудования для мероприятия в Турции?",
+    answer:
+      "Сначала уточняются город, дата, площадка, формат события, количество гостей и нужные направления. После этого подбирается технический комплект: сцена, LED-экран, звук, свет, шатер, мебель, монтаж и поддержка на площадке.",
+  },
+  {
+    question: "Работаете ли вы за пределами Стамбула?",
+    answer:
+      "Да. Sahneva работает в Стамбуле, Анталье, Анкаре, Измире, Бурсе, Коджаэли и других городах Турции. Логистика, монтажная команда и сроки установки рассчитываются по площадке.",
+  },
+  {
+    question: "Можно ли отправить бриф на русском или английском языке?",
+    answer:
+      "Да. Бриф можно отправить на русском, английском или турецком языке. Для расчета достаточно указать город, дату, формат события, площадку и нужные услуги.",
+  },
+  {
+    question: "Можно ли заказать сцену, LED-экран, звук и свет одним пакетом?",
+    answer:
+      "Да. Часто эти направления планируются вместе: сцена, LED wall, звук, свет, truss, шатровая зона, мебель и технические специалисты собираются в один рабочий комплект.",
+  },
+  {
+    question: "Какие данные нужны для быстрого предложения?",
+    answer:
+      "Нужны город, дата, площадка, примерное количество гостей, тип события, желаемые услуги и сроки монтажа. Если есть план площадки, райдер или визуальная референция, их тоже можно отправить.",
+  },
+  {
+    question: "От чего зависит срок монтажа?",
+    answer:
+      "Срок зависит от города, доступа к площадке, размера сцены или LED-экрана, высоты truss, количества оборудования, времени заезда и требований площадки по безопасности.",
+  },
+];
+
 const RU_HOME_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -223,6 +258,21 @@ const RU_HOME_JSON_LD = {
   })),
 };
 
+const RU_HOME_FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${RU_HOME_URL}#faq`,
+  inLanguage: "ru-RU",
+  mainEntity: RU_HOME_FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export const metadata = {
   title: {
     absolute: "Аренда сцен, LED-экранов, звука и шатров в Турции | Sahneva",
@@ -239,12 +289,37 @@ export const metadata = {
       "x-default": `${SITE_URL}/en`,
     },
   },
+  openGraph: {
+    title: "Аренда сцен, LED-экранов, звука и шатров в Турции | Sahneva",
+    description:
+      "Sahneva организует технический комплект для мероприятий в Турции: сцены, LED-экраны, звук, свет, truss, шатры, мебель, монтаж и поддержка.",
+    url: RU_HOME_URL,
+    siteName: "Sahneva",
+    type: "website",
+    locale: "ru_RU",
+    images: [
+      {
+        url: `${SITE_URL}/img/hero-bg-desktop.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva - аренда оборудования для мероприятий в Турции",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Аренда сцен, LED-экранов, звука и шатров в Турции | Sahneva",
+    description:
+      "Сцена, LED-экран, звук, свет, truss, шатры, мебель и техническая команда для мероприятий в Турции.",
+    images: [`${SITE_URL}/img/hero-bg-desktop.webp`],
+  },
 };
 
 export default function RussianHomePage() {
   return (
     <div className="overflow-x-hidden bg-[#0B1120]">
       <JsonLd data={RU_HOME_JSON_LD} />
+      <JsonLd data={RU_HOME_FAQ_JSON_LD} id="ru-home-faq-jsonld" />
       <HeroSection dictionary={HERO_DICTIONARY} />
       <HeroBelow dictionary={HERO_BELOW_DICTIONARY} />
 
@@ -307,6 +382,36 @@ export default function RussianHomePage() {
         </div>
       </section>
 
+      <section
+        id="faq"
+        className="content-visibility-auto [contain-intrinsic-size:auto_1350px] lg:[contain-intrinsic-size:auto_820px] bg-white py-14 md:py-18"
+      >
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+                Частые вопросы
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
+                Что важно знать перед расчетом мероприятия в Турции
+              </h2>
+              <p className="mt-5 text-base leading-8 text-slate-700">
+                Короткие ответы для русскоязычных клиентов, которые планируют
+                конференцию, выставку, концерт, gala, презентацию или open-air проект.
+              </p>
+            </div>
+            <div className="divide-y divide-slate-200 rounded-3xl border border-slate-200 bg-slate-50 p-5 md:p-7">
+              {RU_HOME_FAQ_ITEMS.map((item) => (
+                <article key={item.question} className="py-5 first:pt-0 last:pb-0">
+                  <h3 className="text-lg font-black text-slate-950">{item.question}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-700">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-950 py-14 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between">
           <div className="max-w-3xl">
@@ -326,6 +431,14 @@ export default function RussianHomePage() {
           >
             Получить расчет
           </Link>
+          <a
+            href={RU_WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-7 text-base font-black text-white transition hover:bg-white/15"
+          >
+            Написать в WhatsApp
+          </a>
         </div>
       </section>
     </div>

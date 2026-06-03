@@ -1,6 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { RUSSIAN_SERVICE_LIST } from "./serviceData";
@@ -55,6 +56,13 @@ export default function RussianServicesPage() {
   return (
     <div className="bg-white">
       <JsonLd data={SERVICES_JSON_LD} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Главная", url: "/ru" },
+          { name: "Услуги", url: "/ru/services" },
+        ]}
+        baseUrl={SITE_URL}
+      />
 
       <section className="relative overflow-hidden bg-slate-950 py-16 text-white md:py-20">
         <div className="absolute inset-0 opacity-45" aria-hidden="true">
