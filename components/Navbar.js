@@ -20,6 +20,9 @@ const TR_WHATSAPP_MESSAGE = encodeURIComponent(
 const EN_WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I would like to get a quote and support for event equipment from Sahneva.",
 );
+const RU_WHATSAPP_MESSAGE = encodeURIComponent(
+  "Здравствуйте, я хочу получить расчет и поддержку по оборудованию для мероприятия от Sahneva.",
+);
 
 const TR_SERVICE_LINKS = [
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon", icon: "🏢", description: "Sahne, LED ekran ve teknik prodüksiyon" },
@@ -48,27 +51,28 @@ function DesktopNavLink({ href, children }) {
 
 export default function Navbar({ locale = "tr", ...props }) {
   const isEn = locale === "en";
-  const navContent = isEn ? LOCALE_CONTENT.en.navbar : null;
-  const SERVICE_LINKS = isEn ? (navContent?.serviceLinks ?? LOCALE_CONTENT.en.navbar.serviceLinks) : TR_SERVICE_LINKS;
-  const RESEARCH_LINKS = isEn ? (navContent?.researchLinks ?? LOCALE_CONTENT.en.navbar.researchLinks) : TR_RESEARCH_LINKS;
-  const whatsappMessage = isEn ? EN_WHATSAPP_MESSAGE : TR_WHATSAPP_MESSAGE;
+  const isRu = locale === "ru";
+  const navContent = isEn ? LOCALE_CONTENT.en.navbar : isRu ? LOCALE_CONTENT.ru.navbar : null;
+  const SERVICE_LINKS = navContent?.serviceLinks ?? TR_SERVICE_LINKS;
+  const RESEARCH_LINKS = navContent?.researchLinks ?? TR_RESEARCH_LINKS;
+  const whatsappMessage = isEn ? EN_WHATSAPP_MESSAGE : isRu ? RU_WHATSAPP_MESSAGE : TR_WHATSAPP_MESSAGE;
   const whatsappHref = `https://wa.me/905453048671?text=${whatsappMessage}&utm_source=navbar&utm_medium=desktop_whatsapp`;
-  const homeHref = isEn ? "/en" : "/";
-  const aboutHref = isEn ? "/en/about" : "/hakkimizda";
-  const blogHref = isEn ? "/en/blog" : "/blog";
-  const servicesHref = isEn ? "/en/services" : "/hizmetler";
-  const aboutLabel = isEn ? "About Us" : "Hakkımızda";
+  const homeHref = isEn ? "/en" : isRu ? "/ru" : "/";
+  const aboutHref = isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda";
+  const blogHref = isEn ? "/en/blog" : isRu ? "/ru" : "/blog";
+  const servicesHref = isEn ? "/en/services" : isRu ? "/ru/services" : "/hizmetler";
+  const aboutLabel = isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda";
   const blogLabel = "Blog";
-  const servicesDropdownLabel = isEn ? "Services" : "Hizmetler";
-  const exploreLabel = isEn ? "Explore Us" : "Bizi Araştırın";
-  const exploreSubtitle = isEn ? "Process, contact and information pages" : "Süreç, iletişim ve bilgi sayfaları";
-  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
-  const viewAllLabel = isEn ? "View All Services" : "Tümünü gör";
-  const whatsappLabel = isEn ? "WhatsApp Support" : "WhatsApp Destek";
-  const logoAriaLabel = isEn ? "Sahneva - Home" : "Sahneva - Ana Sayfa";
-  const megaBadge = isEn ? "Sahneva" : "Sahneva Organizasyon";
-  const megaTitle = isEn ? "Services" : "Hizmetler";
-  const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
+  const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
+  const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın";
+  const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : "Süreç, iletişim ve bilgi sayfaları";
+  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : isRu ? "Сцены, подиумы, LED-экраны, звук, свет и шатры." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
+  const viewAllLabel = isEn ? "View All Services" : isRu ? "Все услуги" : "Tümünü gör";
+  const whatsappLabel = isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek";
+  const logoAriaLabel = isEn ? "Sahneva - Home" : isRu ? "Sahneva - Главная" : "Sahneva - Ana Sayfa";
+  const megaBadge = isEn ? "Sahneva" : isRu ? "Sahneva" : "Sahneva Organizasyon";
+  const megaTitle = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
+  const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
 
   return (
     <>

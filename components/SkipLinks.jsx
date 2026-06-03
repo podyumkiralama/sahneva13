@@ -14,6 +14,11 @@ const STRINGS = {
     toHeader: "انتقل إلى الترويسة",
     toFooter: "انتقل إلى التذييل",
   },
+  ru: {
+    toMain: "Перейти к основному содержанию",
+    toHeader: "Перейти к шапке",
+    toFooter: "Перейти к подвалу",
+  },
 };
 
 const LINK_CLASSNAME =
@@ -30,6 +35,7 @@ function normalizeLocale(value) {
   const normalized = value.toLowerCase();
   if (normalized.startsWith("en")) return "en";
   if (normalized.startsWith("ar")) return "ar";
+  if (normalized.startsWith("ru")) return "ru";
   return "tr";
 }
 

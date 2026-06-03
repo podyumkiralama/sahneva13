@@ -21,6 +21,15 @@ const SPECULATION_RULES_BY_LOCALE = {
     "/en/contact",
   ],
   ar: ["/ar/services", "/ar/contact"],
+  ru: [
+    "/ru/services",
+    "/ru/stage-rental",
+    "/ru/led-screen-rental",
+    "/ru/sound-light-rental",
+    "/ru/tent-rental",
+    "/ru/corporate-events",
+    "/ru/contact",
+  ],
 };
 
 function buildSpeculationRules(locale) {

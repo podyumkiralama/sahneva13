@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
 import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
 
@@ -131,13 +132,39 @@ export default function SiteHeader({ locale, strings }) {
 
           <div className="hidden lg:flex items-center gap-6">
             {strings.links.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
-              >
-                {item.label}
-              </Link>
+              item.href === "/ru/services" && Array.isArray(strings.serviceLinks) ? (
+                <div key={item.href} className="group relative">
+                  <Link
+                    href={item.href}
+                    className={`inline-flex items-center gap-1 text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
+                  >
+                    {strings.servicesMenuLabel ?? item.label}
+                    <ChevronDown aria-hidden="true" className="h-4 w-4" />
+                  </Link>
+                  <div className="invisible absolute left-0 top-full z-[80] w-80 translate-y-2 rounded-2xl border border-neutral-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 nav-dark:border-white/10 nav-dark:bg-[#111827]">
+                    {strings.serviceLinks.map((service) => (
+                      <Link
+                        key={service.href}
+                        href={service.href}
+                        className={`block rounded-xl px-4 py-3 text-sm no-underline transition hover:bg-neutral-50 nav-dark:hover:bg-white/10 ${focusRingClass}`}
+                      >
+                        <span className="block font-black text-neutral-900 nav-dark:text-white">{service.label}</span>
+                        <span className="mt-1 block text-xs leading-5 text-neutral-500 nav-dark:text-slate-300">
+                          {service.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <LanguageSwitcher locale={locale} />
             <ThemeSwitcher />
@@ -209,14 +236,29 @@ export default function SiteHeader({ locale, strings }) {
               <ThemeSwitcher align="left" />
             </div>
             {strings.links.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block rounded-lg px-4 py-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 nav-dark:text-slate-100 nav-dark:hover:bg-white/10 ${focusRingClass}`}
-                onClick={() => closeMenu()}
-              >
-                {item.label}
-              </Link>
+              <div key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`block rounded-lg px-4 py-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 nav-dark:text-slate-100 nav-dark:hover:bg-white/10 ${focusRingClass}`}
+                  onClick={() => closeMenu()}
+                >
+                  {item.label}
+                </Link>
+                {item.href === "/ru/services" && Array.isArray(strings.serviceLinks) ? (
+                  <div className="ml-3 border-l border-neutral-200 pl-3 nav-dark:border-white/10">
+                    {strings.serviceLinks.map((service) => (
+                      <Link
+                        key={service.href}
+                        href={service.href}
+                        className={`block rounded-lg px-4 py-2 text-sm font-semibold text-neutral-600 hover:bg-neutral-100 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 ${focusRingClass}`}
+                        onClick={() => closeMenu()}
+                      >
+                        {service.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
             <a
               href={strings.whatsappHref}

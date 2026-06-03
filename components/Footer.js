@@ -59,12 +59,14 @@ const BUSINESS_LINKS = [
     href: "https://g.page/r/CZhkMzkNOdgnEBI",
     label: "Google Haritalar'da bizi bulun",
     labelEn: "Find us on Google Maps",
+    labelRu: "Найти нас на Google Maps",
     icon: "📍",
   },
   {
     href: "https://g.page/r/CZhkMzkNOdgnEBI/review",
     label: "Google'da yorum yazın",
     labelEn: "Write a Google review",
+    labelRu: "Оставить отзыв в Google",
     icon: "⭐",
   },
 ];
@@ -74,6 +76,7 @@ const LANGUAGE_LINKS = [
   { href: "/", label: "TR", text: "Türkçe", hrefLang: "tr-TR", locale: "tr" },
   { href: "/en", label: "EN", text: "English", hrefLang: "en", locale: "en" },
   { href: "/ar", label: "AR", text: "العربية", hrefLang: "ar", locale: "ar" },
+  { href: "/ru", label: "RU", text: "Русский", hrefLang: "ru", locale: "ru" },
 ];
 
 const FooterLink = ({
@@ -108,6 +111,7 @@ const SocialLink = ({
   gradient,
   rel,
   sizeClass = "h-11 w-11",
+  newTabLabel = "yeni sekmede açılır",
 }) => {
   const relValue = rel ? `noopener noreferrer ${rel}` : "noopener noreferrer";
 
@@ -134,7 +138,7 @@ const SocialLink = ({
         <span aria-hidden="true" className="text-xl relative z-10">
           {icon}
         </span>
-        <span className="sr-only">{label} (yeni sekmede açılır)</span>
+        <span className="sr-only">{label} ({newTabLabel})</span>
       </a>
     </li>
   );
@@ -151,52 +155,64 @@ export default function Footer({
   locale = "tr",
 }) {
   const isEn = locale === "en";
+  const isRu = locale === "ru";
   const instanceId = useId();
   const currentYear = new Date().getFullYear();
 
   const footerStrings = isEn
     ? LOCALE_CONTENT?.en?.footer
-    : LOCALE_CONTENT?.tr?.footer || {
+    : isRu
+      ? LOCALE_CONTENT?.ru?.footer
+      : LOCALE_CONTENT?.tr?.footer || {
         ariaLabel: "Site altbilgisi",
         description:
           "İletişim bilgileri, hizmet bağlantıları ve sosyal medya hesaplarının bulunduğu altbilgi alanı",
       };
 
-  const SERVICES = isEn ? (footerStrings?.services ?? TR_SERVICES) : TR_SERVICES;
-  const QUICK_LINKS = isEn ? (footerStrings?.quickLinks ?? TR_QUICK_LINKS) : TR_QUICK_LINKS;
-  const POPULAR_PAGES = isEn ? (footerStrings?.popularPages ?? TR_POPULAR_PAGES) : TR_POPULAR_PAGES;
+  const SERVICES = isEn || isRu ? (footerStrings?.services ?? TR_SERVICES) : TR_SERVICES;
+  const QUICK_LINKS = isEn || isRu ? (footerStrings?.quickLinks ?? TR_QUICK_LINKS) : TR_QUICK_LINKS;
+  const POPULAR_PAGES = isEn || isRu ? (footerStrings?.popularPages ?? TR_POPULAR_PAGES) : TR_POPULAR_PAGES;
 
-  const servicesTitle = isEn ? (footerStrings?.servicesTitle ?? "Our Services") : "Hizmetlerimiz";
-  const quickLinksTitle = isEn ? (footerStrings?.quickLinksTitle ?? "Quick Links") : "Hızlı Erişim";
-  const popularPagesTitle = isEn ? (footerStrings?.popularPagesTitle ?? "Popular Pages") : "Popüler Sayfalar";
-  const contactTitle = isEn ? "Contact Information" : "İletişim Bilgileri";
-  const officeTitle = isEn ? (footerStrings?.officeTitle ?? "Main Office") : "Merkez Ofis";
-  const address = isEn ? (footerStrings?.address ?? "Kağıthane, Istanbul") : "Kağıthane, İstanbul";
-  const nationwide = isEn ? "Nationwide service" : "Türkiye geneli hizmet";
-  const workingHoursLabel = isEn ? (footerStrings?.workingHours ?? "Working Hours") : "Çalışma Saatleri";
-  const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Open 24 hours") : "7/24 Açık";
-  const socialMediaLabel = isEn ? "Follow us on social media" : "Sosyal medya hesaplarımız";
-  const privacyLinkLabel = isEn ? (footerStrings?.privacyLink ?? "Privacy Policy") : "KVKK Aydınlatma Metni";
-  const privacyHref = isEn ? "/en/data-protection" : "/kvkk";
-  const backToTopLabel = isEn ? (footerStrings?.backToTop ?? "Back to top") : "Başa dön";
+  const servicesTitle = isEn ? (footerStrings?.servicesTitle ?? "Our Services") : isRu ? (footerStrings?.servicesTitle ?? "Услуги") : "Hizmetlerimiz";
+  const quickLinksTitle = isEn ? (footerStrings?.quickLinksTitle ?? "Quick Links") : isRu ? (footerStrings?.quickLinksTitle ?? "Быстрые ссылки") : "Hızlı Erişim";
+  const popularPagesTitle = isEn ? (footerStrings?.popularPagesTitle ?? "Popular Pages") : isRu ? (footerStrings?.popularPagesTitle ?? "Популярные страницы") : "Popüler Sayfalar";
+  const contactTitle = isEn ? "Contact Information" : isRu ? "Контакты" : "İletişim Bilgileri";
+  const officeTitle = isEn ? (footerStrings?.officeTitle ?? "Main Office") : isRu ? (footerStrings?.officeTitle ?? "Главный офис") : "Merkez Ofis";
+  const address = isEn ? (footerStrings?.address ?? "Kağıthane, Istanbul") : isRu ? (footerStrings?.address ?? "Кягытхане, Стамбул") : "Kağıthane, İstanbul";
+  const nationwide = isEn ? "Nationwide service" : isRu ? "Обслуживание по всей Турции" : "Türkiye geneli hizmet";
+  const workingHoursLabel = isEn ? (footerStrings?.workingHours ?? "Working Hours") : isRu ? (footerStrings?.workingHours ?? "Время работы") : "Çalışma Saatleri";
+  const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Open 24 hours") : isRu ? (footerStrings?.workingHoursValue ?? "Открыто 24/7") : "7/24 Açık";
+  const socialMediaLabel = isEn ? "Follow us on social media" : isRu ? "Мы в социальных сетях" : "Sosyal medya hesaplarımız";
+  const privacyLinkLabel = isEn ? (footerStrings?.privacyLink ?? "Privacy Policy") : isRu ? (footerStrings?.privacyLink ?? "Политика конфиденциальности") : "KVKK Aydınlatma Metni";
+  const privacyHref = isEn ? "/en/data-protection" : isRu ? "/ru/contact" : "/kvkk";
+  const backToTopLabel = isEn ? (footerStrings?.backToTop ?? "Back to top") : isRu ? (footerStrings?.backToTop ?? "Наверх") : "Başa dön";
   const copyrightDesc = isEn
     ? (footerStrings?.copyrightDesc ?? "Nationwide professional stage rental, podium rental, LED screen rental, sound and light systems, tent rental and table-chair rental services.")
-    : "Türkiye genelinde profesyonel sahne kiralama, podyum kiralama, LED ekran kiralama, ses ışık sistemleri, çadır kiralama ve masa sandalye kiralama hizmetleri.";
-  const rightsLabel = isEn ? "All rights reserved." : "Tüm hakları saklıdır.";
+    : isRu
+      ? (footerStrings?.copyrightDesc ?? "Профессиональная аренда сцен, подиумов, LED-экранов, звука, света, шатров, столов и стульев для мероприятий в Турции.")
+      : "Türkiye genelinde profesyonel sahne kiralama, podyum kiralama, LED ekran kiralama, ses ışık sistemleri, çadır kiralama ve masa sandalye kiralama hizmetleri.";
+  const rightsLabel = isEn ? "All rights reserved." : isRu ? "Все права защищены." : "Tüm hakları saklıdır.";
+  const newTabLabel = isEn ? "opens in a new tab" : isRu ? "откроется в новой вкладке" : "yeni sekmede açılır";
 
   const brandSubtitle = isEn
     ? "Professional event production and organization services."
-    : "Profesyonel etkinlik prodüksiyon ve organizasyon firması hizmetleri.";
+    : isRu
+      ? "Профессиональный технический продакшн мероприятий в Турции."
+      : "Profesyonel etkinlik prodüksiyon ve organizasyon firması hizmetleri.";
 
   const brandDesc1 = isEn
     ? (<span className="block">Across Türkiye: <span className="text-blue-300 font-semibold">stage rental, podium rental, LED screen rental</span>, sound and light systems and truss rental with full-scale setup.</span>)
-    : (<span className="block">Türkiye genelinde{" "}<span className="text-blue-300 font-semibold">sahne kiralama, podyum kiralama, LED ekran kiralama</span>, ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.</span>);
+    : isRu
+      ? (<span className="block">В Турции: <span className="text-blue-300 font-semibold">аренда сцен, подиумов и LED-экранов</span>, звук, свет и truss с монтажной командой.</span>)
+      : (<span className="block">Türkiye genelinde{" "}<span className="text-blue-300 font-semibold">sahne kiralama, podyum kiralama, LED ekran kiralama</span>, ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.</span>);
 
   const brandDesc2 = isEn
     ? (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fair, concert, corporate event and graduation organizations with tent rental and table-chair rental solutions.</span>)
-    : (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fuar, konser, kurumsal etkinlik ve mezuniyet organizasyonlarında çadır kiralama ile masa sandalye kiralama çözümlerinde yanınızdayız.</span>);
+    : isRu
+      ? (<span className="block mt-1 text-slate-300/90 leading-relaxed">Конференции, концерты, выставки, корпоративные события и open-air проекты: шатры, столы, стулья и техническая поддержка.</span>)
+      : (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fuar, konser, kurumsal etkinlik ve mezuniyet organizasyonlarında çadır kiralama ile masa sandalye kiralama çözümlerinde yanınızdayız.</span>);
 
-  const aboutHeading = isEn ? "About Sahneva" : "Sahneva Hakkında";
+  const aboutHeading = isEn ? "About Sahneva" : isRu ? "О Sahneva" : "Sahneva Hakkında";
 
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;
@@ -267,7 +283,13 @@ export default function Footer({
       {/* Üst grid */}
       <div
         className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start gap-6 xl:gap-8 pt-8 pb-8 md:pt-10 md:pb-10 px-6"
-        aria-label={isEn ? "Footer: services, quick links and contact" : "Altbilgi: hizmetler, hızlı erişim ve iletişim"}
+        aria-label={
+          isEn
+            ? "Footer: services, quick links and contact"
+            : isRu
+              ? "Подвал: услуги, быстрые ссылки и контакты"
+              : "Altbilgi: hizmetler, hızlı erişim ve iletişim"
+        }
       >
         {/* 1. SÜTUN: Marka & Sosyal */}
         <section aria-labelledby="ft-brand" className="lg:col-span-1">
@@ -496,9 +518,12 @@ export default function Footer({
               </div>
             </address>
 
-            <nav className="pt-2 flex flex-col gap-2" aria-label={isEn ? "Business links" : "İşletme bağlantıları"}>
-              {BUSINESS_LINKS.map(({ href, label, labelEn, icon }) => {
-                const displayLabel = isEn ? labelEn : label;
+            <nav
+              className="pt-2 flex flex-col gap-2"
+              aria-label={isEn ? "Business links" : isRu ? "Ссылки компании" : "İşletme bağlantıları"}
+            >
+              {BUSINESS_LINKS.map(({ href, label, labelEn, labelRu, icon }) => {
+                const displayLabel = isEn ? labelEn : isRu ? labelRu : label;
                 return (
                   <a
                     key={href}
@@ -518,18 +543,22 @@ export default function Footer({
                     </span>
                     {displayLabel}
                     <span className="sr-only">
-                      {isEn ? " (opens in a new tab)" : " (yeni sekmede açılır)"}
+                      {" "}
+                      ({newTabLabel})
                     </span>
                   </a>
                 );
               })}
             </nav>
 
-            <nav className="border-t border-white/10 pt-3" aria-label={isEn ? "Social media" : "Sosyal medya"}>
+            <nav
+              className="border-t border-white/10 pt-3"
+              aria-label={isEn ? "Social media" : isRu ? "Социальные сети" : "Sosyal medya"}
+            >
               <p className="text-sm font-medium text-slate-400 mb-2">{socialMediaLabel}</p>
               <ul className="flex gap-2">
                 {SOCIAL_LINKS.map((link) => (
-                  <SocialLink key={link.href} {...link} />
+                  <SocialLink key={link.href} {...link} newTabLabel={newTabLabel} />
                 ))}
               </ul>
             </nav>
@@ -550,7 +579,7 @@ export default function Footer({
           </p>
 
           <nav
-            aria-label={isEn ? "Footer links" : "Altbilgi bağlantıları"}
+            aria-label={isEn ? "Footer links" : isRu ? "Ссылки подвала" : "Altbilgi bağlantıları"}
             className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-gray-300"
           >
             {LANGUAGE_LINKS.map((item) => {

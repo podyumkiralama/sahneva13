@@ -12,12 +12,14 @@ const FOCUS_RING_CLASS =
 const WHATSAPP_MESSAGE = {
   tr: encodeURIComponent("Merhaba, Sahneva ile etkinlik ekipmanları için teklif ve destek almak istiyorum."),
   en: encodeURIComponent("Hello, I would like to get a quote and support for event equipment from Sahneva."),
+  ru: encodeURIComponent("Здравствуйте, я хочу получить расчет и поддержку по оборудованию для мероприятия от Sahneva."),
 };
 
 export default function NavbarMobile({ locale = "tr", serviceLinks, researchLinks }) {
   const pathname = usePathname();
   const uid = useId();
   const isEn = locale === "en";
+  const isRu = locale === "ru";
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -30,30 +32,34 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
   const descId = `mobile-menu-desc-${uid}`;
 
   const labels = {
-    about: isEn ? "About Us" : "Hakkımızda",
-    services: isEn ? "Services" : "Hizmetler",
-    explore: isEn ? "Explore Us" : "Bizi Araştırın",
-    support: isEn ? "WhatsApp Support" : "WhatsApp Destek",
+    about: isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda",
+    services: isEn ? "Services" : isRu ? "Услуги" : "Hizmetler",
+    explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın",
+    support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek",
     supportText: isEn
       ? "Get a quick quote and send your questions on WhatsApp."
+      : isRu
+        ? "Получите быстрый расчет и отправьте вопросы в WhatsApp."
       : "WhatsApp üzerinden anında teklif alın ve sorularınızı iletin.",
-    open: isEn ? "Open menu" : "Menüyü Aç",
-    close: isEn ? "Close menu" : "Menüyü Kapat",
-    heading: isEn ? "Main navigation menu" : "Ana gezinme menüsü",
+    open: isEn ? "Open menu" : isRu ? "Открыть меню" : "Menüyü Aç",
+    close: isEn ? "Close menu" : isRu ? "Закрыть меню" : "Menüyü Kapat",
+    heading: isEn ? "Main navigation menu" : isRu ? "Основное меню" : "Ana gezinme menüsü",
     description: isEn
       ? "Use the tab key to navigate between menu links."
+      : isRu
+        ? "Используйте клавишу Tab для навигации по ссылкам меню."
       : "Menü bağlantıları arasında gezinmek için tab tuşunu kullanabilirsiniz.",
   };
 
   const links = {
-    about: isEn ? "/en/about" : "/hakkimizda",
-    blog: isEn ? "/en/blog" : "/blog",
+    about: isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda",
+    blog: isEn ? "/en/blog" : isRu ? "/ru" : "/blog",
   };
 
   const mobileWhatsappHref = useMemo(
     () =>
-      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
-    [isEn],
+      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : isRu ? "ru" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
+    [isEn, isRu],
   );
 
   const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
