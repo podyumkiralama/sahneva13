@@ -13,7 +13,6 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}${service.equivalent.tr}`,
       en: `${SITE_URL}${service.equivalent.en}`,
-      ar: `${SITE_URL}${service.equivalent.ar}`,
       ru: canonical,
       "x-default": `${SITE_URL}${service.equivalent.en}`,
     },
