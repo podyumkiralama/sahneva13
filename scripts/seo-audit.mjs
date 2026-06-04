@@ -115,6 +115,7 @@ function extractInternalLinks(text) {
   const patterns = [
     /\bhref\s*=\s*\{?\s*["']([^"']+)["']/g,
     /\bhref\s*:\s*["']([^"']+)["']/g,
+    /\b[a-zA-Z0-9_]*Href\b\s*=\s*[^;\n]*?["']([^"']+)["']/g,
   ];
 
   for (const pattern of patterns) {
@@ -127,6 +128,39 @@ function extractInternalLinks(text) {
   }
 
   return links;
+}
+
+function extractImplicitDataLinks() {
+  const sources = [
+    { relativeFile: "lib/blogPosts.js", prefix: "/blog/" },
+    { relativeFile: "lib/data.js", prefix: "/projeler/" },
+  ];
+  const links = [];
+
+  for (const source of sources) {
+    const fullPath = path.join(rootDir, source.relativeFile);
+    if (!fs.existsSync(fullPath)) continue;
+
+    const text = readText(fullPath);
+    for (const match of text.matchAll(/\bslug\s*:\s*["']([^"']+)["']/g)) {
+      const href = cleanInternalPath(`${source.prefix}${match[1]}`);
+      if (!href) continue;
+      const line = lineNumberForIndex(text, match.index ?? 0);
+      links.push({
+        href,
+        line,
+        file: source.relativeFile,
+        source: "data-driven listing",
+      });
+    }
+  }
+
+  return links;
+}
+
+function addIncomingRef(incoming, routeSet, link) {
+  if (!routeSet.has(link.href)) return;
+  incoming.get(link.href)?.push({ file: link.file, line: link.line, source: link.source });
 }
 
 function extractImageBlocks(text) {
@@ -291,6 +325,10 @@ function analyzeLinks(files, routes, fileToRoute) {
         incoming.get(link.href)?.push({ file: relativeFile, line: link.line });
       }
     }
+  }
+
+  for (const link of extractImplicitDataLinks()) {
+    addIncomingRef(incoming, routeSet, link);
   }
 
   const orphanCandidates = [...incoming.entries()]

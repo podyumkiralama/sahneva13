@@ -184,7 +184,7 @@ export default function Footer({
   const workingHoursValue = isEn ? (footerStrings?.workingHoursValue ?? "Open 24 hours") : isRu ? (footerStrings?.workingHoursValue ?? "Открыто 24/7") : "7/24 Açık";
   const socialMediaLabel = isEn ? "Follow us on social media" : isRu ? "Мы в социальных сетях" : "Sosyal medya hesaplarımız";
   const privacyLinkLabel = isEn ? (footerStrings?.privacyLink ?? "Privacy Policy") : isRu ? (footerStrings?.privacyLink ?? "Политика конфиденциальности") : "KVKK Aydınlatma Metni";
-  const privacyHref = isEn ? "/en/data-protection" : isRu ? "/ru/contact" : "/kvkk";
+  const privacyHref = isEn ? "/en/privacy-policy" : isRu ? "/ru/contact" : "/kvkk";
   const backToTopLabel = isEn ? (footerStrings?.backToTop ?? "Back to top") : isRu ? (footerStrings?.backToTop ?? "Наверх") : "Başa dön";
   const copyrightDesc = isEn
     ? (footerStrings?.copyrightDesc ?? "Nationwide professional stage rental, podium rental, LED screen rental, sound and light systems, tent rental and table-chair rental services.")

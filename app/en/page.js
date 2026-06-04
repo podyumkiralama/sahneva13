@@ -455,7 +455,7 @@ const HERO_DICT_EN = {
   titleLine1: "Event Production",
   titleLine2: "One Team, One Roof, One Solution",
   description:
-    "With <strong class=\"text-white\">700+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
+    "With <strong>700+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
   ctaCall: "Call Now",
   ctaCallAria: "Call Sahneva now",
   ctaWhatsapp: "WhatsApp Quote",
