@@ -810,6 +810,29 @@ function Articles() {
 }
 
   /* ================== FAQ ================== */
+const FAQ_SCHEMA_ITEMS = [
+  {
+    question: "How much does tent rental cost?",
+    answer:
+      "A 5x5 metre pagoda tent rental is priced from TL 7,000 including Istanbul transport, professional installation, dismantle and essential technical support. Standard tents are priced by square metre, while bespoke designs are quoted after a project briefing.",
+  },
+  {
+    question: "How long does tent installation take?",
+    answer:
+      "A 5x5 metre pagoda installs in roughly 2 to 3 hours, while a 6x6 metre unit takes 3 to 4 hours. Large-scale projects are usually assembled one day in advance.",
+  },
+  {
+    question: "Are the tents resistant to bad weather?",
+    answer:
+      "Tents are engineered for 90 km/h wind loads with TS EN 13782 compliant aluminium frames and 650 gr/m2 UV-resistant PVC membranes. Integrated rain gutters support water drainage during heavy showers.",
+  },
+  {
+    question: "Which cities do you serve?",
+    answer:
+      "We provide professional tent rentals across all 81 Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara and Izmir.",
+  },
+];
+
 function FAQ() {
   const faqs = [
     {
@@ -1063,6 +1086,18 @@ function TentJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       }
     ],
   };

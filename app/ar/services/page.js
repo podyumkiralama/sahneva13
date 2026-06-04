@@ -1,9 +1,28 @@
 import { LOCALE_CONTENT } from "../../../lib/i18n/localeContent";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const { services } = LOCALE_CONTENT.ar.home;
 const AR_SERVICES_URL = buildCanonical("/ar/services");
 const AR_SERVICES_OG_IMAGE_URL = `${SITE_URL}/img/hizmet-sahne.webp`;
+
+const SERVICES_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  name: services.title,
+  url: AR_SERVICES_URL,
+  inLanguage: "ar",
+  itemListElement: services.items.map((service, index) => ({
+    "@type": "Offer",
+    position: index + 1,
+    itemOffered: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      areaServed: "TR",
+    },
+  })),
+};
 
 const SERVICE_PLANNING_POINTS = [
   "تحديد نوع الفعالية وعدد الضيوف وهدف العلامة التجارية.",
@@ -61,6 +80,7 @@ export const metadata = {
 export default function ArabicServicesPage() {
   return (
     <div className="container mx-auto space-y-12 px-4 py-10" dir="rtl">
+      <JsonLd data={SERVICES_JSON_LD} />
       <header className="space-y-4 text-right">
         <h1 className="text-3xl font-black text-neutral-900">{services.title}</h1>
         <p className="max-w-3xl text-base leading-7 text-neutral-600">

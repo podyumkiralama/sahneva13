@@ -815,6 +815,29 @@ function Articles() {
 }
 
 /* ================== FAQ ================== */
+const FAQ_SCHEMA_ITEMS = [
+  {
+    question: "Which sound and lighting package suits my event?",
+    answer:
+      "We assess venue size, audience capacity, event format and budget to recommend a suitable package. A site survey helps us analyse the space and tailor the configuration.",
+  },
+  {
+    question: "How long do installation and dismantle take?",
+    answer:
+      "Indoor setups are typically completed within 4 to 6 hours, while outdoor productions take around 6 to 8 hours. Complex rigging projects may begin the day before. Dismantle averages 2 to 4 hours depending on scope.",
+  },
+  {
+    question: "Do you provide live operation and technical staff?",
+    answer:
+      "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end to end. Emergency technical response is available 24/7.",
+  },
+  {
+    question: "How is power distribution handled?",
+    answer:
+      "We collect generator or venue power details, then coordinate electrical requirements with certified electricians and professional distribution systems.",
+  },
+];
+
 function FAQ() {
   const faqs = [
     {
@@ -1061,6 +1084,18 @@ function SoundLightJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       }
     ],
   };

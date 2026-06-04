@@ -7,6 +7,10 @@ import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { RUSSIAN_SERVICE_LIST } from "./serviceData";
 
 const RU_SERVICES_URL = buildCanonical("/ru/services");
+const RU_SERVICES_TITLE = "Услуги для мероприятий в Турции";
+const RU_SERVICES_DESCRIPTION =
+  "Аренда сцен, подиумов, LED-экранов, звука, света, truss, шатров, столов и стульев для мероприятий в Турции.";
+const RU_SERVICES_IMAGE = `${SITE_URL}/img/hero-bg-desktop.webp`;
 
 const SERVICE_KEYWORDS = [
   "аренда сцены в Турции",
@@ -37,9 +41,8 @@ const SERVICES_JSON_LD = {
 };
 
 export const metadata = {
-  title: "Услуги для мероприятий в Турции",
-  description:
-    "Аренда сцен, подиумов, LED-экранов, звука, света, truss, шатров, столов и стульев для мероприятий в Турции.",
+  title: RU_SERVICES_TITLE,
+  description: RU_SERVICES_DESCRIPTION,
   alternates: {
     canonical: RU_SERVICES_URL,
     languages: {
@@ -49,6 +52,28 @@ export const metadata = {
       ru: RU_SERVICES_URL,
       "x-default": `${SITE_URL}/en/services`,
     },
+  },
+  openGraph: {
+    title: `${RU_SERVICES_TITLE} | Sahneva`,
+    description: RU_SERVICES_DESCRIPTION,
+    url: RU_SERVICES_URL,
+    siteName: "Sahneva",
+    type: "website",
+    locale: "ru_RU",
+    images: [
+      {
+        url: RU_SERVICES_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva - услуги для мероприятий в Турции",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${RU_SERVICES_TITLE} | Sahneva`,
+    description: RU_SERVICES_DESCRIPTION,
+    images: [RU_SERVICES_IMAGE],
   },
 };
 

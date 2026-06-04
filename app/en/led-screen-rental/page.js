@@ -821,6 +821,29 @@ function Articles() {
 }
 
 /* ================== FAQ ================== */
+const FAQ_SCHEMA_ITEMS = [
+  {
+    question: "How much does LED screen rental cost?",
+    answer:
+      "Pricing depends on pixel pitch and total surface area. Indoor P2.5 LED walls start from TL 2,800 per square metre and outdoor P4 LED walls from TL 1,800 per square metre, including certified installation and operator support.",
+  },
+  {
+    question: "How long does installation take?",
+    answer:
+      "Standard LED wall builds take 2 to 6 hours. Up to 20 square metres typically completes within 2 to 3 hours, 20 to 50 square metres within 3 to 4 hours and large-format installs within 4 to 6 hours. Complex rigging or custom structures may require more time.",
+  },
+  {
+    question: "Can LED screens operate in rain?",
+    answer:
+      "Yes. Outdoor cabinets feature IP65 front protection and can operate safely in rain. In extreme storms or high winds, operation may be paused for safety.",
+  },
+  {
+    question: "Which pixel pitch should I choose?",
+    answer:
+      "Pixel pitch should match viewing distance. P2.5 to P3.9 suits 3 to 10 metre audiences, P4 suits 10 to 25 metres and P6 suits 25 metres and above.",
+  },
+];
+
 function FAQ() {
   const faqs = [
     {
@@ -1067,6 +1090,18 @@ function LedScreenJsonLd() {
           "@type": "Service",
           name: "LED Screen Rental"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${ORIGIN}/en/led-screen-rental#faq`,
+        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       }
     ],
   };
