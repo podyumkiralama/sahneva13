@@ -13,17 +13,35 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
+import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/sifir-atik-festivali-ana-sahne-teknik-produksiyon";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const IMAGE_BASE = "/img/projeler/sifir-atik-festivali";
+const VIDEO_THUMBNAIL_URL = "https://img.youtube.com/vi/z4DqZERYXkM/maxresdefault.jpg";
 
 const PROJECT_NAME = "Sıfır Atık Festivali Ana Sahne Teknik Prodüksiyonu";
 const META_DESCRIPTION =
   "Sıfır Atık Festivali için ana sahne, LED ekran, ses sistemi, ışık, truss, scaffold, podyum, backstage reji ve teknik prodüksiyon kurulumu Sahneva tarafından sahada yönetildi.";
 const PUBLISHED_AT = "2026-06-04T12:00:00+03:00";
 const MODIFIED_AT = "2026-06-04T12:00:00+03:00";
+const PROJECT_VIDEO = {
+  id: "z4DqZERYXkM",
+  name: "Sıfır Atık Festivali Ana Sahne Gerçek Saha Operasyonu Videosu",
+  title: "Ana Sahne Gerçek Saha Operasyonu Videosu",
+  eyebrow: "Gerçek Etkinlik Görüntüsü",
+  description:
+    "Bu video, Sıfır Atık Festivali ana sahne teknik prodüksiyonunun gerçek etkinlik anındaki saha operasyonunu gösterir. Ana sahne, dev LED ekranlar, line array ses sistemi, sahne ışıkları, truss/scaffold taşıyıcı yapı, podyum, backstage reji, patch ve enerji/sinyal altyapısı Sahneva operasyon planı içinde sahada yönetildi.",
+  caption:
+    "Sıfır Atık Festivali ana sahnesinde canlı performans sırasında sahne, LED ekran, ses, ışık, truss/scaffold, podyum ve backstage teknik altyapının sahadaki kullanımını gösteren gerçek operasyon görüntüsü.",
+  schemaDescription:
+    "Sıfır Atık Festivali ana sahnesinde canlı performans sırasında ana sahne, LED ekran, line array ses, ışık, truss/scaffold, podyum, backstage reji, patch ve teknik altyapının gerçek etkinlik anındaki kullanımını gösteren Sahneva saha operasyonu videosu.",
+  thumbnailUrl: VIDEO_THUMBNAIL_URL,
+  uploadDate: "2026-06-04",
+  embedUrl: "https://www.youtube.com/embed/z4DqZERYXkM",
+  contentUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
+};
 
 const IMAGES = {
   hero: {
@@ -57,8 +75,8 @@ const IMAGES = {
     src: `${IMAGE_BASE}/sifir-atik-festivali-sahne-ici-podyum-truss-kurulumu.webp`,
     width: 4000,
     height: 1848,
-    alt: "Sıfır Atık Festivali sahne içi podyum, truss ve LED ekran hazırlık kurulumu",
-    title: "Sahne İçi Podyum ve Truss Hazırlığı",
+    alt: "Sıfır Atık Festivali sahne içi podyum, truss ve LED ekran kurulum düzeni",
+    title: "Sahne İçi Podyum ve Truss Düzeni",
     caption:
       "Sahne içi çalışma alanı, podyum yüzeyi, truss hatları ve teknik erişim koridorları kurulum öncesi düzenlendi.",
   },
@@ -117,13 +135,13 @@ const IMAGES = {
       "Enerji, ses ve görüntü sinyali; rack yapısı içinde ayrıştırılarak etkinlik akışı öncesinde kontrol edildi.",
   },
   rehearsal: {
-    src: `${IMAGE_BASE}/sifir-atik-festivali-prova-sahne-ici-teknik-kontrol.webp`,
+    src: `${IMAGE_BASE}/sifir-atik-festivali-sahne-ici-teknik-kontrol.webp`,
     width: 4000,
     height: 1848,
-    alt: "Sıfır Atık Festivali sahne içi prova ve etkinlik öncesi teknik kontrol süreci",
-    title: "Prova ve Sahne İçi Teknik Kontrol",
+    alt: "Sıfır Atık Festivali sahne içi teknik kontrol ve canlı performans akışı",
+    title: "Sahne İçi Teknik Kontrol",
     caption:
-      "Etkinlik öncesi prova sürecinde LED görüntü, sahne akışı, ses bağlantıları ve performans alanı birlikte test edildi.",
+      "Canlı performans akışında LED görüntü, sahne yönetimi, ses bağlantıları ve performans alanı birlikte takip edildi.",
   },
 };
 
@@ -183,10 +201,10 @@ const TECHNICAL_PROOF = [
   },
   {
     title: "Teknik Kontrol",
-    label: "Prova ve sahne içi test",
+    label: "Sahne içi kontrol",
     image: IMAGES.rehearsal,
     text:
-      "Prova aşamasında LED içerik, ses bağlantıları, sahne ışıkları ve canlı performans akışı birlikte kontrol edilerek etkinlik gününe hazır hale getirildi.",
+      "Etkinlik akışında LED içerik, ses bağlantıları, sahne ışıkları ve canlı performans düzeni birlikte kontrol edilerek saha operasyonu yönetildi.",
   },
 ];
 
@@ -265,11 +283,11 @@ const STORY_SECTIONS = [
   },
   {
     eyebrow: "Kurulum Süreci ve Saha Operasyonu",
-    title: "Montajdan provaya kadar tüm teknik akış sahada koordine edildi.",
+    title: "Montajdan etkinlik gününe kadar tüm teknik akış sahada koordine edildi.",
     image: IMAGES.rehearsal,
     links: [],
     paragraphs: [
-      "Kurulum sürecinde vinç destekli montaj, ekipman yerleşimi, LED hizalama, ses-ışık testleri, enerji kontrolleri ve prova akışı adım adım yürütüldü. Sahne içi teknik kontroller, etkinlik başlamadan önce performans, görüntü ve ses akışının birlikte çalışmasını sağladı.",
+      "Kurulum sürecinde vinç destekli montaj, ekipman yerleşimi, LED hizalama, ses-ışık kontrolleri, enerji kontrolleri ve sahne akışı adım adım yürütüldü. Sahne içi teknik kontroller, performans, görüntü ve ses akışının birlikte çalışmasını sağladı.",
       "Sahneva operasyon ekibi, festival boyunca teknik destek vererek ana sahne prodüksiyonunun görünür sahne deneyimi ile backstage altyapı düzenini aynı disiplin içinde yönetti.",
     ],
   },
@@ -287,7 +305,7 @@ const RELATED_SERVICES = [
 const FAQ_ITEMS = [
   {
     q: "Festival ana sahne kurulumu kaç günde tamamlanır?",
-    a: "Kurulum süresi sahne ölçüsü, LED ekran alanı, truss/scaffold yapısı, ses-ışık kapsamı ve saha erişimine göre belirlenir. Büyük ölçekli açık hava projelerinde montaj, test ve prova süreci birlikte planlanır.",
+    a: "Kurulum süresi sahne ölçüsü, LED ekran alanı, truss/scaffold yapısı, ses-ışık kapsamı ve saha erişimine göre belirlenir. Büyük ölçekli açık hava projelerinde montaj, teknik kontrol ve etkinlik günü saha operasyonu birlikte planlanır.",
   },
   {
     q: "Açık hava festivalinde LED ekran neden önemlidir?",
@@ -315,7 +333,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Sahneva büyük ölçekli festival projelerinde teknik ekip sağlar mı?",
-    a: "Evet. Sahneva, büyük ölçekli festival ve açık hava ana sahne projelerinde kurulum, test, prova, etkinlik günü teknik destek ve söküm süreçleri için saha ekibi sağlar.",
+    a: "Evet. Sahneva, büyük ölçekli festival ve açık hava ana sahne projelerinde kurulum, teknik kontrol, etkinlik günü saha desteği ve söküm süreçleri için saha ekibi sağlar.",
   },
 ];
 
@@ -531,6 +549,57 @@ function StorySection({ section, index }) {
   );
 }
 
+function VideoSection() {
+  const proofItems = [
+    "Ana sahne ve dev LED ekran kullanımı",
+    "Line array ses sistemi ve sahne ışıkları",
+    "Truss/scaffold taşıyıcı yapı ve podyum",
+    "Backstage reji, patch ve enerji/sinyal altyapısı",
+  ];
+
+  return (
+    <section
+      id="ana-sahne-gercek-saha-operasyonu-videosu"
+      className="content-visibility-auto [contain-intrinsic-size:auto_980px] md:[contain-intrinsic-size:auto_760px] px-4 py-16 sm:px-6 lg:px-8"
+      aria-labelledby="ana-sahne-gercek-saha-operasyonu-title"
+    >
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.045] p-4 shadow-[0_28px_90px_rgba(0,0,0,0.32)] backdrop-blur md:p-8">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <Eyebrow>{PROJECT_VIDEO.eyebrow}</Eyebrow>
+            <h2
+              id="ana-sahne-gercek-saha-operasyonu-title"
+              className="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl"
+            >
+              {PROJECT_VIDEO.title}
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed !text-white/85">{PROJECT_VIDEO.description}</p>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {proofItems.map((item) => (
+                <li key={item} className="rounded-2xl border border-cyan-300/15 bg-cyan-300/10 px-4 py-3 text-sm font-black text-cyan-100">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <figure className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-3">
+            <LazyVideoEmbed
+              videoId={PROJECT_VIDEO.id}
+              title={PROJECT_VIDEO.name}
+              thumbnailUrl={PROJECT_VIDEO.thumbnailUrl}
+              className="rounded-[1.25rem]"
+            />
+            <figcaption className="px-2 pt-4 text-sm leading-relaxed !text-white/80">
+              {PROJECT_VIDEO.caption}
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ScopeSection() {
   const icons = [MonitorPlay, Music2, Lightbulb, Layers3, SlidersHorizontal, Construction, ShieldCheck, Gauge];
 
@@ -562,7 +631,7 @@ function TechnicalProofSection() {
     <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] lg:[contain-intrinsic-size:auto_1400px] px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="teknik-kanit">
       <div className="mx-auto max-w-7xl">
         <SectionHeader eyebrow="Teknik Kanıt Akışı" title="Her görsel operasyonun ayrı bir parçasını gösteriyor">
-          Görseller yalnızca galeri olarak değil; proje ölçeği, görüntü sistemi, backstage altyapı, vinçli montaj, podyum zemini ve prova kontrolü için teknik kanıt olarak konumlandırıldı.
+          Görseller yalnızca galeri olarak değil; proje ölçeği, görüntü sistemi, backstage altyapı, vinçli montaj, podyum zemini ve sahne içi kontrol için teknik kanıt olarak konumlandırıldı.
         </SectionHeader>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -702,6 +771,20 @@ function buildJsonLd() {
     inLanguage: "tr-TR",
   }));
 
+  const videoNode = {
+    "@type": "VideoObject",
+    "@id": `${PAGE_URL}#video`,
+    name: PROJECT_VIDEO.name,
+    description: PROJECT_VIDEO.schemaDescription,
+    thumbnailUrl: PROJECT_VIDEO.thumbnailUrl,
+    uploadDate: PROJECT_VIDEO.uploadDate,
+    embedUrl: PROJECT_VIDEO.embedUrl,
+    contentUrl: PROJECT_VIDEO.contentUrl,
+    inLanguage: "tr-TR",
+    publisher: { "@id": `${SITE_URL}/#org` },
+    url: `${PAGE_URL}#ana-sahne-gercek-saha-operasyonu-videosu`,
+  };
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -723,7 +806,11 @@ function buildJsonLd() {
         primaryImageOfPage: { "@id": `${PAGE_URL}#image-1` },
         breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
         mainEntity: { "@id": `${PAGE_URL}#project` },
-        hasPart: [{ "@id": `${PAGE_URL}#faq` }, ...serviceNodes.map((node) => ({ "@id": node["@id"] }))],
+        hasPart: [
+          { "@id": `${PAGE_URL}#faq` },
+          { "@id": videoNode["@id"] },
+          ...serviceNodes.map((node) => ({ "@id": node["@id"] })),
+        ],
         publisher: { "@id": `${SITE_URL}/#org` },
       },
       {
@@ -739,6 +826,7 @@ function buildJsonLd() {
         datePublished: PUBLISHED_AT,
         dateModified: MODIFIED_AT,
         inLanguage: "tr-TR",
+        subjectOf: { "@id": videoNode["@id"] },
         about: [
           "Sıfır Atık Festivali",
           "ana sahne teknik prodüksiyonu",
@@ -751,6 +839,7 @@ function buildJsonLd() {
         ],
         workExample: serviceNodes.map((node) => ({ "@id": node["@id"] })),
       },
+      videoNode,
       {
         "@type": "BreadcrumbList",
         "@id": `${PAGE_URL}#breadcrumb`,
@@ -835,6 +924,7 @@ export default function ZeroWasteFestivalProjectPage() {
           <StorySection key={section.title} section={section} index={index} />
         ))}
 
+        <VideoSection />
         <ScopeSection />
         <TechnicalProofSection />
         <RelatedServicesSection />
