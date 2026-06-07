@@ -379,7 +379,7 @@ function HeroSection() {
               <Link
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
               >
                 <span className="text-xl mr-2">💬</span> Hemen Teklif Al
@@ -469,7 +469,7 @@ function ServicesSection() {
           <Link
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-pink-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">📞</span> Detaylı Teklif için İletişime Geçin
@@ -719,7 +719,7 @@ function UseCasesSection() {
           <Link
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3">💬</span> Etkinliğiniz İçin Özel Teklif Alın
@@ -867,7 +867,7 @@ function CTASection() {
               <Link
                 href={WHATSAPP_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
               >
                 <span className="text-xl mr-3">💬</span> Hemen Teklif Al
