@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import LedPriceCalculator from "@/components/LedPriceCalculator.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -378,79 +379,6 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
   );
 }
 
-const ledCalculatorScript = `
-(() => {
-  const root = document.querySelector("[data-led-calculator]");
-  if (!root || root.dataset.ready === "true") return;
-  root.dataset.ready = "true";
-
-  const form = root.querySelector("[data-led-form]");
-  if (!form) return;
-
-  const prices = {
-    standard: { label: "Standart LED ekran", sqm: 1800, minimum: 35000 },
-    p19: { label: "P1.9 Indoor LED", sqm: 4500, minimum: 50000 },
-  };
-
-  const formatPrice = (value) => Math.round(value).toLocaleString("tr-TR") + " TL";
-  const formatArea = (value) =>
-    value.toLocaleString("tr-TR", { maximumFractionDigits: 2 }) + " m²";
-
-  const setText = (selector, value) => {
-    const element = root.querySelector(selector);
-    if (element) element.textContent = value;
-  };
-
-  const calculate = () => {
-    const data = new FormData(form);
-    const type = prices[data.get("screenType")] || prices.standard;
-    const width = Math.max(Number(data.get("width")) || 0, 0);
-    const height = Math.max(Number(data.get("height")) || 0, 0);
-    const days = Math.max(Number(data.get("days")) || 1, 1);
-    const area = width * height;
-    const baseDaily = area * type.sqm;
-    const usesMinimum = data.get("screenType") === "standard"
-      ? area <= 15 || baseDaily < type.minimum
-      : baseDaily < type.minimum;
-    const firstDay = usesMinimum ? type.minimum : baseDaily;
-    const dayTotal = days <= 1 ? firstDay : firstDay + firstDay * 0.35 * (days - 1);
-    const watchout = data.get("watchout") === "on";
-    const watchoutPrice = watchout ? 50000 : 0;
-    const total = dayTotal + watchoutPrice;
-
-    setText("[data-led-area]", formatArea(area));
-    setText("[data-led-daily]", formatPrice(firstDay));
-    setText("[data-led-watchout]", watchout ? "+50.000 TL" : "İsteğe bağlı");
-    setText("[data-led-total]", formatPrice(total));
-    setText(
-      "[data-led-note]",
-      usesMinimum
-        ? "Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır."
-        : "Bu ölçüde hesaplama m² başlangıç bedeli üzerinden yapılır."
-    );
-
-    const message =
-      "Merhaba, LED ekran fiyat hesaplama sonucuna göre teklif almak istiyorum.\\n" +
-      "Ekran tipi: " + type.label + "\\n" +
-      "Ölçü: " + width + "x" + height + " m\\n" +
-      "Toplam alan: " + formatArea(area) + "\\n" +
-      "Gün sayısı: " + days + "\\n" +
-      "Watchout: " + (watchout ? "Evet" : "Hayır") + "\\n" +
-      "Yaklaşık başlangıç bedeli: " + formatPrice(total);
-
-    const whatsapp = root.querySelector("[data-led-whatsapp]");
-    if (whatsapp) {
-      whatsapp.href = "https://wa.me/${PHONE}?text=" + encodeURIComponent(message);
-    }
-  };
-
-  form.addEventListener("input", calculate);
-  form.addEventListener("change", calculate);
-  form.addEventListener("submit", (event) => event.preventDefault());
-  calculate();
-})();
-`;
-
 const calculatorStyles = {
   section: {
     background: "#020617",
@@ -617,139 +545,12 @@ function LedPriceCalculatorSection() {
   return (
     <section id="led-ekran-hesaplama-araci" style={calculatorStyles.section}>
       <div style={calculatorStyles.container}>
-        <div
-          data-led-calculator
-          style={calculatorStyles.shell}
-        >
-          <div style={calculatorStyles.grid}>
-            <div style={calculatorStyles.panel}>
-              <p style={calculatorStyles.eyebrow}>
-                Hesaplama Aracı
-              </p>
-              <h2 style={calculatorStyles.title}>
-                LED ekran m² ve fiyat hesaplama
-              </h2>
-              <p style={calculatorStyles.description}>
-                Ekran ölçüsü, gün sayısı, panel tipi ve isteğe bağlı Watchout ihtiyacına göre yaklaşık başlangıç bedelini hesaplayın. Net teklif; kurulum saati, mekan erişimi, reji ve lojistik kapsamıyla birlikte kesinleşir.
-              </p>
-
-              <form data-led-form style={calculatorStyles.form}>
-                <div>
-                  <label htmlFor="led-calc-type" style={calculatorStyles.labelText}>
-                    Ekran tipi
-                  </label>
-                  <select
-                    id="led-calc-type"
-                    name="screenType"
-                    defaultValue="standard"
-                    style={calculatorStyles.input}
-                  >
-                    <option value="standard">Standart indoor / outdoor LED</option>
-                    <option value="p19">P1.9 Indoor LED</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="led-calc-days" style={calculatorStyles.labelText}>
-                    Gün sayısı
-                  </label>
-                  <input
-                    id="led-calc-days"
-                    name="days"
-                    type="number"
-                    min="1"
-                    defaultValue="1"
-                    style={calculatorStyles.input}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="led-calc-width" style={calculatorStyles.labelText}>
-                    En (m)
-                  </label>
-                  <input
-                    id="led-calc-width"
-                    name="width"
-                    type="number"
-                    min="1"
-                    step="0.5"
-                    defaultValue="6"
-                    style={calculatorStyles.input}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="led-calc-height" style={calculatorStyles.labelText}>
-                    Boy (m)
-                  </label>
-                  <input
-                    id="led-calc-height"
-                    name="height"
-                    type="number"
-                    min="1"
-                    step="0.5"
-                    defaultValue="3"
-                    style={calculatorStyles.input}
-                  />
-                </div>
-
-                <label style={calculatorStyles.checkboxLabel}>
-                  <input
-                    name="watchout"
-                    type="checkbox"
-                    style={calculatorStyles.checkbox}
-                  />
-                  <span>
-                    <strong style={{ color: "#fff", display: "block" }}>Watchout / gelişmiş reji</strong>
-                    Mapping, çoklu ekran senkronizasyonu ve gelişmiş sahne akışlarında isteğe bağlı +50.000 TL olarak eklenir.
-                  </span>
-                </label>
-              </form>
-            </div>
-
-            <div style={calculatorStyles.resultPanel}>
-              <div style={calculatorStyles.resultCard}>
-                <p style={calculatorStyles.resultEyebrow}>
-                  Yaklaşık Başlangıç Bedeli
-                </p>
-                <p data-led-total style={calculatorStyles.total}>
-                  35.000 TL
-                </p>
-                <p data-led-note style={calculatorStyles.note}>
-                  Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır.
-                </p>
-              </div>
-
-              <div style={calculatorStyles.rows}>
-                {[
-                  ["Toplam alan", "data-led-area", "18 m²"],
-                  ["İlk gün bedeli", "data-led-daily", "35.000 TL"],
-                  ["Watchout", "data-led-watchout", "İsteğe bağlı"],
-                ].map(([label, attr, fallback]) => (
-                  <div key={label} style={calculatorStyles.row}>
-                    <span style={calculatorStyles.rowLabel}>{label}</span>
-                    <span {...{ [attr]: "" }} style={calculatorStyles.rowValue}>
-                      {fallback}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                data-led-whatsapp
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={calculatorStyles.whatsapp}
-              >
-                <MessageCircle size={20} aria-hidden="true" />
-                Bu hesapla teklif iste
-              </a>
-            </div>
-          </div>
-        </div>
+        <LedPriceCalculator
+          styles={calculatorStyles}
+          phone={PHONE}
+          fallbackWhatsappUrl={WHATSAPP_URL}
+        />
       </div>
-      <script dangerouslySetInnerHTML={{ __html: ledCalculatorScript }} />
     </section>
   );
 }
