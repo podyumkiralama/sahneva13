@@ -38,7 +38,7 @@ const PROJECT_VIDEO = {
   schemaDescription:
     "Sıfır Atık Festivali ana sahnesinde canlı performans sırasında ana sahne, LED ekran, line array ses, ışık, truss/scaffold, podyum, backstage reji, patch ve teknik altyapının gerçek etkinlik anındaki kullanımını gösteren Sahneva saha operasyonu videosu.",
   thumbnailUrl: VIDEO_THUMBNAIL_URL,
-  uploadDate: "2026-06-04",
+  uploadDate: "2026-06-05T00:00:00+03:00",
   embedUrl: "https://www.youtube.com/embed/z4DqZERYXkM",
   contentUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
 };
