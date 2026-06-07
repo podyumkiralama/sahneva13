@@ -43,7 +43,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
         : baseDaily < type.minimum
       : false;
     const firstDay = hasValidArea ? (usesMinimum ? type.minimum : baseDaily) : 0;
-    const dayTotal = parsedDays <= 1 ? firstDay : firstDay + firstDay * 0.35 * (parsedDays - 1);
+    const dayTotal = firstDay * parsedDays;
     const watchoutPrice = watchout ? 50000 : 0;
     const total = dayTotal + watchoutPrice;
 
