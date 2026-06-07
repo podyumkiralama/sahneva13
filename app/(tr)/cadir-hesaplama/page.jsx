@@ -1,8 +1,10 @@
 import Link from "next/link";
 import TentCalculatorClient from "./TentCalculatorClient";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;
+const PAGE_URL = `${ORIGIN}/cadir-hesaplama`;
 
 export const revalidate = 1800;
 
@@ -10,9 +12,7 @@ export const metadata = {
   title: "Çadır Hesaplama Aracı | Kaç Kişiye Kaç m² Çadır Gerekir?",
   description:
     "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre etkinliğiniz için önerilen çadır ölçüsünü ve yaklaşık m² ihtiyacını hesaplayın.",
-  alternates: {
-    canonical: `${ORIGIN}/cadir-hesaplama`,
-  },
+  alternates: buildLanguageAlternates({ tr: PAGE_URL, canonical: PAGE_URL }),
   openGraph: {
     title: "Çadır Hesaplama Aracı | Sahneva",
     description:

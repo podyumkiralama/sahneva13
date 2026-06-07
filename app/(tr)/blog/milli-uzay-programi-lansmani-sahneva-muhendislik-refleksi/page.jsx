@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -47,9 +48,7 @@ export const metadata = {
     "mühendislik sahne tasarımı",
     "Beştepe Kongre Merkezi",
   ],
-  alternates: {
-    canonical: BLOG_URL,
-  },
+  alternates: buildLanguageAlternates({ tr: BLOG_URL, canonical: BLOG_URL }),
   image: HERO_IMG,
   date: PUBLISH_DATE,
   category: "Kurumsal Organizasyon",
