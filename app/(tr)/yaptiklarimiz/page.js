@@ -3,13 +3,12 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
 export const revalidate = 86400;
 
+export const metadata = {
+  title: "Yaptıklarımız | Sahneva Video Projeleri",
+  description: "Sahneva tarafından tamamlanan sahne, LED ekran, podyum, çadır, ses ve ışık projelerini video olarak inceleyin.",
+};
+
 const videos = [
   {
     id: "z4DqZERYXkM",
-    title: "Konser Sahnesi ve LED Ekran Kurulumu",
-    desc: "Sahne, LED ekran, ses ve ışık sistemleriyle tamamlanan proje videosu.",
-  },
-  {
-    id: "x-BYu0vgO2E",
-    title: "SAHA 2026 Dome Çadır Kurulumu",
-    desc:
+    title: "Konser Sahnes
