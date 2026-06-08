@@ -1,14 +1,3 @@
-import Link from "next/link";
-import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
-
-export const revalidate = 86400;
-
-export const metadata = {
-  title: "Yaptıklarımız | Sahneva Video Projeleri",
-  description: "Sahneva tarafından tamamlanan sahne, LED ekran, podyum, çadır, ses ve ışık projelerini video olarak inceleyin.",
-};
-
-const videos = [
-  {
-    id: "z4DqZERYXkM",
-    title: "Konser Sahnes
+export const metadata={title:"Yaptıklarımız | Sahneva",description:"Sahneva video proje vitrini."};
+const vids=["z4DqZERYXkM","x-BYu0vgO2E"];
+export default function Page(){return <main className="min-h-screen bg-[#0B1120] text-white px-4 py-28"><div className="mx-auto max-w-6xl"><h1 className="text-4xl md:text-6xl font-black">Yaptıklarımız</h1><p className="mt-4 text-slate-300">Sahneva tarafından tamamlanan proj
