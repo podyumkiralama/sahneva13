@@ -1,3 +1,2 @@
-export const metadata={title:"Yaptıklarımız | Sahneva",description:"Sahneva video proje vitrini."};
-const vids=["z4DqZERYXkM","x-BYu0vgO2E"];
-export default function Page(){return <main className="min-h-screen bg-[#0B1120] text-white px-4 py-28"><div className="mx-auto max-w-6xl"><h1 className="text-4xl md:text-6xl font-black">Yaptıklarımız</h1><p className="mt-4 text-slate-300">Sahneva tarafından tamamlanan proj
+export const metadata={title:"Yaptıklarımız | Sahneva"};
+export default function Page(){return <main className="min-h-screen p-24">Yaptıklarımız</main>}
