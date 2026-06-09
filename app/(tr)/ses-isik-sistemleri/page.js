@@ -47,7 +47,8 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/ses-isik-sistemleri",
     en: "/en/sound-light-rental",
-    xDefault: "/en/sound-light-rental",
+    ru: "/ru/sound-light-rental",
+    xDefault: "/ses-isik-sistemleri",
   }),
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",

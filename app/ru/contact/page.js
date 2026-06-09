@@ -1,6 +1,7 @@
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_CONTACT_URL = buildCanonical("/ru/contact");
+const RU_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
 
 const CONTACT_CHANNELS = [
   {
@@ -41,8 +42,25 @@ export const metadata = {
       en: `${SITE_URL}/en/contact`,
       ar: `${SITE_URL}/ar/contact`,
       ru: RU_CONTACT_URL,
-      "x-default": `${SITE_URL}/en/contact`,
+      "x-default": `${SITE_URL}/iletisim`,
     },
+  },
+  openGraph: {
+    title: "Контакты | Sahneva",
+    description:
+      "Свяжитесь с Sahneva для расчета аренды сцены, LED-экрана, звука, света, шатра и мебели для мероприятий в Турции.",
+    url: RU_CONTACT_URL,
+    siteName: "Sahneva",
+    type: "website",
+    locale: "ru_RU",
+    images: [{ url: RU_CONTACT_IMAGE, width: 1200, height: 630, alt: "Sahneva контакты для мероприятий в Турции" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Контакты | Sahneva",
+    description:
+      "Свяжитесь с Sahneva для расчета аренды сцены, LED-экрана, звука, света, шатра и мебели для мероприятий в Турции.",
+    images: [RU_CONTACT_IMAGE],
   },
 };
 

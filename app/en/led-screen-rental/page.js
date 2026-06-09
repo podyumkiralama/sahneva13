@@ -37,8 +37,9 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/led-ekran-kiralama",
     en: "/en/led-screen-rental",
+    ru: "/ru/led-screen-rental",
     canonical: "/en/led-screen-rental",
-    xDefault: "/en/led-screen-rental",
+    xDefault: "/led-ekran-kiralama",
   }),
   openGraph: {
     title: "LED Screen Rental | Professional Solutions",

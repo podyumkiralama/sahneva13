@@ -150,7 +150,7 @@ export const metadata = {
       en: `${SITE_URL}/en/services`,
       ar: AR_SERVICES_URL,
       ru: `${SITE_URL}/ru/services`,
-      "x-default": `${SITE_URL}/en/services`,
+      "x-default": `${SITE_URL}/hizmetler`,
     },
   },
 };

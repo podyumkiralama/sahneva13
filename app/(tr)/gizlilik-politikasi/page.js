@@ -16,6 +16,7 @@ export const metadata = {
     canonical: `${SITE_URL}/gizlilik-politikasi`,
     languages: {
       "tr-TR": `${SITE_URL}/gizlilik-politikasi`,
+      en: `${SITE_URL}/en/privacy-policy`,
       "x-default": `${SITE_URL}/gizlilik-politikasi`,
     },
   },

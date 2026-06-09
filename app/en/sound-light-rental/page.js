@@ -38,8 +38,9 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/ses-isik-sistemleri",
     en: "/en/sound-light-rental",
+    ru: "/ru/sound-light-rental",
     canonical: "/en/sound-light-rental",
-    xDefault: "/en/sound-light-rental",
+    xDefault: "/ses-isik-sistemleri",
   }),
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",

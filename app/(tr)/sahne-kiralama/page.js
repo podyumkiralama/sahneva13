@@ -62,7 +62,8 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/sahne-kiralama",
     en: "/en/stage-rental",
-    xDefault: "/en/stage-rental",
+    ru: "/ru/stage-rental",
+    xDefault: "/sahne-kiralama",
   }),
   openGraph: {
     title: "Sahne Kiralama | Sahneva",

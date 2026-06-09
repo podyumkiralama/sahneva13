@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_ABOUT_URL = buildCanonical("/ru/about");
+const RU_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
 
 const VALUES = [
   { title: "Безопасность", text: "Проверяем несущие конструкции, электрическую нагрузку, высоты и маршруты монтажа до выхода команды на площадку." },
@@ -21,8 +22,25 @@ export const metadata = {
       en: `${SITE_URL}/en/about`,
       ar: `${SITE_URL}/ar/about`,
       ru: RU_ABOUT_URL,
-      "x-default": `${SITE_URL}/en/about`,
+      "x-default": `${SITE_URL}/hakkimizda`,
     },
+  },
+  openGraph: {
+    title: "О Sahneva",
+    description:
+      "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
+    url: RU_ABOUT_URL,
+    siteName: "Sahneva",
+    type: "website",
+    locale: "ru_RU",
+    images: [{ url: RU_ABOUT_IMAGE, width: 1200, height: 630, alt: "Команда Sahneva на техническом проекте" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "О Sahneva",
+    description:
+      "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
+    images: [RU_ABOUT_IMAGE],
   },
 };
 

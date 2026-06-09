@@ -170,8 +170,9 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/kurumsal-organizasyon",
     en: "/en/corporate-events",
+    ru: "/ru/corporate-events",
     canonical: "/kurumsal-organizasyon",
-    xDefault: "/en/corporate-events",
+    xDefault: "/kurumsal-organizasyon",
   }),
   openGraph: {
     title: OG_TITLE,

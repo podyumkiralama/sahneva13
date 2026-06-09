@@ -19,7 +19,8 @@ export const metadata = {
       "tr-TR": `${ORIGIN}/projeler`,
       "en": `${ORIGIN}/en/projects`,
       "ar": `${ORIGIN}/ar/projects`,
-      "x-default": `${ORIGIN}/en/projects`,
+      "ru": `${ORIGIN}/ru/projects`,
+      "x-default": `${ORIGIN}/projeler`,
     },
   },
   openGraph: {

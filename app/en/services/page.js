@@ -16,7 +16,8 @@ export const metadata = {
       "tr-TR": `${BASE_SITE_URL}/hizmetler`,
       "en": `${BASE_SITE_URL}/en/services`,
       "ar": `${BASE_SITE_URL}/ar/services`,
-      "x-default": `${BASE_SITE_URL}/en/services`,
+      "ru": `${BASE_SITE_URL}/ru/services`,
+      "x-default": `${BASE_SITE_URL}/hizmetler`,
     },
   },
   openGraph: {

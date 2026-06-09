@@ -18,7 +18,8 @@ export const metadata = {
       "tr-TR": `${SITE_URL}/hakkimizda`,
       en: `${SITE_URL}/en/about`,
       ar: AR_ABOUT_URL,
-      "x-default": `${SITE_URL}/en/about`,
+      ru: `${SITE_URL}/ru/about`,
+      "x-default": `${SITE_URL}/hakkimizda`,
     },
   },
   openGraph: {

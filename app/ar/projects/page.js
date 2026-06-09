@@ -136,7 +136,7 @@ export const metadata = {
       en: `${SITE_URL}/en/projects`,
       ar: AR_PROJECTS_URL,
       ru: `${SITE_URL}/ru/projects`,
-      "x-default": `${SITE_URL}/en/projects`,
+      "x-default": `${SITE_URL}/projeler`,
     },
   },
 };

@@ -20,7 +20,8 @@ export const metadata = {
       "tr-TR": PAGE_URL,
       en: `${BASE_SITE_URL}/en/contact`,
       ar: `${BASE_SITE_URL}/ar/contact`,
-      "x-default": `${BASE_SITE_URL}/en/contact`,
+      ru: `${BASE_SITE_URL}/ru/contact`,
+      "x-default": PAGE_URL,
     },
   },
   openGraph: {

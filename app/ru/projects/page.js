@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_PROJECTS_URL = buildCanonical("/ru/projects");
+const RU_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
 
 const PROJECT_GROUPS = [
   {
@@ -33,8 +34,25 @@ export const metadata = {
       en: `${SITE_URL}/en/projects`,
       ar: `${SITE_URL}/ar/projects`,
       ru: RU_PROJECTS_URL,
-      "x-default": `${SITE_URL}/en/projects`,
+      "x-default": `${SITE_URL}/projeler`,
     },
+  },
+  openGraph: {
+    title: "Проекты | Sahneva",
+    description:
+      "Примеры проектов Sahneva: сцены, LED-экраны, звук, свет, truss, шатры и полная техническая подготовка мероприятий.",
+    url: RU_PROJECTS_URL,
+    siteName: "Sahneva",
+    type: "website",
+    locale: "ru_RU",
+    images: [{ url: RU_PROJECTS_IMAGE, width: 1200, height: 630, alt: "Проекты Sahneva для мероприятий в Турции" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Проекты | Sahneva",
+    description:
+      "Примеры проектов Sahneva: сцены, LED-экраны, звук, свет, truss, шатры и полная техническая подготовка мероприятий.",
+    images: [RU_PROJECTS_IMAGE],
   },
 };
 
