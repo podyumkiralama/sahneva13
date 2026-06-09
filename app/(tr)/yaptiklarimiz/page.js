@@ -141,6 +141,15 @@ const PROJECT_VIDEOS = [
     startSeconds: 46,
   },
   {
+    id: "xatodgyZ_S8",
+    title: "Ufkun Ötesinde Galası ve Türkiye'nin İnsanlı İlk Uzay Misyonu Sergisi",
+    description:
+      "Ufkun Ötesinde Galası ve Türkiye'nin insanlı ilk uzay misyonu sergisi için hazırlanan sahne, LED ekran, sergi alanı ve teknik prodüksiyon uygulamasından seçilmiş proje videosu.",
+    services: ["Gala", "Sergi Alanı", "LED Ekran", "Teknik Prodüksiyon"],
+    youtubeUrl: "https://www.youtube.com/watch?v=xatodgyZ_S8",
+    thumbnailUrl: "https://i.ytimg.com/vi/xatodgyZ_S8/hqdefault.jpg",
+  },
+  {
     id: "j1Tr5l8DVW8",
     title: "Milli Uzay Programı Lansmanı 2021",
     description:
