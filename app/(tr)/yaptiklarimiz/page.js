@@ -44,6 +44,15 @@ const PROJECT_VIDEOS = [
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
+  {
+    id: "4ygMbL4FDRc",
+    title: "TÜBİTAK Uzay Bilim Çadırı - TEKNOFEST",
+    description:
+      "TEKNOFEST kapsamında hazırlanan TÜBİTAK Uzay Bilim Çadırı için çadır, etkinlik alanı ve saha prodüksiyonundan seçilmiş proje videosu.",
+    services: ["Çadır", "TEKNOFEST", "Etkinlik Alanı", "Prodüksiyon"],
+    youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
+    thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
+  },
 ];
 
 export const metadata = {
