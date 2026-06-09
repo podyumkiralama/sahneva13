@@ -53,6 +53,16 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
     thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
   },
+  {
+    id: "_9Q7v0ZL304",
+    title: "TEKNOFEST Sahne, LED Ekran, Ses ve Işık Kurulumu",
+    description:
+      "TEKNOFEST etkinlik alanında sahne, LED ekran, ses, ışık ve teknik altyapı entegrasyonundan seçilmiş saha görüntüsü.",
+    services: ["Sahne", "LED Ekran", "Ses", "Işık"],
+    youtubeUrl: "https://www.youtube.com/watch?v=_9Q7v0ZL304",
+    thumbnailUrl: "https://i.ytimg.com/vi/_9Q7v0ZL304/hqdefault.jpg",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
 ];
 
 export const metadata = {
