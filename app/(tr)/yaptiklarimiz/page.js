@@ -34,6 +34,16 @@ const PROJECT_VIDEOS = [
     thumbnailUrl: "https://i.ytimg.com/vi/x-BYu0vgO2E/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
+  {
+    id: "JNzGlNzNRuk",
+    title: "Hızlı Kurulum ve Teknik Hazırlık",
+    description:
+      "Dar zamanlı projelerde sahne, LED ekran ve teknik ekip koordinasyonunu gösteren gerçek uygulama kesiti.",
+    services: ["Sahne", "LED Ekran", "Teknik Ekip", "Kurulum"],
+    youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
+    thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
 ];
 
 export const metadata = {
