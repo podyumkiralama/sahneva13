@@ -101,21 +101,6 @@ const getServiceWhatsappLink = (title) => {
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
 
-/*fiyat*/
-const LED_PRICING = {
-  aggregateOffer: {
-    lowPrice: "1800",
-    highPrice: "2800",
-    priceCurrency: "TRY",
-  },
-  aggregateRating: {
-    ratingValue: "4.9",
-    ratingCount: "2",
-    bestRating: "5",
-    worstRating: "1",
-  },
-};
-
 const LED_PIXEL_ROWS = [
   {
     model: "P1.9",
@@ -161,9 +146,9 @@ const LED_PIXEL_ROWS = [
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama | İç & Dış Mekan Profesyonel Çözümler",
+  title: "LED Ekran Kiralama İstanbul | İç & Dış Mekan LED Wall Çözümleri",
   description:
-    "300 m² P1.9 Indoor LED envanteri, P2.5/P2.9 iç ve P3.9 dış mekan LED ekran kiralama çözümleriyle lansman, fuar ve galalarda kontrollü teknik operasyon.",
+    "İstanbul ve Türkiye genelinde iç mekan ve dış mekan LED ekran kiralama hizmeti. P1.9, P2.9 ve P3.9 LED panel seçenekleri, kurulum, söküm, teknik ekip ve reji desteğiyle profesyonel çözüm alın.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildLanguageAlternates({
@@ -172,9 +157,9 @@ export const metadata = {
     xDefault: "/en/led-screen-rental",
   }),
   openGraph: {
-    title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
+    title: "LED Ekran Kiralama İstanbul | İç & Dış Mekan LED Wall Çözümleri",
     description:
-      "300 m² P1.9 Indoor LED envanteriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun yüksek çözünürlüklü LED ekran kurulumu.",
+      "İstanbul ve Türkiye genelinde iç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall kurulumlarını teknik ekip ve reji desteğiyle planlayın.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -184,15 +169,15 @@ export const metadata = {
         url: `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
         width: 1600,
         height: 739,
-        alt: "LED ekran kiralama – 300 m² P1.9 Indoor LED envanteri ve profesyonel LED wall kurulumu",
+        alt: "LED ekran kiralama İstanbul iç ve dış mekan LED wall kurulumu",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Ekran Kiralama | 300 m² P1.9 Indoor LED – Sahneva",
+    title: "LED Ekran Kiralama İstanbul | İç & Dış Mekan LED Wall Çözümleri",
     description:
-      "300 m² P1.9 indoor LED envanteri, P2.5/P2.9 indoor ve P3.9 outdoor LED ekran kiralama.",
+      "İstanbul ve Türkiye genelinde iç mekan, dış mekan, LED wall ve video wall kiralama çözümleri.",
     images: [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`],
   },
   robots: {
@@ -224,7 +209,7 @@ const HERO = {
   src: LED_GALA_STAGE_HERO_DESKTOP_IMAGE_SRC,
   tabletSrc: LED_GALA_STAGE_HERO_TABLET_IMAGE_SRC,
   mobileSrc: LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC,
-  alt: "300 m² P1.9 Indoor LED envanterimizle lansman, konferans, fuar, gala ve kurumsal sahne prodüksiyonlarında yakın izleme mesafesine uygun yüksek çözünürlüklü görüntü altyapısı sunan profesyonel LED wall kurulumu",
+  alt: "İstanbul LED ekran kiralama hizmeti için kurumsal sahnede LED wall, ses, ışık ve teknik reji kurulumu",
 };
 
 const SERVICES = [
@@ -747,7 +732,7 @@ function Hero() {
         <div className="max-w-4xl">
           <div className="mb-5 inline-flex items-center gap-3 border border-white/20 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
-            <span>300 m² P1.9 indoor LED envanteri</span>
+            <span>İstanbul ve Türkiye geneli LED ekran kiralama</span>
           </div>
 
           <h1 id="hero-title" className="max-w-4xl text-5xl font-black leading-[0.96] text-white md:text-7xl lg:text-8xl">
@@ -755,12 +740,13 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white/85 md:text-2xl">
-            Gala, lansman, fuar ve konferans sahnelerinde; yakın izleme mesafesine uygun yüksek çözünürlük,
-            kontrollü teknik operasyon ve güçlü marka etkisi.
+            İstanbul ve Türkiye genelinde LED ekran kiralama hizmeti sunuyoruz. İç mekan LED ekran, dış mekan LED
+            ekran, LED wall ve video wall çözümlerini; kurulum, söküm, teknik ekip, görüntü işlemcisi ve reji
+            desteğiyle birlikte projeye özel planlıyoruz.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
-            {["P1.9 Yakın İzleme", "3840 Hz Görüntü Akışı", "Özmal LED Envanteri", "Türkiye Geneli Kurulum"].map((item) => (
+            {["İç Mekan LED", "Dış Mekan LED", "LED Wall & Video Wall", "Reji ve Teknik Ekip"].map((item) => (
               <span key={item} className="border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
                 {item}
               </span>
@@ -780,12 +766,12 @@ function Hero() {
             </Link>
 
             <Link
-              href="#p19-yatirim-baslik"
-              aria-label="P1.9 Detaylarını İncele - 300 m² P1.9 LED envanteri bölümüne gidin"
+              href="/led-ekran-hesaplama"
+              aria-label="LED ekran hesaplama aracına gidin"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
-              <span>P1.9 Detaylarını İncele</span>
+              <span>LED Ekran Hesapla</span>
             </Link>
           </div>
         </div>
@@ -795,12 +781,13 @@ function Hero() {
             <CheckCircle size={22} className="text-emerald-300" aria-hidden="true" />
             <div>
               <p className="text-sm font-semibold text-white/60">Sahneva LED Ops</p>
-              <p className="text-lg font-black text-white">Premium kurulum akışı</p>
+              <p className="text-lg font-black text-white">Teknik operasyon akışı</p>
             </div>
           </div>
           <dl className="mt-5 grid gap-4">
             {[
-              ["300 m²", "P1.9 indoor LED"],
+              ["Indoor", "iç mekan LED"],
+              ["Outdoor", "dış mekan LED"],
               ["700+", "tamamlanan proje"],
               ["81 il", "kurulum operasyonu"],
             ].map(([value, label]) => (
@@ -823,7 +810,7 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Profesyonel <span className="text-blue-700">Hizmetlerimiz</span>
+            LED Ekran Kiralama <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Indoor LED ekran, outdoor LED ekran, LED wall ve video wall kurulumlarını etkinlik tipine göre; ekran ölçüsü, izleme mesafesi, piksel aralığı, taşıyıcı sistem, reji ve teknik ekip ihtiyacıyla birlikte planlıyoruz.
@@ -833,7 +820,19 @@ function Services() {
             <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
               güncel LED ekran kiralama fiyatları
             </Link>{" "}
-            sayfasında ayrı bir fiyat rehberi hazırladık.
+            sayfasında ayrı bir fiyat rehberi hazırladık. Yaklaşık alan ve bütçe hesabı için{" "}
+            <Link href="/led-ekran-hesaplama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+              LED ekran hesaplama
+            </Link>{" "}
+            aracını kullanabilir; sahne programı için{" "}
+            <Link href="/ses-isik-sistemleri" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+              ses ve ışık sistemleri
+            </Link>{" "}
+            ile performans alanı ihtiyacı için{" "}
+            <Link href="/podyum-kiralama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+              podyum kiralama
+            </Link>{" "}
+            çözümlerini birlikte planlayabilirsiniz.
           </p>
         </div>
 
@@ -2051,7 +2050,6 @@ function LedScreenJsonLd() {
   const pageUrl = `${ORIGIN}/led-ekran-kiralama`;
   const pageDescription = metadata.description;
   const serviceId = `${pageUrl}#service`;
-  const productId = `${pageUrl}#product`;
   const webPageId = `${pageUrl}#webpage`;
 
   const providerRef = {
@@ -2072,44 +2070,24 @@ function LedScreenJsonLd() {
       description:
         "Türkiye'nin 81 ilinde profesyonel LED ekran kiralama hizmeti",
     },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
-      lowPrice: LED_PRICING.aggregateOffer.lowPrice,
-      highPrice: LED_PRICING.aggregateOffer.highPrice,
-      offerCount: 4,
-      availability: "https://schema.org/InStock",
-      url: pageUrl,
-    },
-  };
-
-  const productNode = {
-    "@type": "Product",
-    "@id": productId,
-    name: "İç ve Dış Mekan LED Ekran Kiralama",
-    description:
-      "Sahneva'nın 300 m² P1.9 Indoor LED envanteri ve özmal altyapı gücüyle; P1.9/P2.5/P2.9 iç mekan, P3.9 dış mekan piksel aralıklarında yakın izleme mesafesine uygun yüksek çözünürlüklü görüntü sunan profesyonel LED ekran kiralama hizmeti. Lansman, fuar, gala, konferans ve kurumsal etkinlikler için uzman kurulum.",
-    category: "EventLedScreenRental",
-    brand: providerRef,
-    url: pageUrl,
-    isRelatedTo: {
-      "@id": serviceId,
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: LED_PRICING.aggregateRating.ratingValue,
-      bestRating: LED_PRICING.aggregateRating.bestRating,
-      worstRating: LED_PRICING.aggregateRating.worstRating,
-      ratingCount: LED_PRICING.aggregateRating.ratingCount,
-    },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: LED_PRICING.aggregateOffer.priceCurrency,
-      lowPrice: LED_PRICING.aggregateOffer.lowPrice,
-      highPrice: LED_PRICING.aggregateOffer.highPrice,
-      offerCount: 4,
-      availability: "https://schema.org/InStock",
-      url: pageUrl,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "LED ekran kiralama hizmet kapsamı",
+      itemListElement: [
+        "İç mekan LED ekran kiralama",
+        "Dış mekan LED ekran kiralama",
+        "LED wall kiralama",
+        "Video wall kiralama",
+        "Sahne LED ekran kurulumu",
+      ].map((name) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name,
+          provider: providerRef,
+        },
+        url: pageUrl,
+      })),
     },
   };
 
@@ -2170,7 +2148,6 @@ function LedScreenJsonLd() {
   });
 
   serviceNode.image = gallerySchema.imageUrls;
-  productNode.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls];
   webpageSchema.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls];
   webpageSchema.hasPart = [
     ...VIDEO_GALLERY.map((video, index) => ({
@@ -2179,36 +2156,6 @@ function LedScreenJsonLd() {
     ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
     ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
   ];
-
-  const reviews = [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Ahmet B." },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-        worstRating: "1",
-      },
-      reviewBody:
-        "Lansman etkinliğimizde kullanılan LED ekranlar çok parlak ve netti. Kurulum ve yayın süreci sorunsuz ilerledi.",
-      datePublished: "2024-02-10",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Merve T." },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "4.9",
-        bestRating: "5",
-        worstRating: "1",
-      },
-      reviewBody:
-        "Açık hava festivalinde gün ışığında bile LED ekran parlaklığı çok iyiydi. Teknik ekip hızlı ve profesyoneldi.",
-      datePublished: "2024-03-05",
-    },
-  ];
-  productNode.review = reviews;
 
   const faqSchema = {
     "@type": "FAQPage",
@@ -2228,7 +2175,6 @@ function LedScreenJsonLd() {
     "@graph": [
       webpageSchema,
       serviceNode,
-      productNode,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...videoObjects,

@@ -9,7 +9,7 @@ const PHONE = "905453048671";
 const screenTypes = {
   indoor: {
     label: "İç mekan LED ekran",
-    sqmPrice: 2000,
+    sqmPrice: 1800,
     minimum: 35000,
     smallLimit: 15,
     note: "AVM, otel, konferans, lansman ve kurumsal salon etkinlikleri için.",
@@ -17,7 +17,7 @@ const screenTypes = {
   outdoor: {
     label: "Dış mekan LED ekran",
     sqmPrice: 1800,
-    minimum: 45000,
+    minimum: 35000,
     smallLimit: 15,
     note: "Festival, konser, belediye etkinliği ve açık hava organizasyonları için.",
   },
@@ -31,9 +31,9 @@ const screenTypes = {
 };
 
 const pitchOptions = {
-  indoor: ["P1.9", "P2.6", "P2.9", "P3.91"],
-  outdoor: ["P3.91", "P4", "P5", "P6"],
-  direction: ["Standart yönlendirme", "P3.91", "P4"],
+  indoor: ["P1.9", "P2.5", "P2.9", "P3.9"],
+  outdoor: ["P3.9", "P4.8", "P5", "P6"],
+  direction: ["Standart yönlendirme", "P3.9", "P4"],
 };
 
 const extras = [
@@ -73,7 +73,7 @@ export default function LedCalculatorClient() {
   const [width, setWidth] = useState(6);
   const [height, setHeight] = useState(3);
   const [days, setDays] = useState(1);
-  const [pitch, setPitch] = useState("P3.91");
+  const [pitch, setPitch] = useState("P3.9");
   const [selectedExtras, setSelectedExtras] = useState([]);
 
   const result = useMemo(() => {
@@ -82,17 +82,25 @@ export default function LedCalculatorClient() {
     const numericHeight = Math.max(Number(height) || 0, 0);
     const numericDays = Math.max(Number(days) || 1, 1);
     const area = screenType === "direction" ? numericWidth : numericWidth * numericHeight;
-    const baseDaily = screenType === "direction" ? type.sqmPrice * numericWidth : area * type.sqmPrice;
-    const usesMinimum = area <= type.smallLimit || baseDaily < type.minimum;
-    const firstDay = Math.max(baseDaily, type.minimum);
-    const additionalDayRate = 0.35;
-    const dayTotal = numericDays <= 1 ? firstDay : firstDay + firstDay * additionalDayRate * (numericDays - 1);
+    const isP19Indoor = screenType === "indoor" && pitch === "P1.9";
+    const sqmPrice = isP19Indoor ? 4500 : type.sqmPrice;
+    const minimum = isP19Indoor ? 50000 : type.minimum;
+    const baseDaily = screenType === "direction" ? type.sqmPrice * numericWidth : area * sqmPrice;
+    const usesMinimum =
+      screenType === "direction"
+        ? baseDaily < minimum
+        : isP19Indoor
+          ? baseDaily < minimum
+          : area <= type.smallLimit || baseDaily < minimum;
+    const firstDay = usesMinimum ? minimum : baseDaily;
+    const dayTotal = firstDay * numericDays;
     const paidExtras = extras
       .filter((item) => selectedExtras.includes(item.key) && item.price > 0)
       .reduce((total, item) => total + item.price, 0);
 
     return {
       type,
+      sqmPrice,
       area,
       firstDay,
       dayTotal,
@@ -103,7 +111,7 @@ export default function LedCalculatorClient() {
       numericWidth,
       numericHeight,
     };
-  }, [screenType, width, height, days, selectedExtras]);
+  }, [screenType, width, height, days, pitch, selectedExtras]);
 
   const selectedExtraLabels = extras
     .filter((item) => selectedExtras.includes(item.key))
@@ -304,7 +312,7 @@ export default function LedCalculatorClient() {
                 <p className="text-sm text-slate-400">Gün hesabı</p>
                 <p className="mt-1 text-xl font-black">{result.numericDays} gün</p>
                 <p className="mt-2 text-xs leading-5 text-slate-400">
-                  2. gün ve sonrası için yaklaşık %35 ek gün bedeli varsayılmıştır. Net fiyat tarih, lokasyon ve kurulum saatine göre belirlenir.
+                  Gün sayısı arttığında her gün için aynı başlangıç bedeli baz alınır. Net fiyat tarih, lokasyon ve kurulum saatine göre belirlenir.
                 </p>
               </div>
             </div>

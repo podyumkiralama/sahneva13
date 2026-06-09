@@ -173,7 +173,7 @@ const faq = [
 export const metadata = {
   title: "LED Ekran Kiralama Fiyatları 2026 | m², Kurulum ve Teknik Destek",
   description:
-    "2026 LED ekran kiralama fiyatları; P1.9, P2.5, P2.9 ve P3.9 paneller için m² başlangıç bedeli, hesaplama aracı, reji ve lojistik.",
+    "2026 LED ekran kiralama fiyatları; P1.9, P2.5, P2.9 ve P3.9 panel seçeneklerinde m² bazlı başlangıç bedelleri, kurulum, söküm, reji ve lojistik kalemlerine göre hesaplanır.",
   alternates: buildLanguageAlternates({
     tr: SLUG,
     canonical: SLUG,
