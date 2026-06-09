@@ -35,6 +35,15 @@ const PROJECT_VIDEOS = [
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {
+    id: "CVdYV5BkF3k",
+    title: "Dome Çadırda Lazer Projeksiyon Animasyonu",
+    description:
+      "Dome çadır tavanına yansıtılan lazer ve projeksiyon animasyonuyla hazırlanan etkinlik atmosferinden seçilmiş uygulama görüntüsü.",
+    services: ["Dome Çadır", "Projeksiyon", "Lazer Animasyon", "Işık"],
+    youtubeUrl: "https://www.youtube.com/shorts/CVdYV5BkF3k?feature=share",
+    thumbnailUrl: "https://i.ytimg.com/vi/CVdYV5BkF3k/hq2.jpg",
+  },
+  {
     id: "JNzGlNzNRuk",
     title: "Hızlı Kurulum ve Teknik Hazırlık",
     description:
@@ -52,6 +61,15 @@ const PROJECT_VIDEOS = [
     services: ["Çadır", "TEKNOFEST", "Etkinlik Alanı", "Prodüksiyon"],
     youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
     thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
+  },
+  {
+    id: "7yjrrEtWrr0",
+    title: "TEKNOFEST Çadır İçi Dekorasyon ve Teknik Altyapı",
+    description:
+      "TEKNOFEST çadır alanında iç dekorasyon, ses sistemi, LED ekran, masa-sandalye yerleşimi ve etkinlik altyapısından seçilmiş uygulama görüntüsü.",
+    services: ["Çadır", "Dekorasyon", "LED Ekran", "Ses Sistemi", "Masa Sandalye"],
+    youtubeUrl: "https://www.youtube.com/shorts/7yjrrEtWrr0?feature=share",
+    thumbnailUrl: "https://i.ytimg.com/vi/7yjrrEtWrr0/hq2.jpg",
   },
   {
     id: "_9Q7v0ZL304",
@@ -82,6 +100,55 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=173gBurWSRQ",
     thumbnailUrl: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
     uploadDate: "2023-12-01T00:00:00+03:00",
+  },
+  {
+    id: "1R5Av0x5ouA",
+    title: "PUBG Sahne, LED Ekran ve Işık Provaları",
+    description:
+      "PUBG etkinliği için hazırlanan sahne, LED ekran ve ışık provalarından seçilmiş teknik prova görüntüsü.",
+    services: ["E-Spor", "Sahne", "LED Ekran", "Işık"],
+    youtubeUrl: "https://www.youtube.com/watch?v=1R5Av0x5ouA",
+    thumbnailUrl: "https://i.ytimg.com/vi/1R5Av0x5ouA/hqdefault.jpg",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+  },
+  {
+    id: "i-KtuiLiBmI",
+    title: "Küp LED Ekran Kiralama",
+    description:
+      "Küp LED ekran formunda hazırlanan yaratıcı görüntü yüzeyiyle marka, sahne ve etkinlik alanı için dikkat çekici LED ekran uygulaması.",
+    services: ["Küp LED", "LED Ekran", "Sahne Tasarımı", "Prodüksiyon"],
+    youtubeUrl: "https://www.youtube.com/shorts/i-KtuiLiBmI?feature=share",
+    thumbnailUrl: "https://i.ytimg.com/vi/i-KtuiLiBmI/hq2.jpg",
+  },
+  {
+    id: "AihkXPzPBi0",
+    title: "Kurumsal Etkinlik Toplantısında LED Ekran Kullanımı",
+    description:
+      "Kurumsal toplantı sahnesinde LED ekran, sunum akışı, marka görünürlüğü ve teknik prodüksiyon düzeninden seçilmiş uygulama görüntüsü.",
+    services: ["Kurumsal Etkinlik", "LED Ekran", "Toplantı", "Teknik Prodüksiyon"],
+    youtubeUrl: "https://www.youtube.com/shorts/AihkXPzPBi0?feature=share",
+    thumbnailUrl: "https://i.ytimg.com/vi/AihkXPzPBi0/hq2.jpg",
+  },
+  {
+    id: "tyb1lG9KtiA",
+    title: "Çadır Kurulum Organizasyonu",
+    description:
+      "Etkinlik çadırı kurulumunda taşıyıcı sistem, branda, sabitleme ve saha koordinasyonunu gösteren uygulama kesiti.",
+    services: ["Çadır", "Kurulum", "Sabitleme", "Saha Ekibi"],
+    youtubeUrl: "https://www.youtube.com/watch?v=tyb1lG9KtiA&t=46s",
+    thumbnailUrl: "https://i.ytimg.com/vi/tyb1lG9KtiA/hqdefault.jpg",
+    uploadDate: "2025-11-17T00:00:00+03:00",
+    startSeconds: 46,
+  },
+  {
+    id: "j1Tr5l8DVW8",
+    title: "Milli Uzay Programı Lansmanı 2021",
+    description:
+      "TUA Milli Uzay Programı Lansmanı için hazırlanan sahne, LED ekran, pnömatik dome yapı ve teknik prodüksiyon uygulamasından seçilmiş sahne arkası görüntüsü.",
+    services: ["Lansman", "Dome", "LED Ekran", "Sahne"],
+    youtubeUrl: "https://www.youtube.com/watch?v=j1Tr5l8DVW8",
+    thumbnailUrl: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
+    uploadDate: "2021-02-09T00:00:00+03:00",
   },
 ];
 
@@ -160,7 +227,7 @@ function YaptiklarimizStructuredData() {
         name: video.title,
         description: video.description,
         thumbnailUrl: [video.thumbnailUrl, `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`],
-        embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1`,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1${video.startSeconds ? `&start=${video.startSeconds}` : ""}`,
         contentUrl: video.youtubeUrl,
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
@@ -190,6 +257,7 @@ function ProjectVideoCard({ video, index }) {
           videoId={video.id}
           title={video.title}
           thumbnailUrl={video.thumbnailUrl}
+          startSeconds={video.startSeconds}
           className="rounded-[1.4rem]"
         />
         <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-xs font-black text-white backdrop-blur">
@@ -271,6 +339,7 @@ export default function YaptiklarimizPage() {
                   videoId={featuredVideo.id}
                   title={featuredVideo.title}
                   thumbnailUrl={featuredVideo.thumbnailUrl}
+                  startSeconds={featuredVideo.startSeconds}
                   className="rounded-[1.5rem]"
                 />
               </div>

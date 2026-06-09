@@ -942,8 +942,8 @@ const GALLERY_IMAGES = [
 const VIDEO_GALLERY = [
   {
     id: "1R5Av0x5ouA",
-    title: "LED Ekran Kurulum ve Sahne Prodüksiyonu",
-    description: "Dar zaman planlamalarında güvenli kurulum; sahne prodüksiyonundan canlı yayına hazırlık ve operasyon sürecini izleyin.",
+    title: "PUBG Sahne, LED Ekran ve Işık Provaları",
+    description: "PUBG etkinliği için hazırlanan sahne, LED ekran ve ışık provalarından seçilmiş teknik prova görüntüsü.",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
@@ -954,9 +954,9 @@ const VIDEO_GALLERY = [
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "Güneş Altında Yüksek Performanslı Dış Mekan Uygulaması",
-    description: "6500 nit parlaklıkla doğrudan güneş ışığı altında yüksek görünürlük; açık hava organizasyonlarında güçlü dış mekan görüntü performansı.",
-    uploadDate: "2026-01-15T00:00:00+03:00",
+    title: "Milli Uzay Programı Lansmanı 2021",
+    description: "TUA Milli Uzay Programı Lansmanı için hazırlanan sahne, LED ekran, pnömatik dome yapı ve teknik prodüksiyon uygulamasından seçilmiş sahne arkası görüntüsü.",
+    uploadDate: "2021-02-09T00:00:00+03:00",
   },
   {
     id: "HNDZ-wYVKLw",

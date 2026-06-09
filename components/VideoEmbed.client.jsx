@@ -56,6 +56,7 @@ export default function VideoEmbed({
   // ✅ sayfa açılışında 3P preconnect yapmasın
   preconnectOnMount = false,
 
+  startSeconds = 0,
   className = "",
 }) {
   const thumbs = useMemo(() => {
@@ -75,10 +76,16 @@ export default function VideoEmbed({
   const [thumbIndex, setThumbIndex] = useState(0);
   const [thumbFailed, setThumbFailed] = useState(false);
 
+  const normalizedStartSeconds = useMemo(() => {
+    const seconds = Number(startSeconds);
+    return Number.isFinite(seconds) && seconds > 0 ? Math.floor(seconds) : 0;
+  }, [startSeconds]);
+
   const baseEmbedUrl = useMemo(() => {
     if (!videoId) return "";
-    return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
-  }, [videoId]);
+    const startParam = normalizedStartSeconds > 0 ? `&start=${normalizedStartSeconds}` : "";
+    return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1${startParam}`;
+  }, [videoId, normalizedStartSeconds]);
 
   const clickEmbedUrl = useMemo(() => {
     if (!autoplayOnClick) return baseEmbedUrl;
@@ -100,7 +107,7 @@ export default function VideoEmbed({
     setThumbIndex(0);
     setThumbFailed(false);
     setIframeSrc(""); // ✅ reset: yine ilk yükte iframe yok
-  }, [videoId]);
+  }, [videoId, normalizedStartSeconds]);
 
   useEffect(() => {
     if (!preconnectOnMount) return;
