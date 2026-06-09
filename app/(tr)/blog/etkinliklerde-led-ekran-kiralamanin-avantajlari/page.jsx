@@ -8,10 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
-const CANONICAL_ORIGIN = "https://sahneva.com";
 const SLUG = "etkinliklerde-led-ekran-kiralamanin-avantajlari";
 const BLOG_PATH = `/blog/${SLUG}`;
-const PAGE_URL = `${CANONICAL_ORIGIN}${BLOG_PATH}`;
+const PAGE_URL = `${SITE_URL}${BLOG_PATH}`;
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-06-07T09:00:00+03:00";
 const MODIFIED_DATE = "2026-06-07T09:00:00+03:00";
@@ -120,16 +119,16 @@ function ArticleSchema() {
         author: { "@id": editorId },
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
-        isPartOf: { "@type": "Blog", "@id": `${CANONICAL_ORIGIN}/blog#blog` },
+        isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
         about: [
           { "@type": "Thing", name: "LED ekran kiralama" },
           { "@type": "Thing", name: "Kurumsal etkinlik prodüksiyonu" },
           { "@type": "Thing", name: "Marka deneyimi" },
         ],
         mentions: [
-          { "@type": "WebPage", "@id": `${CANONICAL_ORIGIN}/led-ekran-kiralama` },
-          { "@type": "WebPage", "@id": `${CANONICAL_ORIGIN}/kurumsal-organizasyon` },
-          { "@type": "WebPage", "@id": `${CANONICAL_ORIGIN}/sahne-kiralama` },
+          { "@type": "WebPage", "@id": `${SITE_URL}/led-ekran-kiralama` },
+          { "@type": "WebPage", "@id": `${SITE_URL}/kurumsal-organizasyon` },
+          { "@type": "WebPage", "@id": `${SITE_URL}/sahne-kiralama` },
         ],
       },
       {
@@ -186,14 +185,14 @@ function HighlightNote({ children }) {
 
 export default function Page() {
   const breadcrumbItems = [
-    { name: "Ana Sayfa", url: `${CANONICAL_ORIGIN}/` },
-    { name: "Blog", url: `${CANONICAL_ORIGIN}/blog` },
+    { name: "Ana Sayfa", url: `${SITE_URL}/` },
+    { name: "Blog", url: `${SITE_URL}/blog` },
     { name: TITLE, url: PAGE_URL },
   ];
 
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={CANONICAL_ORIGIN} />
+      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
 
       <BlogLayout
