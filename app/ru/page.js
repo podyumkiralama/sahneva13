@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_HOME_URL = buildCanonical("/ru");
 
@@ -281,13 +281,7 @@ export const metadata = {
     "Sahneva: аренда сцен, подиумов, LED-экранов, звука, света, truss, шатров, столов и стульев для мероприятий в Стамбуле и по всей Турции.",
   alternates: {
     canonical: RU_HOME_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/`,
-      en: `${SITE_URL}/en`,
-      ar: `${SITE_URL}/ar`,
-      ru: RU_HOME_URL,
-      "x-default": `${SITE_URL}/en`,
-    },
+    languages: buildAlternateLanguages(),
   },
   openGraph: {
     title: "Аренда сцен, LED-экранов, звука и шатров в Турции | Sahneva",
