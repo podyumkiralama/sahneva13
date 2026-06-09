@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Clapperboard, Film, PlayCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Clapperboard, PlayCircle, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
@@ -22,6 +22,17 @@ const PROJECT_VIDEOS = [
     services: ["Sahne", "LED Ekran", "Ses", "Işık"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
+    uploadDate: "2026-06-05T00:00:00+03:00",
+  },
+  {
+    id: "x-BYu0vgO2E",
+    title: "SAHA 2026 Özel Etkinlik Alanı ve Fuar Prodüksiyonu",
+    description:
+      "Kapalı fuar alanında özel yapı, giriş aksı, zemin altyapısı, dome çadır ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan seçilmiş saha görüntüsü.",
+    services: ["Dome Çadır", "Fuar Alanı", "Zemin", "Işık"],
+    youtubeUrl: "https://www.youtube.com/watch?v=x-BYu0vgO2E",
+    thumbnailUrl: "https://i.ytimg.com/vi/x-BYu0vgO2E/hqdefault.jpg",
+    uploadDate: "2026-04-29T00:00:00+03:00",
   },
 ];
 
@@ -103,6 +114,7 @@ function YaptiklarimizStructuredData() {
         embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1`,
         contentUrl: video.youtubeUrl,
         url: video.youtubeUrl,
+        ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
         inLanguage: "tr-TR",
       })),
     ],
