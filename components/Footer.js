@@ -51,6 +51,7 @@ const TR_POPULAR_PAGES = [
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },
   { href: "/projeler", label: "Projeler" },
+  { href: "/yaptiklarimiz", label: "Yaptıklarımız" },
   { href: "/blog", label: "Sahneva Blog" },
 ];
 

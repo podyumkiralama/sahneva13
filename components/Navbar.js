@@ -38,6 +38,7 @@ const TR_RESEARCH_LINKS = [
   { href: "/iletisim", label: "İletişim", icon: "☎️", description: "Hızlı teklif ve iletişim kanalları" },
   { href: "/nasil-calisiyoruz", label: "Nasıl Çalışıyoruz", icon: "🧭", description: "Süreç, kurulum ve operasyon akışı" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama", icon: "🗺️", description: "Türkiye geneli kurulum ve lojistik" },
+  { href: "/yaptiklarimiz", label: "Yaptıklarımız", icon: "📹", description: "Sahadan video çalışmaları ve referans vitrini" },
   { href: "/sss", label: "SSS", icon: "💡", description: "Sık sorulan sorular ve yanıtlar" },
 ];
 
