@@ -253,9 +253,9 @@ export const VIDEO_GALLERY = [
   {
     id: "c72ILTyJH4A",
     eyebrow: "Fuar prodüksiyonu",
-    title: "Helal Fuarı sahne, LED ekran ve teknik prodüksiyon",
+    title: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
     description:
-      "Helal Fuarı kapsamında hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumlarından seçilmiş gerçek saha görüntüleri.",
+      "Fatih Belediyesi'nin 5 yılda Fatih'e değer katan 400 proje etkinliği için hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumundan seçilmiş saha görüntüsü.",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {

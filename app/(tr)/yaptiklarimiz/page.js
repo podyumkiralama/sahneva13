@@ -63,6 +63,16 @@ const PROJECT_VIDEOS = [
     thumbnailUrl: "https://i.ytimg.com/vi/_9Q7v0ZL304/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
+  {
+    id: "c72ILTyJH4A",
+    title: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
+    description:
+      "Fatih Belediyesi'nin 5 yılda Fatih'e değer katan 400 proje etkinliği için hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumundan seçilmiş saha görüntüsü.",
+    services: ["Kurumsal Etkinlik", "Sahne", "LED Ekran", "Ses-Işık"],
+    youtubeUrl: "https://www.youtube.com/watch?v=c72ILTyJH4A",
+    thumbnailUrl: "https://i.ytimg.com/vi/c72ILTyJH4A/hqdefault.jpg",
+    uploadDate: "2026-04-29T00:00:00+03:00",
+  },
 ];
 
 export const metadata = {
