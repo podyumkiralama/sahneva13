@@ -102,41 +102,43 @@ export default function VideoGallery({ videos }) {
 
   return (
     <>
-      <div className="max-w-2xl rounded-3xl border border-white/10 bg-white/[0.055] p-4 text-sm text-slate-300 shadow-xl shadow-black/10 backdrop-blur md:max-w-xl">
-        <div className="mb-3 flex items-center justify-between gap-4">
-          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-blue-100">
-            <SlidersHorizontal className="h-4 w-4" />
-            Proje filtresi
-          </span>
-          <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
-            {filteredVideos.length}/{videos.length} video
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-2" aria-label="Video proje filtreleri">
-          {filterSummaries.map((filter) => {
-            const isActive = filter.id === activeFilter;
-            return (
-              <button
-                key={filter.id}
-                type="button"
-                onClick={() => setActiveFilter(filter.id)}
-                aria-pressed={isActive}
-                className={`inline-flex min-h-[40px] items-center gap-2 rounded-full border px-3 py-2 text-xs font-black transition ${
-                  isActive
-                    ? "border-blue-200 bg-blue-300 text-slate-950 shadow-lg shadow-blue-950/20"
-                    : "border-white/10 bg-white/5 text-slate-200 hover:border-blue-200/50 hover:bg-white/10"
-                }`}
-              >
-                {isActive ? <Check className="h-3.5 w-3.5" /> : null}
-                {filter.label}
-                <span className={isActive ? "text-slate-700" : "text-slate-400"}>{filter.count}</span>
-              </button>
-            );
-          })}
+      <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] px-4 py-3 text-sm text-slate-300 shadow-xl shadow-black/10 backdrop-blur">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100">
+              <SlidersHorizontal className="h-4 w-4" />
+              Proje filtresi
+            </span>
+            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-black text-white">
+              {filteredVideos.length}/{videos.length} video
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2 lg:justify-end" aria-label="Video proje filtreleri">
+            {filterSummaries.map((filter) => {
+              const isActive = filter.id === activeFilter;
+              return (
+                <button
+                  key={filter.id}
+                  type="button"
+                  onClick={() => setActiveFilter(filter.id)}
+                  aria-pressed={isActive}
+                  className={`inline-flex min-h-[36px] items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-black transition ${
+                    isActive
+                      ? "border-blue-200 bg-blue-300 text-slate-950 shadow-lg shadow-blue-950/20"
+                      : "border-white/10 bg-white/5 text-slate-200 hover:border-blue-200/50 hover:bg-white/10"
+                  }`}
+                >
+                  {isActive ? <Check className="h-3.5 w-3.5" /> : null}
+                  {filter.label}
+                  <span className={isActive ? "text-slate-700" : "text-slate-400"}>{filter.count}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      <div className="mt-10 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-8 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
         {filteredVideos.map((video, index) => (
           <ProjectVideoCard key={video.id} video={video} index={index} />
         ))}
