@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, Clapperboard, PlayCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import VideoGallery from "./VideoGallery.client";
 
 export const revalidate = 86400;
 
@@ -257,38 +258,6 @@ function SectionEyebrow({ children }) {
   );
 }
 
-function ProjectVideoCard({ video, index }) {
-  return (
-    <article className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-3 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-blue-300/35 hover:bg-white/[0.075]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.16),transparent_34%)] opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden="true" />
-      <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-black">
-        <LazyVideoEmbed
-          videoId={video.id}
-          title={video.title}
-          thumbnailUrl={video.thumbnailUrl}
-          startSeconds={video.startSeconds}
-          className="rounded-[1.4rem]"
-        />
-        <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-xs font-black text-white backdrop-blur">
-          <PlayCircle className="h-4 w-4" />
-          Video {String(index + 1).padStart(2, "0")}
-        </div>
-      </div>
-      <div className="relative p-5">
-        <h2 className="text-xl font-black leading-tight text-white md:text-2xl">{video.title}</h2>
-        <p className="mt-3 text-sm leading-relaxed text-slate-300 md:text-base">{video.description}</p>
-        <ul className="mt-5 flex flex-wrap gap-2" aria-label="Bu videodaki hizmet başlıkları">
-          {video.services.map((service) => (
-            <li key={service} className="rounded-full border border-blue-300/20 bg-blue-500/10 px-3 py-1 text-xs font-black text-blue-100">
-              {service}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </article>
-  );
-}
-
 export default function YaptiklarimizPage() {
   const featuredVideo = PROJECT_VIDEOS[0];
 
@@ -367,16 +336,8 @@ export default function YaptiklarimizPage() {
                 Kurulumdan etkinlik anına kadar sahadan işler
               </h2>
             </div>
-            <p className="max-w-lg rounded-3xl border border-white/10 bg-white/[0.055] px-5 py-4 text-sm leading-relaxed text-slate-300 backdrop-blur">
-              Bu alan filtre kullanmadan, temiz bir proje vitrini olarak hazırlandı. Yeni video geldikçe sadece listeye eklenerek 15–20 videoluk güçlü bir referans sayfasına dönüşecek.
-            </p>
           </div>
-
-          <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-            {PROJECT_VIDEOS.map((video, index) => (
-              <ProjectVideoCard key={video.id} video={video} index={index} />
-            ))}
-          </div>
+          <VideoGallery videos={PROJECT_VIDEOS} />
         </div>
       </section>
 
