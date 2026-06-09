@@ -284,7 +284,7 @@ export default function YaptiklarimizPage() {
                 Yaptığımız sahne, LED ekran ve organizasyon projeleri
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-                Sahneva olarak tamamladığımız konser, festival, kurumsal etkinlik, podyum, ses, ışık, truss ve çadır kurulumlarından seçilmiş video çalışmalarını bu sayfada topluyoruz.
+                Sahne, LED ekran, ses-ışık, truss, podyum ve çadır çözümlerini gerçek etkinlik alanlarında nasıl kurduğumuzu gösteren saha referanslarını bu sayfada bir araya getiriyoruz.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
