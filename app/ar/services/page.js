@@ -171,7 +171,7 @@ export default function ArabicServicesPage() {
         <div className="absolute inset-0 opacity-45" aria-hidden="true">
           <Image
             src="/img/hizmetler-hero.webp"
-            alt=""
+            alt="خدمات تجهيز الفعاليات في تركيا"
             fill
             sizes="100vw"
             className="object-cover"
