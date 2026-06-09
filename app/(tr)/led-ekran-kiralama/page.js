@@ -966,9 +966,9 @@ const VIDEO_GALLERY = [
   },
   {
     id: "173gBurWSRQ",
-    title: "Etkinlik LED Ekran Örnekleri",
-    description: "Konser, kurumsal gala ve fuar stantları: farklı etkinlik konseptlerinde operasyonel sürekliliği destekleyen kurulum örnekleri.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
+    title: "PUBG Türkiye Finali 2023",
+    description: "E-spor final sahnesinde LED ekran, sahne, podyum, ses-ışık ve teknik prodüksiyon entegrasyonundan seçilmiş saha görüntüsü.",
+    uploadDate: "2023-12-01T00:00:00+03:00",
   },
 ];
 

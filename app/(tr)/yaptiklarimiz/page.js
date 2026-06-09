@@ -73,6 +73,16 @@ const PROJECT_VIDEOS = [
     thumbnailUrl: "https://i.ytimg.com/vi/c72ILTyJH4A/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
+  {
+    id: "173gBurWSRQ",
+    title: "PUBG Türkiye Finali 2023",
+    description:
+      "PUBG Türkiye Finali 2023 etkinliği için hazırlanan sahne, LED ekran, ses-ışık, podyum ve teknik prodüksiyon uygulamasından seçilmiş saha görüntüsü.",
+    services: ["E-Spor", "Sahne", "LED Ekran", "Ses-Işık"],
+    youtubeUrl: "https://www.youtube.com/watch?v=173gBurWSRQ",
+    thumbnailUrl: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
+    uploadDate: "2023-12-01T00:00:00+03:00",
+  },
 ];
 
 export const metadata = {

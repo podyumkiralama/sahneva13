@@ -260,11 +260,11 @@ export const VIDEO_GALLERY = [
   },
   {
     id: "173gBurWSRQ",
-    eyebrow: "Gerçek uygulama",
-    title: "Kurumsal etkinliklerde sahne ve LED ekran uygulamaları",
+    eyebrow: "E-spor prodüksiyonu",
+    title: "PUBG Türkiye Finali 2023",
     description:
-      "Kurumsal gala, lansman ve sahne uygulamalarından seçilmiş kısa örneklerle gerçek saha kalitesini görünür kılar.",
-    uploadDate: "2025-11-17T00:00:00+03:00",
+      "PUBG Türkiye Finali 2023 etkinliği için hazırlanan sahne, LED ekran, ses-ışık, podyum ve teknik prodüksiyon uygulamasından seçilmiş saha görüntüsü.",
+    uploadDate: "2023-12-01T00:00:00+03:00",
     duration: "PT1M35S",
   },
   {
