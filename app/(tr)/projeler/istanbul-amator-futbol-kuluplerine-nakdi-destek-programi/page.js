@@ -22,7 +22,7 @@ const IMAGE_BASE = "/img/projeler/istanbul-amator-futbol-kuluplerine-nakdi-deste
 const PROJECT_NAME = "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı";
 const VENUE_NAME = "Millet Bahçesi Hangar";
 const H1 = "Kapalı Alan LED Ekran ve Sahne Kurulumu";
-const SEO_TITLE = "Amatör Futbol Kulüpleri Destek Programı | LED Ekran ve Sahne Kurulumu";
+const SEO_TITLE = "Amatör Futbol Programı | LED Ekran ve Sahne";
 const DESCRIPTION =
   "İstanbul Amatör Futbol Kulüpleri destek programında LED ekran, sahne, podyum, ses-ışık, truss ve protokol kurulumu Sahneva tarafından yönetildi.";
 const OG_DESCRIPTION =

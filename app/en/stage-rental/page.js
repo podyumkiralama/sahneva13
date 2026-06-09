@@ -1060,9 +1060,8 @@ function Articles() {
                   Show-Stopping Events
                 </h3>
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Modular stage decks, truss rigging, LED integration and an
-                  on-site technical crew ensure seamless experiences for
-                  concerts, conferences and premium brand events
+                  Modular decks, truss rigging and LED integration work best
+                  when one crew manages the full stage plan.
                 </p>
               </div>
             </header>
@@ -1093,10 +1092,9 @@ function Articles() {
                       industry standards.
                     </p>
                     <p>
-                      Whether your event requires a concert main stage or a
-                      corporate conference platform, we provide detailed
-                      technical scouting, stage optimisation, professional
-                      installation and show operation — all as a{" "}
+                      Concert stages and conference platforms need different
+                      plans. We handle site checks, stage design, setup and
+                      live operation as a{" "}
                       <strong className="text-gray-900">
                         single turnkey solution
                       </strong>
@@ -1115,16 +1113,12 @@ function Articles() {
                       Truss &amp; Safety Systems
                     </h4>
                     <p>
-                      All truss systems are manufactured from aluminium and
-                      installed to the highest safety standards, with full
-                      static calculations and structural load testing completed
-                      before every event.
+                      We use aluminium truss systems with static calculations
+                      and load checks before each event.
                     </p>
                     <p>
-                      With 1×1 m and 2×1 m modular panel options, we deliver
-                      solutions optimised to your venue and event type —
-                      eliminating both safety and functionality concerns in a
-                      single pass.
+                      1×1 m and 2×1 m stage decks make the layout flexible.
+                      The final plan is matched to the venue and event type.
                     </p>
                   </div>
                 </div>
@@ -1138,12 +1132,10 @@ function Articles() {
                     Technical Selection Strategy
                   </h5>
                   <p className="text-gray-700 text-lg mb-0 leading-relaxed">
-                    Event type and audience size are the most critical factors
-                    when selecting a stage. We recommend 12–24 m² for small
-                    events (50–100 guests), 24–48 m² for mid-size events
-                    (100–300 guests) and 48 m² or more for large events (300+
-                    guests). For outdoor events, wind loading and ground
-                    stability should always be assessed first.
+                    Event type and audience size guide the stage size. Small
+                    events usually need 12–24 m². Mid-size events often need
+                    24–48 m². Larger events may require 48 m² or more. For
+                    outdoor projects, wind load and ground stability come first.
                   </p>
                 </div>
 
@@ -1218,9 +1210,8 @@ function Articles() {
                       10+ years of experience, 700+ successful projects and
                       nationwide service across 81 cities
                     </strong>{" "}
-                    make Sahneva a reliable stage partner. We deploy the latest
-                    technology, expert crews and 24/7 technical support on
-                    every project.
+                    make Sahneva a reliable stage partner. Our team plans the
+                    equipment, crew and technical support for each project.
                   </p>
                 </div>
               </div>
@@ -1242,15 +1233,12 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <p>
-                  Truss structures are the backbone of stage safety. Every
-                  system we install complies with EN 13814 fairground and event
-                  safety standards and undergoes rigorous inspection before
-                  each show.
+                  Truss structures are central to stage safety. Each system is
+                  checked before use and installed by an experienced crew.
                 </p>
                 <p>
-                  Aluminium alloys, high safety factors, certified rigging
-                  hardware and experienced crews ensure dependable performance
-                  for any event scale or format.
+                  Aluminium truss, certified rigging hardware and clear load
+                  planning help the stage perform safely.
                 </p>
 
                 <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
@@ -1373,22 +1361,22 @@ const FAQ_ITEMS = [
   {
     question: "How much does stage rental cost?",
     answer:
-      "Pricing depends on stage size and technical scope. Mini Stage (16 m²) starts at 19,500 TL, Standard Stage (24 m²) at 32,500 TL and Concert Stage (48 m²) at 65,000 TL. All packages include professional setup, sound and lighting systems and technical crew support.",
+      "Pricing depends on stage size and technical scope. Mini Stage (16 m²) starts at 19,500 TL. Standard Stage (24 m²) starts at 32,500 TL. Concert Stage (48 m²) starts at 65,000 TL. Setup, sound, lighting and crew support are included.",
   },
   {
     question: "How long does installation take?",
     answer:
-      "A standard stage setup takes 4–8 hours. Compact 16 m² builds finish in 4–6 hours, mid-size 16–48 m² stages in 6–8 hours, while large concert stages may require 8–12 hours. Complex truss and rigging projects can extend up to 24 hours.",
+      "A standard stage setup takes 4–8 hours. Compact 16 m² builds usually finish in 4–6 hours. Mid-size stages take 6–8 hours. Large concert stages may need 8–12 hours.",
   },
   {
     question: "Is the equipment suitable for outdoor events?",
     answer:
-      "Yes. All stage systems are engineered for outdoor use with wind-load calculations, ground stability assessments, weatherproof equipment and emergency planning. For extreme weather conditions we recommend temporary suspension as a safety precaution.",
+      "Yes. Outdoor stage systems are planned with wind-load checks, ground stability review, weather-ready equipment and emergency planning. In extreme weather, we may recommend a temporary pause.",
   },
   {
     question: "Are sound and lighting systems included?",
     answer:
-      "Every package includes core sound and lighting. Mini Stage features 2 LED bars and 2 spot lights. Standard Stage adds 4 moving heads, 6 wash lights and a 2.1 PA system with wireless microphone. Concert Stage includes a line-array PA, stage monitors and a full professional lighting rig. Additional equipment is available on request.",
+      "Every package includes core sound and lighting. Mini Stage includes 2 LED bars and 2 spot lights. Standard Stage adds moving heads, wash lights and a PA system. Concert Stage includes line-array sound, monitors and a larger lighting rig.",
   },
 ];
 

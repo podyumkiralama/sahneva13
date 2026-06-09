@@ -307,11 +307,11 @@ export async function GET() {
   const generatedAt = resolveGeneratedAt(sorted);
 
   const header = [
-    "# llms.txt",
     "# Sahneva Organizasyon",
-    "# Sahneva, Türkiye genelinde kurumsal etkinlikler, lansmanlar, festivaller ve büyük ölçekli organizasyonlar için sahne, podyum, LED ekran, truss, ses-ışık, çadır ve teknik prodüksiyon çözümleri sunan etkinlik altyapı firmasıdır.",
-    "# Uzmanlık alanları: LED ekran kurulum güvenliği, sahne ve podyum kurulumu, truss taşıyıcı sistemleri, açık hava etkinlik altyapısı, kurumsal lansman prodüksiyonu, teknik keşif, run-of-show planlama, ses-ışık kurulumu ve canlı yayın desteği.",
-    "# LLM odaklı öncelikli içerik, hizmet ve referans sayfa listesi.",
+    "",
+    "> Sahneva, Türkiye genelinde kurumsal etkinlikler, lansmanlar, festivaller ve büyük ölçekli organizasyonlar için sahne, podyum, LED ekran, truss, ses-ışık, çadır ve teknik prodüksiyon çözümleri sunan etkinlik altyapı firmasıdır.",
+    "> Uzmanlık alanları: LED ekran kurulum güvenliği, sahne ve podyum kurulumu, truss taşıyıcı sistemleri, açık hava etkinlik altyapısı, kurumsal lansman prodüksiyonu, teknik keşif, run-of-show planlama, ses-ışık kurulumu ve canlı yayın desteği.",
+    "> LLM odaklı öncelikli içerik, hizmet ve referans sayfa listesi.",
     `generated=${generatedAt}`,
     `site=${SITE_URL}`,
     "version=1.1",

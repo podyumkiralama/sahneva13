@@ -433,7 +433,7 @@ const PLANNING_STEPS = [
   {
     title: "Goal & format definition",
     description:
-      "The success of a corporate event begins with a clear objective. Formats such as conference, launch, gala or dealer meeting determine the content, flow and technical requirements. Clarifying the target audience and key message allows you to manage the corporate event budget accurately. The timeline, speaker schedule and technical needs can then be consolidated under one umbrella.",
+      "Start with a clear objective. The event format sets the content, flow and technical needs. Once the audience and key message are clear, the budget becomes easier to manage.",
     checklist: [
       "Event purpose and success metrics",
       "Format and content flow",
@@ -443,7 +443,7 @@ const PLANNING_STEPS = [
   {
     title: "Venue & capacity analysis",
     description:
-      "Venue selection involves criteria such as capacity, accessibility, loading areas and acoustics. In major cities like Istanbul, transport and parking plans take on added importance. Ceiling height and stage placement directly affect stage and LED screen installation. Fire exits, foyer space and registration points should also be planned at this stage.",
+      "Check capacity, access, loading areas and acoustics first. In Istanbul, transport and parking also matter. Ceiling height, stage placement and fire exits shape the technical plan.",
     checklist: [
       "Capacity and seating layout",
       "Technical installation areas",
@@ -453,7 +453,7 @@ const PLANNING_STEPS = [
   {
     title: "Technical infrastructure checklist",
     description:
-      "Stage, sound, lighting and LED screen requirements define the overall perception of a corporate event. Content density and viewing distance determine LED screen resolution, while the sound system is engineered according to session type. Power infrastructure and backup planning play a critical role in ensuring uninterrupted delivery. Technical drawings and cabling plans are finalised at this point.",
+      "Stage, sound, lighting and LED screens shape how the event feels. Viewing distance affects LED resolution. Session type affects sound design. Power, backup and cabling plans are finalised here.",
     checklist: [
       "Stage dimensions and sightlines",
       "Sound, lighting and LED screen plan",
@@ -463,13 +463,13 @@ const PLANNING_STEPS = [
   {
     title: "Setup, rehearsal and event-day flow",
     description:
-      "The installation plan requires a clear timeline from equipment arrival to rehearsal time. Rehearsals test the presentation flow, lighting scenarios and stage transitions. On event day, registration, stage management and back-office coordination run simultaneously. A professional corporate event company manages these steps end-to-end, reducing operational risk.",
+      "The setup plan needs a clear timeline. Rehearsals test presentations, lighting and stage transitions. On event day, registration, stage management and back-office coordination run together.",
     checklist: ["Installation timeline", "Rehearsal and technical tests", "Day-of flow"],
   },
   {
     title: "Strike & reporting",
     description:
-      "Once the event concludes, the de-rigging and return process must be executed methodically. All equipment is inspected and damage reports along with handover documentation are prepared. Attendee feedback is evaluated together with operational reports. This analysis clarifies areas for improvement for the next corporate event.",
+      "After the event, the de-rigging plan starts. Equipment is checked and handover notes are prepared. Feedback and operation reports then guide the next event.",
     checklist: [
       "Strike and handover plan",
       "Damage and inventory check",
@@ -735,13 +735,13 @@ function SelectionSection() {
             How to Choose a Corporate Event Company?
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Choosing the right partner is the most critical step in planning a corporate event. Corporate event companies are not simply equipment suppliers — they are expert teams that manage content flow, stage design and event organisation processes for strategic gatherings such as brand launches and corporate meetings. A production firm with experience in large-scale Istanbul corporate events moves quickly on city logistics and venue management, reducing time loss.
+            Choosing the right partner is the first major step. A corporate event company should manage content flow, stage design and site operations. For Istanbul projects, local venue and logistics experience saves time.
           </p>
         </div>
 
         <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
           <p>
-            During the selection process, checking references is important for seeing evidence of success in past launch productions and large-scale events. Technical team capacity should demonstrate expertise not only in stage installation but also in LED screen, sound and lighting design. Teams with experience in Istanbul-scale events anticipate details such as traffic, installation windows, site security and municipal permits, placing the operations plan on a more realistic schedule.
+            Check references before you decide. Good references show real launch, gala and conference experience. The team should understand stage, LED screen, sound and lighting together.
           </p>
 
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
@@ -756,7 +756,7 @@ function SelectionSection() {
           </div>
 
           <p>
-            Transparency in the contract and planning phase is also critical. Clarifying responsibilities in the work plan, clearly stating the scope of services and reaching agreement on the delivery schedule help the corporate event process run smoothly. Alongside references, tangible data sources such as equipment maintenance records and safety certificates also support the decision-making process.
+            The contract should be clear. Define the service scope, delivery schedule and team responsibilities early. Maintenance records and safety certificates also support the decision.
           </p>
 
           <ul className="grid gap-3 md:grid-cols-2 text-gray-800">
@@ -794,10 +794,10 @@ function AdvantagesSectionBlock() {
             Advantages of Working with Large Event Companies
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Among corporate event companies, the difference in scale and experience directly affects an event's safety and visibility. Large event companies can run multiple projects simultaneously with comprehensive teams, strong supply networks and multi-location management.
+            Scale and experience affect safety, speed and visibility. Large event companies can support more than one site with stronger teams and supply networks.
           </p>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
-            Corporate event companies are the brand team's strategic partner not just on event day, but throughout the preparation process as well.
+            A strong event company supports the brand team before, during and after event day.
           </p>
         </div>
 
@@ -847,7 +847,7 @@ function DifferencesSectionBlock() {
         </h2>
 
         <p>
-          Large event companies offer a more comprehensive infrastructure for managing the complex needs that emerge as event scale grows. Their equipment fleet is broad; they can simultaneously sustain LED screen, sound and lighting installations across different stages.
+          Large event companies have broader infrastructure. They can support LED screen, sound and lighting setups across more than one stage.
         </p>
 
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
@@ -862,15 +862,15 @@ function DifferencesSectionBlock() {
         </div>
 
         <p>
-          A redundant systems approach is a critical safety layer at large events. For example, a sound cut or image loss during a brand launch negatively impacts overall event perception. Large event companies ensure an uninterrupted experience through measures such as backup generators, UPS, spare microphones and redundant LED control units.
+          Backup systems are important at large events. A sound cut or image loss can damage the event experience. Generators, UPS units, spare microphones and backup LED control units reduce that risk.
         </p>
 
         <p>
-          The size of the operations team determines coordination on event day. Large event companies assign dedicated site managers, technical directors and safety coordinators.
+          Team size affects event-day coordination. Large event companies assign site managers, technical directors and safety coordinators.
         </p>
 
         <p>
-          Risk management extends beyond technical failures; crowd management, security, stage flow planning and protocol layout also require professional coordination at large-scale events.
+          Risk management is not only technical. Crowd flow, security, stage timing and protocol layout also need professional coordination.
         </p>
       </div>
     </SectionShell>
@@ -898,15 +898,15 @@ function TechnicalInfrastructureSectionBlock() {
         </div>
 
         <p>
-          Technical infrastructure is the primary factor that determines the overall success of an event production. When stage design, LED screen scenarios, sound system placement and lighting programming are planned simultaneously, a flow is created that keeps the audience engaged throughout the corporate event.
+          Technical infrastructure shapes the event experience. Stage design, LED content, sound placement and lighting should be planned together. This keeps the audience focused.
         </p>
 
         <p>
-          For formats requiring high information transfer — such as launch productions and dealer meeting productions — speakers must be heard clearly and the content on stage must be visible from every point in the venue.
+          Launches and dealer meetings carry a lot of information. Speakers must be clear. Stage content must be visible from every seat.
         </p>
 
         <p>
-          Today, live streaming and hybrid event infrastructure has also become a critical need. Recording, streaming, in-stage display and network planning should be considered together as a single package.
+          Hybrid event needs are also common. Recording, streaming, stage display and network planning should work as one package.
         </p>
       </div>
     </SectionShell>
@@ -922,7 +922,7 @@ function RentalSectionBlock() {
           Event Rental: Stage • LED Screen • Sound • Lighting
         </h2>
         <p>
-          Corporate event rental needs are best managed when stage, LED screen, sound and lighting systems are engineered within a single technical package. This consolidates installation, rehearsal and event-day management within one team.
+          Event rental works best as one technical package. Stage, LED screen, sound and lighting should be planned together. This keeps setup, rehearsal and live operation under one team.
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           {[
@@ -1329,27 +1329,27 @@ const FAQ_ITEMS = [
   {
     question: "What do corporate event companies do?",
     answer:
-      "Corporate event companies manage goal-setting, content flow, technical production and on-site operations for an event. For formats such as launch productions, dealer meeting productions or gala evenings, they integrate components like stage, sound, lighting and LED screens under a single coordination structure.",
+      "Corporate event companies manage goals, content flow, technical production and site operations. For launches, dealer meetings and galas, they bring stage, sound, lighting and LED screens into one plan.",
   },
   {
     question: "Why are large event companies preferred?",
     answer:
-      "Large event companies manage risk more effectively through a broad equipment fleet, redundant systems and strong operations teams. This structure delivers an uninterrupted experience on high-visibility projects such as corporate events and brand launches.",
+      "Large event companies reduce risk with a broad equipment fleet, backup systems and strong field teams. This matters most on brand launches and other high-visibility events.",
   },
   {
     question: "How are event rental prices determined?",
     answer:
-      "Event rental prices are determined by stage size, LED screen footage, sound system capacity, installation duration and technical staffing requirements. As venue conditions and event duration increase, budget line items are updated accordingly.",
+      "Prices depend on stage size, LED screen area, sound capacity, setup time and crew size. Venue conditions and event duration can also change the budget.",
   },
   {
     question: "What should I look for when choosing a corporate event company in Istanbul?",
     answer:
-      "For Istanbul corporate event projects, key criteria include reference checks, technical team capacity, LED/stage/sound infrastructure and local operations experience. Clarifying the contract scope and sharing the risk plan makes for a sound selection process.",
+      "Look at references, technical team capacity and local operations experience. The company should also explain the contract scope and risk plan clearly.",
   },
   {
     question: "Do event production companies provide technical equipment?",
     answer:
-      "Yes. Event production companies can supply technical equipment such as stage, LED screen, sound, lighting, truss and power infrastructure, and manage everything from installation through operations. Correct equipment selection directly elevates event quality.",
+      "Yes. Event production companies can supply stage, LED screen, sound, lighting, truss and power infrastructure. They can also manage setup and live operation.",
   },
 ];
 

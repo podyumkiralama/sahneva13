@@ -244,7 +244,35 @@ const RU_HOME_JSON_LD = {
   image: `${SITE_URL}/img/hero-bg.webp`,
   telephone: "+90 545 304 86 71",
   areaServed: "Türkiye",
-  inLanguage: "ru",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 41.096173214009205,
+    longitude: 28.97663777534253,
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Hamidiye, Anadolu Cd. 61 A",
+    addressLocality: "Kagithane",
+    addressRegion: "Istanbul",
+    postalCode: "34400",
+    addressCountry: "TR",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+  ],
   description:
     "Аренда сцен, подиумов, LED-экранов, звука, света, шатров и мебели для мероприятий в Турции.",
   makesOffer: RU_SERVICES.slice(0, 5).map((service) => ({
