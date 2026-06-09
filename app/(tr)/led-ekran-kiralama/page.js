@@ -2205,12 +2205,12 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
-      <P19InvestmentProof />
       <QuickSelectionGuide />
       <VisualProofStrip />
       <StatsBand />
       <UseCases />
       <Services />
+      <P19InvestmentProof />
       <Technical />
       <WhySahneva />
       <Gallery />
