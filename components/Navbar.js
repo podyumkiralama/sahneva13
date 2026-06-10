@@ -38,7 +38,7 @@ const TR_RESEARCH_LINKS = [
   { href: "/iletisim", label: "İletişim", icon: "☎️", description: "Hızlı teklif ve iletişim kanalları" },
   { href: "/nasil-calisiyoruz", label: "Nasıl Çalışıyoruz", icon: "🧭", description: "Süreç, kurulum ve operasyon akışı" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama", icon: "🗺️", description: "Türkiye geneli kurulum ve lojistik" },
-  { href: "/yaptiklarimiz", label: "Yaptıklarımız", icon: "📹", description: "Sahadan video çalışmaları ve referans vitrini" },
+  { href: "/blog", label: "Blog", icon: "📝", description: "Rehber içerikler ve teknik yazılar" },
   { href: "/sss", label: "SSS", icon: "💡", description: "Sık sorulan sorular ve yanıtlar" },
 ];
 
@@ -60,10 +60,10 @@ export default function Navbar({ locale = "tr", ...props }) {
   const whatsappHref = `https://wa.me/905453048671?text=${whatsappMessage}&utm_source=navbar&utm_medium=desktop_whatsapp`;
   const homeHref = isEn ? "/en" : isRu ? "/ru" : "/";
   const aboutHref = isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda";
-  const blogHref = isEn ? "/en/blog" : isRu ? "/ru" : "/blog";
+  const showcaseHref = isEn ? "/en/blog" : isRu ? "/ru" : "/yaptiklarimiz";
   const servicesHref = isEn ? "/en/services" : isRu ? "/ru/services" : "/hizmetler";
   const aboutLabel = isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda";
-  const blogLabel = "Blog";
+  const showcaseLabel = isEn || isRu ? "Blog" : "Yaptıklarımız";
   const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
   const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın";
   const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : "Süreç, iletişim ve bilgi sayfaları";
@@ -88,7 +88,7 @@ export default function Navbar({ locale = "tr", ...props }) {
             </Link>
             <div className="hidden lg:flex items-center gap-4">
               <DesktopNavLink href={aboutHref}>{aboutLabel}</DesktopNavLink>
-              <DesktopNavLink href={blogHref}>{blogLabel}</DesktopNavLink>
+              <DesktopNavLink href={showcaseHref}>{showcaseLabel}</DesktopNavLink>
               <details id="nav-services-details" className="relative group" data-nav-dropdown="true">
                 <summary id="nav-services-summary" className={`list-none cursor-pointer select-none relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 border text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200 nav-dark:text-slate-100 nav-dark:hover:text-blue-300 nav-dark:hover:bg-white/10 nav-dark:hover:border-white/10 ${FOCUS_RING_CLASS}`}>
                   <span className="flex items-center gap-2">{servicesDropdownLabel}<svg className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg></span>

@@ -35,6 +35,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
     about: isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda",
     services: isEn ? "Services" : isRu ? "Услуги" : "Hizmetler",
     explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın",
+    showcase: isEn || isRu ? "Blog" : "Yaptıklarımız",
     support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek",
     supportText: isEn
       ? "Get a quick quote and send your questions on WhatsApp."
@@ -53,7 +54,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
 
   const links = {
     about: isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda",
-    blog: isEn ? "/en/blog" : isRu ? "/ru" : "/blog",
+    showcase: isEn ? "/en/blog" : isRu ? "/ru" : "/yaptiklarimiz",
   };
 
   const mobileWhatsappHref = useMemo(
@@ -211,11 +212,11 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               {labels.about}
             </Link>
 
-            <Link href={links.blog} prefetch={false} onClick={() => closeMenu()} className={menuLinkClass}>
+            <Link href={links.showcase} prefetch={false} onClick={() => closeMenu()} className={menuLinkClass}>
               <span className="text-lg" aria-hidden="true">
-                📝
+                {isEn || isRu ? "📝" : "📹"}
               </span>
-              Blog
+              {labels.showcase}
             </Link>
 
             <details
