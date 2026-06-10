@@ -26,7 +26,7 @@ const filterRoutes = (routes, query) => {
     .slice(0, MAX_RESULTS);
 };
 
-export default function NavbarSearchDropdown({ locale = "tr" }) {
+export default function NavbarSearchDropdown({ locale = "tr", compact = false }) {
   const isEn = locale === "en";
   const searchButtonLabel = isEn ? "Search" : "Ara";
   const searchAriaLabel = isEn ? "Search the site" : "Site içinde arama";
@@ -114,7 +114,7 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
       <button
         ref={buttonRef}
         type="button"
-        className={`group inline-flex min-h-[44px] w-28 items-center justify-between gap-2 rounded-xl border border-blue-100 bg-blue-50/90 px-3 text-neutral-700 shadow-sm transition-all duration-200 hover:border-blue-200 hover:bg-blue-100 hover:text-blue-800 xl:w-32 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-slate-100 nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+        className={`group inline-flex items-center justify-between rounded-xl border border-blue-100 bg-blue-50/90 text-neutral-700 shadow-sm transition-all duration-200 hover:border-blue-200 hover:bg-blue-100 hover:text-blue-800 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-slate-100 nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] w-24 gap-1.5 px-2.5 xl:w-28" : "min-h-[44px] w-28 gap-2 px-3 xl:w-32"} ${FOCUS_RING_CLASS}`}
         aria-expanded={open ? "true" : "false"}
         aria-haspopup="dialog"
         title={searchButtonLabel}
@@ -128,9 +128,9 @@ export default function NavbarSearchDropdown({ locale = "tr" }) {
       >
         <span className="flex min-w-0 items-center gap-2">
           {open ? (
-            <X aria-hidden="true" className="h-5 w-5 shrink-0 text-neutral-600 nav-dark:text-slate-200" />
+            <X aria-hidden="true" className={`${compact ? "h-4 w-4" : "h-5 w-5"} shrink-0 text-neutral-600 nav-dark:text-slate-200`} />
           ) : (
-            <Search aria-hidden="true" className="h-5 w-5 shrink-0 text-neutral-600 nav-dark:text-slate-200" />
+            <Search aria-hidden="true" className={`${compact ? "h-4 w-4" : "h-5 w-5"} shrink-0 text-neutral-600 nav-dark:text-slate-200`} />
           )}
           <span className="truncate text-left text-sm font-bold text-neutral-600 nav-dark:text-slate-200">
             {searchButtonLabel}

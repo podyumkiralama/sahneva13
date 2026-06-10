@@ -27,7 +27,7 @@ function applyNavbarTheme(value) {
   document.documentElement.classList.toggle("nav-light", selected === "light");
 }
 
-export default function ThemeSwitcher({ align = "right" }) {
+export default function ThemeSwitcher({ align = "right", compact = false }) {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("system");
   const rootRef = useRef(null);
@@ -83,10 +83,10 @@ export default function ThemeSwitcher({ align = "right" }) {
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-neutral-200 bg-white px-3 text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200"
+        className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] min-w-[40px] px-2.5" : "min-h-[44px] min-w-[44px] px-3"}`}
         title={`Tema: ${activeOption.label}`}
       >
-        <ActiveIcon aria-hidden="true" className="h-4 w-4" />
+        <ActiveIcon aria-hidden="true" className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
         <span className="sr-only">Tema seçimi</span>
       </button>
 

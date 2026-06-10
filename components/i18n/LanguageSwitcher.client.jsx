@@ -58,7 +58,7 @@ function getLocaleLinks(pathname, currentLocale) {
   }));
 }
 
-export default function LanguageSwitcher({ locale = "tr", align = "right" }) {
+export default function LanguageSwitcher({ locale = "tr", align = "right", compact = false }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -96,10 +96,10 @@ export default function LanguageSwitcher({ locale = "tr", align = "right" }) {
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 text-sm font-extrabold text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200"
+        className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-sm font-extrabold text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] gap-1.5 px-2.5" : "min-h-[44px] gap-2 px-3"}`}
         title={`Dil: ${activeLocale.label}`}
       >
-        <Languages aria-hidden="true" className="h-4 w-4" />
+        <Languages aria-hidden="true" className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
         <span aria-hidden="true">{activeLocale.short}</span>
         <span className="sr-only">Dil seçimi</span>
       </button>
