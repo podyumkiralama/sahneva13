@@ -43,6 +43,7 @@ const PROJECT_VIDEOS = [
     services: ["Dome Çadır", "Projeksiyon", "Lazer Animasyon", "Işık"],
     youtubeUrl: "https://www.youtube.com/shorts/CVdYV5BkF3k?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/CVdYV5BkF3k/hq2.jpg",
+    uploadDate: "2026-01-21T03:16:02-08:00",
   },
   {
     id: "JNzGlNzNRuk",
@@ -62,6 +63,7 @@ const PROJECT_VIDEOS = [
     services: ["Çadır", "TEKNOFEST", "Etkinlik Alanı", "Prodüksiyon"],
     youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
     thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
+    uploadDate: "2025-10-28T00:48:40-07:00",
   },
   {
     id: "7yjrrEtWrr0",
@@ -71,6 +73,7 @@ const PROJECT_VIDEOS = [
     services: ["Çadır", "Dekorasyon", "LED Ekran", "Ses Sistemi", "Masa Sandalye"],
     youtubeUrl: "https://www.youtube.com/shorts/7yjrrEtWrr0?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/7yjrrEtWrr0/hq2.jpg",
+    uploadDate: "2025-10-17T16:56:21-07:00",
   },
   {
     id: "_9Q7v0ZL304",
@@ -120,6 +123,7 @@ const PROJECT_VIDEOS = [
     services: ["Küp LED", "LED Ekran", "Sahne Tasarımı", "Prodüksiyon"],
     youtubeUrl: "https://www.youtube.com/shorts/i-KtuiLiBmI?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/i-KtuiLiBmI/hq2.jpg",
+    uploadDate: "2026-04-10T01:44:04-07:00",
   },
   {
     id: "AihkXPzPBi0",
@@ -129,6 +133,7 @@ const PROJECT_VIDEOS = [
     services: ["Kurumsal Etkinlik", "LED Ekran", "Toplantı", "Teknik Prodüksiyon"],
     youtubeUrl: "https://www.youtube.com/shorts/AihkXPzPBi0?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/AihkXPzPBi0/hq2.jpg",
+    uploadDate: "2026-05-30T09:54:16-07:00",
   },
   {
     id: "tyb1lG9KtiA",
@@ -149,6 +154,7 @@ const PROJECT_VIDEOS = [
     services: ["Gala", "Sergi Alanı", "LED Ekran", "Teknik Prodüksiyon"],
     youtubeUrl: "https://www.youtube.com/watch?v=xatodgyZ_S8",
     thumbnailUrl: "https://i.ytimg.com/vi/xatodgyZ_S8/hqdefault.jpg",
+    uploadDate: "2026-06-09T03:10:17-07:00",
   },
   {
     id: "j1Tr5l8DVW8",
