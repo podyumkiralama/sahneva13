@@ -82,13 +82,13 @@ const DEFAULT_SERVICES = [
     title: "LED Ekran Kiralama",
     Icon: Monitor,
     description:
-      "300 m² P1.9 indoor LED yatırımı, P2.5/P2.9 iç mekan ve P3.9 outdoor LED ekran çözümleriyle yakın izleme mesafesinde premium görüntü kalitesi.",
+      "İç mekan ve dış mekan LED ekran, LED wall ve video wall kurulumlarını; ekran ölçüsü, izleme mesafesi, taşıyıcı sistem ve teknik reji ihtiyacına göre planlıyoruz.",
     image: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
     features: [
-      "300 m² P1.9 indoor LED",
-      "P1.9/P2.5/P2.9 pixel pitch",
-      "3840Hz yenileme",
-      "Özmal envanter gücü",
+      "300 m² P1.9 Indoor LED Envanteri",
+      "P1.9 / P2.5 / P2.9 Piksel Aralığı",
+      "3840 Hz Yenileme Hızı",
+      "Kurulum ve Teknik Reji",
     ],
     href: "/led-ekran-kiralama",
   },
@@ -141,8 +141,8 @@ const DEFAULT_SERVICES = [
 
 const DEFAULT_DICTIONARY = {
   sectionPill: "Profesyonel Hizmet",
-  sectionTitlePrefix: "Sahne kiralama, LED ekran kiralama ve",
-  sectionTitleHighlight: "Hizmetlerimiz",
+  sectionTitlePrefix: "Sahne, LED Ekran ve",
+  sectionTitleHighlight: "Etkinlik Hizmetlerimiz",
   sectionDesc:
     "Türkiye geneli sahne kiralama, podyum kiralama, LED ekran kiralama, ses ışık sistemleri, truss kiralama, çadır kiralama ve masa sandalye kiralama çözümleri sunuyoruz. Farklı şehirlerdeki ekibimizle tüm teknik süreci tek elden planlıyoruz.",
   featuresHeading: "Hizmet Özellikleri",

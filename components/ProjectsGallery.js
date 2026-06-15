@@ -36,7 +36,7 @@ const DEFAULT_GALLERIES = {
       (_, i) => `/img/galeri/cadir-kiralama-${i + 1}.webp`
     ),
     description:
-      "Açık hava etkinlikleri için premium çadır kiralama ve profesyonel çözümler.",
+      "Açık hava etkinlikleri için çadır kiralama, kurulum ve tamamlayıcı teknik çözümler.",
     stats: "100+ Açık Hava Projesi",
     icon: "⛺",
   },

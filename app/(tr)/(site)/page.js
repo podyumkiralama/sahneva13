@@ -319,16 +319,13 @@ export default function HomePage() {
       <div id="teklif-al" aria-hidden="true" />
 
       {/* Projeler */}
-      <section
-        aria-label="Projelerimiz"
-        className="content-visibility-auto cv-home-projects bg-black"
-      >
+      <div className="content-visibility-auto cv-home-projects bg-black">
         <p className="sr-only">
           700+ kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
         </p>
         <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
         <ProjectsGallery />
-      </section>
+      </div>
 
       {/* Hizmetler */}
       <div className="content-visibility-auto cv-home-services bg-black">
