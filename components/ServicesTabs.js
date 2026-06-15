@@ -186,8 +186,8 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
   const ServiceIcon = service.Icon;
 
   return (
-    <article className="relative overflow-hidden rounded-3xl border border-slate-800 bg-[#020617] shadow-2xl">
-      <div className="relative h-64 overflow-hidden">
+    <article className="relative overflow-hidden rounded-2xl border border-slate-800 bg-[#020617] shadow-xl">
+      <div className="relative h-48 overflow-hidden md:h-52">
         <Image
           src={service.image}
           alt={formatTitleTemplate(
@@ -225,25 +225,25 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
               </span>
             )}
           </span>
-          <h3 className="text-2xl font-black text-white">{service.title}</h3>
+          <h3 className="text-xl font-black text-white md:text-2xl">{service.title}</h3>
         </div>
       </div>
 
-      <div className="p-6 md:p-7">
+      <div className="p-5 md:p-6">
         <p className="border-l-2 border-cyan-400 pl-4 text-sm leading-relaxed text-white/90 md:text-base">
           {service.description}
         </p>
 
-        <div className="mt-6">
+        <div className="mt-5">
           <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white/90">
             <span className="h-[2px] w-4 bg-cyan-500" aria-hidden="true" />
             {dictionary.featuresHeading}
           </p>
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="flex flex-wrap gap-2">
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3"
+                className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2"
               >
                 <TechCheckIcon />
                 <span className="text-sm font-medium text-white/90">{feature}</span>
@@ -252,10 +252,10 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           </ul>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-5">
           <Link
             href={service.href}
-            className="group inline-flex items-center gap-3 rounded-xl bg-cyan-200 px-6 py-3 text-base font-extrabold text-slate-950 shadow-[0_0_20px_rgba(165,243,252,0.28)] ring-1 ring-cyan-50/80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_28px_rgba(165,243,252,0.42)] focus:outline-none focus:ring-4 focus:ring-cyan-200/70 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="group inline-flex min-h-11 items-center gap-3 rounded-xl bg-cyan-200 px-5 py-2.5 text-sm font-extrabold text-slate-950 shadow-[0_0_20px_rgba(165,243,252,0.28)] ring-1 ring-cyan-50/80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_28px_rgba(165,243,252,0.42)] focus:outline-none focus:ring-4 focus:ring-cyan-200/70 focus:ring-offset-2 focus:ring-offset-slate-950"
             title={formatTitleTemplate(
               dictionary.ctaTitle,
               service.title,
@@ -279,18 +279,23 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
 
 export default function ServicesTabs({
   servicesData = DEFAULT_SERVICES,
+  maxItems,
   dictionary: dictionaryOverride,
   ariaLabelledBy,
   ariaDescribedBy,
   ariaLabel,
   regionLabelId = "services-section-title",
 }) {
-  const services =
+  const availableServices =
     Array.isArray(servicesData) && servicesData.length
       ? servicesData
       : DEFAULT_SERVICES;
+  const services =
+    Number.isInteger(maxItems) && maxItems > 0
+      ? availableServices.slice(0, maxItems)
+      : availableServices;
 
-  if (!services.length) return null;
+  if (!availableServices.length) return null;
 
   const dictionary = mergeDictionary(DEFAULT_DICTIONARY, dictionaryOverride);
   const imageAltTemplate = dictionary?.imageAlt ?? DEFAULT_DICTIONARY.imageAlt;
@@ -300,7 +305,7 @@ export default function ServicesTabs({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#0B1120] py-16 md:py-20 2xl:py-24"
+      className="relative w-full overflow-hidden bg-[#0B1120] py-12 md:py-16 2xl:py-20"
       aria-labelledby={headingId}
       aria-describedby={computedDescribedBy}
       aria-label={ariaLabel}
@@ -339,7 +344,7 @@ export default function ServicesTabs({
           </div>
         )}
 
-        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <ServiceCard
               key={service.id}

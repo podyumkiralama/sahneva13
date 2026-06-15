@@ -1,6 +1,5 @@
 // components/HeroBelow.jsx
 import { HERO_FEATURES_TR } from "@/lib/heroFeatures";
-import RichText from "@/components/RichText";
 
 const DEFAULT_PROCESS_STEPS = [
   {
@@ -15,7 +14,7 @@ const DEFAULT_PROCESS_STEPS = [
   },
   {
     title: "Canlı Yönetim",
-    desc: "Operatör, rejisör ve teknik sorumlu ile kesintisiz etkinlik akışı",
+    desc: "Operatör, rejisör ve teknik sorumlu ile kontrollü etkinlik akışı",
     badge: "3",
   },
 ];
@@ -25,11 +24,6 @@ const DEFAULT_DICTIONARY = {
   features: HERO_FEATURES_TR,
   featuresAriaLabel: "Öne çıkan hizmet avantajları",
   processAriaLabel: "Proje akış adımları",
-  consultationTitle: "Ücretsiz Profesyonel Danışmanlık",
-  consultationDesc:
-    "Etkinliğiniz için <strong>en doğru sahne ve podyum kiralama planını</strong> ve bütçenize uygun LED ekran kiralama seçeneklerini ücretsiz planlayalım. <span class=\"block mt-1 text-yellow-300 font-medium\">⚡ 2 saat içinde detaylı teklif garantisi.</span>",
-  consultationCta: "Hemen Teklif Al",
-  consultationCtaHref: "#teklif-al",
   sectionBadge: "Süreç & Güvence",
   sectionTitle: "Keşiften kuruluma tek ekip, net zaman çizelgesi",
   sectionDesc:
@@ -40,73 +34,27 @@ const DEFAULT_DICTIONARY = {
 function HeroFeatureGrid({ features, ariaLabel }) {
   return (
     <ul
-      className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr items-stretch list-none p-0 m-0"
+      className="grid grid-cols-1 gap-3 list-none p-0 m-0 sm:grid-cols-3"
       aria-label={ariaLabel}
     >
       {features.map((item) => (
         <li key={item.title} className="flex min-w-0">
-          <article className="w-full h-full flex flex-col items-start rounded-xl p-5 border border-white/10 shadow-lg transition-colors duration-300 bg-slate-900/55 hover:bg-slate-800/55 backdrop-blur-[2px]">
+          <article className="flex h-full w-full items-center gap-3 rounded-xl border border-white/10 bg-slate-900/55 p-4 shadow-md">
             <div
-              className={`text-3xl mb-4 p-3 rounded-lg bg-white/5 ${item.color}`}
+              className={`shrink-0 rounded-lg bg-white/5 p-2.5 text-2xl ${item.color}`}
               aria-hidden="true"
             >
               {item.icon}
             </div>
 
-            <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {item.description}
-            </p>
+            <div>
+              <p className="font-bold text-white">{item.title}</p>
+              <p className="text-sm leading-relaxed text-gray-300">{item.description}</p>
+            </div>
           </article>
         </li>
       ))}
     </ul>
-  );
-}
-
-function ConsultationCard({ title, desc, ctaText, ctaHref }) {
-  return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-indigo-900 rounded-2xl p-1 border border-white/10 shadow-2xl">
-      <div className="absolute right-0 top-0 -mt-10 h-40 w-40 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-
-      <div className="bg-slate-950/30 rounded-xl p-5 md:p-7 backdrop-blur-[2px] h-full">
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="flex-shrink-0">
-            <div
-              className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg transform rotate-3"
-              aria-hidden="true"
-            >
-              🎯
-            </div>
-          </div>
-
-          <div className="flex-1 text-center md:text-left space-y-2">
-            <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight">
-              {title}
-            </h3>
-
-            <p
-              className="text-slate-200 text-base leading-relaxed max-w-2xl"
-            >
-              <RichText text={desc} />
-            </p>
-          </div>
-
-          <div className="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">
-            <a
-              href={ctaHref}
-              className="group relative w-full md:w-auto inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-white/20 hover:-translate-y-1 focus-ring min-h-[44px]"
-            >
-              <span>{ctaText}</span>
-              <span className="group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -141,7 +89,7 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
   const d = { ...DEFAULT_DICTIONARY, ...dictionaryOverride };
   return (
     <section
-      className="home-section home-section--surface relative overflow-hidden bg-slate-950 mt-0 py-10 md:py-12 2xl:py-16"
+      className="home-section home-section--surface relative mt-0 overflow-hidden bg-slate-950 py-8 md:py-10"
       aria-labelledby="hero-supporting-title"
     >
       {/* Hero -> HeroBelow geçişini yumuşat (beyaz band hissi azalır) */}
@@ -150,7 +98,7 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
         aria-hidden="true"
       />
 
-      <div className="home-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
+      <div className="home-container mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-2">
           <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
             <span
@@ -171,15 +119,6 @@ export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
 
         <div className="relative z-10">
           <HeroFeatureGrid features={d.features} ariaLabel={d.featuresAriaLabel} />
-        </div>
-
-        <div className="relative z-0 mt-4">
-          <ConsultationCard
-            title={d.consultationTitle}
-            desc={d.consultationDesc}
-            ctaText={d.consultationCta}
-            ctaHref={d.consultationCtaHref}
-          />
         </div>
 
         <ProcessList steps={d.processSteps} ariaLabel={d.processAriaLabel} />

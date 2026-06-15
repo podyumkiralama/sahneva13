@@ -662,7 +662,7 @@
   }
 
   .cv-home-projects {
-    contain-intrinsic-block-size: 320px;
+    contain-intrinsic-block-size: 1600px;
   }
 
   .cv-home-tech {
@@ -718,6 +718,10 @@
   }
 
   @media (min-width: 768px) {
+    .cv-home-projects {
+      contain-intrinsic-block-size: 800px;
+    }
+
     .cv-home-services {
       contain-intrinsic-block-size: 2800px;
     }

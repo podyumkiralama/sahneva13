@@ -101,7 +101,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           />
           <img
             src="/img/hero-bg-mobile.webp"
-            alt="Sahneva etkinlik prod\u00fcksiyonu i\u00e7in sahne, LED ekran, ses-\u0131\u015f\u0131k ve podyum kurulumu"
+            alt="Sahneva etkinlik prodüksiyonu için sahne, LED ekran, ses-ışık ve podyum kurulumu"
             width="768"
             height="1024"
             fetchPriority="high"

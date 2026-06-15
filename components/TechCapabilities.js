@@ -22,10 +22,10 @@ const DEFAULT_INFRA_FEATURES = [
 
 const DEFAULT_DICTIONARY = {
   sectionPill: "Teknik Kapasite & Altyapı",
-  sectionTitlePrefix: "Türkiye'nin",
+  sectionTitlePrefix: "Büyük Ölçekli Etkinlikler İçin",
   // ❗ boşluk yok
-  sectionTitleHighlight: "1 Numaralı",
-  sectionTitleSuffix: "Etkinlik Teknoloji Partneri",
+  sectionTitleHighlight: "Teknik Prodüksiyon",
+  sectionTitleSuffix: "Altyapısı",
   sectionDescription:
     "LED ekran kiralama teknolojisi, ses ışık sistemleri ve güvenilir altyapı çözümleriyle kurumsal organizasyon ihtiyaçlarını tek çatı altında topluyoruz.",
   card1Title: "Teknik Çözümler",
