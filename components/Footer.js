@@ -2,18 +2,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useId } from "react";
+import {
+  ArrowUp,
+  ArrowUpRight,
+  Clock3,
+  Instagram,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Star,
+  Youtube,
+} from "lucide-react";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
-// Navbar ile uyumlu focus ring (Offset rengi footer background'a göre ayarlandı)
 const FOCUS_RING_CLASS =
-  "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020617]";
 
 const SOCIAL_LINKS = [
   {
     href: "https://www.instagram.com/sahnevaorganizasyon",
     label: "Sahneva Instagram",
     title: "Instagram",
-    icon: "📷",
+    icon: Instagram,
     gradient: "from-blue-500/30 via-purple-500/30 to-pink-500/20",
     rel: "me",
   },
@@ -21,7 +32,7 @@ const SOCIAL_LINKS = [
     href: "https://www.youtube.com/@sahneva",
     label: "Sahneva YouTube",
     title: "YouTube",
-    icon: "▶",
+    icon: Youtube,
     gradient: "from-red-500/30 via-orange-400/30 to-yellow-400/20",
   },
 ];
@@ -61,14 +72,14 @@ const BUSINESS_LINKS = [
     label: "Google Haritalar'da bizi bulun",
     labelEn: "Find us on Google Maps",
     labelRu: "Найти нас на Google Maps",
-    icon: "📍",
+    icon: MapPin,
   },
   {
     href: "https://g.page/r/CZhkMzkNOdgnEBI/review",
     label: "Google'da yorum yazın",
     labelEn: "Write a Google review",
     labelRu: "Оставить отзыв в Google",
-    icon: "⭐",
+    icon: Star,
   },
 ];
 
@@ -94,9 +105,9 @@ const FooterLink = ({
       target={target}
       rel={rel}
       className={`
-        group flex min-h-[44px] items-center py-2 pl-2 border-l-2 border-transparent
-        transition-all duration-200 rounded-sm text-gray-300
-        hover:pl-3 hover:text-white ${hoverColorClass} ${FOCUS_RING_CLASS}
+        group flex min-h-[44px] items-center border-l-2 border-transparent py-2 pl-2
+        text-slate-300 transition-colors duration-200
+        hover:text-white ${hoverColorClass} ${FOCUS_RING_CLASS}
       `}
     >
       <span className="text-sm leading-relaxed">{children}</span>
@@ -108,7 +119,7 @@ const FooterLink = ({
 const SocialLink = ({
   href,
   label,
-  icon,
+  icon: Icon,
   gradient,
   rel,
   sizeClass = "h-11 w-11",
@@ -123,22 +134,20 @@ const SocialLink = ({
         target="_blank"
         rel={relValue}
         className={`
-          group relative inline-flex ${sizeClass} items-center justify-center rounded-2xl
-          bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10
-          hover:border-white/40 transition-all duration-300 hover:scale-110
+          group relative inline-flex ${sizeClass} items-center justify-center rounded-lg
+          border border-white/10 bg-white/5 transition-colors duration-200
+          hover:border-white/30 hover:bg-white/10
           ${FOCUS_RING_CLASS}
         `}
       >
         <span
           className={`
-            absolute inset-0 rounded-2xl bg-gradient-to-tr ${gradient}
-            opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            absolute inset-0 rounded-lg bg-gradient-to-tr ${gradient}
+            opacity-0 transition-opacity duration-200 group-hover:opacity-100
           `}
           aria-hidden="true"
         />
-        <span aria-hidden="true" className="text-xl relative z-10">
-          {icon}
-        </span>
+        <Icon aria-hidden="true" className="relative z-10 h-5 w-5" strokeWidth={1.8} />
         <span className="sr-only">{label} ({newTabLabel})</span>
       </a>
     </li>
@@ -214,6 +223,31 @@ export default function Footer({
       : (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fuar, konser, kurumsal etkinlik ve mezuniyet organizasyonlarında çadır kiralama ile masa sandalye kiralama çözümlerinde yanınızdayız.</span>);
 
   const aboutHeading = isEn ? "About Sahneva" : isRu ? "О Sahneva" : "Sahneva Hakkında";
+  const ctaEyebrow = isEn
+    ? "PLAN YOUR PROJECT"
+    : isRu
+      ? "ОБСУДИМ ПРОЕКТ"
+      : "PROJENİZİ KONUŞALIM";
+  const ctaTitle = isEn
+    ? "Let’s build the stage together."
+    : isRu
+      ? "Создадим площадку вместе."
+      : "Sahneyi birlikte kuralım.";
+  const ctaDescription = isEn
+    ? "Share the date, city and technical scope. We will clarify equipment, logistics and site operations in one plan."
+    : isRu
+      ? "Сообщите дату, город и технические задачи. Мы объединим оборудование, логистику и работу на площадке в одном плане."
+      : "Tarih, şehir ve teknik ihtiyaçları paylaşın; ekipman, lojistik ve saha operasyonunu tek planda netleştirelim.";
+  const ctaLabel = isEn
+    ? "Get a quote on WhatsApp"
+    : isRu
+      ? "Получить расчет в WhatsApp"
+      : "WhatsApp’tan teklif alın";
+  const proofItems = isEn
+    ? ["700+ projects", "81 cities", "24/7 operations"]
+    : isRu
+      ? ["700+ проектов", "81 город", "Операции 24/7"]
+      : ["700+ proje", "81 il", "7/24 operasyon"];
 
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;
@@ -228,7 +262,7 @@ export default function Footer({
       id={id}
       className="
         relative w-full flex-shrink-0
-        bg-gradient-to-br from-[#020617] via-[#0B1120] to-[#020617]
+        bg-[#050B18]
         border-t border-white/10
         overflow-hidden
       "
@@ -238,7 +272,6 @@ export default function Footer({
       role={roleOverride}
       tabIndex={-1}
     >
-      {/* Dekoratif arka plan efektleri */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -247,8 +280,7 @@ export default function Footer({
             "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.25) 100%)",
         }}
       >
-        {/* Grid overlay */}
-        <div className="absolute inset-0 opacity-60">
+        <div className="absolute inset-0 opacity-35">
           <div
             className="grid-overlay"
             style={{
@@ -259,12 +291,7 @@ export default function Footer({
             }}
           />
         </div>
-
-        {/* Glow orbs */}
-        <div className="absolute -top-32 -left-16 w-80 h-80 bg-blue-500/20 blur-3xl rounded-full" />
-        <div className="absolute -bottom-40 right-0 w-96 h-96 bg-purple-500/25 blur-3xl rounded-full" />
-
-        {/* ekstra hafif vignette (kontrastı bozmadan derinlik) */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
       </div>
 
       {/* Görünmez ana başlık (SR için) */}
@@ -281,25 +308,93 @@ export default function Footer({
         </p>
       ) : null}
 
-      {/* Üst grid */}
       <div
-        className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start gap-6 xl:gap-8 pt-8 pb-8 md:pt-10 md:pb-10 px-6"
-        aria-label={
-          isEn
-            ? "Footer: services, quick links and contact"
-            : isRu
-              ? "Подвал: услуги, быстрые ссылки и контакты"
-              : "Altbilgi: hizmetler, hızlı erişim ve iletişim"
-        }
+        className="relative z-10 border-b border-white/10"
+        style={{
+          backgroundImage:
+            "linear-gradient(110deg, rgba(37,99,235,0.16), rgba(124,58,237,0.08) 48%, rgba(16,185,129,0.11))",
+        }}
       >
-        {/* 1. SÜTUN: Marka & Sosyal */}
-        <section aria-labelledby="ft-brand" className="lg:col-span-1">
+        <section
+          aria-labelledby="footer-project-cta"
+          className="
+            mx-auto grid w-full max-w-[1440px] gap-6 px-6 py-8
+            md:px-8 lg:grid-cols-[minmax(0,1.35fr)_auto_auto] lg:items-center lg:px-10
+          "
+        >
+          <div>
+            <p className="mb-2 text-xs font-bold tracking-[0.18em] text-cyan-300">
+              {ctaEyebrow}
+            </p>
+            <h3
+              id="footer-project-cta"
+              className="max-w-2xl text-2xl font-black text-white md:text-3xl"
+            >
+              {ctaTitle}
+            </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 md:text-base">
+              {ctaDescription}
+            </p>
+          </div>
+
+          <ul
+            className="grid grid-cols-3 gap-2"
+            aria-label={isEn ? "Operational highlights" : isRu ? "Операционные показатели" : "Operasyon göstergeleri"}
+          >
+            {proofItems.map((item, index) => (
+              <li
+                key={item}
+                className={`
+                  flex min-h-[58px] min-w-0 items-center justify-center rounded-lg border px-3
+                  text-center text-xs font-bold leading-tight
+                  ${
+                    index === 0
+                      ? "border-blue-400/25 bg-blue-400/10 text-blue-100"
+                      : index === 1
+                        ? "border-violet-400/25 bg-violet-400/10 text-violet-100"
+                        : "border-emerald-400/25 bg-emerald-400/10 text-emerald-100"
+                  }
+                `}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="https://wa.me/905453048671"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`
+              group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg
+              bg-emerald-400 px-5 font-bold text-slate-950 shadow-[0_12px_32px_rgba(52,211,153,0.18)]
+              transition-colors hover:bg-emerald-300 ${FOCUS_RING_CLASS}
+            `}
+          >
+            <MessageCircle aria-hidden="true" className="h-5 w-5" />
+            <span>{ctaLabel}</span>
+            <ArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
+        </section>
+      </div>
+
+      <div
+        className="
+          relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1
+          px-6 py-8 md:grid-cols-2 md:px-8
+          lg:grid-cols-12 lg:px-10
+        "
+      >
+        <section
+          aria-labelledby="ft-brand"
+          className="border-b border-white/10 pb-6 md:border-r md:pr-8 lg:col-span-3 lg:border-b-0 lg:pb-8"
+        >
           <div
             className="
-              rounded-3xl border border-white/10 bg-white/5
-              bg-gradient-to-br from-white/5 via-white/0 to-white/0
-              backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.8)]
-              p-4 md:p-4 flex flex-col gap-4
+              flex h-full flex-col gap-4
             "
           >
             <h3 id="ft-brand" className="sr-only">
@@ -313,18 +408,11 @@ export default function Footer({
                   alt="Sahneva logo"
                   width={48}
                   height={48}
-                  className="w-12 h-12 object-contain rounded-2xl"
-                />
-                <span
-                  className="
-                    pointer-events-none absolute -bottom-1 -right-1 w-4 h-4 rounded-full
-                    bg-emerald-400/80 blur-[3px]
-                  "
-                  aria-hidden="true"
+                  className="h-12 w-12 rounded-lg object-contain"
                 />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">Sahneva</p>
+                <p className="text-base font-black tracking-[0.12em] text-white">SAHNEVA</p>
                 <p className="text-sm text-slate-300 leading-relaxed">
                   {brandSubtitle}
                 </p>
@@ -338,23 +426,20 @@ export default function Footer({
           </div>
         </section>
 
-        {/* 2. SÜTUN: Hizmetler */}
-        <nav aria-labelledby="ft-services" className="lg:col-span-1">
+        <nav
+          aria-labelledby="ft-services"
+          className="border-b border-white/10 py-6 md:pl-8 lg:col-span-2 lg:border-b-0 lg:border-r lg:py-8 lg:pr-6"
+        >
           <div
             className="
-              rounded-3xl border border-white/10 bg-white/5
-              bg-gradient-to-br from-blue-600/10 via-slate-900/40 to-slate-900/60
-              backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.85)]
-              p-4 md:p-4
+              h-full
             "
           >
             <h3
               id="ft-services"
-              className="
-                text-white font-bold mb-4 text-lg
-                gradient-text gradient-text--safe-xl
-              "
+              className="mb-4 flex items-center gap-2 text-lg font-bold text-white"
             >
+              <span className="h-5 w-1 rounded-full bg-blue-400" aria-hidden="true" />
               {servicesTitle}
             </h3>
             <ul className="space-y-0.5 text-sm text-gray-300">
@@ -371,42 +456,35 @@ export default function Footer({
           </div>
         </nav>
 
-        {/* 3. SÜTUN: Hızlı Erişim */}
-        <nav aria-labelledby="ft-quick" className="lg:col-span-1">
-          <div
-            className="
-              rounded-3xl border border-white/10 bg-white/5
-              bg-gradient-to-br from-purple-600/15 via-slate-900/40 to-slate-900/60
-              backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.85)]
-              p-4 md:p-4
-            "
-          >
-            <h3
-              id="ft-quick"
-              className="
-                text-white font-bold mb-4 text-lg
-                gradient-text gradient-text--safe-xl
-              "
-            >
-              {quickLinksTitle}
-            </h3>
-            <ul className="space-y-0.5 text-sm text-gray-300">
-              {QUICK_LINKS.map((link) => (
-                <FooterLink
-                  key={link.href}
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                  hoverColorClass="hover:text-purple-300 hover:border-purple-400"
-                >
-                  {link.label}
-                </FooterLink>
-              ))}
-            </ul>
-
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold text-slate-200 mb-2">{popularPagesTitle}</h4>
-              <ul className="space-y-0.5 text-sm text-gray-300">
+        <div
+          className="border-b border-white/10 py-6 md:border-r md:px-8 lg:col-span-4 lg:border-b-0 lg:py-8"
+        >
+          <div className="grid grid-cols-2 gap-4 sm:gap-7">
+            <nav aria-labelledby="ft-quick">
+              <h3 id="ft-quick" className="mb-4 flex items-center gap-2 text-lg font-bold text-white">
+                <span className="h-5 w-1 rounded-full bg-violet-400" aria-hidden="true" />
+                {quickLinksTitle}
+              </h3>
+              <ul className="space-y-0.5 text-sm text-slate-300">
+                {QUICK_LINKS.map((link) => (
+                  <FooterLink
+                    key={link.href}
+                    href={link.href}
+                    target={link.target}
+                    rel={link.rel}
+                    hoverColorClass="hover:text-purple-300 hover:border-purple-400"
+                  >
+                    {link.label}
+                  </FooterLink>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-labelledby="ft-popular">
+              <h3 id="ft-popular" className="mb-4 flex items-center gap-2 text-lg font-bold text-white">
+                <span className="h-5 w-1 rounded-full bg-fuchsia-400" aria-hidden="true" />
+                {popularPagesTitle}
+              </h3>
+              <ul className="space-y-0.5 text-sm text-slate-300">
                 {POPULAR_PAGES.map((link) => (
                   <FooterLink
                     key={link.href}
@@ -417,41 +495,37 @@ export default function Footer({
                   </FooterLink>
                 ))}
               </ul>
-            </div>
+            </nav>
           </div>
-        </nav>
+        </div>
 
-        {/* 4. SÜTUN: İletişim */}
-        <section aria-labelledby="ft-contact" className="lg:col-span-1">
+        <section
+          aria-labelledby="ft-contact"
+          className="pt-6 md:pl-8 lg:col-span-3 lg:pt-0"
+        >
           <div
             className="
-              rounded-3xl border border-white/10 bg-white/5
-              bg-gradient-to-br from-cyan-500/15 via-slate-900/40 to-slate-900/60
-              backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.85)]
-              p-4 md:p-4
+              h-full
             "
           >
             <h3
               id="ft-contact"
-              className="
-                text-white font-bold mb-4 text-lg
-                gradient-text gradient-text--safe-xl
-              "
+              className="mb-4 flex items-center gap-2 text-lg font-bold text-white"
             >
+              <span className="h-5 w-1 rounded-full bg-emerald-400" aria-hidden="true" />
               {contactTitle}
             </h3>
 
             <address className="not-italic space-y-3 text-sm text-gray-300">
-              {/* Adres */}
               <div className="flex items-start gap-3">
                 <span
                   className="
-                    flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl
-                    bg-slate-900/80 text-lg border border-white/10 shadow-sm
+                    flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg
+                    border border-white/10 bg-slate-900/80
                   "
                   aria-hidden="true"
                 >
-                  📍
+                  <MapPin className="h-4 w-4" />
                 </span>
                 <div>
                   <span className="block text-white font-medium mb-0.5">{officeTitle}</span>
@@ -460,16 +534,15 @@ export default function Footer({
                 </div>
               </div>
 
-              {/* Telefon */}
               <div className="flex items-center gap-3">
                 <span
                   className="
-                    flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl
-                    bg-slate-900/80 text-lg border border-white/10 shadow-sm
+                    flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg
+                    border border-white/10 bg-slate-900/80
                   "
                   aria-hidden="true"
                 >
-                  📞
+                  <Phone className="h-4 w-4" />
                 </span>
                 <a
                   href="tel:+905453048671"
@@ -479,38 +552,36 @@ export default function Footer({
                 </a>
               </div>
 
-              {/* E-posta */}
               <div className="flex items-center gap-3">
                 <span
                   className="
-                    flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl
-                    bg-slate-900/80 text-lg border border-white/10 shadow-sm
+                    flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg
+                    border border-white/10 bg-slate-900/80
                   "
                   aria-hidden="true"
                 >
-                  ✉️
+                  <Mail className="h-4 w-4" />
                 </span>
-                  <a
-                    href="mailto:info@sahneva.com"
-                    className={`inline-flex min-h-[44px] items-center text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
-                  >
-                    info@sahneva.com
-                    <span className="sr-only">
-                      {isEn ? " (opens your email app)" : " (e-posta uygulamasını açar)"}
-                    </span>
-                  </a>
+                <a
+                  href="mailto:info@sahneva.com"
+                  className={`inline-flex min-h-[44px] items-center text-gray-200 hover:text-white transition-colors ${FOCUS_RING_CLASS}`}
+                >
+                  info@sahneva.com
+                  <span className="sr-only">
+                    {isEn ? " (opens your email app)" : " (e-posta uygulamasını açar)"}
+                  </span>
+                </a>
               </div>
 
-              {/* Çalışma saatleri */}
               <div className="flex items-start gap-3">
                 <span
                   className="
-                    flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl
-                    bg-slate-900/80 text-lg border border-white/10 shadow-sm
+                    flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg
+                    border border-white/10 bg-slate-900/80
                   "
                   aria-hidden="true"
                 >
-                  🕒
+                  <Clock3 className="h-4 w-4" />
                 </span>
                 <div>
                   <span className="block text-white font-medium mb-0.5">{workingHoursLabel}</span>
@@ -523,7 +594,7 @@ export default function Footer({
               className="pt-2 flex flex-col gap-2"
               aria-label={isEn ? "Business links" : isRu ? "Ссылки компании" : "İşletme bağlantıları"}
             >
-              {BUSINESS_LINKS.map(({ href, label, labelEn, labelRu, icon }) => {
+              {BUSINESS_LINKS.map(({ href, label, labelEn, labelRu, icon: Icon }) => {
                 const displayLabel = isEn ? labelEn : isRu ? labelRu : label;
                 return (
                   <a
@@ -536,12 +607,7 @@ export default function Footer({
                       hover:text-white transition-all duration-300 ${FOCUS_RING_CLASS}
                     `}
                   >
-                    <span
-                      className="group-hover:scale-110 transition-transform duration-300"
-                      aria-hidden="true"
-                    >
-                      {icon}
-                    </span>
+                    <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0" />
                     {displayLabel}
                     <span className="sr-only">
                       {" "}
@@ -567,74 +633,64 @@ export default function Footer({
         </section>
       </div>
 
-      {/* Alt Telif Satırı */}
-      <div className="relative border-t border-white/10 text-center py-5 bg-black/40 backdrop-blur-md">
-        <div className="container mx-auto px-6 relative z-10">
-          <p className="mb-2 text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto">
+      <div className="relative border-t border-white/10 bg-black/30 py-5">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-6 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <p className="max-w-2xl text-sm leading-relaxed text-slate-400">
             {copyrightDesc}
           </p>
 
-          <p className="mb-3 text-sm text-gray-300">
-            © <span>{currentYear}</span>{" "}
-            <span className="text-white font-medium">Sahneva</span> — {rightsLabel}
-          </p>
+          <div className="flex flex-col gap-2 lg:items-end">
+            <p className="text-sm text-slate-300">
+              © <span>{currentYear}</span>{" "}
+              <span className="font-medium text-white">Sahneva</span> — {rightsLabel}
+            </p>
 
-          <nav
-            aria-label={isEn ? "Footer links" : isRu ? "Ссылки подвала" : "Altbilgi bağlantıları"}
-            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-gray-300"
-          >
-            {LANGUAGE_LINKS.map((item) => {
-              const isActive = locale === item.locale;
+            <nav
+              aria-label={isEn ? "Footer links" : isRu ? "Ссылки подвала" : "Altbilgi bağlantıları"}
+              className="flex flex-wrap items-center gap-2 text-sm text-slate-300"
+            >
+              {LANGUAGE_LINKS.map((item) => {
+                const isActive = locale === item.locale;
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  hrefLang={item.hrefLang}
-                  prefetch={false}
-                  aria-current={isActive ? "page" : undefined}
-                  title={item.text}
-                  className={`
-                    inline-flex min-h-[36px] items-center rounded-full border px-3 text-xs font-bold no-underline
-                    transition-colors
-                    ${
-                      isActive
-                        ? "border-blue-400/70 bg-blue-500/15 text-blue-100"
-                        : "border-white/10 bg-white/5 text-slate-300 hover:border-white/25 hover:bg-white/10 hover:text-white"
-                    }
-                    ${FOCUS_RING_CLASS}
-                  `}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-            <span className="hidden sm:inline text-white/20" aria-hidden="true">
-              /
-            </span>
-            <Link
-              href={privacyHref}
-              prefetch={false}
-              className={`
-                inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
-                ${FOCUS_RING_CLASS}
-              `}
-            >
-              {privacyLinkLabel}
-            </Link>
-            <span className="hidden sm:inline text-white/30" aria-hidden="true">
-              •
-            </span>
-            <a
-              href="#_page_top"
-              className={`
-                inline-flex min-h-[44px] items-center hover:text-white transition-colors underline underline-offset-4
-                ${FOCUS_RING_CLASS}
-              `}
-            >
-              {backToTopLabel}
-            </a>
-          </nav>
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    hrefLang={item.hrefLang}
+                    prefetch={false}
+                    aria-current={isActive ? "page" : undefined}
+                    title={item.text}
+                    className={`
+                      inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border px-3
+                      text-xs font-bold no-underline transition-colors
+                      ${
+                        isActive
+                          ? "border-blue-400/70 bg-blue-500/15 text-blue-100"
+                          : "border-white/10 bg-white/5 text-slate-300 hover:border-white/25 hover:bg-white/10 hover:text-white"
+                      }
+                      ${FOCUS_RING_CLASS}
+                    `}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <Link
+                href={privacyHref}
+                prefetch={false}
+                className={`inline-flex min-h-[44px] items-center px-1 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
+              >
+                {privacyLinkLabel}
+              </Link>
+              <a
+                href="#_page_top"
+                className={`inline-flex min-h-[44px] items-center gap-1 px-1 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
+              >
+                <ArrowUp aria-hidden="true" className="h-4 w-4" />
+                {backToTopLabel}
+              </a>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>
