@@ -18,6 +18,15 @@ export default function SiteHeader({ locale, strings }) {
 
   const direction = strings.direction ?? (locale === "ar" ? "rtl" : "ltr");
   const homeHref = locale === "tr" ? "/" : `/${locale}`;
+  const newTabLabel =
+    strings?.newTabLabel ??
+    (locale === "ar"
+      ? "يفتح في علامة تبويب جديدة"
+      : locale === "ru"
+        ? "откроется в новой вкладке"
+        : locale === "tr"
+          ? "yeni sekmede açılır"
+          : "opens in a new tab");
 
   const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
     if (restoreFocus) {
@@ -132,7 +141,7 @@ export default function SiteHeader({ locale, strings }) {
 
           <div className="hidden lg:flex items-center gap-6">
             {strings.links.map((item) => (
-              item.href === "/ru/services" && Array.isArray(strings.serviceLinks) ? (
+              item.href === `/${locale}/services` && Array.isArray(strings.serviceLinks) ? (
                 <div key={item.href} className="group relative">
                   <Link
                     href={item.href}
@@ -176,7 +185,7 @@ export default function SiteHeader({ locale, strings }) {
             >
               <span aria-hidden="true">💬</span>
               {strings.whatsappLabel}
-              <span className="sr-only"> – yeni sekmede açılır</span>
+              <span className="sr-only"> – {newTabLabel}</span>
             </a>
           </div>
 
@@ -244,7 +253,7 @@ export default function SiteHeader({ locale, strings }) {
                 >
                   {item.label}
                 </Link>
-                {item.href === "/ru/services" && Array.isArray(strings.serviceLinks) ? (
+                {item.href === `/${locale}/services` && Array.isArray(strings.serviceLinks) ? (
                   <div className="ml-3 border-l border-neutral-200 pl-3 nav-dark:border-white/10">
                     {strings.serviceLinks.map((service) => (
                       <Link

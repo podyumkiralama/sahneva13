@@ -193,6 +193,11 @@ const SERVICES_AR = [
 ];
 
 const SERVICES_DICTIONARY_AR = {
+  sectionPill: "خدمة احترافية",
+  sectionTitlePrefix: "خدمات المسرح، LED و",
+  sectionTitleHighlight: "الإنتاج التقني للفعاليات",
+  sectionDesc:
+    "نقدم في تركيا حلول تأجير المسرح، شاشات LED، الصوت، الإضاءة، التراس والخيام مع تخطيط فني وتشغيل ميداني من فريق واحد للمعارض، المؤتمرات، الحفلات والفعاليات المؤسسية.",
   tablistLabel: "تبويبات الخدمات",
   featuresHeading: "مميزات الخدمة",
   ctaLabel: "عرض التفاصيل وطلب عرض سعر",
@@ -228,9 +233,14 @@ const PROJECT_GALLERIES_AR = {
 };
 
 const PROJECTS_DICTIONARY_AR = {
+  title: "نماذج من مشاريعنا",
+  subtitle:
+    "مختارات من تجهيزات Sahneva في تركيا: مؤتمرات، حفلات، معارض، مهرجانات ومشاريع إنتاج ميداني نفذت بتنسيق تقني واحد.",
   exploreAria: "استعرض المعرض — {{title}} ({{count}} مشروع)",
   exploreHiddenLabel: "استعرض المعرض — {{title}} ({{count}} مشروع)",
   hoverCta: "استعرض المعرض",
+  statsLabel: "مشاريع منجزة",
+  caseStudyCta: "افتح تفاصيل المشروع",
   cardAlt: "{{title}} من تنفيذ سحنيفا",
   seeAllLabel: "عرض الكل",
   seeAllSr: " — {{title}} ({{count}} مشروع)",
@@ -250,6 +260,28 @@ const PROJECTS_DICTIONARY_AR = {
 };
 
 const FAQ_DICTIONARY_AR = {
+  sectionPill: "الأسئلة الشائعة",
+  sectionTitlePrefix: "خطوات التأجير و",
+  sectionTitleHighlight: "الأسئلة المتكررة",
+  sectionDesc:
+    "إجابات عملية حول تأجير المسرح، شاشات LED، الصوت، الإضاءة، الخيام وتشغيل الفعاليات داخل تركيا.",
+  supportTitle: "لم تجدوا الإجابة؟",
+  supportDesc:
+    "قد تحتاج فعاليتكم في تركيا إلى نطاق خاص. شاركونا المدينة، التاريخ وعدد الحضور لنقترح خطة فنية واضحة.",
+  supportPhoneLabel: "اتصلوا بنا",
+  supportWhatsappLabel: "دعم واتساب",
+  supportMailLabel: "أرسلوا بريداً",
+  contactPhone: "+90 545 304 86 71",
+  contactPhoneHref: "tel:+905453048671",
+  contactWhatsappHref:
+    "https://wa.me/905453048671?text=%D8%A3%D8%B1%D9%8A%D8%AF+%D8%AA%D8%AC%D9%87%D9%8A%D8%B2+%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A9+%D9%81%D9%8A+%D8%AA%D8%B1%D9%83%D9%8A%D8%A7+%D9%85%D8%B9+Sahneva",
+  contactMail: "info@sahneva.com",
+  contactMailHref: "mailto:info@sahneva.com",
+  whatsappActionText: "أرسلوا تفاصيل المشروع",
+  newTabHint: "يفتح في علامة تبويب جديدة",
+  seeAllHref: "/ar/contact",
+  seeAllLabel: "تواصلوا معنا",
+  seeAllAriaLabel: "افتح صفحة التواصل مع Sahneva",
   sectionTitle: "الأسئلة الشائعة",
   regionTitleSr: "منطقة محتوى الأسئلة الشائعة",
   cta: {
@@ -300,7 +332,6 @@ const FAQ_DICTIONARY_AR = {
     ],
     stats: ["دعم على مدار الساعة", "رد خلال 5 دقائق"],
   },
-  newTabHint: " (يفتح في علامة تبويب جديدة)",
 };
 
 const CORPORATE_EVENTS_CARDS_AR = [
@@ -368,6 +399,10 @@ const CORPORATE_EVENTS_ADVANTAGES_AR = [
 ];
 
 const CORPORATE_EVENTS_DICTIONARY_AR = {
+  sectionTitle: "حلول الفعاليات المؤسسية في تركيا",
+  introText:
+    "نساعد الشركات والوكالات العربية على تنفيذ المؤتمرات، الإطلاقات، المعارض وحفلات البروتوكول في تركيا من خلال فريق محلي يدير المسرح، LED، الصوت، الإضاءة والتشغيل الميداني.",
+  highlightTitle: "لماذا Sahneva",
   sectionTitleSr: "منطقة عرض حلول الفعاليات المؤسسية",
   highlightPill: "لماذا سحنيفا؟",
   highlightTitlePrefix: "تميزنا في",
@@ -377,6 +412,7 @@ const CORPORATE_EVENTS_DICTIONARY_AR = {
   cardCtaHref: "/ar/contact",
   cardCtaAria: "اطلب عرض سعر لخدمة {{title}}",
   cardBadgeLabel: "حل متكامل",
+  bannerTitle: "لا تتركوا فعالية تركيا للصدفة",
   bannerTitlePrefix: "فعالياتكم المؤسسية تستحق",
   bannerTitleHighlight: "تنفيذًا متكاملًا",
   bannerTitleSuffix: "بدعم تقني",
@@ -884,7 +920,7 @@ export default function ArabicHomePage() {
           <div className="container">
             
               <h2 id="seo-title" className="text-3xl md:text-4xl font-black text-center mb-12 text-neutral-900">
-                شريككم <span className="gradient-text gradient-text--safe-xl">الرائد</span> لتقنيات الفعاليات في تركيا
+                شريككم <span className="gradient-text gradient-text--safe-xl">المحلي</span> للفعاليات في تركيا
               </h2>
             
 
@@ -893,11 +929,11 @@ export default function ArabicHomePage() {
                 <article className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 shadow-lg border border-blue-100">
                   <p className="font-black text-xl mb-4 text-neutral-900 flex items-center gap-3">
                     <span className="bg-blue-500 text-white p-2 rounded-lg" aria-hidden="true">🚀</span>
-                    إنتاج تقني ولوجستي متكامل
+                    إنتاج تقني ولوجستي للضيوف القادمين إلى تركيا
                   </p>
                   <div className="prose max-w-none text-neutral-700">
                     <p className="text-base leading-relaxed">
-                      <strong>سحنيفا</strong> تصمم، تنقل وتشغّل{" "}
+                      عندما تخطط شركة أو وكالة عربية لفعالية في إسطنبول أو أي مدينة تركية، تقوم <strong>سحنيفا</strong> بتصميم ونقل وتشغيل{" "}
                       <a
                         href="/ar/services#stage"
                         className="text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
@@ -918,14 +954,14 @@ export default function ArabicHomePage() {
                       >
                         أنظمة الصوت والإضاءة
                       </a>{" "}
-                      للإطلاقات، المهرجانات، القمم والفعاليات الحكومية.
+                      للإطلاقات، المعارض، القمم، الحفلات والفعاليات الحكومية.
                     </p>
                     <ul className="mt-4 space-y-2 text-neutral-700">
                       {[
-                        "خزائن LED خارجية بمعيار IP65 وسطوع يتجاوز 4500 نت",
-                        "أنظمة صوت Line-array، طاولات مزج رقمية ومراقبة كاملة",
-                        "هياكل تراس قوية، أبراج وسلالم ومنصات إكسسوارات",
-                        "إضاءة يتم التحكم بها عبر DMX، تجهيزات أجواء ومؤثرات خاصة",
+                        "تخطيط الموقع والتحميل والتركيب والإزالة من فريق محلي واحد",
+                        "شاشات LED داخلية وخارجية مع تشغيل محتوى وإدارة إشارة",
+                        "أنظمة صوت Line-array، إضاءة مسرحية وطاولات تحكم رقمية",
+                        "تراس، Rigging، خيام وحلول منصة متوافقة مع طبيعة المكان",
                       ].map((item) => (
                         <li key={item} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
@@ -941,18 +977,18 @@ export default function ArabicHomePage() {
                 <article className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 shadow-lg border border-purple-100">
                   <p className="font-black text-xl mb-4 text-neutral-900 flex items-center gap-3">
                     <span className="bg-purple-500 text-white p-2 rounded-lg" aria-hidden="true">🎤</span>
-                    بنية تحتية للجماهير الكبيرة
+                    إدارة ميدانية للفعاليات الكبيرة
                   </p>
                   <div className="prose max-w-none text-neutral-700">
                     <p className="text-base leading-relaxed">
-                      تستفيد المهرجانات، المهرجانات السياسية، الفعاليات الرياضية والاحتفالات الوطنية من مخزون معداتنا عالي السعة وخطط الطوارئ الدقيقة.
+                      للفعاليات ذات الجمهور الكبير نربط بين خطة الوصول، توزيع الطاقة، مسارات الكابلات، نقاط التحكم وطاقم التشغيل حتى يعمل الموقع كمنظومة واحدة.
                     </p>
                     <ul className="mt-4 space-y-2 text-neutral-700">
                       {[
-                        "جدران LED تتجاوز 100 م² بخزائن خارجية P3.9",
-                        "أنظمة صوت Line-array من JBL وRCF وdB Technologies",
-                        "أبراج تراس، أسقف وحلول ديكور مخصصة",
-                        "مولدات احتياطية، وحدات UPS وتوزيع طاقة آمن",
+                        "حلول LED خارجية P3.9 للميادين والحفلات المفتوحة",
+                        "أنظمة صوت Line-array وتوزيع صوت مناسب لمساحة الجمهور",
+                        "تراس، Scaffold، أبراج دعم ومساحات backstage منظمة",
+                        "تنسيق الطاقة، الإشارة، السلامة واللوجستيات قبل يوم الفعالية",
                       ].map((item) => (
                         <li key={item} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />

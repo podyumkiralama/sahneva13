@@ -4,6 +4,7 @@ const focusRingClass = "focus-ring";
 
 export default function SiteFooter({ strings }) {
   const year = new Date().getFullYear();
+  const newTabLabel = strings?.newTabLabel ?? "opens in a new tab";
   return (
     <footer
       id="_main_footer"
@@ -72,7 +73,7 @@ export default function SiteFooter({ strings }) {
                   className={`rounded-full border border-white/15 px-3 py-1 hover:border-emerald-300 hover:text-emerald-300 transition ${focusRingClass}`}
                 >
                   {item.label}
-                  <span className="sr-only"> – yeni sekmede açılır</span>
+                  <span className="sr-only"> – {newTabLabel}</span>
                 </a>
               ))}
             </div>
