@@ -112,7 +112,9 @@ function SupportCard({ dictionary }) {
               {dictionary.supportPhoneLabel}
             </span>
             <span className="block break-words text-sm font-bold text-white group-hover:text-sky-300">
-              {dictionary.contactPhone}
+              <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
+                {dictionary.contactPhone}
+              </span>
             </span>
           </div>
         </a>

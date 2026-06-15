@@ -202,7 +202,14 @@ export default function ArabicContactPage() {
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-indigo-600">
                   {channel.title}
                 </p>
-                <h2 className="mt-3 text-2xl font-black text-slate-950">{channel.value}</h2>
+                <h2
+                  className="mt-3 text-2xl font-black text-slate-950"
+                  dir={channel.type === "phone" || channel.type === "external" ? "ltr" : undefined}
+                >
+                  <span className={channel.type === "phone" || channel.type === "external" ? "inline-block [unicode-bidi:isolate]" : undefined}>
+                    {channel.value}
+                  </span>
+                </h2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">{channel.description}</p>
               </a>
             );

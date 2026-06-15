@@ -60,7 +60,7 @@ export const metadata = {
   openGraph: {
     title: PAGE_TITLE_BRANDED,
     description:
-      "Turnkey stage production with truss, podium, LED screen, sound and lighting for concerts, conferences, launches and festivals.",
+      "Stage rental in Turkey with truss, decks, LED screens, sound and lighting for concerts, conferences, launches and festivals.",
     url: `${ORIGIN}/en/stage-rental`,
     type: "website",
     siteName: "Sahneva",
@@ -198,12 +198,12 @@ const USE_CASES = [
   {
     icon: "🚀",
     text: "Product launches and brand activations",
-    desc: "Immersive staging to showcase new products and services with impactful visuals",
+    desc: "Stage setups for product reveals, brand talks and visual content",
   },
   {
     icon: "🏆",
     text: "Award ceremonies and galas",
-    desc: "Elegant stage backdrops, LED walls and lighting for premium occasions",
+    desc: "Clean backdrops, LED walls and lighting for gala formats",
   },
   {
     icon: "🎓",
@@ -213,7 +213,7 @@ const USE_CASES = [
   {
     icon: "🛍️",
     text: "Shopping mall and retail events",
-    desc: "Compact stage builds optimised for high-footfall promotional activations",
+    desc: "Compact stage builds for busy retail and promotion areas",
   },
 ];
 
@@ -346,9 +346,9 @@ function Hero() {
             </p>
 
             <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-              Truss systems, modular decks and LED walls —{" "}
+              Stage decks, truss, LED screens, sound and lighting —{" "}
               <span className="font-semibold text-white">
-                turnkey stage solutions
+                planned by one field team
               </span>
             </p>
 
@@ -455,8 +455,8 @@ function Services() {
             <span className="text-blue-700">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Stage rental capabilities: modular decks, truss rigging, LED
-            integration and professional technical operation
+            Stage rental covers the platform, truss, LED screen, sound,
+            lighting and site crew.
           </p>
         </div>
 
@@ -553,8 +553,7 @@ function Packages() {
             <span className="text-blue-700">Packages</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ready-made stage configurations tailored to your venue size and
-            performance needs
+            Ready-made stage setups for different venue sizes and event formats
           </p>
         </div>
 
@@ -841,8 +840,8 @@ function Technical() {
             <span className="text-blue-700">Infrastructure</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            State-of-the-art staging technology and certified technical crew at
-            your service
+            Stage decks, truss, LED, audio, lighting and safety systems planned
+            together
           </p>
         </div>
 
@@ -956,8 +955,8 @@ function UseCases() {
             <span className="text-blue-300">Stages Shine</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
-            The primary event formats that benefit most from our stage
-            engineering expertise
+            Stage setups for concerts, corporate events, launches and public
+            ceremonies
           </p>
           <div
             className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
@@ -1030,8 +1029,8 @@ function Articles() {
             <span className="text-blue-700">Expert Guidance</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Technical recommendations and best practices for planning a
-            professional stage production
+            Simple planning notes for safer stage setup and clearer technical
+            scope
           </p>
         </div>
 
@@ -1056,12 +1055,11 @@ function Articles() {
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                  Professional Stage Rental: Turnkey Solutions for
-                  Show-Stopping Events
+                  Professional Stage Rental: Clear Plans for Live Events
                 </h3>
                 <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Modular decks, truss rigging and LED integration work best
-                  when one crew manages the full stage plan.
+                  Modular decks, truss and LED screens work best when one crew
+                  manages the stage plan.
                 </p>
               </div>
             </header>
@@ -1088,13 +1086,13 @@ function Articles() {
                       >
                         professional stage rental
                       </Link>{" "}
-                      services across Turkey to corporate and entertainment
-                      industry standards.
+                      services across Turkey for corporate and live event
+                      projects.
                     </p>
                     <p>
                       Concert stages and conference platforms need different
-                      plans. We handle site checks, stage design, setup and
-                      live operation as a{" "}
+                      plans. We handle site checks, design, setup and live
+                      operation as a{" "}
                       <strong className="text-gray-900">
                         single turnkey solution
                       </strong>
@@ -1133,7 +1131,7 @@ function Articles() {
                   </h5>
                   <p className="text-gray-700 text-lg mb-0 leading-relaxed">
                     Event type and audience size guide the stage size. Small
-                    events usually need 12–24 m². Mid-size events often need
+                    events often need 12–24 m². Mid-size events often need
                     24–48 m². Larger events may require 48 m² or more. For
                     outdoor projects, wind load and ground stability come first.
                   </p>
@@ -1155,22 +1153,22 @@ function Articles() {
                       {
                         icon: "🎯",
                         title: "Right Size Selection",
-                        desc: "Stage dimensions optimised to audience size and event type",
+                        desc: "Stage size matched to audience and event type",
                       },
                       {
                         icon: "📊",
                         title: "Safety Optimisation",
-                        desc: "Static calculations, rigging safety checks and emergency planning",
+                        desc: "Static checks, rigging review and emergency plan",
                       },
                       {
                         icon: "🔒",
                         title: "Technical Integration",
-                        desc: "Seamless integration of audio, lighting and LED systems",
+                        desc: "Audio, lighting and LED systems planned together",
                       },
                       {
                         icon: "🎭",
                         title: "Professional Crew",
-                        desc: "Experienced technical team and live show operation management",
+                        desc: "Experienced crew for setup and live operation",
                       },
                     ].map((item, index) => (
                       <div
@@ -1225,8 +1223,7 @@ function Articles() {
                 Truss &amp; Rigging Systems
               </h3>
               <p className="text-blue-100 mt-2 text-lg">
-                Essential safety principles and engineering standards for
-                reliable staging
+                Basic safety points for truss and stage planning
               </p>
             </header>
 
@@ -1238,7 +1235,7 @@ function Articles() {
                 </p>
                 <p>
                   Aluminium truss, certified rigging hardware and clear load
-                  planning help the stage perform safely.
+                  planning help the stage stay safe.
                 </p>
 
                 <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
@@ -1292,7 +1289,7 @@ function Articles() {
                 Event-Specific Stage Strategies
               </h3>
               <p className="text-blue-100 mt-2 text-lg">
-                Tailored staging approaches for different event formats
+                Stage plans for different event formats
               </p>
             </header>
 
@@ -1310,8 +1307,8 @@ function Articles() {
                       Concert &amp; Festival
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
-                      High-stability platforms, wide performance areas,
-                      line-array audio and professional lighting/LED integration
+                      Stable platforms, wide performance areas, line-array
+                      audio and lighting / LED integration
                     </p>
                   </div>
 
@@ -1326,8 +1323,8 @@ function Articles() {
                       Corporate Events
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
-                      Polished backdrops, branding integration, speaker-friendly
-                      design and professional presentation areas
+                      Clean backdrops, brand visuals, speaker-friendly design
+                      and clear presentation areas
                     </p>
                   </div>
 
@@ -1342,8 +1339,8 @@ function Articles() {
                       Weddings &amp; Private Galas
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
-                      Decorative finishes, integrated dance floors, ceremonial
-                      stage platforms and ambient lighting design
+                      Decorative finishes, dance floor links, ceremony
+                      platforms and ambient lighting
                     </p>
                   </div>
                 </div>
@@ -1494,7 +1491,7 @@ function RelatedServices() {
             <span className="text-blue-700">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Complete your event setup with our integrated production solutions
+            Add sound, lighting, LED or truss support to the stage plan
           </p>
           <div
             className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
@@ -1555,12 +1552,12 @@ function CTA() {
               id="cta-heading"
               className="text-3xl md:text-4xl lg:text-5xl font-black mb-6"
             >
-              Ready for a Show-Stopping Stage?
+              Ready for a Clear Stage Plan?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Share your event concept and we will prepare stage drawings, gear
-              lists and an itemised quotation within the same day. Site surveys
-              and consultancy are complimentary.
+              Share your event concept. We will prepare stage drawings, gear
+              lists and an itemised quote. Site checks and scope review are
+              included.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link

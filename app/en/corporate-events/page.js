@@ -59,7 +59,7 @@ export const metadata = {
     title:
       "Corporate Events | Professional Event Production | Sahneva",
     description:
-      "Professional stage, LED screen, sound and event production solutions for corporate events. Large-scale event management and equipment rental services.",
+      "Stage, LED screen, sound and lighting support for corporate events in Turkey. Plan conferences, launches and galas with one technical team.",
     url: `${ORIGIN}/en/corporate-events`,
     type: "website",
     siteName: "Sahneva",
@@ -78,7 +78,7 @@ export const metadata = {
     title:
       "Corporate Events | Professional Event Production | Sahneva",
     description:
-      "Professional stage, LED screen, sound and event production solutions for corporate events. Large-scale event management and equipment rental services.",
+      "Stage, LED screen, sound and lighting support for corporate events in Turkey.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: {
@@ -105,13 +105,13 @@ const slugify = (s) =>
 
 /* ================== Premium helpers ================== */
 const CORPORATE_DISCIPLINE_DESC =
-  "Corporate event management is a measurable operational discipline in which goals, content and technical production are managed at the same table.";
+  "Corporate event management works best when goals, content and technical production are planned together.";
 
 const KEYWORD_CHIPS = [
   "Corporate event companies",
   "Corporate event production",
   "Event management",
-  "Large-scale event companies",
+  "Large event companies",
   "Corporate event planning",
   "Corporate events",
 ];
@@ -326,7 +326,7 @@ const SERVICES = [
     icon: "🎤",
     title: "Conference & Seminar Production",
     description:
-      "Impressive conferences with professional sound systems, LED screens and lighting solutions",
+      "Clear sound, visible screens and smooth session flow for conferences",
     features: [
       "Simultaneous interpretation systems",
       "Wireless microphone systems",
@@ -338,7 +338,7 @@ const SERVICES = [
     icon: "🚀",
     title: "Product Launch Events",
     description:
-      "Unforgettable launches with striking visual shows and interactive experiences",
+      "Launch stages with LED content, lighting and brand-focused show flow",
     features: [
       "3D mapping and projection",
       "Custom stage design",
@@ -350,7 +350,7 @@ const SERVICES = [
     icon: "🎭",
     title: "Gala & Awards Ceremonies",
     description:
-      "Elegant and professional production solutions for corporate galas",
+      "Stage, lighting and sound planning for gala nights and award shows",
     features: [
       "Red carpet installation",
       "Custom lighting design",
@@ -362,7 +362,7 @@ const SERVICES = [
     icon: "🏟️",
     title: "Rally & Outdoor Events",
     description:
-      "Professional outdoor event solutions for large audiences",
+      "Outdoor stage and screen setups for wide audience areas",
     features: [
       "High-brightness LED screens",
       "Powerful sound systems",
@@ -374,7 +374,7 @@ const SERVICES = [
     icon: "🛣️",
     title: "Roadshow & Exhibition Production",
     description:
-      "Mobile and flexible event solutions for brand experiences",
+      "Mobile setups for exhibitions, roadshows and brand activations",
     features: [
       "Portable stage systems",
       "Fast-assembly solutions",
@@ -386,7 +386,7 @@ const SERVICES = [
     icon: "💡",
     title: "Technical Infrastructure & Support",
     description:
-      "Professional technical infrastructure and 24/7 technical support services",
+      "Power, crew and backup planning for live event operation",
     features: [
       "Generator systems",
       "UPS uninterruptible power",
@@ -530,7 +530,7 @@ function Hero({ breadcrumbItems }) {
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
-            End-to-end operations management for conferences, launches, galas and high-attendance corporate events — with planning, risk management and redundant technical infrastructure.
+            Plan conferences, launches and galas in Turkey with one technical team. Sahneva coordinates stage, LED screen, sound, lighting, crew and site flow.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -735,7 +735,7 @@ function SelectionSection() {
             How to Choose a Corporate Event Company?
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Choosing the right partner is the first major step. A corporate event company should manage content flow, stage design and site operations. For Istanbul projects, local venue and logistics experience saves time.
+            Choosing the right partner is the first major step. The team should manage content flow, stage design and site work. In Istanbul, venue and logistics experience saves time.
           </p>
         </div>
 
@@ -761,10 +761,10 @@ function SelectionSection() {
 
           <ul className="grid gap-3 md:grid-cols-2 text-gray-800">
             {[
-              "Reference projects and measurable success metrics",
-              "Technical team capacity and expertise certifications",
-              "Up-to-date equipment fleet for LED, stage and sound",
-              "Istanbul-scale event experience and local supply network",
+              "Reference projects and clear results",
+              "Technical team capacity",
+              "Current equipment for LED, stage and sound",
+              "Istanbul venue and logistics experience",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span
@@ -794,20 +794,20 @@ function AdvantagesSectionBlock() {
             Advantages of Working with Large Event Companies
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Scale and experience affect safety, speed and visibility. Large event companies can support more than one site with stronger teams and supply networks.
+            Scale and experience affect safety, speed and visibility. Large event companies can support more than one site with stronger teams.
           </p>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
-            A strong event company supports the brand team before, during and after event day.
+            A strong event company supports the brand team before, during and after the event.
           </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              ["Redundant infrastructure", "Backup plan and rapid-response procedures for critical systems"],
-              ["Experienced site management", "Protocol, flow and attendee management from a single centre"],
-              ["Multi-supplier capacity", "Scalable teams and logistics for simultaneous installations"],
-              ["Reporting & measurement", "Post-event output, feedback and improvement reporting"],
+              ["Backup planning", "Clear response steps for key systems"],
+              ["Site management", "Protocol, flow and guest movement from one centre"],
+              ["Scalable logistics", "Teams ready for more than one installation"],
+              ["Reporting", "Post-event notes and improvement actions"],
             ].map(([t, d]) => (
               <Card key={t}>
                 <div className="flex items-start gap-3">
@@ -862,7 +862,7 @@ function DifferencesSectionBlock() {
         </div>
 
         <p>
-          Backup systems are important at large events. A sound cut or image loss can damage the event experience. Generators, UPS units, spare microphones and backup LED control units reduce that risk.
+          Backup systems are important at large events. Sound or image problems can affect the guest experience. Generators, UPS units, spare microphones and backup LED control units reduce that risk.
         </p>
 
         <p>
@@ -870,7 +870,7 @@ function DifferencesSectionBlock() {
         </p>
 
         <p>
-          Risk management is not only technical. Crowd flow, security, stage timing and protocol layout also need professional coordination.
+          Risk management is not only technical. Crowd flow, security, stage timing and protocol layout also need coordination.
         </p>
       </div>
     </SectionShell>
@@ -898,7 +898,7 @@ function TechnicalInfrastructureSectionBlock() {
         </div>
 
         <p>
-          Technical infrastructure shapes the event experience. Stage design, LED content, sound placement and lighting should be planned together. This keeps the audience focused.
+          Technical infrastructure shapes the event experience. Stage design, LED content, sound and lighting should be planned together. This keeps the audience focused.
         </p>
 
         <p>
@@ -948,7 +948,7 @@ function PlanningGuide() {
       <H2
         kicker="Planning flow"
         title="How to Plan a Corporate Event?"
-        desc="The following steps clarify the corporate event process and make operations measurable. Each heading contains critical checkpoints for stage setup and event experience."
+        desc="These steps make the event process easier to plan and review."
         center
       />
 
@@ -1137,7 +1137,7 @@ function Technical() {
           Technical Production Standards for Corporate Events
         </h2>
         <p>
-          Corporate event production achieves a truly "premium" perception when stage visibility, LED screen scenarios, sound and lighting design, and redundant power planning are addressed together.
+          Corporate events feel stronger when stage visibility, LED content, sound, lighting and power planning work together.
         </p>
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
           <Image
@@ -1182,7 +1182,7 @@ function StatsBand() {
         dark
         kicker="Trust & scale"
         title="Operational Strength"
-        desc="Premium quality in corporate events comes from a predictable process and redundant technical infrastructure."
+        desc="Strong events need a clear process, backup planning and an experienced field team."
         center
       />
 
@@ -1243,15 +1243,15 @@ function Articles() {
   const guideCards = [
     {
       title: "How to choose a corporate event company?",
-      desc: "References, team capacity, redundant infrastructure and run-of-show discipline are the criteria that reduce risk most quickly.",
+      desc: "References, team capacity, backup planning and run-of-show discipline reduce risk quickly.",
     },
     {
       title: "Why are large event companies preferred?",
-      desc: "Multiple supply chains, fast logistics, strong site management and backup plans ensure an uninterrupted experience on high-visibility projects.",
+      desc: "Fast logistics, strong site management and backup plans support high-visibility projects.",
     },
     {
       title: "How is an event rental budget determined?",
-      desc: "Stage size, LED screen footage, sound capacity, installation duration and technical crew planning are the main variables that determine the budget.",
+      desc: "Stage size, LED area, sound capacity, setup time and crew size shape the budget.",
     },
   ];
 
@@ -1273,7 +1273,7 @@ function Articles() {
                 Corporate <span className="text-blue-700">Insights</span>
               </>
             }
-            desc="When scope, technical scouting and rehearsal planning are clear, operational risk drops dramatically."
+            desc="Clear scope, site checks and rehearsal planning reduce operational risk."
           />
 
           <div className="grid gap-6">
@@ -1334,7 +1334,7 @@ const FAQ_ITEMS = [
   {
     question: "Why are large event companies preferred?",
     answer:
-      "Large event companies reduce risk with a broad equipment fleet, backup systems and strong field teams. This matters most on brand launches and other high-visibility events.",
+      "Large event companies reduce risk with strong equipment, backup systems and field teams. This matters most on launches and other visible events.",
   },
   {
     question: "How are event rental prices determined?",
@@ -1349,7 +1349,7 @@ const FAQ_ITEMS = [
   {
     question: "Do event production companies provide technical equipment?",
     answer:
-      "Yes. Event production companies can supply stage, LED screen, sound, lighting, truss and power infrastructure. They can also manage setup and live operation.",
+      "Yes. Event production companies can supply stage, LED screen, sound, lighting, truss and power. They can also manage setup and live operation.",
   },
 ];
 
@@ -1505,7 +1505,7 @@ function CTA() {
           dark
           kicker="Quote & discovery"
           title="Ready for Professional Corporate Solutions?"
-          desc="Let's define the ideal event model for your corporate event together: complimentary consultation, technical scouting and a measurable operations plan."
+          desc="Share your event brief. We will define the technical scope, site needs and operation plan."
           center
         />
 

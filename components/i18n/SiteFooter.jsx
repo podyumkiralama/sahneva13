@@ -25,7 +25,9 @@ export default function SiteFooter({ strings }) {
                   href="tel:+905453048671"
                   className={`hover:text-emerald-300 ${focusRingClass}`}
                 >
-                  +90 545 304 86 71
+                  <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
+                    +90 545 304 86 71
+                  </span>
                 </a>
               </p>
               <p>
