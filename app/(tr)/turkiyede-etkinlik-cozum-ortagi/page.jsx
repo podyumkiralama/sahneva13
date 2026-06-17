@@ -16,14 +16,37 @@ function InternationalPageLayoutPolish() {
 
           main > section:first-child > div.relative {
             padding-top: clamp(7rem, 8vw, 8.5rem) !important;
-            padding-bottom: clamp(3.25rem, 4vw, 4.75rem) !important;
+            padding-bottom: clamp(3rem, 3.5vw, 4.25rem) !important;
             gap: clamp(2rem, 4vw, 3rem) !important;
             align-items: center !important;
+          }
+
+          main > section:first-child > div.relative > div:first-child {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
           }
 
           main > section:first-child h1 {
             font-size: clamp(3.35rem, 6.25vw, 5.6rem) !important;
             line-height: 1.02 !important;
+          }
+
+          main > section:first-child > div.relative > div:first-child > p:nth-of-type(2) {
+            margin-top: 1.15rem !important;
+            max-width: 48rem !important;
+            font-size: clamp(1rem, 1.25vw, 1.12rem) !important;
+            line-height: 1.62 !important;
+          }
+
+          main > section:first-child > div.relative > div:first-child > div:nth-of-type(2) {
+            order: 7 !important;
+            margin-top: 1.6rem !important;
+          }
+
+          main > section:first-child > div.relative > div:first-child > div:nth-of-type(3) {
+            order: 6 !important;
+            margin-top: 1.15rem !important;
           }
 
           main > section:first-child a[href="/files/sahneva-company-profile.pdf"] {
@@ -34,12 +57,17 @@ function InternationalPageLayoutPolish() {
             main > section:first-child > div.relative {
               grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr) !important;
             }
+
+            main > section:first-child > div.relative > div:last-child {
+              align-self: end !important;
+              margin-bottom: 0.35rem !important;
+            }
           }
 
           @media (max-width: 767px) {
             main > section:first-child > div.relative {
               padding-top: 6.25rem !important;
-              padding-bottom: 3.25rem !important;
+              padding-bottom: 3rem !important;
             }
 
             main > section:first-child h1 {
