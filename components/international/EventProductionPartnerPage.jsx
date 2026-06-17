@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
+import PubgFinalVideoReference from "@/components/international/PubgFinalVideoReference";
 import {
   COMPANY_PROFILE_PDF_URL,
   INTERNATIONAL_EVENT_HERO_IMAGE,
@@ -235,6 +236,9 @@ export default function EventProductionPartnerPage({ locale }) {
               </div>
               <h1 className="mt-7 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">{content.h1}</h1>
               <p className="mt-7 max-w-3xl text-xl leading-relaxed text-white/[0.78] md:text-2xl">{content.intro}</p>
+              {content.heroTrust ? (
+                <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-cyan-50/85">{content.heroTrust}</p>
+              ) : null}
               <div className="mt-10 flex flex-wrap gap-4">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400", focusVisibleRing)}>
                   {content.primaryCta}
@@ -244,6 +248,11 @@ export default function EventProductionPartnerPage({ locale }) {
                 </Link>
                 <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/30 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
               </div>
+              {content.heroTrustBadge ? (
+                <div className="mt-6 inline-flex max-w-full rounded-full border border-cyan-200/25 bg-white/10 px-5 py-2 text-sm font-black text-cyan-100 shadow-lg shadow-cyan-950/20 backdrop-blur">
+                  {content.heroTrustBadge}
+                </div>
+              ) : null}
             </div>
             <div className="rounded-[2rem] border border-white/14 bg-white/[0.08] p-6 shadow-2xl backdrop-blur-xl">
               <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.productionScope}</p>
@@ -333,6 +342,8 @@ export default function EventProductionPartnerPage({ locale }) {
             </div>
           </div>
         </section>
+
+        <PubgFinalVideoReference locale={locale} />
 
         <section className="px-6 py-20 md:px-10">
           <div className="mx-auto max-w-7xl">

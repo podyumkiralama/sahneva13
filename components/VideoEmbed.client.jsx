@@ -57,6 +57,7 @@ export default function VideoEmbed({
   preconnectOnMount = false,
 
   startSeconds = 0,
+  playLabel = "Videoyu İzle",
   className = "",
 }) {
   const thumbs = useMemo(() => {
@@ -164,6 +165,7 @@ export default function VideoEmbed({
           onClick={handlePlay}
           onMouseEnter={handleWarmup}
           onFocus={handleWarmup}
+          aria-label={playLabel}
           className="absolute inset-0 z-10 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
           {!thumbFailed ? (
@@ -191,7 +193,7 @@ export default function VideoEmbed({
               <Play size={64} fill="currentColor" strokeWidth={1.5} />
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
-              Videoyu İzle
+              {playLabel}
             </span>
             <span className="sr-only">{title}</span>
           </div>

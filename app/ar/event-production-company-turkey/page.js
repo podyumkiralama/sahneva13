@@ -1,5 +1,4 @@
 import EventProductionPartnerPage from "@/components/international/EventProductionPartnerPage";
-import PubgFinalVideoReference from "@/components/international/PubgFinalVideoReference";
 import { buildInternationalEventMetadata } from "@/lib/internationalEventProduction";
 
 export const revalidate = 1800;
@@ -7,10 +6,5 @@ export const revalidate = 1800;
 export const metadata = buildInternationalEventMetadata("ar");
 
 export default function ArabicEventProductionCompanyTurkeyPage() {
-  return (
-    <>
-      <EventProductionPartnerPage locale="ar" />
-      <PubgFinalVideoReference locale="ar" />
-    </>
-  );
+  return <EventProductionPartnerPage locale="ar" />;
 }
