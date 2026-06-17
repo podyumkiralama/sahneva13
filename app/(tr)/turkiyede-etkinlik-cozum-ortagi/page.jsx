@@ -5,6 +5,25 @@ export const revalidate = 1800;
 
 export const metadata = buildInternationalEventMetadata("tr");
 
+function HideDuplicateHeroPdfCard() {
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
+          main > section:first-child > div.relative > div:last-child > a[href="/files/sahneva-company-profile.pdf"] {
+            display: none;
+          }
+        `,
+      }}
+    />
+  );
+}
+
 export default function TurkiyedeEtkinlikCozumOrtagiPage() {
-  return <EventProductionPartnerPage locale="tr" />;
+  return (
+    <>
+      <HideDuplicateHeroPdfCard />
+      <EventProductionPartnerPage locale="tr" />
+    </>
+  );
 }
