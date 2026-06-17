@@ -30,7 +30,7 @@ const PAGE_EQUIVALENTS = [
   { tr: "/cadir-kiralama", en: "/en/tent-rental", ar: "/ar/services", ru: "/ru/tent-rental" },
   { tr: "/masa-sandalye-kiralama", en: "/en/table-chair-rental", ar: "/ar/services", ru: "/ru/services#furniture" },
   { tr: "/kurumsal-organizasyon", en: "/en/corporate-events", ar: "/ar/services", ru: "/ru/corporate-events" },
-  { tr: "/turkiyede-etkinlik-cozum-ortagi", en: "/en/event-production-company-turkey", ar: "/ar/services", ru: "/ru/services" },
+  { tr: "/turkiyede-etkinlik-cozum-ortagi", en: "/en/event-production-company-turkey", ar: "/ar/event-production-company-turkey", ru: "/ru/event-production-company-turkey" },
   { tr: "/podyum-kiralama-fiyatlari", en: "/en/podium-rental-prices", ar: "/ar/services", ru: "/ru/contact" },
 ];
 

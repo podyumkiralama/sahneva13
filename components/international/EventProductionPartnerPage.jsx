@@ -1,0 +1,426 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import JsonLdScript from "@/components/seo/JsonLd";
+import {
+  COMPANY_PROFILE_PDF_URL,
+  INTERNATIONAL_EVENT_HERO_IMAGE,
+  buildInternationalEventJsonLd,
+  getInternationalEventContent,
+  getInternationalEventWhatsappUrl,
+} from "@/lib/internationalEventProduction";
+
+const VISUAL_REFERENCES = {
+  en: {
+    title: "Selected event production references in Turkey",
+    text:
+      "A visual selection from large-scale stage, LED screen, sound, lighting, truss, corporate, protocol and esports event productions delivered by Sahneva.",
+    servicesLabel: "Related production services",
+    cards: [
+      ["PUBG / PMGC Esports Final", "Large LED surfaces, show lighting, player areas and arena-scale technical production for esports finals.", "Esports", "/img/blog/kurumsal-etkinlik-hero.webp", "PUBG esports final stage production in Turkey"],
+      ["Corporate Gala Stage", "Indoor LED wall, stage lighting, live performance setup and premium corporate event atmosphere.", "Corporate", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "Corporate gala stage with LED screen and lighting"],
+      ["Open-Air Festival Main Stage", "Large outdoor main stage with LED screens, line array sound, truss structure and field operation.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "Open-air festival main stage technical production"],
+      ["Backstage Technical Operation", "Signal routing, sound racks, patch, power and technical control behind the visible stage.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "Backstage sound rack and technical operation"],
+      ["LED Screen and Visual Content", "Main LED screens, side screens and content flow planned for sponsor visibility and audience impact.", "LED Screen", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "Large LED screen visual content flow at event"],
+      ["Line Array Sound System", "Sound system planning for large audiences, outdoor stages and live performance areas.", "Sound", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "Line array sound system for outdoor event stage"],
+    ],
+    wideTitle: "Built for conferences, launches, festivals and esports",
+    wideCards: [
+      ["International congresses and protocol events", "Venue access, protocol flow, stage visibility and multilingual communication are planned before the technical load-in."],
+      ["Brand launches and corporate stages", "LED wall, stage design, show lighting and speaker flow are shaped around the brand message and audience focus."],
+      ["Sports and esports productions", "Player desks, arena lighting, LED-heavy show stages and technical crew coordination are prepared as one field operation."],
+    ],
+  },
+  tr: {
+    title: "Türkiye’de gerçekleştirdiğimiz seçili etkinlik prodüksiyonları",
+    text:
+      "Sahneva’nın büyük ölçekli sahne, LED ekran, ses, ışık, truss, kurumsal, protokol ve e-spor etkinlik prodüksiyonlarından seçilmiş görsel referanslar.",
+    servicesLabel: "İlgili prodüksiyon hizmetleri",
+    cards: [
+      ["PUBG / PMGC E-Spor Finali", "Büyük LED yüzeyler, show ışıkları, oyuncu alanları ve arena ölçeğinde teknik prodüksiyon.", "E-spor", "/img/blog/kurumsal-etkinlik-hero.webp", "PUBG e-spor finali sahne ve LED ekran prodüksiyonu"],
+      ["Kurumsal Gala Sahnesi", "İç mekan LED ekran, sahne ışığı, canlı performans düzeni ve kurumsal etkinlik atmosferi.", "Kurumsal", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "Kurumsal gala sahnesinde LED ekran ve ışık kurulumu"],
+      ["Açık Hava Festival Ana Sahnesi", "LED ekranlar, line array ses sistemi, truss yapı ve saha operasyonu ile büyük ölçekli açık hava sahnesi.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "Açık hava festival ana sahne teknik prodüksiyonu"],
+      ["Backstage Teknik Operasyon", "Görünen sahnenin arkasında sinyal dağıtımı, ses rackleri, patch, enerji ve teknik kontrol altyapısı.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "Backstage ses rack ve teknik operasyon altyapısı"],
+      ["LED Ekran ve Görsel İçerik Akışı", "Sponsor görünürlüğü ve izleyici etkisi için planlanan ana LED ekran, yan ekran ve içerik akışı.", "LED Ekran", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "Etkinlikte dev LED ekran ve görsel içerik akışı"],
+      ["Line Array Ses Sistemi", "Geniş izleyici alanları, açık hava sahneleri ve canlı performans alanları için ses sistemi planlaması.", "Ses", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "Açık hava sahnesinde line array ses sistemi detayı"],
+    ],
+    wideTitle: "Kongre, lansman, festival ve e-spor etkinlikleri için hazır teknik ekip",
+    wideCards: [
+      ["Uluslararası kongreler ve protokol etkinlikleri", "Mekan erişimi, protokol akışı, sahne görünürlüğü ve çok dilli iletişim teknik yükleme öncesinde planlanır."],
+      ["Marka lansmanları ve kurumsal sahneler", "LED wall, sahne tasarımı, show ışığı ve konuşmacı akışı marka mesajına ve izleyici odağına göre kurgulanır."],
+      ["Spor ve e-spor prodüksiyonları", "Oyuncu masaları, arena ışığı, LED ağırlıklı show sahneleri ve teknik ekip koordinasyonu tek saha operasyonu olarak hazırlanır."],
+    ],
+  },
+  ar: {
+    title: "مراجع مختارة من إنتاج الفعاليات في تركيا",
+    text:
+      "نماذج بصرية من إنتاجات Sahneva للمسرح، شاشات LED، الصوت، الإضاءة، truss، الفعاليات المؤسسية، البروتوكول وفعاليات e-sports في تركيا.",
+    servicesLabel: "خدمات إنتاج مرتبطة",
+    cards: [
+      ["نهائيات PUBG / PMGC للرياضات الإلكترونية", "شاشات LED كبيرة، إضاءة show، مناطق لاعبين وإنتاج تقني بمقياس arena.", "E-sports", "/img/blog/kurumsal-etkinlik-hero.webp", "إنتاج مسرح وشاشات LED لنهائي e-sports في تركيا"],
+      ["مسرح gala مؤسسي", "LED داخلي، إضاءة مسرح، إعداد أداء حي وأجواء فعالية مؤسسية قوية.", "Corporate", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "مسرح gala مؤسسي مع شاشة LED وإضاءة"],
+      ["المسرح الرئيسي لمهرجان خارجي", "مسرح خارجي كبير مع شاشات LED وصوت line array وهيكل truss وتشغيل ميداني.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "إنتاج تقني لمسرح مهرجان خارجي في تركيا"],
+      ["تشغيل تقني خلف المسرح", "توجيه الإشارة، racks الصوت، patch، الطاقة والتحكم التقني خلف المسرح الظاهر.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "تشغيل backstage وتقنية صوت للفعالية"],
+      ["شاشات LED وتدفق المحتوى", "شاشات رئيسية وجانبية وتدفق محتوى مخطط لظهور الرعاة وتأثير الجمهور.", "LED", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "شاشة LED كبيرة وتدفق محتوى بصري"],
+      ["نظام صوت Line Array", "تخطيط صوتي للجمهور الكبير والمراحل الخارجية ومناطق الأداء الحي.", "Sound", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "نظام صوت line array لمسرح خارجي"],
+    ],
+    wideTitle: "جاهزون للمؤتمرات والإطلاقات والمهرجانات وفعاليات e-sports",
+    wideCards: [
+      ["مؤتمرات دولية وفعاليات بروتوكول", "نخطط الوصول إلى الموقع وتدفق البروتوكول ووضوح المسرح والتواصل متعدد اللغات."],
+      ["إطلاقات علامات ومراحل مؤسسية", "يتم ربط LED wall وتصميم المسرح والإضاءة ورسائل العلامة ضمن خطة واحدة."],
+      ["إنتاج الرياضة وe-sports", "مناطق اللاعبين وإضاءة arena ومراحل LED والفريق التقني تدار كعملية ميدانية واحدة."],
+    ],
+  },
+  ru: {
+    title: "Выбранные референсы event production в Турции",
+    text:
+      "Визуальная подборка проектов Sahneva: сцена, LED-экраны, звук, свет, truss, корпоративные, протокольные и esports события в Турции.",
+    servicesLabel: "Связанные production services",
+    cards: [
+      ["PUBG / PMGC Esports Final", "Большие LED-поверхности, show lighting, player areas и технический production уровня arena.", "Esports", "/img/blog/kurumsal-etkinlik-hero.webp", "Esports final stage and LED production in Turkey"],
+      ["Corporate Gala Stage", "Indoor LED wall, сценический свет, live performance setup и корпоративная event atmosphere.", "Corporate", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "Corporate gala stage with LED screen and lighting"],
+      ["Open-Air Festival Main Stage", "Большая outdoor main stage с LED-экранами, line array звуком, truss и field operation.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "Open-air festival main stage technical production"],
+      ["Backstage Technical Operation", "Signal routing, sound racks, patch, power и technical control за видимой сценой.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "Backstage sound rack and technical operation"],
+      ["LED Screen and Visual Content", "Main LED screens, side screens и content flow для видимости спонсоров и эффекта аудитории.", "LED", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "Large LED screen visual content flow at event"],
+      ["Line Array Sound System", "Планирование звука для большой аудитории, outdoor stages и live performance areas.", "Sound", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "Line array sound system for outdoor event stage"],
+    ],
+    wideTitle: "Для conferences, launches, festivals и esports",
+    wideCards: [
+      ["International congresses and protocol events", "Доступ к площадке, protocol flow, stage visibility и communication планируются до load-in."],
+      ["Brand launches and corporate stages", "LED wall, stage design, show lighting и speaker flow связываются с brand message."],
+      ["Sports and esports productions", "Player desks, arena lighting, LED-heavy show stages и technical crew готовятся как единая операция."],
+    ],
+  },
+};
+
+const ARTICLE_SECTIONS = {
+  en: [
+    ["Reliable partner for international companies planning events in Turkey", "Turkey is a strong event destination for companies coming from Europe, the Middle East and global markets. Istanbul, Antalya, Izmir, Ankara and Bodrum host fairs, congresses, launches, corporate meetings, concerts, sports events and private brand experiences. For an international team, the main need is a local production partner who can connect venue realities with technical expectations.", "Sahneva works as that local event production partner in Turkey. We support international companies, agencies and brand teams with stage, LED screen, sound, lighting, truss, tent, technical crew, logistics, setup, show-day operation and dismantling."],
+    ["Turnkey event and technical production from one point", "For companies arriving from abroad, sourcing each service separately can create timing gaps and communication risk. Sahneva brings stage, podium, LED screen, sound system, lighting system, truss, tent, crew and site operation under one coordinated production scope.", "Our aim is not only equipment rental. We help companies planning events in Turkey work with a field team that owns the technical process and keeps the operation clear before, during and after the event."],
+    ["Local partner for European agencies and global brands", "European event agencies often manage projects in Turkey on behalf of their own clients. In these projects, timing, technical capacity, quality control and communication matter. Sahneva can work like the Turkey-side field team of the agency.", "We receive the brief, analyze the technical scope, prepare the equipment and installation plan, manage setup on site and complete dismantling after the event. This helps international teams avoid losing time searching for separate suppliers in Turkey."],
+    ["Main service areas", "Stage and podium systems, LED screen rental and setup, sound systems, show lighting, truss and rigging, tent and outdoor event structures, fair and congress technical infrastructure, backstage areas, brand zones, technical crew, setup, show operation and dismantling can be planned depending on the project scope."],
+    ["Service across Istanbul, Antalya, Izmir, Ankara and Turkey", "Sahneva supports event projects in different Turkish cities. Istanbul, Antalya, Izmir, Ankara, Bodrum, Bursa, Konya and Adana can be planned for corporate events, fairs, congresses, festivals and special projects. City logistics, technical preparation and site coordination are evaluated together."],
+    ["Why work with a local event partner in Turkey?", "The right local team saves time, keeps costs more controlled, reduces technical risk and provides faster field response. Local venue experience, technical equipment support, one-point communication, quick quote preparation, fair, congress, concert, launch and corporate event experience all become part of the production value."],
+    ["From event brief to dismantling", "The process starts with project brief and needs analysis. Then technical planning, quotation, logistics, setup, event-day technical support, dismantling and site handover are handled in sequence. This structure helps international teams see the whole Turkey-side operation before the event starts."],
+    ["Planning an event in Turkey?", "If you are planning an event, fair, congress, launch or private brand project in Turkey, Sahneva can be your local event production partner. Share your project details to receive a clear scope for stage, LED screen, sound, lighting, truss, tent and technical production needs."],
+  ],
+  tr: [
+    ["Türkiye’de Etkinlik Yapacak Uluslararası Firmalar İçin Güvenilir Çözüm Ortağı", "Türkiye; İstanbul, Antalya, İzmir, Ankara ve Bodrum gibi güçlü destinasyonlarıyla Avrupa’dan, Orta Doğu’dan ve dünyanın farklı bölgelerinden gelen markalar için önemli bir etkinlik merkezidir. Fuarlar, kongreler, lansmanlar, kurumsal toplantılar, konserler, spor organizasyonları ve özel marka etkinlikleri için Türkiye hem lokasyon avantajı hem de güçlü hizmet altyapısı sunar.", "Ancak yabancı bir firma için Türkiye’de etkinlik organize etmek her zaman kolay değildir. Yerel tedarikçileri bulmak, teknik ekipmanları doğru planlamak, sahada güvenilir ekiplerle çalışmak, kurulum ve söküm süreçlerini zamanında yönetmek ciddi bir koordinasyon ister. Sahneva olarak Türkiye’de etkinlik düzenlemek isteyen uluslararası firmalar, ajanslar, marka temsilcileri ve organizasyon şirketleri için yerel çözüm ortağı olarak hizmet veriyoruz."],
+    ["Türkiye’de Tek Noktadan Etkinlik ve Teknik Prodüksiyon Hizmeti", "Yurt dışından gelen firmalar için en büyük ihtiyaçlardan biri, farklı hizmetleri ayrı ayrı tedarik etmek yerine tüm süreci tek bir güvenilir ekip üzerinden yönetebilmektir.", "Sahneva; sahne, podyum, LED ekran, ses sistemi, ışık sistemi, truss, çadır, teknik ekip, kurulum, söküm ve saha operasyonu gibi birçok hizmeti tek çatı altında sunar. Amacımız yalnızca ekipman kiralamak değil; Türkiye’de etkinlik yapmak isteyen firmalara sahada güvenilir bir operasyon partneri olmaktır."],
+    ["Uluslararası Ajanslar ve Markalar İçin Yerel Partner", "Avrupa’dan veya farklı ülkelerden gelen etkinlik ajansları çoğu zaman Türkiye’de kendi müşterileri adına proje yürütür. Bu projelerde zamanlama, kalite, teknik yeterlilik ve iletişim çok önemlidir.", "Sahneva olarak yabancı ajansların Türkiye’deki saha ekibi gibi çalışırız. Proje brief’ini alır, teknik ihtiyaçları analiz eder, uygun ekipman ve kurulum planını hazırlar, sahada kurulumu yönetir ve etkinlik sonunda söküm sürecini tamamlarız."],
+    ["Hizmet Verdiğimiz Başlıca Alanlar", "Sahne ve podyum sistemleri, LED ekran kiralama ve kurulum, ses sistemi ve canlı yayın ses çözümleri, ışık sistemi ve show lighting, truss sistemleri, rigging çözümleri, çadır ve outdoor etkinlik çözümleri, fuar, kongre ve lansman teknik altyapısı, backstage, karşılama alanı, marka alanı kurulumu, teknik personel ve saha operasyon desteği proje kapsamına göre planlanabilir."],
+    ["İstanbul, Antalya, İzmir, Ankara ve Türkiye Genelinde Hizmet", "Sahneva, Türkiye’nin farklı şehirlerinde etkinlik projeleri için çözüm üretir. İstanbul başta olmak üzere Antalya, İzmir, Ankara, Bodrum, Bursa, Konya, Adana ve diğer şehirlerde kurumsal etkinlikler, fuarlar, kongreler, festivaller ve özel projeler için destek sağlayabiliriz.", "Yurt dışından gelen firmalar için şehir fark etmeksizin en önemli konu, sahada hızlı hareket eden ve süreci doğru yöneten bir ekip ile çalışmaktır. Bu nedenle her projede planlama, lojistik, teknik hazırlık ve saha koordinasyonu birlikte değerlendirilir."],
+    ["Neden Türkiye’de Yerel Bir Etkinlik Partneri ile Çalışmalısınız?", "Türkiye’de etkinlik düzenlemek isteyen yabancı firmalar için yerel partner seçimi projenin başarısını doğrudan etkiler. Doğru yerel ekip; zaman kazandırır, maliyetleri daha kontrollü hale getirir, teknik riskleri azaltır ve sahada hızlı çözüm üretir.", "Türkiye’de yerel saha tecrübesi, teknik ekipman ve kurulum desteği, tek noktadan iletişim, hızlı teklif ve proje planlama, fuar, kongre, konser, lansman ve kurumsal etkinlik deneyimi Sahneva’nın bu sayfadaki temel vaadidir."],
+    ["Hangi Etkinlikler İçin Çözüm Sunuyoruz?", "Uluslararası kongreler, fuar ve stand etkinlikleri, kurumsal toplantılar, marka lansmanları, gala ve özel davetler, konser ve festival sahneleri, spor etkinlikleri, e-spor turnuvaları, arena prodüksiyonları, outdoor organizasyonlar, basın toplantıları, AVM ve meydan etkinlikleri, üniversite ve kamu etkinlikleri için teknik prodüksiyon kapsamı oluşturabiliriz."],
+    ["Etkinlik Öncesinden Söküme Kadar Yanınızdayız", "Proje brief’i ve ihtiyaç analiziyle başlayan süreç; teknik planlama ve teklif, lojistik ve kurulum, etkinlik süreci teknik destek, söküm ve alan teslimi adımlarıyla ilerler. Bu yapı, uluslararası ekiplerin Türkiye tarafındaki prodüksiyon akışını net görmesini sağlar."],
+    ["Türkiye’de Etkinlik Yapmayı Planlıyorsanız", "Türkiye’de bir etkinlik, fuar, kongre, lansman veya özel marka organizasyonu planlıyorsanız, Sahneva sizin için güvenilir bir yerel çözüm ortağı olabilir. Projenizin detaylarını bizimle paylaşarak sahne, LED ekran, ses, ışık, truss, çadır ve teknik prodüksiyon ihtiyaçlarınız için teklif alabilirsiniz.", "Sahneva, uluslararası firmalar için Türkiye’de yalnızca bir tedarikçi değil; sahada işi sahiplenen, süreci takip eden ve etkinliğin başarılı şekilde tamamlanması için çalışan bir çözüm ortağıdır."],
+  ],
+  ar: [
+    ["شريك موثوق للشركات الدولية في تركيا", "تركيا مركز مهم للفعاليات القادمة من أوروبا والشرق الأوسط والأسواق العالمية. إسطنبول وأنطاليا وإزمير وأنقرة وبودروم تستضيف المؤتمرات والمعارض والإطلاقات والحفلات والفعاليات الرياضية والخاصة.", "تعمل Sahneva كشريك إنتاج محلي يساعد الشركات والوكالات على تحويل المتطلبات التقنية إلى خطة ميدانية واضحة تشمل المسرح وشاشات LED والصوت والإضاءة وtruss والخيام والفريق التقني."],
+    ["إنتاج تقني من نقطة واحدة", "بدلاً من التعامل مع موردين متعددين، يمكن تخطيط المسرح والبوديوم وشاشات LED والصوت والإضاءة والخيام واللوجستيات والفك ضمن نطاق إنتاج واحد.", "الهدف ليس تأجير المعدات فقط، بل إدارة العملية التقنية في تركيا قبل الفعالية وأثناءها وبعدها."],
+    ["دعم للوكالات الأوروبية والعلامات العالمية", "نستلم brief المشروع، نحلل الاحتياجات التقنية، نجهز خطة المعدات والتركيب، ندير الفريق في الموقع ونكمل عملية الفك بعد الفعالية.", "هذا يمنح الفرق الدولية شريكاً ميدانياً محلياً بدلاً من البحث عن موردين منفصلين."],
+    ["أنواع الفعاليات", "ندعم المؤتمرات الدولية والمعارض والفعاليات المؤسسية وإطلاق المنتجات والجالا والحفلات والمهرجانات والفعاليات الرياضية وe-sports وarena productions وفعاليات outdoor."],
+    ["من التخطيط إلى التسليم", "تبدأ العملية بتحليل الاحتياج، ثم التخطيط التقني والعرض، اللوجستيات والتركيب، دعم يوم الفعالية، الفك وتسليم الموقع."],
+  ],
+  ru: [
+    ["Надежный локальный партнер для международных компаний", "Турция является сильной event-дестинацией для компаний из Европы, Ближнего Востока и других регионов. Стамбул, Анталья, Измир, Анкара и Бодрум подходят для выставок, конгрессов, запусков, корпоративных встреч, концертов, sports events и private brand experiences.", "Sahneva работает как локальный event production partner в Турции и помогает связать технические ожидания международной команды с реальностью площадки."],
+    ["Technical production из одной точки", "Сцена, подиум, LED-экран, звук, свет, truss, шатры, техническая команда, логистика, setup, show-day operation и демонтаж планируются как единый production scope.", "Это не только equipment rental. Это полевая команда, которая берет ответственность за технический процесс."],
+    ["Партнер для европейских агентств и global brands", "Мы принимаем brief, анализируем технический scope, готовим оборудование и installation plan, управляем setup на площадке и завершаем демонтаж после события.", "Так международная команда не теряет время на поиск отдельных поставщиков в Турции."],
+    ["Какие события мы поддерживаем", "International congresses, trade fairs, corporate meetings, brand launches, gala events, concerts, festivals, sports events, esports tournaments, arena productions, outdoor organizations и public events."],
+    ["От brief до handover", "Процесс включает needs analysis, technical planning, quotation, logistics, setup, event-day support, dismantling и site handover."],
+  ],
+};
+
+const serviceLinks = {
+  en: [
+    ["/en/stage-rental", "Stage Rental"],
+    ["/en/led-screen-rental", "LED Screen Rental"],
+    ["/en/sound-light-rental", "Sound & Light Rental"],
+    ["/en/truss-rental", "Truss Rental"],
+    ["/en/tent-rental", "Tent Rental"],
+    ["/en/corporate-events", "Corporate Events"],
+  ],
+  tr: [
+    ["/sahne-kiralama", "Sahne Kiralama"],
+    ["/led-ekran-kiralama", "LED Ekran Kiralama"],
+    ["/ses-isik-sistemleri", "Ses & Işık Sistemleri"],
+    ["/truss-kiralama", "Truss Kiralama"],
+    ["/cadir-kiralama", "Çadır Kiralama"],
+    ["/kurumsal-organizasyon", "Kurumsal Organizasyon"],
+  ],
+  ar: [["/ar/services", "خدماتنا"], ["/ar/projects", "المشاريع"], ["/ar/contact", "تواصل معنا"]],
+  ru: [
+    ["/ru/stage-rental", "Аренда сцены"],
+    ["/ru/led-screen-rental", "Аренда LED-экранов"],
+    ["/ru/sound-light-rental", "Звук и свет"],
+    ["/ru/tent-rental", "Аренда шатров"],
+    ["/ru/corporate-events", "Корпоративные события"],
+  ],
+};
+
+function cn(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function SectionHeading({ eyebrow, title, text, align = "center", dark = false }) {
+  return (
+    <div className={cn("mx-auto max-w-4xl", align === "center" ? "text-center" : "")}>
+      {eyebrow ? (
+        <p className={cn("text-sm font-black uppercase tracking-[0.22em]", dark ? "text-cyan-200" : "text-blue-700")}>{eyebrow}</p>
+      ) : null}
+      <h2 className={cn("mt-3 text-3xl font-black tracking-tight md:text-5xl", dark ? "text-white" : "text-slate-950")}>{title}</h2>
+      {text ? <p className={cn("mt-5 text-lg leading-relaxed", dark ? "text-white/[0.72]" : "text-slate-600")}>{text}</p> : null}
+    </div>
+  );
+}
+
+function PdfButton({ content, className }) {
+  return (
+    <a
+      href={COMPANY_PROFILE_PDF_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      download
+      aria-label={content.pdfAria}
+      className={className}
+    >
+      {content.pdfCta}
+    </a>
+  );
+}
+
+export default function EventProductionPartnerPage({ locale }) {
+  const content = getInternationalEventContent(locale);
+  const visuals = VISUAL_REFERENCES[locale] ?? VISUAL_REFERENCES.en;
+  const articleSections = ARTICLE_SECTIONS[locale] ?? ARTICLE_SECTIONS.en;
+  const whatsappUrl = getInternationalEventWhatsappUrl(locale);
+  const isRtl = locale === "ar";
+
+  return (
+    <>
+      <JsonLdScript id={`international-event-production-${locale}`} data={buildInternationalEventJsonLd(locale)} />
+      <main dir={isRtl ? "rtl" : undefined} className="overflow-hidden bg-white text-slate-950">
+        <section className="relative min-h-[760px] overflow-hidden bg-slate-950 text-white">
+          <Image
+            src={INTERNATIONAL_EVENT_HERO_IMAGE}
+            alt={content.h1}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.34),transparent_32%),linear-gradient(90deg,rgba(2,6,23,0.96),rgba(15,23,42,0.72),rgba(2,6,23,0.94))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:48px_48px] opacity-25" />
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-32">
+            <div>
+              <div className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-200/10 px-5 py-2 text-sm font-black uppercase tracking-[0.22em] text-cyan-100">
+                {content.eyebrow}
+              </div>
+              <h1 className="mt-7 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">{content.h1}</h1>
+              <p className="mt-7 max-w-3xl text-xl leading-relaxed text-white/[0.78] md:text-2xl">{content.intro}</p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400">
+                  {content.primaryCta}
+                </a>
+                <Link href={content.final.contactHref} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 font-black text-white transition hover:bg-white/15">
+                  {content.secondaryCta}
+                </Link>
+                <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/30 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
+              </div>
+            </div>
+            <div className="rounded-[2rem] border border-white/14 bg-white/[0.08] p-6 shadow-2xl backdrop-blur-xl">
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.productionScope}</p>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                {content.scopeItems.map((item) => (
+                  <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-5 text-lg font-black">
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/45 p-5">
+                <p className="text-4xl font-black text-white">{content.statValue}</p>
+                <p className="mt-3 leading-relaxed text-white/[0.68]">{content.statText}</p>
+              </div>
+              <a href={COMPANY_PROFILE_PDF_URL} target="_blank" rel="noopener noreferrer" download aria-label={content.pdfAria} className="mt-5 block rounded-2xl border border-cyan-200/25 bg-cyan-200/10 p-5 font-black text-cyan-100 transition hover:bg-cyan-200/15">
+                {content.heroPdfText}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20 md:px-10">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading {...content.why} />
+            <div className="mt-12 grid gap-5 md:grid-cols-3">
+              {content.why.cards.map(([title, text]) => (
+                <article key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                  <h3 className="text-xl font-black text-slate-950">{title}</h3>
+                  <p className="mt-3 leading-relaxed text-slate-600">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading title={visuals.title} text={visuals.text} dark />
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {visuals.cards.map(([title, text, category, src, alt]) => (
+                <article key={title} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] shadow-xl">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <span className="rounded-full bg-cyan-200/10 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-cyan-100">{category}</span>
+                    <h3 className="mt-4 text-xl font-black">{title}</h3>
+                    <p className="mt-3 leading-relaxed text-white/[0.68]">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.05] p-6">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{visuals.servicesLabel}</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {(serviceLinks[locale] ?? serviceLinks.en).map(([href, label]) => (
+                  <Link key={href} href={href} className="rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.82] transition hover:bg-white/[0.12]">
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20 md:px-10">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading {...content.servicesHeading} />
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {content.services.map((service) => (
+                <Link key={service.href} href={service.href} className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
+                  <h3 className="text-xl font-black text-slate-950">{service.title}</h3>
+                  <p className="mt-3 leading-relaxed text-slate-600">{service.text}</p>
+                  <span className="mt-5 inline-flex text-sm font-black text-blue-700 group-hover:text-blue-800">↗</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 px-6 py-20 md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <SectionHeading {...content.market} align="start" />
+              <div className="mt-8 flex flex-wrap gap-3">
+                {content.cities.map((city) => (
+                  <span key={city} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">{city}</span>
+                ))}
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {content.eventTypes.map((type) => (
+                <div key={type} className="rounded-2xl border border-slate-200 bg-white px-5 py-4 font-bold text-slate-800 shadow-sm">{type}</div>
+              ))}
+            </div>
+          </div>
+          <div className="mx-auto mt-12 grid max-w-7xl gap-5 lg:grid-cols-3">
+            {visuals.wideCards.map(([title, text]) => (
+              <article key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <h3 className="text-xl font-black">{title}</h3>
+                <p className="mt-3 leading-relaxed text-slate-600">{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-6 py-20 md:px-10">
+          <div className="mx-auto max-w-5xl">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+              {articleSections.map(([title, ...paragraphs]) => (
+                <article key={title} className="border-b border-slate-200 py-8 last:border-0 last:pb-0 first:pt-0">
+                  <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">{title}</h2>
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="mt-4 text-lg leading-relaxed text-slate-600">
+                      {paragraph}
+                    </p>
+                  ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.esports.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">{content.esports.title}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-white/[0.7]">{content.esports.text}</p>
+            </div>
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] border border-white/10">
+              <Image src="/img/blog/kurumsal-etkinlik-sahne-genel.webp" alt={content.esports.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20 md:px-10">
+          <div className="mx-auto max-w-7xl rounded-[2rem] bg-gradient-to-br from-blue-700 to-slate-950 p-8 text-white shadow-2xl md:p-12">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.profile.eyebrow}</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">{content.profile.title}</h2>
+                <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.74]">{content.profile.text}</p>
+              </div>
+              <PdfButton content={content} className="inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-7 font-black text-slate-950 transition hover:bg-cyan-50" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 px-6 py-20 md:px-10">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading {...content.processHeading} />
+            <div className="mt-12 grid gap-5 md:grid-cols-5">
+              {content.process.map(([title, text], index) => (
+                <article key={title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <span className="text-sm font-black text-blue-700">0{index + 1}</span>
+                  <h3 className="mt-3 text-lg font-black">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20 md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+            <SectionHeading {...content.faqHeading} align="start" />
+            <div className="space-y-4">
+              {content.faq.map(([question, answer]) => (
+                <details key={question} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <summary className="cursor-pointer list-none text-lg font-black text-slate-950">{question}</summary>
+                  <p className="mt-4 leading-relaxed text-slate-600">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 pb-24 md:px-10">
+          <div className="mx-auto max-w-7xl rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-2xl md:p-14">
+            <h2 className="text-3xl font-black tracking-tight md:text-5xl">{content.final.title}</h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.72]">{content.final.text}</p>
+            <div className="mt-9 flex flex-wrap justify-center gap-4">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400">
+                {content.final.whatsapp}
+              </a>
+              <Link href={content.final.contactHref} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 bg-white/10 px-7 font-black text-white transition hover:bg-white/15">
+                {content.final.contact}
+              </Link>
+              <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
