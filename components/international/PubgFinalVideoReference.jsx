@@ -80,7 +80,7 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
   const isRtl = locale === "ar";
 
   return (
-    <section dir={isRtl ? "rtl" : undefined} className="relative overflow-hidden bg-slate-950 px-6 py-20 text-white md:px-10">
+    <section dir={isRtl ? "rtl" : undefined} className="relative -mt-10 overflow-hidden bg-slate-950 px-6 pb-16 pt-6 text-white md:-mt-12 md:px-10 md:pb-20 md:pt-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(59,130,246,0.24),transparent_34%),radial-gradient(circle_at_82%_46%,rgba(34,211,238,0.12),transparent_30%)]" aria-hidden="true" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:48px_48px] opacity-20" aria-hidden="true" />
 
@@ -90,13 +90,13 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
             <p className="inline-flex rounded-full border border-cyan-200/25 bg-cyan-200/10 px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-100">
               {content.label}
             </p>
-            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
+            <h2 className="mx-auto mt-5 max-w-5xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
               {content.title}
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.76] md:text-xl">
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-white/[0.76] md:text-xl">
               {content.text}
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
               {content.meta.map((item) => (
                 <span key={item} className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs font-bold text-white/[0.78]">
                   {item}
@@ -105,7 +105,7 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
             </div>
           </header>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:items-stretch">
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:items-stretch">
             <div className="relative min-w-0">
               <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 to-cyan-400/10 blur-2xl" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
