@@ -25,11 +25,14 @@ function InternationalPageLayoutPolish() {
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
+            min-width: 0 !important;
           }
 
           main > section:first-child h1 {
-            font-size: clamp(3.35rem, 6.25vw, 5.6rem) !important;
-            line-height: 1.02 !important;
+            max-width: 100% !important;
+            font-size: clamp(3.35rem, 5.35vw, 5.05rem) !important;
+            line-height: 1.04 !important;
+            letter-spacing: -0.055em !important;
           }
 
           main > section:first-child > div.relative > div:first-child > p:nth-of-type(2) {
@@ -55,12 +58,22 @@ function InternationalPageLayoutPolish() {
 
           @media (min-width: 1024px) {
             main > section:first-child > div.relative {
-              grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr) !important;
+              grid-template-columns: minmax(0, 1.48fr) minmax(340px, 0.62fr) !important;
+              align-items: end !important;
             }
 
             main > section:first-child > div.relative > div:last-child {
               align-self: end !important;
-              margin-bottom: 0.35rem !important;
+              justify-self: end !important;
+              max-width: 560px !important;
+              margin-bottom: 0.2rem !important;
+              transform: translateY(1rem) !important;
+            }
+          }
+
+          @media (min-width: 1280px) {
+            main > section:first-child h1 {
+              font-size: clamp(4.2rem, 5vw, 5.35rem) !important;
             }
           }
 
