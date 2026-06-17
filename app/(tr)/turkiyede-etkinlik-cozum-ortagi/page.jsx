@@ -1,5 +1,6 @@
 import EventProductionPartnerPage from "@/components/international/EventProductionPartnerPage";
 import InternationalTrustPolish from "@/components/international/InternationalTrustPolish";
+import PubgFinalVideoReference from "@/components/international/PubgFinalVideoReference";
 import { buildInternationalEventMetadata } from "@/lib/internationalEventProduction";
 
 export const revalidate = 1800;
@@ -10,6 +11,7 @@ export default function TurkiyedeEtkinlikCozumOrtagiPage() {
   return (
     <>
       <EventProductionPartnerPage locale="tr" />
+      <PubgFinalVideoReference locale="tr" />
       <InternationalTrustPolish locale="tr" />
     </>
   );
