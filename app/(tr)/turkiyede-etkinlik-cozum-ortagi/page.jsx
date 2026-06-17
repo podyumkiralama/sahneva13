@@ -15,39 +15,63 @@ function InternationalPageLayoutPolish() {
           }
 
           main > section:first-child > div.relative {
-            padding-top: clamp(4rem, 5vw, 5.5rem) !important;
-            padding-bottom: clamp(4rem, 5vw, 5.5rem) !important;
+            padding-top: clamp(7rem, 8vw, 8.5rem) !important;
+            padding-bottom: clamp(3.25rem, 4vw, 4.75rem) !important;
+            gap: clamp(2rem, 4vw, 3rem) !important;
+            align-items: center !important;
+          }
+
+          main > section:first-child h1 {
+            font-size: clamp(3.35rem, 6.25vw, 5.6rem) !important;
+            line-height: 1.02 !important;
           }
 
           main > section:first-child a[href="/files/sahneva-company-profile.pdf"] {
             display: none !important;
           }
 
-          main > section:nth-last-of-type(2) {
+          @media (min-width: 1024px) {
+            main > section:first-child > div.relative {
+              grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr) !important;
+            }
+          }
+
+          @media (max-width: 767px) {
+            main > section:first-child > div.relative {
+              padding-top: 6.25rem !important;
+              padding-bottom: 3.25rem !important;
+            }
+
+            main > section:first-child h1 {
+              font-size: clamp(2.75rem, 12vw, 4.1rem) !important;
+            }
+          }
+
+          main > section:has(details) {
             padding-top: 4rem !important;
             padding-bottom: 4rem !important;
           }
 
-          main > section:nth-last-of-type(2) > div {
+          main > section:has(details) > div {
             display: block !important;
-            max-width: 72rem !important;
+            max-width: 68rem !important;
           }
 
-          main > section:nth-last-of-type(2) > div > div:first-child {
+          main > section:has(details) > div > div:first-child {
             margin-left: auto !important;
             margin-right: auto !important;
             margin-bottom: 2rem !important;
-            max-width: 58rem !important;
+            max-width: 54rem !important;
             text-align: center !important;
           }
 
-          main > section:nth-last-of-type(2) > div > div:last-child {
+          main > section:has(details) > div > div:last-child {
             margin-left: auto !important;
             margin-right: auto !important;
-            max-width: 58rem !important;
+            max-width: 60rem !important;
           }
 
-          main > section:nth-last-of-type(2) details {
+          main > section:has(details) details {
             padding: 1.25rem !important;
           }
 
@@ -67,6 +91,8 @@ function InternationalPageLayoutPolish() {
             display: none !important;
           }
 
+          button[aria-label*="Watch Videos"],
+          button[aria-label*="Videoları Görüntüle"],
           button[aria-label*="Open video player"],
           button[aria-label*="Video oynatıcı"] {
             display: none !important;
