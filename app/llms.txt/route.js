@@ -10,7 +10,6 @@ import {
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
 const REJECT_PATTERNS = [/^\/_next\//, /^\/api\//, /^\/?[$&]$/, /^\/search/i];
-const DEFAULT_LANG = "tr-TR";
 
 /**
  * Basit bir keyword üretici:
@@ -31,14 +30,6 @@ function buildKeywordsFromTitle(title) {
 
   const unique = Array.from(new Set([...parts, "sahneva"]));
   return unique.join(",");
-}
-
-/**
- * Çift tırnakları escape eden basit wrapper
- */
-function quote(value) {
-  if (value == null) return '""';
-  return `"${String(value).replace(/"/g, '\\"')}"`;
 }
 
 function safeIsoDate(value) {
@@ -239,10 +230,6 @@ function articleEntries() {
     .filter(Boolean);
 }
 
-/**
- * Her entry için tek satırlık llms.txt formatı
- */
-
 function resolveGeneratedAt(entries = []) {
   const candidates = entries
     .map((entry) => entry.updatedAt || entry.date)
@@ -257,7 +244,16 @@ function resolveGeneratedAt(entries = []) {
     .toISOString();
 }
 
-function formatEntry({
+function escapeMarkdown(value) {
+  return String(value ?? "")
+    .replace(/\s+/g, " ")
+    .replace(/\\/g, "\\\\")
+    .replace(/\[/g, "\\[")
+    .replace(/\]/g, "\\]")
+    .trim();
+}
+
+function formatMarkdownEntry({
   path,
   title,
   summary,
@@ -267,20 +263,18 @@ function formatEntry({
   category,
   keywords,
 }) {
-  const fields = [
-    `url=${SITE_URL}${path}`,
-    `title=${quote(title)}`,
+  const url = `${SITE_URL}${path}`;
+  const details = [
+    category ? `category=${category}` : null,
     `priority=${Number(priority || 0).toFixed(2)}`,
-    `lang=${DEFAULT_LANG}`,
-  ];
+    updatedAt ? `lastmod=${updatedAt}` : null,
+    date ? `published=${date}` : null,
+    keywords ? `keywords=${escapeMarkdown(keywords)}` : null,
+  ].filter(Boolean);
 
-  if (category) fields.push(`category=${category}`);
-  if (updatedAt) fields.push(`lastmod=${updatedAt}`);
-  if (date) fields.push(`published=${date}`);
-  if (keywords) fields.push(`keywords=${quote(keywords)}`);
-  if (summary) fields.push(`summary=${quote(summary)}`);
-
-  return fields.join(" | ");
+  return `- [${escapeMarkdown(title)}](${url}): ${escapeMarkdown(summary)}${
+    details.length ? ` (${details.join("; ")})` : ""
+  }`;
 }
 
 export async function GET() {
@@ -318,10 +312,10 @@ export async function GET() {
     "primary_lang=tr-TR",
     "crawl_hint=prioritize-high-priority-urls",
     "",
-    "[pages]",
+    "## Öncelikli Sayfalar",
   ];
 
-  const body = sorted.map(formatEntry);
+  const body = sorted.map(formatMarkdownEntry);
 
   return new Response([...header, ...body].join("\n"), {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
