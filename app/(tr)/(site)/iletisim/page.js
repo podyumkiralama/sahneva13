@@ -60,6 +60,35 @@ const WHATSAPP_URL = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURICo
 const GMB_PROFILE_URL = "https://g.page/r/CZhkMzkNOdgnEBI";
 const GMB_REVIEW_URL = "https://g.page/r/CZhkMzkNOdgnEBI/review";
 
+const WEB_MCP_QUOTE_FORM_PROPS = {
+  toolname: "requestEventProductionQuote",
+  tooldescription:
+    "Submit an event production quote request to Sahneva for stage, LED screen, sound, lighting, truss, tent, podium and technical crew needs in Turkey.",
+};
+
+const WEB_MCP_QUOTE_FIELD_PROPS = {
+  name: {
+    toolparamdescription:
+      "Full name of the person requesting the event production quote.",
+  },
+  phone: {
+    toolparamdescription:
+      "Phone number with country code for quote follow-up by Sahneva.",
+  },
+  email: {
+    toolparamdescription:
+      "Email address where Sahneva should send the proposal and technical details.",
+  },
+  eventType: {
+    toolparamdescription:
+      "Type of event such as corporate event, concert, festival, conference, exhibition or other.",
+  },
+  message: {
+    toolparamdescription:
+      "Event date, city or venue, estimated audience size, required equipment and production details.",
+  },
+};
+
 /* ───── STRUCTURED DATA (Rich Snippet) ───── */
 function ContactStructuredData() {
   const schema = {
@@ -364,6 +393,7 @@ export default function ContactPage() {
                     action="https://formspree.io/f/xanppven"
                     method="POST"
                     acceptCharset="UTF-8"
+                    {...WEB_MCP_QUOTE_FORM_PROPS}
                     className="space-y-6"
                   >
                     <div
@@ -389,6 +419,7 @@ export default function ContactPage() {
                           name="name"
                           placeholder="Adınız ve soyadınız"
                           aria-describedby="name-help"
+                          {...WEB_MCP_QUOTE_FIELD_PROPS.name}
                           className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
                           required
                           autoComplete="name"
@@ -411,6 +442,7 @@ export default function ContactPage() {
                           name="phone"
                           placeholder="+90 ___ ___ __ __"
                           aria-describedby="phone-help"
+                          {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
                           className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
                           required
                           autoComplete="tel"
@@ -435,6 +467,7 @@ export default function ContactPage() {
                         name="email"
                         placeholder="email@example.com"
                         aria-describedby="email-help"
+                        {...WEB_MCP_QUOTE_FIELD_PROPS.email}
                         className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
                         required
                         autoComplete="email"
@@ -456,6 +489,7 @@ export default function ContactPage() {
                         id="eventType"
                         name="eventType"
                         aria-describedby="event-type-help"
+                        {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
                         className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
                         required
                         autoComplete="off"
@@ -489,6 +523,7 @@ export default function ContactPage() {
                         placeholder="Etkinlik tarihi, konumu, tahmini katılımcı sayısı ve ihtiyaç duyduğunuz ekipmanlar..."
                         rows={5}
                         aria-describedby="message-help"
+                        {...WEB_MCP_QUOTE_FIELD_PROPS.message}
                         className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60 resize-none"
                         required
                         autoComplete="off"

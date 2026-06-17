@@ -4,6 +4,14 @@ import { SITE_URL } from "@/lib/seo/seoConfig";
 
 const SEARCH_URL = `${SITE_URL}/search`;
 const SEARCH_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
+const WEB_MCP_SEARCH_FORM_PROPS = {
+  toolname: "searchSite",
+  tooldescription: "Search Sahneva pages, services, projects and blog content.",
+};
+const WEB_MCP_SEARCH_INPUT_PROPS = {
+  toolparamdescription:
+    "Search query for Sahneva services, event production pages, projects and blog articles.",
+};
 
 export const metadata = {
   title: "Site İçi Arama",
@@ -56,7 +64,12 @@ export default function SearchPage({ searchParams }) {
           Anahtar kelimenizi yazın, ilgili sayfaları hemen listeleyelim.
         </p>
 
-        <form action="/search" method="get" className="mt-6">
+        <form
+          action="/search"
+          method="get"
+          {...WEB_MCP_SEARCH_FORM_PROPS}
+          className="mt-6"
+        >
           <label htmlFor="search-page-input" className="sr-only">
             Site içinde arama yapın
           </label>
@@ -67,6 +80,7 @@ export default function SearchPage({ searchParams }) {
               defaultValue={query}
               type="text"
               placeholder="Örn: truss kiralama, iletişim..."
+              {...WEB_MCP_SEARCH_INPUT_PROPS}
               className="flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 focus-ring"
             />
             <button

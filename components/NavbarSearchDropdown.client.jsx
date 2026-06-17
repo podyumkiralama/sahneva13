@@ -11,6 +11,16 @@ const FOCUS_RING_CLASS =
 
 const MAX_RESULTS = 6;
 
+const WEB_MCP_SEARCH_FORM_PROPS = {
+  toolname: "searchSite",
+  tooldescription: "Search Sahneva pages, services, projects and blog content.",
+};
+
+const WEB_MCP_SEARCH_INPUT_PROPS = {
+  toolparamdescription:
+    "Search query for Sahneva services, event production pages, projects and blog articles.",
+};
+
 const filterRoutes = (routes, query) => {
   const q = query.trim().toLowerCase();
   if (!q) return routes.slice(0, MAX_RESULTS);
@@ -151,7 +161,13 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
           aria-label={searchAriaLabel}
           className="absolute right-0 z-[90] mt-2 w-[min(480px,90vw)] overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]"
         >
-          <form onSubmit={handleSubmit} className="border-b border-neutral-100 p-4 nav-dark:border-white/10">
+          <form
+            action="/search"
+            method="GET"
+            onSubmit={handleSubmit}
+            {...WEB_MCP_SEARCH_FORM_PROPS}
+            className="border-b border-neutral-100 p-4 nav-dark:border-white/10"
+          >
             <label htmlFor="navbar-search-input" className="sr-only">
               {searchInputLabel}
             </label>
@@ -164,9 +180,11 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
                 ref={inputRef}
                 id="navbar-search-input"
                 type="text"
+                name="q"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={searchPlaceholder}
+                {...WEB_MCP_SEARCH_INPUT_PROPS}
                 className="w-full rounded-xl border border-neutral-200 bg-white py-3 pl-9 pr-3 text-sm font-medium text-neutral-900 outline-none transition-colors placeholder:text-neutral-400 focus:border-blue-300 focus:ring-2 focus:ring-blue-600/20 nav-dark:border-white/10 nav-dark:bg-white/[0.06] nav-dark:text-white nav-dark:placeholder:text-slate-500"
               />
             </div>
