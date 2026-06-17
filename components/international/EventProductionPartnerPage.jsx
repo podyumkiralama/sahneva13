@@ -20,12 +20,9 @@ const VISUAL_REFERENCES = {
       ["Open-Air Concert LED Stage", "Large outdoor LED surfaces, stage lighting and audience-facing screen operation for concert and festival fields.", "Outdoor LED", "/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Open-air concert LED screen stage production in Turkey"],
       ["Hybrid Product Launch LED Wall", "LED wall, stage design and brand presentation flow for product launch and hybrid corporate event formats.", "Launch", "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "Hybrid product launch LED wall stage design"],
       ["Corporate Gala Video Wall", "Indoor video wall, stage lighting and live performance setup for gala and executive event environments.", "Gala", "/img/led/gala-led-sahne-video-wall-sahneva.webp", "Corporate gala video wall and stage lighting"],
-      ["Corporate Conference Stage", "Conference stage, LED screen and lighting plan built around clear visibility and controlled technical operation.", "Conference", "/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Corporate conference LED screen and stage production"],
       ["Hall Lighting Setup", "Architectural hall lighting, stage ambience and pre-event installation control for indoor corporate venues.", "Lighting", "/img/kurumsal/premium/salon-isik-kurulumu.webp", "Corporate hall lighting installation for event production"],
       ["Outdoor Truss Stage", "Truss structure, roof line and technical carrier system prepared for outdoor stage and show equipment loads.", "Truss", "/img/kurumsal/premium/truss-outdoor-sahne.webp", "Outdoor truss stage structure for event production"],
-      ["Corporate LED Screen Stage", "LED screen, stage and audience seating layout for presentations, corporate meetings and executive sessions.", "Corporate", "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp", "Corporate event LED screen stage and audience seating"],
       ["Wide Conference Hall", "Large meeting hall setup with LED screen, stage focus and technical planning for international business events.", "Congress", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Wide conference hall with LED screen for corporate event"],
-      ["Digital LED Installation", "Creative LED installation and brand display surfaces for high-impact guest experience and visual storytelling.", "Brand Area", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp", "Corporate digital LED installation for event experience"],
     ],
     wideTitle: "Built for conferences, launches, festivals and esports",
     wideCards: [
@@ -43,12 +40,9 @@ const VISUAL_REFERENCES = {
       ["Açık Hava Konser LED Sahnesi", "Konser ve festival alanları için büyük LED yüzeyler, sahne ışığı ve izleyiciye dönük ekran operasyonu.", "Outdoor LED", "/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Açık hava konser LED ekran sahne prodüksiyonu"],
       ["Hibrit Ürün Lansmanı LED Wall", "Ürün lansmanı ve hibrit kurumsal etkinlik formatları için LED wall, sahne tasarımı ve marka sunum akışı.", "Lansman", "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "Hibrit ürün lansmanı LED wall sahne tasarımı"],
       ["Kurumsal Gala Video Wall", "Gala ve üst düzey davet ortamları için iç mekan video wall, sahne ışığı ve canlı performans düzeni.", "Gala", "/img/led/gala-led-sahne-video-wall-sahneva.webp", "Kurumsal gala video wall ve sahne ışığı kurulumu"],
-      ["Kurumsal Konferans Sahnesi", "Net görünürlük ve kontrollü teknik operasyon için planlanan konferans sahnesi, LED ekran ve ışık kurgusu.", "Konferans", "/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Kurumsal konferans LED ekran ve sahne prodüksiyonu"],
       ["Salon Işık Kurulumu", "Kapalı kurumsal mekanlarda mimari ışık, sahne ambiyansı ve etkinlik öncesi kurulum kontrolü.", "Işık", "/img/kurumsal/premium/salon-isik-kurulumu.webp", "Kurumsal etkinlik salon ışık kurulumu"],
       ["Outdoor Truss Sahne", "Açık hava sahnesi ve show ekipman yükleri için hazırlanan truss yapı, çatı hattı ve taşıyıcı sistem.", "Truss", "/img/kurumsal/premium/truss-outdoor-sahne.webp", "Outdoor truss sahne taşıyıcı sistem kurulumu"],
-      ["Kurumsal LED Ekran Sahnesi", "Sunum, kurumsal toplantı ve yönetici oturumları için LED ekran, sahne ve oturma düzeni planlaması.", "Kurumsal", "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp", "Kurumsal etkinlik LED ekran sahnesi ve oturma düzeni"],
       ["Geniş Konferans Salonu", "Uluslararası iş etkinlikleri için LED ekran, sahne odağı ve teknik planlama içeren geniş toplantı salonu.", "Kongre", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Kurumsal etkinlik için geniş konferans salonu LED ekran kurulumu"],
-      ["Dijital LED Enstalasyon", "Yüksek etki yaratan misafir deneyimi ve görsel hikaye anlatımı için kreatif LED yüzeyler ve marka alanı.", "Marka Alanı", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp", "Kurumsal etkinlik dijital LED enstalasyon alanı"],
     ],
     wideTitle: "Kongre, lansman, festival ve e-spor etkinlikleri için hazır teknik ekip",
     wideCards: [
@@ -149,6 +143,11 @@ const ARTICLE_SIDE_IMAGES = [
   ["/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Corporate conference stage production"],
 ];
 
+const focusVisibleRing =
+  "focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
+const focusVisibleRingLight =
+  "focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
+
 const serviceLinks = {
   en: [
     ["/en/stage-rental", "Stage Rental"],
@@ -198,9 +197,8 @@ function PdfButton({ content, className }) {
       href={COMPANY_PROFILE_PDF_URL}
       target="_blank"
       rel="noopener noreferrer"
-      download
       aria-label={content.pdfAria}
-      className={className}
+      className={cn(className, focusVisibleRing)}
     >
       {content.pdfCta}
     </a>
@@ -218,10 +216,11 @@ export default function EventProductionPartnerPage({ locale }) {
     <>
       <JsonLdScript id={`international-event-production-${locale}`} data={buildInternationalEventJsonLd(locale)} />
       <main dir={isRtl ? "rtl" : undefined} className="overflow-hidden bg-white text-slate-950">
-        <section className="relative min-h-[760px] overflow-hidden bg-slate-950 text-white">
+        <section className="relative min-h-[620px] overflow-hidden bg-slate-950 text-white md:min-h-[760px]">
           <Image
             src={INTERNATIONAL_EVENT_HERO_IMAGE}
-            alt={content.h1}
+            alt=""
+            aria-hidden="true"
             fill
             priority
             sizes="100vw"
@@ -237,10 +236,10 @@ export default function EventProductionPartnerPage({ locale }) {
               <h1 className="mt-7 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">{content.h1}</h1>
               <p className="mt-7 max-w-3xl text-xl leading-relaxed text-white/[0.78] md:text-2xl">{content.intro}</p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400", focusVisibleRing)}>
                   {content.primaryCta}
                 </a>
-                <Link href={content.final.contactHref} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 font-black text-white transition hover:bg-white/15">
+                <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>
                   {content.secondaryCta}
                 </Link>
                 <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/30 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
@@ -259,7 +258,7 @@ export default function EventProductionPartnerPage({ locale }) {
                 <p className="text-4xl font-black text-white">{content.statValue}</p>
                 <p className="mt-3 leading-relaxed text-white/[0.68]">{content.statText}</p>
               </div>
-              <a href={COMPANY_PROFILE_PDF_URL} target="_blank" rel="noopener noreferrer" download aria-label={content.pdfAria} className="mt-5 block rounded-2xl border border-cyan-200/25 bg-cyan-200/10 p-5 font-black text-cyan-100 transition hover:bg-cyan-200/15">
+              <a href={COMPANY_PROFILE_PDF_URL} target="_blank" rel="noopener noreferrer" aria-label={content.pdfAria} className={cn("mt-5 block rounded-2xl border border-cyan-200/25 bg-cyan-200/10 p-5 font-black text-cyan-100 transition hover:bg-cyan-200/15", focusVisibleRing)}>
                 {content.heroPdfText}
               </a>
             </div>
@@ -279,6 +278,31 @@ export default function EventProductionPartnerPage({ locale }) {
             </div>
           </div>
         </section>
+
+        {content.seoSupport || content.trust ? (
+          <section className="bg-slate-50 px-6 py-20 md:px-10">
+            <div className="mx-auto max-w-7xl space-y-10">
+              {content.seoSupport ? (
+                <div className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm md:p-10">
+                  <p className="max-w-5xl text-xl font-semibold leading-relaxed text-slate-700">{content.seoSupport}</p>
+                </div>
+              ) : null}
+              {content.trust ? (
+                <div>
+                  <h2 className="max-w-4xl text-3xl font-black tracking-tight text-slate-950 md:text-5xl">{content.trust.title}</h2>
+                  <div className="mt-8 grid gap-5 md:grid-cols-3">
+                    {content.trust.cards.map(([title, text]) => (
+                      <article key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                        <h3 className="text-xl font-black text-slate-950">{title}</h3>
+                        <p className="mt-3 leading-relaxed text-slate-600">{text}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
 
         <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
           <div className="mx-auto max-w-7xl">
@@ -301,7 +325,7 @@ export default function EventProductionPartnerPage({ locale }) {
               <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{visuals.servicesLabel}</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {(serviceLinks[locale] ?? serviceLinks.en).map(([href, label]) => (
-                  <Link key={href} href={href} className="rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.82] transition hover:bg-white/[0.12]">
+                  <Link key={href} href={href} className={cn("rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.82] transition hover:bg-white/[0.12]", focusVisibleRing)}>
                     {label}
                   </Link>
                 ))}
@@ -315,7 +339,7 @@ export default function EventProductionPartnerPage({ locale }) {
             <SectionHeading {...content.servicesHeading} />
             <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {content.services.map((service) => (
-                <Link key={service.href} href={service.href} className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
+                <Link key={service.href} href={service.href} className={cn("group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl", focusVisibleRingLight)}>
                   <h3 className="text-xl font-black text-slate-950">{service.title}</h3>
                   <p className="mt-3 leading-relaxed text-slate-600">{service.text}</p>
                   <span className="mt-5 inline-flex text-sm font-black text-blue-700 group-hover:text-blue-800">↗</span>
@@ -351,28 +375,46 @@ export default function EventProductionPartnerPage({ locale }) {
           </div>
         </section>
 
+        {content.destination || content.equipment ? (
+          <section className="px-6 py-20 md:px-10">
+            <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
+              {[content.destination, content.equipment].filter(Boolean).map((item) => (
+                <article key={item.title} className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm md:p-10">
+                  <h2 className="text-3xl font-black tracking-tight text-slate-950">{item.title}</h2>
+                  <p className="mt-5 text-lg leading-relaxed text-slate-600">{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="px-6 py-20 md:px-10">
           <div className="mx-auto max-w-7xl space-y-8">
             {articleSections.map(([title, ...paragraphs], index) => {
-              const [src, alt] = ARTICLE_SIDE_IMAGES[index % ARTICLE_SIDE_IMAGES.length];
-              const imageFirst = index % 2 === 1;
+              const imageEntry = index % 2 === 0 ? ARTICLE_SIDE_IMAGES[Math.floor(index / 2) % ARTICLE_SIDE_IMAGES.length] : null;
+              const imageFirst = index % 4 === 2;
 
               return (
                 <article
                   key={title}
-                  className="grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch"
+                  className={cn(
+                    "overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm",
+                    imageEntry ? "grid lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch" : "p-7 md:p-10"
+                  )}
                 >
-                  <div className={cn("relative min-h-[280px] lg:min-h-full", imageFirst ? "lg:order-first" : "lg:order-last")}>
-                    <Image
-                      src={src}
-                      alt={alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 44vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
-                  </div>
-                  <div className="p-7 md:p-10">
+                  {imageEntry ? (
+                    <div className={cn("relative min-h-[280px] lg:min-h-full", imageFirst ? "lg:order-first" : "lg:order-last")}>
+                      <Image
+                        src={imageEntry[0]}
+                        alt={imageEntry[1]}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 44vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+                    </div>
+                  ) : null}
+                  <div className={cn(imageEntry ? "p-7 md:p-10" : "")}>
                     <span className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">0{index + 1}</span>
                     <h2 className="mt-3 text-2xl font-black tracking-tight text-slate-950 md:text-3xl">{title}</h2>
                     {paragraphs.map((paragraph) => (
@@ -434,7 +476,13 @@ export default function EventProductionPartnerPage({ locale }) {
             <div className="space-y-4">
               {content.faq.map(([question, answer]) => (
                 <details key={question} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <summary className="cursor-pointer list-none text-lg font-black text-slate-950">{question}</summary>
+                  <summary className={cn("flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl text-lg font-black text-slate-950", focusVisibleRingLight)}>
+                    <span>{question}</span>
+                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-xl leading-none text-blue-700">
+                      <span className="group-open:hidden">+</span>
+                      <span className="hidden group-open:inline">-</span>
+                    </span>
+                  </summary>
                   <p className="mt-4 leading-relaxed text-slate-600">{answer}</p>
                 </details>
               ))}
@@ -447,10 +495,10 @@ export default function EventProductionPartnerPage({ locale }) {
             <h2 className="text-3xl font-black tracking-tight md:text-5xl">{content.final.title}</h2>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.72]">{content.final.text}</p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400", focusVisibleRing)}>
                 {content.final.whatsapp}
               </a>
-              <Link href={content.final.contactHref} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 bg-white/10 px-7 font-black text-white transition hover:bg-white/15">
+              <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>
                 {content.final.contact}
               </Link>
               <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
