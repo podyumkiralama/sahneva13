@@ -17,12 +17,15 @@ const VISUAL_REFERENCES = {
       "A visual selection from large-scale stage, LED screen, sound, lighting, truss, corporate, protocol and esports event productions delivered by Sahneva.",
     servicesLabel: "Related production services",
     cards: [
-      ["PUBG / PMGC Esports Final", "Large LED surfaces, show lighting, player areas and arena-scale technical production for esports finals.", "Esports", "/img/blog/kurumsal-etkinlik-hero.webp", "PUBG esports final stage production in Turkey"],
-      ["Corporate Gala Stage", "Indoor LED wall, stage lighting, live performance setup and premium corporate event atmosphere.", "Corporate", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "Corporate gala stage with LED screen and lighting"],
-      ["Open-Air Festival Main Stage", "Large outdoor main stage with LED screens, line array sound, truss structure and field operation.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "Open-air festival main stage technical production"],
-      ["Backstage Technical Operation", "Signal routing, sound racks, patch, power and technical control behind the visible stage.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "Backstage sound rack and technical operation"],
-      ["LED Screen and Visual Content", "Main LED screens, side screens and content flow planned for sponsor visibility and audience impact.", "LED Screen", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "Large LED screen visual content flow at event"],
-      ["Line Array Sound System", "Sound system planning for large audiences, outdoor stages and live performance areas.", "Sound", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "Line array sound system for outdoor event stage"],
+      ["Open-Air Concert LED Stage", "Large outdoor LED surfaces, stage lighting and audience-facing screen operation for concert and festival fields.", "Outdoor LED", "/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Open-air concert LED screen stage production in Turkey"],
+      ["Hybrid Product Launch LED Wall", "LED wall, stage design and brand presentation flow for product launch and hybrid corporate event formats.", "Launch", "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "Hybrid product launch LED wall stage design"],
+      ["Corporate Gala Video Wall", "Indoor video wall, stage lighting and live performance setup for gala and executive event environments.", "Gala", "/img/led/gala-led-sahne-video-wall-sahneva.webp", "Corporate gala video wall and stage lighting"],
+      ["Corporate Conference Stage", "Conference stage, LED screen and lighting plan built around clear visibility and controlled technical operation.", "Conference", "/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Corporate conference LED screen and stage production"],
+      ["Hall Lighting Setup", "Architectural hall lighting, stage ambience and pre-event installation control for indoor corporate venues.", "Lighting", "/img/kurumsal/premium/salon-isik-kurulumu.webp", "Corporate hall lighting installation for event production"],
+      ["Outdoor Truss Stage", "Truss structure, roof line and technical carrier system prepared for outdoor stage and show equipment loads.", "Truss", "/img/kurumsal/premium/truss-outdoor-sahne.webp", "Outdoor truss stage structure for event production"],
+      ["Corporate LED Screen Stage", "LED screen, stage and audience seating layout for presentations, corporate meetings and executive sessions.", "Corporate", "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp", "Corporate event LED screen stage and audience seating"],
+      ["Wide Conference Hall", "Large meeting hall setup with LED screen, stage focus and technical planning for international business events.", "Congress", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Wide conference hall with LED screen for corporate event"],
+      ["Digital LED Installation", "Creative LED installation and brand display surfaces for high-impact guest experience and visual storytelling.", "Brand Area", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp", "Corporate digital LED installation for event experience"],
     ],
     wideTitle: "Built for conferences, launches, festivals and esports",
     wideCards: [
@@ -37,12 +40,15 @@ const VISUAL_REFERENCES = {
       "Sahneva’nın büyük ölçekli sahne, LED ekran, ses, ışık, truss, kurumsal, protokol ve e-spor etkinlik prodüksiyonlarından seçilmiş görsel referanslar.",
     servicesLabel: "İlgili prodüksiyon hizmetleri",
     cards: [
-      ["PUBG / PMGC E-Spor Finali", "Büyük LED yüzeyler, show ışıkları, oyuncu alanları ve arena ölçeğinde teknik prodüksiyon.", "E-spor", "/img/blog/kurumsal-etkinlik-hero.webp", "PUBG e-spor finali sahne ve LED ekran prodüksiyonu"],
-      ["Kurumsal Gala Sahnesi", "İç mekan LED ekran, sahne ışığı, canlı performans düzeni ve kurumsal etkinlik atmosferi.", "Kurumsal", "/img/kurumsal/kurumsal-sahne-led-ekran.webp", "Kurumsal gala sahnesinde LED ekran ve ışık kurulumu"],
-      ["Açık Hava Festival Ana Sahnesi", "LED ekranlar, line array ses sistemi, truss yapı ve saha operasyonu ile büyük ölçekli açık hava sahnesi.", "Festival", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp", "Açık hava festival ana sahne teknik prodüksiyonu"],
-      ["Backstage Teknik Operasyon", "Görünen sahnenin arkasında sinyal dağıtımı, ses rackleri, patch, enerji ve teknik kontrol altyapısı.", "Backstage", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-backstage-ses-rack-altyapisi.webp", "Backstage ses rack ve teknik operasyon altyapısı"],
-      ["LED Ekran ve Görsel İçerik Akışı", "Sponsor görünürlüğü ve izleyici etkisi için planlanan ana LED ekran, yan ekran ve içerik akışı.", "LED Ekran", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp", "Etkinlikte dev LED ekran ve görsel içerik akışı"],
-      ["Line Array Ses Sistemi", "Geniş izleyici alanları, açık hava sahneleri ve canlı performans alanları için ses sistemi planlaması.", "Ses", "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-line-array-ses-sistemi-detayi.webp", "Açık hava sahnesinde line array ses sistemi detayı"],
+      ["Açık Hava Konser LED Sahnesi", "Konser ve festival alanları için büyük LED yüzeyler, sahne ışığı ve izleyiciye dönük ekran operasyonu.", "Outdoor LED", "/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Açık hava konser LED ekran sahne prodüksiyonu"],
+      ["Hibrit Ürün Lansmanı LED Wall", "Ürün lansmanı ve hibrit kurumsal etkinlik formatları için LED wall, sahne tasarımı ve marka sunum akışı.", "Lansman", "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "Hibrit ürün lansmanı LED wall sahne tasarımı"],
+      ["Kurumsal Gala Video Wall", "Gala ve üst düzey davet ortamları için iç mekan video wall, sahne ışığı ve canlı performans düzeni.", "Gala", "/img/led/gala-led-sahne-video-wall-sahneva.webp", "Kurumsal gala video wall ve sahne ışığı kurulumu"],
+      ["Kurumsal Konferans Sahnesi", "Net görünürlük ve kontrollü teknik operasyon için planlanan konferans sahnesi, LED ekran ve ışık kurgusu.", "Konferans", "/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Kurumsal konferans LED ekran ve sahne prodüksiyonu"],
+      ["Salon Işık Kurulumu", "Kapalı kurumsal mekanlarda mimari ışık, sahne ambiyansı ve etkinlik öncesi kurulum kontrolü.", "Işık", "/img/kurumsal/premium/salon-isik-kurulumu.webp", "Kurumsal etkinlik salon ışık kurulumu"],
+      ["Outdoor Truss Sahne", "Açık hava sahnesi ve show ekipman yükleri için hazırlanan truss yapı, çatı hattı ve taşıyıcı sistem.", "Truss", "/img/kurumsal/premium/truss-outdoor-sahne.webp", "Outdoor truss sahne taşıyıcı sistem kurulumu"],
+      ["Kurumsal LED Ekran Sahnesi", "Sunum, kurumsal toplantı ve yönetici oturumları için LED ekran, sahne ve oturma düzeni planlaması.", "Kurumsal", "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp", "Kurumsal etkinlik LED ekran sahnesi ve oturma düzeni"],
+      ["Geniş Konferans Salonu", "Uluslararası iş etkinlikleri için LED ekran, sahne odağı ve teknik planlama içeren geniş toplantı salonu.", "Kongre", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Kurumsal etkinlik için geniş konferans salonu LED ekran kurulumu"],
+      ["Dijital LED Enstalasyon", "Yüksek etki yaratan misafir deneyimi ve görsel hikaye anlatımı için kreatif LED yüzeyler ve marka alanı.", "Marka Alanı", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp", "Kurumsal etkinlik dijital LED enstalasyon alanı"],
     ],
     wideTitle: "Kongre, lansman, festival ve e-spor etkinlikleri için hazır teknik ekip",
     wideCards: [
@@ -130,6 +136,18 @@ const ARTICLE_SECTIONS = {
     ["От brief до handover", "Процесс включает needs analysis, technical planning, quotation, logistics, setup, event-day support, dismantling и site handover."],
   ],
 };
+
+const ARTICLE_SIDE_IMAGES = [
+  ["/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Open-air LED screen stage production"],
+  ["/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "LED wall product launch stage production"],
+  ["/img/kurumsal/premium/truss-outdoor-sahne.webp", "Outdoor truss stage technical production"],
+  ["/img/kurumsal/premium/salon-isik-kurulumu.webp", "Indoor hall lighting setup for corporate event"],
+  ["/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp", "Corporate LED screen stage setup"],
+  ["/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Wide conference hall stage and LED screen"],
+  ["/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/kurumsal-led-dijital-enstalasyon.webp", "Corporate digital LED installation"],
+  ["/img/led/gala-led-sahne-video-wall-sahneva.webp", "Corporate gala video wall stage"],
+  ["/img/kurumsal/premium/kurumsal-organizasyon-hero-mobile.webp", "Corporate conference stage production"],
+];
 
 const serviceLinks = {
   en: [
@@ -334,19 +352,38 @@ export default function EventProductionPartnerPage({ locale }) {
         </section>
 
         <section className="px-6 py-20 md:px-10">
-          <div className="mx-auto max-w-5xl">
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-10">
-              {articleSections.map(([title, ...paragraphs]) => (
-                <article key={title} className="border-b border-slate-200 py-8 last:border-0 last:pb-0 first:pt-0">
-                  <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">{title}</h2>
-                  {paragraphs.map((paragraph) => (
-                    <p key={paragraph} className="mt-4 text-lg leading-relaxed text-slate-600">
-                      {paragraph}
-                    </p>
-                  ))}
+          <div className="mx-auto max-w-7xl space-y-8">
+            {articleSections.map(([title, ...paragraphs], index) => {
+              const [src, alt] = ARTICLE_SIDE_IMAGES[index % ARTICLE_SIDE_IMAGES.length];
+              const imageFirst = index % 2 === 1;
+
+              return (
+                <article
+                  key={title}
+                  className="grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch"
+                >
+                  <div className={cn("relative min-h-[280px] lg:min-h-full", imageFirst ? "lg:order-first" : "lg:order-last")}>
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 44vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+                  </div>
+                  <div className="p-7 md:p-10">
+                    <span className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">0{index + 1}</span>
+                    <h2 className="mt-3 text-2xl font-black tracking-tight text-slate-950 md:text-3xl">{title}</h2>
+                    {paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="mt-4 text-lg leading-relaxed text-slate-600">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </article>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </section>
 
