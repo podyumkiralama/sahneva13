@@ -4,6 +4,8 @@ const CONSENT_KEY = "user_analytics_consent";
 const TRUSTED_SCRIPT_POLICY = "sahneva#script-url";
 const GTAG_ORIGIN = "https://www.googletagmanager.com";
 const GTAG_PATH = "/gtag/js";
+const CLARITY_ORIGIN = "https://www.clarity.ms";
+const CLARITY_PATH_PREFIX = "/tag/";
 
 function createTrustedScriptUrl(url) {
   if (typeof window === "undefined" || !window.trustedTypes) return url;
@@ -13,11 +15,16 @@ function createTrustedScriptUrl(url) {
     window.trustedTypes.createPolicy(TRUSTED_SCRIPT_POLICY, {
       createScriptURL(value) {
         const parsedUrl = new URL(value, window.location.origin);
-        if (
+        const isGtagUrl =
           parsedUrl.origin === GTAG_ORIGIN &&
           parsedUrl.pathname === GTAG_PATH &&
-          parsedUrl.searchParams.has("id")
-        ) {
+          parsedUrl.searchParams.has("id");
+
+        const isClarityUrl =
+          parsedUrl.origin === CLARITY_ORIGIN &&
+          parsedUrl.pathname.startsWith(CLARITY_PATH_PREFIX);
+
+        if (isGtagUrl || isClarityUrl) {
           return parsedUrl.toString();
         }
 
@@ -83,20 +90,45 @@ function loadGAScript(gaId) {
   window.gtag("config", gaId);
 }
 
-export function activateAnalyticsConsent(gaId) {
-  if (!gaId || typeof window === "undefined") return;
+function loadClarityScript(clarityId) {
+  if (typeof window === "undefined" || !clarityId) return;
+  if (document.getElementById("clarity-script") || window.__clarityInitialized) return;
+  window.__clarityInitialized = true;
+
+  window.clarity =
+    window.clarity ||
+    function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+
+  const script = document.createElement("script");
+  script.id = "clarity-script";
+  script.setAttribute("data-clarity-loader", "true");
+  script.async = true;
+  script.src = createTrustedScriptUrl(
+    `https://www.clarity.ms/tag/${encodeURIComponent(clarityId)}`,
+  );
+  document.head.appendChild(script);
+}
+
+export function activateAnalyticsConsent({ gaId, clarityId } = {}) {
+  if ((!gaId && !clarityId) || typeof window === "undefined") return;
 
   initConsentMode();
 
   const stored = safeReadConsent();
   if (stored !== "granted") return;
 
-  window.gtag("consent", "update", {
-    ad_storage: "granted",
-    analytics_storage: "granted",
-    ad_user_data: "granted",
-    ad_personalization: "granted",
-  });
+  if (gaId) {
+    window.gtag("consent", "update", {
+      ad_storage: "granted",
+      analytics_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted",
+    });
 
-  loadGAScript(gaId);
+    loadGAScript(gaId);
+  }
+
+  loadClarityScript(clarityId);
 }

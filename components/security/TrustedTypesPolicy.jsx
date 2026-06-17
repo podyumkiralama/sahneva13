@@ -8,7 +8,7 @@ const TRUSTED_TYPES_POLICY_SOURCE = `
     ["https://www.googletagmanager.com", ["/gtag/js"]],
     ["https://va.vercel-scripts.com", ["/v1/speed-insights/script.js", "/v1/speed-insights/script.debug.js"]],
     ["https://static.cloudflareinsights.com", ["/beacon.min.js"]],
-    ["https://scripts.clarity.ms", ["/0.8.45/clarity.js"]],
+    ["https://scripts.clarity.ms", ["/"]],
     ["https://www.clarity.ms", ["/tag/"]],
   ]);
 

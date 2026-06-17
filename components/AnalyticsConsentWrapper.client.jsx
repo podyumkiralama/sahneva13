@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 const GA_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_ID;
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "x8cfx10pw9";
+const HAS_ANALYTICS_PROVIDER = Boolean(GA_ID || CLARITY_ID);
 const CONSENT_KEY = "user_analytics_consent";
 
 const ACTIVATION_EVENTS = [
@@ -68,7 +70,12 @@ function shouldSkipLateLoad() {
 
 function loadAnalytics() {
   return import("./AnalyticsConsentRuntime.client")
-    .then((mod) => mod.activateAnalyticsConsent(GA_ID))
+    .then((mod) =>
+      mod.activateAnalyticsConsent({
+        gaId: GA_ID,
+        clarityId: CLARITY_ID,
+      }),
+    )
     .catch(() => undefined);
 }
 
@@ -76,7 +83,7 @@ export default function AnalyticsConsentWrapper() {
   const [promptLocale, setPromptLocale] = useState(null);
 
   useEffect(() => {
-    if (!GA_ID || typeof window === "undefined") return undefined;
+    if (!HAS_ANALYTICS_PROVIDER || typeof window === "undefined") return undefined;
 
     const stored = safeReadConsent();
     if (stored === "denied") return undefined;
@@ -154,7 +161,7 @@ export default function AnalyticsConsentWrapper() {
     };
   }, []);
 
-  if (!promptLocale || !GA_ID) return null;
+  if (!promptLocale || !HAS_ANALYTICS_PROVIDER) return null;
 
   const copy = CONSENT_COPY[promptLocale] ?? CONSENT_COPY.tr;
 
