@@ -2,25 +2,42 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
 const PUBG_FINAL_VIDEO_ID = "173gBurWSRQ";
 const PUBG_FINAL_THUMBNAIL = "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg";
+const CONTACT_EMAIL = "info@sahneva.com";
 
 const VIDEO_CONTENT = {
   en: {
     label: "Esports Final Reference",
-    title: "PUBG Final Arena Production",
+    title: "Production Showcase: PUBG Turkiye Finals",
     text:
-      "Watch a large-scale PUBG final production reference featuring LED screen systems, show lighting, stage setup, arena atmosphere and technical field operation.",
+      "Discover how Sahneva plans synchronous multi-screen LED walls, concert-grade line array sound systems and strong truss infrastructure for large-scale esports finals under tight event schedules.",
     action: "Watch PUBG Final Video",
     titleAttr: "PUBG esports final stage production with LED screen and arena lighting",
     meta: ["Esports event production Turkey", "Arena production Turkey", "LED screen systems"],
+    emailIntro: "Prefer a formal event brief by email?",
+    emailText: "Email your event brief, technical file, venue details or production scope directly to:",
+    specsTitle: "Technical production standards",
+    specs: [
+      "Synchronous video playback and low-latency processing",
+      "Heavy-duty rigging and structural planning approach",
+      "High-refresh-rate LED panels for broadcast-quality visuals",
+    ],
   },
   tr: {
     label: "E-Spor Final Referansı",
-    title: "PUBG Final Arena Prodüksiyonu",
+    title: "Production Showcase: PUBG Türkiye Finals",
     text:
-      "LED ekran sistemleri, show ışıkları, sahne kurulumu, arena atmosferi ve teknik saha operasyonunu gösteren büyük ölçekli PUBG final prodüksiyon referansımızı izleyebilirsiniz.",
+      "Büyük ölçekli e-spor finalleri için senkron çoklu ekran LED duvarlar, konser seviyesinde line array ses sistemleri ve güçlü truss altyapısının nasıl planlandığını izleyebilirsiniz.",
     action: "PUBG Final Videosunu İzle",
     titleAttr: "PUBG e-spor finali LED ekranlı arena sahne prodüksiyonu",
     meta: ["E-spor prodüksiyonu", "Arena sahnesi", "LED ekran sistemleri"],
+    emailIntro: "Kurumsal brief'i e-posta ile mi göndermek istiyorsunuz?",
+    emailText: "Etkinlik brief'inizi, teknik dosyanızı, mekan bilgilerinizi veya prodüksiyon kapsamınızı doğrudan şu adrese gönderebilirsiniz:",
+    specsTitle: "Teknik prodüksiyon standartları",
+    specs: [
+      "Senkron video oynatma ve düşük gecikmeli görüntü işleme",
+      "Ağır hizmet rigging ve yapısal planlama yaklaşımı",
+      "Yayın kalitesine uygun yüksek refresh rate LED paneller",
+    ],
   },
   ar: {
     label: "مرجع نهائي الرياضات الإلكترونية",
@@ -30,15 +47,31 @@ const VIDEO_CONTENT = {
     action: "مشاهدة فيديو نهائي PUBG",
     titleAttr: "إنتاج مسرح نهائي PUBG مع شاشات LED وإضاءة القاعة",
     meta: ["إنتاج رياضات إلكترونية", "إنتاج قاعات", "أنظمة شاشات LED"],
+    emailIntro: "تفضلون إرسال موجز الفعالية بالبريد؟",
+    emailText: "يمكنكم إرسال موجز الفعالية أو تفاصيل المكان مباشرة إلى:",
+    specsTitle: "معايير الإنتاج التقني",
+    specs: [
+      "تشغيل فيديو متزامن ومعالجة منخفضة التأخير",
+      "تخطيط rigging قوي وآمن",
+      "لوحات LED بمعدل تحديث عالٍ مناسبة للتصوير",
+    ],
   },
   ru: {
     label: "Пример киберспортивного финала",
-    title: "Арена-продакшн финала PUBG",
+    title: "Production Showcase: PUBG Turkiye Finals",
     text:
       "Посмотрите пример крупного финала PUBG: LED-экраны, сценический свет, сцена, атмосфера арены и техническая работа команды на площадке.",
     action: "Смотреть видео финала PUBG",
     titleAttr: "Киберспортивный финал PUBG со сценой, LED-экраном и светом арены",
     meta: ["Киберспортивное событие", "Арена-продакшн", "LED-экраны"],
+    emailIntro: "Предпочитаете отправить бриф по электронной почте?",
+    emailText: "Отправьте бриф мероприятия, данные площадки или объем работ напрямую на:",
+    specsTitle: "Технические стандарты",
+    specs: [
+      "Синхронное воспроизведение видео и обработка с низкой задержкой",
+      "Усиленное rigging-планирование",
+      "LED-панели с высокой частотой обновления для съемки",
+    ],
   },
 };
 
@@ -77,6 +110,25 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
                   {item}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-7 rounded-3xl border border-cyan-200/20 bg-cyan-200/[0.08] p-5">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{content.emailIntro}</p>
+              <p className="mt-3 text-sm leading-relaxed text-white/[0.74]">
+                {content.emailText} <a href={`mailto:${CONTACT_EMAIL}`} className="font-black text-cyan-100 underline decoration-cyan-200/40 underline-offset-4">{CONTACT_EMAIL}</a>
+              </p>
+            </div>
+
+            <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.05] p-5">
+              <h3 className="text-base font-black text-white">{content.specsTitle}</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-white/[0.76]">
+                {content.specs.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 text-xs font-black text-emerald-200">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
