@@ -8,6 +8,35 @@ const SCREEN_TYPES = {
   p19: { label: "P1.9 Indoor LED", sqm: 4500, minimum: 50000 },
 };
 
+const WEB_MCP_LED_CALCULATOR_FORM_PROPS = {
+  toolname: "calculateLedScreenEstimate",
+  tooldescription:
+    "Calculate an approximate LED screen rental starting price for Sahneva based on panel type, screen dimensions, rental days and optional Watchout production needs.",
+};
+
+const WEB_MCP_LED_FIELD_PROPS = {
+  screenType: {
+    toolparamdescription:
+      "LED screen panel type or package, such as standard indoor/outdoor LED or P1.9 indoor LED.",
+  },
+  days: {
+    toolparamdescription:
+      "Number of rental days for the LED screen setup. Use at least one day.",
+  },
+  width: {
+    toolparamdescription:
+      "Requested LED screen width in meters.",
+  },
+  height: {
+    toolparamdescription:
+      "Requested LED screen height in meters.",
+  },
+  watchout: {
+    toolparamdescription:
+      "Whether advanced Watchout, mapping, multi-screen synchronization or enhanced visual control is required.",
+  },
+};
+
 function formatPrice(value) {
   return `${Math.round(value).toLocaleString("tr-TR")} TL`;
 }
@@ -82,7 +111,11 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
             Ekran ölçüsü, gün sayısı, panel tipi ve isteğe bağlı Watchout ihtiyacına göre yaklaşık başlangıç bedelini hesaplayın. Net teklif; kurulum saati, mekan erişimi, reji ve lojistik kapsamıyla birlikte kesinleşir.
           </p>
 
-          <form style={styles.form} onSubmit={(event) => event.preventDefault()}>
+          <form
+            style={styles.form}
+            {...WEB_MCP_LED_CALCULATOR_FORM_PROPS}
+            onSubmit={(event) => event.preventDefault()}
+          >
             <div>
               <label htmlFor="led-calc-type" style={styles.labelText}>
                 Ekran tipi
@@ -93,6 +126,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 value={screenType}
                 onChange={(event) => setScreenType(event.target.value)}
                 style={styles.input}
+                {...WEB_MCP_LED_FIELD_PROPS.screenType}
               >
                 <option value="standard">Standart indoor / outdoor LED</option>
                 <option value="p19">P1.9 Indoor LED</option>
@@ -111,6 +145,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 value={days}
                 onChange={(event) => setDays(event.target.value)}
                 style={styles.input}
+                {...WEB_MCP_LED_FIELD_PROPS.days}
               />
             </div>
 
@@ -127,6 +162,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 value={width}
                 onChange={(event) => setWidth(event.target.value)}
                 style={styles.input}
+                {...WEB_MCP_LED_FIELD_PROPS.width}
               />
             </div>
 
@@ -143,6 +179,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 value={height}
                 onChange={(event) => setHeight(event.target.value)}
                 style={styles.input}
+                {...WEB_MCP_LED_FIELD_PROPS.height}
               />
             </div>
 
@@ -153,6 +190,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 checked={watchout}
                 onChange={(event) => setWatchout(event.target.checked)}
                 style={styles.checkbox}
+                {...WEB_MCP_LED_FIELD_PROPS.watchout}
               />
               <span>
                 <strong style={{ color: "#fff", display: "block" }}>Watchout / gelişmiş reji</strong>
