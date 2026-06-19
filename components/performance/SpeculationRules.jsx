@@ -1,5 +1,7 @@
 import { STATIC_CSP_NONCE } from "@/lib/security/staticCsp";
 
+const SHOULD_RENDER_SPECULATION_RULES = process.env.CSP_STRICT_SCRIPTS !== "true";
+
 const SPECULATION_RULES_BY_LOCALE = {
   tr: [
     "/hizmetler",
@@ -49,6 +51,12 @@ function buildSpeculationRules(locale) {
 }
 
 export default function SpeculationRules({ locale = "tr", nonce = STATIC_CSP_NONCE }) {
+  if (!SHOULD_RENDER_SPECULATION_RULES) {
+    // Inline speculation rules are a non-critical performance hint. Strict CSP
+    // test mode disables them instead of re-adding script-src unsafe-inline.
+    return null;
+  }
+
   return (
     <script
       id={`speculation-rules-${locale}`}
