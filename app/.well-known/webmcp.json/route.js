@@ -62,10 +62,10 @@ const importantPages = [
     intent: "Service capability guidance for stage, podium, LED screen, sound-light AV, truss, tent, corporate event, esports arena and field operation quote preparation.",
   },
   {
-    title: "Sahneva Hizmet Kapsami Rehberi",
+    title: "Sahneva Hizmet Kapsamı Rehberi",
     url: `${SITE_URL}/hizmetler`,
     language: "tr",
-    intent: "Sahne, podyum, LED ekran, ses-isik AV, truss, cadir, kurumsal etkinlik, e-spor arena ve saha operasyonu talepleri icin hizmet kapsami on bilgi sayfasi.",
+    intent: "Sahne, podyum, LED ekran, ses-ışık AV, truss, çadır, kurumsal etkinlik, e-spor arena ve saha operasyonu talepleri için hizmet kapsamı ön bilgi sayfası.",
   },
   {
     title: "Contact Sahneva",

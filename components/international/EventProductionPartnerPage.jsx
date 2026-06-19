@@ -182,6 +182,79 @@ const INTERNATIONAL_CAPABILITY_FIELD_PROPS = {
   },
 };
 
+const INTERNATIONAL_CAPABILITY_COPY = {
+  en: {
+    eyebrow: "Service capability guide",
+    title: "Check whether Sahneva can support your event scope in Turkey",
+    intro:
+      "Sahneva supports international companies, European agencies and global brands with stage, podium, LED screen, sound, lighting, truss, tent, corporate event, esports and field operation scopes in Turkey.",
+    note:
+      "This guide helps prepare the right event brief for Istanbul, Antalya, Ankara, Izmir, Bodrum and other Turkish cities. It does not confirm real-time stock, crew availability or fixed pricing. Final quote details are confirmed by Sahneva according to city, venue, event date, technical rider, access hours, dimensions, logistics and crew scope.",
+    serviceCategory: "Service category",
+    city: "City",
+    eventType: "Event type",
+    indoorOutdoor: "Venue format",
+    audienceSize: "Audience size",
+    scopeNotes: "Scope notes",
+    servicePlaceholder: "Select service scope",
+    venuePlaceholder: "Select format",
+    indoor: "Indoor",
+    outdoor: "Outdoor",
+    hybrid: "Hybrid",
+    unknown: "Not confirmed yet",
+    cityPlaceholder: "Istanbul, Antalya, Ankara, Izmir, Bodrum...",
+    eventPlaceholder: "Conference, launch, concert, esports final...",
+    audiencePlaceholder: "Estimated guest, audience or participant count",
+    notesPlaceholder: "Date, venue, technical rider, load-in/load-out, LED size, stage size, logistics or crew notes",
+    submit: "Prepare quote details",
+    serviceOptions: [
+      "Stage, podium and platform systems",
+      "LED screen, LED wall and video wall systems",
+      "Sound, lighting and AV production",
+      "Truss, rigging and roof structures",
+      "Tent and outdoor event infrastructure",
+      "Corporate event technical production",
+      "Sports or esports arena production",
+      "Turnkey technical field operation",
+    ],
+  },
+  tr: {
+    eyebrow: "Hizmet kapsamı rehberi",
+    title: "Türkiye’deki etkinliğiniz için teknik kapsamı netleştirelim",
+    intro:
+      "Sahneva; uluslararası firmalar ve ajanslar için Türkiye’de sahne, podyum, LED ekran, ses-ışık, truss, çadır, kurumsal etkinlik, e-spor arena prodüksiyonu ve saha operasyonu kapsamlarını planlayabilir.",
+    note:
+      "Bu alan stok, ekip veya kesin fiyat onayı vermez. Nihai teklif; şehir, mekân, etkinlik tarihi, teknik rider, giriş/çıkış saatleri, ölçüler, lojistik ve ekip kapsamı Sahneva tarafından değerlendirildikten sonra netleşir.",
+    serviceCategory: "Hizmet kategorisi",
+    city: "Şehir",
+    eventType: "Etkinlik türü",
+    indoorOutdoor: "Alan tipi",
+    audienceSize: "Tahmini kişi sayısı",
+    scopeNotes: "Kapsam notları",
+    servicePlaceholder: "Hizmet kapsamı seçin",
+    venuePlaceholder: "Alan tipi seçin",
+    indoor: "İç mekân",
+    outdoor: "Dış mekân",
+    hybrid: "Hibrit",
+    unknown: "Henüz net değil",
+    cityPlaceholder: "İstanbul, Antalya, Ankara, İzmir, Bodrum...",
+    eventPlaceholder: "Konferans, lansman, konser, e-spor finali...",
+    audiencePlaceholder: "Tahmini davetli, izleyici veya katılımcı sayısı",
+    notesPlaceholder: "Tarih, mekân, teknik rider, giriş/çıkış saatleri, LED ölçüsü, sahne ölçüsü, lojistik veya ekip notları",
+    submit: "Teklif bilgilerini hazırla",
+    serviceOptions: [
+      "Sahne, podyum ve platform sistemleri",
+      "LED ekran, LED wall ve video wall sistemleri",
+      "Ses, ışık ve AV prodüksiyonu",
+      "Truss, rigging ve çatı sistemleri",
+      "Çadır ve açık alan etkinlik altyapısı",
+      "Kurumsal etkinlik teknik prodüksiyonu",
+      "Spor veya e-spor arena prodüksiyonu",
+      "Anahtar teslim teknik saha operasyonu",
+    ],
+  },
+};
+
 const serviceLinks = {
   en: [
     ["/en/stage-rental", "Stage Rental"],
@@ -225,31 +298,31 @@ function SectionHeading({ eyebrow, title, text, align = "center", dark = false }
   );
 }
 
-function InternationalServiceCapabilityTool() {
+function InternationalServiceCapabilityTool({ locale = "en" }) {
+  const copy = INTERNATIONAL_CAPABILITY_COPY[locale] ?? INTERNATIONAL_CAPABILITY_COPY.en;
+  const action = locale === "tr" ? "/iletisim" : "/en/contact";
+
   return (
     <section className="bg-white px-6 py-16 md:px-10" aria-labelledby="international-capability-title">
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-10">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">Service capability guide</p>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">{copy.eyebrow}</p>
             <h2 id="international-capability-title" className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              Check whether Sahneva can support your event scope in Turkey
+              {copy.title}
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-700">
-              Sahneva supports international companies, European agencies and global brands with stage, podium, LED screen,
-              sound, lighting, truss, tent, corporate event, esports and field operation scopes in Turkey.
+              {copy.intro}
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              This guide helps prepare the right event brief for Istanbul, Antalya, Ankara, Izmir, Bodrum and other Turkish cities.
-              It does not confirm real-time stock, crew availability or fixed pricing. Final quote details are confirmed by Sahneva
-              according to city, venue, event date, technical rider, access hours, dimensions, logistics and crew scope.
+              {copy.note}
             </p>
           </div>
 
-          <form action="/en/contact" method="get" className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" {...INTERNATIONAL_CAPABILITY_FORM_PROPS}>
+          <form action={action} method="get" className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" {...INTERNATIONAL_CAPABILITY_FORM_PROPS}>
             <div className="grid gap-4 md:grid-cols-2">
               <label className="grid gap-2 text-sm font-black text-slate-800">
-                Service category
+                {copy.serviceCategory}
                 <select
                   name="serviceCategory"
                   className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900", focusVisibleRingLight)}
@@ -257,43 +330,38 @@ function InternationalServiceCapabilityTool() {
                   {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.serviceCategory}
                 >
                   <option value="" disabled>
-                    Select service scope
+                    {copy.servicePlaceholder}
                   </option>
-                  <option>Stage, podium and platform systems</option>
-                  <option>LED screen, LED wall and video wall systems</option>
-                  <option>Sound, lighting and AV production</option>
-                  <option>Truss, rigging and roof structures</option>
-                  <option>Tent and outdoor event infrastructure</option>
-                  <option>Corporate event technical production</option>
-                  <option>Sports or esports arena production</option>
-                  <option>Turnkey technical field operation</option>
+                  {copy.serviceOptions.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
                 </select>
               </label>
 
               <label className="grid gap-2 text-sm font-black text-slate-800">
-                City
+                {copy.city}
                 <input
                   name="city"
                   type="text"
-                  placeholder="Istanbul, Antalya, Ankara, Izmir, Bodrum..."
+                  placeholder={copy.cityPlaceholder}
                   className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
                   {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.city}
                 />
               </label>
 
               <label className="grid gap-2 text-sm font-black text-slate-800">
-                Event type
+                {copy.eventType}
                 <input
                   name="eventType"
                   type="text"
-                  placeholder="Conference, launch, concert, esports final..."
+                  placeholder={copy.eventPlaceholder}
                   className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
                   {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.eventType}
                 />
               </label>
 
               <label className="grid gap-2 text-sm font-black text-slate-800">
-                Venue format
+                {copy.indoorOutdoor}
                 <select
                   name="indoorOutdoor"
                   className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900", focusVisibleRingLight)}
@@ -301,33 +369,33 @@ function InternationalServiceCapabilityTool() {
                   {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.indoorOutdoor}
                 >
                   <option value="" disabled>
-                    Select format
+                    {copy.venuePlaceholder}
                   </option>
-                  <option>Indoor</option>
-                  <option>Outdoor</option>
-                  <option>Hybrid</option>
-                  <option>Not confirmed yet</option>
+                  <option value="indoor">{copy.indoor}</option>
+                  <option value="outdoor">{copy.outdoor}</option>
+                  <option value="hybrid">{copy.hybrid}</option>
+                  <option value="not_confirmed">{copy.unknown}</option>
                 </select>
               </label>
             </div>
 
             <label className="grid gap-2 text-sm font-black text-slate-800">
-              Audience size
+              {copy.audienceSize}
               <input
                 name="audienceSize"
                 type="text"
-                placeholder="Estimated guest, audience or participant count"
+                placeholder={copy.audiencePlaceholder}
                 className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
                 {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.audienceSize}
               />
             </label>
 
             <label className="grid gap-2 text-sm font-black text-slate-800">
-              Scope notes
+              {copy.scopeNotes}
               <textarea
                 name="scopeNotes"
                 rows={4}
-                placeholder="Date, venue, technical rider, load-in/load-out, LED size, stage size, logistics or crew notes"
+                placeholder={copy.notesPlaceholder}
                 className={cn("rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
                 {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.scopeNotes}
               />
@@ -337,7 +405,7 @@ function InternationalServiceCapabilityTool() {
               type="submit"
               className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-slate-950 px-7 font-black text-white transition hover:bg-blue-950", focusVisibleRingLight)}
             >
-              Prepare quote details
+              {copy.submit}
             </button>
           </form>
         </div>
@@ -467,7 +535,7 @@ export default function EventProductionPartnerPage({ locale }) {
           </section>
         ) : null}
 
-        {locale === "en" ? <InternationalServiceCapabilityTool /> : null}
+        {["en", "tr"].includes(locale) ? <InternationalServiceCapabilityTool locale={locale} /> : null}
 
         <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
           <div className="mx-auto max-w-7xl">
