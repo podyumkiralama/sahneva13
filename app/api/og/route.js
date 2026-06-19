@@ -14,6 +14,33 @@ const clampText = (value, maxLength) => {
   return text.length > maxLength ? `${text.slice(0, maxLength - 1)}…` : text;
 };
 
+const FALLBACK_IMAGE = `${SITE_URL}/img/og/sahneva-og.webp`;
+
+function resolveBackgroundImage(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return FALLBACK_IMAGE;
+
+  if (raw.startsWith("/img/")) {
+    return `${SITE_URL}${raw}`;
+  }
+
+  try {
+    const requested = new URL(raw);
+    const site = new URL(SITE_URL);
+
+    if (
+      requested.origin === site.origin &&
+      requested.pathname.startsWith("/img/")
+    ) {
+      return requested.toString();
+    }
+  } catch {
+    return FALLBACK_IMAGE;
+  }
+
+  return FALLBACK_IMAGE;
+}
+
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
 
@@ -23,13 +50,7 @@ export async function GET(request) {
     130
   );
   const eyebrow = clampText(searchParams.get("eyebrow") || "Türkiye Geneli Etkinlik Prodüksiyonu", 56);
-  const image = searchParams.get("image");
-
-  const backgroundImage = image
-    ? image.startsWith("http")
-      ? image
-      : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`
-    : `${SITE_URL}/img/og/sahneva-og.webp`;
+  const backgroundImage = resolveBackgroundImage(searchParams.get("image"));
 
   return new ImageResponse(
     (

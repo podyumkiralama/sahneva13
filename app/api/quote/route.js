@@ -57,17 +57,21 @@ export async function POST(req) {
       );
     }
 
+    // This endpoint is intentionally not wired to a production delivery provider yet.
+    // Keep validation in place for future integration, but fail closed so accidental
+    // callers do not believe a lead was delivered to Sahneva.
     if (process.env.NODE_ENV !== "production") {
       console.info("QUOTE_REQ", validation.normalized);
     }
 
     return Response.json(
       {
-        ok: true,
-        message:
-          "Quote request accepted. Delivery integration is not configured yet.",
+        ok: false,
+        errors: [
+          "Quote delivery is not configured. Please contact Sahneva by email, WhatsApp or the contact page.",
+        ],
       },
-      { status: 202 },
+      { status: 503 },
     );
   } catch {
     return Response.json(
