@@ -28,6 +28,8 @@ const META_DESCRIPTION =
 
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const PODIUM_PRICE_PATH = "/podyum-kiralama-fiyatlari";
+const RUNWAY_PODIUM_PATH = "/defile-podyum-kiralama";
+const CONCERT_PODIUM_PATH = "/konser-icin-podyum-kiralama";
 const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const SOUND_LIGHT_PATH = "/ses-isik-sistemleri";
@@ -406,6 +408,13 @@ export default function Page() {
           veya ürün lansmanı gibi etkinliklerde konuşmacı, kürsü, sandalye ve LED ekran konumu
           hesaba katılırken; konser veya festivalde sanatçı trafiği, backline ekipmanları, monitörler
           ve teknik ekip hareket alanı dikkate alınmalıdır.
+        </p>
+        <p>
+          Proje yürüyüş aksı ve marka görünürlüğü gerektiriyorsa{" "}
+          <Link href={RUNWAY_PODIUM_PATH}>defile podyum kiralama</Link>, kalabalık performans ve
+          backline yerleşimi öne çıkıyorsa{" "}
+          <Link href={CONCERT_PODIUM_PATH}>konser için podyum kiralama</Link> sayfalarındaki niş
+          kurulum örnekleri karar vermeyi hızlandırır.
         </p>
 
         <DecisionBox title="Hızlı karar sorusu">

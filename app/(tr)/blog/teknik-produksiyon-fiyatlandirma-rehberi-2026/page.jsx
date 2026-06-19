@@ -352,6 +352,16 @@ export default function Page() {
                   sayfasındaki başlangıç fiyat mantığını ayrıca inceleyebilirsiniz.
                 </p>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
+                  Kurulum öncesindeki saha ölçümü, enerji, yükleme ve prova takvimi için{" "}
+                  <Link
+                    href="/blog/etkinlik-teknik-kesif-ve-planlama-rehberi"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
+                    etkinlik teknik keşif rehberi
+                  </Link>{" "}
+                  fiyatın hangi kalemlerden oluştuğunu daha net okumanıza yardımcı olur.
+                </p>
+                <p className="mt-3 text-sm leading-7 text-slate-700">
                   Yanlış fiyatlandırma düşük doluluk yaratmaz; düşük algı
                   yaratır. Müşteri "ucuz" görünen teklifte kalite şüphesi duyar.
                   Doğru fiyatlandırma ise premium algı ile daha yüksek kabul

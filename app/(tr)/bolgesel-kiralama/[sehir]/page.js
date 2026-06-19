@@ -20,6 +20,13 @@ const SERVICES = [
   { title: "Çadır Kiralama", href: "/cadir-kiralama" },
 ];
 
+const NEARBY_CITY_LINKS = {
+  yalova: ["bursa", "kocaeli", "istanbul"],
+  kayseri: ["nevsehir", "nigde", "sivas"],
+  sanliurfa: ["gaziantep", "diyarbakir", "mardin"],
+  gumushane: ["trabzon", "bayburt", "erzincan"],
+};
+
 export const dynamic = "force-static";
 export const dynamicParams = false;
 export const revalidate = 86400;
@@ -32,6 +39,14 @@ function getCityOrThrow(slug) {
   const city = getRegionalCity(slug);
   if (!city) notFound();
   return city;
+}
+
+function getNearbyCities(slug) {
+  const existingSlugs = new Set(REGIONAL_CITIES.map((city) => city.slug));
+  return (NEARBY_CITY_LINKS[slug] ?? [])
+    .filter((nearbySlug) => existingSlugs.has(nearbySlug))
+    .map((nearbySlug) => getRegionalCity(nearbySlug))
+    .filter(Boolean);
 }
 
 export async function generateMetadata({ params }) {
@@ -182,6 +197,7 @@ export default async function CityRegionalRentalPage({ params }) {
   const city = getCityOrThrow(sehir);
   const context = getCityContext(city);
   const cityHref = `/bolgesel-kiralama/${city.slug}`;
+  const nearbyCities = getNearbyCities(city.slug);
 
   return (
     <main className="bg-slate-950 text-white">
@@ -259,6 +275,34 @@ export default async function CityRegionalRentalPage({ params }) {
           </Link>
         ))}
       </section>
+
+      {nearbyCities.length > 0 ? (
+        <section className="mx-auto max-w-6xl px-4 pb-14">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+              Bölgesel ağ
+            </p>
+            <h2 className="mt-3 text-2xl font-black">
+              Yakın Bölgelerde Etkinlik Kiralama
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/68">
+              {city.name} çevresindeki yakın şehirlerde de sahne, LED ekran, podyum,
+              ses-ışık ve çadır kurulumlarını aynı lojistik plan içinde değerlendirebiliriz.
+            </p>
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
+              {nearbyCities.map((nearbyCity) => (
+                <Link
+                  key={nearbyCity.slug}
+                  href={`/bolgesel-kiralama/${nearbyCity.slug}`}
+                  className="rounded-2xl border border-white/10 bg-slate-950/45 px-5 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/[0.07] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/50"
+                >
+                  {nearbyCity.name} etkinlik kiralama
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section id="teklif-bilgileri" className="mx-auto max-w-6xl scroll-mt-24 px-4 pb-16">
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">

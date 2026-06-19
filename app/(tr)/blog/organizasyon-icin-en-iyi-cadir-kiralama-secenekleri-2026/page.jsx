@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -357,6 +358,11 @@ export default function Page() {
 
                 <h2 id="maliyet">2026 Çadır Kiralama Maliyetlerini Etkileyen Faktörler</h2>
                 <p>Maliyetler metrekare, süre, mevsim, zemin ve ek ihtiyaçlara göre değişir.</p>
+                <p>
+                  Yaklaşık alan ihtiyacını hızlı görmek için{" "}
+                  <Link href="/cadir-hesaplama">çadır hesaplama aracı</Link>{" "}
+                  üzerinden kişi sayısı ve oturma düzenine göre ilk m² fikrini alabilirsiniz.
+                </p>
                 <ul>
                   <li>Metrekare büyüklüğü</li>
                   <li>Zemin koşulları</li>
