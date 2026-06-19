@@ -61,6 +61,18 @@ const importantPages = [
     language: "en",
     intent: "Send an event brief, RFP, technical rider or quote request.",
   },
+  {
+    title: "Contact Sahneva Arabic",
+    url: `${SITE_URL}/ar/contact`,
+    language: "ar",
+    intent: "Arabic contact page for international event production quote requests in Turkey.",
+  },
+  {
+    title: "Contact Sahneva Russian",
+    url: `${SITE_URL}/ru/contact`,
+    language: "ru",
+    intent: "Russian contact page for international event production quote requests in Turkey.",
+  },
 ];
 
 const services = [
