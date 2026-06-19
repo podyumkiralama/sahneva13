@@ -15,18 +15,20 @@ const siteUrl =
   process.env.SITE_URL ??
   "https://www.sahneva.com";
 
-function buildContentSecurityPolicy({ siteUrl, isPreview }) {
-  const siteOrigin = (() => {
-    try {
-      return new URL(siteUrl).origin;
-    } catch {
-      return "https://www.sahneva.com";
-    }
-  })();
+const cspReportOnlyEnabled = process.env.CSP_REPORT_ONLY === "true";
 
+function resolveSiteOrigin(siteUrl) {
+  try {
+    return new URL(siteUrl).origin;
+  } catch {
+    return "https://www.sahneva.com";
+  }
+}
+
+function buildScriptSrc({ allowUnsafeInline = true } = {}) {
   const scriptSrc = [
     "'self'",
-    "'unsafe-inline'",
+    ...(allowUnsafeInline ? ["'unsafe-inline'"] : []),
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://static.cloudflareinsights.com",
@@ -36,6 +38,13 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
     "https://vercel.live",
     "https://*.vercel.live",
   ].join(" ");
+
+  return scriptSrc;
+}
+
+function buildContentSecurityPolicy({ siteUrl, isPreview }) {
+  const siteOrigin = resolveSiteOrigin(siteUrl);
+  const scriptSrc = buildScriptSrc({ allowUnsafeInline: true });
 
   const connectSrc = [
     "'self'",
@@ -124,6 +133,102 @@ const contentSecurityPolicy = buildContentSecurityPolicy({
   isPreview,
 });
 
+function buildReportOnlyContentSecurityPolicy({ siteUrl, isPreview }) {
+  const siteOrigin = resolveSiteOrigin(siteUrl);
+  const scriptSrc = buildScriptSrc({ allowUnsafeInline: false });
+
+  const connectSrc = [
+    "'self'",
+    "https://vitals.vercel-insights.com",
+    "https://www.google-analytics.com",
+    "https://region1.google-analytics.com",
+    "https://stats.g.doubleclick.net",
+    "https://www.google.com",
+    "https://www.clarity.ms",
+    "https://scripts.clarity.ms",
+    "https://k.clarity.ms",
+    "https://z.clarity.ms",
+    "https://l.clarity.ms",
+    "https://*.clarity.ms",
+    "https://static.cloudflareinsights.com",
+    "https://cloudflareinsights.com",
+    "wss://*.pusher.com",
+    siteUrl,
+  ].join(" ");
+
+  const frameSrc = [
+    "'self'",
+    "https://www.google.com",
+    "https://www.youtube.com",
+    "https://www.youtube-nocookie.com",
+    "https://player.vimeo.com",
+    "https://vercel.live",
+    "https://*.vercel.live",
+    "https://www.google.com/maps",
+    "https://maps.google.com",
+    "https://google.com/maps",
+    "https://*.google.com",
+  ].join(" ");
+
+  const imgSrc = [
+    "'self'",
+    "data:",
+    "blob:",
+    siteOrigin,
+    "https://www.google-analytics.com",
+    "https://www.googletagmanager.com",
+    "https://stats.g.doubleclick.net",
+    "https://*.google.com",
+    "https://*.clarity.ms",
+    "https://c.bing.com",
+    "https://static.cloudflareinsights.com",
+    "https://cloudflareinsights.com",
+    "https://i.ytimg.com",
+    "https://img.youtube.com",
+    "https://vercel.live",
+    "https://*.vercel.live",
+  ].join(" ");
+
+  const frameAncestors = isPreview
+    ? "frame-ancestors 'self' https://vercel.live https://*.vercel.live;"
+    : "frame-ancestors 'none';";
+
+  const trustedTypesPolicy = isPreview
+    ? "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url;"
+    : "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url; require-trusted-types-for 'script';";
+
+  // Report-only intentionally removes script-src 'unsafe-inline' first. This lets
+  // us observe blockers before enforcing a stricter policy on static/ISR pages
+  // that currently depend on JSON-LD, Trusted Types and speculation-rules scripts.
+  return `
+    default-src 'self';
+    ${frameAncestors}
+    base-uri 'self';
+    object-src 'none';
+    upgrade-insecure-requests;
+    img-src ${imgSrc};
+    font-src 'self' data: https://fonts.gstatic.com https://vercel.live;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    script-src ${scriptSrc};
+    script-src-elem ${scriptSrc};
+    script-src-attr 'none';
+    connect-src ${connectSrc};
+    worker-src 'self' blob:;
+    frame-src ${frameSrc};
+    form-action 'self' https://formspree.io https://wa.me;
+    ${trustedTypesPolicy}
+  `
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+const contentSecurityPolicyReportOnly = cspReportOnlyEnabled
+  ? buildReportOnlyContentSecurityPolicy({
+      siteUrl,
+      isPreview,
+    })
+  : null;
+
 /* -------------------- Security Headers -------------------- */
 const securityHeaders = (() => {
   const base = [
@@ -145,7 +250,17 @@ const securityHeaders = (() => {
     { key: "Content-Security-Policy", value: contentSecurityPolicy },
   ];
 
-  return isPreview ? base : [...base, { key: "X-Frame-Options", value: "DENY" }];
+  const headers = contentSecurityPolicyReportOnly
+    ? [
+        ...base,
+        {
+          key: "Content-Security-Policy-Report-Only",
+          value: contentSecurityPolicyReportOnly,
+        },
+      ]
+    : base;
+
+  return isPreview ? headers : [...headers, { key: "X-Frame-Options", value: "DENY" }];
 })();
 
 const longTermCacheHeaders = [
