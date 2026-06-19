@@ -56,6 +56,18 @@ const importantPages = [
     intent: "Corporate conferences, launches, gala events, protocol events and brand experiences.",
   },
   {
+    title: "Sahneva Service Capability Guide",
+    url: `${SITE_URL}/en/services`,
+    language: "en",
+    intent: "Service capability guidance for stage, podium, LED screen, sound-light AV, truss, tent, corporate event, esports arena and field operation quote preparation.",
+  },
+  {
+    title: "Sahneva Hizmet Kapsami Rehberi",
+    url: `${SITE_URL}/hizmetler`,
+    language: "tr",
+    intent: "Sahne, podyum, LED ekran, ses-isik AV, truss, cadir, kurumsal etkinlik, e-spor arena ve saha operasyonu talepleri icin hizmet kapsami on bilgi sayfasi.",
+  },
+  {
     title: "Contact Sahneva",
     url: `${SITE_URL}/en/contact`,
     language: "en",
@@ -197,9 +209,13 @@ function buildManifest() {
         "searchSite",
         "requestEventProductionQuote",
         "calculateLedScreenEstimate",
+        "checkServiceCapability",
+        "calculatePodiumEstimate",
       ],
       notes: [
         "LED screen rental estimate form is available as a client-side estimate tool. Final pricing requires Sahneva confirmation based on project scope, city, venue, logistics and setup details.",
+        "Service capability checks are guidance only and do not confirm real-time stock, crew or equipment availability.",
+        "Estimate tools provide approximate starting guidance only. Final proposal requires Sahneva confirmation based on city, venue, date, logistics, crew, dimensions and technical scope.",
       ],
       allowedAgentActions: [
         "Read service and project information",

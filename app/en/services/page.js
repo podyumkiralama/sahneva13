@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ───── META & ISR ───── */
@@ -798,6 +799,8 @@ export default function EnglishServicesPage() {
             </div>
           </div>
         </section>
+
+        <WebMcpServiceTools locale="en" contactHref="/en/contact" />
 
         {/* CTA SECTION */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
