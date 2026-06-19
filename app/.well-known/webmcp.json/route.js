@@ -181,7 +181,14 @@ function buildManifest() {
     },
     capabilities: {
       mode: "read_only_guidance",
-      declarativeToolsOnSite: ["searchSite", "requestEventProductionQuote"],
+      declarativeToolsOnSite: [
+        "searchSite",
+        "requestEventProductionQuote",
+        "calculateLedScreenEstimate",
+      ],
+      notes: [
+        "LED screen rental estimate form is available as a client-side estimate tool. Final pricing requires Sahneva confirmation based on project scope, city, venue, logistics and setup details.",
+      ],
       allowedAgentActions: [
         "Read service and project information",
         "Recommend the most relevant Sahneva page for an event production query",
