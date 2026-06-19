@@ -87,6 +87,21 @@ const WEB_MCP_QUOTE_FIELD_PROPS = {
     toolparamdescription:
       "Event date, city or venue, estimated audience size, required equipment and production details.",
   },
+  formSubject: {
+    title: "Internal form subject",
+    toolparamdescription:
+      "Internal Formspree subject line used to identify this Sahneva quote request.",
+  },
+  redirectUrl: {
+    title: "Post-submit redirect URL",
+    toolparamdescription:
+      "Internal redirect URL that sends the user to the Sahneva thank-you page after submission.",
+  },
+  spamTrap: {
+    title: "Spam prevention field",
+    toolparamdescription:
+      "Hidden anti-spam field that should be left empty by real users and AI agents.",
+  },
 };
 
 /* ───── STRUCTURED DATA (Rich Snippet) ───── */
@@ -531,11 +546,13 @@ export default function ContactPage() {
                       type="hidden"
                       name="_subject"
                       value="Sahneva | New Proposal Request"
+                      {...WEB_MCP_QUOTE_FIELD_PROPS.formSubject}
                     />
                     <input
                       type="hidden"
                       name="_redirect"
                       value="https://www.sahneva.com/tesekkurler"
+                      {...WEB_MCP_QUOTE_FIELD_PROPS.redirectUrl}
                     />
                     <input
                       type="text"
@@ -544,6 +561,7 @@ export default function ContactPage() {
                       tabIndex={-1}
                       autoComplete="off"
                       aria-hidden="true"
+                      {...WEB_MCP_QUOTE_FIELD_PROPS.spamTrap}
                     />
 
                     <button
