@@ -215,6 +215,7 @@ function buildManifest() {
       notes: [
         "LED screen rental estimate form is available as a client-side estimate tool. Final pricing requires Sahneva confirmation based on project scope, city, venue, logistics and setup details.",
         "Service capability checks are guidance only and do not confirm real-time stock, crew or equipment availability.",
+        "checkServiceCapability is intended for service discovery and quote-preparation guidance for international companies planning events in Turkey. It does not confirm real-time inventory, crew availability or fixed pricing.",
         "Estimate tools provide approximate starting guidance only. Final proposal requires Sahneva confirmation based on city, venue, date, logistics, crew, dimensions and technical scope.",
       ],
       allowedAgentActions: [

@@ -149,6 +149,39 @@ const focusVisibleRing =
 const focusVisibleRingLight =
   "focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
 
+const INTERNATIONAL_CAPABILITY_FORM_PROPS = {
+  toolname: "checkServiceCapability",
+  tooldescription:
+    "Check whether Sahneva can support a requested international event production service category in Turkey and identify the information needed for a confirmed quote. Sahneva is a local technical production partner, not a ticketing platform. This tool does not confirm real-time inventory, crew availability or fixed pricing.",
+};
+
+const INTERNATIONAL_CAPABILITY_FIELD_PROPS = {
+  serviceCategory: {
+    toolparamdescription:
+      "Requested Sahneva service category such as stage, podium, LED screen, sound, lighting, truss, tent, corporate event production, esports arena production or technical field operation.",
+  },
+  city: {
+    toolparamdescription:
+      "Event city in Turkey, such as Istanbul, Antalya, Ankara, Izmir, Bodrum or another Turkish city depending on project scope.",
+  },
+  eventType: {
+    toolparamdescription:
+      "Event type such as corporate event, conference, exhibition, brand launch, concert, festival, sports event, esports final or outdoor activation.",
+  },
+  indoorOutdoor: {
+    toolparamdescription:
+      "Whether the event is planned as indoor, outdoor, hybrid or not confirmed yet.",
+  },
+  audienceSize: {
+    toolparamdescription:
+      "Estimated audience, guest or participant count for the event.",
+  },
+  scopeNotes: {
+    toolparamdescription:
+      "Additional quote-preparation details such as event date, venue, technical rider, load-in/load-out schedule, dimensions, audience size, logistics, crew scope or access notes.",
+  },
+};
+
 const serviceLinks = {
   en: [
     ["/en/stage-rental", "Stage Rental"],
@@ -189,6 +222,127 @@ function SectionHeading({ eyebrow, title, text, align = "center", dark = false }
       <h2 className={cn("mt-3 text-3xl font-black tracking-tight md:text-5xl", dark ? "text-white" : "text-slate-950")}>{title}</h2>
       {text ? <p className={cn("mt-5 text-lg leading-relaxed", dark ? "text-white/[0.72]" : "text-slate-600")}>{text}</p> : null}
     </div>
+  );
+}
+
+function InternationalServiceCapabilityTool() {
+  return (
+    <section className="bg-white px-6 py-16 md:px-10" aria-labelledby="international-capability-title">
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-10">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">AI service capability guide</p>
+            <h2 id="international-capability-title" className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+              Check whether Sahneva can support your event scope in Turkey
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate-700">
+              Sahneva supports international companies, European agencies and global brands with stage, podium, LED screen,
+              sound, lighting, truss, tent, corporate event, esports and field operation scopes in Turkey.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
+              This guide helps prepare the right event brief for Istanbul, Antalya, Ankara, Izmir, Bodrum and other Turkish cities.
+              It does not confirm real-time stock, crew availability or fixed pricing. Final quote details are confirmed by Sahneva
+              according to city, venue, event date, technical rider, access hours, dimensions, logistics and crew scope.
+            </p>
+          </div>
+
+          <form action="/en/contact" method="get" className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" {...INTERNATIONAL_CAPABILITY_FORM_PROPS}>
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="grid gap-2 text-sm font-black text-slate-800">
+                Service category
+                <select
+                  name="serviceCategory"
+                  className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900", focusVisibleRingLight)}
+                  defaultValue=""
+                  {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.serviceCategory}
+                >
+                  <option value="" disabled>
+                    Select service scope
+                  </option>
+                  <option>Stage, podium and platform systems</option>
+                  <option>LED screen, LED wall and video wall systems</option>
+                  <option>Sound, lighting and AV production</option>
+                  <option>Truss, rigging and roof structures</option>
+                  <option>Tent and outdoor event infrastructure</option>
+                  <option>Corporate event technical production</option>
+                  <option>Sports or esports arena production</option>
+                  <option>Turnkey technical field operation</option>
+                </select>
+              </label>
+
+              <label className="grid gap-2 text-sm font-black text-slate-800">
+                City
+                <input
+                  name="city"
+                  type="text"
+                  placeholder="Istanbul, Antalya, Ankara, Izmir, Bodrum..."
+                  className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
+                  {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.city}
+                />
+              </label>
+
+              <label className="grid gap-2 text-sm font-black text-slate-800">
+                Event type
+                <input
+                  name="eventType"
+                  type="text"
+                  placeholder="Conference, launch, concert, esports final..."
+                  className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
+                  {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.eventType}
+                />
+              </label>
+
+              <label className="grid gap-2 text-sm font-black text-slate-800">
+                Venue format
+                <select
+                  name="indoorOutdoor"
+                  className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900", focusVisibleRingLight)}
+                  defaultValue=""
+                  {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.indoorOutdoor}
+                >
+                  <option value="" disabled>
+                    Select format
+                  </option>
+                  <option>Indoor</option>
+                  <option>Outdoor</option>
+                  <option>Hybrid</option>
+                  <option>Not confirmed yet</option>
+                </select>
+              </label>
+            </div>
+
+            <label className="grid gap-2 text-sm font-black text-slate-800">
+              Audience size
+              <input
+                name="audienceSize"
+                type="text"
+                placeholder="Estimated guest, audience or participant count"
+                className={cn("min-h-[48px] rounded-2xl border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
+                {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.audienceSize}
+              />
+            </label>
+
+            <label className="grid gap-2 text-sm font-black text-slate-800">
+              Scope notes
+              <textarea
+                name="scopeNotes"
+                rows={4}
+                placeholder="Date, venue, technical rider, load-in/load-out, LED size, stage size, logistics or crew notes"
+                className={cn("rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-slate-900 placeholder:text-slate-400", focusVisibleRingLight)}
+                {...INTERNATIONAL_CAPABILITY_FIELD_PROPS.scopeNotes}
+              />
+            </label>
+
+            <button
+              type="submit"
+              className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-slate-950 px-7 font-black text-white transition hover:bg-blue-950", focusVisibleRingLight)}
+            >
+              Prepare quote details
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -312,6 +466,8 @@ export default function EventProductionPartnerPage({ locale }) {
             </div>
           </section>
         ) : null}
+
+        {locale === "en" ? <InternationalServiceCapabilityTool /> : null}
 
         <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
           <div className="mx-auto max-w-7xl">
