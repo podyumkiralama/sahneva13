@@ -12,6 +12,36 @@ const AR_CONTACT_DESCRIPTION =
 const AR_CONTACT_OG_IMAGE_URL = `${SITE_URL}/img/hero-bg-desktop.webp`;
 const WHATSAPP_URL =
   "https://wa.me/905453048671?text=%D8%A3%D8%B1%D9%8A%D8%AF+%D8%B9%D8%B1%D8%B6+%D8%B3%D8%B9%D8%B1+%D9%84%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A9+%D9%81%D9%8A+%D8%AA%D8%B1%D9%83%D9%8A%D8%A7.";
+const FORM_ENDPOINT = "https://formspree.io/f/xanppven";
+
+const WEB_MCP_QUOTE_FORM_PROPS = {
+  toolname: "requestEventProductionQuote",
+  tooldescription:
+    "Submit an event production quote request to Sahneva for stage, LED screen, sound, lighting, truss, tent, podium and technical crew needs in Turkey.",
+};
+
+const WEB_MCP_QUOTE_FIELD_PROPS = {
+  name: {
+    toolparamdescription:
+      "Full name of the person requesting the event production quote.",
+  },
+  phone: {
+    toolparamdescription:
+      "Phone number with country code for quote follow-up by Sahneva.",
+  },
+  email: {
+    toolparamdescription:
+      "Email address where Sahneva should send the proposal and technical details.",
+  },
+  eventType: {
+    toolparamdescription:
+      "Type of event such as corporate event, concert, festival, conference, exhibition or other.",
+  },
+  message: {
+    toolparamdescription:
+      "Event date, city or venue, estimated audience size, required equipment and production details.",
+  },
+};
 
 const CONTACT_CHANNELS = [
   {
@@ -214,6 +244,133 @@ export default function ArabicContactPage() {
               </a>
             );
           })}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 pb-14">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 text-right">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              Request a quote
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              أرسل تفاصيل الفعالية للحصول على عرض فني واضح.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-700">
+              شارك المدينة، التاريخ، نوع الفعالية، عدد الحضور والخدمات المطلوبة. يراجع فريق Sahneva
+              النطاق الفني ويرد بخطة مناسبة للمشروع.
+            </p>
+          </div>
+
+          <form
+            action={FORM_ENDPOINT}
+            method="POST"
+            acceptCharset="UTF-8"
+            {...WEB_MCP_QUOTE_FORM_PROPS}
+            className="rounded-3xl border border-slate-200 bg-white p-6 text-right shadow-sm md:p-8"
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label htmlFor="name" className="block text-sm font-black text-slate-800">
+                  الاسم الكامل *
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  {...WEB_MCP_QUOTE_FIELD_PROPS.name}
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-black text-slate-800">
+                  رقم الهاتف *
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  dir="ltr"
+                  placeholder="+90 ..."
+                  {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                />
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-5 md:grid-cols-2">
+              <div>
+                <label htmlFor="email" className="block text-sm font-black text-slate-800">
+                  البريد الإلكتروني *
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  inputMode="email"
+                  dir="ltr"
+                  placeholder="name@example.com"
+                  {...WEB_MCP_QUOTE_FIELD_PROPS.email}
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                />
+              </div>
+              <div>
+                <label htmlFor="eventType" className="block text-sm font-black text-slate-800">
+                  نوع الفعالية *
+                </label>
+                <select
+                  id="eventType"
+                  name="eventType"
+                  required
+                  autoComplete="off"
+                  {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                >
+                  <option value="">اختر نوع الفعالية</option>
+                  <option value="Corporate Event">فعالية شركات</option>
+                  <option value="Conference">مؤتمر</option>
+                  <option value="Concert">حفل أو مهرجان</option>
+                  <option value="Exhibition">معرض</option>
+                  <option value="Esports Event">بطولة رياضات إلكترونية</option>
+                  <option value="Other">أخرى</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <label htmlFor="message" className="block text-sm font-black text-slate-800">
+                تفاصيل الفعالية *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                autoComplete="off"
+                placeholder="المدينة، التاريخ، المكان، عدد الحضور، الخدمات المطلوبة..."
+                {...WEB_MCP_QUOTE_FIELD_PROPS.message}
+                className="mt-2 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              />
+            </div>
+
+            <input type="hidden" name="_subject" value="Sahneva | Arabic Proposal Request" />
+            <input type="hidden" name="_redirect" value="https://www.sahneva.com/tesekkurler" />
+            <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+
+            <button
+              type="submit"
+              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-indigo-600 px-6 text-sm font-black text-white transition hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200"
+            >
+              إرسال طلب العرض
+            </button>
+          </form>
         </div>
       </section>
 

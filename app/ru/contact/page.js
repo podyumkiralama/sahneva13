@@ -2,6 +2,36 @@ import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_CONTACT_URL = buildCanonical("/ru/contact");
 const RU_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
+const FORM_ENDPOINT = "https://formspree.io/f/xanppven";
+
+const WEB_MCP_QUOTE_FORM_PROPS = {
+  toolname: "requestEventProductionQuote",
+  tooldescription:
+    "Submit an event production quote request to Sahneva for stage, LED screen, sound, lighting, truss, tent, podium and technical crew needs in Turkey.",
+};
+
+const WEB_MCP_QUOTE_FIELD_PROPS = {
+  name: {
+    toolparamdescription:
+      "Full name of the person requesting the event production quote.",
+  },
+  phone: {
+    toolparamdescription:
+      "Phone number with country code for quote follow-up by Sahneva.",
+  },
+  email: {
+    toolparamdescription:
+      "Email address where Sahneva should send the proposal and technical details.",
+  },
+  eventType: {
+    toolparamdescription:
+      "Type of event such as corporate event, concert, festival, conference, exhibition or other.",
+  },
+  message: {
+    toolparamdescription:
+      "Event date, city or venue, estimated audience size, required equipment and production details.",
+  },
+};
 
 const CONTACT_CHANNELS = [
   {
@@ -93,6 +123,129 @@ export default function RussianContactPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="grid gap-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm lg:grid-cols-[0.8fr_1.2fr] md:p-8">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            Request a quote
+          </p>
+          <h2 className="mt-3 text-3xl font-black text-neutral-900">
+            Отправьте детали мероприятия для технического расчета.
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-neutral-600">
+            Укажите город, дату, формат мероприятия, примерное количество гостей и нужное
+            оборудование. Команда Sahneva подготовит проектный ответ по объему работ.
+          </p>
+        </div>
+
+        <form
+          action={FORM_ENDPOINT}
+          method="POST"
+          acceptCharset="UTF-8"
+          {...WEB_MCP_QUOTE_FORM_PROPS}
+          className="space-y-5"
+        >
+          <div className="grid gap-5 md:grid-cols-2">
+            <div>
+              <label htmlFor="name" className="block text-sm font-black text-neutral-800">
+                Имя и фамилия *
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                autoComplete="name"
+                {...WEB_MCP_QUOTE_FIELD_PROPS.name}
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-black text-neutral-800">
+                Телефон *
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                autoComplete="tel"
+                inputMode="tel"
+                placeholder="+90 ..."
+                {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <div>
+              <label htmlFor="email" className="block text-sm font-black text-neutral-800">
+                E-mail *
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                inputMode="email"
+                placeholder="name@example.com"
+                {...WEB_MCP_QUOTE_FIELD_PROPS.email}
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              />
+            </div>
+            <div>
+              <label htmlFor="eventType" className="block text-sm font-black text-neutral-800">
+                Формат мероприятия *
+              </label>
+              <select
+                id="eventType"
+                name="eventType"
+                required
+                autoComplete="off"
+                {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
+                className="mt-2 w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              >
+                <option value="">Выберите формат</option>
+                <option value="Corporate Event">Корпоративное мероприятие</option>
+                <option value="Conference">Конференция</option>
+                <option value="Concert">Концерт или фестиваль</option>
+                <option value="Exhibition">Выставка</option>
+                <option value="Esports Event">Киберспортивное событие</option>
+                <option value="Other">Другое</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-black text-neutral-800">
+              Детали мероприятия *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              required
+              autoComplete="off"
+              placeholder="Город, дата, площадка, аудитория, оборудование..."
+              {...WEB_MCP_QUOTE_FIELD_PROPS.message}
+              className="mt-2 w-full resize-none rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+            />
+          </div>
+
+          <input type="hidden" name="_subject" value="Sahneva | Russian Proposal Request" />
+          <input type="hidden" name="_redirect" value="https://www.sahneva.com/tesekkurler" />
+          <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+
+          <button
+            type="submit"
+            className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-indigo-600 px-6 text-sm font-black text-white transition hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200"
+          >
+            Отправить запрос
+          </button>
+        </form>
       </section>
     </div>
   );
