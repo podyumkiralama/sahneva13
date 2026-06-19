@@ -16,6 +16,7 @@ const siteUrl =
   "https://www.sahneva.com";
 
 const cspReportOnlyEnabled = process.env.CSP_REPORT_ONLY === "true";
+const cspStrictScriptsEnabled = process.env.CSP_STRICT_SCRIPTS === "true";
 
 function resolveSiteOrigin(siteUrl) {
   try {
@@ -42,9 +43,9 @@ function buildScriptSrc({ allowUnsafeInline = true } = {}) {
   return scriptSrc;
 }
 
-function buildContentSecurityPolicy({ siteUrl, isPreview }) {
+function buildContentSecurityPolicy({ siteUrl, isPreview, strictScripts = false }) {
   const siteOrigin = resolveSiteOrigin(siteUrl);
-  const scriptSrc = buildScriptSrc({ allowUnsafeInline: true });
+  const scriptSrc = buildScriptSrc({ allowUnsafeInline: !strictScripts });
 
   const connectSrc = [
     "'self'",
@@ -106,6 +107,11 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
     ? "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url;"
     : "trusted-types default nextjs nextjs#bundler goog#html sahneva#script-url; require-trusted-types-for 'script';";
 
+  // CSP_STRICT_SCRIPTS is a staged preview switch for real enforcement without
+  // changing the production default. Static/ISR pages may still depend on inline
+  // JSON-LD, Trusted Types and speculation-rules scripts. If strict mode blocks
+  // pages in preview, do not force it in production; first move executable inline
+  // scripts to external files or hash stable inline sources where that is safe.
   return `
     default-src 'self';
     ${frameAncestors}
@@ -131,6 +137,7 @@ function buildContentSecurityPolicy({ siteUrl, isPreview }) {
 const contentSecurityPolicy = buildContentSecurityPolicy({
   siteUrl,
   isPreview,
+  strictScripts: cspStrictScriptsEnabled,
 });
 
 function buildReportOnlyContentSecurityPolicy({ siteUrl, isPreview }) {
