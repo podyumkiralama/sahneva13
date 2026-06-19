@@ -231,7 +231,7 @@ function InternationalServiceCapabilityTool() {
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-10">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">AI service capability guide</p>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">Service capability guide</p>
             <h2 id="international-capability-title" className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               Check whether Sahneva can support your event scope in Turkey
             </h2>
