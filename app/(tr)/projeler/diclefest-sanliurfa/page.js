@@ -922,7 +922,7 @@ function buildJsonLd() {
         description:
           "DicleFest Şanlıurfa; teknoloji alanları, planetaryum, oyun ve aktivite bölümleri ile konserleri kapsayan açık alan festivalidir.",
         url: DICLEFEST_SOURCE_URL,
-        provider: { "@id": `${SITE_URL}/#org` },
+        organizer: { "@id": `${SITE_URL}/#org` },
       },
       {
         "@type": "BreadcrumbList",
