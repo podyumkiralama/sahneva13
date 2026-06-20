@@ -68,6 +68,13 @@ function JsonLd() {
           name: "Sahneva",
           url: SITE_URL,
         },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "TRY",
+          availability: "https://schema.org/InStock",
+          url: PAGE_URL,
+        },
       }}
     />
   );
