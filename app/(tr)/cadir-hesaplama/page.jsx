@@ -144,6 +144,25 @@ export default function TentCalculatorPage() {
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Sahneva, çadır kiralama projelerinde yalnızca metrekare hesabı yapmaz; zeminin çim, beton, asfalt veya hassas yüzey olmasına göre sabitleme yöntemini, rüzgâr durumunu, su tahliye planını, teknik ekipman yerleşimini ve misafir akışını da projeye dahil eder. Bu yaklaşım özellikle belediye etkinlikleri, fuarlar, festivaller, kurumsal lansmanlar ve büyük ölçekli davetlerde güvenli kurulum için önemlidir.
               </p>
+              <p className="mt-5 text-lg leading-8 text-slate-300">
+                Net proje planında{" "}
+                <Link href="/cadir-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                  çadır kiralama
+                </Link>{" "}
+                kapsamı;{" "}
+                <Link href="/sahne-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                  sahne kiralama
+                </Link>
+                ,{" "}
+                <Link href="/led-ekran-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                  LED ekran kiralama
+                </Link>{" "}
+                ve{" "}
+                <Link href="/ses-isik-sistemleri" className="font-bold text-blue-100 underline underline-offset-4">
+                  ses-ışık sistemleri
+                </Link>{" "}
+                ihtiyaçlarıyla birlikte değerlendirilmelidir.
+              </p>
             </div>
 
             <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">

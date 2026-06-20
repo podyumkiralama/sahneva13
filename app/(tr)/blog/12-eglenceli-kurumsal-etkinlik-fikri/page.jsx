@@ -1,5 +1,6 @@
 // app/blog/12-eglenceli-kurumsal-etkinlik-fikri/page.jsx
 import Image from "next/image";
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
@@ -211,6 +212,14 @@ export default function BlogPost() {
 
         <p>2026'da yapay zeka entegrasyonu, sürdürülebilirlik ve wellbeing odaklı deneyimler kurumsal etkinliklerin merkezine oturdu. Farklı zevk ve tercihlere sahip katılımcılar için hem ilham verici hem de etkileyici bir deneyim tasarlama sorumluluğu her zamankinden daha nüanslı bir anlam kazanıyor.</p>
         <p>Sahneva olarak yalnızca profesyonel hedefleri karşılayan değil, aynı zamanda katılımcılar üzerinde kalıcı ve olumlu bir etki bırakan etkinlikler planlamanın öneminin farkındayız. Bu rehber, 2026 trendlerini yakalayan ve organizasyonlarınızı herkesin keyifle hatırlayacağı deneyimlere dönüştürmek için hazırlanmıştır.</p>
+
+        <p>
+          Fikir aşamasından uygulamaya geçerken{" "}
+          <Link href="/kurumsal-organizasyon">kurumsal organizasyon</Link>,{" "}
+          <Link href="/sahne-kiralama">sahne kiralama</Link>,{" "}
+          <Link href="/led-ekran-kiralama">LED ekran kiralama</Link> ve{" "}
+          <Link href="/ses-isik-sistemleri">ses-ışık sistemleri</Link> ihtiyaçlarını aynı teknik plan içinde değerlendirmek gerekir.
+        </p>
 
         <figure className="my-10 not-prose">
           <Image src={HERO_IMAGE} alt="12 Eğlenceli Kurumsal Etkinlik" width={1200} height={675} className="rounded-2xl shadow-lg" />
