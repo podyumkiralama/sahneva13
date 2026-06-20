@@ -227,7 +227,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
           <a
             href={result.whatsappHref}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             style={styles.whatsapp}
           >
             <MessageCircle size={20} aria-hidden="true" />

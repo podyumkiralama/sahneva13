@@ -335,7 +335,7 @@ export default function PodiumRentalPage() {
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:from-green-700 hover:to-emerald-700 transition-all"
                 >
                   💬 Get a WhatsApp Quote
@@ -540,7 +540,7 @@ export default function PodiumRentalPage() {
             <a
               href={WHATSAPP_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 px-8 py-4 text-sm font-bold text-white shadow-lg hover:from-green-700 hover:to-emerald-700 transition-all"
             >
               💬 WhatsApp Quote

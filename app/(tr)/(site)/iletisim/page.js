@@ -364,7 +364,7 @@ export default function ContactPage() {
                         <a
                           href={WHATSAPP_URL}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="nofollow noopener noreferrer"
                           className="text-green-800 hover:text-green-900 font-medium"
                         >
                           Hızlı Mesaj Gönder
@@ -628,7 +628,7 @@ export default function ContactPage() {
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="group bg-green-800 hover:bg-green-900 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                     aria-label="WhatsApp'tan acil destek iste (yeni sekmede açılır)"
                   >
@@ -667,7 +667,7 @@ export default function ContactPage() {
         <a
           href={WHATSAPP_URL}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
           className="flex flex-col items-center text-green-800 font-bold text-sm"
           aria-label="WhatsApp üzerinden Sahneva'ya yaz (yeni sekmede açılır)"
         >
@@ -722,7 +722,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       <a
         href={href}
         target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
+        rel={isExternal ? (href.includes("wa.me") ? "nofollow noopener noreferrer" : "noopener noreferrer") : undefined}
         aria-describedby={`${headingId} ${descriptionId}`}
         className={`inline-flex items-center justify-center bg-gradient-to-r ${color} hover:shadow-xl text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg`}
       >

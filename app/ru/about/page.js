@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_ABOUT_URL = buildCanonical("/ru/about");
 const RU_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
+const ORGANIZATION_ID = `${SITE_URL}/#org`;
 
 const VALUES = [
   { title: "Безопасность", text: "Проверяем несущие конструкции, электрическую нагрузку, высоты и маршруты монтажа до выхода команды на площадку." },
@@ -44,9 +46,34 @@ export const metadata = {
   },
 };
 
+const ABOUT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${RU_ABOUT_URL}#webpage`,
+      url: RU_ABOUT_URL,
+      name: metadata.openGraph.title,
+      description: metadata.description,
+      inLanguage: "ru-RU",
+      mainEntity: { "@id": ORGANIZATION_ID },
+      breadcrumb: { "@id": `${RU_ABOUT_URL}#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${RU_ABOUT_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Sahneva", item: `${SITE_URL}/ru` },
+        { "@type": "ListItem", position: 2, name: metadata.title, item: RU_ABOUT_URL },
+      ],
+    },
+  ],
+};
+
 export default function RussianAboutPage() {
   return (
     <div className="bg-white">
+      <JsonLd id="ru-about-jsonld" data={ABOUT_JSON_LD} />
       <section className="relative min-h-[62vh] overflow-hidden bg-slate-950 text-white">
         <Image src="/img/hakkimizda-hero-corporate.webp" alt="Команда Sahneva на техническом проекте" fill priority sizes="100vw" className="object-cover opacity-70" />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/60 to-slate-950/85" />

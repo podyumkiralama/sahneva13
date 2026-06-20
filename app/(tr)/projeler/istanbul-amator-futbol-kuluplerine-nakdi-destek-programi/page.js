@@ -280,7 +280,7 @@ export default function AmateurFootballSupportProjectPage() {
               <a
                 href="https://wa.me/905453048671?text=Merhaba%2C+kapal%C4%B1+alan+protokol+etkinli%C4%9Fi+LED+ekran+ve+sahne+kurulumu+i%C3%A7in+teklif+almak+istiyorum."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-blue-950/30 transition hover:-translate-y-0.5 hover:bg-blue-50"
               >
                 Teklif Al
@@ -495,7 +495,7 @@ export default function AmateurFootballSupportProjectPage() {
             <a
               href="https://wa.me/905453048671?text=Merhaba%2C+kapal%C4%B1+alan+protokol+etkinli%C4%9Fi+teknik+prod%C3%BCksiyon+i%C3%A7in+teklif+almak+istiyorum."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-3 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-emerald-600"
             >
               Teklif Al

@@ -119,7 +119,7 @@ export default function BlogLayout({
                 <a
                   href={whatsappUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   aria-label="WhatsApp ile iletişime geç — yeni sekmede açılır"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
                 >

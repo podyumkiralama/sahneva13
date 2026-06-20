@@ -758,7 +758,7 @@ export default function ServicesPage() {
               <a
                 href="https://wa.me/905453048671"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="WhatsApp'tan yaz - Hızlı teklif için (yeni sekmede açılır)"
               >

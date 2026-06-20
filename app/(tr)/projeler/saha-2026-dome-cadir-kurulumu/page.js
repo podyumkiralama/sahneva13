@@ -214,7 +214,7 @@ export default function SahaDomeProjectPage() {
               <a
                 href="https://wa.me/905453048671?text=Merhaba%2C+SAHA+2026+dome+%C3%A7ad%C4%B1r+kurulumuna+benzer+bir+proje+i%C3%A7in+teklif+almak+istiyorum."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-black text-white backdrop-blur transition hover:bg-white/15"
               >
                 WhatsApp Teklif
@@ -453,7 +453,7 @@ export default function SahaDomeProjectPage() {
             <a
               href="https://wa.me/905453048671?text=Merhaba%2C+dome+%C3%A7ad%C4%B1r+ve+%C3%B6zel+etkinlik+alan%C4%B1+kurulumu+i%C3%A7in+teklif+almak+istiyorum."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-3 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-emerald-600"
             >
               WhatsApp&apos;tan Teklif Al

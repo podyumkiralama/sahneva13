@@ -402,7 +402,7 @@ export default function Page() {
                   <a
                     href="https://wa.me/905453048671?text=Hello%2C+I+would+like+a+podium+rental+price+quote.+Date%3A+%5Bdd.mm.yyyy%5D+Area%3A+%5Bm2%5D+District%3A+%5Bdistrict%5D"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
                   >
                     <span className="text-xl mr-2">💬</span> Quote via WhatsApp
@@ -872,7 +872,7 @@ export default function Page() {
                   <a
                     href="https://wa.me/905453048671?text=Hello%2C+I+would+like+a+podium+rental+price+quote.+Date%3A+%5Bdd.mm.yyyy%5D+Area%3A+%5Bm2%5D+Height%3A+%5Bcm%5D+District%3A+%5Bdistrict%5D+Carpet%3A+%5Byes%2Fno%5D+Skirt%3A+%5Bmetres%5D"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
                   >
                     <span className="text-xl mr-3">💬</span> Message via WhatsApp

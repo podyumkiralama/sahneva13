@@ -364,7 +364,7 @@ export default function Footer({
           <a
             href="https://wa.me/905453048671"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className={`
               group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg
               bg-emerald-400 px-5 font-bold text-slate-950 shadow-[0_12px_32px_rgba(52,211,153,0.18)]

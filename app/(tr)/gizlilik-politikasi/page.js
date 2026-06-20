@@ -547,7 +547,7 @@ export default function PrivacyPolicyPage() {
                     <a
                       href={`https://wa.me/${PHONE.replace("+", "")}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-2xl bg-emerald-500/90 px-4 py-2 text-sm font-semibold text-slate-950 shadow-md shadow-emerald-900/60 transition hover:scale-[1.02] hover:bg-emerald-400"
                     >
                       WhatsApp Üzerinden Yaz

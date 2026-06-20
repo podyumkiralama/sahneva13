@@ -467,7 +467,7 @@ function Hero() {
             <a
               href={generateWhatsAppLink("kurumsal organizasyon")}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
             >
               <PhoneCall size={20} aria-hidden="true" />
@@ -707,7 +707,7 @@ function PackagePlanningSection() {
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700 hover:text-blue-900"
               >
                 {item.cta}
@@ -830,7 +830,7 @@ function ProductionStack() {
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition group-hover:text-white"
               >
                 {SERVICE_CTA_LABELS[index] ?? "Teknik kapsamı konuş"}
@@ -999,7 +999,7 @@ function CTASection() {
         <a
           href={generateWhatsAppLink("kurumsal organizasyon briefi")}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
           className="inline-flex min-h-[56px] items-center justify-center gap-2 bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
         >
           <PhoneCall size={20} aria-hidden="true" />

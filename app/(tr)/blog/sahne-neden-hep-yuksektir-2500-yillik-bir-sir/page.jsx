@@ -409,7 +409,7 @@ export default function Page() {
                 <a
                   href={WA_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-6 transition-transform hover:-translate-y-0.5"
                 >
                   WhatsApp

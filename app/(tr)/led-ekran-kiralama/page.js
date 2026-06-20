@@ -581,7 +581,7 @@ function QuickSelectionGuide() {
                   <a
                     href={WHATSAPP}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-green-700 px-5 py-3 font-bold text-white shadow-[0_14px_32px_rgba(21,128,61,0.28)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
                   >
                     WhatsApp ile ölçü paylaş
@@ -1503,7 +1503,7 @@ function WhySahneva() {
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
             aria-label="Teknik Danışmanlık Alın - Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
           >
@@ -2028,7 +2028,7 @@ function CTA() {
               <a
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
               >
                 <MessageCircle size={20} aria-hidden="true" className="mr-3" />

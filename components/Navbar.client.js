@@ -741,7 +741,7 @@ export default function Navbar({
               <a
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=desktop_whatsapp`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className={whatsappBtnClass}
               >
                 <span aria-hidden="true" className="text-base">
@@ -973,7 +973,7 @@ export default function Navbar({
               <a
                 href={`https://wa.me/905453048671?text=${NAVBAR_WHATSAPP_MESSAGE}&utm_source=navbar&utm_medium=mobile_whatsapp`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className={`${mobileWhatsappBtnClass} mt-4`}
                 onClick={() => closeMobileMenu({ restoreFocus: false })}
               >

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_PROJECTS_URL = buildCanonical("/ru/projects");
@@ -56,9 +57,48 @@ export const metadata = {
   },
 };
 
+const PROJECTS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${RU_PROJECTS_URL}#webpage`,
+      url: RU_PROJECTS_URL,
+      name: metadata.openGraph.title,
+      description: metadata.description,
+      inLanguage: "ru-RU",
+      mainEntity: { "@id": `${RU_PROJECTS_URL}#itemlist` },
+      breadcrumb: { "@id": `${RU_PROJECTS_URL}#breadcrumb` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${RU_PROJECTS_URL}#itemlist`,
+      itemListElement: PROJECT_GROUPS.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.text,
+          image: `${SITE_URL}${project.image}`,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${RU_PROJECTS_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Sahneva", item: `${SITE_URL}/ru` },
+        { "@type": "ListItem", position: 2, name: metadata.title, item: RU_PROJECTS_URL },
+      ],
+    },
+  ],
+};
+
 export default function RussianProjectsPage() {
   return (
     <div className="container mx-auto space-y-12 px-4 py-10">
+      <JsonLd id="ru-projects-jsonld" data={PROJECTS_JSON_LD} />
       <header className="max-w-3xl space-y-3">
         <h1 className="text-3xl font-black text-neutral-900">Проекты Sahneva</h1>
         <p className="text-base leading-7 text-neutral-600">

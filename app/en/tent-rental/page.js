@@ -1025,7 +1025,7 @@ function CTA() {
               <a
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
               >
                 <span aria-hidden="true" className="text-xl mr-3">💬</span>

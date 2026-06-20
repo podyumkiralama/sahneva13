@@ -440,7 +440,7 @@ export default function FaqPage() {
             <a
               href="https://wa.me/905453048671?text=Hello%2C+I%27d+like+to+request+an+event+production+quote."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100"
               aria-label="Ask on WhatsApp – opens in a new tab"
             >

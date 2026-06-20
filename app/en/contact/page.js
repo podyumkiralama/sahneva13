@@ -360,7 +360,7 @@ export default function ContactPage() {
                         <a
                           href={WHATSAPP_URL}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="nofollow noopener noreferrer"
                           className="text-green-800 hover:text-green-900 font-medium"
                         >
                           Message Now
@@ -621,7 +621,7 @@ export default function ContactPage() {
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
               className="group bg-green-800 hover:bg-green-900 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                     aria-label="Request emergency support on WhatsApp (opens in a new tab)"
                   >
@@ -658,7 +658,7 @@ export default function ContactPage() {
         <a
           href={WHATSAPP_URL}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
               className="flex flex-col items-center text-green-800 font-bold text-sm"
           aria-label="Message Sahneva on WhatsApp (opens in a new tab)"
         >

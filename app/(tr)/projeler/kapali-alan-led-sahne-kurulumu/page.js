@@ -256,7 +256,7 @@ export default function CasePage() {
             <a
               href="https://wa.me/905453048671?text=Merhaba%2C+kapal%C4%B1+alan+sahne+%26+LED+kurulumu+i%C3%A7in+teklif+almak+istiyorum."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-white shadow-md transition hover:bg-emerald-600 focus-ring"
               aria-label="WhatsApp üzerinden kapalı alan sahne ve LED kurulumu teklifi isteyin — yeni sekmede açılır"
             >

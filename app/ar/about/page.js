@@ -1,6 +1,7 @@
 // app/ar/about/page.js
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
@@ -150,6 +151,13 @@ export default function ArabicAboutPage() {
   return (
     <div className="min-h-screen bg-white overflow-hidden" dir="rtl">
       <AboutStructuredData />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Sahneva", url: "/ar" },
+          { name: metadata.title, url: "/ar/about" },
+        ]}
+        baseUrl={SITE_URL}
+      />
 
       {/* HERO */}
       <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]" aria-labelledby="hero-title">
@@ -424,7 +432,7 @@ export default function ArabicAboutPage() {
                   <a
                     href={WHATSAPP}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 transition-all duration-300 hover:scale-105"
                     aria-label="راسلنا عبر واتساب"
                   >
@@ -507,7 +515,7 @@ export default function ArabicAboutPage() {
               <a
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="تواصل معنا عبر واتساب للحصول على عرض سريع"
               >

@@ -154,7 +154,7 @@ function MidCTA() {
       <a
         href="https://wa.me/905453048671"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="inline-block bg-violet-700 hover:bg-violet-800 text-white font-bold py-3 px-8 rounded-xl transition-colors"
       >
         💬 Ücretsiz Teklif Alın
@@ -415,7 +415,7 @@ export default function BlogPost() {
           <h3 className="text-3xl font-black mb-6">Hangi fikri şirketinize uyarlayalım?</h3>
           <p className="text-xl mb-8">Hemen bizimle iletişime geçin, size özel teklif hazırlayalım ve 2026 etkinliklerinizi unutulmaz kılalım!</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/905453048671" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 font-bold py-5 px-12 rounded-2xl text-lg">💬 WhatsApp'tan Yazın</a>
+            <a href="https://wa.me/905453048671" target="_blank" rel="nofollow noopener noreferrer" className="bg-green-500 hover:bg-green-600 font-bold py-5 px-12 rounded-2xl text-lg">💬 WhatsApp'tan Yazın</a>
             <a href="tel:+905453048671" className="bg-white text-violet-900 hover:bg-violet-50 font-bold py-5 px-12 rounded-2xl text-lg">📞 Hemen Arayın</a>
           </div>
         </div>

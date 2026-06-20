@@ -502,7 +502,7 @@ export default function AboutPage() {
                   <a
                     href={WHATSAPP}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 transition-all duration-300 hover:scale-105"
                     aria-label="Message us on WhatsApp"
                   >
@@ -585,7 +585,7 @@ export default function AboutPage() {
               <a
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Reach us on WhatsApp for a quick quote"
               >

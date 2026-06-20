@@ -332,7 +332,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               <a
                 href={mobileWhatsappHref}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 aria-label={`${labels.support} - ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
                 className={`mt-4 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-800 shadow-sm transition-all duration-200 hover:bg-emerald-100 hover:shadow-md nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
                 onClick={() => closeMenu()}

@@ -599,7 +599,7 @@ export default function RegionalRentalClient({
               <a
                 href={ctaWhatsapp}
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 aria-label={copy.whatsappAria}
               >
@@ -718,7 +718,7 @@ export default function RegionalRentalClient({
                     <a
                       href={ctaWhatsapp}
                       target="_blank"
-                      rel="noreferrer noopener"
+                      rel="nofollow noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                       aria-label={copy.whatsappAria}
                     >
@@ -842,7 +842,7 @@ export default function RegionalRentalClient({
             <a
               href={ctaWhatsapp}
               target="_blank"
-              rel="noreferrer noopener"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               aria-label={copy.whatsappAria}
             >

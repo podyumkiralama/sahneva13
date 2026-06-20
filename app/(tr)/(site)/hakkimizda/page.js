@@ -290,7 +290,7 @@ export default function HakkimizdaPage() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             aria-label="WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg min-h-[44px]"
           >
@@ -530,7 +530,7 @@ export default function HakkimizdaPage() {
                   <a
                     href={WHATSAPP}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 transition-all duration-300 hover:scale-105"
                     aria-label="WhatsApp'tan yazın – yeni sekmede açılır"
                   >
@@ -614,7 +614,7 @@ export default function HakkimizdaPage() {
               <a
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="WhatsApp'tan yaz - Hızlı teklif için (yeni sekmede açılır)"
               >

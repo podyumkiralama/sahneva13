@@ -246,7 +246,7 @@ export default function Page() {
               <a
                 href="https://wa.me/905453048671"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
               >
                 WhatsApp'tan Yazın (2 saatte teklif)
@@ -834,7 +834,7 @@ export default function Page() {
                   <a
                     href="https://wa.me/905453048671"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
                   >
                     WhatsApp'tan Yazın
@@ -878,7 +878,7 @@ export default function Page() {
                   <a
                     href="https://wa.me/905453048671"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
                   >
                     WhatsApp

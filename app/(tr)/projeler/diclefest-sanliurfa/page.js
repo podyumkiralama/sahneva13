@@ -474,7 +474,7 @@ export default function DicleFestSanliurfaProjectPage() {
               <a
                 href="https://wa.me/905453048671?text=Merhaba%2C+DicleFest+%C5%9Eanl%C4%B1urfa+benzeri+a%C3%A7%C4%B1k+alan+festival+kurulumu+i%C3%A7in+teklif+almak+istiyorum."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-blue-950/30 transition hover:-translate-y-0.5 hover:bg-blue-50"
               >
                 Projeniz İçin Teklif Al
@@ -711,7 +711,7 @@ export default function DicleFestSanliurfaProjectPage() {
             <a
               href="https://wa.me/905453048671?text=Merhaba%2C+a%C3%A7%C4%B1k+alan+festival+saha+y%C3%B6netimi+i%C3%A7in+teklif+almak+istiyorum."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-3 text-sm font-black text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-emerald-600"
             >
               Teklif Al

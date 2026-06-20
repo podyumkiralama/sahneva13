@@ -1,8 +1,10 @@
+import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_CONTACT_URL = buildCanonical("/ru/contact");
 const RU_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
 const FORM_ENDPOINT = "https://formspree.io/f/xanppven";
+const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const WEB_MCP_QUOTE_FORM_PROPS = {
   toolname: "requestEventProductionQuote",
@@ -109,9 +111,35 @@ export const metadata = {
   },
 };
 
+const CONTACT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${RU_CONTACT_URL}#webpage`,
+      url: RU_CONTACT_URL,
+      name: metadata.openGraph.title,
+      description: metadata.description,
+      inLanguage: "ru-RU",
+      about: { "@id": LOCAL_BUSINESS_ID },
+      mainEntity: { "@id": LOCAL_BUSINESS_ID },
+      breadcrumb: { "@id": `${RU_CONTACT_URL}#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${RU_CONTACT_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Sahneva", item: `${SITE_URL}/ru` },
+        { "@type": "ListItem", position: 2, name: metadata.title, item: RU_CONTACT_URL },
+      ],
+    },
+  ],
+};
+
 export default function RussianContactPage() {
   return (
     <div className="container mx-auto space-y-12 px-4 py-10">
+      <JsonLd id="ru-contact-jsonld" data={CONTACT_JSON_LD} />
       <header className="max-w-3xl space-y-3">
         <h1 className="text-3xl font-black text-neutral-900">Свяжитесь с Sahneva</h1>
         <p className="text-base leading-7 text-neutral-600">

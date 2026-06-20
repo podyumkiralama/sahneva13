@@ -462,7 +462,7 @@ export default function EventProductionPartnerPage({ locale }) {
                 <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-cyan-50/85">{content.heroTrust}</p>
               ) : null}
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400", focusVisibleRing)}>
+                <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400", focusVisibleRing)}>
                   {content.primaryCta}
                 </a>
                 <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>
@@ -730,7 +730,7 @@ export default function EventProductionPartnerPage({ locale }) {
             <h2 className="text-3xl font-black tracking-tight md:text-5xl">{content.final.title}</h2>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.72]">{content.final.text}</p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400", focusVisibleRing)}>
+              <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400", focusVisibleRing)}>
                 {content.final.whatsapp}
               </a>
               <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>

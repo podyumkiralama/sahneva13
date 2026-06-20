@@ -244,7 +244,7 @@ export default function CorporateEvents({
               <a
                 href={dictionary.whatsappCtaHref}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className={`inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/20 md:text-base ${FOCUS_RING_CLASS}`}
               >
                 <span>{dictionary.whatsappCtaLabel}</span>

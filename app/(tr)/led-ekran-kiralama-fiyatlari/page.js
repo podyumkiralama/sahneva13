@@ -646,7 +646,7 @@ export default function Page() {
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-7 py-4 font-black text-slate-950 transition hover:bg-emerald-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
                 >
                   <MessageCircle size={20} aria-hidden="true" />
@@ -1136,7 +1136,7 @@ export default function Page() {
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-7 py-4 font-black text-slate-950 transition hover:bg-emerald-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
                   >
                     <MessageCircle size={20} aria-hidden="true" />

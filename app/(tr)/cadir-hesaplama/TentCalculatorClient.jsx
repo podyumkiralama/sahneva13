@@ -188,7 +188,7 @@ export default function TentCalculatorClient() {
             <a
               href={`https://wa.me/${PHONE}?text=${whatsappText}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-base font-black text-slate-950 transition hover:scale-[1.01]"
             >
               <MessageCircle className="h-5 w-5" />

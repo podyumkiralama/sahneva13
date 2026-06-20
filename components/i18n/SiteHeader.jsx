@@ -180,7 +180,7 @@ export default function SiteHeader({ locale, strings }) {
             <a
               href={strings.whatsappHref}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className={`inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all duration-200 ${focusRingClass}`}
             >
               <span aria-hidden="true">💬</span>
@@ -272,7 +272,7 @@ export default function SiteHeader({ locale, strings }) {
             <a
               href={strings.whatsappHref}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className={`flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3 text-sm font-bold text-white ${focusRingClass}`}
               onClick={() => closeMenu()}
             >

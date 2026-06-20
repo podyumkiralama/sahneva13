@@ -314,7 +314,7 @@ function Hero() {
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
             aria-label="WhatsApp üzerinden truss kiralama teklifi al (yeni sekmede açılır)"
           >
@@ -532,7 +532,7 @@ function Technical() {
                 <a
                   href={getServiceWhatsappLink(it.title)}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
                   aria-label={`${it.title} için WhatsApp üzerinden teklif iste (yeni sekmede açılır)`}
                 >
@@ -548,7 +548,7 @@ function Technical() {
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
@@ -619,7 +619,7 @@ function FAQ() {
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
             aria-label="WhatsApp üzerinden iletişime geç (yeni sekmede açılır)"
           >
@@ -667,7 +667,7 @@ function Offer() {
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
             aria-label="WhatsApp üzerinden teklif al (yeni sekmede açılır)"
           >

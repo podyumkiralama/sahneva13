@@ -520,7 +520,7 @@ export default function LedTrends2026Page() {
                     <a
                       href={LEADMAGNET_WA}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow noopener noreferrer"
                       aria-label="LED ekran teknik teklif checklist PDF iste — yeni sekmede açılır"
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
                     >
@@ -593,7 +593,7 @@ export default function LedTrends2026Page() {
                     <a
                       href={LEADMAGNET_WA}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow noopener noreferrer"
                       aria-label="WhatsApp üzerinden hızlı teklif alın — yeni sekmede açılır"
                       className="inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
                     >
