@@ -114,6 +114,13 @@ function JsonLd() {
       name: "Sahneva",
       url: ORIGIN,
     },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "TRY",
+      availability: "https://schema.org/InStock",
+      url: `${ORIGIN}/cadir-hesaplama`,
+    },
   };
 
   return (
