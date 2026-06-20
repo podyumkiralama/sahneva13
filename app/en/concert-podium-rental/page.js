@@ -260,8 +260,8 @@ function HeroSection() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10">
-            Festival and live performance stage solutions — professional installation from
-            small-scale indoor venues to open-air events with tens of thousands of attendees.
+            Festival and live performance stage solutions for indoor venues, open-air concerts,
+            and festival fields with project-based capacity planning.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-14">
             <Link
@@ -403,20 +403,19 @@ function ArticlesSection() {
         <div className="flex flex-col lg:flex-row gap-10 items-start mb-16">
           <div className="flex-1 prose prose-lg max-w-none">
             <p className="text-gray-700 text-lg leading-relaxed">
-              At concerts and festivals, the stage is not merely a platform where the artist
-              stands; it is the central hub where lights, sound, LED screens, backstage
-              operations, and the audience experience converge. At Sahneva, we plan and execute
-              our concert podium rental and festival stage installation services to fit every
-              scale, from small indoor events to open-air shows with tens of thousands of
-              attendees.
+              At concerts and festivals, the stage is more than a platform. It is the point where
+              lighting, sound, LED screens, backstage work, and audience experience meet.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              For concert stage installations carried out primarily in Istanbul and across
-              Turkey, we use systems with engineered calculations, high load capacity, and
-              compliance with safety standards. The artist&apos;s technical rider, sound system
-              layout, lighting design, and LED integration are inseparable parts of stage
-              planning.
+              Sahneva plans concert podium rental and festival stage installation for different
+              event scales. We support indoor shows, open-air concerts, and large festival fields
+              across Istanbul and Turkey.
             </p>
+            <ul className="mt-5 grid gap-2 text-gray-700">
+              <li>Engineered stage dimensions and load planning</li>
+              <li>Technical rider, sound, lighting, and LED screen coordination</li>
+              <li>Safe installation planning for indoor and outdoor venues</li>
+            </ul>
           </div>
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
             <Image
@@ -442,19 +441,19 @@ function ArticlesSection() {
               Professional Stage Solutions for Every Performance
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Whether you are organizing a local concert or a large-scale music festival, we
-              offer stage systems that can scale to your needs. Our stage systems are designed
-              with durability, stability, and modular construction as priorities. Wind load
-              calculations, ground analysis, and anchoring systems are meticulously planned for
-              outdoor events. For indoor concerts, installation is carried out considering
-              ceiling height, acoustic structure, and truss load capacity.
+              Concert and festival stages must scale with the performance. We plan modular stage
+              systems around durability, stability, and safe load distribution.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              As part of our concert podium rental service, we provide main stage platforms,
-              side stage extensions, technical platforms, and artist-specific area solutions.
-              For large productions, stage extensions allow large orchestras, dance teams, or
-              multiple performance layouts to be positioned comfortably.
+              Outdoor projects require wind load checks, ground analysis, and anchoring plans.
+              Indoor concerts require ceiling height, acoustic conditions, and truss capacity to
+              be reviewed before setup.
             </p>
+            <ul className="mt-5 grid gap-2 text-gray-700">
+              <li>Main stage platforms and side stage extensions</li>
+              <li>FOH, technical control, and artist-specific platforms</li>
+              <li>Layout support for bands, orchestras, dance teams, and show crews</li>
+            </ul>
           </div>
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
             <Image
@@ -500,16 +499,13 @@ function ArticlesSection() {
               Customizable Festival Stage Design
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Every concert and festival has a different dynamic. For this reason, we design
-              the stage in integrated fashion with the artist&apos;s stage show, LED screen
-              configuration, lighting design, and sound system layout. Stages can be built to
-              any desired size and height; side towers, FOH platforms, and technical control
-              areas are included in the planning.
+              Every concert has a different show flow. We align the stage design with the LED
+              screen configuration, lighting plan, sound system layout, and backstage needs.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              For large open-air festivals, steel truss-roofed stage systems, branded top
-              coverings, and weather-resistant structural elements are used. The installation
-              process progresses in line with the rehearsal and soundcheck schedule.
+              For open-air festivals, roofed truss systems and weather-resistant structural
+              elements may be required. The installation schedule is planned around load-in,
+              soundcheck, and event timing.
             </p>
           </div>
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
@@ -536,17 +532,12 @@ function ArticlesSection() {
               End-to-End Stage Service and Technical Support
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              The Sahneva team manages the entire process, including survey, design, delivery,
-              installation, and dismantling. We conduct a venue assessment before the event to
-              determine ideal stage dimensions and layout plan. During installation, our
-              experienced technical team builds a safe and stable structure.
+              Sahneva manages survey, design, delivery, installation, and dismantling as one
+              field operation. Before the event, we review the venue and define the stage layout.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              On-site technical support is provided throughout the event to immediately address
-              any needs that arise. Safety, timing, and operational discipline are the most
-              critical elements of concert and festival organizations. For this reason, occupational
-              safety standards and engineering calculations are the basis of all our stage
-              installations.
+              During the event, our team remains available for technical coordination. Safety,
+              timing, and operational discipline guide every concert and festival installation.
             </p>
           </div>
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
@@ -570,19 +561,14 @@ function ArticlesSection() {
           <h3 className="text-2xl font-black text-yellow-700 mb-5 flex items-center gap-3">
             <span aria-hidden="true">💎</span> Why Sahneva for Concert Podium Rental?
           </h3>
-          <p className="text-yellow-800 text-lg leading-relaxed mb-4">
-            With high-quality equipment, an experienced technical team, and large-scale
-            organization experience, we are a reliable solution partner for concert and festival
-            stage installations. Our aim is not just to build a stage; it is to create a
-            production infrastructure that amplifies the artist&apos;s performance and gives the
-            audience an unforgettable experience.
-          </p>
-          <p className="text-yellow-800 text-lg leading-relaxed mb-6">
-            For your concert or festival organization, you can contact Sahneva to receive
-            professional stage installation and podium rental service, plan technical details
-            together, and receive a custom price quote. Start your event with a powerful stage;
-            create a performance experience that will remain in your audience&apos;s memory.
-          </p>
+            <p className="text-yellow-800 text-lg leading-relaxed mb-4">
+              Sahneva brings equipment planning, field experience, and technical coordination
+              together for concert and festival stage installations.
+            </p>
+            <p className="text-yellow-800 text-lg leading-relaxed mb-6">
+              Share your event date, city, venue, stage size, and technical rider. We can prepare
+              a project-based quote for podium, stage, LED, sound, lighting, and truss needs.
+            </p>
           <Link
             href={WHATSAPP_URL}
             target="_blank"

@@ -434,19 +434,14 @@ function ContentSection() {
 
             <div className="p-8 md:p-10 prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed">
               <p>
-                In the fashion world, the stage is not just a platform; it is the central element
-                that carries the brand&apos;s identity, the collection&apos;s spirit, and the designer&apos;s
-                vision. At <strong>Sahneva</strong>, our runway and podium rental services are
-                specially planned to meet the unique aesthetic expectations of each fashion event.
+                In fashion events, the stage is not just a platform. It carries the brand identity,
+                the collection mood, and the designer&apos;s vision.
               </p>
 
               <p>
-                Whether you are organizing a boutique designer show, a large-attendance fashion
-                week presentation, or a prestigious product launch; we provide a sophisticated,
-                elegant, and technically flawless infrastructure for your event. Primarily in
-                Istanbul and across Turkey, we manage the entire process end-to-end for fashion
-                events, from podium design to lighting integration, LED backdrop solutions to
-                backstage planning.
+                Sahneva plans runway and podium rental for boutique shows, fashion week
+                presentations, and product launches. We support projects in Istanbul and across
+                Turkey with podium design, lighting, LED backdrop, and backstage planning.
               </p>
 
               {/* 3 content images */}
@@ -480,25 +475,24 @@ function ContentSection() {
                 presentations to temporary store launches.
               </p>
               <p>
-                Our runway and podium rental scope includes straight, U-shape, or T-shape runway
-                designs, elevated presentation platforms, LED-supported backdrop scenes, and
-                photography shoot areas. Each installation is technically planned according to
-                the collection&apos;s flow, model walking rhythm, and audience seating arrangement.
-                Stage height, surface covering (glossy, matte, carpet), step transitions, and
-                safety details are meticulously calculated.
+                Our runway and podium rental scope includes straight, U-shape, and T-shape runway
+                designs. It can also include elevated presentation platforms, LED-supported
+                backdrops, and photo areas.
               </p>
+              <ul>
+                <li>Runway direction and model walking rhythm</li>
+                <li>Audience seating and camera viewing angles</li>
+                <li>Stage height, surface finish, steps, and safety details</li>
+              </ul>
 
               <aside className="mt-8 rounded-2xl border-l-4 border-violet-500 bg-violet-50 p-5">
                 <h4 className="font-black text-violet-700 text-lg mb-2">
                   💡 Customizable Podium and Stage Designs
                 </h4>
                 <p className="mb-0">
-                  No two fashion events are the same. Whether you want a simple platform for a
-                  minimal and modern collection or a daring runway design supported by dramatic
-                  lighting transitions for a haute couture presentation, we make the stage part
-                  of the collection. We transform your stage into a visually captivating
-                  experience space with projection mapping, LED screen integration, custom
-                  backdrop designs, and fabric coverings.
+                  No two fashion events are the same. A minimal collection may need a clean
+                  platform. A couture presentation may need a stronger runway shape, lighting
+                  transitions, LED screen integration, custom backdrops, or fabric coverings.
                 </p>
               </aside>
 
@@ -507,16 +501,14 @@ function ContentSection() {
                 Comprehensive Technical Service and Operational Support
               </h3>
               <p>
-                Timing is of critical importance at fashion events. We plan the installation and
-                dismantling process in accordance with rehearsal hours, choreography flow, and
-                broadcast schedule. Delivery, installation, and dismantling operations across
-                Istanbul and Turkey are carried out by our professional teams.
+                Timing is critical at fashion events. We plan delivery, installation, and
+                dismantling around rehearsal hours, choreography flow, and broadcast schedules.
               </p>
               <ul>
                 <li>Professional lighting and sound system integration</li>
                 <li>Truss installations and backdrop applications</li>
                 <li>On-site technical support throughout the event</li>
-                <li>Seamless infrastructure management with experienced technicians</li>
+                <li>Coordinated infrastructure management with experienced technicians</li>
               </ul>
 
               <aside className="mt-8 rounded-2xl border-l-4 border-yellow-400 bg-yellow-50 p-5">
@@ -524,11 +516,9 @@ function ContentSection() {
                   <span aria-hidden="true">💎</span> Why Sahneva for Your Fashion Events?
                 </h4>
                 <p className="mb-0 text-yellow-800">
-                  We know that the visual impact of fashion presentations directly contributes to
-                  brand value. We offer not just durable and reliable stage systems, but also
-                  solutions that are aesthetic, elegant, and befitting high-end organizations.
-                  With our stage designs based on engineering calculations, compliant with safety
-                  standards, and visually powerful, we take your fashion events to the next level.
+                  Fashion presentations need a clear visual language. We combine durable stage
+                  systems with aesthetic surface choices, lighting, LED backdrop planning, and
+                  safety-focused engineering.
                 </p>
               </aside>
             </div>
