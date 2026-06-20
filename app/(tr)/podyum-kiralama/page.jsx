@@ -668,7 +668,7 @@ function PodiumStockCapacitySection() {
                 Türkiye geneli kurulum
               </Link>{" "}
               yapabilen teknik altyapıya sahiptir. Toplamda 12.000 m² podyum stoğumuz bulunmaktadır. Bu stok;
-              kurumsal etkinlikler, konserler, festival alanları, mezuniyet törenleri, fuarlar, lansmanlar,
+              kurumsal etkinlikler, konserler, festival alanları, ödül törenleri, mezuniyet törenleri, fuarlar, lansmanlar,
               açık hava organizasyonları ve büyük ölçekli geçici zemin kurulumları için proje bazlı planlanır.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-white/[0.72]">

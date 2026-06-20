@@ -451,8 +451,8 @@ function Hero() {
           </p>
 
           <p className="mt-5 max-w-[20rem] break-words text-base leading-8 text-white/[0.82] sm:max-w-2xl md:text-lg">
-            Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı ve saha operasyonu tek ekipten
-            yönetilir.
+            Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili,
+            organizasyon süreci ve etkinlik sonrası söküm planı tek ekipten yönetilir.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/[0.86]">

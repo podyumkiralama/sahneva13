@@ -48,7 +48,7 @@ const PRICE_GALLERY_IMAGES = [
 export const metadata = {
   title: "Podyum Kiralama Fiyatları 2026 | İstanbul Güncel m² Liste",
   description:
-    "2026 podyum kiralama fiyatları: m² bazlı, halı-skört dahil, İstanbul içi nakliye, kurulum ve söküm sabit bedel. Defile ve konserler için teklif isteyin.",
+    "2026 podyum kiralama fiyatları: m² bazlı, halı-skört dahil podyum kurulumu, İstanbul içi nakliye ve söküm. Açık hava, ödül törenleri ve konserler için teklif alın.",
   alternates: buildLanguageAlternates({
     tr: slug,
     en: "/en/podium-rental-prices",
@@ -426,8 +426,9 @@ export default function Page() {
                 <p className="text-base md:text-xl text-white/85 leading-relaxed mb-4 max-w-3xl mx-auto">
                   İstanbul’da <b>2026</b> yılı için güncel podyum kiralama
                   fiyatlarını <b>m² bazlı</b> olarak aşağıda inceleyebilirsiniz.
-                  Defile, konser ve düğün organizasyonları için net hesaplama
-                  örnekleri yer alır.
+                  Açık hava etkinlikleri, ödül törenleri, defile ve konserler
+                  için etkinlik alanına göre kiralama seçenekleri ve net
+                  hesaplama örnekleri yer alır.
                 </p>
 
                 <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-5">
@@ -665,7 +666,8 @@ export default function Page() {
 
                 <p className="mt-5 text-base text-gray-600">
                   Daha net bütçe için tarih + ilçe + m² + yükseklik + halı/skört
-                  bilgisini gönderin.
+                  bilgisini gönderin; profesyonel ekip planı ve etkinlik alanına
+                  erişim detayları teklif kapsamını netleştirir.
                 </p>
               </div>
             </div>
@@ -680,7 +682,7 @@ export default function Page() {
                 sizes="100vw"
               />
               <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
-                Saha hazırlığı ve modüler podyum hizalama adımı.
+                Saha hazırlığı ve modüler podyum kurulumu için hizalama adımı.
               </figcaption>
             </figure>
 

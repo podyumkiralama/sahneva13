@@ -25,7 +25,7 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
 const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri";
 const DESCRIPTION =
-  "Kare, üçgen, daire ve kemer dahil tüm truss kiralama kurulumları. LED ekran, ses-ışık rigging ve sahne portalı için nakliye, montaj ve teknik ekip desteği.";
+  "Kare, üçgen, daire ve kemer dahil truss kiralama ve truss sahne kurulumları. LED ekran, ses-ışık rigging ve sahne portalı için montaj desteği.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
@@ -376,14 +376,14 @@ function Content() {
         <article className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700">
           <p>
             Truss; modüler parçalardan oluşan, bağlantı elemanları ile sabitlenen ve yük taşıma amacıyla kullanılan
-            alüminyum konstrüksiyon sistemidir. Sahne üstü kurulumlarda ışık, ses ve LED ekran ekipmanlarının güvenli
+            alüminyum konstrüksiyon sistemidir. Truss sahne kurgularında ışık, ses ve LED ekran ekipmanlarının güvenli
             şekilde taşınmasını ve doğru konumlandırılmasını sağlar.
           </p>
 
           <p>
             Sahneva Organizasyon olarak konser, festival, fuar, lansman ve kurumsal etkinliklerde;
             <strong> kare truss, üçgen truss, circle/oval truss ve kemer (gate) truss</strong> dahil her türlü kurguya
-            uygun truss kiralama ve kurulum hizmeti sunuyoruz.
+            uygun truss kiralama, truss sahne ve kurulum hizmeti sunuyoruz.
           </p>
 
           <h3>Hangi truss çeşitlerini kuruyoruz?</h3>

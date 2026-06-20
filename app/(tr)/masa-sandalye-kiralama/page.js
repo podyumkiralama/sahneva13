@@ -49,7 +49,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Masa Sandalye Kiralama | Profesyonel Çözümler",
   description:
-    "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim. İstanbul genelinde hızlı teslim.",
+    "Masa sandalye kiralama; Napolyon/konferans sandalyesi, banket-bistro masa, örtü-kılıf ve yerleşim. Nişan organizasyonu için uygun fiyatlarla hızlı teslim.",
   alternates: {
     canonical: `${ORIGIN}/masa-sandalye-kiralama`,
     languages: {
@@ -407,7 +407,8 @@ function Services() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Masa sandalye kiralama hizmetlerimiz: geniş envanter, örtü-kılıf
-            sistemleri ve profesyonel yerleşim
+            sistemleri, sandalye kiralama ihtiyacı için doğru ürün seçimi ve
+            profesyonel yerleşim
           </p>
         </div>
 
@@ -1232,7 +1233,7 @@ function Articles() {
                     </strong>{" "}
                     ile masa sandalye kiralama konusunda güvenilir çözüm
                     ortağınız. Geniş envanter, uzman ekip ve 7/24 teknik destek
-                    garantisi.
+                    planıyla çalışan sandalye kiralama firması.
                   </p>
                 </div>
               </div>

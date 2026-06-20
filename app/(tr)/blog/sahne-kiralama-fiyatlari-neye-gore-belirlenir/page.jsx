@@ -22,7 +22,7 @@ const IMG_RIDER = "/img/blog/sahne-kiralama-fiyatlari-teknik-rider.webp";
 
 const TITLE = "Sahne Kiralama Fiyatları Neye Göre Belirlenir?";
 const DESCRIPTION =
-  "Sahne kiralama fiyatları m² bazlıdır. Truss, LED, ses-ışık ve rider detaylarıyla netleşir. Tahmini bütçe ve fiyatlar için bizimle teknik bilgi paylaşın.";
+  "Sahne kiralama fiyatları ve sahne fiyatları m², truss, LED, ses-ışık ve rider detaylarıyla netleşir. Tahmini bütçe için teknik bilgi paylaşın.";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const FEATURED_IMAGE = HERO_IMG;
 const HERO_IMAGE = HERO_IMG;
