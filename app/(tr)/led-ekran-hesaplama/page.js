@@ -55,25 +55,16 @@ function JsonLd() {
       id="ld-json-led-ekran-hesaplama"
       data={{
         "@context": "https://schema.org",
-        "@type": "WebApplication",
+        "@type": "WebPage",
         name: "LED Ekran Hesaplama Aracı",
         url: PAGE_URL,
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
         inLanguage: "tr-TR",
         description:
           "Standart LED ekran ve P1.9 Indoor LED için m², gün sayısı ve Watchout ihtiyacına göre yaklaşık başlangıç bedeli hesaplayan Sahneva aracı.",
-        provider: {
+        publisher: {
           "@type": "Organization",
           name: "Sahneva",
           url: SITE_URL,
-        },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "TRY",
-          availability: "https://schema.org/InStock",
-          url: PAGE_URL,
         },
       }}
     />

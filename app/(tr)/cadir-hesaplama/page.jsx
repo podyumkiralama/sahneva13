@@ -100,33 +100,25 @@ function JsonLd() {
     })),
   };
 
-  const webAppSchema = {
+  const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "WebPage",
     name: "Çadır Hesaplama Aracı",
     url: `${ORIGIN}/cadir-hesaplama`,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
+    inLanguage: "tr-TR",
     description:
       "Kişi sayısı ve etkinlik düzenine göre yaklaşık çadır m² ihtiyacını hesaplayan Sahneva aracı.",
-    provider: {
+    publisher: {
       "@type": "Organization",
       name: "Sahneva",
       url: ORIGIN,
-    },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "TRY",
-      availability: "https://schema.org/InStock",
-      url: `${ORIGIN}/cadir-hesaplama`,
     },
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
     </>
   );
 }
