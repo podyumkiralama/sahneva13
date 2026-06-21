@@ -209,6 +209,12 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#6d28d9",
+};
+
 export default function TurkishLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} font-sans`}>

@@ -12,11 +12,101 @@ import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistratio
 import SpeculationRules from "@/components/performance/SpeculationRules";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
+import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { BASE_SITE_URL, buildAlternateLanguages, buildCanonical } from "@/lib/seo/seoConfig";
+import {
+  LOCAL_BUSINESS_ID,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 
 const content = LOCALE_CONTENT.ru;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
+
+const LOGO_ID = `${BASE_SITE_URL}/#logo`;
+const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
+
+const globalJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "@id": LOGO_ID,
+      url: LOGO_URL,
+      contentUrl: LOGO_URL,
+    },
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      url: BASE_SITE_URL,
+      logo: { "@id": LOGO_ID },
+      description:
+        "Профессиональная компания по производству мероприятий, предлагающая аренду сцен, подиумов, LED-экранов, звука, света и шатров по всей Турции.",
+      knowsAbout: [
+        "аренда сцены",
+        "аренда подиума",
+        "аренда LED-экрана",
+        "аренда шатра",
+        "организация корпоративных мероприятий",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+905453048671",
+        contactType: "customer service",
+        areaServed: "TR",
+        availableLanguage: ["tr", "en", "ru"],
+      },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": LOCAL_BUSINESS_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      url: BASE_SITE_URL,
+      image: OG_IMAGE_URL,
+      logo: { "@id": LOGO_ID },
+      telephone: "+905453048671",
+      priceRange: "₺₺₺",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.096173214009205,
+        longitude: 28.97663777534253,
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
+        addressLocality: "Kagithane",
+        addressRegion: "Istanbul",
+        postalCode: "34400",
+        addressCountry: "TR",
+      },
+      areaServed: "TR",
+      parentOrganization: { "@id": ORGANIZATION_ID },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: BASE_SITE_URL,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      description:
+        "Профессиональные решения для аренды сцен, подиумов, LED-экранов, звука, света и шатров.",
+      inLanguage: "ru",
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  ],
+};
 
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
@@ -83,6 +173,7 @@ export default function RussianLayout({ children }) {
         <SkipLinks locale="ru" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
+        <JsonLd id="global-ld-json-ru" data={globalJsonLd} />
         <div className="flex min-h-screen flex-col bg-white text-neutral-900">
           <div id="_main_header">
             <Navbar locale="ru" />

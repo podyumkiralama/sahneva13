@@ -5,12 +5,18 @@ import { inter } from "../fonts";
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
+import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
 import {
   BASE_SITE_URL,
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
+import {
+  LOCAL_BUSINESS_ID,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
@@ -19,6 +25,91 @@ import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistratio
 import SpeculationRules from "@/components/performance/SpeculationRules";
 
 const content = LOCALE_CONTENT.ar;
+
+const LOGO_ID = `${BASE_SITE_URL}/#logo`;
+const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
+const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
+
+const globalJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "@id": LOGO_ID,
+      url: LOGO_URL,
+      contentUrl: LOGO_URL,
+    },
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      url: BASE_SITE_URL,
+      logo: { "@id": LOGO_ID },
+      description:
+        "شركة إنتاج فعاليات احترافية تقدم خدمات تأجير المسارح والمنصات وشاشات LED وأنظمة الصوت والإضاءة والخيام في جميع أنحاء تركيا.",
+      knowsAbout: [
+        "تأجير المسارح",
+        "تأجير المنصات",
+        "تأجير شاشات LED",
+        "تأجير الخيام",
+        "تنظيم الفعاليات",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+905453048671",
+        contactType: "customer service",
+        areaServed: "TR",
+        availableLanguage: ["tr", "en", "ar"],
+      },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": LOCAL_BUSINESS_ID,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      url: BASE_SITE_URL,
+      image: OG_IMAGE_URL,
+      logo: { "@id": LOGO_ID },
+      telephone: "+905453048671",
+      priceRange: "₺₺₺",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.096173214009205,
+        longitude: 28.97663777534253,
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
+        addressLocality: "Kagithane",
+        addressRegion: "Istanbul",
+        postalCode: "34400",
+        addressCountry: "TR",
+      },
+      areaServed: "TR",
+      parentOrganization: { "@id": ORGANIZATION_ID },
+      sameAs: [
+        "https://www.instagram.com/sahnevaorganizasyon",
+        "https://www.youtube.com/@sahneva",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: BASE_SITE_URL,
+      name: "Sahneva Organizasyon",
+      alternateName: "Sahneva",
+      description:
+        "حلول إنتاج فعاليات احترافية لتأجير المسارح والمنصات وشاشات LED وأنظمة الصوت والإضاءة والخيام.",
+      inLanguage: "ar",
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  ],
+};
 
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
@@ -78,6 +169,7 @@ export default function ArabicLayout({ children }) {
         <SkipLinks locale="ar" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
+        <JsonLd id="global-ld-json-ar" data={globalJsonLd} />
     <div className="flex min-h-screen flex-col bg-white text-neutral-900">
       <div id="_main_header">
         <SiteHeader
