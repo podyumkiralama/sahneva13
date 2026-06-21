@@ -155,6 +155,44 @@ const TECHNICAL_DISCOVERY = [
   },
 ];
 
+const CORPORATE_PROCESS_STEPS = [
+  "Brief ve hedef belirleme",
+  "Mekan keşfi",
+  "Sahne, LED ekran ve teknik plan",
+  "İçerik ve run-of-show akışı",
+  "Prova ve yedek senaryo",
+  "Kurulum ve saha koordinasyonu",
+  "Etkinlik günü operasyon yönetimi",
+  "Söküm, teslim ve etkinlik sonrası kapanış",
+];
+
+const EVENT_TYPE_SOLUTIONS = [
+  {
+    title: "Lansman organizasyonları",
+    text: "Ürün veya marka lansmanlarında sahne dili, LED içerik akışı, konuşmacı geçişleri ve ışık senaryosu aynı hikaye üzerinden planlanır.",
+  },
+  {
+    title: "Konferans ve zirve organizasyonları",
+    text: "Konuşmacı görünürlüğü, sunum ekranı, mikrofon planı, simultane ihtiyaçlar ve reji akışı katılımcı deneyimine göre dengelenir.",
+  },
+  {
+    title: "Bayi toplantıları",
+    text: "Geniş katılımlı bayi toplantılarında protokol düzeni, sahne-podyum ilişkisi, ses kapsaması ve LED görünürlüğü birlikte ele alınır.",
+  },
+  {
+    title: "Gala ve ödül törenleri",
+    text: "Ödül akışı, sahne girişleri, anons, ışık dili ve LED içerikleri marka prestijini destekleyecek kontrollü bir prodüksiyon planına bağlanır.",
+  },
+  {
+    title: "Fuar ve marka deneyim alanları",
+    text: "Fuar alanlarında LED ekran, podyum, ses, ışık ve yönlendirme kurgusu ziyaretçi trafiği ve marka etkileşimi dikkate alınarak hazırlanır.",
+  },
+  {
+    title: "Açık alan kurumsal etkinlikleri",
+    text: "Açık hava etkinliklerinde truss, sahne, LED ekran, enerji, hava koşulları ve saha güvenliği baştan birlikte değerlendirilir.",
+  },
+];
+
 export const metadata = {
   title: {
     absolute: PAGE_TITLE,
@@ -674,6 +712,12 @@ function Positioning() {
         desc="Kurumsal organizasyon şirketleri arasında fark yaratan şey, masa-sandalye kalabalığı değil; sahne, LED ekran, ses-ışık, reji ve saha ekibinin tek planla çalışmasıdır."
       />
 
+      <p className="mb-8 max-w-4xl text-lg leading-8 text-slate-700">
+        Sahneva olarak kurumsal organizasyon hizmetlerini yalnızca ekipman temini olarak değil; sahne mimarisi,
+        LED ekran, ses-ışık, reji, prova ve saha koordinasyonunu kapsayan uçtan uca teknik prodüksiyon süreci
+        olarak ele alıyoruz.
+      </p>
+
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {OVERVIEW_POINTS.slice(0, 6).map((item) => (
           <article key={item.title} className="border border-slate-200 bg-white p-6 shadow-sm">
@@ -686,6 +730,103 @@ function Positioning() {
         ))}
       </div>
     </Section>
+  );
+}
+
+function CorporateGuideSections() {
+  return (
+    <>
+      <Section id="kurumsal-organizasyon-nedir" className="bg-white" deferredClass="content-visibility-auto cv-corporate-guide">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Kapsam tanımı"
+            title="Kurumsal Organizasyon Nedir?"
+            desc="Kurumsal organizasyon; marka, şirket veya kurumların belirli bir hedef doğrultusunda düzenlediği lansman, konferans, bayi toplantısı, gala, ödül töreni, fuar katılımı veya açık alan etkinliklerini kapsar."
+          />
+          <div className="grid gap-5 text-base leading-8 text-slate-700 md:text-lg">
+            <p>
+              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için kurumsal organizasyon; sahne tasarımı, LED ekran, podyum, ses-ışık, truss, teknik reji, prova akışı ve saha koordinasyonunu birlikte yöneten teknik prodüksiyon disiplinidir.
+            </p>
+            <p>
+              Doğru planlanan bir kurumsal etkinlikte sahne, konuşmacı, marka görselleri, teknik ekip ve etkinlik sonrası kapanış aynı operasyon planı içinde ilerler. Böylece marka sahnede daha kontrollü, net ve güven veren bir görünüm kazanır.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="kurumsal-organizasyon-sureci" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-guide-process">
+        <SectionHeader
+          eyebrow="Planlama disiplini"
+          title="Kurumsal Organizasyon Süreci Nasıl Planlanır?"
+          desc="Kurumsal etkinliklerde süreç, ilk görüşmeden etkinlik sonrası söküme kadar aşamalı ilerler. Her adımın baştan netleşmesi, teknik riskleri azaltır ve teklif kapsamını daha anlaşılır hale getirir."
+        />
+        <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+          <div className="border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-base leading-8 text-slate-700">
+              Daha geniş kontrol listesi için{" "}
+              <Link href="/blog/kurumsal-etkinlik-planlama-rehberi-2026" className="font-black text-blue-700 underline underline-offset-4">
+                kurumsal etkinlik planlama rehberi
+              </Link>{" "}
+              içeriğindeki brief, bütçe, teknik keşif ve operasyon başlıkları da incelenebilir.
+            </p>
+          </div>
+          <ol className="grid gap-3 sm:grid-cols-2">
+            {CORPORATE_PROCESS_STEPS.map((step, index) => (
+              <li key={step} className="flex gap-3 border border-slate-200 bg-white p-4 shadow-sm">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-slate-950 text-xs font-black text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="pt-1 text-sm font-black leading-6 text-slate-800">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      <Section id="etkinlik-turleri-kurumsal-cozumler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
+        <SectionHeader
+          eyebrow="Etkinlik türleri"
+          title="Etkinlik Türlerine Göre Kurumsal Çözümler"
+          desc="Her kurumsal etkinlik aynı teknik dili gerektirmez. Lansman, konferans, bayi toplantısı, gala, fuar veya açık hava organizasyonlarında sahne, LED ekran, ses-ışık ve reji ihtiyacı etkinliğin hedefiyle birlikte değerlendirilir."
+        />
+        <p className="mb-8 max-w-4xl text-base leading-8 text-slate-700 md:text-lg">
+          Sahneva, etkinlik türüne göre ekipman listesinden önce sahne deneyimini planlar. İzleyici mesafesi, marka görünürlüğü, konuşmacı akışı, içerik formatı ve saha koşulları birlikte okunduğunda kurumsal prodüksiyon daha güçlü bir bütünlüğe kavuşur.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {EVENT_TYPE_SOLUTIONS.map((item) => (
+            <article key={item.title} className="border border-slate-200 bg-slate-50 p-5">
+              <h3 className="text-lg font-black text-slate-950">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="etkinlik-sonrasi-kapanis" dark deferredClass="content-visibility-auto cv-corporate-closeout">
+        <div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
+          <SectionHeader
+            dark
+            eyebrow="Kapanış yönetimi"
+            title="Etkinlik Sonrası Kapanış ve Teknik Raporlama"
+            desc="Kurumsal organizasyonlarda iş, etkinlik bittiği anda tamamlanmış sayılmaz. Söküm, ekipman çıkışı, mekan teslimi ve teknik kapanış planı da operasyonun parçasıdır."
+          />
+          <div className="grid gap-5">
+            <PremiumCard as="article">
+              <h3 className="text-xl font-black text-white">Söküm ve teslim</h3>
+              <p className="mt-3 text-sm leading-7 text-white/[0.72]">
+                Sahneva, kurulum kadar söküm sürecini de planlı yürütür. Ekipmanların güvenli şekilde toplanması, kablo ve enerji altyapısının kapatılması, sahne-podyum alanının teslimi ve varsa mekan yönetimiyle kapanış koordinasyonu aynı saha sorumluluğu içinde ilerler.
+              </p>
+            </PremiumCard>
+            <PremiumCard as="article">
+              <h3 className="text-xl font-black text-white">Teknik kapanış notları</h3>
+              <p className="mt-3 text-sm leading-7 text-white/[0.72]">
+                Büyük ölçekli kurumsal projelerde etkinlik sonrası teknik notlar, kullanılan kapsam, operasyon akışı ve sonraki etkinlikler için iyileştirme başlıkları değerlendirilir. Bu yaklaşım, markanın tekrar eden etkinliklerinde daha hızlı ve kontrollü planlama yapılmasını sağlar.
+              </p>
+            </PremiumCard>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }
 
@@ -1028,6 +1169,7 @@ export default function Page() {
         <TechnicalDiscoverySection />
         <VideoProof />
         <Positioning />
+        <CorporateGuideSections />
         <OperationFlow />
         <Formats />
         <PackagePlanningSection />
