@@ -328,9 +328,6 @@ export default function HomePage() {
       {/* Projeler */}
       <div className="content-visibility-auto cv-home-projects bg-black">
         <p className="sr-only">
-          Sahneva, Türkiye genelinde kurumsal etkinlikler için sahne, LED ekran, ses-ışık, podyum, truss ve teknik prodüksiyon süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir.
-        </p>
-        <p className="sr-only">
           700+ kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
         </p>
         <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
