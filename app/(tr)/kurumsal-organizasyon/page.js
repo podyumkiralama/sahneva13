@@ -113,7 +113,7 @@ const OPERATION_STEPS = [
     text: "Ses, ışık, görüntü, kamera, sunum ve konuşmacı geçişleri etkinlikten önce prova takvimine bağlanır.",
   },
   {
-    title: "Saha yönetimi ve kapanış",
+    title: "Saha yönetimi ve kapanış", 
     text: "Kurulum, etkinlik günü teknik koordinasyon, söküm ve teslim süreci tek operasyon muhatabıyla ilerler.",
   },
 ];
