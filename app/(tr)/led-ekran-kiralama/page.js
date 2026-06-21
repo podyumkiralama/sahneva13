@@ -816,19 +816,7 @@ function Services() {
             <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
               güncel LED ekran kiralama fiyatları
             </Link>{" "}
-            sayfasında ayrı bir fiyat rehberi hazırladık. Yaklaşık alan ve bütçe hesabı için{" "}
-            <Link href="/led-ekran-hesaplama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
-              LED ekran hesaplama
-            </Link>{" "}
-            aracını kullanabilir; sahne programı için{" "}
-            <Link href="/ses-isik-sistemleri" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
-              ses ve ışık sistemleri
-            </Link>{" "}
-            ile performans alanı ihtiyacı için{" "}
-            <Link href="/podyum-kiralama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
-              podyum kiralama
-            </Link>{" "}
-            çözümlerini birlikte planlayabilirsiniz.
+            sayfasında ayrı bir fiyat rehberi hazırladık.
           </p>
         </div>
 
