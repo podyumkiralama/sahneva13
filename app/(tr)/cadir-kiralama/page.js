@@ -137,25 +137,25 @@ const VIDEO_EMBEDS = [
 ];
 
 const GALLERY_IMAGES = [
+  { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva çadır kiralama - gerçek saha kurulumu etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-2.webp", alt: "Profesyonel çadır kurulumu - anahtar teslim etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-3.webp", alt: "Çadır kiralama saha görseli - büyük açıklıklı kurulum" },
+  { src: "/img/cadir/cadir-saha-4.webp", alt: "Etkinlik çadırı kurulumu - Sahneva profesyonel ekip" },
+  { src: "/img/cadir/cadir-saha-5.webp", alt: "Çadır kiralama referans görseli - açık hava etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-6.webp", alt: "Sahneva çadır kurulumu - kurumsal etkinlik sahası" },
+  { src: "/img/cadir/cadir-saha-7.webp", alt: "Profesyonel çadır kiralama - etkinlik planı ve kurulum" },
+  { src: "/img/cadir/cadir-saha-8.webp", alt: "Çadır kiralama saha detayı - güvenli ve planlı kurulum" },
+  { src: "/img/cadir/cadir-saha-9.webp", alt: "Sahneva çadır etkinlik alanı - tamamlanmış kurulum görseli" },
   { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
   { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır kurulumu - özel davetler için atmosfer" },
   { src: "/img/cadir/3.webp", alt: "Büyük açıklıklı çadır kurulumu - geniş etkinlik alanı çözümü" },
-  { src: "/img/cadir/4.webp", alt: "Fuar çadırı - Profesyonel sergi ve tanıtım alanı" },
-  { src: "/img/cadir/5.webp", alt: "Aydınlatmalı çadır - Gece etkinlikleri için LED aydınlatma" },
-  { src: "/img/cadir/6.webp", alt: "Konser çadırı - Açık hava etkinliği için çadır çözümü" },
-  { src: "/img/cadir/7.webp", alt: "Kurulum ekibi - Profesyonel çadır kurulum süreci" },
-  { src: "/img/cadir/8.webp", alt: "Markalama - Kurumsal etkinlikler için çözümler" },
-  { src: "/img/cadir/9.webp", alt: "Çadır iç düzeni - Kurumsal etkinlik planı" },
-  { src: "/img/cadir/10.webp", alt: "Geniş açıklıklı çadır - Etkinlik alanı düzeni" },
-  { src: "/img/cadir/11.webp", alt: "Dekorasyon ve aydınlatma - Özel etkinlik atmosferi" },
-  { src: "/img/cadir/12.webp", alt: "Çadır kurulum detayı - Profesyonel uygulama" },
 ];
 
 const GALLERY_FALLBACK_CARDS = [
-  { src: "/img/cadir/1.webp", title: "Pagoda çadır kurulumu", alt: "Pagoda çadır kiralama için karşılama ve fuaye alanı kurulumu" },
-  { src: "/img/cadir/2.webp", title: "Şeffaf çadır davet alanı", alt: "Şeffaf çadır kiralama ile kır düğünü ve premium davet alanı" },
-  { src: "/img/cadir/4.webp", title: "Büyük fuar ve festival çadırı", alt: "Fuar ve festival için büyük etkinlik çadırı kurulumu" },
-  { src: "/img/cadir/3.webp", title: "Büyük açıklıklı çadır kurulumu", alt: "Büyük açıklıklı çadır kiralama ile geniş etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-1.webp", title: "Gerçek Saha Kurulumu", alt: "Sahneva çadır kiralama gerçek saha kurulumu etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-2.webp", title: "Anahtar Teslim Kurulum", alt: "Profesyonel çadır kurulumu anahtar teslim etkinlik alanı" },
+  { src: "/img/cadir/cadir-saha-4.webp", title: "Etkinlik Alanı Kurulumu", alt: "Etkinlik çadırı kurulumu Sahneva profesyonel ekip" },
+  { src: "/img/cadir/cadir-saha-6.webp", title: "Kurumsal Etkinlik Sahası", alt: "Sahneva çadır kurulumu kurumsal etkinlik sahası" },
 ];
 
 const FAQ_ITEMS = [
@@ -776,6 +776,101 @@ function TurnkeyInfrastructure() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Gerçek Saha Fotoğrafları ================== */
+const SAHA_PHOTOS = [
+  { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva çadır kiralama saha kurulumu", caption: "Saha Kurulumu" },
+  { src: "/img/cadir/cadir-saha-2.webp", alt: "Anahtar teslim çadır kurulumu etkinlik alanı", caption: "Etkinlik Alanı" },
+  { src: "/img/cadir/cadir-saha-3.webp", alt: "Büyük açıklıklı çadır kurulumu saha", caption: "Büyük Açıklık" },
+  { src: "/img/cadir/cadir-saha-4.webp", alt: "Profesyonel çadır kurulum ekibi", caption: "Profesyonel Ekip" },
+  { src: "/img/cadir/cadir-saha-5.webp", alt: "Açık hava etkinlik alanı çadır", caption: "Açık Hava" },
+  { src: "/img/cadir/cadir-saha-6.webp", alt: "Kurumsal etkinlik çadır sahası", caption: "Kurumsal Alan" },
+  { src: "/img/cadir/cadir-saha-7.webp", alt: "Çadır kiralama kurulum planı", caption: "Kurulum Planı" },
+  { src: "/img/cadir/cadir-saha-8.webp", alt: "Güvenli çadır kurulum detayı", caption: "Güvenli Kurulum" },
+  { src: "/img/cadir/cadir-saha-9.webp", alt: "Tamamlanmış çadır etkinlik alanı", caption: "Tamamlanmış Alan" },
+];
+
+function SahaPhotosSection() {
+  return (
+    <section
+      className="py-16 bg-[#06101f] overflow-hidden"
+      aria-labelledby="saha-fotograf-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[1.8px] text-blue-400 mb-2">
+              Gerçek Saha Fotoğrafları
+            </p>
+            <h2
+              id="saha-fotograf-baslik"
+              className="text-3xl md:text-4xl font-black text-white leading-tight"
+            >
+              Tamamladığımız Kurulumlardan
+            </h2>
+          </div>
+          <p className="text-blue-200/70 text-base max-w-sm leading-relaxed">
+            Müşteri sahasından direkt görüntüler — kurulum kalitesini ve alan dönüşümünü görmek için.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-0">
+        {SAHA_PHOTOS.slice(0, 5).map((photo, i) => (
+          <div key={i} className="relative aspect-[4/3] overflow-hidden group">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              quality={80}
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06101f]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute bottom-3 left-3 text-xs font-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wider uppercase">
+              {photo.caption}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+        {SAHA_PHOTOS.slice(5).map((photo, i) => (
+          <div key={i} className="relative aspect-[4/3] overflow-hidden group">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              quality={80}
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06101f]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute bottom-3 left-3 text-xs font-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wider uppercase">
+              {photo.caption}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="container mx-auto max-w-7xl px-4 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/[0.08] pt-8">
+        <p className="text-blue-200/60 text-sm font-medium">
+          Tüm projeler için galeri sayfamızı ziyaret edin.
+        </p>
+        <a
+          href="https://wa.me/905453048671?text=Merhaba%2C+çadır+kiralama+hakkında+bilgi+almak+istiyorum."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 hover:bg-blue-500 px-6 py-3 text-sm font-black text-white transition-colors"
+        >
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          Teklif Al
+        </a>
       </div>
     </section>
   );
@@ -1531,6 +1626,7 @@ export default function Page() {
       <TentStockSection />
       <PricingSection />
       <TurnkeyInfrastructure />
+      <SahaPhotosSection />
       <Gallery />
       <StandardsTable />
       <UseCases />
