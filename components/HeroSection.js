@@ -14,7 +14,7 @@ const DEFAULT_DICTIONARY = {
   keywordsAriaLabel: "\u00d6ne \u00e7\u0131kan hizmetler",
   badge: "Kurumsal Etkinlik \u2022 Konser \u2022 Lansman \u2022 Festival",
   titleLine1Prefix: "Sahneva ile",
-  titleLine1: "Sahne, LED ve Podyum",
+  titleLine1: "Sahne Kiralama, LED ve Podyum",
   titleLine2: "Tek Ekipten Kurulum",
   description:
     "Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>700+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.",

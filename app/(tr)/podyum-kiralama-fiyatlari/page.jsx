@@ -426,9 +426,9 @@ export default function Page() {
                 <p className="text-base md:text-xl text-white/85 leading-relaxed mb-4 max-w-3xl mx-auto">
                   İstanbul’da <b>2026</b> yılı için güncel podyum kiralama
                   fiyatlarını <b>m² bazlı</b> olarak aşağıda inceleyebilirsiniz.
-                  Açık hava etkinlikleri, ödül törenleri, defile ve konserler
-                  için etkinlik alanına göre kiralama seçenekleri ve net
-                  hesaplama örnekleri yer alır.
+                  Podyum sistemlerinin alan, yükseklik ve kaplama seçeneklerine
+                  göre kiralama fiyatları; açık hava etkinlikleri, ödül törenleri,
+                  defile ve konserler için net hesaplama örnekleriyle yer alır.
                 </p>
 
                 <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-5">

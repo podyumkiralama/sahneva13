@@ -81,7 +81,7 @@ const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
 const HOME_PAGE_DESCRIPTION =
-  "Sahneva ile profesyonel sahne, podyum, LED ekran, ses ve ışık sistemleri kiralama çözümlerini keşfedin. İstanbul merkezli, Türkiye geneli hızlı kurulum.";
+  "Sahneva ile sahne kiralama, podyum, LED ekran, ses ve ışık sistemlerini tek ekipten kiralayın. Kurumsal lansman, düğün, nişan ve tüm etkinlik alanına Türkiye geneli hızlı kurulum.";
 
 const ogUrl =
   getOgImageUrl?.({ path: "/img/hero-bg.webp", absolute: true }) ??

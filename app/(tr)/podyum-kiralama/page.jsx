@@ -343,18 +343,18 @@ const PROCESS_STEP_IMAGES = [
 
 /* ================== 5. META DATA ================== */
 export const metadata = {
-  title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri",
+  title: "Podyum Kiralama | Kiralık Podyum ve Kurulum Çözümleri",
   description:
-    "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kurulum kapasitesi, karolaj planlı ve titreşimsiz modüler podyum sistemleriyle Türkiye geneli podyum kiralama.",
+    "12.000 m² podyum stoğu, karolaj planlı kiralık podyum sistemleriyle Türkiye geneli podyum kiralama ve kurulumu. Konser, fuar ve kurumsal etkinlikler için modüler çözümler.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: "/en/podium-rental",
     xDefault: "/en/podium-rental",
   }),
   openGraph: {
-    title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
+    title: "Podyum Kiralama | Kiralık Podyum ve Kurulum Çözümleri | Sahneva",
     description:
-      "12.000 m² podyum stoğu, karolaj planlı modüler sistemler ve Türkiye geneli profesyonel kurulum kapasitesi.",
+      "12.000 m² podyum stoğu, karolaj planlı kiralık podyum sistemleriyle Türkiye geneli profesyonel kurulum kapasitesi.",
     url: `${ORIGIN}/podyum-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -370,7 +370,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podyum Kiralama ve Kurulumu | Sahne Çözümleri | Sahneva",
+    title: "Podyum Kiralama | Kiralık Podyum ve Kurulum | Sahneva",
     description:
       "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kapasitesi ve karolaj planlı titreşimsiz modüler podyum sistemleri.",
     images: [`${ORIGIN}/img/podyum/hero.webp`],
@@ -539,6 +539,9 @@ function HeroSection() {
 
             <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
               Podyum Kiralama
+              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold mt-2 opacity-80">
+                ve Kurulumu
+              </span>
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/[0.78] md:text-2xl">

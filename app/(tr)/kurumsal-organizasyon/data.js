@@ -116,7 +116,7 @@ export const PACKAGE_OPTIONS = [
 export const PLANNING_STEPS = [
   {
     title: "Etkinlik formatını netleştirme",
-    desc: "Konferans, zirve, bayi toplantısı, gala veya lansman organizasyonları gibi etkinliğin türüne göre sahne mimarisi baştan netleştirilir. Teknik reji dili, podyum yerleşimi, LED içerik akışı ve ekipman seçimi kurumsal kimliğinize uygun şekilde planlanır.",
+    desc: "Konferans, zirve, bayi toplantısı, gala veya lansman gibi etkinliklere ev sahipliği yapan kurumlar için sahne mimarisi baştan netleştirilir. Teknik reji dili, podyum yerleşimi, LED içerik akışı ve ekipman seçimi kurumsal kimliğinize uygun şekilde planlanır.",
   },
   {
     title: "Mekân ve akış kontrolü",

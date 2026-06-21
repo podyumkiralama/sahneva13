@@ -23,7 +23,7 @@ const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PAGE_PATH = "/truss-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
-const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri";
+const TITLE = "Truss Kiralama | Truss Sahne ve Alüminyum Sistemleri";
 const DESCRIPTION =
   "Kare, üçgen, daire ve kemer dahil truss kiralama ve truss sahne kurulumları. LED ekran, ses-ışık rigging ve sahne portalı için montaj desteği.";
 
@@ -299,7 +299,7 @@ function Hero() {
         </p>
 
         <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-          Truss Kiralama{" "}
+          Truss Sahne Kiralama{" "}
           <span className="gradient-text gradient-text--safe-xl">
             ve Kurulum
           </span>
