@@ -612,6 +612,31 @@ function TentSelectorSection() {
             </article>
           ))}
         </div>
+
+        {/* Saha fotoğrafları — çadır tiplerini somutlaştırır */}
+        <div className="mt-10 grid grid-cols-3 gap-3 md:gap-4">
+          {[
+            { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva pagoda çadır kurulumu saha görüntüsü", label: "Pagoda Kurulum" },
+            { src: "/img/cadir/cadir-saha-3.webp", alt: "Büyük açıklıklı çadır kurulumu etkinlik alanı", label: "Büyük Açıklık" },
+            { src: "/img/cadir/cadir-saha-6.webp", alt: "Kurumsal çadır etkinlik sahası kurulumu", label: "Kurumsal Alan" },
+          ].map((photo) => (
+            <div key={photo.src} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 768px) 33vw, 33vw"
+                className="object-cover"
+                quality={78}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 to-transparent" />
+              <span className="absolute bottom-3 left-3 text-xs font-black uppercase tracking-wider text-white">
+                {photo.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -755,122 +780,34 @@ function TurnkeyInfrastructure() {
                 ))}
               </ul>
             </div>
-            <div className="bg-white rounded-3xl border border-blue-100 p-6 shadow-md w-full lg:max-w-xs">
-              <h3 className="text-xl font-black text-gray-900 mb-4">
-                Kurulum Kapsamı
-              </h3>
-              <div className="space-y-3 text-gray-600 text-base">
-                <p>🔧 Saha keşfi ve zemin analizi</p>
-                <p>⚡ Enerji sürekliliği ve güvenlik</p>
-                <p>🏗️ Podyum ve zemin kaplama</p>
-                <p>🌡️ İhtiyaca göre iklimlendirme</p>
+            <div className="relative overflow-hidden rounded-3xl w-full lg:max-w-xs shadow-xl">
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src="/img/cadir/cadir-saha-2.webp"
+                  alt="Sahneva anahtar teslim çadır kurulumu saha fotoğrafı"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 320px"
+                  className="object-cover"
+                  quality={82}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1429]/85 via-[#0a1429]/20 to-transparent" />
               </div>
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-bold text-white hover:scale-105 transition-transform duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
-              >
-                Kurulum Planı İsteyin
-              </Link>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Saha Kaydı</p>
+                <p className="text-white font-black text-lg leading-snug mb-4">Kurulum sürecinden gerçek görüntü</p>
+                <Link
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-2xl bg-blue-600 hover:bg-blue-500 px-6 py-3 font-bold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
+                >
+                  Kurulum Planı İsteyin
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================== Gerçek Saha Fotoğrafları ================== */
-const SAHA_PHOTOS = [
-  { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva çadır kiralama saha kurulumu", caption: "Saha Kurulumu" },
-  { src: "/img/cadir/cadir-saha-2.webp", alt: "Anahtar teslim çadır kurulumu etkinlik alanı", caption: "Etkinlik Alanı" },
-  { src: "/img/cadir/cadir-saha-3.webp", alt: "Büyük açıklıklı çadır kurulumu saha", caption: "Büyük Açıklık" },
-  { src: "/img/cadir/cadir-saha-4.webp", alt: "Profesyonel çadır kurulum ekibi", caption: "Profesyonel Ekip" },
-  { src: "/img/cadir/cadir-saha-5.webp", alt: "Açık hava etkinlik alanı çadır", caption: "Açık Hava" },
-  { src: "/img/cadir/cadir-saha-6.webp", alt: "Kurumsal etkinlik çadır sahası", caption: "Kurumsal Alan" },
-  { src: "/img/cadir/cadir-saha-7.webp", alt: "Çadır kiralama kurulum planı", caption: "Kurulum Planı" },
-  { src: "/img/cadir/cadir-saha-8.webp", alt: "Güvenli çadır kurulum detayı", caption: "Güvenli Kurulum" },
-  { src: "/img/cadir/cadir-saha-9.webp", alt: "Tamamlanmış çadır etkinlik alanı", caption: "Tamamlanmış Alan" },
-];
-
-function SahaPhotosSection() {
-  return (
-    <section
-      className="py-16 bg-[#06101f] overflow-hidden"
-      aria-labelledby="saha-fotograf-baslik"
-    >
-      <div className="container mx-auto max-w-7xl px-4 mb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[1.8px] text-blue-400 mb-2">
-              Gerçek Saha Fotoğrafları
-            </p>
-            <h2
-              id="saha-fotograf-baslik"
-              className="text-3xl md:text-4xl font-black text-white leading-tight"
-            >
-              Tamamladığımız Kurulumlardan
-            </h2>
-          </div>
-          <p className="text-blue-200/70 text-base max-w-sm leading-relaxed">
-            Müşteri sahasından direkt görüntüler — kurulum kalitesini ve alan dönüşümünü görmek için.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-0">
-        {SAHA_PHOTOS.slice(0, 5).map((photo, i) => (
-          <div key={i} className="relative aspect-[4/3] overflow-hidden group">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              quality={80}
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06101f]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="absolute bottom-3 left-3 text-xs font-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wider uppercase">
-              {photo.caption}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-        {SAHA_PHOTOS.slice(5).map((photo, i) => (
-          <div key={i} className="relative aspect-[4/3] overflow-hidden group">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              quality={80}
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06101f]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="absolute bottom-3 left-3 text-xs font-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wider uppercase">
-              {photo.caption}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <div className="container mx-auto max-w-7xl px-4 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/[0.08] pt-8">
-        <p className="text-blue-200/60 text-sm font-medium">
-          Tüm projeler için galeri sayfamızı ziyaret edin.
-        </p>
-        <a
-          href="https://wa.me/905453048671?text=Merhaba%2C+çadır+kiralama+hakkında+bilgi+almak+istiyorum."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 hover:bg-blue-500 px-6 py-3 text-sm font-black text-white transition-colors"
-        >
-          <MessageCircle className="h-4 w-4" aria-hidden="true" />
-          Teklif Al
-        </a>
       </div>
     </section>
   );
@@ -1306,6 +1243,28 @@ function UseCases() {
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
           </Link>
         </div>
+
+        {/* Tamamlanmış kurulum — geniş saha fotoğrafı */}
+        <div className="relative mt-14 overflow-hidden rounded-3xl aspect-[21/7]">
+          <Image
+            src="/img/cadir/cadir-saha-9.webp"
+            alt="Sahneva tamamlanmış çadır etkinlik alanı kurulum görseli"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            quality={82}
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/30 to-transparent" />
+          <div className="absolute inset-0 flex items-center px-8 md:px-14">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Saha Kanıtı</p>
+              <p className="text-white font-black text-2xl md:text-3xl max-w-xs leading-snug">
+                Boş alandan kullanıma hazır etkinlik alanına
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1329,6 +1288,29 @@ function InstallationProcess() {
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Kurulum akışını adım adım görün.
           </p>
+        </div>
+
+        {/* Kurulum sürecinden saha fotoğrafları */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-6xl mx-auto mb-10">
+          {[
+            { src: "/img/cadir/cadir-saha-4.webp", alt: "Çadır kurulum ekibi saha çalışması" },
+            { src: "/img/cadir/cadir-saha-5.webp", alt: "Açık hava çadır kurulumu etkinlik alanı" },
+            { src: "/img/cadir/cadir-saha-7.webp", alt: "Çadır montaj detayı profesyonel kurulum" },
+            { src: "/img/cadir/cadir-saha-8.webp", alt: "Güvenli çadır sabitleme ve ankraj" },
+          ].map((photo) => (
+            <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover"
+                quality={78}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-white/[0.04]" />
+            </div>
+          ))}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -1626,7 +1608,6 @@ export default function Page() {
       <TentStockSection />
       <PricingSection />
       <TurnkeyInfrastructure />
-      <SahaPhotosSection />
       <Gallery />
       <StandardsTable />
       <UseCases />
