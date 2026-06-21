@@ -380,6 +380,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/isik-sistemleri-kiralama",
+        destination: "/ses-isik-sistemleri",
+        statusCode: 301,
+      },
+      {
+        source: "/ses-sistemi-kiralama",
+        destination: "/ses-isik-sistemleri",
+        statusCode: 301,
+      },
+      {
         source: "/site.webmanifest",
         destination: "/manifest.json",
         permanent: true,
@@ -499,7 +509,7 @@ const nextConfig = {
       {
         source: "/blog/2026-cadir-kiralama-rehberi-organizasyon-icin-secenekler",
         destination: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026-2",
@@ -509,12 +519,12 @@ const nextConfig = {
       {
         source: "/blog/ses-sistemlerinde-2026-yenilikleri-mikrofon-ve-line-array",
         destination: "/blog/ses-sistemlerinde-2026-yenilikleri-trendler",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/2026-led-ekran-trendleri-cob-ve-sahne-tasarimi",
         destination: "/blog/led-ekran-teknoloji-trendleri-2026",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/led-ekran-kurulum-guvenligi-2",
