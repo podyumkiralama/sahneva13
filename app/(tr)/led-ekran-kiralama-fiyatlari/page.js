@@ -145,20 +145,20 @@ const faq = [
     a: "Kurulum ve söküm çoğu projede teklif kapsamına alınır; ancak net durum mekan erişimi, şehir, kurulum saati, yükleme alanı, rigging ihtiyacı ve ekip planına göre belirlenir.",
   },
   {
-    q: "LED ekran için teknik ekip ve reji desteği veriliyor mu?",
-    a: "Evet. Sahneva LED ekran projelerinde teknik ekip, görüntü kontrolü, içerik akışı, NovaStar görüntü işlemcisi ve gerektiğinde reji desteğini proje kapsamına göre planlar.",
+    q: "LED ekran kiralama fiyatına teknik ekip ve reji dahil mi?",
+    a: "Teknik ekip ve reji desteği bazı projelerde fiyat kapsamına dahildir; kapsam proje büyüklüğüne, etkinlik süresine ve içerik ihtiyacına göre teklif aşamasında netleştirilir.",
   },
   {
     q: "Indoor ve outdoor LED ekran fiyatları farklı mı?",
     a: "Evet. Indoor LED ekranlarda yakın izleme netliği ve piksel aralığı öne çıkarken outdoor LED ekranlarda parlaklık, hava koşulları, IP koruma ve taşıyıcı sistem ihtiyacı fiyatı etkiler.",
   },
   {
-    q: "LED ekran ölçüsü nasıl belirlenir?",
-    a: "LED ekran ölçüsü sahne genişliği, izleyici mesafesi, içerik formatı, salon görüş açısı ve kamera aktarımı ihtiyacına göre belirlenir. En sağlıklı teklif için ekranın kullanılacağı mekan ve hedef görünürlük birlikte değerlendirilir.",
+    q: "LED ekran m² hesabı fiyatı nasıl etkiler?",
+    a: "LED ekran ölçüsü sahne genişliği, izleyici mesafesi ve içerik formatına göre genişlik × yükseklik formülüyle hesaplanır. m² arttıkça toplam fiyat artar; ancak piksel tipi seçimi (P1.9 vs P3.9) birim m² maliyetini belirler. Ölçü ve piksel kararı birlikte doğru fiyat için kritiktir.",
   },
   {
-    q: "LED ekran kiralama teklifi almak için hangi bilgiler gerekir?",
-    a: "Etkinlik tarihi, şehir, mekan tipi, tahmini ekran ölçüsü, izleyici mesafesi, içerik türü, kurulum-söküm saatleri, reji ve canlı yayın ihtiyacı teklif için yeterli başlangıç bilgisidir.",
+    q: "LED ekran kiralama fiyat teklifi için hangi bilgiler gerekir?",
+    a: "Net fiyat teklifi için: etkinlik tarihi, şehir, mekan tipi (indoor/outdoor), tahmini ekran m², izleyici mesafesi, kurulum-söküm saatleri ve reji ihtiyacı yeterlidir. Bu bilgiler olmadan verilen rakam yanıltıcı olabilir.",
   },
   {
     q: "NovaStar görüntü işlemcisi ve teknik reji fiyata dahil mi?",
@@ -887,18 +887,18 @@ export default function Page() {
               {[
                 {
                   icon: BadgeCheck,
-                  title: "300 m² P1.9 Indoor LED envanteri",
-                  text: "Yakın izleme mesafesinde logo, sunum, ürün görseli ve kamera aktarımı net kalır.",
+                  title: "P1.9 fiyatı neden farklı?",
+                  text: "300 m² özmal P1.9 Indoor LED envanteri daha yüksek piksel yoğunluğu içerdiğinden m² başlangıç fiyatı standart panellere göre daha yüksek planlanır.",
                 },
                 {
                   icon: Cpu,
-                  title: "NovaStar görüntü işlemcisi planı",
-                  text: "Görüntü kontrolü, içerik akışı ve ekran konfigürasyonu teknik rejiyle birlikte ele alınır.",
+                  title: "NovaStar ve reji fiyata etkisi",
+                  text: "Görüntü işlemcisi ve teknik reji kapsamı ekran m² bedeline eklenen kalemlerdir; kapsam büyüdükçe proje bütçesi buna göre şekillenir.",
                 },
                 {
                   icon: Truck,
-                  title: "Türkiye geneli saha operasyonu",
-                  text: "Şehir dışı lojistik araç, ekip, yükleme saati ve konaklama kapsamına göre hesaplanır.",
+                  title: "Şehir dışı lojistik fiyata etkisi",
+                  text: "Şehir dışı projelerde araç, ekip ve konaklama m² bedeline ek olarak ayrıca hesaplanır; bu kalemler ilk teklifte şeffaf listelenir.",
                 },
               ].map((item) => (
                 <article key={item.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-8">

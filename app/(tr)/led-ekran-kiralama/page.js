@@ -146,9 +146,9 @@ const LED_PIXEL_ROWS = [
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama İstanbul | İç & Dış Mekan LED Wall Çözümleri",
+  title: "LED Ekran Kiralama İstanbul | P1.9, P2.9, P3.9 Indoor & Outdoor LED Wall",
   description:
-    "İstanbul ve Türkiye genelinde iç mekan ve dış mekan LED ekran kiralama hizmeti. P1.9, P2.9 ve P3.9 LED panel seçenekleri, kurulum, söküm, teknik ekip ve reji desteğiyle profesyonel çözüm alın.",
+    "İstanbul ve Türkiye genelinde iç mekan ve dış mekan LED ekran kiralama. 300 m² P1.9 Indoor LED envanteri, P2.9 ve P3.9 panel seçenekleri; kurulum, söküm, NovaStar reji ve teknik ekip desteğiyle eksiksiz proje çözümü.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildLanguageAlternates({
@@ -156,11 +156,12 @@ export const metadata = {
     en: "/en/led-screen-rental",
     ru: "/ru/led-screen-rental",
     xDefault: "/led-ekran-kiralama",
+    canonical: "/led-ekran-kiralama",
   }),
   openGraph: {
-    title: "LED Ekran Kiralama İstanbul | İç & Dış Mekan LED Wall Çözümleri",
+    title: "LED Ekran Kiralama İstanbul | P1.9, P2.9, P3.9 Indoor & Outdoor LED Wall",
     description:
-      "İstanbul ve Türkiye genelinde iç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall kurulumlarını teknik ekip ve reji desteğiyle planlayın.",
+      "İstanbul ve Türkiye genelinde iç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall kurulumları. 300 m² P1.9 Indoor LED envanteri, NovaStar reji ve teknik ekip desteğiyle planlayın.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -347,8 +348,6 @@ const ARTICLE_SECTIONS = [
   { id: "led-ekran-nedir", label: "LED ekran kiralama nedir?" },
   { id: "neden-tercih-edilir", label: "Neden tercih edilir?" },
   { id: "ic-dis-mekan-farki", label: "İç / dış mekan farkı" },
-  { id: "fiyatlar-neden-degisir", label: "Fiyatlar neden değişir?" },
-  { id: "fiyatlari-etkileyenler", label: "Fiyatı etkileyen faktörler" },
   { id: "kurulum-sureci", label: "Kurulum süreci" },
   { id: "kullanim-senaryolari", label: "Hangi etkinliklerde kullanılır?" },
   { id: "istanbul-kurulum-sureci", label: "İstanbul operasyon süreci" },
@@ -421,10 +420,6 @@ const FAQ_ITEMS = [
   {
     q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
     a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 300 m² genişliğindeki P1.9 Indoor LED envanteri, en yakın izleme açısında bile yüksek çözünürlüklü görüntü kalitesi ve özmal altyapı gücü sağlar."
-  },
-  {
-    q: "LED ekran kiralama fiyatları nasıl belirlenir?",
-    a: "LED ekran kiralama fiyatları; ekranın toplam metrekaresi, tercih edilen piksel aralığı (P1.9, P2.5, P2.9, P3.9), kurulumun iç veya dış mekan olması, kiralama süresi ve kurulumun yapılacağı şehrin uzaklığına göre hesaplanır. Sahneva olarak şeffaf fiyatlandırma ve proje ihtiyacına uygun teknik ekipman planlaması sunuyoruz."
   },
   {
     q: "İç Mekan (Indoor) ve Dış Mekan (Outdoor) LED Ekran Arasındaki Fark Nedir?",
@@ -1815,32 +1810,18 @@ function Articles() {
                 </Link>
               </div>
               
-              <h3 id="fiyatlar-neden-degisir">Neden Fiyatlar Değişiyor?</h3>
-              <p>
-                LED ekran kiralama fiyatlarında en belirleyici unsur piksel hassasiyetidir. P2.5 gibi düşük piksel aralıklı ekranlar,
-                izleyicinin ekrana yakın olduğu projelerde daha yüksek görüntü netliği sağlar; ancak birim m² maliyeti daha yüksektir.
-                P3.9 ve üzeri modeller ise geniş alanlarda maliyet avantajı sağlar.
-              </p>
-              <p>
-                Özetle, m² arttıkça birim fiyat avantajı oluşabilir; fakat seçilecek piksel aralığı toplam proje bedelini belirgin şekilde etkiler.
-              </p>
-              <p>
-                Güncel başlangıç m² bedellerini, P1.9 Indoor LED envanterini, NovaStar görüntü işlemcisi ve teknik reji kapsamını ayrı bir tabloda görmek için{" "}
-                <Link href="/led-ekran-kiralama-fiyatlari">
-                  LED ekran kiralama fiyatları
-                </Link>{" "}
-                sayfasını inceleyebilirsiniz.
-              </p>
-
-              <h3 id="fiyatlari-etkileyenler">LED Ekran Kiralama Fiyatlarını Neler Etkiler?</h3>
-              <ul>
-                <li>Toplam ekran alanı (m²)</li>
-                <li>Piksel aralığı (P2.5, P2.9, P3.9, P4)</li>
-                <li>İç Mekan / Dış Mekan seçimi</li>
-                <li>Kiralama Süresi (Günlük, Haftalık, Proje Bazlı)</li>
-                <li>Kurulum Zorluğu, Truss / Rigging ve Teknik Ekip Sayısı</li>
-                <li>Canlı Yayın, Reji ve Kamera Entegrasyonu İhtiyaçları</li>
-              </ul>
+              <div className="not-prose my-8 rounded-2xl border border-blue-100 bg-blue-50 p-6 shadow-sm">
+                <h4 className="text-lg font-black text-blue-800 mb-3">LED Ekran Kiralama Fiyatları</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Standart indoor/outdoor LED ekran ile P1.9 Indoor LED için 2026 m² başlangıç bedellerini, kurulum, söküm, NovaStar görüntü işlemcisi ve teknik reji kapsamını ayrı bir sayfada detaylandırdık.
+                </p>
+                <Link
+                  href="/led-ekran-kiralama-fiyatlari"
+                  className="inline-flex items-center font-black text-blue-700 underline underline-offset-4 hover:text-blue-900"
+                >
+                  LED ekran kiralama fiyatları sayfasını incele →
+                </Link>
+              </div>
 
               <h3 id="kurulum-sureci">Kurulum Süreci Nasıl İlerler?</h3>
               <p>
