@@ -362,10 +362,10 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
-              ⭐
+              🪑
             </span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">183+ Değerlendirme</div>
+            <div className="text-xl font-black text-white">Geniş</div>
+            <div className="text-white/80 text-sm">Stok Kapasitesi</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">

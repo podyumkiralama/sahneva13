@@ -318,6 +318,13 @@ export default function HomePage() {
 
       <div id="teklif-al" aria-hidden="true" />
 
+      {/* Marka konumlandırması */}
+      <div className="bg-[#0B1120] pb-2 pt-0">
+        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/50 md:text-base">
+          Sahneva, Türkiye genelinde kurumsal etkinlikler için sahne, LED ekran, ses-ışık, podyum, truss ve teknik prodüksiyon süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir.
+        </p>
+      </div>
+
       {/* Projeler */}
       <div className="content-visibility-auto cv-home-projects bg-black">
         <p className="sr-only">
