@@ -380,7 +380,7 @@ const SUCCESS_STORIES = [
     transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
     before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
     after: "Hızlı kurulan paneller ve 3840 Hz yenileme hızına sahip ekranlarla, kamera dostu ve yüksek kare hızlı oyun yayını gerçekleştirildi.",
-    result: "500+ izleyiciye anlık skor ve oyun yayını yüksek senkronizasyonla aktarıldı; AVM'nin o bölgesindeki etkinlik trafiği %40 artarak organizatörün hedefinin üzerine çıktı.",
+    result: "500+ izleyiciye anlık skor ve oyun yayını yüksek senkronizasyonla aktarıldı; AVM'nin o bölgesindeki etkinlik trafiği organizatörün beklentisinin belirgin biçimde üzerine çıktı.",
     quote: "Oyuncuların dinamizmine ayak uyduran, kamera dostu ve güçlü bir ekran kurulumu oldu.",
     client: "Etkinlik Koordinatörü",
   },
@@ -390,7 +390,7 @@ const SUCCESS_STORIES = [
     transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
     before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
     after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
-    result: "Stant ziyaret süresi önceki yıla kıyasla ortalama %45 uzadı; 4 cepheli yapı sayesinde marka görünürlüğü hol genelinde güçlendirildi.",
+    result: "Stant ziyaret süresi önceki yıla kıyasla gözlemlenebilir ölçüde uzadı; 4 cepheli yapı sayesinde marka görünürlüğü hol genelinde güçlendirildi.",
     quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
     client: "Kurumsal İletişim Müdürü",
   },
@@ -400,7 +400,7 @@ const SUCCESS_STORIES = [
     transformation: "Projeksiyon ışığının yetersiz kaldığı devasa salon, her köşeye eşit parlaklık sunan LED wall ile dönüştü.",
     before: "Ankara'da 2.000 kişilik üniversite mezuniyet salonunda projektörün uzak tribünlere yetmemesi ve görüntü solgunluğu sorunu.",
     after: "P2.9 yüksek çözünürlüklü 12m × 4m LED ekran, salonun ön cephesine monte edilerek tüm oturma sektörlerine eşit parlaklık sağlandı.",
-    result: "2.000 mezun ve ailesine yüksek görünürlüklü sahne destek ekranları sunuldu; kurulum standart projeksiyon sistemine göre %30 daha hızlı tamamlandı.",
+    result: "2.000 mezun ve ailesine yüksek görünürlüklü sahne destek ekranları sunuldu; kurulum standart projeksiyon sistemine kıyasla belirgin şekilde daha hızlı tamamlandı.",
     quote: "En arka sıradaki veliler de konuşmacıyı daha net takip edebildi. LED ekran kurulumu organizasyonun görünürlüğünü güçlendirdi.",
     client: "Üniversite Organizasyon Koordinatörü",
   },
@@ -1447,7 +1447,7 @@ function WhySahneva() {
             id="neden-sahneva-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Teknik <span className="text-blue-700">Üstünlüğümüz</span>
+            LED Ekran <span className="text-blue-700">Teknik Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle yüksek standartlı prodüksiyon altyapısı
