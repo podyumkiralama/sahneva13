@@ -1,6 +1,7 @@
 // app/en/page.js
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import HeroSection from "@/components/HeroSection";
 import HeroBelow from "@/components/HeroBelow";
@@ -863,6 +864,16 @@ export default function EnglishHomePage() {
       </div>
 
       <div id="get-a-quote" aria-hidden="true" />
+
+      <div className="bg-[#0B1120] pb-2 pt-0">
+        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
+          For international agencies and brands planning events in Türkiye, Sahneva works as a local{" "}
+          <Link href="/en/event-production-company-turkey" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
+            event production partner in Turkey
+          </Link>{" "}
+          for venue coordination, stage, LED screen, sound, lighting, truss and field operation.
+        </p>
+      </div>
 
       {/* Services */}
       <section

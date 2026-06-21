@@ -1,6 +1,7 @@
 // app/(tr)/(site)/page.js
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import HeroSection from "@/components/HeroSection";
 import HeroBelow from "@/components/HeroBelow";
@@ -317,6 +318,16 @@ export default function HomePage() {
       </div>
 
       <div id="teklif-al" aria-hidden="true" />
+
+      <div className="bg-[#0B1120] pb-2 pt-0">
+        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
+          Yurt dışından Türkiye’ye gelen marka ve ajanslar için{" "}
+          <Link href="/turkiyede-etkinlik-cozum-ortagi" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
+            Türkiye’de etkinlik çözüm ortağı
+          </Link>{" "}
+          yaklaşımımızı ayrıca inceleyebilirsiniz.
+        </p>
+      </div>
 
       {/* Marka konumlandırması */}
       <div className="bg-[#0B1120] pb-2 pt-0">

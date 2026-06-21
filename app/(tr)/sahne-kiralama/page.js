@@ -1645,6 +1645,12 @@ function RelatedServices() {
       Icon: Layers,
       desc: "Alüminyum truss sistemleri kiralama",
     },
+    {
+      href: "/turkiyede-etkinlik-cozum-ortagi",
+      title: "Türkiye’de Teknik Prodüksiyon Partneri",
+      Icon: Layers,
+      desc: "Yurt dışı etkinlik projeleri için yerel saha ve kurulum koordinasyonu",
+    },
   ];
 
   return (

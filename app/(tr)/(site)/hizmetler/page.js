@@ -284,6 +284,13 @@ export default function ServicesPage() {
       color: "from-green-500 to-emerald-500"
     },
     {
+      href: "/turkiyede-etkinlik-cozum-ortagi",
+      title: "Türkiye’de Etkinlik Çözüm Ortağı",
+      description: "Yabancı ajans ve markalar için yerel teknik prodüksiyon desteği",
+      icon: "ğŸŒ",
+      color: "from-sky-500 to-indigo-500"
+    },
+    {
       href: "/ses-isik-sistemleri",
       title: "Ses & Işık Sistemleri",
       description: "Line array ses, robot ışık, DMX kontrol",

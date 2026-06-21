@@ -314,6 +314,7 @@ const RELATED_SERVICES = [
   { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", Icon: Briefcase, desc: "Lansman, konferans ve gala için tek teknik operasyon akışı" },
   { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", Icon: Monitor, desc: "Sahne arkasında güçlü LED ekran ve video wall çözümleri" },
   { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", Icon: Music, desc: "Podyum alanını tamamlayan ses, ışık ve atmosfer prodüksiyonu" },
+  { href: "/turkiyede-etkinlik-cozum-ortagi", title: "Türkiye’de Etkinlik Çözüm Ortağı", Icon: Briefcase, desc: "Uluslararası ajans ve markalar için yerel podyum, sahne ve saha desteği" },
 ];
 
 const GALLERY_IMAGES = [

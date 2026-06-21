@@ -1000,6 +1000,12 @@ function RelatedServices() {
       Icon: Tent, 
       desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri"
     },
+    {
+      href: "/turkiyede-etkinlik-cozum-ortagi",
+      title: "Uluslararası Etkinlikler İçin Yerel Destek",
+      Icon: Layers,
+      desc: "Türkiye’ye gelen ajans ve markalar için ses, ışık ve saha koordinasyonu"
+    },
   ];
   
   return (

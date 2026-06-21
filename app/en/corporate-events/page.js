@@ -1479,6 +1479,14 @@ function RelatedServices() {
         center
       />
 
+      <p className="mx-auto mb-8 max-w-3xl text-center leading-relaxed text-gray-600">
+        If your team is planning from abroad, our{" "}
+        <Link href="/en/event-production-company-turkey" className="font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+          event production partner in Turkey
+        </Link>{" "}
+        page explains how Sahneva supports venues, logistics, stage, LED screen, sound, lighting, truss and on-site technical coordination.
+      </p>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((s) => (
           <Link key={s.href} href={s.href} className="focus-ring rounded-3xl">

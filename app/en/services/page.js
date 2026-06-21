@@ -290,6 +290,13 @@ export default function EnglishServicesPage() {
       color: "from-green-500 to-emerald-500",
     },
     {
+      href: "/en/event-production-company-turkey",
+      title: "Event Production Partner in Turkey",
+      description: "Local technical production support for international agencies and brands",
+      icon: "ğŸŒ",
+      color: "from-sky-500 to-indigo-500",
+    },
+    {
       href: "#audio-services",
       title: "Sound Systems",
       description: "Line-array audio, wireless mics, digital mixing",

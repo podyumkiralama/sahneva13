@@ -124,6 +124,7 @@ const RELATED_LINKS = [
   { href: "/podyum-kiralama", label: "Protokol podyum ve platform altyapısı" },
   { href: "/ses-isik-sistemleri", label: "Kurumsal ses ve ışık prodüksiyonu" },
   { href: "/truss-kiralama", label: "LED ve sahne için truss altyapısı" },
+  { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Uluslararası firmalar için yerel çözüm ortağı" },
   { href: "/projeler", label: "Sahneva kurumsal prodüksiyon referansları" },
 ];
 
