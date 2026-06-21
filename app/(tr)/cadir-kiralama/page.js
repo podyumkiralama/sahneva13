@@ -1270,7 +1270,7 @@ function UseCases() {
             alt="Sahneva büyük açıklıklı çadır iç yapısı profesyonel kurulum görünümü"
             fill
             sizes="100vw"
-            className="object-cover object-[center_30%]"
+            className="object-cover object-[center_55%]"
             quality={85}
             loading="lazy"
           />
