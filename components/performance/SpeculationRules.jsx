@@ -62,6 +62,7 @@ export default function SpeculationRules({ locale = "tr", nonce = STATIC_CSP_NON
       id={`speculation-rules-${locale}`}
       type="speculationrules"
       nonce={nonce}
+      suppressHydrationWarning
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(buildSpeculationRules(locale)),
       }}

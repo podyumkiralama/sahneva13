@@ -8,7 +8,7 @@ export default function JsonLd({
   data,
   id,
   nonce = STATIC_CSP_NONCE,
-  suppressHydrationWarning = false,
+  suppressHydrationWarning = true,
 }) {
   if (!data) return null;
 
