@@ -325,11 +325,12 @@ function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Düğün • Konferans • Kokteyl • Kurumsal Etkinlikler
+          Düğün • Nişan • Konferans • Kokteyl • Kurumsal Etkinlikler
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Napolyon ve konferans sandalyeleri, banket masalar, örtü-kılıf sistemleri ile
-          <span className="font-semibold text-white"> profesyonel çözümler</span>
+          İstanbul'da düğün, nişan ve kurumsal organizasyonlar için Napolyon ve konferans sandalyeleri,
+          banket masalar, örtü-kılıf sistemleri ile
+          <span className="font-semibold text-white"> yerleşim planı ve hızlı kurulum</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -348,13 +349,13 @@ function Hero() {
 
           <Link
             href="#paketler"
-            aria-label="Paketlerimiz hakkında daha fazla bilgi edinin"
+            aria-label="Fiyat ve paket seçeneklerini inceleyin"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
           >
             <span aria-hidden="true" className="text-xl mr-2">
               🎯
             </span>
-            <span className="text-base">Paketleri Gör</span>
+            <span className="text-base">Fiyat ve Paketler</span>
           </Link>
         </div>
 

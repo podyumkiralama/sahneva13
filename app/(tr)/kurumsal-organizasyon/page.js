@@ -53,7 +53,7 @@ const PHONE = "+905453048671";
 const PAGE_URL = `${ORIGIN}/kurumsal-organizasyon`;
 const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
 const PAGE_DESCRIPTION =
-  "Kurumsal organizasyon için sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten yöneten premium prodüksiyon.";
+  "Türkiye'nin kurumsal etkinlik teknoloji partneri Sahneva; lansman, konferans ve gala organizasyonlarında sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten yönetir.";
 const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
 const OG_DESCRIPTION =
   "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten planlayın.";
@@ -472,7 +472,7 @@ function Hero() {
         <div className="min-w-0 max-w-4xl">
           <div className="mb-5 inline-flex items-center gap-3 border border-white/[0.16] bg-black/[0.34] px-4 py-2 text-sm font-bold text-white/90 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
-            <span>Kurumsal organizasyon</span>
+            <span>Türkiye'nin Kurumsal Etkinlik Teknoloji Partneri</span>
           </div>
 
           <h1
@@ -489,8 +489,7 @@ function Hero() {
           </p>
 
           <p className="mt-5 max-w-[20rem] break-words text-base leading-8 text-white/[0.82] sm:max-w-2xl md:text-lg">
-            Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili,
-            organizasyon süreci ve etkinlik sonrası söküm planı tek ekipten yönetilir.
+            Sahneva, kurumsal organizasyonlarda sahne, LED ekran, ses-ışık, truss ve teknik reji süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir. Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili ve etkinlik sonrası söküm planı tek muhatapla ilerler.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/[0.86]">
