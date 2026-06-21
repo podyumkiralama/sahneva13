@@ -183,7 +183,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
         aria-labelledby={headingId}
         aria-describedby={descId}
         aria-hidden={!open}
-        inert={!open ? "" : undefined}
+        inert={!open || undefined}
         data-open={open ? "true" : undefined}
         className={`fixed left-0 right-0 top-16 z-50 overflow-hidden border-t border-neutral-200 bg-white shadow-2xl transition-all duration-300 ease-in-out nav-dark:border-white/10 nav-dark:bg-[#0B1120] lg:hidden ${
           open

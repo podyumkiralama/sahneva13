@@ -300,7 +300,7 @@ function CaseGallery({
                     {index + 1} / {images.length}
                   </span>
                   {isLastVisible && (
-                    <span className="absolute inset-0 flex items-center justify-center bg-slate-950/70 text-center text-lg font-black text-white backdrop-blur-sm">
+                    <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center bg-slate-950/70 text-center text-lg font-black text-white backdrop-blur-sm">
                       +{hiddenCount} görsel
                     </span>
                   )}

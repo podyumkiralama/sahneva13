@@ -811,7 +811,7 @@ export default function Navbar({
         aria-labelledby={MOBILE_MENU_HEADING_ID}
         aria-describedby={MOBILE_MENU_DESCRIPTION_ID}
         aria-hidden={!mobileOpen}
-        inert={!mobileOpen ? "" : undefined}
+        inert={!mobileOpen || undefined}
         data-open={mobileOpen ? "true" : undefined}
         className={`
           lg:hidden fixed z-50 left-0 right-0 top-16 bg-white border-t border-neutral-200
@@ -906,7 +906,7 @@ export default function Navbar({
   role="region"
   aria-labelledby="mobile-services-button"
   aria-hidden={!mobileServicesOpen}
-  inert={!mobileServicesOpen ? "" : undefined}
+  inert={!mobileServicesOpen || undefined}
   className={`
     overflow-hidden transition-all duration-300 ease-in-out
     ${mobileServicesOpen ? "max-h-[700px] opacity-100 py-2" : "max-h-0 opacity-0 py-0"}

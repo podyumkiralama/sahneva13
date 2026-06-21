@@ -230,7 +230,7 @@ export default function SiteHeader({ locale, strings }) {
         aria-modal={open ? "true" : undefined}
         aria-hidden={!open}
         hidden={!open}
-        inert={!open ? "" : undefined}
+        inert={!open || undefined}
         aria-label={ariaStrings.nav}
         className="lg:hidden border-t border-neutral-200 bg-white shadow-xl nav-dark:border-white/10 nav-dark:bg-[#0B1120]"
       >
