@@ -45,9 +45,6 @@ const TOC_ITEMS = [
 const CORNERSTONE_LINKS = [
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
-  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
-  { href: "/ses-isik-sistemleri", label: "Ses ve Işık Sistemleri" },
-  { href: "/truss-kiralama", label: "Truss Kiralama" },
 ];
 
 export const metadata = {
@@ -345,6 +342,12 @@ export default function Page() {
           ekibinin yükünü azaltır.
         </p>
 
+        <p>
+          Yaklaşık bütçe aralığını görmek isteyenler için{" "}
+          <Link href="/led-ekran-kiralama-fiyatlari">LED ekran kiralama fiyatları</Link> sayfasında
+          başlangıç m² bedelleri ve kapsam notları ayrıca açıklanır.
+        </p>
+
         <h2 id="teknik-destek">Kurulum, operasyon ve teknik destek avantajı</h2>
         <p>
           LED ekran kullanımı yalnızca panel dizmekten ibaret değildir. Ekranın doğru yükseklikte
@@ -426,6 +429,12 @@ export default function Page() {
           getirirken; bir fuar standında daha kompakt LED wall kurgusu ziyaretçi akışını destekleyebilir.
           Konser ve festival projelerinde ise outdoor LED ekranlar, sahne arkasındaki ana görüntü yüzeyi
           veya yan destek ekranları olarak kullanılabilir.
+        </p>
+
+        <p>
+          LED ekran içerikleri yalnızca video oynatmak için değil; sponsor görünürlüğü, QR yönlendirmesi,
+          sosyal medya çağrısı, ürün hikayesi ve canlı kamera akışı için de planlanmalıdır. Bu katmanlar
+          önceden kurgulandığında ekran, markanın sahnedeki en aktif iletişim yüzeyine dönüşür.
         </p>
 
         <h2 id="indoor-outdoor">Indoor ve outdoor LED ekran seçimi neden önemlidir?</h2>
