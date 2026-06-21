@@ -232,6 +232,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Pagoda Çadır",
     badge: "Karşılama ve fuaye",
+    img: "/img/cadir/cadir-saha-1.webp",
+    imgAlt: "Pagoda çadır kiralama kurulum görseli",
     usage: "Karşılama, fuaye, VIP alan, küçük etkinlik ve kayıt noktası",
     sizing: "3x3, 4x4 ve 5x5 modüllerle alan ihtiyacına göre büyür.",
     advantage: "Hızlı kurulur, kurumsal görünür ve yan yana çoğaltılabilir.",
@@ -239,6 +241,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Şeffaf Çadır",
     badge: "Premium davet",
+    img: "/img/cadir/cadir-saha-5.webp",
+    imgAlt: "Şeffaf çadır kiralama kır düğünü ve premium davet görseli",
     usage: "Kır düğünü, premium davet, lansman ve manzaralı açık alan",
     sizing: "Manzara, masa düzeni, ışık ve giriş aksına göre planlanır.",
     advantage: "Mekan hissini kapatmadan hava koşullarına karşı kontrollü alan sağlar.",
@@ -246,6 +250,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Büyük Etkinlik Çadırı",
     badge: "Fuar ve festival",
+    img: "/img/cadir/cadir-saha-6.webp",
+    imgAlt: "Büyük etkinlik çadırı fuar ve festival kurulum görseli",
     usage: "Fuar, festival, belediye etkinliği ve kalabalık organizasyon",
     sizing: "10, 20, 30 ve 40 m geniş açıklık seçenekleriyle projelendirilir.",
     advantage: "Geniş açıklık, kontrollü giriş-çıkış ve teknik entegrasyon imkanı sunar.",
@@ -253,6 +259,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Büyük Açıklıklı Çadır",
     badge: "Geniş alan",
+    img: "/img/cadir/cadir-saha-9.webp",
+    imgAlt: "Büyük açıklıklı çadır kiralama etkinlik alanı görseli",
     usage: "Fuar, festival, yemek alanı, protokol alanı ve büyük katılımlı organizasyonlar",
     sizing: "Genişlik, masa düzeni, giriş-çıkış akışı ve zemin durumuna göre projelendirilir.",
     advantage: "Kolonsuz geniş alan ihtiyacını hızlı ve kontrollü şekilde çözer.",
@@ -356,29 +364,29 @@ const INSTALLATION_STEPS = [
 const USE_CASES = [
   {
     icon: "💍",
-    text: "Düğün ve özel davet çadırı",
-    desc: "Şeffaf çadır, pagoda çadır, zemin kaplama ve atmosfer aydınlatmasıyla kontrollü davet alanı.",
+    text: "Düğün çadırı kiralama",
+    desc: "Şeffaf çadır, pagoda çadır, zemin kaplama ve atmosfer aydınlatmasıyla kır düğünü ve özel davet için kontrollü alan.",
     href: "/ses-isik-sistemleri",
     linkLabel: "ses ve ışık sistemleri",
   },
   {
     icon: "🎪",
-    text: "Fuar ve sergi çadırı",
-    desc: "Marka standları, ziyaretçi akışı ve ürün sergileme için geniş açıklıklı organizasyon çadırı.",
+    text: "Fuar çadırı kiralama",
+    desc: "Marka standları, ziyaretçi akışı ve ürün sergileme için geniş açıklıklı fuar ve sergi etkinlik çadırı.",
     href: "/led-ekran-kiralama",
     linkLabel: "LED ekran kiralama",
   },
   {
     icon: "🎤",
-    text: "Konser ve festival çadırı",
-    desc: "Kulis, sağlık, teknik ekip ve izleyici destek alanları için hızlı kurulabilen çadır çözümleri.",
+    text: "Konser çadırı ve festival çadırı",
+    desc: "Kulis, sağlık, teknik ekip ve izleyici destek alanları için hızlı kurulabilen açık hava etkinlik çadırı.",
     href: "/sahne-kiralama",
     linkLabel: "sahne kiralama",
   },
   {
     icon: "🏛️",
-    text: "Belediye ve kurumsal etkinlik çadırı",
-    desc: "Tören, iftar, lansman ve protokol etkinlikleri için güvenli, planlı ve marka uyumlu kurulum.",
+    text: "Belediye ve kurumsal etkinlik çadırı kiralama",
+    desc: "Tören, iftar, lansman ve protokol etkinlikleri için güvenli, planlı ve marka uyumlu kiralık çadır kurulumu.",
     href: "/kurumsal-organizasyon",
     linkLabel: "kurumsal organizasyon",
   },
@@ -451,7 +459,7 @@ function Hero() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
               </div>
               <span className="text-sm font-black tracking-[0.6px] text-white/90">
-                STOK VE KEŞİF HAZIR • TÜRKİYE GENELİ
+                ETKİNLİK ÇADIRI • STOK HAZIR • TÜRKİYE GENELİ
               </span>
             </div>
 
@@ -571,7 +579,7 @@ function TentSelectorSection() {
             Hangi Çadır Size Uygun?
           </h2>
           <p className="mt-5 text-lg leading-8 text-gray-700 md:text-xl">
-            Çadır kiralama kararında ölçü kadar kullanım amacı, zemin, hava koşulu,
+            Etkinlik çadırı kiralama kararında ölçü kadar kullanım amacı, zemin, hava koşulu,
             giriş-çıkış akışı ve teknik entegrasyon da belirleyicidir.
           </p>
         </div>
@@ -580,35 +588,46 @@ function TentSelectorSection() {
           {TENT_SELECTOR_CARDS.map((item) => (
             <article
               key={item.title}
-              className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.12)]"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.14)]"
             >
-              <div className="mb-7 flex items-center justify-between gap-4">
-                <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
+              {/* Fotoğraf üst alan */}
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.imgAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  quality={78}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+                <span className="absolute bottom-3 left-4 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-black uppercase tracking-wider text-white backdrop-blur-sm">
                   {item.badge}
-                </span>
-                <span className="text-4xl opacity-80 transition group-hover:scale-110" aria-hidden="true">
-                  🏕️
                 </span>
               </div>
 
-              <h3 className="text-2xl font-black tracking-tight text-gray-950">
-                {item.title}
-              </h3>
+              {/* İçerik alt alan */}
+              <div className="flex flex-1 flex-col p-7">
+                <h3 className="text-2xl font-black tracking-tight text-gray-950">
+                  {item.title}
+                </h3>
 
-              <dl className="mt-6 space-y-5 text-sm leading-6 text-gray-700">
-                <div>
-                  <dt className="font-black text-gray-950">Önerilen kullanım</dt>
-                  <dd className="mt-1">{item.usage}</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-gray-950">Ölçü mantığı</dt>
-                  <dd className="mt-1">{item.sizing}</dd>
-                </div>
-                <div className="border-t border-slate-200 pt-5">
-                  <dt className="font-black text-gray-950">Avantaj</dt>
-                  <dd className="mt-1">{item.advantage}</dd>
-                </div>
-              </dl>
+                <dl className="mt-6 space-y-5 text-sm leading-6 text-gray-700">
+                  <div>
+                    <dt className="font-black text-gray-950">Önerilen kullanım</dt>
+                    <dd className="mt-1">{item.usage}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-black text-gray-950">Ölçü mantığı</dt>
+                    <dd className="mt-1">{item.sizing}</dd>
+                  </div>
+                  <div className="border-t border-slate-200 pt-5">
+                    <dt className="font-black text-gray-950">Avantaj</dt>
+                    <dd className="mt-1">{item.advantage}</dd>
+                  </div>
+                </dl>
+              </div>
             </article>
           ))}
         </div>
@@ -677,8 +696,8 @@ function TentStockSection() {
             </h2>
             <div className="mt-6 space-y-5 rounded-3xl border border-white/[0.14] bg-slate-950/55 p-5 text-base leading-8 text-slate-100 shadow-[0_22px_70px_rgba(0,0,0,0.28)] backdrop-blur-md md:p-6 md:text-lg">
               <p>
-                Sahneva, farklı ölçeklerdeki çadır kiralama ihtiyaçları için güçlü
-                stok ve kurulum kapasitesiyle hizmet verir. 3x3, 4x4 ve 5x5 pagoda
+                Sahneva, İstanbul ve Türkiye genelindeki farklı ölçeklerdeki etkinlik çadırı kiralama
+                ihtiyaçları için güçlü stok ve kurulum kapasitesiyle hizmet verir. 3x3, 4x4 ve 5x5 pagoda
                 çadır stoklarının yanı sıra 20 m, 30 m ve 40 m açıklıklı büyük çadır
                 sistemleriyle fuar, festival, belediye etkinliği, kurumsal organizasyon
                 ve açık hava daveti projeleri için anahtar teslim kurulum yapılabilir.
@@ -905,8 +924,8 @@ function Gallery() {
             </h2>
           </div>
           <p className="text-base leading-8 text-gray-700 md:text-lg">
-            Galeriyi karar vermeyi hızlandıracak şekilde sadeleştirdik: öne çıkan
-            uygulama özeti, seçilmiş saha görselleri ve iki kısa video aynı bölümde.
+            Etkinlik çadırı kiralama kararını hızlandıracak şekilde sadeleştirdik: öne çıkan
+            uygulama özeti, gerçek saha görselleri ve iki kısa kurulum videosu aynı bölümde.
           </p>
         </div>
 
@@ -1191,7 +1210,7 @@ function UseCases() {
             </span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
-            Çadır çözümlerimizin tercih edildiği başlıca etkinlik türleri
+            Etkinlik çadırı kiralama ve kiralık çadır çözümlerimizin tercih edildiği başlıca kullanım alanları
           </p>
           <div
             className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
@@ -1286,7 +1305,7 @@ function InstallationProcess() {
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Kurulum akışını adım adım görün.
+            Etkinlik çadırı kiralamanızda keşiften söküme tüm süreç.
           </p>
         </div>
 
@@ -1418,7 +1437,7 @@ function RelatedServices() {
             Ek <span className="text-blue-700">Hizmetler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Çadır kurulumuna eşlik eden tamamlayıcı ekipman ve teknik çözümler
+            Etkinlik çadırı kiralamanıza eşlik eden tamamlayıcı ekipman ve teknik çözümler
           </p>
         </div>
 
@@ -1587,6 +1606,47 @@ function TentRentalJsonLd() {
   return <JsonLdScript id="ld-json-cadir" data={jsonLd} />;
 }
 
+/* ================== Bölüm Geçiş Divider'ları ================== */
+function DividerLightToDark() {
+  return (
+    <div className="relative h-12 bg-white overflow-hidden -mb-px" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
+        <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#0a1429" />
+      </svg>
+    </div>
+  );
+}
+
+function DividerDarkToLight() {
+  return (
+    <div className="relative h-12 bg-[#0a1429] overflow-hidden -mb-px" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
+        <path d="M0,28 L1440,0 L1440,48 L0,48 Z" fill="#f8fafc" />
+      </svg>
+    </div>
+  );
+}
+
+function DividerDarkToWhite() {
+  return (
+    <div className="relative h-12 bg-[#0a1429] overflow-hidden -mb-px" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
+        <path d="M0,28 L1440,0 L1440,48 L0,48 Z" fill="#ffffff" />
+      </svg>
+    </div>
+  );
+}
+
+function DividerBlueToWhite() {
+  return (
+    <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #1d40af, #6d28d9, #1e40af)"}} aria-hidden="true">
+      <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
+        <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#ffffff" />
+      </svg>
+    </div>
+  );
+}
+
 /* ================== Sayfa Bileşeni ================== */
 export default function Page() {
   const baseUrl = ORIGIN;
@@ -1605,13 +1665,17 @@ export default function Page() {
       <Hero />
       <TentCalculatorCta />
       <TentSelectorSection />
+      <DividerLightToDark />
       <TentStockSection />
+      <DividerDarkToLight />
       <PricingSection />
       <TurnkeyInfrastructure />
       <Gallery />
+      <DividerLightToDark />
       <StandardsTable />
       <UseCases />
       <InstallationProcess />
+      <DividerBlueToWhite />
       <FAQ />
       <RelatedServices />
 
