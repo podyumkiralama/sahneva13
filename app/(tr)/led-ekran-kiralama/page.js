@@ -562,7 +562,7 @@ function QuickSelectionGuide() {
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <h4 className="text-base font-bold leading-snug text-white">{scenario.title}</h4>
-                          <p className="mt-1.5 text-xs leading-relaxed text-white/70 md:text-[13px]">{scenario.detail}</p>
+                          <p className="mt-1.5 text-xs leading-relaxed text-white/85 md:text-[13px]">{scenario.detail}</p>
                         </div>
                         <span className="shrink-0 rounded-full bg-blue-500/20 px-2.5 py-1 text-xs font-bold text-blue-200">
                           {scenario.recommendation}
@@ -776,7 +776,7 @@ function Hero() {
           <div className="flex items-center gap-3 border-b border-white/10 pb-4">
             <CheckCircle size={22} className="text-emerald-300" aria-hidden="true" />
             <div>
-              <p className="text-sm font-semibold text-white/60">Sahneva LED Ops</p>
+              <p className="text-sm font-semibold text-white/80">Sahneva LED Ops</p>
               <p className="text-lg font-black text-white">Teknik operasyon akışı</p>
             </div>
           </div>
@@ -789,7 +789,7 @@ function Hero() {
             ].map(([value, label]) => (
               <div key={label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
                 <dt className="text-2xl font-black text-white">{value}</dt>
-                <dd className="text-sm font-medium text-white/70">{label}</dd>
+                <dd className="text-sm font-medium text-white/85">{label}</dd>
               </div>
             ))}
           </dl>
@@ -1385,7 +1385,7 @@ function StatsBand() {
               className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
             >
               <div className="text-3xl font-black text-white">{s.value}</div>
-              <div className="text-sm text-white/70 mt-1">{s.label}</div>
+              <div className="text-sm text-white/85 mt-1">{s.label}</div>
             </article>
           ))}
         </div>
@@ -1526,7 +1526,7 @@ function UseCases() {
               <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
                 {uc.title}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed border-t border-white/10 pt-3">
+              <p className="text-white/80 text-sm leading-relaxed border-t border-white/10 pt-3">
                 {uc.desc}
               </p>
             </li>
