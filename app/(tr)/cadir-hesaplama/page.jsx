@@ -86,6 +86,24 @@ const relatedLinks = [
   { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", text: "Anahtar teslim etkinlik planlama ve saha yönetimi" },
 ];
 
+const blogLinks = [
+  {
+    href: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
+    title: "Çadır kiralama seçenekleri",
+    text: "Pagoda, şeffaf, dome ve büyük açıklıklı çadırları etkinlik tipine göre karşılaştırın.",
+  },
+  {
+    href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
+    title: "Etkinlik teknik keşif rehberi",
+    text: "Zemin, giriş saati, enerji, sahne ve kurulum planını teklif öncesi netleştirin.",
+  },
+  {
+    href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026",
+    title: "Kurumsal etkinlik planlama rehberi",
+    text: "Lansman, fuar, gala ve açık hava etkinliklerinde teknik kapsamı doğru planlayın.",
+  },
+];
+
 function JsonLd() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -244,6 +262,33 @@ export default function TentCalculatorPage() {
                 </summary>
                 <p className="mt-4 leading-7 text-slate-300">{item.answer}</p>
               </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0B1120] px-4 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">İlgili Rehberler</p>
+            <h2 className="text-3xl font-black tracking-[-0.5px] md:text-4xl">
+              Çadır ölçüsünden sonra planlamayı netleştirin
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Hesaplama sonucunu doğru yorumlamak için çadır tipi, saha keşfi ve etkinlik akışını birlikte değerlendiren rehberlere göz atabilirsiniz.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {blogLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-xl transition hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/50"
+              >
+                <span className="block text-lg font-black text-white group-hover:text-blue-100">{item.title}</span>
+                <span className="mt-3 block text-sm leading-6 text-slate-300">{item.text}</span>
+              </Link>
             ))}
           </div>
         </div>
