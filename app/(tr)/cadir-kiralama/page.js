@@ -241,8 +241,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Şeffaf Çadır",
     badge: "Premium davet",
-    img: "/img/cadir/cadir-saha-5.webp",
-    imgAlt: "Şeffaf çadır kiralama kır düğünü ve premium davet görseli",
+    img: "/img/cadir/cadir-saha-7.webp",
+    imgAlt: "Şeffaf çadır kiralama iç mekan premium davet atmosferi",
     usage: "Kır düğünü, premium davet, lansman ve manzaralı açık alan",
     sizing: "Manzara, masa düzeni, ışık ve giriş aksına göre planlanır.",
     advantage: "Mekan hissini kapatmadan hava koşullarına karşı kontrollü alan sağlar.",
@@ -250,8 +250,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Büyük Etkinlik Çadırı",
     badge: "Fuar ve festival",
-    img: "/img/cadir/cadir-saha-6.webp",
-    imgAlt: "Büyük etkinlik çadırı fuar ve festival kurulum görseli",
+    img: "/img/cadir/cadir-saha-1.webp",
+    imgAlt: "Büyük etkinlik çadırı fuar ve festival drone kurulum görseli",
     usage: "Fuar, festival, belediye etkinliği ve kalabalık organizasyon",
     sizing: "10, 20, 30 ve 40 m geniş açıklık seçenekleriyle projelendirilir.",
     advantage: "Geniş açıklık, kontrollü giriş-çıkış ve teknik entegrasyon imkanı sunar.",
@@ -1263,23 +1263,23 @@ function UseCases() {
           </Link>
         </div>
 
-        {/* Tamamlanmış kurulum — geniş saha fotoğrafı */}
-        <div className="relative mt-14 overflow-hidden rounded-3xl aspect-[21/7]">
+        {/* Büyük açıklıklı çadır yapısı — premium iç görünüm */}
+        <div className="relative mt-14 overflow-hidden rounded-3xl aspect-[21/8]">
           <Image
-            src="/img/cadir/cadir-saha-9.webp"
-            alt="Sahneva tamamlanmış çadır etkinlik alanı kurulum görseli"
+            src="/img/hizmet-cadir.webp"
+            alt="Sahneva büyük açıklıklı çadır iç yapısı profesyonel kurulum görünümü"
             fill
             sizes="100vw"
-            className="object-cover"
-            quality={82}
+            className="object-cover object-[center_30%]"
+            quality={85}
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/75 via-gray-950/25 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8 md:px-14">
             <div>
-              <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Saha Kanıtı</p>
-              <p className="text-white font-black text-2xl md:text-3xl max-w-xs leading-snug">
-                Boş alandan kullanıma hazır etkinlik alanına
+              <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Yapı Kalitesi</p>
+              <p className="text-white font-black text-2xl md:text-3xl max-w-sm leading-snug">
+                Büyük açıklıklı çadır — kolon yok, alan tamamen kullanılabilir
               </p>
             </div>
           </div>
