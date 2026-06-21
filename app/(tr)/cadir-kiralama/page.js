@@ -90,20 +90,6 @@ export const metadata = {
     },
   },
 };
-export function Head() {
-  return (
-    <>
-      <link
-        rel="preload"
-        as="image"
-        href="/img/cadir/hero.webp"
-        fetchPriority="high"
-        type="image/webp"
-        imageSizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
-      />
-    </>
-  );
-}
 
 /* ================== Yardımcılar & Sabitler ================== */
 const HERO = {
