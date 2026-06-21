@@ -402,8 +402,8 @@ function CorporateOrganizationJsonLd() {
       name: "Kurumsal Organizasyon ve Teknik Prodüksiyon",
       serviceType: [
         "kurumsal organizasyon",
-        "kurumsal organizasyon şirketleri",
         "kurumsal etkinlik organizasyonu",
+        "kurumsal etkinlik prodüksiyonu",
         "sahne ve LED ekran prodüksiyonu",
         "konferans, lansman ve gala teknik prodüksiyonu",
       ],
@@ -709,7 +709,7 @@ function Positioning() {
       <SectionHeader
         eyebrow="Premium konumlandırma"
         title="Kurumsal organizasyon, ekipman listesi değil sahne etkisidir."
-        desc="Kurumsal organizasyon şirketleri arasında fark yaratan şey, masa-sandalye kalabalığı değil; sahne, LED ekran, ses-ışık, reji ve saha ekibinin tek planla çalışmasıdır."
+        desc="Kurumsal organizasyon şirketleri arasında fark yaratan şey yalnızca ekipman çeşitliliği değil; sahne, LED ekran, ses-ışık, reji ve saha ekibinin tek planla çalışmasıdır."
       />
 
       <p className="mb-8 max-w-4xl text-lg leading-8 text-slate-700">
@@ -745,7 +745,7 @@ function CorporateGuideSections() {
           />
           <div className="grid gap-5 text-base leading-8 text-slate-700 md:text-lg">
             <p>
-              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için kurumsal organizasyon; sahne tasarımı, LED ekran, podyum, ses-ışık, truss, teknik reji, prova akışı ve saha koordinasyonunu birlikte yöneten teknik prodüksiyon disiplinidir.
+              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için kurumsal organizasyon; teknik prodüksiyon kapsamını, prova akışını ve saha koordinasyonunu birlikte yöneten planlı bir çalışma disiplinidir.
             </p>
             <p>
               Doğru planlanan bir kurumsal etkinlikte sahne, konuşmacı, marka görselleri, teknik ekip ve etkinlik sonrası kapanış aynı operasyon planı içinde ilerler. Böylece marka sahnede daha kontrollü, net ve güven veren bir görünüm kazanır.
@@ -787,7 +787,7 @@ function CorporateGuideSections() {
         <SectionHeader
           eyebrow="Etkinlik türleri"
           title="Etkinlik Türlerine Göre Kurumsal Çözümler"
-          desc="Her kurumsal etkinlik aynı teknik dili gerektirmez. Lansman, konferans, bayi toplantısı, gala, fuar veya açık hava organizasyonlarında sahne, LED ekran, ses-ışık ve reji ihtiyacı etkinliğin hedefiyle birlikte değerlendirilir."
+          desc="Her kurumsal etkinlik aynı teknik dili gerektirmez. Lansman, konferans, bayi toplantısı, gala, fuar veya açık hava organizasyonlarında teknik prodüksiyon kapsamı etkinliğin hedefiyle birlikte değerlendirilir."
         />
         <p className="mb-8 max-w-4xl text-base leading-8 text-slate-700 md:text-lg">
           Sahneva, etkinlik türüne göre ekipman listesinden önce sahne deneyimini planlar. İzleyici mesafesi, marka görünürlüğü, konuşmacı akışı, içerik formatı ve saha koşulları birlikte okunduğunda kurumsal prodüksiyon daha güçlü bir bütünlüğe kavuşur.
@@ -820,7 +820,7 @@ function CorporateGuideSections() {
             <PremiumCard as="article">
               <h3 className="text-xl font-black text-white">Teknik kapanış notları</h3>
               <p className="mt-3 text-sm leading-7 text-white/[0.72]">
-                Büyük ölçekli kurumsal projelerde etkinlik sonrası teknik notlar, kullanılan kapsam, operasyon akışı ve sonraki etkinlikler için iyileştirme başlıkları değerlendirilir. Bu yaklaşım, markanın tekrar eden etkinliklerinde daha hızlı ve kontrollü planlama yapılmasını sağlar.
+                Etkinlik sonrası ekip içinde kurulum, prova, akış ve teknik operasyon notları değerlendirilir. Tekrarlayan kurumsal etkinliklerde bu notlar sonraki planlamanın daha hızlı ve kontrollü ilerlemesine yardımcı olur.
               </p>
             </PremiumCard>
           </div>

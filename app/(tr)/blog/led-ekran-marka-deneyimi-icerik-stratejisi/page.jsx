@@ -133,6 +133,11 @@ const FAQ_ITEMS = [
     answer:
       "Sponsor logosu sabit bir köşede sürekli durmak yerine, program akışına yedirilmiş kısa görünürlük blokları ve ana içerik arasında geçişlerle planlanır. Bu, hem sponsor memnuniyetini hem izleyici deneyimini korur.",
   },
+  {
+    question: "LED ekran içeriği hangi formatta hazırlanmalı?",
+    answer:
+      "İçerik formatı ekranın gerçek piksel ölçüsü, en-boy oranı, medya server veya görüntü işlemci yapısı ve program akışına göre belirlenmelidir. Video, sunum ve animasyon dosyaları teknik provadan önce test edilebilir formatta teslim edilmelidir.",
+  },
 ];
 
 function ArticleSchema() {
@@ -513,8 +518,9 @@ export default function Page() {
           Sahneva olarak <Link href="/led-ekran-kiralama">LED ekran kiralama</Link> ve{" "}
           <Link href="/kurumsal-organizasyon">kurumsal organizasyon</Link> projelerinde, ekranı tek başına
           bir ekipman değil; sahne, içerik ve izleyici deneyimiyle birlikte planlanan bir bütün olarak ele
-          alıyoruz. Etkinliğinize özel içerik akışını netleştirmek için teknik ekibimizle erken aşamada
-          görüşmenizi öneririz.
+          alıyoruz. Etkinliğinizde LED ekranı yalnızca görüntü yüzeyi değil, marka iletişim aracı olarak
+          kullanmak istiyorsanız; ekran ölçüsü, içerik formatı ve reji akışını birlikte planlamak için
+          Sahneva ekibiyle erken aşamada görüşebilirsiniz.
         </p>
 
         <h2 id="sss">Sık sorulan sorular</h2>

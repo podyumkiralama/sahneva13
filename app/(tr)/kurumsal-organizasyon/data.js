@@ -311,7 +311,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Sadece ekipman mı sağlıyorsunuz?",
-    a: "Hayır. Sahneva yalnızca ekipman sağlayan bir firma değildir. Kurumsal organizasyon projelerinde keşif, teknik planlama, sahne ve LED ekran mimarisi, prova, kurulum, saha koordinasyonu ve etkinlik sonrası söküm süreci aynı operasyon akışı içinde yönetilir. Bu yaklaşım, kurumsal organizasyon nedir sorusunu sadece masa, sandalye veya ekipman kiralama değil; planlı bir teknik prodüksiyon disiplini olarak ele almamızı sağlar.",
+    a: "Hayır. Sahneva yalnızca ekipman sağlayan bir firma değildir; kurumsal organizasyon projelerinde keşif, teknik planlama, sahne ve LED ekran mimarisi, prova, kurulum, saha koordinasyonu ve etkinlik sonrası söküm süreci aynı operasyon akışı içinde yönetilir. Bu yaklaşım, kurumsal organizasyon nedir sorusunu ekipman kiralama değil, planlı bir teknik prodüksiyon disiplini olarak ele almamızı sağlar.",
   },
   {
     q: "Teklif için hangi bilgiler yeterli?",
