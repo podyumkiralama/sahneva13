@@ -1387,8 +1387,20 @@ function Articles() {
 /* ================== SSS ================== */
 const FAQ_ITEMS = [
   {
-    q: "Masa sandalye kiralama fiyatları ne kadar?",
-    a: "Masa sandalye kiralama fiyatları ürün tipine ve adetine göre değişmektedir. Napolyon sandalye günlük 55₺, konferans sandalyesi 45₺, yuvarlak banket masa 120₺'den başlayan fiyatlarla. Profesyonel kurulum ve teslimat hizmetleri paket fiyatlarına dahildir.",
+    q: "Masa sandalye kiralama fiyatı neye göre belirlenir?",
+    a: "Masa sandalye kiralama fiyatı; ürün tipi (Napolyon/konferans sandalyesi, banket/bistro masa), adet, örtü-kılıf seçimi, kurulum-söküm iş gücü ve İstanbul içi nakliye kalemine göre hesaplanır. Küçük etkinliklerde tek kalem, büyük organizasyonlarda paket fiyatlandırması daha avantajlıdır. Net rakam için etkinlik tarihi, kişi sayısı ve düzen tipini paylaşmanız yeterlidir.",
+  },
+  {
+    q: "Düğün ve nişan için masa sandalye kiralama nasıl planlanır?",
+    a: "Düğün ve nişan organizasyonlarında masa sandalye planlaması üç adımda netleşir: (1) Davetli sayısına göre masa adedi ve düzeni (yuvarlak banket veya dikdörtgen), (2) sandalye modeli ve örtü-kılıf renk seçimi, (3) mekânın kurulum-söküm saatleri. Bu bilgilerle hazırlanan karolaj planı sayesinde hem estetik hem de sirkülasyon doğru kurulur. İstanbul'da çalışıyoruz; etkinlik tarihini paylaşın, saha planını birlikte hazırlayalım.",
+  },
+  {
+    q: "İstanbul'da masa sandalye kiralama teslimat ve kurulum nasıl yapılır?",
+    a: "İstanbul genelinde masa sandalye kiralama sürecinde ekibimiz etkinlik öncesinde belirlenen saatte mekâna gelir, yerleşim planına göre masaları ve sandalyeleri kurar, örtü-kılıf giydirme dahil tüm düzeni tamamlar. Etkinlik bitiminde söküm ve nakliye de aynı paket kapsamında gerçekleştirilir. İstanbul içi nakliye ücrete dahildir; İstanbul dışı talepler için ayrıca fiyatlandırılır.",
+  },
+  {
+    q: "Kurumsal etkinliklerde masa sandalye yerleşimi nasıl hazırlanır?",
+    a: "Kurumsal etkinliklerde masa sandalye yerleşimi; toplantı formatına (konferans, gala, kokteyl), katılımcı sayısına, sahne ve podyum konumuna ve sirkülasyon ihtiyacına göre planlanır. Tiyatro düzeni, sınıf düzeni veya banket düzeni arasında seçim yapılır; her düzen için masa-sandalye adedi, geçiş mesafeleri ve teknik ekipman alanı önceden hesaplanır. Kurumsal etkinlikler için yerleşim planı hizmetimiz paket kapsamındadır.",
   },
   {
     q: "Aynı gün teslim mümkün mü?",
