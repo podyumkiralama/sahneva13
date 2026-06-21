@@ -329,7 +329,7 @@ export default function EventWeatherWidget({
             href={whatsappHref}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 text-sm font-black text-white shadow-lg shadow-emerald-950/30 transition-colors hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-[#0B1120]"
+            className="inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-emerald-700 px-5 text-sm font-black text-white shadow-lg shadow-emerald-950/30 transition-colors hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-[#0B1120]"
           >
             <MessageCircle aria-hidden="true" className="h-4 w-4" />
             Teklif Al

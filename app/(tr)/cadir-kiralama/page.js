@@ -1100,7 +1100,7 @@ function PricingSection() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-600 px-8 py-4 font-black text-white shadow-lg transition hover:bg-green-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-700 px-8 py-4 font-black text-white shadow-lg transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
           >
             <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
             Hemen Teklif Al
