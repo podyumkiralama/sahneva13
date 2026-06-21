@@ -939,7 +939,7 @@ function Gallery() {
                 <span className="inline-flex rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-1 text-xs font-black uppercase tracking-[0.7px] text-blue-700">
                   {story.category}
                 </span>
-                <div className="text-xs font-mono text-slate-400">0{index + 1}</div>
+                <div className="text-xs font-mono text-slate-500">0{index + 1}</div>
               </div>
               <h3 className="mt-6 text-[21px] font-black leading-tight tracking-tight text-gray-950 pr-4">
                 {story.title}
