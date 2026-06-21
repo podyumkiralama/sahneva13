@@ -116,7 +116,7 @@ export const PACKAGE_OPTIONS = [
 export const PLANNING_STEPS = [
   {
     title: "Etkinlik formatını netleştirme",
-    desc: "Konferans, lansman, gala veya bayi toplantısı gibi formatı baştan netleştirmek sahne dilini ve ekipman seçimini kolaylaştırır.",
+    desc: "Konferans, zirve, bayi toplantısı, gala veya lansman organizasyonları gibi etkinliğin türüne göre sahne mimarisi baştan netleştirilir. Teknik reji dili, podyum yerleşimi, LED içerik akışı ve ekipman seçimi kurumsal kimliğinize uygun şekilde planlanır.",
   },
   {
     title: "Mekân ve akış kontrolü",
@@ -311,15 +311,19 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Sadece ekipman mı sağlıyorsunuz?",
-    a: "Hayır. Kurumsal organizasyon projelerinde ekipmanın yanında keşif, teknik plan, prova, kurulum, saha koordinasyonu ve etkinlik günü operasyon yönetimi de kapsamın parçası olabilir.",
+    a: "Hayır. Sahneva yalnızca ekipman sağlayan bir firma değildir. Kurumsal organizasyon projelerinde keşif, teknik planlama, sahne ve LED ekran mimarisi, prova, kurulum, saha koordinasyonu ve etkinlik sonrası söküm süreci aynı operasyon akışı içinde yönetilir. Bu yaklaşım, kurumsal organizasyon nedir sorusunu sadece masa, sandalye veya ekipman kiralama değil; planlı bir teknik prodüksiyon disiplini olarak ele almamızı sağlar.",
   },
   {
     q: "Teklif için hangi bilgiler yeterli?",
     a: "Etkinlik tarihi, şehir veya mekan, katılımcı sayısı, sahne beklentisi, LED ekran ihtiyacı ve program akışı ilk kapsamı çıkarmak için yeterlidir.",
   },
   {
+    q: "Kurumsal organizasyon süreci nasıl ilerler?",
+    a: "Süreç brief, mekan keşfi, teknik plan, içerik akışı, prova, kurulum, etkinlik günü saha koordinasyonu ve söküm adımlarıyla ilerler. Sahne, LED ekran, ses-ışık, truss ve reji kapsamı aynı operasyon planında netleştirilir.",
+  },
+  {
     q: "Türkiye genelinde kurumsal organizasyon desteği veriyor musunuz?",
-    a: "Evet. İstanbul merkezli planlama ile Türkiye genelinde büyük kurulum, teknik ekip ve saha operasyonu organize edebiliyoruz.",
+    a: "Evet. İstanbul merkezli planlama ve teknik ekip koordinasyonuyla Türkiye genelinde kurumsal etkinlik prodüksiyonu organize edebiliyoruz. Sahneva; 300 m² P1.9 indoor LED stoğu, sahne, ses-ışık, truss ve reji altyapısıyla konferans, lansman, gala, bayi toplantısı ve büyük ölçekli event organizasyonlarında uçtan uca teknik destek sağlar.",
   },
   {
     q: "Canlı yayın veya kamera akışı dahil edilebilir mi?",
@@ -327,6 +331,14 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Etkinlik günü sahada kim yönetir?",
-    a: "Sahada teknik koordinatör ana muhataptır. Sahne, LED, ses, ışık ve reji ekipleri tek operasyon akışında ilerler.",
+    a: "Sahada ana muhatap teknik koordinatördür. Kurumsal organizasyon şeması içinde sahne, LED ekran, ses, ışık, reji ve saha ekipleri tek operasyon planına bağlı ilerler. Böylece etkinlik günü farklı taşeronlarla ayrı ayrı muhatap olma karmaşası azalır; karar, prova ve uygulama süreci tek merkezden yönetilir.",
+  },
+  {
+    q: "Lansman, konferans ve gala organizasyonlarında teknik kapsam nasıl belirlenir?",
+    a: "Teknik kapsam; etkinlik hedefi, salon ölçüsü, sahne yerleşimi, konuşmacı akışı, LED içerik formatı, ses kapsaması, ışık dili, reji ihtiyacı ve prova süresine göre belirlenir.",
+  },
+  {
+    q: "Etkinlik sonrası söküm ve teslim süreci nasıl yönetilir?",
+    a: "Etkinlik sonrası söküm, ekipman çıkışı, mekan teslimi ve teknik kapanış aynı saha planına bağlı yürütülür. Amaç, kurulum kadar kapanış sürecinin de düzenli ve kontrollü ilerlemesidir.",
   },
 ];
