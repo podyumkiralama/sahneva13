@@ -36,6 +36,7 @@ const TOC_ITEMS = [
   { href: "#led-ekran-turleri", label: "LED ekran türleri" },
   { href: "#secim-kriterleri", label: "Seçim kriterleri" },
   { href: "#etkinlikte-fark", label: "Etkinlikte fark yaratan yönler" },
+  { href: "#sik-yapilan-hatalar", label: "Sık yapılan hatalar" },
   { href: "#kiralama-mi-satin-alma-mi", label: "Kiralama mı satın alma mı" },
   { href: "#sonuc", label: "Sonuç ve planlama" },
   { href: "#sss", label: "Sık sorulan sorular" },
@@ -110,6 +111,16 @@ const FAQ_ITEMS = [
     question: "Dış mekan LED ekranlarda hangi özellikler önemlidir?",
     answer:
       "Yüksek parlaklık, geniş görüş açısı, IP65 ve üzeri koruma sınıfı, sağlam taşıyıcı sistem, rüzgar yükü planlaması ve hızlı servis erişimi dış mekan LED ekranlarda kritik kriterlerdir.",
+  },
+  {
+    question: "LED ekran kiralama fiyatını en çok hangi kalemler etkiler?",
+    answer:
+      "LED ekran kiralama fiyatını ekran ölçüsü, pixel pitch, indoor/outdoor panel tipi, kurulum yüksekliği, taşıyıcı sistem, nakliye, teknik ekip, görüntü işlemci, reji ve etkinlik süresi etkiler.",
+  },
+  {
+    question: "LED ekran kurulumu için mekandan hangi bilgiler istenir?",
+    answer:
+      "Mekan tipi, yükleme alanı, kurulum saati, ekran ölçüsü, izleyici mesafesi, enerji altyapısı, sahne yerleşimi ve içerik formatı teklif ve kurulum planı için gerekli temel bilgilerdir.",
   },
   {
     question: "LED ekran kiralamak mı satın almak mı daha doğru?",
@@ -354,6 +365,18 @@ export default function Page() {
           ezbere değil izleme mesafesine göre verilmelidir.
         </p>
 
+        <h3>İçerik çözünürlüğü ve ekran oranı</h3>
+        <p>
+          LED ekran seçimi yapılırken yalnızca panel ölçüsü değil, ekranda gösterilecek içerik formatı da
+          planlanmalıdır. Sunum, video, logo animasyonu, canlı kamera görüntüsü veya sponsor görselleri
+          ekran oranına uygun hazırlanmazsa görüntü kesilebilir, esneyebilir veya kenarlarda boşluk oluşabilir.
+        </p>
+        <p>
+          Bu nedenle teklif aşamasında ekranın en-boy oranı, içerik çözünürlüğü, medya formatı ve reji akışı
+          birlikte değerlendirilmelidir. Özellikle lansman, konferans ve fuar projelerinde içeriklerin etkinlikten
+          önce test edilmesi, sahada yaşanabilecek görüntü sorunlarını azaltır.
+        </p>
+
         <ImgFigure
           src={LAUNCH_IMG}
           alt="Marka lansmanı alanında dekorla entegre kullanılan LED ekran standları"
@@ -381,6 +404,18 @@ export default function Page() {
           teknik ekip, etkinlik sırasında oluşabilecek riskleri daha başlamadan azaltır.
         </p>
 
+        <h3>Kurulum süresi, load-in ve load-out planı</h3>
+        <p>
+          LED ekran kiralama sürecinde en çok gözden kaçan konulardan biri kurulum ve söküm zamanıdır.
+          Ekran ölçüsü büyüdükçe panel taşıma, truss veya ground stack kurulumu, enerji dağıtımı, data
+          kablolama, test ve kalibrasyon süresi de artar.
+        </p>
+        <p>
+          Profesyonel bir planlama için mekana giriş saati, yükleme alanı, asansör veya rampa durumu,
+          sahne kurulum sırası ve etkinlik sonrası söküm takvimi önceden netleştirilmelidir. Bu bilgiler
+          doğru verilmediğinde ekipman yetişse bile test süresi kısalabilir.
+        </p>
+
         <Checklist
           items={[
             "Mekan iç mekan mı dış mekan mı?",
@@ -393,6 +428,18 @@ export default function Page() {
             "Sahne, ses ve ışık sistemleriyle entegrasyon gerekiyor mu?",
           ]}
         />
+
+        <h3>Bütçeyi etkileyen kalemler</h3>
+        <p>
+          LED ekran fiyatını yalnızca metrekare belirlemez. Panel tipi, pixel pitch, indoor veya outdoor kullanım,
+          kurulum yüksekliği, taşıyıcı sistem, nakliye, teknik ekip, reji, yedek panel, enerji altyapısı ve etkinlik
+          süresi toplam bütçeyi etkiler.
+        </p>
+        <p>
+          Bu yüzden iki LED ekran teklifi aynı metrekarede görünse bile kapsam olarak farklı olabilir. Sağlıklı
+          karşılaştırma için teklifte kurulum, söküm, teknik personel, görüntü işlemci, kablolama, nakliye ve
+          etkinlik süresince destek kalemleri ayrı ayrı görülmelidir.
+        </p>
 
         <h2 id="etkinlikte-fark">LED ekranlar etkinliklerde nasıl fark yaratır?</h2>
         <p>
@@ -413,6 +460,25 @@ export default function Page() {
           Düğün, gala ve özel organizasyonlarda ise LED ekranlar duygusal içeriklerle güçlü bir atmosfer
           oluşturur. Fotoğraf, video, isim animasyonu, sahne arka planı ve canlı görüntü aktarımı gibi
           kullanımlar etkinliği daha akılda kalıcı hale getirir.
+        </p>
+
+        <h2 id="sik-yapilan-hatalar">LED ekran kiralarken sık yapılan hatalar</h2>
+        <p>
+          LED ekran kiralarken en sık yapılan hata, yalnızca en büyük ekranı veya en düşük fiyatı seçmeye
+          çalışmaktır. Oysa izleyici mesafesi, ortam ışığı, içerik türü ve kurulum güvenliği dikkate alınmadan
+          seçilen ekran etkinlikte beklenen etkiyi vermez.
+        </p>
+        <ul>
+          <li>İzleme mesafesine göre yanlış pixel pitch seçmek</li>
+          <li>Dış mekan için yeterli parlaklık ve IP korumasını sorgulamamak</li>
+          <li>İçerik çözünürlüğünü ekran oranına göre hazırlamamak</li>
+          <li>Kurulum ve test süresi için yeterli zaman bırakmamak</li>
+          <li>Teknik ekip ve yedek panel desteğini teklif kapsamına dahil etmemek</li>
+          <li>Elektrik altyapısı ve kablolama güzergahını önceden kontrol etmemek</li>
+        </ul>
+        <p>
+          Bu hataları önlemek için LED ekran seçimi, sahne yerleşimi ve teknik operasyon aynı plan içinde
+          değerlendirilmelidir.
         </p>
 
         <h2 id="kiralama-mi-satin-alma-mi">LED ekran kiralama mı, satın alma mı?</h2>
