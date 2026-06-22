@@ -344,6 +344,10 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    staleTimes: {
+      dynamic: 30,
+      static: 3600,
+    },
   },
 
   images: {
