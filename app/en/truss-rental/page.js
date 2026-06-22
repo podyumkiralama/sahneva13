@@ -1,4 +1,4 @@
-// app/en/truss-rental/page.js
+﻿// app/en/truss-rental/page.js
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -8,7 +8,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== ISR ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 /* ================== Constants ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(

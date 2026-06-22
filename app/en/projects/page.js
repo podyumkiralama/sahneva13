@@ -1,11 +1,11 @@
-// app/en/projects/page.jsx
+﻿// app/en/projects/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 const ORIGIN = "https://www.sahneva.com";
 

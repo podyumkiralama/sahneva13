@@ -1,11 +1,11 @@
-// app/projeler/page.jsx
+﻿// app/projeler/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {

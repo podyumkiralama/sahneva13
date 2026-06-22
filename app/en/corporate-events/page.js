@@ -1,4 +1,4 @@
-// app/en/corporate-events/page.js
+﻿// app/en/corporate-events/page.js
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -10,7 +10,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
 const WEBSITE_ID = `${ORIGIN}/#website`;

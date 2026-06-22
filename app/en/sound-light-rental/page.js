@@ -1,4 +1,4 @@
-// app/en/sound-light-rental/page.js
+﻿// app/en/sound-light-rental/page.js
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -8,7 +8,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== Constants ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
 const WEBSITE_ID = `${ORIGIN}/#website`;

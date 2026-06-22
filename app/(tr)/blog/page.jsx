@@ -1,9 +1,9 @@
-import JsonLd from "@/components/seo/JsonLd";
+﻿import JsonLd from "@/components/seo/JsonLd";
 import BlogList from "@/components/blog/BlogList.client";
 import { getBlogPosts } from "@/lib/blogPosts";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 
-export const revalidate = 1800;
+export const revalidate = 3600;
 
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN;

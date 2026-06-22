@@ -1,4 +1,4 @@
-// app/en/stage-rental/page.js
+﻿// app/en/stage-rental/page.js
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -12,7 +12,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
 
 /* ================== Constants ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
 const WEBSITE_ID = `${ORIGIN}/#website`;

@@ -1,4 +1,4 @@
-// app/sahne-kiralama/page.jsx
+﻿// app/sahne-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 /* ================== Sabitler ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";

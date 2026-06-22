@@ -1,4 +1,4 @@
-// app/led-ekran-kiralama/page.jsx
+﻿// app/led-ekran-kiralama/page.jsx
 
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +39,7 @@ import {
 } from "lucide-react";
 
 /* ================== Sabitler ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");

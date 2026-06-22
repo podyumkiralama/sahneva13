@@ -1,4 +1,4 @@
-// app/en/runway-podium-rental/page.js
+﻿// app/en/runway-podium-rental/page.js
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -8,7 +8,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== 1. SETTINGS & CONSTANTS ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");

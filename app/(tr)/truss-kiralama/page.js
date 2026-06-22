@@ -1,4 +1,4 @@
-// app/(tr)/truss-kiralama/page.jsx
+﻿// app/(tr)/truss-kiralama/page.jsx
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -9,7 +9,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
 
 /* ================== ISR ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 /* ================== Sabitler ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(

@@ -1,9 +1,9 @@
-// app/en/privacy-policy/page.js
+﻿// app/en/privacy-policy/page.js
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PHONE = "+905453048671";
 const MAIL = "info@sahneva.com";

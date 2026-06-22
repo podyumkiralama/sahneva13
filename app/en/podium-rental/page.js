@@ -1,4 +1,4 @@
-// app/en/podium-rental/page.js
+﻿// app/en/podium-rental/page.js
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -8,7 +8,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;

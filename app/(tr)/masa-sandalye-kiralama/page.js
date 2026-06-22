@@ -1,4 +1,4 @@
-// app/masa-sandalye-kiralama/page.jsx
+﻿// app/masa-sandalye-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -13,7 +13,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 
 /* ================== Sabitler ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.sahneva.com";

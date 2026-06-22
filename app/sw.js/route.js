@@ -23,7 +23,6 @@ self.addEventListener("message", (event) => {
 `;
 
 export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export function GET() {
   return new Response(SW_SOURCE, {

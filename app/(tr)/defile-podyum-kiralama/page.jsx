@@ -1,4 +1,4 @@
-// app/(tr)/defile-podyum-kiralama/page.jsx
+﻿// app/(tr)/defile-podyum-kiralama/page.jsx
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -10,7 +10,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
-export const revalidate = 1800;
+export const revalidate = 86400;
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");

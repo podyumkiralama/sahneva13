@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import TentCalculatorClient from "./TentCalculatorClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
@@ -6,7 +6,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 const ORIGIN = SITE_URL;
 const PAGE_URL = `${ORIGIN}/cadir-hesaplama`;
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 export const metadata = {
   title: "Çadır Hesaplama Aracı | Kaç Kişiye Kaç m² Çadır Gerekir?",

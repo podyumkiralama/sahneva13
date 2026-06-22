@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LedCalculatorClient from "./LedCalculatorClient";
@@ -6,7 +6,7 @@ import LedCalculatorClient from "./LedCalculatorClient";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_URL = `${SITE_URL}/led-ekran-hesaplama`;
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 export const metadata = {
   title: "LED Ekran Hesaplama | m² ve Yaklaşık Fiyat Aracı",

@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -46,7 +46,7 @@ import {
   VIDEO_GALLERY,
 } from "./data";
 
-export const revalidate = 1800;
+export const revalidate = 86400;
 
 const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";

@@ -1,4 +1,4 @@
-// app/en/blog/page.jsx
+﻿// app/en/blog/page.jsx
 import Link from "next/link";
 import Image from "next/image";
 import { readdir } from "fs/promises";
@@ -10,7 +10,7 @@ import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
 /* ================== RUNTIME & ISR ================== */
 export const runtime = "nodejs";
-export const revalidate = 1800;
+export const revalidate = 3600;
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
