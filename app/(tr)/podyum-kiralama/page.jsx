@@ -684,10 +684,10 @@ function PodiumStockCapacitySection() {
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/podyum-kiralama-fiyatlari"
+                href="/podyum-kurulum-fiyatlari"
                 className="inline-flex min-h-[46px] items-center justify-center rounded-2xl bg-white px-5 py-3 font-black text-slate-950 transition hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
               >
-                Podyum kiralama fiyatları
+                Podyum kurulum fiyatları ve m² maliyeti
               </Link>
               <a
                 href={WHATSAPP_URL}
@@ -1006,10 +1006,10 @@ function CalculatorSection() {
                 2026 birim fiyat listesi için{" "}
                 <Link
                   className="underline font-semibold"
-                  href="/podyum-kiralama-fiyatlari"
+                  href="/podyum-kurulum-fiyatlari"
                   prefetch={false}
                 >
-                  podyum kiralama fiyatları
+                  podyum kurulum fiyatları ve m² maliyetleri
                 </Link>{" "}
                 sayfasını inceleyebilirsiniz.
               </p>

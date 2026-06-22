@@ -437,8 +437,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/podyum-kiralama-fiyatlari",
+        destination: "/podyum-kurulum-fiyatlari",
+        permanent: true,
+      },
+      {
         source: "/podyum-kiralama-fiyatlari-1",
-        destination: "/podyum-kiralama-fiyatlari",
+        destination: "/podyum-kurulum-fiyatlari",
         permanent: true,
       },
       {
