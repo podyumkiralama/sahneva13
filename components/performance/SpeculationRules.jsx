@@ -6,7 +6,7 @@ const SPECULATION_RULES_BY_LOCALE = {
   tr: [
     "/hizmetler",
     "/kurumsal-organizasyon",
-    "/podyum-kiralama-fiyatlari",
+    "/podyum-kurulum-fiyatlari",
     "/led-ekran-kiralama-fiyatlari",
     "/led-ekran-kiralama",
     "/ses-isik-sistemleri",

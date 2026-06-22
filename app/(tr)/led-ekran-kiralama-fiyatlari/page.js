@@ -781,8 +781,8 @@ export default function Page() {
                     LED ekran kiralama
                   </Link>{" "}
                   sayfasını; platform ve sahne ilişkisini karşılaştırmak için{" "}
-                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/podyum-kiralama-fiyatlari">
-                    podyum kiralama fiyatları
+                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/podyum-kurulum-fiyatlari">
+                    podyum kurulum fiyatları
                   </Link>{" "}
                   sayfasını inceleyebilirsiniz.
                 </p>

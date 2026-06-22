@@ -27,7 +27,7 @@ const META_DESCRIPTION =
   "Podyum kiralama için doğru ölçü, yükseklik, zemin, güvenlik ve fiyat kriterlerini öğrenin; etkinliğiniz için uygun platformu seçin.";
 
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
-const PODIUM_PRICE_PATH = "/podyum-kiralama-fiyatlari";
+const PODIUM_PRICE_PATH = "/podyum-kurulum-fiyatlari";
 const RUNWAY_PODIUM_PATH = "/defile-podyum-kiralama";
 const CONCERT_PODIUM_PATH = "/konser-icin-podyum-kiralama";
 const STAGE_SERVICE_PATH = "/sahne-kiralama";

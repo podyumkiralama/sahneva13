@@ -34,7 +34,7 @@ export const metadata = {
   description:
     "2026 podium rental prices by m² with carpet, skirt, Istanbul transport, setup and dismantling. Request a fast quote.",
   alternates: buildLanguageAlternates({
-    tr: "/podyum-kiralama-fiyatlari",
+    tr: "/podyum-kurulum-fiyatlari",
     en: slug,
     canonical: slug,
     xDefault: slug,

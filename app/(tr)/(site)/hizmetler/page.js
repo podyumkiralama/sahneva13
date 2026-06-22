@@ -358,8 +358,8 @@ export default function ServicesPage() {
       description: "Festival ve konserlerde ana platform, yan kule ve FOH alanı planlamasını inceleyin.",
     },
     {
-      href: "/podyum-kiralama-fiyatlari",
-      title: "Podyum kiralama fiyatları",
+      href: "/podyum-kurulum-fiyatlari",
+      title: "Podyum kurulum fiyatları",
       description: "Metrekare, yükseklik, kaplama ve nakliye kalemlerinin bütçeye etkisini görün.",
     },
     {

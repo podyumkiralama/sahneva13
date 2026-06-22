@@ -1590,10 +1590,10 @@ function CTASection() {
               2026 birim fiyat listesi için{" "}
               <Link
                 className="underline font-semibold"
-                href="/podyum-kiralama-fiyatlari"
+                href="/podyum-kurulum-fiyatlari"
                 prefetch={false}
               >
-                fiyatlar sayfası
+                podyum kurulum fiyatları sayfası
               </Link>{" "}
               kısmına göz atabilirsiniz.
             </p>
