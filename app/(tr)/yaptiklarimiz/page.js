@@ -166,6 +166,16 @@ const PROJECT_VIDEOS = [
     thumbnailUrl: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
     uploadDate: "2021-02-09T00:00:00+03:00",
   },
+  {
+    id: "qiqiBN4Uhu4",
+    title: "EAACI Kongresi İstanbul — Leti Pharma 360° LED Wall Kurulumu",
+    description:
+      "EAACI Congress İstanbul'da Leti Pharma için hazırlanan 360° LED wall kurulumundan seçilmiş uygulama görüntüsü. Kurumsal sergi alanında tam çevreleyen LED ekran mimarisiyle marka deneyimi oluşturuldu.",
+    services: ["360° LED Wall", "LED Ekran", "Kurumsal Etkinlik", "Kongre", "Sergi"],
+    youtubeUrl: "https://youtube.com/shorts/qiqiBN4Uhu4",
+    thumbnailUrl: "https://i.ytimg.com/vi/qiqiBN4Uhu4/hq2.jpg",
+    uploadDate: "2026-06-23T00:00:00+03:00",
+  },
 ];
 
 export const metadata = {
