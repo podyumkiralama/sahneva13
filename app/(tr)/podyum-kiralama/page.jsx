@@ -362,7 +362,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/podyum/hero.webp`,
+        url: `${ORIGIN}/img/podyum/26.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon podyum kiralama – modüler podyum sistemleri ve profesyonel sahne çözümleri",
@@ -374,7 +374,7 @@ export const metadata = {
     title: "Podyum Kiralama | Kiralık Podyum ve Kurulum | Sahneva",
     description:
       "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kapasitesi ve karolaj planlı titreşimsiz modüler podyum sistemleri.",
-    images: [`${ORIGIN}/img/podyum/hero.webp`],
+    images: [`${ORIGIN}/img/podyum/26.webp`],
   },
   robots: {
     index: true,
@@ -431,7 +431,7 @@ function StructuredData() {
       "@type": "Product",
       name: pkg.name,
       description: pkg.note,
-      image: [`${ORIGIN}/img/podyum/hero.webp`],
+      image: [`${ORIGIN}/img/podyum/26.webp`],
       sku: pkg.id,
       brand: { "@type": "Brand", name: "Sahneva" },
       offers: {
@@ -477,7 +477,7 @@ function StructuredData() {
         inLanguage: "tr-TR",
         isPartOf: { "@id": `${ORIGIN}/#website` },
         mainEntity: { "@id": serviceId },
-        image: [`${ORIGIN}/img/podyum/hero.webp`, ...gallerySchema.imageUrls],
+        image: [`${ORIGIN}/img/podyum/26.webp`, ...gallerySchema.imageUrls],
         hasPart: [
           ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
           ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
@@ -498,7 +498,7 @@ function HeroSection() {
     <section className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32">
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/img/podyum/hero.webp"
+          src="/img/podyum/26.webp"
           alt="Kurumsal etkinlikler için karolaj planlı modüler podyum kurulumu"
           fill
           priority

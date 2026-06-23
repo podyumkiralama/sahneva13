@@ -58,7 +58,7 @@ export const metadata = {
     siteName: "Sahneva",
     locale: "tr_TR",
     images: [{ 
-      url: `${ORIGIN}/img/ses-isik/hero.webp`, 
+      url: `${ORIGIN}/img/ses-isik/isik-sistemi.webp`, 
       width: 1200, 
       height: 630, 
       alt: "Sahneva Organizasyon ses ve ışık sistemleri kiralama – line array, hareketli ışık ve profesyonel sahne çözümleri"
@@ -68,7 +68,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
     description: "Line array, dijital mikser, kablosuz mikrofon, hareketli başlık, truss ve canlı operasyonla Türkiye genelinde ses & ışık kiralama.",
-    images: [`${ORIGIN}/img/ses-isik/hero.webp`],
+    images: [`${ORIGIN}/img/ses-isik/isik-sistemi.webp`],
   },
   robots: {
     index: true,
@@ -92,7 +92,7 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/ses-isik/hero.webp",
+  src: "/img/ses-isik/isik-sistemi.webp",
   alt: "Profesyonel ses ve ışık sistemi kurulumu - Line array ses sistemi ve hareketli ışık başlıkları ile konser etkinliği",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };

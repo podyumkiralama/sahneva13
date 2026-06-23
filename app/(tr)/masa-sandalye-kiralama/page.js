@@ -10,6 +10,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 
 /* ================== Sabitler ================== */
@@ -50,14 +51,11 @@ export const metadata = {
   title: "Masa Sandalye Kiralama | İstanbul Profesyonel Çözümler",
   description:
     "Masa sandalye kiralama; Napolyon/konferans sandalyesi, banket-bistro masa, örtü-kılıf ve yerleşim planı. İstanbul'da düğün, nişan ve kurumsal organizasyon için uygun fiyatlarla hızlı teslim.",
-  alternates: {
-    canonical: `${ORIGIN}/masa-sandalye-kiralama`,
-    languages: {
-      "tr-TR": `${ORIGIN}/masa-sandalye-kiralama`,
-      "en": `${ORIGIN}/en/table-chair-rental`,
-      "x-default": `${ORIGIN}/en/table-chair-rental`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: "/masa-sandalye-kiralama",
+    en: "/en/table-chair-rental",
+    xDefault: "/en/table-chair-rental",
+  }),
   openGraph: {
     title: "Masa Sandalye Kiralama | Sahneva",
     description:
@@ -68,7 +66,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/sandalye/3.webp`,
+        url: `${ORIGIN}/img/sandalye/1.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon masa sandalye kiralama – düğün, kurumsal etkinlik ve organizasyon için profesyonel çözümler",
@@ -80,7 +78,7 @@ export const metadata = {
     title: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
     description:
       "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim.",
-    images: [`${ORIGIN}/img/sandalye/3.webp`],
+    images: [`${ORIGIN}/img/sandalye/1.webp`],
   },
   robots: {
     index: true,
@@ -105,7 +103,7 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/sandalye/3.webp",
+  src: "/img/sandalye/1.webp",
   alt: "Profesyonel masa sandalye kurulumu - Şık davet düzeni ve dekorasyon",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };

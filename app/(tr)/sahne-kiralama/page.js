@@ -75,7 +75,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/hizmet-sahne.webp`,
+        url: `${ORIGIN}/img/sahne/6.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon sahne kiralama – konser, konferans, lansman ve festival için profesyonel sahne çözümleri",
@@ -87,7 +87,7 @@ export const metadata = {
     title: "Sahne Kiralama | Profesyonel Sahne Çözümleri | Sahneva",
     description:
       "Konser, konferans, lansman ve festival etkinlikleri için profesyonel sahne çözümleri.",
-    images: [`${ORIGIN}/img/hizmet-sahne.webp`],
+    images: [`${ORIGIN}/img/sahne/6.webp`],
   },
   robots: {
     index: true,
@@ -112,7 +112,7 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/hizmet-sahne.webp",
+  src: "/img/sahne/6.webp",
   alt: "Profesyonel sahne kurulumu - Konser sahnesinde truss sistemleri, LED ekran ve ışık performansı",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };

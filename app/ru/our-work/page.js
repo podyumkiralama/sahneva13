@@ -7,140 +7,140 @@ import VideoGallery from "./VideoGallery.client";
 export const revalidate = 86400;
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
-const PAGE_PATH = "/yaptiklarimiz";
+const PAGE_PATH = "/ru/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "Yaptıklarımız | Sahne, LED Ekran ve Organizasyon Projeleri";
+const PAGE_TITLE = "Наши работы | Проекты сцен, LED экранов и организации мероприятий";
 const PAGE_DESCRIPTION =
-  "Sahneva tarafından tamamlanan sahne, LED ekran, podyum, ses, ışık, truss, çadır ve kurumsal organizasyon projelerini video çalışmalarıyla inceleyin.";
+  "Ознакомьтесь с реализованными проектами Sahneva: аренда сцен, LED экранов, подиумов, звука, света, ферм, тентов и организация корпоративных мероприятий — с видеодокументацией.";
 const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    title: "Konser Sahnesi ve LED Ekran Kurulumu",
+    title: "Монтаж концертной сцены и LED экрана",
     description:
-      "Sahneva tarafından tamamlanan sahne, LED ekran, ses, ışık ve teknik prodüksiyon çalışmalarından seçilmiş proje videosu.",
-    services: ["Sahne", "LED Ekran", "Ses", "Işık"],
+      "Видео проекта, выбранное из работ Sahneva по монтажу сцены, LED экрана, звука, света и технического производства.",
+    services: ["Сцена", "LED Экран", "Звук", "Свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
     uploadDate: "2026-06-05T00:00:00+03:00",
   },
   {
     id: "x-BYu0vgO2E",
-    title: "SAHA 2026 Özel Etkinlik Alanı ve Fuar Prodüksiyonu",
+    title: "SAHA 2026 — Специальная площадка и производство выставки",
     description:
-      "Kapalı fuar alanında özel yapı, giriş aksı, zemin altyapısı, dome çadır ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan seçilmiş saha görüntüsü.",
-    services: ["Dome Çadır", "Fuar Alanı", "Zemin", "Işık"],
+      "Съёмка с места проведения закрытой выставки: индивидуальные конструкции, входная ось, напольная инфраструктура, купольный тент и фоновое освещение.",
+    services: ["Купольный тент", "Выставочная площадка", "Напольное покрытие", "Свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=x-BYu0vgO2E",
     thumbnailUrl: "https://i.ytimg.com/vi/x-BYu0vgO2E/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {
     id: "CVdYV5BkF3k",
-    title: "Dome Çadırda Lazer Projeksiyon Animasyonu",
+    title: "Лазерная проекционная анимация в купольном тенте",
     description:
-      "Dome çadır tavanına yansıtılan lazer ve projeksiyon animasyonuyla hazırlanan etkinlik atmosferinden seçilmiş uygulama görüntüsü.",
-    services: ["Dome Çadır", "Projeksiyon", "Lazer Animasyon", "Işık"],
+      "Съёмка с мероприятия: лазерная и проекционная анимация, проецируемая на свод купольного тента.",
+    services: ["Купольный тент", "Проекция", "Лазерная анимация", "Свет"],
     youtubeUrl: "https://www.youtube.com/shorts/CVdYV5BkF3k?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/CVdYV5BkF3k/hq2.jpg",
     uploadDate: "2026-01-21T03:16:02-08:00",
   },
   {
     id: "JNzGlNzNRuk",
-    title: "Hızlı Kurulum ve Teknik Hazırlık",
+    title: "Быстрый монтаж и техническая подготовка",
     description:
-      "Dar zamanlı projelerde sahne, LED ekran ve teknik ekip koordinasyonunu gösteren gerçek uygulama kesiti.",
-    services: ["Sahne", "LED Ekran", "Teknik Ekip", "Kurulum"],
+      "Реальная съёмка, демонстрирующая координацию сцены, LED экрана и технической команды в условиях сжатых сроков.",
+    services: ["Сцена", "LED Экран", "Техническая команда", "Монтаж"],
     youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "4ygMbL4FDRc",
-    title: "TÜBİTAK Uzay Bilim Çadırı - TEKNOFEST",
+    title: "Тент TÜBİTAK «Космическая наука» — TEKNOFEST",
     description:
-      "TEKNOFEST kapsamında hazırlanan TÜBİTAK Uzay Bilim Çadırı için çadır, etkinlik alanı ve saha prodüksiyonundan seçilmiş proje videosu.",
-    services: ["Çadır", "TEKNOFEST", "Etkinlik Alanı", "Prodüksiyon"],
+      "Видео проекта из монтажа тента, площадки и полевого производства для тента TÜBİTAK «Космическая наука» на TEKNOFEST.",
+    services: ["Тент", "TEKNOFEST", "Площадка мероприятия", "Производство"],
     youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
     thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
     uploadDate: "2025-10-28T00:48:40-07:00",
   },
   {
     id: "7yjrrEtWrr0",
-    title: "TEKNOFEST Çadır İçi Dekorasyon ve Teknik Altyapı",
+    title: "Внутреннее оформление тента TEKNOFEST и техническая инфраструктура",
     description:
-      "TEKNOFEST çadır alanında iç dekorasyon, ses sistemi, LED ekran, masa-sandalye yerleşimi ve etkinlik altyapısından seçilmiş uygulama görüntüsü.",
-    services: ["Çadır", "Dekorasyon", "LED Ekran", "Ses Sistemi", "Masa Sandalye"],
+      "Съёмка из тентовой зоны TEKNOFEST: внутренний декор, звуковая система, LED экран, расстановка столов и стульев, инфраструктура мероприятия.",
+    services: ["Тент", "Декор", "LED Экран", "Звуковая система", "Столы и стулья"],
     youtubeUrl: "https://www.youtube.com/shorts/7yjrrEtWrr0?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/7yjrrEtWrr0/hq2.jpg",
     uploadDate: "2025-10-17T16:56:21-07:00",
   },
   {
     id: "_9Q7v0ZL304",
-    title: "TEKNOFEST Sahne, LED Ekran, Ses ve Işık Kurulumu",
+    title: "Монтаж сцены, LED экрана, звука и света на TEKNOFEST",
     description:
-      "TEKNOFEST etkinlik alanında sahne, LED ekran, ses, ışık ve teknik altyapı entegrasyonundan seçilmiş saha görüntüsü.",
-    services: ["Sahne", "LED Ekran", "Ses", "Işık"],
+      "Полевые съёмки интеграции сцены, LED экрана, звука, света и технической инфраструктуры на площадке TEKNOFEST.",
+    services: ["Сцена", "LED Экран", "Звук", "Свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=_9Q7v0ZL304",
     thumbnailUrl: "https://i.ytimg.com/vi/_9Q7v0ZL304/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "c72ILTyJH4A",
-    title: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
+    title: "Муниципалитет Фатих — Мероприятие «400 проектов за 5 лет»",
     description:
-      "Fatih Belediyesi'nin 5 yılda Fatih'e değer katan 400 proje etkinliği için hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumundan seçilmiş saha görüntüsü.",
-    services: ["Kurumsal Etkinlik", "Sahne", "LED Ekran", "Ses-Işık"],
+      "Полевые съёмки монтажа сцены, LED экрана, звука, света и технического производства для мероприятия муниципалитета Фатих.",
+    services: ["Корпоратив", "Сцена", "LED Экран", "Звук и свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=c72ILTyJH4A",
     thumbnailUrl: "https://i.ytimg.com/vi/c72ILTyJH4A/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
   },
   {
     id: "173gBurWSRQ",
-    title: "PUBG Türkiye Finali 2023",
+    title: "Финал PUBG Türkiye 2023",
     description:
-      "PUBG Türkiye Finali 2023 etkinliği için hazırlanan sahne, LED ekran, ses-ışık, podyum ve teknik prodüksiyon uygulamasından seçilmiş saha görüntüsü.",
-    services: ["E-Spor", "Sahne", "LED Ekran", "Ses-Işık"],
+      "Полевые съёмки монтажа сцены, LED экрана, звука, света, подиума и технического производства для финала PUBG Türkiye 2023.",
+    services: ["Киберспорт", "Сцена", "LED Экран", "Звук и свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=173gBurWSRQ",
     thumbnailUrl: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
     uploadDate: "2023-12-01T00:00:00+03:00",
   },
   {
     id: "1R5Av0x5ouA",
-    title: "PUBG Sahne, LED Ekran ve Işık Provaları",
+    title: "Репетиции сцены, LED экрана и света для PUBG",
     description:
-      "PUBG etkinliği için hazırlanan sahne, LED ekran ve ışık provalarından seçilmiş teknik prova görüntüsü.",
-    services: ["E-Spor", "Sahne", "LED Ekran", "Işık"],
+      "Съёмка технических репетиций сцены, LED экрана и света, подготовленных для мероприятия PUBG.",
+    services: ["Киберспорт", "Сцена", "LED Экран", "Свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=1R5Av0x5ouA",
     thumbnailUrl: "https://i.ytimg.com/vi/1R5Av0x5ouA/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
   },
   {
     id: "i-KtuiLiBmI",
-    title: "Küp LED Ekran Kiralama",
+    title: "Аренда кубического LED экрана",
     description:
-      "Küp LED ekran formunda hazırlanan yaratıcı görüntü yüzeyiyle marka, sahne ve etkinlik alanı için dikkat çekici LED ekran uygulaması.",
-    services: ["Küp LED", "LED Ekran", "Sahne Tasarımı", "Prodüksiyon"],
+      "Эффектное применение LED экрана в форме куба для бренда, сцены и площадки мероприятия.",
+    services: ["Кубический LED", "LED Экран", "Дизайн сцены", "Производство"],
     youtubeUrl: "https://www.youtube.com/shorts/i-KtuiLiBmI?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/i-KtuiLiBmI/hq2.jpg",
     uploadDate: "2026-04-10T01:44:04-07:00",
   },
   {
     id: "AihkXPzPBi0",
-    title: "Kurumsal Etkinlik Toplantısında LED Ekran Kullanımı",
+    title: "LED экран на корпоративном совещании",
     description:
-      "Kurumsal toplantı sahnesinde LED ekran, sunum akışı, marka görünürlüğü ve teknik prodüksiyon düzeninden seçilmiş uygulama görüntüsü.",
-    services: ["Kurumsal Etkinlik", "LED Ekran", "Toplantı", "Teknik Prodüksiyon"],
+      "Съёмка корпоративной сцены совещания: LED экран, поток презентации, видимость бренда и техническое производство.",
+    services: ["Корпоратив", "LED Экран", "Совещание", "Техническое производство"],
     youtubeUrl: "https://www.youtube.com/shorts/AihkXPzPBi0?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/AihkXPzPBi0/hq2.jpg",
     uploadDate: "2026-05-30T09:54:16-07:00",
   },
   {
     id: "tyb1lG9KtiA",
-    title: "Çadır Kurulum Organizasyonu",
+    title: "Монтаж тента и организация площадки",
     description:
-      "Etkinlik çadırı kurulumunda taşıyıcı sistem, branda, sabitleme ve saha koordinasyonunu gösteren uygulama kesiti.",
-    services: ["Çadır", "Kurulum", "Sabitleme", "Saha Ekibi"],
+      "Съёмка монтажа тента мероприятия: несущая конструкция, тент, крепления и координация на месте.",
+    services: ["Тент", "Монтаж", "Крепление", "Полевая команда"],
     youtubeUrl: "https://www.youtube.com/watch?v=tyb1lG9KtiA&t=46s",
     thumbnailUrl: "https://i.ytimg.com/vi/tyb1lG9KtiA/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
@@ -148,30 +148,30 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "xatodgyZ_S8",
-    title: "Ufkun Ötesinde Galası ve Türkiye'nin İnsanlı İlk Uzay Misyonu Sergisi",
+    title: "Гала «За горизонтом» и выставка первой пилотируемой миссии Турции",
     description:
-      "Ufkun Ötesinde Galası ve Türkiye'nin insanlı ilk uzay misyonu sergisi için hazırlanan sahne, LED ekran, sergi alanı ve teknik prodüksiyon uygulamasından seçilmiş proje videosu.",
-    services: ["Gala", "Sergi Alanı", "LED Ekran", "Teknik Prodüksiyon"],
+      "Видео проекта монтажа сцены, LED экрана, выставочной площадки и технического производства для галы «За горизонтом» и выставки первой пилотируемой миссии Турции.",
+    services: ["Гала", "Выставочная площадка", "LED Экран", "Техническое производство"],
     youtubeUrl: "https://www.youtube.com/watch?v=xatodgyZ_S8",
     thumbnailUrl: "https://i.ytimg.com/vi/xatodgyZ_S8/hqdefault.jpg",
     uploadDate: "2026-06-09T03:10:17-07:00",
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "Milli Uzay Programı Lansmanı 2021",
+    title: "Запуск Национальной космической программы 2021",
     description:
-      "TUA Milli Uzay Programı Lansmanı için hazırlanan sahne, LED ekran, pnömatik dome yapı ve teknik prodüksiyon uygulamasından seçilmiş sahne arkası görüntüsü.",
-    services: ["Lansman", "Dome", "LED Ekran", "Sahne"],
+      "Закулисная съёмка монтажа сцены, LED экрана, пневматического купольного купола и технического производства для запуска Национальной космической программы TUA.",
+    services: ["Запуск", "Дом", "LED Экран", "Сцена"],
     youtubeUrl: "https://www.youtube.com/watch?v=j1Tr5l8DVW8",
     thumbnailUrl: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
     uploadDate: "2021-02-09T00:00:00+03:00",
   },
   {
     id: "qiqiBN4Uhu4",
-    title: "EAACI Kongresi İstanbul — Leti Pharma 360° LED Wall Kurulumu",
+    title: "Конгресс EAACI Стамбул — Монтаж 360° LED Wall для Leti Pharma",
     description:
-      "EAACI Congress İstanbul'da Leti Pharma için hazırlanan 360° LED wall kurulumundan seçilmiş uygulama görüntüsü. Kurumsal sergi alanında tam çevreleyen LED ekran mimarisiyle marka deneyimi oluşturuldu.",
-    services: ["360° LED Wall", "LED Ekran", "Kurumsal Etkinlik", "Kongre", "Sergi"],
+      "Съёмка монтажа 360° LED wall для Leti Pharma на конгрессе EAACI в Стамбуле. Полностью окружающая LED экран архитектура создала иммерсивный брендовый опыт на корпоративной выставочной площадке.",
+    services: ["360° LED Wall", "LED Экран", "Корпоратив", "Конгресс", "Выставка"],
     youtubeUrl: "https://youtube.com/shorts/qiqiBN4Uhu4",
     thumbnailUrl: "https://i.ytimg.com/vi/qiqiBN4Uhu4/hq2.jpg",
     uploadDate: "2026-06-23T00:00:00+03:00",
@@ -184,11 +184,11 @@ export const metadata = {
   alternates: {
     canonical: PAGE_URL,
     languages: {
-      "tr-TR": PAGE_URL,
+      "tr-TR": `${SITE_URL}/yaptiklarimiz`,
       "en": `${SITE_URL}/en/our-work`,
-      "ru": `${SITE_URL}/ru/our-work`,
+      "ru": PAGE_URL,
       "ar": `${SITE_URL}/ar/our-work`,
-      "x-default": PAGE_URL,
+      "x-default": `${SITE_URL}/yaptiklarimiz`,
     },
   },
   openGraph: {
@@ -197,7 +197,7 @@ export const metadata = {
     description: PAGE_DESCRIPTION,
     url: PAGE_URL,
     siteName: "Sahneva",
-    locale: "tr_TR",
+    locale: "ru_RU",
     images: [
       {
         url: PROJECT_VIDEOS[0].thumbnailUrl,
@@ -216,7 +216,7 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
-function YaptiklarimizStructuredData() {
+function OurWorkStructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -226,7 +226,7 @@ function YaptiklarimizStructuredData() {
         url: PAGE_URL,
         name: PAGE_TITLE,
         description: PAGE_DESCRIPTION,
-        inLanguage: "tr-TR",
+        inLanguage: "ru-RU",
         datePublished: PUBLISHED_AT,
         dateModified: PUBLISHED_AT,
         breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
@@ -236,14 +236,14 @@ function YaptiklarimizStructuredData() {
         "@type": "BreadcrumbList",
         "@id": `${PAGE_URL}#breadcrumb`,
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: `${SITE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "Yaptıklarımız", item: PAGE_URL },
+          { "@type": "ListItem", position: 1, name: "Главная", item: `${SITE_URL}/ru` },
+          { "@type": "ListItem", position: 2, name: "Наши работы", item: PAGE_URL },
         ],
       },
       {
         "@type": "ItemList",
         "@id": `${PAGE_URL}#video-list`,
-        name: "Sahneva Yaptıklarımız Video Listesi",
+        name: "Список видео наших работ Sahneva",
         itemListElement: PROJECT_VIDEOS.map((video, index) => ({
           "@type": "ListItem",
           position: index + 1,
@@ -260,7 +260,7 @@ function YaptiklarimizStructuredData() {
         contentUrl: video.youtubeUrl,
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
-        inLanguage: "tr-TR",
+        inLanguage: "ru-RU",
       })),
     ],
   };
@@ -277,12 +277,12 @@ function SectionEyebrow({ children }) {
   );
 }
 
-export default function YaptiklarimizPage() {
+export default function OurWorkRuPage() {
   const featuredVideo = PROJECT_VIDEOS[0];
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
-      <YaptiklarimizStructuredData />
+      <OurWorkStructuredData />
 
       <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.24),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(14,165,233,0.16),transparent_28%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,64px_64px,64px_64px]" aria-hidden="true" />
@@ -290,34 +290,34 @@ export default function YaptiklarimizPage() {
         <div className="absolute -right-32 top-36 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-7xl">
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/65">
-            <Link href="/" className="transition hover:text-white">Ana Sayfa</Link>
+          <nav aria-label="Хлебные крошки" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/65">
+            <Link href="/ru" className="transition hover:text-white">Главная</Link>
             <span aria-hidden="true">/</span>
-            <span className="font-semibold text-white">Yaptıklarımız</span>
+            <span className="font-semibold text-white">Наши работы</span>
           </nav>
 
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <SectionEyebrow>Video Proje Vitrini</SectionEyebrow>
+              <SectionEyebrow>Витрина видеопроектов</SectionEyebrow>
               <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                Yaptığımız sahne, LED ekran ve organizasyon projeleri
+                Реализованные проекты сцен, LED экранов и организации мероприятий
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-                Sahne, LED ekran, ses-ışık, truss, podyum ve çadır çözümlerini gerçek etkinlik alanlarında nasıl kurduğumuzu gösteren saha referanslarını bu sayfada bir araya getiriyoruz.
+                Мы собираем полевые референсы, демонстрирующие, как мы монтируем сцену, LED экран, звук, свет, фермы, подиум и тентовые решения на реальных площадках мероприятий.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/iletisim"
+                  href="/ru/contact"
                   className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:bg-blue-50"
                 >
-                  Benzer Proje İçin Teklif Al
+                  Получить предложение для похожего проекта
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="/projeler"
+                  href="/ru/projects"
                   className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white backdrop-blur transition hover:bg-white/15"
                 >
-                  Proje Detaylarını İncele
+                  Смотреть детали проектов
                 </Link>
               </div>
             </div>
@@ -328,7 +328,7 @@ export default function YaptiklarimizPage() {
                 <div className="mb-3 flex items-center justify-between gap-3 px-2 pt-1 text-sm text-slate-300">
                   <span className="inline-flex items-center gap-2 font-black text-white">
                     <Sparkles className="h-4 w-4 text-blue-200" />
-                    Öne Çıkan İlk Video
+                    Рекомендуемое видео
                   </span>
                   <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-blue-100">Sahneva</span>
                 </div>
@@ -350,9 +350,9 @@ export default function YaptiklarimizPage() {
         <div className="relative mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionEyebrow>Video Galeri</SectionEyebrow>
+              <SectionEyebrow>Видеогалерея</SectionEyebrow>
               <h2 id="video-gallery-title" className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
-                Kurulumdan etkinlik anına kadar sahadan işler
+                От монтажа до дня мероприятия — реальные работы с полей
               </h2>
             </div>
           </div>
@@ -368,20 +368,20 @@ export default function YaptiklarimizPage() {
               <div>
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black text-blue-100">
                   <Clapperboard className="h-4 w-4" />
-                  Sahneva Proje Arşivi
+                  Архив проектов Sahneva
                 </div>
                 <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-                  Etkinliğiniz için benzer bir kurulum planlayalım.
+                  Давайте спланируем похожую установку для вашего мероприятия.
                 </h2>
                 <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
-                  Konser, festival, kurumsal etkinlik, lansman ve açık hava organizasyonları için sahne, LED ekran, podyum, ses, ışık, truss ve çadır çözümlerini tek elden projelendiriyoruz.
+                  Мы предоставляем комплексные решения для концертов, фестивалей, корпоративных мероприятий, запусков продуктов и мероприятий на открытом воздухе: сцена, LED экран, подиум, звук, свет, фермы и тент — из единого источника.
                 </p>
               </div>
               <Link
-                href="/iletisim"
+                href="/ru/contact"
                 className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-blue-500 px-7 py-3 text-sm font-black text-white shadow-xl shadow-blue-950/25 transition hover:-translate-y-0.5 hover:bg-blue-400"
               >
-                Teklif Al
+                Получить предложение
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
