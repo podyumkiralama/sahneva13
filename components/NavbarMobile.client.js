@@ -35,7 +35,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
     about: isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda",
     services: isEn ? "Services" : isRu ? "Услуги" : "Hizmetler",
     explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın",
-    showcase: isEn || isRu ? "Blog" : "Yaptıklarımız",
+    showcase: isEn ? "Our Work" : isRu ? "Наши работы" : "Yaptıklarımız",
     support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek",
     supportText: isEn
       ? "Get a quick quote and send your questions on WhatsApp."
@@ -54,7 +54,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
 
   const links = {
     about: isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda",
-    showcase: isEn ? "/en/blog" : isRu ? "/ru" : "/yaptiklarimiz",
+    showcase: isEn ? "/en/our-work" : isRu ? "/ru/our-work" : "/yaptiklarimiz",
   };
 
   const mobileWhatsappHref = useMemo(

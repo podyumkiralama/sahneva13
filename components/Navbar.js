@@ -60,10 +60,10 @@ export default function Navbar({ locale = "tr", ...props }) {
   const whatsappHref = `https://wa.me/905453048671?text=${whatsappMessage}&utm_source=navbar&utm_medium=desktop_whatsapp`;
   const homeHref = isEn ? "/en" : isRu ? "/ru" : "/";
   const aboutHref = isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda";
-  const showcaseHref = isEn ? "/en/blog" : isRu ? "/ru" : "/yaptiklarimiz";
+  const showcaseHref = isEn ? "/en/our-work" : isRu ? "/ru/our-work" : "/yaptiklarimiz";
   const servicesHref = isEn ? "/en/services" : isRu ? "/ru/services" : "/hizmetler";
   const aboutLabel = isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda";
-  const showcaseLabel = isEn || isRu ? "Blog" : "Yaptıklarımız";
+  const showcaseLabel = isEn ? "Our Work" : isRu ? "Наши работы" : "Yaptıklarımız";
   const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
   const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın";
   const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : "Süreç, iletişim ve bilgi sayfaları";
