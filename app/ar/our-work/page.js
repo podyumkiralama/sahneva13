@@ -337,6 +337,7 @@ export default function OurWorkArPage() {
                   title={featuredVideo.title}
                   thumbnailUrl={featuredVideo.thumbnailUrl}
                   startSeconds={featuredVideo.startSeconds}
+                  locale="ar"
                   className="rounded-[1.5rem]"
                 />
               </div>

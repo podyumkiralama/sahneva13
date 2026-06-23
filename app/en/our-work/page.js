@@ -337,6 +337,7 @@ export default function OurWorkPage() {
                   title={featuredVideo.title}
                   thumbnailUrl={featuredVideo.thumbnailUrl}
                   startSeconds={featuredVideo.startSeconds}
+                  locale="en"
                   className="rounded-[1.5rem]"
                 />
               </div>

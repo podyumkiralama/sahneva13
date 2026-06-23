@@ -67,6 +67,7 @@ function ProjectVideoCard({ video, index }) {
           title={video.title}
           thumbnailUrl={video.thumbnailUrl}
           startSeconds={video.startSeconds}
+          locale="ar"
           className="rounded-[1.4rem]"
         />
         <div className="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-xs font-black text-white backdrop-blur">

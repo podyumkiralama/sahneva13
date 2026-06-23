@@ -43,6 +43,20 @@ function warmupYouTube() {
 /* ===========================
    Component
    =========================== */
+const PLAY_LABELS = {
+  tr: "Videoyu İzle",
+  en: "Watch Video",
+  ru: "Смотреть видео",
+  ar: "شاهد الفيديو",
+};
+
+const PREVIEW_ERROR_LABELS = {
+  tr: "Önizleme yüklenemedi",
+  en: "Preview unavailable",
+  ru: "Превью недоступно",
+  ar: "المعاينة غير متاحة",
+};
+
 export default function VideoEmbed({
   videoId,
   title = "YouTube video",
@@ -57,9 +71,12 @@ export default function VideoEmbed({
   preconnectOnMount = false,
 
   startSeconds = 0,
-  playLabel = "Videoyu İzle",
+  playLabel,
+  locale = "tr",
   className = "",
 }) {
+  const resolvedPlayLabel = playLabel ?? PLAY_LABELS[locale] ?? PLAY_LABELS.tr;
+  const previewErrorLabel = PREVIEW_ERROR_LABELS[locale] ?? PREVIEW_ERROR_LABELS.tr;
   const thumbs = useMemo(() => {
     if (!videoId) return [];
     const base = `https://i.ytimg.com/vi/${videoId}`;
@@ -165,7 +182,7 @@ export default function VideoEmbed({
           onClick={handlePlay}
           onMouseEnter={handleWarmup}
           onFocus={handleWarmup}
-          aria-label={playLabel}
+          aria-label={resolvedPlayLabel}
           className="absolute inset-0 z-10 group flex items-center justify-center bg-slate-950 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
           {!thumbFailed ? (
@@ -182,7 +199,7 @@ export default function VideoEmbed({
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-              <span className="text-sm text-white/70">Önizleme yüklenemedi</span>
+              <span className="text-sm text-white/70">{previewErrorLabel}</span>
             </div>
           )}
 
@@ -193,7 +210,7 @@ export default function VideoEmbed({
               <Play size={64} fill="currentColor" strokeWidth={1.5} />
             </span>
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
-              {playLabel}
+              {resolvedPlayLabel}
             </span>
             <span className="sr-only">{title}</span>
           </div>

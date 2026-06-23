@@ -337,6 +337,7 @@ export default function OurWorkRuPage() {
                   title={featuredVideo.title}
                   thumbnailUrl={featuredVideo.thumbnailUrl}
                   startSeconds={featuredVideo.startSeconds}
+                  locale="ru"
                   className="rounded-[1.5rem]"
                 />
               </div>
