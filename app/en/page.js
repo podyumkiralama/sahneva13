@@ -692,12 +692,14 @@ const CORPORATE_EVENTS_ADVANTAGES_EN = [
 ];
 
 const CORPORATE_EVENTS_DICT_EN = {
+  sectionTitle: "Corporate Event Solutions",
   sectionTitleSr: "Corporate event solutions showcase",
   headingPrefix: "Your Solution Partner",
   headingHighlight: "Among Corporate Event Companies",
   headingSuffix: "in Istanbul",
   introText:
     "We manage every step of event organization and technical production from a single hub, staging your brand's prestige to global standards.",
+  highlightTitle: "Why Sahneva?",
   highlightPill: "Why Sahneva?",
   highlightTitlePrefix: "Our edge in",
   highlightTitleAccent: "corporate production",
@@ -706,6 +708,7 @@ const CORPORATE_EVENTS_DICT_EN = {
   cardCtaHref: "/en/contact",
   cardCtaAria: "Request a quote for {{title}}",
   cardBadgeLabel: "Turnkey solution",
+  bannerTitle: "Don't Leave Your Event to Chance",
   bannerTitlePrefix: "Your corporate events deserve",
   bannerTitleHighlight: "turnkey production",
   bannerTitleSuffix: "support",
