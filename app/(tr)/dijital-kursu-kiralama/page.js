@@ -674,13 +674,13 @@ function TechSpecsSection() {
           {TECH_SPECS.map((row) => (
             <article
               key={row.feature}
-              className="rounded-3xl border border-white/[0.14] bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              className="rounded-3xl border border-blue-500/30 bg-slate-800/80 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             >
-              <p className="text-sm font-black uppercase tracking-wider text-cyan-200">
+              <p className="text-xs font-black uppercase tracking-widest text-cyan-300">
                 {row.feature}
               </p>
-              <h3 className="mt-3 text-2xl font-black text-white">{row.standard}</h3>
-              <p className="mt-4 text-sm leading-6 text-cyan-50/[0.74]">{row.detail}</p>
+              <h3 className="mt-3 text-xl font-black text-white">{row.standard}</h3>
+              <p className="mt-4 text-sm leading-6 text-slate-300">{row.detail}</p>
             </article>
           ))}
         </div>
