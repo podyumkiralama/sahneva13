@@ -52,7 +52,7 @@ const DEFAULT_FEATURES = [
   { icon: <BoltClockIcon className={ICON_CLASS} />, title: "Hızlı Kurulum ve Teslimat", desc: "Sahne, LED ekran ve ses-ışık kurulumlarında aynı gün içinde profesyonel montaj.", stat: "2–6 Saat", gradient: "from-cyan-400 to-sky-400", accentHoverClass: "group-hover:text-cyan-200", pillClass: "bg-cyan-500/10 border-cyan-400/40 text-cyan-100" },
   { icon: <DisplayIcon className={ICON_CLASS} />, title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6", gradient: "from-violet-400 to-fuchsia-400", accentHoverClass: "group-hover:text-fuchsia-200", pillClass: "bg-fuchsia-500/10 border-fuchsia-400/40 text-fuchsia-100" },
   { icon: <UsersIcon className={ICON_CLASS} />, title: "Uzman Teknik Ekip", desc: "10+ yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.", stat: "15+ Uzman", gradient: "from-emerald-400 to-green-400", accentHoverClass: "group-hover:text-emerald-200", pillClass: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100" },
-  { icon: <CurrencyIcon className={ICON_CLASS} />, title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "%30 Tasarruf", gradient: "from-amber-400 to-orange-500", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
+  { icon: <CurrencyIcon className={ICON_CLASS} />, title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "Şeffaf Fiyatlama", gradient: "from-amber-400 to-orange-500", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
   { icon: <GlobeMapIcon className={ICON_CLASS} />, title: "Türkiye Geneli Hizmet", desc: "İstanbul merkezli ekibimizle 81 ilde etkinlik prodüksiyon desteği sağlıyoruz.", stat: "81 İl", gradient: "from-indigo-400 to-sky-400", accentHoverClass: "group-hover:text-sky-200", pillClass: "bg-indigo-500/10 border-indigo-400/40 text-indigo-100" },
 ];
 
@@ -84,7 +84,7 @@ const DEFAULT_DICTIONARY = {
     { title: "Hızlı Kurulum ve Teslimat", desc: "Sahne, LED ekran ve ses-ışık kurulumlarında aynı gün içinde profesyonel montaj.", stat: "2–6 Saat" },
     { title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6" },
     { title: "Uzman Teknik Ekip", desc: "10+ yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.", stat: "15+ Uzman" },
-    { title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "%30 Tasarruf" },
+    { title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "Şeffaf Fiyatlama" },
     { title: "Türkiye Geneli Hizmet", desc: "İstanbul merkezli ekibimizle 81 ilde etkinlik prodüksiyon desteği sağlıyoruz.", stat: "81 İl" },
   ],
 };

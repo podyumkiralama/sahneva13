@@ -49,7 +49,7 @@ const DEFAULT_DICTIONARY = {
   highlightTitle: "Neden Sahneva",
   cardCtaLabel: "Teklif Al",
   cardCtaHref: "/iletisim",
-  bannerTitle: "Etkinliğinizi Şansa Bırakmayın",
+  bannerTitle: "Etkinliğinizi Güvence Altına Alın",
   bannerDescription:
     "Sahne, ışık, LED ekran ve teknik prodüksiyon süreçlerinizi profesyonel bir ekiple yönetin.",
   phoneCtaLabel: "Kurumsal Destek Hattı",

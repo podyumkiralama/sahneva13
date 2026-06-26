@@ -310,6 +310,13 @@ export default function ServicesPage() {
       description: "Banket, konferans, bistro tipi mobilyalar",
       icon: "🪑",
       color: "from-indigo-500 to-purple-500"
+    },
+    {
+      href: "/dijital-kursu-kiralama",
+      title: "Dijital Kürsü Kiralama",
+      description: "LED ekranlı ve şeffaf dijital sunum kürsüleri",
+      icon: "🎙️",
+      color: "from-blue-500 to-indigo-500"
     }
   ];
 

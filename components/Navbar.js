@@ -32,6 +32,7 @@ const TR_SERVICE_LINKS = [
   { href: "/ses-isik-sistemleri", label: "Ses Işık Sistemleri", icon: "🎭", description: "Konser kalitesinde ses ışık sistemleri" },
   { href: "/truss-kiralama", label: "Truss Kiralama", icon: "🧩", description: "Alüminyum truss, portal ve üst yapı çözümleri" },
   { href: "/cadir-kiralama", label: "Çadır Kiralama", icon: "⛺", description: "Fuar ve özel alanlar için geçici yapı çözümleri" },
+  { href: "/dijital-kursu-kiralama", label: "Dijital Kürsü Kiralama", icon: "🎙️", description: "LED ekranlı ve şeffaf dijital kürsü kiralama" },
 ];
 
 const TR_RESEARCH_LINKS = [
