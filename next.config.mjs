@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 import path from "node:path";
+import { createHash } from "node:crypto";
+import {
+  TRUSTED_TYPES_POLICY_CODE,
+  buildSpeculationRulesJson,
+  SPECULATION_RULES_URLS,
+} from "./lib/security/inlineScripts.js";
 
 const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
 const ONE_MONTH_IN_SECONDS = ONE_DAY_IN_SECONDS * 30;
@@ -16,7 +22,25 @@ const siteUrl =
   "https://www.sahneva.com";
 
 const cspReportOnlyEnabled = process.env.CSP_REPORT_ONLY === "true";
-const cspStrictScriptsEnabled = process.env.CSP_STRICT_SCRIPTS === "true";
+// Strict mode: ON in production unless explicitly disabled, OFF in dev unless explicitly enabled.
+const cspStrictScriptsEnabled = isProd
+  ? process.env.CSP_STRICT_SCRIPTS !== "false"
+  : process.env.CSP_STRICT_SCRIPTS === "true";
+
+// Build-time SHA-256 hashes for every stable inline script.
+// Recomputed automatically whenever lib/security/inlineScripts.js changes.
+function sha256csp(content) {
+  return `'sha256-${createHash("sha256").update(content, "utf8").digest("base64")}'`;
+}
+
+const STATIC_NONCE = "c2FobmV2YS1zdGF0aWMtY3Nw";
+
+const INLINE_SCRIPT_HASHES = [
+  sha256csp(TRUSTED_TYPES_POLICY_CODE),
+  ...Object.keys(SPECULATION_RULES_URLS).map((locale) =>
+    sha256csp(buildSpeculationRulesJson(locale))
+  ),
+];
 
 function resolveSiteOrigin(siteUrl) {
   try {
@@ -29,7 +53,10 @@ function resolveSiteOrigin(siteUrl) {
 function buildScriptSrc({ allowUnsafeInline = true } = {}) {
   const scriptSrc = [
     "'self'",
-    ...(allowUnsafeInline ? ["'unsafe-inline'"] : []),
+    ...(allowUnsafeInline
+      ? ["'unsafe-inline'"]
+      : [`'nonce-${STATIC_NONCE}'`, ...INLINE_SCRIPT_HASHES]),
+    // Host allowlists remain as fallback for browsers without strict-dynamic support.
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://static.cloudflareinsights.com",
