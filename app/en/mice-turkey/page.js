@@ -860,10 +860,12 @@ function RelatedServices() {
         title="Explore Our Services"
         desc="All the technical production departments that support MICE events in Turkey."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
           { href: "/en/event-production-company-turkey", t: "Event Production Partner in Turkey", d: "Overview page for international companies planning events in Turkey" },
+          { href: "/en/event-production-antalya", t: "Event Production Antalya", d: "Full technical production for resort-hotel events in Belek, Kemer and Side" },
           { href: "/en/corporate-events", t: "Corporate Events", d: "Conference, launch, gala and brand event production" },
+          { href: "/en/blog/how-to-organize-corporate-event-in-turkey", t: "Corporate Event Guide: Turkey", d: "Step-by-step planning guide for foreign companies organizing events in Turkey" },
           { href: "/en/stage-rental", t: "Stage Rental", d: "Professional stage and podium systems" },
           { href: "/en/led-screen-rental", t: "LED Screen Rental", d: "Indoor and outdoor LED screens and video walls" },
         ].map((s) => (

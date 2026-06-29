@@ -701,11 +701,13 @@ function RelatedPages() {
         kicker="Related pages"
         title="More from Sahneva"
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
           { href: "/en/event-production-company-turkey", t: "Event Production Partner in Turkey", d: "Overview for international companies planning events across Turkey" },
           { href: "/en/mice-turkey", t: "MICE Turkey", d: "Technical production for Meetings, Incentives, Conferences & Exhibitions" },
           { href: "/en/corporate-events", t: "Corporate Events", d: "Conference, launch, gala and brand event production" },
+          { href: "/en/blog/how-to-organize-corporate-event-in-turkey", t: "Corporate Event Guide: Turkey", d: "Complete planning guide for foreign companies organising events in Turkey" },
+          { href: "/en/services", t: "All Services", d: "Full catalogue of rental and production services" },
           { href: "/en/contact", t: "Contact & RFP", d: "Send your event brief or request a technical proposal" },
         ].map((s) => (
           <Link key={s.href} href={s.href}>

@@ -293,8 +293,22 @@ export default function EnglishServicesPage() {
       href: "/en/event-production-company-turkey",
       title: "Event Production Partner in Turkey",
       description: "Local technical production support for international agencies and brands",
-      icon: "ğŸŒ",
+      icon: "🌍",
       color: "from-sky-500 to-indigo-500",
+    },
+    {
+      href: "/en/mice-turkey",
+      title: "MICE Turkey",
+      description: "Congresses, incentive events, conferences and exhibitions across Turkey",
+      icon: "🤝",
+      color: "from-violet-500 to-purple-600",
+    },
+    {
+      href: "/en/event-production-antalya",
+      title: "Event Production Antalya",
+      description: "Full AV and technical production for resort hotels, Belek, Kemer and Side",
+      icon: "🏖️",
+      color: "from-amber-500 to-orange-500",
     },
     {
       href: "#audio-services",
@@ -360,6 +374,21 @@ export default function EnglishServicesPage() {
   ];
 
   const PLANNING_GUIDES = [
+    {
+      href: "/en/blog/how-to-organize-corporate-event-in-turkey",
+      title: "How to organise a corporate event in Turkey",
+      description: "Complete foreign-company guide: city choice, local partner, technical production, timelines and budget.",
+    },
+    {
+      href: "/en/mice-turkey",
+      title: "MICE Turkey – congresses, incentives, conferences & exhibitions",
+      description: "Dedicated MICE production: from PCO support to DMC technical delivery across Istanbul, Antalya and beyond.",
+    },
+    {
+      href: "/en/event-production-antalya",
+      title: "Event production in Antalya: hotels, Belek & beach venues",
+      description: "AV production, stage, LED and technical crew for resort-hotel events from Belek to Alanya.",
+    },
     {
       href: "/en/blog/event-technical-scouting-and-planning-guide",
       title: "Technical scouting and planning",

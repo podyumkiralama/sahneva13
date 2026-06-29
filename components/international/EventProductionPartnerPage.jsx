@@ -257,6 +257,8 @@ const INTERNATIONAL_CAPABILITY_COPY = {
 
 const serviceLinks = {
   en: [
+    ["/en/mice-turkey", "MICE Turkey"],
+    ["/en/event-production-antalya", "Event Production Antalya"],
     ["/en/stage-rental", "Stage Rental"],
     ["/en/led-screen-rental", "LED Screen Rental"],
     ["/en/sound-light-rental", "Sound & Light Rental"],

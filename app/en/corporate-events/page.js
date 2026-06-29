@@ -1445,6 +1445,16 @@ function FAQ() {
 function RelatedServices() {
   const services = [
     {
+      href: "/en/mice-turkey",
+      title: "MICE Turkey",
+      desc: "Congresses, incentives, conferences and exhibitions — end-to-end MICE production in Turkey",
+    },
+    {
+      href: "/en/event-production-antalya",
+      title: "Event Production Antalya",
+      desc: "Full technical production for resort-hotel events in Antalya, Belek, Kemer and Side",
+    },
+    {
       href: "/en/tent-rental",
       title: "Tent Rental",
       desc: "Professional tent systems and installation services",
@@ -1487,7 +1497,7 @@ function RelatedServices() {
         page explains how Sahneva supports venues, logistics, stage, LED screen, sound, lighting, truss and on-site technical coordination.
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => (
           <Link key={s.href} href={s.href} className="focus-ring rounded-3xl">
             <Card className="h-full">
