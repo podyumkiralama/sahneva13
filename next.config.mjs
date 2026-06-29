@@ -22,10 +22,10 @@ const siteUrl =
   "https://www.sahneva.com";
 
 const cspReportOnlyEnabled = process.env.CSP_REPORT_ONLY === "true";
-// Strict mode: ON in production unless explicitly disabled, OFF in dev unless explicitly enabled.
-const cspStrictScriptsEnabled = isProd
-  ? process.env.CSP_STRICT_SCRIPTS !== "false"
-  : process.env.CSP_STRICT_SCRIPTS === "true";
+// Strict mode removes 'unsafe-inline' from script-src, replacing it with hashes + static nonce.
+// Next.js App Router generates dynamic inline scripts (React flight, chunk loaders) that can't
+// be pre-hashed — enabling this in production requires middleware-based per-request nonces first.
+const cspStrictScriptsEnabled = process.env.CSP_STRICT_SCRIPTS === "true";
 
 // Build-time SHA-256 hashes for every stable inline script.
 // Recomputed automatically whenever lib/security/inlineScripts.js changes.
