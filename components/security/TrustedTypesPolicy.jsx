@@ -1,13 +1,12 @@
 import { TRUSTED_TYPES_POLICY_CODE } from "@/lib/security/inlineScripts";
-import { STATIC_CSP_NONCE } from "@/lib/security/staticCsp";
 
-export default function TrustedTypesPolicy({ nonce = STATIC_CSP_NONCE }) {
+export default function TrustedTypesPolicy() {
+  // No nonce attribute: this script is allowed by its SHA-256 hash in the CSP.
+  // The middleware injects a per-request nonce only into Next.js-generated scripts;
+  // our custom inline scripts are covered by pre-computed hashes in cspHashes.js.
   return (
-    // Trusted Types must run before any third-party loader touches script URL
-    // sinks. Inlined to eliminate the network round-trip while keeping sync execution.
     <script
       id="trusted-types-policy"
-      nonce={nonce}
       dangerouslySetInnerHTML={{ __html: TRUSTED_TYPES_POLICY_CODE }}
     />
   );

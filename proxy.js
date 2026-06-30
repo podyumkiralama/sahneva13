@@ -1,4 +1,17 @@
 import { NextResponse } from "next/server";
+import { buildCsp } from "./lib/security/buildCsp.js";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.SITE_URL ??
+  "https://www.sahneva.com";
+
+function isPreviewEnv() {
+  return (
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
+  );
+}
 
 export const config = {
   matcher: [
@@ -88,7 +101,22 @@ export function proxy(request) {
     return NextResponse.redirect(url, 308);
   }
 
+  // Nonce-based strict CSP was evaluated and reverted: most pages are
+  // ISR/static (revalidate cached), so Next.js's own inline scripts (React
+  // flight data) are baked into cached HTML without the per-request nonce and
+  // get blocked. Per CSP spec, a nonce present in script-src also disables
+  // 'unsafe-inline' entirely, so the two can't be mixed as a fallback.
+  // Trusted Types (components/security/TrustedTypesPolicy.jsx) is the primary
+  // DOM-XSS defense; other CSP directives (object-src none, frame-ancestors
+  // none, host allowlists) stay strict.
+  const csp = buildCsp({
+    siteUrl: SITE_URL,
+    isPreview: isPreviewEnv(),
+    allowUnsafeInline: true,
+  });
+
   const response = NextResponse.next();
+  response.headers.set("Content-Security-Policy", csp);
 
   if (shouldNoindexQueryVariant(request)) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
