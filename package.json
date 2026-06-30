@@ -17,7 +17,7 @@
     "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "4.2.4",
+    "@tailwindcss/postcss": "4.3.2",
     "@tailwindcss/typography": "0.5.19",
     "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
@@ -33,7 +33,7 @@
     "eslint-config-next": "^16.2.6",
     "eslint-plugin-react": "7.37.5",
     "globals": "16.4.0",
-    "tailwindcss": "4.2.4",
+    "tailwindcss": "4.3.2",
     "typescript": "^5.9.3"
   },
   "browserslist": {

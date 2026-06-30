@@ -85,6 +85,13 @@ function shouldRedirectToCleanContactUrl(request) {
   return Array.from(searchParams.keys()).length > 0;
 }
 
+const HSTS_VALUE = "max-age=63072000; includeSubDomains; preload";
+
+function shouldRedirectToWww(request) {
+  const hostname = getRequestHostname(request);
+  return hostname === "sahneva.com";
+}
+
 export function proxy(request) {
   if (shouldRedirectToHttps(request)) {
     const url = new URL(
@@ -92,7 +99,20 @@ export function proxy(request) {
       `https://${getRequestHost(request)}`
     );
 
-    return NextResponse.redirect(url, 308);
+    const response = NextResponse.redirect(url, 308);
+    response.headers.set("Strict-Transport-Security", HSTS_VALUE);
+    return response;
+  }
+
+  if (shouldRedirectToWww(request)) {
+    const url = new URL(
+      `${request.nextUrl.pathname}${request.nextUrl.search}`,
+      `https://www.sahneva.com`
+    );
+
+    const response = NextResponse.redirect(url, 308);
+    response.headers.set("Strict-Transport-Security", HSTS_VALUE);
+    return response;
   }
 
   if (shouldRedirectToCleanContactUrl(request)) {
