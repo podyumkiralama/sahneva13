@@ -14,6 +14,7 @@ import {
   Briefcase,
   CalendarCheck,
   ClipboardCheck,
+  Layers,
   MessageCircle,
   Monitor,
   Music,
@@ -53,12 +54,19 @@ const calculatePackagePrice = (layout) => {
   return { base, carpet, skirt, nakliye, total };
 };
 
+const formatTRY = (n) =>
+  new Intl.NumberFormat("tr-TR", {
+    style: "currency",
+    currency: "TRY",
+    maximumFractionDigits: 0,
+  }).format(n);
+
 /* ================== 3. DİNAMİK BİLEŞENLER ================== */
 const PriceEstimatorPodyum = dynamic(
   () => import("@/components/PriceEstimatorPodyum"),
   {
     loading: () => (
-      <div className="h-80 w-full bg-gray-50 animate-pulse rounded-3xl border border-gray-200" />
+      <div className="h-[560px] w-full bg-gray-50 animate-pulse rounded-3xl border border-gray-200" />
     ),
   }
 );
@@ -314,6 +322,7 @@ const RELATED_SERVICES = [
   { href: "/kurumsal-organizasyon", title: "Kurumsal Organizasyon", Icon: Briefcase, desc: "Lansman, konferans ve gala için tek teknik operasyon akışı" },
   { href: "/led-ekran-kiralama", title: "LED Ekran Kiralama", Icon: Monitor, desc: "Sahne arkasında güçlü LED ekran ve video wall çözümleri" },
   { href: "/ses-isik-sistemleri", title: "Ses & Işık Sistemleri", Icon: Music, desc: "Podyum alanını tamamlayan ses, ışık ve atmosfer prodüksiyonu" },
+  { href: "/truss-kiralama", title: "Truss Kiralama", Icon: Layers, desc: "Podyum üstü ışık, ekran ve dekor taşıyıcı truss sistemleri" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", title: "Türkiye’de Etkinlik Çözüm Ortağı", Icon: Briefcase, desc: "Uluslararası ajans ve markalar için yerel podyum, sahne ve saha desteği" },
 ];
 
@@ -405,7 +414,7 @@ function StructuredData() {
     pageUrl,
     serviceId,
     webPageId,
-    limit: 4,
+    limit: 8,
     name: "Podyum kiralama galeri görselleri",
   });
 
@@ -614,9 +623,9 @@ function HeroSection() {
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
                     Kurulum yaklaşımı
                   </p>
-                  <h2 className="mt-2 text-2xl font-black leading-tight">
+                  <p className="mt-2 text-2xl font-black leading-tight">
                     Karolaj, kayıt bağlantıları ve saha kontrolü aynı planda.
-                  </h2>
+                  </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/[0.72]">
                     Podyum yalnızca metrekare hesabı değil; zemin, yükseklik, yük dağılımı ve kullanım süresiyle
                     birlikte projelendirilir.
@@ -847,7 +856,7 @@ function PodiumFlowSection() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 520px"
-                quality={62}
+                quality={60}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
@@ -923,10 +932,11 @@ function ServicesSection() {
     <section
       id="hizmetler"
       className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
+      aria-labelledby="hizmetler-title"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Kurumsal <span className="text-blue-700">Podyum Uygulamaları</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -939,7 +949,10 @@ function ServicesSection() {
               key={idx}
               className="group bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 transition-all duration-500 h-full flex flex-col"
             >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div
+                className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                aria-hidden="true"
+              >
                 {service.icon}
               </div>
               <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
@@ -963,7 +976,7 @@ function ServicesSection() {
             rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
-            <span className="text-xl mr-3">📞</span> Teknik kapsam için iletişime geçin
+            <span className="text-xl mr-3" aria-hidden="true">📞</span> Teknik kapsam için iletişime geçin
           </a>
         </div>
       </div>
@@ -972,22 +985,19 @@ function ServicesSection() {
 }
 
 function CalculatorSection() {
-  const formatTRY = (n) =>
-    new Intl.NumberFormat("tr-TR", {
-      style: "currency",
-      currency: "TRY",
-      maximumFractionDigits: 0,
-    }).format(n);
-
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1100px] sm:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      id="hesaplayici"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1100px] sm:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-b from-gray-50 to-white"
+      aria-labelledby="hesaplayici-title"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="hesaplayici-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Teklif Aralığını <span className="text-blue-700">Hızlı Çıkarın</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Podyum ölçüsü, kaplama ve lojistik bilgisini girerek satın alma görüşmesi öncesi yaklaşık bütçeyi görün.
+            Podyum ölçüsü, kaplama ve lojistik bilgisini girerek kiralama görüşmesi öncesi yaklaşık bütçeyi görün.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
@@ -1022,13 +1032,6 @@ function CalculatorSection() {
 }
 
 function PackagesSection() {
-  const formatTRY = (n) =>
-    new Intl.NumberFormat("tr-TR", {
-      style: "currency",
-      currency: "TRY",
-      maximumFractionDigits: 0,
-    }).format(n);
-
   return (
     <section id="paketler" className="py-20 bg-white" aria-labelledby="paketler-title">
       <div className="container mx-auto px-4">
@@ -1056,11 +1059,14 @@ function PackagesSection() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={GALLERY_IMAGES[index] || GALLERY_IMAGES[0]}
-                    alt={`${pkg.name}`}
+                    alt={pkg.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={62}
+                    quality={60}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4">
@@ -1119,7 +1125,7 @@ function PackagesSection() {
                     rel="nofollow noopener noreferrer"
                     className="mt-2 w-full min-h-[56px] inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
                   >
-                    <span className="text-lg mr-2">💬</span> Hemen Teklif Al
+                    <span className="text-lg mr-2" aria-hidden="true">💬</span> Hemen Teklif Al
                   </a>
                 </div>
               </article>
@@ -1138,13 +1144,17 @@ function PackagesSection() {
 }
 
 function GallerySection() {
-  const visibleImages = GALLERY_IMAGES.slice(0, 4);
+  const visibleImages = GALLERY_IMAGES.slice(0, 8);
 
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1000px] lg:[contain-intrinsic-size:auto_680px] py-20 bg-gradient-to-b from-white to-blue-50/50">
+    <section
+      id="galeri"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1700px] lg:[contain-intrinsic-size:auto_1000px] py-20 bg-gradient-to-b from-white to-blue-50/50"
+      aria-labelledby="galeri-title"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="galeri-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Proje <span className="text-blue-700">Galerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1183,7 +1193,7 @@ function GallerySection() {
             prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300"
           >
-            <span className="text-xl mr-3">📸</span> Tüm Projeleri Görüntüle
+            <span className="text-xl mr-3" aria-hidden="true">📸</span> Tüm Projeleri Görüntüle
           </Link>
         </div>
       </div>
@@ -1193,10 +1203,14 @@ function GallerySection() {
 
 function TechnicalSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      id="teknik-altyapi"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white"
+      aria-labelledby="teknik-altyapi-title"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="teknik-altyapi-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Teknik <span className="text-blue-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1210,7 +1224,7 @@ function TechnicalSection() {
             <li key={idx} className="h-full">
               <article className="group bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-full">
                 <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
-                  <span className="text-3xl">{item.icon}</span> {item.title}
+                  <span className="text-3xl" aria-hidden="true">{item.icon}</span> {item.title}
                 </h3>
                 <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                   {item.description}
@@ -1237,7 +1251,10 @@ function StatsSection() {
     { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_600px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white">
+    <section
+      className="content-visibility-auto [contain-intrinsic-size:auto_600px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      aria-label="Sahneva podyum kiralama istatistikleri"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, idx) => (
@@ -1269,10 +1286,14 @@ function StatsSection() {
 
 function UseCasesSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95">
+    <section
+      id="kullanim-alanlari"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      aria-labelledby="kullanim-alanlari-title"
+    >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+          <h2 id="kullanim-alanlari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             Kullanım <span className="text-cyan-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
@@ -1287,7 +1308,10 @@ function UseCasesSection() {
               className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
             >
               <div className="flex flex-col items-start gap-4">
-                <div className="text-3xl bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300">
+                <div
+                  className="text-3xl bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300"
+                  aria-hidden="true"
+                >
                   {uc.icon}
                 </div>
                 <div>
@@ -1307,7 +1331,7 @@ function UseCasesSection() {
             rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
-            <span className="text-xl mr-3">💬</span> Etkinliğiniz için Özel Çözüm Alın
+            <span className="text-xl mr-3" aria-hidden="true">💬</span> Etkinliğiniz için Özel Çözüm Alın
           </a>
         </div>
       </div>
@@ -1318,10 +1342,14 @@ function UseCasesSection() {
 // --- PROCESS / KEYWORD-RICH SECTION (NO FAQ) ---
 function ProcessAndTipsSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1300px] py-20 bg-white">
+    <section
+      id="surec-ipuclari"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1300px] py-20 bg-white"
+      aria-labelledby="surec-ipuclari-title"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="surec-ipuclari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Podyum Kiralama <span className="text-blue-700">Süreci</span> ve İpuçları
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1340,6 +1368,9 @@ function ProcessAndTipsSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={68}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/[0.35] to-transparent" />
               </div>
@@ -1457,7 +1488,7 @@ function ProcessAndTipsSection() {
             rel="nofollow noopener noreferrer"
             className="inline-flex min-h-[56px] min-w-[180px] touch-manipulation items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-10 py-4 font-extrabold text-white shadow-lg transition hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
           >
-            <span className="text-xl mr-2">💬</span> Hızlı Teklif Al
+            <span className="text-xl mr-2" aria-hidden="true">💬</span> Hızlı Teklif Al
           </a>
         </div>
       </div>
@@ -1468,10 +1499,14 @@ function ProcessAndTipsSection() {
 
 function FAQSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white">
+    <section
+      id="sss"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white"
+      aria-labelledby="sss-title"
+    >
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="sss-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Sık Sorulan <span className="text-blue-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -1509,7 +1544,7 @@ function FAQSection() {
             prefetch={false}
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
-            <span className="text-xl mr-3">📚</span>
+            <span className="text-xl mr-3" aria-hidden="true">📚</span>
             <span className="text-lg">Tüm SSS&apos;yi Görüntüle</span>
           </Link>
         </div>
@@ -1520,17 +1555,21 @@ function FAQSection() {
 
 function RelatedServicesSection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30">
+    <section
+      id="tamamlayici-hizmetler"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      aria-labelledby="tamamlayici-hizmetler-title"
+    >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="tamamlayici-hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Tamamlayıcı <span className="text-blue-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Podyum kurulumunuzu tamamlayacak diğer profesyonel etkinlik çözümlerimiz
           </p>
         </div>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {RELATED_SERVICES.map((service) => (
             <li key={service.href} className="h-full">
               <Link
@@ -1556,12 +1595,15 @@ function RelatedServicesSection() {
 
 function CTASection() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_760px] lg:[contain-intrinsic-size:auto_520px] py-20 bg-white">
+    <section
+      className="content-visibility-auto [contain-intrinsic-size:auto_760px] lg:[contain-intrinsic-size:auto_520px] py-20 bg-white"
+      aria-labelledby="cta-title"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h2 id="cta-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Profesyonel Podyum Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -1574,7 +1616,7 @@ function CTASection() {
                 prefetch={false}
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
               >
-                <span className="text-xl mr-3">📞</span> Hemen Teklif Al
+                <span className="text-xl mr-3" aria-hidden="true">📞</span> Hemen Teklif Al
               </Link>
               <a
                 href={WHATSAPP_URL}
@@ -1582,7 +1624,7 @@ function CTASection() {
                 rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
               >
-                <span className="text-xl mr-3">💬</span> WhatsApp&apos;tan Yaz
+                <span className="text-xl mr-3" aria-hidden="true">💬</span> WhatsApp&apos;tan Yaz
               </a>
             </div>
 
