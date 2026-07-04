@@ -346,7 +346,7 @@ const GALLERY_IMAGES = [
 ];
 
 const PROCESS_STEP_IMAGES = [
-  { src: "/img/podyum/22.webp", alt: "Podyum kurulumunda zemin hazırlığı" },
+  { src: "/img/podyum/7.webp", alt: "Podyum kurulumunda zemin hazırlığı" },
   { src: "/img/podyum/23.webp", alt: "Podyum panel montaj aşaması" },
   { src: "/img/podyum/24.webp", alt: "Etkinlik öncesi son kontrol" },
 ];
@@ -371,7 +371,7 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/podyum/26.webp`,
+        url: `${ORIGIN}/img/podyum/22.webp`,
         width: 1200,
         height: 630,
         alt: "Sahneva Organizasyon podyum kiralama – modüler podyum sistemleri ve profesyonel sahne çözümleri",
@@ -383,7 +383,7 @@ export const metadata = {
     title: "Podyum Kiralama | Kiralık Podyum ve Kurulum | Sahneva",
     description:
       "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kapasitesi ve karolaj planlı titreşimsiz modüler podyum sistemleri.",
-    images: [`${ORIGIN}/img/podyum/26.webp`],
+    images: [`${ORIGIN}/img/podyum/22.webp`],
   },
   robots: {
     index: true,
@@ -440,7 +440,7 @@ function StructuredData() {
       "@type": "Product",
       name: pkg.name,
       description: pkg.note,
-      image: [`${ORIGIN}/img/podyum/26.webp`],
+      image: [`${ORIGIN}/img/podyum/22.webp`],
       sku: pkg.id,
       brand: { "@type": "Brand", name: "Sahneva" },
       offers: {
@@ -486,7 +486,7 @@ function StructuredData() {
         inLanguage: "tr-TR",
         isPartOf: { "@id": `${ORIGIN}/#website` },
         mainEntity: { "@id": serviceId },
-        image: [`${ORIGIN}/img/podyum/26.webp`, ...gallerySchema.imageUrls],
+        image: [`${ORIGIN}/img/podyum/22.webp`, ...gallerySchema.imageUrls],
         hasPart: [
           ...(gallerySchema.galleryNode ? [{ "@id": gallerySchema.galleryId }] : []),
           ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
@@ -504,42 +504,32 @@ function StructuredData() {
 
 function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32">
+    <section className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32">
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/img/podyum/26.webp"
-          alt="Kurumsal etkinlikler için karolaj planlı modüler podyum kurulumu"
+          src="/img/podyum/110.webp"
+          alt="LED ekran ve truss yapısıyla kurulmuş kademeli modüler podyum sahnesi"
           fill
           priority
           fetchPriority="high"
           className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
+          sizes="100vw"
           quality={72}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.74)_42%,rgba(2,6,23,.38)_78%,rgba(2,6,23,.12)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/75 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#05070d] via-[#05070d]/[0.76] to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.94)_0%,rgba(2,6,23,.78)_40%,rgba(2,6,23,.45)_72%,rgba(2,6,23,.22)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/[0.72] to-transparent" />
 
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px)",
-            backgroundSize: "92px 92px",
-          }}
-        />
-
-        <div className="absolute left-[-8rem] top-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.18] blur-3xl" />
-        <div className="absolute right-[-10rem] bottom-[-6rem] h-[30rem] w-[30rem] rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute left-[-10rem] top-1/3 h-[30rem] w-[30rem] rounded-full bg-blue-600/[0.16] blur-3xl" />
+        <div className="absolute right-[-12rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-cyan-400/[0.12] blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_25rem] lg:items-center">
-          <div className="max-w-4xl">
-            <div className="mb-5 inline-flex items-center gap-3 border border-white/[0.18] bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+        <div className="max-w-4xl">
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/[0.16] bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
               <span
                 className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
                 aria-hidden="true"
@@ -547,14 +537,14 @@ function HeroSection() {
               <span>Özmal podyum envanteri ve saha kurulumu</span>
             </div>
 
-            <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+            <h1 className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
               Podyum Kiralama
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold mt-2 opacity-80">
+              <span className="mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black text-transparent md:text-4xl lg:text-5xl">
                 ve Kurulumu
               </span>
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/[0.78] md:text-2xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/[0.78] md:text-xl">
               Kurumsal etkinlikler, konserler, fuarlar, lansmanlar ve açık hava organizasyonları için geniş stoklu,
               karolaj planlı modüler podyum ve taşınabilir sahne platformu çözümleri.
             </p>
@@ -563,8 +553,9 @@ function HeroSection() {
               {HERO_BADGES.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full border border-white/[0.14] bg-white/[0.08] px-4 py-2 text-sm font-bold text-white/[0.86] backdrop-blur-md"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.88] backdrop-blur-md"
                 >
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden="true" />
                   {badge}
                 </span>
               ))}
@@ -575,29 +566,34 @@ function HeroSection() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-700 px-7 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+                className="group inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-green-700 px-8 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
               >
                 Teklif Al
-                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                <ArrowRight
+                  className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </a>
 
               <Link
                 href="#podyum-stok-kapasitesi"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.08] px-7 py-3.5 font-black text-white backdrop-blur-md transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.07] px-8 py-3.5 font-black text-white backdrop-blur-md transition hover:border-blue-300/40 hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
               >
                 Stok Kapasitesini Gör
               </Link>
             </div>
 
-            <div className="mt-10 hidden gap-3 lg:grid lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
               {PODIUM_STOCK_METRICS.map((metric) => (
                 <div
                   key={metric.label}
-                  className="border border-white/[0.12] bg-white/[0.08] p-4 backdrop-blur-xl shadow-[0_18px_50px_rgba(15,23,42,0.22)]"
+                  className="rounded-2xl border border-white/[0.1] bg-white/[0.06] p-4 backdrop-blur-xl transition hover:border-blue-300/40 hover:bg-white/[0.1]"
                 >
-                  <div className="text-2xl font-black text-white">{metric.value}</div>
-                  <div className="mt-1 text-sm font-bold text-blue-100">{metric.label}</div>
-                  <p className="mt-2 text-xs leading-relaxed text-white/[0.62]">
+                  <div className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xl font-black text-transparent md:text-2xl">
+                    {metric.value}
+                  </div>
+                  <div className="mt-1 text-xs font-bold text-blue-100 md:text-sm">{metric.label}</div>
+                  <p className="mt-2 hidden text-xs leading-relaxed text-white/[0.6] lg:block">
                     {metric.detail}
                   </p>
                 </div>
@@ -605,46 +601,6 @@ function HeroSection() {
             </div>
           </div>
 
-          <aside className="hidden lg:block lg:justify-self-end">
-            <div className="overflow-hidden border border-white/[0.14] bg-slate-950/[0.58] shadow-2xl backdrop-blur-xl">
-              <div className="relative aspect-[4/5] min-h-[28rem]">
-                <Image
-                  src="/img/podyum/9.webp"
-                  alt="Kurumsal etkinlik podyum kurulumu ve sahne platformu"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 400px"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/[0.36] to-transparent" />
-                <div className="absolute inset-x-5 bottom-5">
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
-                    Kurulum yaklaşımı
-                  </p>
-                  <p className="mt-2 text-2xl font-black leading-tight">
-                    Karolaj, kayıt bağlantıları ve saha kontrolü aynı planda.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/[0.72]">
-                    Podyum yalnızca metrekare hesabı değil; zemin, yükseklik, yük dağılımı ve kullanım süresiyle
-                    birlikte projelendirilir.
-                  </p>
-                  <div className="mt-5 grid grid-cols-2 gap-2.5">
-                    <div className="bg-white/10 px-3 py-3 backdrop-blur">
-                      <div className="text-xs uppercase tracking-wide text-white/[0.56]">Özel sistem</div>
-                      <div className="text-lg font-black">2x1 modül</div>
-                    </div>
-                    <div className="bg-white/10 px-3 py-3 backdrop-blur">
-                      <div className="text-xs uppercase tracking-wide text-white/[0.56]">Stabilite</div>
-                      <div className="text-lg font-black">Kayıtlı yapı</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
       </div>
 
       <div className="relative z-10 h-14 bg-gradient-to-b from-transparent to-[#0B1120]" />
@@ -750,6 +706,21 @@ function PodiumStockCapacitySection() {
               Alt taşıyıcı yapısının kayıtlarla güçlendirilmiş olması sayesinde etkinlik sırasında sarsıntı, titreme
               ve esneme hissi minimuma indirilir.
             </p>
+
+            <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/[0.14]">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/img/podyum/22.webp"
+                  alt="Açık havada kurulan altı kayıtlı 2x1 modüler podyum sistemi"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                />
+              </div>
+            </div>
           </article>
 
           <div className="grid gap-6 md:grid-cols-2">
