@@ -514,7 +514,7 @@ function HeroSection() {
           fetchPriority="high"
           className="object-cover object-center"
           sizes="100vw"
-          quality={72}
+          quality={65}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
@@ -714,7 +714,8 @@ function PodiumStockCapacitySection() {
                   alt="Açık havada kurulan altı kayıtlı 2x1 modüler podyum sistemi"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 520px"
+                  sizes="(max-width: 1023px) 100vw, 490px"
+                  quality={60}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
