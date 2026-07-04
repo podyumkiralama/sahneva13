@@ -11,7 +11,6 @@ import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
-import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
 
@@ -220,7 +219,6 @@ export default function TurkishLayout({ children }) {
     <html lang="tr" className={`${inter.variable} font-sans`}>
       <head>
         <TrustedTypesPolicy />
-        <CloudflareWebAnalytics />
         <SpeculationRules locale="tr" />
         <link
           rel="search"

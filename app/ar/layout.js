@@ -20,7 +20,6 @@ import {
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
-import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
 
@@ -161,7 +160,6 @@ export default function ArabicLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
-        <CloudflareWebAnalytics />
         <SpeculationRules locale="ar" />
       </head>
       <body className="flex flex-col" dir={content.direction}>

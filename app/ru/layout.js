@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
-import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
@@ -165,7 +164,6 @@ export default function RussianLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
-        <CloudflareWebAnalytics />
         <SpeculationRules locale="ru" />
       </head>
       <body className="flex flex-col">

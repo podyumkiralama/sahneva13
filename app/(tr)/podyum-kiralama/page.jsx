@@ -514,7 +514,7 @@ function HeroSection() {
           fetchPriority="high"
           className="object-cover object-center"
           sizes="100vw"
-          quality={65}
+          quality={45}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />

@@ -10,7 +10,6 @@ import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
-import CloudflareWebAnalytics from "@/components/analytics/CloudflareWebAnalytics";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
@@ -234,7 +233,6 @@ export default function EnglishLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
-        <CloudflareWebAnalytics />
         <SpeculationRules locale="en" />
       </head>
       <body className="flex flex-col">
