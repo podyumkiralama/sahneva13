@@ -587,6 +587,9 @@ export default function Page() {
                         </th>
                         <th className="border-b border-gray-200 px-5 py-4 text-base font-bold text-gray-900">
                           Maliyet Aralığı
+                          <span className="ml-2 whitespace-nowrap rounded-full bg-blue-100 px-2 py-1 text-xs font-extrabold text-blue-800">
+                            Haftalık
+                          </span>
                         </th>
                       </tr>
                     </thead>
@@ -603,6 +606,9 @@ export default function Page() {
                             <span className="font-semibold text-gray-900">
                               {tl(r.low)} – {tl(r.high)} TL
                             </span>
+                            <span className="ml-2 whitespace-nowrap rounded-full bg-blue-50 px-2 py-1 text-xs font-extrabold text-blue-700">
+                              / Haftalık
+                            </span>
                             <span className="text-gray-500"> (referans)</span>
                           </td>
                         </tr>
@@ -615,6 +621,9 @@ export default function Page() {
                         <td className="px-5 py-4">
                           <span className="font-semibold text-gray-900">
                             {tl(sampleTotal)} TL
+                          </span>{" "}
+                          <span className="whitespace-nowrap rounded-full bg-blue-50 px-2 py-1 text-xs font-extrabold text-blue-700">
+                            / Haftalık
                           </span>{" "}
                           <span className="text-gray-500">
                             (KDV ve saha koşulları hariç)
