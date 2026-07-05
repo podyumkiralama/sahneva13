@@ -453,6 +453,12 @@ export default function RussianHomePage() {
           >
             Получить расчет
           </Link>
+          <Link
+            href="/ru/our-work"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-7 text-base font-black text-white transition hover:bg-white/15"
+          >
+            Наши работы
+          </Link>
           <a
             href={RU_WHATSAPP_HREF}
             target="_blank"

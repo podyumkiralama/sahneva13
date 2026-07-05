@@ -50,8 +50,6 @@ const P19_PROOF_DISPLAY_IMAGE_SRC =
   "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva-display.webp";
 const P19_TECHNICAL_CONTROL_IMAGE_SRC =
   "/img/led/p19-indoor-led-teknik-masa-kurumsal-konferans-sahneva.webp";
-const LED_CORPORATE_CONFERENCE_IMAGE_SRC =
-  "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp";
 const LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC =
   "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva-aside.webp";
 const LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC =
@@ -70,20 +68,15 @@ const LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC =
   "/img/led/gala-led-sahne-video-wall-sahneva-hero-mobile.webp";
 const LED_OUTDOOR_CONCERT_IMAGE_SRC =
   "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
+// Yalnızca kullanım alanına göre önceden boyutlandırılmış varyantlar optimizer'ı atlar.
+// 1600px'lik ham kaynak görseller Next optimizer'dan geçerek srcset ile küçültülür.
 const PREMIUM_LED_IMAGE_SRCS = new Set([
-  P19_PROOF_IMAGE_SRC,
   P19_PROOF_DISPLAY_IMAGE_SRC,
-  P19_TECHNICAL_CONTROL_IMAGE_SRC,
-  LED_CORPORATE_CONFERENCE_IMAGE_SRC,
   LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC,
   LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
-  LED_HYBRID_LAUNCH_IMAGE_SRC,
-  LED_BALLROOM_LAUNCH_IMAGE_SRC,
-  LED_GALA_STAGE_IMAGE_SRC,
   LED_GALA_STAGE_HERO_DESKTOP_IMAGE_SRC,
   LED_GALA_STAGE_HERO_TABLET_IMAGE_SRC,
   LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC,
-  LED_OUTDOOR_CONCERT_IMAGE_SRC,
 ]);
 const shouldBypassLedImageOptimizer = (src) => PREMIUM_LED_IMAGE_SRCS.has(src);
 const PAGE_LAST_MODIFIED = getLastModifiedForFile(
@@ -150,7 +143,7 @@ const LED_PIXEL_ROWS = [
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama İstanbul | P1.9, P2.9, P3.9 Indoor & Outdoor LED Wall",
+  title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
   description:
     "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
@@ -163,7 +156,7 @@ export const metadata = {
     canonical: "/led-ekran-kiralama",
   }),
   openGraph: {
-    title: "LED Ekran Kiralama İstanbul | P1.9, P2.9, P3.9 Indoor & Outdoor LED Wall",
+    title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
     description:
       "İstanbul ve Türkiye genelinde iç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall kurulumları. 300 m² P1.9 Indoor LED envanteri, NovaStar reji ve teknik ekip desteğiyle planlayın.",
     url: `${ORIGIN}/led-ekran-kiralama`,
@@ -431,7 +424,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kadıköy, Şişli veya Beşiktaş gibi merkezi ilçelerde acil kurulum mümkün mü?",
-    a: "Evet, İstanbul içi operasyonlarımızda her iki yakadaki depolarımız sayesinde, acil taleplerde trafiğe takılmadan aynı gün veya birkaç saat içinde mobil ekiplerimizle hızlı kurulum yapabiliyoruz. Erken saatte mobilize olarak İstanbul trafiğini ekarte ediyoruz."
+    a: "Evet, İstanbul içi operasyonlarımızda her iki yakadaki depolarımız sayesinde, acil taleplerde trafiğe takılmadan aynı gün veya birkaç saat içinde mobil ekiplerimizle hızlı kurulum yapabiliyoruz. Erken saatte mobilize olarak İstanbul trafiğine yakalanmadan kurulumu tamamlıyoruz."
   },
   {
     q: "Kocaeli, Bursa veya Tekirdağ gibi çevre iller için hafta sonu teknik destek ve nakliye ücreti nasıl hesaplanıyor?",
@@ -484,7 +477,7 @@ function QuickSelectionGuide() {
   return (
     <section
       id="led-secim-rehberi"
-      className="py-16 md:py-20 bg-gradient-to-b from-white to-slate-50"
+      className="py-20 bg-gradient-to-b from-white to-slate-50"
       aria-labelledby="led-secim-rehberi-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -505,7 +498,7 @@ function QuickSelectionGuide() {
             {QUICK_SELECTION_STEPS.map((step, index) => (
               <article
                 key={step.title}
-                className="rounded-[2rem] border border-gray-200 bg-white p-6 md:p-8 shadow-sm"
+                className="rounded-3xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm"
               >
                 <div className="flex items-start gap-5">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
@@ -534,7 +527,7 @@ function QuickSelectionGuide() {
           </div>
 
           <aside className="lg:sticky lg:top-24 self-start max-w-[23rem] xl:max-w-[24rem]">
-            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 text-white shadow-2xl">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 text-white shadow-2xl">
               <div className="relative aspect-[16/9]">
                 <Image
                   src={LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC}
@@ -603,7 +596,7 @@ function QuickSelectionGuide() {
 
 function P19InvestmentProof() {
   return (
-    <section className="bg-white py-14 md:py-20" aria-labelledby="p19-yatirim-baslik">
+    <section className="bg-white py-20" aria-labelledby="p19-yatirim-baslik">
       <div className="container mx-auto grid max-w-7xl items-center gap-8 px-4 lg:grid-cols-[0.92fr_1.08fr]">
         <div>
           <div className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-blue-700">
@@ -629,7 +622,7 @@ function P19InvestmentProof() {
           </div>
         </div>
 
-        <figure className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl">
+        <figure className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-2xl">
           <div className="relative aspect-[16/9]">
             <Image
               src={P19_PROOF_DISPLAY_IMAGE_SRC}
@@ -658,7 +651,7 @@ function P19InvestmentProof() {
 
 function VisualProofStrip() {
   return (
-    <section className="pt-10 pb-10 md:pt-14 md:pb-14 bg-gradient-to-b from-slate-900 via-[#11182b] to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
+    <section className="py-14 md:py-16 bg-gradient-to-b from-slate-900 via-[#11182b] to-[#0B1120]" aria-labelledby="gorsel-ritim-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 text-center">
           <h2 id="gorsel-ritim-baslik" className="text-3xl md:text-4xl font-black text-white mb-3">
@@ -673,7 +666,7 @@ function VisualProofStrip() {
           {VISUAL_FLOW_IMAGES.map((item, index) => (
             <article
               key={item.src}
-              className={`overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-xl ${
+              className={`overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl ${
                 index === 0 ? "md:translate-y-6" : index === 2 ? "md:-translate-y-6" : ""
               }`}
             >
@@ -961,22 +954,22 @@ const VIDEO_GALLERY = [
 
 const VISUAL_FLOW_IMAGES = [
   {
-    src: P19_PROOF_DISPLAY_IMAGE_SRC,
-    alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
-    eyebrow: "P1.9 indoor LED",
-    title: "300 m² özmal LED görüntü altyapısı",
-    detail: "Yakın izleme mesafesinde net, parlak ve yüksek çözünürlüklü görüntü kalitesi.",
+    src: "/img/led/1.webp",
+    alt: "Uluslararası forum salonunda geniş LED ekran ve yan LED panolarla kurumsal sahne kurulumu",
+    eyebrow: "Kurumsal konferans",
+    title: "Geniş ölçekli iç mekan LED görüntü altyapısı",
+    detail: "Kongre ve forum sahnelerinde yakın izleme mesafesinde net, parlak ve yüksek çözünürlüklü görüntü kalitesi.",
   },
   {
-    src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
-    alt: "Kurumsal konferans sahnesinde teknik prodüksiyon kontrol masası ve P1.9 LED ekran",
+    src: "/img/led/3.webp",
+    alt: "Gala salonunda truss, LED ekranlar ve teknik ekip ile kurulum hazırlığı",
     eyebrow: "Operasyon kontrolü",
     title: "Sahne Arkasında Kontrollü Teknik Operasyon",
     detail: "Görüntü, ses ve ışık senkronizasyonu tek merkezden yönetilir; operasyonel riskler kontrollü planlama ile azaltılır.",
   },
   {
-    src: LED_HYBRID_LAUNCH_IMAGE_SRC,
-    alt: "Kurumsal ürün lansmanı sahnesinde LED wall ve ışık prodüksiyonu",
+    src: "/img/led/2.webp",
+    alt: "Balo salonunda tek parça geniş LED wall ile kurumsal davet sahnesi",
     eyebrow: "Lansman sahnesi",
     title: "Marka mesajını taşıyan tek güçlü yüzey",
     detail: "Ürün lansmanı ve bayi toplantılarında LED wall sahnenin ana iletişim alanına dönüşür.",
@@ -1014,7 +1007,7 @@ function Gallery() {
         </ul>
 
         <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr] mb-16">
-          <article className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-slate-900 shadow-xl">
+          <article className="relative overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
             <div className="relative aspect-[16/10]">
               <Image
                 src={GALLERY_IMAGES[0].src}
@@ -1042,7 +1035,7 @@ function Gallery() {
             {GALLERY_IMAGES.slice(1, 3).map((image) => (
               <article
                 key={image.src}
-                className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-lg"
+                className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg"
               >
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -1064,8 +1057,8 @@ function Gallery() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
-          {SUCCESS_STORIES.slice(0, 4).map((story, index) => (
-            <article key={index} className="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+          {SUCCESS_STORIES.map((story, index) => (
+            <article key={index} className="bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
               
               <div className="mb-4">
@@ -1095,7 +1088,7 @@ function Gallery() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
+              <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-3xl">
                 <div className="flex gap-3">
                   <MessageCircle className="text-blue-300 flex-shrink-0" size={32} aria-hidden="true" />
                   <div>
@@ -1117,7 +1110,7 @@ function Gallery() {
             {GALLERY_IMAGES.slice(3, 8).map((image) => (
               <article
                 key={image.src}
-                className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative aspect-[4/5]">
                   <Image
@@ -1178,7 +1171,7 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-[2.5rem] p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
+        <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-3xl p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           
@@ -1318,7 +1311,7 @@ function Technical() {
   ];
 
   return (
-    <section id="teknik-altyapi" className="py-14 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section id="teknik-altyapi" className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -1525,7 +1518,7 @@ function UseCases() {
           {USE_CASES.map((uc) => (
             <li
               key={uc.title}
-              className="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
+              className="bg-white/5 border border-white/10 p-6 rounded-3xl hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
             >
               <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
                 <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
@@ -1591,7 +1584,7 @@ function RegionalService() {
           </div>
 
           {/* Sağ Taraf: Operasyonel Güvence */}
-          <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl relative overflow-hidden">
+          <div className="bg-slate-900 rounded-3xl p-10 text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
             
             <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
@@ -1759,8 +1752,9 @@ function Articles() {
                   width={1600}
                   height={1200}
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 1024px) 100vw, 1080px"
+                  quality={70}
                   loading="lazy"
-                  unoptimized
                 />
               </div>
 
@@ -1831,8 +1825,9 @@ function Articles() {
                   width={1600}
                   height={739}
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 1024px) 100vw, 1080px"
+                  quality={70}
                   loading="lazy"
-                  unoptimized
                 />
               </div>
 
@@ -1852,8 +1847,9 @@ function Articles() {
                   width={1600}
                   height={1199}
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 1024px) 100vw, 1080px"
+                  quality={70}
                   loading="lazy"
-                  unoptimized
                 />
               </div>
               
