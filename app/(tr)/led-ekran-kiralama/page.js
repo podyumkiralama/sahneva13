@@ -633,7 +633,7 @@ function P19InvestmentProof() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 54vw"
-              priority
+              loading="lazy"
               unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-transparent to-transparent" />
@@ -726,7 +726,7 @@ function Hero() {
 
       <div className="relative z-10 container mx-auto grid max-w-7xl items-end gap-10 px-4 text-white lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
         <div className="max-w-4xl">
-          <div className="mb-5 inline-flex items-center gap-3 border border-white/20 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
             <span>İstanbul ve Türkiye geneli LED ekran kiralama</span>
           </div>
@@ -743,7 +743,7 @@ function Hero() {
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
             {["İç Mekan LED", "Dış Mekan LED", "LED Wall & Video Wall", "Reji ve Teknik Ekip"].map((item) => (
-              <span key={item} className="border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
+              <span key={item} className="rounded-full border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
                 {item}
               </span>
             ))}
@@ -753,9 +753,9 @@ function Hero() {
             <Link
               href={WHATSAPP}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               aria-label="Teklif Al - WhatsApp üzerinden LED ekran kiralama teklifi alın"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-bold text-slate-950 transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-slate-950 transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
             >
               <MessageCircle size={20} aria-hidden="true" />
               <span>Teklif Al</span>
@@ -764,7 +764,7 @@ function Hero() {
             <Link
               href="/led-ekran-hesaplama"
               aria-label="LED ekran hesaplama aracına gidin"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
               <span>LED Ekran Hesapla</span>
@@ -772,7 +772,7 @@ function Hero() {
           </div>
         </div>
 
-        <aside className="hidden border border-white/15 bg-black/30 p-5 backdrop-blur-md lg:block" aria-label="LED ekran hero operasyon özeti">
+        <aside className="hidden rounded-3xl border border-white/15 bg-black/30 p-5 backdrop-blur-md lg:block" aria-label="LED ekran hero operasyon özeti">
           <div className="flex items-center gap-3 border-b border-white/10 pb-4">
             <CheckCircle size={22} className="text-emerald-300" aria-hidden="true" />
             <div>
@@ -852,7 +852,7 @@ function Services() {
                       <Link
                         href={getServiceWhatsappLink(service.title)}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="nofollow noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                         aria-label={`${service.title} için ${service.cta.label}`}
                       >
@@ -871,7 +871,7 @@ function Services() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
           >
             <MessageCircle size={20} aria-hidden="true" className="mr-3" />
@@ -1093,7 +1093,7 @@ function Gallery() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-[2rem]">
                 <div className="flex gap-3">
-                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} />
+                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} aria-hidden="true" />
                   <div>
                     <p className="text-gray-700 italic text-sm mb-2 font-medium">"{story.quote}"</p>
                     <p className="text-xs font-black text-gray-900 uppercase tracking-wider">— {story.client}</p>
@@ -1520,8 +1520,8 @@ function UseCases() {
               key={uc.title}
               className="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
             >
-              <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform">
-                <uc.Icon size={32} strokeWidth={1.5} />
+              <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+                <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
               </div>
               <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
                 {uc.title}
@@ -1588,12 +1588,12 @@ function RegionalService() {
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
             
             <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
-              <Shield size={28} /> Operasyonel Avantajlarımız
+              <Shield size={28} aria-hidden="true" /> Operasyonel Avantajlarımız
             </h3>
             
             <div className="space-y-8 relative z-10">
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" /></div>
+                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" aria-hidden="true" /></div>
                 <div>
                   <h4 className="font-bold text-lg">Trafik ve Zaman Yönetimi</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
@@ -1603,7 +1603,7 @@ function RegionalService() {
               </div>
               
               <div className="flex gap-4">
-                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" /></div>
+                <div className="bg-green-500/20 p-3 rounded-xl h-fit"><Zap className="text-green-400" aria-hidden="true" /></div>
                 <div>
                   <h4 className="font-bold text-lg">Hava Şartlarına Tam Uyum</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
@@ -1613,7 +1613,7 @@ function RegionalService() {
               </div>
 
               <div className="flex gap-4">
-                <div className="bg-orange-500/20 p-3 rounded-xl h-fit"><Users className="text-orange-400" /></div>
+                <div className="bg-orange-500/20 p-3 rounded-xl h-fit"><Users className="text-orange-400" aria-hidden="true" /></div>
                 <div>
                   <h4 className="font-bold text-lg">Şeffaf Çevre İl Lojistiği</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
@@ -1940,7 +1940,7 @@ function RelatedServices() {
               <Link
                 key={service.title}
                 href={service.external ? getServiceWhatsappLink(service.waTitle ?? service.title) : service.href}
-                {...(service.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(service.external ? { target: "_blank", rel: "nofollow noopener noreferrer" } : {})}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
                 aria-label={`${service.title} - ${service.desc}`}
               >
