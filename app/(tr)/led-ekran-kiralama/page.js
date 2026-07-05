@@ -108,6 +108,7 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-cyan-100 text-cyan-700",
     clarity: "Ultra Fine Pixel",
     costIndex: "💰💰💰💰💰",
+    costText: "Maliyet düzeyi 5/5 — premium",
     distance: "1.9 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Lansman, Fuar, Gala, Konferans ve Yakın İzleme",
@@ -118,6 +119,7 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-purple-100 text-purple-700",
     clarity: "Ultra High HD",
     costIndex: "💰💰💰💰",
+    costText: "Maliyet düzeyi 4/5 — yüksek",
     distance: "2.5 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Lansman, Fuar ve Yakın İzleme Sunumları",
@@ -128,6 +130,7 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-blue-100 text-blue-700",
     clarity: "High Definition",
     costIndex: "💰💰💰",
+    costText: "Maliyet düzeyi 3/5 — dengeli",
     distance: "3 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "İç Mekan Etkinlikleri ve Hibrit Kullanım",
@@ -138,6 +141,7 @@ const LED_PIXEL_ROWS = [
     badgeClass: "bg-green-100 text-green-700",
     clarity: "Standard HD",
     costIndex: "💰💰",
+    costText: "Maliyet düzeyi 2/5 — ekonomik",
     distance: "4 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Dış Mekan, Konser ve Festival Sahneleri",
@@ -148,7 +152,7 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama İstanbul | P1.9, P2.9, P3.9 Indoor & Outdoor LED Wall",
   description:
-    "İstanbul ve Türkiye genelinde iç mekan ve dış mekan LED ekran kiralama. 300 m² P1.9 Indoor LED envanteri, P2.9 ve P3.9 panel seçenekleri; kurulum, söküm, NovaStar reji ve teknik ekip desteğiyle eksiksiz proje çözümü.",
+    "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildLanguageAlternates({
@@ -1249,7 +1253,10 @@ function TechnicalComparison() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-gray-700">{row.clarity}</td>
-                  <td className="px-6 py-4 text-gray-700">{row.costIndex}</td>
+                  <td className="px-6 py-4 text-gray-700">
+                    <span aria-hidden="true">{row.costIndex}</span>
+                    <span className="sr-only">{row.costText}</span>
+                  </td>
                   <td className="px-6 py-4 text-gray-700">{row.distance}</td>
                   <td className="px-6 py-4 font-semibold text-blue-700">{row.refreshRate}</td>
                   <td className="px-6 py-4 text-gray-700">{row.usage}</td>
@@ -1371,7 +1378,7 @@ function StatsBand() {
   const stats = [
     { value: "300 m²", label: "P1.9 Indoor LED Envanteri" },
     { value: "700+", label: "Başarılı Proje" },
-    { value: "81 İL", label: "Kendi Araçlarımızla Kurulum" },
+    { value: "81 İl", label: "Kendi Araçlarımızla Kurulum" },
     { value: "10+", label: "Yıllık Deneyim" },
   ];
 
@@ -1447,7 +1454,7 @@ function WhySahneva() {
             id="neden-sahneva-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            LED Ekran <span className="text-blue-700">Teknik Altyapımız</span>
+            Neden <span className="text-blue-700">Sahneva?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle yüksek standartlı prodüksiyon altyapısı
