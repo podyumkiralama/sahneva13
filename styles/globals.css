@@ -369,49 +369,6 @@
   }
 }
 
-@keyframes corporateStageBeamLeft {
-  0%,
-  100% {
-    transform: translate3d(-5%, -2%, 0) rotate(17deg);
-    opacity: 0.48;
-  }
-
-  50% {
-    transform: translate3d(7%, 1%, 0) rotate(23deg);
-    opacity: 0.78;
-  }
-}
-
-@keyframes corporateStageBeamRight {
-  0%,
-  100% {
-    transform: translate3d(7%, 0, 0) rotate(-19deg);
-    opacity: 0.42;
-  }
-
-  50% {
-    transform: translate3d(-8%, 2%, 0) rotate(-25deg);
-    opacity: 0.72;
-  }
-}
-
-@keyframes corporateStageSweep {
-  0% {
-    transform: translate3d(-38%, 0, 0) rotate(16deg);
-    opacity: 0;
-  }
-
-  18%,
-  72% {
-    opacity: 0.68;
-  }
-
-  100% {
-    transform: translate3d(132%, 0, 0) rotate(16deg);
-    opacity: 0;
-  }
-}
-
 /* Utilities */
 @layer utilities {
   /* ✅ Gradient text: destek varsa uygula, yoksa yazı şeffaf kalmasın */
@@ -563,12 +520,10 @@
     mix-blend-mode: screen;
   }
 
-  .corporate-stage-beam,
-  .corporate-stage-sweep {
+  /* Statik sahne ışığı huzmeleri — sürekli compositing maliyeti olmasın diye animasyonsuz. */
+  .corporate-stage-beam {
     position: absolute;
     display: block;
-    backface-visibility: hidden;
-    will-change: transform, opacity;
   }
 
   .corporate-stage-beam {
@@ -593,30 +548,15 @@
   .corporate-stage-beam-left {
     left: 3%;
     transform-origin: 50% 0%;
-    animation: corporateStageBeamLeft 10s ease-in-out infinite;
+    transform: rotate(19deg);
+    opacity: 0.6;
   }
 
   .corporate-stage-beam-right {
     right: 5%;
     transform-origin: 50% 0%;
-    animation: corporateStageBeamRight 11s ease-in-out infinite;
-  }
-
-  .corporate-stage-sweep {
-    inset-block: -18%;
-    left: 0;
-    width: 28%;
-    background:
-      linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.08) 28%,
-        rgba(186, 230, 253, 0.42) 50%,
-        rgba(52, 211, 153, 0.18) 62%,
-        transparent 100%
-      );
-    filter: blur(3px);
-    animation: corporateStageSweep 7.5s ease-in-out infinite;
+    transform: rotate(-21deg);
+    opacity: 0.55;
   }
 
   @media (max-width: 767px) {
@@ -632,12 +572,6 @@
       opacity: 0.78;
     }
 
-    .corporate-stage-beam,
-    .corporate-stage-sweep {
-      animation: none;
-      will-change: auto;
-    }
-
     .corporate-stage-beam {
       top: -16%;
       height: 120%;
@@ -651,8 +585,7 @@
       transform: rotate(8deg);
     }
 
-    .corporate-stage-beam-right,
-    .corporate-stage-sweep {
+    .corporate-stage-beam-right {
       display: none;
     }
   }
@@ -848,9 +781,7 @@
   .sahneva-stripe-soft,
   .corporate-ai-aurora,
   .corporate-ai-scan,
-  .corporate-ai-line,
-  .corporate-stage-beam,
-  .corporate-stage-sweep {
+  .corporate-ai-line {
     animation: none;
     will-change: auto;
   }

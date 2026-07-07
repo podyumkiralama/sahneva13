@@ -466,7 +466,6 @@ function Hero() {
       <div className="absolute inset-0 corporate-stage-lights" aria-hidden="true">
         <span className="corporate-stage-beam corporate-stage-beam-left" />
         <span className="corporate-stage-beam corporate-stage-beam-right" />
-        <span className="corporate-stage-sweep" />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 md:px-6 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center">
