@@ -580,9 +580,9 @@ function VisualProof() {
               <p className="mb-2 inline-flex border border-sky-200/[0.24] bg-sky-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-sky-100">
                 300 m² P1.9 indoor LED
               </p>
-              <p role="heading" aria-level={3} className="text-2xl font-black text-white md:text-4xl">
+              <h3 className="text-2xl font-black text-white md:text-4xl">
                 Yakın izleme mesafesinde premium görüntü kalitesi
-              </p>
+              </h3>
             </div>
           </div>
         </article>
@@ -668,7 +668,7 @@ function VideoProof() {
               />
               <div className="p-3">
                 <p className="text-xs font-black uppercase tracking-normal text-white">{video.eyebrow}</p>
-                <p role="heading" aria-level={3} className="mt-2 text-lg font-black leading-snug text-white">{video.title}</p>
+                <h3 className="mt-2 text-lg font-black leading-snug text-white">{video.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-white/[0.68]">{video.description}</p>
               </div>
             </article>
@@ -694,7 +694,7 @@ function TechnicalDiscoverySection() {
             <div className="mb-5 inline-flex h-11 w-11 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
               <ClipboardCheck size={21} aria-hidden="true" />
             </div>
-            <p role="heading" aria-level={3} className="text-lg font-black text-slate-950">{item.title}</p>
+            <h3 className="text-lg font-black text-slate-950">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
           </article>
         ))}
@@ -724,7 +724,7 @@ function Positioning() {
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
               <BadgeCheck size={22} aria-hidden="true" />
             </div>
-            <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">{item.title}</p>
+            <h3 className="text-xl font-black text-slate-950">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
           </article>
         ))}
@@ -843,7 +843,7 @@ function PackagePlanningSection() {
         <div className="grid gap-4 md:grid-cols-3">
           {PACKAGE_OPTIONS.map((item) => (
             <article key={item.title} className="border border-slate-200 bg-slate-50 p-6">
-              <p role="heading" aria-level={3} className="text-lg font-black text-slate-950">{item.title}</p>
+              <h3 className="text-lg font-black text-slate-950">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
@@ -859,7 +859,7 @@ function PackagePlanningSection() {
         </div>
 
         <div className="border border-slate-200 bg-white p-6 shadow-sm">
-          <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">Planlama akışı</p>
+          <h3 className="text-xl font-black text-slate-950">Planlama akışı</h3>
           <div className="mt-5 grid gap-4">
             {PLANNING_STEPS.map((step, index) => (
               <div key={step.title} className="grid grid-cols-[2rem_1fr] gap-4">
@@ -898,7 +898,7 @@ function OperationFlow() {
               </span>
               <ClipboardCheck size={22} className="text-emerald-300" aria-hidden="true" />
             </div>
-            <p role="heading" aria-level={3} className="mt-8 text-xl font-black text-white">{step.title}</p>
+            <h3 className="mt-8 text-xl font-black text-white">{step.title}</h3>
             <p className="mt-3 text-sm leading-7 text-white/[0.70]">{step.text}</p>
           </PremiumCard>
         ))}
@@ -935,7 +935,7 @@ function Formats() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             </div>
             <div className="border-t border-white/[0.10] bg-[#05070d] p-5">
-              <p role="heading" aria-level={3} className="text-xl font-black text-white">{item.title}</p>
+              <h3 className="text-xl font-black text-white">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-white/[0.82]">{item.desc}</p>
             </div>
           </article>
@@ -966,7 +966,7 @@ function ProductionStack() {
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-sky-200/[0.18] bg-sky-300/[0.10] text-sky-200">
                 <Icon size={23} aria-hidden="true" />
               </div>
-              <p role="heading" aria-level={3} className="text-xl font-black text-white">{item.title}</p>
+              <h3 className="text-xl font-black text-white">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-white/[0.68]">{item.desc}</p>
               <a
                 href={generateWhatsAppLink(item.whatsappIntent)}
@@ -984,7 +984,7 @@ function ProductionStack() {
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <p role="heading" aria-level={3} className="text-2xl font-black text-white">Teknik kontrol listesi</p>
+          <h3 className="text-2xl font-black text-white">Teknik kontrol listesi</h3>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-white/[0.76]">
             {TECHNICAL_POINTS.map((item) => (
               <li key={item} className="flex gap-3">
@@ -996,7 +996,7 @@ function ProductionStack() {
         </div>
 
         <div className="border border-white/[0.10] bg-white/[0.05] p-6">
-          <p role="heading" aria-level={3} className="text-2xl font-black text-white">Hedef etkinlik türleri</p>
+          <h3 className="text-2xl font-black text-white">Hedef etkinlik türleri</h3>
           <div className="mt-5 flex flex-wrap gap-2">
             {USE_CASES.map((item) => (
               <span key={item} className="border border-white/[0.12] bg-white/[0.06] px-3 py-2 text-sm font-semibold text-white/[0.80]">
@@ -1039,7 +1039,7 @@ function InternalLinks() {
 
         <div className="border border-slate-200 bg-white p-6">
           <p className="text-sm font-black uppercase tracking-normal text-blue-700">{CLUSTER.eyebrow}</p>
-          <p role="heading" aria-level={3} className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</p>
+          <h3 className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</h3>
           <p className="mt-3 text-sm leading-7 text-slate-600">{CLUSTER.description}</p>
           <div className="mt-5 grid gap-3">
             {CLUSTER.guides.slice(0, 2).map((guide) => (
@@ -1065,7 +1065,7 @@ function BrandEquipmentSection() {
 
       <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr]">
         <div className="border border-slate-200 bg-white p-6 shadow-sm">
-          <p role="heading" aria-level={3} className="text-xl font-black text-slate-950">Saha güvence başlıkları</p>
+          <h3 className="text-xl font-black text-slate-950">Saha güvence başlıkları</h3>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-slate-700">
             {ASSURANCE_ITEMS.map((item) => (
               <li key={item} className="flex gap-3">
@@ -1077,7 +1077,7 @@ function BrandEquipmentSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {BRAND_LOGOS.slice(0, 6).map((brand) => (
+          {BRAND_LOGOS.map((brand) => (
             <div key={brand.src} className="flex min-h-24 items-center justify-center border border-slate-200 bg-white p-4">
               <Image
                 src={brand.src}
@@ -1163,7 +1163,7 @@ export default function Page() {
         baseUrl={ORIGIN}
       />
       <CorporateOrganizationJsonLd />
-      <main className="bg-white">
+      <div className="bg-white">
         <Hero />
         <VisualProof />
         <TechnicalDiscoverySection />
@@ -1178,7 +1178,7 @@ export default function Page() {
         <FAQSection />
         <InternalLinks />
         <CTASection />
-      </main>
+      </div>
     </>
   );
 }
