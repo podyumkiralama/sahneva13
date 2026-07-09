@@ -865,7 +865,7 @@ function FAQ() {
         </div>
 
         <div className="space-y-4" role="list">
-          {FAQ_ITEMS.map((faq, index) => (
+          {FAQ_ITEMS.map((faq) => (
             <article key={faq.q} role="listitem">
               <details className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl">

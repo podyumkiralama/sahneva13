@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -47,9 +48,11 @@ export const metadata = {
     "engineering stage design",
     "Beştepe Congress Center",
   ],
-  alternates: {
-    canonical: BLOG_URL,
-  },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi",
+    en: BLOG_PATH,
+  }),
   image: HERO_IMG,
   date: PUBLISH_DATE,
   category: "Corporate Events",

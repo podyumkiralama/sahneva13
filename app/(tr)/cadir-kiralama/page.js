@@ -1613,16 +1613,6 @@ function DividerDarkToLight() {
   );
 }
 
-function DividerDarkToWhite() {
-  return (
-    <div className="relative h-12 bg-[#0a1429] overflow-hidden -mb-px" aria-hidden="true">
-      <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
-        <path d="M0,28 L1440,0 L1440,48 L0,48 Z" fill="#ffffff" />
-      </svg>
-    </div>
-  );
-}
-
 function DividerBlueToWhite() {
   return (
     <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #1d40af, #6d28d9, #1e40af)"}} aria-hidden="true">

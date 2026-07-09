@@ -48,7 +48,11 @@ export const metadata = {
     "mühendislik sahne tasarımı",
     "Beştepe Kongre Merkezi",
   ],
-  alternates: buildLanguageAlternates({ tr: BLOG_URL, canonical: BLOG_URL }),
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: BLOG_PATH,
+    en: "/en/blog/national-space-program-launch-engineering-reflex",
+  }),
   image: HERO_IMG,
   date: PUBLISH_DATE,
   category: "Kurumsal Organizasyon",

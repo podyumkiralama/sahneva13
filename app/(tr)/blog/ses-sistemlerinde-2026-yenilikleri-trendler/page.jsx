@@ -38,7 +38,11 @@ export const metadata = {
   description:
     "2026 ses teknolojilerini keşfedin: WMAS sistemler, AI tabanlı frekans yönetimi ve beam steering ile etkinlik prodüksiyonunda mühendislik dönemi.",
   image: HERO_IMAGE,
-  alternates: buildLanguageAlternates({ tr: BLOG_URL, canonical: BLOG_URL }),
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: BLOG_PATH,
+    en: "/en/blog/sound-system-innovations-2026-trends",
+  }),
   openGraph: {
     title: "Ses Sistemlerinde 2026 Yenilikleri: Mikrofon ve Line Array Trendleri",
     description:

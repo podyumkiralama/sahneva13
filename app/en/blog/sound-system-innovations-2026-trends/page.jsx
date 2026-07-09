@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
@@ -38,9 +39,11 @@ export const metadata = {
   description:
     "Discover 2026 sound technologies: WMAS systems, AI-based frequency management and beam steering ushering in a new era of engineering in event production.",
   image: HERO_IMAGE,
-  alternates: {
-    canonical: BLOG_URL,
-  },
+  alternates: buildLanguageAlternates({
+    canonical: BLOG_PATH,
+    tr: "/blog/ses-sistemlerinde-2026-yenilikleri-trendler",
+    en: BLOG_PATH,
+  }),
   openGraph: {
     title: "Sound System Innovations in 2026: Microphone and Line Array Trends",
     description:
