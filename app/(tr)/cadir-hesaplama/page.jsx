@@ -9,7 +9,7 @@ const PAGE_URL = `${ORIGIN}/cadir-hesaplama`;
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "Çadır Hesaplama Aracı | Kaç Kişiye Kaç m² Çadır Gerekir?",
+  title: "Çadır Hesaplama Aracı | Kaç m² Çadır Gerekir?",
   description:
     "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre etkinliğiniz için önerilen çadır ölçüsünü ve yaklaşık m² ihtiyacını hesaplayın.",
   alternates: buildLanguageAlternates({ tr: PAGE_URL, canonical: PAGE_URL }),

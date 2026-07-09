@@ -12,7 +12,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/nasil-calisiriz/hero-surec.webp`;
 
 export const metadata = {
-  title: "Nasıl Çalışıyoruz? | Sahneva Etkinlik Süreci",
+  title: "Nasıl Çalışıyoruz? | Etkinlik Sürecimiz",
   description:
     "Sahneva’da süreç; ihtiyaç analizi, teklif, teknik keşif, kurulum ve etkinlik sonrası söküm dahil uçtan uca planlanır.",
   alternates: buildLanguageAlternates({

@@ -11,7 +11,7 @@ import {
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Hakkımızda | Profesyonel Etkinlik Prodüksiyon Ekibimiz",
+  title: "Hakkımızda | Etkinlik Prodüksiyon Ekibimiz",
   description:
     "10+ yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.",
   alternates: {

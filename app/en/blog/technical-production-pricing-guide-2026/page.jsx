@@ -218,7 +218,7 @@ export default function Page() {
             </div>
 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-              Technical Production and Stage Rental
+              Technical Production and Stage Rental{" "}
               <span className="block text-slate-600">
                 Pricing Guide (2026)
               </span>

@@ -112,7 +112,12 @@ export default function PrivacyPolicyPage() {
                 <p className="mt-4 max-w-2xl text-base sm:text-lg text-slate-300">
                   Sahneva olarak; sahne, podyum, LED ekran, ses ve ışık sistemleri hizmetlerimiz sırasında
                   kişisel verilerinizin gizliliğine en üst düzeyde önem veriyoruz. Bu sayfada, verilerinizin
-                  nasıl toplandığını, işlendiğini ve korunduğunu bulabilirsiniz.
+                  nasıl toplandığını, işlendiğini ve korunduğunu bulabilirsiniz. KVKK kapsamındaki
+                  resmi aydınlatma metnimiz için{" "}
+                  <Link href="/kvkk" className="text-purple-300 underline hover:text-purple-200">
+                    KVKK Aydınlatma Metni
+                  </Link>{" "}
+                  sayfasına bakabilirsiniz.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">

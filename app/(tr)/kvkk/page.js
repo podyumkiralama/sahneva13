@@ -1,12 +1,13 @@
 // app/kvkk/page.jsx
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "KVKK ve Gizlilik Politikası | Kişisel Veri Koruması",
+  title: "KVKK Aydınlatma Metni | Kişisel Veri Koruması",
   description:
-    "Sahneva KVKK ve Gizlilik Politikası: kişisel verilerin işlenmesi, saklanması, aktarımı ve haklarınız hakkında bilgilendirme.",
+    "Sahneva KVKK aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri, saklama süreleri, aktarımı ve ilgili kişi hakları.",
   alternates: {
     canonical: `${SITE_URL}/kvkk`,
     languages: {
@@ -17,9 +18,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "KVKK / Gizlilik | Sahneva",
+    title: "KVKK Aydınlatma Metni | Sahneva",
     description:
-      "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
+      "Sahneva Organizasyon’un KVKK kapsamında kişisel veri işleme süreçlerine ilişkin aydınlatma metni.",
     url: `${SITE_URL}/kvkk`,
     type: "website",
     siteName: "Sahneva",
@@ -35,9 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KVKK / Gizlilik | Sahneva",
+    title: "KVKK Aydınlatma Metni | Sahneva",
     description:
-      "Sahneva Organizasyon’un KVKK ve Gizlilik Politikası hakkında bilgilendirme.",
+      "Sahneva Organizasyon’un KVKK kapsamında kişisel veri işleme süreçlerine ilişkin aydınlatma metni.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
   robots: { index: true, follow: true },
@@ -55,7 +56,7 @@ export default function KvkkPage() {
     <div className="container max-w-3xl mx-auto px-4 py-10 md:py-14">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <header className="mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold">KVKK / Gizlilik Politikası</h1>
+        <h1 className="text-2xl md:text-3xl font-bold">KVKK Aydınlatma Metni</h1>
         <p className="text-sm text-neutral-600 mt-1">Son güncelleme: {updatedAt}</p>
       </header>
 
@@ -65,6 +66,15 @@ export default function KvkkPage() {
           kurabilmek ve işlerinizi doğru planlayabilmek için bazı kişisel bilgilere ihtiyaç
           duyuyoruz. Bu bilgileri nasıl kullandığımızı, kimlerle paylaştığımızı ve haklarınızı
           açık bir şekilde anlatmak istedik.
+        </p>
+
+        <p className="text-sm text-neutral-600">
+          Çerez kullanımı ve genel gizlilik uygulamalarımız için{" "}
+          <Link href="/gizlilik-politikasi" className="text-[#6d28d9] hover:underline">
+            Gizlilik Politikası
+          </Link>{" "}
+          sayfamıza bakabilirsiniz. Bu sayfa yalnızca 6698 sayılı KVKK kapsamındaki aydınlatma
+          yükümlülüğümüzü karşılar.
         </p>
 
         <div className="rounded-xl border bg-white p-4">

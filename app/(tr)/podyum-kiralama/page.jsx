@@ -538,7 +538,7 @@ function HeroSection() {
             </div>
 
             <h1 className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
-              Podyum Kiralama
+              Podyum Kiralama{" "}
               <span className="mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black text-transparent md:text-4xl lg:text-5xl">
                 ve Kurulumu
               </span>

@@ -240,7 +240,7 @@ export default function Page() {
             </div>
 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-              2026 Corporate Event Planning Guide
+              2026 Corporate Event Planning Guide{" "}
               <span className="block text-slate-600">
                 The Most Comprehensive Checklist and Technical Tips
               </span>
