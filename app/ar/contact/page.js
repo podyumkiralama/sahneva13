@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
@@ -284,6 +285,10 @@ export default function ArabicContactPage() {
             {...WEB_MCP_QUOTE_FORM_PROPS}
             className="rounded-3xl border border-slate-200 bg-white p-6 text-right shadow-sm md:p-8"
           >
+            <div className="mb-5">
+              <QuoteFormValidation locale="ar" />
+            </div>
+
             <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label htmlFor="name" className="block text-sm font-black text-slate-800">

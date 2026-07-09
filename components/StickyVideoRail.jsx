@@ -331,7 +331,7 @@ function StickyVideoRailInner({
               )}
               {hasStarted && (
                 <iframe
-                  title={currentVideo.title}
+                  title={currentVideo.title || "Sahneva video oynatıcı"}
                   src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&mute=0&rel=0&modestbranding=1&controls=1&playsinline=1`}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -561,7 +561,7 @@ function StickyVideoRailInner({
 
           {hasStarted && (
             <iframe
-              title={currentVideo.title}
+              title={currentVideo.title || "Sahneva video oynatıcı"}
               src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&mute=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -59,7 +59,7 @@ const PREVIEW_ERROR_LABELS = {
 
 export default function VideoEmbed({
   videoId,
-  title = "YouTube video",
+  title = "Sahneva video oynatıcı",
   thumbnailUrl,
   autoplayOnClick = true,
   muteOnAutoplay = true,

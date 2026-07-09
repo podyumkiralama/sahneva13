@@ -1,6 +1,7 @@
 // app/en/contact/page.js
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import {
   BASE_SITE_URL,
   LOCAL_BUSINESS_ID,
@@ -414,6 +415,8 @@ export default function ContactPage() {
                       All fields marked with * are required. Please make sure your phone number includes the
                       country code and your email address is valid so we can reach you without delay.
                     </div>
+
+                    <QuoteFormValidation locale="en" />
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>

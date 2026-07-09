@@ -1,6 +1,7 @@
 // app/(site)/iletisim/page.jsx
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import {
   BASE_SITE_URL,
   LOCAL_BUSINESS_ID,
@@ -419,6 +420,8 @@ export default function ContactPage() {
                       * ile işaretli alanlar zorunludur. Lütfen telefon numaranıza ülke kodunu ekleyin ve geçerli bir
                       e-posta adresi yazın ki size hızlıca dönüş yapabilelim.
                     </div>
+
+                    <QuoteFormValidation locale="tr" />
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>

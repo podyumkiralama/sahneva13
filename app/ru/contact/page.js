@@ -1,4 +1,5 @@
 import JsonLd from "@/components/seo/JsonLd";
+import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const RU_CONTACT_URL = buildCanonical("/ru/contact");
@@ -189,6 +190,8 @@ export default function RussianContactPage() {
           {...WEB_MCP_QUOTE_FORM_PROPS}
           className="space-y-5"
         >
+          <QuoteFormValidation locale="ru" />
+
           <div className="grid gap-5 md:grid-cols-2">
             <div>
               <label htmlFor="name" className="block text-sm font-black text-neutral-800">
