@@ -251,7 +251,7 @@ function Hero() {
             <Link
               href={WHATSAPP}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition"
             >
               Send Event Brief
@@ -459,7 +459,7 @@ function MiceCategories() {
                 <Link
                   href={WHATSAPP}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition text-sm"
                 >
                   Request a Quote for {cat.label}

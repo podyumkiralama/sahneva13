@@ -472,7 +472,7 @@ function Hero() {
               <Link
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(30,64,175,0.45)] transition-all hover:brightness-110 active:scale-[0.985]"
               >
                 <MessageCircle className="h-5 w-5 transition group-hover:-rotate-12" />
@@ -804,7 +804,7 @@ function TurnkeyInfrastructure() {
                 <Link
                   href={WHATSAPP}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-2xl bg-blue-600 hover:bg-blue-500 px-6 py-3 font-bold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
                 >
                   Kurulum Planı İsteyin
@@ -1085,7 +1085,7 @@ function PricingSection() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-green-700 px-8 py-4 font-black text-white shadow-lg transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
           >
             <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
@@ -1241,7 +1241,7 @@ function UseCases() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>

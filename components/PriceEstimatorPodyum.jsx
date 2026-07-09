@@ -166,6 +166,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
             *İstanbul içi ≤200 m² projelerde sabit {formatTRY(unitPrices.ist_nakliye)} uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.
           </span>
           <ExternalLink
+            nofollow
             href="https://wa.me/905453048671?text=Merhaba%20Sahneva%2C%20Podyum%20fiyat%20hesaplay%C4%B1c%C4%B1s%C4%B1ndan%20yaz%C4%B1yorum."
             className="inline-flex items-center rounded-lg border border-blue-300 bg-white px-3 py-1.5 text-xs font-semibold text-blue-800 hover:bg-blue-50"
             ariaLabel="WhatsApp’tan Sor — yeni sekmede açılır"

@@ -537,7 +537,7 @@ function Hero({ breadcrumbItems }) {
             <Link
               href={WHATSAPP}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition focus-ring"
             >
               Request a Quote
@@ -1019,7 +1019,7 @@ function Services() {
                 <Link
                   href={WHATSAPP}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
                 >
                   Request a Quote
@@ -1227,7 +1227,7 @@ function UseCases() {
         <Link
           href={WHATSAPP}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
           className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
         >
           Get a Custom Solution for Your Event
@@ -1310,7 +1310,7 @@ function Articles() {
               <Link
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
               >
                 Request a guided quote

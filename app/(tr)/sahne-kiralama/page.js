@@ -400,7 +400,7 @@ function Hero() {
               <Link
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 aria-label="WhatsApp üzerinden hemen teklif alın"
                 className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl bg-green-700 px-6 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green-800 hover:shadow-xl focus-ring sm:w-auto sm:max-w-none sm:px-8"
               >
@@ -484,7 +484,7 @@ function RentalFlow() {
               <Link
                 href={WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl bg-green-700 px-6 py-3 font-bold text-white shadow-lg transition hover:bg-green-800 hover:no-underline focus-ring sm:w-auto"
               >
                 <MessageCircle size={20} aria-hidden="true" />
@@ -642,7 +642,7 @@ function Services() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">
@@ -769,7 +769,7 @@ function Packages() {
                   <Link
                     href={`${WHATSAPP}&package=${encodeURIComponent(pkg.name)}`}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     className="w-full inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-green-700 text-white hover:scale-105 hover:bg-green-800 transform transition-all duration-300 hover:shadow-xl focus-ring"
                   >
                     <span aria-hidden="true" className="text-xl mr-2">
@@ -1163,7 +1163,7 @@ function UseCases() {
           <Link
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-emerald-900 text-white hover:scale-105 hover:bg-emerald-950 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">

@@ -37,7 +37,7 @@ export default function NotFoundContent() {
         <a
           href="https://wa.me/905453048671"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
           className="inline-flex items-center justify-center rounded-xl border border-white/20 px-5 py-3 font-semibold text-white hover:bg-white/10 focus-ring"
         >
           WhatsApp ile yazın

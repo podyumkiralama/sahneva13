@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+﻿import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -60,9 +60,52 @@ const OG_DESCRIPTION =
 const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
+const HERO_IMAGE_VARIANTS = {
+  desktop: { width: 1440, height: 960 },
+  tablet: { width: 1080, height: 720 },
+  mobile: { width: 760, height: 507 },
+};
+const HERO_IMAGE_CLASS =
+  "absolute inset-0 h-full w-full object-cover object-center";
+const GALLERY_MAIN_SIZES = "(max-width: 1024px) calc(100vw - 32px), 840px";
+const GALLERY_SIDE_SIZES = "(max-width: 1024px) calc(100vw - 32px), 400px";
+const GALLERY_CARD_SIZES = "(max-width: 768px) calc(100vw - 32px), 410px";
 
-const shouldBypassImageOptimizer = (src) =>
-  typeof src === "string" && src.startsWith("/img/");
+function getOptimizedHeroPictureProps() {
+  const commonProps = {
+    alt: HERO.alt,
+    sizes: HERO.sizes,
+    className: HERO_IMAGE_CLASS,
+  };
+  const {
+    props: { srcSet: mobileSrcSet },
+  } = getImageProps({
+    ...commonProps,
+    src: HERO.mobileSrc ?? HERO.src,
+    ...HERO_IMAGE_VARIANTS.mobile,
+    quality: 72,
+    sizes: "100vw",
+  });
+  const {
+    props: { srcSet: tabletSrcSet },
+  } = getImageProps({
+    ...commonProps,
+    src: HERO.tabletSrc ?? HERO.src,
+    ...HERO_IMAGE_VARIANTS.tablet,
+    quality: 74,
+    sizes: "100vw",
+  });
+  const { props: imageProps } = getImageProps({
+    ...commonProps,
+    src: HERO.src,
+    ...HERO_IMAGE_VARIANTS.desktop,
+    quality: 78,
+    loading: "eager",
+    fetchPriority: "high",
+  });
+
+  return { imageProps, mobileSrcSet, tabletSrcSet };
+}
 
 const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
   const text = `Merhaba, ${intent} için teklif istiyorum. Etkinlik türü: [lansman/konferans/gala], tarih: [gg.aa.yyyy], şehir/mekan: [bilgi], kişi sayısı: [xxx].`;
@@ -440,23 +483,25 @@ function CorporateOrganizationJsonLd() {
 }
 
 function Hero() {
+  const heroPicture = getOptimizedHeroPictureProps();
+
   return (
     <section
       className="relative isolate overflow-hidden bg-[#05070d] pb-12 pt-24 text-white md:pb-16 md:pt-28 lg:min-h-[760px] lg:pb-20 lg:pt-32"
       aria-labelledby="hero-title"
     >
       <picture>
-        <source media="(max-width: 640px)" srcSet={HERO.mobileSrc ?? HERO.src} />
-        <source media="(max-width: 1024px)" srcSet={HERO.tabletSrc ?? HERO.src} />
-        <img
-          src={HERO.src}
-          alt={HERO.alt}
-          width={HERO_IMAGE_SIZE.width}
-          height={HERO_IMAGE_SIZE.height}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          decoding="async"
-          fetchPriority="high"
+        <source
+          media="(max-width: 640px)"
+          srcSet={heroPicture.mobileSrcSet}
+          sizes="100vw"
         />
+        <source
+          media="(max-width: 1024px)"
+          srcSet={heroPicture.tabletSrcSet}
+          sizes="100vw"
+        />
+        <img {...heroPicture.imageProps} alt={HERO.alt} fetchPriority="high" />
       </picture>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.96)_0%,rgba(2,6,23,.86)_36%,rgba(2,6,23,.56)_64%,rgba(2,6,23,.12)_100%)]" />
@@ -565,14 +610,13 @@ function VisualProof() {
               src={heroImage.src}
               alt={heroImage.alt}
               fill
-              sizes="(max-width: 1024px) 100vw, 64vw"
+              sizes={GALLERY_MAIN_SIZES}
               className="object-cover transition duration-700 group-hover:scale-[1.03]"
               loading="lazy"
               fetchPriority="low"
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
               quality={82}
-              unoptimized={shouldBypassImageOptimizer(heroImage.src)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             <div className="absolute inset-x-5 bottom-5 max-w-2xl">
@@ -594,14 +638,13 @@ function VisualProof() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 32vw"
+                  sizes={GALLERY_SIDE_SIZES}
                   className="object-cover"
                   loading="lazy"
                   fetchPriority="low"
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                   quality={80}
-                  unoptimized={shouldBypassImageOptimizer(image.src)}
                 />
               </div>
               <p className="p-4 text-sm font-semibold leading-6 text-white/[0.78]">{image.alt}</p>
@@ -618,14 +661,13 @@ function VisualProof() {
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes={GALLERY_CARD_SIZES}
                 className="object-cover"
                 loading="lazy"
                 fetchPriority="low"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
                 quality={78}
-                unoptimized={shouldBypassImageOptimizer(image.src)}
               />
             </div>
           </article>
@@ -923,13 +965,12 @@ function Formats() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes={GALLERY_CARD_SIZES}
                 className="object-cover transition duration-700 group-hover:scale-[1.04]"
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
                 quality={78}
-                unoptimized={shouldBypassImageOptimizer(item.src)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             </div>
@@ -1085,7 +1126,6 @@ function BrandEquipmentSection() {
                 height={brand.height}
                 className="max-h-12 w-auto object-contain opacity-80 grayscale"
                 loading="lazy"
-                unoptimized={shouldBypassImageOptimizer(brand.src)}
               />
             </div>
           ))}

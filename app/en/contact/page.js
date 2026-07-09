@@ -716,7 +716,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       <a
         href={href}
         target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
+        rel={isExternal ? (href.includes("wa.me") ? "nofollow noopener noreferrer" : "noopener noreferrer") : undefined}
         aria-describedby={`${headingId} ${descriptionId}`}
         className={`inline-flex items-center justify-center bg-gradient-to-r ${color} hover:shadow-xl text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg`}
       >

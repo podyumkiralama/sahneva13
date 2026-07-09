@@ -267,7 +267,7 @@ function HeroSection() {
             <Link
               href={WHATSAPP_URL}
               target="_blank"
-              rel="noreferrer"
+              rel="nofollow noreferrer"
               className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               <span className="text-xl mr-2" aria-hidden="true">💬</span> Get a Quote Now
@@ -373,7 +373,7 @@ function ServicesSection() {
           <Link
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="nofollow noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">📞</span> Get a Quote for Your Concert Stage
@@ -572,7 +572,7 @@ function ArticlesSection() {
           <Link
             href={WHATSAPP_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="nofollow noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-yellow-500 to-orange-500 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">💬</span> Free Survey &amp; Quote
