@@ -29,8 +29,8 @@ const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const PHONE = "+905453048671";
 const WA_TEXT =
-  "Merhaba%2C+çadır+kiralama+icin+teklif+istiyorum.+Etkinlik+turu%3A+%5Bdüğün%2Ffuar%2Fkonser%5D%2C+Tarih%3A+%5Bgg.aa.yyyy%5D%2C+Kisi+sayisi%3A+%5Bxxx%5D.";
-const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+  "Merhaba, çadır kiralama için teklif istiyorum. Etkinlik türü: [düğün/fuar/konser], Tarih: [gg.aa.yyyy], Kişi sayısı: [xxx].";
+const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
 
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =

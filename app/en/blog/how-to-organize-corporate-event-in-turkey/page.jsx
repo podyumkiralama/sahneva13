@@ -14,7 +14,7 @@ const AUTHOR_NAME = "Sahneva Editorial Team";
 const PUBLISH_DATE = "2026-06-29T00:00:00+03:00";
 
 export const metadata = {
-  title: "How to Organize a Corporate Event in Turkey — A Guide for International Companies",
+  title: "How to Organize a Corporate Event in Turkey",
   description:
     "Complete guide for foreign companies planning corporate events in Turkey. Choosing the right city, finding a local production partner, technical requirements, budget and logistics for Istanbul, Antalya and beyond.",
   alternates: {

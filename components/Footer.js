@@ -58,6 +58,7 @@ const TR_QUICK_LINKS = [
 ];
 
 const TR_POPULAR_PAGES = [
+  { href: "/cadir-hesaplama", label: "Çadır Alan Hesaplama" },
   { href: "/masa-sandalye-kiralama", label: "Masa & Sandalye Kiralama" },
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },

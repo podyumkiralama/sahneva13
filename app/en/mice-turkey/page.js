@@ -18,8 +18,7 @@ const BLUR_DATA_URL =
 
 export const metadata = {
   title: {
-    absolute:
-      "MICE Turkey — Technical Production for Meetings, Incentives, Conferences & Exhibitions | Sahneva",
+    absolute: "MICE Turkey — Meetings, Incentives, Conferences | Sahneva",
   },
   description:
     "Professional MICE event technical production in Turkey. Stage, LED screen, sound and lighting for meetings, incentive events, conferences and exhibitions in Istanbul, Antalya and across Türkiye.",

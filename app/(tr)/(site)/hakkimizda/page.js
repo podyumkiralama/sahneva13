@@ -84,8 +84,8 @@ const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 /* ───── MAIN COMPONENT ───── */
 export default function HakkimizdaPage() {
   const PHONE = "+905453048671";
-  const WA_TEXT = "Merhaba%2C+hakkınızda+sayfasından+ulaşıyorum.+Daha+fazla+bilgi+almak+istiyorum.";
-  const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
+  const WA_TEXT = "Merhaba, hakkınızda sayfasından ulaşıyorum. Daha fazla bilgi almak istiyorum.";
+  const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
   const baseUrl = SITE_URL;
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${baseUrl}/` },

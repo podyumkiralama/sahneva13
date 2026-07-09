@@ -18,8 +18,7 @@ const BLUR_DATA_URL =
 
 export const metadata = {
   title: {
-    absolute:
-      "Event Production Antalya — Stage, LED Screen, Sound & Lighting for International Events | Sahneva",
+    absolute: "Event Production Antalya — Stage, LED & Sound | Sahneva",
   },
   description:
     "Technical event production in Antalya for international companies, PCOs and DMCs. Stage, LED screen, sound and lighting for conferences, incentive events and galas in Antalya's resort hotels and congress venues.",
