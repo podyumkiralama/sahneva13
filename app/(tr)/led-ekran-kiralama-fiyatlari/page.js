@@ -569,7 +569,7 @@ export default function Page() {
       />
       <JsonLd id="ld-json-led-ekran-fiyatlari" data={jsonLd} />
 
-      <main className="min-h-screen overflow-hidden bg-[#07111f] text-white">
+      <div className="min-h-screen overflow-hidden bg-[#07111f] text-white">
         <section className="relative min-h-[680px] overflow-hidden pt-24 md:pt-28">
           <div className="absolute inset-0">
             <Image
@@ -1154,7 +1154,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

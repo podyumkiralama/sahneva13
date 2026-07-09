@@ -956,7 +956,7 @@ function Offer() {
 /* ================== PAGE ================== */
 export default function Page() {
   return (
-    <main>
+    <div>
       <StructuredData />
       <BreadcrumbJsonLd
         items={[
@@ -981,6 +981,6 @@ export default function Page() {
         ]}
       />
       <Offer />
-    </main>
+    </div>
   );
 }

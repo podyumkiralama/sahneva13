@@ -168,7 +168,7 @@ export default function SahaDomeProjectPage() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
+    <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <JsonLd data={jsonLd} />
 
       <section className="relative min-h-[620px] overflow-hidden">
@@ -462,7 +462,7 @@ export default function SahaDomeProjectPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

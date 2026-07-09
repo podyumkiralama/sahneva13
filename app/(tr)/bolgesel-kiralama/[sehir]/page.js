@@ -200,7 +200,7 @@ export default async function CityRegionalRentalPage({ params }) {
   const nearbyCities = getNearbyCities(city.slug);
 
   return (
-    <main className="bg-slate-950 text-white">
+    <div className="bg-slate-950 text-white">
       <CityJsonLd city={city} context={context} />
 
       <section className="relative overflow-hidden px-4 py-16 sm:py-20">
@@ -321,6 +321,6 @@ export default async function CityRegionalRentalPage({ params }) {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -209,9 +209,9 @@ export default function HowItWorksPage() {
   ];
 
   return (
-    <main className="relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <HowWeWorkJsonLd stepsData={stepsData} faqs={faqs} />
       <HowItWorksClient stepsData={stepsData} faqs={faqs} />
-    </main>
+    </div>
   );
 }

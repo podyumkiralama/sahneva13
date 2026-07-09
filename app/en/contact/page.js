@@ -175,7 +175,7 @@ export default function ContactPage() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.55)]"
         >
-          <span className="block">GET IN</span>
+          <span className="block">GET IN</span>{" "}
           <span className="text-blue-200">Touch</span>
         </h1>
 

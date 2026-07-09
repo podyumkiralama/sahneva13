@@ -630,7 +630,7 @@ function Offer() {
 /* ================== PAGE ================== */
 export default function Page() {
   return (
-    <main>
+    <div>
       {/* JSON-LD */}
       <TrussJsonLd />
 
@@ -660,6 +660,6 @@ export default function Page() {
         ]}
       />
       <Offer />
-    </main>
+    </div>
   );
 }

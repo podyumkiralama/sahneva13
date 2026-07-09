@@ -709,7 +709,7 @@ function Offer() {
 /* ================== PAGE ================== */
 export default function Page() {
   return (
-    <main>
+    <div>
       {/* JSON-LD */}
       <TrussStructuredData />
 
@@ -758,6 +758,6 @@ export default function Page() {
         ]}
       />
       <Offer />
-    </main>
+    </div>
   );
 }

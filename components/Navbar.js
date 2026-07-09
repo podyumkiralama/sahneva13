@@ -72,13 +72,14 @@ export default function Navbar({ locale = "tr", ...props }) {
   const viewAllLabel = isEn ? "View All Services" : isRu ? "Все услуги" : "Tümünü gör";
   const whatsappLabel = isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek";
   const logoAriaLabel = isEn ? "Sahneva - Home" : isRu ? "Sahneva - Главная" : "Sahneva - Ana Sayfa";
+  const navAriaLabel = isEn ? "Main menu" : isRu ? "Главное меню" : "Ana menü";
   const megaBadge = isEn ? "Sahneva" : isRu ? "Sahneva" : "Sahneva Organizasyon";
   const megaTitle = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
   const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
 
   return (
     <>
-      <nav {...props} className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg transition-colors duration-300 nav-dark:bg-[#0B1120]/95 nav-dark:border-white/10">
+      <nav aria-label={navAriaLabel} {...props} className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg transition-colors duration-300 nav-dark:bg-[#0B1120]/95 nav-dark:border-white/10">
         <ServicesDropdownBehavior detailsId="nav-services-details" />
         <ServicesDropdownBehavior detailsId="nav-research-details" panelId="nav-research-panel" />
         <div className="container">

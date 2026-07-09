@@ -284,7 +284,7 @@ export default function Page() {
   ];
 
   return (
-    <main className="relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
       <RegionalRentalClient
         regions={regions}
@@ -293,6 +293,6 @@ export default function Page() {
         steps={steps}
         locale="en"
       />
-    </main>
+    </div>
   );
 }

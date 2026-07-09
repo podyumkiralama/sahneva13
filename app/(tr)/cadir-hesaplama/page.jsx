@@ -143,7 +143,7 @@ function JsonLd() {
 
 export default function TentCalculatorPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
+    <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <JsonLd />
       <TentCalculatorClient />
 
@@ -321,6 +321,6 @@ export default function TentCalculatorPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

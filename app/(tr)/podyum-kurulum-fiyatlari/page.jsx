@@ -348,7 +348,7 @@ export default function Page() {
 
       <JsonLd id="ld-json-podyum-kurulum-fiyat" data={jsonLd} />
 
-      <main className="bg-white">
+      <div className="bg-white">
         {/* HERO */}
         <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
           <div className="absolute inset-0 pointer-events-none">
@@ -921,7 +921,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

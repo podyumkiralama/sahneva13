@@ -315,10 +315,10 @@ export default function Page() {
   ];
 
   return (
-    <main className="relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
       <RegionalRentalClient regions={regions} services={services} faqs={faqs} steps={steps} />
       <CityDirectory />
-    </main>
+    </div>
   );
 }

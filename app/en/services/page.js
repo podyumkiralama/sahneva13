@@ -546,7 +546,7 @@ export default function EnglishServicesPage() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
-          <span className="block">PROFESSIONAL</span>
+          <span className="block">PROFESSIONAL</span>{" "}
           <span className="text-blue-200">Services</span>
         </h1>
 

@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function ThankYouPage() {
   return (
-    <main className="min-h-[70vh] bg-slate-950 px-4 py-20 text-white">
+    <div className="min-h-[70vh] bg-slate-950 px-4 py-20 text-white">
       <section className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center shadow-2xl md:p-12">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">
           Talebiniz alındı
@@ -47,6 +47,6 @@ export default function ThankYouPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

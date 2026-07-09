@@ -281,7 +281,7 @@ export default function OurWorkPage() {
   const featuredVideo = PROJECT_VIDEOS[0];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
+    <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <OurWorkStructuredData />
 
       <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
@@ -389,6 +389,6 @@ export default function OurWorkPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

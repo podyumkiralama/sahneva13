@@ -164,7 +164,7 @@ export const metadata = {
 
 export default function ArabicContactPage() {
   return (
-    <main className="bg-white" dir="rtl">
+    <div className="bg-white" dir="rtl">
       <JsonLd data={CONTACT_JSON_LD} />
       <BreadcrumbJsonLd
         items={[
@@ -464,6 +464,6 @@ export default function ArabicContactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

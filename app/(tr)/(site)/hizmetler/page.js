@@ -461,7 +461,7 @@ export default function ServicesPage() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
-          <span className="block">PROFESYONEL</span>
+          <span className="block">PROFESYONEL</span>{" "}
           {/* ✅ gradient-text yerine güvenli vurgu */}
           <span className="text-blue-200">Hizmetlerimiz</span>
         </h1>

@@ -872,7 +872,7 @@ export default function ZeroWasteFestivalProjectPage() {
   const jsonLd = buildJsonLd();
 
   return (
-    <main className="zero-waste-project-page relative isolate min-h-screen overflow-hidden bg-[#0B1120] text-white">
+    <div className="zero-waste-project-page relative isolate min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <JsonLd data={jsonLd} />
       <style
         dangerouslySetInnerHTML={{
@@ -931,6 +931,6 @@ export default function ZeroWasteFestivalProjectPage() {
         <FaqSection />
         <CtaSection />
       </div>
-    </main>
+    </div>
   );
 }

@@ -257,7 +257,7 @@ export default function AmateurFootballSupportProjectPage() {
   const jsonLd = buildJsonLd();
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
+    <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <JsonLd data={jsonLd} />
       <SiteBackground />
 
@@ -510,7 +510,7 @@ export default function AmateurFootballSupportProjectPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
