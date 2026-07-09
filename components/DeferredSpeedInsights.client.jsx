@@ -8,6 +8,12 @@ const SLOW_CONNECTION_TYPES = new Set(["slow-2g", "2g"]);
 // "Deprecated API" warnings. Rely only on the standard `navigator.connection`
 // shape when it exists.
 function canLoadInsights() {
+  if (typeof window !== "undefined") {
+    const { hostname } = window.location;
+    if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1") {
+      return false;
+    }
+  }
   if (typeof navigator === "undefined") return true;
   const connection = navigator.connection;
   if (!connection) return true;
