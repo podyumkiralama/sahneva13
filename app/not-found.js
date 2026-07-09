@@ -1,22 +1,18 @@
-import Link from "next/link";
+// Kök not-found: eşleşmeyen tüm URL'ler için çalışır. Route grubu layout'larının
+// dışında render edildiğinden globals.css ve fontu kendisi yüklemek zorunda.
+import "../styles/globals.css";
+import { inter } from "./fonts";
+import NotFoundContent from "@/components/NotFoundContent";
 
 export const metadata = {
-  title: "Sayfa bulunamadı",
+  title: "Sayfa bulunamadı | Sahneva",
+  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {
   return (
-    <div className="min-h-[60vh] container mx-auto px-4 py-16 text-center">
-      <h1 className="text-3xl md:text-4xl font-bold">Sayfa bulunamadı</h1>
-      <p className="mt-4 text-neutral-600">
-        Aradığınız sayfa taşınmış veya hiç var olmamış olabilir.
-      </p>
-      <Link
-        href="/"
-        className="inline-flex items-center justify-center mt-8 rounded-xl px-5 py-3 font-semibold bg-violet-700 text-white hover:bg-violet-800 focus-ring"
-      >
-        Ana sayfaya dön
-      </Link>
+    <div className={`${inter.variable} font-sans`}>
+      <NotFoundContent />
     </div>
   );
 }
