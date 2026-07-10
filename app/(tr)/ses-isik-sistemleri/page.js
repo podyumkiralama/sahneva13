@@ -11,6 +11,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
@@ -42,7 +43,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Ses ve Işık Sistemleri Kiralama | Profesyonel Çözümler",
+  title: "Ses ve Işık Sistemleri Kiralama",
   description: "Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. 81 ilde canlı operasyon desteği.",
   alternates: buildLanguageAlternates({
     tr: "/ses-isik-sistemleri",
@@ -1240,6 +1241,7 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.soundLight} links={CONTENT_CLUSTERS.soundLight.guides} />
+      <RegionalCityLinks service="ses ve ışık sistemleri kiralama" />
       <CTA />
     </>
   );

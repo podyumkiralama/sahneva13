@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
 
@@ -757,6 +758,7 @@ export default function Page() {
           },
         ]}
       />
+      <RegionalCityLinks service="truss kiralama" />
       <Offer />
     </div>
   );

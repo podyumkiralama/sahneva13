@@ -21,7 +21,7 @@ export const metadata = {
     absolute: "MICE Turkey — Meetings, Incentives, Conferences | Sahneva",
   },
   description:
-    "Professional MICE event technical production in Turkey. Stage, LED screen, sound and lighting for meetings, incentive events, conferences and exhibitions in Istanbul, Antalya and across Türkiye.",
+    "MICE event production in Turkey: stage, LED screen, sound and lighting for meetings, incentives, conferences and exhibitions in Istanbul and Antalya.",
   alternates: buildLanguageAlternates({
     en: "/en/mice-turkey",
     canonical: "/en/mice-turkey",

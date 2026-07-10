@@ -9,6 +9,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import TentCalculatorCta from "@/components/TentCalculatorCta";
 import { 
   Monitor, 
@@ -42,7 +43,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 });
 
 export const metadata = {
-  title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
+  title: "Profesyonel Çadır Kiralama",
   description:
     "Pagoda, şeffaf ve büyük açıklıklı çadır kiralama çözümleri. Düğün, fuar, festival, lansman ve kurumsal etkinlikler için Türkiye geneli kurulum.",
   alternates: {
@@ -1654,6 +1655,7 @@ export default function Page() {
       <DividerBlueToWhite />
       <FAQ />
       <RelatedServices />
+      <RegionalCityLinks service="çadır kiralama" />
 
       <ServiceBlogLinks
         links={[

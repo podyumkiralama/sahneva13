@@ -21,7 +21,7 @@ export const metadata = {
     absolute: "Event Production Antalya — Stage, LED & Sound | Sahneva",
   },
   description:
-    "Technical event production in Antalya for international companies, PCOs and DMCs. Stage, LED screen, sound and lighting for conferences, incentive events and galas in Antalya's resort hotels and congress venues.",
+    "Technical event production in Antalya: stage, LED screen, sound and lighting for conferences, incentives and galas. Local partner for PCOs and DMCs.",
   alternates: buildLanguageAlternates({
     en: "/en/event-production-antalya",
     canonical: "/en/event-production-antalya",

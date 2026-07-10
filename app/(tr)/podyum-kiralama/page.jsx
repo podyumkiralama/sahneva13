@@ -7,6 +7,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
 import {
@@ -355,7 +356,7 @@ const PROCESS_STEP_IMAGES = [
 export const metadata = {
   title: "Podyum Kiralama | Kiralık Podyum ve Kurulum Çözümleri",
   description:
-    "12.000 m² podyum stoğu, karolaj planlı kiralık podyum sistemleriyle Türkiye geneli podyum kiralama ve kurulumu. Konser, fuar ve kurumsal etkinlikler için modüler çözümler.",
+    "12.000 m² stok ve karolaj planlı modüler sistemlerle Türkiye geneli podyum kiralama ve kurulum. Konser, fuar ve kurumsal etkinlik çözümleri.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: "/en/podium-rental",
@@ -1645,6 +1646,7 @@ export default function Page() {
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
+      <RegionalCityLinks service="podyum kiralama" />
       <CTASection />
     </>
   );

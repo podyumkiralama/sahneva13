@@ -23,7 +23,7 @@ const VIDEO_THUMBNAIL_URL = "https://img.youtube.com/vi/z4DqZERYXkM/maxresdefaul
 
 const PROJECT_NAME = "Sıfır Atık Festivali Ana Sahne Teknik Prodüksiyonu";
 const META_DESCRIPTION =
-  "Sıfır Atık Festivali için ana sahne, LED ekran, ses sistemi, ışık, truss, scaffold, podyum, backstage reji ve teknik prodüksiyon kurulumu Sahneva tarafından sahada yönetildi.";
+  "Sıfır Atık Festivali ana sahnesinde LED ekran, ses, ışık, truss ve podyum kurulumuyla teknik prodüksiyon Sahneva tarafından sahada yönetildi.";
 const PUBLISHED_AT = "2026-06-04T12:00:00+03:00";
 const MODIFIED_AT = "2026-06-04T12:00:00+03:00";
 const PROJECT_VIDEO = {
@@ -768,7 +768,6 @@ function buildJsonLd() {
     description: service.desc,
     url: `${SITE_URL}${service.href}`,
     provider: { "@id": `${SITE_URL}/#org` },
-    inLanguage: "tr-TR",
   }));
 
   const videoNode = {

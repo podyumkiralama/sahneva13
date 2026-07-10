@@ -32,7 +32,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sound & Lighting Rental | Concert-Grade AV Systems",
+  title: "Sound & Lighting Rental in Turkey",
   description:
     "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
   alternates: buildLanguageAlternates({

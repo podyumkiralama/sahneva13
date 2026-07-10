@@ -50,7 +50,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Masa Sandalye Kiralama | İstanbul Profesyonel Çözümler",
   description:
-    "Masa sandalye kiralama; Napolyon/konferans sandalyesi, banket-bistro masa, örtü-kılıf ve yerleşim planı. İstanbul'da düğün, nişan ve kurumsal organizasyon için uygun fiyatlarla hızlı teslim.",
+    "Masa sandalye kiralama: Napolyon ve konferans sandalyesi, banket-bistro masa, örtü-kılıf. İstanbul'da düğün ve kurumsal etkinliklere hızlı teslim.",
   alternates: buildLanguageAlternates({
     tr: "/masa-sandalye-kiralama",
     en: "/en/table-chair-rental",

@@ -7,6 +7,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
@@ -2192,6 +2193,7 @@ export default function Page() {
       <Articles />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.ledScreen} links={CONTENT_CLUSTERS.ledScreen.guides} />
+      <RegionalCityLinks service="LED ekran kiralama" />
       <CTA />
     </>
   );

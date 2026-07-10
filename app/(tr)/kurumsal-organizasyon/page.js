@@ -53,7 +53,7 @@ const PHONE = "+905453048671";
 const PAGE_URL = `${ORIGIN}/kurumsal-organizasyon`;
 const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
 const PAGE_DESCRIPTION =
-  "Kurumsal organizasyon projelerinde Türkiye'nin etkinlik teknoloji partneri Sahneva; lansman, konferans ve gala etkinlikleri için sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten yönetir.";
+  "Lansman, konferans ve gala için sahne, LED ekran, ses-ışık, truss ve teknik rejiyi tek ekipten yönetin. Türkiye geneli kurumsal organizasyon çözümleri.";
 const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
 const OG_DESCRIPTION =
   "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten planlayın.";

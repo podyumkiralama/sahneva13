@@ -9,6 +9,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import {
@@ -56,7 +57,7 @@ const BLUR_DATA_URL =
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sahne Kiralama | Profesyonel Sahne Çözümleri",
+  title: "Profesyonel Sahne Kiralama",
   description:
     "Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. 81 ilde hızlı kurulum ve teknik destek.",
   alternates: buildLanguageAlternates({
@@ -1897,6 +1898,7 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
+      <RegionalCityLinks service="sahne kiralama" />
       <CTA />
     </>
   );

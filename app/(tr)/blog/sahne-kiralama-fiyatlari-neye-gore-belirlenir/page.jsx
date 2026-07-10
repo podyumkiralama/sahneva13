@@ -20,7 +20,7 @@ const IMG_TEKNIK = "/img/blog/sahne-kiralama-fiyatlari-teknik-sistemler.webp";
 const IMG_CADIR = "/img/blog/sahne-kiralama-fiyatlari-cadir-m2.webp";
 const IMG_RIDER = "/img/blog/sahne-kiralama-fiyatlari-teknik-rider.webp";
 
-const TITLE = "Sahne Fiyatları ve Kiralama Maliyetleri Neye Göre Belirlenir?";
+const TITLE = "Sahne Kiralama Fiyatları Neye Göre Belirlenir?";
 const DESCRIPTION =
   "Sahne kiralama fiyatları ve sahne fiyatları m², truss, LED, ses-ışık ve rider detaylarıyla netleşir. Tahmini bütçe için teknik bilgi paylaşın.";
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";

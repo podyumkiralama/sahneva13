@@ -14,63 +14,37 @@ function normalizeSiteUrl(raw) {
 }
 
 // Yalnızca "page.*" değişikliklerinden URL üret (components/styles spam olmasın)
+// Not: route group'lar app/(tr)/(site)/... gibi parantezlidir ve URL'e girmez;
+// en/ar/ru dizinleri ise parantezsiz gerçek segmentlerdir ve URL'de korunur.
 function mapPageFileToUrl(file, siteUrl) {
-  // app/(tr)/blog/<slug>/page.*
-  let m = file.match(/^app\/\([^/]+\)\/blog\/([^/]+)\/page\.(js|jsx|ts|tsx)$/);
-  if (m) return [`${siteUrl}/blog/${m[1]}`, `${siteUrl}/blog`];
+  const m = file.match(/^app\/(?:(.+)\/)?page\.(js|jsx|ts|tsx)$/);
+  if (!m) return [];
 
-  // app/(tr)/blog/page.*
-  m = file.match(/^app\/\([^/]+\)\/blog\/page\.(js|jsx|ts|tsx)$/);
-  if (m) return [`${siteUrl}/blog`];
+  // api altındaki page dosyaları (varsa) URL üretmez
+  if (m[1] && /^api(\/|$)/.test(m[1])) return [];
 
-  // app/(tr)/(site)/page.*  OR app/(tr)/page.*  => /
-  m =
-    file.match(/^app\/\([^/]+\)\/\([^/]+\)\/page\.(js|jsx|ts|tsx)$/) ||
-    file.match(/^app\/\([^/]+\)\/page\.(js|jsx|ts|tsx)$/);
-  if (m) return [`${siteUrl}/`];
+  const segments = (m[1] || "")
+    .split("/")
+    .filter(
+      (seg) =>
+        seg &&
+        !(seg.startsWith("(") && seg.endsWith(")")) &&
+        !seg.startsWith("@")
+    );
 
-  // app/(tr)/(site)/<route...>/page.*
-  m = file.match(/^app\/\([^/]+\)\/\([^/]+\)\/(.+)\/page\.(js|jsx|ts|tsx)$/);
-  if (m) {
-    const routePath = m[1]
-      .split("/")
-      .filter((seg) => seg && !seg.startsWith("(") && !seg.endsWith(")") && !seg.startsWith("@"))
-      .join("/");
+  // Dinamik segment ([sehir] gibi) içeren rotalar tek URL'e eşlenemez; atla
+  if (segments.some((seg) => seg.includes("[") || seg.includes("]"))) return [];
 
-    // Dinamik segment yoksa gönder
-    if (routePath && !routePath.includes("[") && !routePath.includes("]")) {
-      return [`${siteUrl}/${routePath}`];
-    }
-    return [];
+  const routePath = segments.join("/");
+  const urls = [routePath ? `${siteUrl}/${routePath}` : `${siteUrl}/`];
+
+  // Blog yazısı değiştiyse ilgili blog index'ini de bildir
+  const blogIndex = segments.indexOf("blog");
+  if (blogIndex !== -1 && blogIndex < segments.length - 1) {
+    urls.push(`${siteUrl}/${segments.slice(0, blogIndex + 1).join("/")}`);
   }
 
-  // app/(en)/<route...>/page.*
-  m = file.match(/^app\/\(en\)\/(.+)\/page\.(js|jsx|ts|tsx)$/);
-  if (m) {
-    const routePath = m[1]
-      .split("/")
-      .filter((seg) => seg && !seg.startsWith("(") && !seg.endsWith(")") && !seg.startsWith("@"))
-      .join("/");
-    if (!routePath.includes("[") && !routePath.includes("]")) {
-      return [`${siteUrl}/en/${routePath}`];
-    }
-    return [];
-  }
-
-  // app/(ar)/<route...>/page.*
-  m = file.match(/^app\/\(ar\)\/(.+)\/page\.(js|jsx|ts|tsx)$/);
-  if (m) {
-    const routePath = m[1]
-      .split("/")
-      .filter((seg) => seg && !seg.startsWith("(") && !seg.endsWith(")") && !seg.startsWith("@"))
-      .join("/");
-    if (!routePath.includes("[") && !routePath.includes("]")) {
-      return [`${siteUrl}/ar/${routePath}`];
-    }
-    return [];
-  }
-
-  return [];
+  return urls;
 }
 
 function buildChangedFiles() {

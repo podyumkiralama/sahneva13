@@ -9,9 +9,9 @@ export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/ru/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "Наши работы | Проекты сцен, LED экранов и организации мероприятий";
+const PAGE_TITLE = "Наши работы — сцены, LED экраны и мероприятия";
 const PAGE_DESCRIPTION =
-  "Ознакомьтесь с реализованными проектами Sahneva: аренда сцен, LED экранов, подиумов, звука, света, ферм, тентов и организация корпоративных мероприятий — с видеодокументацией.";
+  "Реализованные проекты Sahneva: аренда сцен, LED экранов, подиумов, звука и света, тенты и корпоративные мероприятия — с видео с площадок.";
 const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 
 const PROJECT_VIDEOS = [
