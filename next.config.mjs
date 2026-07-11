@@ -272,6 +272,15 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Genel kural: "-0", "-1", "-11" gibi sonuna 1-2 rakam eklenmiş hayalet
+        // URL'leri (eski RSC payload key'lerinden Google'ın keşfettiği) asıl
+        // sayfaya yönlendirir. Path'in rakam dışı bir karakterle bitme şartı,
+        // "-2026" gibi rakamla biten meşru slug'ların bölünmesini engeller.
+        source: "/:path(.*[^0-9])-:num([0-9]{1,2})",
+        destination: "/:path",
+        permanent: true,
+      },
+      {
         source: "/$",
         destination: "/",
         permanent: true,
