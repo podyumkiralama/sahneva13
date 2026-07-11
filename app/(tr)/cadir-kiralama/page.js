@@ -1497,12 +1497,6 @@ function TentRentalJsonLd() {
         url: pageUrl,
       })),
     },
-    additionalProperty: TENT_STOCK.map((item) => ({
-      "@type": "PropertyValue",
-      name: item.title,
-      value: `${item.capacity} ${item.typeLabel}`,
-      description: item.description,
-    })),
   };
 
   const gallerySchema = buildImageGallerySchema({
