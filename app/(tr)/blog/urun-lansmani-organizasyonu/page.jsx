@@ -198,6 +198,18 @@ export default function Page() {
           </li>
         </ul>
 
+        <figure className="not-prose my-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+          <img
+            src="/img/blog/urun-lansmani-proje-acilis-standi.webp"
+            alt="Ürün lansmanı karşılama alanı: markalı giriş portalı ve dış mekan kurulumu"
+            loading="lazy"
+            className="w-full h-auto object-cover"
+          />
+          <figcaption className="bg-gray-50 px-4 py-3 text-sm text-gray-500">
+            Lansman karşılama alanı: markalı giriş portalı, misafirleri daha kapıda marka dünyasına alır.
+          </figcaption>
+        </figure>
+
         <h2 id="lansman-cozumleri">2. Sahneva Lansman Çözümleri: Uçtan Uca Profesyonellik</h2>
 
         <h3>🎭 Sahne ve Teknik Altyapı</h3>
@@ -209,6 +221,18 @@ export default function Page() {
         <p>
           Lansmanın kalbi olan ürün videoları, 4500+ nit parlaklığa sahip <Link href="/led-ekran-kiralama">LED ekranlarımızda</Link> hayat buluyor. Sadece görüntü yansıtmıyor; 360° lazer-LED senkronizasyonu ile katılımcıları markanızın dünyasına davet ediyoruz.
         </p>
+
+        <figure className="not-prose my-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+          <img
+            src="/img/blog/urun-lansmani-marka-sahne-led-ekran.webp"
+            alt="Ürün lansmanı sahnesi: dikey LED ekranlar ve marka temalı sahne tasarımı"
+            loading="lazy"
+            className="w-full h-auto object-cover"
+          />
+          <figcaption className="bg-gray-50 px-4 py-3 text-sm text-gray-500">
+            Marka temalı sahne tasarımı ve LED ekranlar, ürün videolarını lansmanın merkezine taşır.
+          </figcaption>
+        </figure>
 
         <h3>🔊 Ses, Işık ve Reji Yönetimi</h3>
         <p>

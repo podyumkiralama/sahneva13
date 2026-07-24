@@ -379,8 +379,8 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/kurumsal-etkinlik-sahne-genel.webp"
-                  alt="Kurumsal organizasyon örneği: sahne, LED ekran ve salon düzeni"
+                  src="/img/blog/kurumsal-organizasyon-ornek-sahne-led-ekran.webp"
+                  alt="Kurumsal organizasyon örneği: dev LED ekranlı ödül töreni sahnesi ve izleyici"
                   caption="Kurumsal organizasyon, net bir amaç etrafında tasarlanmış bütünsel bir deneyimdir."
                 />
               </section>
@@ -418,6 +418,12 @@ export default function Page() {
                   “Kurumsal organizasyon” şemsiye bir kavramdır; altında birbirinden farklı
                   formatlar bulunur. Doğru türü seçmek, teknik kapsamı ve bütçeyi doğrudan belirler.
                 </p>
+
+                <Figure
+                  src="/img/blog/kurumsal-organizasyon-konferans-etkinlik-turu.webp"
+                  alt="Kurumsal organizasyon türü örneği: dev perde ve sahnede konuşmacı ile konferans"
+                  caption="Konferans, gala, lansman, açılış… Her tür farklı bir teknik kapsam ve sahne kurgusu gerektirir."
+                />
 
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                   <li>
@@ -564,8 +570,8 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp"
-                  alt="Kurumsal organizasyonda sahne, LED ekran ve ışık entegrasyonu"
+                  src="/img/blog/kurumsal-organizasyon-teknik-produksiyon-ses-reji.webp"
+                  alt="Kurumsal organizasyonda ses mikseri, reji ve LED ekranın entegrasyonu"
                   caption="Sahne + LED + ses–ışık + reji tek planda buluştuğunda deneyim kesintisiz olur."
                 />
 

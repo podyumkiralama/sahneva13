@@ -20,6 +20,7 @@ const LAUNCH_IMG = "/img/led/led-ekran-fuar-lansman-salon-kurulumu-sahneva.webp"
 const HYBRID_IMG = "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp";
 const CONFERENCE_IMG = "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp";
 const FAIR_IMG = "/img/blog/fuar-konferans-led-ekran-sunumu.webp";
+const INTERACTIVE_IMG = "/img/blog/led-ekran-interaktif-marka-deneyimi-duvari.webp";
 
 const TITLE = "LED Ekran ile Marka Deneyimi ve İçerik Stratejisi";
 const DESCRIPTION =
@@ -447,6 +448,12 @@ export default function Page() {
           durup etkileşime geçebileceği zaman ve alana sahip olduğu formatlarda anlamlıdır. Hızlı akışlı
           bir konferans programında bu tür bir deneyim genellikle öncelik taşımaz.
         </p>
+
+        <ImgFigure
+          src={INTERACTIVE_IMG}
+          alt="Neon konuşma balonları ve aydınlatmalı figürlerle interaktif LED karşılama duvarı"
+          caption="İnteraktif karşılama duvarı: neon içerikler ve aydınlatmalı figürler, izleyiciyi ekranın önünde etkileşime davet eder."
+        />
 
         <ImgFigure
           src={HYBRID_IMG}

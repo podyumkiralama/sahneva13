@@ -450,9 +450,9 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/toplanti-salonu-led-ekran-sahne.webp"
-                  alt="Bayi toplantısı için balo salonu sahne ve LED ekran yerleşimi"
-                  caption="Balo salonu yerleşiminde tavan yüksekliği, kolon hattı ve görüş açıları sahne tasarımını belirler."
+                  src="/img/blog/bayi-toplantisi-salon-toplanti-duzeni.webp"
+                  alt="Bayi toplantısı için otel toplantı salonunda U düzeni oturma planı"
+                  caption="Salon yerleşiminde tavan yüksekliği, oturma düzeni ve görüş açıları teknik tasarımı doğrudan belirler."
                 />
 
                 <Table
@@ -541,9 +541,9 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/kurumsal-sahne-podyum-yerlesim.webp"
-                  alt="Bayi toplantısı sahne ve podyum yerleşim örneği"
-                  caption="Sahne genişliği; ödül alan bayilerin akışı ve kamera hattı düşünülerek belirlenir."
+                  src="/img/blog/bayi-toplantisi-sahne-podyum-kurulumu.webp"
+                  alt="Bayi toplantısı için sahne, kürsü ve LED ekran kurulumu"
+                  caption="Sahne genişliği ve çıkış rampası; ödül alan bayilerin akışı ve kamera hattı düşünülerek belirlenir."
                 />
 
                 <InteractiveChecklist
@@ -581,8 +581,8 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/marka-lansmani-led-ekran-standi.webp"
-                  alt="Bayi toplantısında ürün ve marka alanı için LED ekran kullanımı"
+                  src="/img/blog/bayi-toplantisi-fuaye-led-ekran-alani.webp"
+                  alt="Bayi toplantısı fuaye alanında dikey LED ekran ve marka standları"
                   caption="Fuaye ve ürün alanında ek LED yüzeyler, aralarda marka ve kampanya iletişimini sürdürür."
                 />
 
@@ -612,9 +612,9 @@ export default function Page() {
                 </p>
 
                 <Figure
-                  src="/img/blog/kurumsal-etkinlik-ses-backstage.webp"
-                  alt="Bayi toplantısı için ses reji ve sahne arkası kurulumu"
-                  caption="Yedek mikrofon kanalı ve net bir reji akışı, konuşma ağırlıklı programda en büyük sigortadır."
+                  src="/img/blog/bayi-toplantisi-ses-mikrofon-duzeni.webp"
+                  alt="Bayi toplantısı için mikrofonlu masa düzeni ve LED ekran arka fon"
+                  caption="Masa mikrofonları, yedek kanallar ve net bir reji akışı, konuşma ağırlıklı programda en büyük sigortadır."
                 />
 
                 <InteractiveChecklist
@@ -650,6 +650,12 @@ export default function Page() {
                   </Link>{" "}
                   yazısındaki formatlardan ilham alabilirsiniz.
                 </p>
+
+                <Figure
+                  src="/img/blog/bayi-toplantisi-odul-gecesi-gala.webp"
+                  alt="Bayi toplantısı ödül gecesi: gala dekoru, avize ve sahne ışığı"
+                  caption="Ödül gecesi gündüz oturumundan farklı bir mod ister: gala atmosferi, show ışığı ve sahne akışı birlikte planlanır."
+                />
 
                 <InteractiveChecklist
                   storageKey="bayi_s8_odul"
