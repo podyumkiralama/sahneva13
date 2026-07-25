@@ -142,6 +142,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/bolgesel-kiralama/istanbul",
+        destination: "/sahne-kiralama",
+        permanent: true,
+      },
+      {
         source: "/sahne-kurulumu",
         destination: "/sahne-kiralama",
         permanent: true,

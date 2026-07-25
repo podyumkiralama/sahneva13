@@ -18,7 +18,6 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile(
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/bayi-toplantisi-organizasyonu-rehberi-hero.webp";
-const FEATURED_IMAGE = HERO_IMAGE;
 const OG_IMAGE = HERO_IMAGE;
 const WA_URL =
   "https://wa.me/905453048671?text=" +

@@ -1,0 +1,16 @@
+
+> sahneva13@1.0.0 dev
+> next dev --port 3097
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3097
+- Network:       http://192.168.1.105:3097
+✓ Ready in 1410ms
+- Experiments (use with caution):
+  · optimizePackageImports
+  · staleTimes
+
+ GET /sahne-kiralama 200 in 4.9s (next.js: 1008ms, proxy.ts: 310ms, application-code: 3.5s)
+ GET /sahne-kiralama 200 in 538ms (next.js: 11ms, proxy.ts: 8ms, application-code: 519ms)
+ GET /en/stage-rental 200 in 2.1s (next.js: 478ms, proxy.ts: 9ms, application-code: 1573ms)
+[?25h

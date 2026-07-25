@@ -3,7 +3,10 @@ import Link from "next/link";
 import RegionalRentalClient from "./RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
-import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
+import {
+  getIndexableRegionalCities,
+  getRegionalCity,
+} from "@/lib/seo/regionalCities";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -15,7 +18,7 @@ const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 export const metadata = {
   title: "Bölgesel Kiralama | Türkiye Geneli",
   description:
-    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık kiralama. İstanbul, Ankara, İzmir ve Antalya için kurulum dahil planlama.",
+    "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık kiralama. Ankara, İzmir, Antalya ve diğer şehirler için kurulum dahil planlama.",
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     en: "/en/regional-rental",
@@ -169,7 +172,7 @@ function CityDirectory() {
         </div>
 
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {REGIONAL_CITIES.map((city) => (
+          {getIndexableRegionalCities().map((city) => (
             <Link
               key={city.slug}
               href={`/bolgesel-kiralama/${city.slug}`}
@@ -269,6 +272,8 @@ export default function Page() {
     },
   ];
 
+  const publicRegions = regions.filter((region) => getRegionalCity(region.slug));
+
   const services = [
     { title: "LED Ekran Kiralama", href: "/led-ekran-kiralama" },
     { title: "Truss Kiralama", href: "/truss-kiralama" },
@@ -316,8 +321,8 @@ export default function Page() {
 
   return (
     <div className="relative overflow-hidden">
-      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
-      <RegionalRentalClient regions={regions} services={services} faqs={faqs} steps={steps} />
+      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={publicRegions} />
+      <RegionalRentalClient regions={publicRegions} services={services} faqs={faqs} steps={steps} />
       <CityDirectory />
     </div>
   );

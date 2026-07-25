@@ -1,0 +1,236 @@
+
+> sahneva13@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.7:3000
+✓ Ready in 889ms
+- Experiments (use with caution):
+  · optimizePackageImports
+
+ GET /led-ekran-kiralama-fiyatlari 200 in 3.9s (next.js: 1237ms, proxy.ts: 266ms, application-code: 2.4s)
+ GET / 200 in 2.8s (next.js: 206ms, proxy.ts: 81ms, application-code: 2.5s)
+ GET /sitemap-pages.xml 200 in 892ms (next.js: 849ms, application-code: 43ms)
+ GET /sitemap-blog.xml 200 in 183ms (next.js: 164ms, application-code: 19ms)
+ GET /sitemap-projects.xml 200 in 75ms (next.js: 64ms, application-code: 12ms)
+ GET / 200 in 639ms (next.js: 7ms, proxy.ts: 12ms, application-code: 621ms)
+ GET /blog 200 in 1544ms (next.js: 1247ms, proxy.ts: 13ms, application-code: 284ms)
+ GET /blog/12-eglenceli-kurumsal-etkinlik-fikri 200 in 1583ms (next.js: 673ms, proxy.ts: 8ms, application-code: 902ms)
+ GET /blog/etkinlige-gore-podyum-tercihi 200 in 1033ms (next.js: 564ms, proxy.ts: 9ms, application-code: 460ms)
+ GET /blog/etkinlik-teknik-kesif-ve-planlama-rehberi 200 in 1052ms (next.js: 554ms, proxy.ts: 6ms, application-code: 492ms)
+ GET /blog/etkinlikler-icin-led-ekran-secimi 200 in 983ms (next.js: 544ms, proxy.ts: 7ms, application-code: 433ms)
+ GET /blog/fisekhane-pubg-guinness-rekoru 200 in 832ms (next.js: 534ms, proxy.ts: 6ms, application-code: 291ms)
+ GET /blog/kurumsal-etkinlik-planlama-rehberi-2026 200 in 1238ms (next.js: 548ms, proxy.ts: 8ms, application-code: 682ms)
+ GET /blog/kurumsal-etkinlik-yonetimi 200 in 1122ms (next.js: 558ms, proxy.ts: 10ms, application-code: 554ms)
+ GET /blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping 200 in 513ms (next.js: 107ms, proxy.ts: 6ms, application-code: 400ms)
+ GET /blog/kurumsal-etkinlikte-isik-kurgusu 200 in 959ms (next.js: 521ms, proxy.ts: 5ms, application-code: 433ms)
+ GET /blog/led-ekran-kurulum-guvenligi 200 in 1072ms (next.js: 574ms, proxy.ts: 8ms, application-code: 489ms)
+ GET /blog/led-ekran-teknoloji-trendleri-2026 200 in 1033ms (next.js: 560ms, proxy.ts: 5ms, application-code: 468ms)
+ GET /blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi 200 in 887ms (next.js: 88ms, proxy.ts: 5ms, application-code: 794ms)
+ GET /blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi 200 in 832ms (next.js: 527ms, proxy.ts: 5ms, application-code: 299ms)
+ GET /blog/neden-podyum-sahne-tercih-edilir 200 in 894ms (next.js: 569ms, proxy.ts: 6ms, application-code: 320ms)
+ GET /blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026 200 in 908ms (next.js: 585ms, proxy.ts: 5ms, application-code: 318ms)
+ GET /blog/pmgc-dunya-finali-sahne-arkasi 200 in 330ms (next.js: 74ms, proxy.ts: 4ms, application-code: 251ms)
+ GET /blog/podyum-kiralama-nasil-secilir 200 in 978ms (next.js: 504ms, proxy.ts: 5ms, application-code: 469ms)
+ GET /blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir 200 in 1204ms (next.js: 615ms, proxy.ts: 11ms, application-code: 578ms)
+ GET /blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir 200 in 853ms (next.js: 540ms, proxy.ts: 7ms, application-code: 306ms)
+ GET /blog/ses-sistemlerinde-2026-yenilikleri-trendler 200 in 814ms (next.js: 543ms, proxy.ts: 4ms, application-code: 267ms)
+ GET /blog/teknik-produksiyon-fiyatlandirma-rehberi-2026 200 in 1226ms (next.js: 636ms, proxy.ts: 5ms, application-code: 585ms)
+ GET /blog/urun-lansmani-organizasyonu 200 in 863ms (next.js: 535ms, proxy.ts: 4ms, application-code: 324ms)
+ GET /bolgesel-kiralama 200 in 877ms (next.js: 563ms, proxy.ts: 5ms, application-code: 309ms)
+ GET /bolgesel-kiralama/adana 200 in 1937ms (next.js: 1682ms, proxy.ts: 5ms, generate-params: 1082ms, application-code: 250ms)
+ GET /bolgesel-kiralama/adiyaman 200 in 267ms (next.js: 32ms, proxy.ts: 6ms, generate-params: 9ms, application-code: 229ms)
+ GET /bolgesel-kiralama/afyonkarahisar 200 in 207ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 79µs, application-code: 195ms)
+ GET /bolgesel-kiralama/agri 200 in 228ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 46µs, application-code: 215ms)
+ GET /bolgesel-kiralama/aksaray 200 in 208ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 47µs, application-code: 196ms)
+ GET /bolgesel-kiralama/amasya 200 in 215ms (next.js: 16ms, proxy.ts: 9ms, generate-params: 8ms, application-code: 190ms)
+ GET /bolgesel-kiralama/ankara 200 in 202ms (next.js: 7ms, proxy.ts: 4ms, generate-params: 67µs, application-code: 191ms)
+ GET /bolgesel-kiralama/antalya 200 in 195ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 48µs, application-code: 185ms)
+ GET /bolgesel-kiralama/ardahan 200 in 223ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 50µs, application-code: 211ms)
+ GET /bolgesel-kiralama/artvin 200 in 224ms (next.js: 17ms, proxy.ts: 7ms, generate-params: 9ms, application-code: 201ms)
+ GET /bolgesel-kiralama/aydin 200 in 200ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 212µs, application-code: 187ms)
+ GET /bolgesel-kiralama/balikesir 200 in 205ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 193µs, application-code: 193ms)
+ GET /bolgesel-kiralama/bartin 200 in 204ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 47µs, application-code: 192ms)
+ GET /bolgesel-kiralama/batman 200 in 233ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 8ms, application-code: 214ms)
+ GET /bolgesel-kiralama/bayburt 200 in 210ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 121µs, application-code: 196ms)
+ GET /bolgesel-kiralama/bilecik 200 in 201ms (next.js: 13ms, proxy.ts: 5ms, generate-params: 42µs, application-code: 183ms)
+ GET /bolgesel-kiralama/bingol 200 in 204ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 125µs, application-code: 194ms)
+ GET /bolgesel-kiralama/bitlis 200 in 202ms (next.js: 14ms, proxy.ts: 4ms, generate-params: 7ms, application-code: 184ms)
+ GET /bolgesel-kiralama/bolu 200 in 213ms (next.js: 8ms, proxy.ts: 4ms, generate-params: 48µs, application-code: 201ms)
+ GET /bolgesel-kiralama/burdur 200 in 196ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 42µs, application-code: 185ms)
+ GET /bolgesel-kiralama/bursa 200 in 213ms (next.js: 11ms, proxy.ts: 4ms, generate-params: 40µs, application-code: 198ms)
+ GET /bolgesel-kiralama/canakkale 200 in 233ms (next.js: 14ms, proxy.ts: 4ms, generate-params: 7ms, application-code: 214ms)
+ GET /bolgesel-kiralama/cankiri 200 in 201ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 48µs, application-code: 187ms)
+ GET /bolgesel-kiralama/corum 200 in 214ms (next.js: 9ms, proxy.ts: 6ms, generate-params: 47µs, application-code: 199ms)
+ GET /bolgesel-kiralama/denizli 200 in 219ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 44µs, application-code: 206ms)
+ GET /bolgesel-kiralama/diyarbakir 200 in 264ms (next.js: 22ms, proxy.ts: 5ms, generate-params: 8ms, application-code: 236ms)
+ GET /bolgesel-kiralama/duzce 200 in 212ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 38µs, application-code: 200ms)
+ GET /bolgesel-kiralama/edirne 200 in 208ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 42µs, application-code: 196ms)
+ GET /bolgesel-kiralama/elazig 200 in 200ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 46µs, application-code: 190ms)
+ GET /bolgesel-kiralama/erzincan 200 in 201ms (next.js: 13ms, proxy.ts: 4ms, generate-params: 8ms, application-code: 184ms)
+ GET /bolgesel-kiralama/erzurum 200 in 199ms (next.js: 6ms, proxy.ts: 11ms, generate-params: 44µs, application-code: 181ms)
+ GET /bolgesel-kiralama/eskisehir 200 in 207ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 42µs, application-code: 195ms)
+ GET /bolgesel-kiralama/gaziantep 200 in 196ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 42µs, application-code: 184ms)
+ GET /bolgesel-kiralama/giresun 200 in 213ms (next.js: 16ms, proxy.ts: 5ms, generate-params: 11ms, application-code: 192ms)
+ GET /bolgesel-kiralama/gumushane 200 in 214ms (next.js: 6ms, proxy.ts: 5ms, generate-params: 43µs, application-code: 203ms)
+ GET /bolgesel-kiralama/hakkari 200 in 241ms (next.js: 14ms, proxy.ts: 5ms, generate-params: 49µs, application-code: 223ms)
+ GET /bolgesel-kiralama/hatay 200 in 240ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 53µs, application-code: 226ms)
+ GET /bolgesel-kiralama/igdir 200 in 228ms (next.js: 14ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 208ms)
+ GET /bolgesel-kiralama/isparta 200 in 247ms (next.js: 9ms, proxy.ts: 7ms, generate-params: 51µs, application-code: 231ms)
+ GET /bolgesel-kiralama/istanbul 200 in 241ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 43µs, application-code: 227ms)
+ GET /bolgesel-kiralama/izmir 200 in 254ms (next.js: 14ms, proxy.ts: 5ms, generate-params: 47µs, application-code: 234ms)
+ GET /bolgesel-kiralama/kahramanmaras 200 in 247ms (next.js: 13ms, proxy.ts: 5ms, generate-params: 7ms, application-code: 229ms)
+ GET /bolgesel-kiralama/karabuk 200 in 221ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 59µs, application-code: 208ms)
+ GET /bolgesel-kiralama/karaman 200 in 233ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 48µs, application-code: 220ms)
+ GET /bolgesel-kiralama/kars 200 in 243ms (next.js: 9ms, proxy.ts: 4ms, generate-params: 43µs, application-code: 230ms)
+ GET /bolgesel-kiralama/kastamonu 200 in 267ms (next.js: 22ms, proxy.ts: 5ms, generate-params: 7ms, application-code: 240ms)
+ GET /bolgesel-kiralama/kayseri 200 in 275ms (next.js: 9ms, proxy.ts: 7ms, generate-params: 53µs, application-code: 259ms)
+ GET /bolgesel-kiralama/kilis 200 in 217ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 48µs, application-code: 205ms)
+ GET /bolgesel-kiralama/kirikkale 200 in 239ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 48µs, application-code: 224ms)
+ GET /bolgesel-kiralama/kirklareli 200 in 227ms (next.js: 15ms, proxy.ts: 4ms, generate-params: 7ms, application-code: 208ms)
+ GET /bolgesel-kiralama/kirsehir 200 in 223ms (next.js: 7ms, proxy.ts: 11ms, generate-params: 46µs, application-code: 205ms)
+ GET /bolgesel-kiralama/kocaeli 200 in 233ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 45µs, application-code: 221ms)
+ GET /bolgesel-kiralama/konya 200 in 230ms (next.js: 10ms, proxy.ts: 5ms, generate-params: 52µs, application-code: 214ms)
+ GET /bolgesel-kiralama/kutahya 200 in 257ms (next.js: 14ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 237ms)
+ GET /bolgesel-kiralama/malatya 200 in 222ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 47µs, application-code: 208ms)
+ GET /bolgesel-kiralama/manisa 200 in 236ms (next.js: 13ms, proxy.ts: 5ms, generate-params: 50µs, application-code: 218ms)
+ GET /bolgesel-kiralama/mardin 200 in 244ms (next.js: 7ms, proxy.ts: 7ms, generate-params: 50µs, application-code: 230ms)
+ GET /bolgesel-kiralama/mersin 200 in 253ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 8ms, application-code: 234ms)
+ GET /bolgesel-kiralama/mugla 200 in 243ms (next.js: 9ms, proxy.ts: 5ms, generate-params: 48µs, application-code: 228ms)
+ GET /bolgesel-kiralama/mus 200 in 219ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 49µs, application-code: 205ms)
+ GET /bolgesel-kiralama/nevsehir 200 in 228ms (next.js: 13ms, proxy.ts: 5ms, generate-params: 45µs, application-code: 210ms)
+ GET /bolgesel-kiralama/nigde 200 in 240ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 8ms, application-code: 219ms)
+ GET /bolgesel-kiralama/ordu 200 in 222ms (next.js: 8ms, proxy.ts: 6ms, generate-params: 59µs, application-code: 208ms)
+ GET /bolgesel-kiralama/osmaniye 200 in 234ms (next.js: 6ms, proxy.ts: 6ms, generate-params: 54µs, application-code: 222ms)
+ GET /bolgesel-kiralama/rize 200 in 233ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 50µs, application-code: 220ms)
+ GET /bolgesel-kiralama/sakarya 200 in 232ms (next.js: 23ms, proxy.ts: 7ms, generate-params: 7ms, application-code: 202ms)
+ GET /bolgesel-kiralama/samsun 200 in 225ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 46µs, application-code: 213ms)
+ GET /bolgesel-kiralama/sanliurfa 200 in 247ms (next.js: 7ms, proxy.ts: 6ms, generate-params: 47µs, application-code: 234ms)
+ GET /bolgesel-kiralama/siirt 200 in 237ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 48µs, application-code: 225ms)
+ GET /bolgesel-kiralama/sinop 200 in 288ms (next.js: 14ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 267ms)
+ GET /bolgesel-kiralama/sirnak 200 in 229ms (next.js: 7ms, proxy.ts: 12ms, generate-params: 47µs, application-code: 210ms)
+ GET /bolgesel-kiralama/sivas 200 in 231ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 47µs, application-code: 220ms)
+ GET /bolgesel-kiralama/tekirdag 200 in 227ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 46µs, application-code: 214ms)
+ GET /bolgesel-kiralama/tokat 200 in 233ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 7ms, application-code: 212ms)
+ GET /bolgesel-kiralama/trabzon 200 in 233ms (next.js: 7ms, proxy.ts: 5ms, generate-params: 52µs, application-code: 221ms)
+ GET /bolgesel-kiralama/tunceli 200 in 244ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 56µs, application-code: 223ms)
+ GET /bolgesel-kiralama/usak 200 in 238ms (next.js: 9ms, proxy.ts: 4ms, generate-params: 46µs, application-code: 225ms)
+ GET /bolgesel-kiralama/van 200 in 239ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 8ms, application-code: 219ms)
+ GET /bolgesel-kiralama/yalova 200 in 227ms (next.js: 8ms, proxy.ts: 5ms, generate-params: 51µs, application-code: 214ms)
+ GET /bolgesel-kiralama/yozgat 200 in 224ms (next.js: 8ms, proxy.ts: 6ms, generate-params: 51µs, application-code: 210ms)
+ GET /bolgesel-kiralama/zonguldak 200 in 242ms (next.js: 14ms, proxy.ts: 5ms, generate-params: 45µs, application-code: 223ms)
+ GET /cadir-hesaplama 200 in 1169ms (next.js: 846ms, proxy.ts: 6ms, application-code: 317ms)
+ GET /cadir-kiralama 200 in 3.4s (next.js: 780ms, proxy.ts: 5ms, application-code: 2.7s)
+ GET /defile-podyum-kiralama 200 in 4.4s (next.js: 3.0s, proxy.ts: 7ms, application-code: 1391ms)
+ GET /gizlilik-politikasi 200 in 1323ms (next.js: 717ms, proxy.ts: 9ms, application-code: 597ms)
+ GET /hakkimizda 200 in 612ms (next.js: 51ms, proxy.ts: 5ms, application-code: 556ms)
+ GET /hizmetler 200 in 1273ms (next.js: 665ms, proxy.ts: 7ms, application-code: 601ms)
+ GET /iletisim 200 in 1270ms (next.js: 722ms, proxy.ts: 7ms, application-code: 540ms)
+ GET /konser-icin-podyum-kiralama 200 in 1485ms (next.js: 701ms, proxy.ts: 5ms, application-code: 778ms)
+ GET /kurumsal-organizasyon 200 in 1729ms (next.js: 100ms, proxy.ts: 6ms, application-code: 1623ms)
+ GET /kvkk 200 in 1000ms (next.js: 727ms, proxy.ts: 7ms, application-code: 266ms)
+ GET /led-ekran-kiralama 200 in 6.0s (next.js: 857ms, proxy.ts: 5ms, application-code: 5.2s)
+ GET /led-ekran-kiralama-fiyatlari 200 in 981ms (next.js: 195ms, proxy.ts: 7ms, application-code: 780ms)
+ GET /masa-sandalye-kiralama 200 in 3.3s (next.js: 906ms, proxy.ts: 6ms, application-code: 2.4s)
+ GET /nasil-calisiyoruz 200 in 1500ms (next.js: 1102ms, proxy.ts: 6ms, application-code: 392ms)
+ GET /podyum-kiralama 200 in 5.9s (next.js: 1228ms, proxy.ts: 8ms, application-code: 4.7s)
+ GET /podyum-kiralama-fiyatlari 200 in 1748ms (next.js: 866ms, proxy.ts: 8ms, application-code: 873ms)
+ GET /projeler 200 in 544ms (next.js: 117ms, proxy.ts: 6ms, application-code: 422ms)
+ GET /projeler/diclefest-sanliurfa 200 in 893ms (next.js: 103ms, proxy.ts: 5ms, application-code: 785ms)
+ GET /projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi 200 in 1526ms (next.js: 812ms, proxy.ts: 7ms, application-code: 707ms)
+ GET /projeler/kapali-alan-led-sahne-kurulumu 200 in 432ms (next.js: 66ms, proxy.ts: 6ms, application-code: 360ms)
+ GET /projeler/saha-2026-dome-cadir-kurulumu 200 in 620ms (next.js: 78ms, proxy.ts: 7ms, application-code: 536ms)
+ GET /projeler/sifir-atik-festivali-ana-sahne-teknik-produksiyon 200 in 884ms (next.js: 63ms, proxy.ts: 6ms, application-code: 815ms)
+ GET /sahne-kiralama 200 in 3.8s (next.js: 804ms, proxy.ts: 7ms, application-code: 3.0s)
+ GET /ses-isik-sistemleri 200 in 3.1s (next.js: 917ms, proxy.ts: 7ms, application-code: 2.2s)
+ GET /sss 200 in 1314ms (next.js: 887ms, proxy.ts: 7ms, application-code: 420ms)
+ GET /truss-kiralama 200 in 1826ms (next.js: 765ms, proxy.ts: 6ms, application-code: 1055ms)
+ GET / 200 in 905ms (next.js: 10ms, proxy.ts: 32ms, application-code: 863ms)
+ GET /opensearch.xml 200 in 290ms (next.js: 262ms, application-code: 27ms)
+ GET /robots.txt 200 in 295ms (next.js: 286ms, application-code: 9ms)
+ GET /blog/kurumsal-etkinlik-planlama-rehberi-2026 200 in 5.4s (next.js: 31ms, proxy.ts: 23ms, application-code: 5.3s)
+ GET /led-ekran-kiralama-fiyatlari 200 in 5.9s (next.js: 384ms, proxy.ts: 34ms, application-code: 5.4s)
+ GET /projeler/diclefest-sanliurfa 200 in 5.9s (next.js: 214ms, proxy.ts: 28ms, application-code: 5.6s)
+ GET /led-ekran-kiralama 200 in 6.2s (next.js: 1207ms, proxy.ts: 34ms, application-code: 5.0s)
+ GET /robots.txt 200 in 25ms (next.js: 11ms, application-code: 14ms)
+ GET /robots.txt 200 in 17ms (next.js: 7ms, application-code: 11ms)
+ GET /robots.txt 200 in 19ms (next.js: 6ms, application-code: 13ms)
+ GET /robots.txt 200 in 20ms (next.js: 8ms, application-code: 12ms)
+ GET /blog/kurumsal-etkinlik-planlama-rehberi-2026 200 in 580ms (next.js: 5ms, proxy.ts: 7ms, application-code: 567ms)
+ GET /robots.txt 200 in 12ms (next.js: 4ms, application-code: 8ms)
+✓ Compiled in 2.1s
+✓ Compiled in 677ms
+✓ Compiled in 264ms
+✓ Compiled in 200ms
+✓ Compiled in 618ms
+✓ Compiled in 474ms
+✓ Compiled in 4.8s
+✓ Compiled in 375ms
+✓ Compiled in 542ms
+✓ Compiled in 325ms
+✓ Compiled in 2.5s
+✓ Compiled in 561ms
+✓ Compiled in 352ms
+✓ Compiled in 295ms
+✓ Compiled in 384ms
+○ Compiling /yaptiklarimiz ...
+ GET /yaptiklarimiz 200 in 9.0s (next.js: 6.1s, proxy.ts: 683ms, application-code: 2.2s)
+ GET /yaptiklarimiz 200 in 2.1s (next.js: 295ms, proxy.ts: 146ms, application-code: 1686ms)
+✓ Compiled in 688ms
+✓ Compiled in 1081ms
+✓ Compiled in 535ms
+✓ Compiled in 565ms
+✓ Compiled in 453ms
+✓ Compiled in 408ms
+✓ Compiled in 387ms
+✓ Compiled in 748ms
+✓ Compiled in 313ms
+✓ Compiled in 641ms
+✓ Compiled in 764ms
+✓ Compiled in 278ms
+✓ Compiled in 1732ms
+✓ Compiled in 918ms
+✓ Compiled in 806ms
+✓ Compiled in 693ms
+✓ Compiled in 2.3s
+✓ Compiled in 3.3s
+✓ Compiled in 1688ms
+✓ Compiled in 330ms
+✓ Compiled in 2.7s
+✓ Compiled in 1200ms
+ GET / 200 in 8.2s (next.js: 1177ms, proxy.ts: 1284ms, application-code: 5.8s)
+ GET / 200 in 2.0s (next.js: 19ms, proxy.ts: 13ms, application-code: 1974ms)
+ GET / 200 in 1868ms (next.js: 17ms, proxy.ts: 28ms, application-code: 1822ms)
+ GET / 200 in 3.2s (next.js: 18ms, proxy.ts: 58ms, application-code: 3.1s)
+✓ Compiled in 11.5s
+✓ Compiled in 2.5s
+ GET / 500 in 5.6s (next.js: 402ms, proxy.ts: 243ms, application-code: 4.9s)
+✓ Compiled in 3.3s
+ GET / 200 in 3.1s (next.js: 325ms, proxy.ts: 166ms, application-code: 2.6s)
+✓ Compiled in 3.2s
+ GET / 200 in 5.1s (next.js: 264ms, proxy.ts: 209ms, application-code: 4.7s)
+ GET / 200 in 1495ms (next.js: 50ms, proxy.ts: 14ms, application-code: 1432ms)
+ GET / 200 in 1392ms (next.js: 6ms, proxy.ts: 8ms, application-code: 1378ms)
+ GET / 200 in 1276ms (next.js: 5ms, proxy.ts: 7ms, application-code: 1264ms)
+ GET / 200 in 1230ms (next.js: 10ms, proxy.ts: 18ms, application-code: 1202ms)
+ GET / 200 in 1465ms (next.js: 17ms, proxy.ts: 17ms, application-code: 1431ms)
+✓ Compiled in 2.5s
+ GET / 200 in 2.3s (next.js: 353ms, proxy.ts: 295ms, application-code: 1608ms)
+ GET / 200 in 1170ms (next.js: 5ms, proxy.ts: 7ms, application-code: 1158ms)
+ GET / 200 in 6.6s (next.js: 9ms, proxy.ts: 11ms, application-code: 6.6s)
+ GET / 200 in 1535ms (next.js: 5ms, proxy.ts: 8ms, application-code: 1521ms)
+ GET / 200 in 1633ms (next.js: 23ms, proxy.ts: 26ms, application-code: 1584ms)
+ GET / 200 in 1391ms (next.js: 4ms, proxy.ts: 9ms, application-code: 1378ms)
+✓ Compiled in 3s
+✓ Compiled in 6.8s
+✓ Compiled in 23ms
+✓ Compiled in 6s
+✓ Compiled in 854ms
+✓ Compiled in 776ms
+✓ Compiled in 3.8s
+✓ Compiled in 1345ms
+✓ Compiled in 1448ms
+✓ Compiled in 2.9s
+✓ Compiled in 1674ms
+✓ Compiled in 581ms

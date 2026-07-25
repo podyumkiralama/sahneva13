@@ -1,0 +1,8 @@
+
+> sahneva13@1.0.0 start
+> next start -p 3024
+
+▲ Next.js 16.2.6
+- Local:         http://localhost:3024
+- Network:       http://192.168.1.8:3024
+✓ Ready in 369ms

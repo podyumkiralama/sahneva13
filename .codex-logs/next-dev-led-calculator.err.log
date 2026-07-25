@@ -1,0 +1,631 @@
+Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true.
+Image with src "/img/kurumsal/premium/kurumsal-organizasyon-p19-led-kanit.webp" is using quality "82" which is not configured in images.qualities [45, 60, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 60, 65, 68, 70, 72, 75, 78, 80, 82, 85, 88, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "/img/podyum/1.webp" is using quality "62" which is not configured in images.qualities [45, 60, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 60, 62, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "/img/podyum/9.webp" is using quality "62" which is not configured in images.qualities [45, 60, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 60, 62, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "/img/podyum/2.webp" is using quality "62" which is not configured in images.qualities [45, 60, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 60, 62, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Image with src "/img/podyum/3.webp" is using quality "62" which is not configured in images.qualities [45, 60, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90]. Please update your config to [45, 60, 62, 65, 68, 70, 72, 75, 78, 80, 85, 88, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              ...
+                    ...
+        ...
+ 
+[browser] Image with src "http://localhost:3000/android-chrome-512x512.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/img/kurumsal/bayi-toplantisi.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/blog/kuru..." notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/blog/kuru..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              <header>
+                              ...
+                                <SegmentViewNode type="page" pagePath="(tr)/blog/...">
+                                  <SegmentTrieNode>
+                                  <Page>
+                                    <JsonLd>
+                                      <script
+                                        id="ld-blogposting"
++                                       nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                       nonce=""
+                                        type="application/ld+json"
+                                        suppressHydrationWarning={false}
+                                        dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                      >
+                                    <div className="bg-white">
+                                      <div className="mx-auto w-...">
+                                        <BreadcrumbJsonLd>
+                                          <JsonLd>
+                                            <script
++                                             nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                             nonce=""
+                                              type="application/ld+json"
+                                              suppressHydrationWarning={false}
+                                              dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                            >
+                                        ...
+                                ...
+                              ...
+                    ...
+        ...
+ 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/led-ekran..." notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/led-ekran..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              <header>
+                              ...
+                                <SegmentViewNode type="page" pagePath="(tr)/led-e...">
+                                  <SegmentTrieNode>
+                                  <Page>
+                                    <BreadcrumbJsonLd>
+                                      <JsonLd>
+                                        <script
++                                         nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                         nonce=""
+                                          type="application/ld+json"
+                                          suppressHydrationWarning={false}
+                                          dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                        >
+                                    <JsonLd>
+                                      <script
+                                        id="ld-json-led-ekran-fiyatlari"
++                                       nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                       nonce=""
+                                        type="application/ld+json"
+                                        suppressHydrationWarning={false}
+                                        dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                      >
+                                    ...
+                                ...
+                              ...
+                    ...
+        ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/projeler/..." notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/projeler/..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              <header>
+                              ...
+                                <SegmentViewNode type="page" pagePath="(tr)/proje...">
+                                  <SegmentTrieNode>
+                                  <DicleFestSanliurfaProjectPage>
+                                    <main className="min-h-scre...">
+                                      <JsonLd>
+                                        <script
++                                         nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                         nonce=""
+                                          type="application/ld+json"
+                                          suppressHydrationWarning={false}
+                                          dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                        >
+                                      ...
+                                ...
+                              ...
+                    ...
+        ...
+ 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/led-ekran..." notFound={<SegmentViewNode>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/led-ekran..." tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              <header>
+                              ...
+                                <SegmentViewNode type="page" pagePath="(tr)/led-e...">
+                                  <SegmentTrieNode>
+                                  <Page>
+                                    <BreadcrumbJsonLd>
+                                      <JsonLd>
+                                        <script
++                                         nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                         nonce=""
+                                          type="application/ld+json"
+                                          suppressHydrationWarning={false}
+                                          dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                        >
+                                    <LedScreenJsonLd>
+                                      <JsonLd>
+                                        <script
+                                          id="ld-json-led-ekran"
++                                         nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                         nonce=""
+                                          type="application/ld+json"
+                                          suppressHydrationWarning={false}
+                                          dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                        >
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <section>
+                                    <ServiceBlogLinks>
+                                      <nav aria-label="LED ekran ..." className="mx-auto w-...">
+                                        <JsonLd>
+                                          <script
++                                           nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                           nonce=""
+                                            type="application/ld+json"
+                                            suppressHydrationWarning={false}
+                                            dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                          >
+                                        ...
+                                    ...
+                                ...
+                              ...
+                    ...
+        ...
+ 
+[browser] Image with src "/img/blog/kurumsal-etkinlik-hero.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "/img/blog/default.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "http://localhost:3000/android-chrome-512x512.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] Image with src "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-meydan-kurulumu.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-cocuk-ve-genclik-etkinlik-alani.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-basamak-ve-platform-detayi.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-cadir-ici-stant-alani.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+[browser] Received an empty string for a boolean attribute `inert`. This will treat the attribute as if it were false. Either pass `false` to silence this warning, or pass `true` if you used an empty string in earlier versions of React to indicate this attribute is true. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/blog/kuru..." notFound={{...}} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/blog/kuru..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                      <SegmentViewNode type="layout" pagePath="(tr)/layou...">
+                        <SegmentTrieNode>
+                        <link>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <TurkishLayout>
+                          <html lang="tr" className="inter_b9c4...">
+                            <head>
+                              <TrustedTypesPolicy>
+                                <script
+                                  id="trusted-types-policy"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"\n(() => {..."}}
+                                >
+                              <SpeculationRules>
+                                <script
+                                  id="speculation-rules-tr"
+                                  type="speculationrules"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  dangerouslySetInnerHTML={{__html:"{\"prefetc..."}}
+                                >
+                              ...
+                            <body className="flex flex-col">
+                              <span>
+                              <nav>
+                              <AnalyticsConsentWrapper>
+                              <ServiceWorkerRegistration>
+                              <JsonLd>
+                                <script
+                                  id="global-ld-json"
++                                 nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                 nonce=""
+                                  type="application/ld+json"
+                                  suppressHydrationWarning={false}
+                                  dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                >
+                              <header>
+                              ...
+                                <SegmentViewNode type="page" pagePath="(tr)/blog/...">
+                                  <SegmentTrieNode>
+                                  <Page>
+                                    <JsonLd>
+                                      <script
+                                        id="ld-blogposting"
++                                       nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                       nonce=""
+                                        type="application/ld+json"
+                                        suppressHydrationWarning={false}
+                                        dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                      >
+                                    <div className="bg-white">
+                                      <div className="mx-auto w-...">
+                                        <BreadcrumbJsonLd>
+                                          <JsonLd>
+                                            <script
++                                             nonce="c2FobmV2YS1zdGF0aWMtY3Nw"
+-                                             nonce=""
+                                              type="application/ld+json"
+                                              suppressHydrationWarning={false}
+                                              dangerouslySetInnerHTML={{__html:"{\"@contex..."}}
+                                            >
+                                        ...
+                                ...
+                              ...
+                    ...
+        ...
+ 
+[browser] Image with src "/img/blog/default.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "http://localhost:3000/android-chrome-512x512.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] eval() is not supported in this environment. If this page was served with a `Content-Security-Policy` header, make sure that `unsafe-eval` is included. React requires eval() in development mode for various debugging features like reconstructing callstacks from a different environment.
+React will never use eval() in production mode 
+⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['127.0.0.1'],
+}
+
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+Only plain objects can be passed to Client Components from Server Components. Classes or other objects with methods are not supported.
+  <span className=... aria-hidden="true" children={{$$typeof: ..., render: ...}}>
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Only plain objects can be passed to Client Components from Server Components. Classes or other objects with methods are not supported.
+  <span className=... aria-hidden="true" children={{$$typeof: ..., render: ...}}>
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+⨯ Error: Functions are not valid as a child of Client Components. This may happen if you return MapPin instead of <MapPin /> from render. Or maybe you meant to call this function rather than return it.
+  {$$typeof: ..., render: function MapPin}
+                          ^^^^^^^^^^^^^^^
+    at stringify (<anonymous>) {
+  digest: '2060994732'
+}
+⨯ Error: Functions are not valid as a child of Client Components. This may happen if you return Star instead of <Star /> from render. Or maybe you meant to call this function rather than return it.
+  {$$typeof: ..., render: function Star}
+                          ^^^^^^^^^^^^^
+    at stringify (<anonymous>) {
+  digest: '2048453804'
+}

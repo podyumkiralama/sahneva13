@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import JsonLdScript from "@/components/seo/JsonLd";
 import {
   getCityContext,
+  getIndexableRegionalCities,
   getRegionalCity,
-  REGIONAL_CITIES,
 } from "@/lib/seo/regionalCities";
 
 const SITE =
@@ -109,7 +109,7 @@ export const dynamicParams = false;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return REGIONAL_CITIES.map((city) => ({ sehir: city.slug }));
+  return getIndexableRegionalCities().map((city) => ({ sehir: city.slug }));
 }
 
 function getCityOrThrow(slug) {
@@ -119,7 +119,7 @@ function getCityOrThrow(slug) {
 }
 
 function getNearbyCities(slug) {
-  const existingSlugs = new Set(REGIONAL_CITIES.map((city) => city.slug));
+  const existingSlugs = new Set(getIndexableRegionalCities().map((city) => city.slug));
   return (NEARBY_CITY_LINKS[slug] ?? [])
     .filter((nearbySlug) => existingSlugs.has(nearbySlug))
     .map((nearbySlug) => getRegionalCity(nearbySlug))
