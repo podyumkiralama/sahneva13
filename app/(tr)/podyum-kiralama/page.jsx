@@ -540,7 +540,7 @@ function HeroSection() {
 
             <h1 className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
               Podyum Kiralama{" "}
-              <span className="mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black text-transparent md:text-4xl lg:text-5xl">
+              <span className="gradient-text-clip-safe mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black md:text-4xl lg:text-5xl">
                 ve Kurulumu
               </span>
             </h1>
@@ -590,7 +590,7 @@ function HeroSection() {
                   key={metric.label}
                   className="rounded-2xl border border-white/[0.1] bg-white/[0.06] p-4 backdrop-blur-xl transition hover:border-blue-300/40 hover:bg-white/[0.1]"
                 >
-                  <div className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xl font-black text-transparent md:text-2xl">
+                  <div className="gradient-text-clip-safe bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xl font-black md:text-2xl">
                     {metric.value}
                   </div>
                   <div className="mt-1 text-xs font-bold text-blue-100 md:text-sm">{metric.label}</div>

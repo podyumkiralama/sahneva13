@@ -255,7 +255,7 @@ function HeroSection() {
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6 tracking-tight"
           >
             Concert{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="gradient-text-clip-safe bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
               Podium Rental
             </span>
           </h1>

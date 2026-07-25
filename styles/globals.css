@@ -394,6 +394,20 @@
     }
   }
 
+  /* Keep gradient headings readable when background-clip:text is unavailable. */
+  .gradient-text-clip-safe {
+    color: #e2e8f0;
+  }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .gradient-text-clip-safe {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
   @media (min-width: 1280px) {
     .gradient-text--safe-xl {
       background-image: none !important;

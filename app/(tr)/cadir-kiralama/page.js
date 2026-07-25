@@ -455,7 +455,7 @@ function Hero() {
               className="mt-7 max-w-4xl text-[50px] font-black leading-[0.94] tracking-[-1.5px] text-white drop-shadow-[0_5px_25px_rgba(0,0,0,0.45)] md:text-[64px] lg:text-[76px] xl:text-[84px]"
             >
               Anahtar Teslim{" "}
-              <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+              <span className="gradient-text-clip-safe block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
                 Çadır Kiralama
               </span>
             </h1>

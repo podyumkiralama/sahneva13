@@ -14,7 +14,7 @@ export default function NotFoundContent() {
     <section className="container mx-auto px-4 py-16 text-center md:py-24">
       <p
         aria-hidden="true"
-        className="select-none bg-gradient-to-r from-violet-500 to-indigo-400 bg-clip-text text-8xl font-extrabold leading-none text-transparent md:text-9xl"
+        className="gradient-text-clip-safe select-none bg-gradient-to-r from-violet-500 to-indigo-400 bg-clip-text text-8xl font-extrabold leading-none md:text-9xl"
       >
         404
       </p>
