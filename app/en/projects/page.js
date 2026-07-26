@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
+import { getEnProjects } from "@/lib/enProjects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -71,7 +72,41 @@ export default async function ProjectsIndexPageEn() {
     { name: "Home", url: `${ORIGIN}/en` },
     { name: "Projects", url: `${ORIGIN}/en/projects` },
   ];
-  const projects = getProjects();
+  const enCaseStudies = getEnProjects();
+
+  // A TR project page that already has a full English case study should not be
+  // listed twice; the English URL wins for English visitors.
+  const coveredTrSlugs = new Set(
+    enCaseStudies
+      .map((project) => project.trEquivalent)
+      .filter(Boolean)
+      .map((path) => path.split("/").filter(Boolean).pop())
+  );
+
+  const projects = [
+    ...enCaseStudies.map((project) => ({
+      key: project.slug,
+      href: `/en/projects/${project.slug}`,
+      title: project.title,
+      excerpt: project.excerpt,
+      cover: project.heroImage,
+      date: project.date,
+      tags: [project.category],
+      inTurkish: false,
+    })),
+    ...getProjects()
+      .filter((project) => !coveredTrSlugs.has(project.slug))
+      .map((project) => ({
+        key: project.slug,
+        href: `/projeler/${project.slug}`,
+        title: project.title,
+        excerpt: project.excerpt,
+        cover: project.cover,
+        date: project.date,
+        tags: project.tags,
+        inTurkish: true,
+      })),
+  ];
 
   return (
     <div id="main" className="min-h-screen bg-gradient-to-br from-slate-900 via-[#0b0f1a] to-purple-900/20 text-white">
@@ -126,14 +161,15 @@ export default async function ProjectsIndexPageEn() {
           >
             {projects.map((p, index) => (
               <li
-                key={p.slug}
+                key={p.key}
                 className="group relative"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                 <Link
-                  href={`/projeler/${p.slug}`}
+                  href={p.href}
+                  hrefLang={p.inTurkish ? "tr" : undefined}
                   className="relative flex flex-col h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/10 overflow-hidden"
                   title={`View project: ${p.title}`}
                 >
@@ -216,6 +252,12 @@ export default async function ProjectsIndexPageEn() {
                       {p.excerpt && (
                         <p className="text-white/80 leading-relaxed line-clamp-3 text-sm md:text-base">
                           {p.excerpt}
+                        </p>
+                      )}
+
+                      {p.inTurkish && (
+                        <p className="mt-3 text-xs font-medium text-white/50">
+                          Project page in Turkish
                         </p>
                       )}
                     </div>

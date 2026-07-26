@@ -15,6 +15,7 @@ import {
 import {
   LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
+  SOCIAL_PROFILES,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import SkipLinks from "@/components/SkipLinks";
@@ -59,12 +60,9 @@ const globalJsonLd = {
         telephone: "+905453048671",
         contactType: "customer service",
         areaServed: "TR",
-        availableLanguage: ["tr", "en", "ar"],
+        availableLanguage: ["tr", "en", "ar", "ru"],
       },
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
+      sameAs: SOCIAL_PROFILES,
     },
     {
       "@type": "LocalBusiness",
@@ -91,10 +89,7 @@ const globalJsonLd = {
       },
       areaServed: "TR",
       parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
+      sameAs: SOCIAL_PROFILES,
     },
     {
       "@type": "WebSite",

@@ -870,7 +870,9 @@ export default function EnglishHomePage() {
 
       <div className="bg-[#0B1120] pb-2 pt-0">
         <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
-          For international agencies and brands planning events in Türkiye, Sahneva works as a local{" "}
+          Sahneva is a Turkey-based event production company specializing in stage design, LED screen
+          rental, professional audio systems, lighting and technical production services for corporate
+          events, congresses and international organizations. For international agencies and brands planning events in Türkiye, Sahneva works as a local{" "}
           <Link href="/en/event-production-company-turkey" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
             event production partner in Turkey
           </Link>{" "}

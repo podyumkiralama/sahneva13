@@ -24,6 +24,7 @@ import {
   BASE_SITE_URL,
   LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
+  SOCIAL_PROFILES,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 
@@ -76,13 +77,14 @@ const globalJsonLd = {
         "teknik prodüksiyon",
         "etkinlik teknik keşfi",
       ],
+      sameAs: SOCIAL_PROFILES,
       contactPoint: [
         {
           "@type": "ContactPoint",
           telephone: "+905453048671",
           contactType: "customer service",
           areaServed: "TR",
-          availableLanguage: ["tr"],
+          availableLanguage: ["tr", "en", "ar", "ru"],
         },
       ],
     },
@@ -127,10 +129,7 @@ const globalJsonLd = {
       ],
       areaServed: "TR",
       parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
+      sameAs: SOCIAL_PROFILES,
     },
     {
       "@type": "WebSite",

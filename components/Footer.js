@@ -7,11 +7,13 @@ import {
   ArrowUpRight,
   Clock3,
   Instagram,
+  Linkedin,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
   Star,
+  Twitter,
   Youtube,
 } from "lucide-react";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
@@ -29,11 +31,28 @@ const SOCIAL_LINKS = [
     rel: "me",
   },
   {
-    href: "https://www.youtube.com/@sahneva",
+    href: "https://www.youtube.com/@SAHNEVA",
     label: "Sahneva YouTube",
     title: "YouTube",
     icon: Youtube,
     gradient: "from-red-500/30 via-orange-400/30 to-yellow-400/20",
+    rel: "me",
+  },
+  {
+    href: "https://x.com/Sahnevaevent",
+    label: "Sahneva X",
+    title: "X",
+    icon: Twitter,
+    gradient: "from-slate-500/30 via-slate-400/30 to-slate-300/20",
+    rel: "me",
+  },
+  {
+    href: "https://www.linkedin.com/in/sahneva-organizasyon/",
+    label: "Sahneva LinkedIn",
+    title: "LinkedIn",
+    icon: Linkedin,
+    gradient: "from-sky-500/30 via-blue-500/30 to-cyan-400/20",
+    rel: "me",
   },
 ];
 

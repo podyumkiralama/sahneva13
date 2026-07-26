@@ -261,11 +261,13 @@ export default function AboutPage() {
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
-          As Türkiye's{" "}
+          Sahneva is a Turkey-based{" "}
           <span className="font-semibold text-white">
-            leading event technology partner
+            event production company
           </span>{" "}
-          we combine technical excellence with creative vision in every project
+          specializing in stage design, LED screen rental, professional audio systems, lighting and
+          technical production services for corporate events, congresses and international
+          organizations
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">

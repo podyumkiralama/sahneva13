@@ -21,6 +21,7 @@ import {
   BASE_SITE_URL,
   LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
+  SOCIAL_PROFILES,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 
@@ -50,25 +51,30 @@ const globalJsonLd = {
       url: BASE_SITE_URL,
       logo: { "@id": LOGO_ID },
       description:
-        "Professional event production company offering stage, podium, LED screen, sound-light and tent rental services nationwide across Türkiye.",
+        "Sahneva is a Turkey-based event production company specializing in stage design, LED screen rental, professional audio systems, lighting and technical production services for corporate events, congresses and international organizations.",
       knowsAbout: [
+        "event production",
         "podium rental",
         "stage rental",
         "modular stage rental",
         "LED screen rental",
+        "professional audio systems",
+        "line array sound systems",
+        "event lighting design",
+        "truss systems",
         "tent rental",
+        "live broadcasting",
         "corporate event organization",
+        "congress and exhibition production",
+        "esports event production",
       ],
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
+      sameAs: SOCIAL_PROFILES,
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+905453048671",
         contactType: "customer service",
         areaServed: "TR",
-        availableLanguage: ["tr", "en", "ar"],
+        availableLanguage: ["tr", "en", "ar", "ru"],
       },
     },
 
@@ -121,10 +127,7 @@ const globalJsonLd = {
       ],
       areaServed: "TR",
       parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: [
-        "https://www.instagram.com/sahnevaorganizasyon",
-        "https://www.youtube.com/@sahneva",
-      ],
+      sameAs: SOCIAL_PROFILES,
     },
 
     {
