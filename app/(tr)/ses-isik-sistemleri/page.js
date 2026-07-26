@@ -756,13 +756,8 @@ function Articles() {
                     </h4>
                     <p>
                       <strong className="text-gray-900">Sahneva</strong>, Türkiye genelinde{" "}
-                      <Link href="/ses-isik-sistemleri" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
-                        profesyonel ses sistemi kiralama
-                      </Link>{" "}
-                      ve{" "}
-                      <Link href="/ses-isik-sistemleri" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
-                        ışık sistemi kiralama
-                      </Link>{" "}
+                      <strong className="text-gray-900">profesyonel ses sistemi kiralama</strong> ve{" "}
+                      <strong className="text-gray-900">ışık sistemi kiralama</strong>{" "}
                       hizmetleriyle kurumsal standartta çözümler sunmaktadır.
                     </p>
                     <p>

@@ -592,6 +592,29 @@ export default function HakkimizdaPage() {
           </div>
         </section>
 
+        {/* Hizmet linkleri */}
+        <section className="py-16 bg-gray-50" aria-labelledby="services-links-title">
+          <div className="container max-w-5xl mx-auto px-4 text-center">
+            <h2 id="services-links-title" className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              10+ Yıllık Deneyimle Sunduğumuz Hizmetler
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+              700'den fazla projede kullandığımız ekipman parkı ve teknik ekibimizle aşağıdaki hizmetleri Türkiye genelinde sunuyoruz.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/sahne-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Sahne Kiralama</Link>
+              <Link href="/led-ekran-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">LED Ekran Kiralama</Link>
+              <Link href="/ses-isik-sistemleri" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Ses ve Işık Sistemleri</Link>
+              <Link href="/podyum-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Podyum Kiralama</Link>
+              <Link href="/cadir-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Çadır Kiralama</Link>
+              <Link href="/truss-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Truss Kiralama</Link>
+              <Link href="/kurumsal-organizasyon" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Kurumsal Organizasyon</Link>
+              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Masa Sandalye Kiralama</Link>
+              <Link href="/dijital-kursu-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Dijital Kürsü Kiralama</Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600" aria-labelledby="cta-title">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">

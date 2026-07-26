@@ -389,7 +389,7 @@ return (
                 <strong>Kamera ve yayın:</strong> Kamera açıları, sahne derinliği ve genişliğiyle doğrudan ilişkilidir.
               </li>
               <li>
-                <strong>Protokol düzeni:</strong> Konuşmacı alanı, kürsü/podyum, giriş-çıkış, güvenlik düzeni.
+                <strong>Protokol düzeni:</strong> Konuşmacı alanı, <Link href="/dijital-kursu-kiralama">dijital kürsü</Link>/podyum, giriş-çıkış, güvenlik düzeni.
               </li>
             </ul>
 

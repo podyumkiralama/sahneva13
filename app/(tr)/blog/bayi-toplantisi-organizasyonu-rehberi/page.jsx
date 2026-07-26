@@ -434,7 +434,8 @@ export default function BayiToplantisiPage() {
         <h2 id="s5">5. Sahne ve podyum planlaması</h2>
         <p>
           Sahne, hem ciddi bir hedef sunumunu hem de coşkulu bir ödül törenini taşıyacak ölçüde tasarlanmalı.
-          Konuşmacı kürsüsü, ödül alan bayilerin çıkışı için yeterli genişlik ve güvenli basamaklar birlikte
+          Konuşmacı için <Link href="/dijital-kursu-kiralama">dijital kürsü</Link>, ödül alan bayilerin
+          çıkışı için yeterli genişlik ve güvenli basamaklar birlikte
           düşünülür. Yüzlerce kişilik salonda arka sıraların da görebilmesi için yeterli sahne yüksekliği
           kritik. Detaylar için <Link href="/sahne-kiralama">sahne kiralama</Link> ve{" "}
           <Link href="/podyum-kiralama">podyum kiralama</Link> sayfalarına göz atabilirsiniz.

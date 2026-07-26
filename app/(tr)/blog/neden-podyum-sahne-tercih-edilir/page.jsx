@@ -437,7 +437,8 @@ return (
           </p>
 
           <p>
-            Bu gibi durumlarda düz zeminde bir düzen yeterli olacaktır. Gerekirse sadece küçük bir platform veya kürsü kullanılarak konuşmacı konumlandırılabilir. Önemli olan, sahne kullanımının etkinliğin doğasına uygun olmasıdır.
+            Bu gibi durumlarda düz zeminde bir düzen yeterli olacaktır. Gerekirse sadece küçük bir platform veya{" "}
+            <Link href="/dijital-kursu-kiralama">dijital kürsü</Link> kullanılarak konuşmacı konumlandırılabilir. Önemli olan, sahne kullanımının etkinliğin doğasına uygun olmasıdır.
             Podyum sahne kullanımının etkinliğe bir katkısı yoksa, kurulumu için harcanacak zaman ve bütçeden tasarruf etmek daha mantıklı olabilir.
           </p>
 

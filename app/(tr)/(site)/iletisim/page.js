@@ -653,6 +653,28 @@ export default function ContactPage() {
           </div>
         </section>
 
+        {/* Hizmet sayfalarına yönlendirme */}
+        <section className="py-16 bg-white" aria-labelledby="contact-services-title">
+          <div className="container max-w-5xl mx-auto px-4 text-center">
+            <h2 id="contact-services-title" className="text-3xl font-black text-neutral-900 mb-4">
+              Hangi Hizmet İçin Teklif Almak İstiyorsunuz?
+            </h2>
+            <p className="text-lg text-neutral-600 mb-8 max-w-3xl mx-auto">
+              Teklif istemeden önce ilgili hizmet sayfasındaki kapsam, ekipman ve fiyatı etkileyen detayları inceleyerek daha hızlı sonuç alabilirsiniz.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/sahne-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Sahne Kiralama</Link>
+              <Link href="/led-ekran-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">LED Ekran Kiralama</Link>
+              <Link href="/ses-isik-sistemleri" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Ses ve Işık Sistemleri</Link>
+              <Link href="/podyum-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Podyum Kiralama</Link>
+              <Link href="/cadir-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Çadır Kiralama</Link>
+              <Link href="/truss-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Truss Kiralama</Link>
+              <Link href="/kurumsal-organizasyon" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Kurumsal Organizasyon</Link>
+              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Masa Sandalye Kiralama</Link>
+            </div>
+          </div>
+        </section>
+
         {/* Mobil bar için ekstra boşluk (yapışmayı engeller) */}
         <div className="h-28 md:hidden" aria-hidden="true" />
       </div>

@@ -357,6 +357,25 @@ export default function YaptiklarimizPage() {
             </div>
           </div>
           <VideoGallery videos={PROJECT_VIDEOS} />
+
+          <div className="mt-14 rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 backdrop-blur md:p-9" aria-labelledby="video-services-title">
+            <h2 id="video-services-title" className="text-2xl font-black tracking-tight md:text-3xl">
+              Bu videolardaki kurulumları hangi hizmetlerimizle yapıyoruz?
+            </h2>
+            <p className="mt-3 max-w-3xl leading-relaxed text-slate-300">
+              Videolarda gördüğünüz her kurulum, aşağıdaki hizmet kapsamlarımızla projelendirilir. Detaylı bilgi ve fiyat için ilgili hizmet sayfasını inceleyebilirsiniz.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/sahne-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Sahne Kiralama</Link>
+              <Link href="/led-ekran-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">LED Ekran Kiralama</Link>
+              <Link href="/ses-isik-sistemleri" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Ses ve Işık Sistemleri</Link>
+              <Link href="/podyum-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Podyum Kiralama</Link>
+              <Link href="/cadir-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Çadır Kiralama</Link>
+              <Link href="/truss-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Truss Kiralama</Link>
+              <Link href="/kurumsal-organizasyon" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Kurumsal Organizasyon</Link>
+              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20">Masa Sandalye Kiralama</Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1273,13 +1273,7 @@ function Articles() {
                     <p>
                       <strong className="text-gray-900">Sahneva</strong>, Türkiye
                       genelinde{" "}
-                      <Link
-                        href="/sahne-kiralama"
-                        prefetch={false}
-                        className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4"
-                      >
-                        profesyonel sahne kiralama
-                      </Link>{" "}
+                      <strong className="text-gray-900">profesyonel sahne kiralama</strong>{" "}
                       hizmetleriyle kurumsal standartta çözümler sunmaktadır.
                     </p>
                     <p>

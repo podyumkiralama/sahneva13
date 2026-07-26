@@ -201,43 +201,31 @@ const USE_CASES = [
     icon: "🎤",
     text: "Kurumsal konferans ve zirve",
     desc: "Ana konuşmacı kürsüsü, moderatör platformu ve panel yönetimi için profesyonel dijital çözüm.",
-    href: "/kurumsal-organizasyon",
-    linkLabel: "kurumsal organizasyon",
   },
   {
     icon: "🚀",
     text: "Ürün ve hizmet lansmanı",
     desc: "Marka çıkışında dijital kürsü, LED içerik ve sahne entegrasyonu tek planda planlanır.",
-    href: "/sahne-kiralama",
-    linkLabel: "sahne kiralama",
   },
   {
     icon: "🎓",
     text: "Mezuniyet ve tören",
     desc: "Protokol dijital kürsüsü, diploma bölümü ve kamera açısına uygun konum planlaması.",
-    href: "/podyum-kiralama",
-    linkLabel: "podyum kiralama",
   },
   {
     icon: "📺",
     text: "Basın toplantısı",
     desc: "Medya karşısında markalı kürsü, mikrofon bankosu ve kamera açısı koordinasyonu.",
-    href: "/ses-isik-sistemleri",
-    linkLabel: "ses ışık sistemleri",
   },
   {
     icon: "🏆",
     text: "Ödül töreni ve gala",
     desc: "Şeffaf veya logolu kürsü ile sahne estetiğini tamamlayan sunum platformu.",
-    href: "/led-ekran-kiralama",
-    linkLabel: "LED ekran kiralama",
   },
   {
     icon: "🏛️",
     text: "Belediye ve kurumsal etkinlik",
     desc: "Resmi tören, açılış ve protokol etkinlikleri için marka uyumlu dijital kürsü kurulumu.",
-    href: "/kurumsal-organizasyon",
-    linkLabel: "kurumsal organizasyon",
   },
 ];
 
@@ -775,12 +763,6 @@ function UseCasesSection() {
                 <div>
                   <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">{uc.text}</h3>
                   <p className="text-white/70 text-lg leading-relaxed">{uc.desc}</p>
-                  <Link
-                    href={uc.href}
-                    className="mt-5 inline-flex min-h-[44px] items-center rounded-xl border border-white/[0.18] bg-white/[0.08] px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-white/[0.14] hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
-                  >
-                    {uc.linkLabel}
-                  </Link>
                 </div>
               </div>
             </div>

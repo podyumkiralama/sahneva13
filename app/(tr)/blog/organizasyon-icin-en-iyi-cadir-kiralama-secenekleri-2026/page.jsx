@@ -35,9 +35,11 @@ const FEATURED_IMAGE = "/img/blog/pagoda-cadir-kurumsal-etkinlik.webp";
 const HERO_IMAGE = FEATURED_IMAGE;
 const OG_IMAGE = FEATURED_IMAGE;
 const IMAGES = null;
+const TENT_SERVICE_PATH = "/cadir-kiralama";
 const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
+const SOUND_LIGHT_PATH = "/ses-isik-sistemleri";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
 
 const PUBLISH_DATE = "2026-02-12T00:00:00+03:00";
@@ -191,9 +193,10 @@ export default function Page() {
         currentCategory={metadata?.category}
         currentKeywords={metadata?.keywords}
         primaryLinks={[
-          { href: (typeof STAGE_SERVICE_PATH !== "undefined" ? STAGE_SERVICE_PATH : "/sahne-kiralama"), label: "Sahne Kiralama", icon: "🎭" },
-          { href: (typeof PODIUM_SERVICE_PATH !== "undefined" ? PODIUM_SERVICE_PATH : "/podyum-kiralama"), label: "Podyum Kiralama", icon: "🧱" },
-          { href: (typeof LED_SERVICE_PATH !== "undefined" ? LED_SERVICE_PATH : "/led-ekran-kiralama"), label: "LED Ekran", icon: "🟦" },
+          { href: TENT_SERVICE_PATH, label: "Çadır Kiralama", icon: "⛺" },
+          { href: STAGE_SERVICE_PATH, label: "Sahne Kiralama", icon: "🎭" },
+          { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama", icon: "🧱" },
+          { href: LED_SERVICE_PATH, label: "LED Ekran", icon: "🟦" },
         ]}
         whatsappUrl={(typeof WA_URL !== "undefined" ? WA_URL : undefined)}
       >
@@ -212,10 +215,10 @@ export default function Page() {
                   mühendislik, rüzgar yükü hesabı, zemin analizi ve operasyon planlamasıdır.
                 </p>
                 <ul>
-                  <li>Çadır kiralama</li>
-                  <li>Sahne kurulumu</li>
-                  <li>LED ekran sistemleri</li>
-                  <li>Ses ve ışık entegrasyonu</li>
+                  <li><Link href={TENT_SERVICE_PATH}>Çadır kiralama</Link></li>
+                  <li><Link href={STAGE_SERVICE_PATH}>Sahne kurulumu</Link></li>
+                  <li><Link href={LED_SERVICE_PATH}>LED ekran sistemleri</Link></li>
+                  <li><Link href={SOUND_LIGHT_PATH}>Ses ve ışık entegrasyonu</Link></li>
                 </ul>
                 <p>
                   İstanbul Kağıthane merkezli ekibimizle Türkiye genelinde anahtar teslim hizmet
@@ -392,6 +395,11 @@ export default function Page() {
                 <p>Profesyonel hizmet riski sıfıra yaklaştırır.</p>
 
                 <h2 id="sonuc">Sonuç: Başarılı Organizasyonun Temeli Güvendir</h2>
+                <p>
+                  Etkinliğiniz için doğru sistemi seçmek ve fiyat almak isterseniz{" "}
+                  <Link href={TENT_SERVICE_PATH}>çadır kiralama</Link> hizmet sayfamızdaki kapsam,
+                  çadır tipleri ve kurulum detaylarını inceleyebilirsiniz.
+                </p>
                 <p>
                   Doğru çadır sadece yağmurdan korumaz; markanızın itibarını, misafirlerinizin
                   güvenliğini ve emeğinizi taşır. Etkinlik günü herkes sahneye bakarken, arka planda

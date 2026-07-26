@@ -353,43 +353,31 @@ const USE_CASES = [
     icon: "💍",
     text: "Düğün çadırı kiralama",
     desc: "Şeffaf çadır, pagoda çadır, zemin kaplama ve atmosfer aydınlatmasıyla kır düğünü ve özel davet için kontrollü alan.",
-    href: "/ses-isik-sistemleri",
-    linkLabel: "ses ve ışık sistemleri",
   },
   {
     icon: "🎪",
     text: "Fuar çadırı kiralama",
     desc: "Marka standları, ziyaretçi akışı ve ürün sergileme için geniş açıklıklı fuar ve sergi etkinlik çadırı.",
-    href: "/led-ekran-kiralama",
-    linkLabel: "LED ekran kiralama",
   },
   {
     icon: "🎤",
     text: "Konser çadırı ve festival çadırı",
     desc: "Kulis, sağlık, teknik ekip ve izleyici destek alanları için hızlı kurulabilen açık hava etkinlik çadırı.",
-    href: "/sahne-kiralama",
-    linkLabel: "sahne kiralama",
   },
   {
     icon: "🏛️",
     text: "Belediye ve kurumsal etkinlik çadırı kiralama",
     desc: "Tören, iftar, lansman ve protokol etkinlikleri için güvenli, planlı ve marka uyumlu kiralık çadır kurulumu.",
-    href: "/kurumsal-organizasyon",
-    linkLabel: "kurumsal organizasyon",
   },
   {
     icon: "🏢",
     text: "Geçici etkinlik alanı çözümü",
     desc: "Yemek alanı, protokol bölümü, fuaye veya destek alanı için geniş açıklıklı sistem.",
-    href: "/kurumsal-organizasyon",
-    linkLabel: "kurumsal organizasyon",
   },
   {
     icon: "🏫",
     text: "Okul, mezuniyet ve kermes çadırı",
     desc: "Okul bahçesi, mezuniyet, kermes ve dönemsel etkinlikler için ekonomik ve hızlı kurulum.",
-    href: "/podyum-kiralama",
-    linkLabel: "podyum kiralama",
   },
 ];
 
@@ -1226,12 +1214,6 @@ function UseCases() {
                   <p className="text-white/70 text-lg leading-relaxed">
                     {uc.desc}
                   </p>
-                  <Link
-                    href={uc.href}
-                    className="mt-5 inline-flex min-h-[44px] items-center rounded-xl border border-white/[0.18] bg-white/[0.08] px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-white/[0.14] hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
-                  >
-                    {uc.linkLabel}
-                  </Link>
                 </div>
               </div>
             </div>

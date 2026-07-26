@@ -16,6 +16,8 @@ const BLOG_PATH = "/blog/etkinlige-gore-podyum-tercihi";
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
+const CONCERT_PODIUM_PATH = "/konser-icin-podyum-kiralama";
+const RUNWAY_PODIUM_PATH = "/defile-podyum-kiralama";
 const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const CORPORATE_SERVICE_PATH = "/kurumsal-organizasyon";
 const TENT_SERVICE_PATH = "/cadir-kiralama";
@@ -412,6 +414,10 @@ export default function Page() {
                   <li>
                     <strong>Not:</strong> Düğünde sahne “izlenen” değil “kullanılan” alandır.
                   </li>
+                  <li>
+                    <strong>İç link:</strong> T tipi ve runway kurulumlar için{" "}
+                    <Link href={RUNWAY_PODIUM_PATH}>defile podyum kiralama</Link>
+                  </li>
                 </ul>
                 <WatermarkedFigure
                   src={SECTION_IMAGES.dugun.src}
@@ -432,7 +438,8 @@ export default function Page() {
                     <strong>Merdiven:</strong> En fazla 2 adet (kontrollü giriş)
                   </li>
                   <li>
-                    <strong>İç link:</strong> <Link href={LED_SERVICE_PATH}>LED ekran kiralama</Link>
+                    <strong>İç link:</strong> <Link href={CONCERT_PODIUM_PATH}>Konser için podyum kiralama</Link>,{" "}
+                    <Link href={LED_SERVICE_PATH}>LED ekran kiralama</Link>
                   </li>
                 </ul>
                 <WatermarkedFigure
