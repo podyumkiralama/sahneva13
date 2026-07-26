@@ -316,6 +316,26 @@ const FAQ_ITEMS = [
     q: "Farklı yüksekliklerde podyum kurulumu yapılabilir mi?",
     a: "Evet. Sahneva 10 cm’den 200 cm’ye kadar farklı yüksekliklerde podyum kurulumu planlayabilir. Kapasite, istenen yükseklik, metrekare, zemin durumu ve etkinlik kullanımına göre netleştirilir.",
   },
+  {
+    q: "Podyum kiralamada depozito gerekiyor mu?",
+    a: "Ayrı bir depozito alınmaz. Sözleşme imzalandıktan sonra proje bedelinin %30’u peşinat olarak tahsil edilir; kalan tutar sözleşmede belirlenen ödeme planına göre ödenir.",
+  },
+  {
+    q: "Kurulum ve söküm fiyata dahil mi?",
+    a: `Evet, söküm her projede fiyata dahildir. İstanbul içi temel nakliye bedeli (${UNIT_PRICES.ist_nakliye} TL) kurulum ve sökümü kapsar; etkinlik bitiminde podyum ekibimiz tarafından toplanır ve alan teslim edilir.`,
+  },
+  {
+    q: "Minimum kiralama süresi var mı?",
+    a: "Podyum kiralama fiyatlarımız 1 haftaya kadar olan kullanımlar için sabittir; 1 günlük etkinlik ile 1 haftalık kullanım aynı fiyatlandırılır. Daha uzun süreli projelerde süreye göre özel teklif hazırlanır.",
+  },
+  {
+    q: "Şehir dışı etkinliklerde nakliye nasıl planlanır?",
+    a: "Şehir dışı projelerde çalıştığımız nakliye firmalarından güncel fiyat alınarak harici araç planlanır ve teklife eklenir. Dilerseniz kendi nakliye aracınızı da gönderebilirsiniz; ekipman sevkiyata hazır şekilde paketlenip teslim edilir.",
+  },
+  {
+    q: "Podyumla birlikte hangi aksesuarlar kiralanabilir?",
+    a: "Halı kaplama ve skörte ek olarak merdiven, rampa, korkuluk ve markalı kaplama gibi tamamlayıcı ürünler podyumla birlikte kiralanabilir. İhtiyaca göre bu kalemler teklife ayrı satır olarak eklenir.",
+  },
 ];
 
 const RELATED_SERVICES = [
