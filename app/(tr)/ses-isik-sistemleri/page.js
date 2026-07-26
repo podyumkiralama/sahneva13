@@ -14,7 +14,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
-import { Layout, Monitor, Layers, Tent } from "lucide-react";
+import { ArrowRight, Layout, Monitor, Layers, Tent } from "lucide-react";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -190,84 +190,155 @@ const FEATURED_BRANDS = [
 const FEATURED_BRANDS_TOP_COUNT = FEATURED_BRANDS.length > 8 ? 7 : 6;
 
 /* ================== HERO ================== */
+const HERO_BADGES = [
+  "Line Array & PA",
+  "Dijital Mikser & Stagebox",
+  "Kablosuz Mikrofon",
+  "Işık Tasarımı & DMX",
+];
+
+const HERO_METRICS = [
+  {
+    value: "10+",
+    label: "Yıl Deneyim",
+    detail: "Konser, festival ve kurumsal etkinliklerde canlı operasyon.",
+  },
+  {
+    value: "700+",
+    label: "Etkinlik",
+    detail: "Lansmandan festivale her ölçekte ses ve ışık kurulumu.",
+  },
+  {
+    value: "81 İl",
+    label: "Kurulum Operasyonu",
+    detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
+  },
+  {
+    value: "4.9/5",
+    label: "Müşteri Puanı",
+    detail: "250+ değerlendirmede yüksek memnuniyet ortalaması.",
+  },
+];
+
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24" aria-labelledby="hero-title">
-      <div className="absolute inset-0">
-        <Image 
-          src={HERO.src} 
-          alt={HERO.alt} 
-          fill 
-          priority 
+    <section
+      className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32"
+      aria-labelledby="hero-title"
+    >
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src={HERO.src}
+          alt={HERO.alt}
+          fill
+          priority
           fetchPriority="high"
-          className="object-cover"
+          className="object-cover object-center"
           sizes={HERO.sizes}
           quality={68}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+
+        <div
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.94)_0%,rgba(2,6,23,.78)_40%,rgba(2,6,23,.45)_72%,rgba(2,6,23,.22)_100%)]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#05070d] via-[#05070d]/[0.72] to-transparent"
+          aria-hidden="true"
+        />
+
+        <div
+          className="absolute left-[-10rem] top-1/3 h-[30rem] w-[30rem] rounded-full bg-blue-600/[0.16] blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute right-[-12rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-cyan-400/[0.12] blur-3xl"
+          aria-hidden="true"
+        />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">Türkiye Geneli Profesyonel Hizmet</span>
-        </div>
-
-        <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Profesyonel <span className="text-blue-200">Ses & Işık</span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Konser • Festival • Lansman • Konferans
-        </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Line array ses sistemleri, dijital mikserler ve hareketli ışık başlıkları ile 
-          <span className="font-semibold text-white"> anahtar teslim çözümler</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">💬</span> 
-            <span className="text-base">Hemen Teklif Al</span>
-          </Link>
-
-          <Link
-            href="#hizmetler"
-            aria-label="Hizmetlerimiz hakkında daha fazla bilgi edinin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">🎯</span> 
-            <span className="text-base">Hizmetlerimiz</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">250+ Değerlendirme</div>
+      <div className="relative z-10 container mx-auto max-w-7xl px-4">
+        <div className="max-w-4xl">
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/[0.16] bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+            <span
+              className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
+              aria-hidden="true"
+            />
+            <span>Türkiye geneli ses ve ışık sistemleri kurulumu</span>
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">700+</div>
-            <div className="text-white/80 text-sm">Etkinlik</div>
+
+          <h1
+            id="hero-title"
+            className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl"
+          >
+            Ses & Işık Sistemleri{" "}
+            <span className="gradient-text-clip-safe mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black md:text-4xl lg:text-5xl">
+              Kiralama ve Canlı Operasyon
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/[0.78] md:text-xl">
+            Konser, festival, lansman ve konferans etkinlikleri için line array
+            ses sistemleri, dijital mikserler, kablosuz mikrofonlar ve hareketli
+            ışık başlıklarıyla anahtar teslim çözümler.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            {HERO_BADGES.map((badge) => (
+              <span
+                key={badge}
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.88] backdrop-blur-md"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden="true" />
+                {badge}
+              </span>
+            ))}
           </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 İl</div>
-            <div className="text-white/80 text-sm">Hizmet</div>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              aria-label="WhatsApp üzerinden ses ve ışık sistemleri teklifi alın"
+              className="group inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-green-700 px-8 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+            >
+              Teklif Al
+              <ArrowRight
+                className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+
+            <Link
+              href="#hizmetler"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.07] px-8 py-3.5 font-black text-white backdrop-blur-md transition hover:border-blue-300/40 hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+            >
+              Hizmetleri Gör
+            </Link>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {HERO_METRICS.map((metric) => (
+              <div
+                key={metric.label}
+                className="rounded-2xl border border-white/[0.1] bg-white/[0.06] p-4 backdrop-blur-xl transition hover:border-blue-300/40 hover:bg-white/[0.1]"
+              >
+                <div className="gradient-text-clip-safe bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xl font-black md:text-2xl">
+                  {metric.value}
+                </div>
+                <div className="mt-1 text-xs font-bold text-blue-100 md:text-sm">{metric.label}</div>
+                <p className="mt-2 hidden text-xs leading-relaxed text-white/[0.6] lg:block">
+                  {metric.detail}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -594,7 +665,7 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-blue-700">Alanları</span>
+            Kullanım <span className="text-cyan-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık çözümlerimizin tercih edildiği başlıca etkinlik türleri ve özel çözümlerimiz
