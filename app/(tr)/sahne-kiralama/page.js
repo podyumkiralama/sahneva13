@@ -322,19 +322,44 @@ const PACKAGE_GUIDE = [
   },
 ];
 
-/* ================== HERO (FINAL – no overlap, no -mt) ================== */
+/* ================== HERO ================== */
+const HERO_BADGES = [
+  "Truss & Rigging",
+  "Modüler Podyum",
+  "LED Ekran Entegrasyonu",
+  "Ses & Işık Sistemleri",
+];
+
+const HERO_METRICS = [
+  {
+    value: "10+",
+    label: "Yıl Deneyim",
+    detail: "Konser, konferans ve festival sahnelerinde kesintisiz operasyon.",
+  },
+  {
+    value: "700+",
+    label: "Tamamlanan Proje",
+    detail: "Kurumsal lansmanlardan açık hava festivallerine geniş referans.",
+  },
+  {
+    value: "81 İl",
+    label: "Kurulum Operasyonu",
+    detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
+  },
+  {
+    value: "300+",
+    label: "Sahne Kurulumu",
+    detail: "Mini sahneden konser sahnesine her ölçekte kurulum.",
+  },
+];
+
 function Hero() {
   return (
     <section
-      className="
-        relative isolate overflow-hidden bg-slate-900 text-white
-        flex items-center justify-center
-        pt-20 pb-14 md:pb-16 lg:pt-24
-      "
+      className="relative isolate overflow-hidden bg-[#05070d] text-white pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32"
       aria-labelledby="hero-title"
     >
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         <Image
           src={HERO.src}
           alt={HERO.alt}
@@ -348,106 +373,105 @@ function Hero() {
           blurDataURL={BLUR_DATA_URL}
         />
 
-        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
-
         <div
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.94)_0%,rgba(2,6,23,.78)_40%,rgba(2,6,23,.45)_72%,rgba(2,6,23,.22)_100%)]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60"
+          className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#05070d] via-[#05070d]/[0.72] to-transparent"
+          aria-hidden="true"
+        />
+
+        <div
+          className="absolute left-[-10rem] top-1/3 h-[30rem] w-[30rem] rounded-full bg-blue-600/[0.16] blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute right-[-12rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-cyan-400/[0.12] blur-3xl"
           aria-hidden="true"
         />
       </div>
 
-      {/* CONTENT */}
-      <div className="relative z-10 w-full">
-        {/* ✅ Navbar çakışmasını burada çözüyoruz */}
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
-            <div className="inline-flex max-w-full items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-3 py-2 sm:px-4 border border-white/30 mb-6">
-              <span className="relative flex w-2 h-2" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-              </span>
-              <span className="text-xs font-bold text-white sm:text-sm">
-                Türkiye Geneli Profesyonel Kurulum
-              </span>
-            </div>
+      <div className="relative z-10 container mx-auto max-w-7xl px-4">
+        <div className="max-w-4xl">
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/[0.16] bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
+            <span
+              className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]"
+              aria-hidden="true"
+            />
+            <span>Türkiye geneli profesyonel sahne kurulumu</span>
+          </div>
 
-            <h1
-              id="hero-title"
-              className="mx-auto mb-4 max-w-[22rem] text-balance text-3xl font-black leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)] sm:max-w-4xl sm:text-4xl md:text-6xl lg:text-7xl"
+          <h1
+            id="hero-title"
+            className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl"
+          >
+            Sahne Kiralama{" "}
+            <span className="gradient-text-clip-safe mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black md:text-4xl lg:text-5xl">
+              ve Profesyonel Kurulum
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/[0.78] md:text-xl">
+            Konser, konferans, lansman, miting ve festival etkinlikleri için
+            truss sistemleri, modüler podyum, LED ekran ve ses-ışık altyapısıyla
+            anahtar teslim sahne çözümleri.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            {HERO_BADGES.map((badge) => (
+              <span
+                key={badge}
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.88] backdrop-blur-md"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden="true" />
+                {badge}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href={WHATSAPP}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              aria-label="WhatsApp üzerinden sahne kiralama teklifi alın"
+              className="group inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-green-700 px-8 py-3.5 font-black text-white shadow-[0_16px_38px_rgba(21,128,61,0.34)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
             >
-              <span className="block sm:inline">Profesyonel</span>{" "}
-              <span className="block text-blue-200 sm:inline">
-                Sahne Kiralama
-              </span>
-            </h1>
+              Teklif Al
+              <ArrowRight
+                className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-              Konser • Konferans • Lansman • Miting • Festival
-            </p>
+            <Link
+              href="#paketler"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.07] px-8 py-3.5 font-black text-white backdrop-blur-md transition hover:border-blue-300/40 hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+            >
+              Paketleri Gör
+            </Link>
+          </div>
 
-            <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-              Truss sistemleri, modüler podyum, LED ekranlar ile
-              <span className="font-semibold text-white">
-                {" "}
-                anahtar teslim sahne çözümleri
-              </span>
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                aria-label="WhatsApp üzerinden hemen teklif alın"
-                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl bg-green-700 px-6 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green-800 hover:shadow-xl focus-ring sm:w-auto sm:max-w-none sm:px-8"
+          <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {HERO_METRICS.map((metric) => (
+              <div
+                key={metric.label}
+                className="rounded-2xl border border-white/[0.1] bg-white/[0.06] p-4 backdrop-blur-xl transition hover:border-blue-300/40 hover:bg-white/[0.1]"
               >
-                <span aria-hidden="true" className="text-xl mr-2">
-                  💬
-                </span>
-                <span className="text-base">Hemen Teklif Al</span>
-              </Link>
-
-              <Link
-                href="#paketler"
-                aria-label="Paketlerimiz hakkında daha fazla bilgi edinin"
-                className="inline-flex min-h-[44px] w-full max-w-[260px] items-center justify-center rounded-2xl border-2 border-white/50 bg-slate-900/85 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:border-white/70 hover:bg-slate-900/95 focus-ring sm:w-auto sm:max-w-none sm:px-8"
-              >
-                <span aria-hidden="true" className="text-xl mr-2">
-                  🎯
-                </span>
-                <span className="text-base">Paketleri Gör</span>
-              </Link>
-            </div>
-
-            <div className="grid w-full max-w-sm grid-cols-3 gap-2 mx-auto sm:max-w-xl sm:gap-4">
-              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
-                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
-                  ⭐
-                </span>
-                <div className="text-lg font-black text-white sm:text-xl">10+</div>
-                <div className="text-xs leading-snug text-white/80 sm:text-sm">Yıl Deneyim</div>
+                <div className="gradient-text-clip-safe bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xl font-black md:text-2xl">
+                  {metric.value}
+                </div>
+                <div className="mt-1 text-xs font-bold text-blue-100 md:text-sm">{metric.label}</div>
+                <p className="mt-2 hidden text-xs leading-relaxed text-white/[0.6] lg:block">
+                  {metric.detail}
+                </p>
               </div>
-
-              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
-                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
-                  🏆
-                </span>
-                <div className="text-lg font-black text-white sm:text-xl">700+</div>
-                <div className="text-xs leading-snug text-white/80 sm:text-sm">Proje</div>
-              </div>
-
-              <div className="flex min-w-0 flex-col items-center rounded-xl border border-white/20 bg-white/10 p-3 text-center backdrop-blur-md sm:p-4">
-                <span className="mb-2 text-xl sm:text-2xl" aria-hidden="true">
-                  🚀
-                </span>
-                <div className="text-lg font-black text-white sm:text-xl">81 İl</div>
-                <div className="text-xs leading-snug text-white/80 sm:text-sm">Hizmet</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -585,7 +609,7 @@ function Services() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Profesyonel{" "}
-            <span className="text-cyan-300">
+            <span className="text-blue-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -1116,7 +1140,7 @@ function UseCases() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Kullanım{" "}
-            <span className="text-blue-700">
+            <span className="text-cyan-300">
               Alanları
             </span>
           </h2>
