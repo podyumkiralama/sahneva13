@@ -579,21 +579,21 @@ const SERVICES_DICT_EN = {
 
 const PROJECT_GALLERIES_EN = {
   "LED Wall Installations": {
-    imagePattern: "/img/galeri/led-ekran-kiralama-{{index}}.webp",
+    imageSlug: "led-ekran-kiralama",
     imageCount: 36,
     description: "Immersive LED surfaces for conferences, arenas and outdoor brand activations.",
     stats: "50+ Corporate Shows",
     icon: "🖥️",
   },
   "Event Tent Solutions": {
-    imagePattern: "/img/galeri/cadir-kiralama-{{index}}.webp",
+    imageSlug: "cadir-kiralama",
     imageCount: 19,
     description: "Weatherproof marquees, pagodas and hospitality structures for outdoor gatherings.",
     stats: "100+ Outdoor Events",
     icon: "⛺",
   },
   "Podium & Stage Builds": {
-    imagePattern: "/img/galeri/podyum-kiralama-{{index}}.webp",
+    imageSlug: "podyum-kiralama",
     imageCount: 36,
     description: "Custom podiums, risers and catwalks supporting product launches and ceremonies.",
     stats: "200+ Installations",
@@ -903,7 +903,7 @@ export default function EnglishHomePage() {
         <p className="sr-only">
           Professional partner for 700+ corporate events, concerts, fairs and activations.
         </p>
-        <a className="sr-only" href="/en/projects">View projects</a>
+        <Link className="sr-only" href="/en/projects">View projects</Link>
         <DeferredHydration
           fallback={<SectionLoading label="Loading projects" height="h-80" />}
           rootMargin="600px"

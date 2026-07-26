@@ -303,8 +303,12 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026-2",
-        destination: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
+        // Genel kuralın kapsayamadığı durum: "-2026" gibi rakamla biten meşru
+        // slug'lara eklenmiş hayalet sonekler (örn. /blog/...-2026-2). Genel
+        // kural path'in rakam dışı karakterle bitmesini şart koştuğu için bu
+        // varyantları kaçırıyor.
+        source: "/:path(.*-2026)-:num([0-9]{1,2})",
+        destination: "/:path",
         permanent: true,
       },
       {

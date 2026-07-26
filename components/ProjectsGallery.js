@@ -82,12 +82,15 @@ function fillTemplate(template, replacements) {
   return template?.replace(/\{\{(.*?)\}\}/g, (_, key) => replacements[key] ?? "");
 }
 
-function buildImages({ images, imagePattern, imageCount }) {
+// imageSlug + imageCount, RSC payload'ına "...-{{index}}.webp" gibi URL benzeri
+// string sızdırmadan galeri listesi üretir (GSC bu string'leri URL sanıp 404 tarıyordu).
+function buildImages({ images, imageSlug, imageCount }) {
   if (Array.isArray(images) && images.length) return images;
-  if (!imagePattern || !imageCount) return [];
+  if (!imageSlug || !imageCount) return [];
 
-  return Array.from({ length: imageCount }, (_, index) =>
-    fillTemplate(imagePattern, { index: index + 1 })
+  return Array.from(
+    { length: imageCount },
+    (_, index) => `/img/galeri/${imageSlug}-${index + 1}.webp`
   );
 }
 

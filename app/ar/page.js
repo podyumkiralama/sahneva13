@@ -210,21 +210,21 @@ const SERVICES_DICTIONARY_AR = {
 
 const PROJECT_GALLERIES_AR = {
   "تركيبات شاشات LED": {
-    imagePattern: "/img/galeri/led-ekran-kiralama-{{index}}.webp",
+    imageSlug: "led-ekran-kiralama",
     imageCount: 36,
     description: "شاشات غامرة للمؤتمرات، الملاعب وتجارب العلامات التجارية في الهواء الطلق.",
     stats: "+50 عرضًا مؤسسيًا",
     icon: "🖥️",
   },
   "حلول خيام الفعاليات": {
-    imagePattern: "/img/galeri/cadir-kiralama-{{index}}.webp",
+    imageSlug: "cadir-kiralama",
     imageCount: 19,
     description: "خيام مقاومة للطقس مع مساحات ضيافة وتجهيزات استقبال متكاملة.",
     stats: "+100 فعالية خارجية",
     icon: "⛺",
   },
   "منصات وبوديوم": {
-    imagePattern: "/img/galeri/podyum-kiralama-{{index}}.webp",
+    imageSlug: "podyum-kiralama",
     imageCount: 36,
     description: "منصات مخصصة، ممشى عرض وحلول بوديوم لدعم الإطلاقات والحفلات.",
     stats: "+200 تركيب",

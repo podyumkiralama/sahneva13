@@ -85,6 +85,19 @@ function shouldRedirectToCleanContactUrl(request) {
   return Array.from(searchParams.keys()).length > 0;
 }
 
+// Dış kaynaklı bozuk linklerde URL sonuna yapışan tırnak benzeri karakterler
+// (örn. /ses-sistemi-kiralama%22) GSC'de 404 üretiyor; next.config redirects
+// bu karakterleri eşleyemediği için temizlik burada yapılıyor.
+const TRAILING_JUNK_RE = /(?:["']|%22|%27)+$/i;
+
+function getCleanedJunkPathname(request) {
+  const { pathname } = request.nextUrl;
+  if (!TRAILING_JUNK_RE.test(pathname)) return null;
+
+  const cleaned = pathname.replace(TRAILING_JUNK_RE, "");
+  return cleaned || "/";
+}
+
 const HSTS_VALUE = "max-age=63072000; includeSubDomains; preload";
 
 function shouldRedirectToWww(request) {
@@ -113,6 +126,13 @@ export function proxy(request) {
     const response = NextResponse.redirect(url, 308);
     response.headers.set("Strict-Transport-Security", HSTS_VALUE);
     return response;
+  }
+
+  const cleanedJunkPathname = getCleanedJunkPathname(request);
+  if (cleanedJunkPathname) {
+    const url = request.nextUrl.clone();
+    url.pathname = cleanedJunkPathname;
+    return NextResponse.redirect(url, 308);
   }
 
   if (shouldRedirectToCleanContactUrl(request)) {
