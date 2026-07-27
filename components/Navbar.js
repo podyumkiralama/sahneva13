@@ -23,6 +23,9 @@ const EN_WHATSAPP_MESSAGE = encodeURIComponent(
 const RU_WHATSAPP_MESSAGE = encodeURIComponent(
   "Здравствуйте, я хочу получить расчет и поддержку по оборудованию для мероприятия от Sahneva.",
 );
+const ZH_WHATSAPP_MESSAGE = encodeURIComponent(
+  "您好，我想咨询在土耳其举办活动的设备租赁与报价。",
+);
 
 const TR_SERVICE_LINKS = [
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon", icon: "🏢", description: "Sahne, LED ekran ve teknik prodüksiyon" },
@@ -54,28 +57,29 @@ function DesktopNavLink({ href, children }) {
 export default function Navbar({ locale = "tr", ...props }) {
   const isEn = locale === "en";
   const isRu = locale === "ru";
-  const navContent = isEn ? LOCALE_CONTENT.en.navbar : isRu ? LOCALE_CONTENT.ru.navbar : null;
+  const isZh = locale === "zh";
+  const navContent = isEn ? LOCALE_CONTENT.en.navbar : isRu ? LOCALE_CONTENT.ru.navbar : isZh ? LOCALE_CONTENT.zh.navbar : null;
   const SERVICE_LINKS = navContent?.serviceLinks ?? TR_SERVICE_LINKS;
   const RESEARCH_LINKS = navContent?.researchLinks ?? TR_RESEARCH_LINKS;
-  const whatsappMessage = isEn ? EN_WHATSAPP_MESSAGE : isRu ? RU_WHATSAPP_MESSAGE : TR_WHATSAPP_MESSAGE;
+  const whatsappMessage = isEn ? EN_WHATSAPP_MESSAGE : isRu ? RU_WHATSAPP_MESSAGE : isZh ? ZH_WHATSAPP_MESSAGE : TR_WHATSAPP_MESSAGE;
   const whatsappHref = `https://wa.me/905453048671?text=${whatsappMessage}&utm_source=navbar&utm_medium=desktop_whatsapp`;
-  const homeHref = isEn ? "/en" : isRu ? "/ru" : "/";
-  const aboutHref = isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda";
-  const showcaseHref = isEn ? "/en/our-work" : isRu ? "/ru/our-work" : "/yaptiklarimiz";
-  const servicesHref = isEn ? "/en/services" : isRu ? "/ru/services" : "/hizmetler";
-  const aboutLabel = isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda";
-  const showcaseLabel = isEn ? "Our Work" : isRu ? "Наши работы" : "Yaptıklarımız";
-  const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
-  const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın";
-  const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : "Süreç, iletişim ve bilgi sayfaları";
-  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : isRu ? "Сцены, подиумы, LED-экраны, звук, свет и шатры." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
-  const viewAllLabel = isEn ? "View All Services" : isRu ? "Все услуги" : "Tümünü gör";
-  const whatsappLabel = isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek";
-  const logoAriaLabel = isEn ? "Sahneva - Home" : isRu ? "Sahneva - Главная" : "Sahneva - Ana Sayfa";
-  const navAriaLabel = isEn ? "Main menu" : isRu ? "Главное меню" : "Ana menü";
-  const megaBadge = isEn ? "Sahneva" : isRu ? "Sahneva" : "Sahneva Organizasyon";
-  const megaTitle = isEn ? "Services" : isRu ? "Услуги" : "Hizmetler";
-  const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
+  const homeHref = isEn ? "/en" : isRu ? "/ru" : isZh ? "/zh" : "/";
+  const aboutHref = isEn ? "/en/about" : isRu ? "/ru/about" : isZh ? "/zh/about" : "/hakkimizda";
+  const showcaseHref = isEn ? "/en/our-work" : isRu ? "/ru/our-work" : isZh ? "/zh/our-work" : "/yaptiklarimiz";
+  const servicesHref = isEn ? "/en/services" : isRu ? "/ru/services" : isZh ? "/zh/services" : "/hizmetler";
+  const aboutLabel = isEn ? "About Us" : isRu ? "О нас" : isZh ? "关于我们" : "Hakkımızda";
+  const showcaseLabel = isEn ? "Our Work" : isRu ? "Наши работы" : isZh ? "项目案例" : "Yaptıklarımız";
+  const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : "Hizmetler";
+  const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : isZh ? "了解 Sahneva" : "Bizi Araştırın";
+  const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : isZh ? "联系方式、服务与项目案例" : "Süreç, iletişim ve bilgi sayfaları";
+  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : isRu ? "Сцены, подиумы, LED-экраны, звук, свет и шатры." : isZh ? "舞台、T台、LED屏幕、音响灯光与篷房。" : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
+  const viewAllLabel = isEn ? "View All Services" : isRu ? "Все услуги" : isZh ? "查看全部服务" : "Tümünü gör";
+  const whatsappLabel = isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : isZh ? "WhatsApp" : "WhatsApp Destek";
+  const logoAriaLabel = isEn ? "Sahneva - Home" : isRu ? "Sahneva - Главная" : isZh ? "Sahneva - 首页" : "Sahneva - Ana Sayfa";
+  const navAriaLabel = isEn ? "Main menu" : isRu ? "Главное меню" : isZh ? "主菜单" : "Ana menü";
+  const megaBadge = isEn || isRu || isZh ? "Sahneva" : "Sahneva Organizasyon";
+  const megaTitle = isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : "Hizmetler";
+  const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : isZh ? "Sahneva 服务：舞台、T台、LED屏幕、音响灯光与篷房" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
 
   return (
     <>

@@ -13,6 +13,7 @@ const WHATSAPP_MESSAGE = {
   tr: encodeURIComponent("Merhaba, Sahneva ile etkinlik ekipmanları için teklif ve destek almak istiyorum."),
   en: encodeURIComponent("Hello, I would like to get a quote and support for event equipment from Sahneva."),
   ru: encodeURIComponent("Здравствуйте, я хочу получить расчет и поддержку по оборудованию для мероприятия от Sahneva."),
+  zh: encodeURIComponent("您好，我想咨询在土耳其举办活动的设备租赁与报价。"),
 };
 
 export default function NavbarMobile({ locale = "tr", serviceLinks, researchLinks }) {
@@ -20,6 +21,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
   const uid = useId();
   const isEn = locale === "en";
   const isRu = locale === "ru";
+  const isZh = locale === "zh";
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -32,35 +34,39 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
   const descId = `mobile-menu-desc-${uid}`;
 
   const labels = {
-    about: isEn ? "About Us" : isRu ? "О нас" : "Hakkımızda",
-    services: isEn ? "Services" : isRu ? "Услуги" : "Hizmetler",
-    explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : "Bizi Araştırın",
-    showcase: isEn ? "Our Work" : isRu ? "Наши работы" : "Yaptıklarımız",
-    support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : "WhatsApp Destek",
+    about: isEn ? "About Us" : isRu ? "О нас" : isZh ? "关于我们" : "Hakkımızda",
+    services: isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : "Hizmetler",
+    explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : isZh ? "了解 Sahneva" : "Bizi Araştırın",
+    showcase: isEn ? "Our Work" : isRu ? "Наши работы" : isZh ? "项目案例" : "Yaptıklarımız",
+    support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : isZh ? "WhatsApp" : "WhatsApp Destek",
     supportText: isEn
       ? "Get a quick quote and send your questions on WhatsApp."
       : isRu
         ? "Получите быстрый расчет и отправьте вопросы в WhatsApp."
+      : isZh
+        ? "通过 WhatsApp 快速获取报价并咨询问题。"
       : "WhatsApp üzerinden anında teklif alın ve sorularınızı iletin.",
-    open: isEn ? "Open menu" : isRu ? "Открыть меню" : "Menüyü Aç",
-    close: isEn ? "Close menu" : isRu ? "Закрыть меню" : "Menüyü Kapat",
-    heading: isEn ? "Main navigation menu" : isRu ? "Основное меню" : "Ana gezinme menüsü",
+    open: isEn ? "Open menu" : isRu ? "Открыть меню" : isZh ? "打开菜单" : "Menüyü Aç",
+    close: isEn ? "Close menu" : isRu ? "Закрыть меню" : isZh ? "关闭菜单" : "Menüyü Kapat",
+    heading: isEn ? "Main navigation menu" : isRu ? "Основное меню" : isZh ? "主导航菜单" : "Ana gezinme menüsü",
     description: isEn
       ? "Use the tab key to navigate between menu links."
       : isRu
         ? "Используйте клавишу Tab для навигации по ссылкам меню."
+      : isZh
+        ? "可使用 Tab 键在菜单链接之间切换。"
       : "Menü bağlantıları arasında gezinmek için tab tuşunu kullanabilirsiniz.",
   };
 
   const links = {
-    about: isEn ? "/en/about" : isRu ? "/ru/about" : "/hakkimizda",
-    showcase: isEn ? "/en/our-work" : isRu ? "/ru/our-work" : "/yaptiklarimiz",
+    about: isEn ? "/en/about" : isRu ? "/ru/about" : isZh ? "/zh/about" : "/hakkimizda",
+    showcase: isEn ? "/en/our-work" : isRu ? "/ru/our-work" : isZh ? "/zh/our-work" : "/yaptiklarimiz",
   };
 
   const mobileWhatsappHref = useMemo(
     () =>
-      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : isRu ? "ru" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
-    [isEn, isRu],
+      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : isRu ? "ru" : isZh ? "zh" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
+    [isEn, isRu, isZh],
   );
 
   const closeMenu = useCallback(({ restoreFocus = true } = {}) => {

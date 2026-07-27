@@ -310,6 +310,10 @@ export const FAQ_ITEMS = [
     a: "Lansman, konferans, bayi toplantısı, gala, ödül gecesi, fuar ve büyük ölçekli marka etkinliklerinde sahne, LED ekran, ses-ışık, truss, podyum ve teknik reji kuruyoruz.",
   },
   {
+    q: "İşin tamamını mı alıyorsunuz, ajanslarla da çalışıyor musunuz?",
+    a: "İkisi de. Sahneva bir kurumsal etkinliği baştan sona ana yüklenici olarak alabilir; planlama, ekipman, kurulum, etkinlik günü operasyonu ve söküm tek sözleşme altında yürütülür ve markanın tek muhatabı olur. Aynı zamanda etkinlik ajansları, PCO ve DMC firmalarının projelerinde teknik prodüksiyon partneri olarak çalışırız; bu modelde müşteri sahipliği ve kreatif yön ajansta kalırken sahne, LED ekran, ses, ışık, truss ve saha operasyonunu biz üstleniriz.",
+  },
+  {
     q: "Sadece ekipman mı sağlıyorsunuz?",
     a: "Hayır. Sahneva yalnızca ekipman sağlayan bir firma değildir; kurumsal organizasyon projelerinde keşif, teknik planlama, sahne ve LED ekran mimarisi, prova, kurulum, saha koordinasyonu ve etkinlik sonrası söküm süreci aynı operasyon akışı içinde yönetilir. Bu yaklaşım, kurumsal organizasyon nedir sorusunu ekipman kiralama değil, planlı bir teknik prodüksiyon disiplini olarak ele almamızı sağlar.",
   },

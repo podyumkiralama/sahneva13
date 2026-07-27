@@ -38,6 +38,7 @@ export const metadata = {
     tr: "/led-ekran-kiralama",
     en: "/en/led-screen-rental",
     ru: "/ru/led-screen-rental",
+    zh: "/zh/led-screen-rental",
     canonical: "/en/led-screen-rental",
     xDefault: "/led-ekran-kiralama",
   }),

@@ -64,6 +64,7 @@ export const metadata = {
     tr: "/sahne-kiralama",
     en: "/en/stage-rental",
     ru: "/ru/stage-rental",
+    zh: "/zh/stage-rental",
     xDefault: "/sahne-kiralama",
   }),
   openGraph: {

@@ -40,6 +40,7 @@ export const metadata = {
       "tr-TR": `${ORIGIN}/cadir-kiralama`,
       "en": `${ORIGIN}/en/tent-rental`,
       "ru": `${ORIGIN}/ru/tent-rental`,
+      "zh": `${ORIGIN}/zh/tent-rental`,
       "x-default": `${ORIGIN}/cadir-kiralama`,
     },
   },

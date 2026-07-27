@@ -9,6 +9,7 @@ import {
   getPageEntries,
   getProjectEntries,
   getRuPageEntries,
+  getZhPageEntries,
 } from "@/lib/sitemap/data";
 import { buildSitemapIndex, getLatestLastMod } from "@/lib/sitemap/xml";
 
@@ -17,6 +18,7 @@ const SITEMAP_FEEDS = Object.freeze([
   { path: "/sitemap-en.xml", getEntries: getEnPageEntries },
   { path: "/sitemap-ar.xml", getEntries: getArPageEntries },
   { path: "/sitemap-ru.xml", getEntries: getRuPageEntries },
+  { path: "/sitemap-zh.xml", getEntries: getZhPageEntries },
   { path: "/sitemap-blog.xml", getEntries: getBlogEntries },
   { path: "/sitemap-en-blog.xml", getEntries: getEnBlogEntries },
   { path: "/sitemap-projects.xml", getEntries: getProjectEntries },

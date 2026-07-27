@@ -60,7 +60,7 @@ const globalJsonLd = {
         telephone: "+905453048671",
         contactType: "customer service",
         areaServed: "TR",
-        availableLanguage: ["tr", "en", "ar", "ru"],
+        availableLanguage: ["tr", "en", "ar", "ru", "zh"],
       },
       sameAs: SOCIAL_PROFILES,
     },

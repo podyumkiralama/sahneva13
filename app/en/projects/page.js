@@ -21,6 +21,7 @@ export const metadata = {
       "en": `${ORIGIN}/en/projects`,
       "ar": `${ORIGIN}/ar/projects`,
       "ru": `${ORIGIN}/ru/projects`,
+      "zh": `${ORIGIN}/zh/projects`,
       "x-default": `${ORIGIN}/projeler`,
     },
   },

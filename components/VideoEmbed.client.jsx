@@ -48,6 +48,7 @@ const PLAY_LABELS = {
   en: "Watch Video",
   ru: "Смотреть видео",
   ar: "شاهد الفيديو",
+  zh: "观看视频",
 };
 
 const PREVIEW_ERROR_LABELS = {
@@ -55,6 +56,7 @@ const PREVIEW_ERROR_LABELS = {
   en: "Preview unavailable",
   ru: "Превью недоступно",
   ar: "المعاينة غير متاحة",
+  zh: "预览不可用",
 };
 
 export default function VideoEmbed({

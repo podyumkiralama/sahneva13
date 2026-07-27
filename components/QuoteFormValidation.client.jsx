@@ -10,6 +10,7 @@ const SUMMARY_MESSAGES = {
   ru: (count) =>
     `Форма не отправлена: заполните или исправьте отмеченные поля (${count}).`,
   ar: (count) => `تعذّر إرسال النموذج: يرجى تصحيح الحقول المحددة (${count}).`,
+  zh: (count) => `表单提交失败：有 ${count} 个字段缺失或有误，请检查标记的字段。`,
 };
 
 const ERROR_CLASS = "mt-2 text-xs font-semibold text-red-600";

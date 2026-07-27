@@ -39,6 +39,7 @@ export const metadata = {
     tr: "/ses-isik-sistemleri",
     en: "/en/sound-light-rental",
     ru: "/ru/sound-light-rental",
+    zh: "/zh/sound-light-rental",
     canonical: "/en/sound-light-rental",
     xDefault: "/ses-isik-sistemleri",
   }),

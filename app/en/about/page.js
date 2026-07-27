@@ -21,6 +21,7 @@ export const metadata = {
       "en": "https://www.sahneva.com/en/about",
       "ar": "https://www.sahneva.com/ar/about",
       "ru": "https://www.sahneva.com/ru/about",
+      "zh": "https://www.sahneva.com/zh/about",
       "x-default": "https://www.sahneva.com/hakkimizda",
     },
   },

@@ -253,6 +253,7 @@ export const metadata = {
     tr: "/kurumsal-organizasyon",
     en: "/en/corporate-events",
     ru: "/ru/corporate-events",
+    zh: "/zh/corporate-events",
     canonical: "/kurumsal-organizasyon",
     xDefault: "/kurumsal-organizasyon",
   }),

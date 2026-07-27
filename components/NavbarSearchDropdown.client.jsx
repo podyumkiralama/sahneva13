@@ -38,15 +38,18 @@ const filterRoutes = (routes, query) => {
 
 export default function NavbarSearchDropdown({ locale = "tr", compact = false }) {
   const isEn = locale === "en";
-  const searchButtonLabel = isEn ? "Search" : "Ara";
-  const searchAriaLabel = isEn ? "Search the site" : "Site içinde arama";
-  const searchInputLabel = isEn ? "Search the site" : "Site içinde arama yapın";
-  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : "Örn: LED ekran kiralama...";
+  const isZh = locale === "zh";
+  const searchButtonLabel = isEn ? "Search" : isZh ? "搜索" : "Ara";
+  const searchAriaLabel = isEn ? "Search the site" : isZh ? "站内搜索" : "Site içinde arama";
+  const searchInputLabel = isEn ? "Search the site" : isZh ? "在网站内搜索" : "Site içinde arama yapın";
+  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : isZh ? "例如：LED屏幕租赁..." : "Örn: LED ekran kiralama...";
   const searchHint = isEn
     ? "Press Enter to open the search page."
-    : "Enter ile arama sayfasına gidebilirsiniz.";
-  const noResults = isEn ? "No matching page found." : "Eşleşen bir sayfa bulunamadı.";
-  const viewAllLabel = isEn ? "View all results" : "Tüm sonuçları gör";
+    : isZh
+      ? "按 Enter 键打开搜索页面。"
+      : "Enter ile arama sayfasına gidebilirsiniz.";
+  const noResults = isEn ? "No matching page found." : isZh ? "未找到匹配的页面。" : "Eşleşen bir sayfa bulunamadı.";
+  const viewAllLabel = isEn ? "View all results" : isZh ? "查看全部结果" : "Tüm sonuçları gör";
 
   const router = useRouter();
   const wrapperRef = useRef(null);

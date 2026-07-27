@@ -22,6 +22,7 @@ export const metadata = {
       en: `${BASE_SITE_URL}/en/contact`,
       ar: `${BASE_SITE_URL}/ar/contact`,
       ru: `${BASE_SITE_URL}/ru/contact`,
+      zh: `${BASE_SITE_URL}/zh/contact`,
       "x-default": PAGE_URL,
     },
   },

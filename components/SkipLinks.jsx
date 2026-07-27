@@ -19,6 +19,11 @@ const STRINGS = {
     toHeader: "Перейти к шапке",
     toFooter: "Перейти к подвалу",
   },
+  zh: {
+    toMain: "跳转到主要内容",
+    toHeader: "跳转到页眉",
+    toFooter: "跳转到页脚",
+  },
 };
 
 const LINK_CLASSNAME =
@@ -36,6 +41,7 @@ function normalizeLocale(value) {
   if (normalized.startsWith("en")) return "en";
   if (normalized.startsWith("ar")) return "ar";
   if (normalized.startsWith("ru")) return "ru";
+  if (normalized.startsWith("zh")) return "zh";
   return "tr";
 }
 

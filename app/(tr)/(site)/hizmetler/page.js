@@ -17,6 +17,7 @@ export const metadata = {
       "en": `${BASE_SITE_URL}/en/services`,
       "ar": `${BASE_SITE_URL}/ar/services`,
       "ru": `${BASE_SITE_URL}/ru/services`,
+      "zh": `${BASE_SITE_URL}/zh/services`,
       "x-default": `${BASE_SITE_URL}/hizmetler`,
     },
   },

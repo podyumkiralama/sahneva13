@@ -22,6 +22,7 @@ export const metadata = {
       en: PAGE_URL,
       ar: `${BASE_SITE_URL}/ar/contact`,
       ru: `${BASE_SITE_URL}/ru/contact`,
+      zh: `${BASE_SITE_URL}/zh/contact`,
       "x-default": `${BASE_SITE_URL}/iletisim`,
     },
   },
