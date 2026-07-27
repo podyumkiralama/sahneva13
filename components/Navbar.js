@@ -127,7 +127,7 @@ export default function Navbar({ locale = "tr", ...props }) {
               <NavbarSearchDropdown locale={locale} compact />
               <a href={whatsappHref} target="_blank" rel="nofollow noopener noreferrer" aria-label={`${whatsappLabel} – ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`} className={`inline-flex min-h-[40px] items-center gap-1.5 whitespace-nowrap rounded-xl border border-emerald-200 bg-white px-3 py-2 text-sm font-bold text-emerald-700 shadow-sm transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-800 hover:shadow-md nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 nav-dark:hover:text-emerald-200 ${FOCUS_RING_CLASS}`}><span aria-hidden="true" className="text-sm">💬</span><span>{whatsappLabel}</span></a>
               <LanguageSwitcher locale={locale} compact />
-              <ThemeSwitcher compact />
+              <ThemeSwitcher compact locale={locale} />
             </div>
             <NavbarMobile locale={locale} serviceLinks={SERVICE_LINKS} researchLinks={RESEARCH_LINKS} />
           </div>

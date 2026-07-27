@@ -1,6 +1,7 @@
 export const CHINESE_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
+    gallery: "stage",
     href: "/zh/stage-rental",
     title: "土耳其舞台租赁",
     shortTitle: "舞台与T台",
@@ -102,6 +103,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "led-screen-rental": {
     slug: "led-screen-rental",
+    gallery: "led",
     href: "/zh/led-screen-rental",
     title: "土耳其LED屏幕租赁",
     shortTitle: "LED屏幕",
@@ -203,6 +205,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "sound-light-rental": {
     slug: "sound-light-rental",
+    gallery: "sound-light",
     href: "/zh/sound-light-rental",
     title: "土耳其音响灯光租赁",
     shortTitle: "音响与灯光",
@@ -304,6 +307,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "tent-rental": {
     slug: "tent-rental",
+    gallery: "tent",
     href: "/zh/tent-rental",
     title: "土耳其篷房租赁",
     shortTitle: "篷房",
@@ -405,6 +409,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "corporate-events": {
     slug: "corporate-events",
+    gallery: "corporate",
     href: "/zh/corporate-events",
     title: "土耳其企业活动制作",
     shortTitle: "企业活动",

@@ -208,7 +208,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
           <div className="max-h-[80vh] space-y-3 overflow-y-auto px-5 py-6">
             <div className="mb-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 nav-dark:border-white/10 nav-dark:bg-white/[0.06]">
               <LanguageSwitcher locale={locale} align="left" />
-              <ThemeSwitcher align="left" />
+              <ThemeSwitcher align="left" locale={locale} />
             </div>
 
             <Link href={links.about} prefetch={false} onClick={() => closeMenu()} className={menuLinkClass}>

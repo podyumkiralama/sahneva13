@@ -20,8 +20,99 @@ const FOCUS_RING =
 const LIGHTBOX_RING =
   "focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black";
 
-function getImageAlt(image, index) {
-  return image?.alt || `Proje galerisi görseli ${index + 1}`;
+const LABELS = {
+  tr: {
+    galleryLabel: "Proje galerisi",
+    galleryTitle: "Görsel galerisi",
+    fallbackAlt: (n) => `Proje galerisi görseli ${n}`,
+    openLarge: (alt) => `${alt} - büyük görseli aç`,
+    preview: (alt) => `${alt} - önizleme`,
+    enlarge: (alt) => `${alt} - görseli büyüt`,
+    openGallery: "Galeriyi aç",
+    close: "Galeriyi kapat",
+    prev: "Önceki görsel",
+    next: "Sonraki görsel",
+    goTo: (n) => `${n}. görsele git`,
+    thumb: (alt) => `${alt} küçük önizleme`,
+    more: (n) => `+${n} görsel`,
+    hiddenNote: (n) =>
+      `Galeride ${n} adet daha görsel bulunuyor. Lightbox açıldığında tüm görseller gezilebilir.`,
+    keyboardHint: "Escape ile kapatabilir, ok tuşlarıyla gezebilirsiniz.",
+  },
+  en: {
+    galleryLabel: "Project gallery",
+    galleryTitle: "Image gallery",
+    fallbackAlt: (n) => `Project gallery image ${n}`,
+    openLarge: (alt) => `${alt} - open larger image`,
+    preview: (alt) => `${alt} - preview`,
+    enlarge: (alt) => `${alt} - enlarge image`,
+    openGallery: "Open gallery",
+    close: "Close gallery",
+    prev: "Previous image",
+    next: "Next image",
+    goTo: (n) => `Go to image ${n}`,
+    thumb: (alt) => `${alt} thumbnail`,
+    more: (n) => `+${n} images`,
+    hiddenNote: (n) =>
+      `${n} more images are available. All images can be browsed once the lightbox is open.`,
+    keyboardHint: "Press Escape to close, use arrow keys to navigate.",
+  },
+  ru: {
+    galleryLabel: "Галерея проектов",
+    galleryTitle: "Галерея изображений",
+    fallbackAlt: (n) => `Изображение галереи проектов ${n}`,
+    openLarge: (alt) => `${alt} - открыть увеличенное изображение`,
+    preview: (alt) => `${alt} - предпросмотр`,
+    enlarge: (alt) => `${alt} - увеличить изображение`,
+    openGallery: "Открыть галерею",
+    close: "Закрыть галерею",
+    prev: "Предыдущее изображение",
+    next: "Следующее изображение",
+    goTo: (n) => `Перейти к изображению ${n}`,
+    thumb: (alt) => `${alt} миниатюра`,
+    more: (n) => `+${n} фото`,
+    hiddenNote: (n) =>
+      `В галерее есть еще ${n} изображений. Все изображения доступны после открытия лайтбокса.`,
+    keyboardHint: "Escape — закрыть, стрелки — навигация.",
+  },
+  zh: {
+    galleryLabel: "项目图库",
+    galleryTitle: "图片库",
+    fallbackAlt: (n) => `项目图库图片 ${n}`,
+    openLarge: (alt) => `${alt} - 打开大图`,
+    preview: (alt) => `${alt} - 预览`,
+    enlarge: (alt) => `${alt} - 放大图片`,
+    openGallery: "打开图库",
+    close: "关闭图库",
+    prev: "上一张图片",
+    next: "下一张图片",
+    goTo: (n) => `跳转到第 ${n} 张图片`,
+    thumb: (alt) => `${alt} 缩略图`,
+    more: (n) => `+${n} 张图片`,
+    hiddenNote: (n) => `图库中还有 ${n} 张图片，打开灯箱后可浏览全部图片。`,
+    keyboardHint: "按 Escape 关闭，使用方向键浏览。",
+  },
+  ar: {
+    galleryLabel: "معرض المشاريع",
+    galleryTitle: "معرض الصور",
+    fallbackAlt: (n) => `صورة معرض المشاريع ${n}`,
+    openLarge: (alt) => `${alt} - افتح الصورة المكبرة`,
+    preview: (alt) => `${alt} - معاينة`,
+    enlarge: (alt) => `${alt} - تكبير الصورة`,
+    openGallery: "افتح المعرض",
+    close: "أغلق المعرض",
+    prev: "الصورة السابقة",
+    next: "الصورة التالية",
+    goTo: (n) => `انتقل إلى الصورة ${n}`,
+    thumb: (alt) => `${alt} صورة مصغرة`,
+    more: (n) => `+${n} صورة`,
+    hiddenNote: (n) => `يوجد ${n} صورة إضافية. يمكن تصفح كل الصور بعد فتح العارض.`,
+    keyboardHint: "اضغط Escape للإغلاق واستخدم الأسهم للتنقل.",
+  },
+};
+
+function getImageAlt(image, index, t) {
+  return image?.alt || t.fallbackAlt(index + 1);
 }
 
 function CaseGallery({
@@ -29,7 +120,9 @@ function CaseGallery({
   visibleCount = 4,
   layout = "grid",
   priorityCount = 1,
+  locale = "tr",
 }) {
+  const t = LABELS[locale] ?? LABELS.tr;
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -203,18 +296,18 @@ function CaseGallery({
   return (
     <div className="w-full">
       {layout === "featured" ? (
-        <div className="space-y-5" aria-label="Proje galerisi">
+        <div className="space-y-5" aria-label={t.galleryLabel}>
           <button
             type="button"
             className={`group relative mx-auto block aspect-[4/3] max-h-[62vh] min-h-[220px] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${FOCUS_RING}`}
             onClick={() => openLightbox(activeIndex)}
-            aria-label={`${getImageAlt(mainImage, activeIndex)} - büyük görseli aç`}
+            aria-label={t.openLarge(getImageAlt(mainImage, activeIndex, t))}
           >
             {mainImage && (
               <Image
                 key={mainImage.src}
                 src={mainImage.src}
-                alt={getImageAlt(mainImage, activeIndex)}
+                alt={getImageAlt(mainImage, activeIndex, t)}
                 fill
                 sizes="(max-width: 1024px) 100vw, 72vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
@@ -225,7 +318,7 @@ function CaseGallery({
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent opacity-80" />
             <span className="absolute bottom-5 left-5 rounded-full bg-white/95 px-4 py-2 text-sm font-black text-slate-950 shadow-lg">
-              Galeriyi aç
+              {t.openGallery}
             </span>
           </button>
 
@@ -243,11 +336,11 @@ function CaseGallery({
                   setActiveIndex(index);
                   setCurrentIndex(index);
                 }}
-                aria-label={`${getImageAlt(img, index)} - önizleme`}
+                aria-label={t.preview(getImageAlt(img, index, t))}
               >
                 <Image
                   src={img.src}
-                  alt={getImageAlt(img, index)}
+                  alt={getImageAlt(img, index, t)}
                   fill
                   sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
                   className="object-cover"
@@ -262,7 +355,7 @@ function CaseGallery({
       ) : (
         <div
           className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4"
-          aria-label="Proje galerisi"
+          aria-label={t.galleryLabel}
         >
           {displayImages.map((img, index) => {
             const isLastVisible = hasHiddenImages && index === displayImages.length - 1;
@@ -279,11 +372,11 @@ function CaseGallery({
                     index === 0 ? "aspect-[4/3] h-full" : aspect
                   }`}
                   onClick={() => openLightbox(index)}
-                  aria-label={`${getImageAlt(img, index)} - görseli büyüt`}
+                  aria-label={t.enlarge(getImageAlt(img, index, t))}
                 >
                   <Image
                     src={img.src}
-                    alt={getImageAlt(img, index)}
+                    alt={getImageAlt(img, index, t)}
                     fill
                     sizes={
                       index === 0
@@ -301,7 +394,7 @@ function CaseGallery({
                   </span>
                   {isLastVisible && (
                     <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center bg-slate-950/70 text-center text-lg font-black text-white backdrop-blur-sm">
-                      +{hiddenCount} görsel
+                      {t.more(hiddenCount)}
                     </span>
                   )}
                 </button>
@@ -317,10 +410,7 @@ function CaseGallery({
       )}
 
       {hasHiddenImages && (
-        <p className="sr-only">
-          Galeride {hiddenCount} adet daha görsel bulunuyor. Lightbox açıldığında
-          tüm görseller gezilebilir.
-        </p>
+        <p className="sr-only">{t.hiddenNote(hiddenCount)}</p>
       )}
 
       {mounted && open && currentImage
@@ -337,11 +427,11 @@ function CaseGallery({
               onTouchEnd={handleTouchEnd}
             >
           <h2 id="case-gallery-title" className="sr-only">
-            Görsel galerisi
+            {t.galleryTitle}
           </h2>
           <p id="case-gallery-description" className="sr-only">
-            {getImageAlt(currentImage, currentIndex)}. {currentIndex + 1} /{" "}
-            {images.length}. Escape ile kapatabilir, ok tuşlarıyla gezebilirsiniz.
+            {getImageAlt(currentImage, currentIndex, t)}. {currentIndex + 1} /{" "}
+            {images.length}. {t.keyboardHint}
           </p>
 
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/70 to-transparent" />
@@ -351,7 +441,7 @@ function CaseGallery({
             type="button"
             className={`absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 ${LIGHTBOX_RING}`}
             onClick={closeLightbox}
-            aria-label="Galeriyi kapat"
+            aria-label={t.close}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
@@ -373,7 +463,7 @@ function CaseGallery({
                 type="button"
                 className={`absolute left-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
                 onClick={handlePrev}
-                aria-label="Önceki görsel"
+                aria-label={t.prev}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -389,7 +479,7 @@ function CaseGallery({
                 type="button"
                 className={`absolute right-3 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:inline-flex ${LIGHTBOX_RING}`}
                 onClick={handleNext}
-                aria-label="Sonraki görsel"
+                aria-label={t.next}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -408,7 +498,7 @@ function CaseGallery({
             <Image
               key={currentImage.src}
               src={currentImage.src}
-              alt={getImageAlt(currentImage, currentIndex)}
+              alt={getImageAlt(currentImage, currentIndex, t)}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 92vw, 1200px"
               className="object-contain"
@@ -436,11 +526,11 @@ function CaseGallery({
                       : "border-white/20 opacity-60 hover:opacity-100"
                   }`}
                   onClick={() => setCurrentIndex(index)}
-                  aria-label={`${index + 1}. görsele git`}
+                  aria-label={t.goTo(index + 1)}
                 >
                   <Image
                     src={img.src}
-                    alt={`${getImageAlt(img, index)} küçük önizleme`}
+                    alt={t.thumb(getImageAlt(img, index, t))}
                     fill
                     sizes="80px"
                     className="object-cover"

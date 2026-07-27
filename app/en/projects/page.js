@@ -4,7 +4,9 @@ import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { getEnProjects } from "@/lib/enProjects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
+import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 
 export const revalidate = 86400;
 
@@ -304,6 +306,39 @@ export default async function ProjectsIndexPageEn() {
             </p>
           </div>
         )}
+      </section>
+
+      <section className="relative bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-9 max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              Portfolio
+            </p>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
+              Photographs from real event sites
+            </h2>
+            <p className="mt-5 text-base leading-8 text-slate-700">
+              Stage, LED screen, sound, lighting, truss and tent installations photographed
+              during build-up and on event day across Turkey.
+            </p>
+          </div>
+
+          <CaseGallery
+            images={getFeaturedPortfolio("en")}
+            visibleCount={8}
+            priorityCount={2}
+            locale="en"
+          />
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/en/our-work"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+            >
+              Watch on-site project videos
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

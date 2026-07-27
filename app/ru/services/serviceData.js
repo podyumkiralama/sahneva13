@@ -1,6 +1,7 @@
 export const RUSSIAN_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
+    gallery: "stage",
     href: "/ru/stage-rental",
     title: "Аренда сцены в Турции",
     shortTitle: "Сцены и подиумы",
@@ -102,6 +103,7 @@ export const RUSSIAN_SERVICE_PAGES = {
   },
   "led-screen-rental": {
     slug: "led-screen-rental",
+    gallery: "led",
     href: "/ru/led-screen-rental",
     title: "Аренда LED-экранов в Турции",
     shortTitle: "LED-экраны",
@@ -203,6 +205,7 @@ export const RUSSIAN_SERVICE_PAGES = {
   },
   "sound-light-rental": {
     slug: "sound-light-rental",
+    gallery: "sound-light",
     href: "/ru/sound-light-rental",
     title: "Аренда звука и света в Турции",
     shortTitle: "Звук и свет",
@@ -304,6 +307,7 @@ export const RUSSIAN_SERVICE_PAGES = {
   },
   "tent-rental": {
     slug: "tent-rental",
+    gallery: "tent",
     href: "/ru/tent-rental",
     title: "Аренда шатров в Турции",
     shortTitle: "Шатры",
@@ -405,6 +409,7 @@ export const RUSSIAN_SERVICE_PAGES = {
   },
   "corporate-events": {
     slug: "corporate-events",
+    gallery: "corporate",
     href: "/ru/corporate-events",
     title: "Организация корпоративных мероприятий в Турции",
     shortTitle: "Корпоративные события",

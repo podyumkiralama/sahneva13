@@ -3,10 +3,18 @@
 import { Check, Monitor, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const OPTIONS = [
-  { value: "light", label: "Açık tema", Icon: Sun },
-  { value: "dark", label: "Koyu tema", Icon: Moon },
-  { value: "system", label: "Cihaz varsayılanı", Icon: Monitor },
+const THEME_LABELS = {
+  tr: { menu: "Tema seçimi", prefix: "Tema", light: "Açık tema", dark: "Koyu tema", system: "Cihaz varsayılanı" },
+  en: { menu: "Theme selection", prefix: "Theme", light: "Light theme", dark: "Dark theme", system: "System default" },
+  ar: { menu: "اختيار المظهر", prefix: "المظهر", light: "مظهر فاتح", dark: "مظهر داكن", system: "إعداد النظام" },
+  ru: { menu: "Выбор темы", prefix: "Тема", light: "Светлая тема", dark: "Темная тема", system: "Системная" },
+  zh: { menu: "主题选择", prefix: "主题", light: "浅色主题", dark: "深色主题", system: "跟随系统" },
+};
+
+const OPTION_META = [
+  { value: "light", Icon: Sun },
+  { value: "dark", Icon: Moon },
+  { value: "system", Icon: Monitor },
 ];
 
 function getSystemTheme() {
@@ -27,7 +35,9 @@ function applyNavbarTheme(value) {
   document.documentElement.classList.toggle("nav-light", selected === "light");
 }
 
-export default function ThemeSwitcher({ align = "right", compact = false }) {
+export default function ThemeSwitcher({ align = "right", compact = false, locale = "tr" }) {
+  const t = THEME_LABELS[locale] ?? THEME_LABELS.tr;
+  const OPTIONS = OPTION_META.map((option) => ({ ...option, label: t[option.value] }));
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("system");
   const rootRef = useRef(null);
@@ -84,16 +94,16 @@ export default function ThemeSwitcher({ align = "right", compact = false }) {
         aria-haspopup="menu"
         aria-expanded={open}
         className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] min-w-[40px] px-2.5" : "min-h-[44px] min-w-[44px] px-3"}`}
-        title={`Tema: ${activeOption.label}`}
+        title={`${t.prefix}: ${activeOption.label}`}
       >
         <ActiveIcon aria-hidden="true" className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
-        <span className="sr-only">Tema seçimi</span>
+        <span className="sr-only">{t.menu}</span>
       </button>
 
       {open ? (
         <div
           role="menu"
-          aria-label="Tema seçimi"
+          aria-label={t.menu}
           className={`absolute ${menuAlignClass} top-full z-[90] mt-2 w-56 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]`}
         >
           {OPTIONS.map((option) => {

@@ -32,6 +32,16 @@ const CONSENT_COPY = {
     accept: "قبول",
     reject: "رفض",
   },
+  ru: {
+    body: "Мы можем использовать анонимные аналитические файлы cookie, чтобы улучшить сайт. Без вашего согласия аналитика не работает.",
+    accept: "Принять",
+    reject: "Отклонить",
+  },
+  zh: {
+    body: "我们可能使用匿名分析 Cookie 来改善浏览体验。未经您同意，分析功能不会启用。",
+    accept: "接受",
+    reject: "拒绝",
+  },
 };
 
 function safeReadConsent() {
@@ -55,6 +65,8 @@ function resolveConsentLocale() {
   const lang = document.documentElement.lang?.toLowerCase?.() ?? "tr";
   if (lang.startsWith("ar")) return "ar";
   if (lang.startsWith("en")) return "en";
+  if (lang.startsWith("ru")) return "ru";
+  if (lang.startsWith("zh")) return "zh";
   return "tr";
 }
 

@@ -36,6 +36,14 @@ const PAGE_EQUIVALENTS = [
   { tr: "/podyum-kurulum-fiyatlari", en: "/en/podium-rental-prices", ar: "/ar/services", ru: "/ru/contact", zh: "/zh/contact" },
 ];
 
+const SWITCHER_LABELS = {
+  tr: { label: "Dil seçimi", prefix: "Dil" },
+  en: { label: "Language selection", prefix: "Language" },
+  ar: { label: "اختيار اللغة", prefix: "اللغة" },
+  ru: { label: "Выбор языка", prefix: "Язык" },
+  zh: { label: "语言选择", prefix: "语言" },
+};
+
 function normalizePath(pathname) {
   if (!pathname || pathname === "/") return "/";
   return pathname.replace(/\/$/, "");
@@ -67,6 +75,7 @@ export default function LanguageSwitcher({ locale = "tr", align = "right", compa
   const rootRef = useRef(null);
 
   const currentLocale = LOCALES.some((item) => item.value === locale) ? locale : "tr";
+  const switcherLabels = SWITCHER_LABELS[currentLocale] ?? SWITCHER_LABELS.tr;
   const activeLocale = LOCALES.find((item) => item.value === currentLocale) || LOCALES[0];
   const links = useMemo(
     () => getLocaleLinks(pathname, currentLocale),
@@ -100,17 +109,17 @@ export default function LanguageSwitcher({ locale = "tr", align = "right", compa
         aria-haspopup="menu"
         aria-expanded={open}
         className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-sm font-extrabold text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] gap-1.5 px-2.5" : "min-h-[44px] gap-2 px-3"}`}
-        title={`Dil: ${activeLocale.label}`}
+        title={`${switcherLabels.prefix}: ${activeLocale.label}`}
       >
         <Languages aria-hidden="true" className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
         <span aria-hidden="true">{activeLocale.short}</span>
-        <span className="sr-only">Dil seçimi</span>
+        <span className="sr-only">{switcherLabels.label}</span>
       </button>
 
       {open ? (
         <div
           role="menu"
-          aria-label="Dil seçimi"
+          aria-label={switcherLabels.label}
           className={`absolute ${menuAlignClass} top-full z-[90] mt-2 w-56 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl nav-dark:border-white/10 nav-dark:bg-[#111827]`}
         >
           {links.map((item) => (

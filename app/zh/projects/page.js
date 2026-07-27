@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 
 const ZH_PROJECTS_URL = buildCanonical("/zh/projects");
 const ZH_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -120,6 +122,36 @@ export default function ChineseProjectsPage() {
           </article>
         ))}
       </div>
+
+      <section>
+        <div className="mx-auto mb-8 max-w-3xl text-center">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            项目图库
+          </p>
+          <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+            真实项目现场照片
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-700">
+            舞台、LED屏幕、音响、灯光、桁架与篷房——拍摄于土耳其各城市的安装现场与活动当天。
+          </p>
+        </div>
+
+        <CaseGallery
+          images={getFeaturedPortfolio("zh")}
+          visibleCount={8}
+          priorityCount={2}
+          locale="zh"
+        />
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/zh/our-work"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+          >
+            观看现场视频
+          </Link>
+        </div>
+      </section>
 
       <section className="rounded-3xl bg-slate-950 p-6 text-white md:p-8">
         <h2 className="text-2xl font-black">想做一个类似的项目？</h2>

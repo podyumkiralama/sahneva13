@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 
 const RU_PROJECTS_URL = buildCanonical("/ru/projects");
 const RU_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -119,6 +121,37 @@ export default function RussianProjectsPage() {
           </article>
         ))}
       </div>
+
+      <section>
+        <div className="mx-auto mb-8 max-w-3xl text-center">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            Портфолио
+          </p>
+          <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+            Фотографии с реальных площадок
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-700">
+            Сцены, LED-экраны, звук, свет, truss и шатры — снимки с монтажа и в день
+            мероприятия в разных городах Турции.
+          </p>
+        </div>
+
+        <CaseGallery
+          images={getFeaturedPortfolio("ru")}
+          visibleCount={8}
+          priorityCount={2}
+          locale="ru"
+        />
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/ru/our-work"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+          >
+            Смотреть видео с площадок
+          </Link>
+        </div>
+      </section>
 
       <section className="rounded-3xl bg-slate-950 p-6 text-white md:p-8">
         <h2 className="text-2xl font-black">Нужен похожий проект?</h2>

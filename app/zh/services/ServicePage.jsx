@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { getPortfolioImages } from "@/lib/portfolioGallery";
 
 import { CHINESE_SERVICE_LIST } from "./serviceData";
 
@@ -116,6 +118,7 @@ function RelatedServices({ currentSlug }) {
 
 export default function ServicePage({ service }) {
   const jsonLd = buildServiceJsonLd(service);
+  const galleryImages = getPortfolioImages(service.gallery, "zh");
 
   return (
     <div className="overflow-hidden bg-white">
@@ -269,6 +272,33 @@ export default function ServicePage({ service }) {
           </div>
         </div>
       </section>
+
+      {galleryImages.length ? (
+        <section className="content-visibility-auto [contain-intrinsic-size:auto_1200px] lg:[contain-intrinsic-size:auto_800px] bg-white py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto mb-9 max-w-3xl text-center">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+                项目图库
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
+                真实项目现场照片
+              </h2>
+              <p className="mt-5 text-base leading-8 text-slate-700">
+                这些照片拍摄于安装过程与活动当天的真实场地，可以直接看到 Sahneva 团队的执行效果。
+              </p>
+            </div>
+            <CaseGallery images={galleryImages} visibleCount={8} priorityCount={2} locale="zh" />
+            <div className="mt-8 text-center">
+              <Link
+                href="/zh/our-work"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+              >
+                观看现场视频
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="content-visibility-auto [contain-intrinsic-size:auto_950px] lg:[contain-intrinsic-size:auto_620px] bg-white py-16 md:py-20">
         <div className="container mx-auto px-4">
