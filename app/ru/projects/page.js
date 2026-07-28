@@ -37,6 +37,7 @@ export const metadata = {
       en: `${SITE_URL}/en/projects`,
       ar: `${SITE_URL}/ar/projects`,
       ru: RU_PROJECTS_URL,
+      zh: `${SITE_URL}/zh/projects`,
       "x-default": `${SITE_URL}/projeler`,
     },
   },

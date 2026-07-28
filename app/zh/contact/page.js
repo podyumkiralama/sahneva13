@@ -80,9 +80,9 @@ const BRIEF_ITEMS = [
 ];
 
 export const metadata = {
-  title: "联系我们",
+  title: "联系我们 — 获取土耳其活动设备租赁报价",
   description:
-    "联系 Sahneva，获取在土耳其举办活动的舞台、LED屏幕、音响、灯光、篷房及家具租赁报价。",
+    "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
   alternates: {
     canonical: ZH_CONTACT_URL,
     languages: {
@@ -95,9 +95,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "联系我们 | Sahneva",
+    title: "联系我们 — 获取土耳其活动设备租赁报价 | Sahneva",
     description:
-      "联系 Sahneva，获取在土耳其举办活动的舞台、LED屏幕、音响、灯光、篷房及家具租赁报价。",
+      "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
     url: ZH_CONTACT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -106,9 +106,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "联系我们 | Sahneva",
+    title: "联系我们 — 获取土耳其活动设备租赁报价 | Sahneva",
     description:
-      "联系 Sahneva，获取在土耳其举办活动的舞台、LED屏幕、音响、灯光、篷房及家具租赁报价。",
+      "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
     images: [ZH_CONTACT_IMAGE],
   },
 };

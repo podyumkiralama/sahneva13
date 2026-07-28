@@ -20,6 +20,7 @@ export const metadata = {
       en: `${SITE_URL}/en/about`,
       ar: AR_ABOUT_URL,
       ru: `${SITE_URL}/ru/about`,
+      zh: `${SITE_URL}/zh/about`,
       "x-default": `${SITE_URL}/hakkimizda`,
     },
   },

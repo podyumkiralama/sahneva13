@@ -13,6 +13,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/sahne-kiralama",
       en: "/en/stage-rental",
+      zh: "/zh/stage-rental",
     },
     heroStats: [
       { value: "81", label: "город Турции" },
@@ -115,6 +116,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/led-ekran-kiralama",
       en: "/en/led-screen-rental",
+      zh: "/zh/led-screen-rental",
     },
     heroStats: [
       { value: "300 м²", label: "P1.9 indoor" },
@@ -217,6 +219,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/ses-isik-sistemleri",
       en: "/en/sound-light-rental",
+      zh: "/zh/sound-light-rental",
     },
     heroStats: [
       { value: "Line-array", label: "звук" },
@@ -319,6 +322,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/cadir-kiralama",
       en: "/en/tent-rental",
+      zh: "/zh/tent-rental",
     },
     heroStats: [
       { value: "3x3", label: "pagoda" },
@@ -421,6 +425,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/kurumsal-organizasyon",
       en: "/en/corporate-events",
+      zh: "/zh/corporate-events",
     },
     heroStats: [
       { value: "1", label: "техническая команда" },

@@ -6,7 +6,7 @@ const service = CHINESE_SERVICE_PAGES["stage-rental"];
 const canonical = buildCanonical(service.href);
 
 export const metadata = {
-  title: service.title,
+  title: service.metaTitle ?? service.title,
   description: service.description,
   alternates: {
     canonical,
@@ -14,6 +14,7 @@ export const metadata = {
       "tr-TR": `${SITE_URL}${service.equivalent.tr}`,
       en: `${SITE_URL}${service.equivalent.en}`,
       zh: canonical,
+      ru: `${SITE_URL}${service.equivalent.ru}`,
       "x-default": `${SITE_URL}${service.equivalent.tr}`,
     },
   },

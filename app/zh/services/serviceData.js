@@ -1,18 +1,20 @@
 export const CHINESE_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
+    metaTitle: "土耳其舞台租赁 — 模块化舞台与T台搭建",
     gallery: "stage",
     href: "/zh/stage-rental",
     title: "土耳其舞台租赁",
     shortTitle: "舞台与T台",
     eyebrow: "舞台、T台与桁架",
     description:
-      "在伊斯坦布尔及土耳其全境提供舞台与T台租赁，服务演出、会议、展览、新品发布与城市活动。",
+      "在伊斯坦布尔及土耳其全境提供模块化舞台与T台租赁，服务演出、会议、展览、新品发布与城市活动，含桁架、台阶、围栏与现场安装团队。",
     heroImage: "/img/hizmet-sahne.webp",
     ogImage: "/img/hizmet-sahne.webp",
     equivalent: {
       tr: "/sahne-kiralama",
       en: "/en/stage-rental",
+      ru: "/ru/stage-rental",
     },
     heroStats: [
       { value: "81", label: "覆盖城市" },
@@ -103,6 +105,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "led-screen-rental": {
     slug: "led-screen-rental",
+    metaTitle: "土耳其LED屏幕租赁 — 室内外大屏与视频墙",
     gallery: "led",
     href: "/zh/led-screen-rental",
     title: "土耳其LED屏幕租赁",
@@ -115,6 +118,7 @@ export const CHINESE_SERVICE_PAGES = {
     equivalent: {
       tr: "/led-ekran-kiralama",
       en: "/en/led-screen-rental",
+      ru: "/ru/led-screen-rental",
     },
     heroStats: [
       { value: "300 m²", label: "P1.9 室内屏" },
@@ -205,18 +209,20 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "sound-light-rental": {
     slug: "sound-light-rental",
+    metaTitle: "土耳其音响灯光租赁 — 线阵音响与舞台灯光",
     gallery: "sound-light",
     href: "/zh/sound-light-rental",
     title: "土耳其音响灯光租赁",
     shortTitle: "音响与灯光",
     eyebrow: "音响、灯光与桁架",
     description:
-      "在伊斯坦布尔及土耳其全境租赁音响灯光：线阵音响、麦克风、数字调音台、摇头灯、DMX、桁架与专业操作员。",
+      "在伊斯坦布尔及土耳其全境租赁活动音响与舞台灯光：线阵音响、无线麦克风、数字调音台、摇头灯、DMX 控制、桁架与驻场操作员。",
     heroImage: "/img/ses-isik/ses-sistemi.webp",
     ogImage: "/img/ses-isik/ses-sistemi.webp",
     equivalent: {
       tr: "/ses-isik-sistemleri",
       en: "/en/sound-light-rental",
+      ru: "/ru/sound-light-rental",
     },
     heroStats: [
       { value: "线阵", label: "音响" },
@@ -307,6 +313,7 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "tent-rental": {
     slug: "tent-rental",
+    metaTitle: "土耳其篷房租赁 — 尖顶篷、球形篷与大型篷房",
     gallery: "tent",
     href: "/zh/tent-rental",
     title: "土耳其篷房租赁",
@@ -319,6 +326,7 @@ export const CHINESE_SERVICE_PAGES = {
     equivalent: {
       tr: "/cadir-kiralama",
       en: "/en/tent-rental",
+      ru: "/ru/tent-rental",
     },
     heroStats: [
       { value: "3x3", label: "尖顶篷" },
@@ -409,18 +417,20 @@ export const CHINESE_SERVICE_PAGES = {
   },
   "corporate-events": {
     slug: "corporate-events",
+    metaTitle: "土耳其企业活动制作 — 会议、发布会与晚宴",
     gallery: "corporate",
     href: "/zh/corporate-events",
     title: "土耳其企业活动制作",
     shortTitle: "企业活动",
     eyebrow: "企业活动技术制作",
     description:
-      "土耳其企业活动的全程技术制作：舞台、LED屏幕、音响、灯光、桁架、后台与驻场团队。",
+      "土耳其企业活动的全程技术制作：会议、新品发布、经销商大会与晚宴的舞台、LED屏幕、音响灯光、桁架、后台与驻场技术团队。",
     heroImage: "/img/kurumsal/kurumsal-sahne-led-ekran.webp",
     ogImage: "/img/kurumsal/kurumsal-sahne-led-ekran.webp",
     equivalent: {
       tr: "/kurumsal-organizasyon",
       en: "/en/corporate-events",
+      ru: "/ru/corporate-events",
     },
     heroStats: [
       { value: "1", label: "技术团队" },

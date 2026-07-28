@@ -14,9 +14,9 @@ const VALUES = [
 ];
 
 export const metadata = {
-  title: "关于 Sahneva",
+  title: "关于我们 — 土耳其活动技术制作团队",
   description:
-    "Sahneva 是土耳其的活动技术制作团队：舞台、LED屏幕、音响、灯光、桁架与篷房。",
+    "Sahneva 是一支总部位于伊斯坦布尔的活动技术制作团队，自 2012 年以来完成 700 多个项目，提供舞台、LED屏幕、音响灯光、桁架与篷房的一站式执行。",
   alternates: {
     canonical: ZH_ABOUT_URL,
     languages: {
@@ -29,9 +29,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "关于 Sahneva",
+    title: "关于我们 — 土耳其活动技术制作团队",
     description:
-      "Sahneva 是土耳其的活动技术制作团队：舞台、LED屏幕、音响、灯光、桁架与篷房。",
+      "Sahneva 是一支总部位于伊斯坦布尔的活动技术制作团队，自 2012 年以来完成 700 多个项目，提供舞台、LED屏幕、音响灯光、桁架与篷房的一站式执行。",
     url: ZH_ABOUT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -40,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "关于 Sahneva",
+    title: "关于我们 — 土耳其活动技术制作团队",
     description:
-      "Sahneva 是土耳其的活动技术制作团队：舞台、LED屏幕、音响、灯光、桁架与篷房。",
+      "Sahneva 是一支总部位于伊斯坦布尔的活动技术制作团队，自 2012 年以来完成 700 多个项目，提供舞台、LED屏幕、音响灯光、桁架与篷房的一站式执行。",
     images: [ZH_ABOUT_IMAGE],
   },
 };

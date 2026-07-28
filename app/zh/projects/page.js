@@ -27,9 +27,9 @@ const PROJECT_GROUPS = [
 ];
 
 export const metadata = {
-  title: "项目案例",
+  title: "项目案例 — 舞台、LED屏幕与活动制作",
   description:
-    "Sahneva 项目案例：舞台、LED屏幕、音响、灯光、桁架、篷房与完整的活动技术制作。",
+    "浏览 Sahneva 在土耳其完成的项目：企业会议、新品发布、音乐节与展览现场的舞台、LED屏幕、音响灯光、桁架与篷房搭建实例。",
   alternates: {
     canonical: ZH_PROJECTS_URL,
     languages: {
@@ -42,9 +42,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "项目案例 | Sahneva",
+    title: "项目案例 — 舞台、LED屏幕与活动制作 | Sahneva",
     description:
-      "Sahneva 项目案例：舞台、LED屏幕、音响、灯光、桁架、篷房与完整的活动技术制作。",
+      "浏览 Sahneva 在土耳其完成的项目：企业会议、新品发布、音乐节与展览现场的舞台、LED屏幕、音响灯光、桁架与篷房搭建实例。",
     url: ZH_PROJECTS_URL,
     siteName: "Sahneva",
     type: "website",
@@ -53,9 +53,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "项目案例 | Sahneva",
+    title: "项目案例 — 舞台、LED屏幕与活动制作 | Sahneva",
     description:
-      "Sahneva 项目案例：舞台、LED屏幕、音响、灯光、桁架、篷房与完整的活动技术制作。",
+      "浏览 Sahneva 在土耳其完成的项目：企业会议、新品发布、音乐节与展览现场的舞台、LED屏幕、音响灯光、桁架与篷房搭建实例。",
     images: [ZH_PROJECTS_IMAGE],
   },
 };

@@ -24,6 +24,7 @@ export const metadata = {
       en: `${SITE_URL}/en/about`,
       ar: `${SITE_URL}/ar/about`,
       ru: RU_ABOUT_URL,
+      zh: `${SITE_URL}/zh/about`,
       "x-default": `${SITE_URL}/hakkimizda`,
     },
   },

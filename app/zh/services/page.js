@@ -7,9 +7,9 @@ import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { CHINESE_SERVICE_LIST } from "./serviceData";
 
 const ZH_SERVICES_URL = buildCanonical("/zh/services");
-const ZH_SERVICES_TITLE = "土耳其活动服务项目";
+const ZH_SERVICES_TITLE = "服务项目 — 土耳其舞台、LED与音响灯光租赁";
 const ZH_SERVICES_DESCRIPTION =
-  "为土耳其境内的活动提供舞台、T台、LED屏幕、音响、灯光、桁架、篷房及桌椅租赁服务。";
+  "Sahneva 为在土耳其举办的会议、展览、演出与企业活动提供舞台、T台、LED屏幕、音响灯光、桁架、篷房及桌椅租赁，含现场安装与技术支持。";
 const ZH_SERVICES_IMAGE = `${SITE_URL}/img/hero-bg-desktop.webp`;
 
 const SERVICE_KEYWORDS = [

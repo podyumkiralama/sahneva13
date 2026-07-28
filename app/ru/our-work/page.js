@@ -187,6 +187,7 @@ export const metadata = {
       "tr-TR": `${SITE_URL}/yaptiklarimiz`,
       "en": `${SITE_URL}/en/our-work`,
       "ru": PAGE_URL,
+      "zh": `${SITE_URL}/zh/our-work`,
       "ar": `${SITE_URL}/ar/our-work`,
       "x-default": `${SITE_URL}/yaptiklarimiz`,
     },

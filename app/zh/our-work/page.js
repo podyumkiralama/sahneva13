@@ -11,7 +11,7 @@ const PAGE_PATH = "/zh/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const PAGE_TITLE = "项目案例 — 舞台、LED屏幕与活动制作";
 const PAGE_DESCRIPTION =
-  "Sahneva 已完成项目：舞台、LED屏幕、T台、音响灯光、篷房与企业活动，附现场实拍视频。";
+  "观看 Sahneva 的现场实拍视频：TEKNOFEST、国家航天计划发布会、PUBG 总决赛等项目的舞台、LED屏幕、音响灯光与篷房搭建过程。";
 const PUBLISHED_AT = "2026-07-27T00:00:00+03:00";
 
 const PROJECT_VIDEOS = [
