@@ -12,7 +12,14 @@ export const metadata = {
     "Kapalı Alan LED ve Sahne Kurulumu — Teknik Referans",
   description:
     "40’lık çadır içinde 24×8 m sahne/podyum ve 24×6 m P2 LED ekran; scaff ve truss üst yapısıyla, 60 kişilik ekiple 2 günde tamamlanan büyük ölçekli kurulum.",
-  alternates: { canonical: `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`, languages: { "tr-TR": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`, "x-default": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu` } },
+  alternates: {
+    canonical: `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`,
+    languages: {
+      "tr-TR": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`,
+      en: `${SITE_URL}/en/projects/indoor-led-stage-installation-protocol-event`,
+      "x-default": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`,
+    },
+  },
   openGraph: {
     type: "article",
     title:
