@@ -727,6 +727,7 @@ function Gallery() {
             images={GALLERY_IMAGES}
             visibleCount={8}
             priorityCount={2}
+            locale="en"
           />
         </div>
 

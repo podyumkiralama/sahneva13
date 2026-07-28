@@ -469,7 +469,7 @@ export default function PodiumRentalPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-neutral-900 mb-10">Project Gallery</h2>
-          <CaseGallery images={GALLERY_IMAGES} />
+          <CaseGallery images={GALLERY_IMAGES} locale="en" />
         </div>
       </section>
 

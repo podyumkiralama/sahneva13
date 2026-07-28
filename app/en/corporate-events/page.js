@@ -1154,6 +1154,7 @@ function Gallery() {
               visibleCount={8}
               priorityCount={4}
               layout="featured"
+              locale="en"
             />
           </div>
         </Card>
