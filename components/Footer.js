@@ -68,6 +68,7 @@ const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Sahneva Hakkında" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Türkiye’de Etkinlik Çözüm Ortağı" },
+  { href: "/odeme", label: "Online Ödeme" },
   {
     href: "/kvkk",
     label: "KVKK / Gizlilik",

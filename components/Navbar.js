@@ -44,6 +44,7 @@ const TR_RESEARCH_LINKS = [
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama", icon: "🗺️", description: "Türkiye geneli kurulum ve lojistik" },
   { href: "/blog", label: "Blog", icon: "📝", description: "Rehber içerikler ve teknik yazılar" },
   { href: "/sss", label: "SSS", icon: "💡", description: "Sık sorulan sorular ve yanıtlar" },
+  { href: "/odeme", label: "Online Ödeme", icon: "💳", description: "Mutabık kalınan tutarı kartla ödeyin" },
 ];
 
 function DesktopNavLink({ href, children }) {
