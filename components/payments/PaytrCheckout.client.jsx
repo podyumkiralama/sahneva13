@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 // PayTR ödeme formu bu origin üzerinden iframe içinde açılır.
@@ -240,8 +241,16 @@ export default function PaytrCheckout({ minAmount = "100.00", maxAmount = "25000
           className="mt-1 h-4 w-4 rounded border-neutral-400"
         />
         <label htmlFor="paytr-terms" className="text-sm text-neutral-700 dark:text-neutral-300">
-          Girdiğim tutarın Sahneva ile mutabık kalınan hizmet bedeli olduğunu, bilgilerimin ödeme
-          işlemi için PayTR Ödeme Hizmetleri A.Ş. ile paylaşılacağını kabul ediyorum.
+          <Link href="/mesafeli-satis-sozlesmesi" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+            Mesafeli Satış Sözleşmesi
+          </Link>{" "}
+          ve{" "}
+          <Link href="/iptal-ve-iade-kosullari" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+            İptal ve İade Koşulları
+          </Link>
+          ’nı okudum ve kabul ediyorum. Girdiğim tutarın Sahneva ile mutabık kalınan hizmet bedeli
+          olduğunu, bilgilerimin ödeme işlemi için PayTR Ödeme Hizmetleri A.Ş. ile paylaşılacağını
+          kabul ediyorum.
         </label>
       </div>
 

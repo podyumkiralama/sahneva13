@@ -64,6 +64,17 @@ export default function OdemePage() {
             kesin sonucu bankanızdan ve tarafımıza ulaşan ödeme bildirimiyle teyit edilir.
           </li>
           <li>
+            Ödeme koşulları, cayma hakkı ve iade oranları için{" "}
+            <Link className="underline underline-offset-4" href="/mesafeli-satis-sozlesmesi">
+              Mesafeli Satış Sözleşmesi
+            </Link>{" "}
+            ve{" "}
+            <Link className="underline underline-offset-4" href="/iptal-ve-iade-kosullari">
+              İptal ve İade Koşulları
+            </Link>{" "}
+            sayfalarını inceleyin.
+          </li>
+          <li>
             Kişisel verilerinizin işlenmesi hakkında ayrıntılı bilgi için{" "}
             <Link className="underline underline-offset-4" href="/kvkk">
               KVKK Aydınlatma Metni

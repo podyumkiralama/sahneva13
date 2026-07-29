@@ -74,6 +74,8 @@ const TR_QUICK_LINKS = [
     target: "_blank",
     rel: "noopener noreferrer",
   },
+  { href: "/mesafeli-satis-sozlesmesi", label: "Mesafeli Satış Sözleşmesi" },
+  { href: "/iptal-ve-iade-kosullari", label: "İptal ve İade Koşulları" },
 ];
 
 const TR_POPULAR_PAGES = [
