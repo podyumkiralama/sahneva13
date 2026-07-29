@@ -93,17 +93,21 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
             media="(max-width: 767px)"
             srcSet="/img/hero-bg-mobile.webp"
             type="image/webp"
+            width="640"
+            height="853"
           />
           <source
             media="(min-width: 768px)"
             srcSet="/img/hero-bg-desktop.webp"
             type="image/webp"
+            width="1600"
+            height="900"
           />
           <img
             src="/img/hero-bg-mobile.webp"
             alt="Sahneva etkinlik prodüksiyonu için sahne, LED ekran, ses-ışık ve podyum kurulumu"
-            width="768"
-            height="1024"
+            width="640"
+            height="853"
             fetchPriority="high"
             loading="eager"
             decoding="async"

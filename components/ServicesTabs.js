@@ -83,7 +83,8 @@ const DEFAULT_SERVICES = [
     Icon: Monitor,
     description:
       "İç mekan ve dış mekan LED ekran, LED wall ve video wall kurulumlarını; ekran ölçüsü, izleme mesafesi, taşıyıcı sistem ve teknik reji ihtiyacına göre planlıyoruz.",
-    image: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
+    image:
+      "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva-display.webp",
     features: [
       "300 m² P1.9 Indoor LED Envanteri",
       "P1.9 / P2.5 / P2.9 Piksel Aralığı",
@@ -155,8 +156,10 @@ const DEFAULT_DICTIONARY = {
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
 const SERVICE_CARD_IMAGE_SIZES =
   "(max-width: 1023px) calc(100vw - 32px), (max-width: 1279px) calc((100vw - 56px) / 2), 400px";
-const P19_PROOF_IMAGE_SRC =
-  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
+// Yalnızca kart ölçüsüne göre önceden boyutlandırılmış varyant optimizer'ı atlar.
+// 1600px'lik ham kaynak görseller Next optimizer'dan geçerek srcset ile küçültülür.
+const P19_PROOF_DISPLAY_IMAGE_SRC =
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva-display.webp";
 
 function formatTitleTemplate(template, title, fallback) {
   const source = template ?? fallback;
@@ -201,7 +204,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           quality={68}
           loading="lazy"
           fetchPriority="auto"
-          unoptimized={service.image === P19_PROOF_IMAGE_SRC}
+          unoptimized={service.image === P19_PROOF_DISPLAY_IMAGE_SRC}
         />
 
         <div
