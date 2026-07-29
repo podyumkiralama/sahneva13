@@ -76,6 +76,7 @@ const TR_QUICK_LINKS = [
     rel: "noopener noreferrer",
   },
   { href: "/mesafeli-satis-sozlesmesi", label: "Mesafeli Satış Sözleşmesi" },
+  { href: "/teslimat-ve-ifa-kosullari", label: "Teslimat ve İfa Koşulları" },
   { href: "/iptal-ve-iade-kosullari", label: "İptal ve İade Koşulları" },
 ];
 

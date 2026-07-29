@@ -67,6 +67,10 @@ export default function OdemePage() {
             Ödeme koşulları, cayma hakkı ve iade oranları için{" "}
             <Link className="underline underline-offset-4" href="/mesafeli-satis-sozlesmesi">
               Mesafeli Satış Sözleşmesi
+            </Link>
+            ,{" "}
+            <Link className="underline underline-offset-4" href="/teslimat-ve-ifa-kosullari">
+              Teslimat ve İfa Koşulları
             </Link>{" "}
             ve{" "}
             <Link className="underline underline-offset-4" href="/iptal-ve-iade-kosullari">

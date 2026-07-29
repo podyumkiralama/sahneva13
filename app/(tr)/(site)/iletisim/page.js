@@ -2,6 +2,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
+import { COMPANY } from "@/lib/legal/companyInfo";
 import {
   BASE_SITE_URL,
   LOCAL_BUSINESS_ID,
@@ -318,7 +319,39 @@ export default function ContactPage() {
                       referrerPolicy="strict-origin-when-cross-origin"
                     />
                   </div>
-                
+
+                  {/* Açık adres ve ticari bilgiler: mesafeli satış mevzuatı ve
+                      ödeme kuruluşu denetimi bu bilgilerin sitede erişilebilir
+                      olmasını gerektirir. Tek kaynak: lib/legal/companyInfo.js */}
+                  <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+                    <h3 className="text-lg font-bold text-neutral-900">Firma Bilgileri</h3>
+                    <address className="mt-3 not-italic text-neutral-700 leading-7">
+                      <strong className="block text-neutral-900">{COMPANY.legalName}</strong>
+                      {COMPANY.address}
+                      <br />
+                      Vergi Dairesi / No: {COMPANY.taxOffice} / {COMPANY.taxNumber}
+                      <br />
+                      MERSİS No: {COMPANY.mersisNo}
+                      <br />
+                      Ticaret Sicil No: {COMPANY.tradeRegistryNo}
+                    </address>
+                    <p className="mt-3 text-sm text-neutral-600">
+                      Ödeme, teslimat ve iade koşulları için{" "}
+                      <Link href="/mesafeli-satis-sozlesmesi" className="text-[#6d28d9] hover:underline">
+                        Mesafeli Satış Sözleşmesi
+                      </Link>
+                      ,{" "}
+                      <Link href="/teslimat-ve-ifa-kosullari" className="text-[#6d28d9] hover:underline">
+                        Teslimat ve İfa Koşulları
+                      </Link>{" "}
+                      ve{" "}
+                      <Link href="/iptal-ve-iade-kosullari" className="text-[#6d28d9] hover:underline">
+                        İptal ve İade Koşulları
+                      </Link>{" "}
+                      sayfalarımıza bakabilirsiniz.
+                    </p>
+                  </div>
+
 
                 
                   <div className="flex flex-col sm:flex-row gap-4">
