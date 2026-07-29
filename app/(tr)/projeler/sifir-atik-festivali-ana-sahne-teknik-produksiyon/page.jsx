@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/sifir-atik-festivali-ana-sahne-teknik-produksiyon";
@@ -781,6 +782,7 @@ function buildJsonLd() {
     contentUrl: PROJECT_VIDEO.contentUrl,
     inLanguage: "tr-TR",
     publisher: { "@id": `${SITE_URL}/#org` },
+    ...getVideoFactProps("z4DqZERYXkM"),
     url: `${PAGE_URL}#ana-sahne-gercek-saha-operasyonu-videosu`,
   };
 

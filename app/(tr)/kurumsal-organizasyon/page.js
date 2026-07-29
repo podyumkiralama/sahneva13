@@ -21,6 +21,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
 import {
   BASE_SITE_URL,
@@ -393,14 +394,14 @@ function CorporateOrganizationJsonLd() {
     name: video.title,
     description: video.description,
     uploadDate: video.uploadDate,
-    ...(video.duration ? { duration: video.duration } : {}),
+    ...(VIDEO_DURATIONS[video.id] ? { duration: VIDEO_DURATIONS[video.id] } : {}),
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
     inLanguage: "tr-TR",
     isFamilyFriendly: true,
     publisher: { "@id": ORGANIZATION_ID },
-    about: { "@id": serviceId },
+    about: [{ "@id": serviceId }, ...getVideoEntities(video.id)],
     mainEntityOfPage: { "@id": webPageId },
   }));
 

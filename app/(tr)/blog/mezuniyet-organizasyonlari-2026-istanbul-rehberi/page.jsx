@@ -4,6 +4,7 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 const ORIGIN = "https://www.sahneva.com";
@@ -141,6 +142,7 @@ function buildVideoJsonLd() {
       contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
       inLanguage: "tr-TR",
       isFamilyFriendly: true,
+      ...getVideoFactProps(video.videoId),
       mainEntityOfPage: { "@id": BLOG_URL },
       publisher: {
         "@type": "Organization",

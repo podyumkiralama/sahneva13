@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
@@ -106,6 +107,7 @@ function ArticleSchema() {
         uploadDate: PUBLISH_DATE,
         embedUrl: VIDEO_EMBED_URL,
         contentUrl: VIDEO_URL,
+        ...getVideoFactProps("173gBurWSRQ"),
         mainEntityOfPage: BLOG_URL,
         publisher: {
           "@type": "Organization",

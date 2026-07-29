@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 
@@ -135,6 +136,8 @@ function ArticleSchema() {
         embedUrl: `https://www.youtube-nocookie.com/embed/${YT_ID}`,
         contentUrl: YT_URL,
         thumbnailUrl: YT_THUMB,
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(YT_ID),
       },
       {
         "@type": "VideoObject",
@@ -146,6 +149,8 @@ function ArticleSchema() {
         embedUrl: `https://www.youtube-nocookie.com/embed/${YT_LASER_ID}`,
         contentUrl: YT_LASER_URL,
         thumbnailUrl: YT_LASER_THUMB,
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(YT_LASER_ID),
       },
       {
         "@type": "Article",

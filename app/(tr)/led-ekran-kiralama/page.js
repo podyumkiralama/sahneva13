@@ -9,6 +9,7 @@ import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
@@ -2100,15 +2101,14 @@ function LedScreenJsonLd() {
     name: video.title,
     description: video.description,
     uploadDate: video.uploadDate ?? undefined,
+    ...(VIDEO_DURATIONS[video.id] ? { duration: VIDEO_DURATIONS[video.id] } : {}),
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
     inLanguage: "tr-TR",
     isFamilyFriendly: true,
     publisher: providerRef,
-    about: {
-      "@id": serviceId,
-    },
+    about: [{ "@id": serviceId }, ...getVideoEntities(video.id)],
     mainEntityOfPage: {
       "@id": webPageId,
     },

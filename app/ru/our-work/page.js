@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 
 export const revalidate = 86400;
@@ -17,9 +19,9 @@ const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    title: "Монтаж концертной сцены и LED экрана",
+    title: "Главная сцена фестиваля Sıfır Atık (Zero Waste)",
     description:
-      "Видео проекта, выбранное из работ Sahneva по монтажу сцены, LED экрана, звука, света и технического производства.",
+      "Съёмка технического производства: монтаж сцены, LED экрана, звука и света для главной сцены фестиваля Sıfır Atık.",
     services: ["Сцена", "LED Экран", "Звук", "Свет"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
@@ -47,9 +49,9 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "JNzGlNzNRuk",
-    title: "Быстрый монтаж и техническая подготовка",
+    title: "Запуск Dicle Elektrik в Батмане — корпоративное мероприятие",
     description:
-      "Реальная съёмка, демонстрирующая координацию сцены, LED экрана и технической команды в условиях сжатых сроков.",
+      "Съёмка, демонстрирующая координацию сцены, LED экрана и технической команды на мероприятии запуска Dicle Elektrik в Батмане.",
     services: ["Сцена", "LED Экран", "Техническая команда", "Монтаж"],
     youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
@@ -158,7 +160,7 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "Запуск Национальной космической программы 2021",
+    title: "TUA — Запуск Национальной космической программы 2021",
     description:
       "Закулисная съёмка монтажа сцены, LED экрана, пневматического купольного купола и технического производства для запуска Национальной космической программы TUA.",
     services: ["Запуск", "Дом", "LED Экран", "Сцена"],
@@ -262,6 +264,8 @@ function OurWorkStructuredData() {
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
         inLanguage: "ru-RU",
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(video.id),
       })),
     ],
   };

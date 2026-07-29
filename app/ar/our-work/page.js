@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 
 export const revalidate = 86400;
@@ -17,9 +19,9 @@ const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    title: "تركيب مسرح حفلات وشاشة LED",
+    title: "إنتاج المسرح الرئيسي لمهرجان Sıfır Atık (صفر نفايات)",
     description:
-      "فيديو مشروع مختار من أعمال Sahneva في تركيب المسارح وشاشات LED والصوت والإضاءة والإنتاج التقني.",
+      "لقطات من الإنتاج التقني لتركيب المسرح وشاشة LED والصوت والإضاءة للمسرح الرئيسي لمهرجان Sıfır Atık.",
     services: ["مسرح", "شاشة LED", "صوت", "إضاءة"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
@@ -47,9 +49,9 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "JNzGlNzNRuk",
-    title: "تركيب سريع وتحضير تقني",
+    title: "إطلاق Dicle Elektrik في باتمان — إنتاج فعالية مؤسسية",
     description:
-      "لقطة حقيقية تُظهر تنسيق المسرح وشاشة LED والفريق التقني في ظل مواعيد ضيقة.",
+      "لقطات توضح تنسيق المسرح وشاشة LED والفريق التقني في فعالية إطلاق Dicle Elektrik في باتمان.",
     services: ["مسرح", "شاشة LED", "فريق تقني", "تركيب"],
     youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
@@ -158,7 +160,7 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "إطلاق البرنامج الوطني للفضاء 2021",
+    title: "TUA إطلاق البرنامج الوطني للفضاء 2021",
     description:
       "لقطات من كواليس تركيب المسرح وشاشة LED والقبة الهوائية والإنتاج التقني لإطلاق البرنامج الوطني للفضاء TUA.",
     services: ["إطلاق", "قبة", "شاشة LED", "مسرح"],
@@ -262,6 +264,8 @@ function OurWorkStructuredData() {
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
         inLanguage: "ar-SA",
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(video.id),
       })),
     ],
   };

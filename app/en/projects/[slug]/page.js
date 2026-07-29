@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getEnProject, getEnProjectSlugs } from "@/lib/enProjects";
@@ -111,6 +112,7 @@ function buildJsonLd(project) {
       contentUrl: `https://www.youtube.com/watch?v=${project.video.id}`,
       embedUrl: `https://www.youtube-nocookie.com/embed/${project.video.id}`,
       publisher: { "@id": ORGANIZATION_ID },
+      ...getVideoFactProps(project.video.id),
     });
   }
 

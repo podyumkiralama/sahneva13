@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 
@@ -15,55 +16,9 @@ const PAGE_DESCRIPTION =
   "Sahneva tarafından tamamlanan sahne, LED ekran, podyum, ses, ışık, truss, çadır ve kurumsal organizasyon projelerini video çalışmalarıyla inceleyin.";
 const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 
-// Videolarda adı geçen, kamuya açık kurum ve etkinlikler.
-// VideoObject.about üzerinden bağlanır: arama ve LLM tarafında zaten tanınan
-// varlıklara referans vermek, proje iddialarını doğrulanabilir hale getirir.
-// Yeni kayıt eklerken sameAs mutlaka kurumun resmî adresi olmalı.
-const REFERENCED_ENTITIES = {
-  tubitak: {
-    "@type": "Organization",
-    name: "TÜBİTAK",
-    sameAs: "https://www.tubitak.gov.tr/",
-  },
-  teknofest: {
-    "@type": "Event",
-    name: "TEKNOFEST",
-    sameAs: "https://www.teknofest.org/",
-  },
-  fatihBelediyesi: {
-    "@type": "GovernmentOrganization",
-    name: "Fatih Belediyesi",
-    sameAs: "https://www.fatih.bel.tr/",
-  },
-  sahaExpo: {
-    "@type": "ExhibitionEvent",
-    name: "SAHA EXPO",
-    sameAs: "https://www.sahaexpo.com/",
-  },
-  sifirAtik: {
-    "@type": "Organization",
-    name: "Sıfır Atık",
-    sameAs: "https://sifiratik.gov.tr/",
-  },
-  tua: {
-    "@type": "GovernmentOrganization",
-    name: "Türkiye Uzay Ajansı",
-    alternateName: "TUA",
-    sameAs: "https://tua.gov.tr/",
-  },
-  eaaci: {
-    "@type": "Organization",
-    name: "EAACI",
-    alternateName:
-      "European Academy of Allergy and Clinical Immunology",
-    sameAs: "https://www.eaaci.org/",
-  },
-};
-
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    duration: "PT2M4S",
     title: "Sıfır Atık Festivali Ana Sahne Prodüksiyonu",
     description:
       "Sıfır Atık Festivali ana sahnesi için hazırlanan sahne, LED ekran, ses ve ışık kurulumundan seçilmiş teknik prodüksiyon görüntüsü.",
@@ -71,11 +26,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
     uploadDate: "2026-06-05T00:00:00+03:00",
-    about: ["sifirAtik"],
   },
   {
     id: "x-BYu0vgO2E",
-    duration: "PT1M5S",
     title: "SAHA 2026 Özel Etkinlik Alanı ve Fuar Prodüksiyonu",
     description:
       "Kapalı fuar alanında özel yapı, giriş aksı, zemin altyapısı, dome çadır ve ambiyans aydınlatmasıyla hazırlanan proje kurulumundan seçilmiş saha görüntüsü.",
@@ -83,11 +36,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=x-BYu0vgO2E",
     thumbnailUrl: "https://i.ytimg.com/vi/x-BYu0vgO2E/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
-    about: ["sahaExpo"],
   },
   {
     id: "CVdYV5BkF3k",
-    duration: "PT38S",
     title: "Dome Çadırda Lazer Projeksiyon Animasyonu",
     description:
       "Dome çadır tavanına yansıtılan lazer ve projeksiyon animasyonuyla hazırlanan etkinlik atmosferinden seçilmiş uygulama görüntüsü.",
@@ -98,7 +49,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "JNzGlNzNRuk",
-    duration: "PT1M47S",
     title: "Dicle Elektrik Batman Lansmanı Kurumsal Etkinlik Prodüksiyonu",
     description:
       "Dicle Elektrik Batman lansmanı için hazırlanan sahne, LED ekran ve teknik ekip koordinasyonunu gösteren kurumsal etkinlik prodüksiyonu kesiti.",
@@ -109,7 +59,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "4ygMbL4FDRc",
-    duration: "PT1M6S",
     title: "TÜBİTAK Uzay Bilim Çadırı - TEKNOFEST",
     description:
       "TEKNOFEST kapsamında hazırlanan TÜBİTAK Uzay Bilim Çadırı için çadır, etkinlik alanı ve saha prodüksiyonundan seçilmiş proje videosu.",
@@ -117,11 +66,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=4ygMbL4FDRc",
     thumbnailUrl: "https://i.ytimg.com/vi/4ygMbL4FDRc/hqdefault.jpg",
     uploadDate: "2025-10-28T00:48:40-07:00",
-    about: ["tubitak", "teknofest"],
   },
   {
     id: "7yjrrEtWrr0",
-    duration: "PT1M1S",
     title: "TEKNOFEST Çadır İçi Dekorasyon ve Teknik Altyapı",
     description:
       "TEKNOFEST çadır alanında iç dekorasyon, ses sistemi, LED ekran, masa-sandalye yerleşimi ve etkinlik altyapısından seçilmiş uygulama görüntüsü.",
@@ -129,11 +76,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/shorts/7yjrrEtWrr0?feature=share",
     thumbnailUrl: "https://i.ytimg.com/vi/7yjrrEtWrr0/hq2.jpg",
     uploadDate: "2025-10-17T16:56:21-07:00",
-    about: ["teknofest"],
   },
   {
     id: "_9Q7v0ZL304",
-    duration: "PT26S",
     title: "TEKNOFEST Sahne, LED Ekran, Ses ve Işık Kurulumu",
     description:
       "TEKNOFEST etkinlik alanında sahne, LED ekran, ses, ışık ve teknik altyapı entegrasyonundan seçilmiş saha görüntüsü.",
@@ -141,11 +86,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=_9Q7v0ZL304",
     thumbnailUrl: "https://i.ytimg.com/vi/_9Q7v0ZL304/hqdefault.jpg",
     uploadDate: "2025-11-17T00:00:00+03:00",
-    about: ["teknofest"],
   },
   {
     id: "c72ILTyJH4A",
-    duration: "PT24S",
     title: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
     description:
       "Fatih Belediyesi'nin 5 yılda Fatih'e değer katan 400 proje etkinliği için hazırlanan sahne, LED ekran, ses-ışık ve teknik prodüksiyon kurulumundan seçilmiş saha görüntüsü.",
@@ -153,11 +96,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=c72ILTyJH4A",
     thumbnailUrl: "https://i.ytimg.com/vi/c72ILTyJH4A/hqdefault.jpg",
     uploadDate: "2026-04-29T00:00:00+03:00",
-    about: ["fatihBelediyesi"],
   },
   {
     id: "173gBurWSRQ",
-    duration: "PT1M35S",
     title: "PUBG Türkiye Finali 2023",
     description:
       "PUBG Türkiye Finali 2023 etkinliği için hazırlanan sahne, LED ekran, ses-ışık, podyum ve teknik prodüksiyon uygulamasından seçilmiş saha görüntüsü.",
@@ -168,7 +109,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "1R5Av0x5ouA",
-    duration: "PT24S",
     title: "PUBG Sahne, LED Ekran ve Işık Provaları",
     description:
       "PUBG etkinliği için hazırlanan sahne, LED ekran ve ışık provalarından seçilmiş teknik prova görüntüsü.",
@@ -179,7 +119,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "i-KtuiLiBmI",
-    duration: "PT11S",
     title: "Küp LED Ekran Kiralama",
     description:
       "Küp LED ekran formunda hazırlanan yaratıcı görüntü yüzeyiyle marka, sahne ve etkinlik alanı için dikkat çekici LED ekran uygulaması.",
@@ -190,7 +129,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "AihkXPzPBi0",
-    duration: "PT50S",
     title: "Kurumsal Etkinlik Toplantısında LED Ekran Kullanımı",
     description:
       "Kurumsal toplantı sahnesinde LED ekran, sunum akışı, marka görünürlüğü ve teknik prodüksiyon düzeninden seçilmiş uygulama görüntüsü.",
@@ -201,7 +139,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "tyb1lG9KtiA",
-    duration: "PT3M13S",
     title: "Çadır Kurulum Organizasyonu",
     description:
       "Etkinlik çadırı kurulumunda taşıyıcı sistem, branda, sabitleme ve saha koordinasyonunu gösteren uygulama kesiti.",
@@ -213,7 +150,6 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "xatodgyZ_S8",
-    duration: "PT53S",
     title: "Ufkun Ötesinde Galası ve Türkiye'nin İnsanlı İlk Uzay Misyonu Sergisi",
     description:
       "Ufkun Ötesinde Galası ve Türkiye'nin insanlı ilk uzay misyonu sergisi için hazırlanan sahne, LED ekran, sergi alanı ve teknik prodüksiyon uygulamasından seçilmiş proje videosu.",
@@ -221,11 +157,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=xatodgyZ_S8",
     thumbnailUrl: "https://i.ytimg.com/vi/xatodgyZ_S8/hqdefault.jpg",
     uploadDate: "2026-06-09T03:10:17-07:00",
-    about: ["tua"],
   },
   {
     id: "j1Tr5l8DVW8",
-    duration: "PT1M33S",
     title: "TUA Milli Uzay Programı Lansmanı 2021",
     description:
       "TUA Milli Uzay Programı Lansmanı için hazırlanan sahne, LED ekran, pnömatik dome yapı ve teknik prodüksiyon uygulamasından seçilmiş sahne arkası görüntüsü.",
@@ -233,11 +167,9 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://www.youtube.com/watch?v=j1Tr5l8DVW8",
     thumbnailUrl: "https://i.ytimg.com/vi/j1Tr5l8DVW8/hqdefault.jpg",
     uploadDate: "2021-02-09T00:00:00+03:00",
-    about: ["tua"],
   },
   {
     id: "qiqiBN4Uhu4",
-    duration: "PT59S",
     title: "EAACI Kongresi İstanbul — Leti Pharma 360° LED Wall Kurulumu",
     description:
       "EAACI Congress İstanbul'da Leti Pharma için hazırlanan 360° LED wall kurulumundan seçilmiş uygulama görüntüsü. Kurumsal sergi alanında tam çevreleyen LED ekran mimarisiyle marka deneyimi oluşturuldu.",
@@ -245,7 +177,6 @@ const PROJECT_VIDEOS = [
     youtubeUrl: "https://youtube.com/shorts/qiqiBN4Uhu4",
     thumbnailUrl: "https://i.ytimg.com/vi/qiqiBN4Uhu4/hq2.jpg",
     uploadDate: "2026-06-23T00:00:00+03:00",
-    about: ["eaaci"],
   },
 ];
 
@@ -332,12 +263,9 @@ function YaptiklarimizStructuredData() {
         contentUrl: video.youtubeUrl,
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
-        ...(video.duration ? { duration: video.duration } : {}),
         inLanguage: "tr-TR",
         publisher: { "@id": ORGANIZATION_ID },
-        ...(video.about?.length
-          ? { about: video.about.map((key) => REFERENCED_ENTITIES[key]) }
-          : {}),
+        ...getVideoFactProps(video.id),
       })),
     ],
   };

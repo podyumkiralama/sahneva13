@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 
 export const revalidate = 86400;
@@ -17,9 +19,9 @@ const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    title: "Concert Stage and LED Screen Installation",
+    title: "Zero Waste Festival Main Stage Production",
     description:
-      "A project video selected from Sahneva's completed stage, LED screen, sound, lighting and technical production work.",
+      "Technical production footage from the stage, LED screen, sound and lighting setup built for the Zero Waste Festival main stage.",
     services: ["Stage", "LED Screen", "Sound", "Lighting"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
@@ -47,9 +49,9 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "JNzGlNzNRuk",
-    title: "Fast Setup and Technical Preparation",
+    title: "Dicle Elektrik Batman Launch — Corporate Event Production",
     description:
-      "A real-time clip showing stage, LED screen and technical crew coordination under tight deadlines.",
+      "A clip showing stage, LED screen and technical crew coordination for the Dicle Elektrik Batman launch event.",
     services: ["Stage", "LED Screen", "Technical Team", "Setup"],
     youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
@@ -158,7 +160,7 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "National Space Program Launch 2021",
+    title: "TUA National Space Program Launch 2021",
     description:
       "Behind-the-scenes footage from the stage, LED screen, pneumatic dome structure and technical production setup for the TUA National Space Program Launch.",
     services: ["Launch", "Dome", "LED Screen", "Stage"],
@@ -262,6 +264,8 @@ function OurWorkStructuredData() {
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
         inLanguage: "en-US",
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(video.id),
       })),
     ],
   };

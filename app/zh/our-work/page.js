@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Clapperboard, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 
 export const revalidate = 86400;
@@ -17,9 +19,9 @@ const PUBLISHED_AT = "2026-07-27T00:00:00+03:00";
 const PROJECT_VIDEOS = [
   {
     id: "z4DqZERYXkM",
-    title: "演唱会舞台与LED屏幕搭建",
+    title: "Sıfır Atık（零废弃）艺术节主舞台制作",
     description:
-      "选自 Sahneva 舞台、LED屏幕、音响、灯光与技术制作项目的现场视频。",
+      "为 Sıfır Atık（零废弃）艺术节主舞台搭建的舞台、LED 屏幕、音响与灯光技术制作画面。",
     services: ["舞台", "LED屏幕", "音响", "灯光"],
     youtubeUrl: "https://www.youtube.com/watch?v=z4DqZERYXkM",
     thumbnailUrl: "https://i.ytimg.com/vi/z4DqZERYXkM/maxresdefault.jpg",
@@ -47,9 +49,9 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "JNzGlNzNRuk",
-    title: "紧凑工期下的快速安装与技术筹备",
+    title: "Dicle Elektrik 巴特曼发布会 — 企业活动制作",
     description:
-      "真实记录：在紧张的时间窗口内，舞台、LED屏幕与技术团队的协同作业。",
+      "展示 Dicle Elektrik 巴特曼发布会中舞台、LED 屏幕与技术团队协作的现场画面。",
     services: ["舞台", "LED屏幕", "技术团队", "安装"],
     youtubeUrl: "https://www.youtube.com/watch?v=JNzGlNzNRuk",
     thumbnailUrl: "https://i.ytimg.com/vi/JNzGlNzNRuk/hqdefault.jpg",
@@ -158,7 +160,7 @@ const PROJECT_VIDEOS = [
   },
   {
     id: "j1Tr5l8DVW8",
-    title: "2021 国家航天计划发布会",
+    title: "TUA 2021 国家航天计划发布会",
     description:
       "TUA 国家航天计划发布会的舞台、LED屏幕、充气穹顶与技术制作幕后实拍。",
     services: ["发布会", "穹顶", "LED屏幕", "舞台"],
@@ -262,6 +264,8 @@ function OurWorkStructuredData() {
         url: video.youtubeUrl,
         ...(video.uploadDate ? { uploadDate: video.uploadDate } : {}),
         inLanguage: "zh-CN",
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps(video.id),
       })),
     ],
   };

@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
@@ -1535,9 +1536,17 @@ function TentRentalJsonLd() {
     name: video.title,
     description: video.description,
     uploadDate: video.uploadDate,
+    ...(VIDEO_DURATIONS[video.videoId]
+      ? { duration: VIDEO_DURATIONS[video.videoId] }
+      : {}),
     thumbnailUrl: `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`,
     embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
+    inLanguage: "tr-TR",
+    publisher: { "@id": ORGANIZATION_ID },
+    ...(getVideoEntities(video.videoId).length
+      ? { about: getVideoEntities(video.videoId) }
+      : {}),
   }));
 
   const productNodes = buildServiceProductSchema

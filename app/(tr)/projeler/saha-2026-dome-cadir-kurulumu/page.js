@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Film, Layers3, Lightbulb, ShieldCheck, TentTree } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/saha-2026-dome-cadir-kurulumu";
@@ -154,6 +156,8 @@ export default function SahaDomeProjectPage() {
         contentUrl: VIDEO.url,
         embedUrl: VIDEO.embed,
         inLanguage: "tr-TR",
+        publisher: { "@id": ORGANIZATION_ID },
+        ...getVideoFactProps("x-BYu0vgO2E"),
       },
       {
         "@type": "BreadcrumbList",
