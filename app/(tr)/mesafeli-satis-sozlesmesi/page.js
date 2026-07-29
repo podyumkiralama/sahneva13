@@ -50,6 +50,8 @@ export default function MesafeliSatisSozlesmesiPage() {
             <br />
             MERSİS No: {COMPANY.mersisNo}
             <br />
+            Ticaret Sicil No: {COMPANY.tradeRegistryNo}
+            <br />
             E-posta:{" "}
             <a className="text-[#6d28d9] hover:underline" href={`mailto:${COMPANY.email}`}>
               {COMPANY.email}

@@ -1,6 +1,7 @@
 // app/kvkk/page.jsx
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { COMPANY } from "@/lib/legal/companyInfo";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -80,9 +81,11 @@ export default function KvkkPage() {
         <div className="rounded-xl border bg-white p-4">
           <h2 className="font-semibold">Veri Sorumlusu</h2>
           <p className="mt-1">
-            Sahneva — İstanbul / Türkiye<br />
-            E-posta: <a className="text-[#6d28d9] hover:underline" href="mailto:info@sahneva.com">info@sahneva.com</a><br />
-            Telefon: <a className="text-[#6d28d9] hover:underline" href="tel:+905453048671">+90 545 304 8671</a>
+            {COMPANY.legalName}<br />
+            {COMPANY.address}<br />
+            MERSİS No: {COMPANY.mersisNo}<br />
+            E-posta: <a className="text-[#6d28d9] hover:underline" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a><br />
+            Telefon: <a className="text-[#6d28d9] hover:underline" href={`tel:${COMPANY.phoneHref}`}>{COMPANY.phone}</a>
           </p>
         </div>
 
