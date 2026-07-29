@@ -104,7 +104,7 @@ export default function MesafeliSatisSozlesmesiPage() {
           değildir.
         </p>
 
-        <h2 className="text-xl font-semibold">5. Hizmetin İfası</h2>
+        <h2 className="text-xl font-semibold">5. Hizmetin İfası ve Ödeme Zamanı</h2>
         <p>
           Hizmet, teklifte belirtilen etkinlik tarihinde ve yerinde ifa edilir. Kurulum, işletme ve
           söküm süreleri teklifte ayrıca belirtilir. Alıcı; etkinlik alanına erişim, elektrik
@@ -112,22 +112,37 @@ export default function MesafeliSatisSozlesmesiPage() {
           kararlaştırılmadıkça sorumludur. Bu yükümlülüklerin yerine getirilmemesi nedeniyle
           hizmetin ifa edilememesi hâlinde Satıcı sorumlu tutulamaz.
         </p>
+        <p>
+          {COMPANY.brandName} kural olarak ödemeyi <strong>hizmet ifa edildikten sonra</strong>,
+          yani kurulum tamamlandıktan sonra tahsil eder. Alıcı bu durumda ödemeyi, kendisine
+          sunulan hizmeti gördükten sonra yapar.
+        </p>
+        <p>
+          İstisnaen, teklifte açıkça kararlaştırılmışsa etkinlik öncesinde ön ödeme (kapora)
+          alınabilir. Aşağıdaki cayma ve iade hükümleri, ödemenin hangi aşamada yapıldığına göre
+          farklı sonuç doğurur.
+        </p>
 
         <h2 className="text-xl font-semibold">6. Cayma Hakkı</h2>
         <p>
           Mesafeli Sözleşmeler Yönetmeliği uyarınca tüketici, kural olarak on dört gün içinde
-          gerekçe göstermeksizin cayma hakkına sahiptir. Ancak aynı Yönetmelik, belirli bir tarihte
-          veya dönemde yapılması gereken, eğlence ve boş zamanın değerlendirilmesine yönelik
-          hizmetleri cayma hakkının istisnaları arasında saymaktadır.
+          gerekçe göstermeksizin cayma hakkına sahiptir. Ancak aynı Yönetmelik, cayma hakkı süresi
+          sona ermeden tüketicinin onayıyla ifasına başlanan hizmetleri bu hakkın istisnaları
+          arasında saymaktadır.
         </p>
         <p>
-          Etkinlik prodüksiyon hizmetleri belirli bir tarihe bağlı olarak planlandığından, ekipman
-          ve ekip o tarih için bloke edildiğinden bu istisna kapsamındadır ve kanuni cayma hakkı
-          uygulanmaz.
+          Ödemenin kurulum tamamlandıktan sonra alındığı hâllerde hizmet, ödeme anında Alıcının
+          bilgisi ve onayıyla ifa edilmiş durumdadır. Bu nedenle bu işlemlerde cayma hakkı doğmaz.
         </p>
         <p>
-          Bununla birlikte {COMPANY.brandName}, yasal zorunluluğu bulunmamasına rağmen Alıcı lehine
-          kademeli bir iptal ve iade imkânı sunar. Ayrıntılar için{" "}
+          Etkinlik öncesinde ön ödeme alınan hâllerde ise, hizmet belirli bir tarihe bağlı olarak
+          planlandığından ve ekipman ile ekip o tarih için bloke edildiğinden, Yönetmeliğin belirli
+          bir tarihte yapılması gereken eğlence ve boş zamanın değerlendirilmesine yönelik
+          hizmetlere ilişkin istisnası uygulanır.
+        </p>
+        <p>
+          Bununla birlikte {COMPANY.brandName}, yasal zorunluluğu bulunmamasına rağmen ön ödeme
+          alınan işlemlerde Alıcı lehine kademeli bir iade imkânı sunar. Ayrıntılar için{" "}
           <Link href="/iptal-ve-iade-kosullari" className="text-[#6d28d9] hover:underline">
             İptal ve İade Koşulları
           </Link>{" "}
@@ -136,8 +151,13 @@ export default function MesafeliSatisSozlesmesiPage() {
 
         <h2 className="text-xl font-semibold">7. İptal ve İade</h2>
         <p>
-          Alıcının etkinliği iptal etmesi hâlinde, iptal talebinin Satıcıya yazılı olarak ulaştığı
-          tarih esas alınarak aşağıdaki oranlar uygulanır:
+          Ödeme kurulum sonrasında alındığından, etkinlik öncesindeki iptallerde kural olarak
+          tahsil edilmiş bir tutar bulunmaz ve iade söz konusu olmaz.
+        </p>
+        <p>
+          <strong>Ön ödeme alınmış olan işlemlerde</strong>, Alıcının etkinliği iptal etmesi
+          hâlinde, iptal talebinin Satıcıya yazılı olarak ulaştığı tarih esas alınarak aşağıdaki
+          oranlar uygulanır:
         </p>
         <ul className="list-disc list-inside space-y-2">
           {REFUND_TIERS.map((tier) => (

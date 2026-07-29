@@ -30,16 +30,26 @@ export default function IptalVeIadeKosullariPage() {
       </header>
 
       <section className="space-y-6 text-neutral-800 leading-7">
+        <h2 className="text-xl font-semibold">1. Ödemeyi Ne Zaman Alıyoruz?</h2>
         <p>
-          Etkinlik prodüksiyonu tarihe bağlı bir iştir. Bir tarih için sözleşme yapıldığında
-          ekipman o tarihte başka bir işe verilemez, ekip ve araç planlaması buna göre kurulur.
-          Bu nedenle iptal koşullarımız, etkinliğe kalan süreye göre kademelidir.
+          Kural olarak ödemeyi <strong>kurulum tamamlandıktan sonra</strong> alıyoruz. Yani
+          ödemeyi, size sunulan hizmeti gördükten sonra yapıyorsunuz.
+        </p>
+        <p>
+          Bunun pratik sonucu şu: etkinlik öncesinde işten vazgeçerseniz tahsil edilmiş bir tutar
+          olmadığı için iade de söz konusu olmaz. Yalnızca bize haber vermeniz yeterlidir.
+        </p>
+        <p>
+          Teklifte açıkça kararlaştırıldığı hâllerde etkinlik öncesinde ön ödeme (kapora) alırız.
+          Aşağıdaki kademeli oranlar <strong>yalnızca bu hâllerde</strong> uygulanır.
         </p>
 
-        <h2 className="text-xl font-semibold">1. İade Oranları</h2>
+        <h2 className="text-xl font-semibold">2. Ön Ödeme Alınan İşlemlerde İade Oranları</h2>
         <p>
-          İptal talebinin tarafımıza <strong>yazılı olarak</strong> (e-posta) ulaştığı tarih esas
-          alınır:
+          Etkinlik prodüksiyonu tarihe bağlı bir iştir. Bir tarih için sözleşme yapıldığında
+          ekipman o tarihte başka bir işe verilemez, ekip ve araç planlaması buna göre kurulur. Bu
+          nedenle ön ödeme alınmış işlerde iade, etkinliğe kalan süreye göre kademelidir. İptal
+          talebinin tarafımıza <strong>yazılı olarak</strong> (e-posta) ulaştığı tarih esas alınır:
         </p>
 
         <div className="overflow-x-auto">
@@ -64,7 +74,7 @@ export default function IptalVeIadeKosullariPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-semibold">2. İade Nasıl Talep Edilir?</h2>
+        <h2 className="text-xl font-semibold">3. İade Nasıl Talep Edilir?</h2>
         <p>
           İptal talebinizi{" "}
           <a className="text-[#6d28d9] hover:underline" href={`mailto:${COMPANY.email}`}>
@@ -78,21 +88,21 @@ export default function IptalVeIadeKosullariPage() {
           ödemenin yapıldığı karta iade edilir; farklı bir hesaba aktarım yapılmaz.
         </p>
 
-        <h2 className="text-xl font-semibold">3. İade Süresi</h2>
+        <h2 className="text-xl font-semibold">4. İade Süresi</h2>
         <p>
           İade işlemini en geç on dört gün içinde başlatırız. Tutarın kart hesabınıza yansıması
           bankanızın işlem süresine bağlıdır ve genellikle birkaç iş günü sürer. Bu süre
           bankanızın inisiyatifindedir, {COMPANY.brandName} bu aşamada süreci hızlandıramaz.
         </p>
 
-        <h2 className="text-xl font-semibold">4. Etkinliğin Ertelenmesi</h2>
+        <h2 className="text-xl font-semibold">5. Etkinliğin Ertelenmesi</h2>
         <p>
           İptal yerine erteleme tercih ederseniz, yeni tarihte ekipman ve ekip müsaitliği olması
           koşuluyla ödediğiniz tutarı iade kesintisi uygulamadan yeni tarihe aktarırız. Erteleme
           talebini mümkün olan en erken zamanda iletmeniz, müsaitlik ihtimalini artırır.
         </p>
 
-        <h2 className="text-xl font-semibold">5. Mücbir Sebep</h2>
+        <h2 className="text-xl font-semibold">6. Mücbir Sebep</h2>
         <p>
           Doğal afet, etkinliği fiilen imkânsız kılan olumsuz hava koşulları, salgın, resmî
           makamlarca getirilen yasaklar ve tarafların kontrolü dışındaki benzer hâllerde yukarıdaki
@@ -101,13 +111,13 @@ export default function IptalVeIadeKosullariPage() {
           harcamalar düşüldükten sonra kalan tutar iade edilir.
         </p>
 
-        <h2 className="text-xl font-semibold">6. Sahneva Kaynaklı İptal</h2>
+        <h2 className="text-xl font-semibold">7. Sahneva Kaynaklı İptal</h2>
         <p>
           İptalin {COMPANY.brandName} kaynaklı olduğu hâllerde ödediğiniz tutarın tamamı, hiçbir
           kesinti yapılmaksızın iade edilir. Bu durumda etkinliğin kalan süresine bakılmaz.
         </p>
 
-        <h2 className="text-xl font-semibold">7. Eksik veya Ayıplı Hizmet</h2>
+        <h2 className="text-xl font-semibold">8. Eksik veya Ayıplı Hizmet</h2>
         <p>
           Teklifte belirtilen ekipman veya hizmetin eksik ya da ayıplı sağlandığını düşünüyorsanız,
           durumu etkinlik sırasında veya en geç etkinliği izleyen üç gün içinde yazılı olarak
