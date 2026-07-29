@@ -17,8 +17,10 @@ Doküman: <https://dev.paytr.com/iframe-api>
 | `app/(tr)/odeme/basarili/page.js` | `merchant_ok_url` hedefi. |
 | `app/(tr)/odeme/basarisiz/page.js` | `merchant_fail_url` hedefi. |
 | `components/payments/PaytrCheckout.client.jsx` | Form + PayTR iframe. |
+| `components/payments/PaytrInstallmentTable.client.jsx` | Taksit tablosu widget'ı; tutar değiştikçe yeniden render eder. |
 | `components/payments/FrameBreakout.client.jsx` | Sonuç sayfasını iframe'den üst pencereye taşır. |
-| `lib/security/buildCsp.js` | `frame-src` listesine `https://www.paytr.com` eklendi. |
+| `lib/security/buildCsp.js` | `frame-src` ve `script-src`'a `https://www.paytr.com` eklendi. |
+| `lib/security/inlineScripts.js` | Trusted Types allowlist'ine PayTR taksit tablosu path'i eklendi. |
 
 ## Ortam değişkenleri
 
@@ -59,6 +61,7 @@ burada kullanılmaz** — iFrame API aşağıdaki üç değeri ister.
 | `PAYTR_MAX_INSTALLMENT` | — | hayır | `0` | 0 = PayTR varsayılanı, 1–12 arası sınır |
 | `PAYTR_NO_INSTALLMENT` | — | hayır | `0` | `1` → taksit tamamen kapalı |
 | `PAYTR_TIMEOUT_LIMIT` | — | hayır | `30` | Ödeme oturumu süresi (dakika) |
+| `PAYTR_INSTALLMENT_TOKEN` | Taksit Tablosu → Token | hayır | — | Taksit tablosu widget'ı için. Boşsa widget hiç render edilmez. |
 
 Üç zorunlu değişkenden biri eksikse `/api/paytr/token` 503 döner ve ödeme başlatılmaz.
 
@@ -96,6 +99,31 @@ yazımı ve mükerrer bildirim koruması eklenmelidir.
 
 `debug_on` test modunda otomatik olarak `1`'dir; PayTR token hatalarının sebebi
 `PAYTR_TOKEN_FAILED` log satırında görünür.
+
+## Taksit Tablosu Widget'ı
+
+PayTR panelindeki "Taksit Tablosu" kodu statiktir: tutar, script'in `src` sorgu
+dizesine (`amount=...`) gömülüdür. Sitede tutarı müşteri yazdığı için
+`PaytrInstallmentTable.client.jsx`, kullanıcı yazmayı bıraktıktan 600ms sonra
+script etiketini tutarın güncel değeriyle yeniden oluşturup DOM'a yeniden ekler.
+
+`amount` parametresi PayTR'ın `get-token` API'sindeki `payment_amount` alanından
+**farklıdır**: kuruşa çevrilmez, kullanıcının yazdığı ondalıklı tutar (`"1500.50"`
+veya `"1500,50"`) doğrudan geçirilir.
+
+Bu widget iki bağımsız izin listesine giriyor, ikisi de eklendi:
+
+- **CSP `script-src`** (`lib/security/buildCsp.js`) — tarayıcının script'i ağdan
+  çekmesine izin verir.
+- **Trusted Types allowlist** (`lib/security/inlineScripts.js`,
+  `allowedExternalScripts`) — `script.src = url` atamasını `require-trusted-types-for
+  'script'` altında geçerli kılar. Path `/odeme/taksit-tablosu/` ile başlayan her
+  şeye izin verir; PayTR script'in sürümünü (`/v2`, ileride `/v3`) değiştirirse yeni
+  bir CSP/Trusted Types güncellemesi gerekmez.
+
+`PAYTR_INSTALLMENT_TOKEN` boşsa bileşen `null` döner, sayfada hiçbir iz bırakmaz.
+Bu token, `merchant_id` gibi tarayıcıya gömülmek üzere tasarlanmıştır — `merchant_key`
+/ `merchant_salt` gibi gizli değildir, Sensitive işaretlemenize gerek yok.
 
 ## Yasal sayfalar
 

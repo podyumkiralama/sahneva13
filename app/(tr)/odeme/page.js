@@ -48,6 +48,8 @@ export default function OdemePage() {
         minAmount={formatTry(config.minAmountKurus)}
         maxAmount={formatTry(config.maxAmountKurus)}
         testMode={config.testMode}
+        merchantId={config.merchantId}
+        installmentToken={config.installmentToken}
       />
 
       <section className="mt-10 space-y-3 border-t border-neutral-200 pt-6 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import PaytrInstallmentTable from "@/components/payments/PaytrInstallmentTable.client";
 
 // PayTR ödeme formu bu origin üzerinden iframe içinde açılır.
 // CSP frame-src listesinde izinli olmalı (lib/security/buildCsp.js).
@@ -21,7 +22,13 @@ const FIELD_CLASS =
 
 const LABEL_CLASS = "block text-sm font-semibold text-neutral-800 dark:text-neutral-200";
 
-export default function PaytrCheckout({ minAmount = "100.00", maxAmount = "250000.00", testMode = true }) {
+export default function PaytrCheckout({
+  minAmount = "100.00",
+  maxAmount = "250000.00",
+  testMode = true,
+  merchantId,
+  installmentToken,
+}) {
   const [form, setForm] = useState(INITIAL_FORM);
   const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -228,6 +235,11 @@ export default function PaytrCheckout({ minAmount = "100.00", maxAmount = "25000
         <p className="mt-1 text-xs text-neutral-500">
           Teklifte anlaştığımız tutarı yazın. En az {minAmount} TL, en fazla {maxAmount} TL.
         </p>
+        <PaytrInstallmentTable
+          merchantId={merchantId}
+          installmentToken={installmentToken}
+          amount={form.amount}
+        />
       </div>
 
       <div className="flex items-start gap-3">
