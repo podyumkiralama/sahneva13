@@ -97,10 +97,23 @@ yazımı ve mükerrer bildirim koruması eklenmelidir.
 `debug_on` test modunda otomatik olarak `1`'dir; PayTR token hatalarının sebebi
 `PAYTR_TOKEN_FAILED` log satırında görünür.
 
+## Yasal sayfalar
+
+`/mesafeli-satis-sozlesmesi` ve `/iptal-ve-iade-kosullari` eklendi. İkisi de satıcı
+bilgilerini ve kademeli iade basamaklarını `lib/legal/companyInfo.js` üzerinden okur —
+şirket bilgisi veya iade politikası değişirse yalnızca o dosya güncellenir.
+
+`COMPANY_INFO_COMPLETE` bayrağı, `COMPANY` içinde köşeli parantezli yer tutucu kalıp
+kalmadığını denetler. Bir alan boşaltılırsa iki sayfa da otomatik `noindex` olur;
+eksik bilgiyle arama motorlarına açılmalarını engeller.
+
+Metinler avukat incelemesinden geçmedi. Özellikle cayma hakkı istisnası (belirli
+tarihte yapılan eğlence/boş zaman hizmetleri) iddiası hukukçu onayı gerektirir.
+
 ## Açık konular
 
-- **Mesafeli satış sözleşmesi ve iptal/iade koşulları sayfaları henüz yok.** PayTR mağaza
-  onayı ve 6502 sayılı kanun kapsamında bu sayfalar gereklidir; ödeme sayfasından
-  link verilmelidir.
-- Ödeme sayfası yalnızca Türkçe. EN/RU/AR/ZH lokalleri için ayrı sayfa açılmadı.
+- Ödeme sayfası yalnızca Türkçe. EN/RU/AR/ZH lokalleri için ayrı sayfa açılmadı;
+  yasal sayfaların da yalnızca TR sürümü var.
 - `/odeme` hiçbir menüde linkli değil; teklifle birlikte doğrudan adres olarak paylaşılır.
+- Vergi levhasındaki Başakşehir iş yeri adresi ile ticaret sicilindeki Kağıthane merkez
+  adresi farklı. Yasal metinlerde tescilli merkez (Kağıthane) kullanıldı.
