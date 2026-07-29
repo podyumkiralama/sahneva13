@@ -114,6 +114,7 @@ tarihte yapılan eğlence/boş zaman hizmetleri) iddiası hukukçu onayı gerekt
 
 - Ödeme sayfası yalnızca Türkçe. EN/RU/AR/ZH lokalleri için ayrı sayfa açılmadı;
   yasal sayfaların da yalnızca TR sürümü var.
-- `/odeme` hiçbir menüde linkli değil; teklifle birlikte doğrudan adres olarak paylaşılır.
+- `/odeme` üst menüdeki "Bizi Araştırın" açılırında ve footer hızlı bağlantılarda
+  linklidir; sayfa `noindex` olduğu için bu linkler arama sonuçlarına çıkmaz.
 - Vergi levhasındaki Başakşehir iş yeri adresi ile ticaret sicilindeki Kağıthane merkez
   adresi farklı. Yasal metinlerde tescilli merkez (Kağıthane) kullanıldı.
