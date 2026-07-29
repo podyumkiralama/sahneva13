@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function OdemeBasariliPage() {
   return (
-    <div className="container mx-auto max-w-2xl px-4 py-16 text-center">
+    <div className="container mx-auto max-w-2xl px-4 pb-16 pt-28 text-center md:pt-32">
       <FrameBreakout />
       <h1 className="text-2xl font-bold md:text-3xl">Ödemeniz alındı</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">

@@ -17,11 +17,13 @@ export const metadata = {
   robots: { index: false, follow: false, nocache: true },
 };
 
+// Üst menü fixed ve 65px yüksekliğinde; sayfa başlığının altında kalmaması için
+// içerik kabı pt-24 / md:pt-28 ile başlar.
 export default function OdemePage() {
   const config = getPaytrConfig();
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-10 md:py-14">
+    <div className="container mx-auto max-w-3xl px-4 pb-10 pt-24 md:pb-14 md:pt-28">
       <header className="mb-8">
         <h1 className="text-2xl font-bold md:text-3xl">Online Ödeme</h1>
         <p className="mt-2 text-neutral-600 dark:text-neutral-400">
