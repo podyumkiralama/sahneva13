@@ -53,7 +53,7 @@ export default function KvkkPage() {
   ];
 
   return (
-    <div className="container max-w-3xl mx-auto px-4 py-10 md:py-14">
+    <div className="container max-w-3xl mx-auto px-4 pb-10 pt-24 md:pb-14 md:pt-28">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <header className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">KVKK Aydınlatma Metni</h1>
