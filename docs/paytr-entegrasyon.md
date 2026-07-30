@@ -111,6 +111,34 @@ veya 0 olması bu hatayı etkilemez, iki modda da aynı şekilde reddeder.
 hesabın yetkisini sonradan kısıtlamış olabilir. Çözüm PayTR desteğinden Pro API'nin
 yeniden açılmasını istemek; mağaza no'yu ve hatayı birebir iletmek yeterli.
 
+Panelin "canlı moda geçiş" kontrol listesini tamamlamak bu yetkiyi otomatik açmadı —
+2026-07-30'da hem test hem canlı modda aynı hata devam etti. Bu iki onay PayTR
+tarafında ayrı süreçler gibi görünüyor; PayTR'a yazarken "canlı moda geçiş onayını
+tamamladım, ayrıca Pro API/Entegrasyon yetkisi istiyorum" şeklinde açıkça ayırmak
+gerekiyor.
+
+### Sorun giderme: 3D Secure ekranı CSP tarafından bloke ediliyor
+
+Canlıda kart bilgileri girilip "Ödeme Yap" denince ekran boş kalıyor veya hiç
+ilerlemiyorsa, tarayıcı konsolunda şuna benzer bir satır arayın:
+
+```
+Framing '<url>' violates ... "frame-src 'self' https://www.paytr.com ...".
+The request has been blocked.
+```
+
+Sebep: test modunda PayTR kendi sahte 3D Secure sayfasını (`paytr.com` altında)
+gösteriyor, bu CSP'de zaten izinli. Canlı modda gerçek banka devreye girince PayTR,
+kartı çıkaran bankaya göre farklı bir 3D Secure sayfasına yönlendirebiliyor —
+2026-07-30'da bu, BKM'nin ortak güvenli ödeme geçidi (`goguvenliodeme.bkm.com.tr`)
+oldu ve `frame-src` listesinde olmadığı için bloklandı. `https://*.bkm.com.tr` eklendi
+(`lib/security/buildCsp.js`).
+
+**Farklı bir banka farklı bir domain'e yönlendirirse aynı şekilde bloklanabilir.**
+Konsoldaki hatada geçen origin'i `lib/security/buildCsp.js` içindeki `frameSrc`
+listesine ekleyip deploy etmek gerekir. Bu, yerel ortamda test edilemez — gerçek bir
+banka 3D Secure yönlendirmesi gerektirir, ancak canlı bir işlemle ortaya çıkar.
+
 ## Taksit Tablosu Widget'ı
 
 PayTR panelindeki "Taksit Tablosu" kodu statiktir: tutar, script'in `src` sorgu
