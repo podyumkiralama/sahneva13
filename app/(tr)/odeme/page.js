@@ -34,6 +34,21 @@ export default function OdemePage() {
         </p>
       </header>
 
+      <div className="mb-6 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900 dark:border-blue-900/40 dark:bg-blue-950/30 dark:text-blue-100">
+        <p className="font-semibold">
+          Bu sayfa, sizinle görüşüp anlaştığımız bir teklif tutarını ödemeniz içindir.
+        </p>
+        <p className="mt-1">
+          Fiyat hesaplama veya kendi başına sipariş oluşturma sayfası değildir. Henüz bizimle
+          görüşmediyseniz ya da elinizde bir teklif yoksa, ödeme yapmadan önce lütfen{" "}
+          <Link href="/iletisim" className="font-semibold underline underline-offset-4">
+            bizimle iletişime geçin
+          </Link>
+          . Buraya girilen bir tutarın ödenmesi tek başına; kapsamı, tarihi veya ekipman
+          uygunluğunu onaylamış olmaz — bunları her zaman sizinle teyit ederiz.
+        </p>
+      </div>
+
       {config.testMode ? (
         <div
           role="status"
