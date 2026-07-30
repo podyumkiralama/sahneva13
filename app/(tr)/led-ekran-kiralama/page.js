@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
@@ -2195,6 +2196,7 @@ export default function Page() {
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.ledScreen} links={CONTENT_CLUSTERS.ledScreen.guides} />
       <RegionalCityLinks service="LED ekran kiralama" />
+      <PaymentOptionsNote />
       <CTA />
     </>
   );

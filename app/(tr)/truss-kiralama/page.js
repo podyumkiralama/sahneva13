@@ -3,6 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
@@ -759,6 +760,7 @@ export default function Page() {
         ]}
       />
       <RegionalCityLinks service="truss kiralama" />
+      <PaymentOptionsNote />
       <Offer />
     </div>
   );

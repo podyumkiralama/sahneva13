@@ -8,6 +8,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
@@ -2063,6 +2064,7 @@ export default function Page() {
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
       <RegionalCityLinks service="sahne kiralama" />
+      <PaymentOptionsNote />
       <CTA />
     </>
   );

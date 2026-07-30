@@ -18,6 +18,7 @@ import {
 import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
@@ -1218,6 +1219,7 @@ export default function Page() {
         <BrandEquipmentSection />
         <FAQSection />
         <InternalLinks />
+        <PaymentOptionsNote />
         <CTASection />
       </div>
     </>

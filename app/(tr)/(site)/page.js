@@ -11,6 +11,7 @@ import CorporateEvents from "@/components/CorporateEvents";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import DeferredHydration from "@/components/DeferredHydration.client";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 
@@ -375,6 +376,8 @@ export default function HomePage() {
           <Faq />
         </DeferredHydration>
       </div>
+
+      <PaymentOptionsNote />
     </div>
   );
 }

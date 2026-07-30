@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -962,6 +963,7 @@ export default function Page() {
           { href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi", label: "Etkinlik Teknik Keşif ve Planlama Rehberi" },
         ]}
       />
+      <PaymentOptionsNote />
       <Offer />
     </div>
   );
