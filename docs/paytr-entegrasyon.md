@@ -100,6 +100,17 @@ yazımı ve mükerrer bildirim koruması eklenmelidir.
 `debug_on` test modunda otomatik olarak `1`'dir; PayTR token hatalarının sebebi
 `PAYTR_TOKEN_FAILED` log satırında görünür.
 
+### Sorun giderme: "yalnızca link çözümü (Basic API) aktiftir"
+
+`PAYTR_TOKEN_FAILED` log'unda bu mesaj görünüyorsa kod tarafında sorun yok —
+mağaza hesabının Pro API (Entegrasyon) yetkisi PayTR tarafından kapatılmış demektir.
+`get-token` uç noktası yalnızca Pro API ile çalışır; `PAYTR_TEST_MODE` değerinin 1
+veya 0 olması bu hatayı etkilemez, iki modda da aynı şekilde reddeder.
+
+2026-07-29'da başarıyla çalışıp 2026-07-30'da bu hatayı vermeye başladı — yani PayTR
+hesabın yetkisini sonradan kısıtlamış olabilir. Çözüm PayTR desteğinden Pro API'nin
+yeniden açılmasını istemek; mağaza no'yu ve hatayı birebir iletmek yeterli.
+
 ## Taksit Tablosu Widget'ı
 
 PayTR panelindeki "Taksit Tablosu" kodu statiktir: tutar, script'in `src` sorgu
