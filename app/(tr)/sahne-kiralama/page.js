@@ -377,6 +377,7 @@ const HERO_BADGES = [
   "Modüler Podyum",
   "LED Ekran Entegrasyonu",
   "Ses & Işık Sistemleri",
+  "Kredi Kartı ile Taksitli Ödeme",
 ];
 
 const HERO_METRICS = [

@@ -358,7 +358,7 @@ function Hero() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto sm:grid-cols-4">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               🪑
@@ -379,6 +379,13 @@ function Hero() {
             </span>
             <div className="text-xl font-black text-white">81 İl</div>
             <div className="text-white/80 text-sm">Hizmet</div>
+          </div>
+          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+            <span className="text-2xl mb-2" aria-hidden="true">
+              💳
+            </span>
+            <div className="text-xl font-black text-white">Kart</div>
+            <div className="text-white/80 text-sm">Taksitli Ödeme</div>
           </div>
         </div>
       </div>

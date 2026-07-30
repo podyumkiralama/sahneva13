@@ -541,7 +541,7 @@ function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/[0.86]">
-            {ASSURANCE_ITEMS.slice(0, 4).map((item) => (
+            {[...ASSURANCE_ITEMS.slice(0, 4), "Kredi Kartı ile Taksitli Ödeme"].map((item) => (
               <span key={item} className="border border-white/[0.14] bg-white/[0.08] px-3.5 py-2 backdrop-blur-sm">
                 {item}
               </span>

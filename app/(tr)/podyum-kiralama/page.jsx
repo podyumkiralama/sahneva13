@@ -188,6 +188,7 @@ const HERO_BADGES = [
   "10 cm zemin kurulumunda 10.000 m² kapasite",
   "Karolaj planlı modüler sistem",
   "Türkiye geneli kurulum",
+  "Kredi Kartı ile Taksitli Ödeme",
 ];
 
 const PODIUM_STOCK_METRICS = [

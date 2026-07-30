@@ -197,6 +197,7 @@ const HERO_BADGES = [
   "Dijital Mikser & Stagebox",
   "Kablosuz Mikrofon",
   "Işık Tasarımı & DMX",
+  "Kredi Kartı ile Taksitli Ödeme",
 ];
 
 const HERO_METRICS = [

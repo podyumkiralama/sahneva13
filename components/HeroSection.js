@@ -7,6 +7,7 @@ const DEFAULT_KEYWORDS = [
   { text: "Konser & Festival", color: "text-purple-200" },
   { text: "Sahne + LED", color: "text-cyan-200" },
   { text: "Podyum & Ses", color: "text-emerald-200" },
+  { text: "Kredi Kartı ile Taksit", color: "text-amber-200" },
 ];
 
 const DEFAULT_DICTIONARY = {

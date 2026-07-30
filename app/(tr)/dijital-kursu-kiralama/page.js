@@ -449,7 +449,7 @@ function Hero() {
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-3 max-w-2xl sm:gap-6 border-t border-white/10 pt-8">
+            <div className="mt-10 grid grid-cols-2 gap-3 max-w-2xl sm:grid-cols-4 sm:gap-6 border-t border-white/10 pt-8">
               <div className="flex flex-col items-start sm:items-center text-left sm:text-center">
                 <span className="text-2xl mb-1.5" aria-hidden="true">🎙️</span>
                 <div className="text-lg md:text-xl font-black text-white">Ses</div>
@@ -464,6 +464,11 @@ function Hero() {
                 <span className="text-2xl mb-1.5" aria-hidden="true">🚀</span>
                 <div className="text-lg md:text-xl font-black text-white">Anahtar</div>
                 <div className="text-blue-200/70 text-xs md:text-sm font-medium">Teslim Kurulum</div>
+              </div>
+              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
+                <span className="text-2xl mb-1.5" aria-hidden="true">💳</span>
+                <div className="text-lg md:text-xl font-black text-white">Kart</div>
+                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Taksitli Ödeme</div>
               </div>
             </div>
           </div>

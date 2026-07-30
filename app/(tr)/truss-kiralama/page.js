@@ -342,11 +342,12 @@ function Hero() {
           </a>
         </div>
 
-        <ul className="mt-10 grid gap-4 md:grid-cols-3 text-gray-700">
+        <ul className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4 text-gray-700">
           {[
             { title: "Kurulum + Söküm", desc: "Profesyonel ekip ile sahada tam operasyon" },
             { title: "Nakliye Dahil", desc: "İstanbul ve proje bazlı Türkiye geneli" },
             { title: "Rigging Uyumlu", desc: "LED ekran ve ışık sistemleri için planlama" },
+            { title: "Kredi Kartı ile Taksit", desc: "Teklifte anlaştığımız tutarı online kartla ödeyebilirsiniz" },
           ].map((x) => (
             <li key={x.title} className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
               <p className="font-black text-gray-900 text-lg">{x.title}</p>

@@ -743,7 +743,7 @@ function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
-            {["İç Mekan LED", "Dış Mekan LED", "LED Wall & Video Wall", "Reji ve Teknik Ekip"].map((item) => (
+            {["İç Mekan LED", "Dış Mekan LED", "LED Wall & Video Wall", "Reji ve Teknik Ekip", "Kredi Kartı ile Taksitli Ödeme"].map((item) => (
               <span key={item} className="rounded-full border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
                 {item}
               </span>
