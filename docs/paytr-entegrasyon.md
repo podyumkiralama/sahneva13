@@ -175,6 +175,33 @@ Bu widget iki bağımsız izin listesine giriyor, ikisi de eklendi:
 Bu token, `merchant_id` gibi tarayıcıya gömülmek üzere tasarlanmıştır — `merchant_key`
 / `merchant_salt` gibi gizli değildir, Sensitive işaretlemenize gerek yok.
 
+## Ödeme Seçenekleri Notu ve Kart Logoları
+
+`components/payments/PaymentOptionsNote.jsx`, 9 hizmet sayfasının ve ana sayfanın
+kapanışına yakın yerleştirilen küçük bir güven notudur. Metin bilinçli olarak
+"teklifinizde anlaştığımız tutarı ... ödeyebilirsiniz" diyerek önceden bir teklif
+varlığını varsayar — ziyaretçiyi kendi hesapladığı bir tutarı görüşme yapmadan
+doğrudan ödemeye teşvik etmez. Bu, pazarlık usulü çalışan bir işte gerekli bir
+güvenlik: aksi hâlde onaylanmamış kapsam/tarihle iş alma riski doğar.
+
+Kart şeması logoları `public/img/odeme/` altında, ikisi resmi kaynaktan indirildi:
+
+| Dosya | Kaynak | Lisans |
+| --- | --- | --- |
+| `troy-logo.svg` | [troyodeme.com](https://www.troyodeme.com/medya-merkezi) (TROY/BKM resmi medya merkezi) | TROY kurumsal kimlik kılavuzuna tabi |
+| `visa-logo.svg` | [simple-icons](https://simpleicons.org) paketi (npm, `icons/visa.svg`) | CC0-1.0 |
+| `mastercard-logo.svg` | [simple-icons](https://simpleicons.org) paketi (npm, `icons/mastercard.svg`) | CC0-1.0 |
+
+**Dikkat:** `troy.com.tr` (tire yok) TROY ile **ilgisizdir** — kurumsal promosyon
+ürünleri satan tamamen farklı bir şirket. Doğru adres `troyodeme.com`. Bu logoları
+güncellerken bu domaine dikkat edin.
+
+Visa/Mastercard SVG'leri simple-icons'ta 24x24 kare `viewBox` ile gelir (path'e
+`fill="#374151"` elle eklendi, kaynak dosyada renk yok). Kare olmayan bir
+width/height verilirse tarayıcı görseli kareye sıkıştırıyor — bu ikisi her zaman
+kare kutuda (`width === height`) kullanılmalı. TROY'un resmi logosu kendi
+(298x137) oranında ve çok renkli; yeniden renklendirilmedi.
+
 ## Yasal sayfalar
 
 `/mesafeli-satis-sozlesmesi` ve `/iptal-ve-iade-kosullari` eklendi. İkisi de satıcı
