@@ -22,6 +22,8 @@ import {
   Monitor,
   Music,
   Ruler,
+  Users,
+  Eye,
 } from "lucide-react";
 
 /* ================== Sabitler ================== */
@@ -191,32 +193,32 @@ const USE_CASES = [
   {
     icon: "🎵",
     text: "Konser ve müzik festivalleri",
-    desc: "Ana sahne, alt sahne ve akustik performanslar için profesyonel çözümler",
+    desc: "Ana sahne ve alt sahne kurulumlarında yüksek stabilite, geniş performans alanı ve line array ses sistemleriyle açık hava koşullarına uygun altyapı planlıyoruz. Rüzgar yükü ve zemin stabilitesi, kurulum öncesi teknik keşifte ayrıca değerlendirilir.",
   },
   {
     icon: "💼",
     text: "Kurumsal konferans ve toplantılar",
-    desc: "Şirket içi toplantılar, yıllık genel kurullar ve sektör konferansları",
+    desc: "Yıllık genel kurul, bayi toplantısı ve sektör konferanslarında konuşmacı dostu tasarım, markalama alanı ve net ses aktarımı önceliklidir. Sahne yüksekliği ve podyum genişliği, salon oturma düzenine göre optimize edilir.",
   },
   {
     icon: "🚀",
     text: "Ürün lansmanı ve tanıtım etkinlikleri",
-    desc: "Yeni ürün ve hizmetlerin tanıtıldığı etkileyici lansman etkinlikleri",
+    desc: "Yeni ürün ve hizmet tanıtımlarında LED ekran entegrasyonu, özel ışık tasarımı ve marka görünürlüğünü öne çıkaran sahne düzeni bir arada kurgulanır. Talep halinde hibrit (canlı + online yayın) kurulum da planlanabilir.",
   },
   {
     icon: "🏆",
     text: "Ödül törenleri ve galalar",
-    desc: "Şık ve görkemli ödül törenleri, yılbaşı partileri ve özel galalar",
+    desc: "Şık ve görkemli ödül törenlerinde protokol düzeni, kırmızı halı entegrasyonu ve sahne arkası bekleme alanı gibi detaylar, ışık ve ses tasarımıyla birlikte tek bir akışta planlanır.",
   },
   {
     icon: "🎓",
     text: "Mezuniyet ve okul etkinlikleri",
-    desc: "Mezuniyet törenleri, yılsonu gösterileri ve okul festivalleri",
+    desc: "Mezuniyet törenleri ve yılsonu gösterilerinde geniş katılımcı kapasitesi, net görüş açısı için uygun sahne yüksekliği ve güvenli merdiven/rampa erişimi öncelikli olarak kurgulanır.",
   },
   {
     icon: "🛍️",
     text: "AVM ve perakende etkinlikleri",
-    desc: "Alışveriş merkezlerinde düzenlenen promosyon ve marka etkinlikleri",
+    desc: "Alışveriş merkezlerinde düzenlenen promosyon ve marka etkinliklerinde hızlı kurulum, kompakt sahne ölçüleri ve yaya trafiğini engellemeyen yerleşim planı ön planda tutulur.",
   },
 ];
 
@@ -320,6 +322,51 @@ const PACKAGE_GUIDE = [
     label: "Konser Sahnesi",
     bestFor: "Festival, konser, açık alan etkinliği",
     detail: "8x6 m, LED ve line array altyapı",
+  },
+];
+
+const SIZE_GUIDE_STEPS = [
+  {
+    title: "Katılımcı sayısını ve etkinlik formatını belirleyin",
+    desc: "Oturma düzenindeki söyleşi ve toplantılarda daha kompakt bir sahne yeterli olabilirken; ayakta izlenen konser ve festivallerde katılımcı sayısı arttıkça sahne alanı da büyür.",
+    Icon: Users,
+  },
+  {
+    title: "Görüş açısı için doğru yüksekliği seçin",
+    desc: "Ön sırada engel olmayan oturma düzenlerinde alçak bir podyum yeterli olabilirken; ayakta ve kalabalık izleyici önünde en arkadaki katılımcıya kadar net görüş açısı için daha yüksek bir podyum gerekir.",
+    Icon: Eye,
+  },
+  {
+    title: "Mekan tipini ve ek teknik ihtiyaçları paylaşın",
+    desc: "İç mekan mı dış mekan mı olduğu, tavan yüksekliği (truss için), zemin türü ve LED ekran/ses-ışık ek ihtiyaçları teklif öncesi netleştiğinde en doğru paket birlikte seçilir.",
+    Icon: Ruler,
+  },
+];
+
+const SIZE_GUIDE_TABLE = [
+  {
+    scale: "Söyleşi, küçük toplantı",
+    participants: "30-80 kişi",
+    area: "12-16 m²",
+    height: "20-40 cm",
+  },
+  {
+    scale: "Kurumsal lansman, sunum",
+    participants: "80-200 kişi",
+    area: "16-24 m²",
+    height: "40-60 cm",
+  },
+  {
+    scale: "Konferans, gala",
+    participants: "200-400 kişi",
+    area: "24-48 m²",
+    height: "60-80 cm",
+  },
+  {
+    scale: "Konser, festival",
+    participants: "400+ kişi",
+    area: "48 m² ve üzeri",
+    height: "80-100 cm ve üzeri",
   },
 ];
 
@@ -485,7 +532,7 @@ function RentalFlow() {
   return (
     <section
       id="teklif-akisi"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1600px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_820px] bg-white py-14 sm:py-16"
+      className="bg-white py-14 sm:py-16"
       aria-labelledby="teklif-akisi-baslik"
     >
       <div className="container mx-auto px-4">
@@ -594,13 +641,94 @@ function RentalFlow() {
   );
 }
 
+/* ================== Ölçü & Yükseklik Rehberi ================== */
+function SizeGuide() {
+  return (
+    <section
+      id="olcu-rehberi"
+      className="py-20 bg-white"
+      aria-labelledby="olcu-rehberi-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-blue-700">
+            3 adımda doğru sahne
+          </p>
+          <h2
+            id="olcu-rehberi-baslik"
+            className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl"
+          >
+            Doğru Sahne Ölçüsü ve Yüksekliği Nasıl Seçilir?
+          </h2>
+          <p className="text-xl leading-relaxed text-gray-600">
+            Paketleri incelemeden önce, etkinliğinize uygun m² ve yükseklik
+            aralığını üç adımda netleştirebilirsiniz.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          {SIZE_GUIDE_STEPS.map((step, index) => (
+            <article
+              key={step.title}
+              className="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-sm sm:p-8"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white">
+                <step.Icon size={23} aria-hidden="true" />
+              </div>
+              <div className="mb-2 text-sm font-black uppercase tracking-wide text-blue-700">
+                Adım {index + 1}
+              </div>
+              <h3 className="text-xl font-black leading-snug text-gray-950">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                {step.desc}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 max-w-6xl overflow-x-auto rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+          <h3 className="mb-5 text-2xl font-black text-gray-950">
+            Etkinlik ölçeğine göre başlangıç referansı
+          </h3>
+          <table className="w-full min-w-[560px] border-collapse text-left text-sm sm:text-base">
+            <thead>
+              <tr className="border-b border-blue-200 text-gray-700">
+                <th className="py-3 pr-4 font-black">Etkinlik ölçeği</th>
+                <th className="py-3 pr-4 font-black">Katılımcı sayısı</th>
+                <th className="py-3 pr-4 font-black">Önerilen alan</th>
+                <th className="py-3 font-black">Önerilen yükseklik</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SIZE_GUIDE_TABLE.map((row) => (
+                <tr key={row.scale} className="border-b border-blue-100 last:border-0">
+                  <td className="py-3 pr-4 font-bold text-gray-900">{row.scale}</td>
+                  <td className="py-3 pr-4 text-gray-700">{row.participants}</td>
+                  <td className="py-3 pr-4 text-gray-700">{row.area}</td>
+                  <td className="py-3 text-gray-700">{row.height}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="mt-4 text-sm leading-relaxed text-gray-600">
+            Bu aralıklar genel bir başlangıç referansıdır; kesin ölçü ve
+            yükseklik, mekan tipi, görüş açısı ve ek ekipman ihtiyacına göre
+            teklif aşamasında birlikte netleştirilir.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ================== Hizmetler ================== */
 function Services() {
   return (
     <section
       id="hizmetler"
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
       aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto px-4">
@@ -687,7 +815,7 @@ function Packages() {
   return (
     <section
       id="paketler"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white"
       aria-labelledby="paketler-baslik"
     >
       <div className="container mx-auto px-4">
@@ -890,7 +1018,7 @@ function StaticGallery({ images, visibleCount = 8, priorityCount = 2 }) {
 
 function Gallery() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1400px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
@@ -1014,7 +1142,7 @@ function Technical() {
 
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white"
       aria-labelledby="altyapi-baslik"
     >
       <div className="container mx-auto px-4">
@@ -1086,7 +1214,7 @@ function StatsBand() {
 
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
       aria-label="Başarı İstatistiklerimiz"
     >
       <div className="container mx-auto px-4">
@@ -1131,7 +1259,7 @@ function StatsBand() {
 function UseCases() {
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1207,7 +1335,7 @@ function UseCases() {
 function Articles() {
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_4200px] md:[contain-intrinsic-size:auto_3400px] lg:[contain-intrinsic-size:auto_2600px] py-20 bg-gradient-to-b from-white to-gray-50/50"
+      className="py-20 bg-gradient-to-b from-white to-gray-50/50"
       aria-labelledby="bilgi-rehber-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -1552,7 +1680,7 @@ function Articles() {
 const FAQ_ITEMS = [
   {
     q: "Sahne kiralama fiyatları ne kadar?",
-    a: "Sahne kiralama fiyatları sahne büyüklüğüne ve ekipmanlara göre değişmektedir. Mini sahne (16 m²) 19.500 TL, standart sahne (24 m²) 32.500 TL, konser sahnesi (48 m²) 65.000 TL'den başlayan fiyatlarla. Profesyonel kurulum, ses-ışık sistemleri ve teknik ekip hizmetleri paket fiyatlarına dahildir.",
+    a: "Sahne kiralama fiyatı; sahne ölçüsü, yükseklik, truss ihtiyacı, ses-ışık kapsamı, etkinlik tarihi ve lokasyona göre değişir. Standart fiyatlı bir katalog üzerinden satış yapmıyoruz; mini sahne, standart sahne ve konser sahnesi paketlerimizin kapsamını yukarıda inceleyip tarih ile tahmini ölçünüzü paylaştığınızda aynı gün net bir teklif hazırlıyoruz.",
   },
   {
     q: "Sahne kurulumu ne kadar sürer?",
@@ -1566,11 +1694,27 @@ const FAQ_ITEMS = [
     q: "Ses ve ışık sistemleri dahil mi?",
     a: "Evet, tüm paketlerimizde temel ses ve ışık sistemleri dahildir. Mini sahne paketinde 2 LED bar + 2 spot, standart sahne paketinde 4 hareketli başlık + 6 wash + 2+1 hoparlör sistemi, konser sahnesi paketinde ise line array PA sistemi, monitörler ve profesyonel ışık sistemi yer almaktadır. Özel ihtiyaçlarınız için ek ekipmanlar da temin edebiliriz.",
   },
+  {
+    q: "Sahne için elektrik ve güç ihtiyacını kim karşılıyor?",
+    a: "Ses, ışık ve LED ekran ekipmanları için gerekli güç dağıtımını ve kablolamayı biz planlıyoruz. Mekânda yeterli elektrik altyapısı yoksa jeneratör desteğini de organizasyona dahil edebiliyoruz; kurulum öncesi teknik keşifte mevcut güç kapasitesini birlikte kontrol ediyoruz.",
+  },
+  {
+    q: "Sahne kiralama için ne kadar önceden rezervasyon yapmalıyız?",
+    a: "Mini ve standart sahne paketlerinde birkaç iş günü öncesinden talep genellikle yeterli olur. Truss ve LED ekran içeren konser ölçeğindeki kurulumlarda, özellikle yoğun sezonlarda, en az 2-3 hafta önceden planlama yapmanızı öneririz; erken rezervasyon ekip ve ekipman uygunluğunu garanti altına alır.",
+  },
+  {
+    q: "Engelli erişimi ve rampa seçenekleriniz var mı?",
+    a: "Evet, 60 cm ve üzeri yükseklikteki sahne kurulumlarında talep üzerine erişim rampası ekleyebiliyoruz. Konuşmacı ve katılımcı erişilebilirliğinin önemli olduğu kurumsal etkinliklerde bu ihtiyacı teklif aşamasında belirtmeniz yeterlidir.",
+  },
+  {
+    q: "İç mekan ile dış mekan sahne kurulumu arasındaki fark nedir?",
+    a: "İç mekanda zemin genellikle düzdür ve rüzgar yükü hesaba katılmaz. Dış mekanda ise zemin stabilitesi, rüzgar yükü hesaplaması ve gerektiğinde su geçirmez ekipman öncelikli değerlendirilir. Her iki durumda da truss ve podyum sistemleri aynı kalitede kurulur; fark kurulum süresi ve alınan ek güvenlik önlemlerinde ortaya çıkar.",
+  },
 ];
 
 function FAQ() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white" aria-labelledby="sss-baslik">
+    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2
@@ -1675,7 +1819,7 @@ function RelatedServices() {
 
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_1200px] sm:[contain-intrinsic-size:auto_900px] lg:[contain-intrinsic-size:auto_700px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1906,6 +2050,7 @@ export default function Page() {
       <StageJsonLd />
       <Hero />
       <RentalFlow />
+      <SizeGuide />
       <Packages />
       <Services />
       <Gallery />

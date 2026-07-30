@@ -6,7 +6,7 @@ import FrameBreakout from "@/components/payments/FrameBreakout.client";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Ödeme Tamamlanamadı | Sahneva",
+  title: "Ödeme Tamamlanamadı",
   description: "Sahneva online ödeme işlemi tamamlanamadı.",
   alternates: { canonical: `${SITE_URL}/odeme/basarisiz` },
   robots: { index: false, follow: false, nocache: true },

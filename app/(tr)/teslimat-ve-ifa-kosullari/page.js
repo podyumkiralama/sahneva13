@@ -9,7 +9,7 @@ import { COMPANY, COMPANY_INFO_COMPLETE } from "@/lib/legal/companyInfo";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Teslimat ve İfa Koşulları | Sahneva",
+  title: "Teslimat ve İfa Koşulları",
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde teslimat ve ifa koşulları: kurulum ve söküm süreleri, hizmet bölgesi, nakliye bedeli ve müşteri yükümlülükleri.",
   alternates: { canonical: `${SITE_URL}/teslimat-ve-ifa-kosullari` },

@@ -82,7 +82,7 @@ const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
 const HOME_PAGE_DESCRIPTION =
-  "Sahne, podyum, LED ekran, ses ve ışık sistemlerini tek ekipten kiralayın. Kurumsal etkinlik, lansman, düğün ve festivallerde Türkiye geneli hızlı kurulum; 700+ proje deneyimiyle anahtar teslim teknik prodüksiyon.";
+  "Sahne, podyum, LED ekran, ses ve ışık sistemlerini tek ekipten kiralayın. Türkiye geneli hızlı kurulum, 700+ proje deneyimiyle anahtar teslim prodüksiyon.";
 
 const ogUrl =
   getOgImageUrl?.({ path: "/img/hero-bg.webp", absolute: true }) ??

@@ -6,7 +6,7 @@ import { COMPANY, COMPANY_INFO_COMPLETE, REFUND_TIERS } from "@/lib/legal/compan
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "Mesafeli Satış Sözleşmesi | Sahneva",
+  title: "Mesafeli Satış Sözleşmesi",
   description:
     "Sahneva online ödeme sistemi üzerinden alınan etkinlik prodüksiyon hizmetlerine ilişkin mesafeli satış sözleşmesi: taraflar, hizmet bedeli, ödeme, cayma hakkı ve uyuşmazlık çözümü.",
   alternates: { canonical: `${SITE_URL}/mesafeli-satis-sozlesmesi` },

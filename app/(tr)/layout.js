@@ -35,6 +35,7 @@ const content = LOCALE_CONTENT.tr;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
+const EDITOR_ID = `${BASE_SITE_URL}/#editor`;
 
 /* ================== JSON-LD: GLOBAL GRAPH ================== */
 const globalJsonLd = {
@@ -87,6 +88,13 @@ const globalJsonLd = {
           availableLanguage: ["tr", "en", "ar", "ru", "zh"],
         },
       ],
+    },
+    {
+      "@type": "Person",
+      "@id": EDITOR_ID,
+      name: "Sahneva Editör",
+      url: BASE_SITE_URL,
+      worksFor: { "@id": ORGANIZATION_ID },
     },
     {
       "@type": "LocalBusiness",

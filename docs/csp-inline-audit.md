@@ -34,3 +34,11 @@ This audit documents the inline script surfaces that matter for `CSP_STRICT_SCRI
 ## Remaining blocker
 
 `CSP_STRICT_SCRIPTS=true` is still not production-ready until a browser preview run is clean. The known blocker class is framework and SEO inline payloads, especially Next App Router hydration/RSC payloads and inline JSON-LD. The safe production path is to keep strict mode behind the environment flag while testing Vercel Preview pages for console CSP violations.
+
+## Update (2026-07-30): nonce-based strict CSP evaluated and reverted
+
+`proxy.js` calls `buildCsp()` with `allowUnsafeInline: true` unconditionally — the `CSP_STRICT_SCRIPTS` flag described above was never wired up, and there is currently no code path that produces a nonce/hash-based `script-src` in any environment.
+
+The reason, per the comment directly above that call in `proxy.js`: most pages are ISR/static (revalidated and cached), so a per-request nonce would not match the nonce baked into already-cached HTML on subsequent serves. Per the CSP spec, a nonce present in `script-src` also disables `'unsafe-inline'` entirely, so the two cannot be combined as a fallback. Trusted Types (`components/security/TrustedTypesPolicy.jsx`) is the primary DOM-XSS defense instead; the other CSP directives (`object-src 'none'`, `frame-ancestors 'none'`, host allowlists) remain strict.
+
+Enabling strict `script-src` for real would require moving the affected pages to fully dynamic (per-request) rendering, which is a rendering-architecture change and cost/performance tradeoff, not a flag flip. Until that's revisited, `'unsafe-inline'` on `script-src`/`script-src-elem` should be treated as accepted, intentional technical debt rather than an open task.

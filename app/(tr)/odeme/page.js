@@ -8,7 +8,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Online Ödeme | Sahneva",
+  title: "Online Ödeme",
   description:
     "Sahneva ile mutabık kalınan hizmet bedelini kredi veya banka kartıyla güvenle ödeyin. Ödemeler PayTR altyapısı ve 3D Secure ile alınır.",
   alternates: { canonical: `${SITE_URL}/odeme` },

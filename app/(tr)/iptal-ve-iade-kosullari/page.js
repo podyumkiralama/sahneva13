@@ -6,7 +6,7 @@ import { COMPANY, COMPANY_INFO_COMPLETE, REFUND_TIERS } from "@/lib/legal/compan
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
 export const metadata = {
-  title: "İptal ve İade Koşulları | Sahneva",
+  title: "İptal ve İade Koşulları",
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde iptal ve iade koşulları: kademeli iade oranları, iade süreci, mücbir sebep ve erteleme kuralları.",
   alternates: { canonical: `${SITE_URL}/iptal-ve-iade-kosullari` },

@@ -27,7 +27,7 @@ import {
 
 const content = LOCALE_CONTENT.en;
 
-const EDITOR_ID = `${BASE_SITE_URL}/#editor-en`;
+const EDITOR_ID = `${BASE_SITE_URL}/#editor`;
 const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
 const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
