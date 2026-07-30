@@ -129,15 +129,26 @@ The request has been blocked.
 
 Sebep: test modunda PayTR kendi sahte 3D Secure sayfasını (`paytr.com` altında)
 gösteriyor, bu CSP'de zaten izinli. Canlı modda gerçek banka devreye girince PayTR,
-kartı çıkaran bankaya göre farklı bir 3D Secure sayfasına yönlendirebiliyor —
-2026-07-30'da bu, BKM'nin ortak güvenli ödeme geçidi (`goguvenliodeme.bkm.com.tr`)
-oldu ve `frame-src` listesinde olmadığı için bloklandı. `https://*.bkm.com.tr` eklendi
-(`lib/security/buildCsp.js`).
+kartı çıkaran bankaya göre farklı bir 3D Secure sayfasına yönlendirebiliyor. İki gerçek
+örnek 2026-07-30'da görüldü ve doğrulandı:
 
-**Farklı bir banka farklı bir domain'e yönlendirirse aynı şekilde bloklanabilir.**
-Konsoldaki hatada geçen origin'i `lib/security/buildCsp.js` içindeki `frameSrc`
-listesine ekleyip deploy etmek gerekir. Bu, yerel ortamda test edilemez — gerçek bir
-banka 3D Secure yönlendirmesi gerektirir, ancak canlı bir işlemle ortaya çıkar.
+- BKM'nin ortak güvenli ödeme geçidi: `goguvenliodeme.bkm.com.tr`
+- İşbank'ın kendi Maxinet geçidi: `maxinet.isbank.com.tr`
+
+Bu ikisi `frame-src`'e eklendi (`lib/security/buildCsp.js`). Aynı gün, henüz hiçbir
+gerçek işlemle karşılaşılmamış büyük bankalar (Garanti BBVA, Akbank, Yapı Kredi,
+Ziraat, Halkbank, VakıfBank, QNB Finansbank, DenizBank, TEB, ING) için de olası
+domain'ler **önden, doğrulanmadan** eklendi — kod içinde "DOĞRULANMADI" notuyla
+işaretli. PayTR'ın bu bankalarda gerçekte hangi adrese yönlendirdiği teyit edilmedi;
+ne PayTR'ın kendi dokümanlarında ne de genel kaynaklarda eksiksiz resmi bir liste var.
+
+**Listede olmayan veya yanlış çıkan bir banka aynı şekilde bloklanır.** Konsoldaki
+hatada geçen origin'i `lib/security/buildCsp.js` içindeki `frameSrc` listesine
+ekleyip/düzeltip deploy etmek gerekir. Bu, yerel ortamda test edilemez — gerçek bir
+banka 3D Secure yönlendirmesi gerektirir, ancak canlı bir işlemle ortaya çıkar. Bir
+işlem bu listedeki bankalardan biriyle sorunsuz tamamlanırsa, o domain'in doğru
+olduğu teyit edilmiş sayılır — kod yorumundaki "DOĞRULANMADI" notunu kaldırıp tarih
+ekleyin.
 
 ## Taksit Tablosu Widget'ı
 
