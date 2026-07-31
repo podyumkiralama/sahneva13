@@ -90,9 +90,10 @@ function ServicesStructuredData() {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "1700.00",
+            price: "1800.00",
             priceCurrency: "TRY",
-            unitText: "per day",
+            unitText: "m²",
+            unitCode: "MTK",
           },
         },
         {

@@ -87,9 +87,10 @@ function ServicesStructuredData() {
           },
           'priceSpecification': {
             '@type': 'UnitPriceSpecification',
-            'price': '1700.00',
+            'price': '1800.00',
             'priceCurrency': 'TRY',
-            'unitText': 'günlük'
+            'unitText': 'm²',
+            'unitCode': 'MTK'
           }
         },
         {
@@ -116,7 +117,7 @@ function ServicesStructuredData() {
           'priceSpecification': {
             '@type': 'PriceSpecification',
             'priceCurrency': 'TRY',
-            'minPrice': '250.00',
+            'minPrice': '275.00',
             'maxPrice': '100000.00'
           }
         },
@@ -135,9 +136,9 @@ function ServicesStructuredData() {
           'itemOffered': { '@type': 'Service', 'name': 'Sandalye Kiralama' },
           'priceSpecification': {
             '@type': 'UnitPriceSpecification',
-            'price': '200.00',
+            'price': '250.00',
             'priceCurrency': 'TRY',
-            'unitText': 'adet'
+            'unitText': 'adet / gün'
           }
         },
         {

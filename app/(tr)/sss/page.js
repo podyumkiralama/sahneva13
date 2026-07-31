@@ -233,7 +233,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "2026 çadır kiralama fiyatları nedir?",
-        a: "2026 fiyatlarımız: 5x5 çadır 9.000 TL + nakliye, 4x4 çadır 8.000 TL + nakliye, 3x3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+        a: "2026 fiyatlarımız: 5x5 çadır 9.000 TL + nakliye, 4x4 çadır 8.000 TL + nakliye, 3x3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 450 TL’dir.",
       },
       {
         q: "Kiralama süresi uzatılabilir mi?",

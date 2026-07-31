@@ -14,6 +14,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import TentCalculatorCta from "@/components/TentCalculatorCta";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { UNIT_PRICES } from "@/lib/pricing";
 import { 
   Monitor, 
   MessageCircle, 
@@ -152,7 +153,7 @@ const GALLERY_FALLBACK_CARDS = [
 const FAQ_ITEMS = [
   {
     q: "Çadır kiralama fiyatları ne kadar?",
-    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 430 TL’dir.",
+    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 450 TL’dir.",
   },
   {
     q: "Çadır kurulumu ne kadar sürer?",
@@ -197,24 +198,32 @@ const FAQ_ITEMS = [
 ];
 
 const PRICING_ITEMS = [
+  // amount/unitCode alanlari yalnizca semada kullanilir; gorunen metin `price`.
+  // Onceden fiyat sadece serbest metindi ve arama motorlari icin okunamiyordu.
   {
     title: "3x3 Çadır",
     price: "7.000 TL",
+    amount: 7000,
     description: "Karşılama, kayıt masası ve kompakt stand alanları için 9 m² hızlı kurulum.",
   },
   {
     title: "4x4 Çadır",
     price: "8.000 TL",
+    amount: 8000,
     description: "Fuaye, ikram, küçük satış alanı ve orta ölçekli etkinlik noktaları için 16 m².",
   },
   {
     title: "5x5 Çadır",
     price: "9.000 TL",
+    amount: 9000,
     description: "VIP alan, lansman, kır daveti ve yüksek görünürlüklü pagoda çadır paketi.",
   },
   {
     title: "Büyük Çadırlar",
-    price: "430 TL / m²",
+    price: `${UNIT_PRICES.tentSqm} TL / m²`,
+    amount: UNIT_PRICES.tentSqm,
+    unitCode: "MTK",
+    unitText: "m²",
     description: "Fuar, festival, belediye etkinliği ve büyük ölçekli açık alan projeleri için geniş açıklıklı çözüm.",
   },
 ];
@@ -1479,9 +1488,12 @@ function TentRentalJsonLd() {
         name: item.title,
         description: item.description,
         priceCurrency: "TRY",
+        price: item.amount,
         priceSpecification: {
-          "@type": "PriceSpecification",
+          "@type": item.unitCode ? "UnitPriceSpecification" : "PriceSpecification",
           priceCurrency: "TRY",
+          price: item.amount,
+          ...(item.unitCode ? { unitCode: item.unitCode, unitText: item.unitText } : {}),
           description: item.price,
         },
         availability: "https://schema.org/InStock",

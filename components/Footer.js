@@ -67,6 +67,7 @@ const TR_SERVICES = [
 const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Sahneva Hakkında" },
   { href: "/hizmetler", label: "Hizmetler" },
+  { href: "/etkinlik-planlayici", label: "Etkinlik Planlayıcı" },
   { href: "/sozluk", label: "Teknik Terimler Sözlüğü" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Türkiye’de Etkinlik Çözüm Ortağı" },
   { href: "/odeme", label: "Online Ödeme" },

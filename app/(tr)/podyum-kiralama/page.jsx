@@ -12,6 +12,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 import {
   ArrowRight,
   Briefcase,
@@ -40,12 +41,14 @@ const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
 /* ================== 2. BİRİM FİYATLAR (2026) ================== */
+// Değerler lib/pricing.js'te tek kaynakta tutulur; buradaki adlandırma sayfanın
+// mevcut hesap fonksiyonlarıyla uyumlu kalsın diye korunuyor.
 const UNIT_PRICES = {
-  platform_m2_week: 270,
-  carpet_m2_week: 130,
-  skirt_ml_week: 100,
-  ist_nakliye: 9000, // İstanbul içi temel nakliye (kurulum + söküm dahil)
-  currency: "TRY",
+  platform_m2_week: PODIUM_UNIT_PRICES.platformSqmWeek,
+  carpet_m2_week: PODIUM_UNIT_PRICES.carpetSqmWeek,
+  skirt_ml_week: PODIUM_UNIT_PRICES.skirtMetreWeek,
+  ist_nakliye: PODIUM_UNIT_PRICES.istanbulTransport,
+  currency: PODIUM_UNIT_PRICES.currency,
 };
 
 const calculatePackagePrice = (layout) => {

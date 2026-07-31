@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+
+import { UNIT_PRICES } from "@/lib/pricing";
 import { Calculator, CheckCircle, MessageCircle, Ruler, Tent, Users } from "lucide-react";
 
 const PHONE = "905453048671";
@@ -49,7 +51,7 @@ export default function TentCalculatorClient() {
       .reduce((total, item) => total + item.sqm, 0);
     const totalArea = Math.ceil((personArea + extraArea) * 1.12);
     const recommended = tentSizes.find((tent) => tent.area >= totalArea) || tentSizes[tentSizes.length - 1];
-    const estimatedPrice = recommended.type === "Pagoda" ? null : recommended.area * 430;
+    const estimatedPrice = recommended.type === "Pagoda" ? null : recommended.area * UNIT_PRICES.tentSqm;
 
     return { count, personArea: Math.ceil(personArea), extraArea, totalArea, recommended, estimatedPrice };
   }, [people, layout, selectedExtras]);
@@ -180,7 +182,7 @@ export default function TentCalculatorClient() {
                 <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
                   <p className="text-sm text-slate-400">Yaklaşık çadır bedeli</p>
                   <p className="mt-1 text-3xl font-black">{result.estimatedPrice.toLocaleString("tr-TR")} TL</p>
-                  <p className="mt-2 text-xs leading-5 text-slate-400">430 TL / m² baz alınmıştır. Nakliye, zemin, iklimlendirme ve ek ekipman dahil değildir.</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-400">{UNIT_PRICES.tentSqm} TL / m² baz alınmıştır. Nakliye, zemin, iklimlendirme ve ek ekipman dahil değildir.</p>
                 </div>
               ) : null}
             </div>

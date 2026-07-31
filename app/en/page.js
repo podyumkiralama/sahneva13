@@ -135,7 +135,7 @@ const HOME_JSON_LD = {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: 250,
+            price: 275,
             priceCurrency: "TRY",
             unitText: "m²",
             unitCode: "MTK",
@@ -163,13 +163,14 @@ const HOME_JSON_LD = {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: 1700,
+            price: 1800,
             priceCurrency: "TRY",
-            unitText: "DAY",
+            unitText: "m²",
+            unitCode: "MTK",
             referenceQuantity: {
               "@type": "QuantitativeValue",
               value: 1,
-              unitText: "DAY",
+              unitCode: "MTK",
             },
           },
           availability: "https://schema.org/InStock",
@@ -210,7 +211,7 @@ const HOME_JSON_LD = {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: 200,
+            price: 250,
             priceCurrency: "TRY",
             unitText: "unit",
             unitCode: "C62",

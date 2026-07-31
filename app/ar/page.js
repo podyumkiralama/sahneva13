@@ -502,9 +502,10 @@ function StructuredData() {
             itemOffered: { "@type": "Service", name: "تأجير شاشات LED" },
             priceSpecification: {
               "@type": "UnitPriceSpecification",
-              price: 1700,
+              price: 1800,
               priceCurrency: "TRY",
-              unitText: "في اليوم",
+              unitText: "م²",
+              unitCode: "MTK",
             },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
@@ -550,7 +551,7 @@ function StructuredData() {
             itemOffered: { "@type": "Service", name: "تأجير الكراسي" },
             priceSpecification: {
               "@type": "UnitPriceSpecification",
-              price: 200,
+              price: 250,
               priceCurrency: "TRY",
               unitText: "للوحدة",
             },

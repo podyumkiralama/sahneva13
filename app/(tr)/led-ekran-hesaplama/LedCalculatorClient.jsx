@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+
+import { ADDITIONAL_DAY_DISCOUNT, multiDaySaving, multiDayTotal } from "@/lib/pricing";
 import { Calculator, CheckCircle, MessageCircle, Monitor, Ruler, Sparkles } from "lucide-react";
 
 const PHONE = "905453048671";
@@ -93,7 +95,11 @@ export default function LedCalculatorClient() {
           ? baseDaily < minimum
           : area <= type.smallLimit || baseDaily < minimum;
     const firstDay = usesMinimum ? minimum : baseDaily;
-    const dayTotal = firstDay * numericDays;
+    // Günlük bedeli gün sayısıyla düz çarpmak, proje alt sınırını da çarpıyordu:
+    // 3 günlük küçük bir ekran 105.000 TL çıkıyordu. Doğrusu, ilk günden sonraki
+    // her günün %25 indirimli olması (bkz. lib/pricing.js).
+    const dayTotal = multiDayTotal(firstDay, numericDays);
+    const daySaving = multiDaySaving(firstDay, numericDays);
     const paidExtras = extras
       .filter((item) => selectedExtras.includes(item.key) && item.price > 0)
       .reduce((total, item) => total + item.price, 0);
@@ -104,6 +110,7 @@ export default function LedCalculatorClient() {
       area,
       firstDay,
       dayTotal,
+      daySaving,
       paidExtras,
       grandTotal: dayTotal + paidExtras,
       usesMinimum,
@@ -311,8 +318,15 @@ export default function LedCalculatorClient() {
               <div className="rounded-2xl bg-slate-950/50 p-4 ring-1 ring-white/10">
                 <p className="text-sm text-slate-400">Gün hesabı</p>
                 <p className="mt-1 text-xl font-black">{result.numericDays} gün</p>
+                {result.numericDays > 1 ? (
+                  <p className="mt-2 inline-flex rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-black text-emerald-300">
+                    Çok gün indirimi: −{formatPrice(result.daySaving)}
+                  </p>
+                ) : null}
                 <p className="mt-2 text-xs leading-5 text-slate-400">
-                  Gün sayısı arttığında her gün için aynı başlangıç bedeli baz alınır. Net fiyat tarih, lokasyon ve kurulum saatine göre belirlenir.
+                  İlk gün tam bedel üzerinden hesaplanır; sonraki her gün
+                  %{Math.round(ADDITIONAL_DAY_DISCOUNT * 100)} indirimlidir. Net fiyat tarih,
+                  lokasyon ve kurulum saatine göre belirlenir.
                 </p>
               </div>
             </div>
