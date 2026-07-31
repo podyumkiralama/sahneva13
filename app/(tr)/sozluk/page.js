@@ -4,11 +4,13 @@ import Link from "next/link";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import GlossarySearch from "@/components/GlossarySearch.client";
 import {
   GLOSSARY_CATEGORIES,
   GLOSSARY_TERMS,
   getGlossaryTermsAlphabetical,
   getGlossaryTermsByCategory,
+  isServiceHref,
 } from "@/lib/glossary";
 
 const SITE =
@@ -249,7 +251,7 @@ export default function GlossaryPage() {
                     key={entry.slug}
                     id={entry.slug}
                     data-glossary-item
-                    className="group flex h-full scroll-mt-28 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md"
+                    className="glossary-card"
                   >
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
@@ -263,9 +265,7 @@ export default function GlossaryPage() {
                           <ul className="mt-3 flex flex-wrap gap-1.5">
                             {entry.aliases.map((alias) => (
                               <li key={alias}>
-                                <span className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-800">
-                                  {alias}
-                                </span>
+                                <span className="glossary-badge">{alias}</span>
                               </li>
                             ))}
                           </ul>
@@ -288,8 +288,11 @@ export default function GlossaryPage() {
                               rehber yazısına "fiyat al" demek yanlış beklenti kurar. */}
                           {isServiceHref(entry.related.href) ? (
                             <Link
-                              href={`${entry.related.href}#teklif`}
-                              className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-slate-950 px-4 text-sm font-black text-white transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                              // Fragment yok: hizmet sayfalarında ortak bir
+                              // "#teklif" çapası bulunmuyor, uydurmak kullanıcıyı
+                              // sayfanın başına düşürmekten başka işe yaramaz.
+                              href={entry.related.href}
+                              className="glossary-cta"
                             >
                               Fiyat / teklif al
                               <span aria-hidden="true" className="ml-1.5">
