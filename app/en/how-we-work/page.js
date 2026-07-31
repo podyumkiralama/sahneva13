@@ -12,7 +12,8 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/nasil-calisiriz/hero-surec.webp`;
 
 export const metadata = {
-  title: "How We Work | Sahneva Event Process",
+  // The locale layout appends " | Sahneva"; do not repeat the brand here.
+  title: "How We Work — Our 8-Step Event Production Process",
   description:
     "At Sahneva, the process is planned end-to-end: needs analysis, quote, technical survey, installation, and post-event dismantling.",
   alternates: buildLanguageAlternates({

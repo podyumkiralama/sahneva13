@@ -139,7 +139,6 @@ export default function ChineseProjectsPage() {
         <CaseGallery
           images={getFeaturedPortfolio("zh")}
           visibleCount={8}
-          priorityCount={2}
           locale="zh"
         />
 

@@ -51,8 +51,7 @@ const YT_LASER_THUMB = `https://img.youtube.com/vi/${YT_LASER_ID}/hqdefault.jpg`
 
 /* ================== META ================== */
 export const metadata = {
-  title:
-    "Kurumsal Etkinliklerde Dome Çadır Devrimi: 360° Mapping",
+  title: "Dome Çadır Devrimi: Kurumsal 360° Mapping",
   description:
     "Kurumsal lansmanlarda dome çadır ve 360° video mapping devrimi. Dicle Fest örneği, hızlı kurulum, akustik senkronizasyon ve tüm proje detayları.",
   image: HERO_IMAGE,

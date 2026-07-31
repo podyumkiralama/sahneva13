@@ -7,7 +7,8 @@ import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
-const AR_CONTACT_TITLE = "تواصل مع Sahneva";
+// Layout başlık şablonu " | Sahneva" ekliyor; sayfa başlığında marka tekrarlanmaz.
+const AR_CONTACT_TITLE = "تواصل معنا | طلب عرض سعر فني للفعاليات";
 const AR_CONTACT_DESCRIPTION =
   "تواصل مع فريق Sahneva لطلب عرض فني للفعاليات في تركيا: مسرح، LED، صوت، إضاءة، تراس، خيام وتشغيل ميداني.";
 const AR_CONTACT_OG_IMAGE_URL = `${SITE_URL}/img/hero-bg-desktop.webp`;

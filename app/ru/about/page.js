@@ -14,7 +14,8 @@ const VALUES = [
 ];
 
 export const metadata = {
-  title: "О Sahneva",
+  // Шаблон layout добавляет " | Sahneva" — бренд в заголовке не повторяем.
+  title: "О компании — технический продакшен мероприятий",
   description:
     "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
   alternates: {

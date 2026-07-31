@@ -1,5 +1,6 @@
 // app/en/data-protection/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -53,7 +54,18 @@ export default function DataProtectionPage() {
 
   return (
     <div className="container max-w-3xl mx-auto px-4 pb-10 pt-24 md:pb-14 md:pt-28">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={baseUrl}
+        id={`${baseUrl}/en/data-protection#breadcrumb`}
+      />
+      <LegalPageJsonLd
+        path="/en/data-protection"
+        name={metadata.title}
+        description={metadata.description}
+        inLanguage="en-US"
+        dateModified="2025-11-11"
+      />
       <header className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">Data Protection & Privacy Policy</h1>
         <p className="text-sm text-neutral-600 mt-1">Last updated: {updatedAt}</p>

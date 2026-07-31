@@ -11,7 +11,8 @@ export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/zh/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "项目案例 — 舞台、LED屏幕与活动制作";
+// 与 /zh/projects 的标题区分开，避免重复标题。
+const PAGE_TITLE = "我们的作品 — 现场技术制作实例";
 const PAGE_DESCRIPTION =
   "观看 Sahneva 的现场实拍视频：TEKNOFEST、国家航天计划发布会、PUBG 总决赛等项目的舞台、LED屏幕、音响灯光与篷房搭建过程。";
 const PUBLISHED_AT = "2026-07-27T00:00:00+03:00";

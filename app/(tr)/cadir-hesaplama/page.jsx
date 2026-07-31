@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import TentCalculatorClient from "./TentCalculatorClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;
@@ -104,10 +105,68 @@ const blogLinks = [
   },
 ];
 
+const FAQ_ID = `${PAGE_URL}#faq`;
+
+const CALCULATOR_SCHEMA = buildCalculatorSchema({
+  path: "/cadir-hesaplama",
+  name: "Çadır Hesaplama Aracı",
+  description:
+    "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre yaklaşık çadır m² ihtiyacını ve önerilen çadır ölçüsünü hesaplayan Sahneva aracı.",
+  image: "/img/cadir/hero.webp",
+  faqId: FAQ_ID,
+  featureList: [
+    "Kişi sayısına göre yaklaşık çadır m² hesaplama",
+    "Kokteyl, yemekli ve düğün düzeni için ayrı alan katsayıları",
+    "Sahne, LED ekran ve reji alanının metrajı etkilemesi",
+    "Catering, karşılama ve backstage alanının hesaba katılması",
+    "Sonuca uygun standart çadır ölçüsü önerisi",
+  ],
+  howToName: "Etkinlik için kaç m² çadır gerektiği nasıl hesaplanır?",
+  howToDescription:
+    "Kişi sayısı, oturma düzeni ve teknik alan ihtiyacını girerek etkinliğiniz için gereken yaklaşık çadır ölçüsünü adım adım belirleyin.",
+  howToSteps: [
+    {
+      name: "Kişi sayısını girin",
+      text: "Beklenen davetli sayısını girin. Bu değer, hesaplamanın temel alanını belirler.",
+    },
+    {
+      name: "Oturma düzenini seçin",
+      text: "Kokteyl, yemekli masa veya düğün/davet düzenini seçin. Aynı kişi sayısı düzene göre 1,6-1,8 katına kadar farklı alan gerektirir.",
+    },
+    {
+      name: "Sahne ve LED ekran alanını ekleyin",
+      text: "Etkinlikte sahne, LED ekran, reji ve ses sistemi varsa ilgili seçenekleri işaretleyin; teknik alan metraja eklenir.",
+    },
+    {
+      name: "Catering ve karşılama alanını belirtin",
+      text: "İkram, karşılama, fuaye veya backstage alanı gerekiyorsa ekleyin. Bu bölümler misafir akışı için ayrı alan ister.",
+    },
+    {
+      name: "Önerilen çadır ölçüsünü değerlendirin",
+      text: "Araç toplam m² ihtiyacını ve buna uygun standart çadır ölçüsünü gösterir. Kesin ölçü için zemin, rüzgâr ve yerleşim planıyla birlikte keşif yapılmalıdır.",
+    },
+  ],
+  about: [
+    "çadır kiralama",
+    "etkinlik çadırı m² hesabı",
+    "pagoda çadır",
+    "büyük açıklıklı çadır",
+    "düğün çadırı",
+  ],
+  breadcrumb: [
+    { name: "Sahneva", url: "/" },
+    { name: "Çadır Kiralama", url: "/cadir-kiralama" },
+    { name: "Çadır Hesaplama", url: "/cadir-hesaplama" },
+  ],
+});
+
 function JsonLd() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": FAQ_ID,
+    url: PAGE_URL,
+    inLanguage: "tr-TR",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -118,25 +177,13 @@ function JsonLd() {
     })),
   };
 
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Çadır Hesaplama Aracı",
-    url: `${ORIGIN}/cadir-hesaplama`,
-    inLanguage: "tr-TR",
-    description:
-      "Kişi sayısı ve etkinlik düzenine göre yaklaşık çadır m² ihtiyacını hesaplayan Sahneva aracı.",
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva",
-      url: ORIGIN,
-    },
-  };
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(CALCULATOR_SCHEMA) }}
+      />
     </>
   );
 }

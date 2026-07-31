@@ -205,12 +205,16 @@ export default function BlogPostCorporate() {
                   </figcaption>
                 </figure>
 
-                {/* Pro Tip Box */}
-                <div className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose">
+                {/* Pro Tip Box — a callout note; stays out of the heading outline */}
+                <aside
+                  role="note"
+                  aria-label="Professional Tip"
+                  className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+                >
                   <div className="flex items-start gap-4">
                     <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
                     <div>
-                      <h4 className="text-blue-900 font-bold mt-0 mb-2 text-lg">Professional Tip</h4>
+                      <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">Professional Tip</p>
                       <p className="mb-2 text-blue-800 text-base">
                         Starting event planning <strong>at least 2–3 months in advance</strong> and conducting a site survey jointly with the technical supplier:
                       </p>
@@ -221,7 +225,7 @@ export default function BlogPostCorporate() {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </aside>
 
                 <h2 id="sahne-podyum">1. Designing the Focal Point: Stage and Podium</h2>
                 <p>

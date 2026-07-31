@@ -287,7 +287,7 @@ export default function ServicePage({ service }) {
                 результат работы команды Sahneva.
               </p>
             </div>
-            <CaseGallery images={galleryImages} visibleCount={8} priorityCount={2} locale="ru" />
+            <CaseGallery images={galleryImages} visibleCount={8} locale="ru" />
             <div className="mt-8 text-center">
               <Link
                 href="/ru/our-work"

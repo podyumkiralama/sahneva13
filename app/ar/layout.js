@@ -23,6 +23,10 @@ import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
+import {
+  LOCAL_BUSINESS_IDENTITY,
+  ORGANIZATION_IDENTITY,
+} from "@/lib/structuredData/organizationIdentity";
 
 const content = LOCALE_CONTENT.ar;
 
@@ -42,6 +46,7 @@ const globalJsonLd = {
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
+      ...ORGANIZATION_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       url: BASE_SITE_URL,
@@ -67,6 +72,7 @@ const globalJsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
+      ...LOCAL_BUSINESS_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       url: BASE_SITE_URL,

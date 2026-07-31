@@ -11,7 +11,8 @@ import {
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "About Us | Sahneva - Professional Event Technologies",
+  // The locale layout appends " | Sahneva"; do not repeat the brand here.
+  title: "About Us — Professional Event Technologies",
   description:
     "Over 10 years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. 700+ completed projects.",
   alternates: {

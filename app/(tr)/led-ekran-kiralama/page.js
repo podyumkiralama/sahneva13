@@ -146,7 +146,7 @@ const LED_PIXEL_ROWS = [
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
+  title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor",
   description:
     "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:

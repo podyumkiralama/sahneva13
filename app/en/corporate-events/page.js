@@ -47,7 +47,7 @@ export const metadata = {
     absolute: "Large-Scale Corporate Event Production in Turkey | Sahneva",
   },
   description:
-    "Sahneva organizes large-scale corporate events in Istanbul and across Turkey: stage, LED screen, sound, lighting and field crew from one production team. 700+ projects.",
+    "Sahneva produces large-scale corporate events in Istanbul and across Turkey: stage, LED screen, sound, lighting and field crew from one team. 700+ projects.",
   alternates: buildLanguageAlternates({
     tr: "/kurumsal-organizasyon",
     en: "/en/corporate-events",
@@ -1152,7 +1152,6 @@ function Gallery() {
             <CaseGallery
               images={GALLERY_IMAGES}
               visibleCount={8}
-              priorityCount={4}
               layout="featured"
               locale="en"
             />

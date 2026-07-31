@@ -229,12 +229,16 @@ export default function BlogPostCorporate() {
                   </figcaption>
                 </figure>
 
-                {/* Pro Tip Box */}
-                <div className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose">
+                {/* Pro Tip Box — kenar notu, başlık hiyerarşisine girmez */}
+                <aside
+                  role="note"
+                  aria-label="Profesyonel İpucu"
+                  className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+                >
                   <div className="flex items-start gap-4">
                     <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
                     <div>
-                      <h4 className="text-blue-900 font-bold mt-0 mb-2 text-lg">Profesyonel İpucu</h4>
+                      <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">Profesyonel İpucu</p>
                       <p className="mb-2 text-blue-800 text-base">
                         Etkinlik planlamasına <strong>en az 2–3 ay önceden</strong> başlamak ve teknik tedarikçi ile mekan keşfini (site survey) birlikte yapmak:
                       </p>
@@ -245,7 +249,7 @@ export default function BlogPostCorporate() {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </aside>
 
                 <h2 id="sahne-podyum">1. Odak Noktasını Tasarlamak: Sahne ve Podyum</h2>
                 <p>

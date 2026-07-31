@@ -16,7 +16,8 @@ const PUBLISH_DATE = "2026-06-07T09:00:00+03:00";
 const MODIFIED_DATE = "2026-06-07T09:00:00+03:00";
 
 const TITLE = "Etkinliklerde LED Ekran Kiralamanın Markalara Sağladığı Avantajlar";
-const META_TITLE = "Etkinliklerde LED Ekran Kiralamanın Avantajları | Sahneva";
+// Layout başlık şablonu " | Sahneva" ekliyor; burada marka tekrarlanmaz.
+const META_TITLE = "Etkinliklerde LED Ekran Kiralamanın Avantajları";
 const DESCRIPTION =
   "LED ekran kiralama; lansman, fuar, konser ve kurumsal etkinliklerde güçlü görsel etki, yüksek izleyici ilgisi ve profesyonel sunum deneyimi sağlar.";
 

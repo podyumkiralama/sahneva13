@@ -36,7 +36,7 @@ const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
 const VIDEO_THUMB = `https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`;
 
 export const metadata = {
-  title: "National Space Program Launch (2021) | Engineering Reflex",
+  title: "National Space Program Launch | Engineering Reflex",
   description: DESCRIPTION,
   keywords: [
     "National Space Program",

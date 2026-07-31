@@ -7,6 +7,11 @@ import {
   getIndexableRegionalCities,
   getRegionalCity,
 } from "@/lib/seo/regionalCities";
+import {
+  COUNTRY_NODE,
+  buildCityPlaceNode,
+  cityPlaceId,
+} from "@/lib/structuredData/cityPlace";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -184,6 +189,7 @@ function CityJsonLd({ city, context }) {
   const pageId = `${pageUrl}#webpage`;
   const serviceId = `${pageUrl}#service`;
   const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const placeRef = { "@id": cityPlaceId(city.slug) };
 
   const data = {
     "@context": "https://schema.org",
@@ -196,9 +202,23 @@ function CityJsonLd({ city, context }) {
         description: `${city.name} için ${context.meta}.`,
         isPartOf: { "@id": webId },
         about: { "@id": serviceId },
+        // Sayfanin cografi kapsami: sehir yalnizca metinde degil, grafikte de var.
+        contentLocation: placeRef,
         inLanguage: "tr-TR",
         breadcrumb: { "@id": breadcrumbId },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${SITE}/img/bolgesel-kiralama/hero.webp`,
+          contentUrl: `${SITE}/img/bolgesel-kiralama/hero.webp`,
+        },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "[data-speakable]"],
+        },
+        significantLink: SERVICES.map((service) => `${SITE}${service.href}`),
       },
+      COUNTRY_NODE,
+      buildCityPlaceNode(city),
       {
         "@type": "BreadcrumbList",
         "@id": breadcrumbId,
@@ -220,7 +240,24 @@ function CityJsonLd({ city, context }) {
         serviceType: "Etkinlik ekipmanı kiralama, kurulum ve teknik operasyon",
         description: `${city.name} için sahne, podyum, LED ekran, truss, ses ve ışık sistemleri kiralama planı.`,
         provider: { "@id": orgId },
-        areaServed: { "@type": "City", name: city.name },
+        areaServed: placeRef,
+        serviceArea: placeRef,
+        // Ekipman kargoyla gonderilmiyor; ekip sehre gidip kurulumu yapiyor.
+        providerMobility: "dynamic",
+        termsOfService: `${SITE}/mesafeli-satis-sozlesmesi`,
+        availableChannel: {
+          "@type": "ServiceChannel",
+          name: `${city.name} teklif ve teknik keşif kanalı`,
+          serviceUrl: `${SITE}/iletisim`,
+          serviceLocation: placeRef,
+          servicePhone: {
+            "@type": "ContactPoint",
+            telephone: "+905453048671",
+            contactType: "sales",
+            areaServed: "TR",
+            availableLanguage: ["tr", "en"],
+          },
+        },
         mainEntityOfPage: { "@id": pageId },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -233,7 +270,8 @@ function CityJsonLd({ city, context }) {
               "@type": "Service",
               name: service.title,
               url: `${SITE}${service.href}`,
-              areaServed: { "@type": "City", name: city.name },
+              areaServed: placeRef,
+              provider: { "@id": orgId },
             },
           })),
         },

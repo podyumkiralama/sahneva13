@@ -14,7 +14,8 @@
     "analyze": "next experimental-analyze",
     "deps:dedupe": "npm dedupe",
     "security:check": "node scripts/check-security-headers.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "seo:html": "node scripts/html-audit.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.2",

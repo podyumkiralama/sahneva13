@@ -21,7 +21,7 @@ const AUTHOR_NAME = "Sahneva Content Team";
 const PUBLISH_DATE = "2026-04-07T00:00:00+03:00";
 
 export const metadata = {
-  title: "Technical Production and Stage Rental Pricing Guide (2026)",
+  title: "Technical Production & Stage Rental Pricing 2026",
   description:
     "Stage, sound, lighting, LED screen and tent rental pricing strategies: package model, demand-based pricing and add-on services.",
   alternates: buildLanguageAlternates({

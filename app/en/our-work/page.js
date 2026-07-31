@@ -11,7 +11,7 @@ export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/en/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "Our Work | Stage, LED Screen & Event Production Projects";
+const PAGE_TITLE = "Our Work | Stage & LED Screen Production Projects";
 const PAGE_DESCRIPTION =
   "Explore stage, LED screen, podium, sound, lighting, truss, tent and corporate event projects completed by Sahneva — with real on-site video references.";
 const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";

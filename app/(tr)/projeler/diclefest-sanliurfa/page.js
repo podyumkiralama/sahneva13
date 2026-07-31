@@ -21,7 +21,7 @@ const PAGE_PATH = "/projeler/diclefest-sanliurfa";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const IMAGE_BASE = "/img/projeler/diclefest-sanliurfa";
 const TITLE = "DicleFest Şanlıurfa Festival Alanı Kurulumu ve Etkinlik Yönetimi";
-const SEO_TITLE = "DicleFest Şanlıurfa | Dome Çadır, LED Ekran ve Konser Alanı";
+const SEO_TITLE = "DicleFest Şanlıurfa | Dome Çadır ve LED Ekran";
 const DESCRIPTION =
   "Şanlıurfa DicleFest’te dome çadır, etkinlik çadırları, oyun alanları, konser alanı, dekor ve festival saha operasyonu Sahneva tarafından yönetildi.";
 const OG_DESCRIPTION =

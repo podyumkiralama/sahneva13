@@ -26,7 +26,7 @@ const GALLERY_STAGE_IMG = "/img/galeri/led-ekran-kiralama-31.webp";
 const GALLERY_BACKSTAGE_IMG = "/img/galeri/led-ekran-kiralama-32.webp";
 const GALLERY_OUTDOOR_IMG = "/img/galeri/led-ekran-kiralama-30.webp";
 
-const TITLE = "LED Ekran Kurulumu Güvenli mi? | 2026 Teknik Saha Rehberi";
+const TITLE = "LED Ekran Kurulum Güvenliği | Teknik Saha Rehberi";
 const DESCRIPTION =
   "LED ekran kurulumunda taşıyıcı sistem, rüzgar hesabı, elektrik güvenliği, yetkin ekip, truss ve ISG kontrolleri için 2026 saha rehberi.";
 

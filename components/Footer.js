@@ -67,6 +67,7 @@ const TR_SERVICES = [
 const TR_QUICK_LINKS = [
   { href: "/hakkimizda", label: "Sahneva Hakkında" },
   { href: "/hizmetler", label: "Hizmetler" },
+  { href: "/sozluk", label: "Teknik Terimler Sözlüğü" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Türkiye’de Etkinlik Çözüm Ortağı" },
   { href: "/odeme", label: "Online Ödeme" },
   {
@@ -299,7 +300,14 @@ export default function Footer({
   const computedDescriptionId =
     ariaDescribedby ?? descriptionIdProp ?? `site-footer-desc-${instanceId}`;
 
-  const ariaLabelledbyValue = ariaLabel ? undefined : computedHeadingId;
+  // Footer sütun başlıkları h3. Üstlerinde bir h2 basılmazsa, içeriğinde yalnızca
+  // h1 bulunan sayfalarda (ödeme sonucu, teşekkürler) h1 → h3 seviye atlaması
+  // oluşuyordu. Bu nedenle sr-only h2 artık ariaLabel verildiğinde de basılır ve
+  // footer'ın erişilebilir adı doğrudan bu başlıktan gelir.
+  const footerHeadingText = ariaLabel ?? footerStrings?.ariaLabel;
+  const renderFooterHeading = !ariaLabelledby && Boolean(footerHeadingText);
+  const ariaLabelledbyValue =
+    ariaLabelledby ?? (renderFooterHeading ? computedHeadingId : undefined);
   const footerDescription = footerStrings?.description;
 
   return (
@@ -312,7 +320,7 @@ export default function Footer({
         overflow-hidden
       "
       aria-labelledby={ariaLabelledbyValue}
-      aria-label={ariaLabel}
+      aria-label={renderFooterHeading ? undefined : ariaLabel}
       aria-describedby={computedDescriptionId}
       role={roleOverride}
       tabIndex={-1}
@@ -339,10 +347,10 @@ export default function Footer({
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
       </div>
 
-      {/* Görünmez ana başlık (SR için) */}
-      {!ariaLabel && !ariaLabelledby && (
+      {/* Görünmez ana başlık (SR + başlık hiyerarşisi için) */}
+      {renderFooterHeading && (
         <h2 id={computedHeadingId} className="sr-only">
-          {footerStrings?.ariaLabel}
+          {footerHeadingText}
         </h2>
       )}
 

@@ -326,7 +326,6 @@ export default async function ProjectsIndexPageEn() {
           <CaseGallery
             images={getFeaturedPortfolio("en")}
             visibleCount={8}
-            priorityCount={2}
             locale="en"
           />
 

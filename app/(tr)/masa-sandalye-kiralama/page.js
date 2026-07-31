@@ -49,7 +49,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Masa Sandalye Kiralama | İstanbul Profesyonel Çözümler",
+  title: "Masa Sandalye Kiralama İstanbul | Davet & Toplantı",
   description:
     "Masa sandalye kiralama: Napolyon ve konferans sandalyesi, banket-bistro masa, örtü-kılıf. İstanbul'da düğün ve kurumsal etkinliklere hızlı teslim.",
   alternates: buildLanguageAlternates({
@@ -752,7 +752,6 @@ function Gallery() {
           <CaseGallery
             images={GALLERY_IMAGES}
             visibleCount={8}
-            priorityCount={2}
           />
         </div>
 

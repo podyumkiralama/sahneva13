@@ -233,8 +233,7 @@ const GUIDE_CHECKLIST = [
 
 /* ================== 3. META DATA ================== */
 export const metadata = {
-  title:
-    "Konser İçin Podyum Kiralama | Festival Sahne Çözümleri",
+  title: "Konser Podyum Kiralama | Festival Sahne Çözümleri",
   description:
     "Konser & festival podyum kiralama: ana platform, yan kule, FOH, uçtan uca teknik destek. Profesyonel kurulum, İstanbul ve Türkiye geneli hızlı hizmet.",
   alternates: buildLanguageAlternates({

@@ -1,6 +1,7 @@
 // app/kvkk/page.jsx
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY } from "@/lib/legal/companyInfo";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -55,7 +56,18 @@ export default function KvkkPage() {
 
   return (
     <div className="container max-w-3xl mx-auto px-4 pb-10 pt-24 md:pb-14 md:pt-28">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={baseUrl}
+        id={`${baseUrl}/kvkk#breadcrumb`}
+      />
+      <LegalPageJsonLd
+        path="/kvkk"
+        name={metadata.title}
+        description={metadata.description}
+        inLanguage="tr-TR"
+        dateModified="2025-10-11"
+      />
       <header className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">KVKK Aydınlatma Metni</h1>
         <p className="text-sm text-neutral-600 mt-1">Son güncelleme: {updatedAt}</p>

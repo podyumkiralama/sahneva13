@@ -1,6 +1,7 @@
 // app/(tr)/iptal-ve-iade-kosullari/page.js
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE, REFUND_TIERS } from "@/lib/legal/companyInfo";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -23,7 +24,18 @@ export default function IptalVeIadeKosullariPage() {
 
   return (
     <div className="container max-w-3xl mx-auto px-4 pb-10 pt-24 md:pb-14 md:pt-28">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={baseUrl}
+        id={`${baseUrl}/iptal-ve-iade-kosullari#breadcrumb`}
+      />
+      <LegalPageJsonLd
+        path="/iptal-ve-iade-kosullari"
+        name={metadata.title}
+        description={metadata.description}
+        inLanguage="tr-TR"
+        dateModified="2026-07-29"
+      />
       <header className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">İptal ve İade Koşulları</h1>
         <p className="text-sm text-neutral-600 mt-1">Son güncelleme: {updatedAt}</p>

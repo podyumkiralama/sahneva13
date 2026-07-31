@@ -14,6 +14,10 @@ import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistratio
 import SpeculationRules from "@/components/performance/SpeculationRules";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
+  LOCAL_BUSINESS_IDENTITY,
+  ORGANIZATION_IDENTITY,
+} from "@/lib/structuredData/organizationIdentity";
+import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
@@ -46,6 +50,7 @@ const globalJsonLd = {
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
+      ...ORGANIZATION_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       url: BASE_SITE_URL,
@@ -89,6 +94,7 @@ const globalJsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
+      ...LOCAL_BUSINESS_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       url: BASE_SITE_URL,

@@ -119,7 +119,10 @@ function CaseGallery({
   images = [],
   visibleCount = 4,
   layout = "grid",
-  priorityCount = 1,
+  // Vaka galerisi her zaman katlamanın altında duruyor. Buradaki görselleri eager
+  // yüklemek, hero'nun LCP isteğiyle bant genişliği için yarışıyordu; varsayılan 0.
+  // Galeri gerçekten ilk ekranda olan bir sayfa çıkarsa açıkça >0 geçilmeli.
+  priorityCount = 0,
   locale = "tr",
 }) {
   const t = LABELS[locale] ?? LABELS.tr;
@@ -311,7 +314,7 @@ function CaseGallery({
                 fill
                 sizes="(max-width: 1024px) 100vw, 72vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
-                loading="eager"
+                loading={priorityCount > 0 ? "eager" : "lazy"}
                 decoding="async"
                 quality={78}
               />

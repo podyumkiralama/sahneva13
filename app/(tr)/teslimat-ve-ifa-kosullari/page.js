@@ -4,6 +4,7 @@
 // satış mevzuatı bu bilginin sitede erişilebilir olmasını gerektirir.
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE } from "@/lib/legal/companyInfo";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -26,7 +27,18 @@ export default function TeslimatVeIfaKosullariPage() {
 
   return (
     <div className="container max-w-3xl mx-auto px-4 pb-10 pt-24 md:pb-14 md:pt-28">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={baseUrl}
+        id={`${baseUrl}/teslimat-ve-ifa-kosullari#breadcrumb`}
+      />
+      <LegalPageJsonLd
+        path="/teslimat-ve-ifa-kosullari"
+        name={metadata.title}
+        description={metadata.description}
+        inLanguage="tr-TR"
+        dateModified="2026-07-29"
+      />
       <header className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">Teslimat ve İfa Koşulları</h1>
         <p className="text-sm text-neutral-600 mt-1">Son güncelleme: {updatedAt}</p>

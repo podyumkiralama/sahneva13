@@ -35,7 +35,7 @@ const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sound System Innovations in 2026: Microphones and Line Array",
+  title: "Sound System Innovations 2026: Mics & Line Array",
   description:
     "Discover 2026 sound technologies: WMAS systems, AI-based frequency management and beam steering ushering in a new era of engineering in event production.",
   image: HERO_IMAGE,

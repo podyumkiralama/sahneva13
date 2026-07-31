@@ -271,7 +271,7 @@ export default function Page() {
               <a
                 href="https://aceofmice.com/ace-of-m-i-c-e-awards/kazananlar/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Ace of M.I.C.E. Awards Winners List
               </a>

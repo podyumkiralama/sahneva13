@@ -80,7 +80,7 @@ const BRIEF_ITEMS = [
 ];
 
 export const metadata = {
-  title: "Контакты",
+  title: "Контакты — расчет аренды оборудования в Турции",
   description:
     "Свяжитесь с Sahneva для расчета аренды сцены, LED-экрана, звука, света, шатра и мебели для мероприятий в Турции.",
   alternates: {

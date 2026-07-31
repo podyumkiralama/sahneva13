@@ -49,7 +49,7 @@ const YT_LASER_THUMB = `https://img.youtube.com/vi/${YT_LASER_ID}/hqdefault.jpg`
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Dome Tent Revolution at Corporate Events: 360° Mapping",
+  title: "Dome Tent Revolution: 360° Mapping at Events",
   description:
     "Dome tent and 360° video mapping revolution at corporate launches. Dicle Fest case study, rapid installation, acoustic synchronisation and full project details.",
   image: HERO_IMAGE,

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { getSearchIndex } from "@/lib/searchIndex";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 const SEARCH_URL = `${SITE_URL}/search`;
 const SEARCH_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
@@ -35,6 +37,24 @@ export const metadata = {
   robots: { index: false, follow: true },
 };
 
+/**
+ * Sayfa noindex; sema burada siralama icin degil, WebSite.potentialAction ile
+ * tanimlanan SearchAction hedefinin gercekten bir arama sonucu sayfasi oldugunu
+ * dogrulamak icin bulunur.
+ */
+const buildSearchResultsSchema = (query, resultCount) => ({
+  "@context": "https://schema.org",
+  "@type": "SearchResultsPage",
+  "@id": `${SEARCH_URL}#webpage`,
+  url: query ? `${SEARCH_URL}?q=${encodeURIComponent(query)}` : SEARCH_URL,
+  name: query ? `"${query}" için arama sonuçları` : "Site içi arama",
+  description: "Sahneva sayfaları arasında anahtar kelime ile arama yapın.",
+  inLanguage: "tr-TR",
+  isPartOf: { "@id": WEBSITE_ID },
+  publisher: { "@id": ORGANIZATION_ID },
+  ...(query ? { query, mainEntity: { "@type": "ItemList", numberOfItems: resultCount } } : {}),
+});
+
 const filterRoutes = (routes, query) => {
   const q = query.trim().toLowerCase();
   if (!q) return routes;
@@ -48,13 +68,19 @@ const filterRoutes = (routes, query) => {
   });
 };
 
-export default function SearchPage({ searchParams }) {
-  const query = typeof searchParams?.q === "string" ? searchParams.q : "";
+// Next.js 15'ten beri searchParams bir Promise. Await edilmediginde `?.q` her zaman
+// undefined donuyordu; yani arama kutusuna ne yazilirsa yazilsin filtre uygulanmiyor,
+// sayfa tum indeksi listeliyordu.
+export default async function SearchPage({ searchParams }) {
+  const resolvedSearchParams = await searchParams;
+  const rawQuery = resolvedSearchParams?.q;
+  const query = typeof rawQuery === "string" ? rawQuery : Array.isArray(rawQuery) ? (rawQuery[0] ?? "") : "";
   const routes = getSearchIndex();
   const results = filterRoutes(routes, query);
 
   return (
     <section className="container py-12 lg:py-16">
+      <JsonLd id="ld-json-search" data={buildSearchResultsSchema(query, results.length)} />
       <div className="max-w-3xl">
         <p className="text-sm font-semibold text-blue-600">Site İçi Arama</p>
         <h1 className="mt-2 text-3xl font-black text-neutral-900 lg:text-4xl">

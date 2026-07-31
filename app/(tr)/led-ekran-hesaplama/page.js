@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 import LedCalculatorClient from "./LedCalculatorClient";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -49,26 +50,59 @@ export const metadata = {
   },
 };
 
+const CALCULATOR_SCHEMA = buildCalculatorSchema({
+  path: "/led-ekran-hesaplama",
+  name: "LED Ekran Hesaplama Aracı",
+  description:
+    "Standart LED ekran ve P1.9 Indoor LED için m², gün sayısı ve Watchout ihtiyacına göre yaklaşık başlangıç bedeli hesaplayan Sahneva aracı.",
+  image: "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp",
+  featureList: [
+    "Genişlik ve yükseklik değerinden LED ekran m² hesaplama",
+    "Standart LED ve P1.9 Indoor LED için ayrı m² birim fiyatı",
+    "Kiralama gün sayısına göre toplam bedel çarpanı",
+    "Watchout / medya sunucusu ihtiyacının bedele eklenmesi",
+    "Yaklaşık başlangıç bedelinin anında gösterilmesi",
+  ],
+  howToName: "LED ekran kiralama bedeli nasıl hesaplanır?",
+  howToDescription:
+    "LED ekranın ölçüsünü, panel tipini, kiralama gün sayısını ve reji ihtiyacını girerek yaklaşık başlangıç bedelini adım adım hesaplayın.",
+  howToSteps: [
+    {
+      name: "Ekran ölçüsünü girin",
+      text: "LED ekranın genişlik ve yükseklik değerlerini metre cinsinden girin. Araç toplam m² alanı otomatik hesaplar.",
+    },
+    {
+      name: "Panel tipini seçin",
+      text: "İzleme mesafesi yakınsa P1.9 Indoor, sahne ve dış mekan kullanımı için standart panel seçin. Panel tipi m² birim bedelini değiştirir.",
+    },
+    {
+      name: "Kiralama gün sayısını belirtin",
+      text: "Etkinliğin kaç gün süreceğini girin. Kurulum ve söküm günleri de kiralama süresine dahil edilir.",
+    },
+    {
+      name: "Reji ihtiyacını işaretleyin",
+      text: "Watchout veya medya sunucusu gerekiyorsa ilgili seçeneği işaretleyin; bu kalem toplam bedele eklenir.",
+    },
+    {
+      name: "Sonucu teklife dönüştürün",
+      text: "Çıkan tutar yaklaşık başlangıç bedelidir. Kesin fiyat için ölçü, zemin, asma noktaları ve içerik akışıyla birlikte teklif isteyin.",
+    },
+  ],
+  about: [
+    "LED ekran kiralama",
+    "P1.9 indoor LED ekran",
+    "LED wall m² fiyatı",
+    "etkinlik teknik prodüksiyonu",
+  ],
+  breadcrumb: [
+    { name: "Sahneva", url: "/" },
+    { name: "LED Ekran Kiralama", url: "/led-ekran-kiralama" },
+    { name: "LED Ekran Hesaplama", url: "/led-ekran-hesaplama" },
+  ],
+});
+
 function JsonLd() {
-  return (
-    <JsonLdScript
-      id="ld-json-led-ekran-hesaplama"
-      data={{
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        name: "LED Ekran Hesaplama Aracı",
-        url: PAGE_URL,
-        inLanguage: "tr-TR",
-        description:
-          "Standart LED ekran ve P1.9 Indoor LED için m², gün sayısı ve Watchout ihtiyacına göre yaklaşık başlangıç bedeli hesaplayan Sahneva aracı.",
-        publisher: {
-          "@type": "Organization",
-          name: "Sahneva",
-          url: SITE_URL,
-        },
-      }}
-    />
-  );
+  return <JsonLdScript id="ld-json-led-ekran-hesaplama" data={CALCULATOR_SCHEMA} />;
 }
 
 export default function Page() {

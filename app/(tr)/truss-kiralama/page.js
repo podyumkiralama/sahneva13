@@ -451,7 +451,7 @@ function Gallery() {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <CaseGallery images={TRUSS_GALLERY_IMAGES} visibleCount={8} priorityCount={2} />
+          <CaseGallery images={TRUSS_GALLERY_IMAGES} visibleCount={8} />
         </div>
 
         <div className="text-center mt-12">

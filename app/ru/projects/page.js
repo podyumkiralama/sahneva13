@@ -27,7 +27,7 @@ const PROJECT_GROUPS = [
 ];
 
 export const metadata = {
-  title: "Проекты",
+  title: "Проекты — сцены, LED-экраны и шатры в Турции",
   description:
     "Примеры проектов Sahneva: сцены, LED-экраны, звук, свет, truss, шатры и полная техническая подготовка мероприятий.",
   alternates: {
@@ -140,7 +140,6 @@ export default function RussianProjectsPage() {
         <CaseGallery
           images={getFeaturedPortfolio("ru")}
           visibleCount={8}
-          priorityCount={2}
           locale="ru"
         />
 

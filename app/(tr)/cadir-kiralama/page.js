@@ -958,7 +958,7 @@ function Gallery() {
               Tüm projeler
             </Link>
           </div>
-          <CaseGallery images={GALLERY_IMAGES} visibleCount={4} priorityCount={1} />
+          <CaseGallery images={GALLERY_IMAGES} visibleCount={4} />
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">

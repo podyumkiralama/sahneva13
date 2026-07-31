@@ -287,7 +287,7 @@ export default function ServicePage({ service }) {
                 这些照片拍摄于安装过程与活动当天的真实场地，可以直接看到 Sahneva 团队的执行效果。
               </p>
             </div>
-            <CaseGallery images={galleryImages} visibleCount={8} priorityCount={2} locale="zh" />
+            <CaseGallery images={galleryImages} visibleCount={8} locale="zh" />
             <div className="mt-8 text-center">
               <Link
                 href="/zh/our-work"

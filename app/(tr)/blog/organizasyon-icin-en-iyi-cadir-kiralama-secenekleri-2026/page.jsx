@@ -21,7 +21,7 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile(
   "2026-02-05T00:00:00+03:00"
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
-const ARTICLE_TITLE = "2026 Çadır Kiralama Rehberi: Organizasyon İçin Seçenekler";
+const ARTICLE_TITLE = "2026 Çadır Kiralama Rehberi: En İyi Seçenekler";
 const META_DESCRIPTION =
   "Kurumsal etkinlikten düğüne, fuardan festivale: 2026 çadır kiralama rehberi. Doğru çadır seçimi, kurulum süreci ve maliyetleri hızlıca öğrenin.";
 

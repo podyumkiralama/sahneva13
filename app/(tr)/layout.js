@@ -29,6 +29,10 @@ import {
 } from "@/lib/seo/schemaIds";
 
 import { buildDynamicOgImage, buildDynamicTwitterImages } from "@/lib/seo/dynamicOg";
+import {
+  LOCAL_BUSINESS_IDENTITY,
+  ORGANIZATION_IDENTITY,
+} from "@/lib/structuredData/organizationIdentity";
 
 const content = LOCALE_CONTENT.tr;
 
@@ -51,6 +55,7 @@ const globalJsonLd = {
     {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
+      ...ORGANIZATION_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: ["Sahneva", "Sahneva Teknik"],
       url: BASE_SITE_URL,
@@ -99,6 +104,7 @@ const globalJsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_BUSINESS_ID,
+      ...LOCAL_BUSINESS_IDENTITY,
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       url: BASE_SITE_URL,

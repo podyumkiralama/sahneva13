@@ -173,15 +173,20 @@ function Figure({ src, alt, caption, priority = false, loading = "lazy" }) {
 
 function ProTip({ title = "Profesyonel İpucu", children }) {
   return (
-    <div className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose">
+    // Kenar notu: belge başlık hiyerarşisine girmemeli (h2 → h4 atlaması yaratıyordu).
+    <aside
+      role="note"
+      aria-label={title}
+      className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+    >
       <div className="flex items-start gap-4">
         <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
         <div>
-          <h4 className="text-blue-900 font-bold mt-0 mb-2 text-lg">{title}</h4>
+          <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">{title}</p>
           <div className="text-blue-800 text-base leading-relaxed">{children}</div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
 

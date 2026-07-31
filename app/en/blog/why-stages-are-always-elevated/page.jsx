@@ -41,7 +41,7 @@ const IMAGES = {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Why Are Stages Always Elevated? A 2,500-Year-Old Secret",
+  title: "Why Are Stages Elevated? A 2,500-Year-Old Secret",
   description:
     "From ancient platforms to modern concert stages: how elevated spaces evolved into today's LED and truss stage technologies.",
 

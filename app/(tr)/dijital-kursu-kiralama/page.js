@@ -720,7 +720,7 @@ function Gallery() {
           </p>
         </div>
 
-        <CaseGallery images={GALLERY_IMAGES} visibleCount={3} priorityCount={2} />
+        <CaseGallery images={GALLERY_IMAGES} visibleCount={3} />
 
         <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-blue-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
           <div>
