@@ -13,6 +13,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import {
   ArrowRight,
   CalendarCheck,
@@ -2065,6 +2066,11 @@ export default function Page() {
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
       <RegionalCityLinks service="sahne kiralama" />
+      <GlossaryTermLinks
+        servicePath="/sahne-kiralama"
+        title="Sahne kiralama teklifinde geçen terimler"
+        description="Yük kapasitesi, görüş hattı, riser ve etek gibi kalemler teklifin kapsamını doğrudan belirler; her birinin ne anlama geldiğini sözlükte açıkladık."
+      />
       <PaymentOptionsNote />
       <CTA />
     </>

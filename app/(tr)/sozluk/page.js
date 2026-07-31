@@ -171,6 +171,12 @@ export default function GlossaryPage() {
             {GLOSSARY_TERMS.length} terim, {GLOSSARY_CATEGORIES.length} başlık altında.
           </p>
 
+          {/* Canlı arama — kategori butonlarının üzerinde. JavaScript kapalıysa
+              bileşen hiç görünmez, terimlerin tamamı listede kalır. */}
+          <div className="mt-10">
+            <GlossarySearch totalCount={GLOSSARY_TERMS.length} />
+          </div>
+
           <div className="mt-8 flex flex-wrap gap-2">
             {GLOSSARY_CATEGORIES.map((category) => (
               <a
@@ -191,13 +197,13 @@ export default function GlossaryPage() {
         aria-labelledby="dizin-baslik"
         className="border-b border-slate-200 bg-slate-50 px-4 py-10"
       >
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <h2 id="dizin-baslik" className="text-lg font-black tracking-tight">
             Tüm terimler (A–Z)
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2">
             {getGlossaryTermsAlphabetical().map((entry) => (
-              <li key={entry.slug}>
+              <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <a
                   href={`#${entry.slug}`}
                   className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
@@ -211,7 +217,7 @@ export default function GlossaryPage() {
       </section>
 
       {/* Terim listesi */}
-      <div className="mx-auto max-w-4xl px-4 py-14 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
         {GLOSSARY_CATEGORIES.map((category) => {
           const terms = getGlossaryTermsByCategory(category.key);
           if (terms.length === 0) return null;
@@ -220,6 +226,7 @@ export default function GlossaryPage() {
             <section
               key={category.key}
               id={category.key}
+              data-glossary-section
               aria-labelledby={`${category.key}-baslik`}
               className="mb-14 scroll-mt-28 last:mb-0"
             >
@@ -229,39 +236,69 @@ export default function GlossaryPage() {
               >
                 {category.title}
               </h2>
-              <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
                 {category.description}
               </p>
 
-              <dl className="mt-8 space-y-6">
+              {/* Grid: metin yoğun kartlar olduğu için 3 sütun okunabilirliği
+                  düşürüyordu; md üstünde 2 sütun. items-start sayesinde kısa ve
+                  uzun kartlar aynı yüksekliğe zorlanmıyor. */}
+              <dl className="mt-8 grid items-start gap-5 md:grid-cols-2">
                 {terms.map((entry) => (
                   <div
                     key={entry.slug}
                     id={entry.slug}
-                    className="scroll-mt-28 rounded-2xl border border-slate-200 bg-slate-50/60 p-6 shadow-sm"
+                    data-glossary-item
+                    className="group flex h-full scroll-mt-28 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md"
                   >
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
                         {entry.term}
                       </h3>
                       {entry.aliases?.length ? (
-                        <p className="mt-1 text-sm font-medium text-slate-500">
-                          Ayrıca: {entry.aliases.join(", ")}
-                        </p>
+                        <>
+                          {/* Alternatif adlandırmalar müşterinin kendi dili —
+                              düz metinde kayboluyordu, rozete çevrildi. */}
+                          <span className="sr-only">Alternatif adlandırmalar: </span>
+                          <ul className="mt-3 flex flex-wrap gap-1.5">
+                            {entry.aliases.map((alias) => (
+                              <li key={alias}>
+                                <span className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-800">
+                                  {alias}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
                       ) : null}
                     </dt>
-                    <dd className="mt-3 space-y-3 text-base leading-7 text-slate-700">
+                    <dd className="mt-4 flex flex-1 flex-col gap-3 text-base leading-7 text-slate-700">
                       <p className="font-semibold text-slate-900">{entry.definition}</p>
                       <p>{entry.detail}</p>
+
                       {entry.related ? (
-                        <p className="pt-1">
+                        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                           <Link
                             href={entry.related.href}
-                            className="inline-flex min-h-[44px] items-center font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900"
+                            className="inline-flex min-h-[44px] items-center text-sm font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900"
                           >
                             {entry.related.label}
                           </Link>
-                        </p>
+                          {/* Teklif butonu yalnızca ticari hizmet sayfalarında;
+                              rehber yazısına "fiyat al" demek yanlış beklenti kurar. */}
+                          {isServiceHref(entry.related.href) ? (
+                            <Link
+                              href={`${entry.related.href}#teklif`}
+                              className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-slate-950 px-4 text-sm font-black text-white transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            >
+                              Fiyat / teklif al
+                              <span aria-hidden="true" className="ml-1.5">
+                                →
+                              </span>
+                              <span className="sr-only"> — {entry.related.label}</span>
+                            </Link>
+                          ) : null}
+                        </div>
                       ) : null}
                     </dd>
                   </div>

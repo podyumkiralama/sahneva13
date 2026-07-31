@@ -13,6 +13,7 @@ import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import TentCalculatorCta from "@/components/TentCalculatorCta";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { 
   Monitor, 
   MessageCircle, 
@@ -1660,6 +1661,11 @@ export default function Page() {
             label: "Kurumsal Etkinlik Yönetimi Rehberi",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/cadir-kiralama"
+        title="Çadır projelerinde geçen terimler"
+        description="Ankraj, rüzgâr yükü, zemin ve su tahliyesi gibi başlıklar kurulumun güvenliğini belirler; tanımlar sözlükte."
       />
       <PaymentOptionsNote />
     </>

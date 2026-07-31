@@ -14,6 +14,7 @@ import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import {
   Monitor,
   Sun,
@@ -2196,6 +2197,11 @@ export default function Page() {
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.ledScreen} links={CONTENT_CLUSTERS.ledScreen.guides} />
       <RegionalCityLinks service="LED ekran kiralama" />
+      <GlossaryTermLinks
+        servicePath="/led-ekran-kiralama"
+        title="LED ekran teklifinde geçen terimler"
+        description="Pixel pitch, nit, kabinet ve görüntü işlemcisi gibi başlıklar hem fiyatı hem görüntü kalitesini belirler; tanımlar için sözlüğe bakabilirsiniz."
+      />
       <PaymentOptionsNote />
       <CTA />
     </>

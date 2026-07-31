@@ -8,6 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -836,6 +837,11 @@ export default function KonserIcinPodyumKiralamaPage() {
             label: "Neden Podyum Sahne Tercih Edilir?",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/konser-icin-podyum-kiralama"
+        title="Konser sahnesi kurulumunda geçen terimler"
+        description="Riser, görüş hattı, ground support ve subwoofer dizilimi gibi başlıklar konser alanının planını belirler; tanımlar sözlükte."
       />
     </>
   );

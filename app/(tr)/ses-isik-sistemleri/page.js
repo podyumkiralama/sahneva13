@@ -16,6 +16,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { ArrowRight, Layout, Monitor, Layers, Tent } from "lucide-react";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -1311,6 +1312,11 @@ export default function Page() {
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.soundLight} links={CONTENT_CLUSTERS.soundLight.guides} />
       <RegionalCityLinks service="ses ve ışık sistemleri kiralama" />
+      <GlossaryTermLinks
+        servicePath="/ses-isik-sistemleri"
+        title="Ses ve ışık planında geçen terimler"
+        description="Line array, FOH, delay hoparlör ve DMX gibi terimler teknik planın omurgasını oluşturur; her birinin ne işe yaradığını sözlükte anlattık."
+      />
       <PaymentOptionsNote />
       <CTA />
     </>

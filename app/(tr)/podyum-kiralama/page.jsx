@@ -11,6 +11,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import {
   ArrowRight,
   Briefcase,
@@ -1669,6 +1670,11 @@ export default function Page() {
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
       <RegionalCityLinks service="podyum kiralama" />
+      <GlossaryTermLinks
+        servicePath="/podyum-kiralama"
+        title="Podyum kiralamada geçen terimler"
+        description="Podyum yüksekliği, rampa, korkuluk ve kaplama kararları etkinlik tipine göre değişir; terimlerin saha karşılığı sözlükte."
+      />
       <PaymentOptionsNote />
       <CTASection />
     </>

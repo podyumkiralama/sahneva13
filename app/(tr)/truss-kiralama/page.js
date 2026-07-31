@@ -9,6 +9,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -761,6 +762,11 @@ export default function Page() {
         ]}
       />
       <RegionalCityLinks service="truss kiralama" />
+      <GlossaryTermLinks
+        servicePath="/truss-kiralama"
+        title="Truss ve rigging terimleri"
+        description="Taşıyıcı sistem tarafı güvenlik kritiktir; SWL, dinamik yük ve zincirli vinç gibi kavramların ne anlama geldiğini sözlükte bulabilirsiniz."
+      />
       <PaymentOptionsNote />
       <Offer />
     </div>

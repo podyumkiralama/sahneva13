@@ -9,6 +9,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { MessageCircle, Eye, CheckCircle } from "lucide-react";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -967,6 +968,11 @@ export default function Page() {
           { href: "/blog/kurumsal-etkinlik-planlama-rehberi-2026", label: "Kurumsal Etkinlik Planlama Rehberi 2026" },
           { href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi", label: "Etkinlik Teknik Keşif ve Planlama Rehberi" },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/dijital-kursu-kiralama"
+        title="Kürsü ve konuşmacı kurulumunda geçen terimler"
+        description="Mikrofon tipi, feedback ve konuşulabilirlik, kürsülü etkinliklerde en sık karşılaşılan teknik başlıklar; tanımlar sözlükte."
       />
       <PaymentOptionsNote />
       <Offer />

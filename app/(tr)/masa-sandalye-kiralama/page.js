@@ -13,6 +13,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -1762,6 +1763,11 @@ export default function Page() {
             label: "2026 Kurumsal Etkinlik Planlama Rehberi",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/masa-sandalye-kiralama"
+        title="Davet ve toplantı düzeninde geçen terimler"
+        description="Kapasite hesabı, gala düzeni ve karşılama alanı planlaması masa-sandalye ihtiyacını doğrudan etkiler; terimler sözlükte açıklanıyor."
       />
       <PaymentOptionsNote />
       <CTA />

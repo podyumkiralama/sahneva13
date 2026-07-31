@@ -8,6 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -931,6 +932,11 @@ export default function Page() {
           { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Etkinliğe Göre Podyum Tercihi" },
           { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Neden Podyum Sahne Tercih Edilir?" },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/defile-podyum-kiralama"
+        title="Defile podyumunda geçen terimler"
+        description="Catwalk genişliği, görüş hattı, takip ışığı ve renk gerçekliği defile kurulumunun belirleyici başlıkları; tanımlar sözlükte."
       />
       <CTASection />
     </>

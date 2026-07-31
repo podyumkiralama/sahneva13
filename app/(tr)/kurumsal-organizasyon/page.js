@@ -30,6 +30,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import {
   ASSURANCE_ITEMS,
   BRAND_LOGOS,
@@ -1219,6 +1220,11 @@ export default function Page() {
         <BrandEquipmentSection />
         <FAQSection />
         <InternalLinks />
+        <GlossaryTermLinks
+          servicePath="/kurumsal-organizasyon"
+          title="Kurumsal organizasyonda geçen terimler"
+          description="Lansman, bayi toplantısı, gala ve hibrit etkinlik formatlarının teknik kapsam açısından ne anlama geldiğini sözlükte topladık."
+        />
         <PaymentOptionsNote />
         <CTASection />
       </div>
