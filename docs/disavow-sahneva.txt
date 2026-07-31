@@ -1,0 +1,30 @@
+# Sahneva — Google disavow dosyası
+#
+# NASIL KULLANILIR
+# 1. https://search.google.com/search-console/disavow-links adresine gidin
+# 2. sahneva.com mülkünü seçin
+# 3. Bu dosyayı yükleyin (yükleme MEVCUT listenin YERİNE geçer, üzerine eklemez —
+#    yeni domain eklerken bu dosyayı güncelleyip tekrar yükleyin)
+#
+# ÖNEMLİ NOT — bu dosya muhtemelen gerekli DEĞİL:
+# Aşağıdaki bağlantıların tamamı nofollow ve DR 0 / trafik 0 / atıf yapan alan
+# adı 0 olan tek kullanımlık alan adlarından geliyor. Google bu tür bağlantıları
+# kendiliğinden yok sayar; disavow aracı esas olarak (a) manuel işlem almış
+# siteler ve (b) sitenin kendi satın aldığı manipülatif bağlantılar için vardır.
+#
+# Bu yüzden ÖNCE Search Console > Güvenlik ve Manuel İşlemler > Manuel İşlemler
+# ekranına bakın. Orada bir işlem YOKSA bu dosyayı yüklemenize gerek yok.
+#
+# Kaynak: Ahrefs backlink raporu, 31 Temmuz 2026 (SPAM olarak işaretlenmiş,
+# ilk görülme 24-25 Temmuz 2026).
+
+domain:siterankservice.shop
+domain:domainrankprovider.shop
+domain:pageseopartners.shop
+domain:serpcollective.shop
+
+# Ahrefs'ten yeni SPAM alan adı çıkarsa:
+# Site Explorer > Backlinks > "Spam" filtresi > Export
+# Çıkan listedeki her alan adı için buraya "domain:<alanadi>" satırı ekleyin.
+# Yalnızca alan adı satırı yazın; tek tek URL yazmak gereksizdir çünkü bu tür
+# siteler binlerce farklı URL üretir.

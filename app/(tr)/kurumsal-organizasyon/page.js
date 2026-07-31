@@ -322,7 +322,19 @@ function Section({
   );
 }
 
-function SectionHeader({ eyebrow, title, desc, dark = false, center = false }) {
+/**
+ * `level`, bolumun belge ana hattindaki yerini belirler.
+ *
+ * Sayfa daha once 17 ayri h2 basiyordu ve bunlarin 10'u yalnizca uc konuyu
+ * (etkinlik turleri, surec, ekipman) farkli pazarlama basliklariyla tekrar
+ * ediyordu. Ayni konuyu isleyen bolumler artik tek bir h2'nin altinda h3 olarak
+ * gruplaniyor: metin aynen korunuyor, yalnizca ana hat duzeliyor.
+ */
+function SectionHeader({ eyebrow, title, desc, dark = false, center = false, level = 2 }) {
+  const Heading = level === 3 ? "h3" : "h2";
+  const headingSize =
+    level === 3 ? "text-2xl md:text-3xl" : "text-3xl md:text-5xl";
+
   return (
     <header className={`${center ? "mx-auto text-center" : ""} mb-10 max-w-3xl`}>
       {eyebrow ? (
@@ -334,13 +346,13 @@ function SectionHeader({ eyebrow, title, desc, dark = false, center = false }) {
           {eyebrow}
         </p>
       ) : null}
-      <h2
-        className={`mt-3 text-3xl font-black leading-tight tracking-normal md:text-5xl ${
+      <Heading
+        className={`mt-3 font-black leading-tight tracking-normal ${headingSize} ${
           dark ? "text-white" : "text-slate-950"
         }`}
       >
         {title}
-      </h2>
+      </Heading>
       {desc ? (
         <p className={`mt-4 text-base leading-8 md:text-lg ${dark ? "text-white/[0.72]" : "text-slate-600"}`}>
           {desc}
@@ -603,7 +615,8 @@ function VisualProof() {
       <SectionHeader
         dark
         eyebrow="Saha referansları"
-        title="Sahne kalitesi gerçek uygulama görüntülerinde görünür."
+        title="Kurumsal etkinliklerden saha görselleri"
+        level={3}
         desc="Lansman, konferans ve gala projelerinde LED ekran, sahne, ses-ışık ve reji kurulumlarını gerçek saha örnekleriyle değerlendirilebilir hale getiriyoruz."
       />
 
@@ -689,7 +702,7 @@ function VideoProof() {
           <SectionHeader
             dark
             eyebrow="Saha videoları"
-            title="Gerçek saha videoları ve uygulama örnekleri"
+            title="Saha videoları ve proje örnekleri"
             desc="Gerçek sahadan seçilen kurulum görüntüleri; ekip disiplini, LED ekran etkisi ve teknik prodüksiyon temposunu daha net gösterir."
           />
           <div className="grid gap-3 text-sm font-semibold text-white/[0.78]">
@@ -729,7 +742,7 @@ function TechnicalDiscoverySection() {
     <Section id="teknik-kesif" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
       <SectionHeader
         eyebrow="Teknik keşif"
-        title="Mekan, enerji ve sahne akışı aynı planda netleşir."
+        title="Teknik keşif ve mekân değerlendirmesi"
         desc="Format, kişi sayısı, sahne görünürlüğü, yükleme koşulları ve prova süresi erken netleştiğinde teknik kapsam daha sağlıklı hazırlanır."
       />
 
@@ -752,8 +765,8 @@ function Positioning() {
   return (
     <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
       <SectionHeader
-        eyebrow="Premium konumlandırma"
-        title="Kurumsal organizasyon, ekipman listesi değil sahne etkisidir."
+        eyebrow="Teknik altyapı"
+        title="Teknik altyapı ve envanter gücümüz"
         desc="Kurumsal organizasyon şirketleri arasında fark yaratan şey yalnızca ekipman çeşitliliği değil; sahne, LED ekran, ses-ışık, reji ve saha ekibinin tek planla çalışmasıdır."
       />
 
@@ -880,7 +893,8 @@ function PackagePlanningSection() {
     <Section id="kapsam-planlama" className="bg-white" deferredClass="content-visibility-auto cv-corporate-packages">
       <SectionHeader
         eyebrow="Kapsam ve teklif"
-        title="İlk brief doğru kurulursa teknik kapsam daha net çıkar."
+        title="Etkinlik türüne göre kapsam paketleri"
+        level={3}
         desc="Etkinlik formatı, tarih, mekan, kişi sayısı ve sahne beklentisi birlikte değerlendirildiğinde teklif kalemleri daha sağlıklı planlanır."
       />
 
@@ -929,8 +943,9 @@ function OperationFlow() {
     <Section id="akis" dark deferredClass="content-visibility-auto cv-corporate-flow">
       <SectionHeader
         dark
-        eyebrow="Net teknik akış"
-        title="Sahada sakin görünen iş, öncesinde doğru planlanmış iştir."
+        eyebrow="Proje akışı"
+        title="Proje akışı: brief’ten teslime"
+        level={3}
         desc="Etkinlik formatı, mekan, sahne görünürlüğü, teknik ekipman ve prova akışı baştan netleştiğinde saha günü daha kontrollü ilerler."
       />
 
@@ -957,7 +972,7 @@ function Formats() {
     <Section id="formatlar" className="bg-white" deferredClass="content-visibility-auto cv-corporate-formats">
       <SectionHeader
         eyebrow="Kullanım alanları"
-        title="Lansman, konferans ve gala için tek prodüksiyon dili"
+        title="Lansman, konferans ve gala prodüksiyonu"
         desc="Kurumsal organizasyon projelerinde marka sahnesi, konuşmacı akışı, LED görüntüsü ve teknik reji aynı prodüksiyon diliyle planlanır."
       />
 
@@ -997,7 +1012,8 @@ function ProductionStack() {
       <SectionHeader
         dark
         eyebrow="Teknik prodüksiyon omurgası"
-        title="Sahne, LED ekran, ses-ışık ve reji aynı masada."
+        title="Prodüksiyon kapsamı: sahne, LED ekran, ses-ışık ve reji"
+        level={3}
         desc="Büyük etkinliklerde kalite; ekipman sayısından çok teknik disiplin, yedek plan ve saha koordinasyonuyla görünür olur."
       />
 
@@ -1063,7 +1079,7 @@ function InternalLinks() {
     <Section id="baglantilar" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
       <SectionHeader
         eyebrow="Tamamlayıcı hizmetler"
-        title="Sahne, LED ekran ve proje referansları aynı akışta birleşir"
+        title="İlgili hizmetler ve referanslar"
         desc="Kurumsal etkinliklerde sahne, LED ekran, podyum, ses-ışık, truss ve proje referansları aynı teknik planın parçaları olarak değerlendirilir."
       />
 
@@ -1103,7 +1119,8 @@ function BrandEquipmentSection() {
     <Section id="ekipman-guveni" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-equipment">
       <SectionHeader
         eyebrow="Ekipman ve ekip gücü"
-        title="Ses, görüntü ve iletişim altyapısı sahada aynı ekip tarafından yönetilir."
+        title="Saha ekibi ve teknik güvence"
+        level={3}
         desc="Marka etkinliklerinde görüntü kalitesi kadar konuşma netliği, interkom iletişimi, yedek güç ve saha görev dağılımı da prodüksiyon kalitesini belirler."
       />
 
@@ -1173,7 +1190,7 @@ function CTASection() {
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-normal text-white">Teklif briefi</p>
           <h2 id="cta-title" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
-            Kurumsal organizasyon için doğru sahne etkisini birlikte kuralım.
+            Kurumsal organizasyonunuz için teklif alın
           </h2>
           <p className="mt-4 text-base leading-8 text-white/[0.72] md:text-lg">
             Tarih, mekan, kişi sayısı, sahne beklentisi ve LED ekran ihtiyacını paylaşın. Teknik kapsamı netleştirip
@@ -1208,16 +1225,28 @@ export default function Page() {
       <CorporateOrganizationJsonLd />
       <div className="bg-white">
         <Hero />
-        <VisualProof />
-        <TechnicalDiscoverySection />
-        <VideoProof />
-        <Positioning />
+
+        {/* Once soruyu cevapla: "kurumsal organizasyon" arayan once ne oldugunu
+            ve nasil planlandigini ariyor. Bu bolumler daha once 6. siradaydi. */}
         <CorporateGuideSections />
+
+        {/* Sonra kanit: rakiplerin taklit edemedigi tek sey gercek saha kaydi. */}
+        <VideoProof />
+        <VisualProof />
+
+        {/* Surec: teknik kesif (h2) + saha akisi (h3) */}
+        <TechnicalDiscoverySection />
         <OperationFlow />
+
+        {/* Formatlar (h2) + paket planlama (h3) */}
         <Formats />
         <PackagePlanningSection />
+
+        {/* Ekipman: konumlandirma (h2) + produksiyon omurgasi ve ekip (h3) */}
+        <Positioning />
         <ProductionStack />
         <BrandEquipmentSection />
+
         <FAQSection />
         <InternalLinks />
         <GlossaryTermLinks

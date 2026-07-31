@@ -179,6 +179,12 @@ export default function EventPlannerPage() {
               düğün düzeninde 1,8 m² ve üzerine sahne, backstage, catering ve karşılama alanları.
             </p>
             <p>
+              Ekran ölçüsü aslında kişi sayısına değil, <strong>salonun derinliğine</strong>
+              bağlıdır; en arkadaki misafirin ekranı rahatça okuyabilmesi esastır. Araç kişi
+              sayısını bir başlangıç noktası olarak kullanır. Salonun uzun ve dar ya da geniş
+              ve kısa olması ölçüyü değiştirir; net ölçü keşifte belirlenir.
+            </p>
+            <p>
               Podyum iki ayrı şekilde geçer:{" "}
               <strong>sahne podyumu</strong> konuşmacı ve performans için yükseltilmiş
               platformdur, ölçüsü kişi sayısına göre belirlenir.{" "}
