@@ -87,9 +87,11 @@ export default function EventPlannerClient() {
     }
   };
 
-  // Turun zaten kapsadigi kalemler ek listesinde gosterilmez.
+  // Turun zaten kapsadigi kalemler ek listesinde gosterilmez. Zemin podyumu gibi
+  // cadira bagli kalemler ise ancak kapsamda cadir varken anlamli.
   const availableExtras = OPTIONAL_ITEMS.filter(
-    (item) => !plan.type.needs.includes(item.key),
+    (item) =>
+      !plan.type.needs.includes(item.key) && (!item.requiresTent || Boolean(plan.tent)),
   );
 
   return (

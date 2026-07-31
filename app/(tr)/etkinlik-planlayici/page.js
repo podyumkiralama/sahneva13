@@ -179,6 +179,15 @@ export default function EventPlannerPage() {
               düğün düzeninde 1,8 m² ve üzerine sahne, backstage, catering ve karşılama alanları.
             </p>
             <p>
+              Podyum iki ayrı şekilde geçer:{" "}
+              <strong>sahne podyumu</strong> konuşmacı ve performans için yükseltilmiş
+              platformdur, ölçüsü kişi sayısına göre belirlenir.{" "}
+              <strong>Zemin podyumu</strong> ise çadırın tamamına döşenen tabandır; alanı
+              çadırla aynıdır ve eğimli, çimli veya çamurlu zeminde masa düzeninin oturması
+              için gerekir. İkisi ayrı kalemdir ve podyum haftalık fiyatlandığı için gün
+              sayısıyla çarpılmaz.
+            </p>
+            <p>
               Fiyat verisi olmayan kalemler bütçe aralığına <strong>katılmaz</strong>. Truss,
               nakliye, jeneratör ve salon ölçeğinde ses-ışık, kapsam listesinde &ldquo;projeye
               göre&rdquo; olarak görünür ve aralığın dışında bırakılır. Bu yüzden çıkan aralık,
