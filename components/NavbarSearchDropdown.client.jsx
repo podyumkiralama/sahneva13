@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useSearchIndex from "@/lib/useSearchIndex";
+import { SEARCH_TYPES, highlightSegments, searchEntries } from "@/lib/search/core";
 
 const FOCUS_RING_CLASS =
   "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
 
-const MAX_RESULTS = 6;
+const MAX_RESULTS = 7;
 
 const WEB_MCP_SEARCH_FORM_PROPS = {
   toolname: "searchSite",
@@ -21,20 +22,24 @@ const WEB_MCP_SEARCH_INPUT_PROPS = {
     "Search query for Sahneva services, event production pages, projects and blog articles.",
 };
 
-const filterRoutes = (routes, query) => {
-  const q = query.trim().toLowerCase();
-  if (!q) return routes.slice(0, MAX_RESULTS);
+/**
+ * Eslesen parcalari isaretler. Sunucudaki /search sayfasiyla ayni cekirdegi
+ * kullanir; daha once buradaki filtre ayri yazilmisti ve `toLowerCase()`
+ * kullandigi icin Turkce sorgularda ("IŞIK", "ruzgar") calismiyordu.
+ */
+function Highlighted({ text, query }) {
+  if (!text) return null;
 
-  return routes
-    .filter((route) => {
-      const labelMatch = route.label.toLowerCase().includes(q);
-      const keywordMatch = route.keywords?.some((keyword) =>
-        keyword.toLowerCase().includes(q),
-      );
-      return labelMatch || keywordMatch;
-    })
-    .slice(0, MAX_RESULTS);
-};
+  return highlightSegments(text, query).map((segment, index) =>
+    segment.match ? (
+      <mark key={index} className="rounded bg-amber-100 px-0.5 text-inherit nav-dark:bg-amber-400/25 nav-dark:text-inherit">
+        {segment.text}
+      </mark>
+    ) : (
+      <span key={index}>{segment.text}</span>
+    ),
+  );
+}
 
 export default function NavbarSearchDropdown({ locale = "tr", compact = false }) {
   const isEn = locale === "en";
@@ -59,8 +64,20 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
   const [query, setQuery] = useState("");
   const { routes } = useSearchIndex(open);
 
-  const results = useMemo(() => filterRoutes(routes, query), [routes, query]);
   const trimmedQuery = query.trim();
+  const results = useMemo(
+    () => searchEntries(routes, trimmedQuery, { limit: MAX_RESULTS }),
+    [routes, trimmedQuery],
+  );
+
+  // Ok tuslariyla gezinme: acilir listede klavye kullanicisi her sonuca
+  // Tab'layarak inmek zorunda kalmasin.
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    setActiveIndex(-1);
+  }, [trimmedQuery]);
 
   const closeSearch = useCallback(({ restoreFocus = true } = {}) => {
     if (restoreFocus) {
@@ -115,12 +132,37 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const target = trimmedQuery
-      ? `/search?q=${encodeURIComponent(trimmedQuery)}`
-      : "/search";
+
+    // Ok tuslariyla bir sonuc secildiyse Enter arama sayfasina degil o sonuca gider.
+    const selected = activeIndex >= 0 ? results[activeIndex] : null;
+    const target = selected
+      ? selected.href
+      : trimmedQuery
+        ? `/search?q=${encodeURIComponent(trimmedQuery)}`
+        : "/search";
+
     closeSearch({ restoreFocus: false });
     router.push(target);
   };
+
+  const handleInputKeyDown = (event) => {
+    if (results.length === 0) return;
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((current) => (current + 1) % results.length);
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((current) => (current <= 0 ? results.length - 1 : current - 1));
+    }
+  };
+
+  // Secili sonucu gorunur tut (liste kaydirilabilir).
+  useEffect(() => {
+    if (activeIndex < 0) return;
+    const option = listRef.current?.querySelectorAll("[data-search-option]")[activeIndex];
+    option?.scrollIntoView({ block: "nearest" });
+  }, [activeIndex]);
 
   return (
     <div ref={wrapperRef} className="relative">
@@ -186,6 +228,14 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
                 name="q"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
+                onKeyDown={handleInputKeyDown}
+                role="combobox"
+                aria-expanded="true"
+                aria-controls="navbar-search-results"
+                aria-activedescendant={
+                  activeIndex >= 0 ? `navbar-search-option-${activeIndex}` : undefined
+                }
+                autoComplete="off"
                 placeholder={searchPlaceholder}
                 {...WEB_MCP_SEARCH_INPUT_PROPS}
                 className="w-full rounded-xl border border-neutral-200 bg-white py-3 pl-9 pr-3 text-sm font-medium text-neutral-900 outline-none transition-colors placeholder:text-neutral-400 focus:border-blue-300 focus:ring-2 focus:ring-blue-600/20 nav-dark:border-white/10 nav-dark:bg-white/[0.06] nav-dark:text-white nav-dark:placeholder:text-slate-500"
@@ -196,26 +246,51 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
             </p>
           </form>
 
-          <div className="max-h-[320px] overflow-y-auto">
+          <div ref={listRef} className="max-h-[360px] overflow-y-auto">
             {results.length === 0 ? (
               <div className="px-4 py-6 text-sm font-medium text-neutral-500 nav-dark:text-slate-400">
                 {noResults}
               </div>
             ) : (
-              <ul className="divide-y divide-neutral-100 nav-dark:divide-white/10">
-                {results.map((route) => (
-                  <li key={route.href}>
+              <ul
+                id="navbar-search-results"
+                role="listbox"
+                className="divide-y divide-neutral-100 nav-dark:divide-white/10"
+              >
+                {results.map((route, index) => (
+                  <li key={route.href} role="presentation">
                     <Link
+                      id={`navbar-search-option-${index}`}
+                      data-search-option
+                      role="option"
+                      aria-selected={index === activeIndex}
                       href={route.href}
                       prefetch={false}
+                      onMouseEnter={() => setActiveIndex(index)}
                       onClick={() => closeSearch()}
-                      className={`flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 no-underline transition-colors hover:bg-blue-50 hover:text-blue-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                      className={`flex items-start gap-3 px-4 py-3 text-sm text-neutral-700 no-underline transition-colors hover:bg-blue-50 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 ${FOCUS_RING_CLASS} ${
+                        index === activeIndex ? "bg-blue-50 nav-dark:bg-white/10" : ""
+                      }`}
                     >
-                      <span className="text-lg" aria-hidden="true">
+                      <span className="mt-0.5 text-lg" aria-hidden="true">
                         {route.icon}
                       </span>
-                      <span className="font-bold text-neutral-900 nav-dark:text-white">
-                        {route.label}
+                      <span className="min-w-0 flex-1">
+                        <span className="flex flex-wrap items-center gap-2">
+                          <span className="font-bold text-neutral-900 nav-dark:text-white">
+                            <Highlighted text={route.label} query={trimmedQuery} />
+                          </span>
+                          {SEARCH_TYPES[route.type] ? (
+                            <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-600 nav-dark:bg-white/10 nav-dark:text-slate-300">
+                              {SEARCH_TYPES[route.type].label}
+                            </span>
+                          ) : null}
+                        </span>
+                        {route.description ? (
+                          <span className="mt-0.5 block line-clamp-2 text-xs leading-5 text-neutral-500 nav-dark:text-slate-400">
+                            <Highlighted text={route.description} query={trimmedQuery} />
+                          </span>
+                        ) : null}
                       </span>
                     </Link>
                   </li>
