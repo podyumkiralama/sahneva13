@@ -1,33 +1,101 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Check, MessageCircle, RotateCcw } from "lucide-react";
-import { useMemo, useState } from "react";
-
-const EVENT_FORMATS = [
-  { key: "kurumsal", label: "Kurumsal sunum / panel", plannerType: "kongre" },
-  { key: "lansman", label: "Ürün / marka lansmanı", plannerType: "lansman" },
-  { key: "gala", label: "Gala / ödül gecesi", plannerType: "gala" },
-  { key: "performans", label: "Performans / konser", plannerType: "konser" },
-  { key: "fuar", label: "Fuar / sergi", plannerType: "fuar" },
-];
+import { ArrowRight, Check, Info, MessageCircle, RotateCcw } from "lucide-react";
+import { useState } from "react";
 
 const PODIUM_USES = [
-  { key: "speaker", label: "Konuşmacı veya panel", note: "Kürsü, konuşmacı hareketi ve salon görüşü" },
-  { key: "award", label: "Ödül / protokol geçişi", note: "Sahneye iniş-çıkış ve fotoğraf noktaları" },
-  { key: "product", label: "Ürün gösterimi", note: "Ürünün görünürlüğü, kablo ve ekran entegrasyonu" },
-  { key: "performance", label: "Performans / yoğun trafik", note: "Yük, hareket ve sahne ekipmanı" },
+  {
+    key: "speaker",
+    label: "Konuşma / panel",
+    note: "Kürsü, konuşmacı hareketi ve salonun görüş hattı için.",
+    plannerType: "kongre",
+    guidance: "Konuşmacının rahat hareket edebileceği alan ile kürsü ve monitörün konumu birlikte düşünülür.",
+  },
+  {
+    key: "award",
+    label: "Ödül / protokol geçişi",
+    note: "Sahneye güvenli iniş-çıkış ve fotoğraf alanı için.",
+    plannerType: "gala",
+    guidance: "Ödül alan kişi, sunucu ve fotoğraf karesinin aynı anda sığacağı boşluk planlanır.",
+  },
+  {
+    key: "product",
+    label: "Ürün gösterimi / lansman",
+    note: "Ürün görünürlüğü, marka yüzeyi, kablo ve ekran entegrasyonu için.",
+    plannerType: "lansman",
+    guidance: "Ürünün taban ölçüsü tek başına yeterli değildir; çevresindeki sunum ve güvenli geçiş alanı da hesaba katılır.",
+  },
+  {
+    key: "performance",
+    label: "Performans / yoğun kullanım",
+    note: "Hareket, ekipman ve daha yüksek sahne trafiği için.",
+    plannerType: "konser",
+    guidance: "Hareketli kullanımda yalnızca genişlik değil, yük dağılımı, kayıt bağlantıları ve güvenli kenar bitişleri de önem kazanır.",
+  },
+];
+
+const AREA_OPTIONS = [
+  {
+    key: "mini",
+    label: "Kompakt kullanım: 1–3 kişi",
+    area: "12 m²",
+    layout: "3 × 4 m",
+    note: "Kısa konuşma, tek ürün veya küçük sunum için başlangıç ölçüsüdür.",
+  },
+  {
+    key: "medium",
+    label: "Orta ölçek: panel / ödül / lansman",
+    area: "24 m²",
+    layout: "4 × 6 m",
+    note: "Birden fazla kişi, ürün ve ekran-kürsü yerleşimi için daha rahat bir çalışma alanı sağlar.",
+  },
+  {
+    key: "large",
+    label: "Geniş akış: performans veya kalabalık sahne",
+    area: "48 m² ve üzeri",
+    layout: "6 × 8 m",
+    note: "Yoğun hareket, ekipman veya geniş ürün sunumu için özel yerleşimle değerlendirilir.",
+  },
+];
+
+const VIEWING_OPTIONS = [
+  {
+    key: "near",
+    label: "Katılımcılar yakın; küçük salon veya ön sıralı düzen",
+    height: "40 cm",
+    note: "Yakın izleme mesafesinde konuşmacıyı görünür kılan, iniş-çıkışı da kolaylaştıran başlangıç yüksekliğidir.",
+  },
+  {
+    key: "mid",
+    label: "Orta salon; arka sıraların da görüşü önemli",
+    height: "60 cm",
+    note: "Panel, kurumsal toplantı ve ödül akışında görüş hattını belirgin biçimde iyileştiren yaygın başlangıç yüksekliğidir.",
+  },
+  {
+    key: "far",
+    label: "Uzak seyirci, büyük salon veya güçlü görsel kurgu",
+    height: "80–100 cm",
+    note: "Yüksek platform ihtiyacında merdiven, korkuluk, rampa ve seyirci güvenliği daha baştan aynı planın parçası olur.",
+  },
 ];
 
 const ACCESS_OPTIONS = [
-  { key: "steps", label: "Merdiven yeterli", note: "Standart iniş-çıkış planı" },
-  { key: "ramp", label: "Rampa gerekli", note: "Erişilebilirlik veya ekipman arabası için" },
-  { key: "ground", label: "Zemin eşit değil / açık alan", note: "Dengeleme ve zemin hazırlığı için" },
-];
-
-const STAGE_TRAFFIC = [
-  { key: "light", label: "1–5 kişi, hafif kullanım" },
-  { key: "busy", label: "6+ kişi veya ekipmanlı kullanım" },
+  {
+    key: "steps",
+    label: "Düz zemin; merdiven yeterli",
+    note: "Standart iniş-çıkış noktası ve sahne üzerindeki geçişler planlanır.",
+  },
+  {
+    key: "ramp",
+    label: "Rampa gerekli",
+    note: "Erişilebilirlik veya ekipman arabası için rampanın kaplayacağı alan ölçüye dahil edilir.",
+  },
+  {
+    key: "ground",
+    label: "Eşit olmayan zemin / açık alan",
+    note: "Kot farkı, çim veya parke gibi yüzeyler için dengeleme ve sabitleme keşifte değerlendirilir.",
+  },
 ];
 
 function ChoiceButton({ active, children, description, onClick }) {
@@ -60,64 +128,39 @@ function ChoiceButton({ active, children, description, onClick }) {
   );
 }
 
+function LearningNote({ children }) {
+  return (
+    <div className="mt-4 flex gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
+      <Info className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" aria-hidden="true" />
+      <p>{children}</p>
+    </div>
+  );
+}
+
 export default function PodiumDecisionGuide() {
-  const [formatKey, setFormatKey] = useState("");
   const [useKey, setUseKey] = useState("");
+  const [areaKey, setAreaKey] = useState("");
+  const [viewingKey, setViewingKey] = useState("");
   const [accessKey, setAccessKey] = useState("");
-  const [trafficKey, setTrafficKey] = useState("");
 
-  const format = EVENT_FORMATS.find((item) => item.key === formatKey);
   const podiumUse = PODIUM_USES.find((item) => item.key === useKey);
+  const area = AREA_OPTIONS.find((item) => item.key === areaKey);
+  const viewing = VIEWING_OPTIONS.find((item) => item.key === viewingKey);
   const access = ACCESS_OPTIONS.find((item) => item.key === accessKey);
-  const traffic = STAGE_TRAFFIC.find((item) => item.key === trafficKey);
-  const isReady = Boolean(format && podiumUse && access && traffic);
+  const isReady = Boolean(podiumUse && area && viewing && access);
 
-  const advice = useMemo(() => {
-    if (!isReady) return [];
-
-    const items = [
-      {
-        title: "Ölçü ve görüş hattı",
-        text: "Podyum ölçüsü yalnızca konuk sayısına göre belirlenmez. Aynı anda sahnede bulunacak kişi sayısı, kürsü/ürün konumu ve en uzak izleyicinin görüşü birlikte değerlendirilir.",
-      },
-      {
-        title: "Yükseklik ve güvenli erişim",
-        text: access.key === "ramp"
-          ? "Rampa sonradan eklenen bir aksesuar değildir; podyum yüksekliğine göre kapladığı alan en baştan plana girer. Merdiven ve kenar güvenliği de aynı keşifte netleşir."
-          : access.key === "ground"
-            ? "Zemin eğimi, çim, parke veya kot farkı fotoğraf ve ölçüyle kontrol edilir. Dengeleme planı yapılmadan net bir platform yüksekliği söylemek doğru olmaz."
-            : "Merdivenin sahne üzerindeki çıkış noktasını, protokol ve teknik ekibin birbirini kesmeyeceği şekilde planlayın.",
-      },
-      {
-        title: "Kullanım yoğunluğu",
-        text: traffic.key === "busy"
-          ? "Birden fazla kişi, enstrüman veya hareketli performans varsa yük dağılımı, kayıt bağlantıları ve sahne trafiği ayrıca ele alınır."
-          : "Kısa konuşma ve hafif kullanımda bile podyumun esnememesi, yüzeyin kaymaması ve kablo geçişlerinin gizlenmesi kontrol edilir.",
-      },
-    ];
-
-    if (podiumUse.key === "product") {
-      items.push({
-        title: "Ürün ve içerik entegrasyonu",
-        text: "Ürün açılışı varsa ekran, ışık ve kablo güzergâhı podyum planıyla birlikte ele alınmalıdır; sonradan eklenen kablolar hem görünümü hem güvenliği etkiler.",
-      });
-    }
-
-    return items;
-  }, [access, isReady, podiumUse, traffic]);
-
-  const plannerUrl = format
-    ? `/etkinlik-planlayici?tur=${format.plannerType}&ek=podium`
+  const plannerUrl = podiumUse
+    ? `/etkinlik-planlayici?tur=${podiumUse.plannerType}&ek=podium`
     : "/etkinlik-planlayici";
   const whatsappText = isReady
-    ? `Merhaba, podyum kiralama için kısa keşif yaptım. Etkinlik: ${format.label}; kullanım: ${podiumUse.label}; erişim: ${access.label}; sahne trafiği: ${traffic.label}. Ölçü ve uygun podyum planı için bilgi almak istiyorum.`
+    ? `Merhaba, podyum kiralama rehberini tamamladım. Kullanım: ${podiumUse.label}; başlangıç alanı: ${area.area} (${area.layout}); görüşe göre yükseklik: ${viewing.height}; zemin/erişim: ${access.label}. Net ölçü ve kurulum planı için bilgi almak istiyorum.`
     : "Merhaba, podyum kiralama için bilgi almak istiyorum.";
 
   const reset = () => {
-    setFormatKey("");
     setUseKey("");
+    setAreaKey("");
+    setViewingKey("");
     setAccessKey("");
-    setTrafficKey("");
   };
 
   return (
@@ -129,15 +172,15 @@ export default function PodiumDecisionGuide() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Podyum için kısa keşif</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Podyum için soru-cevap rehberi</p>
             <h2 id="podyum-kesif-rehberi-baslik" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Podyumdan önce doğru soruları yanıtlayın
+              Podyum ölçüsünü bilmiyorsanız buradan başlayın
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
-              Metrekare tek başına yeterli değildir. Bu dört kısa yanıt, podyum teklifinde ölçü, yükseklik, erişim ve güvenlik için hangi bilgilerin gerektiğini gösterir.
+              Teknik terim bilmeniz gerekmez. Soruları sırayla yanıtlayın; her yanıtta neden bu bilgiyi istediğimizi ve size uygun başlangıç m²/yükseklik aralığını görün.
             </p>
           </div>
-          {formatKey ? (
+          {useKey ? (
             <button
               type="button"
               onClick={reset}
@@ -149,62 +192,67 @@ export default function PodiumDecisionGuide() {
           ) : null}
         </div>
 
-        <div className="mt-9 grid gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.82fr)]">
+        <div className="mt-9 grid gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.82fr)]">
           <div className="space-y-7 rounded-[2rem] bg-white p-5 text-slate-900 sm:p-8">
             <fieldset>
-              <legend className="text-base font-black">1. Podyum hangi etkinlikte kullanılacak?</legend>
+              <legend className="text-base font-black">1. Podyumu en çok ne için kullanacaksınız?</legend>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                {EVENT_FORMATS.map((item) => (
+                {PODIUM_USES.map((item) => (
                   <ChoiceButton
                     key={item.key}
-                    active={formatKey === item.key}
+                    active={useKey === item.key}
+                    description={item.note}
                     onClick={() => {
-                      setFormatKey(item.key);
-                      setUseKey("");
+                      setUseKey(item.key);
+                      setAreaKey("");
+                      setViewingKey("");
                       setAccessKey("");
-                      setTrafficKey("");
                     }}
                   >
                     {item.label}
                   </ChoiceButton>
                 ))}
               </div>
+              {podiumUse ? <LearningNote>{podiumUse.guidance}</LearningNote> : null}
             </fieldset>
-
-            {formatKey ? (
-              <fieldset>
-                <legend className="text-base font-black">2. Podyumun temel kullanım amacı ne?</legend>
-                <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                  {PODIUM_USES.map((item) => (
-                    <ChoiceButton
-                      key={item.key}
-                      active={useKey === item.key}
-                      description={item.note}
-                      onClick={() => {
-                        setUseKey(item.key);
-                        setAccessKey("");
-                        setTrafficKey("");
-                      }}
-                    >
-                      {item.label}
-                    </ChoiceButton>
-                  ))}
-                </div>
-              </fieldset>
-            ) : null}
 
             {useKey ? (
               <fieldset>
-                <legend className="text-base font-black">3. Erişim veya zemin için özel bir durum var mı?</legend>
-                <div className="mt-3 grid gap-3 sm:grid-cols-3">
-                  {ACCESS_OPTIONS.map((item) => (
+                <legend className="text-base font-black">2. Podyumda ne kadar boş alana ihtiyacınız var?</legend>
+                <p className="mt-1 text-sm leading-6 text-slate-600">Müşteriler bu bilgiyi genellikle “kaç metrekare gerekir?” diye sorar. En × boy hesabı size ilk yönü verir.</p>
+                <div className="mt-3 grid gap-3">
+                  {AREA_OPTIONS.map((item) => (
                     <ChoiceButton
                       key={item.key}
-                      active={accessKey === item.key}
-                      description={item.note}
+                      active={areaKey === item.key}
+                      description={`${item.area} · ${item.layout} — ${item.note}`}
                       onClick={() => {
-                        setAccessKey(item.key);
-                        setTrafficKey("");
+                        setAreaKey(item.key);
+                        setViewingKey("");
+                        setAccessKey("");
+                      }}
+                    >
+                      {item.label}
+                    </ChoiceButton>
+                  ))}
+                </div>
+                <LearningNote>Örnek hesap: 3 × 4 m = 12 m², 4 × 6 m = 24 m² ve 6 × 8 m = 48 m². Ürün gösteriminde ürünün taban ölçüsüne ek olarak, çevresinde sunum ve güvenli geçiş boşluğu bırakılır.</LearningNote>
+              </fieldset>
+            ) : null}
+
+            {areaKey ? (
+              <fieldset>
+                <legend className="text-base font-black">3. Katılımcılar podyumu hangi mesafeden izleyecek?</legend>
+                <p className="mt-1 text-sm leading-6 text-slate-600">Yüksekliği yalnızca podyumun büyüklüğü değil, arka sıradaki konuğun görüşü de belirler.</p>
+                <div className="mt-3 grid gap-3">
+                  {VIEWING_OPTIONS.map((item) => (
+                    <ChoiceButton
+                      key={item.key}
+                      active={viewingKey === item.key}
+                      description={`${item.height} başlangıç yüksekliği — ${item.note}`}
+                      onClick={() => {
+                        setViewingKey(item.key);
+                        setAccessKey("");
                       }}
                     >
                       {item.label}
@@ -214,12 +262,13 @@ export default function PodiumDecisionGuide() {
               </fieldset>
             ) : null}
 
-            {accessKey ? (
+            {viewingKey ? (
               <fieldset>
-                <legend className="text-base font-black">4. Sahne üzerindeki trafik nasıl olacak?</legend>
-                <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                  {STAGE_TRAFFIC.map((item) => (
-                    <ChoiceButton key={item.key} active={trafficKey === item.key} onClick={() => setTrafficKey(item.key)}>
+                <legend className="text-base font-black">4. Zemin ve erişim için özel bir durum var mı?</legend>
+                <p className="mt-1 text-sm leading-6 text-slate-600">Bu bilgi, yalnızca teslimatı değil; rampayı, dengelemeyi, korkuluğu ve güvenli kurulumu etkiler.</p>
+                <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                  {ACCESS_OPTIONS.map((item) => (
+                    <ChoiceButton key={item.key} active={accessKey === item.key} description={item.note} onClick={() => setAccessKey(item.key)}>
                       {item.label}
                     </ChoiceButton>
                   ))}
@@ -229,25 +278,43 @@ export default function PodiumDecisionGuide() {
           </div>
 
           <aside className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-7" aria-live="polite">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Podyum planınız için notlar</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Sizin için başlangıç planı</p>
             {isReady ? (
               <>
-                <h3 className="mt-3 text-2xl font-black leading-tight">Keşifte öne çıkacak başlıklar</h3>
+                <h3 className="mt-3 text-2xl font-black leading-tight">Podyum ölçüsü ve yüksekliği netleşiyor</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">Bu bir başlangıç önerisidir; nihai ölçü, zemin ve kullanım yükü saha keşfiyle kesinleşir.</p>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                  <article className="rounded-2xl bg-white/8 p-4">
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-200">Önerilen başlangıç alanı</p>
+                    <p className="mt-2 text-2xl font-black text-white">{area.area}</p>
+                    <p className="mt-1 text-sm font-bold text-blue-100">{area.layout}</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">{area.note}</p>
+                  </article>
+                  <article className="rounded-2xl bg-white/8 p-4">
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-200">Görüşe göre yükseklik</p>
+                    <p className="mt-2 text-2xl font-black text-white">{viewing.height}</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">{viewing.note}</p>
+                  </article>
+                </div>
+
                 <div className="mt-5 space-y-3">
-                  {advice.map((item) => (
-                    <article key={item.title} className="rounded-2xl bg-white/8 p-4">
-                      <h4 className="text-sm font-black text-white">{item.title}</h4>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{item.text}</p>
-                    </article>
-                  ))}
+                  <article className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <h4 className="text-sm font-black text-white">Kullanıma göre not</h4>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{podiumUse.guidance}</p>
+                  </article>
+                  <article className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <h4 className="text-sm font-black text-white">Zemin ve erişim notu</h4>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{access.note}</p>
+                  </article>
                 </div>
 
                 <div className="mt-6 border-t border-white/10 pt-5">
-                  <p className="text-sm font-black">Önceden hazırlayın</p>
+                  <p className="text-sm font-black">Teklifi netleştirmek için son bilgiler</p>
                   <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
                     <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Etkinlik tarihi, ilçe ve kurulum/söküm saati</li>
-                    <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Mekân planı veya alanın ölçülü fotoğrafı</li>
-                    <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />İstenen yaklaşık en, boy ve podyum yüksekliği</li>
+                    <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Mekânın ölçülü planı veya alanın fotoğrafı</li>
+                    <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Halı, skört, marka kaplaması ve ekran/ışık ihtiyacı</li>
                   </ul>
                 </div>
 
@@ -259,7 +326,7 @@ export default function PodiumDecisionGuide() {
                     className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 text-sm font-black text-white transition hover:bg-emerald-600"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                    Bu notlarla bilgi alın
+                    Bu planla bilgi alın
                   </a>
                   <Link href={plannerUrl} className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-2xl border border-white/25 px-5 text-sm font-black text-white transition hover:bg-white/10">
                     Etkinliğin tamamını planla
@@ -269,12 +336,12 @@ export default function PodiumDecisionGuide() {
               </>
             ) : (
               <p className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-6 text-slate-300">
-                Seçimleri tamamlayın; podyum yüksekliği, rampa, zemin ve sahne trafiğiyle ilgili dikkat edilmesi gerekenleri burada özetleyelim.
+                Soruları tamamladığınızda m² hesabının nasıl okunduğunu, hangi yükseklik aralığının mantıklı olduğunu ve zemin/erişim için nelere bakılacağını burada göreceksiniz.
               </p>
             )}
 
             <div className="mt-6 border-t border-white/10 pt-5">
-              <p className="text-sm font-black">Bu terimler işinizi kolaylaştırır</p>
+              <p className="text-sm font-black">Terim desteği</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[
                   ["moduler-podyum", "Modüler podyum"],

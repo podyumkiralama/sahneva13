@@ -15,6 +15,8 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
   Monitor,
   Sun,
@@ -2182,6 +2184,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
+      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.ledScreen} />
       <QuickSelectionGuide />
       <VisualProofStrip />
       <StatsBand />

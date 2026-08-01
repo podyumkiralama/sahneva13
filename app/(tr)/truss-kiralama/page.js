@@ -10,6 +10,8 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -726,6 +728,7 @@ export default function Page() {
       />
 
       <Hero />
+      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.truss} />
       <ServiceGuideShowcase
         eyebrow="Truss kiralama rehberi"
         title="Truss sistemini doğru seçmek için hızlı karar rehberi"

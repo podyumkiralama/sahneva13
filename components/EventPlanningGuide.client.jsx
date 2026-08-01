@@ -123,6 +123,29 @@ const SCALES = [
   { key: "large", label: "500+ kişi", guests: 700 },
 ];
 
+// Kaynak: /sss – seçim sonrasında en çok karar vermeyi kolaylaştıran yanıtlar.
+const COMMON_FAQS = [
+  {
+    q: "Keşif yapıyor musunuz? Ücretli mi?",
+    a: "Gerekli görülen projelerde ücretsiz keşif yapılır. Mekân ölçümü, elektrik erişimi ve yükleme-boşaltma koşulları yerinde değerlendirilir.",
+  },
+  {
+    q: "Fiyatlandırma nasıl belirleniyor?",
+    a: "Ekipman, kurulum-etkinlik-söküm süresi, şehir ve lojistik, personel ve aksesuar ihtiyacı birlikte değerlendirilir; ihtiyaca göre alternatif paketler sunulur.",
+  },
+];
+
+const CONTEXT_FAQS = {
+  kurumsal: {
+    q: "Kurumsal etkinlik tecrübeniz var mı?",
+    a: "Lansman, konferans, bayi toplantısı, miting ve konser dahil farklı ölçeklerde yüzlerce etkinlik deneyimi bulunur.",
+  },
+  teknik: {
+    q: "Etkinlik günü teknik ekip büyüklüğü nedir?",
+    a: "Kapsama göre değişir: küçük etkinliklerde 2–3 kişi, büyük kurulumlarda sahne, ses, ışık, görüntü ve kamera ekipleri dahil 10+ kişilik ekip görev alabilir.",
+  },
+};
+
 function ChoiceButton({ active, children, onClick, description }) {
   return (
     <button
@@ -171,6 +194,14 @@ export default function EventPlanningGuide() {
   }, [selectedEvent, selectedFormat]);
 
   const isReady = Boolean(plan && selectedVenue && selectedScale);
+  const quickFaqs = useMemo(() => {
+    if (!isReady || !selectedEvent) return [];
+
+    return [
+      ...COMMON_FAQS,
+      selectedEvent.key === "kurumsal" ? CONTEXT_FAQS.kurumsal : CONTEXT_FAQS.teknik,
+    ];
+  }, [isReady, selectedEvent]);
   const plannerType = selectedFormat?.plannerType ?? selectedEvent?.plannerType;
   const plannerUrl = plannerType && selectedVenue && selectedScale
     ? `/etkinlik-planlayici?tur=${plannerType}&mekan=${selectedVenue.key}&kisi=${selectedScale.guests}`
@@ -330,6 +361,24 @@ export default function EventPlanningGuide() {
                     </li>
                   ) : null}
                 </ul>
+              </div>
+
+              <div className="mt-6 border-t border-white/10 pt-5">
+                <p className="text-sm font-black text-white">SSS&apos;den kısa yanıtlar</p>
+                <div className="mt-3 space-y-2">
+                  {quickFaqs.map((faq) => (
+                    <details key={faq.q} className="group rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                      <summary className="cursor-pointer list-none pr-5 text-sm font-bold text-white marker:hidden">
+                        {faq.q}
+                        <span className="float-right text-blue-200 transition group-open:rotate-45" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-3 text-sm leading-6 text-slate-300">{faq.a}</p>
+                    </details>
+                  ))}
+                </div>
+                <Link href="/sss#genel" className="mt-3 inline-flex text-xs font-bold text-blue-200 underline underline-offset-4 hover:text-white">
+                  Tüm genel SSS&apos;yi inceleyin
+                </Link>
               </div>
 
               <Link

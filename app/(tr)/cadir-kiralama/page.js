@@ -14,6 +14,8 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import TentCalculatorCta from "@/components/TentCalculatorCta";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { UNIT_PRICES } from "@/lib/pricing";
 import { 
   Monitor, 
@@ -1645,6 +1647,7 @@ export default function Page() {
       <TentRentalJsonLd />
 
       <Hero />
+      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.tent} />
       <TentCalculatorCta />
       <TentSelectorSection />
       <DividerLightToDark />

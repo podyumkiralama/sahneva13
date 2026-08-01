@@ -17,6 +17,8 @@ import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { ArrowRight, Layout, Monitor, Layers, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -1301,6 +1303,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <SoundLightJsonLd />
       <Hero />
+      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.soundLight} />
       <FeaturedBrands />
       <Services />
       <Gallery />

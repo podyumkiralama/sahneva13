@@ -14,6 +14,8 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
   ArrowRight,
   CalendarCheck,
@@ -2052,6 +2054,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StageJsonLd />
       <Hero />
+      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.stage} />
       <RentalFlow />
       <SizeGuide />
       <Packages />
