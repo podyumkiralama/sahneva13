@@ -302,11 +302,19 @@ function Section({
   dark = false,
   deferredClass = "",
 }) {
+  // Cagiran kendi zeminini verdiyse varsayilan `bg-white` BASILMAZ.
+  // Tailwind cakisan utility'leri sinif dizisindeki sıraya gore degil, uretilen
+  // CSS'teki siraya gore cozer; bu yuzden `bg-white ... bg-slate-50` yazildiginda
+  // bg-white kazaniyordu ve gri olmasi tasarlanan bolumler beyaz cikiyordu.
+  const hasCustomBackground = /\bbg-/.test(className);
+
   return (
     <section
       id={id}
       className={`scroll-mt-24 py-14 md:py-20 ${
-        dark ? "relative isolate overflow-hidden bg-[#0B1120] text-white" : "bg-white text-slate-950"
+        dark
+          ? "relative isolate overflow-hidden bg-[#0B1120] text-white"
+          : `${hasCustomBackground ? "" : "bg-white"} text-slate-950`
       } ${deferredClass} ${className}`}
     >
       {dark ? (
@@ -611,7 +619,8 @@ function VisualProof() {
   const sideImages = FEATURED_GALLERY.slice(1, 3);
 
   return (
-    <Section id="saha-kaniti" dark className="pt-10 md:pt-14" deferredClass="content-visibility-auto cv-corporate-proof">
+    // Alt bolum (h3): ust bolume gorsel olarak baglansin diye ust bosluk kisik.
+    <Section id="saha-kaniti" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-proof">
       <SectionHeader
         dark
         eyebrow="Saha referansları"
@@ -696,7 +705,7 @@ function VisualProof() {
 
 function VideoProof() {
   return (
-    <Section id="videolar" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-videos">
+    <Section id="videolar" dark deferredClass="content-visibility-auto cv-corporate-videos">
       <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
         <div>
           <SectionHeader
@@ -890,7 +899,7 @@ function CorporateGuideSections() {
 
 function PackagePlanningSection() {
   return (
-    <Section id="kapsam-planlama" className="bg-white" deferredClass="content-visibility-auto cv-corporate-packages">
+    <Section id="kapsam-planlama" className="bg-white pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-packages">
       <SectionHeader
         eyebrow="Kapsam ve teklif"
         title="Etkinlik türüne göre kapsam paketleri"
@@ -940,7 +949,7 @@ function PackagePlanningSection() {
 
 function OperationFlow() {
   return (
-    <Section id="akis" dark deferredClass="content-visibility-auto cv-corporate-flow">
+    <Section id="akis" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-flow">
       <SectionHeader
         dark
         eyebrow="Proje akışı"
@@ -1008,7 +1017,7 @@ function ProductionStack() {
   const icons = [MonitorCheck, Layers3, Zap, RadioTower, ShieldCheck, ClipboardCheck];
 
   return (
-    <Section id="produksiyon" dark deferredClass="content-visibility-auto cv-corporate-stack">
+    <Section id="produksiyon" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-stack">
       <SectionHeader
         dark
         eyebrow="Teknik prodüksiyon omurgası"
@@ -1116,7 +1125,7 @@ function InternalLinks() {
 
 function BrandEquipmentSection() {
   return (
-    <Section id="ekipman-guveni" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-equipment">
+    <Section id="ekipman-guveni" className="bg-slate-50 pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-equipment">
       <SectionHeader
         eyebrow="Ekipman ve ekip gücü"
         title="Saha ekibi ve teknik güvence"
@@ -1242,10 +1251,12 @@ export default function Page() {
         <Formats />
         <PackagePlanningSection />
 
-        {/* Ekipman: konumlandirma (h2) + produksiyon omurgasi ve ekip (h3) */}
+        {/* Ekipman: konumlandirma (h2) + saha ekibi ve produksiyon kapsami (h3).
+            Iki acik zeminli bolum yan yana, koyu zeminli olan grubu kapatiyor;
+            onceki acik-koyu-acik dizilimi grubu gorsel olarak uce boluyordu. */}
         <Positioning />
-        <ProductionStack />
         <BrandEquipmentSection />
+        <ProductionStack />
 
         <FAQSection />
         <InternalLinks />
