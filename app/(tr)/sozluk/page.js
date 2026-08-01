@@ -5,6 +5,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import GlossarySearch from "@/components/GlossarySearch.client";
+import EventPlanningGuide from "@/components/EventPlanningGuide.client";
 import {
   GLOSSARY_CATEGORIES,
   GLOSSARY_TERMS,
@@ -195,6 +196,15 @@ export default function GlossaryPage() {
 
       {/* Alfabetik dizin — 80+ terimde kategori gezinmesi tek başına yetmiyor.
           Tamamen sunucuda basılır; JavaScript olmadan da çalışır. */}
+      <section
+        className="border-b border-slate-200 bg-slate-50 px-4 py-12 sm:py-16"
+        aria-labelledby="etkinlik-rehberi-baslik"
+      >
+        <div className="mx-auto max-w-6xl">
+          <EventPlanningGuide />
+        </div>
+      </section>
+
       <section
         aria-labelledby="dizin-baslik"
         className="border-b border-slate-200 bg-slate-50 px-4 py-10"

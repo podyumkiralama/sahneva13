@@ -14,8 +14,11 @@ export const revalidate = 86400;
 
 export const metadata = {
   title: "Etkinlik Planlayıcı | Kapsam ve Bütçe Aracı",
+  // Marka adı bilinçli olarak açıklamanın içinde: "sahneva" gibi marka
+  // sorgularında Google, marka geçmeyen açıklamayı yok sayıp footer'daki genel
+  // şirket metnini snippet olarak alıyordu.
   description:
-    "Etkinlik türü, kişi sayısı, mekân ve süreyi girin; sahne, LED ekran, ses-ışık, çadır ve mobilya için önerilen teknik kapsamı ve yaklaşık bütçe aralığını görün.",
+    "Sahneva etkinlik planlayıcı: tür, kişi sayısı, mekân ve süreyi girin; sahne, LED ekran, ses-ışık ve çadır için önerilen kapsamı ve yaklaşık bütçeyi görün.",
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     canonical: PAGE_PATH,
@@ -148,10 +151,10 @@ export default function EventPlannerPage() {
             data-speakable
             className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg"
           >
-            Çadır ve LED hesaplayıcıları tek bir kalemi hesaplar. Bu araç ise etkinliğin
-            tamamına bakar: türü, kişi sayısı, mekânı ve süresi verildiğinde sahne, LED ekran,
-            ses-ışık, çadır ve mobilya ihtiyacını birlikte çıkarır; hazır bir teknik brief
-            üretir.
+            Sahneva&apos;nın çadır ve LED hesaplayıcıları tek bir kalemi hesaplar. Bu araç ise
+            etkinliğin tamamına bakar: türü, kişi sayısı, mekânı ve süresi verildiğinde sahne,
+            LED ekran, ses-ışık, çadır ve mobilya ihtiyacını birlikte çıkarır; hazır bir teknik
+            brief üretir.
           </p>
         </div>
       </section>

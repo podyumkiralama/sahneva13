@@ -77,6 +77,13 @@ const PriceEstimatorPodyum = dynamic(
   }
 );
 
+const PodiumDecisionGuide = dynamic(
+  () => import("@/components/PodiumDecisionGuide.client"),
+  {
+    loading: () => <div className="h-[680px] bg-slate-950" aria-hidden="true" />,
+  }
+);
+
 /* ================== 4. İÇERİK VERİLERİ ================== */
 const SERVICES = [
   {
@@ -1661,6 +1668,7 @@ export default function Page() {
       <HeroSection />
       <PodiumStockCapacitySection />
       <PodiumFlowSection />
+      <PodiumDecisionGuide />
       <PackagesSection />
       <CalculatorSection />
       <ServicesSection />
