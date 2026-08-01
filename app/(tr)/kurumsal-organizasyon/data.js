@@ -28,17 +28,24 @@ export const BRAND_LOGOS = [
   { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com interkom sistemi markası", width: 220, height: 64 },
 ];
 
+// NOT: "300 m² P1.9 indoor LED" iddiası sayfada yedi ayrı yerde tekrarlanıyordu.
+// Artık yalnızca üç yerde geçiyor: hero istatistiği, OVERVIEW_POINTS içindeki
+// ayrıntılı madde ve SSS cevabı. Boşalan yerlere sayfada başka hiç geçmeyen,
+// doğrulanmış bilgiler yazıldı.
 export const ASSURANCE_ITEMS = [
   "Tek keşif ve tek run-of-show",
-  "300 m² P1.9 indoor LED envanteri",
+  "Ace of M.I.C.E. 2023 ödüllü teknik uygulama",
   "Yedekli güç ve kontrol planı",
   "Saha günü tek operasyon muhatabı",
   "Kurulumdan söküme planlı kapanış",
 ];
 
+// KULLANILMIYOR: bu dizi hiçbir yerden import edilmiyor, sayfada render olmuyor.
+// Silmedim çünkü ileride kullanılması planlanmış olabilir; kullanılacaksa
+// içeriğinin sayfadaki diğer bölümlerle tekrara düşmediği kontrol edilmeli.
 export const GUIDE_PROMISES = [
   "Sahne, LED, ışık ve reji aynı teknik plan içinde",
-  "300 m² P1.9 yüksek çözünürlüklü indoor LED altyapısı",
+  "2012'den bu yana 700+ etkinlik deneyimi",
   "Kurumsal ekipler için net sorumluluk ve tek muhatap",
   "Prova, yedek akış ve saha günü operasyon disiplini",
   "Görsel gücü yüksek, marka algısını taşıyan prodüksiyon",
@@ -134,9 +141,9 @@ export const PLANNING_STEPS = [
 
 export const SERVICE_ITEMS = [
   {
-    title: "P1.9 yüksek çözünürlüklü LED altyapısı",
-    desc: "300 m² P1.9 indoor LED yatırımıyla konferans, lansman, gala ve fuar sahnelerinde yakın izleme mesafesinde premium görüntü kalitesi sağlanır.",
-    whatsappIntent: "P1.9 yüksek çözünürlüklü LED altyapısı",
+    title: "Yüksek çözünürlüklü indoor LED altyapısı",
+    desc: "Konferans, lansman, gala ve fuar düzenlerinde izleyicinin ekrana yakın oturduğu salonlarda net ve yumuşak görüntü sağlanır.",
+    whatsappIntent: "yüksek çözünürlüklü indoor LED altyapısı",
   },
   {
     title: "Sahne ve LED mimarisi",
@@ -287,7 +294,7 @@ export const VIDEO_GALLERY = [
 ];
 
 export const TECHNICAL_POINTS = [
-  "300 m² P1.9 indoor LED stoğu ile yakın izleme mesafesinde premium netlik",
+  "NovaStar görüntü işlemcisi ve yedek kaynakla kesintisiz içerik akışı",
   "Özmal envanter gücüyle LED ekran, kontrol ve yedek modül planının tek ekipte kalması",
   "İzleme mesafesine uygun ekran ve sahne görünürlüğü",
   "Salon veya açık alan koşullarına uygun ses kapsamı",

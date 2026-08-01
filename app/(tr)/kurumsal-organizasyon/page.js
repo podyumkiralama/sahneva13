@@ -171,6 +171,7 @@ const RELATED_LINKS = [
   { href: "/ses-isik-sistemleri", label: "Kurumsal ses ve ışık prodüksiyonu" },
   { href: "/truss-kiralama", label: "LED ve sahne için truss altyapısı" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Uluslararası firmalar için yerel çözüm ortağı" },
+  { href: "/etkinlik-planlayici", label: "Etkinlik planlayıcı: kapsam ve bütçe aracı" },
   { href: "/projeler", label: "Sahneva kurumsal prodüksiyon referansları" },
 ];
 
@@ -646,11 +647,14 @@ function VisualProof() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
             <div className="absolute inset-x-5 bottom-5 max-w-2xl">
+              {/* Kanit bolumu: gorselin ne oldugunu anlatir, envanter iddiasini
+                  tekrarlamaz. Iddia zaten hero istatistiginde, teknik altyapi
+                  bolumunde ve SSS'te geciyor. */}
               <p className="mb-2 inline-flex border border-sky-200/[0.24] bg-sky-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-sky-100">
-                300 m² P1.9 indoor LED
+                Saha kaydı
               </p>
               <h3 className="text-2xl font-black text-white md:text-4xl">
-                Yakın izleme mesafesinde premium görüntü kalitesi
+                Kurumsal gala ve konferans sahnesi kurulumu
               </h3>
             </div>
           </div>
@@ -942,6 +946,27 @@ function PackagePlanningSection() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Kapsam ve butce dusunen kullanicinin tam olarak bulundugu nokta;
+          planlayici bu sorunun dogrudan karsiligi. */}
+      <div className="mt-6 border border-blue-200 bg-blue-50 p-6 md:flex md:items-center md:justify-between md:gap-6">
+        <div className="max-w-2xl">
+          <p className="text-lg font-black text-slate-950">
+            Kapsamı ve bütçeyi kendiniz görmek ister misiniz?
+          </p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            Etkinlik türü, kişi sayısı, mekân ve süreyi girin; sahne, LED ekran, ses-ışık ve
+            mobilya ihtiyacını yaklaşık bütçesiyle birlikte görün.
+          </p>
+        </div>
+        <Link
+          href="/etkinlik-planlayici"
+          className="mt-5 inline-flex min-h-[48px] items-center justify-center gap-2 bg-slate-950 px-6 text-sm font-black text-white transition hover:bg-blue-700 md:mt-0 md:shrink-0"
+        >
+          Etkinlik planlayıcıyı açın
+          <ArrowRight size={16} aria-hidden="true" />
+        </Link>
       </div>
     </Section>
   );
