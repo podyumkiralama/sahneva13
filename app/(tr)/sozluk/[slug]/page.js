@@ -8,10 +8,9 @@ import { LINE_ARRAY_DETAIL_CONTENT } from "@/lib/glossaryDetailContent";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
-const SITE =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
+const SITE = "https://www.sahneva.com";
 const PAGE_PATH = "/sozluk/line-array";
-const PAGE_URL = `${SITE}${PAGE_PATH}`;
+const PAGE_URL = "https://www.sahneva.com/sozluk/line-array";
 const HERO_IMAGE = "/img/sozluk/line-array-tavandan-asilmis-dizi-sistemi.webp";
 const EQUIPMENT_DETAIL_IMAGE = "/img/sozluk/line-array-ekipman-detayi.webp";
 const CORPORATE_EVENT_IMAGE = "/img/sozluk/line-array-kurumsal-etkinlik-uygulamasi.webp";
@@ -63,9 +62,9 @@ export async function generateMetadata({ params }) {
     description:
       "Line array ses sistemi nedir? Kapsama, açılandırma, subwoofer yerleşimi, FOH ve salon yapısına göre profesyonel ses sistemi planlama rehberi.",
     alternates: buildLanguageAlternates({
-      tr: PAGE_PATH,
-      canonical: PAGE_PATH,
-      xDefault: PAGE_PATH,
+      tr: PAGE_URL,
+      canonical: PAGE_URL,
+      xDefault: PAGE_URL,
     }),
     openGraph: {
       type: "website",
