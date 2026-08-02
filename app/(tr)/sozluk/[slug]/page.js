@@ -9,7 +9,6 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 const SITE = "https://www.sahneva.com";
-const PAGE_PATH = "/sozluk/line-array";
 const PAGE_URL = "https://www.sahneva.com/sozluk/line-array";
 const HERO_IMAGE = "/img/sozluk/line-array-tavandan-asilmis-dizi-sistemi.webp";
 const EQUIPMENT_DETAIL_IMAGE = "/img/sozluk/line-array-ekipman-detayi.webp";
