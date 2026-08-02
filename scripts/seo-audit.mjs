@@ -37,6 +37,16 @@ const IGNORE_ORPHAN_CANDIDATES = new Set([
   "/tesekkurler",
 ]);
 
+// Dinamik sözlük rotası yalnızca Line Array için statik olarak üretilir.
+// Kaynak dosya adı tek başına URL'yi göstermediğinden, bağlantı denetiminde
+// build ile üretilen bu somut yolu ayrıca tanımlarız.
+const EXPLICIT_STATIC_DYNAMIC_PAGES = [
+  {
+    route: "/sozluk/line-array",
+    filePath: path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js"),
+  },
+];
+
 const MEDIA_EXTENSION_PATTERN =
   /\.(avif|webp|png|jpe?g|svg|gif|ico|mp4|webm|mov|pdf|xlsx?|docx?)(?:$|[?#])/i;
 
@@ -254,9 +264,12 @@ function shouldCheckStaticSitemapRegistry(route) {
 }
 
 function analyzePages(pageFiles, sitemapPaths) {
-  const pages = pageFiles
+  const staticPages = pageFiles
     .map((filePath) => ({ filePath, route: routeFromPageFile(filePath) }))
     .filter((item) => item.route);
+  const pages = [...staticPages, ...EXPLICIT_STATIC_DYNAMIC_PAGES].filter((page) =>
+    fs.existsSync(page.filePath)
+  );
 
   const pageReports = [];
   const fileToRoute = new Map(pages.map((item) => [item.filePath, item.route]));

@@ -216,12 +216,12 @@ export default function GlossaryPage() {
           <ul className="mt-4 flex flex-wrap gap-2">
             {getGlossaryTermsAlphabetical().map((entry) => (
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
-                <a
-                  href={`#${entry.slug}`}
+                <Link
+                  href={entry.slug === "line-array" ? "/sozluk/line-array" : `#${entry.slug}`}
                   className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   {entry.term}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -265,7 +265,13 @@ export default function GlossaryPage() {
                   >
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
-                        {entry.term}
+                        {entry.slug === "line-array" ? (
+                          <Link href="/sozluk/line-array" className="hover:text-blue-800">
+                            {entry.term}
+                          </Link>
+                        ) : (
+                          entry.term
+                        )}
                       </h3>
                       {entry.aliases?.length ? (
                         <>
