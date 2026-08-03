@@ -1,4 +1,5 @@
 // app/(tr)/sozluk/page.js
+import Image from "next/image";
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -290,6 +291,21 @@ export default function GlossaryPage() {
                       ) : null}
                     </dt>
                     <dd className="mt-4 flex flex-1 flex-col gap-3 text-base leading-7 text-slate-700">
+                      {entry.visual ? (
+                        <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+                          <Image
+                            src={entry.visual.src}
+                            alt={entry.visual.alt}
+                            width={entry.visual.width}
+                            height={entry.visual.height}
+                            sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.5rem), 520px"
+                            className="h-auto w-full"
+                          />
+                          <figcaption className="px-4 py-3 text-sm font-medium leading-6 text-slate-600">
+                            {entry.visual.caption}
+                          </figcaption>
+                        </figure>
+                      ) : null}
                       <p className="font-semibold text-slate-900">{entry.definition}</p>
                       <p>{entry.detail}</p>
 
