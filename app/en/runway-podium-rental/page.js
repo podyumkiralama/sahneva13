@@ -814,8 +814,8 @@ export default function Page() {
       <RelatedServicesSection />
       <ServiceBlogLinks
         links={[
-          { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Choosing a Podium by Event Type" },
-          { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Why Choose a Podium Stage?" },
+          { href: "/en/blog/choosing-the-right-podium-for-your-event", label: "Choosing the Right Podium for Your Event" },
+          { href: "/en/blog/why-podium-stages-are-preferred", label: "Why Are Podium Stages Preferred?" },
         ]}
       />
       <GlossaryTermLinks

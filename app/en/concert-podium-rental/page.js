@@ -674,16 +674,16 @@ export default function ConcertPodiumRentalPage() {
       <ServiceBlogLinks
         links={[
           {
-            href: "/blog/etkinlige-gore-podyum-tercihi",
-            label: "Choosing a Podium by Event Type",
+            href: "/en/blog/choosing-the-right-podium-for-your-event",
+            label: "Choosing the Right Podium for Your Event",
           },
           {
-            href: "/blog/sahne-neden-hep-yuksektir-2500-yillik-bir-sir",
-            label: "Why Is the Stage Always Elevated?",
+            href: "/en/blog/why-stages-are-always-elevated",
+            label: "Why Are Stages Elevated? A 2,500-Year-Old Secret",
           },
           {
-            href: "/blog/neden-podyum-sahne-tercih-edilir",
-            label: "Why Choose a Podium Stage?",
+            href: "/en/blog/why-podium-stages-are-preferred",
+            label: "Why Are Podium Stages Preferred?",
           },
         ]}
       />

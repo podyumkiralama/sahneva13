@@ -651,12 +651,12 @@ export default function Page() {
       <ServiceBlogLinks
         links={[
           {
-            href: "/blog/pmgc-dunya-finali-sahne-arkasi",
-            label: "PMGC World Finals Behind the Scenes",
+            href: "/en/blog/pmgc-world-finals-behind-the-scenes",
+            label: "Behind the Scenes of PMGC 2023 World Finals",
           },
           {
-            href: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi",
-            label: "National Space Program Launch: Engineering Reflection",
+            href: "/en/blog/national-space-program-launch-engineering-reflex",
+            label: "National Space Program Launch: Engineering Reflex",
           },
         ]}
       />
