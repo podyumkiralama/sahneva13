@@ -1,4 +1,5 @@
 ﻿// app/en/runway-podium-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -816,6 +817,12 @@ export default function Page() {
           { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Choosing a Podium by Event Type" },
           { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Why Choose a Podium Stage?" },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/runway-podium-rental"
+        title="Terms used on runway and fashion show projects"
+        description="Catwalk width, sightlines, follow spots and colour rendering decide how a runway reads on camera; the definitions are in the glossary."
       />
       <CTASection />
     </>

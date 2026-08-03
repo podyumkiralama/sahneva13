@@ -1,4 +1,5 @@
 ﻿// app/en/tent-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1135,6 +1136,12 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/tent-rental"
+        title="Terms that come up on tent projects"
+        description="Anchoring, wind load, flooring and drainage decide how safe a tent build is; the definitions are in the glossary."
+      />
       <CTA />
     </>
   );

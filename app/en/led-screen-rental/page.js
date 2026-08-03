@@ -1,5 +1,6 @@
 ﻿// app/en/led-screen-rental/page.js
 
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1134,6 +1135,12 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/led-screen-rental"
+        title="Terms used in an LED screen quote"
+        description="Pixel pitch, nits, cabinets and the video processor drive both the price and the image quality; the definitions are in the glossary."
+      />
       <CTA />
     </>
   );

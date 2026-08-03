@@ -1,60 +1,60 @@
-// app/(tr)/sozluk/page.js
+// app/en/glossary/page.js
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import GlossarySearch from "@/components/GlossarySearch.client";
-import EventPlanningGuide from "@/components/EventPlanningGuide.client";
 import {
-  GLOSSARY_CATEGORIES,
-  GLOSSARY_TERMS,
-  getGlossaryTermsAlphabetical,
-  getGlossaryTermsByCategory,
-  isServiceHref,
-} from "@/lib/glossary";
+  EN_GLOSSARY_CATEGORIES,
+  EN_GLOSSARY_TERMS,
+  getEnGlossaryTermsAlphabetical,
+  getEnGlossaryTermsByCategory,
+  isEnServiceHref,
+} from "@/lib/enGlossary";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
 
-const PAGE_PATH = "/sozluk";
+const PAGE_PATH = "/en/glossary";
+const TR_PAGE_PATH = "/sozluk";
 const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/hero-bg.webp`;
 
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "Etkinlik Prodüksiyonu Sözlüğü | Teknik Terimler",
+  title: "Event Production Glossary | Technical Terms",
   description:
-    "Sahne, LED ekran, ses, ışık, truss ve çadır projelerinde geçen teknik terimlerin saha karşılıklarıyla açıklandığı etkinlik prodüksiyonu sözlüğü.",
+    "Event production glossary: what the stage, LED screen, sound, lighting, truss and tent terms used in quotes mean, and what each one changes on site.",
   alternates: buildLanguageAlternates({
-    tr: PAGE_PATH,
-    en: "/en/glossary",
+    tr: TR_PAGE_PATH,
+    en: PAGE_PATH,
     canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
+    xDefault: TR_PAGE_PATH,
   }),
   openGraph: {
     type: "website",
     url: PAGE_URL,
     siteName: "Sahneva",
-    locale: "tr_TR",
-    title: "Etkinlik Prodüksiyonu Sözlüğü | Sahneva",
+    locale: "en_US",
+    title: "Event Production Glossary | Sahneva",
     description:
-      "Pixel pitch, line array, truss, SWL, run of show ve daha fazlası: teklif ve keşif görüşmelerinde geçen terimlerin pratik karşılıkları.",
+      "Pixel pitch, line array, truss, SWL, run of show and more: what the terms used in event quotes and site surveys actually mean.",
     images: [
       {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Sahneva etkinlik prodüksiyonu teknik terimler sözlüğü",
+        alt: "Sahneva event production technical glossary",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Etkinlik Prodüksiyonu Sözlüğü | Sahneva",
+    title: "Event Production Glossary | Sahneva",
     description:
-      "Sahne, LED ekran, ses, ışık, truss ve çadır projelerinde geçen teknik terimlerin açıklamaları.",
+      "Definitions of the technical terms used on stage, LED screen, sound, lighting, truss and tent projects.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -82,9 +82,9 @@ const GLOSSARY_JSON_LD = {
       "@type": ["CollectionPage", "WebPage"],
       "@id": PAGE_ID,
       url: PAGE_URL,
-      name: "Etkinlik Prodüksiyonu Sözlüğü",
+      name: "Event Production Glossary",
       description: metadata.description,
-      inLanguage: "tr-TR",
+      inLanguage: "en",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": TERM_SET_ID },
       mainEntity: { "@id": TERM_SET_ID },
@@ -99,35 +99,33 @@ const GLOSSARY_JSON_LD = {
       "@type": "BreadcrumbList",
       "@id": BREADCRUMB_ID,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: "Sözlük", item: PAGE_URL },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/en` },
+        { "@type": "ListItem", position: 2, name: "Glossary", item: PAGE_URL },
       ],
     },
     {
       "@type": "DefinedTermSet",
       "@id": TERM_SET_ID,
-      name: "Etkinlik Prodüksiyonu Sözlüğü",
+      name: "Event Production Glossary",
       description:
-        "Sahne, podyum, LED ekran, ses, ışık, truss ve çadır projelerinde kullanılan teknik terimlerin tanımları.",
+        "Definitions of the technical terms used on stage, podium, LED screen, sound, lighting, truss and tent projects.",
       url: PAGE_URL,
-      inLanguage: "tr-TR",
+      inLanguage: "en",
       publisher: { "@id": ORGANIZATION_ID },
-      hasDefinedTerm: GLOSSARY_TERMS.map((entry) => ({ "@id": termId(entry.slug) })),
+      hasDefinedTerm: EN_GLOSSARY_TERMS.map((entry) => ({ "@id": termId(entry.slug) })),
     },
-    ...GLOSSARY_TERMS.map((entry) => ({
+    ...EN_GLOSSARY_TERMS.map((entry) => ({
       "@type": "DefinedTerm",
       "@id": termId(entry.slug),
       name: entry.term,
       alternateName: entry.aliases,
-      // Yalnızca tek cümlelik tanım. Uzun açıklama sayfa gövdesinde zaten var;
-      // şemada tekrarlamak JSON-LD'yi 79 terimde ~70 KB'a çıkarıyordu ve
-      // tüketiciler için kısa tanım daha kullanışlı.
+      // Short definition only. The long explanation is already in the page
+      // body; repeating it here pushed the Turkish JSON-LD to ~70 KB and the
+      // short definition is the more useful one for consumers.
       description: entry.definition,
       url: `${PAGE_URL}#${entry.slug}`,
       inDefinedTermSet: { "@id": TERM_SET_ID },
-      inLanguage: "tr-TR",
-      // Bare URL'yi @id olarak vermek grafikte tanımsız bir düğüme referans
-      // oluşturuyordu; satır içi WebPage düğümü doğru karşılık.
+      inLanguage: "en",
       subjectOf: entry.related
         ? { "@type": "WebPage", url: `${SITE}${entry.related.href}`, name: entry.related.label }
         : undefined,
@@ -139,7 +137,7 @@ const GLOSSARY_JSON_LD = {
 export default function GlossaryPage() {
   return (
     <div className="bg-white text-slate-900">
-      <JsonLdScript id="ld-json-sozluk" data={GLOSSARY_JSON_LD} />
+      <JsonLdScript id="ld-json-en-glossary" data={GLOSSARY_JSON_LD} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-4 py-16 text-white sm:py-20">
@@ -148,41 +146,41 @@ export default function GlossaryPage() {
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-4xl">
-          <nav aria-label="Site içi konum" className="mb-6">
+          <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60">
               <li>
-                <Link href="/" className="hover:text-white">
-                  Ana Sayfa
+                <Link href="/en" className="hover:text-white">
+                  Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li aria-current="page" className="text-white/90">
-                Sözlük
+                Glossary
               </li>
             </ol>
           </nav>
 
           <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-            Etkinlik prodüksiyonu sözlüğü
+            Event production glossary
           </h1>
           <p
             data-speakable
             className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg"
           >
-            Teklif ve keşif görüşmelerinde geçen teknik terimlerin ne anlama geldiğini,
-            sahada neyi değiştirdiğini ve hangi kararı etkilediğini bir arada topladık.
+            What the technical terms used in quotes and site surveys mean, what they
+            change on site and which decision they drive — collected in one place.
             {" "}
-            {GLOSSARY_TERMS.length} terim, {GLOSSARY_CATEGORIES.length} başlık altında.
+            {EN_GLOSSARY_TERMS.length} terms across {EN_GLOSSARY_CATEGORIES.length} sections.
           </p>
 
-          {/* Canlı arama — kategori butonlarının üzerinde. JavaScript kapalıysa
-              bileşen hiç görünmez, terimlerin tamamı listede kalır. */}
+          {/* Live search sits above the category buttons. With JavaScript off the
+              component never renders and every term stays in the list. */}
           <div className="mt-10">
-            <GlossarySearch totalCount={GLOSSARY_TERMS.length} />
+            <GlossarySearch locale="en" totalCount={EN_GLOSSARY_TERMS.length} />
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {GLOSSARY_CATEGORIES.map((category) => (
+            {EN_GLOSSARY_CATEGORIES.map((category) => (
               <a
                 key={category.key}
                 href={`#${category.key}`}
@@ -195,30 +193,21 @@ export default function GlossaryPage() {
         </div>
       </section>
 
-      {/* Alfabetik dizin — 80+ terimde kategori gezinmesi tek başına yetmiyor.
-          Tamamen sunucuda basılır; JavaScript olmadan da çalışır. */}
+      {/* A–Z index — category navigation alone is not enough at 70+ terms.
+          Rendered entirely on the server; works without JavaScript. */}
       <section
-        className="border-b border-slate-200 bg-slate-50 px-4 py-12 sm:py-16"
-        aria-labelledby="etkinlik-rehberi-baslik"
-      >
-        <div className="mx-auto max-w-6xl">
-          <EventPlanningGuide />
-        </div>
-      </section>
-
-      <section
-        aria-labelledby="dizin-baslik"
+        aria-labelledby="index-heading"
         className="border-b border-slate-200 bg-slate-50 px-4 py-10"
       >
         <div className="mx-auto max-w-6xl">
-          <h2 id="dizin-baslik" className="text-lg font-black tracking-tight">
-            Tüm terimler (A–Z)
+          <h2 id="index-heading" className="text-lg font-black tracking-tight">
+            All terms (A–Z)
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {getGlossaryTermsAlphabetical().map((entry) => (
+            {getEnGlossaryTermsAlphabetical().map((entry) => (
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <Link
-                  href={entry.slug === "line-array" ? "/sozluk/line-array" : `#${entry.slug}`}
+                  href={`#${entry.slug}`}
                   className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   {entry.term}
@@ -229,10 +218,10 @@ export default function GlossaryPage() {
         </div>
       </section>
 
-      {/* Terim listesi */}
+      {/* Term list */}
       <div className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
-        {GLOSSARY_CATEGORIES.map((category) => {
-          const terms = getGlossaryTermsByCategory(category.key);
+        {EN_GLOSSARY_CATEGORIES.map((category) => {
+          const terms = getEnGlossaryTermsByCategory(category.key);
           if (terms.length === 0) return null;
 
           return (
@@ -240,11 +229,11 @@ export default function GlossaryPage() {
               key={category.key}
               id={category.key}
               data-glossary-section
-              aria-labelledby={`${category.key}-baslik`}
+              aria-labelledby={`${category.key}-heading`}
               className="mb-14 scroll-mt-28 last:mb-0"
             >
               <h2
-                id={`${category.key}-baslik`}
+                id={`${category.key}-heading`}
                 className="text-2xl font-black tracking-tight sm:text-3xl"
               >
                 {category.title}
@@ -253,9 +242,6 @@ export default function GlossaryPage() {
                 {category.description}
               </p>
 
-              {/* Grid: metin yoğun kartlar olduğu için 3 sütun okunabilirliği
-                  düşürüyordu; md üstünde 2 sütun. items-start sayesinde kısa ve
-                  uzun kartlar aynı yüksekliğe zorlanmıyor. */}
               <dl className="mt-8 grid items-start gap-5 md:grid-cols-2">
                 {terms.map((entry) => (
                   <div
@@ -266,19 +252,11 @@ export default function GlossaryPage() {
                   >
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
-                        {entry.slug === "line-array" ? (
-                          <Link href="/sozluk/line-array" className="hover:text-blue-800">
-                            {entry.term}
-                          </Link>
-                        ) : (
-                          entry.term
-                        )}
+                        {entry.term}
                       </h3>
                       {entry.aliases?.length ? (
                         <>
-                          {/* Alternatif adlandırmalar müşterinin kendi dili —
-                              düz metinde kayboluyordu, rozete çevrildi. */}
-                          <span className="sr-only">Alternatif adlandırmalar: </span>
+                          <span className="sr-only">Also known as: </span>
                           <ul className="mt-3 flex flex-wrap gap-1.5">
                             {entry.aliases.map((alias) => (
                               <li key={alias}>
@@ -301,17 +279,11 @@ export default function GlossaryPage() {
                           >
                             {entry.related.label}
                           </Link>
-                          {/* Teklif butonu yalnızca ticari hizmet sayfalarında;
-                              rehber yazısına "fiyat al" demek yanlış beklenti kurar. */}
-                          {isServiceHref(entry.related.href) ? (
-                            <Link
-                              // Fragment yok: hizmet sayfalarında ortak bir
-                              // "#teklif" çapası bulunmuyor, uydurmak kullanıcıyı
-                              // sayfanın başına düşürmekten başka işe yaramaz.
-                              href={entry.related.href}
-                              className="glossary-cta"
-                            >
-                              Fiyat / teklif al
+                          {/* Quote button only on commercial service pages; a
+                              guide article should not promise pricing. */}
+                          {isEnServiceHref(entry.related.href) ? (
+                            <Link href={entry.related.href} className="glossary-cta">
+                              Request a quote
                               <span aria-hidden="true" className="ml-1.5">
                                 →
                               </span>
@@ -333,26 +305,37 @@ export default function GlossaryPage() {
       <section className="border-t border-slate-200 bg-slate-50 px-4 py-14">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-black tracking-tight sm:text-3xl">
-            Terimi değil, projeyi konuşalım
+            Let’s talk about the project, not the terminology
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            Etkinliğinizin tarihi, şehri ve kapsamını paylaşın; hangi ekipmanın neden
-            gerektiğini teknik gerekçesiyle birlikte anlatalım.
+            Share your event date, city and scope, and we will explain which equipment
+            is needed and why, with the technical reasoning behind it.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
-              href="/iletisim"
+              href="/en/contact"
               className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-slate-950 px-6 text-sm font-black text-white transition hover:bg-slate-800"
             >
-              Teklif alın
+              Request a quote
             </Link>
             <Link
-              href="/hizmetler"
+              href="/en/services"
               className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-slate-950 px-6 text-sm font-black text-slate-950 transition hover:bg-slate-950 hover:text-white"
             >
-              Hizmetleri inceleyin
+              Explore services
             </Link>
           </div>
+          <p className="mt-6 text-sm text-slate-500">
+            Türkçe teknik terimler için{" "}
+            <Link
+              href="/sozluk"
+              hrefLang="tr-TR"
+              className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900"
+            >
+              Etkinlik Prodüksiyonu Sözlüğü
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </div>

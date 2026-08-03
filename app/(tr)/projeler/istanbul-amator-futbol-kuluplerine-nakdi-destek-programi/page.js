@@ -28,7 +28,7 @@ const DESCRIPTION =
 const OG_DESCRIPTION =
   "Kapalı alan protokol etkinliğinde LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve salon düzeni Sahneva tarafından yönetildi.";
 const PUBLISHED_AT = "2026-05-19T12:00:00+03:00";
-const MODIFIED_AT = "2026-05-19T12:00:00+03:00";
+const MODIFIED_AT = "2026-07-31T12:00:00+03:00";
 
 const IMAGES = {
   hero: {
@@ -146,6 +146,9 @@ const HERO_IMAGE = IMAGES.hero;
 const GALLERY_IMAGES = Object.values(IMAGES);
 
 const PROJECT_FACTS = [
+  // Kurum adi referans listesinde (lib/clientReferences.js) yaziliydi ama bu
+  // sayfada gecmiyordu; referansa tiklayan kullanici dogrulama bulamiyordu.
+  { label: "Kurum", value: "Gençlik ve Spor Bakanlığı", icon: ShieldCheck },
   { label: "Mekân", value: "Millet Bahçesi Hangar", icon: Building2 },
   { label: "Lokasyon", value: "İstanbul", icon: MapPin },
   { label: "Proje Tipi", value: "Kapalı Alan Protokol Etkinliği", icon: Sparkles },
@@ -730,6 +733,12 @@ function buildJsonLd() {
         image: GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`),
         provider: { "@id": `${SITE_URL}/#org` },
         publisher: { "@id": `${SITE_URL}/#org` },
+        // Etkinligin sahibi kurum. Sahneva teknik produksiyon saglayicisi
+        // (provider), duzenleyen taraf ise bakanlik — ikisi ayri dugum.
+        sourceOrganization: {
+          "@type": "GovernmentOrganization",
+          name: "Gençlik ve Spor Bakanlığı",
+        },
         datePublished: PUBLISHED_AT,
         dateModified: MODIFIED_AT,
         locationCreated: {

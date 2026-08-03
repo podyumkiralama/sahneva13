@@ -1,4 +1,5 @@
 ﻿// app/en/sound-light-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1133,6 +1134,12 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/sound-light-rental"
+        title="Terms used on sound and lighting projects"
+        description="Line array, FOH, delay speakers, DMX and haze are the headings that decide coverage and look; the definitions are in the glossary."
+      />
       <CTA />
     </>
   );

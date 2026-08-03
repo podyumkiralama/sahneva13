@@ -1,5 +1,6 @@
 ﻿// app/en/truss-rental/page.js
 
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -658,6 +659,12 @@ export default function Page() {
             label: "National Space Program Launch: Engineering Reflection",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/truss-rental"
+        title="Terms used on truss and rigging projects"
+        description="SWL, chain hoists, slings and dynamic load are safety-critical headings; the definitions are in the glossary."
       />
       <Offer />
     </div>

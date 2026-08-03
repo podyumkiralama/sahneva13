@@ -34,6 +34,7 @@ const PAGE_EQUIVALENTS = [
   { tr: "/kurumsal-organizasyon", en: "/en/corporate-events", ar: "/ar/services", ru: "/ru/corporate-events", zh: "/zh/corporate-events" },
   { tr: "/turkiyede-etkinlik-cozum-ortagi", en: "/en/event-production-company-turkey", ar: "/ar/event-production-company-turkey", ru: "/ru/event-production-company-turkey", zh: "/zh" },
   { tr: "/podyum-kurulum-fiyatlari", en: "/en/podium-rental-prices", ar: "/ar/services", ru: "/ru/contact", zh: "/zh/contact" },
+  { tr: "/sozluk", en: "/en/glossary", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
 ];
 
 const SWITCHER_LABELS = {

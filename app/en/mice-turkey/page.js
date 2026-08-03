@@ -1,4 +1,5 @@
 // app/en/mice-turkey/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -1021,6 +1022,12 @@ export default function MiceTurkeyPage() {
       <PhotoGallery />
       <Faq />
       <RelatedServices />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/mice-turkey"
+        title="Terms used on MICE and congress projects"
+        description="Interpretation booths, hybrid setups, accreditation and run of show are standard line items on congress projects; the definitions are in the glossary."
+      />
       <Cta />
     </>
   );

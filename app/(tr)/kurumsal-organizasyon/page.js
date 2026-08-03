@@ -31,6 +31,8 @@ import {
 } from "@/lib/seo/schemaIds";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import ClientReferences from "@/components/seo/ClientReferences";
+import { buildClientReferenceMentions } from "@/lib/clientReferences";
 import {
   ASSURANCE_ITEMS,
   BRAND_LOGOS,
@@ -447,6 +449,10 @@ function CorporateOrganizationJsonLd() {
         caption: HERO.alt,
       },
       image: [`${ORIGIN}${HERO.src}`, ...FEATURED_GALLERY.map((image) => `${ORIGIN}${image.src}`)],
+      // Adlandirilmis kurum referanslari. `mentions` bilincli secildi: "musteri"
+      // iddiasi yerine "bu sayfa bu kurumlardan ve islerden bahsediyor" demek,
+      // sema acisindan dogrulanabilir olani — her kalem sitedeki bir kaynaga baglaniyor.
+      mentions: buildClientReferenceMentions(ORIGIN),
       mainEntity: { "@id": serviceId },
       isRelatedTo: [
         { "@id": `${ORIGIN}/led-ekran-kiralama#service` },
@@ -1265,6 +1271,10 @@ export default function Page() {
         <CorporateGuideSections />
 
         {/* Sonra kanit: rakiplerin taklit edemedigi tek sey gercek saha kaydi. */}
+        {/* Adlandirilmis kurum referanslari, saha kayitlarinin hemen ustunde:
+            once "kimlerle calistik", hemen ardindan "iste kaydi". */}
+        <ClientReferences />
+
         <VideoProof />
         <VisualProof />
 

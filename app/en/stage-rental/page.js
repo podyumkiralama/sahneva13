@@ -1,4 +1,5 @@
 ﻿// app/en/stage-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1708,6 +1709,12 @@ export default function Page() {
             label: "Why Are Stages Always Elevated? A 2,500-Year History",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/stage-rental"
+        title="Terms that come up on stage rental projects"
+        description="Load capacity, sightlines, guardrails and the stage plot decide how a stage is specified; the definitions are in the glossary."
       />
       <CTA />
     </>

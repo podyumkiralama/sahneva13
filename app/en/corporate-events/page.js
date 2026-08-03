@@ -1,4 +1,5 @@
 ﻿// app/en/corporate-events/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1659,6 +1660,12 @@ export default function Page() {
             label: "2026 Corporate Event Planning Guide",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/corporate-events"
+        title="Terms used in corporate event production"
+        description="Run of show, site survey, hybrid setups and turnkey production describe how a corporate event is actually delivered; the definitions are in the glossary."
       />
       <CTA />
     </>

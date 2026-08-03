@@ -3,6 +3,36 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { normalizeSearchText } from "@/lib/glossary";
+import { normalizeEnSearchText } from "@/lib/enGlossary";
+
+/**
+ * Locale-specific copy and normalizer.
+ *
+ * The normalizer cannot be passed in as a prop (server components may not send
+ * functions across the RSC boundary), so it is selected here from `locale`.
+ */
+const LOCALES = {
+  tr: {
+    inputId: "sozluk-arama",
+    normalize: normalizeSearchText,
+    label: "Terim ara",
+    placeholder: "Örn: pixel pitch, asma hoparlör, rüzgâr…",
+    clear: "Temizle",
+    idle: (total) => `${total} terim listeleniyor.`,
+    matched: (total, visible) => `${total} terimden ${visible} tanesi eşleşti.`,
+    empty: "Eşleşen terim yok. Farklı bir kelime deneyin veya bize sorun.",
+  },
+  en: {
+    inputId: "glossary-search",
+    normalize: normalizeEnSearchText,
+    label: "Search terms",
+    placeholder: "e.g. pixel pitch, line array, wind load…",
+    clear: "Clear",
+    idle: (total) => `Showing ${total} terms.`,
+    matched: (total, visible) => `${visible} of ${total} terms matched.`,
+    empty: "No matching term. Try another word or ask us directly.",
+  },
+};
 
 /**
  * Sozluk sayfasi icin canli arama.
@@ -18,7 +48,8 @@ import { normalizeSearchText } from "@/lib/glossary";
  *  - Sunucu HTML'i degismedigi icin SEO tarafinda hicbir sey kaybolmaz
  *  - Ek veri serilestirmesi yok
  */
-export default function GlossarySearch({ totalCount }) {
+export default function GlossarySearch({ totalCount, locale = "tr" }) {
+  const strings = LOCALES[locale] ?? LOCALES.tr;
   const [query, setQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(totalCount);
   const indexRef = useRef(null);
@@ -31,19 +62,19 @@ export default function GlossarySearch({ totalCount }) {
       cards: cards.map((element) => ({
         element,
         slug: element.id,
-        haystack: normalizeSearchText(element.textContent ?? ""),
+        haystack: strings.normalize(element.textContent ?? ""),
       })),
       sections: Array.from(document.querySelectorAll("[data-glossary-section]")),
       indexLinks: Array.from(document.querySelectorAll("[data-glossary-index-item]")),
     };
-  }, []);
+  }, [strings]);
 
   useEffect(() => {
     if (!indexRef.current) {
       indexRef.current = buildIndex();
     }
     const { cards, sections, indexLinks } = indexRef.current;
-    const needle = normalizeSearchText(query);
+    const needle = strings.normalize(query);
 
     const matchedSlugs = new Set();
     for (const card of cards) {
@@ -63,7 +94,7 @@ export default function GlossarySearch({ totalCount }) {
     }
 
     setVisibleCount(matchedSlugs.size);
-  }, [query, buildIndex]);
+  }, [query, buildIndex, strings]);
 
   // Bilesen sokulurse (client-side gezinme) gizlenen dugumleri geri ac.
   useEffect(
@@ -85,19 +116,19 @@ export default function GlossarySearch({ totalCount }) {
   return (
     <div className="mx-auto max-w-3xl">
       <label
-        htmlFor="sozluk-arama"
+        htmlFor={strings.inputId}
         className="block text-sm font-bold uppercase tracking-[0.16em] text-white/60"
       >
-        Terim ara
+        {strings.label}
       </label>
       <div className="relative mt-3">
         <input
           ref={inputRef}
-          id="sozluk-arama"
+          id={strings.inputId}
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Örn: pixel pitch, asma hoparlör, rüzgâr…"
+          placeholder={strings.placeholder}
           autoComplete="off"
           className="min-h-[52px] w-full rounded-2xl border border-white/15 bg-white/10 px-5 pr-28 text-base font-medium text-white placeholder:text-white/45 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
@@ -107,7 +138,7 @@ export default function GlossarySearch({ totalCount }) {
             onClick={handleClear}
             className="absolute right-2 top-1/2 inline-flex min-h-[40px] -translate-y-1/2 items-center rounded-xl bg-white/15 px-4 text-sm font-bold text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
           >
-            Temizle
+            {strings.clear}
           </button>
         ) : null}
       </div>
@@ -115,9 +146,9 @@ export default function GlossarySearch({ totalCount }) {
       <p aria-live="polite" className="mt-3 min-h-[24px] text-sm font-semibold text-white/70">
         {query
           ? visibleCount > 0
-            ? `${totalCount} terimden ${visibleCount} tanesi eşleşti.`
-            : "Eşleşen terim yok. Farklı bir kelime deneyin veya bize sorun."
-          : `${totalCount} terim listeleniyor.`}
+            ? strings.matched(totalCount, visibleCount)
+            : strings.empty
+          : strings.idle(totalCount)}
       </p>
     </div>
   );

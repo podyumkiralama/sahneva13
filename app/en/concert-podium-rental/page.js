@@ -1,4 +1,5 @@
 ﻿// app/en/concert-podium-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -685,6 +686,12 @@ export default function ConcertPodiumRentalPage() {
             label: "Why Choose a Podium Stage?",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/concert-podium-rental"
+        title="Terms that come up on concert stage projects"
+        description="Risers, load capacity, line array and ground support are the headings that shape a concert build; the definitions are in the glossary."
       />
     </>
   );

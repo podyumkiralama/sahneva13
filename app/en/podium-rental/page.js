@@ -1,4 +1,5 @@
 ﻿// app/en/podium-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -561,6 +562,12 @@ export default function PodiumRentalPage() {
           { href: "/blog/etkinlige-gore-podyum-tercihi", label: "Choosing a Podium by Event Type" },
           { href: "/blog/neden-podyum-sahne-tercih-edilir", label: "Why Choose a Podium Stage?" },
         ]}
+      />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/podium-rental"
+        title="Terms used in a podium rental quote"
+        description="Deck sizes, leg heights, ramps and skirting change both the price and the build time; the definitions are in the glossary."
       />
     </div>
   );

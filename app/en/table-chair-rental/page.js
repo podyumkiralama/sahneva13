@@ -1,4 +1,5 @@
 ﻿// app/en/table-chair-rental/page.js
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1242,6 +1243,12 @@ export default function Page() {
       <Articles />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        locale="en"
+        servicePath="/en/table-chair-rental"
+        title="Terms used when planning a seating layout"
+        description="Capacity, layout type, registration area and flooring decide how many guests an area really holds; the definitions are in the glossary."
+      />
       <CTA />
     </>
   );
