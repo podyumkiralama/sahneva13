@@ -16,6 +16,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/sss",
     en: "/en/faq",
+    de: "/de/faq",
     xDefault: "/en/faq",
   }),
   openGraph: {
