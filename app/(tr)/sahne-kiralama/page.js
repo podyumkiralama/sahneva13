@@ -1847,7 +1847,6 @@ function RelatedServices() {
                 href={service.href}
                 prefetch={false}
                 className="group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 text-center shadow-xl transition-all duration-500 hover:border-blue-200 hover:shadow-2xl focus-ring lg:hover:scale-105 sm:p-8"
-                aria-label={`${service.title} - ${service.desc}`}
               >
                 <div
                   className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300"

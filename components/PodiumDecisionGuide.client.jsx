@@ -310,7 +310,7 @@ export default function PodiumDecisionGuide() {
                 </div>
 
                 <div className="mt-6 border-t border-white/10 pt-5">
-                  <p className="text-sm font-black">Teklifi netleştirmek için son bilgiler</p>
+                  <p className="text-sm font-black text-white">Teklifi netleştirmek için son bilgiler</p>
                   <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
                     <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Etkinlik tarihi, ilçe ve kurulum/söküm saati</li>
                     <li className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />Mekânın ölçülü planı veya alanın fotoğrafı</li>
@@ -341,7 +341,7 @@ export default function PodiumDecisionGuide() {
             )}
 
             <div className="mt-6 border-t border-white/10 pt-5">
-              <p className="text-sm font-black">Terim desteği</p>
+              <p className="text-sm font-black text-white">Terim desteği</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[
                   ["moduler-podyum", "Modüler podyum"],

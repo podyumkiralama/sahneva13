@@ -1943,7 +1943,6 @@ function RelatedServices() {
                 href={service.external ? getServiceWhatsappLink(service.waTitle ?? service.title) : service.href}
                 {...(service.external ? { target: "_blank", rel: "nofollow noopener noreferrer" } : {})}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
-                aria-label={`${service.title} - ${service.desc}`}
               >
                 <div 
                   className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 

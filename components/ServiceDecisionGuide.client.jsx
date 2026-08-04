@@ -124,7 +124,7 @@ export default function ServiceDecisionGuide({ guide }) {
                 </div>
                 {recommendedServices.length ? (
                   <div className="mt-6 border-t border-white/10 pt-5">
-                    <p className="text-sm font-black">Bu kurgu için tamamlayıcı hizmetler</p>
+                    <p className="text-sm font-black text-white">Bu kurgu için tamamlayıcı hizmetler</p>
                     <div className="mt-3 space-y-2">
                       {recommendedServices.map((service) => (
                         <Link key={service.href} href={service.href} className="block rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10">
@@ -136,7 +136,7 @@ export default function ServiceDecisionGuide({ guide }) {
                   </div>
                 ) : null}
                 <div className="mt-6 border-t border-white/10 pt-5">
-                  <p className="text-sm font-black">Teklifi netleştirmek için hazırlayın</p>
+                  <p className="text-sm font-black text-white">Teklifi netleştirmek için hazırlayın</p>
                   <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
                     {guide.checklist.map((item) => (
                       <li key={item} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />{item}</li>
@@ -162,7 +162,7 @@ export default function ServiceDecisionGuide({ guide }) {
             )}
 
             <div className="mt-6 border-t border-white/10 pt-5">
-              <p className="text-sm font-black">Terim desteği</p>
+              <p className="text-sm font-black text-white">Terim desteği</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {guide.terms.map(([slug, label]) => (
                   <Link key={slug} href={`/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-blue-100 transition hover:bg-white/10 hover:text-white">{label}</Link>

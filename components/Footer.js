@@ -732,13 +732,13 @@ export default function Footer({
               <Link
                 href={privacyHref}
                 prefetch={false}
-                className={`inline-flex min-h-[44px] items-center px-1 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
+                className={`inline-flex min-h-[44px] items-center px-1 text-slate-300 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
               >
                 {privacyLinkLabel}
               </Link>
               <a
                 href="#_page_top"
-                className={`inline-flex min-h-[44px] items-center gap-1 px-1 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
+                className={`inline-flex min-h-[44px] items-center gap-1 px-1 text-slate-300 underline underline-offset-4 transition-colors hover:text-white ${FOCUS_RING_CLASS}`}
               >
                 <ArrowUp aria-hidden="true" className="h-4 w-4" />
                 {backToTopLabel}
