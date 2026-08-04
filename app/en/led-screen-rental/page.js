@@ -39,6 +39,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/led-ekran-kiralama",
     en: "/en/led-screen-rental",
+    de: "/de/led-wand-mieten",
     ru: "/ru/led-screen-rental",
     zh: "/zh/led-screen-rental",
     canonical: "/en/led-screen-rental",

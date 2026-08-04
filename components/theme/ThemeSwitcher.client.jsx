@@ -9,6 +9,7 @@ const THEME_LABELS = {
   ar: { menu: "اختيار المظهر", prefix: "المظهر", light: "مظهر فاتح", dark: "مظهر داكن", system: "إعداد النظام" },
   ru: { menu: "Выбор темы", prefix: "Тема", light: "Светлая тема", dark: "Темная тема", system: "Системная" },
   zh: { menu: "主题选择", prefix: "主题", light: "浅色主题", dark: "深色主题", system: "跟随系统" },
+  de: { menu: "Design auswählen", prefix: "Design", light: "Helles Design", dark: "Dunkles Design", system: "Systemeinstellung" },
 };
 
 const OPTION_META = [

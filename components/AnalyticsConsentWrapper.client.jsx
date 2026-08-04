@@ -42,6 +42,11 @@ const CONSENT_COPY = {
     accept: "接受",
     reject: "拒绝",
   },
+  de: {
+    body: "Wir setzen anonyme Analyse-Cookies ein, um die Website zu verbessern. Ohne Ihre Einwilligung bleibt die Analyse deaktiviert.",
+    accept: "Akzeptieren",
+    reject: "Ablehnen",
+  },
 };
 
 function safeReadConsent() {
@@ -67,6 +72,7 @@ function resolveConsentLocale() {
   if (lang.startsWith("en")) return "en";
   if (lang.startsWith("ru")) return "ru";
   if (lang.startsWith("zh")) return "zh";
+  if (lang.startsWith("de")) return "de";
   return "tr";
 }
 

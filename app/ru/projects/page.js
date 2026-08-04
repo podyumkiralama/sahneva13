@@ -35,6 +35,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/projeler`,
       en: `${SITE_URL}/en/projects`,
+      de: `${SITE_URL}/de/projekte`,
       ar: `${SITE_URL}/ar/projects`,
       ru: RU_PROJECTS_URL,
       zh: `${SITE_URL}/zh/projects`,

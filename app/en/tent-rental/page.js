@@ -41,6 +41,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${ORIGIN}/cadir-kiralama`,
       "en": `${ORIGIN}/en/tent-rental`,
+      "de": `${ORIGIN}/de/zelt-mieten`,
       "ru": `${ORIGIN}/ru/tent-rental`,
       "zh": `${ORIGIN}/zh/tent-rental`,
       "x-default": `${ORIGIN}/cadir-kiralama`,

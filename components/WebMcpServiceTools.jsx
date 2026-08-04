@@ -131,6 +131,35 @@ const COPY = {
     unknown: "Not confirmed",
     finishPlaceholder: "Carpet, fabric, stairs, decor or surface notes",
   },
+  de: {
+    eyebrow: "Leitfaden zum Leistungsumfang vor dem Angebot",
+    title: "Leistungsumfang und Podestmaße erfassen",
+    intro:
+      "Dieser Bereich bestätigt weder Verfügbarkeit noch Personal oder einen verbindlichen Endpreis. Sahneva erstellt das verbindliche Angebot, nachdem Veranstaltungsart, Stadt, Location, Maße und technischer Umfang geprüft wurden.",
+    capabilityTitle: "Leistungsumfang prüfen",
+    capabilityText:
+      "Erfassen Sie die Angaben, die wir für Bühne, LED-Wand, Ton- und Lichttechnik, Traversen, Zelt, Firmenveranstaltung oder E-Sport-Arena in der Türkei benötigen.",
+    estimateTitle: "Podestmaße für die Kalkulation",
+    estimateText:
+      "Die Podestkalkulation ist ein Richtwert. Der Endpreis hängt von Logistik, Zufahrt, Aufbauzeit, Personal, Oberfläche (Teppich/Stoff), Treppen und weiteren technischen Details ab und wird von Sahneva bestätigt.",
+    serviceCategory: "Leistungsbereich",
+    city: "Stadt",
+    eventType: "Art der Veranstaltung",
+    indoorOutdoor: "Bereich",
+    audienceSize: "Erwartete Teilnehmerzahl",
+    scopeNotes: "Anmerkungen / technischer Umfang",
+    width: "Breite (m)",
+    length: "Länge (m)",
+    height: "Höhe",
+    days: "Anzahl der Tage",
+    finishNeeded: "Anforderung an die Oberfläche",
+    submitCapability: "Angaben senden",
+    submitEstimate: "Podestmaße senden",
+    indoor: "Innenbereich",
+    outdoor: "Außenbereich",
+    unknown: "Noch offen",
+    finishPlaceholder: "Teppich, Stoff, Treppen, Dekor oder Hinweise zur Oberfläche",
+  },
 };
 
 function FormField({ label, children, inverse = false }) {

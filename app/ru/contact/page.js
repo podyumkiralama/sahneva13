@@ -88,6 +88,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/iletisim`,
       en: `${SITE_URL}/en/contact`,
+      de: `${SITE_URL}/de/kontakt`,
       ar: `${SITE_URL}/ar/contact`,
       ru: RU_CONTACT_URL,
       zh: `${SITE_URL}/zh/contact`,

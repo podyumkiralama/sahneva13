@@ -55,6 +55,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/sahne-kiralama",
     en: "/en/stage-rental",
+    de: "/de/buehne-mieten",
     ru: "/ru/stage-rental",
     zh: "/zh/stage-rental",
     canonical: "/en/stage-rental",

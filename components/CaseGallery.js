@@ -109,6 +109,24 @@ const LABELS = {
     hiddenNote: (n) => `يوجد ${n} صورة إضافية. يمكن تصفح كل الصور بعد فتح العارض.`,
     keyboardHint: "اضغط Escape للإغلاق واستخدم الأسهم للتنقل.",
   },
+  de: {
+    galleryLabel: "Projektgalerie",
+    galleryTitle: "Bildergalerie",
+    fallbackAlt: (n) => `Bild ${n} aus der Projektgalerie`,
+    openLarge: (alt) => `${alt} – große Ansicht öffnen`,
+    preview: (alt) => `${alt} – Vorschau`,
+    enlarge: (alt) => `${alt} – Bild vergrößern`,
+    openGallery: "Galerie öffnen",
+    close: "Galerie schließen",
+    prev: "Vorheriges Bild",
+    next: "Nächstes Bild",
+    goTo: (n) => `Zu Bild ${n} wechseln`,
+    thumb: (alt) => `${alt} – Vorschaubild`,
+    more: (n) => `+${n} Bilder`,
+    hiddenNote: (n) =>
+      `Es gibt ${n} weitere Bilder. Nach dem Öffnen der Galerie lassen sich alle Aufnahmen durchblättern.`,
+    keyboardHint: "Mit Escape schließen, mit den Pfeiltasten blättern.",
+  },
 };
 
 function getImageAlt(image, index, t) {

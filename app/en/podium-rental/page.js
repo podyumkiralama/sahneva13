@@ -217,6 +217,7 @@ export const metadata = {
     "Modular podium rental across Turkey for concerts, weddings and corporate events. Delivery, setup and teardown included.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
+    de: "/de/buehne-mieten",
     en: PAGE_PATH,
     canonical: PAGE_PATH,
     xDefault: PAGE_PATH,

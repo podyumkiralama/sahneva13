@@ -4,6 +4,7 @@ import {
   SITE,
   getArPageEntries,
   getBlogEntries,
+  getDePageEntries,
   getEnBlogEntries,
   getEnPageEntries,
   getPageEntries,
@@ -16,6 +17,7 @@ import { buildSitemapIndex, getLatestLastMod } from "@/lib/sitemap/xml";
 const SITEMAP_FEEDS = Object.freeze([
   { path: "/sitemap-pages.xml", getEntries: getPageEntries },
   { path: "/sitemap-en.xml", getEntries: getEnPageEntries },
+  { path: "/sitemap-de.xml", getEntries: getDePageEntries },
   { path: "/sitemap-ar.xml", getEntries: getArPageEntries },
   { path: "/sitemap-ru.xml", getEntries: getRuPageEntries },
   { path: "/sitemap-zh.xml", getEntries: getZhPageEntries },

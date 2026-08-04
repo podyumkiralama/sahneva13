@@ -44,17 +44,20 @@ function Highlighted({ text, query }) {
 export default function NavbarSearchDropdown({ locale = "tr", compact = false }) {
   const isEn = locale === "en";
   const isZh = locale === "zh";
-  const searchButtonLabel = isEn ? "Search" : isZh ? "搜索" : "Ara";
-  const searchAriaLabel = isEn ? "Search the site" : isZh ? "站内搜索" : "Site içinde arama";
-  const searchInputLabel = isEn ? "Search the site" : isZh ? "在网站内搜索" : "Site içinde arama yapın";
-  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : isZh ? "例如：LED屏幕租赁..." : "Örn: LED ekran kiralama...";
+  const isDe = locale === "de";
+  const searchButtonLabel = isEn ? "Search" : isZh ? "搜索" : isDe ? "Suche" : "Ara";
+  const searchAriaLabel = isEn ? "Search the site" : isZh ? "站内搜索" : isDe ? "Website durchsuchen" : "Site içinde arama";
+  const searchInputLabel = isEn ? "Search the site" : isZh ? "在网站内搜索" : isDe ? "Website durchsuchen" : "Site içinde arama yapın";
+  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : isZh ? "例如：LED屏幕租赁..." : isDe ? "z. B. LED-Wand mieten ..." : "Örn: LED ekran kiralama...";
   const searchHint = isEn
     ? "Press Enter to open the search page."
     : isZh
       ? "按 Enter 键打开搜索页面。"
-      : "Enter ile arama sayfasına gidebilirsiniz.";
-  const noResults = isEn ? "No matching page found." : isZh ? "未找到匹配的页面。" : "Eşleşen bir sayfa bulunamadı.";
-  const viewAllLabel = isEn ? "View all results" : isZh ? "查看全部结果" : "Tüm sonuçları gör";
+      : isDe
+        ? "Mit Enter gelangen Sie zur Suchseite."
+        : "Enter ile arama sayfasına gidebilirsiniz.";
+  const noResults = isEn ? "No matching page found." : isZh ? "未找到匹配的页面。" : isDe ? "Keine passende Seite gefunden." : "Eşleşen bir sayfa bulunamadı.";
+  const viewAllLabel = isEn ? "View all results" : isZh ? "查看全部结果" : isDe ? "Alle Ergebnisse ansehen" : "Tüm sonuçları gör";
 
   const router = useRouter();
   const wrapperRef = useRef(null);

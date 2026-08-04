@@ -3,6 +3,9 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { getBlogPosts } from "@/lib/blogPosts";
+import { getEnProjects } from "@/lib/enProjects";
+import { GLOSSARY_TERMS } from "@/lib/glossary";
+import { PODIUM_GLOSSARY_DETAIL_SLUGS } from "@/lib/glossaryDetailContent";
 import { getLlmsTxtLocaleEntries } from "@/lib/seo/aiDiscovery";
 import {
   PROJECT_LASTMOD_FALLBACK,
@@ -231,6 +234,97 @@ function articleEntries() {
     .filter(Boolean);
 }
 
+/**
+ * Sözlük terim sayfaları. `definition` alanı zaten tek cümlelik, snippet ve
+ * yapay zekâ cevabı için yazılmış bir tanım; olduğu gibi özet olarak veriliyor.
+ * Yalnızca detay sayfası açılmış terimler listelenir.
+ */
+function glossaryEntries() {
+  const detailSlugs = new Set(["line-array", ...PODIUM_GLOSSARY_DETAIL_SLUGS]);
+
+  return (GLOSSARY_TERMS ?? [])
+    .filter((term) => detailSlugs.has(term.slug))
+    .map((term) => {
+      const pathValue = clean(`/sozluk/${term.slug}`);
+      if (!pathValue) return null;
+
+      return {
+        path: pathValue,
+        title: `${term.term} Nedir?`,
+        summary: term.definition,
+        priority: 0.8,
+        category: "glossary",
+        keywords: [term.term, ...(term.aliases ?? []), "sahneva"]
+          .join(",")
+          .toLowerCase(),
+      };
+    })
+    .filter(Boolean);
+}
+
+/** İngilizce proje sayfaları – uluslararası taraf için kanıt içeriği. */
+function enProjectEntries() {
+  return getEnProjects()
+    .map((project) => {
+      const pathValue = clean(`/en/projects/${project.slug}`);
+      if (!pathValue) return null;
+
+      return {
+        path: pathValue,
+        title: project.shortTitle ?? project.title,
+        summary: project.metaDescription ?? project.excerpt,
+        priority: 0.8,
+        date: safeIsoDate(project.date),
+        category: "project-en",
+        keywords: buildKeywordsFromTitle(project.shortTitle ?? project.title),
+      };
+    })
+    .filter(Boolean);
+}
+
+/**
+ * İngilizce blog yazıları. Ayrı bir kayıt defteri yok; /en/blog listesiyle
+ * aynı yöntemle her yazının kendi `metadata` çıktısı okunuyor.
+ */
+async function enArticleEntries() {
+  const blogRoot = path.join(process.cwd(), "app/en/blog");
+  if (!fs.existsSync(blogRoot)) return [];
+
+  const slugs = fs
+    .readdirSync(blogRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
+    .map((entry) => entry.name);
+
+  const entries = await Promise.all(
+    slugs.map(async (slug) => {
+      const pathValue = clean(`/en/blog/${slug}`);
+      if (!pathValue) return null;
+
+      try {
+        const postModule = await import(`../en/blog/${slug}/page`);
+        const meta = postModule?.metadata;
+        if (!meta?.description) return null;
+
+        return {
+          path: pathValue,
+          title:
+            typeof meta.title === "string" ? meta.title : (meta.openGraph?.title ?? slug),
+          summary: meta.description,
+          priority: 0.82,
+          category: "blog-en",
+          keywords: buildKeywordsFromTitle(
+            typeof meta.title === "string" ? meta.title : slug
+          ),
+        };
+      } catch {
+        return null;
+      }
+    })
+  );
+
+  return entries.filter(Boolean);
+}
+
 function resolveGeneratedAt(entries = []) {
   const candidates = entries
     .map((entry) => entry.updatedAt || entry.date)
@@ -284,7 +378,10 @@ export async function GET() {
     ...serviceEntries(),
     ...projectEntries(),
     ...articleEntries(),
-    // Türkçe dışı lokaller: aynı yol yukarıda tanımlıysa tekilleştirme korur.
+    ...glossaryEntries(),
+    ...enProjectEntries(),
+    ...(await enArticleEntries()),
+    // Kürasyon listesi: aynı yol yukarıda tanımlıysa tekilleştirme korur.
     ...getLlmsTxtLocaleEntries(),
   ];
 

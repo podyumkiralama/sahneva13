@@ -48,6 +48,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/hizmetler`,
       en: `${SITE_URL}/en/services`,
+      de: `${SITE_URL}/de/leistungen`,
       ar: `${SITE_URL}/ar/services`,
       ru: RU_SERVICES_URL,
       zh: `${SITE_URL}/zh/services`,

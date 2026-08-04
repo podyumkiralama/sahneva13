@@ -14,6 +14,7 @@ const WHATSAPP_MESSAGE = {
   en: encodeURIComponent("Hello, I would like to get a quote and support for event equipment from Sahneva."),
   ru: encodeURIComponent("Здравствуйте, я хочу получить расчет и поддержку по оборудованию для мероприятия от Sahneva."),
   zh: encodeURIComponent("您好，我想咨询在土耳其举办活动的设备租赁与报价。"),
+  de: encodeURIComponent("Guten Tag, ich hätte gerne ein Angebot für Veranstaltungstechnik von Sahneva."),
 };
 
 export default function NavbarMobile({ locale = "tr", serviceLinks, researchLinks }) {
@@ -22,6 +23,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
   const isEn = locale === "en";
   const isRu = locale === "ru";
   const isZh = locale === "zh";
+  const isDe = locale === "de";
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -34,39 +36,43 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
   const descId = `mobile-menu-desc-${uid}`;
 
   const labels = {
-    about: isEn ? "About Us" : isRu ? "О нас" : isZh ? "关于我们" : "Hakkımızda",
-    services: isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : "Hizmetler",
-    explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : isZh ? "了解 Sahneva" : "Bizi Araştırın",
-    showcase: isEn ? "Our Work" : isRu ? "Наши работы" : isZh ? "项目案例" : "Yaptıklarımız",
-    support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : isZh ? "WhatsApp" : "WhatsApp Destek",
+    about: isEn ? "About Us" : isRu ? "О нас" : isZh ? "关于我们" : isDe ? "Über uns" : "Hakkımızda",
+    services: isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : isDe ? "Leistungen" : "Hizmetler",
+    explore: isEn ? "Explore Us" : isRu ? "О Sahneva" : isZh ? "了解 Sahneva" : isDe ? "Sahneva kennenlernen" : "Bizi Araştırın",
+    showcase: isEn ? "Our Work" : isRu ? "Наши работы" : isZh ? "项目案例" : isDe ? "Referenzen" : "Yaptıklarımız",
+    support: isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : isZh ? "WhatsApp" : isDe ? "WhatsApp" : "WhatsApp Destek",
     supportText: isEn
       ? "Get a quick quote and send your questions on WhatsApp."
       : isRu
         ? "Получите быстрый расчет и отправьте вопросы в WhatsApp."
       : isZh
         ? "通过 WhatsApp 快速获取报价并咨询问题。"
+      : isDe
+        ? "Stellen Sie Ihre Fragen über WhatsApp und erhalten Sie schnell ein Angebot."
       : "WhatsApp üzerinden anında teklif alın ve sorularınızı iletin.",
-    open: isEn ? "Open menu" : isRu ? "Открыть меню" : isZh ? "打开菜单" : "Menüyü Aç",
-    close: isEn ? "Close menu" : isRu ? "Закрыть меню" : isZh ? "关闭菜单" : "Menüyü Kapat",
-    heading: isEn ? "Main navigation menu" : isRu ? "Основное меню" : isZh ? "主导航菜单" : "Ana gezinme menüsü",
+    open: isEn ? "Open menu" : isRu ? "Открыть меню" : isZh ? "打开菜单" : isDe ? "Menü öffnen" : "Menüyü Aç",
+    close: isEn ? "Close menu" : isRu ? "Закрыть меню" : isZh ? "关闭菜单" : isDe ? "Menü schließen" : "Menüyü Kapat",
+    heading: isEn ? "Main navigation menu" : isRu ? "Основное меню" : isZh ? "主导航菜单" : isDe ? "Hauptnavigationsmenü" : "Ana gezinme menüsü",
     description: isEn
       ? "Use the tab key to navigate between menu links."
       : isRu
         ? "Используйте клавишу Tab для навигации по ссылкам меню."
       : isZh
         ? "可使用 Tab 键在菜单链接之间切换。"
+      : isDe
+        ? "Mit der Tabulatortaste wechseln Sie zwischen den Menülinks."
       : "Menü bağlantıları arasında gezinmek için tab tuşunu kullanabilirsiniz.",
   };
 
   const links = {
-    about: isEn ? "/en/about" : isRu ? "/ru/about" : isZh ? "/zh/about" : "/hakkimizda",
-    showcase: isEn ? "/en/our-work" : isRu ? "/ru/our-work" : isZh ? "/zh/our-work" : "/yaptiklarimiz",
+    about: isEn ? "/en/about" : isRu ? "/ru/about" : isZh ? "/zh/about" : isDe ? "/de/ueber-uns" : "/hakkimizda",
+    showcase: isEn ? "/en/our-work" : isRu ? "/ru/our-work" : isZh ? "/zh/our-work" : isDe ? "/de/referenzen" : "/yaptiklarimiz",
   };
 
   const mobileWhatsappHref = useMemo(
     () =>
-      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : isRu ? "ru" : isZh ? "zh" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
-    [isEn, isRu, isZh],
+      `https://wa.me/905453048671?text=${WHATSAPP_MESSAGE[isEn ? "en" : isRu ? "ru" : isZh ? "zh" : isDe ? "de" : "tr"]}&utm_source=navbar&utm_medium=mobile_whatsapp`,
+    [isEn, isRu, isZh, isDe],
   );
 
   const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
@@ -220,7 +226,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
 
             <Link href={links.showcase} prefetch={false} onClick={() => closeMenu()} className={menuLinkClass}>
               <span className="text-lg" aria-hidden="true">
-                {isEn || isRu ? "📝" : "📹"}
+                {isEn || isRu || isDe ? "📝" : "📹"}
               </span>
               {labels.showcase}
             </Link>
@@ -339,7 +345,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
                 href={mobileWhatsappHref}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                aria-label={`${labels.support} - ${isEn ? "opens in new tab" : "yeni sekmede açılır"}`}
+                aria-label={`${labels.support} - ${isEn ? "opens in new tab" : isDe ? "wird in einem neuen Tab geöffnet" : "yeni sekmede açılır"}`}
                 className={`mt-4 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-800 shadow-sm transition-all duration-200 hover:bg-emerald-100 hover:shadow-md nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
                 onClick={() => closeMenu()}
               >

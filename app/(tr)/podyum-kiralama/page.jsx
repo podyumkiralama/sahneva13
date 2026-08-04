@@ -394,6 +394,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
     en: "/en/podium-rental",
+    de: "/de/buehne-mieten",
     xDefault: "/en/podium-rental",
   }),
   openGraph: {

@@ -18,7 +18,8 @@ export default function StickyVideoRailClient({ locale = "tr" }) {
     pathname === "/en" ||
     pathname === "/ar" ||
     pathname === "/ru" ||
-    pathname === "/zh";
+    pathname === "/zh" ||
+    pathname === "/de";
   const shouldHide = pathname === "/cadir-kiralama" || isHome;
 
   useEffect(() => {

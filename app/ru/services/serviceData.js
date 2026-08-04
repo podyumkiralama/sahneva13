@@ -13,6 +13,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/sahne-kiralama",
       en: "/en/stage-rental",
+      de: "/de/buehne-mieten",
       zh: "/zh/stage-rental",
     },
     heroStats: [
@@ -116,6 +117,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/led-ekran-kiralama",
       en: "/en/led-screen-rental",
+      de: "/de/led-wand-mieten",
       zh: "/zh/led-screen-rental",
     },
     heroStats: [
@@ -219,6 +221,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/ses-isik-sistemleri",
       en: "/en/sound-light-rental",
+      de: "/de/ton-und-lichttechnik",
       zh: "/zh/sound-light-rental",
     },
     heroStats: [
@@ -322,6 +325,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/cadir-kiralama",
       en: "/en/tent-rental",
+      de: "/de/zelt-mieten",
       zh: "/zh/tent-rental",
     },
     heroStats: [
@@ -425,6 +429,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     equivalent: {
       tr: "/kurumsal-organizasyon",
       en: "/en/corporate-events",
+      de: "/de/firmenevents",
       zh: "/zh/corporate-events",
     },
     heroStats: [

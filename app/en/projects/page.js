@@ -22,6 +22,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${ORIGIN}/projeler`,
       "en": `${ORIGIN}/en/projects`,
+      "de": `${ORIGIN}/de/projekte`,
       "ar": `${ORIGIN}/ar/projects`,
       "ru": `${ORIGIN}/ru/projects`,
       "zh": `${ORIGIN}/zh/projects`,

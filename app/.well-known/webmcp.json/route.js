@@ -119,7 +119,7 @@ function buildManifest() {
       legalContext: "Technical event production and event infrastructure company based in Turkey.",
       country: "Turkey",
       primaryLanguage: "tr-TR",
-      supportedLanguages: ["tr", "en", "ar", "ru", "zh"],
+      supportedLanguages: ["tr", "en", "de", "ar", "ru", "zh"],
       description:
         "Sahneva is a local technical event production partner in Turkey for international companies, European event agencies and global brands. The company supports stage, LED screen, sound, lighting, truss, tent, AV rental, technical crew, setup, rehearsal, event-day operation and dismantling.",
     },

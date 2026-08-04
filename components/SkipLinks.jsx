@@ -24,6 +24,11 @@ const STRINGS = {
     toHeader: "跳转到页眉",
     toFooter: "跳转到页脚",
   },
+  de: {
+    toMain: "Zum Hauptinhalt springen",
+    toHeader: "Zur Kopfzeile springen",
+    toFooter: "Zur Fußzeile springen",
+  },
 };
 
 const LINK_CLASSNAME =
@@ -42,6 +47,7 @@ function normalizeLocale(value) {
   if (normalized.startsWith("ar")) return "ar";
   if (normalized.startsWith("ru")) return "ru";
   if (normalized.startsWith("zh")) return "zh";
+  if (normalized.startsWith("de")) return "de";
   return "tr";
 }
 

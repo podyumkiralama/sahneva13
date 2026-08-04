@@ -259,6 +259,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/kurumsal-organizasyon",
     en: "/en/corporate-events",
+    de: "/de/firmenevents",
     ru: "/ru/corporate-events",
     zh: "/zh/corporate-events",
     canonical: "/kurumsal-organizasyon",

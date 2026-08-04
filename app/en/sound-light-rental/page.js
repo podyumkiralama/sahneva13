@@ -40,6 +40,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/ses-isik-sistemleri",
     en: "/en/sound-light-rental",
+    de: "/de/ton-und-lichttechnik",
     ru: "/ru/sound-light-rental",
     zh: "/zh/sound-light-rental",
     canonical: "/en/sound-light-rental",

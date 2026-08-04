@@ -22,6 +22,7 @@ export const metadata = {
     languages: {
       "tr-TR": PAGE_URL,
       en: `${BASE_SITE_URL}/en/contact`,
+      de: `${BASE_SITE_URL}/de/kontakt`,
       ar: `${BASE_SITE_URL}/ar/contact`,
       ru: `${BASE_SITE_URL}/ru/contact`,
       zh: `${BASE_SITE_URL}/zh/contact`,

@@ -23,6 +23,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/hakkimizda`,
       en: `${SITE_URL}/en/about`,
+      de: `${SITE_URL}/de/ueber-uns`,
       ar: `${SITE_URL}/ar/about`,
       ru: RU_ABOUT_URL,
       zh: `${SITE_URL}/zh/about`,
