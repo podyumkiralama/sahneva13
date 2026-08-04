@@ -2,9 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import GlossaryTermDetailPage from "@/components/GlossaryTermDetailPage";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
-import { LINE_ARRAY_DETAIL_CONTENT } from "@/lib/glossaryDetailContent";
+import {
+  LINE_ARRAY_DETAIL_CONTENT,
+  PODIUM_GLOSSARY_DETAIL_CONTENT,
+  PODIUM_GLOSSARY_DETAIL_SLUGS,
+} from "@/lib/glossaryDetailContent";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
@@ -34,19 +39,20 @@ const RELATED_SERVICES = [
 ];
 
 const RELATED_TERM_SLUGS = ["foh", "rigging", "soundcheck"];
+const GLOSSARY_DETAIL_SLUGS = ["line-array", ...PODIUM_GLOSSARY_DETAIL_SLUGS];
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return [{ slug: "line-array" }];
+  return GLOSSARY_DETAIL_SLUGS.map((slug) => ({ slug }));
 }
 
-function getLineArrayTerm(slug) {
-  const term = GLOSSARY_TERMS.find(
-    (entry) => entry.slug === "line-array" && slug === entry.slug
-  );
+function getGlossaryTerm(slug) {
+  if (!GLOSSARY_DETAIL_SLUGS.includes(slug)) notFound();
+
+  const term = GLOSSARY_TERMS.find((entry) => entry.slug === slug);
 
   if (!term) notFound();
   return term;
@@ -54,7 +60,60 @@ function getLineArrayTerm(slug) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  getLineArrayTerm(slug);
+  const term = getGlossaryTerm(slug);
+
+  if (slug !== "line-array") {
+    const detail = PODIUM_GLOSSARY_DETAIL_CONTENT[slug];
+    const pageUrl = `${SITE}/sozluk/${slug}`;
+
+    return {
+      title: detail.metaTitle,
+      description: detail.metaDescription,
+      alternates: buildLanguageAlternates({
+        tr: pageUrl,
+        canonical: pageUrl,
+        xDefault: pageUrl,
+      }),
+      openGraph: {
+        type: "website",
+        url: pageUrl,
+        siteName: "Sahneva",
+        locale: "tr_TR",
+        title: `${detail.title} | Sahneva`,
+        description: detail.metaDescription,
+        ...(term.visual
+          ? {
+              images: [
+                {
+                  url: `${SITE}${term.visual.src}`,
+                  width: term.visual.width,
+                  height: term.visual.height,
+                  alt: term.visual.alt,
+                },
+              ],
+            }
+          : {}),
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${detail.title} | Sahneva`,
+        description: detail.metaDescription,
+        ...(term.visual
+          ? { images: [`${SITE}${term.visual.src}`] }
+          : {}),
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
+  }
 
   return {
     title: "Line Array Nedir? | Profesyonel Ses Sistemi Rehberi",
@@ -165,7 +224,20 @@ function LineArrayJsonLd({ term }) {
 
 export default async function LineArrayGlossaryPage({ params }) {
   const { slug } = await params;
-  const term = getLineArrayTerm(slug);
+  const term = getGlossaryTerm(slug);
+
+  if (slug !== "line-array") {
+    const detail = PODIUM_GLOSSARY_DETAIL_CONTENT[slug];
+
+    return (
+      <GlossaryTermDetailPage
+        term={term}
+        detail={detail}
+        pageUrl={`${SITE}/sozluk/${slug}`}
+      />
+    );
+  }
+
   const relatedTerms = GLOSSARY_TERMS.filter((entry) =>
     RELATED_TERM_SLUGS.includes(entry.slug)
   );

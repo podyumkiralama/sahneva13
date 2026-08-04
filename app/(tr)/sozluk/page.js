@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { PODIUM_GLOSSARY_DETAIL_SLUGS } from "@/lib/glossaryDetailContent";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import GlossarySearch from "@/components/GlossarySearch.client";
 import EventPlanningGuide from "@/components/EventPlanningGuide.client";
@@ -21,6 +22,10 @@ const SITE =
 const PAGE_PATH = "/sozluk";
 const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/hero-bg.webp`;
+const GLOSSARY_DETAIL_SLUGS = new Set(["line-array", ...PODIUM_GLOSSARY_DETAIL_SLUGS]);
+
+const glossaryHref = (slug) =>
+  GLOSSARY_DETAIL_SLUGS.has(slug) ? `/sozluk/${slug}` : `#${slug}`;
 
 export const revalidate = 86400;
 
@@ -219,7 +224,7 @@ export default function GlossaryPage() {
             {getGlossaryTermsAlphabetical().map((entry) => (
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <Link
-                  href={entry.slug === "line-array" ? "/sozluk/line-array" : `#${entry.slug}`}
+                  href={glossaryHref(entry.slug)}
                   className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   {entry.term}
@@ -267,8 +272,8 @@ export default function GlossaryPage() {
                   >
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
-                        {entry.slug === "line-array" ? (
-                          <Link href="/sozluk/line-array" className="hover:text-blue-800">
+                        {GLOSSARY_DETAIL_SLUGS.has(entry.slug) ? (
+                          <Link href={glossaryHref(entry.slug)} className="hover:text-blue-800">
                             {entry.term}
                           </Link>
                         ) : (
