@@ -12,6 +12,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -90,17 +91,7 @@ export const metadata = {
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD (Service + FAQ + Gallery Images) ================== */

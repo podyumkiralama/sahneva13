@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -58,11 +59,7 @@ export const metadata = {
     "incentive event Turkey",
     "MICE Turkey guide",
   ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const WHATSAPP = `https://wa.me/905453048671?text=${encodeURIComponent("Hello, we are an international company planning a corporate event in Turkey. We'd like to discuss technical production support.")}`;

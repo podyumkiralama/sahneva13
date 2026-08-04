@@ -6,6 +6,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -78,17 +79,7 @@ export const metadata = {
       "m² bazlı podyum kurulum maliyeti, halı kaplama, kumaş giydirme, nakliye ve söküm kalemleri. 2026 güncel fiyat rehberi.",
     images: [`${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== FAQ (Fiyat / Maliyet Intent) ================== */

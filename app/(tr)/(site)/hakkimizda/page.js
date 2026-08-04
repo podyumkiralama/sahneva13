@@ -8,6 +8,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -49,7 +50,7 @@ export const metadata = {
       "10+ yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.",
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const revalidate = 3600;

@@ -2,6 +2,7 @@
 import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== SEO METADATA ================== */
 const SITE =
@@ -37,7 +38,7 @@ export const metadata = {
     description: "Sahneva process management: quote, survey, installation, event day, dismantling.",
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

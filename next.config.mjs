@@ -47,12 +47,18 @@ const longTermCacheHeaders = [
   },
 ];
 
-// DÜZELTME: HTML sayfaları için sadece index/follow etiketini tutuyoruz.
+// HTML sayfaları için index/follow + önizleme (preview) kuralları.
+// max-snippet, Google'ın belgelediği üzere yalnızca klasik snippet'i değil
+// AI Overviews / AI Mode'a doğrudan girdi olarak verilen içerik miktarını da
+// sınırlar; -1 bu sınırı kaldırır. Başlık, sayfa bazında `robots` meta'sı
+// yazan dosyaları da kapsar (Google en kısıtlayıcı kuralı uygular, bu yüzden
+// noindex isteyen sayfalar etkilenmez).
 // App Router'da Cache-Control buraya manuel YAZILMAMALIDIR.
 const htmlRobotsHeaders = [
   {
     key: "X-Robots-Tag",
-    value: "index, follow",
+    value:
+      "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   },
 ];
 

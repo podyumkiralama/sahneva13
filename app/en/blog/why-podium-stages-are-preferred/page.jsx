@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -71,7 +72,7 @@ export const metadata = {
       "Why are podium stages preferred at events? All the advantages in this guide.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

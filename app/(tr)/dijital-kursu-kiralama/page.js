@@ -10,6 +10,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { MessageCircle, Eye, CheckCircle } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -72,17 +73,7 @@ export const metadata = {
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

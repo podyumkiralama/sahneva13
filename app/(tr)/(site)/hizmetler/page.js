@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -44,7 +45,7 @@ export const metadata = {
       "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",
     images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const revalidate = 3600;

@@ -43,6 +43,7 @@ import {
   RotateCcw,
   Gauge,
 } from "lucide-react";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -186,17 +187,7 @@ export const metadata = {
       "İstanbul ve Türkiye genelinde iç mekan, dış mekan, LED wall ve video wall kiralama çözümleri.",
     images: [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Yardımcılar & Sabitler ================== */

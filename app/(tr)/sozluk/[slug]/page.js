@@ -12,6 +12,7 @@ import {
 } from "@/lib/glossaryDetailContent";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE = "https://www.sahneva.com";
 const PAGE_URL = "https://www.sahneva.com/sozluk/line-array";
@@ -102,16 +103,7 @@ export async function generateMetadata({ params }) {
           ? { images: [`${SITE}${term.visual.src}`] }
           : {}),
       },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-        },
-      },
+      robots: AI_PREVIEW_ROBOTS,
     };
   }
 
@@ -148,16 +140,7 @@ export async function generateMetadata({ params }) {
         "Kapsama, açılandırma, subwoofer ve FOH kararlarıyla line array ses sistemi rehberi.",
       images: [`${SITE}${HERO_IMAGE}`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
+    robots: AI_PREVIEW_ROBOTS,
   };
 }
 

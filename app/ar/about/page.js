@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 const AR_ABOUT_URL = buildCanonical("/ar/about");
@@ -40,7 +40,7 @@ export const metadata = {
     type: "website",
     locale: "ar_AR",
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const revalidate = 3600;

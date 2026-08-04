@@ -8,6 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -236,7 +237,7 @@ export const metadata = {
     description: "Professional modular podium rental across Türkiye. Setup, teardown and transport included.",
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function PodiumRentalJsonLd({ faqs }) {

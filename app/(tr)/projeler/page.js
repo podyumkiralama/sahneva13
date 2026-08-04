@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -45,7 +46,7 @@ export const metadata = {
       "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function ProjectsStructuredData() {

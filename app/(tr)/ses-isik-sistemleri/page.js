@@ -19,6 +19,7 @@ import { ArrowRight, Layout, Monitor, Layers, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -76,17 +77,7 @@ export const metadata = {
     description: "Line array, dijital mikser, kablosuz mikrofon, hareketli başlık, truss ve canlı operasyonla Türkiye genelinde ses & ışık kiralama.",
     images: [`${ORIGIN}/img/ses-isik/isik-sistemi.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { 
-      index: true, 
-      follow: true, 
-      "max-image-preview": "large", 
-      "max-snippet": -1, 
-      "max-video-preview": -1 
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Yardımcılar & Sabitler ================== */

@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -46,7 +47,7 @@ export const metadata = {
       "Stage, LED wall, sound-light, podium, tent rentals and turnkey event production services across Türkiye.",
     images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const revalidate = 3600;

@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -63,7 +64,7 @@ export const metadata = {
       "Stage price is determined by m²; the budget becomes clear when technical layers and rider are provided.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== COMPONENTS ================== */

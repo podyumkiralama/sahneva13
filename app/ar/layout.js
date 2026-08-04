@@ -8,6 +8,7 @@ import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
 import {
+  AI_PREVIEW_ROBOTS,
   BASE_SITE_URL,
   buildAlternateLanguages,
   buildCanonical,
@@ -142,6 +143,7 @@ export const metadata = {
     canonical: buildCanonical("/ar"),
     languages: buildAlternateLanguages(),
   },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const viewport = {

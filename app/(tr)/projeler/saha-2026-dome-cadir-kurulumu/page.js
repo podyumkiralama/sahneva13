@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/saha-2026-dome-cadir-kurulumu";
@@ -101,7 +102,7 @@ export const metadata = {
       "Kapalı fuar alanında dome çadır, özel giriş yapısı, zemin altyapısı ve ambiyans aydınlatmasıyla hazırlanan özel etkinlik alanı kurulumu.",
     images: [`${SITE_URL}${HERO_IMAGE.src}`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export default function SahaDomeProjectPage() {

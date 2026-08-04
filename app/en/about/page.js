@@ -8,6 +8,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -50,7 +51,7 @@ export const metadata = {
       "Professional event solutions across Türkiye with 10+ years of expertise. 700+ successful projects and 98% client satisfaction.",
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const revalidate = 3600;

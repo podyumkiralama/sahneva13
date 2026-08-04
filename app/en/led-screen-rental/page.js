@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -65,17 +66,7 @@ export const metadata = {
       "LED screen rental with high brightness, 4K processors and nationwide certified crews for concerts, expos and corporate events.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { 
-      index: true, 
-      follow: true, 
-      "max-image-preview": "large", 
-      "max-snippet": -1, 
-      "max-video-preview": -1 
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Helpers & data ================== */

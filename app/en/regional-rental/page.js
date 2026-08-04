@@ -1,6 +1,7 @@
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -36,7 +37,7 @@ export const metadata = {
       "Event equipment rental across Turkey. Select your city and get a fast quote.",
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function RegionalRentalJsonLd({ services, faqs, steps, regions }) {

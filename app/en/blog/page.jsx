@@ -7,6 +7,7 @@ import path from "path";
 import JsonLd from "@/components/seo/JsonLd";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== RUNTIME & ISR ================== */
 export const runtime = "nodejs";
@@ -50,7 +51,7 @@ export const metadata = {
       "Expert guides on corporate event management, stage rental, LED screen technology, sound and lighting systems.",
     images: [`${ORIGIN}/img/blog/default.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== HELPERS ================== */

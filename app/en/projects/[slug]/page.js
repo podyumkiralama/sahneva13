@@ -10,6 +10,7 @@ import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getEnProject, getEnProjectSlugs } from "@/lib/enProjects";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = BASE_SITE_URL;
 
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }) {
       description: project.metaDescription,
       images: [image],
     },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    robots: AI_PREVIEW_ROBOTS,
   };
 }
 

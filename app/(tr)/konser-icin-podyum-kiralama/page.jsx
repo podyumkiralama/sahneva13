@@ -9,6 +9,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -267,17 +268,7 @@ export const metadata = {
       "Konser ve festival organizasyonları için profesyonel sahne kurulumu.",
     images: [`${ORIGIN}/img/podyum/konser-hero.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== 4. BİLEŞENLER ================== */

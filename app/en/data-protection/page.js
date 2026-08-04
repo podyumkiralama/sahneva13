@@ -1,6 +1,7 @@
 // app/en/data-protection/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -41,7 +42,7 @@ export const metadata = {
       "Sahneva's data protection policy, personal data processing, storage, transfer and your rights.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export default function DataProtectionPage() {

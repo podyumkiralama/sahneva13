@@ -13,7 +13,12 @@ import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
-import { BASE_SITE_URL, buildAlternateLanguages, buildCanonical } from "@/lib/seo/seoConfig";
+import {
+  AI_PREVIEW_ROBOTS,
+  BASE_SITE_URL,
+  buildAlternateLanguages,
+  buildCanonical,
+} from "@/lib/seo/seoConfig";
 import {
   LOCAL_BUSINESS_IDENTITY,
   ORGANIZATION_IDENTITY,
@@ -130,6 +135,7 @@ export const metadata = {
     canonical: buildCanonical("/zh"),
     languages: buildAlternateLanguages(),
   },
+  robots: AI_PREVIEW_ROBOTS,
   openGraph: {
     title: content.meta.title,
     description: content.meta.description,

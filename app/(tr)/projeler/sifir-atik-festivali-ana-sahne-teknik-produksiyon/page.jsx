@@ -15,6 +15,7 @@ import {
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/sifir-atik-festivali-ana-sahne-teknik-produksiyon";
@@ -370,7 +371,7 @@ export const metadata = {
     description: META_DESCRIPTION,
     images: [`${SITE_URL}${IMAGES.hero.src}`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function Eyebrow({ children }) {

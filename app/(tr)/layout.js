@@ -16,6 +16,7 @@ import SpeculationRules from "@/components/performance/SpeculationRules";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
+  AI_PREVIEW_ROBOTS,
   HOME_PAGE_TITLE,
   buildAlternateLanguages,
   buildCanonical,
@@ -219,6 +220,7 @@ export const metadata = {
     canonical: buildCanonical("/"),
     languages: buildAlternateLanguages(),
   },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const viewport = {

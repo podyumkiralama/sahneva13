@@ -5,6 +5,7 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -217,7 +218,7 @@ export const metadata = {
     description: PAGE_DESCRIPTION,
     images: [PROJECT_VIDEOS[0].thumbnailUrl],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function OurWorkStructuredData() {

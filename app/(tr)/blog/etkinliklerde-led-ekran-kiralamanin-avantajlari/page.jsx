@@ -6,6 +6,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "etkinliklerde-led-ekran-kiralamanin-avantajlari";
@@ -91,11 +92,7 @@ export const metadata = {
   },
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function ArticleSchema() {

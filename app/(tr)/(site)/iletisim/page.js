@@ -9,6 +9,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
 
@@ -51,7 +52,7 @@ export const metadata = {
       "Sahne, LED ekran, ses-ışık sistemleri için hemen teklif alın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
     images: [`${BASE_SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const PHONE = "+905453048671";

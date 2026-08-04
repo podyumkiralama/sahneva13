@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -44,7 +45,7 @@ export const metadata = {
       "Sahneva Organization's KVKK and GDPR compliant privacy policy, cookie usage, and data processing procedures.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export default function PrivacyPolicyPage() {

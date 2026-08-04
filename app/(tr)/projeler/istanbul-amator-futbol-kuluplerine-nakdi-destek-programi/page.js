@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi";
@@ -253,7 +254,7 @@ export const metadata = {
     description: OG_DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMAGE.src}`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export default function AmateurFootballSupportProjectPage() {

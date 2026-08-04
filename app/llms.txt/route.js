@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { services, projects } from "@/lib/data";
 import { getBlogPosts } from "@/lib/blogPosts";
+import { getLlmsTxtLocaleEntries } from "@/lib/seo/aiDiscovery";
 import {
   PROJECT_LASTMOD_FALLBACK,
   getLastModifiedDateTimeForFile,
@@ -283,6 +284,8 @@ export async function GET() {
     ...serviceEntries(),
     ...projectEntries(),
     ...articleEntries(),
+    // Türkçe dışı lokaller: aynı yol yukarıda tanımlıysa tekilleştirme korur.
+    ...getLlmsTxtLocaleEntries(),
   ];
 
   const unique = new Map();
@@ -308,8 +311,11 @@ export async function GET() {
     "> LLM odaklı öncelikli içerik, hizmet ve referans sayfa listesi.",
     `generated=${generatedAt}`,
     `site=${SITE_URL}`,
-    "version=1.1",
+    "version=1.2",
     "primary_lang=tr-TR",
+    "languages=tr,en,ar,ru,zh",
+    `agent_manifest=${SITE_URL}/.well-known/webmcp.json`,
+    "contact=info@sahneva.com",
     "crawl_hint=prioritize-high-priority-urls",
     "",
     "## Öncelikli Sayfalar",

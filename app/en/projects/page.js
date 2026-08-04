@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -50,7 +51,7 @@ export const metadata = {
     description: "Browse our completed stage and LED screen setups from events across Türkiye.",
     images: [`${ORIGIN}/img/og/sahneva-og.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function ProjectsStructuredData() {

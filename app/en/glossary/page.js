@@ -12,6 +12,7 @@ import {
   getEnGlossaryTermsByCategory,
   isEnServiceHref,
 } from "@/lib/enGlossary";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -57,16 +58,7 @@ export const metadata = {
       "Definitions of the technical terms used on stage, LED screen, sound, lighting, truss and tent projects.",
     images: [OG_IMAGE],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

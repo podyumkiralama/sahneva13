@@ -29,6 +29,7 @@ import {
   Users,
   Eye,
 } from "lucide-react";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -97,17 +98,7 @@ export const metadata = {
       "Konser, konferans, lansman ve festival etkinlikleri için profesyonel sahne çözümleri.",
     images: [`${ORIGIN}/img/sahne/6.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Yardımcılar & Sabitler ================== */

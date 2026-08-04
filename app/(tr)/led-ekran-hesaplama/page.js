@@ -3,6 +3,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 import LedCalculatorClient from "./LedCalculatorClient";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_URL = `${SITE_URL}/led-ekran-hesaplama`;
@@ -37,17 +38,7 @@ export const metadata = {
     description: "Standart LED ekran ve P1.9 Indoor LED için yaklaşık m² başlangıç bedeli hesaplayın.",
     images: [`${SITE_URL}/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const CALCULATOR_SCHEMA = buildCalculatorSchema({

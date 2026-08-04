@@ -11,6 +11,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -83,17 +84,7 @@ export const metadata = {
       "Concert, conference, launch and festival stage rentals with truss, LED, sound and lighting systems.",
     images: [`${ORIGIN}/img/hizmet-sahne.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Helpers & constants ================== */

@@ -2,6 +2,7 @@
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -40,7 +41,7 @@ export const metadata = {
       "Detailed answers about stage, LED screen, sound-light and tent rental processes.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== DATA ================== */

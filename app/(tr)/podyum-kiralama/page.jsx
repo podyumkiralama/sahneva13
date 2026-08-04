@@ -24,6 +24,7 @@ import {
   Music,
   Ruler,
 } from "lucide-react";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -419,17 +420,7 @@ export const metadata = {
       "12.000 m² podyum stoğu, 10.000 m² 10 cm zemin kapasitesi ve karolaj planlı titreşimsiz modüler podyum sistemleri.",
     images: [`${ORIGIN}/img/podyum/22.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== 6. BİLEŞENLER ================== */

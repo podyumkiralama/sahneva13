@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const HERO_IMAGE = "/img/projeler/kapali-alan-led/1.webp";
@@ -44,7 +45,7 @@ export const metadata = {
       "Kapalı alan sahne & LED uygulaması — 24×6 m P2 LED ve 24×8 m sahne/podyum.",
     images: [`${SITE_URL}${HERO_IMAGE}`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 // ⚠ Görselleri aynı klasöre 01–10.webp olarak koyabilirsin (kaç adet varsa o kadarı yeter).

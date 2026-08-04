@@ -21,6 +21,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -211,17 +212,7 @@ export const metadata = {
       "LED ekran m² fiyatı, P1.9 Indoor LED farkı, kurulum, NovaStar görüntü işlemcisi ve teknik reji kapsamı.",
     images: [`${BASE_SITE_URL}${HERO_IMAGE}`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function tl(value) {

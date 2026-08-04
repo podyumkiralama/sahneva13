@@ -7,6 +7,7 @@ import {
   getIndexableRegionalCities,
   getRegionalCity,
 } from "@/lib/seo/regionalCities";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -41,7 +42,7 @@ export const metadata = {
       "Türkiye genelinde etkinlik ekipmanı kiralama. Şehrinizi seçin, hızlı teklif alın.",
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function RegionalRentalJsonLd({ services, faqs, steps, regions }) {

@@ -14,6 +14,7 @@ import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts"
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -82,17 +83,7 @@ export const metadata = {
       "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim.",
     images: [`${ORIGIN}/img/sandalye/1.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Yardımcılar & Sabitler ================== */

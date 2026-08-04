@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
@@ -79,7 +80,7 @@ export const metadata = {
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
   date: PUBLISH_DATE,
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function buildArticleJsonLd() {

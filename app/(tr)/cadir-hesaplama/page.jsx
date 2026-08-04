@@ -2,6 +2,7 @@
 import TentCalculatorClient from "./TentCalculatorClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;
@@ -31,17 +32,7 @@ export const metadata = {
       },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const faqItems = [

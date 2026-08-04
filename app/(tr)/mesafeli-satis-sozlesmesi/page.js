@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE, REFUND_TIERS } from "@/lib/legal/companyInfo";
+import { buildAiPreviewRobots } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -12,7 +13,7 @@ export const metadata = {
     "Sahneva online ödeme sistemi üzerinden alınan etkinlik prodüksiyon hizmetlerine ilişkin mesafeli satış sözleşmesi: taraflar, hizmet bedeli, ödeme, cayma hakkı ve uyuşmazlık çözümü.",
   alternates: { canonical: `${SITE_URL}/mesafeli-satis-sozlesmesi` },
   // Satıcı bilgileri tamamlanmadan arama motorlarına açılmaz.
-  robots: { index: COMPANY_INFO_COMPLETE, follow: true },
+  robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };
 
 export default function MesafeliSatisSozlesmesiPage() {

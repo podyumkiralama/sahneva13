@@ -50,6 +50,7 @@ import {
   USE_CASES,
   VIDEO_GALLERY,
 } from "./data";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 86400;
 
@@ -285,17 +286,7 @@ export const metadata = {
     description: PAGE_DESCRIPTION,
     images: [`${ORIGIN}${OG_IMAGE}`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function Section({

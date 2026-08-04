@@ -6,6 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "led-ekran-kurulum-guvenligi";
@@ -171,7 +172,7 @@ export const metadata = {
   },
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function ArticleSchema() {

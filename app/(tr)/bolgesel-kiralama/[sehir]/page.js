@@ -12,6 +12,7 @@ import {
   buildCityPlaceNode,
   cityPlaceId,
 } from "@/lib/structuredData/cityPlace";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -169,16 +170,7 @@ export async function generateMetadata({ params }) {
       description: `${city.name} için şehir bazlı etkinlik ekipmanı kiralama ve kurulum planı.`,
       images: [`${SITE}/img/bolgesel-kiralama/hero.webp`],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
+    robots: AI_PREVIEW_ROBOTS,
   };
 }
 

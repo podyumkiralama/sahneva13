@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -83,17 +84,7 @@ export const metadata = {
       "Stage, LED screen, sound and lighting support for corporate events in Turkey.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Helpers & Constants ================== */

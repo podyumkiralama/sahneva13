@@ -8,6 +8,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const PAGE_URL = `${BASE_SITE_URL}/en/contact`;
 
@@ -50,7 +51,7 @@ export const metadata = {
       "Request a proposal for stage, LED screen or sound-lighting systems. Nationwide coverage with rapid mobilisation and on-site experts.",
     images: [`${BASE_SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const PHONE = "+905453048671";

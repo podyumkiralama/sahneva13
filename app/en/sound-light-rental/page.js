@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -66,17 +67,7 @@ export const metadata = {
       "Professional line-array audio, digital consoles, wireless microphones, moving-head lighting, truss and technical crew support across Türkiye.",
     images: [`${ORIGIN}/img/ses-isik/hero.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Helpers & constants ================== */

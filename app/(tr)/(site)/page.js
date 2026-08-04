@@ -16,10 +16,11 @@ import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 
 import {
-  HOME_PAGE_TITLE,
+  AI_PREVIEW_ROBOTS,
   buildAlternateLanguages,
   buildCanonical,
   getOgImageUrl,
+  HOME_PAGE_TITLE,
 } from "@/lib/seo/seoConfig";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
@@ -128,14 +129,7 @@ export const metadata = {
     "çadır kiralama",
     "etkinlik prodüksiyonu",
   ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 const HOME_JSON_LD = {

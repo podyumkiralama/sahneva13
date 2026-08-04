@@ -15,6 +15,7 @@ import {
   getGlossaryTermsByCategory,
   isServiceHref,
 } from "@/lib/glossary";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -63,16 +64,7 @@ export const metadata = {
       "Sahne, LED ekran, ses, ışık, truss ve çadır projelerinde geçen teknik terimlerin açıklamaları.",
     images: [OG_IMAGE],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

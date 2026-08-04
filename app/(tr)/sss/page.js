@@ -4,6 +4,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -41,7 +42,7 @@ export const metadata = {
       "Sahne, podyum, LED ekran ve ses-ışık kiralama süreçleri hakkında sık sorulan sorular.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ——— VERİ ——— */

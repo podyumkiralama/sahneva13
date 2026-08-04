@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -65,17 +66,7 @@ export const metadata = {
       "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
     images: [`${ORIGIN}/img/sandalye/3.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== Helpers & constants ================== */

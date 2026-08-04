@@ -2,6 +2,7 @@
 import BlogList from "@/components/blog/BlogList.client";
 import { getBlogPosts } from "@/lib/blogPosts";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 export const revalidate = 3600;
 
@@ -47,11 +48,7 @@ export const metadata = {
       "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
     images: [`${ORIGIN}/img/blog/default.webp`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function BlogJsonLd({ posts, baseUrl }) {

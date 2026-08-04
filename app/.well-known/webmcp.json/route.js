@@ -1,3 +1,4 @@
+import { getWebMcpImportantPages } from "@/lib/seo/aiDiscovery";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
 export const revalidate = 3600;
@@ -5,87 +6,6 @@ export const revalidate = 3600;
 const CONTACT_EMAIL = "info@sahneva.com";
 const CONTACT_PHONE = "+90 545 304 86 71";
 const CONTACT_WHATSAPP = "+905453048671";
-
-const importantPages = [
-  {
-    title: "Event Production Partner in Turkey",
-    url: `${SITE_URL}/en/event-production-company-turkey`,
-    language: "en",
-    intent: "International companies, European event agencies and global brands looking for a local technical event production partner in Turkey.",
-  },
-  {
-    title: "Türkiye’de Etkinlik Çözüm Ortağı",
-    url: `${SITE_URL}/turkiyede-etkinlik-cozum-ortagi`,
-    language: "tr",
-    intent: "Türkiye’de etkinlik yapacak uluslararası firmalar için yerel teknik prodüksiyon ve saha operasyonu çözümü.",
-  },
-  {
-    title: "Stage Rental in Turkey",
-    url: `${SITE_URL}/en/stage-rental`,
-    language: "en",
-    intent: "Stage rental, podium systems, platforms and event stage infrastructure.",
-  },
-  {
-    title: "LED Screen Rental in Turkey",
-    url: `${SITE_URL}/en/led-screen-rental`,
-    language: "en",
-    intent: "Indoor and outdoor LED screen rental, video wall and visual content display systems.",
-  },
-  {
-    title: "Sound and Light Rental",
-    url: `${SITE_URL}/en/sound-light-rental`,
-    language: "en",
-    intent: "Line array sound, microphones, mixers, stage lighting and technical control support.",
-  },
-  {
-    title: "Truss Rental",
-    url: `${SITE_URL}/en/truss-rental`,
-    language: "en",
-    intent: "Truss, roof, rigging support and structural event setup planning.",
-  },
-  {
-    title: "Tent Rental",
-    url: `${SITE_URL}/en/tent-rental`,
-    language: "en",
-    intent: "Outdoor event tents, temporary covered areas and field infrastructure.",
-  },
-  {
-    title: "Corporate Events",
-    url: `${SITE_URL}/en/corporate-events`,
-    language: "en",
-    intent: "Corporate conferences, launches, gala events, protocol events and brand experiences.",
-  },
-  {
-    title: "Sahneva Service Capability Guide",
-    url: `${SITE_URL}/en/services`,
-    language: "en",
-    intent: "Service capability guidance for stage, podium, LED screen, sound-light AV, truss, tent, corporate event, esports arena and field operation quote preparation.",
-  },
-  {
-    title: "Sahneva Hizmet Kapsamı Rehberi",
-    url: `${SITE_URL}/hizmetler`,
-    language: "tr",
-    intent: "Sahne, podyum, LED ekran, ses-ışık AV, truss, çadır, kurumsal etkinlik, e-spor arena ve saha operasyonu talepleri için hizmet kapsamı ön bilgi sayfası.",
-  },
-  {
-    title: "Contact Sahneva",
-    url: `${SITE_URL}/en/contact`,
-    language: "en",
-    intent: "Send an event brief, RFP, technical rider or quote request.",
-  },
-  {
-    title: "Contact Sahneva Arabic",
-    url: `${SITE_URL}/ar/contact`,
-    language: "ar",
-    intent: "Arabic contact page for international event production quote requests in Turkey.",
-  },
-  {
-    title: "Contact Sahneva Russian",
-    url: `${SITE_URL}/ru/contact`,
-    language: "ru",
-    intent: "Russian contact page for international event production quote requests in Turkey.",
-  },
-];
 
 const services = [
   {
@@ -199,7 +119,7 @@ function buildManifest() {
       legalContext: "Technical event production and event infrastructure company based in Turkey.",
       country: "Turkey",
       primaryLanguage: "tr-TR",
-      supportedLanguages: ["tr", "en", "ar", "ru"],
+      supportedLanguages: ["tr", "en", "ar", "ru", "zh"],
       description:
         "Sahneva is a local technical event production partner in Turkey for international companies, European event agencies and global brands. The company supports stage, LED screen, sound, lighting, truss, tent, AV rental, technical crew, setup, rehearsal, event-day operation and dismantling.",
     },
@@ -250,7 +170,7 @@ function buildManifest() {
         "Share the Sahneva Company Profile PDF and the PUBG Turkiye Finals production showcase video reference.",
     },
     locations,
-    importantPages,
+    importantPages: getWebMcpImportantPages(),
     contact: {
       preferredForInternationalClients: "email",
       email: CONTACT_EMAIL,

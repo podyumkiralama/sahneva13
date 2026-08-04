@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -66,7 +67,7 @@ export const metadata = {
       "Etkinliklerde podyum sahne neden tercih edilir? Tüm avantajlar bu rehberde.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD ================== */

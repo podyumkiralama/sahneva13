@@ -6,6 +6,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE } from "@/lib/legal/companyInfo";
+import { buildAiPreviewRobots } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -14,7 +15,7 @@ export const metadata = {
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde teslimat ve ifa koşulları: kurulum ve söküm süreleri, hizmet bölgesi, nakliye bedeli ve müşteri yükümlülükleri.",
   alternates: { canonical: `${SITE_URL}/teslimat-ve-ifa-kosullari` },
-  robots: { index: COMPANY_INFO_COMPLETE, follow: true },
+  robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };
 
 export default function TeslimatVeIfaKosullariPage() {

@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -84,7 +85,7 @@ export const metadata = {
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== JSON-LD (Service + FAQ + Gallery Images) ================== */

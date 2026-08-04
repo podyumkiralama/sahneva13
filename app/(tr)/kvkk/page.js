@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY } from "@/lib/legal/companyInfo";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -43,7 +44,7 @@ export const metadata = {
       "Sahneva Organizasyon’un KVKK kapsamında kişisel veri işleme süreçlerine ilişkin aydınlatma metni.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export default function KvkkPage() {

@@ -4,6 +4,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -85,7 +86,7 @@ export const metadata = {
       "Sahne fiyatı m²’ye göre belirlenir; teknik katmanlar ve rider geldiğinde bütçe netleşir.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 /* ================== KÜÇÜK BİLEŞENLER ================== */

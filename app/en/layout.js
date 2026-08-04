@@ -18,6 +18,7 @@ import {
   ORGANIZATION_IDENTITY,
 } from "@/lib/structuredData/organizationIdentity";
 import {
+  AI_PREVIEW_ROBOTS,
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
@@ -192,11 +193,6 @@ export const metadata = {
     telephone: false,
   },
   description: content.meta.description,
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
   openGraph: {
     title: "Sahneva | Stage, LED Screen, Sound & Lighting Rentals in Türkiye",
     description: content.meta.description,
@@ -223,6 +219,7 @@ export const metadata = {
     canonical: buildCanonical("/en"),
     languages: buildAlternateLanguages(),
   },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 export const viewport = {

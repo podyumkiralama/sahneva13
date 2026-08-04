@@ -5,6 +5,7 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "kurumsal-etkinlikte-isik-kurgusu";
@@ -135,7 +136,7 @@ export const metadata = {
   },
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
-  robots: { index: true, follow: true },
+  robots: AI_PREVIEW_ROBOTS,
 };
 
 function ArticleSchema() {

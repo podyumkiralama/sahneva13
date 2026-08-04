@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE, REFUND_TIERS } from "@/lib/legal/companyInfo";
+import { buildAiPreviewRobots } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -11,7 +12,7 @@ export const metadata = {
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde iptal ve iade koşulları: kademeli iade oranları, iade süreci, mücbir sebep ve erteleme kuralları.",
   alternates: { canonical: `${SITE_URL}/iptal-ve-iade-kosullari` },
-  robots: { index: COMPANY_INFO_COMPLETE, follow: true },
+  robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };
 
 export default function IptalVeIadeKosullariPage() {
