@@ -413,7 +413,7 @@ export default function EventProductionBlogPage() {
 
           <h2 id="truss-rigging">Truss ve rigging sistemleri</h2>
           <p>
-            LED ekranların, ışık cihazlarının, ses sistemlerinin ve dekoratif yapıların güvenli şekilde taşınması için
+            LED ekranların, ışık cihazlarının, ses sistemlerinin ve dekoratif yapıların güvenli şekilde taşınması için{" "}
             <Link href="/truss-kiralama">truss ve rigging sistemleri</Link> kullanılır. Planlamada ekipmanın toplam
             ağırlığı, yük dağılımı, mekânın taşıma noktaları ve motor kapasitesi birlikte hesaplanır.
           </p>
@@ -463,7 +463,7 @@ export default function EventProductionBlogPage() {
           <p>
             Açık hava organizasyonlarında prodüksiyon planı, hava koşullarını da kapsar. Sahne, ses, ışık ve LED
             ekranın yanında çadır, zemin kaplama, enerji dağıtımı ve yağmur koruma çözümleri de aynı projeye dahil
-            edilebilir. Katılımcı sayısı, zemin yapısı, rüzgâr koşulları ve kurulacak teknik ekipman;
+            edilebilir. Katılımcı sayısı, zemin yapısı, rüzgâr koşulları ve kurulacak teknik ekipman;{" "}
             <Link href="/cadir-kiralama">çadır sisteminin</Link> seçiminde belirleyicidir.
           </p>
           <Figure

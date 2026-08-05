@@ -182,9 +182,6 @@ export default function BlogLayout({
                       <Network className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-200">
-                        Cornerstone
-                      </p>
                       <h2 className="mt-2 text-xl font-black text-white">
                         Ana hizmet merkezleri
                       </h2>
