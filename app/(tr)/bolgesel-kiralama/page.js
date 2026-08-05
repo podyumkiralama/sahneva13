@@ -279,7 +279,7 @@ export default function Page() {
   const services = [
     { title: "LED Ekran Kiralama", href: "/led-ekran-kiralama" },
     { title: "Truss Kiralama", href: "/truss-kiralama" },
-    { title: "Sahne / Podyum Kiralama", href: "/podyum-kiralama" },
+    { title: "Podyum Kiralama", href: "/podyum-kiralama" },
     { title: "Ses & Işık Sistemleri", href: "/ses-isik-sistemleri" },
     { title: "Çadır Kiralama", href: "/cadir-kiralama" },
     { title: "Masa & Sandalye Kiralama", href: "/masa-sandalye-kiralama" },

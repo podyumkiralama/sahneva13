@@ -107,8 +107,8 @@ const LED_PIXEL_ROWS = [
     badge: "Yeni Premium Envanter",
     badgeClass: "bg-cyan-100 text-cyan-700",
     clarity: "Ultra Fine Pixel",
-    costIndex: "💰💰💰💰💰",
-    costText: "Maliyet düzeyi 5/5 — premium",
+    detailIndex: "●●●●●",
+    detailText: "En yüksek çözünürlük düzeyi",
     distance: "1.9 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Lansman, Fuar, Gala, Konferans ve Yakın İzleme",
@@ -118,8 +118,8 @@ const LED_PIXEL_ROWS = [
     badge: "Yüksek Çözünürlük Dengesi",
     badgeClass: "bg-purple-100 text-purple-700",
     clarity: "Ultra High HD",
-    costIndex: "💰💰💰💰",
-    costText: "Maliyet düzeyi 4/5 — yüksek",
+    detailIndex: "●●●●",
+    detailText: "Yüksek çözünürlük düzeyi",
     distance: "2.5 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Lansman, Fuar ve Yakın İzleme Sunumları",
@@ -129,8 +129,8 @@ const LED_PIXEL_ROWS = [
     badge: "En dengeli seçim",
     badgeClass: "bg-blue-100 text-blue-700",
     clarity: "High Definition",
-    costIndex: "💰💰💰",
-    costText: "Maliyet düzeyi 3/5 — dengeli",
+    detailIndex: "●●●",
+    detailText: "Dengeli çözünürlük düzeyi",
     distance: "3 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "İç Mekan Etkinlikleri ve Hibrit Kullanım",
@@ -140,8 +140,8 @@ const LED_PIXEL_ROWS = [
     badge: "En çok tercih edilen",
     badgeClass: "bg-green-100 text-green-700",
     clarity: "Standard HD",
-    costIndex: "💰💰",
-    costText: "Maliyet düzeyi 2/5 — ekonomik",
+    detailIndex: "●●",
+    detailText: "Standart çözünürlük düzeyi",
     distance: "4 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Dış Mekan, Konser ve Festival Sahneleri",
@@ -426,8 +426,8 @@ const FAQ_ITEMS = [
     a: "Evet, İstanbul içi operasyonlarımızda her iki yakadaki depolarımız sayesinde, acil taleplerde trafiğe takılmadan aynı gün veya birkaç saat içinde mobil ekiplerimizle hızlı kurulum yapabiliyoruz. Erken saatte mobilize olarak İstanbul trafiğine yakalanmadan kurulumu tamamlıyoruz."
   },
   {
-    q: "Kocaeli, Bursa veya Tekirdağ gibi çevre iller için hafta sonu teknik destek ve nakliye ücreti nasıl hesaplanıyor?",
-    a: "Çevre illerdeki hafta sonu etkinlikleriniz için 7/24 teknik destek planı oluşturuyoruz. Nakliye ve varsa personel konaklama maliyetlerini ilk teklifimizde tamamen şeffaf bir şekilde listeliyoruz; sonradan gizli ücret çıkarmıyoruz."
+    q: "Kocaeli, Bursa veya Tekirdağ gibi çevre illerde hafta sonu teknik destek nasıl planlanıyor?",
+    a: "Çevre illerdeki hafta sonu etkinlikleri için 7/24 teknik destek, araç ve varsa konaklama planını ilk briefte birlikte netleştiriyoruz. Bütçe kalemleri için LED ekran kiralama fiyatları sayfasındaki rehberi inceleyebilir, net kapsam için teklif isteyebilirsiniz."
   },
   {
     q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
@@ -758,12 +758,12 @@ function Hero() {
             </Link>
 
             <Link
-              href="/led-ekran-hesaplama"
-              aria-label="LED ekran hesaplama aracına gidin"
+              href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
+              aria-label="LED ekran fiyat hesaplama aracına gidin"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
-              <span>LED Ekran Hesapla</span>
+              <span>LED Fiyatını Hesapla</span>
             </Link>
           </div>
         </div>
@@ -1208,7 +1208,7 @@ function TechnicalComparison() {
             Piksel Aralığı ve İzleme Mesafesi Karşılaştırması
           </h3>
           <p className="text-gray-600 mt-1">
-            Doğru piksel seçimi, görüntü netliği ve bütçe optimizasyonu için kritik öneme sahiptir.
+            Doğru piksel seçimi, görüntü netliği ve izleme mesafesi için kritik öneme sahiptir.
           </p>
         </div>
 
@@ -1224,7 +1224,7 @@ function TechnicalComparison() {
               <tr className="bg-white border-b border-gray-100">
                 <th className="px-6 py-4 font-bold text-gray-900">Model</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Netlik Düzeyi</th>
-                <th className="px-6 py-4 font-bold text-gray-900">Maliyet Endeksi</th>
+                <th className="px-6 py-4 font-bold text-gray-900">Çözünürlük Seviyesi</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Önerilen Mesafe</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Yenileme Hızı</th>
                 <th className="px-6 py-4 font-bold text-gray-900">Kullanım Alanı</th>
@@ -1246,8 +1246,8 @@ function TechnicalComparison() {
                   </td>
                   <td className="px-6 py-4 text-gray-700">{row.clarity}</td>
                   <td className="px-6 py-4 text-gray-700">
-                    <span aria-hidden="true">{row.costIndex}</span>
-                    <span className="sr-only">{row.costText}</span>
+                    <span aria-hidden="true">{row.detailIndex}</span>
+                    <span className="sr-only">{row.detailText}</span>
                   </td>
                   <td className="px-6 py-4 text-gray-700">{row.distance}</td>
                   <td className="px-6 py-4 font-semibold text-blue-700">{row.refreshRate}</td>
@@ -1614,9 +1614,9 @@ function RegionalService() {
               <div className="flex gap-4">
                 <div className="bg-orange-500/20 p-3 rounded-xl h-fit"><Users className="text-orange-400" aria-hidden="true" /></div>
                 <div>
-                  <h4 className="font-bold text-lg">Şeffaf Çevre İl Lojistiği</h4>
+                  <h4 className="font-bold text-lg">Çevre İl Lojistik Planı</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
-                    Bursa, Tekirdağ, Kocaeli gibi illere giden konaklamalı teknik ekiplerimiz için nakliye ve ulaşım bedelleri ilk teklifte şeffaf şekilde listelenir.
+                    Bursa, Tekirdağ ve Kocaeli gibi illerde araç, teknik ekip, kurulum saati ve gerekirse konaklama planını etkinlik briefiyle birlikte oluşturuyoruz.
                   </p>
                 </div>
               </div>
@@ -1624,7 +1624,7 @@ function RegionalService() {
           </div>
         </div>
 
-        {/* Lojistik ve Fiyatlandırma Karşılaştırma Tablosu */}
+        {/* Bölgesel Lojistik ve Operasyon Karşılaştırma Tablosu */}
         <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
           <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -1654,13 +1654,13 @@ function RegionalService() {
                   <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum sağlanır.</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                  <td className="px-8 py-5 font-bold text-gray-800">Nakliye Ücretlendirmesi</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Çoğu merkezi ilçede fiyata dahil veya avantajlı nakliye planı.</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Kilometre bazlı şeffaf, avantajlı ve sabit fiyat politikası.</td>
+                  <td className="px-8 py-5 font-bold text-gray-800">Sevkiyat Planı</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Merkezi ilçelerde yükleme noktası ve araç erişimi birlikte planlanır.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Rota, yükleme saati ve saha erişimi etkinlik takvimine göre netleştirilir.</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Teknik Ekip & Konaklama</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek; konaklama maliyeti oluşmaz.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Yerel nöbetçi ekiplerle anlık destek ve kısa erişim süresi sağlanır.</td>
                   <td className="px-8 py-5 text-gray-700 font-medium">Projeye tahsisli, konaklamalı ve tam zamanlı operatör desteği.</td>
                 </tr>
                 <tr className="hover:bg-gray-50 transition-colors">
@@ -1985,7 +1985,7 @@ function CTA() {
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Türkiye'nin 81 ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
-              rekabetçi fiyat politikamızla hizmetinizdeyiz.
+              etkinlik akışınıza uygun teknik planlamayla hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -2007,7 +2007,11 @@ function CTA() {
             </div>
 
             <p className="mt-5 text-sm md:text-base text-blue-100/90">
-              Fiyatlar <strong>başlayan fiyatlarla</strong> sunulmaktadır; proje kapsamı, m², piksel aralığı ve şehir/lojistik koşullarına göre değişebilir.
+                Bütçenizi m², piksel aralığı ve lojistik kapsamıyla birlikte görmek için{" "}
+                <Link href="/led-ekran-kiralama-fiyatlari" className="font-bold text-white underline underline-offset-4">
+                  LED ekran kiralama fiyatları
+                </Link>{" "}
+                sayfasını inceleyebilirsiniz.
             </p>
           </div>
         </div>

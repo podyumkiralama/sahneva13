@@ -1,5 +1,6 @@
 // app/en/how-we-work/page.js
 import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
+import { EN_HOW_IT_WORKS_DICTIONARY } from "./dictionary";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -217,7 +218,11 @@ export default function HowItWorksPage() {
   return (
     <div className="relative overflow-hidden">
       <HowWeWorkJsonLd stepsData={stepsData} faqs={faqs} />
-      <HowItWorksClient stepsData={stepsData} faqs={faqs} />
+      <HowItWorksClient
+        stepsData={stepsData}
+        faqs={faqs}
+        dictionary={EN_HOW_IT_WORKS_DICTIONARY}
+      />
     </div>
   );
 }

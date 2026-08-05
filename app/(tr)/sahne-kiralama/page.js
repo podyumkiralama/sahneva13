@@ -69,6 +69,7 @@ export const metadata = {
     "Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. 81 ilde hızlı kurulum ve teknik destek.",
   alternates: buildLanguageAlternates({
     tr: "/sahne-kiralama",
+    canonical: "/sahne-kiralama",
     en: "/en/stage-rental",
     de: "/de/buehne-mieten",
     ru: "/ru/stage-rental",
