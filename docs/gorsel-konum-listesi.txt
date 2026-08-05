@@ -1,0 +1,188 @@
+# Görsel konum listesi
+
+KULLANIM: her satırın sonundaki `sehir=` kısmını doldur.
+  - İstanbul ise dokunma, zaten yazılı.
+  - Başka ilse İstanbul yerine il adını yaz.
+  - HANGİ ETKİNLİK OLDUĞUNU HATIRLAMIYORSAN satırın başına # koy (atlanır).
+    Tahmin yazma - yanlış konum, konum olmamasından kötüdür.
+  - Tarih biliyorsan `tarih=YYYY-MM` ekle, bilmiyorsan boş bırak.
+
+
+## /
+# Sahneva – Etkinlik Ekipman Kiralama
+/img/hero-bg.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Kiralama – Sahne Kurulumu
+/img/podyum/hero.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Kiralama İstanbul
+/img/podyum/1.webp  |  sehir=İstanbul  |  tarih=
+# Kurumsal Etkinlik Podyumu
+/img/podyum/2.webp  |  sehir=İstanbul  |  tarih=
+# Etkinlik Podyumu Kurulum Detayı
+/img/podyum/3.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Kiralama – Konser Sahne Platformu
+/img/podyum/6.webp  |  sehir=İstanbul  |  tarih=
+# Geniş Alan Podyum Uygulaması
+/img/podyum/7.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Üst Yüzey ve Kaplama
+/img/podyum/9.webp  |  sehir=İstanbul  |  tarih=
+# Sahne Önü Podyum Platformu
+/img/podyum/17.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Kiralama Hizmeti
+/img/hizmet-podyum.webp  |  sehir=İstanbul  |  tarih=
+# Podyum Kiralama – Örnek Kurulum
+/img/galeri/podyum-kiralama-1.webp  |  sehir=İstanbul  |  tarih=
+
+## /led-ekran-kiralama
+# LED Ekran Kiralama – Büyük Format Kurulum
+/img/led/3.webp  |  sehir=İstanbul  |  tarih=
+# LED Video Wall Kurulumu
+/img/led/2.webp  |  sehir=İstanbul  |  tarih=
+# Indoor LED Ekran Kiralama
+/img/led/1.webp  |  sehir=İstanbul  |  tarih=
+# Fuar ve Lansman Salonu LED Ekran
+/img/led/led-ekran-fuar-lansman-salon-kurulumu-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Açık Hava Konser LED Ekranı
+/img/led/acik-hava-konser-led-ekran-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Ürün Lansmanı LED Wall
+/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Kurumsal Konferans LED Ekran
+/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Gala Gecesi LED Sahne Video Wall
+/img/led/gala-led-sahne-video-wall-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# 300 m² P1.9 Indoor LED Ekran Kurulumu
+/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# LED Ekran Kiralama Hizmeti
+/img/hizmet-led-ekran.webp  |  sehir=İstanbul  |  tarih=
+
+## /led-ekran-kiralama-fiyatlari
+# P1.9 LED Ekran Teknik Reji
+/img/led/p19-indoor-led-teknik-masa-kurumsal-konferans-sahneva.webp  |  sehir=İstanbul  |  tarih=
+
+## /kurumsal-organizasyon
+# Kurumsal Organizasyon Sahne ve LED Prodüksiyonu
+/img/kurumsal/premium/konferans-led-ekran.webp  |  sehir=İstanbul  |  tarih=
+# Kurumsal Lansman LED Ekran ve Sahne Uygulaması
+/img/kurumsal/premium/panel-led-sahne.webp  |  sehir=İstanbul  |  tarih=
+# Gala ve Lansman Işık Prodüksiyonu
+/img/kurumsal/premium/sahne-beam-show.webp  |  sehir=İstanbul  |  tarih=
+
+## /cadir-kiralama
+# Büyük Ölçekli Çadır Kurulumu
+/img/cadir/buyuk-olcekli-cadir-kurulumu.webp  |  sehir=İstanbul  |  tarih=
+# Şeffaf Çadır Kiralama
+/img/cadir/seffaf.webp  |  sehir=İstanbul  |  tarih=
+# Sahneva Çadır Kurulum Ekibi
+/img/cadir/sahneva-cadir-kurulumu.webp  |  sehir=İstanbul  |  tarih=
+# Etkinlik Çadırı İç Görünüm
+/img/cadir/10.webp  |  sehir=İstanbul  |  tarih=
+# Açık Alan Çadır Organizasyonu
+/img/cadir/6.webp  |  sehir=İstanbul  |  tarih=
+# Kurumsal Etkinlik Çadırı
+/img/cadir/3.webp  |  sehir=İstanbul  |  tarih=
+# Çadır Kiralama – Saha Kurulumu
+/img/cadir/4.webp  |  sehir=İstanbul  |  tarih=
+# Çadır Kiralama Hizmeti
+/img/hizmet-cadir.webp  |  sehir=İstanbul  |  tarih=
+
+## /sahne-kiralama
+# Büyük Sahne Kurulumu
+/img/sahne/6.webp  |  sehir=İstanbul  |  tarih=
+# Sahne Kiralama – Açık Alan Etkinliği
+/img/sahne/8.webp  |  sehir=İstanbul  |  tarih=
+# Festival Sahnesi Kurulumu
+/img/sahne/4.webp  |  sehir=İstanbul  |  tarih=
+# Sahne Kiralama İstanbul
+/img/sahne/7.webp  |  sehir=İstanbul  |  tarih=
+# Kurumsal Etkinlik Sahnesi
+/img/sahne/5.webp  |  sehir=İstanbul  |  tarih=
+# Sahne Kurulum Detayı
+/img/sahne/2.webp  |  sehir=İstanbul  |  tarih=
+# Sahne Kiralama Hizmeti
+/img/hizmet-sahne.webp  |  sehir=İstanbul  |  tarih=
+
+## /ses-isik-sistemleri
+# Sahne Işık Sistemi Kurulumu
+/img/ses-isik/isik-sistemi.webp  |  sehir=İstanbul  |  tarih=
+# Ses ve Işık Ekipman Kurulumu
+/img/ses-isik/7.webp  |  sehir=İstanbul  |  tarih=
+# Line Array Ses Sistemi
+/img/ses-isik/5.webp  |  sehir=İstanbul  |  tarih=
+# Etkinlik Ses Sistemi
+/img/ses-isik/6.webp  |  sehir=İstanbul  |  tarih=
+# Ses ve Işık Sistemleri Kiralama
+/img/ses-isik/hero.webp  |  sehir=İstanbul  |  tarih=
+# Profesyonel Ses Sistemi
+/img/ses-isik/ses-sistemi.webp  |  sehir=İstanbul  |  tarih=
+# Ses ve Işık Sistemleri Kiralama
+/img/hizmet-sesisik.webp  |  sehir=İstanbul  |  tarih=
+
+## /masa-sandalye-kiralama
+# Etkinlik Sandalyesi Kiralama
+/img/sandalye/1.webp  |  sehir=İstanbul  |  tarih=
+# Hilton Model Sandalye Kiralama
+/img/sandalye/hilton-sandalye.webp  |  sehir=İstanbul  |  tarih=
+# Beyaz Deri Sandalye Kiralama
+/img/sandalye/beyaz-deri-sandalye.webp  |  sehir=İstanbul  |  tarih=
+# Masa Sandalye Kiralama Sahneva
+/img/sandalye/sandalye-masa-kiralama-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Masa ve Sandalye Seti Kiralama
+/img/sandalye/sandalye-masa.webp  |  sehir=İstanbul  |  tarih=
+# Toplu Sandalye Düzeni
+/img/sandalye/2.webp  |  sehir=İstanbul  |  tarih=
+# Masa ve Sandalye Kiralama
+/img/hizmet-masa.webp  |  sehir=İstanbul  |  tarih=
+
+## /truss-kiralama
+# Truss Kiralama – Sahne Taşıyıcı Sistem
+/img/truss/truss-7.webp  |  sehir=İstanbul  |  tarih=
+# Truss Sistemli Sahne Kurulumu
+/img/truss/truss-9.webp  |  sehir=İstanbul  |  tarih=
+# Alüminyum Truss Kiralama
+/img/truss/truss-2.webp  |  sehir=İstanbul  |  tarih=
+# Truss Tower ve Izgarası
+/img/truss/truss-10.webp  |  sehir=İstanbul  |  tarih=
+# Geniş Format Truss Kurulumu
+/img/truss/truss-5.webp  |  sehir=İstanbul  |  tarih=
+# Truss ile Işık Sistemi Entegrasyonu
+/img/truss/truss-8.webp  |  sehir=İstanbul  |  tarih=
+
+## /hizmetler
+# Sahneva Etkinlik Hizmetleri
+/img/hizmetler-ust.webp  |  sehir=İstanbul  |  tarih=
+# Sahneva Hakkında
+/img/hakkimizda.webp  |  sehir=İstanbul  |  tarih=
+
+## portfolioGallery (kategori seçkisi)
+# NOT: bunlar tek etkinlik değil, kategori vitrini olabilir.
+# Hangi işten olduğunu bilmiyorsan başına # koyup atla.
+
+# --- kategori: stage
+/img/sahne/1.webp  |  sehir=İstanbul  |  tarih=
+/img/sahne/3.webp  |  sehir=İstanbul  |  tarih=
+
+# --- kategori: led
+/img/galeri/led-ekran-kiralama-1.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-2.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-3.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-4.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-5.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-6.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-7.webp  |  sehir=İstanbul  |  tarih=
+/img/galeri/led-ekran-kiralama-8.webp  |  sehir=İstanbul  |  tarih=
+
+# --- kategori: tent
+/img/cadir/1.webp  |  sehir=İstanbul  |  tarih=
+/img/cadir/2.webp  |  sehir=İstanbul  |  tarih=
+/img/cadir/5.webp  |  sehir=İstanbul  |  tarih=
+/img/cadir/7.webp  |  sehir=İstanbul  |  tarih=
+/img/cadir/8.webp  |  sehir=İstanbul  |  tarih=
+
+# --- kategori: corporate
+/img/kurumsal/1.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/2.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/3.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/4.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/5.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/6.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/7.webp  |  sehir=İstanbul  |  tarih=
+/img/kurumsal/8.webp  |  sehir=İstanbul  |  tarih=
