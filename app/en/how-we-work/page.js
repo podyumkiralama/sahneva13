@@ -20,6 +20,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/nasil-calisiyoruz",
     en: PAGE_PATH,
+    de: "/de/arbeitsweise",
     canonical: PAGE_PATH,
     xDefault: PAGE_PATH,
   }),

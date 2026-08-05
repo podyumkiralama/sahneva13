@@ -26,6 +26,7 @@ export const metadata = {
     "MICE event production in Turkey: stage, LED screen, sound and lighting for meetings, incentives, conferences and exhibitions in Istanbul and Antalya.",
   alternates: buildLanguageAlternates({
     en: "/en/mice-turkey",
+    de: "/de/mice-tuerkei",
     canonical: "/en/mice-turkey",
     xDefault: "/en/mice-turkey",
   }),

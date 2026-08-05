@@ -57,6 +57,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/masa-sandalye-kiralama",
     en: "/en/table-chair-rental",
+    de: "/de/tische-und-stuehle-mieten",
     xDefault: "/en/table-chair-rental",
   }),
   openGraph: {

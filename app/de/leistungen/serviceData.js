@@ -592,6 +592,478 @@ export const GERMAN_SERVICE_LIST = [
       },
     ],
   },
+  {
+    slug: "traversen-mieten",
+    href: "/de/traversen-mieten",
+    ogImage: "/img/kurumsal/premium/truss-outdoor-sahne.webp",
+    equivalent: {
+      tr: "/truss-kiralama",
+      en: "/en/truss-rental",
+      ru: "/ru/sound-light-rental",
+      zh: "/zh/sound-light-rental",
+    },
+    eyebrow: "Traversen & Rigging",
+    shortTitle: "Traversen mieten",
+    title: "Traversen mieten in der Türkei – Portale, Türme und Dachkonstruktionen",
+    metaTitle: "Traversen mieten in der Türkei | Portale & Rigging",
+    metaDescription:
+      "Aluminiumtraversen, Portale, Türme und Dachkonstruktionen für Veranstaltungen in der Türkei mieten – mit Lastnachweis, Kettenzügen und Montage durch eigene Crew.",
+    description:
+      "Aluminiumtraversen, Portale, Traversentürme und Dachkonstruktionen als Tragsystem für LED-Wände, Lichttechnik, Beschallung und Banner – geplant nach Punktlast und Aufhängesituation.",
+    intent:
+      "Traversen sind kein Dekorelement, sondern eine Tragkonstruktion. Deshalb steht bei uns die Lastberechnung vor der Optik.",
+    heroImage: "/img/kurumsal/premium/truss-outdoor-sahne.webp",
+    gallery: "sound-light",
+    heroStats: [
+      { value: "bis 12 m", label: "Übliche Traversenhöhe" },
+      { value: "Ground Support", label: "Auch ohne Deckenpunkte" },
+      { value: "Kettenzüge", label: "Motorisiertes Heben" },
+    ],
+    planningNotes: [
+      "Spannweite, Höhe und geplante Form der Konstruktion",
+      "Welche Lasten hängen: LED-Fläche, Scheinwerfer, Lautsprecher, Banner",
+      "Vorhandene Aufhängepunkte oder Bedarf an Ground Support",
+      "Deckenhöhe, Bodenbeschaffenheit und Traglast der Location",
+      "Innen- oder Außenbereich sowie zu erwartende Windlast",
+    ],
+    intro:
+      "Über einer Traverse hängt fast immer etwas, das im Ernstfall auf Menschen fallen könnte. Deshalb beginnt die Planung mit den Punktlasten aus LED-Fläche, Licht und Ton, geht über die Frage nach vorhandenen Aufhängepunkten und endet erst dann bei Spannweite und Form. Fehlen tragfähige Deckenpunkte, arbeiten wir mit Ground-Support-Türmen.",
+    scenarios: [
+      "Konzertbühnen",
+      "Messestände",
+      "Kongresse",
+      "Open Air",
+      "Produktlaunches",
+      "Sportveranstaltungen",
+    ],
+    highlights: [
+      {
+        title: "Portale und Türme",
+        text: "Zweipunktportale für Bühnenrückwände, freistehende Türme für Beschallung und Delay-Lines sowie kombinierte Konstruktionen für größere Spannweiten.",
+      },
+      {
+        title: "Lastnachweis vor der Freigabe",
+        text: "Punkt- und Streckenlasten werden vor dem Aufbau gerechnet und dokumentiert – inklusive der Reserven für Bewegung und Wind im Außenbereich.",
+      },
+      {
+        title: "Motorisiertes Heben",
+        text: "Kettenzüge heben die bestückte Traverse kontrolliert auf Höhe, statt sie in der Höhe zu bestücken. Das verkürzt die Arbeit unter Last erheblich.",
+      },
+      {
+        title: "Ground Support",
+        text: "Wo die Decke keine Punkte hergibt oder im Freien gearbeitet wird, tragen Türme mit Ballast oder Verankerung die gesamte Konstruktion.",
+      },
+    ],
+    included: [
+      "Aluminiumtraversen in den gängigen Querschnitten samt Verbindern",
+      "Portale, Türme und Dachkonstruktionen nach Planung",
+      "Kettenzüge, Steuerung und Sicherungsseile",
+      "Statische Berechnung und dokumentierte Abnahme",
+      "Ballast oder Verankerung passend zum Untergrund",
+      "Montage, Betreuung und Abbau durch eigene Crew",
+    ],
+    useCases: [
+      {
+        title: "Bühnenportal",
+        text: "Tragsystem für LED-Rückwand, Frontlicht und Beschallung – abgestimmt auf Bühnentiefe und Sichtachsen des Publikums.",
+      },
+      {
+        title: "Messestand",
+        text: "Konstruktion für Beschriftung, Beleuchtung und Bildschirme innerhalb der zulässigen Höhen und Lasten der Messehalle.",
+      },
+      {
+        title: "Open-Air-Dach",
+        text: "Überdachte Bühnenkonstruktion mit Windlastnachweis, Verankerung und einem Ablauf für den Fall, dass abgehängt werden muss.",
+      },
+    ],
+    process: [
+      "Bedarf klären: Spannweite, Höhe, Lasten und Ort des Aufbaus.",
+      "Planung: Konstruktion, Lastnachweis, Aufhängung oder Ground Support festlegen.",
+      "Aufbau: Montage, Bestückung, kontrolliertes Heben und dokumentierte Abnahme.",
+      "Betrieb und Abbau: Kontrolle während der Veranstaltung, danach Abbau und Abtransport.",
+    ],
+    faq: [
+      {
+        question: "Wie viel Last trägt eine Traverse",
+        answer:
+          "Das hängt von Querschnitt, Spannweite und Anzahl der Auflagepunkte ab – dieselbe Traverse trägt bei halber Spannweite deutlich mehr. Wir rechnen die konkrete Konstruktion anhand Ihrer tatsächlichen Lasten und dokumentieren das Ergebnis.",
+      },
+      {
+        question: "Brauchen wir Aufhängepunkte in der Decke",
+        answer:
+          "Nicht zwingend. Fehlen tragfähige Punkte oder wird im Freien aufgebaut, setzen wir Ground-Support-Türme ein, die die Konstruktion vom Boden aus tragen.",
+      },
+      {
+        question: "Ist eine Statik im Angebot enthalten",
+        answer:
+          "Ja. Der Lastnachweis für die geplante Konstruktion gehört zum Umfang; die Werte stellen wir Ihnen für Ihre Unterlagen und für die Location zur Verfügung.",
+      },
+      {
+        question: "Wie lange dauert der Aufbau",
+        answer:
+          "Ein einfaches Portal steht in zwei bis vier Stunden. Große Dachkonstruktionen und Turmsysteme brauchen je nach Höhe und Bestückung deutlich länger und werden entsprechend eingeplant.",
+      },
+      {
+        question: "Kann man Traversen ohne weitere Technik mieten",
+        answer:
+          "Ja. Reine Traversenmiete mit Montage ist möglich. Meist ergibt es aber Sinn, die Konstruktion zusammen mit der Technik zu planen, die daran hängen soll.",
+      },
+    ],
+  },
+  {
+    slug: "konzertbuehne-mieten",
+    href: "/de/konzertbuehne-mieten",
+    ogImage: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
+    equivalent: {
+      tr: "/konser-icin-podyum-kiralama",
+      en: "/en/concert-podium-rental",
+      ru: "/ru/stage-rental",
+      zh: "/zh/stage-rental",
+    },
+    eyebrow: "Konzert & Festival",
+    shortTitle: "Konzertbühne mieten",
+    title: "Konzertbühne mieten in der Türkei – Hauptbühne, Türme und FOH",
+    metaTitle: "Konzertbühne mieten in der Türkei | Festivalbühnen",
+    metaDescription:
+      "Konzert- und Festivalbühnen in der Türkei mieten: Hauptbühne mit Dach, Seitentürme für Beschallung, FOH-Podest, Absperrung und Technikcrew vor Ort.",
+    description:
+      "Hauptbühnen mit Traversendach, Seitentürme für Beschallung und Delay-Lines, FOH-Podest, Absperrgitter und getrennte Zugänge für Crew und Künstler – ausgelegt auf Publikumsgröße und Gelände.",
+    intent:
+      "Eine Konzertbühne wird nicht nur nach Quadratmetern geplant, sondern nach Backline, Sichtachsen, Fluchtwegen und Wetter.",
+    heroImage: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
+    gallery: "stage",
+    heroStats: [
+      { value: "10×8 m", label: "Häufige Hauptbühnengröße" },
+      { value: "1,2–2 m", label: "Übliche Bühnenhöhe" },
+      { value: "Dach", label: "Traversendach möglich" },
+    ],
+    planningNotes: [
+      "Erwartete Besucherzahl und Größe des Geländes",
+      "Backline und technischer Rider der Künstler",
+      "Bühnenmaße, Höhe und Bedarf an einem Dach",
+      "Stromversorgung vor Ort oder Generator erforderlich",
+      "Fluchtwege, Absperrung und Zufahrt für Anlieferung",
+    ],
+    intro:
+      "Bei einer Konzertbühne bestimmen zwei Dinge die Konstruktion: was oben drauf steht und wer davor steht. Backline, Monitore und ein bestücktes Traversendach ergeben die Lastannahme; Besucherzahl, Sichtachsen und Fluchtwege bestimmen Höhe, Position und Absperrung. Im Freien kommt die Windlast als eigener Faktor hinzu.",
+    scenarios: [
+      "Konzerte",
+      "Festivals",
+      "Stadtfeste",
+      "Open Air",
+      "Sommerbühnen",
+      "Firmenkonzerte",
+    ],
+    highlights: [
+      {
+        title: "Hauptbühne mit Dach",
+        text: "Tragfähige Bühnenfläche für Backline und Aufbauten, darüber ein Traversendach mit Nachweis für Licht, Ton und Banner.",
+      },
+      {
+        title: "Seitentürme und Delay-Lines",
+        text: "Türme für Beschallung neben der Bühne und – bei tiefen Geländen – zusätzliche Delay-Positionen, damit hinten nicht nur Lautstärke ankommt.",
+      },
+      {
+        title: "FOH und Backstage",
+        text: "Podest für den Regieplatz mit Sichtlinie zur Bühne, dazu getrennte Zugänge, Aufgänge und Flächen hinter der Bühne.",
+      },
+      {
+        title: "Absperrung und Wege",
+        text: "Bühnenvorderkante, Wellenbrecher bei größerem Publikum und definierte Fluchtwege werden gemeinsam mit der Bühne geplant.",
+      },
+    ],
+    included: [
+      "Hauptbühne in der geplanten Größe samt Aufgängen und Geländern",
+      "Traversendach mit Lastnachweis und Verankerung",
+      "Türme für Beschallung und Delay-Positionen",
+      "FOH-Podest mit Sichtlinie zur Bühne",
+      "Absperrgitter, Wellenbrecher und Wegeführung",
+      "Transport, Aufbau, Betreuung und Abbau durch eigene Crew",
+    ],
+    useCases: [
+      {
+        title: "Festival im Freien",
+        text: "Mehrtägiger Betrieb mit Dach, wetterfestem Aufbau, Backstage-Flächen und einem Ablauf für Windabschaltung.",
+      },
+      {
+        title: "Stadtfest",
+        text: "Bühne auf Platz oder Straße mit Ballastverankerung, kurzen Aufbaufenstern und Rücksicht auf Zufahrt und Anwohner.",
+      },
+      {
+        title: "Firmenkonzert",
+        text: "Kompaktere Bühne im Rahmen einer Firmenveranstaltung, abgestimmt auf Bühnenbild, LED-Fläche und den Programmablauf davor.",
+      },
+    ],
+    process: [
+      "Bedarf klären: Gelände, Besucherzahl, Rider und Aufbaufenster.",
+      "Planung: Bühnenmaße, Dach, Türme, FOH, Absperrung und Stromkonzept.",
+      "Aufbau: Montage, Lastprüfung, Einmessung und Abnahme vor dem Soundcheck.",
+      "Betrieb und Abbau: Crew während der Veranstaltung, danach Abbau und Rückgabe der Fläche.",
+    ],
+    faq: [
+      {
+        question: "Welche Bühnengröße brauchen wir",
+        answer:
+          "Das ergibt sich aus dem Rider der Künstler und der Besucherzahl. Für Bands mit vollständiger Backline sind rund 10×8 m ein üblicher Ausgangspunkt; DJ-Sets und Solobesetzungen kommen mit deutlich weniger aus.",
+      },
+      {
+        question: "Ist ein Dach zwingend erforderlich",
+        answer:
+          "Im Freien ist es dringend zu empfehlen – nicht nur wegen Regen, sondern weil Licht und Beschallung eine Aufhängung brauchen. Bei Innenveranstaltungen entfällt es meist zugunsten eines Portals.",
+      },
+      {
+        question: "Was passiert bei starkem Wind",
+        answer:
+          "Für überdachte Konstruktionen legen wir vorab Grenzwerte und ein Vorgehen fest: ab definierter Windgeschwindigkeit werden Banner abgenommen und im Zweifel wird das Dach abgelassen. Diese Schwellen stimmen wir mit dem Veranstalter ab.",
+      },
+      {
+        question: "Übernehmen Sie auch Ton und Licht",
+        answer:
+          "Ja. Bühne, Beschallung, Licht, Traversen und Crew lassen sich als ein Umfang planen – das erspart die Abstimmung zwischen mehreren Firmen am Aufbautag.",
+      },
+      {
+        question: "Wie lange dauert der Aufbau",
+        answer:
+          "Eine Hauptbühne mit Dach und Türmen braucht in der Regel ein bis zwei Tage bis zur Abnahme, abhängig von Größe, Zufahrt und Bodenverhältnissen des Geländes.",
+      },
+    ],
+  },
+  {
+    slug: "laufsteg-mieten",
+    href: "/de/laufsteg-mieten",
+    ogImage: "/img/podyum/hero.webp",
+    equivalent: {
+      tr: "/defile-podyum-kiralama",
+      en: "/en/runway-podium-rental",
+      ru: "/ru/stage-rental",
+      zh: "/zh/stage-rental",
+    },
+    eyebrow: "Modenschau & Präsentation",
+    shortTitle: "Laufsteg mieten",
+    title: "Laufsteg mieten in der Türkei – Runway für Modenschauen und Präsentationen",
+    metaTitle: "Laufsteg mieten in der Türkei | Runway",
+    metaDescription:
+      "Laufstege für Modenschauen und Präsentationen in der Türkei mieten: T- und U-Form, gerade Runways, Oberflächen, Lichtführung und LED-Hintergrund.",
+    description:
+      "Laufstege in gerader, T- oder U-Form für Modenschauen, Markenpräsentationen und Preisverleihungen – abgestimmt auf Kamerapositionen, Sitzreihen und die Lichtführung entlang der Strecke.",
+    intent:
+      "Beim Laufsteg entscheidet nicht die Länge, sondern das Zusammenspiel aus Höhe, Sitzreihen, Kamerastandpunkt und Licht.",
+    heroImage: "/img/podyum/hero.webp",
+    gallery: "stage",
+    heroStats: [
+      { value: "60–100 cm", label: "Übliche Laufsteghöhe" },
+      { value: "1,2–2 m", label: "Gängige Breite" },
+      { value: "T · U · gerade", label: "Mögliche Formen" },
+    ],
+    planningNotes: [
+      "Gewünschte Länge, Breite und Form des Laufstegs",
+      "Höhe im Verhältnis zu den Sitzreihen",
+      "Kamerapositionen und Standort der Fotografen",
+      "Oberfläche: Teppich, Vinyl, Hochglanz oder Holz",
+      "LED-Hintergrund, Backdrop oder Projektion vorgesehen",
+    ],
+    intro:
+      "Ein Laufsteg funktioniert erst, wenn die Höhe zur Sitzordnung passt: Zu niedrig, und die hinteren Reihen sehen nichts; zu hoch, und die Perspektive der Fotografen kippt. Dazu kommt die Oberfläche – glänzende Beläge sehen im Bild stark aus, spiegeln aber das Licht und sind bei bestimmten Schuhen heikel.",
+    scenarios: [
+      "Modenschauen",
+      "Markenpräsentationen",
+      "Preisverleihungen",
+      "Messeauftritte",
+      "Automobilpräsentationen",
+      "Galaabende",
+    ],
+    highlights: [
+      {
+        title: "Form nach Ablauf",
+        text: "Gerader Runway, T-Form für einen Endpunkt mit Blick ins Publikum oder U-Form, wenn das Publikum den Steg umschließen soll.",
+      },
+      {
+        title: "Höhe nach Sitzreihen",
+        text: "Die Höhe wird gegen die Bestuhlung gerechnet, damit auch die dritte Reihe freie Sicht auf Schuhe und Saum hat.",
+      },
+      {
+        title: "Oberfläche mit Bedacht",
+        text: "Teppich, Vinyl, Hochglanz oder Holz – wir stimmen die Wahl auf Lichtkonzept, Kamerabild und Trittsicherheit ab.",
+      },
+      {
+        title: "Licht entlang der Strecke",
+        text: "Gleichmäßige Ausleuchtung ohne Schattensprünge, dazu Gegenlicht am Endpunkt und abgestimmte Farbtemperatur für Foto und Video.",
+      },
+    ],
+    included: [
+      "Laufstegkonstruktion in der gewählten Form und Höhe",
+      "Oberfläche in Teppich, Vinyl, Hochglanz oder Holz",
+      "Stufen, Auftritt hinter dem Backdrop und Handläufe wo nötig",
+      "Lichtführung entlang der Strecke inklusive Kameralicht",
+      "LED-Hintergrund oder Backdrop nach Bedarf",
+      "Transport, Aufbau, Betreuung und Abbau",
+    ],
+    useCases: [
+      {
+        title: "Modenschau",
+        text: "Runway mit Auftritt hinter dem Backdrop, definierten Wendepunkten und Licht, das Stoff und Farbe im Kamerabild trägt.",
+      },
+      {
+        title: "Produktpräsentation",
+        text: "Kurzer, breiter Steg als Präsentationsfläche mit LED-Hintergrund – geeignet auch für schwerere Exponate.",
+      },
+      {
+        title: "Preisverleihung",
+        text: "Verbindung zwischen Saal und Bühne, damit der Weg der Preisträger Teil der Inszenierung wird.",
+      },
+    ],
+    process: [
+      "Bedarf klären: Form, Maße, Sitzordnung und Ablauf der Show.",
+      "Planung: Höhe, Oberfläche, Lichtführung und Hintergrund festlegen.",
+      "Aufbau: Montage, Ausrichtung, Lichtprobe und Durchlauf.",
+      "Betrieb und Abbau: Betreuung während der Show, danach Abbau.",
+    ],
+    faq: [
+      {
+        question: "Welche Höhe ist für einen Laufsteg richtig",
+        answer:
+          "Üblich sind 60 bis 100 cm. Bei nur einer Sitzreihe genügt weniger; bei mehreren Reihen oder erhöhten Kamerapositionen planen wir eher am oberen Ende, damit die Sicht bis hinten frei bleibt.",
+      },
+      {
+        question: "Welche Oberfläche empfehlen Sie",
+        answer:
+          "Teppich ist trittsicher und schluckt Reflexionen, Hochglanz wirkt im Bild spektakulär, spiegelt aber das Licht und ist bei hohen Absätzen heikel. Die Entscheidung treffen wir gemeinsam mit dem Lichtkonzept.",
+      },
+      {
+        question: "Können Fahrzeuge oder schwere Exponate darauf stehen",
+        answer:
+          "Bei entsprechender Auslegung ja. Dafür brauchen wir vorab Gewicht und Auflagepunkte, damit die Konstruktion und der Untergrund richtig gerechnet werden.",
+      },
+      {
+        question: "Ist ein LED-Hintergrund kombinierbar",
+        answer:
+          "Ja. LED-Fläche, Backdrop und Laufsteg planen wir als eine Einheit, damit Aufbau, Kabelwege und Lichtführung zusammenpassen.",
+      },
+      {
+        question: "Wie lange dauert der Aufbau",
+        answer:
+          "Ein Laufsteg mittlerer Länge steht in drei bis fünf Stunden einschließlich Oberfläche. Licht, LED-Hintergrund und Probe kommen als eigener Zeitblock hinzu.",
+      },
+    ],
+  },
+  {
+    slug: "tische-und-stuehle-mieten",
+    href: "/de/tische-und-stuehle-mieten",
+    ogImage: "/img/hizmet-masa.webp",
+    equivalent: {
+      tr: "/masa-sandalye-kiralama",
+      en: "/en/table-chair-rental",
+      ru: "/ru/services",
+      zh: "/zh/services",
+    },
+    eyebrow: "Mobiliar",
+    shortTitle: "Tische & Stühle mieten",
+    title: "Tische und Stühle mieten in der Türkei – Bankett, Konferenz und Lounge",
+    metaTitle: "Tische und Stühle mieten in der Türkei",
+    metaDescription:
+      "Banketttische, Konferenzbestuhlung, Stehtische und Loungemöbel für Veranstaltungen in der Türkei mieten – inklusive Anlieferung, Aufbau und Abholung.",
+    description:
+      "Banketttische, Konferenz- und Bankettbestuhlung, Stehtische, VIP- und Loungebereiche samt Tischwäsche und Hussen – geliefert, aufgebaut und nach der Veranstaltung wieder abgeholt.",
+    intent:
+      "Mobiliar wirkt nebensächlich, entscheidet aber über Wege, Sichtachsen und darüber, wie voll ein Raum wirkt.",
+    heroImage: "/img/hizmet-masa.webp",
+    gallery: "corporate",
+    heroStats: [
+      { value: "1,5 m²", label: "Fläche je Gast bei Bankett" },
+      { value: "8–10", label: "Gäste je Rundtisch" },
+      { value: "0,8 m²", label: "Fläche je Gast beim Empfang" },
+    ],
+    planningNotes: [
+      "Gästezahl und gewünschte Sitzordnung",
+      "Format: Bankett, Reihenbestuhlung, Empfang oder Lounge",
+      "Grundriss der Fläche samt Bühne, Buffet und Wegen",
+      "Bedarf an Tischwäsche, Hussen und Dekoration",
+      "Anlieferzeitfenster und Zugang zur Fläche",
+    ],
+    intro:
+      "Die Zahl der Stühle allein sagt wenig. Entscheidend ist, wie viel Fläche pro Gast bleibt, wie das Servicepersonal zwischen den Tischen durchkommt und ob von jedem Platz die Bühne zu sehen ist. Deshalb planen wir Mobiliar am Grundriss – zusammen mit Bühne, Buffet und Fluchtwegen.",
+    scenarios: [
+      "Galaabende",
+      "Konferenzen",
+      "Empfänge",
+      "Hochzeiten",
+      "Messestände",
+      "Outdoor-Veranstaltungen",
+    ],
+    highlights: [
+      {
+        title: "Bankett und Konferenz",
+        text: "Runde Tische für acht bis zehn Gäste, rechteckige Tafeln für Podium und Buffet sowie Reihenbestuhlung für Vortragsformate.",
+      },
+      {
+        title: "Empfang und Lounge",
+        text: "Stehtische für den Empfang, dazu Sitzgruppen und VIP-Bereiche, die Ruhezonen abseits der Hauptfläche schaffen.",
+      },
+      {
+        title: "Tischwäsche und Hussen",
+        text: "Tischdecken, Hussen und Läufer in abgestimmten Farben – auf Wunsch passend zum Corporate Design der Veranstaltung.",
+      },
+      {
+        title: "Planung am Grundriss",
+        text: "Bestuhlungsplan mit Wegen, Sichtachsen zur Bühne und Fluchtwegbreiten, bevor das erste Möbelstück geliefert wird.",
+      },
+    ],
+    included: [
+      "Runde und rechteckige Tische sowie Stehtische",
+      "Bankett-, Konferenz- und Loungebestuhlung",
+      "Tischwäsche, Hussen und Läufer nach Bedarf",
+      "Bestuhlungsplan abgestimmt auf Bühne und Wege",
+      "Anlieferung, Aufbau und Ausrichtung vor Ort",
+      "Abholung und Abtransport nach der Veranstaltung",
+    ],
+    useCases: [
+      {
+        title: "Galaabend",
+        text: "Rundtische mit Tischwäsche, freien Sichtachsen zur Bühne und ausreichend Abstand für den Service zwischen den Reihen.",
+      },
+      {
+        title: "Konferenz",
+        text: "Reihenbestuhlung oder parlamentarische Anordnung mit Gängen, die den Wechsel zwischen den Programmpunkten nicht blockieren.",
+      },
+      {
+        title: "Empfang im Freien",
+        text: "Stehtische und Loungemöbel auf unbefestigtem Untergrund, mit standfester Aufstellung und Wetterschutz.",
+      },
+    ],
+    process: [
+      "Bedarf klären: Gästezahl, Format, Fläche und Zeitfenster.",
+      "Planung: Bestuhlungsplan mit Wegen, Bühne, Buffet und Fluchtwegen.",
+      "Anlieferung und Aufbau: Stellen, Ausrichten und Eindecken vor Ort.",
+      "Abholung: Abbau und Abtransport nach dem Ende der Veranstaltung.",
+    ],
+    faq: [
+      {
+        question: "Wie viele Gäste passen an einen Rundtisch",
+        answer:
+          "An einen Rundtisch mit 180 cm Durchmesser passen acht bis zehn Gäste. Zehn sitzen enger; bei mehrgängigem Service und Tischdekoration planen wir eher mit acht.",
+      },
+      {
+        question: "Wie viel Fläche brauche ich insgesamt",
+        answer:
+          "Als Anhaltspunkt rechnen wir bei Bankettbestuhlung mit rund 1,5 m² und beim Stehempfang mit etwa 0,8 m² je Gast. Bühne, Buffet, Tanzfläche und Wege kommen als eigene Flächen hinzu.",
+      },
+      {
+        question: "Ist Tischwäsche im Preis enthalten",
+        answer:
+          "Tischwäsche und Hussen kalkulieren wir als eigene Position, damit Farbe und Ausführung frei wählbar bleiben. Im Angebot sind sie getrennt ausgewiesen.",
+      },
+      {
+        question: "Bauen Sie das Mobiliar auch auf",
+        answer:
+          "Ja. Anlieferung, Stellen nach Bestuhlungsplan, Ausrichten und die Abholung nach der Veranstaltung gehören zum Umfang.",
+      },
+      {
+        question: "Funktioniert das auch auf Wiese oder Sand",
+        answer:
+          "Ja, mit Einschränkungen. Auf weichem Untergrund empfehlen wir einen Bodenaufbau oder Platten unter den Möbeln, damit Tische stabil stehen und Stuhlbeine nicht einsinken.",
+      },
+    ],
+  },
 ];
 
 export const GERMAN_SERVICE_MAP = Object.fromEntries(

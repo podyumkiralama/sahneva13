@@ -19,6 +19,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     en: "/en/how-we-work",
+    de: "/de/arbeitsweise",
     xDefault: "/en/how-we-work",
   }),
   openGraph: {

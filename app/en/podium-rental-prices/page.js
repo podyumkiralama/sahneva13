@@ -37,6 +37,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/podyum-kurulum-fiyatlari",
     en: slug,
+    de: "/de/podium-preise",
     canonical: slug,
     xDefault: slug,
   }),

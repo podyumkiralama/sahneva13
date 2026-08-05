@@ -53,6 +53,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: slug,
     en: "/en/podium-rental-prices",
+    de: "/de/podium-preise",
     xDefault: "/en/podium-rental-prices",
   }),
   openGraph: {

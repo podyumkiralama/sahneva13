@@ -210,6 +210,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/defile-podyum-kiralama",
     en: "/en/runway-podium-rental",
+    de: "/de/laufsteg-mieten",
     xDefault: "/en/runway-podium-rental",
   }),
   openGraph: {
