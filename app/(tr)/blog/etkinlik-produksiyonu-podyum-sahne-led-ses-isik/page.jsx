@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; 
 
 import BlogLayout from "@/components/blog/BlogLayout";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
