@@ -55,6 +55,117 @@ function InlineLink({ href, children }) {
   );
 }
 
+/**
+ * Adım gövdeleri metin ve iç link parçalarından oluşuyor. Bu bileşen "use client"
+ * olduğu için sözlükten fonksiyon geçilemez; parçalar bu yüzden düz veri olarak
+ * ({ text } / { href, label }) taşınır ve burada JSX'e çevrilir.
+ */
+function RichParts({ parts }) {
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.href ? (
+          <InlineLink key={`${part.href}-${index}`} href={part.href}>
+            {part.label}
+          </InlineLink>
+        ) : (
+          <span key={`text-${index}`}>{part.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+/**
+ * Varsayılan sözlük Türkçedir; /nasil-calisiyoruz hiçbir prop geçmeden bu
+ * metinleri kullanmaya devam eder. Diğer lokaller kendi sözlüğünü geçer,
+ * böylece hem etiketler hem de iç linkler o dilin sayfalarına gider.
+ */
+export const HOW_IT_WORKS_TR_DICTIONARY = {
+  stepsLabel: "Adımlar:",
+  faqShortcut: "FAQ",
+  stepBadge: "Adım {{n}}",
+  faqPrompt: "Cevabı görmek için tıklayın.",
+  ctaBriefHref: "/iletisim",
+  ctaBriefLabel: "İletişim / Brief Bırak",
+  ctaWhatsappHref: "https://wa.me/905453048671",
+  ctaWhatsappLabel: "WhatsApp’tan Yazın",
+  ctaWhatsappAria: "WhatsApp üzerinden iletişime geç (yeni sekmede açılır)",
+  heroBadges: ["Sahneva Organizasyon", "Uçtan uca kurulum", "Teknik ekip + operasyon"],
+  heroTitle: "Nasıl Çalışıyoruz?",
+  heroSubtitle: "Sahneva’da etkinlikler nasıl planlanır, kurulur ve yönetilir?",
+  heroBody:
+    "İhtiyaç → teklif → keşif → kurulum → etkinlik günü → söküm. Süreci uçtan uca yönetir, sahada teknik ekiple birlikte kontrol ederiz.",
+  heroImageAlt: "Sahneva etkinlik süreci: planlama, kurulum ve operasyon",
+  quickLinksLabel: "Hızlı linkler:",
+  quickLinks: [
+    { href: "/truss-kiralama", label: "Truss" },
+    { href: "/podyum-kiralama", label: "Sahne/Podyum" },
+    { href: "/ses-isik-sistemleri", label: "Ses-Işık" },
+  ],
+  includedTitle: "Neler Dahil?",
+  includedItems: [
+    "İhtiyaç analizi + teklif",
+    "Teknik keşif (gerekiyorsa)",
+    "Kurulum + test + saha operasyonu",
+    "Söküm + temiz teslim",
+  ],
+  briefTitle: "Brief’te Neler Soruyoruz?",
+  briefItems: [
+    "Tarih / lokasyon / alan ölçüsü",
+    "Sahne ölçüsü ve yükseklik",
+    "İçerik akışı / program",
+    "Enerji ve erişim koşulları",
+  ],
+  internalLinksTitle: "Hızlı İç Linkler",
+  internalLinks: [
+    { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
+    { href: "/truss-kiralama", label: "Truss Kiralama" },
+    { href: "/podyum-kiralama", label: "Sahne / Podyum" },
+    { href: "/ses-isik-sistemleri", label: "Ses & Işık" },
+  ],
+  stepsSectionAria: "Çalışma adımları",
+  stepsSectionTitle: "Ana Süreç Adımları",
+  faqTitle: "Sık Sorulan Sorular",
+  stepBodies: {
+    1: [
+      [
+        { text: "İhtiyaçlarınızı iletin: " },
+        { href: "/led-ekran-kiralama", label: "LED ekran" },
+        { text: ", " },
+        { href: "/truss-kiralama", label: "truss" },
+        { text: ", " },
+        { href: "/podyum-kiralama", label: "sahne/podyum" },
+        { text: ", " },
+        { href: "/ses-isik-sistemleri", label: "ses-ışık" },
+        { text: "." },
+      ],
+      [
+        { href: "/iletisim", label: "İletişim formu" },
+        { text: " ile brief bırakın veya WhatsApp’tan yazın." },
+      ],
+    ],
+    3: [
+      [
+        { text: "Teklif opsiyonlarına " },
+        { href: "/cadir-kiralama", label: "çadır" },
+        { text: " ve " },
+        { href: "/masa-sandalye-kiralama", label: "masa-sandalye" },
+        { text: " eklenebilir." },
+      ],
+    ],
+    6: [
+      [
+        { text: "Kurulum + testte " },
+        { href: "/ses-isik-sistemleri", label: "ses-ışık" },
+        { text: " ve " },
+        { href: "/led-ekran-kiralama", label: "LED ekran" },
+        { text: " testleri tamamlanır; güvenlik kontrolleri yapılır." },
+      ],
+    ],
+  },
+};
+
 function ImgFrame({
   src,
   alt,
@@ -222,12 +333,12 @@ function useParallax() {
   return { wrapRef, t };
 }
 
-function StepsNav({ steps, onGo, navRef, activeId }) {
+function StepsNav({ steps, onGo, navRef, activeId, stepsLabel, faqShortcut }) {
   return (
     <div className="mx-auto max-w-6xl px-4" ref={navRef}>
       <div className="sticky top-2 z-20 rounded-2xl border border-white/10 bg-[#0B1120]/70 backdrop-blur supports-[backdrop-filter]:bg-[#0B1120]/50">
         <div className="flex flex-wrap items-center gap-2 p-3">
-          <span className="mr-2 text-xs font-semibold text-white/70">Adımlar:</span>
+          <span className="mr-2 text-xs font-semibold text-white/70">{stepsLabel}</span>
 
           {steps.map((s) => {
             const id = `adim-${s.stepNo}`;
@@ -256,7 +367,7 @@ function StepsNav({ steps, onGo, navRef, activeId }) {
             onClick={() => onGo("faq")}
             className="ml-auto rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           >
-            FAQ
+            {faqShortcut}
           </button>
         </div>
       </div>
@@ -264,7 +375,7 @@ function StepsNav({ steps, onGo, navRef, activeId }) {
   );
 }
 
-function StepSection({ stepNo, label, title, body, imageSrc, imageAlt, reverse }) {
+function StepSection({ stepNo, label, title, body, imageSrc, imageAlt, reverse, badgeTemplate }) {
   const id = `adim-${stepNo}`;
   return (
     <section id={id} className="scroll-mt-28" aria-labelledby={`${id}-title`}>
@@ -278,7 +389,7 @@ function StepSection({ stepNo, label, title, body, imageSrc, imageAlt, reverse }
           <div className={reverse ? "lg:order-2" : ""}>
             <div className="flex flex-wrap items-center gap-3">
               <Badge>{label}</Badge>
-              <Badge>Adım {stepNo}</Badge>
+              <Badge>{badgeTemplate.replace("{{n}}", stepNo)}</Badge>
             </div>
 
             <h3 id={`${id}-title`} className="mt-4 text-xl font-semibold text-white sm:text-2xl">
@@ -301,7 +412,7 @@ function StepSection({ stepNo, label, title, body, imageSrc, imageAlt, reverse }
   );
 }
 
-function FaqItem({ q, a }) {
+function FaqItem({ q, a, prompt }) {
   return (
     <details className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:bg-white/[0.045]">
       <summary className="cursor-pointer list-none select-none">
@@ -314,16 +425,21 @@ function FaqItem({ q, a }) {
             +
           </span>
         </div>
-        <p className="mt-2 text-sm text-white/60">Cevabı görmek için tıklayın.</p>
+        <p className="mt-2 text-sm text-white/60">{prompt}</p>
       </summary>
       <div className="mt-3 text-sm leading-relaxed text-white/75">{a}</div>
     </details>
   );
 }
 
-export default function HowItWorksClient({ stepsData, faqs }) {
-  const CTA_BRIEF = "/iletisim";
-  const CTA_WHATSAPP = "https://wa.me/905453048671";
+export default function HowItWorksClient({
+  stepsData,
+  faqs,
+  dictionary = HOW_IT_WORKS_TR_DICTIONARY,
+}) {
+  const d = dictionary ?? HOW_IT_WORKS_TR_DICTIONARY;
+  const CTA_BRIEF = d.ctaBriefHref;
+  const CTA_WHATSAPP = d.ctaWhatsappHref;
 
   const { navRef, scrollToId } = useSmartScroll();
 
@@ -333,51 +449,36 @@ export default function HowItWorksClient({ stepsData, faqs }) {
   const { wrapRef, t } = useParallax();
 
   const stepsUi = useMemo(() => {
+    const bodies = d.stepBodies ?? {};
+
     return stepsData.map((s) => {
-      if (s.stepNo === 1) {
+      const paragraphs = bodies[s.stepNo];
+
+      if (paragraphs?.length) {
         return {
           ...s,
           body: (
             <>
-              <p className="text-sm leading-relaxed text-white/75">
-                İhtiyaçlarınızı iletin:{" "}
-                <InlineLink href="/led-ekran-kiralama">LED ekran</InlineLink>,{" "}
-                <InlineLink href="/truss-kiralama">truss</InlineLink>,{" "}
-                <InlineLink href="/podyum-kiralama">sahne/podyum</InlineLink>,{" "}
-                <InlineLink href="/ses-isik-sistemleri">ses-ışık</InlineLink>.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-white/75">
-                <InlineLink href="/iletisim">İletişim formu</InlineLink> ile brief bırakın veya WhatsApp’tan yazın.
-              </p>
+              {paragraphs.map((parts, index) => (
+                <p
+                  key={`step-${s.stepNo}-p-${index}`}
+                  className={
+                    index === 0
+                      ? "text-sm leading-relaxed text-white/75"
+                      : "mt-3 text-sm leading-relaxed text-white/75"
+                  }
+                >
+                  <RichParts parts={parts} />
+                </p>
+              ))}
             </>
           ),
         };
       }
-      if (s.stepNo === 3) {
-        return {
-          ...s,
-          body: (
-            <p className="text-sm leading-relaxed text-white/75">
-              Teklif opsiyonlarına <InlineLink href="/cadir-kiralama">çadır</InlineLink> ve{" "}
-              <InlineLink href="/masa-sandalye-kiralama">masa-sandalye</InlineLink> eklenebilir.
-            </p>
-          ),
-        };
-      }
-      if (s.stepNo === 6) {
-        return {
-          ...s,
-          body: (
-            <p className="text-sm leading-relaxed text-white/75">
-              Kurulum + testte <InlineLink href="/ses-isik-sistemleri">ses-ışık</InlineLink> ve{" "}
-              <InlineLink href="/led-ekran-kiralama">LED ekran</InlineLink> testleri tamamlanır; güvenlik kontrolleri yapılır.
-            </p>
-          ),
-        };
-      }
+
       return { ...s, body: <p className="text-sm leading-relaxed text-white/75">{s.plainText}</p> };
     });
-  }, [stepsData]);
+  }, [d.stepBodies, stepsData]);
 
   return (
     <>
@@ -389,23 +490,20 @@ export default function HowItWorksClient({ stepsData, faqs }) {
         <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_680px]">
           <div className="flex flex-col gap-6">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge>Sahneva Organizasyon</Badge>
-              <Badge>Uçtan uca kurulum</Badge>
-              <Badge>Teknik ekip + operasyon</Badge>
+              {d.heroBadges.map((badge) => (
+                <Badge key={badge}>{badge}</Badge>
+              ))}
             </div>
 
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                Nasıl Çalışıyoruz?
+                {d.heroTitle}
               </h1>
-              <p className="mt-3 text-base text-white/70 sm:text-lg">
-                Sahneva’da etkinlikler nasıl planlanır, kurulur ve yönetilir?
-              </p>
+              <p className="mt-3 text-base text-white/70 sm:text-lg">{d.heroSubtitle}</p>
             </div>
 
             <p className="max-w-3xl text-sm leading-relaxed text-white/75 sm:text-base">
-              İhtiyaç → teklif → keşif → kurulum → etkinlik günü → söküm. Süreci uçtan uca yönetir,
-              sahada teknik ekiple birlikte kontrol ederiz.
+              {d.heroBody}
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -413,7 +511,7 @@ export default function HowItWorksClient({ stepsData, faqs }) {
                 href={CTA_BRIEF}
                 className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                İletişim / Brief Bırak
+                {d.ctaBriefLabel}
               </Link>
 
               <a
@@ -421,19 +519,20 @@ export default function HowItWorksClient({ stepsData, faqs }) {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-                aria-label="WhatsApp üzerinden iletişime geç (yeni sekmede açılır)"
+                aria-label={d.ctaWhatsappAria}
               >
-                WhatsApp’tan Yazın
+                {d.ctaWhatsappLabel}
               </a>
             </div>
 
             <div className="flex flex-wrap gap-2 text-xs text-white/60">
-              <span>Hızlı linkler:</span>
-              <InlineLink href="/truss-kiralama">Truss</InlineLink>
-              <span aria-hidden="true">•</span>
-              <InlineLink href="/podyum-kiralama">Sahne/Podyum</InlineLink>
-              <span aria-hidden="true">•</span>
-              <InlineLink href="/ses-isik-sistemleri">Ses-Işık</InlineLink>
+              <span>{d.quickLinksLabel}</span>
+              {d.quickLinks.map((link, index) => (
+                <span key={link.href} className="contents">
+                  {index > 0 ? <span aria-hidden="true">•</span> : null}
+                  <InlineLink href={link.href}>{link.label}</InlineLink>
+                </span>
+              ))}
             </div>
           </div>
 
@@ -447,7 +546,7 @@ export default function HowItWorksClient({ stepsData, faqs }) {
                 >
                   <ImgFrame
                     src="/img/nasil-calisiriz/hero-surec.webp"
-                    alt="Sahneva etkinlik süreci: planlama, kurulum ve operasyon"
+                    alt={d.heroImageAlt}
                     priority
                     /* aynı oran kalsın */
                     aspectClassName="aspect-[16/3] sm:aspect-[16/9]"
@@ -463,43 +562,49 @@ export default function HowItWorksClient({ stepsData, faqs }) {
         </div>
       </section>
 
-      <StepsNav steps={stepsData} onGo={scrollToId} navRef={navRef} activeId={activeId} />
+      <StepsNav
+        steps={stepsData}
+        onGo={scrollToId}
+        navRef={navRef}
+        activeId={activeId}
+        stepsLabel={d.stepsLabel}
+        faqShortcut={d.faqShortcut}
+      />
 
       {/* Enrichment */}
       <section className="mx-auto max-w-6xl px-4 pb-10 pt-6">
         <div className="grid gap-4 lg:grid-cols-3">
           <Reveal>
             <SoftCard className="p-6">
-              <h2 className="text-base font-semibold text-white">Neler Dahil?</h2>
+              <h2 className="text-base font-semibold text-white">{d.includedTitle}</h2>
               <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li>• İhtiyaç analizi + teklif</li>
-                <li>• Teknik keşif (gerekiyorsa)</li>
-                <li>• Kurulum + test + saha operasyonu</li>
-                <li>• Söküm + temiz teslim</li>
+                {d.includedItems.map((item) => (
+                  <li key={item}>{`• ${item}`}</li>
+                ))}
               </ul>
             </SoftCard>
           </Reveal>
 
           <Reveal>
             <SoftCard className="p-6">
-              <h2 className="text-base font-semibold text-white">Brief’te Neler Soruyoruz?</h2>
+              <h2 className="text-base font-semibold text-white">{d.briefTitle}</h2>
               <ul className="mt-3 space-y-2 text-sm text-white/75">
-                <li>• Tarih / lokasyon / alan ölçüsü</li>
-                <li>• Sahne ölçüsü ve yükseklik</li>
-                <li>• İçerik akışı / program</li>
-                <li>• Enerji ve erişim koşulları</li>
+                {d.briefItems.map((item) => (
+                  <li key={item}>{`• ${item}`}</li>
+                ))}
               </ul>
             </SoftCard>
           </Reveal>
 
           <Reveal>
             <SoftCard className="p-6">
-              <h2 className="text-base font-semibold text-white">Hızlı İç Linkler</h2>
+              <h2 className="text-base font-semibold text-white">{d.internalLinksTitle}</h2>
               <div className="mt-3 grid gap-2 text-sm">
-                <InlineLink href="/led-ekran-kiralama">LED Ekran Kiralama</InlineLink>
-                <InlineLink href="/truss-kiralama">Truss Kiralama</InlineLink>
-                <InlineLink href="/podyum-kiralama">Sahne / Podyum</InlineLink>
-                <InlineLink href="/ses-isik-sistemleri">Ses & Işık</InlineLink>
+                {d.internalLinks.map((link) => (
+                  <InlineLink key={link.href} href={link.href}>
+                    {link.label}
+                  </InlineLink>
+                ))}
               </div>
             </SoftCard>
           </Reveal>
@@ -507,8 +612,8 @@ export default function HowItWorksClient({ stepsData, faqs }) {
       </section>
 
       {/* STEPS */}
-      <section className="mx-auto max-w-6xl px-4 pb-14" aria-label="Çalışma adımları">
-        <h2 className="text-2xl font-semibold text-white">Ana Süreç Adımları</h2>
+      <section className="mx-auto max-w-6xl px-4 pb-14" aria-label={d.stepsSectionAria}>
+        <h2 className="text-2xl font-semibold text-white">{d.stepsSectionTitle}</h2>
 
         <div className="mt-8 grid gap-10">
           {stepsUi.map((s, idx) => (
@@ -521,6 +626,7 @@ export default function HowItWorksClient({ stepsData, faqs }) {
               imageSrc={s.imageSrc}
               imageAlt={s.imageAlt}
               reverse={idx % 2 === 1}
+              badgeTemplate={d.stepBadge}
             />
           ))}
         </div>
@@ -529,11 +635,11 @@ export default function HowItWorksClient({ stepsData, faqs }) {
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-6xl px-4 pb-20" aria-labelledby="faq-title">
         <h2 id="faq-title" className="text-2xl font-semibold text-white">
-          Sık Sorulan Sorular
+          {d.faqTitle}
         </h2>
         <div className="mt-6 grid gap-4">
           {faqs.map((f) => (
-            <FaqItem key={f.q} q={f.q} a={f.a} />
+            <FaqItem key={f.q} q={f.q} a={f.a} prompt={d.faqPrompt} />
           ))}
         </div>
       </section>
