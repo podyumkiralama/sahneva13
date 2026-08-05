@@ -215,8 +215,8 @@ const TECHNICAL_SPECS = [
 
 const FAQ_ITEMS = [
   {
-    q: "Podyum kiralama teklif kapsamı nasıl belirlenir?",
-    a: "Podyum kiralama bedeli; alan, yükseklik, kaplama, erişim ve lojistik kapsamına göre netleşir. m² bazlı birim değerler, örnek paket maliyetleri ve hesaplama aracı podyum kurulum fiyatları sayfasında yer alır.",
+    q: "Podyum kiralama teknik kapsamı nasıl belirlenir?",
+    a: "Alan, yükseklik, kaplama, erişim ve lojistik bilgilerini birlikte değerlendirerek güvenli kurulum için gerekli modül, rampa, merdiven ve saha ekibini planlıyoruz.",
   },
   {
     q: "Kurulum ne kadar sürer?",
@@ -255,16 +255,16 @@ const FAQ_ITEMS = [
     a: "Ayrı bir depozito alınmaz. Sözleşme imzalandıktan sonra proje bedelinin %30’u peşinat olarak tahsil edilir; kalan tutar sözleşmede belirlenen ödeme planına göre ödenir.",
   },
   {
-    q: "Kurulum ve söküm fiyata dahil mi?",
-    a: "Kurulum ve söküm kapsamı; alanın erişimi, etkinlik takvimi ve lojistik planına göre teklif içinde açıkça belirtilir. Etkinlik sonunda ekip tarafından söküm ve alan teslimi planlanır.",
+    q: "Kurulum ve söküm nasıl planlanır?",
+    a: "Kurulum ve söküm; alanın erişimi, etkinlik takvimi ve lojistik planına göre teknik kapsamda belirlenir. Etkinlik sonunda ekip tarafından söküm ve alan teslimi planlanır.",
   },
   {
-    q: "Minimum kiralama süresi var mı?",
-    a: "Podyum kiralama fiyatlarımız 1 haftaya kadar olan kullanımlar için sabittir; 1 günlük etkinlik ile 1 haftalık kullanım aynı fiyatlandırılır. Daha uzun süreli projelerde süreye göre özel teklif hazırlanır.",
+    q: "Kiralama süresi nasıl planlanır?",
+    a: "Etkinlik günü, kurulum ve söküm penceresi birlikte planlanır. Daha uzun süreli projelerde kullanım takvimi ve saha operasyonu ayrıca değerlendirilir.",
   },
   {
     q: "Şehir dışı etkinliklerde nakliye nasıl planlanır?",
-    a: "Şehir dışı projelerde çalıştığımız nakliye firmalarından güncel fiyat alınarak harici araç planlanır ve teklife eklenir. Dilerseniz kendi nakliye aracınızı da gönderebilirsiniz; ekipman sevkiyata hazır şekilde paketlenip teslim edilir.",
+    a: "Şehir dışı projelerde araç, ekip, yükleme penceresi ve konaklama gereksinimi birlikte planlanır. Dilerseniz kendi nakliye aracınızı da gönderebilirsiniz; ekipman sevkiyata hazır şekilde paketlenip teslim edilir.",
   },
   {
     q: "Podyumla birlikte hangi aksesuarlar kiralanabilir?",
@@ -553,10 +553,10 @@ function PodiumStockCapacitySection() {
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/podyum-kurulum-fiyatlari"
+                href="#hizmetler"
                 className="inline-flex min-h-[46px] items-center justify-center rounded-2xl bg-white px-5 py-3 font-black text-slate-950 transition hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
               >
-                Podyum kurulum fiyatları ve m² maliyeti
+                Podyum sistemlerini incele
               </Link>
               <a
                 href={WHATSAPP_URL}
@@ -688,7 +688,7 @@ function PodiumFlowSection() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_0.82fr] gap-8 items-stretch">
           <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6 md:p-8">
             <p className="text-sm font-black uppercase tracking-widest text-blue-700 mb-3">
-              Doğru ölçü, doğru bütçe
+              Doğru ölçü, güvenli kurulum
             </p>
             <h2
               id="teklif-akisi-title"
@@ -788,10 +788,10 @@ function PodiumFlowSection() {
                 WhatsApp ile ölçü paylaş
               </a>
               <Link
-                href="/podyum-kurulum-fiyatlari#podyum-fiyat-paketleri"
+                href="#hizmetler"
                 className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border-2 border-blue-700 px-6 py-3 font-black text-blue-800 transition hover:bg-blue-100"
               >
-                Fiyat paketlerini incele
+                Podyum uygulamalarını incele
               </Link>
             </div>
             </div>
@@ -861,21 +861,21 @@ function ServicesSection() {
 
 function PriceSummarySection() {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="podyum-fiyat-ozeti-title">
+    <section id="podyum-fiyat-ozeti" className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="podyum-fiyat-ozeti-title">
       <div className="container mx-auto max-w-5xl px-4 text-center">
-        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Fiyat özeti</p>
+        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Fiyat rehberi</p>
         <h2 id="podyum-fiyat-ozeti-title" className="text-3xl font-black text-gray-900 md:text-5xl">
-          Podyum bütçesi teknik kapsama göre netleşir
+          Podyum kurulum maliyetini ayrı rehberde inceleyin
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-gray-700">
-          Ölçü, yükseklik, kaplama, erişim ve lojistik bilgileri teklif kapsamını belirler. Birim maliyetleri,
-          örnek paketleri ve hesaplama aracını fiyat sayfasında bulabilirsiniz.
+          Bu ana hizmet sayfası podyum sistemini ve kurulum kapsamını anlatır. m² birim değerleri, örnek fiyatlar
+          ve hesaplama aracı yalnızca fiyat rehberinde yer alır.
         </p>
         <Link
           href="/podyum-kurulum-fiyatlari"
           className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-4 font-black text-white transition hover:bg-blue-800"
         >
-          Podyum kurulum fiyatları ve m² maliyetleri
+          Podyum kurulum fiyatları ve m² maliyeti
           <ArrowRight size={20} className="ml-2" aria-hidden="true" />
         </Link>
       </div>
@@ -1125,7 +1125,7 @@ function ProcessAndTipsSection() {
               Podyum kiralama süreci nasıl işler?
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Podyum kiralama süreci; ölçü (m²) ve yükseklik belirleme, zemin/erişim kontrolü, net fiyatlandırma ve kurulum planlaması adımlarından oluşur.
+              Podyum kiralama süreci; ölçü (m²) ve yükseklik belirleme, zemin/erişim kontrolü, teknik kapsam onayı ve kurulum planlaması adımlarından oluşur.
               Onay sonrası İstanbul içi temel nakliye veya Türkiye geneli lojistik planlanır ve ekip, belirlenen load-in saatlerinde kurulumu tamamlar.
             </p>
 
@@ -1133,7 +1133,7 @@ function ProcessAndTipsSection() {
               {[
                 { t: "1) Ölçü & yükseklik", d: "m², yükseklik, kullanım amacı" },
                 { t: "2) Zemin & erişim", d: "düz/eğim, kat/merdiven, taşıma mesafesi" },
-                { t: "3) Net fiyat", d: "platform + halı + skört + lojistik kapsamı" },
+                { t: "3) Teknik kapsam", d: "platform, kaplama, erişim ve lojistik planı" },
                 { t: "4) Kurulum planı", d: "saat aralığı, güvenlik, söküm" },
               ].map((x) => (
                 <div key={x.t} className="rounded-2xl bg-gray-50 p-4 border border-gray-100">
@@ -1348,7 +1348,7 @@ function CTASection() {
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun podyum sistemlerini sunalım. Ücretsiz keşif, profesyonel danışmanlık ve
-              rekabetçi fiyat garantisi ile hizmetinizdeyiz.
+              etkinliğinize uygun teknik planlamayla hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -1368,17 +1368,6 @@ function CTASection() {
               </a>
             </div>
 
-            <p className="mt-6 text-sm text-white/80">
-              2026 birim fiyat listesi için{" "}
-              <Link
-                className="underline font-semibold"
-                href="/podyum-kurulum-fiyatlari"
-                prefetch={false}
-              >
-                podyum kurulum fiyatları sayfası
-              </Link>{" "}
-              kısmına göz atabilirsiniz.
-            </p>
           </div>
         </div>
       </div>
@@ -1403,13 +1392,13 @@ export default function Page() {
       <PodiumStockCapacitySection />
       <PodiumFlowSection />
       <PodiumDecisionGuide />
-      <PriceSummarySection />
       <ServicesSection />
       <GallerySection />
       <TechnicalSection />
       <StatsSection />
       <UseCasesSection />
       <ProcessAndTipsSection />
+      <PriceSummarySection />
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />

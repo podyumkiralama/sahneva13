@@ -4,7 +4,8 @@ import { SITE_URL } from "@/lib/seo/seoConfig";
 /**
  * Kullanıcı sorusuna canlı cevap üretirken sayfa çeken botlar.
  * Yapay zekâ yanıtlarındaki alıntı (citation) bu grup üzerinden geliyor;
- * bu yüzden genel `*` kuralındaki crawl-delay dışında tutuluyorlar.
+ * bu yüzden `llms.txt` ve `webmcp.json` gibi ajanlara açılan dosyaları
+ * açıkça izin listesine alan ayrı bir grupta tutuluyorlar.
  */
 const AI_ANSWER_AGENTS = [
   // OpenAI - ChatGPT arama, kullanıcı tetikli sayfa çekme ve reklam doğrulama
@@ -49,9 +50,11 @@ export default function robots() {
 
   return {
     rules: [
+      // Crawl-delay bilinçli olarak yok: Google bu kuralı zaten yok sayıp
+      // Search Console'da uyarı basıyor, uyan taraf (Bing) içinse site
+      // tamamen statik üretildiğinden yavaşlatılacak bir yük bulunmuyor.
       {
         userAgent: "*",
-        crawlDelay: 1,
         allow: "/",
         disallow,
       },

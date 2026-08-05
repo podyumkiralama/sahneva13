@@ -1,8 +1,6 @@
-﻿import Link from "next/link";
-import JsonLdScript from "@/components/seo/JsonLd";
+import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
-import LedCalculatorClient from "./LedCalculatorClient";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -11,14 +9,14 @@ const PAGE_URL = `${SITE_URL}/led-ekran-hesaplama`;
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "LED Ekran Hesaplama | m² ve Yaklaşık Fiyat Aracı",
+  title: "LED Ekran Ölçüsü Planlama Rehberi | Sahneva",
   description:
-    "LED ekran ölçüsü, panel tipi, gün sayısı ve Watchout ihtiyacına göre standart LED ve P1.9 Indoor LED için yaklaşık başlangıç bedelini hesaplayın.",
+    "LED ekran ölçüsü, izleme mesafesi, pixel pitch ve kurulum erişimini planlayın. Fiyat ve m² maliyet hesabı için ayrı LED ekran fiyat rehberini inceleyin.",
   alternates: buildLanguageAlternates({ tr: PAGE_URL, canonical: PAGE_URL }),
   openGraph: {
-    title: "LED Ekran Hesaplama | Sahneva",
+    title: "LED Ekran Ölçüsü Planlama Rehberi | Sahneva",
     description:
-      "Standart LED ekran ve P1.9 Indoor LED için m² bazlı yaklaşık başlangıç bedeli hesaplama aracı.",
+      "LED ekran ölçüsü, izleme mesafesi, pixel pitch ve kurulum erişimi için teknik planlama notları.",
     url: PAGE_URL,
     type: "website",
     siteName: "Sahneva",
@@ -28,95 +26,118 @@ export const metadata = {
         url: `${SITE_URL}/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp`,
         width: 1200,
         height: 630,
-        alt: "LED ekran hesaplama aracı ve kurumsal etkinlik LED ekran kurulumu",
+        alt: "Kurumsal etkinlikte LED ekran ölçüsü ve teknik kurulum planlaması",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Ekran Hesaplama | Sahneva",
-    description: "Standart LED ekran ve P1.9 Indoor LED için yaklaşık m² başlangıç bedeli hesaplayın.",
+    title: "LED Ekran Ölçüsü Planlama Rehberi | Sahneva",
+    description: "LED ekran ölçüsü, izleme mesafesi ve panel seçimi için teknik planlama notları.",
     images: [`${SITE_URL}/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
 
-const CALCULATOR_SCHEMA = buildCalculatorSchema({
-  path: "/led-ekran-hesaplama",
-  name: "LED Ekran Hesaplama Aracı",
+const PLANNING_STEPS = [
+  {
+    title: "Genişlik ve yüksekliği belirleyin",
+    text: "Sahnedeki görünür alanı, dekoru ve güvenli boşlukları birlikte ölçün. Ekran yüzeyi genişlik × yükseklik hesabıyla netleşir.",
+  },
+  {
+    title: "İzleme mesafesini değerlendirin",
+    text: "Yakın izleme için daha sık pixel pitch; uzak izleme ve açık hava için parlaklık ile panel dayanımı öne çıkar.",
+  },
+  {
+    title: "İçerik ve teknik akışı paylaşın",
+    text: "Sunum, kamera, canlı yayın veya marka filmi; görüntü işlemcisi, reji ve sinyal akışının hangi kapsamda planlanacağını belirler.",
+  },
+  {
+    title: "Kurulum erişimini doğrulayın",
+    text: "Yükleme saati, asma veya ground-stack yöntemi, elektrik hattı ve saha erişimi kurulum planının temel girdileridir.",
+  },
+];
+
+const PLANNING_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: "LED Ekran Ölçüsü Planlama Rehberi",
   description:
-    "Standart LED ekran ve P1.9 Indoor LED için m², gün sayısı ve Watchout ihtiyacına göre yaklaşık başlangıç bedeli hesaplayan Sahneva aracı.",
-  image: "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp",
-  featureList: [
-    "Genişlik ve yükseklik değerinden LED ekran m² hesaplama",
-    "Standart LED ve P1.9 Indoor LED için ayrı m² birim fiyatı",
-    "Kiralama gün sayısına göre toplam bedel çarpanı",
-    "Watchout / medya sunucusu ihtiyacının bedele eklenmesi",
-    "Yaklaşık başlangıç bedelinin anında gösterilmesi",
-  ],
-  howToName: "LED ekran kiralama bedeli nasıl hesaplanır?",
-  howToDescription:
-    "LED ekranın ölçüsünü, panel tipini, kiralama gün sayısını ve reji ihtiyacını girerek yaklaşık başlangıç bedelini adım adım hesaplayın.",
-  howToSteps: [
-    {
-      name: "Ekran ölçüsünü girin",
-      text: "LED ekranın genişlik ve yükseklik değerlerini metre cinsinden girin. Araç toplam m² alanı otomatik hesaplar.",
-    },
-    {
-      name: "Panel tipini seçin",
-      text: "İzleme mesafesi yakınsa P1.9 Indoor, sahne ve dış mekan kullanımı için standart panel seçin. Panel tipi m² birim bedelini değiştirir.",
-    },
-    {
-      name: "Kiralama gün sayısını belirtin",
-      text: "Etkinliğin kaç gün süreceğini girin. Kurulum ve söküm günleri de kiralama süresine dahil edilir.",
-    },
-    {
-      name: "Reji ihtiyacını işaretleyin",
-      text: "Watchout veya medya sunucusu gerekiyorsa ilgili seçeneği işaretleyin; bu kalem toplam bedele eklenir.",
-    },
-    {
-      name: "Sonucu teklife dönüştürün",
-      text: "Çıkan tutar yaklaşık başlangıç bedelidir. Kesin fiyat için ölçü, zemin, asma noktaları ve içerik akışıyla birlikte teklif isteyin.",
-    },
-  ],
+    "LED ekran ölçüsü, izleme mesafesi, pixel pitch ve kurulum erişimi için teknik planlama rehberi.",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
   about: [
     "LED ekran kiralama",
-    "P1.9 indoor LED ekran",
-    "LED wall m² fiyatı",
+    "LED ekran ölçüsü",
+    "pixel pitch",
     "etkinlik teknik prodüksiyonu",
   ],
-  breadcrumb: [
-    { name: "Sahneva", url: "/" },
-    { name: "LED Ekran Kiralama", url: "/led-ekran-kiralama" },
-    { name: "LED Ekran Hesaplama", url: "/led-ekran-hesaplama" },
-  ],
-});
-
-function JsonLd() {
-  return <JsonLdScript id="ld-json-led-ekran-hesaplama" data={CALCULATOR_SCHEMA} />;
-}
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Sahneva", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "LED Ekran Kiralama", item: `${SITE_URL}/led-ekran-kiralama` },
+      { "@type": "ListItem", position: 3, name: "LED Ekran Ölçüsü Planlama", item: PAGE_URL },
+    ],
+  },
+};
 
 export default function Page() {
   return (
-    <>
-      <JsonLd />
-      <LedCalculatorClient />
-      <section className="bg-slate-950 px-4 pb-20 text-white">
-        <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/[0.05] p-6 text-center md:p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-200">Fiyat notu</p>
-          <p className="mt-4 text-base leading-7 text-slate-300">
-            Bu araç yaklaşık başlangıç bedeli verir. Detaylı m² bedelleri ve fiyatı etkileyen teknik kalemler için{" "}
-            <Link href="/led-ekran-kiralama-fiyatlari" className="font-bold text-white underline underline-offset-4">
-              LED ekran kiralama fiyatları
-            </Link>{" "}
-            sayfasını, hizmet kapsamı ve kurulum senaryoları için{" "}
-            <Link href="/led-ekran-kiralama" className="font-bold text-white underline underline-offset-4">
-              LED ekran kiralama
-            </Link>{" "}
-            ana hizmet sayfasını inceleyebilirsiniz.
+    <main className="bg-slate-950 pb-20 text-white">
+      <JsonLd id="ld-json-led-ekran-olcu-planlama" data={PLANNING_PAGE_SCHEMA} />
+      <section className="border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.34),transparent_48%)] px-4 pb-16 pt-24 md:pb-24 md:pt-32">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-200">Teknik planlama rehberi</p>
+          <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">LED ekran ölçüsünü doğru planlayın</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
+            Bu sayfa ekran ölçüsü, izleme mesafesi ve kurulum koşullarını netleştirmenize yardımcı olur. Ana hizmet kapsamı ve teknik çözüm seçenekleri için önce hizmet sayfasını inceleyin.
           </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="/led-ekran-kiralama"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-blue-100"
+            >
+              LED ekran kiralama hizmeti
+            </Link>
+            <Link
+              href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white/10"
+            >
+              LED ekran kiralama fiyatları ve hesaplama aracı
+            </Link>
+          </div>
         </div>
       </section>
-    </>
+
+      <section className="px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
+          {PLANNING_STEPS.map((step, index) => (
+            <article key={step.title} className="rounded-3xl border border-white/10 bg-white/[0.05] p-7">
+              <p className="text-sm font-black text-blue-200">Adım {index + 1}</p>
+              <h2 className="mt-3 text-2xl font-black">{step.title}</h2>
+              <p className="mt-4 leading-7 text-slate-300">{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4">
+        <div className="mx-auto max-w-4xl rounded-[28px] border border-blue-300/20 bg-blue-500/10 p-7 text-center md:p-10">
+          <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-200">Fiyat ve m² hesabı</p>
+          <h2 className="mt-3 text-3xl font-black">Hesaplama ve maliyet kalemleri fiyat sayfasında</h2>
+          <p className="mx-auto mt-4 max-w-3xl leading-7 text-slate-200">
+            Birim bedeller, paket kapsamları ve fiyat hesaplama aracı yalnızca LED ekran kiralama fiyatları sayfasında yer alır. Böylece hizmet seçimi ile fiyat araştırması ayrı ve net kalır.
+          </p>
+          <Link
+            href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
+            className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-blue-100"
+          >
+            LED ekran kiralama fiyatlarını incele
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

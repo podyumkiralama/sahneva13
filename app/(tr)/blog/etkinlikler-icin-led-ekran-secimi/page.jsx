@@ -285,10 +285,10 @@ export default function Page() {
           prodüksiyon çözümleri planlıyoruz. Her projeye tek ekipman değil, sahada birlikte çalışan bir
           sistem olarak yaklaşıyoruz. Ölçü, pixel pitch ve teknik ekip kapsamı bütçeyi belirlediğinde{" "}
           <Link href="/led-ekran-kiralama-fiyatlari">LED ekran kiralama fiyatları</Link>{" "}
-          sayfası teklif öncesi karar çerçevesini tamamlar. Ekran ölçüsünü hızlıca
-          görmek isteyenler için{" "}
-          <Link href="/led-ekran-hesaplama">LED ekran m² hesaplama</Link> aracı da
-          ilk planlama aşamasında pratik bir başlangıç sağlar.
+          sayfası teklif öncesi karar çerçevesini tamamlar. Ekran ölçüsünü ve maliyetini birlikte
+          değerlendirmek isteyenler için aynı sayfadaki{" "}
+          <Link href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci">LED ekran fiyat hesaplama aracını</Link>{" "}
+          kullanabilirsiniz.
         </p>
 
         <ImgFigure

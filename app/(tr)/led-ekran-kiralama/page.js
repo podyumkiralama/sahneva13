@@ -97,7 +97,7 @@ const WA_TEXT = "Merhaba, LED ekran kiralama projemiz için profesyonel teklif a
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
 
 const getServiceWhatsappLink = (title) => {
-  const text = `Merhaba, ${title} hizmeti için detaylı bilgi ve fiyat teklifi almak istiyorum. Etkinlik tarihi: [gg.aa.yyyy], mekân: [iç/dış], tahmini ekran ölçüsü: [xx m2]`;
+  const text = `Merhaba, ${title} hizmeti için teknik değerlendirme ve teklif almak istiyorum. Etkinlik tarihi: [gg.aa.yyyy], mekân: [iç/dış], tahmini ekran ölçüsü: [xx m2]`;
   return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
 };
 
@@ -310,7 +310,7 @@ const QUICK_SELECTION_STEPS = [
     Icon: Eye,
     title: "Piksel aralığını seçin",
     description:
-      "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır, bütçe de gereksiz yükselmez.",
+      "İzleme mesafesi düştükçe daha sık piksel aralığı gerekir. Böylece görüntü keskin kalır ve panel seçimi kullanım senaryosuna uygun olur.",
     points: ["P1.9: Yakın İzleme Premium", "P2.5 / P2.9: İç Mekan", "P3.9: Açık Hava ve Geniş Alan"],
   },
   {
@@ -331,7 +331,7 @@ const QUICK_SELECTION_SCENARIOS = [
   {
     title: "Kurumsal etkinlik ve hibrit sahne",
     recommendation: "P1.9 / P2.9",
-    detail: "Salon içi kullanımda yakın izleme netliği ve bütçe dengesi birlikte planlanır.",
+    detail: "Salon içi kullanımda yakın izleme netliği, içerik akışı ve teknik operasyon birlikte planlanır.",
   },
   {
     title: "Konser, festival ve açık hava",
@@ -427,7 +427,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kocaeli, Bursa veya Tekirdağ gibi çevre illerde hafta sonu teknik destek nasıl planlanıyor?",
-    a: "Çevre illerdeki hafta sonu etkinlikleri için 7/24 teknik destek, araç ve varsa konaklama planını ilk briefte birlikte netleştiriyoruz. Bütçe kalemleri için LED ekran kiralama fiyatları sayfasındaki rehberi inceleyebilir, net kapsam için teklif isteyebilirsiniz."
+    a: "Çevre illerdeki hafta sonu etkinlikleri için 7/24 teknik destek, araç ve varsa konaklama planını ilk briefte birlikte netleştiriyoruz. Ekran tipi, kurulum saati ve saha erişimini baştan doğrulayarak operasyon kapsamını netleştiriyoruz."
   },
   {
     q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
@@ -758,12 +758,12 @@ function Hero() {
             </Link>
 
             <Link
-              href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
-              aria-label="LED ekran fiyat hesaplama aracına gidin"
+              href="#hizmetler"
+              aria-label="LED ekran hizmet kapsamına gidin"
               className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
             >
               <Monitor size={20} aria-hidden="true" />
-              <span>LED Fiyatını Hesapla</span>
+              <span>Hizmet Kapsamını İncele</span>
             </Link>
           </div>
         </div>
@@ -808,11 +808,11 @@ function Services() {
             Indoor LED ekran, outdoor LED ekran, LED wall ve video wall kurulumlarını etkinlik tipine göre; ekran ölçüsü, izleme mesafesi, piksel aralığı, taşıyıcı sistem, reji ve teknik ekip ihtiyacıyla birlikte planlıyoruz.
           </p>
           <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Yalnızca başlangıç m² bedellerini ve bütçe aralığını görmek isteyenler için{" "}
+            Fiyat, m² hesabı ve maliyeti oluşturan kalemler için{" "}
             <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
               güncel LED ekran kiralama fiyatları
             </Link>{" "}
-            sayfasında ayrı bir fiyat rehberi hazırladık.
+            sayfasında ayrı bir fiyat rehberi hazırladık; bu sayfa ise hizmet ve teknik çözüm kapsamına odaklanır.
           </p>
         </div>
 
@@ -1688,7 +1688,7 @@ function Articles() {
             LED Ekran Kiralama <span className="text-blue-700">Rehberi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Etkinliğiniz için doğru LED ekranı seçmek, kurulum sürecini planlamak ve bütçeyi optimize etmek için kapsamlı rehber
+            Etkinliğiniz için doğru LED ekranı seçmek, kurulum sürecini planlamak ve teknik gereksinimleri netleştirmek için kapsamlı rehber
           </p>
         </div>
 
@@ -1722,17 +1722,17 @@ function Articles() {
               <h3 id="led-ekran-nedir">LED Ekran Kiralama Nedir?</h3>
               <p>
                 <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
-                kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Satın alma maliyeti olmadan profesyonel ekipman
+                kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Kalıcı ekipman yönetimi gerektirmeden profesyonel ekipman
                 kullanmanıza olanak tanır.
               </p>
 
               <h3 id="neden-tercih-edilir">Neden LED Ekran Kiralama Tercih Edilmeli?</h3>
               <p>
-                Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, maliyet ve operasyon açısından çok daha esnek bir çözüm sunar.
+                Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, operasyon planlamasında daha esnek bir çözüm sunar.
                 Doğru planlama ile hem izleyici deneyimi artar hem de teknik riskler minimuma iner.
               </p>
               <ul>
-                <li>Yüksek satın alma maliyetinden kaçınma</li>
+                <li>Kalıcı ekipman depolama ve bakım yükünü üstlenmeme</li>
                 <li>Etkinliğe uygun m² ve Piksel Aralığı seçebilme</li>
                 <li>Kurulum, söküm ve teknik operasyonun tek ekipten alınması</li>
                 <li>İç Mekan ve Dış Mekan için farklı parlaklık / koruma alternatifleri</li>
@@ -1798,18 +1798,6 @@ function Articles() {
                 </Link>
               </div>
               
-              <div className="not-prose my-8 rounded-2xl border border-blue-100 bg-blue-50 p-6 shadow-sm">
-                <h4 className="text-lg font-black text-blue-800 mb-3">LED Ekran Kiralama Fiyatları</h4>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Standart indoor/outdoor LED ekran ile P1.9 Indoor LED için 2026 m² başlangıç bedellerini, kurulum, söküm, NovaStar görüntü işlemcisi ve teknik reji kapsamını ayrı bir sayfada detaylandırdık.
-                </p>
-                <Link
-                  href="/led-ekran-kiralama-fiyatlari"
-                  className="inline-flex items-center font-black text-blue-700 underline underline-offset-4 hover:text-blue-900"
-                >
-                  LED ekran kiralama fiyatları sayfasını incele →
-                </Link>
-              </div>
 
               <h3 id="kurulum-sureci">Kurulum Süreci Nasıl İlerler?</h3>
               <p>
@@ -2006,13 +1994,6 @@ function CTA() {
               </a>
             </div>
 
-            <p className="mt-5 text-sm md:text-base text-blue-100/90">
-                Bütçenizi m², piksel aralığı ve lojistik kapsamıyla birlikte görmek için{" "}
-                <Link href="/led-ekran-kiralama-fiyatlari" className="font-bold text-white underline underline-offset-4">
-                  LED ekran kiralama fiyatları
-                </Link>{" "}
-                sayfasını inceleyebilirsiniz.
-            </p>
           </div>
         </div>
       </div>
@@ -2198,7 +2179,7 @@ export default function Page() {
       <GlossaryTermLinks
         servicePath="/led-ekran-kiralama"
         title="LED ekran teklifinde geçen terimler"
-        description="Pixel pitch, nit, kabinet ve görüntü işlemcisi gibi başlıklar hem fiyatı hem görüntü kalitesini belirler; tanımlar için sözlüğe bakabilirsiniz."
+        description="Pixel pitch, nit, kabinet ve görüntü işlemcisi gibi başlıklar panel seçimini ve görüntü kalitesini belirler; tanımlar için sözlüğe bakabilirsiniz."
       />
       <PaymentOptionsNote />
       <CTA />
