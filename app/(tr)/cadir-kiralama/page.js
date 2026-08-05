@@ -456,7 +456,7 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-[20px] font-semibold leading-[1.4] text-white/[0.94] md:text-[23px]">
-              Pagoda çadır, şeffaf dome ve büyük açıklıklı sistemlerle<br className="hidden md:block" />
+              Pagoda çadır, şeffaf dome ve büyük açıklıklı sistemlerle{" "}<br className="hidden md:block" />
               zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
             </p>
             <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">

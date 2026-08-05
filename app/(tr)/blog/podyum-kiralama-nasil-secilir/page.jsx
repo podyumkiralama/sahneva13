@@ -372,7 +372,7 @@ export default function Page() {
         currentKeywords={metadata.keywords}
         primaryLinks={[
           { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama", icon: "🧱" },
-          { href: PODIUM_PRICE_PATH, label: "Podyum Fiyatları", icon: "₺" },
+          { href: PODIUM_PRICE_PATH, label: "Podyum Kurulum Fiyatları", icon: "₺" },
           { href: STAGE_SERVICE_PATH, label: "Sahne Kiralama", icon: "🎭" },
         ]}
         whatsappUrl={WA_URL}
@@ -463,9 +463,9 @@ export default function Page() {
           kayıtlarında nasıl görüneceği de planlanmış olur.
         </p>
 
-        <h2 id="fiyat-kalemleri">5. Podyum Kiralama Fiyatları Hangi Kalemlere Göre Değişir?</h2>
+        <h2 id="fiyat-kalemleri">5. Podyum Kurulum Maliyetini Hangi Kalemler Belirler?</h2>
         <p>
-          <Link href={PODIUM_PRICE_PATH}>Podyum kiralama fiyatları</Link>; platform metrekare hesabı,
+          <Link href={PODIUM_PRICE_PATH}>Podyum kurulum fiyatları</Link>; platform metrekare hesabı,
           yükseklik, kaplama, merdiven veya rampa ihtiyacı, skört, nakliye, kurulum süresi ve şehir
           dışı operasyon koşullarına göre değişir. Bu nedenle yalnızca "kaç metrekare?" sorusuyla
           alınan fiyatlar çoğu zaman eksik kalır.
@@ -576,7 +576,7 @@ export default function Page() {
         <BlogRelatedLinks
           services={[
             { href: PODIUM_SERVICE_PATH, label: "Podyum Kiralama" },
-            { href: PODIUM_PRICE_PATH, label: "Podyum Kiralama Fiyatları" },
+            { href: PODIUM_PRICE_PATH, label: "Podyum Kurulum Fiyatları" },
             { href: STAGE_SERVICE_PATH, label: "Sahne Kiralama" },
             { href: LED_SERVICE_PATH, label: "LED Ekran Kiralama" },
           ]}

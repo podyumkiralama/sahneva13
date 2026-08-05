@@ -613,7 +613,7 @@ function Technical() {
 /* ================== İstatistik Bant ================== */
 function StatsBand() {
   const stats = [
-    { value: "700+", label: "Başarılı Proje", icon: "??" },
+    { value: "700+", label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "81", label: "İlde Hizmet", icon: "🗺️" },
     { value: "10+", label: "Yıl Deneyim", icon: "⭐" },

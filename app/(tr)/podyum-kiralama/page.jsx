@@ -12,7 +12,6 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
-import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 import {
   ArrowRight,
   Briefcase,
@@ -36,48 +35,11 @@ const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
   "Merhaba, podyum kiralama için teklif istiyorum."
 )}`;
-const PRICE_VALID_UNTIL = `${new Date().getFullYear() + 1}-12-31`;
 
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
-/* ================== 2. BİRİM FİYATLAR (2026) ================== */
-// Değerler lib/pricing.js'te tek kaynakta tutulur; buradaki adlandırma sayfanın
-// mevcut hesap fonksiyonlarıyla uyumlu kalsın diye korunuyor.
-const UNIT_PRICES = {
-  platform_m2_week: PODIUM_UNIT_PRICES.platformSqmWeek,
-  carpet_m2_week: PODIUM_UNIT_PRICES.carpetSqmWeek,
-  skirt_ml_week: PODIUM_UNIT_PRICES.skirtMetreWeek,
-  ist_nakliye: PODIUM_UNIT_PRICES.istanbulTransport,
-  currency: PODIUM_UNIT_PRICES.currency,
-};
-
-const calculatePackagePrice = (layout) => {
-  const base = layout.area * UNIT_PRICES.platform_m2_week;
-  const carpet = layout.area * UNIT_PRICES.carpet_m2_week;
-  const skirt = layout.perimeter * UNIT_PRICES.skirt_ml_week;
-  const nakliye = UNIT_PRICES.ist_nakliye;
-  const total = base + carpet + skirt + nakliye;
-  return { base, carpet, skirt, nakliye, total };
-};
-
-const formatTRY = (n) =>
-  new Intl.NumberFormat("tr-TR", {
-    style: "currency",
-    currency: "TRY",
-    maximumFractionDigits: 0,
-  }).format(n);
-
-/* ================== 3. DİNAMİK BİLEŞENLER ================== */
-const PriceEstimatorPodyum = dynamic(
-  () => import("@/components/PriceEstimatorPodyum"),
-  {
-    loading: () => (
-      <div className="h-[560px] w-full bg-gray-50 animate-pulse rounded-3xl border border-gray-200" />
-    ),
-  }
-);
-
+/* ================== 2. DİNAMİK BİLEŞENLER ================== */
 const PodiumDecisionGuide = dynamic(
   () => import("@/components/PodiumDecisionGuide.client"),
   {
@@ -85,7 +47,7 @@ const PodiumDecisionGuide = dynamic(
   }
 );
 
-/* ================== 4. İÇERİK VERİLERİ ================== */
+/* ================== 3. İÇERİK VERİLERİ ================== */
 const SERVICES = [
   {
     icon: "🎭",
@@ -130,48 +92,6 @@ const SERVICES = [
   },
 ];
 
-const PACKAGES = [
-  {
-    id: "pkg-mini",
-    name: "Mini Podyum — 12 m²",
-    layout: { width: 3, depth: 4, area: 12, perimeter: 14 },
-    height: "40 cm",
-    includes: [
-      "6 × (1×2 m) panel – toplam 12 m²",
-      "Yükseklik: 40 cm",
-      "Kaymaz kaplama",
-      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
-    ],
-    note: "İç mekân konuşma/mini performanslar için ideal.",
-  },
-  {
-    id: "pkg-orta",
-    name: "Orta Podyum — 24 m²",
-    layout: { width: 4, depth: 6, area: 24, perimeter: 20 },
-    height: "60 cm",
-    includes: [
-      "12 × (1×2 m) panel – toplam 24 m²",
-      "Yükseklik: 60 cm",
-      "Kaymaz kaplama, merdiven",
-      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
-    ],
-    note: "Kurumsal sahneler ve canlı performanslar için.",
-  },
-  {
-    id: "pkg-pro",
-    name: "Pro Podyum — 48 m²",
-    layout: { width: 6, depth: 8, area: 48, perimeter: 28 },
-    height: "80-100 cm",
-    includes: [
-      "24 × (1×2 m) panel – toplam 48 m²",
-      "Yükseklik: 80–100 cm",
-      "Kaymaz kaplama, merdiven, rampa, korkuluk",
-      "İstanbul içi nakliye + kurulum + söküm; Türkiye geneli lojistik planı",
-    ],
-    note: "Büyük konser/miting sahneleri için.",
-  },
-];
-
 const FLOW_STEPS = [
   {
     Icon: Ruler,
@@ -180,8 +100,8 @@ const FLOW_STEPS = [
   },
   {
     Icon: ClipboardCheck,
-    title: "Paket veya özel plan seçilir",
-    text: "Mini, orta, pro paketlerden biri ya da mekâna özel podyum planı hazırlanır.",
+    title: "Modüler yerleşim planı hazırlanır",
+    text: "Etkinliğin akışına, sahne üstü kullanıma ve mekâna göre modüler podyum yerleşimi hazırlanır.",
   },
   {
     Icon: CalendarCheck,
@@ -190,8 +110,8 @@ const FLOW_STEPS = [
   },
   {
     Icon: MessageCircle,
-    title: "Net teklif paylaşılır",
-    text: "Kaplama, skirt, rampa, korkuluk ve şehir dışı ihtiyaçları dahil edilerek teklif verilir.",
+    title: "Teknik kapsam onaylanır",
+    text: "Kaplama, rampa, korkuluk ve şehir dışı operasyon ihtiyaçları kurulum planına eklenir.",
   },
 ];
 
@@ -239,10 +159,10 @@ const PODIUM_HEIGHT_CAPACITIES = [
   { height: "200 cm", capacity: "150 m²", note: "Kurulum kapasitesi" },
 ];
 
-const PACKAGE_GUIDE = [
-  "Konuşma, panel veya küçük sunum için 12 m² mini podyum yeterli olur.",
-  "Canlı müzik, lansman ve kurumsal toplantı için 24 m² orta podyum daha dengeli görünür.",
-  "Konser, festival ve kalabalık sahne kullanımı için 48 m² ve üzeri özel plan önerilir.",
+const STARTING_LAYOUT_GUIDE = [
+  "Konuşma, panel veya küçük sunum için 12 m² civarında kompakt bir kurulumla başlanabilir.",
+  "Canlı müzik, lansman ve kurumsal toplantı için 24 m² civarında daha dengeli bir sahne alanı planlanabilir.",
+  "Konser, festival ve kalabalık sahne kullanımı için 48 m² ve üzeri özel yerleşim değerlendirilir.",
 ];
 
 const USE_CASES = [
@@ -295,8 +215,8 @@ const TECHNICAL_SPECS = [
 
 const FAQ_ITEMS = [
   {
-    q: "Podyum kiralama fiyatları nasıl hesaplanır?",
-    a: `Fiyat; alan (m²), halı (m²), skört (metre), İstanbul içi temel nakliye ve Türkiye geneli lojistik kapsamına göre hesaplanır. 2026 birim fiyatlarımız: platform ${UNIT_PRICES.platform_m2_week} TL/m², halı ${UNIT_PRICES.carpet_m2_week} TL/m², skört ${UNIT_PRICES.skirt_ml_week} TL/metre, İstanbul içi temel nakliye ${UNIT_PRICES.ist_nakliye} TL. Şehir dışı projelerde lojistik ayrıca planlanır.`,
+    q: "Podyum kiralama teklif kapsamı nasıl belirlenir?",
+    a: "Podyum kiralama bedeli; alan, yükseklik, kaplama, erişim ve lojistik kapsamına göre netleşir. m² bazlı birim değerler, örnek paket maliyetleri ve hesaplama aracı podyum kurulum fiyatları sayfasında yer alır.",
   },
   {
     q: "Kurulum ne kadar sürer?",
@@ -336,7 +256,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kurulum ve söküm fiyata dahil mi?",
-    a: `Evet, söküm her projede fiyata dahildir. İstanbul içi temel nakliye bedeli (${UNIT_PRICES.ist_nakliye} TL) kurulum ve sökümü kapsar; etkinlik bitiminde podyum ekibimiz tarafından toplanır ve alan teslim edilir.`,
+    a: "Kurulum ve söküm kapsamı; alanın erişimi, etkinlik takvimi ve lojistik planına göre teklif içinde açıkça belirtilir. Etkinlik sonunda ekip tarafından söküm ve alan teslimi planlanır.",
   },
   {
     q: "Minimum kiralama süresi var mı?",
@@ -386,13 +306,14 @@ const PROCESS_STEP_IMAGES = [
   { src: "/img/podyum/24.webp", alt: "Etkinlik öncesi son kontrol" },
 ];
 
-/* ================== 5. META DATA ================== */
+/* ================== 4. META DATA ================== */
 export const metadata = {
   title: "Podyum Kiralama | Kiralık Podyum ve Kurulum Çözümleri",
   description:
     "12.000 m² stok ve karolaj planlı modüler sistemlerle Türkiye geneli podyum kiralama ve kurulum. Konser, fuar ve kurumsal etkinlik çözümleri.",
   alternates: buildLanguageAlternates({
     tr: "/podyum-kiralama",
+    canonical: "/podyum-kiralama",
     en: "/en/podium-rental",
     de: "/de/buehne-mieten",
     xDefault: "/en/podium-rental",
@@ -424,7 +345,7 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
-/* ================== 6. BİLEŞENLER ================== */
+/* ================== 5. BİLEŞENLER ================== */
 
 // --- JSON-LD ---
 function StructuredData() {
@@ -444,43 +365,6 @@ function StructuredData() {
     name: "Podyum kiralama galeri görselleri",
   });
 
-  const offerCatalogItems = PACKAGES.map((pkg) => {
-    const prices = calculatePackagePrice(pkg.layout);
-    return {
-      "@type": "Offer",
-      name: pkg.name,
-      url: `${ORIGIN}/podyum-kiralama#${pkg.id}`,
-      priceCurrency: UNIT_PRICES.currency,
-      price: String(prices.total),
-      itemOffered: {
-        "@type": "Service",
-        name: pkg.name,
-        description: pkg.note,
-      },
-    };
-  });
-
-  const productSchemas = PACKAGES.map((pkg) => {
-    const prices = calculatePackagePrice(pkg.layout);
-    return {
-      "@type": "Product",
-      name: pkg.name,
-      description: pkg.note,
-      image: [`${ORIGIN}/img/podyum/22.webp`],
-      sku: pkg.id,
-      brand: { "@type": "Brand", name: "Sahneva" },
-      offers: {
-        "@type": "Offer",
-        url: `${ORIGIN}/podyum-kiralama#${pkg.id}`,
-        priceCurrency: UNIT_PRICES.currency,
-        price: String(prices.total),
-        priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
-        itemCondition: "https://schema.org/NewCondition",
-      },
-    };
-  });
-
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -497,11 +381,6 @@ function StructuredData() {
           { "@type": "Country", name: "Türkiye" },
           { "@type": "AdministrativeArea", name: "İstanbul" },
         ],
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Podyum Kiralama Paketleri",
-          itemListElement: offerCatalogItems,
-        },
       },
       {
         "@type": "WebPage",
@@ -520,7 +399,6 @@ function StructuredData() {
       },
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      ...productSchemas,
       buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : null,
     ].filter(Boolean),
   };
@@ -819,10 +697,9 @@ function PodiumFlowSection() {
               Podyum kiralama sürecini daha net ve hızlı ilerletiyoruz
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              İlk ekranda paketleri görüp yaklaşık bütçeyi anlayabilir, ardından
-              m² hesaplayıcı ile kendi alanınıza göre hızlı bir tahmin alabilirsiniz.
-              Final teklif; zemin, yükseklik, kaplama, rampa, korkuluk ve şehir
-              dışı nakliye gibi detaylar netleşince paylaşılır.
+              Etkinlik tipi, alan, yükseklik ve zemin bilgisini birlikte değerlendirip
+              podyumun teknik kapsamını netleştiriyoruz. Kurulum planı; kaplama, rampa,
+              korkuluk ve şehir dışı operasyon gereksinimlerine göre şekillenir.
             </p>
 
             <ul className="mt-8 grid sm:grid-cols-2 gap-4">
@@ -868,10 +745,10 @@ function PodiumFlowSection() {
             <div className="p-6 md:p-8">
             <div>
               <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-5">
-                Hangi paketle başlamalı?
+                Hangi başlangıç ölçüsü daha uygun?
               </h3>
               <ul className="space-y-4">
-                {PACKAGE_GUIDE.map((item) => (
+                {STARTING_LAYOUT_GUIDE.map((item) => (
                   <li key={item} className="flex gap-3 text-gray-800 leading-relaxed">
                     <ArrowRight
                       className="mt-1 h-5 w-5 flex-shrink-0 text-blue-700"
@@ -885,7 +762,7 @@ function PodiumFlowSection() {
 
             <dl className="mt-7 grid grid-cols-3 gap-3">
               {[
-                ["12-48 m²", "Hazır paket"],
+                ["12-48 m²", "Başlangıç ölçüsü"],
                 ["10-200 cm", "Yükseklik planı"],
                 ["2-6 saat", "Kurulum"],
               ].map(([value, label]) => (
@@ -911,10 +788,10 @@ function PodiumFlowSection() {
                 WhatsApp ile ölçü paylaş
               </a>
               <Link
-                href="#paketler"
+                href="/podyum-kurulum-fiyatlari#podyum-fiyat-paketleri"
                 className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border-2 border-blue-700 px-6 py-3 font-black text-blue-800 transition hover:bg-blue-100"
               >
-                Paketleri incele
+                Fiyat paketlerini incele
               </Link>
             </div>
             </div>
@@ -982,160 +859,25 @@ function ServicesSection() {
   );
 }
 
-function CalculatorSection() {
+function PriceSummarySection() {
   return (
-    <section
-      id="hesaplayici"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1100px] sm:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="hesaplayici-title"
-    >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="hesaplayici-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Teklif Aralığını <span className="text-blue-700">Hızlı Çıkarın</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Podyum ölçüsü, kaplama ve lojistik bilgisini girerek kiralama görüşmesi öncesi yaklaşık bütçeyi görün.
-          </p>
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl p-8">
-            <PriceEstimatorPodyum unitPrices={UNIT_PRICES} />
-            <div className="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-200">
-              <p className="text-blue-800 text-lg">
-                <strong>
-                  İstanbul içi temel nakliye (kurulum + söküm dahil):{" "}
-                  {formatTRY(UNIT_PRICES.ist_nakliye)}
-                </strong>
-                <br />
-                *200 m²&apos;ye kadar İstanbul içi temel nakliye için geçerlidir. Türkiye geneli projelerde lojistik ayrıca planlanır.
-              </p>
-              <p className="mt-2 text-blue-800/80 text-sm">
-                2026 birim fiyat listesi için{" "}
-                <Link
-                  className="underline font-semibold"
-                  href="/podyum-kurulum-fiyatlari"
-                  prefetch={false}
-                >
-                  podyum kurulum fiyatları ve m² maliyetleri
-                </Link>{" "}
-                sayfasını inceleyebilirsiniz.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function PackagesSection() {
-  return (
-    <section id="paketler" className="py-20 bg-white" aria-labelledby="paketler-title">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2
-            id="paketler-title"
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
-          >
-            Podyum <span className="text-blue-700">Paketlerimiz</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            İhtiyaçlarınıza uygun hazır paketler veya özel çözümler
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12 max-w-7xl mx-auto">
-          {PACKAGES.map((pkg, index) => {
-            const prices = calculatePackagePrice(pkg.layout);
-            return (
-              <article
-                key={pkg.id}
-                id={pkg.id}
-                className="group h-full bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 flex flex-col"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={GALLERY_IMAGES[index] || GALLERY_IMAGES[0]}
-                    alt={pkg.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={60}
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={BLUR_DATA_URL}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-2xl font-black text-white">{pkg.name}</h3>
-                    <p className="text-white/90 text-sm">
-                      {pkg.layout.width}×{pkg.layout.depth} m • {pkg.layout.area} m²
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-6 flex-grow">
-                  <ul className="space-y-2 mb-6 list-disc list-inside text-base text-gray-700">
-                    {pkg.includes.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-
-                  <div className="bg-white rounded-xl p-4 border border-gray-300 mb-4">
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between text-gray-800">
-                        <span>Platform:</span>
-                        <span className="font-semibold text-gray-900">{formatTRY(prices.base)}</span>
-                      </div>
-                      <div className="flex justify-between text-gray-700">
-                        <span>Halı + Skört:</span>
-                        <span className="font-medium text-gray-900">{formatTRY(prices.carpet + prices.skirt)}</span>
-                      </div>
-                      <div className="flex justify-between text-gray-700">
-                        <span>Temel nakliye (İstanbul):</span>
-                        <span className="font-medium text-gray-900">{formatTRY(prices.nakliye)}</span>
-                      </div>
-                      <div className="flex justify-between border-t border-gray-300 pt-2">
-                        <span className="font-bold text-gray-900">Başlangıç toplamı (İstanbul):</span>
-                        <span className="font-bold text-blue-700">
-                          {formatTRY(prices.total)}
-                        </span>
-                      </div>
-                      <p className="pt-2 text-xs leading-relaxed text-gray-600">
-                        Tahmini bütçedir; zemin, kurulum saati, ek güvenlik ekipmanı
-                        ve şehir dışı nakliye durumuna göre netleşir.
-                      </p>
-                    </div>
-                  </div>
-
-                  {pkg.note && (
-                    <p className="text-sm text-gray-600 text-center mb-4">
-                      {pkg.note}
-                    </p>
-                  )}
-                </div>
-
-                <div className="p-6 pt-0">
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="mt-2 w-full min-h-[56px] inline-flex items-center justify-center font-bold px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
-                  >
-                    <span className="text-lg mr-2" aria-hidden="true">💬</span> Hemen Teklif Al
-                  </a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        <div className="text-center mt-8">
-          <p className="text-gray-600 text-lg">
-            *Fiyatlar haftalık kiralama içindir. Günlük kiralama için iletişime geçin.
-          </p>
-        </div>
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="podyum-fiyat-ozeti-title">
+      <div className="container mx-auto max-w-5xl px-4 text-center">
+        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Fiyat özeti</p>
+        <h2 id="podyum-fiyat-ozeti-title" className="text-3xl font-black text-gray-900 md:text-5xl">
+          Podyum bütçesi teknik kapsama göre netleşir
+        </h2>
+        <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-gray-700">
+          Ölçü, yükseklik, kaplama, erişim ve lojistik bilgileri teklif kapsamını belirler. Birim maliyetleri,
+          örnek paketleri ve hesaplama aracını fiyat sayfasında bulabilirsiniz.
+        </p>
+        <Link
+          href="/podyum-kurulum-fiyatlari"
+          className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-4 font-black text-white transition hover:bg-blue-800"
+        >
+          Podyum kurulum fiyatları ve m² maliyetleri
+          <ArrowRight size={20} className="ml-2" aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );
@@ -1661,8 +1403,7 @@ export default function Page() {
       <PodiumStockCapacitySection />
       <PodiumFlowSection />
       <PodiumDecisionGuide />
-      <PackagesSection />
-      <CalculatorSection />
+      <PriceSummarySection />
       <ServicesSection />
       <GallerySection />
       <TechnicalSection />

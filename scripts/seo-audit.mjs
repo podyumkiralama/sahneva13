@@ -23,8 +23,12 @@ const ROUTE_REJECT_PATTERNS = [
 
 const PRICE_PAGE_PATHS = new Set([
   "/led-ekran-kiralama-fiyatlari",
-  "/podyum-kiralama-fiyatlari",
+  "/podyum-kurulum-fiyatlari",
 ]);
+
+// Yerel çalışma kopyaları dağıtıma dahil değildir; bunları taramak aynı bağlantıları
+// ikinci kez raporlayıp denetim sonucunu yanıltır.
+const IGNORED_SOURCE_DIRECTORIES = new Set(["node_modules", ".next", ".git", ".claude"]);
 
 const IGNORE_SITEMAP_MISSING = new Set([
   "/_not-found",
@@ -58,7 +62,7 @@ function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
 
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === "node_modules" || entry.name === ".next" || entry.name === ".git") {
+    if (IGNORED_SOURCE_DIRECTORIES.has(entry.name)) {
       continue;
     }
 
