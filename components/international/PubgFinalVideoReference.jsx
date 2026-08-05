@@ -5,6 +5,24 @@ const PUBG_FINAL_THUMBNAIL = "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg";
 const CONTACT_EMAIL = "info@sahneva.com";
 
 const VIDEO_CONTENT = {
+  de: {
+    label: "Referenz E-Sport-Finale",
+    title: "Produktionsbeispiel: PUBG Türkiye Finals",
+    text:
+      "Eine E-Sport-Finalproduktion im großen Maßstab: synchronisierte LED-Flächen, Beschallung in Konzertqualität, Showlicht, Traversenkonstruktion und der Betrieb in der Arena.",
+    action: "Video zum PUBG-Finale ansehen",
+    titleAttr: "Bühnenproduktion des PUBG-E-Sport-Finales mit LED-Wand und Arenalicht",
+    meta: ["E-Sport-Produktion Türkei", "Arena-Produktion", "LED-Wandsysteme"],
+    emailIntro: "Lieber ein förmliches Briefing per E-Mail?",
+    emailText:
+      "Senden Sie Briefing, technische Unterlagen, Angaben zur Location oder den Produktionsumfang direkt an:",
+    specsTitle: "Technische Standards der Produktion",
+    specs: [
+      "Synchrone Videowiedergabe und latenzarme Bildverarbeitung",
+      "Rigging für hohe Lasten mit statischer Planung",
+      "LED-Panels mit hoher Bildwiederholrate für sendetaugliche Bilder",
+    ],
+  },
   en: {
     label: "Esports Final Reference",
     title: "Production Showcase: PUBG Turkiye Finals",

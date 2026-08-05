@@ -41,6 +41,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${ORIGIN}/masa-sandalye-kiralama`,
       "en": `${ORIGIN}/en/table-chair-rental`,
+      "de": `${ORIGIN}/de/tische-und-stuehle-mieten`,
       "x-default": `${ORIGIN}/en/table-chair-rental`,
     },
   },

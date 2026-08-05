@@ -12,6 +12,26 @@ import {
 } from "@/lib/internationalEventProduction";
 
 const VISUAL_REFERENCES = {
+  de: {
+    title: "Ausgewählte Referenzen aus der Türkei",
+    text:
+      "Eine Auswahl aus großen Produktionen mit Bühnenbau, LED-Wänden, Ton- und Lichttechnik, Traversen sowie aus Firmen-, Protokoll- und E-Sport-Veranstaltungen von Sahneva.",
+    servicesLabel: "Passende Leistungen",
+    cards: [
+      ["Open-Air-Konzertbühne mit LED", "Großflächige Outdoor-LED, Bühnenlicht und Bildregie für Konzert- und Festivalgelände.", "Outdoor-LED", "/img/led/acik-hava-konser-led-ekran-sahneva.webp", "Open-Air-Konzertbühne mit LED-Wand in der Türkei"],
+      ["LED-Wand für einen Produktlaunch", "LED-Fläche, Bühnenbild und Präsentationsablauf für Produktlaunches und hybride Formate.", "Launch", "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp", "LED-Wand und Bühnenbild bei einem hybriden Produktlaunch"],
+      ["Videowall für einen Galaabend", "Indoor-Videowall, Bühnenlicht und Aufbau für Liveauftritte bei Gala- und Führungskräfteveranstaltungen.", "Gala", "/img/led/gala-led-sahne-video-wall-sahneva.webp", "Videowall und Bühnenlicht bei einem Galaabend"],
+      ["Saalbeleuchtung", "Architekturbeleuchtung im Saal, Bühnenatmosphäre und Kontrolle des Aufbaus vor der Veranstaltung.", "Licht", "/img/kurumsal/premium/salon-isik-kurulumu.webp", "Saalbeleuchtung für eine Firmenveranstaltung"],
+      ["Traversenbühne im Freien", "Traversenkonstruktion, Dachlinie und Tragsystem für Bühnen- und Showtechnik im Außenbereich.", "Traversen", "/img/kurumsal/premium/truss-outdoor-sahne.webp", "Traversenbühne im Außenbereich für eine Eventproduktion"],
+      ["Großer Konferenzsaal", "Saalaufbau mit LED-Wand, Bühnenfokus und technischer Planung für internationale Geschäftsveranstaltungen.", "Kongress", "/img/blog/12-eglenceli-kurumsal-etkinlik-fikri/genis-konferans-salonu.webp", "Großer Konferenzsaal mit LED-Wand für eine Firmenveranstaltung"],
+    ],
+    wideTitle: "Für Kongresse, Launches, Festivals und E-Sport gebaut",
+    wideCards: [
+      ["Internationale Kongresse und Protokollveranstaltungen", "Zufahrt, Protokollablauf, Sichtachsen zur Bühne und mehrsprachige Kommunikation stehen fest, bevor die Technik anrollt."],
+      ["Produktlaunches und Markenbühnen", "LED-Fläche, Bühnenbild, Showlicht und Rednerablauf richten sich nach Botschaft und Aufmerksamkeit des Publikums."],
+      ["Sport- und E-Sport-Produktionen", "Spielerpulte, Arenalicht, LED-lastige Showbühnen und die Crew-Koordination werden als eine Feldoperation vorbereitet."],
+    ],
+  },
   en: {
     title: "Selected event production references in Turkey",
     text:
@@ -95,6 +115,43 @@ const VISUAL_REFERENCES = {
 };
 
 const ARTICLE_SECTIONS = {
+  de: [
+    [
+      "Verlässlicher Partner für Unternehmen, die in der Türkei produzieren",
+      "Die Türkei ist ein starkes Veranstaltungsziel für Unternehmen aus Europa, dem Nahen Osten und weltweiten Märkten. Istanbul, Antalya, Izmir, Ankara und Bodrum tragen Messen, Kongresse, Produktlaunches, Firmentagungen, Konzerte, Sportveranstaltungen und geschlossene Markenauftritte. Für ein internationales Team ist die eigentliche Aufgabe, jemanden vor Ort zu haben, der die Gegebenheiten der Location mit den technischen Erwartungen zusammenbringt.",
+      "Genau diese Rolle übernimmt Sahneva. Wir begleiten Unternehmen, Agenturen und Markenteams mit Bühne, LED-Wand, Ton, Licht, Traversen, Zelt, Technikcrew, Logistik, Aufbau, Betrieb am Veranstaltungstag und Abbau.",
+    ],
+    [
+      "Technische Produktion aus einer Hand",
+      "Wer aus dem Ausland anreist und jedes Gewerk einzeln einkauft, riskiert Lücken im Zeitplan und Reibung in der Kommunikation. Sahneva führt Bühne, Podeste, LED-Wand, Beschallung, Licht, Traversen, Zelt, Crew und den Betrieb vor Ort in einem abgestimmten Produktionsumfang zusammen.",
+      "Uns geht es dabei nicht nur um die Vermietung von Geräten. Sie arbeiten mit einem Team, das den technischen Prozess verantwortet und den Ablauf vor, während und nach der Veranstaltung nachvollziehbar hält.",
+    ],
+    [
+      "Partner für Agenturen aus dem deutschsprachigen Raum",
+      "Agenturen aus Deutschland, Österreich und der Schweiz führen Projekte in der Türkei häufig im Auftrag ihrer eigenen Kunden. Dabei zählen Termintreue, technische Kapazität, Qualitätskontrolle und verständliche Kommunikation. Sahneva arbeitet in diesen Projekten wie Ihr Team vor Ort.",
+      "Wir nehmen das Briefing auf, prüfen den technischen Umfang, erstellen Equipment- und Aufbauplan, steuern die Montage auf der Fläche und schließen nach der Veranstaltung den Abbau ab. So entfällt die Suche nach einzelnen Lieferanten im Zielland.",
+    ],
+    [
+      "Unsere Leistungsbereiche",
+      "Bühnen- und Podestsysteme, LED-Wände samt Aufbau, Beschallung, Showlicht, Traversen und Rigging, Zelte und temporäre Bauten im Freien, technische Infrastruktur für Messen und Kongresse, Backstage-Bereiche, Markenflächen, Technikcrew, Aufbau, Betrieb und Abbau – zuschneidbar auf den Projektumfang.",
+    ],
+    [
+      "Im Einsatz in Istanbul, Antalya, Izmir, Ankara und landesweit",
+      "Sahneva betreut Projekte in unterschiedlichen türkischen Städten. Istanbul, Antalya, Izmir, Ankara, Bodrum, Bursa, Konya und Adana lassen sich für Firmenveranstaltungen, Messen, Kongresse, Festivals und Sonderprojekte planen. Stadtlogistik, technische Vorbereitung und Koordination vor Ort werden dabei gemeinsam betrachtet.",
+    ],
+    [
+      "Was ein Partner vor Ort konkret spart",
+      "Ein eingespieltes lokales Team spart Zeit, hält Kosten kalkulierbar, senkt das technische Risiko und reagiert im Zweifel schneller auf der Fläche. Ortskenntnis, eigener Gerätepark, eine Ansprechperson, schnelle Angebotserstellung und Erfahrung mit Messen, Kongressen, Konzerten, Launches und Firmenveranstaltungen zahlen dabei unmittelbar auf die Produktion ein.",
+    ],
+    [
+      "Vom Briefing bis zum Abbau",
+      "Der Ablauf beginnt mit Briefing und Bedarfsanalyse. Danach folgen technische Planung, Angebot, Logistik, Aufbau, technische Betreuung am Veranstaltungstag, Abbau und die Übergabe der Fläche. Diese Reihenfolge macht die türkische Seite der Produktion sichtbar, bevor die Veranstaltung beginnt.",
+    ],
+    [
+      "Planen Sie eine Veranstaltung in der Türkei?",
+      "Wenn Sie eine Veranstaltung, Messe, einen Kongress, Produktlaunch oder ein geschlossenes Markenprojekt in der Türkei planen, kann Sahneva Ihr Partner vor Ort sein. Senden Sie uns die Projektdaten – Sie erhalten einen klaren Umfang für Bühne, LED-Wand, Ton, Licht, Traversen, Zelt und technische Produktion.",
+    ],
+  ],
   en: [
     ["Reliable partner for international companies planning events in Turkey", "Turkey is a strong event destination for companies coming from Europe, the Middle East and global markets. Istanbul, Antalya, Izmir, Ankara and Bodrum host fairs, congresses, launches, corporate meetings, concerts, sports events and private brand experiences. For an international team, the main need is a local production partner who can connect venue realities with technical expectations.", "Sahneva works as that local event production partner in Turkey. We support international companies, agencies and brand teams with stage, LED screen, sound, lighting, truss, tent, technical crew, logistics, setup, show-day operation and dismantling."],
     ["Turnkey event and technical production from one point", "For companies arriving from abroad, sourcing each service separately can create timing gaps and communication risk. Sahneva brings stage, podium, LED screen, sound system, lighting system, truss, tent, crew and site operation under one coordinated production scope.", "Our aim is not only equipment rental. We help companies planning events in Turkey work with a field team that owns the technical process and keeps the operation clear before, during and after the event."],
@@ -183,6 +240,42 @@ const INTERNATIONAL_CAPABILITY_FIELD_PROPS = {
 };
 
 const INTERNATIONAL_CAPABILITY_COPY = {
+  de: {
+    eyebrow: "Leitfaden zum Leistungsumfang",
+    title: "Prüfen Sie, ob wir Ihren Umfang in der Türkei abdecken",
+    intro:
+      "Sahneva unterstützt Unternehmen, Agenturen und Marken bei Bühne, Podesten, LED-Wand, Ton, Licht, Traversen, Zelt, Firmenveranstaltungen, E-Sport und dem Betrieb vor Ort in der Türkei.",
+    note:
+      "Dieser Leitfaden hilft, das Briefing für Istanbul, Antalya, Ankara, Izmir, Bodrum und weitere Städte vorzubereiten. Er bestätigt weder Verfügbarkeit noch Crew oder einen festen Preis. Das verbindliche Angebot erstellen wir nach Prüfung von Stadt, Location, Termin, technischem Rider, Anlieferzeiten, Maßen, Logistik und Personalbedarf.",
+    serviceCategory: "Leistungsbereich",
+    city: "Stadt",
+    eventType: "Art der Veranstaltung",
+    indoorOutdoor: "Bereich",
+    audienceSize: "Teilnehmerzahl",
+    scopeNotes: "Anmerkungen zum Umfang",
+    servicePlaceholder: "Leistungsbereich wählen",
+    venuePlaceholder: "Bereich wählen",
+    indoor: "Innenbereich",
+    outdoor: "Außenbereich",
+    hybrid: "Hybrid",
+    unknown: "Noch offen",
+    cityPlaceholder: "Istanbul, Antalya, Ankara, Izmir, Bodrum ...",
+    eventPlaceholder: "Konferenz, Launch, Konzert, E-Sport-Finale ...",
+    audiencePlaceholder: "Geschätzte Gäste-, Publikums- oder Teilnehmerzahl",
+    notesPlaceholder:
+      "Datum, Location, technischer Rider, Anlieferung und Abbau, LED-Maße, Bühnenmaße, Logistik oder Crew",
+    submit: "Angaben für das Angebot senden",
+    serviceOptions: [
+      "Bühnen, Podeste und Plattformen",
+      "LED-Wände, Videowalls und Bildregie",
+      "Ton, Licht und AV-Produktion",
+      "Traversen, Rigging und Dachkonstruktionen",
+      "Zelte und temporäre Bauten im Freien",
+      "Technische Produktion von Firmenveranstaltungen",
+      "Sport- oder E-Sport-Arena-Produktion",
+      "Komplette technische Feldoperation",
+    ],
+  },
   en: {
     eyebrow: "Service capability guide",
     title: "Check whether Sahneva can support your event scope in Turkey",
@@ -256,6 +349,16 @@ const INTERNATIONAL_CAPABILITY_COPY = {
 };
 
 const serviceLinks = {
+  de: [
+    ["/de/mice-tuerkei", "MICE Türkei"],
+    ["/de/eventproduktion-antalya", "Eventproduktion Antalya"],
+    ["/de/buehne-mieten", "Bühne mieten"],
+    ["/de/led-wand-mieten", "LED-Wand mieten"],
+    ["/de/ton-und-lichttechnik", "Ton- und Lichttechnik"],
+    ["/de/traversen-mieten", "Traversen mieten"],
+    ["/de/zelt-mieten", "Zelt mieten"],
+    ["/de/firmenevents", "Firmenevents"],
+  ],
   en: [
     ["/en/mice-turkey", "MICE Turkey"],
     ["/en/event-production-antalya", "Event Production Antalya"],
@@ -302,7 +405,7 @@ function SectionHeading({ eyebrow, title, text, align = "center", dark = false }
 
 function InternationalServiceCapabilityTool({ locale = "en" }) {
   const copy = INTERNATIONAL_CAPABILITY_COPY[locale] ?? INTERNATIONAL_CAPABILITY_COPY.en;
-  const action = locale === "tr" ? "/iletisim" : "/en/contact";
+  const action = locale === "tr" ? "/iletisim" : locale === "de" ? "/de/kontakt" : "/en/contact";
 
   return (
     <section className="bg-white px-6 py-16 md:px-10" aria-labelledby="international-capability-title">
@@ -537,7 +640,7 @@ export default function EventProductionPartnerPage({ locale }) {
           </section>
         ) : null}
 
-        {["en", "tr"].includes(locale) ? <InternationalServiceCapabilityTool locale={locale} /> : null}
+        {["en", "tr", "de"].includes(locale) ? <InternationalServiceCapabilityTool locale={locale} /> : null}
 
         <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
           <div className="mx-auto max-w-7xl">

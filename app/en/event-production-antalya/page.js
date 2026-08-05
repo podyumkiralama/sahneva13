@@ -25,6 +25,7 @@ export const metadata = {
     "Technical event production in Antalya: stage, LED screen, sound and lighting for conferences, incentives and galas. Local partner for PCOs and DMCs.",
   alternates: buildLanguageAlternates({
     en: "/en/event-production-antalya",
+    de: "/de/eventproduktion-antalya",
     canonical: "/en/event-production-antalya",
     xDefault: "/en/event-production-antalya",
   }),

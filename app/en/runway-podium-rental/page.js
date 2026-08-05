@@ -140,6 +140,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/defile-podyum-kiralama",
     en: "/en/runway-podium-rental",
+    de: "/de/laufsteg-mieten",
     canonical: "/en/runway-podium-rental",
     xDefault: "/en/runway-podium-rental",
   }),

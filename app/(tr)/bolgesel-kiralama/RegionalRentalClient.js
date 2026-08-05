@@ -5,6 +5,123 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const COPY = {
+  de: {
+    shortcuts: "Direkt zu:",
+    quote: "Angebot anfordern",
+    quoteLead: "Kontakt / Briefing senden",
+    whatsapp: "Über WhatsApp schreiben",
+    whatsappAria: "Über WhatsApp Kontakt aufnehmen (wird in einem neuen Tab geöffnet)",
+    heroBadges: ["Türkeiweit", "Aufbau + Betrieb", "Schnelles Angebot"],
+    heroTitle: "Regionale Vermietung",
+    heroSubtitle:
+      "Planen wir nach Stadt: LED-Wand, Traversen, Bühne beziehungsweise Podest sowie Ton- und Lichttechnik.",
+    heroBody:
+      "Sahneva steuert Veranstaltungsaufbauten von der Planung bis zum Abbau, mit Logistik und Crew nach Stadt geplant. Wir klären die technischen Anforderungen bereits im Angebot, terminieren Aufbau und Tests, betreuen den Veranstaltungstag und übergeben die Fläche nach dem Abbau geordnet zurück.",
+    suggestedPackages: "Passende Pakete:",
+    serviceCatalogTitle: "Leistungskatalog",
+    serviceCatalogBody:
+      "Je nach Stadt und Ablauf der Location lassen sich mehrere Gewerke in einem Projekt bündeln.",
+    whyTitle: "Warum die Stadt den Unterschied macht",
+    whyCards: [
+      {
+        title: "Belastbare Logistikplanung",
+        body: "Entfernung, Crewgröße und Aufbauzeit unterscheiden sich je Stadt erheblich. Diese Angabe macht den Plan realistisch.",
+      },
+      {
+        title: "Eine Crew, eine Koordination",
+        body: "LED-Wand, Traversen, Bühne und Ton- und Lichttechnik laufen auf einem Zeitplan unter einer Verantwortung.",
+      },
+      {
+        title: "Schnelleres Angebot",
+        body: "Mit der Stadt stehen Transport- und Aufbauannahmen fest, und die Kalkulation wird früher belastbar.",
+      },
+      {
+        title: "Weniger Risiko vor Ort",
+        body: "Zufahrt, Stromversorgung, Untergrund und Sicherheitspunkte sind geklärt, bevor die Crew anreist.",
+      },
+    ],
+    whyFootnote:
+      "Gerade bei Projekten mit Traversen und LED-Flächen entscheidet die stadtbezogene Planung über Aufbauzeit, Sicherheit und Stromvorbereitung.",
+    processTitle: "So läuft es ab",
+    processBody:
+      "Bei Aufbauten ausserhalb der Metropolregion zählt dasselbe wie überall: das richtige Equipment, die richtige Crew und der richtige Zeitpunkt. Genau darauf ist der Ablauf ausgelegt.",
+    processCards: [
+      {
+        title: "1) Briefing und Bedarf",
+        body: "Datum, Stadt, Flächenmaße und benötigte Gewerke werden geklärt. Bei Bedarf kommt eine kurze Begehung dazu.",
+      },
+      {
+        title: "2) Angebot und Planung",
+        body: "Pakete und Optionen entstehen. Logistik, Aufbauzeit und Crewplan richten sich nach der Stadt.",
+      },
+      {
+        title: "3) Aufbau und Tests",
+        body: "Der Aufbau erfolgt in der Regel 24 bis 48 Stunden vorher; Tests, Verkabelung und Sicherheitsprüfungen sind vor Programmbeginn abgeschlossen.",
+      },
+      {
+        title: "4) Veranstaltungstag",
+        body: "Das Team begleitet den Ablauf vor Ort; Ton, Bild, Licht und Bühnensicherheit werden gemeinsam geführt.",
+      },
+      {
+        title: "5) Abbau und Übergabe",
+        body: "Nach der Veranstaltung wird sicher abgebaut, das Equipment verladen und die Fläche geordnet zurückgegeben.",
+      },
+      {
+        title: "Für ein schnelles Angebot",
+        body: "Stadt, Datum, Format und eine Liste der Gewerke genügen. Alles Weitere klären wir gemeinsam.",
+      },
+    ],
+    regionsTitle: "Wählen Sie Ihre Stadt",
+    regionsBody:
+      "Sobald die Stadt feststeht, werden Transport, Crewgröße und Aufbauzeit deutlich konkreter. Wählen Sie Ihre Stadt, um das Angebot zu starten.",
+    cityCardAlt: (name) => `Regionale Vermietung in ${name}`,
+    cityCardAria: (name) => `Zum Kontaktformular wechseln und ein Angebot für ${name} anfordern`,
+    cityCardCta: (name) => `Angebot für ${name}`,
+    notesTitle: "Hinweise zur Planung nach Stadt",
+    notesBody:
+      "Statt dünner Stadtseiten sammeln wir hier die praktischen Unterschiede, die vor dem Angebot wirklich helfen. Das lässt Logistik, Crew und Equipment früher feststehen.",
+    planningTitle: "Checkliste zur Planung",
+    planningBody:
+      "Der größte Zeitgewinn entsteht durch bessere Angaben am Anfang. Die folgende Checkliste beschleunigt Angebot und Aufbauplanung.",
+    planningCards: [
+      {
+        title: "Location und Zufahrt",
+        items: [
+          "Ladezone, Aufzug und Türbreite",
+          "Zulässiges Zeitfenster für den Aufbau",
+          "Bodenart und Ebenheit",
+          "Höhenbegrenzung für Traversen und Bühne",
+        ],
+      },
+      {
+        title: "Strom und Sicherheit",
+        items: [
+          "Anschlussleistung und Steckertyp",
+          "Kabelwege und Befestigungspunkte",
+          "Bedarf an Absperrung",
+          "Vorgehen bei Regen und Wind",
+        ],
+      },
+      {
+        title: "Inhalte und Ablauf",
+        items: [
+          "Programmablauf sowie Auf- und Abgänge",
+          "Formate der LED-Inhalte",
+          "Anzahl der Mikrofone und Lautsprecherplan",
+          "Lichtkonzept",
+        ],
+      },
+      {
+        title: "Passende Seiten",
+        body: "Diese Leistungen passen am ehesten zu Ihrem Aufbau:",
+      },
+    ],
+    faqPrompt: "Zum Anzeigen der Antwort klicken.",
+    faqTitle: "Häufige Fragen",
+    quickQuoteTitle: "Schnelles Angebot",
+    quickQuoteBody:
+      "Stadt, Datum, Format und Bedarf genügen. Von da an kann unser Team zügig antworten.",
+  },
   tr: {
     shortcuts: "Kısayollar:",
     quote: "Teklif Al",
@@ -496,6 +613,7 @@ function RegionDetailCard({ region, services }) {
 
 function buildCityPageHref(locale, citySlug) {
   if (locale === "en") return "/en/regional-rental#regions";
+  if (locale === "de") return "/de/regionale-vermietung#regions";
   return `/bolgesel-kiralama/${citySlug}`;
 }
 
@@ -527,7 +645,7 @@ export default function RegionalRentalClient({
   locale = "tr",
 }) {
   const copy = COPY[locale] ?? COPY.tr;
-  const ctaBrief = locale === "en" ? "/en/contact" : "/iletisim";
+  const ctaBrief = locale === "en" ? "/en/contact" : locale === "de" ? "/de/kontakt" : "/iletisim";
   const ctaWhatsapp = "https://wa.me/905453048671";
   const imageDir = "/img/bolgesel-kiralama";
 

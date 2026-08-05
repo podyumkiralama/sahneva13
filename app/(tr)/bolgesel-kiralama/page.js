@@ -23,6 +23,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: PAGE_PATH,
     en: "/en/regional-rental",
+    de: "/de/regionale-vermietung",
     xDefault: "/en/regional-rental",
   }),
   openGraph: {

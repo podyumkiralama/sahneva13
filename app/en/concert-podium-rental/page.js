@@ -153,6 +153,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/konser-icin-podyum-kiralama",
     en: "/en/concert-podium-rental",
+    de: "/de/konzertbuehne-mieten",
     canonical: "/en/concert-podium-rental",
     xDefault: "/en/concert-podium-rental",
   }),
