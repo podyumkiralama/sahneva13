@@ -47,6 +47,7 @@ const COMPANY_ROWS = [
     value:
       "Limited Şirketi (LTD. ŞTİ.) — türkische Gesellschaft mit beschränkter Haftung, vergleichbar mit einer GmbH",
   },
+  { label: "Vertreten durch", value: `Geschäftsführer ${COMPANY.representative}` },
   { label: "Marke", value: COMPANY.brandName },
   { label: "Anschrift", value: COMPANY.address },
   { label: "Land", value: "Türkei" },
