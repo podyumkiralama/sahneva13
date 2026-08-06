@@ -9,6 +9,11 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
+// Cikti tamamen yerel veriden uretiliyor ve istege bagli degil; deploy
+// disinda degismez. Segment config olmadan route handler her istekte yeniden
+// render ediliyordu.
+export const dynamic = "force-static";
+
 export function GET() {
   const siteUrl = SITE_URL.replace(/\/$/, "");
   const searchTemplate = `${siteUrl}/search?q={searchTerms}`;

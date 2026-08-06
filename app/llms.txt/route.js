@@ -372,6 +372,11 @@ function formatMarkdownEntry({
   }`;
 }
 
+// Cikti tamamen yerel veriden uretiliyor ve istege bagli degil; deploy
+// disinda degismez. Segment config olmadan route handler her istekte yeniden
+// render ediliyordu.
+export const dynamic = "force-static";
+
 export async function GET() {
   const curated = [
     ...STATIC_ENTRIES,

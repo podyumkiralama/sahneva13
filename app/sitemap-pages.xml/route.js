@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 import { getPageEntries } from "@/lib/sitemap/data";
 import { buildUrlSet } from "@/lib/sitemap/xml";
 
+// Cikti tamamen yerel veriden uretiliyor ve istege bagli degil; deploy
+// disinda degismez. Segment config olmadan route handler her istekte yeniden
+// render ediliyordu.
+export const dynamic = "force-static";
+
 export function GET() {
   const entries = getPageEntries();
   const xml = buildUrlSet(entries);
