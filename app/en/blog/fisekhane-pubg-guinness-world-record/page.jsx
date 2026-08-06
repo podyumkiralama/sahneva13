@@ -135,25 +135,6 @@ function ArticleSchema() {
         dateModified: MODIFIED_DATE,
         articleSection: ["Event", "E-Sports", "Technical Production"],
       },
-      {
-        "@type": "Event",
-        "@id": `${BLOG_URL}#event`,
-        name: "PUBG Mobile Guinness World Record™ Turkey Gathering",
-        startDate: "2026-01-25T00:00:00+03:00",
-        endDate: "2026-01-25T23:59:59+03:00",
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        eventStatus: "https://schema.org/EventScheduled",
-        location: {
-          "@type": "Place",
-          name: "FİŞEKHANE",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Istanbul",
-            addressCountry: "TR",
-          },
-        },
-        organizer: { "@id": ORGANIZATION_ID },
-      },
     ],
   };
 

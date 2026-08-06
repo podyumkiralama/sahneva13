@@ -904,28 +904,6 @@ function buildJsonLd() {
         citation: DICLEFEST_SOURCE_URL,
       },
       {
-        "@type": "Event",
-        "@id": `${PAGE_URL}#event-context`,
-        name: "DicleFest Şanlıurfa",
-        startDate: "2026-05-14",
-        endDate: "2026-05-17",
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        eventStatus: "https://schema.org/EventScheduled",
-        location: {
-          "@type": "Place",
-          name: "Şanlıurfa Topçu Meydanı",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Şanlıurfa",
-            addressCountry: "TR",
-          },
-        },
-        description:
-          "DicleFest Şanlıurfa; teknoloji alanları, planetaryum, oyun ve aktivite bölümleri ile konserleri kapsayan açık alan festivalidir.",
-        url: DICLEFEST_SOURCE_URL,
-        organizer: { "@id": `${SITE_URL}/#org` },
-      },
-      {
         "@type": "BreadcrumbList",
         "@id": `${PAGE_URL}#breadcrumb`,
         itemListElement: [

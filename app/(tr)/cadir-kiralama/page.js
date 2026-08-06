@@ -141,25 +141,33 @@ const VIDEO_EMBEDS = [
 // Not: cadir-saha-3 ve cadir-saha-9 karelerinde sosyal medya filigrani/arayuz izi
 // bulunduğu icin galeriden cikarildi; cadir-saha-5 ayni sahanin temiz cekimi.
 const GALLERY_IMAGES = [
-  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Büyük açıklıklı çadırın vinçle kurulumu, yanında pagoda çadırlar" },
+  { src: "/images/projects/saha-2026-dome-cadir-final.webp", alt: "SAHA 2026 fuarında kurulan dome çadır ve ambiyans aydınlatmalı markalı giriş cephesi" },
+  { src: "/img/galeri/cadir-kiralama-15.webp", alt: "Şeffaf çadırın gece iç görünümü: aydınlatılmış ağaçlar ve hazırlanan davet alanı" },
   { src: "/img/cadir/cadir-saha-1.webp", alt: "Deniz kenarındaki fuar alanında büyük açıklıklı çadır ve pagoda çadır sırası" },
-  { src: "/img/cadir/seffaf.webp", alt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı" },
+  { src: "/img/galeri/cadir-kiralama-7.webp", alt: "Çadır içinde tören düzeni: sahne, iki LED ekran ve yüzlerce beyaz sandalye" },
+  { src: "/img/galeri/cadir-kiralama-4.webp", alt: "Kale duvarı önünde gece: kurulmuş şişme dome çadır ve yanındaki dome iskeletleri" },
   { src: "/img/cadir/pagoda.webp", alt: "Yan yana dizilmiş pagoda çadırlar ve önünde yükseltilmiş oturma platformu" },
-  { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Büyük ölçekli çadır iskeletinin vinçle monte edilmesi" },
-  { src: "/img/cadir/cadir-saha-5.webp", alt: "Festival alanında kalabalık ziyaretçi akışına açılan büyük etkinlik çadırı" },
+  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Büyük açıklıklı çadırın vinçle kurulumu, yanında pagoda çadırlar" },
+  { src: "/img/cadir/seffaf.webp", alt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı" },
+  { src: "/img/blog/dome-cadir-gece-ambiyans.webp", alt: "Festival alanında gece aydınlatmalı dome çadır, sahne ve kalabalık izleyici alanı" },
+  { src: "/img/galeri/cadir-kiralama-6.webp", alt: "Otel bahçesinde havuz başına kurulan büyük etkinlik çadırı" },
+  { src: "/img/cadir/cadir-liman-etkinlik-alani.webp", alt: "Liman sahasında kurulan yan duvarsız büyük açıklıklı etkinlik çadırı" },
+  { src: "/img/galeri/cadir-kiralama-12.webp", alt: "Havadan festival alanı: etkinlik çadırı, oyun alanı ve karşılama aksı" },
+  { src: "/img/cadir/cadir-kitap-fuari-karsilama.webp", alt: "Kitap ve kültür fuarı için cami avlusuna kurulan çadır ve karşılama girişi" },
+  { src: "/img/galeri/cadir-kiralama-9.webp", alt: "Havadan görünüm: şeffaf pencereli yan duvarlarıyla uzun büyük açıklıklı çadır" },
+  { src: "/img/galeri/cadir-kiralama-5.webp", alt: "Kurulum aşamasında çadır iskeleti ve arkasında sıralanmış pagoda çadırlar" },
+  { src: "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-kurulum-sureci.webp", alt: "Meydanda kurulan dome çadırın geodezik iskeleti ve vinçle indirilen branda" },
   { src: "/img/cadir/cadir-saha-7.webp", alt: "Fuar çadırının iç görünümü: stant sıraları ve geniş açıklıklı taşıyıcı yapı" },
-  { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulmuş yan duvarsız büyük açıklıklı etkinlik çadırı" },
-  { src: "/img/cadir/cadir-saha-2.webp", alt: "Beton zemine kurulmuş kolonsuz büyük açıklıklı çadır" },
-  { src: "/img/cadir/1.webp", alt: "Düğün etkinliği için kurulan pagoda çadır düzeni" },
   { src: "/img/cadir/2.webp", alt: "Çadır içinde kurulan sahne, LED ekran ve oturma alanı düzeni" },
-  { src: "/img/cadir/3.webp", alt: "Geniş etkinlik alanı için büyük açıklıklı çadır çözümü" },
+  { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulmuş yan duvarsız büyük açıklıklı çadır gölgeliği" },
+  { src: "/img/cadir/cadir-uzun-gecis-golgeligi.webp", alt: "Bina önüne kurulan uzun geçiş gölgeliği çadırı" },
 ];
 
 const GALLERY_FALLBACK_CARDS = [
-  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", title: "Vinçli Büyük Kurulum", alt: "Büyük açıklıklı çadırın vinçle kurulumu" },
+  { src: "/images/projects/saha-2026-dome-cadir-final.webp", title: "Dome Çadır", alt: "SAHA 2026 fuarında kurulan dome çadır" },
+  { src: "/img/galeri/cadir-kiralama-15.webp", title: "Şeffaf Davet Çadırı", alt: "Şeffaf çadırın gece iç görünümü" },
   { src: "/img/cadir/cadir-saha-1.webp", title: "Fuar Alanı Kurulumu", alt: "Deniz kenarındaki fuar alanında büyük çadır ve pagoda çadırlar" },
-  { src: "/img/cadir/seffaf.webp", title: "Şeffaf Davet Çadırı", alt: "Gece aydınlatmalı şeffaf çadır kurulumu" },
-  { src: "/img/cadir/cadir-saha-8.webp", title: "Meydan Kurulumu", alt: "Meydanda kurulmuş büyük açıklıklı etkinlik çadırı" },
+  { src: "/img/galeri/cadir-kiralama-7.webp", title: "Tören ve Protokol Düzeni", alt: "Çadır içinde sahne, LED ekran ve sandalye düzeni" },
 ];
 
 const FAQ_ITEMS = [
@@ -194,6 +202,10 @@ const FAQ_ITEMS = [
   {
     q: "Şeffaf çadır ile pagoda çadır arasındaki fark nedir?",
     a: "Pagoda çadırlar fuaye, karşılama, VIP alan ve küçük etkinliklerde hızlı ve modüler çözüm sağlar. Şeffaf çadırlar ise kır düğünü, lansman ve premium davetlerde manzarayı koruyan daha atmosferik bir alan oluşturur.",
+  },
+  {
+    q: "Dome çadır hangi etkinliklerde tercih ediliyor?",
+    a: "Dome çadır; lansman, deneyim alanı, konsept stant ve 360° projeksiyon kurgularında tercih edilir. Küresel iç yüzeyi mapping ve sahne kurgusuna uygun kapalı bir alan oluşturur. SAHA 2026’da kapalı fuar alanında dome çadır ve markalı giriş cephesi, DicleFest Şanlıurfa’da ise meydanda geodezik dome kurulumu yaptık.",
   },
   {
     q: "Büyük çadırlarda iklimlendirme yapılabilir mi?",
@@ -267,6 +279,15 @@ const TENT_SELECTOR_CARDS = [
     usage: "Fuar, festival, belediye etkinliği, yemek ve protokol alanı",
     sizing: "10, 20, 30 ve 40 m açıklık seçenekleriyle projelendirilir.",
     advantage: "Kolonsuz geniş alan, kontrollü giriş-çıkış ve teknik entegrasyon sağlar.",
+  },
+  {
+    title: "Dome Çadır",
+    badge: "Deneyim alanı",
+    img: "/images/projects/saha-2026-dome-cadir-final.webp",
+    imgAlt: "SAHA 2026 fuarında kurulan geodezik dome çadır ve markalı giriş cephesi",
+    usage: "Lansman, deneyim alanı, 360° projeksiyon ve konsept stant",
+    sizing: "Çap, iç yükseklik ve giriş cephesine göre projelendirilir.",
+    advantage: "Küresel iç yüzeyi mapping ve sahne kurgusuna uygun kapalı deneyim alanı yaratır.",
   },
 ];
 
@@ -601,7 +622,7 @@ function TentSelectorSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {TENT_SELECTOR_CARDS.map((item) => (
             <article
               key={item.title}
@@ -613,7 +634,7 @@ function TentSelectorSection() {
                   src={item.img}
                   alt={item.imgAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   quality={78}
                   loading="lazy"
@@ -1322,8 +1343,12 @@ function InstallationProcess() {
           {[
             { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Boş sahada çadır iskeletinin vinçle kurulması" },
             { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Taşıyıcı iskelet üzerine çadır brandasının çekilmesi" },
+            {
+              src: "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-kurulum-sureci.webp",
+              alt: "Meydanda kurulan dome çadırın geodezik iskeleti ve vinçle indirilen branda",
+              position: "object-[center_38%]",
+            },
             { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulumu tamamlanmış büyük açıklıklı çadır" },
-            { src: "/img/cadir/cadir-saha-5.webp", alt: "Ziyaretçi akışına açılmış festival çadırı" },
           ].map((photo) => (
             <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
@@ -1331,7 +1356,7 @@ function InstallationProcess() {
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover"
+                className={`object-cover ${photo.position ?? ""}`}
                 quality={78}
                 loading="lazy"
               />

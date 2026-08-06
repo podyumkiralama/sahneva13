@@ -9,7 +9,8 @@ const PAGE_URL = `${SITE_URL}/led-ekran-hesaplama`;
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "LED Ekran Ölçüsü Planlama Rehberi | Sahneva",
+  // Marka adini yazma: (tr)/layout.js sablonu zaten " | Sahneva" ekliyor.
+  title: "LED Ekran Ölçüsü Planlama Rehberi",
   description:
     "LED ekran ölçüsü, izleme mesafesi, pixel pitch ve kurulum erişimini planlayın. Fiyat ve m² maliyet hesabı için ayrı LED ekran fiyat rehberini inceleyin.",
   alternates: buildLanguageAlternates({ tr: PAGE_URL, canonical: PAGE_URL }),

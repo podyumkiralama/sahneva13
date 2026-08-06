@@ -138,25 +138,6 @@ function ArticleSchema() {
         dateModified: MODIFIED_DATE,
         articleSection: ["Etkinlik", "E-Spor", "Teknik Prodüksiyon"],
       },
-      {
-        "@type": "Event",
-        "@id": `${BLOG_URL}#event`,
-        name: "PUBG Mobile Guinness Dünya Rekoru™ Türkiye Buluşması",
-        startDate: "2026-01-25T00:00:00+03:00",
-        endDate: "2026-01-25T23:59:59+03:00",
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        eventStatus: "https://schema.org/EventScheduled",
-        location: {
-          "@type": "Place",
-          name: "FİŞEKHANE",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "İstanbul",
-            addressCountry: "TR",
-          },
-        },
-        organizer: { "@id": ORGANIZATION_ID },
-      },
     ],
   };
 
