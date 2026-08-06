@@ -1,12 +1,8 @@
-import Link from "next/link";
 
 import RegionalRentalClient from "./RegionalRentalClient";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
-import {
-  getIndexableRegionalCities,
-  getRegionalCity,
-} from "@/lib/seo/regionalCities";
+import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
@@ -153,7 +149,12 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
   return <JsonLdScript data={jsonLd} />;
 }
 
-function CityDirectory() {
+// Onceden burada 80 sehir sayfasina link veren bir dizin vardi. Sayfalar 7
+// sablondan uretildigi icin kaldirildi ve hub'a 301'lendi; kapsama bilgisi
+// duz metin olarak kaliyor.
+function CoverageNote() {
+  const cityNames = REGIONAL_CITIES.map((city) => city.name).join(", ");
+
   return (
     <section
       aria-labelledby="tum-sehirler-baslik"
@@ -162,28 +163,22 @@ function CityDirectory() {
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
         <div className="max-w-3xl">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
-            81 il statik kiralama ağı
+            81 il kurulum ağı
           </p>
           <h2 id="tum-sehirler-baslik" className="mt-3 text-2xl font-black md:text-3xl">
-            Şehriniz için yerel kiralama planını açın
+            Hangi illerde kurulum yapıyoruz?
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-white/68">
-            Her şehir sayfası build anında üretilir; şehir adı, yerel operasyon bağlamı
-            ve City tabanlı areaServed schema sinyaliyle çalışır.
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
+            Ekip ve ekipman İstanbul’dan çıkar; mesafeye göre kurulum penceresi,
+            ekip sayısı ve nakliye maliyeti değişir. Marmara içi projelerde aynı gün
+            kurulum planlanabilirken uzak illerde kurulum genellikle etkinlikten
+            bir gün önce yapılır. Nakliye kalemi ilk teklifte ayrı satır olarak yer alır.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {getIndexableRegionalCities().map((city) => (
-            <Link
-              key={city.slug}
-              href={`/bolgesel-kiralama/${city.slug}`}
-              prefetch={false}
-              className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-bold text-white/82 hover:bg-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-            >
-              {city.name} kiralama
-            </Link>
-          ))}
+        <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+          <p className="text-sm font-bold text-blue-200">Hizmet verdiğimiz iller</p>
+          <p className="mt-3 text-sm leading-7 text-white/70">{cityNames}</p>
         </div>
       </div>
     </section>
@@ -274,7 +269,9 @@ export default function Page() {
     },
   ];
 
-  const publicRegions = regions.filter((region) => getRegionalCity(region.slug));
+  // Onceden bu filtre, sayfasi olmayan sehri (Istanbul) karttan dusuruyordu.
+  // Kartlar artik sehir sayfasina degil teklif akisina gittigi icin gerek kalmadi.
+  const publicRegions = regions;
 
   const services = [
     { title: "LED Ekran Kiralama", href: "/led-ekran-kiralama" },
@@ -325,7 +322,7 @@ export default function Page() {
     <div className="relative overflow-hidden">
       <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={publicRegions} />
       <RegionalRentalClient regions={publicRegions} services={services} faqs={faqs} steps={steps} />
-      <CityDirectory />
+      <CoverageNote />
     </div>
   );
 }

@@ -611,10 +611,12 @@ function RegionDetailCard({ region, services }) {
   );
 }
 
-function buildCityPageHref(locale, citySlug) {
-  if (locale === "en") return "/en/regional-rental#regions";
-  if (locale === "de") return "/de/regionale-vermietung#regions";
-  return `/bolgesel-kiralama/${citySlug}`;
+// Sehir bazli sayfalar kaldirildi; kart CTA'si ("... icin Teklif Al") artik
+// dogrudan teklif akisina gidiyor. EN/DE zaten kendi sayfasinda kaliyordu.
+function buildCityPageHref(locale) {
+  if (locale === "en") return "/en/contact";
+  if (locale === "de") return "/de/kontakt";
+  return "/iletisim";
 }
 
 function FaqItem({ q, a, prompt }) {
@@ -864,7 +866,7 @@ export default function RegionalRentalClient({
               <CityCard
                 region={region}
                 imgSrc={cityImages[region.slug]}
-                href={buildCityPageHref(locale, region.slug)}
+                href={buildCityPageHref(locale)}
                 copy={copy}
               />
             </Reveal>

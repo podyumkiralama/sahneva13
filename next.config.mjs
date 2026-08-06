@@ -145,22 +145,35 @@ const nextConfig = {
   output: isProd ? "standalone" : undefined,
   staticPageGenerationTimeout: 300,
 
+  // Yonlendirme konvansiyonu: her kural `statusCode: 301` kullanir.
+  // `permanent: true` kullanilmaz, cunku Next onu 308 olarak yayinlar; kodda
+  // "permanent" yazip HTTP'de 308 gormek kafa karistiriyordu. Ikisi ayni
+  // kuralda birlikte kullanilamaz.
   async redirects() {
     return [
       {
         source: "/bolgesel-kiralama/istanbul",
         destination: "/sahne-kiralama",
-        permanent: true,
+        statusCode: 301,
+      },
+      // Sehir bazli sayfalar kaldirildi: 81 il, 7 sablondan uretiliyordu ve
+      // sayfalar birbirine %82-96 benzedigi icin hizmet sayfalariyla ayni
+      // sorgularda yarisiyordu. Biriken sinyaller hub'a tasinsin diye 301.
+      // Not: istanbul kaydi bu kuraldan once gelmeli, sirayla eslesiyor.
+      {
+        source: "/bolgesel-kiralama/:sehir",
+        destination: "/bolgesel-kiralama",
+        statusCode: 301,
       },
       {
         source: "/sahne-kurulumu",
         destination: "/sahne-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/dome-cadir-kiralama",
         destination: "/cadir-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/isik-sistemleri-kiralama",
@@ -175,112 +188,112 @@ const nextConfig = {
       {
         source: "/site.webmanifest",
         destination: "/manifest.json",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/arama",
         destination: "/search",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/public/img/led/:path*",
         destination: "/img/led/:path*",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/img/sahneva-logo.svg",
         destination: "/img/logo.svg",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/img/logo-dark.webp",
         destination: "/img/sahneva-logo-dark-theme.png",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/led-ekran-kiralama-1",
         destination: "/led-ekran-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/led-ekran-kiralama-2",
         destination: "/led-ekran-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/podyum-kiralama-0",
         destination: "/podyum-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/sahne-kiralama-2",
         destination: "/sahne-kiralama",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/podyum-kiralama-fiyatlari",
         destination: "/podyum-kurulum-fiyatlari",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/podyum-kiralama-fiyatlari-1",
         destination: "/podyum-kurulum-fiyatlari",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/iletisim-0",
         destination: "/iletisim",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/hizmetler-1",
         destination: "/hizmetler",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/_next-live/:path*",
         destination: "/",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/-0",
         destination: "/",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog-1",
         destination: "/blog",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/blog-1",
         destination: "/en/blog",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/contact-0",
         destination: "/en/contact",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/sound-light-rental-2",
         destination: "/en/sound-light-rental",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/led-screen-rental-1",
         destination: "/en/led-screen-rental",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/img/ses-isik/lacoustics.png-11",
         destination: "/img/ses-isik/lacoustics.png",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/img/sahne/2.webp-1",
         destination: "/img/sahne/2.webp",
-        permanent: true,
+        statusCode: 301,
       },
       {
         // Genel kural: "-0", "-1", "-11" gibi sonuna 1-2 rakam eklenmiş hayalet
@@ -289,20 +302,20 @@ const nextConfig = {
         // "-2026" gibi rakamla biten meşru slug'ların bölünmesini engeller.
         source: "/:path(.*[^0-9])-:num([0-9]{1,2})",
         destination: "/:path",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/$",
         destination: "/",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/&",
         destination: "/",
-        permanent: true,
+        statusCode: 301,
       },
-      { source: "/faq", destination: "/en/faq", permanent: true },
-      { source: "/faq/", destination: "/en/faq", permanent: true },
+      { source: "/faq", destination: "/en/faq", statusCode: 301 },
+      { source: "/faq/", destination: "/en/faq", statusCode: 301 },
       {
         source: "/blog/2026-cadir-kiralama-rehberi-organizasyon-icin-secenekler",
         destination: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
@@ -315,7 +328,7 @@ const nextConfig = {
         // varyantları kaçırıyor.
         source: "/:path(.*-2026)-:num([0-9]{1,2})",
         destination: "/:path",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/ses-sistemlerinde-2026-yenilikleri-mikrofon-ve-line-array",
@@ -330,52 +343,52 @@ const nextConfig = {
       {
         source: "/blog/led-ekran-kurulum-guvenligi-2",
         destination: "/blog/led-ekran-kurulum-guvenligi",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi-2",
         destination: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/neden-podyum-sahne-tercih-edilir-2",
         destination: "/blog/neden-podyum-sahne-tercih-edilir",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/fisekhane-pubg-guinness-rekoru-2",
         destination: "/blog/fisekhane-pubg-guinness-rekoru",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping-2",
         destination: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi-2",
         destination: "/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/pmgc-dunya-finali-sahne-arkasi-2",
         destination: "/blog/pmgc-dunya-finali-sahne-arkasi",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi-2",
         destination: "/blog/mezuniyet-organizasyonlari-2026-istanbul-rehberi",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/blog/graduation-events-2026-istanbul-guide-2",
         destination: "/en/blog/graduation-events-2026-istanbul-guide",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/en/blog/dome-tent-revolution-pneumatic-360-mapping-2",
         destination: "/en/blog/dome-tent-revolution-pneumatic-360-mapping",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },
