@@ -23,8 +23,9 @@ import {
   CheckCircle, 
   Eye, 
   Layers, 
-  Users, 
-  Music
+  Users,
+  Music,
+  Phone
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -36,9 +37,14 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const PHONE = "+905453048671";
+const PHONE_DISPLAY = "+90 545 304 86 71";
 const WA_TEXT =
   "Merhaba, çadır kiralama için teklif istiyorum. Etkinlik türü: [düğün/fuar/konser], Tarih: [gg.aa.yyyy], Kişi sayısı: [xxx].";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
+
+// hero.webp gercek olculeri: 1200x630 olarak bildirilmesi paylasim onizlemesini bozuyordu.
+const HERO_IMAGE_WIDTH = 1024;
+const HERO_IMAGE_HEIGHT = 541;
 
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
@@ -75,8 +81,8 @@ export const metadata = {
     images: [
       {
         url: `${ORIGIN}/img/cadir/hero.webp`,
-        width: 1200,
-        height: 630,
+        width: HERO_IMAGE_WIDTH,
+        height: HERO_IMAGE_HEIGHT,
         alt: "Sahneva Organizasyon çadır kiralama - pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
       },
     ],
@@ -95,8 +101,18 @@ export const metadata = {
 const HERO = {
   src: "/img/cadir/hero.webp",
   alt: "Çadır kiralama için pagoda, şeffaf ve büyük etkinlik çadırı kurulumu",
-  sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px",
+  // Kaynak gorsel 1024px genisliginde; daha buyuk bir deger istemek ek byte getirmiyor.
+  sizes: "(max-width: 768px) 100vw, 1024px",
 };
+
+const PAGE_SECTIONS = [
+  { href: "#cadir-tipleri", label: "Çadır tipleri" },
+  { href: "#stok-kapasitesi", label: "Stok ve kapasite" },
+  { href: "#fiyatlar", label: "Fiyatlar" },
+  { href: "#referanslar", label: "Referanslar" },
+  { href: "#guvenlik-standartlari", label: "Güvenlik standardı" },
+  { href: "#sss", label: "Sık sorulanlar" },
+];
 
 const TURNKEY_FEATURES = [
   "Zemin tipine uygun profesyonel ankraj ve sabitleme çözümleri",
@@ -122,26 +138,28 @@ const VIDEO_EMBEDS = [
   },
 ];
 
+// Not: cadir-saha-3 ve cadir-saha-9 karelerinde sosyal medya filigrani/arayuz izi
+// bulunduğu icin galeriden cikarildi; cadir-saha-5 ayni sahanin temiz cekimi.
 const GALLERY_IMAGES = [
-  { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva çadır kiralama - gerçek saha kurulumu etkinlik alanı" },
-  { src: "/img/cadir/cadir-saha-2.webp", alt: "Profesyonel çadır kurulumu - anahtar teslim etkinlik alanı" },
-  { src: "/img/cadir/cadir-saha-3.webp", alt: "Çadır kiralama saha görseli - büyük açıklıklı kurulum" },
-  { src: "/img/cadir/cadir-saha-4.webp", alt: "Etkinlik çadırı kurulumu - Sahneva profesyonel ekip" },
-  { src: "/img/cadir/cadir-saha-5.webp", alt: "Çadır kiralama referans görseli - açık hava etkinlik alanı" },
-  { src: "/img/cadir/cadir-saha-6.webp", alt: "Sahneva çadır kurulumu - kurumsal etkinlik sahası" },
-  { src: "/img/cadir/cadir-saha-7.webp", alt: "Profesyonel çadır kiralama - etkinlik planı ve kurulum" },
-  { src: "/img/cadir/cadir-saha-8.webp", alt: "Çadır kiralama saha detayı - güvenli ve planlı kurulum" },
-  { src: "/img/cadir/cadir-saha-9.webp", alt: "Sahneva çadır etkinlik alanı - tamamlanmış kurulum görseli" },
-  { src: "/img/cadir/1.webp", alt: "Pagoda çadır kurulumu - Düğün etkinliği için profesyonel çadır düzeni" },
-  { src: "/img/cadir/2.webp", alt: "Şeffaf dome çadır kurulumu - özel davetler için atmosfer" },
-  { src: "/img/cadir/3.webp", alt: "Büyük açıklıklı çadır kurulumu - geniş etkinlik alanı çözümü" },
+  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Büyük açıklıklı çadırın vinçle kurulumu, yanında pagoda çadırlar" },
+  { src: "/img/cadir/cadir-saha-1.webp", alt: "Deniz kenarındaki fuar alanında büyük açıklıklı çadır ve pagoda çadır sırası" },
+  { src: "/img/cadir/seffaf.webp", alt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı" },
+  { src: "/img/cadir/pagoda.webp", alt: "Yan yana dizilmiş pagoda çadırlar ve önünde yükseltilmiş oturma platformu" },
+  { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Büyük ölçekli çadır iskeletinin vinçle monte edilmesi" },
+  { src: "/img/cadir/cadir-saha-5.webp", alt: "Festival alanında kalabalık ziyaretçi akışına açılan büyük etkinlik çadırı" },
+  { src: "/img/cadir/cadir-saha-7.webp", alt: "Fuar çadırının iç görünümü: stant sıraları ve geniş açıklıklı taşıyıcı yapı" },
+  { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulmuş yan duvarsız büyük açıklıklı etkinlik çadırı" },
+  { src: "/img/cadir/cadir-saha-2.webp", alt: "Beton zemine kurulmuş kolonsuz büyük açıklıklı çadır" },
+  { src: "/img/cadir/1.webp", alt: "Düğün etkinliği için kurulan pagoda çadır düzeni" },
+  { src: "/img/cadir/2.webp", alt: "Çadır içinde kurulan sahne, LED ekran ve oturma alanı düzeni" },
+  { src: "/img/cadir/3.webp", alt: "Geniş etkinlik alanı için büyük açıklıklı çadır çözümü" },
 ];
 
 const GALLERY_FALLBACK_CARDS = [
-  { src: "/img/cadir/cadir-saha-1.webp", title: "Gerçek Saha Kurulumu", alt: "Sahneva çadır kiralama gerçek saha kurulumu etkinlik alanı" },
-  { src: "/img/cadir/cadir-saha-2.webp", title: "Anahtar Teslim Kurulum", alt: "Profesyonel çadır kurulumu anahtar teslim etkinlik alanı" },
-  { src: "/img/cadir/cadir-saha-4.webp", title: "Etkinlik Alanı Kurulumu", alt: "Etkinlik çadırı kurulumu Sahneva profesyonel ekip" },
-  { src: "/img/cadir/cadir-saha-6.webp", title: "Kurumsal Etkinlik Sahası", alt: "Sahneva çadır kurulumu kurumsal etkinlik sahası" },
+  { src: "/img/cadir/sahneva-cadir-kurulumu.webp", title: "Vinçli Büyük Kurulum", alt: "Büyük açıklıklı çadırın vinçle kurulumu" },
+  { src: "/img/cadir/cadir-saha-1.webp", title: "Fuar Alanı Kurulumu", alt: "Deniz kenarındaki fuar alanında büyük çadır ve pagoda çadırlar" },
+  { src: "/img/cadir/seffaf.webp", title: "Şeffaf Davet Çadırı", alt: "Gece aydınlatmalı şeffaf çadır kurulumu" },
+  { src: "/img/cadir/cadir-saha-8.webp", title: "Meydan Kurulumu", alt: "Meydanda kurulmuş büyük açıklıklı etkinlik çadırı" },
 ];
 
 const FAQ_ITEMS = [
@@ -226,8 +244,8 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Pagoda Çadır",
     badge: "Karşılama ve fuaye",
-    img: "/img/cadir/cadir-saha-1.webp",
-    imgAlt: "Pagoda çadır kiralama kurulum görseli",
+    img: "/img/cadir/pagoda.webp",
+    imgAlt: "Yan yana dizilmiş pagoda çadırlar ve etkinlik alanı platformu",
     usage: "Karşılama, fuaye, VIP alan, küçük etkinlik ve kayıt noktası",
     sizing: "3x3, 4x4 ve 5x5 modüllerle alan ihtiyacına göre büyür.",
     advantage: "Hızlı kurulur, kurumsal görünür ve yan yana çoğaltılabilir.",
@@ -235,29 +253,20 @@ const TENT_SELECTOR_CARDS = [
   {
     title: "Şeffaf Çadır",
     badge: "Premium davet",
-    img: "/img/cadir/cadir-saha-7.webp",
-    imgAlt: "Şeffaf çadır kiralama iç mekan premium davet atmosferi",
+    img: "/img/cadir/seffaf.webp",
+    imgAlt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı",
     usage: "Kır düğünü, premium davet, lansman ve manzaralı açık alan",
     sizing: "Manzara, masa düzeni, ışık ve giriş aksına göre planlanır.",
     advantage: "Mekan hissini kapatmadan hava koşullarına karşı kontrollü alan sağlar.",
   },
   {
-    title: "Büyük Etkinlik Çadırı",
+    title: "Büyük Açıklıklı Çadır",
     badge: "Fuar ve festival",
     img: "/img/cadir/cadir-saha-1.webp",
-    imgAlt: "Büyük etkinlik çadırı fuar ve festival drone kurulum görseli",
-    usage: "Fuar, festival, belediye etkinliği ve kalabalık organizasyon",
-    sizing: "10, 20, 30 ve 40 m geniş açıklık seçenekleriyle projelendirilir.",
-    advantage: "Geniş açıklık, kontrollü giriş-çıkış ve teknik entegrasyon imkanı sunar.",
-  },
-  {
-    title: "Büyük Açıklıklı Çadır",
-    badge: "Geniş alan",
-    img: "/img/cadir/cadir-saha-9.webp",
-    imgAlt: "Büyük açıklıklı çadır kiralama etkinlik alanı görseli",
-    usage: "Fuar, festival, yemek alanı, protokol alanı ve büyük katılımlı organizasyonlar",
-    sizing: "Genişlik, masa düzeni, giriş-çıkış akışı ve zemin durumuna göre projelendirilir.",
-    advantage: "Kolonsuz geniş alan ihtiyacını hızlı ve kontrollü şekilde çözer.",
+    imgAlt: "Fuar alanında kurulmuş büyük açıklıklı çadır ve yanındaki pagoda çadırlar",
+    usage: "Fuar, festival, belediye etkinliği, yemek ve protokol alanı",
+    sizing: "10, 20, 30 ve 40 m açıklık seçenekleriyle projelendirilir.",
+    advantage: "Kolonsuz geniş alan, kontrollü giriş-çıkış ve teknik entegrasyon sağlar.",
   },
 ];
 
@@ -392,10 +401,17 @@ const HERO_METRICS = [
   { value: "370", suffix: "adet", label: "Pagoda çadır stoğu" },
   { value: "11.000", suffix: "m²", label: "Büyük açıklıklı kapasite" },
   { value: "7.000 TL", suffix: "+ nakliye", label: "3x3 başlangıç fiyatı" },
-  { value: "Rüzgar", suffix: "& zemin", label: "Güvenlik kontrolü" },
+  { value: "Rüzgâr", suffix: "& zemin", label: "Güvenlik kontrolü" },
 ];
 
 const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
+
+const HERO_BADGES = [
+  { icon: "📐", title: "Saha keşfi", detail: "Ölçü ve zemin analizi" },
+  { icon: "🧰", title: "Kendi ekibimiz", detail: "Kurulum ve saha desteği" },
+  { icon: "🚚", title: "Türkiye geneli", detail: "Nakliye ilk teklifte net" },
+  { icon: "💳", title: "Taksitli ödeme", detail: "Kredi kartına taksit" },
+];
 
 /* ================== HERO ================== */
 function Hero() {
@@ -410,11 +426,9 @@ function Hero() {
           alt={HERO.alt}
           fill
           priority
-          loading="eager"
-          fetchPriority="high"
           className="object-cover"
           sizes={HERO.sizes}
-          quality={88}
+          quality={72}
           blurDataURL={BLUR_DATA_URL}
           placeholder="blur"
         />
@@ -476,36 +490,27 @@ function Hero() {
               </Link>
 
               <Link
-                href="#cadir-tipleri"
+                href={`tel:${PHONE}`}
                 className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.06] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.14] active:scale-[0.985]"
               >
-                ÇADIR TİPLERİNİ İNCELE
+                <Phone className="h-5 w-5" aria-hidden="true" />
+                {PHONE_DISPLAY}
               </Link>
             </div>
 
             {/* Güven Rozetleri */}
-            <div className="mt-10 grid grid-cols-2 gap-3 max-w-2xl sm:grid-cols-4 sm:gap-6 border-t border-white/10 pt-8">
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center">
-                <span className="text-2xl mb-1.5" aria-hidden="true">⭐</span>
-                <div className="text-lg md:text-xl font-black text-white">Keşif</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Planlı Kurulum</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">🏆</span>
-                <div className="text-lg md:text-xl font-black text-white">Ekip</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Saha Koordinasyonu</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">🚀</span>
-                <div className="text-lg md:text-xl font-black text-white">Türkiye</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Planlı Lojistik</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">💳</span>
-                <div className="text-lg md:text-xl font-black text-white">Kart</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Taksitli Ödeme</div>
-              </div>
-            </div>
+            <ul className="mt-10 grid grid-cols-2 gap-3 max-w-2xl sm:grid-cols-4 sm:gap-6 border-t border-white/10 pt-8">
+              {HERO_BADGES.map((badge, i) => (
+                <li
+                  key={badge.title}
+                  className={`flex flex-col items-start sm:items-center text-left sm:text-center ${i > 0 ? "border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0" : ""}`}
+                >
+                  <span className="text-2xl mb-1.5" aria-hidden="true">{badge.icon}</span>
+                  <span className="text-lg md:text-xl font-black text-white">{badge.title}</span>
+                  <span className="text-blue-200/80 text-xs md:text-sm font-medium">{badge.detail}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end mt-4 xl:mt-0" aria-label="Kapasite özeti">
@@ -546,12 +551,37 @@ function Hero() {
     </section>
   );
 }
+/* ================== Sayfa İçi Hızlı Geçiş ================== */
+function SectionJumpNav() {
+  return (
+    <nav
+      aria-label="Sayfa içi bölümler"
+      className="border-b border-slate-200 bg-white"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <ul className="flex snap-x gap-2 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {PAGE_SECTIONS.map((section) => (
+            <li key={section.href} className="snap-start">
+              <Link
+                href={section.href}
+                className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-5 text-sm font-black text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+              >
+                {section.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
 /* ================== Çadır Tipi Karar Kartları ================== */
 function TentSelectorSection() {
   return (
     <section
       id="cadir-tipleri"
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_760px] bg-white py-20"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_760px] bg-white py-20"
       aria-labelledby="cadir-tipleri-baslik"
     >
       <div className="container mx-auto max-w-7xl px-5">
@@ -571,7 +601,7 @@ function TentSelectorSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {TENT_SELECTOR_CARDS.map((item) => (
             <article
               key={item.title}
@@ -583,7 +613,7 @@ function TentSelectorSection() {
                   src={item.img}
                   alt={item.imgAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   quality={78}
                   loading="lazy"
@@ -619,29 +649,19 @@ function TentSelectorSection() {
           ))}
         </div>
 
-        {/* Saha fotoğrafları — çadır tiplerini somutlaştırır */}
-        <div className="mt-10 grid grid-cols-3 gap-3 md:gap-4">
-          {[
-            { src: "/img/cadir/cadir-saha-1.webp", alt: "Sahneva pagoda çadır kurulumu saha görüntüsü", label: "Pagoda Kurulum" },
-            { src: "/img/cadir/cadir-saha-3.webp", alt: "Büyük açıklıklı çadır kurulumu etkinlik alanı", label: "Büyük Açıklık" },
-            { src: "/img/cadir/cadir-saha-6.webp", alt: "Kurumsal çadır etkinlik sahası kurulumu", label: "Kurumsal Alan" },
-          ].map((photo) => (
-            <div key={photo.src} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 768px) 33vw, 33vw"
-                className="object-cover"
-                quality={78}
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-xs font-black uppercase tracking-wider text-white">
-                {photo.label}
-              </span>
-            </div>
-          ))}
+        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-base leading-7 text-slate-700">
+            Hangi tipin uygun olduğundan emin değilseniz ölçü, tarih ve zemin bilgisini
+            paylaşın; çadır tipini ve yerleşim planını birlikte netleştirelim.
+          </p>
+          <Link
+            href={WHATSAPP}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-flex min-h-[48px] shrink-0 items-center justify-center rounded-2xl bg-blue-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+          >
+            Uygun çadır tipini sorun
+          </Link>
         </div>
       </div>
     </section>
@@ -653,7 +673,7 @@ function TentStockSection() {
   return (
     <section
       id="stok-kapasitesi"
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
       aria-labelledby="stok-kapasitesi-baslik"
     >
       <div
@@ -754,7 +774,7 @@ function TentStockSection() {
 function TurnkeyInfrastructure() {
   return (
     <section
-      className="py-16 bg-white nc-CadirKiralamaPage-section-0"
+      className="py-16 bg-white"
       aria-labelledby="anahtar-teslim-baslik"
     >
       <div className="container mx-auto px-4">
@@ -789,8 +809,8 @@ function TurnkeyInfrastructure() {
             <div className="relative overflow-hidden rounded-3xl w-full lg:max-w-xs shadow-xl">
               <div className="relative aspect-[3/4]">
                 <Image
-                  src="/img/cadir/cadir-saha-2.webp"
-                  alt="Sahneva anahtar teslim çadır kurulumu saha fotoğrafı"
+                  src="/img/cadir/sahneva-cadir-kurulumu.webp"
+                  alt="Büyük açıklıklı çadırın vinçle kurulumu ve yanında hazırlanan pagoda çadırlar"
                   fill
                   sizes="(max-width: 1024px) 100vw, 320px"
                   className="object-cover"
@@ -861,7 +881,6 @@ function Gallery() {
       before: "Açık fuar alanında hava koşullarına uygun, geniş ve kontrollü bir etkinlik alanına ihtiyaç duyulması.",
       after: "Büyük açıklıklı çadır, LED ekran, sahne, ses-ışık ve güç dağıtımı aynı teknik planda kuruldu.",
       result: "Ziyaretçi akışı, teknik alan ve etkinlik içi kullanım daha kontrollü şekilde yönetildi.",
-      summary: "Uygulama özeti: büyük çadır, sahne, LED ekran, ses ve ışık entegrasyonu tek saha planında toplandı.",
     },
     {
       title: "Sarıyer Şeffaf Kır Düğünü Çadırı",
@@ -870,7 +889,6 @@ function Gallery() {
       before: "Orman içindeki düğünde yağmur riski bulunmasına rağmen, çiftin doğal manzarayı kapatmak istememesi.",
       after: "Şeffaf dome ve pagoda çadırlar kuruldu, iç mekan estetik LED aydınlatmalarla hazırlandı.",
       result: "Gece aydınlatmasıyla davet atmosferi güçlendirildi, alan kontrollü ve konforlu hale getirildi.",
-      summary: "Uygulama özeti: şeffaf çadır, zemin düzeni ve ambiyans ışığı birlikte planlanarak yağmur riskine karşı kontrollü davet alanı oluşturuldu.",
     },
     {
       title: "Kocaeli Büyük Açıklıklı Çadır Kurulumu",
@@ -879,7 +897,6 @@ function Gallery() {
       before: "Kocaeli projesinde geniş ve hızlı kurulabilir etkinlik alanı ihtiyacının ortaya çıkması.",
       after: "Geniş açıklıklı çadır sistemi, giriş-çıkış akışı ve zemin kullanımı dikkate alınarak kuruldu.",
       result: "Alan, etkinlik ihtiyacını karşılayacak şekilde kullanıma hazırlandı.",
-      summary: "Uygulama özeti: geniş açıklık, zemin kullanımı ve giriş-çıkış akışı birlikte planlandı.",
     },
     {
       title: "Beşiktaş Kurumsal Lansman Çadırı",
@@ -888,13 +905,13 @@ function Gallery() {
       before: "Lansman öncesi misafir karşılama alanı için otelin açık bölümünün estetik bir mekana çevrilme ihtiyacı.",
       after: "Sıralı 5x5 pagoda çadırlar kuruldu, zemin özel halı ile kaplandı ve alan uygun iklimlendirme desteğiyle hazırlandı.",
       result: "Misafir karşılama alanı, marka diliyle uyumlu ve konforlu bir düzene kavuştu.",
-      summary: "Uygulama özeti: pagoda çadır, halı zemin ve iklimlendirme ile marka lansmanına uygun bir fuaye alanı hazırlandı.",
     },
   ];
 
   return (
     <section
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1600px] lg:[contain-intrinsic-size:auto_1320px] bg-slate-50 py-16"
+      id="referanslar"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_2600px] md:[contain-intrinsic-size:auto_1900px] lg:[contain-intrinsic-size:auto_1560px] bg-slate-50 py-16"
       aria-labelledby="galeri-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
@@ -926,7 +943,7 @@ function Gallery() {
                 <span className="inline-flex rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-1 text-xs font-black uppercase tracking-[0.7px] text-blue-700">
                   {story.category}
                 </span>
-                <div className="text-xs font-mono text-slate-500">0{index + 1}</div>
+                <div className="text-xs font-mono text-slate-600">0{index + 1}</div>
               </div>
               <h3 className="mt-6 text-[21px] font-black leading-tight tracking-tight text-gray-950 pr-4">
                 {story.title}
@@ -934,12 +951,30 @@ function Gallery() {
               <p className="mt-4 text-[15px] font-semibold leading-snug text-blue-700">
                 {story.transformation}
               </p>
-              <div className="mt-6 border-t border-slate-100 pt-5">
-                <div className="flex gap-3">
-                  <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-500" aria-hidden="true" />
-                  <p className="text-[14.5px] leading-relaxed text-gray-600">{story.summary}</p>
+
+              <dl className="mt-6 space-y-4 border-t border-slate-100 pt-5 text-[14.5px] leading-relaxed">
+                <div>
+                  <dt className="text-xs font-black uppercase tracking-wider text-slate-600">
+                    İhtiyaç
+                  </dt>
+                  <dd className="mt-1 text-gray-600">{story.before}</dd>
                 </div>
-              </div>
+                <div>
+                  <dt className="text-xs font-black uppercase tracking-wider text-slate-600">
+                    Uygulama
+                  </dt>
+                  <dd className="mt-1 text-gray-600">{story.after}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-black uppercase tracking-wider text-emerald-700">
+                    Sonuç
+                  </dt>
+                  <dd className="mt-1 flex gap-2 text-gray-700">
+                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600" aria-hidden="true" />
+                    <span>{story.result}</span>
+                  </dd>
+                </div>
+              </dl>
             </article>
           ))}
         </div>
@@ -1020,7 +1055,8 @@ function Gallery() {
 function PricingSection() {
   return (
     <section
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
+      id="fiyatlar"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
       aria-labelledby="fiyatlandirma-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -1108,7 +1144,8 @@ function PricingSection() {
 function StandardsTable() {
   return (
     <section
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_880px] relative overflow-hidden bg-[#0a1429] py-20 text-white nc-CadirKiralamaPage-section-standards"
+      id="guvenlik-standartlari"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1200px] lg:[contain-intrinsic-size:auto_720px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
       aria-labelledby="sahneva-standartlari-baslik"
     >
       <div
@@ -1151,27 +1188,18 @@ function StandardsTable() {
           ))}
         </div>
 
-        <div className="mt-10 mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/[0.14] bg-white/[0.06] shadow-xl">
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-left text-base">
-              <thead className="bg-white/[0.10] text-white">
-                <tr>
-                  <th className="px-6 py-4 font-bold">Özellik</th>
-                  <th className="px-6 py-4 font-bold">Standartlarımız</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/10">
-                {STANDARDS.map((row) => (
-                  <tr key={row.feature} className="hover:bg-white/[0.08]">
-                    <td className="px-6 py-4 font-semibold text-white">
-                      {row.feature}
-                    </td>
-                    <td className="px-6 py-4 text-cyan-50/[0.78]">{row.standard}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="mt-10 mx-auto flex max-w-5xl flex-col gap-4 rounded-3xl border border-white/[0.14] bg-white/[0.06] p-6 backdrop-blur-md md:flex-row md:items-center md:justify-between">
+          <p className="text-base leading-7 text-cyan-50/[0.78]">
+            Kurulum öncesinde zemin, açıklık ve hava durumu birlikte değerlendirilir;
+            sabitleme yöntemi saha keşfinde netleştirilir.
+          </p>
+          <Link
+            href={`tel:${PHONE}`}
+            className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3 font-black text-[#0a1429] shadow-lg transition hover:bg-cyan-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+          >
+            <Phone className="h-5 w-5" aria-hidden="true" />
+            Teknik ekibi arayın
+          </Link>
         </div>
       </div>
     </section>
@@ -1182,7 +1210,7 @@ function StandardsTable() {
 function UseCases() {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95 nc-CadirKiralamaPage-section-5"
+      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1205,12 +1233,11 @@ function UseCases() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" role="list">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {USE_CASES.map((uc) => (
-            <div
+            <li
               key={uc.text}
               className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105"
-              role="listitem"
             >
               <div className="flex flex-col items-start gap-4">
                 <div
@@ -1223,14 +1250,14 @@ function UseCases() {
                   <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
                     {uc.text}
                   </h3>
-                  <p className="text-white/70 text-lg leading-relaxed">
+                  <p className="text-white/80 text-lg leading-relaxed">
                     {uc.desc}
                   </p>
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="text-center mt-12">
           <Link
@@ -1293,10 +1320,10 @@ function InstallationProcess() {
         {/* Kurulum sürecinden saha fotoğrafları */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-6xl mx-auto mb-10">
           {[
-            { src: "/img/cadir/cadir-saha-4.webp", alt: "Çadır kurulum ekibi saha çalışması" },
-            { src: "/img/cadir/cadir-saha-5.webp", alt: "Açık hava çadır kurulumu etkinlik alanı" },
-            { src: "/img/cadir/cadir-saha-7.webp", alt: "Çadır montaj detayı profesyonel kurulum" },
-            { src: "/img/cadir/cadir-saha-8.webp", alt: "Güvenli çadır sabitleme ve ankraj" },
+            { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Boş sahada çadır iskeletinin vinçle kurulması" },
+            { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Taşıyıcı iskelet üzerine çadır brandasının çekilmesi" },
+            { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulumu tamamlanmış büyük açıklıklı çadır" },
+            { src: "/img/cadir/cadir-saha-5.webp", alt: "Ziyaretçi akışına açılmış festival çadırı" },
           ].map((photo) => (
             <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
@@ -1308,27 +1335,26 @@ function InstallationProcess() {
                 quality={78}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-white/[0.04]" />
             </div>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {INSTALLATION_STEPS.map((step, index) => (
-            <article
+            <li
               key={step.title}
               className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 p-6 hover:bg-white/20 transition-all duration-500"
             >
-              <div className="text-3xl font-black text-white mb-4">
+              <div className="text-3xl font-black text-white mb-4" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
               <p className="text-blue-100 text-base leading-relaxed">
                 {step.description}
               </p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -1339,7 +1365,7 @@ function FAQ() {
   return (
     <section
       id="sss"
-      className="[content-visibility:auto] [contain-intrinsic-size:auto_1500px] bg-white py-20"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1500px] bg-white py-20"
       aria-labelledby="sss-baslik"
     >
       <div className="container mx-auto max-w-5xl px-4">
@@ -1359,12 +1385,18 @@ function FAQ() {
           {FAQ_ITEMS.map((faq) => (
             <details
               key={faq.q}
-              className="group rounded-3xl border border-slate-200 bg-slate-50 p-6 open:bg-white open:shadow-sm"
+              className="group rounded-3xl border-2 border-transparent bg-slate-50 transition-colors duration-300 hover:bg-slate-100 open:border-blue-200 open:bg-white open:shadow-sm [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="cursor-pointer list-none text-lg font-black text-gray-950">
-                {faq.q}
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl p-6 text-lg font-black text-gray-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
+                <span className="flex-1">{faq.q}</span>
+                <span
+                  aria-hidden="true"
+                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-xl leading-none text-blue-700 transition-transform duration-300 group-open:rotate-180"
+                >
+                  ⌄
+                </span>
               </summary>
-              <p className="mt-4 text-base leading-7 text-gray-700">
+              <p className="px-6 pb-6 text-base leading-7 text-gray-700">
                 {faq.a}
               </p>
             </details>
@@ -1438,6 +1470,55 @@ function RelatedServices() {
               </p>
             </Link>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================== Kapanış CTA ================== */
+function ClosingCta() {
+  return (
+    <section
+      className="relative overflow-hidden bg-[#0a1429] py-16 text-white"
+      aria-labelledby="kapanis-cta-baslik"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
+        aria-hidden="true"
+      />
+      <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
+        <h2 id="kapanis-cta-baslik" className="text-3xl font-black md:text-4xl">
+          Çadır planınızı birlikte netleştirelim
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-blue-100/80 md:text-lg">
+          Tarih, ölçü, şehir ve zemin bilgisini paylaşın; nakliye dahil kalem kalem
+          teklifi aynı gün içinde iletelim.
+        </p>
+
+        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <Link
+            href={WHATSAPP}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl bg-green-700 px-8 text-[17px] font-black text-white shadow-lg transition hover:bg-green-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+          >
+            <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            WhatsApp’tan teklif alın
+          </Link>
+          <Link
+            href={`tel:${PHONE}`}
+            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/[0.07] px-8 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+          >
+            <Phone className="h-5 w-5" aria-hidden="true" />
+            {PHONE_DISPLAY}
+          </Link>
+          <Link
+            href="/cadir-hesaplama"
+            className="inline-flex min-h-[56px] items-center justify-center rounded-2xl border border-white/30 bg-transparent px-8 text-[17px] font-black text-white transition hover:bg-white/[0.1] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+          >
+            Ölçü hesaplayıcıyı açın
+          </Link>
         </div>
       </div>
     </section>
@@ -1520,8 +1601,8 @@ function TentRentalJsonLd() {
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${ORIGIN}/img/cadir/hero.webp`,
-      width: 1200,
-      height: 630,
+      width: HERO_IMAGE_WIDTH,
+      height: HERO_IMAGE_HEIGHT,
     },
     image: [`${ORIGIN}/img/cadir/hero.webp`, ...gallerySchema.imageUrls],
     hasPart: [
@@ -1613,9 +1694,11 @@ function DividerDarkToLight() {
   );
 }
 
+// Gradient, InstallationProcess'in from-blue-700 / via-purple-700 / to-blue-800
+// degerleriyle birebir eslesmeli; aksi halde bolum gecisinde renk kaymasi olusuyor.
 function DividerBlueToWhite() {
   return (
-    <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #1d40af, #6d28d9, #1e40af)"}} aria-hidden="true">
+    <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #1d4ed8, #7e22ce, #1e40af)"}} aria-hidden="true">
       <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
         <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#ffffff" />
       </svg>
@@ -1639,6 +1722,7 @@ export default function Page() {
       <TentRentalJsonLd />
 
       <Hero />
+      <SectionJumpNav />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.tent} />
       <TentCalculatorCta />
       <TentSelectorSection />
@@ -1658,14 +1742,24 @@ export default function Page() {
       <RegionalCityLinks service="çadır kiralama" />
 
       <ServiceBlogLinks
+        eyebrow="Çadır içerik kümesi"
+        title="Çadır seçimine dair rehberler"
+        description="Çadır tipini, ölçüsünü ve kurulum takvimini netleştirmeden önce okunacak rehberler."
         links={[
+          {
+            href: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
+            label: "2026 Çadır Kiralama Rehberi",
+            intent: "Etkinlik türüne göre çadır sistemi seçimi",
+          },
           {
             href: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
             label: "Dome Çadır Rehberi",
+            intent: "Pnömatik yapı ve 360° mapping kurgusu",
           },
           {
             href: "/blog/kurumsal-etkinlik-yonetimi",
             label: "Kurumsal Etkinlik Yönetimi Rehberi",
+            intent: "Çadırı bütün etkinlik planına oturtmak için",
           },
         ]}
       />
@@ -1675,6 +1769,7 @@ export default function Page() {
         description="Ankraj, rüzgâr yükü, zemin ve su tahliyesi gibi başlıklar kurulumun güvenliğini belirler; tanımlar sözlükte."
       />
       <PaymentOptionsNote />
+      <ClosingCta />
     </>
   );
 }

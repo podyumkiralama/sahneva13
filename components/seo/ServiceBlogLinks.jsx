@@ -103,9 +103,9 @@ function TentRentalCompactAddons() {
 }
 
 export default function ServiceBlogLinks({
-  eyebrow = "Ic link akisi",
+  eyebrow = "İç link akışı",
   title = "Bu konuya dair rehberler",
-  description = "Ilgili blog yazilarindan detayli ipuclari ve guncel trendleri kesfedin.",
+  description = "İlgili blog yazılarından detaylı ipuçları ve güncel yaklaşımları keşfedin.",
   links = [],
   relatedServices = [],
   primaryIntent,
@@ -141,7 +141,7 @@ export default function ServiceBlogLinks({
     <>
       {showTentRentalAddons ? <TentRentalCompactAddons /> : null}
 
-      <nav aria-label={`${title} ic link kumesi`} className="mx-auto w-full max-w-6xl px-4 py-10">
+      <nav aria-label={`${title} iç link kümesi`} className="mx-auto w-full max-w-6xl px-4 py-10">
         <JsonLd data={itemListSchema} />
         <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <div className="max-w-3xl">
@@ -178,7 +178,7 @@ export default function ServiceBlogLinks({
               <div className="rounded-[1.6rem] border border-slate-200 bg-slate-50/80 p-5">
                 <div className="flex items-center gap-3 text-slate-900">
                   <BookOpenText className="h-5 w-5 text-blue-700" aria-hidden="true" />
-                  <div className="text-lg font-black">Ilgili rehber icerikler</div>
+                  <div className="text-lg font-black">İlgili rehber içerikler</div>
                 </div>
                 <ul className="mt-5 grid gap-3 md:grid-cols-2">
                   {links.map((link) => (
@@ -211,10 +211,10 @@ export default function ServiceBlogLinks({
               <div className="rounded-[1.6rem] border border-slate-200 bg-slate-950 p-5 text-white">
                 <div className="flex items-center gap-3">
                   <Network className="h-5 w-5 text-blue-300" aria-hidden="true" />
-                  <div className="text-lg font-black">Ilgili hizmet halkasi</div>
+                  <div className="text-lg font-black">İlgili hizmet halkası</div>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-white/65">
-                  Bu rehber ve hizmet kumesini destekleyen en yakin sayfalari burada topluyoruz.
+                  Bu rehber ve hizmet kümesini destekleyen en yakın sayfaları burada topluyoruz.
                 </p>
                 <ul className="mt-5 grid gap-3">
                   {relatedServices.map((service) => (
