@@ -6,16 +6,13 @@ import {
   ArrowUp,
   ArrowUpRight,
   Clock3,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
   Star,
-  Twitter,
-  Youtube,
 } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Youtube } from "@/components/icons/BrandIcons";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
 const FOCUS_RING_CLASS =
