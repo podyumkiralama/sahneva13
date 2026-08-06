@@ -142,7 +142,13 @@ const nextConfig = {
     NEXT_PUBLIC_APP_ENV: process.env.NODE_ENV ?? "development",
   },
 
-  output: isProd ? "standalone" : undefined,
+  // `standalone` yalnizca kendi sunucumuzda (Docker vb.) calistirmak icin gerekli:
+  // node_modules olmadan calisan bir .next/standalone klasoru uretir. Vercel kendi
+  // output file tracing adimini calistirdigi icin orada hem gereksiz hem de zararli;
+  // Next 16.3 ile standalone kopyalama adimi Vercel'de olmayan
+  // .next/next-server.js.nft.json dosyasini okumaya calisip build'i ENOENT ile
+  // dusuruyor. Bu yuzden Vercel'de kapatiliyor.
+  output: isProd && !process.env.VERCEL ? "standalone" : undefined,
   staticPageGenerationTimeout: 300,
 
   // Yonlendirme konvansiyonu: her kural `statusCode: 301` kullanir.
