@@ -44,7 +44,7 @@ export const metadata = {
     ru: "/ru/sound-light-rental",
     zh: "/zh/sound-light-rental",
     canonical: "/en/sound-light-rental",
-    xDefault: "/ses-isik-sistemleri",
+    xDefault: "/en/sound-light-rental",
   }),
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",

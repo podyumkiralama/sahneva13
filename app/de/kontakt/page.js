@@ -105,7 +105,7 @@ export const metadata = {
       ar: `${SITE_URL}/ar/contact`,
       ru: `${SITE_URL}/ru/contact`,
       zh: `${SITE_URL}/zh/contact`,
-      "x-default": `${SITE_URL}/iletisim`,
+      "x-default": `${SITE_URL}/en/contact`,
     },
   },
   openGraph: {

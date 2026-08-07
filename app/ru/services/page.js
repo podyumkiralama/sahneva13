@@ -52,7 +52,7 @@ export const metadata = {
       ar: `${SITE_URL}/ar/services`,
       ru: RU_SERVICES_URL,
       zh: `${SITE_URL}/zh/services`,
-      "x-default": `${SITE_URL}/hizmetler`,
+      "x-default": `${SITE_URL}/en/services`,
     },
   },
   openGraph: {

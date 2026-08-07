@@ -74,7 +74,7 @@ export const metadata = {
     de: "/de/buehne-mieten",
     ru: "/ru/stage-rental",
     zh: "/zh/stage-rental",
-    xDefault: "/sahne-kiralama",
+    xDefault: "/en/stage-rental",
   }),
   openGraph: {
     title: "Sahne Kiralama | Sahneva",

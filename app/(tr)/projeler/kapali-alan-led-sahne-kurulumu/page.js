@@ -18,7 +18,7 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`,
       en: `${SITE_URL}/en/projects/indoor-led-stage-installation-protocol-event`,
-      "x-default": `${SITE_URL}/projeler/kapali-alan-led-sahne-kurulumu`,
+      "x-default": `${SITE_URL}/en/projects/indoor-led-stage-installation-protocol-event`,
     },
   },
   openGraph: {

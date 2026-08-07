@@ -1,6 +1,7 @@
 import ServicePage from "../leistungen/ServicePage";
 import { GERMAN_SERVICE_PAGES } from "../leistungen/serviceData";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildLanguageAlternates } from "@/lib/seo/alternates";
 
 const service = GERMAN_SERVICE_PAGES["firmenevents"];
 const canonical = buildCanonical(service.href);
@@ -8,17 +9,14 @@ const canonical = buildCanonical(service.href);
 export const metadata = {
   title: service.metaTitle ?? service.title,
   description: service.metaDescription ?? service.description,
-  alternates: {
-    canonical,
-    languages: {
-      "tr-TR": `${SITE_URL}${service.equivalent.tr}`,
-      en: `${SITE_URL}${service.equivalent.en}`,
-      de: canonical,
-      ru: `${SITE_URL}${service.equivalent.ru}`,
-      zh: `${SITE_URL}${service.equivalent.zh}`,
-      "x-default": `${SITE_URL}${service.equivalent.tr}`,
-    },
-  },
+  alternates: buildLanguageAlternates({
+    tr: service.equivalent.tr,
+    en: service.equivalent.en,
+    de: service.href,
+    ru: service.equivalent.ru,
+    zh: service.equivalent.zh,
+    canonical: service.href,
+  }),
   openGraph: {
     title: service.title,
     description: service.description,

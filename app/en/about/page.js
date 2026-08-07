@@ -21,10 +21,11 @@ export const metadata = {
     languages: {
       "tr-TR": "https://www.sahneva.com/hakkimizda",
       "en": "https://www.sahneva.com/en/about",
+      "de": "https://www.sahneva.com/de/ueber-uns",
       "ar": "https://www.sahneva.com/ar/about",
       "ru": "https://www.sahneva.com/ru/about",
       "zh": "https://www.sahneva.com/zh/about",
-      "x-default": "https://www.sahneva.com/hakkimizda",
+      "x-default": "https://www.sahneva.com/en/about",
     },
   },
   openGraph: {

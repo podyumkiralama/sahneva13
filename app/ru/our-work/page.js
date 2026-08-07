@@ -193,7 +193,7 @@ export const metadata = {
       "ru": PAGE_URL,
       "zh": `${SITE_URL}/zh/our-work`,
       "ar": `${SITE_URL}/ar/our-work`,
-      "x-default": `${SITE_URL}/yaptiklarimiz`,
+      "x-default": `${SITE_URL}/en/our-work`,
     },
   },
   openGraph: {

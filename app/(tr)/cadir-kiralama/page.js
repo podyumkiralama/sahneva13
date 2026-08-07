@@ -67,7 +67,7 @@ export const metadata = {
       de: `${SITE_URL}/de/zelt-mieten`,
       "ru": `${ORIGIN}/ru/tent-rental`,
       "zh": `${ORIGIN}/zh/tent-rental`,
-      "x-default": `${ORIGIN}/cadir-kiralama`,
+      "x-default": `${ORIGIN}/en/tent-rental`,
     },
   },
   openGraph: {

@@ -26,7 +26,7 @@ export const metadata = {
       ar: `${BASE_SITE_URL}/ar/contact`,
       ru: `${BASE_SITE_URL}/ru/contact`,
       zh: `${BASE_SITE_URL}/zh/contact`,
-      "x-default": PAGE_URL,
+      "x-default": `${BASE_SITE_URL}/en/contact`,
     },
   },
   openGraph: {

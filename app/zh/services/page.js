@@ -48,10 +48,11 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/hizmetler`,
       en: `${SITE_URL}/en/services`,
+      de: `${SITE_URL}/de/leistungen`,
       ar: `${SITE_URL}/ar/services`,
       ru: `${SITE_URL}/ru/services`,
       zh: ZH_SERVICES_URL,
-      "x-default": `${SITE_URL}/hizmetler`,
+      "x-default": `${SITE_URL}/en/services`,
     },
   },
   openGraph: {

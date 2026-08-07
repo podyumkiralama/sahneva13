@@ -20,7 +20,6 @@ export const metadata = {
   description:
     "Veranstaltungstechnik in Antalya: Bühne, LED-Wand, Ton und Licht für Kongresshotels und Resorts in Belek, Kemer, Side und Lara – mit eigener Crew vor Ort.",
   alternates: buildLanguageAlternates({
-    tr: "/bolgesel-kiralama",
     en: "/en/event-production-antalya",
     de: PAGE_PATH,
     canonical: PAGE_PATH,

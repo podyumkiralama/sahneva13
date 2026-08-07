@@ -19,7 +19,6 @@ export const metadata = {
   description:
     "Technische Produktion für MICE-Programme in der Türkei: Kongresse, Tagungen, Incentive-Reisen und Messeauftritte mit Bühne, LED-Wand, Ton, Licht und Crew vor Ort.",
   alternates: buildLanguageAlternates({
-    tr: "/turkiyede-etkinlik-cozum-ortagi",
     en: "/en/mice-turkey",
     de: PAGE_PATH,
     canonical: PAGE_PATH,

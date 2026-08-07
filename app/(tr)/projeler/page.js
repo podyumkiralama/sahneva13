@@ -17,10 +17,11 @@ export const metadata = {
     languages: {
       "tr-TR": "https://www.sahneva.com/projeler",
       "en": "https://www.sahneva.com/en/projects",
+      "de": "https://www.sahneva.com/de/projekte",
       "ar": "https://www.sahneva.com/ar/projects",
       "ru": "https://www.sahneva.com/ru/projects",
       "zh": "https://www.sahneva.com/zh/projects",
-      "x-default": "https://www.sahneva.com/projeler",
+      "x-default": "https://www.sahneva.com/en/projects",
     },
   },
   openGraph: {

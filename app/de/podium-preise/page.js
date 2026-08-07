@@ -128,7 +128,7 @@ export const metadata = {
     en: "/en/podium-rental-prices",
     de: slug,
     canonical: slug,
-    xDefault: "/podyum-kurulum-fiyatlari",
+    xDefault: "/en/podium-rental-prices",
   }),
   openGraph: {
     title: "Podium mieten: Preise nach m² | Sahneva",

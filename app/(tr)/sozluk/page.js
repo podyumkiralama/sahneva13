@@ -38,7 +38,7 @@ export const metadata = {
     tr: PAGE_PATH,
     en: "/en/glossary",
     canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
+    xDefault: "/en/glossary",
   }),
   openGraph: {
     type: "website",

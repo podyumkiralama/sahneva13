@@ -43,7 +43,7 @@ export const metadata = {
     ru: "/ru/led-screen-rental",
     zh: "/zh/led-screen-rental",
     canonical: "/en/led-screen-rental",
-    xDefault: "/led-ekran-kiralama",
+    xDefault: "/en/led-screen-rental",
   }),
   openGraph: {
     title: "LED Screen Rental | Professional Solutions",

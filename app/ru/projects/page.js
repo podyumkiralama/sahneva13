@@ -39,7 +39,7 @@ export const metadata = {
       ar: `${SITE_URL}/ar/projects`,
       ru: RU_PROJECTS_URL,
       zh: `${SITE_URL}/zh/projects`,
-      "x-default": `${SITE_URL}/projeler`,
+      "x-default": `${SITE_URL}/en/projects`,
     },
   },
   openGraph: {

@@ -16,7 +16,7 @@ export const metadata = {
       de: `${SITE_URL}${service.equivalent.de}`,
       ru: canonical,
       zh: `${SITE_URL}${service.equivalent.zh}`,
-      "x-default": `${SITE_URL}${service.equivalent.tr}`,
+      "x-default": `${SITE_URL}${service.equivalent.en}`,
     },
   },
   openGraph: {

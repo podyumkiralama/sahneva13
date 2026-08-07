@@ -20,7 +20,7 @@ export const metadata = {
       "tr-TR": `${SITE_URL}/gizlilik-politikasi`,
       en: `${SITE_URL}/en/privacy-policy`,
       de: PAGE_URL,
-      "x-default": `${SITE_URL}/gizlilik-politikasi`,
+      "x-default": `${SITE_URL}/en/privacy-policy`,
     },
   },
   openGraph: {

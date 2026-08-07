@@ -32,7 +32,7 @@ export const metadata = {
     tr: TR_PAGE_PATH,
     en: PAGE_PATH,
     canonical: PAGE_PATH,
-    xDefault: TR_PAGE_PATH,
+    xDefault: PAGE_PATH,
   }),
   openGraph: {
     type: "website",

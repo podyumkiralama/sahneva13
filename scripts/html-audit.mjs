@@ -84,6 +84,8 @@ const files = walk(BUILD_DIR);
 const titleIndex = new Map();
 const descriptionIndex = new Map();
 const jsonLdTypes = new Map();
+// canonical -> { route, langs: Map(hreflang -> href) }
+const hreflangIndex = new Map();
 let auditedCount = 0;
 
 for (const file of files) {
@@ -99,6 +101,21 @@ for (const file of files) {
   );
   const canonical = first(html, /<link rel="canonical" href="([^"]*)"/i);
   const robots = first(html, /<meta name="robots" content="([^"]*)"/i);
+
+  /* ---- hreflang toplama (karsilikli kontrol asagida) ---- */
+  const alternateLangs = new Map();
+  for (const m of html.matchAll(
+    /<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/gi,
+  )) {
+    alternateLangs.set(m[1], m[2].replace(/\/$/, ""));
+  }
+  if (canonical && alternateLangs.size) {
+    hreflangIndex.set(canonical.replace(/\/$/, ""), {
+      route,
+      langs: alternateLangs,
+    });
+  }
+
   const indexable = !/noindex/i.test(robots);
   // Uzunluk esikleri SERP genisligine gore; noindex sayfalarin SERP yuzeyi yok.
   // Latin disi alfabelerde de karakter sayisi piksel genisligiyle ortusmuyor.
@@ -250,6 +267,51 @@ for (const [description, routes] of descriptionIndex) {
       "description-duplicate",
       `"${description.slice(0, 60)}..." -> ${routes.join(", ")}`,
     );
+  }
+}
+
+/* -------------------- hreflang karsiliklilik -------------------- */
+// Bir sayfa X dilinde Y'yi gosteriyorsa, Y de geri gostermek zorunda.
+// Karsiligi olmayan bildirim Google tarafindan tumden yok sayilir.
+for (const [url, { route, langs }] of hreflangIndex) {
+  const targets = [...langs.entries()].filter(([lang]) => lang !== "x-default");
+
+  for (const [lang, target] of targets) {
+    if (target === url) continue;
+    const other = hreflangIndex.get(target);
+    if (!other) {
+      addError(
+        route,
+        "hreflang-target-missing",
+        `[${lang}] -> ${target} (hedefte hreflang bildirimi yok)`,
+      );
+      continue;
+    }
+    const backRefs = [...other.langs.entries()]
+      .filter(([l]) => l !== "x-default")
+      .map(([, href]) => href);
+    if (!backRefs.includes(url)) {
+      addError(
+        route,
+        "hreflang-no-return-tag",
+        `[${lang}] -> ${target} (hedef geri baglanti vermiyor)`,
+      );
+    }
+  }
+
+  // x-default grubun tamaminda ayni adresi gostermeli.
+  const xDefault = langs.get("x-default");
+  if (!xDefault) continue;
+  for (const [, target] of targets) {
+    const other = hreflangIndex.get(target);
+    const otherXDefault = other?.langs.get("x-default");
+    if (otherXDefault && otherXDefault !== xDefault) {
+      addError(
+        route,
+        "hreflang-x-default-conflict",
+        `${xDefault} <-> ${target} sayfasi ${otherXDefault} diyor`,
+      );
+    }
   }
 }
 

@@ -22,7 +22,7 @@ export const metadata = {
       ar: AR_ABOUT_URL,
       ru: `${SITE_URL}/ru/about`,
       zh: `${SITE_URL}/zh/about`,
-      "x-default": `${SITE_URL}/hakkimizda`,
+      "x-default": `${SITE_URL}/en/about`,
     },
   },
   openGraph: {

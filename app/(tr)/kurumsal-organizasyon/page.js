@@ -263,7 +263,7 @@ export const metadata = {
     ru: "/ru/corporate-events",
     zh: "/zh/corporate-events",
     canonical: "/kurumsal-organizasyon",
-    xDefault: "/kurumsal-organizasyon",
+    xDefault: "/en/corporate-events",
   }),
   openGraph: {
     title: OG_TITLE,

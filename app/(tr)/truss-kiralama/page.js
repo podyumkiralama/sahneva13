@@ -67,7 +67,7 @@ export const metadata = {
   alternates: buildLanguageAlternates({
     tr: "/truss-kiralama",
     en: "/en/truss-rental",
-    de: "/de/ton-und-lichttechnik",
+    de: "/de/traversen-mieten",
     xDefault: "/en/truss-rental",
   }),
   openGraph: {

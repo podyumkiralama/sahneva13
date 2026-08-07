@@ -35,10 +35,11 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/projeler`,
       en: `${SITE_URL}/en/projects`,
+      de: `${SITE_URL}/de/projekte`,
       ar: `${SITE_URL}/ar/projects`,
       ru: `${SITE_URL}/ru/projects`,
       zh: ZH_PROJECTS_URL,
-      "x-default": `${SITE_URL}/projeler`,
+      "x-default": `${SITE_URL}/en/projects`,
     },
   },
   openGraph: {

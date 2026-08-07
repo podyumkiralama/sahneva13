@@ -88,10 +88,11 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/iletisim`,
       en: `${SITE_URL}/en/contact`,
+      de: `${SITE_URL}/de/kontakt`,
       ar: `${SITE_URL}/ar/contact`,
       ru: `${SITE_URL}/ru/contact`,
       zh: ZH_CONTACT_URL,
-      "x-default": `${SITE_URL}/iletisim`,
+      "x-default": `${SITE_URL}/en/contact`,
     },
   },
   openGraph: {

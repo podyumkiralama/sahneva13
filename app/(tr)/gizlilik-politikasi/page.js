@@ -18,7 +18,8 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/gizlilik-politikasi`,
       en: `${SITE_URL}/en/privacy-policy`,
-      "x-default": `${SITE_URL}/gizlilik-politikasi`,
+      de: `${SITE_URL}/de/datenschutz`,
+      "x-default": `${SITE_URL}/en/privacy-policy`,
     },
   },
   openGraph: {

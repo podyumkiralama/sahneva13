@@ -599,8 +599,6 @@ export const GERMAN_SERVICE_LIST = [
     equivalent: {
       tr: "/truss-kiralama",
       en: "/en/truss-rental",
-      ru: "/ru/sound-light-rental",
-      zh: "/zh/sound-light-rental",
     },
     eyebrow: "Traversen & Rigging",
     shortTitle: "Traversen mieten",
@@ -717,8 +715,6 @@ export const GERMAN_SERVICE_LIST = [
     equivalent: {
       tr: "/konser-icin-podyum-kiralama",
       en: "/en/concert-podium-rental",
-      ru: "/ru/stage-rental",
-      zh: "/zh/stage-rental",
     },
     eyebrow: "Konzert & Festival",
     shortTitle: "Konzertbühne mieten",
@@ -835,8 +831,6 @@ export const GERMAN_SERVICE_LIST = [
     equivalent: {
       tr: "/defile-podyum-kiralama",
       en: "/en/runway-podium-rental",
-      ru: "/ru/stage-rental",
-      zh: "/zh/stage-rental",
     },
     eyebrow: "Modenschau & Präsentation",
     shortTitle: "Laufsteg mieten",
@@ -953,8 +947,6 @@ export const GERMAN_SERVICE_LIST = [
     equivalent: {
       tr: "/masa-sandalye-kiralama",
       en: "/en/table-chair-rental",
-      ru: "/ru/services",
-      zh: "/zh/services",
     },
     eyebrow: "Mobiliar",
     shortTitle: "Tische & Stühle mieten",

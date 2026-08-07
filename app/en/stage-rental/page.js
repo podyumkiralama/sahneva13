@@ -59,7 +59,7 @@ export const metadata = {
     ru: "/ru/stage-rental",
     zh: "/zh/stage-rental",
     canonical: "/en/stage-rental",
-    xDefault: "/sahne-kiralama",
+    xDefault: "/en/stage-rental",
   }),
   openGraph: {
     title: PAGE_TITLE_BRANDED,

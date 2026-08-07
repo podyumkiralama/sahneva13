@@ -56,7 +56,7 @@ export const metadata = {
     de: "/de/ton-und-lichttechnik",
     ru: "/ru/sound-light-rental",
     zh: "/zh/sound-light-rental",
-    xDefault: "/ses-isik-sistemleri",
+    xDefault: "/en/sound-light-rental",
   }),
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",

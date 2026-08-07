@@ -190,10 +190,11 @@ export const metadata = {
     languages: {
       "tr-TR": `${SITE_URL}/yaptiklarimiz`,
       "en": `${SITE_URL}/en/our-work`,
+      "de": `${SITE_URL}/de/referenzen`,
       "ru": `${SITE_URL}/ru/our-work`,
       "ar": `${SITE_URL}/ar/our-work`,
       "zh": PAGE_URL,
-      "x-default": `${SITE_URL}/yaptiklarimiz`,
+      "x-default": `${SITE_URL}/en/our-work`,
     },
   },
   openGraph: {

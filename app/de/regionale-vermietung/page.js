@@ -22,7 +22,7 @@ export const metadata = {
     en: "/en/regional-rental",
     de: PAGE_PATH,
     canonical: PAGE_PATH,
-    xDefault: "/bolgesel-kiralama",
+    xDefault: "/en/regional-rental",
   }),
   openGraph: {
     type: "website",
