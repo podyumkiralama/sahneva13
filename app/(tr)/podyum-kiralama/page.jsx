@@ -487,84 +487,119 @@ function InfrastructureAssuranceSection() {
   return (
     <section
       id="podyum-stok-kapasitesi"
-      className="py-16 bg-white"
+      className="bg-slate-50 py-16 md:py-20"
       aria-labelledby="podyum-stok-title"
     >
-      <div className="container mx-auto max-w-5xl px-4">
-        <p className="text-sm font-black uppercase tracking-widest text-blue-700 mb-3">
-          Operasyon güvencesi
-        </p>
-        <h2 id="podyum-stok-title" className="text-3xl md:text-4xl font-black text-gray-900">
-          Stok ve Kurulum Kapasitemiz
-        </h2>
-        <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-          Özmal podyum envanterimiz, farklı ölçekteki projeleri İstanbul ve{" "}
-          <Link href="/bolgesel-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
-            Türkiye genelinde
-          </Link>{" "}
-          aynı teknik planla kurmamızı sağlar. Yükseklik arttıkça tek seferde kurulabilen alan daralır;
-          aşağıdaki tablo hangi yükseklikte ne kadarlık bir kurulumun planlanabildiğini gösterir.
-        </p>
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div>
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-blue-700">
+              Operasyon güvencesi
+            </p>
+            <h2 id="podyum-stok-title" className="max-w-3xl text-3xl font-black leading-tight text-slate-950 md:text-5xl">
+              Yüksekliğe göre kurulum kapasitesi
+            </h2>
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
+              Geniş özmal ekipman altyapımız sayesinde farklı ölçekteki podyum projelerini İstanbul ve{" "}
+              <Link href="/bolgesel-kiralama" className="font-bold text-blue-700 underline decoration-blue-300 underline-offset-4">
+                Türkiye genelinde
+              </Link>{" "}
+              planlayıp uyguluyoruz. Kapasite; yükseklik, zemin ve saha erişimine göre teknik planla netleşir.
+            </p>
+          </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {CAPACITY_METRICS.map((metric) => (
-            <div key={metric.label} className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
-              <p className="text-2xl md:text-3xl font-black text-gray-900">{metric.value}</p>
-              <p className="mt-1 text-sm font-semibold text-gray-600">{metric.label}</p>
-            </div>
+          <aside className="rounded-3xl border border-blue-100 bg-blue-50 p-6 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">Planlama notu</p>
+            <p className="mt-3 text-base font-medium leading-relaxed text-slate-700">
+              Aşağıdaki değerler aynı yükseklikte planlanabilen referans alanları gösterir. Nihai kapsam,
+              keşif ve kurulum planı sonrasında belirlenir.
+            </p>
+          </aside>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {CAPACITY_METRICS.map((metric, index) => (
+            <article
+              key={metric.label}
+              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+            >
+              <span className="absolute right-5 top-4 text-5xl font-black leading-none text-slate-100" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <p className="relative text-3xl font-black tracking-tight text-slate-950 md:text-4xl">{metric.value}</p>
+              <p className="relative mt-3 max-w-[15rem] text-sm font-bold leading-relaxed text-slate-600">{metric.label}</p>
+            </article>
           ))}
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-2xl border border-gray-200">
-          <table className="w-full text-left text-base">
+        <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.07)]">
+          <div className="flex flex-col gap-3 border-b border-slate-200 bg-slate-950 px-6 py-5 text-white md:flex-row md:items-center md:justify-between md:px-8">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">Kapasite rehberi</p>
+              <h3 className="mt-1 text-xl font-black md:text-2xl">Planlanan yüksekliğe göre referans alan</h3>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-slate-300">
+              Yükseklik arttıkça aynı anda kurulabilen alan, güvenli yerleşim planına göre değişir.
+            </p>
+          </div>
+
+          <table className="w-full table-fixed text-left">
             <caption className="sr-only">Podyum yüksekliğine göre kurulum kapasitesi</caption>
-            <thead className="bg-gray-50">
+            <thead className="border-b border-slate-200 bg-slate-50 text-xs font-black uppercase tracking-wider text-slate-500">
               <tr>
-                <th scope="col" className="px-5 py-3 font-black text-gray-900">Yükseklik</th>
-                <th scope="col" className="px-5 py-3 font-black text-gray-900">Kurulum kapasitesi</th>
+                <th scope="col" className="w-[42%] px-5 py-4 md:px-8">Planlanan yükseklik</th>
+                <th scope="col" className="px-5 py-4 md:px-8">Referans kurulum alanı</th>
               </tr>
             </thead>
-            <tbody>
-              {PODIUM_HEIGHT_CAPACITIES.map((item) => (
-                <tr key={item.height} className="border-t border-gray-200">
-                  <th scope="row" className="px-5 py-3 font-bold text-gray-900">{item.height}</th>
-                  <td className="px-5 py-3 text-gray-600">{item.capacity}</td>
+            <tbody className="divide-y divide-slate-100">
+              {PODIUM_HEIGHT_CAPACITIES.map((item, index) => (
+                <tr key={item.height} className={index % 2 === 0 ? "bg-white" : "bg-slate-50/70"}>
+                  <th scope="row" className="px-5 py-4 md:px-8 md:py-5">
+                    <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-black text-blue-800">
+                      {item.height}
+                    </span>
+                  </th>
+                  <td className="px-5 py-4 md:px-8 md:py-5">
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
+                      <span className="text-xl font-black tracking-tight text-slate-950 md:text-2xl">{item.capacity}</span>
+                      <span className="text-sm font-medium text-slate-500">planlanabilen alan</span>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="mt-8 grid gap-6 rounded-2xl border border-gray-200 bg-gray-50 p-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center md:p-8">
-          <div>
-            <h3 className="text-2xl font-black text-gray-900 leading-tight">
+        <div className="mt-6 grid overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+          <div className="p-6 md:p-8 lg:p-10">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">Özel sistem</p>
+            <h3 className="mt-3 text-2xl font-black leading-tight text-white md:text-3xl">
               Altı kayıt dönülmüş 2x1 özel podyum
             </h3>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-5 text-lg leading-relaxed text-slate-300">
               Sahne, performans alanı, konuşmacı platformu ve protokol bölümlerinde alt taşıyıcı yapısı
               kayıtlarla güçlendirilmiş 2x1 metre modüller kullanılır. Doğru ayak yerleşimi, kayıt bağlantıları
               ve karolaj planı bir arada kurulduğunda etkinlik sırasında hissedilen sarsıntı ve esneme minimuma
               iner; sahnede yürüyen konuşmacı ya da performans ekibi zemini tok hisseder.
             </p>
-            <p className="mt-3 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-4 text-lg leading-relaxed text-slate-300">
               Bu sistem, yüksek stabilite gerektiren kurulumlarda standart modüler podyumun yerine planlanır.
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200">
-            <div className="relative aspect-[16/9]">
-              <Image
-                src="/img/podyum/22.webp"
-                alt="Açık havada kurulan altı kayıtlı 2x1 modüler podyum sistemi"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1023px) calc(100vw - 5rem), 440px"
-                quality={60}
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL={BLUR_DATA_URL}
-              />
-            </div>
+          <div className="relative min-h-64 overflow-hidden border-t border-slate-800 lg:min-h-full lg:border-l lg:border-t-0">
+            <Image
+              src="/img/podyum/22.webp"
+              alt="Açık havada kurulan altı kayıtlı 2x1 modüler podyum sistemi"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              quality={60}
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
           </div>
         </div>
       </div>
