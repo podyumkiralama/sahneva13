@@ -468,10 +468,10 @@ function HeroSection() {
               </a>
 
               <Link
-                href="#uygulamalar"
+                href="/podyum-kurulum-fiyatlari"
                 className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/[0.18] bg-white/[0.07] px-8 py-3.5 font-black text-white backdrop-blur-md transition hover:border-blue-300/40 hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
               >
-                Uygulamaları Gör
+                Fiyatlandırmayı İncele
               </Link>
             </div>
           </div>
@@ -533,6 +533,39 @@ function InfrastructureAssuranceSection() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-8 grid gap-6 rounded-2xl border border-gray-200 bg-gray-50 p-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center md:p-8">
+          <div>
+            <h3 className="text-2xl font-black text-gray-900 leading-tight">
+              Altı kayıt dönülmüş 2x1 özel podyum
+            </h3>
+            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+              Sahne, performans alanı, konuşmacı platformu ve protokol bölümlerinde alt taşıyıcı yapısı
+              kayıtlarla güçlendirilmiş 2x1 metre modüller kullanılır. Doğru ayak yerleşimi, kayıt bağlantıları
+              ve karolaj planı bir arada kurulduğunda etkinlik sırasında hissedilen sarsıntı ve esneme minimuma
+              iner; sahnede yürüyen konuşmacı ya da performans ekibi zemini tok hisseder.
+            </p>
+            <p className="mt-3 text-lg text-gray-600 leading-relaxed">
+              Bu sistem, yüksek stabilite gerektiren kurulumlarda standart modüler podyumun yerine planlanır.
+            </p>
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200">
+            <div className="relative aspect-[16/9]">
+              <Image
+                src="/img/podyum/22.webp"
+                alt="Açık havada kurulan altı kayıtlı 2x1 modüler podyum sistemi"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1023px) calc(100vw - 5rem), 440px"
+                quality={60}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -764,7 +797,7 @@ function GallerySection() {
           </p>
         </div>
         <div className="max-w-7xl mx-auto">
-          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {visibleImages.map(({ src, alt }) => (
               <li key={src}>
                 <figure className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-sm">
@@ -774,7 +807,7 @@ function GallerySection() {
                       alt={alt}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 300px"
+                      sizes="(max-width: 1023px) 50vw, (max-width: 1280px) 33vw, 400px"
                       quality={68}
                       loading="lazy"
                       placeholder="blur"
