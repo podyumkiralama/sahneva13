@@ -782,9 +782,10 @@ function Positioning() {
       />
 
       <p className="mb-8 max-w-4xl text-lg leading-8 text-slate-700">
-        Sahneva olarak kurumsal organizasyon hizmetlerini yalnızca ekipman temini olarak değil; sahne mimarisi,
+        Sahneva olarak bu hizmeti yalnızca ekipman temini olarak değil; sahne mimarisi,
         LED ekran, ses-ışık, reji, prova ve saha koordinasyonunu kapsayan uçtan uca teknik prodüksiyon süreci
-        olarak ele alıyoruz.
+        olarak ele alıyoruz. Aynı envanter, tek salonluk bir şirket etkinliğinde de birkaç bin kişilik lansmanda
+        da aynı ekip tarafından planlanır.
       </p>
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -814,7 +815,7 @@ function CorporateGuideSections() {
           />
           <div className="grid gap-5 text-base leading-8 text-slate-700 md:text-lg">
             <p>
-              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için kurumsal organizasyon; teknik prodüksiyon kapsamını, prova akışını ve saha koordinasyonunu birlikte yöneten planlı bir çalışma disiplinidir.
+              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için şirket etkinliği; teknik prodüksiyon kapsamını, prova akışını ve saha koordinasyonunu birlikte yöneten planlı bir çalışma disiplinidir.
             </p>
             <p>
               Doğru planlanan bir kurumsal etkinlikte sahne, konuşmacı, marka görselleri, teknik ekip ve etkinlik sonrası kapanış aynı operasyon planı içinde ilerler. Böylece marka sahnede daha kontrollü, net ve güven veren bir görünüm kazanır.
@@ -877,7 +878,7 @@ function CorporateGuideSections() {
             dark
             eyebrow="Kapanış yönetimi"
             title="Etkinlik Sonrası Kapanış ve Teknik Raporlama"
-            desc="Kurumsal organizasyonlarda iş, etkinlik bittiği anda tamamlanmış sayılmaz. Söküm, ekipman çıkışı, mekan teslimi ve teknik kapanış planı da operasyonun parçasıdır."
+            desc="Bu projelerde iş, etkinlik bittiği anda tamamlanmış sayılmaz. Söküm, ekipman çıkışı, mekan teslimi ve teknik kapanış planı da operasyonun parçasıdır."
           />
           <div className="grid gap-5">
             <PremiumCard as="article">
@@ -1005,7 +1006,7 @@ function Formats() {
       <SectionHeader
         eyebrow="Kullanım alanları"
         title="Lansman, konferans ve gala prodüksiyonu"
-        desc="Kurumsal organizasyon projelerinde marka sahnesi, konuşmacı akışı, LED görüntüsü ve teknik reji aynı prodüksiyon diliyle planlanır."
+        desc="Bu projelerde marka sahnesi, konuşmacı akışı, LED görüntüsü ve teknik reji aynı prodüksiyon diliyle planlanır."
       />
 
       <div className="grid gap-5 md:grid-cols-3">
@@ -1097,8 +1098,8 @@ function ProductionStack() {
             ))}
           </div>
           <p className="mt-6 text-sm leading-7 text-white/[0.68]">
-            Kurumsal organizasyon şirketi arayan markalar için teknik kapsamın,
-            saha ekibinin ve gerçek uygulama deneyiminin net görünmesi önemlidir.
+            Organizasyon firması ya da kurumsal organizasyon şirketi arayan markalar için
+            teknik kapsamın, saha ekibinin ve gerçek uygulama deneyiminin net görünmesi önemlidir.
           </p>
         </div>
       </div>
