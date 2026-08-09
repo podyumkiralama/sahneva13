@@ -125,6 +125,19 @@ ekrana eklenmiş olmalıdır; Safari sekmesinde açıkken bildirim gelmez.
   Dışında sohbet yine açılır, ancak ziyaretçiye "mesai dışındayız" mesajı
   gösterilir ve telefon/e-posta bırakması **zorunlu** olur — aksi halde
   dönülemeyecek mesajlar birikir.
+- **Aynı kişi tek sohbette.** Ziyaretçi telefon veya e-posta bırakıyorsa,
+  daha önce açılmış ve hâlâ açık olan sohbetine bağlanır. Numara biçimi
+  ("0555…", "+90 555…", "90555…") ve ismin yazımı önemsiz; panelde tek
+  kesintisiz yazışma görürsünüz. Farklı yazılmış isimler sohbet başlığının
+  altında "Aynı numarayla: …" satırında listelenir — yanlış eşleşmeyi
+  (örneğin bir hane yanlış girilmiş numarayı) buradan fark edersiniz.
+- **Ziyaretçi geçmişi görmez.** Yeni bir cihazdan bağlanan ziyaretçiye
+  yalnızca o andan sonrası açılır. Aksi hâlde bir numarayı bilen herkes o
+  kişinin eski yazışmasını okuyabilirdi. Kısıt sunucuda uygulanıyor;
+  istemcinin gönderdiği `since` değeri katılım imlecinin altına inemez.
+- **Ayırmanın yolu "Kapat".** Kapatılmış sohbet eşleşmeye girmez; aynı
+  numaradan gelen sonraki mesaj temiz bir sohbet açar. Yanlış birleşmiş bir
+  kaydı böyle ayırırsınız. Kapalı sohbete yeni mesaj gelirse yeniden açılır.
 - **Saklama süresi** 90 gün. Sürenin sonunda yazışma kendiliğinden silinir
   (KVKK). Değiştirmek için `CONVERSATION_TTL_SECONDS`.
 - **Kötüye kullanım sınırı**: aynı IP'den saatte 5 yeni sohbet, 60 mesaj.
@@ -139,6 +152,7 @@ ekrana eklenmiş olmalıdır; Safari sekmesinde açıkken bildirim gelmez.
 | --- | --- |
 | `lib/support/config.js` | Sabitler, ortam değişkeni kontrolleri |
 | `lib/support/hours.js` | Mesai penceresi (sunucu + widget ortak) |
+| `lib/support/contact.js` | Telefon/e-posta normalleştirme (kişi eşleştirme) |
 | `lib/support/store.js` | Upstash REST veri katmanı |
 | `lib/support/session.js` | Yönetici oturumu (imzalı çerez) |
 | `lib/support/push.js` | Web Push gönderimi |

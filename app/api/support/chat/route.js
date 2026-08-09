@@ -8,6 +8,7 @@ import {
   isStoreConfigured,
   isWithinBusinessHours,
 } from "@/lib/support/config";
+import { normalizeContact } from "@/lib/support/contact";
 import { getSupportDictionary } from "@/lib/support/dictionary";
 import { notifyAgents } from "@/lib/support/push";
 import {
@@ -16,7 +17,9 @@ import {
   consumeRateLimit,
   countMessages,
   createConversation,
+  findOpenConversationByContact,
   getMessages,
+  joinConversation,
 } from "@/lib/support/store";
 
 export const runtime = "nodejs";
@@ -77,8 +80,10 @@ export async function POST(request) {
   try {
     // ---- mevcut sohbete ekleme ----
     if (conversationId && token) {
-      const conversation = await authorizeVisitor(conversationId, token);
-      if (!conversation) return fail("unauthorized", 401);
+      const authorized = await authorizeVisitor(conversationId, token);
+      if (!authorized) return fail("unauthorized", 401);
+
+      const { conversation } = authorized;
 
       const total = await countMessages(conversationId);
       if (total >= SUPPORT_LIMITS.maxMessagesPerConversation) {
@@ -112,13 +117,30 @@ export async function POST(request) {
     );
     if (!allowed) return fail("rate_limited", 429);
 
-    const { conversation, token: freshToken } = await createConversation({
-      locale,
-      name,
-      contact,
-      page: clean(payload?.page, 300),
-      referrer: clean(request.headers.get("referer"), 300),
-    });
+    const page = clean(payload?.page, 300);
+    const contactKeyValue = normalizeContact(contact);
+
+    // Aynı numara/e-posta ile açık bir sohbet varsa yeni kayıt açmak yerine
+    // ona bağlanılıyor; ziyaretçi ismini farklı yazsa da panelde tek bir
+    // yazışma olarak sürüyor.
+    const existing = contactKeyValue
+      ? await findOpenConversationByContact(contactKeyValue)
+      : null;
+
+    const { conversation, token: freshToken } = existing
+      ? await joinConversation(existing, { name, page })
+      : await createConversation({
+          locale,
+          name,
+          contact,
+          contactKeyValue,
+          page,
+          referrer: clean(request.headers.get("referer"), 300),
+        });
+
+    // Bu cihazın görebileceği en eski mesaj: sohbete katıldığı an. Daha
+    // öncesi, numarayı bilen birine geçmişi açmamak için gizli kalıyor.
+    const floor = await countMessages(conversation.id);
 
     const dictionary = getSupportDictionary(locale);
 
@@ -130,14 +152,14 @@ export async function POST(request) {
 
     await notifyAgents(buildNotification(result.conversation, message));
 
-    const { messages } = await getMessages(conversation.id, 0);
+    const { messages, nextCursor } = await getMessages(conversation.id, floor);
 
     return Response.json({
       ok: true,
       id: conversation.id,
       token: freshToken,
       messages,
-      cursor: messages.length,
+      cursor: nextCursor,
       online,
     });
   } catch {
@@ -158,10 +180,14 @@ export async function GET(request) {
   if (!id || !token) return fail("unauthorized", 401);
 
   try {
-    const conversation = await authorizeVisitor(id, token);
-    if (!conversation) return fail("unauthorized", 401);
+    const authorized = await authorizeVisitor(id, token);
+    if (!authorized) return fail("unauthorized", 401);
 
-    const { messages, nextCursor } = await getMessages(id, since);
+    const { conversation, floor } = authorized;
+
+    // İstemciden gelen `since` taban değerin altına inemez.
+    const from = Math.max(Number.isFinite(since) ? since : 0, floor);
+    const { messages, nextCursor } = await getMessages(id, from);
 
     return Response.json({
       ok: true,

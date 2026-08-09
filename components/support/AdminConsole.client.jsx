@@ -583,6 +583,11 @@ export default function AdminConsole() {
                   <span className="block truncate text-xs text-slate-500">
                     {activeThread.locale?.toUpperCase()} · {activeThread.page || "—"}
                   </span>
+                  {activeThread.aliases?.length > 0 ? (
+                    <span className="block truncate text-xs text-amber-700">
+                      Aynı numarayla: {activeThread.aliases.join(", ")}
+                    </span>
+                  ) : null}
                 </div>
                 <div className="flex items-center gap-2">
                   <button
