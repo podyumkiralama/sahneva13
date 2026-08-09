@@ -16,20 +16,27 @@ Yazışmalar Upstash Redis'te tutuluyor. Vercel üzerinden bağlamak en kolayı:
 
 1. Vercel panosunda projeyi açın → **Storage** → **Create Database** →
    **Upstash for Redis**.
-2. Bölge olarak **Frankfurt (eu-central-1)** seçin; ziyaretçilerin çoğu
-   Türkiye'de olduğu için en düşük gecikmeyi bu verir.
-3. Veritabanını projeye bağlayın. Vercel `KV_REST_API_URL` ve
-   `KV_REST_API_TOKEN` değişkenlerini otomatik ekler — modül bu adları da
-   tanır, ayrıca bir şey yapmanız gerekmez.
+2. Bölge olarak **Frankfurt (fra1)** seçin; ziyaretçilerin çoğu Türkiye'de
+   olduğu için en düşük gecikmeyi bu verir. **Eviction kapalı** kalmalı:
+   açık olsaydı bellek dolduğunda eski yazışmalar sessizce silinirdi.
+3. Veritabanını projeye bağlarken **Production** ve **Preview** ortamlarını
+   işaretleyin. Development'ı işaretlememek, yerel geliştirmenin canlı
+   yazışmalara karışmamasını sağlar.
 
-Upstash panosundan doğrudan oluşturursanız, değerleri şu adlarla girin:
+Kurulumdaki **Custom Prefix** alanına ne yazdığınızın önemi yok:
+`lib/support/config.js`, REST adresi biçimindeki değişkeni jetonuyla
+eşleştirerek bulur (`STORAGE_`, `KV_`, `UPSTASH_REDIS_` ve diğerleri).
+
+Upstash panosundan doğrudan oluşturursanız değerleri şu adlarla girin:
 
 ```
 UPSTASH_REDIS_REST_URL=https://....upstash.io
 UPSTASH_REDIS_REST_TOKEN=...
 ```
 
-Ücretsiz kademe (günde 10.000 komut) bu kullanım için fazlasıyla yeterli.
+Ücretsiz kademe ayda 500.000 komut. Panel açıkken sohbet listesi tek
+komutla okunuyor ve sekme arka plandayken yoklama duruyor; bu kullanımda
+ücretsiz kademe rahat yetiyor.
 
 ---
 

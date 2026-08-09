@@ -3,8 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Bell, BellRing, Check, LogOut, RefreshCw, Send } from "lucide-react";
 
-const THREAD_LIST_POLL_MS = 8000;
-const ACTIVE_THREAD_POLL_MS = 4000;
+// Yeni mesajın asıl haber kanalı telefona düşen bildirim; liste bu yüzden
+// sık yoklanmak zorunda değil. Açık sohbet, yazışma sürerken akıcı dursun
+// diye daha sık yenileniyor. Sekme arka plandayken ikisi de duruyor —
+// açık unutulmuş bir panel aylık komut bütçesini boşuna yemesin.
+const THREAD_LIST_POLL_MS = 20000;
+const ACTIVE_THREAD_POLL_MS = 5000;
+
+function isTabVisible() {
+  return typeof document === "undefined" || document.visibilityState === "visible";
+}
 
 /** VAPID genel anahtarı base64url metinden byte dizisine çevrilir. */
 function urlBase64ToUint8Array(base64String) {
@@ -180,8 +188,21 @@ export default function AdminConsole() {
     if (!authenticated) return undefined;
 
     loadThreads();
-    const timer = window.setInterval(loadThreads, THREAD_LIST_POLL_MS);
-    return () => window.clearInterval(timer);
+
+    const timer = window.setInterval(() => {
+      if (isTabVisible()) loadThreads();
+    }, THREAD_LIST_POLL_MS);
+
+    // Sekmeye geri dönüldüğünde bekleme olmadan tazele.
+    const onVisibility = () => {
+      if (isTabVisible()) loadThreads();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [authenticated, loadThreads]);
 
   useEffect(() => {
@@ -201,10 +222,18 @@ export default function AdminConsole() {
       .catch(() => {});
 
     const timer = window.setInterval(() => {
-      loadMessages(activeId);
+      if (isTabVisible()) loadMessages(activeId);
     }, ACTIVE_THREAD_POLL_MS);
 
-    return () => window.clearInterval(timer);
+    const onVisibility = () => {
+      if (isTabVisible()) loadMessages(activeId);
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [authenticated, activeId, loadMessages, loadThreads]);
 
   useEffect(() => {
