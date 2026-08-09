@@ -639,6 +639,21 @@ function FaqItem({ q, a, prompt }) {
   );
 }
 
+// Gorseli bulunan sehirler. Kart gorseli slug'dan uretiliyor, ama her sehrin
+// dosyasi yok: /de listesindeki Bodrum ve Adana icin next/image 400 donuyor ve
+// Ahrefs bunu "Image broken" olarak raporluyordu. Listede olmayan sehir hub
+// gorseline duser; boylece yeni sehir eklemek kirik gorsel uretmez.
+const CITY_IMAGE_SLUGS = new Set([
+  "ankara",
+  "antalya",
+  "bursa",
+  "istanbul",
+  "izmir",
+  "kocaeli",
+  "sakarya",
+  "tekirdag",
+]);
+
 export default function RegionalRentalClient({
   regions,
   services,
@@ -666,7 +681,9 @@ export default function RegionalRentalClient({
   const cityImages = useMemo(() => {
     const map = {};
     regions.forEach((region) => {
-      map[region.slug] = `${imageDir}/${region.slug}.webp`;
+      map[region.slug] = CITY_IMAGE_SLUGS.has(region.slug)
+        ? `${imageDir}/${region.slug}.webp`
+        : `${imageDir}/hero.webp`;
     });
     return map;
   }, [regions]);

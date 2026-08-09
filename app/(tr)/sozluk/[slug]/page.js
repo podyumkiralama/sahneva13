@@ -173,8 +173,8 @@ function LineArrayJsonLd({ term }) {
         alternateName: term.aliases,
         description: term.definition,
         url: PAGE_URL,
+        // DefinedTerm Intangible altindadir; `inLanguage` bu turde gecersiz.
         inDefinedTermSet: { "@id": `${SITE}/sozluk#termset` },
-        inLanguage: "tr-TR",
         subjectOf: {
           "@type": "WebPage",
           "@id": pageId,

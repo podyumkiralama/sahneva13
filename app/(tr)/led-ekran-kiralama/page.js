@@ -814,6 +814,13 @@ function Services() {
             </Link>{" "}
             sayfasında ayrı bir fiyat rehberi hazırladık; bu sayfa ise hizmet ve teknik çözüm kapsamına odaklanır.
           </p>
+          <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Salon ölçünüze ve izleme mesafenize uygun ekran boyutunu kendiniz denemek isterseniz{" "}
+            <Link href="/led-ekran-hesaplama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+              LED ekran ölçü hesaplama aracını
+            </Link>{" "}
+            kullanabilirsiniz.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">

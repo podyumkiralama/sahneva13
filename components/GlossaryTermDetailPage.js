@@ -41,8 +41,8 @@ function GlossaryDetailJsonLd({ term, detail, pageUrl }) {
       alternateName: term.aliases,
       description: term.definition,
       url: pageUrl,
+      // DefinedTerm Intangible altindadir; `inLanguage` bu turde gecersiz.
       inDefinedTermSet: { "@id": `${SITE}/sozluk#termset` },
-      inLanguage: "tr-TR",
       subjectOf: { "@id": pageId },
     },
     {

@@ -122,8 +122,9 @@ const GLOSSARY_JSON_LD = {
       // tüketiciler için kısa tanım daha kullanışlı.
       description: entry.definition,
       url: `${PAGE_URL}#${entry.slug}`,
+      // Not: DefinedTerm Intangible altindadir, CreativeWork degil; `inLanguage`
+      // burada gecersiz. Dil bilgisi bir ust dugumde (DefinedTermSet) duruyor.
       inDefinedTermSet: { "@id": TERM_SET_ID },
-      inLanguage: "tr-TR",
       // Bare URL'yi @id olarak vermek grafikte tanımsız bir düğüme referans
       // oluşturuyordu; satır içi WebPage düğümü doğru karşılık.
       subjectOf: entry.related

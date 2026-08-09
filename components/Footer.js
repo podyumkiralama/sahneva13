@@ -81,6 +81,9 @@ const TR_QUICK_LINKS = [
 
 const TR_POPULAR_PAGES = [
   { href: "/cadir-hesaplama", label: "Çadır Alan Hesaplama" },
+  // Cadir hesaplayicinin aksine bu sayfaya sitede hicbir yerden link yoktu
+  // (Ahrefs "Orphan page"); footer sitenin her yerinden erisim veriyor.
+  { href: "/led-ekran-hesaplama", label: "LED Ekran Ölçü Hesaplama" },
   { href: "/masa-sandalye-kiralama", label: "Masa & Sandalye Kiralama" },
   { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
   { href: "/bolgesel-kiralama", label: "Bölgesel Kiralama" },

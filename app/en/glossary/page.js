@@ -116,8 +116,9 @@ const GLOSSARY_JSON_LD = {
       // short definition is the more useful one for consumers.
       description: entry.definition,
       url: `${PAGE_URL}#${entry.slug}`,
+      // Note: DefinedTerm is an Intangible, not a CreativeWork, so `inLanguage`
+      // is invalid here. The language stays on the parent DefinedTermSet.
       inDefinedTermSet: { "@id": TERM_SET_ID },
-      inLanguage: "en",
       subjectOf: entry.related
         ? { "@type": "WebPage", url: `${SITE}${entry.related.href}`, name: entry.related.label }
         : undefined,

@@ -12,6 +12,25 @@ export const metadata = {
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde iptal ve iade koşulları: kademeli iade oranları, iade süreci, mücbir sebep ve erteleme kuralları.",
   alternates: { canonical: `${SITE_URL}/iptal-ve-iade-kosullari` },
+  // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
+  // devraliyor; og:url canonical yerine anasayfayi gosteriyordu.
+  openGraph: {
+    title: "İptal ve İade Koşulları | Sahneva",
+    description:
+      "Sahneva etkinlik prodüksiyon hizmetlerinde iptal ve iade koşulları: kademeli iade oranları, iade süreci ve mücbir sebep kuralları.",
+    url: `${SITE_URL}/iptal-ve-iade-kosullari`,
+    type: "website",
+    siteName: "Sahneva",
+    locale: "tr_TR",
+    images: [
+      {
+        url: `${SITE_URL}/img/hero-bg.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Organizasyon iptal ve iade koşulları",
+      },
+    ],
+  },
   robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };
 

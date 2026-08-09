@@ -808,11 +808,11 @@ function buildJsonLd() {
         primaryImageOfPage: { "@id": `${PAGE_URL}#image-1` },
         breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
         mainEntity: { "@id": `${PAGE_URL}#project` },
-        hasPart: [
-          { "@id": `${PAGE_URL}#faq` },
-          { "@id": videoNode["@id"] },
-          ...serviceNodes.map((node) => ({ "@id": node["@id"] })),
-        ],
+        // `hasPart` yalnizca CreativeWork kabul eder; Service dugumleri oraya
+        // giremez. Sayfanin bu hizmetlerden bahsettigi `mentions` ile belirtiliyor
+        // (araligi Thing oldugu icin Service gecerli).
+        hasPart: [{ "@id": `${PAGE_URL}#faq` }, { "@id": videoNode["@id"] }],
+        mentions: serviceNodes.map((node) => ({ "@id": node["@id"] })),
         publisher: { "@id": `${SITE_URL}/#org` },
       },
       {
@@ -839,7 +839,9 @@ function buildJsonLd() {
           "podyum kurulumu",
           "açık hava festival sahnesi",
         ],
-        workExample: serviceNodes.map((node) => ({ "@id": node["@id"] })),
+        // `workExample` CreativeWork bekler; bu projede kullanilan hizmetler
+        // "ornek eser" degil, projenin andigi varliklar - dogru ozellik `mentions`.
+        mentions: serviceNodes.map((node) => ({ "@id": node["@id"] })),
       },
       videoNode,
       {

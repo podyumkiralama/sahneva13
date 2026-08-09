@@ -12,6 +12,25 @@ export const metadata = {
   description:
     "Sahneva online ödeme sistemi üzerinden alınan etkinlik prodüksiyon hizmetlerine ilişkin mesafeli satış sözleşmesi: taraflar, hizmet bedeli, ödeme, cayma hakkı ve uyuşmazlık çözümü.",
   alternates: { canonical: `${SITE_URL}/mesafeli-satis-sozlesmesi` },
+  // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
+  // devraliyor; og:url canonical yerine anasayfayi gosteriyordu.
+  openGraph: {
+    title: "Mesafeli Satış Sözleşmesi | Sahneva",
+    description:
+      "Sahneva online ödeme sistemi üzerinden alınan etkinlik prodüksiyon hizmetlerine ilişkin mesafeli satış sözleşmesi.",
+    url: `${SITE_URL}/mesafeli-satis-sozlesmesi`,
+    type: "website",
+    siteName: "Sahneva",
+    locale: "tr_TR",
+    images: [
+      {
+        url: `${SITE_URL}/img/hero-bg.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Organizasyon mesafeli satış sözleşmesi",
+      },
+    ],
+  },
   // Satıcı bilgileri tamamlanmadan arama motorlarına açılmaz.
   robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };

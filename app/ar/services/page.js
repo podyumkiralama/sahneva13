@@ -105,8 +105,9 @@ const SERVICES_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
   name: "Sahneva خدمات تجهيز الفعاليات في تركيا",
+  // OfferCatalog ItemList/Intangible altindadir, CreativeWork degil; `inLanguage`
+  // bu turde gecersiz. Sayfa dili WebPage/WebSite dugumlerinde zaten bildiriliyor.
   url: AR_SERVICES_URL,
-  inLanguage: "ar",
   itemListElement: SERVICE_CARDS.map((service, index) => ({
     "@type": "Offer",
     position: index + 1,

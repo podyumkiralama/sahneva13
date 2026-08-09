@@ -15,6 +15,25 @@ export const metadata = {
   description:
     "Sahneva etkinlik prodüksiyon hizmetlerinde teslimat ve ifa koşulları: kurulum ve söküm süreleri, hizmet bölgesi, nakliye bedeli ve müşteri yükümlülükleri.",
   alternates: { canonical: `${SITE_URL}/teslimat-ve-ifa-kosullari` },
+  // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
+  // devraliyor; og:url canonical yerine anasayfayi gosteriyordu.
+  openGraph: {
+    title: "Teslimat ve İfa Koşulları | Sahneva",
+    description:
+      "Sahneva etkinlik prodüksiyon hizmetlerinde teslimat ve ifa koşulları: kurulum ve söküm süreleri, hizmet bölgesi ve müşteri yükümlülükleri.",
+    url: `${SITE_URL}/teslimat-ve-ifa-kosullari`,
+    type: "website",
+    siteName: "Sahneva",
+    locale: "tr_TR",
+    images: [
+      {
+        url: `${SITE_URL}/img/hero-bg.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Organizasyon teslimat ve ifa koşulları",
+      },
+    ],
+  },
   robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };
 

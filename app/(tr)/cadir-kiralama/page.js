@@ -1579,7 +1579,9 @@ function TentRentalJsonLd() {
       { "@type": "City", name: "İstanbul" },
       { "@type": "AdministrativeArea", name: "Marmara Bölgesi" },
     ],
-    offers: {
+    // `offers` yalnizca Offer/Demand kabul eder; katalog icin dogru ozellik
+    // `hasOfferCatalog`. Sitedeki diger hizmet sayfalari da bunu kullaniyor.
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Çadır Kiralama Fiyatları 2026",
       itemListElement: PRICING_ITEMS.map((item, index) => ({

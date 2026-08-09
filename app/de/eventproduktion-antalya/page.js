@@ -5,6 +5,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 
@@ -172,7 +173,9 @@ function AntalyaJsonLd() {
         name: "Eventproduktion und Veranstaltungstechnik in Antalya",
         serviceType: "Veranstaltungstechnik",
         description: metadata.description,
-        telephone: PHONE,
+        // `telephone` Service'te gecersiz (Organization/Place/ContactPoint
+        // ozelligi). Numara zaten Organization dugumunde; Service oraya baglaniyor.
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: [
           { "@type": "City", name: "Antalya" },
           ...REGIONS.map((region) => ({ "@type": "Place", name: region.name })),

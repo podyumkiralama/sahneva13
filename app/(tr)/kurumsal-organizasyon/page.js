@@ -446,15 +446,14 @@ function CorporateOrganizationJsonLd() {
       // sema acisindan dogrulanabilir olani — her kalem sitedeki bir kaynaga baglaniyor.
       mentions: buildClientReferenceMentions(ORIGIN),
       mainEntity: { "@id": serviceId },
-      isRelatedTo: [
-        { "@id": `${ORIGIN}/led-ekran-kiralama#service` },
-        { "@id": `${ORIGIN}/sahne-kiralama#service` },
-        { "@id": `${ORIGIN}/podyum-kiralama#service` },
-        { "@id": `${ORIGIN}/ses-isik-sistemleri#service` },
-        { "@id": `${ORIGIN}/truss-kiralama#service` },
-        { "@id": `${ORIGIN}/projeler#webpage` },
-        { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-planlama-rehberi-2026#article` },
-        { "@id": `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi#article` },
+      // `isRelatedTo` Product/Service ozelligidir, WebPage'de gecersizdi.
+      // Hizmet baglantilari asagidaki Service dugumune tasindi; sayfa-sayfa
+      // iliskiler icin WebPage'in kendi ozelligi olan `relatedLink` kullaniliyor
+      // (araligi URL oldugu icin @id referansi degil duz adres veriliyor).
+      relatedLink: [
+        `${ORIGIN}/projeler`,
+        `${ORIGIN}/blog/kurumsal-etkinlik-planlama-rehberi-2026`,
+        `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi`,
       ],
       hasPart: [
         { "@id": `${PAGE_URL}#faq` },
@@ -480,6 +479,15 @@ function CorporateOrganizationJsonLd() {
       brand: { "@id": ORGANIZATION_ID },
       areaServed: [{ "@type": "Country", name: "Türkiye" }],
       url: PAGE_URL,
+      // Bu paketi olusturan alt hizmetler. `isRelatedTo` Service'in kendi
+      // ozelligi; WebPage dugumunden buraya tasindi.
+      isRelatedTo: [
+        { "@id": `${ORIGIN}/led-ekran-kiralama#service` },
+        { "@id": `${ORIGIN}/sahne-kiralama#service` },
+        { "@id": `${ORIGIN}/podyum-kiralama#service` },
+        { "@id": `${ORIGIN}/ses-isik-sistemleri#service` },
+        { "@id": `${ORIGIN}/truss-kiralama#service` },
+      ],
     },
     {
       "@type": "CollectionPage",

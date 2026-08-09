@@ -25,8 +25,9 @@ const SERVICES_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
   name: "Sahneva 土耳其活动服务项目",
+  // OfferCatalog ItemList/Intangible altindadir, CreativeWork degil; `inLanguage`
+  // bu turde gecersiz. Sayfa dili WebPage/WebSite dugumlerinde zaten bildiriliyor.
   url: ZH_SERVICES_URL,
-  inLanguage: "zh",
   itemListElement: CHINESE_SERVICE_LIST.map((service, index) => ({
     "@type": "Offer",
     position: index + 1,
