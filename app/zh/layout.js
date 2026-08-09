@@ -13,6 +13,7 @@ import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import SupportLauncher from "@/components/support/SupportLauncher.client";
 import { isStoreConfigured } from "@/lib/support/config";
+import { isFilesConfigured } from "@/lib/support/files";
 import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
@@ -196,7 +197,11 @@ export default function ChineseLayout({ children }) {
           </main>
           <Footer locale="zh" />
           <StickyVideoRailClient locale="zh" />
-          <SupportLauncher locale="zh" enabled={isStoreConfigured()} />
+          <SupportLauncher
+          locale="zh"
+          enabled={isStoreConfigured()}
+          attachments={isFilesConfigured()}
+        />
           <DeferredSpeedInsights />
         </div>
       </body>

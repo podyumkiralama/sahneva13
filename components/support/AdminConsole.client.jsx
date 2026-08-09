@@ -1,7 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Bell, BellRing, Check, LogOut, RefreshCw, Send } from "lucide-react";
+import {
+  Bell,
+  BellRing,
+  Check,
+  Download,
+  LogOut,
+  Paperclip,
+  RefreshCw,
+  Send,
+  Share2,
+  Trash2,
+} from "lucide-react";
 
 // Yeni mesajın asıl haber kanalı telefona düşen bildirim; liste bu yüzden
 // sık yoklanmak zorunda değil. Açık sohbet, yazışma sürerken akıcı dursun
@@ -25,6 +36,84 @@ function urlBase64ToUint8Array(base64String) {
     output[index] = raw.charCodeAt(index);
   }
   return output;
+}
+
+function formatFileSize(bytes) {
+  if (!bytes) return "";
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
+function buildFileUrl(file) {
+  return `/api/support/admin/file?path=${encodeURIComponent(file.path)}&name=${encodeURIComponent(file.name)}`;
+}
+
+/**
+ * Dosya balonu. Depodaki kayıt özel olduğu için indirme bu uç üzerinden
+ * yapılıyor; paylaşma Android'in kendi paylaş menüsünü açıp dosyayı
+ * WhatsApp'a veriyor.
+ */
+function FileAttachment({ file, onNotice }) {
+  const [busy, setBusy] = useState(false);
+
+  const share = async () => {
+    setBusy(true);
+    onNotice("");
+
+    try {
+      const response = await fetch(buildFileUrl(file));
+      if (!response.ok) throw new Error("indirilemedi");
+
+      const blob = await response.blob();
+      const shareable = new File([blob], file.name, {
+        type: file.type || blob.type || "application/octet-stream",
+      });
+
+      if (!navigator.canShare?.({ files: [shareable] })) {
+        onNotice("Bu cihaz dosya paylaşımını desteklemiyor; İndir'i kullanın.");
+        return;
+      }
+
+      await navigator.share({ files: [shareable], title: file.name });
+    } catch (error) {
+      // Kullanıcı paylaş menüsünü kapatırsa da buraya düşüyor; hata sayılmaz.
+      if (error?.name !== "AbortError") {
+        onNotice("Dosya paylaşılamadı.");
+      }
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <span className="mb-2 block rounded-xl bg-white/10 p-2 ring-1 ring-inset ring-black/5">
+      <span className="flex items-center gap-1.5">
+        <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+        <span className="min-w-0 flex-1 truncate text-xs font-medium">{file.name}</span>
+        <span className="shrink-0 text-[11px] opacity-70">{formatFileSize(file.size)}</span>
+      </span>
+
+      <span className="mt-2 flex gap-1.5">
+        <a
+          href={buildFileUrl(file)}
+          download={file.name}
+          className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg bg-white px-2 py-1 text-xs font-semibold text-slate-800 no-underline hover:bg-slate-100"
+        >
+          <Download aria-hidden="true" className="h-3 w-3" />
+          İndir
+        </a>
+        <button
+          type="button"
+          onClick={share}
+          disabled={busy}
+          className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg bg-emerald-600 px-2 py-1 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
+        >
+          <Share2 aria-hidden="true" className="h-3 w-3" />
+          {busy ? "…" : "Paylaş"}
+        </button>
+      </span>
+    </span>
+  );
 }
 
 function formatTimestamp(value) {
@@ -53,6 +142,7 @@ export default function AdminConsole() {
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState("");
+  const [confirmDelete, setConfirmDelete] = useState(null);
 
   const [pushState, setPushState] = useState({
     supported: false,
@@ -272,6 +362,35 @@ export default function AdminConsole() {
     } finally {
       setSending(false);
     }
+  };
+
+  const deleteThread = async () => {
+    if (!activeId) return;
+
+    // İki adımlı onay: silme geri alınamıyor.
+    if (confirmDelete !== activeId) {
+      setConfirmDelete(activeId);
+      window.setTimeout(() => setConfirmDelete(null), 5000);
+      return;
+    }
+
+    setConfirmDelete(null);
+
+    const response = await fetch("/api/support/admin/thread", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: activeId }),
+    }).catch(() => null);
+
+    if (!response?.ok) {
+      setNotice("Sohbet silinemedi.");
+      return;
+    }
+
+    setActiveId(null);
+    setMessages([]);
+    setNotice("Sohbet ve dosyaları kalıcı olarak silindi.");
+    loadThreads();
   };
 
   const closeThread = async () => {
@@ -605,6 +724,18 @@ export default function AdminConsole() {
                     <Check aria-hidden="true" className="h-3 w-3" />
                     Kapat
                   </button>
+                  <button
+                    type="button"
+                    onClick={deleteThread}
+                    className={`inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-xs transition ${
+                      confirmDelete === activeId
+                        ? "border-rose-500 bg-rose-500 font-semibold text-white"
+                        : "border-slate-300 text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    <Trash2 aria-hidden="true" className="h-3 w-3" />
+                    {confirmDelete === activeId ? "Emin misiniz?" : "Sil"}
+                  </button>
                 </div>
               </div>
 
@@ -623,6 +754,9 @@ export default function AdminConsole() {
                             : "bg-white text-slate-800 ring-1 ring-slate-200"
                       }`}
                     >
+                      {entry.file ? (
+                        <FileAttachment file={entry.file} onNotice={setNotice} />
+                      ) : null}
                       {entry.text}
                       <span
                         className={`mt-1 block text-[11px] ${

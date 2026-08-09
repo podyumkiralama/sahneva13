@@ -17,6 +17,7 @@ import SpeculationRules from "@/components/performance/SpeculationRules";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { isStoreConfigured } from "@/lib/support/config";
+import { isFilesConfigured } from "@/lib/support/files";
 import {
   AI_PREVIEW_ROBOTS,
   HOME_PAGE_TITLE,
@@ -271,7 +272,11 @@ export default function TurkishLayout({ children }) {
           descriptionId="_main_footer_desc"
         />
         <StickyVideoRailClient />
-        <SupportLauncher locale="tr" enabled={isStoreConfigured()} />
+        <SupportLauncher
+          locale="tr"
+          enabled={isStoreConfigured()}
+          attachments={isFilesConfigured()}
+        />
         <DeferredSpeedInsights />
       </body>
     </html>

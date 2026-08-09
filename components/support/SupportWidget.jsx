@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { MessageCircle, Send, X } from "lucide-react";
+import { MessageCircle, Paperclip, Send, X } from "lucide-react";
 
 import {
   WHATSAPP_URL,
@@ -55,7 +55,17 @@ function formatTime(at, locale) {
   }
 }
 
-export default function SupportWidget({ locale = "tr" }) {
+// Sunucudaki listeyle aynı: ALLOWED_FILE_TYPES / MAX_FILE_SIZE.
+const ACCEPTED_FILE_TYPES =
+  "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf";
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+
+function formatFileSize(bytes) {
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
+export default function SupportWidget({ locale = "tr", attachments = false }) {
   const dictionary = useMemo(() => getSupportDictionary(locale), [locale]);
   const isRtl = locale === "ar";
 
@@ -71,6 +81,8 @@ export default function SupportWidget({ locale = "tr" }) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [draft, setDraft] = useState("");
+  const [attachment, setAttachment] = useState(null);
+  const fileInputRef = useRef(null);
 
   const cursorRef = useRef(0);
   const lastActivityRef = useRef(0);
@@ -243,27 +255,79 @@ export default function SupportWidget({ locale = "tr" }) {
     }
   }, [contact, dictionary, draft, errorMessageFor, locale, name, online]);
 
+  /**
+   * Dosya bizim sunucumuza uğramıyor: uçtan yalnızca kısa ömürlü, tek bir
+   * yola kilitli bir yükleme adresi alınıp doğrudan depoya gönderiliyor.
+   */
+  const uploadAttachment = useCallback(
+    async (file, activeSession) => {
+      const ticketResponse = await fetch("/api/support/upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: activeSession.id,
+          token: activeSession.token,
+          name: file.name,
+          type: file.type,
+          size: file.size,
+        }),
+      });
+
+      const ticket = await ticketResponse.json().catch(() => null);
+      if (!ticketResponse.ok || !ticket?.uploadUrl) {
+        throw new Error(ticket?.error ?? "upload_failed");
+      }
+
+      const putResponse = await fetch(ticket.uploadUrl, {
+        method: "PUT",
+        headers: { "Content-Type": file.type },
+        body: file,
+      });
+
+      if (!putResponse.ok) throw new Error("upload_failed");
+
+      return { path: ticket.pathname, name: file.name, type: file.type, size: file.size };
+    },
+    [],
+  );
+
   const sendMessage = useCallback(async () => {
     const text = draft.trim();
-    if (!text || !session) return;
+    const file = attachment;
+    if ((!text && !file) || !session) return;
 
     setBusy(true);
     setError("");
     setDraft("");
-    setPending((current) => [...current, { text, at: Date.now() }]);
+    setAttachment(null);
+    setPending((current) => [
+      ...current,
+      { text, at: Date.now(), file: file ? { name: file.name, size: file.size } : null },
+    ]);
 
     try {
+      let uploaded = null;
+      if (file) {
+        uploaded = await uploadAttachment(file, session);
+      }
+
       const response = await fetch("/api/support/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: session.id, token: session.token, message: text }),
+        body: JSON.stringify({
+          id: session.id,
+          token: session.token,
+          message: text,
+          file: uploaded,
+        }),
       });
 
       const data = await response.json().catch(() => null);
 
       if (!response.ok || !data?.ok) {
-        setPending((current) => current.filter((entry) => entry.text !== text));
+        setPending([]);
         setDraft(text);
+        setAttachment(file);
         setError(errorMessageFor(data?.error));
         return;
       }
@@ -272,14 +336,42 @@ export default function SupportWidget({ locale = "tr" }) {
       // Kendi mesajımızın sunucudaki kopyası da bu yoklamayla geliyor;
       // bekleyen kopya orada temizleniyor.
       await poll();
-    } catch {
-      setPending((current) => current.filter((entry) => entry.text !== text));
+    } catch (uploadError) {
+      setPending([]);
       setDraft(text);
-      setError(dictionary.errorGeneric);
+      setAttachment(file);
+      setError(
+        uploadError?.message === "file_too_large"
+          ? dictionary.errorFileTooLarge
+          : uploadError?.message === "type_not_allowed"
+            ? dictionary.errorFileType
+            : dictionary.errorGeneric,
+      );
     } finally {
       setBusy(false);
     }
-  }, [dictionary, draft, errorMessageFor, poll, session]);
+  }, [attachment, dictionary, draft, errorMessageFor, poll, session, uploadAttachment]);
+
+  const pickAttachment = useCallback(
+    (event) => {
+      const file = event.target.files?.[0];
+      event.target.value = "";
+      if (!file) return;
+
+      if (file.size > MAX_UPLOAD_BYTES) {
+        setError(dictionary.errorFileTooLarge);
+        return;
+      }
+      if (!ACCEPTED_FILE_TYPES.split(",").includes(file.type)) {
+        setError(dictionary.errorFileType);
+        return;
+      }
+
+      setError("");
+      setAttachment(file);
+    },
+    [dictionary],
+  );
 
   /* -------------------------------- görünüm --------------------------- */
 
@@ -416,10 +508,54 @@ export default function SupportWidget({ locale = "tr" }) {
               </span>
             ) : null}
 
+            {attachment ? (
+              <div className="mb-2 flex items-center gap-2 rounded-lg bg-violet-50 px-2.5 py-1.5">
+                <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-violet-700" />
+                <span className="min-w-0 flex-1 truncate text-xs text-violet-900">
+                  {attachment.name}
+                </span>
+                <span className="shrink-0 text-[11px] text-violet-700">
+                  {formatFileSize(attachment.size)}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setAttachment(null)}
+                  aria-label={dictionary.removeFile}
+                  className="shrink-0 rounded p-0.5 text-violet-700 hover:bg-violet-100"
+                >
+                  <X aria-hidden="true" className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            ) : null}
+
             <div className="flex items-end gap-2">
               <label htmlFor="sahneva-support-draft" className="sr-only">
                 {dictionary.messageLabel}
               </label>
+
+              {/* Dosya ancak sohbet açıldıktan sonra eklenebiliyor: yükleme
+                  izni sohbetin jetonuna bağlı. */}
+              {attachments && session ? (
+                <>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept={ACCEPTED_FILE_TYPES}
+                    onChange={pickAttachment}
+                    className="sr-only"
+                    tabIndex={-1}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    aria-label={dictionary.attachFile}
+                    title={dictionary.attachFile}
+                    className="inline-flex h-11 w-9 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                  >
+                    <Paperclip aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
+                  </button>
+                </>
+              ) : null}
               <textarea
                 id="sahneva-support-draft"
                 ref={draftRef}
@@ -433,7 +569,7 @@ export default function SupportWidget({ locale = "tr" }) {
               />
               <button
                 type="button"
-                disabled={busy || !draft.trim()}
+                disabled={busy || (!draft.trim() && !attachment)}
                 onClick={() => (session ? sendMessage() : startConversation())}
                 aria-label={session ? dictionary.sendButton : dictionary.startButton}
                 className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#6d28d9] text-white transition hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:cursor-not-allowed disabled:bg-slate-300"
@@ -496,6 +632,16 @@ function Bubble({ entry, locale, dictionary, muted = false }) {
               : "bg-white text-slate-800 shadow-sm ring-1 ring-slate-200"
           }`}
         >
+          {entry.file ? (
+            <span
+              className={`mb-1 flex items-center gap-1.5 text-xs ${
+                isVisitor ? "text-violet-100" : "text-slate-500"
+              }`}
+            >
+              <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+              <span className="truncate">{entry.file.name}</span>
+            </span>
+          ) : null}
           {entry.text}
         </div>
         <span

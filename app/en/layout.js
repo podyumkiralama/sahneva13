@@ -8,6 +8,7 @@ import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import SupportLauncher from "@/components/support/SupportLauncher.client";
 import { isStoreConfigured } from "@/lib/support/config";
+import { isFilesConfigured } from "@/lib/support/files";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
@@ -275,7 +276,11 @@ export default function EnglishLayout({ children }) {
           locale="en"
         />
         <StickyVideoRailClient locale="en" />
-        <SupportLauncher locale="en" enabled={isStoreConfigured()} />
+        <SupportLauncher
+          locale="en"
+          enabled={isStoreConfigured()}
+          attachments={isFilesConfigured()}
+        />
         <DeferredSpeedInsights />
       </div>
       </body>

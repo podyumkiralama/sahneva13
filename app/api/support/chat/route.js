@@ -10,6 +10,11 @@ import {
 } from "@/lib/support/config";
 import { normalizeContact } from "@/lib/support/contact";
 import { getSupportDictionary } from "@/lib/support/dictionary";
+import {
+  ALLOWED_FILE_TYPES,
+  MAX_FILE_SIZE,
+  conversationPrefix,
+} from "@/lib/support/files";
 import { notifyAgents } from "@/lib/support/push";
 import {
   appendMessage,
@@ -41,6 +46,25 @@ function fail(error, status = 400) {
   return Response.json({ ok: false, error }, { status });
 }
 
+/**
+ * Mesaja iliştirilen dosyanın künyesi. Yol, sohbetin kendi klasörünü
+ * göstermek zorunda: istemci başka bir sohbetin dosyasını kendi mesajına
+ * iliştiremesin.
+ */
+function normalizeAttachment(value) {
+  if (!value || typeof value !== "object") return null;
+
+  const path = clean(value.path, 300);
+  const name = clean(value.name, 160);
+  const type = clean(value.type, 100);
+  const size = Number(value.size);
+
+  if (!path || !ALLOWED_FILE_TYPES.includes(type)) return null;
+  if (!Number.isFinite(size) || size <= 0 || size > MAX_FILE_SIZE) return null;
+
+  return { path, name: name || "dosya", type, size };
+}
+
 /** Bildirim gövdesinde sohbetin kim olduğu tek bakışta görünsün. */
 function buildNotification(conversation, text) {
   const who = conversation.name || "Yeni ziyaretçi";
@@ -69,8 +93,10 @@ export async function POST(request) {
 
   const ip = getClientIp(request);
   const message = clean(payload?.message, SUPPORT_LIMITS.maxMessageLength);
+  const file = normalizeAttachment(payload?.file);
 
-  if (!message) {
+  // Dosya eklenmişse metin zorunlu değil.
+  if (!message && !file) {
     return fail("message_required");
   }
 
@@ -93,8 +119,19 @@ export async function POST(request) {
       const allowed = await consumeRateLimit("msg", ip, SUPPORT_LIMITS.messagesPerHour);
       if (!allowed) return fail("rate_limited", 429);
 
-      const result = await appendMessage(conversation, { role: "visitor", text: message });
-      await notifyAgents(buildNotification(result.conversation, message));
+      // Dosya yolu bu sohbetin klasöründe olmalı.
+      if (file && !file.path.startsWith(conversationPrefix(conversation.id))) {
+        return fail("invalid_attachment");
+      }
+
+      const result = await appendMessage(conversation, {
+        role: "visitor",
+        text: message,
+        file,
+      });
+      await notifyAgents(
+        buildNotification(result.conversation, message || `📎 ${file?.name ?? "Dosya"}`),
+      );
 
       return Response.json({ ok: true, cursor: result.index + 1 });
     }

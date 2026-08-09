@@ -9,7 +9,11 @@ const SupportWidgetLazy = dynamic(() => import("./SupportWidget"), {
   loading: () => null,
 });
 
-export default function SupportLauncher({ locale = "tr", enabled = false }) {
+export default function SupportLauncher({
+  locale = "tr",
+  enabled = false,
+  attachments = false,
+}) {
   const [shouldRender, setShouldRender] = useState(false);
   const pathname = usePathname();
 
@@ -47,5 +51,5 @@ export default function SupportLauncher({ locale = "tr", enabled = false }) {
 
   if (hidden || !shouldRender) return null;
 
-  return <SupportWidgetLazy locale={locale} />;
+  return <SupportWidgetLazy locale={locale} attachments={attachments} />;
 }

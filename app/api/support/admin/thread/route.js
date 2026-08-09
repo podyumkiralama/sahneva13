@@ -2,9 +2,11 @@
 
 import { SUPPORT_LIMITS, isStoreConfigured } from "@/lib/support/config";
 import { isAdminRequest, serviceUnavailable, unauthorized } from "@/lib/support/guard";
+import { deleteConversationFiles, isFilesConfigured } from "@/lib/support/files";
 import {
   appendMessage,
   closeConversation,
+  deleteConversation,
   getConversation,
   getMessages,
   markThreadRead,
@@ -80,6 +82,38 @@ export async function POST(request) {
     await markThreadRead(id);
 
     return Response.json({ ok: true, cursor: result.index + 1 });
+  } catch {
+    return storeError();
+  }
+}
+
+export async function DELETE(request) {
+  if (!(await isAdminRequest())) return unauthorized();
+  if (!isStoreConfigured()) return serviceUnavailable();
+
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
+  }
+
+  const id = clean(payload?.id, 64);
+  if (!id) return Response.json({ ok: false, error: "id_required" }, { status: 400 });
+
+  try {
+    // Önce dosyalar: Redis kaydı silindikten sonra sohbetin varlığı
+    // doğrulanamaz ve dosyalar sahipsiz kalırdı.
+    if (isFilesConfigured()) {
+      await deleteConversationFiles(id).catch(() => {});
+    }
+
+    const removed = await deleteConversation(id);
+    if (!removed) {
+      return Response.json({ ok: false, error: "not_found" }, { status: 404 });
+    }
+
+    return Response.json({ ok: true });
   } catch {
     return storeError();
   }
