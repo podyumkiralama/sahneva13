@@ -5,6 +5,8 @@ import { inter } from "../fonts";
 import SiteHeader from "../../components/i18n/SiteHeader";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
+import SupportLauncher from "@/components/support/SupportLauncher.client";
+import { isStoreConfigured } from "@/lib/support/config";
 import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "../../lib/i18n/localeContent";
 import {
@@ -191,6 +193,7 @@ export default function ArabicLayout({ children }) {
       <div id="_main_footer">
         <SiteFooter strings={content.footer} />
       </div>
+      <SupportLauncher locale="ar" enabled={isStoreConfigured()} />
       <DeferredSpeedInsights />
     </div>
       </body>

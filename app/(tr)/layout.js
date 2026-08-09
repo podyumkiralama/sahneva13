@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
+import SupportLauncher from "@/components/support/SupportLauncher.client";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
@@ -15,6 +16,7 @@ import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistratio
 import SpeculationRules from "@/components/performance/SpeculationRules";
 
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
+import { isStoreConfigured } from "@/lib/support/config";
 import {
   AI_PREVIEW_ROBOTS,
   HOME_PAGE_TITLE,
@@ -269,6 +271,7 @@ export default function TurkishLayout({ children }) {
           descriptionId="_main_footer_desc"
         />
         <StickyVideoRailClient />
+        <SupportLauncher locale="tr" enabled={isStoreConfigured()} />
         <DeferredSpeedInsights />
       </body>
     </html>

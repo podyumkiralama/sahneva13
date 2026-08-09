@@ -125,6 +125,10 @@ const nextConfig = {
     removeConsole: isProd ? { exclude: ["error", "warn"] } : false,
   },
 
+  // web-push, Node kripto API'lerini çalışma anında çözüyor; paketleyiciye
+  // sokulunca bozuluyor, bu yüzden dışarıda bırakılıyor.
+  serverExternalPackages: ["web-push"],
+
   experimental: {
     optimizePackageImports: ["lucide-react"],
     staleTimes: {
@@ -417,10 +421,19 @@ const nextConfig = {
       },
 
       // 2) DÜZELTME: Sayfalar için sadece Robots başlığı basıyoruz, Cache-Control Next.js'e bırakıldı.
+      // Yönetim paneli bu kuralın dışında: index/follow başlığı almasın.
       {
-        source: "/((?!api/|_next/|.*\\..*).*)",
+        source: "/((?!api/|yonetim|_next/|.*\\..*).*)",
         missing: [{ type: "query", key: "_rsc" }],
         headers: htmlRobotsHeaders,
+      },
+
+      {
+        source: "/yonetim/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Cache-Control", value: "private, no-store, max-age=0" },
+        ],
       },
 
       // RSC payload istekleri HTML sayfa değildir; arama sonuçlarına girmesin.

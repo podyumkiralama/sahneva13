@@ -45,7 +45,7 @@ const AI_TRAINING_AGENTS = [
 ];
 
 export default function robots() {
-  const disallow = ["/api/", "/private/", "/_next-live/"];
+  const disallow = ["/api/", "/private/", "/_next-live/", "/yonetim/"];
   const allow = ["/", "/llms.txt", "/.well-known/webmcp.json"];
 
   return {

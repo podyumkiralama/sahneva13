@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
+import SupportLauncher from "@/components/support/SupportLauncher.client";
+import { isStoreConfigured } from "@/lib/support/config";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
@@ -265,6 +267,7 @@ export default function GermanLayout({ children }) {
             locale="de"
           />
           <StickyVideoRailClient locale="de" />
+          <SupportLauncher locale="de" enabled={isStoreConfigured()} />
           <DeferredSpeedInsights />
         </div>
       </body>

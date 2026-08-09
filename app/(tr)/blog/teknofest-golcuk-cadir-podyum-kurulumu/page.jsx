@@ -20,7 +20,8 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile(
 
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const TITLE = "TEKNOFEST Kapsamında Gölcük'te Büyük Ölçekli Çadır ve Podyum Kurulumu";
-const META_TITLE = "TEKNOFEST Gölcük Çadır ve Podyum Kurulumu | Sahneva";
+const META_TITLE = "TEKNOFEST Gölcük Çadır ve Podyum Kurulumu";
+const SOCIAL_TITLE = META_TITLE + " | Sahneva";
 const DESCRIPTION =
   "Sahneva, TEKNOFEST kapsamında Gölcük'te 1.500 m² çadır ve 1.350 m² podyumu bir günde kurdu. Türkiye geneli etkinlik altyapısı, lojistik, kurulum ve söküm çözümleri.";
 
@@ -91,7 +92,7 @@ export const metadata = {
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
   openGraph: {
-    title: META_TITLE,
+    title: SOCIAL_TITLE,
     description: DESCRIPTION,
     url: BLOG_URL,
     siteName: "Sahneva",
@@ -108,7 +109,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: META_TITLE,
+    title: SOCIAL_TITLE,
     description: DESCRIPTION,
     images: [`${SITE_URL}${HERO_IMAGE}`],
   },
