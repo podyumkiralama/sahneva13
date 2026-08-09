@@ -8,7 +8,7 @@
 // gösterme riski taşırdı. Buradaki tek iş, canlı destek bildirimlerini
 // karşılamak.
 
-const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v3";
+const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v4";
 
 const NOTIFICATION_ICON = "/android-chrome-192x192.png";
 const NOTIFICATION_BADGE = "/favicon-32x32.png";
@@ -62,7 +62,12 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
 
-  const target = event.notification.data?.url || SUPPORT_CONSOLE_PATH;
+  // Mutlak adres: openWindow bazı Android sürümlerinde göreli yolu
+  // çözemiyor.
+  const target = new URL(
+    event.notification.data?.url || SUPPORT_CONSOLE_PATH,
+    self.location.origin
+  ).href;
 
   event.waitUntil(
     (async () => {
@@ -71,22 +76,38 @@ self.addEventListener("notificationclick", (event) => {
         includeUncontrolled: true,
       });
 
-      // Panel zaten açıksa yeni pencere açmak yerine ona odaklan.
+      // Panel zaten açıksa yeni pencere açmak yerine ona odaklanmayı dene.
       const existing = clientList.find((client) =>
         client.url.includes(SUPPORT_CONSOLE_PATH)
       );
 
       if (existing) {
-        if ("navigate" in existing) {
-          await existing.navigate(target).catch(() => {});
+        try {
+          if ("navigate" in existing) {
+            const navigated = await existing.navigate(target);
+            if (navigated) {
+              await navigated.focus();
+              return;
+            }
+          }
+          await existing.focus();
+          return;
+        } catch (error) {
+          // Arka planda kalmış veya service worker'ın kontrolünde olmayan
+          // bir sekme odaklanmayı reddedebiliyor; bu durumda hiçbir şey
+          // açılmıyordu. Yedek plan yeni pencere açmak.
         }
-        return existing.focus();
       }
 
-      return self.clients.openWindow(target);
+      await self.clients.openWindow(target);
     })()
   );
 });
+
+// Chrome'un "uygulama olarak kur" ölçütü kayıtlı bir fetch dinleyicisi arıyor.
+// İstekler bilinçli olarak değiştirilmiyor: respondWith çağrılmadığı için
+// tarayıcı isteği her zamanki gibi kendisi yürütür, araya önbellek girmez.
+self.addEventListener("fetch", () => {});
 `;
 
 export const dynamic = "force-dynamic";

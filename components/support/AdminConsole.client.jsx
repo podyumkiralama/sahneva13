@@ -312,8 +312,15 @@ export default function AdminConsole() {
 
       let subscribed = false;
       try {
-        const registration = await navigator.serviceWorker.getRegistration();
-        subscribed = Boolean(await registration?.pushManager.getSubscription());
+        // Kayıt her açılışta yenileniyor: panel ana ekrandan bağımsız bir
+        // uygulama olarak açıldığında siteye hiç uğramayabiliyor, ayrıca
+        // service worker'ın yeni sürümü de bu çağrıyla devralıyor.
+        await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v4", {
+          scope: "/",
+          updateViaCache: "none",
+        });
+        const registration = await navigator.serviceWorker.ready;
+        subscribed = Boolean(await registration.pushManager.getSubscription());
       } catch {
         subscribed = false;
       }
@@ -354,7 +361,7 @@ export default function AdminConsole() {
 
       // Kayıt üretimde otomatik yapılıyor; panelde geliştirme ortamında da
       // çalışsın diye burada da güvenceye alınıyor.
-      await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v3", {
+      await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v4", {
         scope: "/",
         updateViaCache: "none",
       });

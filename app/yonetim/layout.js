@@ -7,6 +7,14 @@ import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 
 export const metadata = {
   title: "Sahneva Yönetim",
+  // Sitenin manifest'i değil, panele özel olan. Ana ekrana eklendiğinde
+  // ana sayfa yerine doğrudan panelde, kendi adı ve penceresiyle açılsın.
+  manifest: "/destek-manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "Sahneva Destek",
+    statusBarStyle: "default",
+  },
   robots: {
     index: false,
     follow: false,
