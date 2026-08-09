@@ -96,14 +96,26 @@ etkilenmez: widget'ta ataç düğmesi hiç görünmez.
    bağlamayı unutmayın — bağlanmamış değişkeni site göremez.
 3. Yeniden dağıtın.
 
-Silme süresi varsayılan **7 gün**. Değiştirmek için
-`SUPPORT_FILE_RETENTION_DAYS` ortam değişkenine gün sayısı yazın.
+### Dosyalar ne zaman siliniyor
 
-Temizlik `vercel.json` içindeki günlük cron ile yapılıyor
-(`/api/support/cleanup`, her gün 04:00 UTC). Vercel bu çağrıyı
-`CRON_SECRET` ile imzalar; değişken tanımlı değilse uç 401 döner ve hiçbir
-şey silinmez, bu yüzden **`CRON_SECRET`** de tanımlanmalıdır (rastgele bir
-değer yeterli).
+**Kendiliğinden silinmiyor.** Zamanlanmış bir temizlik görevi yok; bir dosya
+yalnızca ait olduğu sohbeti panelden sildiğinizde gider. Ay sonra dönüp
+bakmak istediğiniz bir mekân fotoğrafı yerinde durur.
+
+Bunun iki sonucu var:
+
+- **Depo dolabilir.** Ücretsiz kota 1 GB; 10 MB'lık üst sınırla bu yaklaşık
+  100 dosya demek. Dolduğunda yeni yüklemeler başarısız olur. Yer açmanın
+  yolu biten işlerin sohbetlerini silmek.
+- **Sahipsiz dosya kalabilir.** Yazışmalar 90 gün sonra Redis'ten
+  kendiliğinden düşüyor; o sohbetin dosyaları depoda kalmaya devam eder ve
+  artık panelden erişilemez. Bunları Vercel panosundan
+  (Storage → Blob → Manage Blobs) elle silebilirsiniz.
+
+Süreli silme isterseniz `SUPPORT_FILE_RETENTION_DAYS` ortam değişkenine gün
+sayısı yazın ve `/api/support/cleanup` ucunu bir cron'a bağlayın; değişken
+tanımlı değilken bu uç hiçbir şeye dokunmaz. `CRON_SECRET` tanımlıysa uç
+yalnızca o imzayla çalışır.
 
 Kabul edilen türler: JPEG, PNG, WebP, HEIC/HEIF ve PDF. Üst sınır 10 MB.
 Çalıştırılabilir içerik kabul edilmiyor.
@@ -171,8 +183,8 @@ ekrana eklenmiş olmalıdır; Safari sekmesinde açıkken bildirim gelmez.
   ekleyebilir (en fazla 10 MB). Dosya tarayıcıdan doğrudan depoya gider,
   bizim fonksiyonumuzdan geçmez; depoda "private" durur, adresi bilinse
   bile açılmaz. Panelde "İndir" ve "Paylaş" düğmeleri var — Paylaş,
-  Android'in paylaş menüsünü açıp dosyayı WhatsApp'a verir.
-  Kurulum için 4. bölüme bakın.
+  Android'in paylaş menüsünü açıp dosyayı WhatsApp'a verir. Dosyalar
+  kendiliğinden silinmez; yalnızca sohbet silindiğinde giderler.
 - **Saklama süresi** 90 gün. Sürenin sonunda yazışma kendiliğinden silinir
   (KVKK). Değiştirmek için `CONVERSATION_TTL_SECONDS`.
 - **Kötüye kullanım sınırı**: aynı IP'den saatte 5 yeni sohbet, 60 mesaj.

@@ -286,7 +286,20 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
 
       if (!putResponse.ok) throw new Error("upload_failed");
 
-      return { path: ticket.pathname, name: file.name, type: file.type, size: file.size };
+      // Depo, kaydettiği gerçek yolu yanıtta bildiriyorsa onu kullan:
+      // istediğimiz ad ile saklanan ad birbirinden ayrılırsa dosya
+      // sonradan bulunamaz hale geliyor.
+      let storedPath = ticket.pathname;
+      try {
+        const stored = await putResponse.clone().json();
+        if (typeof stored?.pathname === "string" && stored.pathname) {
+          storedPath = stored.pathname;
+        }
+      } catch {
+        // Yanıt JSON değilse istenen yol geçerli kabul edilir.
+      }
+
+      return { path: storedPath, name: file.name, type: file.type, size: file.size };
     },
     [],
   );
