@@ -84,6 +84,32 @@ Değişkenleri ekledikten sonra projeyi yeniden dağıtın.
 
 ---
 
+## 3b. Dosya eki (isteğe bağlı)
+
+Dosya gönderimi ayrı bir depo istiyor. Açılmazsa modülün geri kalanı
+etkilenmez: widget'ta ataç düğmesi hiç görünmez.
+
+1. Vercel panosunda projeyi açın → **Storage** → **Create Database** →
+   **Blob**. Projeye bağlayın; Vercel `BLOB_READ_WRITE_TOKEN` değişkenini
+   kendisi ekler.
+2. Takım (Shared) düzeyinde açtıysanız **Link Shared Variable** ile projeye
+   bağlamayı unutmayın — bağlanmamış değişkeni site göremez.
+3. Yeniden dağıtın.
+
+Silme süresi varsayılan **7 gün**. Değiştirmek için
+`SUPPORT_FILE_RETENTION_DAYS` ortam değişkenine gün sayısı yazın.
+
+Temizlik `vercel.json` içindeki günlük cron ile yapılıyor
+(`/api/support/cleanup`, her gün 04:00 UTC). Vercel bu çağrıyı
+`CRON_SECRET` ile imzalar; değişken tanımlı değilse uç 401 döner ve hiçbir
+şey silinmez, bu yüzden **`CRON_SECRET`** de tanımlanmalıdır (rastgele bir
+değer yeterli).
+
+Kabul edilen türler: JPEG, PNG, WebP, HEIC/HEIF ve PDF. Üst sınır 10 MB.
+Çalıştırılabilir içerik kabul edilmiyor.
+
+---
+
 ## 4. Telefonu bağlama (Android)
 
 Mağazadan uygulama indirmeye gerek yok; site ana ekrana eklenince uygulama
@@ -138,6 +164,15 @@ ekrana eklenmiş olmalıdır; Safari sekmesinde açıkken bildirim gelmez.
 - **Ayırmanın yolu "Kapat".** Kapatılmış sohbet eşleşmeye girmez; aynı
   numaradan gelen sonraki mesaj temiz bir sohbet açar. Yanlış birleşmiş bir
   kaydı böyle ayırırsınız. Kapalı sohbete yeni mesaj gelirse yeniden açılır.
+- **Sohbet silme.** Panelde "Sil" iki adımlı: ikinci tıklamada sohbet,
+  mesajları ve dosyaları kalıcı olarak gider, ziyaretçinin bağlantısı da
+  geçersizleşir. "Kapat"tan farkı, kaydın hiç kalmaması.
+- **Dosya eki.** Ziyaretçi sohbet başladıktan sonra fotoğraf veya PDF
+  ekleyebilir (en fazla 10 MB). Dosya tarayıcıdan doğrudan depoya gider,
+  bizim fonksiyonumuzdan geçmez; depoda "private" durur, adresi bilinse
+  bile açılmaz. Panelde "İndir" ve "Paylaş" düğmeleri var — Paylaş,
+  Android'in paylaş menüsünü açıp dosyayı WhatsApp'a verir.
+  Kurulum için 4. bölüme bakın.
 - **Saklama süresi** 90 gün. Sürenin sonunda yazışma kendiliğinden silinir
   (KVKK). Değiştirmek için `CONVERSATION_TTL_SECONDS`.
 - **Kötüye kullanım sınırı**: aynı IP'den saatte 5 yeni sohbet, 60 mesaj.
