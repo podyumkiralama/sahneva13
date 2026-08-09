@@ -62,6 +62,13 @@ const htmlRobotsHeaders = [
   },
 ];
 
+const rscRobotsHeaders = [
+  {
+    key: "X-Robots-Tag",
+    value: "noindex, nofollow",
+  },
+];
+
 const verificationFileHeaders = [
   {
     key: "Content-Type",
@@ -412,7 +419,15 @@ const nextConfig = {
       // 2) DÜZELTME: Sayfalar için sadece Robots başlığı basıyoruz, Cache-Control Next.js'e bırakıldı.
       {
         source: "/((?!api/|_next/|.*\\..*).*)",
+        missing: [{ type: "query", key: "_rsc" }],
         headers: htmlRobotsHeaders,
+      },
+
+      // RSC payload istekleri HTML sayfa değildir; arama sonuçlarına girmesin.
+      {
+        source: "/((?!api/|_next/|.*\\..*).*)",
+        has: [{ type: "query", key: "_rsc" }],
+        headers: rscRobotsHeaders,
       },
 
       // 3) Next static chunklar: Cache-Control Next.js tarafindan yonetilir
