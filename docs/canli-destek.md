@@ -89,14 +89,24 @@ Değişkenleri ekledikten sonra projeyi yeniden dağıtın.
 Mağazadan uygulama indirmeye gerek yok; site ana ekrana eklenince uygulama
 gibi çalışır.
 
+Panelin sitenin manifest'inden ayrı, kendi uygulama tanımı var
+(`public/destek-manifest.json`): ana ekrana eklendiğinde ana sayfa yerine
+doğrudan panelde, "Sahneva Destek" adıyla ve kendi penceresinde açılır.
+
 1. Telefonun Chrome'unda `https://www.sahneva.com/yonetim/destek` adresini
    açın ve parolayla girin.
-2. Chrome menüsü (⋮) → **Ana ekrana ekle**. Simge ana ekranda belirir.
+2. Chrome menüsü (⋮) → **Uygulamayı yükle** (veya **Ana ekrana ekle**).
+   Gelen kutuda ad **"Sahneva Destek"** yazmalı; "Sahneva Organizasyon"
+   yazıyorsa yanlış sayfadasınız demektir.
 3. **Ana ekrandaki simgeden** açın (sekmeden değil).
 4. Sağ üstteki **"Bu cihaza bildirim aç"** düğmesine basın, izin isteğini
    onaylayın.
 5. Düğme **"Bildirim açık · dene"** hâline gelir; basınca deneme bildirimi
    düşer. Bildirim geldiyse kurulum tamamdır.
+
+Kurulumdan sonra paneli açık bırakılmış tarayıcı sekmelerini kapatın:
+bildirime tıklandığında service worker önce açık bir pencere arar, arka
+planda unutulmuş bir sekme uygulamanın açılmasının önüne geçebilir.
 
 Bundan sonra tarayıcı kapalıyken de yeni mesajlarda telefona bildirim gelir;
 bildirime dokununca doğrudan ilgili sohbet açılır.
