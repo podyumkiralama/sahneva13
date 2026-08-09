@@ -3,6 +3,7 @@
 
 import "../../styles/globals.css";
 import { inter } from "../fonts";
+import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 
 export const metadata = {
   title: "Sahneva Yönetim",
@@ -23,6 +24,12 @@ export const viewport = {
 export default function AdminLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} font-sans`}>
+      {/* CSP `require-trusted-types-for 'script'` her sayfada geçerli; bu
+          politika olmadan Next.js kendi parçalarını yükleyemez ve panel
+          "Yükleniyor…" ekranında donar. */}
+      <head>
+        <TrustedTypesPolicy />
+      </head>
       <body className="bg-slate-100 text-slate-900">{children}</body>
     </html>
   );
