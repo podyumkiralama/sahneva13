@@ -415,7 +415,7 @@ export async function GET() {
     `site=${SITE_URL}`,
     "version=1.2",
     "primary_lang=tr-TR",
-    "languages=tr,en,ar,ru,zh",
+    "languages=tr,en,de,ar,ru,zh",
     `agent_manifest=${SITE_URL}/.well-known/webmcp.json`,
     "contact=info@sahneva.com",
     "crawl_hint=prioritize-high-priority-urls",
