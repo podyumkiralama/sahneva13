@@ -32,6 +32,51 @@ const LENGTH_EXEMPT = /^\/(zh|ar|ru)(\/|$)/;
 // Next.js'in kendi ic rotalari; SEO yuzeyi degil.
 const INTERNAL_ROUTES = new Set(["/_global-error", "/_not-found"]);
 
+const PUBLIC_DIR = path.resolve(process.cwd(), "public");
+
+/* -------------------- yapisal veri kurallari --------------------
+ * Bu projede tekrarlayan hata deseni: CreativeWork'e ozgu ozellikler
+ * Intangible ailesindeki turlere yaziliyor. Ahrefs bunu "Structured data has
+ * schema.org validation error" olarak raporluyor ama haftalar sonra; asagidaki
+ * kurallar ayni hatayi build aninda yakalar.
+ *
+ * Liste bilincli olarak dar tutuldu: yalnizca dogrulanmis (tur, ozellik)
+ * ciftleri var. Emin olunmayan hicbir sey eklenmemeli - yanlis alarm veren bir
+ * kalite kapisi kapatilir, ise yaramaz.
+ */
+const INTANGIBLE_TYPES = new Set([
+  "DefinedTerm", "OfferCatalog", "ItemList", "ListItem", "BreadcrumbList",
+  "Service", "Offer", "Demand", "AggregateOffer", "Brand", "Audience",
+  "ContactPoint", "PropertyValue", "MerchantReturnPolicy", "EntryPoint",
+  "OpeningHoursSpecification", "PriceSpecification", "UnitPriceSpecification",
+  "MonetaryAmount", "GeoCoordinates", "PostalAddress", "Language",
+]);
+
+// CreativeWork alt turlerine ozgu ozellikler.
+const CREATIVEWORK_ONLY_PROPS = new Set([
+  "inLanguage", "hasPart", "workExample", "headline", "articleBody",
+  "datePublished", "dateModified", "wordCount", "thumbnailUrl",
+]);
+
+// Ozellik -> yazilabilecegi turler (alt turler dahil edilerek yazildi).
+const PROPERTY_DOMAINS = {
+  isRelatedTo: ["Product", "Service"],
+  isSimilarTo: ["Product", "Service"],
+  telephone: [
+    "Organization", "LocalBusiness", "GovernmentOrganization", "Place",
+    "ContactPoint", "Person", "PostalAddress",
+  ],
+};
+
+// Ozellik -> referans verdigi dugumun tasimasi gereken tur kisiti.
+// Deger `@id` ile verildiginde ayni dokumandaki dugum cozulerek kontrol edilir.
+const REFERENCE_RANGES = {
+  offers: { allow: (types) => types.some((t) => ["Offer", "Demand", "AggregateOffer"].includes(t)), label: "Offer/Demand" },
+  potentialAction: { allow: (types) => types.some((t) => t.endsWith("Action")), label: "Action" },
+  hasPart: { allow: (types) => !types.some((t) => INTANGIBLE_TYPES.has(t)), label: "CreativeWork" },
+  workExample: { allow: (types) => !types.some((t) => INTANGIBLE_TYPES.has(t)), label: "CreativeWork" },
+};
+
 /* -------------------- yardimcilar -------------------- */
 const walk = (dir, out = []) => {
   for (const entry of readdirSync(dir)) {
@@ -84,6 +129,10 @@ const files = walk(BUILD_DIR);
 const titleIndex = new Map();
 const descriptionIndex = new Map();
 const jsonLdTypes = new Map();
+// Capraz kontroller icin toplananlar: sitemap kapsami, orphan sayfa, kirik gorsel.
+const indexableRoutes = new Set();
+const linkedRoutes = new Set();
+const imageRefs = new Map(); // public yolu -> [bulundugu rotalar]
 // canonical -> { route, langs: Map(hreflang -> href) }
 const hreflangIndex = new Map();
 let auditedCount = 0;
@@ -117,6 +166,42 @@ for (const file of files) {
   }
 
   const indexable = !/noindex/i.test(robots);
+  if (indexable) indexableRoutes.add(route);
+
+  /* ---- og:url <-> canonical ---- */
+  // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
+  // devraliyor; og:url canonical yerine anasayfayi gosteriyor.
+  const ogUrl = first(html, /<meta property="og:url" content="([^"]*)"/i);
+  if (indexable && ogUrl && canonical) {
+    const norm = (u) => u.replace(/\/$/, "");
+    if (norm(ogUrl) !== norm(canonical)) {
+      addError(route, "og-url-canonical-mismatch", `og:url=${ogUrl} canonical=${canonical}`);
+    }
+  }
+
+  /* ---- ic link ve gorsel referanslari (capraz kontroller icin) ---- */
+  // Baglantilar hem SSR HTML'de (href="/x") hem RSC payload'inda (\"href\":\"/x\")
+  // gecebiliyor; ikisi de sayilmazsa orphan kontrolu yanlis alarm veriyor.
+  for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
+    linkedRoutes.add(m[1].length > 1 ? m[1].replace(/\/$/, "") : "/");
+  }
+  for (const m of html.matchAll(/\\"href\\":\\"(\/[^"\\#?]*)/g)) {
+    linkedRoutes.add(m[1].length > 1 ? m[1].replace(/\/$/, "") : "/");
+  }
+  // Ayirici olarak `&` yetmiyor: RSC payload'inda srcset icindeki `&`
+  // `\u0026` olarak kacisliyor, bu yuzden ters bolu ve bosluk da sinir sayilir.
+  for (const m of html.matchAll(/\/_next\/image\?url=([^"&\\\s,]+)/g)) {
+    let decoded;
+    try {
+      decoded = decodeURIComponent(m[1]);
+    } catch {
+      continue; // yarim kalmis kacis dizisi
+    }
+    if (decoded.startsWith("/") && !decoded.startsWith("//")) {
+      imageRefs.set(decoded, [...(imageRefs.get(decoded) || []), route]);
+    }
+  }
+
   // Uzunluk esikleri SERP genisligine gore; noindex sayfalarin SERP yuzeyi yok.
   // Latin disi alfabelerde de karakter sayisi piksel genisligiyle ortusmuyor.
   const skipLength = LENGTH_EXEMPT.test(route) || !indexable;
@@ -247,6 +332,65 @@ for (const file of files) {
     };
     collect(parsed);
 
+    /* ---- tur/ozellik uyumu ---- */
+    // Once @id -> tur haritasi: referansla verilen dugumlerin araligi ancak
+    // ayni dokumandaki hedef cozulerek denetlenebilir.
+    const idTypes = new Map();
+    const indexIds = (node) => {
+      if (Array.isArray(node)) return node.forEach(indexIds);
+      if (!node || typeof node !== "object") return;
+      if (node["@id"] && node["@type"]) idTypes.set(node["@id"], [].concat(node["@type"]));
+      Object.values(node).forEach((v) => { if (v && typeof v === "object") indexIds(v); });
+    };
+    indexIds(parsed);
+
+    const typesOfValue = (value) => {
+      if (!value || typeof value !== "object") return null;
+      if (Array.isArray(value)) return null;
+      if (value["@type"]) return [].concat(value["@type"]);
+      if (value["@id"]) return idTypes.get(value["@id"]) ?? null;
+      return null;
+    };
+
+    const validate = (node) => {
+      if (Array.isArray(node)) return node.forEach(validate);
+      if (!node || typeof node !== "object") return;
+      const types = [].concat(node["@type"] ?? []).filter((t) => typeof t === "string");
+
+      for (const prop of Object.keys(node)) {
+        if (prop.startsWith("@")) continue;
+
+        // 1) CreativeWork'e ozgu ozellik, Intangible turde
+        if (CREATIVEWORK_ONLY_PROPS.has(prop) && types.some((t) => INTANGIBLE_TYPES.has(t))) {
+          addError(route, "jsonld-invalid-property", `${types.join("/")}.${prop} (CreativeWork ozelligi)`);
+        }
+
+        // 2) Ozelligin yazilabilecegi turler sabit
+        const domains = PROPERTY_DOMAINS[prop];
+        if (domains && types.length && !types.some((t) => domains.includes(t))) {
+          addError(route, "jsonld-invalid-property", `${types.join("/")}.${prop} (yalnizca ${domains.join("/")})`);
+        }
+
+        // 3) Referans verilen dugumun turu araliga uymali
+        const range = REFERENCE_RANGES[prop];
+        if (range) {
+          for (const value of [].concat(node[prop])) {
+            const targetTypes = typesOfValue(value);
+            if (targetTypes && !range.allow(targetTypes)) {
+              addError(
+                route,
+                "jsonld-invalid-range",
+                `${types.join("/") || "?"}.${prop} -> ${targetTypes.join("/")} (beklenen: ${range.label})`,
+              );
+            }
+          }
+        }
+      }
+
+      Object.values(node).forEach((v) => { if (v && typeof v === "object") validate(v); });
+    };
+    validate(parsed);
+
     // Sablon sizintisi: derlenmemis placeholder yayina cikmamali.
     if (/\{\{|\$\{/.test(block)) {
       addError(route, "jsonld-placeholder", "JSON-LD icinde derlenmemis sablon ifadesi var");
@@ -267,6 +411,54 @@ for (const [description, routes] of descriptionIndex) {
       "description-duplicate",
       `"${description.slice(0, 60)}..." -> ${routes.join(", ")}`,
     );
+  }
+}
+
+/* -------------------- sitemap kapsami -------------------- */
+// Indekslenebilir her sayfa bir sitemap'te bulunmali. Bu kontrol olmadigi icin
+// /defile-podyum-kiralama, locale filtresindeki `startsWith("/de")` yuzunden
+// sessizce hicbir sitemap'e girmemisti.
+const sitemapRoutes = new Set();
+for (const file of readdirSync(BUILD_DIR)) {
+  if (!/^sitemap.*\.xml\.body$/.test(file)) continue;
+  const xml = readFileSync(path.join(BUILD_DIR, file), "utf8");
+  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    try {
+      const { pathname } = new URL(m[1]);
+      sitemapRoutes.add(pathname.length > 1 ? pathname.replace(/\/$/, "") : "/");
+    } catch {
+      /* sitemap index icindeki gecersiz loc'lar yoksayilir */
+    }
+  }
+}
+if (sitemapRoutes.size === 0) {
+  addWarning("/", "sitemap-not-built", "build ciktisinda sitemap gövdesi bulunamadi");
+} else {
+  for (const route of indexableRoutes) {
+    if (!sitemapRoutes.has(route)) {
+      addError(route, "sitemap-missing", "indekslenebilir sayfa hicbir sitemap'te yok");
+    }
+  }
+}
+
+/* -------------------- orphan sayfa -------------------- */
+// Hicbir sayfadan link almayan indekslenebilir sayfa. Yalnizca SSR HTML'deki
+// baglantilar sayilir; client tarafinda uretilen linkler gorunmez, bu yuzden
+// bulgu WARN seviyesinde tutuldu.
+for (const route of indexableRoutes) {
+  if (route === "/") continue;
+  if (!linkedRoutes.has(route)) {
+    addWarning(route, "orphan-page", "hicbir sayfadan ic link almiyor");
+  }
+}
+
+/* -------------------- kirik gorsel referansi -------------------- */
+// Kart gorselleri slug'dan uretildiginde dosyasi olmayan sehir icin next/image
+// 400 donuyordu. Referans verilen her yerel gorsel public/ altinda olmali.
+if (existsSync(PUBLIC_DIR)) {
+  for (const [src, routes] of imageRefs) {
+    if (existsSync(path.join(PUBLIC_DIR, src.replace(/^\//, "")))) continue;
+    addError(routes[0], "image-missing", `${src} (public/ altinda yok, ${routes.length} sayfada)`);
   }
 }
 
