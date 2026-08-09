@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 const GA_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_ID;
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "x8cfx10pw9";
-const HAS_ANALYTICS_PROVIDER = Boolean(GA_ID || CLARITY_ID);
+const AHREFS_ANALYTICS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY;
+const HAS_ANALYTICS_PROVIDER = Boolean(
+  GA_ID || CLARITY_ID || AHREFS_ANALYTICS_KEY,
+);
 const CONSENT_KEY = "user_analytics_consent";
 
 const ACTIVATION_EVENTS = [
@@ -92,6 +95,7 @@ function loadAnalytics() {
       mod.activateAnalyticsConsent({
         gaId: GA_ID,
         clarityId: CLARITY_ID,
+        ahrefsAnalyticsKey: AHREFS_ANALYTICS_KEY,
       }),
     )
     .catch(() => undefined);
