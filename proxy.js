@@ -59,26 +59,21 @@ function shouldRedirectToHttps(request) {
   return protocol === "http:" || forwardedProto === "http";
 }
 
-const QUERY_VARIANT_NOINDEX_PATHS = new Set([
+// Iletisim sayfalarinin `?konu=...&sehir=...` varyantlari: sinyal temiz
+// sayfada toplansin diye query soyulup 308 ile yonlendiriliyor. Onceden ayrica
+// `X-Robots-Tag: noindex` de basiliyordu, ama ayni kosul once redirect'e
+// dustugu icin o dal hicbir zaman calismiyordu; GSC'de bu URL'ler bu yuzden
+// "Yonlendirmeli sayfa" olarak raporlanir - beklenen davranis, hata degil.
+const CONTACT_QUERY_VARIANT_PATHS = new Set([
   "/iletisim",
   "/en/contact",
   "/ar/contact",
 ]);
 
-function shouldNoindexQueryVariant(request) {
-  const { pathname, searchParams } = request.nextUrl;
-
-  if (!QUERY_VARIANT_NOINDEX_PATHS.has(pathname)) {
-    return false;
-  }
-
-  return Array.from(searchParams.keys()).length > 0;
-}
-
 function shouldRedirectToCleanContactUrl(request) {
   const { pathname, searchParams } = request.nextUrl;
 
-  if (!QUERY_VARIANT_NOINDEX_PATHS.has(pathname)) {
+  if (!CONTACT_QUERY_VARIANT_PATHS.has(pathname)) {
     return false;
   }
 
@@ -157,10 +152,6 @@ export function proxy(request) {
 
   const response = NextResponse.next();
   response.headers.set("Content-Security-Policy", csp);
-
-  if (shouldNoindexQueryVariant(request)) {
-    response.headers.set("X-Robots-Tag", "noindex, follow");
-  }
 
   return response;
 }
