@@ -41,6 +41,10 @@
   color-scheme: dark;
 }
 
+.font-display {
+  font-family: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+}
+
 /* Base */
 @layer base {
   html {
