@@ -302,9 +302,91 @@
     top: auto;
     right: auto;
     bottom: auto;
-    width: calc(100% + 2.5rem);
-    height: clamp(280px, 64vw, 460px);
-    margin: 1.5rem -1.25rem 0;
+    width: 100%;
+    margin: 1.5rem 0 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    padding-block: 0.75rem 1rem;
+    background: rgb(2 6 23 / 94%);
+    scroll-padding-inline: 1.25rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mosaicStage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mosaicShell {
+    position: relative;
+    inset: auto;
+    width: max-content;
+    height: clamp(220px, 46vw, 300px);
+    filter: none;
+  }
+
+  .mosaicTiles {
+    position: relative;
+    inset: auto;
+    display: flex;
+    width: max-content;
+    height: 100%;
+    gap: 0.4rem;
+    padding-inline: 1.25rem;
+  }
+
+  .tile,
+  .tileTop,
+  .tileMiddle,
+  .tileLowerCenter,
+  .tileLowerLeft,
+  .tileLowerRight {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(78vw, 420px);
+    height: 100%;
+    flex: 0 0 min(78vw, 420px);
+    background: #8b5cf6;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .tile:nth-child(even) {
+    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+  }
+
+  .tileLink {
+    inset: 2px;
+    clip-path: inherit;
+  }
+
+  .tileImage {
+    transform: scale(1.02);
+  }
+
+  .tileShade {
+    opacity: 0.12;
+  }
+
+  .tileLabel,
+  .tileLowerRight .tileLabel {
+    top: 0.85rem;
+    bottom: auto;
+    left: 1rem;
+    min-height: 28px;
+    padding: 0.32rem 0.5rem;
+    font-size: 0.66rem;
+    opacity: 1;
+    transform: none;
+  }
+
+  .mosaicWireframe {
+    display: none;
   }
 }
 
@@ -322,6 +404,14 @@
   }
 }
 
+@media (max-width: 1023px) and (hover: none),
+  (max-width: 1023px) and (pointer: coarse) {
+  .tileLabel,
+  .tileLowerRight .tileLabel {
+    transform: none;
+  }
+}
+
 @media (max-width: 480px) {
   .heroTitle {
     font-size: clamp(2.7rem, 13.3vw, 4rem);
@@ -332,8 +422,18 @@
     white-space: normal;
   }
 
-  .mosaicStage {
-    height: clamp(250px, 76vw, 340px);
+  .mosaicShell {
+    height: 210px;
+  }
+
+  .tile,
+  .tileTop,
+  .tileMiddle,
+  .tileLowerCenter,
+  .tileLowerLeft,
+  .tileLowerRight {
+    width: 82vw;
+    flex-basis: 82vw;
   }
 }
 

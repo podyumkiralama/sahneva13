@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "./TurkishHomepageHeroMosaic.module.css";
+import styles from "./TurkishHomepageHeroResponsive.module.css";
 
 export const TR_HOME_PRIMARY_IMAGE = {
   src: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
