@@ -117,8 +117,13 @@ sayısı yazın ve `/api/support/cleanup` ucunu bir cron'a bağlayın; değişke
 tanımlı değilken bu uç hiçbir şeye dokunmaz. `CRON_SECRET` tanımlıysa uç
 yalnızca o imzayla çalışır.
 
-Kabul edilen türler: JPEG, PNG, WebP, HEIC/HEIF ve PDF. Üst sınır 10 MB.
-Çalıştırılabilir içerik kabul edilmiyor.
+Kabul edilen türler: JPEG, PNG, WebP, HEIC/HEIF, PDF ve Excel (.xlsx, .xls).
+Üst sınır 10 MB. Çalıştırılabilir içerik kabul edilmiyor. Liste tek yerde:
+`lib/support/fileTypes.js`.
+
+Tarayıcı Office dosyalarında türü boş bildirebiliyor (özellikle Android'de);
+o durumda tür uzantıdan tamamlanıyor, aksi hâlde geçerli dosyalar
+reddedilirdi.
 
 ---
 

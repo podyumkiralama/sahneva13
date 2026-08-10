@@ -8,6 +8,11 @@ import {
   getPrivacyPath,
   getSupportDictionary,
 } from "@/lib/support/dictionary";
+import {
+  FILE_ACCEPT_ATTRIBUTE,
+  MAX_FILE_SIZE,
+  resolveFileType,
+} from "@/lib/support/fileTypes";
 import { isWithinBusinessHours } from "@/lib/support/hours";
 
 const STORAGE_KEY = "sahneva_support_session";
@@ -54,11 +59,6 @@ function formatTime(at, locale) {
     return "";
   }
 }
-
-// Sunucudaki listeyle aynı: ALLOWED_FILE_TYPES / MAX_FILE_SIZE.
-const ACCEPTED_FILE_TYPES =
-  "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf";
-const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
 function formatFileSize(bytes) {
   if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
@@ -261,6 +261,8 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
    */
   const uploadAttachment = useCallback(
     async (file, activeSession) => {
+      const contentType = resolveFileType(file);
+
       const ticketResponse = await fetch("/api/support/upload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -268,7 +270,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
           id: activeSession.id,
           token: activeSession.token,
           name: file.name,
-          type: file.type,
+          type: contentType,
           size: file.size,
         }),
       });
@@ -280,7 +282,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
 
       const putResponse = await fetch(ticket.uploadUrl, {
         method: "PUT",
-        headers: { "Content-Type": file.type },
+        headers: { "Content-Type": contentType },
         body: file,
       });
 
@@ -299,7 +301,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
         // Yanıt JSON değilse istenen yol geçerli kabul edilir.
       }
 
-      return { path: storedPath, name: file.name, type: file.type, size: file.size };
+      return { path: storedPath, name: file.name, type: contentType, size: file.size };
     },
     [],
   );
@@ -410,11 +412,12 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
       event.target.value = "";
       if (!file) return;
 
-      if (file.size > MAX_UPLOAD_BYTES) {
+      if (file.size > MAX_FILE_SIZE) {
         setError(dictionary.errorFileTooLarge);
         return;
       }
-      if (!ACCEPTED_FILE_TYPES.split(",").includes(file.type)) {
+      // Tarayıcı türü boş bırakmış olabilir; uzantıdan tamamlanıyor.
+      if (!resolveFileType(file)) {
         setError(dictionary.errorFileType);
         return;
       }
@@ -594,7 +597,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
                   <input
                     ref={fileInputRef}
                     type="file"
-                    accept={ACCEPTED_FILE_TYPES}
+                    accept={FILE_ACCEPT_ATTRIBUTE}
                     onChange={pickAttachment}
                     className="sr-only"
                     tabIndex={-1}

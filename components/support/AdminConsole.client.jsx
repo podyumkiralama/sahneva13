@@ -15,15 +15,16 @@ import {
   X,
 } from "lucide-react";
 
+import {
+  FILE_ACCEPT_ATTRIBUTE,
+  MAX_FILE_SIZE,
+  resolveFileType,
+} from "@/lib/support/fileTypes";
+
 // Yeni mesajın asıl haber kanalı telefona düşen bildirim; liste bu yüzden
 // sık yoklanmak zorunda değil. Açık sohbet, yazışma sürerken akıcı dursun
 // diye daha sık yenileniyor. Sekme arka plandayken ikisi de duruyor —
 // açık unutulmuş bir panel aylık komut bütçesini boşuna yemesin.
-// Sunucudaki listeyle aynı: ALLOWED_FILE_TYPES / MAX_FILE_SIZE.
-const ACCEPTED_FILE_TYPES =
-  "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf";
-const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
-
 const THREAD_LIST_POLL_MS = 20000;
 const ACTIVE_THREAD_POLL_MS = 5000;
 
@@ -343,13 +344,15 @@ export default function AdminConsole() {
 
   /** Dosya panelden de doğrudan depoya gidiyor, sunucudan geçmiyor. */
   const uploadAttachment = async (file, conversationId) => {
+    const contentType = resolveFileType(file);
+
     const ticketResponse = await fetch("/api/support/admin/upload", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id: conversationId,
         name: file.name,
-        type: file.type,
+        type: contentType,
         size: file.size,
       }),
     });
@@ -359,7 +362,7 @@ export default function AdminConsole() {
 
     const putResponse = await fetch(ticket.uploadUrl, {
       method: "PUT",
-      headers: { "Content-Type": file.type },
+      headers: { "Content-Type": contentType },
       body: file,
     });
 
@@ -375,7 +378,7 @@ export default function AdminConsole() {
       // Yanıt JSON değilse istenen yol geçerli kabul edilir.
     }
 
-    return { path: storedPath, name: file.name, type: file.type, size: file.size };
+    return { path: storedPath, name: file.name, type: contentType, size: file.size };
   };
 
   const reply = async (event) => {
@@ -421,12 +424,12 @@ export default function AdminConsole() {
     event.target.value = "";
     if (!file) return;
 
-    if (file.size > MAX_UPLOAD_BYTES) {
+    if (file.size > MAX_FILE_SIZE) {
       setNotice("Dosya çok büyük. En fazla 10 MB gönderebilirsiniz.");
       return;
     }
-    if (!ACCEPTED_FILE_TYPES.split(",").includes(file.type)) {
-      setNotice("Bu dosya türü desteklenmiyor. Fotoğraf veya PDF gönderebilirsiniz.");
+    if (!resolveFileType(file)) {
+      setNotice("Bu dosya türü desteklenmiyor. Fotoğraf, PDF veya Excel gönderebilirsiniz.");
       return;
     }
 
@@ -868,7 +871,7 @@ export default function AdminConsole() {
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept={ACCEPTED_FILE_TYPES}
+                  accept={FILE_ACCEPT_ATTRIBUTE}
                   onChange={pickAttachment}
                   className="sr-only"
                   tabIndex={-1}
