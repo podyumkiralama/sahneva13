@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import HeroMosaicParallax from "./HeroMosaicParallax.client";
-import styles from "./TurkishHomepageHeroMotion.module.css";
+import styles from "./TurkishHomepageHeroEffects.module.css";
 
 export const TR_HOME_PRIMARY_IMAGE = {
   src: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
@@ -55,6 +55,9 @@ const MOSAIC_TILES = [
     tileClass: styles.tileLowerRight,
   },
 ];
+
+const MOSAIC_LIGHT_PATH =
+  "M47 25 L56 0 L75 0 L100 25 L47 25 L3 24.5 L100 24.5 L100 53 L35 53 L100 52.5 L62 76 L35 52.5 L0 100 L8 100 L62 76 L100 100 L100 52.5";
 
 function ArrowIcon() {
   return (
@@ -137,6 +140,21 @@ function ServiceMosaic() {
           points="100,52.5 100,100 8,100 62,76"
           vectorEffect="non-scaling-stroke"
         />
+
+        <g className={styles.mosaicLightTrail}>
+          <path
+            className={styles.mosaicLightHalo}
+            d={MOSAIC_LIGHT_PATH}
+            pathLength="100"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            className={styles.mosaicLightCore}
+            d={MOSAIC_LIGHT_PATH}
+            pathLength="100"
+            vectorEffect="non-scaling-stroke"
+          />
+        </g>
       </svg>
     </HeroMosaicParallax>
   );

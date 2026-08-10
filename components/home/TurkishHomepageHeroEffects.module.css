@@ -227,6 +227,45 @@
   filter: drop-shadow(0 0 6px rgb(139 92 246 / 72%));
 }
 
+.mosaicLightTrail {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  stroke-dasharray: 4 96;
+  stroke-dashoffset: 0;
+  animation: mosaic-light-orbit 8s linear infinite;
+}
+
+.mosaicLightHalo {
+  stroke: #a78bfa;
+  stroke-width: 5px;
+  opacity: 0.2;
+}
+
+.mosaicLightCore {
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+  opacity: 0.96;
+}
+
+@keyframes mosaic-light-orbit {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+
+  8%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -100;
+  }
+}
+
 .tileLabel {
   position: absolute;
   z-index: 3;
@@ -469,6 +508,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .mosaicLightTrail {
+    display: none;
+  }
+
   .tileLink {
     --mosaic-image-scale: 1.025;
     --mosaic-link-scale: 1;
