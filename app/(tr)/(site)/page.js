@@ -1,14 +1,17 @@
 // app/(tr)/(site)/page.js
 
-import ShowCallFaq from "@/components/home-showcall/ShowCallFaq";
-import ShowCallPayment from "@/components/home-showcall/ShowCallPayment";
-import OperationTimeline from "@/components/home-showcall/core/OperationTimeline";
-import ShowCallHero from "@/components/home-showcall/core/ShowCallHero";
-import TechnicalServiceIndex from "@/components/home-showcall/core/TechnicalServiceIndex";
-import BackstageCapacityProof from "@/components/home-showcall/editorial/BackstageCapacityProof";
-import ClosingTrustBlock from "@/components/home-showcall/editorial/ClosingTrustBlock";
-import EditorialProjectSpread from "@/components/home-showcall/editorial/EditorialProjectSpread";
-import { homeDisplayFont } from "@/components/home-showcall/homeDisplayFont";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+
+import HeroSection from "@/components/HeroSection";
+import HeroBelow from "@/components/HeroBelow";
+
+import ServicesTabs from "@/components/ServicesTabs";
+import CorporateEvents from "@/components/CorporateEvents";
+import TechCapabilities from "@/components/TechCapabilities";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import DeferredHydration from "@/components/DeferredHydration.client";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 
@@ -23,6 +26,55 @@ import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds"
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
+
+/* ================== Dinamik bileşenler ================== */
+const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
+  loading: () => (
+    <div
+      className="flex justify-center items-center h-64"
+      role="status"
+      aria-label="Galeri yükleniyor"
+    >
+      <div
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">Galeri yükleniyor...</span>
+    </div>
+  ),
+});
+
+const Faq = dynamic(() => import("@/components/Faq"), {
+  loading: () => (
+    <div
+      className="flex justify-center items-center h-32"
+      role="status"
+      aria-label="SSS yükleniyor"
+    >
+      <div
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">SSS yükleniyor...</span>
+    </div>
+  ),
+});
+
+function SectionLoading({ label, height = "h-48" }) {
+  return (
+    <div
+      className={`flex ${height} items-center justify-center`}
+      role="status"
+      aria-label={label}
+    >
+      <div
+        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
+        aria-hidden="true"
+      />
+      <span className="sr-only">{label}</span>
+    </div>
+  );
+}
 
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
@@ -98,9 +150,9 @@ const HOME_JSON_LD = {
     {
       "@type": "ImageObject",
       "@id": HERO_IMAGE_ID,
-      contentUrl: `${BASE_SITE_URL}/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp`,
-      width: 4000,
-      height: 1848,
+      contentUrl: `${BASE_SITE_URL}/img/hero-bg.webp`,
+      width: 1600,
+      height: 900,
     },
     {
       "@type": "ImageObject",
@@ -252,19 +304,74 @@ const HOME_JSON_LD = {
 
 export default function HomePage() {
   return (
-    <div
-      className={`${homeDisplayFont.variable} overflow-x-clip bg-[#090a0c] text-[#f2efe8]`}
-    >
+    <div className="overflow-x-hidden bg-black">
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
 
-      <ShowCallHero />
-      <TechnicalServiceIndex />
-      <OperationTimeline />
-      <EditorialProjectSpread />
-      <BackstageCapacityProof />
-      <ShowCallFaq items={FAQ_ITEMS} />
-      <ShowCallPayment />
-      <ClosingTrustBlock />
+      <HeroSection />
+      <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
+        <HeroBelow />
+      </div>
+
+      <div id="teklif-al" aria-hidden="true" />
+
+      <div className="bg-[#0B1120] pb-2 pt-0">
+        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
+          Yurt dışından Türkiye’ye gelen marka ve ajanslar için{" "}
+          <Link href="/turkiyede-etkinlik-cozum-ortagi" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
+            Türkiye’de etkinlik çözüm ortağı
+          </Link>{" "}
+          yaklaşımımızı ayrıca inceleyebilirsiniz.
+        </p>
+      </div>
+
+      {/* Marka konumlandırması */}
+      <div className="bg-[#0B1120] pb-2 pt-0">
+        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/50 md:text-base">
+          Sahneva, Türkiye genelinde kurumsal etkinlikler için sahne, LED ekran, ses-ışık, podyum, truss ve teknik prodüksiyon süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir.
+        </p>
+      </div>
+
+      {/* Projeler */}
+      <div className="content-visibility-auto cv-home-projects bg-black">
+        <p className="sr-only">
+          700+ kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
+        </p>
+        <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
+        <ProjectsGallery />
+      </div>
+
+      {/* Hizmetler */}
+      <div className="content-visibility-auto cv-home-services bg-black">
+        <ServicesTabs maxItems={6} />
+      </div>
+
+      {/* Teknik */}
+      <div className="content-visibility-auto cv-home-tech bg-[#0B1120] py-0">
+        <TechCapabilities sectionPaddingClassName="pt-16 pb-8 md:pt-20 md:pb-10 2xl:pt-24 2xl:pb-12" />
+      </div>
+
+      {/* Kurumsal */}
+      <div className="content-visibility-auto cv-home-corporate-events bg-slate-50 py-0 m-0 w-full">
+        <CorporateEvents sectionPaddingClassName="pt-8 pb-16 md:pt-10 md:pb-24 2xl:pt-12 2xl:pb-28" />
+      </div>
+
+      {/* Why Choose Us */}
+      <div className="content-visibility-auto cv-home-why w-full p-0 m-0">
+        <WhyChooseUs />
+      </div>
+
+      {/* FAQ */}
+      <div className="content-visibility-auto cv-home-faq w-full bg-transparent p-0 m-0">
+        <DeferredHydration
+          fallback={<SectionLoading label="SSS yükleniyor" height="h-64" />}
+          rootMargin="500px"
+          idleTimeout={6000}
+        >
+          <Faq />
+        </DeferredHydration>
+      </div>
+
+      <PaymentOptionsNote />
     </div>
   );
 }
