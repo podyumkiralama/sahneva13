@@ -97,6 +97,13 @@
 }
 
 .tile {
+  --mosaic-image-scale: 1.025;
+  --mosaic-image-x: 0px;
+  --mosaic-image-y: 0px;
+  --mosaic-link-scale: 1;
+  --mosaic-tilt-x: 0deg;
+  --mosaic-tilt-y: 0deg;
+
   position: absolute;
   z-index: 1;
   overflow: hidden;
@@ -147,8 +154,14 @@
   inset: 0;
   display: block;
   overflow: hidden;
+  backface-visibility: hidden;
   outline: 2px solid transparent;
   outline-offset: -3px;
+  transform: perspective(900px) rotateX(var(--mosaic-tilt-x))
+    rotateY(var(--mosaic-tilt-y)) scale(var(--mosaic-link-scale));
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: transform 170ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
 .tileLink:focus-visible {
@@ -158,8 +171,13 @@
 
 .tileImage {
   object-fit: cover;
-  transform: scale(1.025);
-  transition: transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transform: translate3d(
+      var(--mosaic-image-x),
+      var(--mosaic-image-y),
+      0
+    )
+    scale(var(--mosaic-image-scale));
+  transition: transform 170ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
 .tileShade {
@@ -175,9 +193,10 @@
   opacity: 0.42;
 }
 
-.tileLink:hover .tileImage,
-.tileLink:focus-visible .tileImage {
-  transform: scale(1.075);
+.tileLink:hover,
+.tileLink:focus-visible {
+  --mosaic-image-scale: 1.075;
+  --mosaic-link-scale: 1.008;
 }
 
 .tileLink:hover .tileShade,
@@ -365,8 +384,8 @@
     clip-path: inherit;
   }
 
-  .tileImage {
-    transform: scale(1.02);
+  .tile {
+    --mosaic-image-scale: 1.02;
   }
 
   .tileShade {
@@ -391,6 +410,11 @@
 }
 
 @media (hover: none), (pointer: coarse) {
+  .tileLink {
+    transform: none;
+    transition: none;
+  }
+
   .tileLabel {
     min-height: 25px;
     padding: 0.25rem 0.4rem;
@@ -399,8 +423,15 @@
     transform: translate(-50%, -50%);
   }
 
-  .tileLink:active .tileImage {
-    transform: scale(1.065);
+  .tileLink:active {
+    --mosaic-image-scale: 1.065;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tile[data-parallax-active] .tileLink,
+  .tile[data-parallax-active] .tileImage {
+    will-change: transform;
   }
 }
 
@@ -438,6 +469,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .tileLink {
+    --mosaic-image-scale: 1.025;
+    --mosaic-link-scale: 1;
+    --mosaic-tilt-x: 0deg;
+    --mosaic-tilt-y: 0deg;
+
+    transform: none;
+    transition: none;
+  }
+
   .tileImage,
   .tileShade,
   .tileLabel,
@@ -448,6 +489,6 @@
   .tileLink:hover .tileImage,
   .tileLink:focus-visible .tileImage,
   .tileLink:active .tileImage {
-    transform: none;
+    transform: scale(1.025);
   }
 }

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "./TurkishHomepageHeroResponsive.module.css";
+import HeroMosaicParallax from "./HeroMosaicParallax.client";
+import styles from "./TurkishHomepageHeroMotion.module.css";
 
 export const TR_HOME_PRIMARY_IMAGE = {
   src: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
@@ -76,18 +77,20 @@ function ArrowIcon() {
 
 function ServiceMosaic() {
   return (
-    <div className={styles.mosaicShell}>
+    <HeroMosaicParallax className={styles.mosaicShell}>
       <ul className={styles.mosaicTiles} aria-label="Sahneva hizmetleri">
         {MOSAIC_TILES.map((service) => (
           <li
             key={service.href}
             className={`${styles.tile} ${service.tileClass}`}
+            data-mosaic-parallax-tile
           >
             <Link
               href={service.href}
               prefetch={false}
               className={styles.tileLink}
               aria-label={service.ariaLabel}
+              style={{ position: "absolute" }}
             >
               <Image
                 src={service.image}
@@ -135,7 +138,7 @@ function ServiceMosaic() {
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-    </div>
+    </HeroMosaicParallax>
   );
 }
 
