@@ -1,0 +1,353 @@
+.hero {
+  min-height: clamp(720px, 100svh, 880px);
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 58%;
+  transform: scale(1.01);
+}
+
+.heroWash {
+  position: absolute;
+  inset: 0;
+  background: rgb(2 6 23 / 18%);
+}
+
+.copyShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(2 6 23 / 96%) 0%,
+    rgb(2 6 23 / 88%) 27%,
+    rgb(2 6 23 / 54%) 47%,
+    rgb(2 6 23 / 12%) 70%,
+    transparent 100%
+  );
+}
+
+.heroCopy {
+  width: min(48vw, 720px);
+  padding-top: clamp(2.25rem, 6vh, 4.75rem);
+  pointer-events: auto;
+}
+
+.heroTitle {
+  display: flex;
+  max-width: 8ch;
+  flex-direction: column;
+  color: white;
+  font-size: clamp(3.35rem, 6vw, 7rem);
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.87;
+  text-transform: uppercase;
+  text-shadow: 0 12px 36px rgb(0 0 0 / 48%);
+}
+
+.heroTitle span {
+  display: block;
+  white-space: nowrap;
+}
+
+.heroTitle em {
+  color: #8b5cf6;
+  font-style: normal;
+}
+
+.heroDescription {
+  max-width: 35rem;
+  margin-top: 1.55rem;
+  color: rgb(255 255 255 / 88%);
+  font-size: clamp(1rem, 1.18vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.58;
+  text-wrap: balance;
+}
+
+.mosaicStage {
+  position: absolute;
+  z-index: 10;
+  top: 5rem;
+  right: 0;
+  bottom: 0;
+  width: clamp(580px, 46vw, 840px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mosaicShell,
+.mosaicTiles {
+  position: absolute;
+  inset: 0;
+}
+
+.mosaicShell {
+  isolation: isolate;
+  pointer-events: auto;
+  filter: drop-shadow(-18px 24px 42px rgb(0 0 0 / 32%));
+}
+
+.mosaicTiles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.tileTop {
+  top: 0;
+  left: 47%;
+  width: 53%;
+  height: 25%;
+  clip-path: polygon(17% 0, 53% 0, 100% 100%, 0 100%);
+}
+
+.tileMiddle {
+  top: 24.5%;
+  left: 3%;
+  width: 97%;
+  height: 28.5%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.tileLowerCenter {
+  top: 52.5%;
+  left: 35%;
+  width: 65%;
+  height: 23.5%;
+  clip-path: polygon(0 0, 100% 0, 41.5% 100%);
+}
+
+.tileLowerLeft {
+  top: 52.5%;
+  left: 0;
+  width: 62%;
+  height: 47.5%;
+  clip-path: polygon(56.5% 0, 100% 49.5%, 12.9% 100%, 0 100%);
+}
+
+.tileLowerRight {
+  top: 52.5%;
+  left: 8%;
+  width: 92%;
+  height: 47.5%;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 58.7% 49.5%);
+}
+
+.tileLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  outline: 2px solid transparent;
+  outline-offset: -3px;
+}
+
+.tileLink:focus-visible {
+  outline-color: white;
+  box-shadow: inset 0 0 0 5px rgb(139 92 246 / 82%);
+}
+
+.tileImage {
+  object-fit: cover;
+  transform: scale(1.025);
+  transition: transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.tileShade {
+  position: absolute;
+  inset: 0;
+  background: #020617;
+  opacity: 0.1;
+  transition: opacity 220ms ease;
+}
+
+.mosaicTiles:has(.tileLink:hover) .tile:not(:has(.tileLink:hover)) .tileShade,
+.mosaicTiles:focus-within .tile:not(:focus-within) .tileShade {
+  opacity: 0.42;
+}
+
+.tileLink:hover .tileImage,
+.tileLink:focus-visible .tileImage {
+  transform: scale(1.075);
+}
+
+.tileLink:hover .tileShade,
+.tileLink:focus-visible .tileShade {
+  opacity: 0.01;
+}
+
+.mosaicWireframe {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: #8b5cf6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5px;
+  pointer-events: none;
+  transition:
+    stroke 220ms ease,
+    filter 220ms ease;
+}
+
+.mosaicShell:focus-within .mosaicWireframe {
+  stroke: #c4b5fd;
+  filter: drop-shadow(0 0 6px rgb(139 92 246 / 72%));
+}
+
+.tileLabel {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  border-left: 2px solid #a78bfa;
+  background: rgb(2 6 23 / 88%);
+  padding: 0.38rem 0.58rem;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, calc(-50% + 6px));
+  transition:
+    opacity 180ms ease,
+    transform 200ms ease;
+  white-space: nowrap;
+}
+
+.tileLink:hover .tileLabel,
+.tileLink:focus-visible .tileLabel {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.tileLowerRight .tileLabel {
+  top: 62%;
+  left: 80%;
+}
+
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .heroCopy {
+    width: 52vw;
+  }
+
+  .heroTitle {
+    font-size: clamp(3.45rem, 5.8vw, 4.9rem);
+  }
+
+  .mosaicStage {
+    width: clamp(550px, 46vw, 620px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .heroImage {
+    object-position: 50% 52%;
+  }
+
+  .heroWash {
+    background: rgb(2 6 23 / 34%);
+  }
+
+  .copyShade {
+    background: linear-gradient(
+      180deg,
+      rgb(2 6 23 / 94%) 0%,
+      rgb(2 6 23 / 76%) 44%,
+      rgb(2 6 23 / 32%) 74%,
+      rgb(2 6 23 / 64%) 100%
+    );
+  }
+
+  .heroCopy {
+    width: min(100%, 42rem);
+    padding-top: 1.5rem;
+  }
+
+  .heroTitle {
+    max-width: none;
+    font-size: clamp(3rem, 11vw, 5.5rem);
+  }
+
+  .heroDescription {
+    max-width: 38rem;
+  }
+
+  .mosaicStage {
+    position: relative;
+    z-index: 10;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: calc(100% + 2.5rem);
+    height: clamp(280px, 64vw, 460px);
+    margin: 1.5rem -1.25rem 0;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .tileLabel {
+    min-height: 25px;
+    padding: 0.25rem 0.4rem;
+    font-size: 0.58rem;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .tileLink:active .tileImage {
+    transform: scale(1.065);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: clamp(2.7rem, 13.3vw, 4rem);
+    line-height: 0.9;
+  }
+
+  .heroTitle span:nth-child(2) {
+    white-space: normal;
+  }
+
+  .mosaicStage {
+    height: clamp(250px, 76vw, 340px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tileImage,
+  .tileShade,
+  .tileLabel,
+  .mosaicWireframe {
+    transition: none;
+  }
+
+  .tileLink:hover .tileImage,
+  .tileLink:focus-visible .tileImage,
+  .tileLink:active .tileImage {
+    transform: none;
+  }
+}

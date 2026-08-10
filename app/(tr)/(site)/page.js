@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import HeroSection from "@/components/HeroSection";
+import TurkishHomepageHero, {
+  TR_HOME_PRIMARY_IMAGE,
+} from "@/components/home/TurkishHomepageHero";
 import HeroBelow from "@/components/HeroBelow";
 
 import ServicesTabs from "@/components/ServicesTabs";
@@ -150,9 +152,9 @@ const HOME_JSON_LD = {
     {
       "@type": "ImageObject",
       "@id": HERO_IMAGE_ID,
-      contentUrl: `${BASE_SITE_URL}/img/hero-bg.webp`,
-      width: 1600,
-      height: 900,
+      contentUrl: `${BASE_SITE_URL}${TR_HOME_PRIMARY_IMAGE.src}`,
+      width: TR_HOME_PRIMARY_IMAGE.width,
+      height: TR_HOME_PRIMARY_IMAGE.height,
     },
     {
       "@type": "ImageObject",
@@ -307,7 +309,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden bg-black">
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
 
-      <HeroSection />
+      <TurkishHomepageHero />
       <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
         <HeroBelow />
       </div>
