@@ -179,12 +179,18 @@ ekrana eklenmiş olmalıdır; Safari sekmesinde açıkken bildirim gelmez.
 - **Sohbet silme.** Panelde "Sil" iki adımlı: ikinci tıklamada sohbet,
   mesajları ve dosyaları kalıcı olarak gider, ziyaretçinin bağlantısı da
   geçersizleşir. "Kapat"tan farkı, kaydın hiç kalmaması.
-- **Dosya eki.** Ziyaretçi sohbet başladıktan sonra fotoğraf veya PDF
-  ekleyebilir (en fazla 10 MB). Dosya tarayıcıdan doğrudan depoya gider,
-  bizim fonksiyonumuzdan geçmez; depoda "private" durur, adresi bilinse
-  bile açılmaz. Panelde "İndir" ve "Paylaş" düğmeleri var — Paylaş,
-  Android'in paylaş menüsünü açıp dosyayı WhatsApp'a verir. Dosyalar
-  kendiliğinden silinmez; yalnızca sohbet silindiğinde giderler.
+- **Dosya eki, iki yönlü.** Ziyaretçi sohbet başladıktan sonra fotoğraf veya
+  PDF ekleyebilir; siz de panelde cevap kutusundaki ataç düğmesiyle dosya
+  gönderebilirsiniz (en fazla 10 MB). Dosya her iki yönde de tarayıcıdan
+  doğrudan depoya gider, bizim fonksiyonumuzdan geçmez; depoda "private"
+  durur, adresi bilinse bile açılmaz.
+  - Panelde gelen dosyanın altında "İndir" ve "Paylaş" var — Paylaş,
+    Android'in paylaş menüsünü açıp dosyayı WhatsApp'a verir.
+  - Ziyaretçi, sizin gönderdiğiniz dosyayı sohbetteki "İndir" düğmesiyle
+    alır. Okuma iki kapıdan geçer: sohbet jetonu doğrulanır **ve** dosya o
+    cihazın görebildiği mesajlar arasında olmalıdır — sohbete sonradan
+    bağlanan bir cihaz, katılmadan önce paylaşılmış dosyaya erişemez.
+  - Dosyalar kendiliğinden silinmez; yalnızca sohbet silindiğinde giderler.
 - **Saklama süresi** 90 gün. Sürenin sonunda yazışma kendiliğinden silinir
   (KVKK). Değiştirmek için `CONVERSATION_TTL_SECONDS`.
 - **Kötüye kullanım sınırı**: aynı IP'den saatte 5 yeni sohbet, 60 mesaj.

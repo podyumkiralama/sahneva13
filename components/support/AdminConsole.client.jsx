@@ -12,12 +12,18 @@ import {
   Send,
   Share2,
   Trash2,
+  X,
 } from "lucide-react";
 
 // Yeni mesajın asıl haber kanalı telefona düşen bildirim; liste bu yüzden
 // sık yoklanmak zorunda değil. Açık sohbet, yazışma sürerken akıcı dursun
 // diye daha sık yenileniyor. Sekme arka plandayken ikisi de duruyor —
 // açık unutulmuş bir panel aylık komut bütçesini boşuna yemesin.
+// Sunucudaki listeyle aynı: ALLOWED_FILE_TYPES / MAX_FILE_SIZE.
+const ACCEPTED_FILE_TYPES =
+  "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf";
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+
 const THREAD_LIST_POLL_MS = 20000;
 const ACTIVE_THREAD_POLL_MS = 5000;
 
@@ -151,9 +157,12 @@ export default function AdminConsole() {
     busy: false,
   });
 
+  const [attachment, setAttachment] = useState(null);
+
   const cursorRef = useRef(0);
   const fetchChainRef = useRef(null);
   const scrollRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   /* ------------------------------- oturum ------------------------------ */
 
@@ -332,24 +341,66 @@ export default function AdminConsole() {
     }
   }, [messages]);
 
+  /** Dosya panelden de doğrudan depoya gidiyor, sunucudan geçmiyor. */
+  const uploadAttachment = async (file, conversationId) => {
+    const ticketResponse = await fetch("/api/support/admin/upload", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: conversationId,
+        name: file.name,
+        type: file.type,
+        size: file.size,
+      }),
+    });
+
+    const ticket = await ticketResponse.json().catch(() => null);
+    if (!ticketResponse.ok || !ticket?.uploadUrl) throw new Error("upload_failed");
+
+    const putResponse = await fetch(ticket.uploadUrl, {
+      method: "PUT",
+      headers: { "Content-Type": file.type },
+      body: file,
+    });
+
+    if (!putResponse.ok) throw new Error("upload_failed");
+
+    let storedPath = ticket.pathname;
+    try {
+      const stored = await putResponse.clone().json();
+      if (typeof stored?.pathname === "string" && stored.pathname) {
+        storedPath = stored.pathname;
+      }
+    } catch {
+      // Yanıt JSON değilse istenen yol geçerli kabul edilir.
+    }
+
+    return { path: storedPath, name: file.name, type: file.type, size: file.size };
+  };
+
   const reply = async (event) => {
     event.preventDefault();
 
     const text = draft.trim();
-    if (!text || !activeId) return;
+    const file = attachment;
+    if ((!text && !file) || !activeId) return;
 
     setSending(true);
     setDraft("");
+    setAttachment(null);
 
     try {
+      const uploaded = file ? await uploadAttachment(file, activeId) : null;
+
       const response = await fetch("/api/support/admin/thread", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: activeId, message: text }),
+        body: JSON.stringify({ id: activeId, message: text, file: uploaded }),
       });
 
       if (!response.ok) {
         setDraft(text);
+        setAttachment(file);
         setNotice("Mesaj gönderilemedi.");
         return;
       }
@@ -358,10 +409,29 @@ export default function AdminConsole() {
       loadThreads();
     } catch {
       setDraft(text);
+      setAttachment(file);
       setNotice("Mesaj gönderilemedi.");
     } finally {
       setSending(false);
     }
+  };
+
+  const pickAttachment = (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setNotice("Dosya çok büyük. En fazla 10 MB gönderebilirsiniz.");
+      return;
+    }
+    if (!ACCEPTED_FILE_TYPES.split(",").includes(file.type)) {
+      setNotice("Bu dosya türü desteklenmiyor. Fotoğraf veya PDF gönderebilirsiniz.");
+      return;
+    }
+
+    setNotice("");
+    setAttachment(file);
   };
 
   const deleteThread = async () => {
@@ -770,10 +840,48 @@ export default function AdminConsole() {
                 ))}
               </div>
 
+              {attachment ? (
+                <div className="flex items-center gap-2 border-t border-slate-200 bg-violet-50 px-3 py-2">
+                  <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-violet-700" />
+                  <span className="min-w-0 flex-1 truncate text-xs text-violet-900">
+                    {attachment.name}
+                  </span>
+                  <span className="shrink-0 text-[11px] text-violet-700">
+                    {formatFileSize(attachment.size)}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setAttachment(null)}
+                    aria-label="Dosyayı kaldır"
+                    className="shrink-0 rounded p-0.5 text-violet-700 hover:bg-violet-100"
+                  >
+                    <X aria-hidden="true" className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              ) : null}
+
               <form onSubmit={reply} className="flex items-end gap-2 border-t border-slate-200 px-3 py-2">
                 <label htmlFor="support-reply" className="sr-only">
                   Cevabınız
                 </label>
+
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept={ACCEPTED_FILE_TYPES}
+                  onChange={pickAttachment}
+                  className="sr-only"
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  aria-label="Dosya ekle"
+                  title="Dosya ekle"
+                  className="inline-flex h-11 w-9 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-violet-700"
+                >
+                  <Paperclip aria-hidden="true" className="h-4 w-4" />
+                </button>
                 <textarea
                   id="support-reply"
                   rows={2}
@@ -791,7 +899,7 @@ export default function AdminConsole() {
                 />
                 <button
                   type="submit"
-                  disabled={sending || !draft.trim()}
+                  disabled={sending || (!draft.trim() && !attachment)}
                   aria-label="Gönder"
                   className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#6d28d9] text-white transition hover:bg-[#5b21b6] disabled:bg-slate-300"
                 >

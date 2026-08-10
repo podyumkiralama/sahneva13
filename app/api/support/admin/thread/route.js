@@ -2,7 +2,13 @@
 
 import { SUPPORT_LIMITS, isStoreConfigured } from "@/lib/support/config";
 import { isAdminRequest, serviceUnavailable, unauthorized } from "@/lib/support/guard";
-import { deleteConversationFiles, isFilesConfigured } from "@/lib/support/files";
+import {
+  ALLOWED_FILE_TYPES,
+  MAX_FILE_SIZE,
+  conversationPrefix,
+  deleteConversationFiles,
+  isFilesConfigured,
+} from "@/lib/support/files";
 import {
   appendMessage,
   closeConversation,
@@ -22,6 +28,21 @@ function clean(value, maxLength) {
 
 function storeError() {
   return Response.json({ ok: false, error: "store_error" }, { status: 502 });
+}
+
+/** Cevaba iliştirilen dosyanın künyesi. */
+function normalizeAttachment(value) {
+  if (!value || typeof value !== "object") return null;
+
+  const path = clean(value.path, 300);
+  const name = clean(value.name, 160);
+  const type = clean(value.type, 100);
+  const size = Number(value.size);
+
+  if (!path || !ALLOWED_FILE_TYPES.includes(type)) return null;
+  if (!Number.isFinite(size) || size <= 0 || size > MAX_FILE_SIZE) return null;
+
+  return { path, name: name || "dosya", type, size };
 }
 
 export async function GET(request) {
@@ -66,8 +87,10 @@ export async function POST(request) {
 
   const id = clean(payload?.id, 64);
   const text = clean(payload?.message, SUPPORT_LIMITS.maxMessageLength);
+  const file = normalizeAttachment(payload?.file);
 
-  if (!id || !text) {
+  // Dosya eklenmişse metin zorunlu değil.
+  if (!id || (!text && !file)) {
     return Response.json({ ok: false, error: "invalid_payload" }, { status: 400 });
   }
 
@@ -77,7 +100,11 @@ export async function POST(request) {
       return Response.json({ ok: false, error: "not_found" }, { status: 404 });
     }
 
-    const result = await appendMessage(conversation, { role: "agent", text });
+    if (file && !file.path.startsWith(conversationPrefix(conversation.id))) {
+      return Response.json({ ok: false, error: "invalid_attachment" }, { status: 400 });
+    }
+
+    const result = await appendMessage(conversation, { role: "agent", text, file });
     // Cevap yazmak, sohbeti okunmuş saymanın doğal yeri.
     await markThreadRead(id);
 

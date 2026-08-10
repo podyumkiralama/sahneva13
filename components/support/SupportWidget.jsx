@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { MessageCircle, Paperclip, Send, X } from "lucide-react";
+import { Download, MessageCircle, Paperclip, Send, X } from "lucide-react";
 
 import {
   WHATSAPP_URL,
@@ -365,6 +365,45 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
     }
   }, [attachment, dictionary, draft, errorMessageFor, poll, session, uploadAttachment]);
 
+  /**
+   * Dosya özel olarak saklandığı için doğrudan bağlantıyla açılmıyor;
+   * jetonla okunup tarayıcıya indirtiliyor.
+   */
+  const downloadAttachment = useCallback(
+    async (file) => {
+      const active = sessionRef.current;
+      if (!active) return;
+
+      try {
+        const response = await fetch(
+          `/api/support/file?path=${encodeURIComponent(file.path)}`,
+          {
+            headers: {
+              "x-support-conversation": active.id,
+              "x-support-token": active.token,
+            },
+            cache: "no-store",
+          },
+        );
+
+        if (!response.ok) throw new Error("download_failed");
+
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = file.name || "dosya";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      } catch {
+        setError(dictionary.errorGeneric);
+      }
+    },
+    [dictionary],
+  );
+
   const pickAttachment = useCallback(
     (event) => {
       const file = event.target.files?.[0];
@@ -469,6 +508,8 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
                   entry={entry}
                   locale={locale}
                   dictionary={dictionary}
+                  session={session}
+                  onDownload={downloadAttachment}
                 />
               ))}
               {pending.map((entry, index) => (
@@ -623,7 +664,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
   );
 }
 
-function Bubble({ entry, locale, dictionary, muted = false }) {
+function Bubble({ entry, locale, dictionary, session, onDownload, muted = false }) {
   const isVisitor = entry.role === "visitor";
   const isSystem = entry.role === "system";
 
@@ -646,13 +687,28 @@ function Bubble({ entry, locale, dictionary, muted = false }) {
           }`}
         >
           {entry.file ? (
-            <span
-              className={`mb-1 flex items-center gap-1.5 text-xs ${
-                isVisitor ? "text-violet-100" : "text-slate-500"
-              }`}
-            >
-              <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-              <span className="truncate">{entry.file.name}</span>
+            <span className="mb-1 block">
+              <span
+                className={`flex items-center gap-1.5 text-xs ${
+                  isVisitor ? "text-violet-100" : "text-slate-500"
+                }`}
+              >
+                <Paperclip aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                <span className="truncate">{entry.file.name}</span>
+              </span>
+
+              {/* Karşı taraftan gelen dosya indirilebilir; ziyaretçinin
+                  kendi gönderdiği dosya zaten kendisinde. */}
+              {!isVisitor && session ? (
+                <button
+                  type="button"
+                  onClick={() => onDownload?.(entry.file)}
+                  className="mt-1.5 inline-flex items-center gap-1 rounded-lg bg-[#6d28d9] px-2 py-1 text-xs font-semibold text-white hover:bg-[#5b21b6]"
+                >
+                  <Download aria-hidden="true" className="h-3 w-3" />
+                  {dictionary.downloadFile}
+                </button>
+              ) : null}
             </span>
           ) : null}
           {entry.text}
