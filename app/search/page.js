@@ -128,7 +128,9 @@ export default async function SearchPage({ searchParams }) {
               autoComplete="off"
               placeholder="Örn: pixel pitch, çadır m², truss kiralama..."
               {...WEB_MCP_SEARCH_INPUT_PROPS}
-              className="min-h-[52px] flex-1 rounded-2xl border border-neutral-200 bg-white px-4 text-sm text-neutral-800 focus-ring"
+              enterKeyHint="search"
+              /* text-base: 16px altındaki alanlarda iOS Safari sayfayı yakınlaştırıyor. */
+              className="min-h-[52px] flex-1 rounded-2xl border border-neutral-200 bg-white px-4 text-base text-neutral-800 focus-ring"
             />
             <button
               type="submit"

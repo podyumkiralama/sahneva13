@@ -392,7 +392,7 @@ export default function ContactPage() {
                       <InfoRow label="Telefon" icon="📞">
                         <a
                           href={`tel:${PHONE}`}
-                          className="text-blue-600 hover:text-blue-700 font-medium"
+                          className="inline-flex min-h-[44px] items-center text-blue-600 hover:text-blue-700 font-medium"
                         >
                           {PHONE}
                         </a>
@@ -402,7 +402,7 @@ export default function ContactPage() {
                           href={WHATSAPP_URL}
                           target="_blank"
                           rel="nofollow noopener noreferrer"
-                          className="text-green-800 hover:text-green-900 font-medium"
+                          className="inline-flex min-h-[44px] items-center text-green-800 hover:text-green-900 font-medium"
                         >
                           Hızlı Mesaj Gönder
                           <span className="sr-only"> (yeni sekmede açılır)</span>
@@ -411,7 +411,7 @@ export default function ContactPage() {
                       <InfoRow label="E-posta" icon="✉️">
                         <a
                           href={`mailto:${MAIL}`}
-                          className="text-purple-600 hover:text-purple-700 font-medium"
+                          className="inline-flex min-h-[44px] items-center text-purple-600 hover:text-purple-700 font-medium"
                         >
                           {MAIL}
                           <span className="sr-only"> (e-posta uygulamasını açar)</span>

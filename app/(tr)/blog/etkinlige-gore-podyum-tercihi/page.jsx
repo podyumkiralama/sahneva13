@@ -267,7 +267,7 @@ const SpecTable = () => (
         Etkinlik türüne göre önerilen yükseklik ve yüzey tercihi (hızlı tarama için).
       </p>
     </div>
-    <div className="overflow-x-auto">
+    <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
       <table className="w-full text-left text-sm">
         <thead>
           <tr className="border-b border-gray-200">

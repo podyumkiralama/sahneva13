@@ -101,7 +101,7 @@ function Table({ caption, columns, rows }) {
           {caption}
         </div>
       ) : null}
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Comparison table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-slate-200 text-slate-700">
             <tr>

@@ -246,7 +246,7 @@ export default function Page() {
 
         <h2 id="lansman-takvimi">3. Lansman Takvimi: Adım Adım Başarıya</h2>
 
-        <div className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <div role="region" aria-label="3. Lansman Takvimi: Adım Adım Başarıya tablosunu yatay kaydır" tabIndex={0} className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm text-left bg-white min-w-[600px]">
             <caption className="sr-only">Lansman Organizasyonu Takvimi</caption>
             <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs border-b">

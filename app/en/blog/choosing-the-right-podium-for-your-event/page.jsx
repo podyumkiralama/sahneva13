@@ -268,7 +268,7 @@ const SpecTable = () => (
         Recommended height and surface preference by event type (for quick reference).
       </p>
     </div>
-    <div className="overflow-x-auto">
+    <div role="region" aria-label="Comparison table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
       <table className="w-full text-left text-sm">
         <thead>
           <tr className="border-b border-gray-200">

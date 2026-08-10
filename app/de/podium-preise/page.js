@@ -260,7 +260,7 @@ export default function GermanPodiumPricesPage() {
             </h2>
           </div>
 
-          <div className="mt-8 overflow-x-auto">
+          <div role="region" aria-label="Woraus sich der Preis zusammensetzt Tabelle, horizontal scrollen" tabIndex={0} className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse text-left">
               <caption className="sr-only">
                 Einheitspreise für Podestvermietung in türkischen Lira

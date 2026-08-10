@@ -408,7 +408,7 @@ export default function LedTrends2026Page() {
                   Teklifleri “m²” üzerinden değil, aşağıdaki gibi kriterlerle kıyaslayın. Böylece aynı bütçede en doğru paneli seçersiniz.
                 </p>
 
-                <div className="not-prose my-8 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+                <div role="region" aria-label="2026 Panel Karşılaştırması tablosunu yatay kaydır" tabIndex={0} className="not-prose my-8 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
                   <table className="w-full text-sm text-left bg-white min-w-[760px]">
                     <caption className="sr-only">2026 LED panel karşılaştırma tablosu</caption>
                     <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs border-b">

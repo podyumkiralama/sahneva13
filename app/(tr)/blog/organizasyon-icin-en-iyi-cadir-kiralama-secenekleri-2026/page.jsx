@@ -287,7 +287,7 @@ function TentTypeTable() {
           Ölçüler örnektir; net plan için alan keşfi ve kullanım amacı birlikte değerlendirilmelidir.
         </p>
       </div>
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-gray-200">
@@ -330,7 +330,7 @@ function CapacityTable() {
           İlk fikir içindir; kesin ölçü için oturma düzeni ve teknik ekipman planı birlikte hesaplanır.
         </p>
       </div>
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-gray-200">

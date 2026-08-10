@@ -276,7 +276,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                 </p>
 
                 <InlineCard title="Quick city selector">
-                  <div className="overflow-x-auto">
+                  <div role="region" aria-label="Ankara table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
                         <tr className="text-left border-b border-blue-200">

@@ -313,7 +313,7 @@ function SelectionTable() {
           Ölçüler örnektir; net plan için alan keşfi ve kullanım amacı birlikte değerlendirilmelidir.
         </p>
       </div>
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Farklı Etkinliklerde Podyum Seçimi Nasıl Görünür? tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-gray-200">

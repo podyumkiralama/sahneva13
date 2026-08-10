@@ -396,7 +396,7 @@ export default function LedTrends2026Page() {
                   Compare quotes using criteria like the ones below rather than on "m²" alone. This way you choose the most suitable panel within the same budget.
                 </p>
 
-                <div className="not-prose my-8 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+                <div role="region" aria-label="2026 Panel Comparison table, scroll horizontally" tabIndex={0} className="not-prose my-8 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
                   <table className="w-full text-sm text-left bg-white min-w-[760px]">
                     <caption className="sr-only">2026 LED panel comparison table</caption>
                     <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs border-b">

@@ -672,7 +672,7 @@ function TechSpecsSection() {
         </div>
 
         <div className="mt-10 mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/[0.14] bg-white/[0.06] shadow-xl">
-          <div className="overflow-x-auto">
+          <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
             <table className="min-w-full text-left text-base">
               <thead className="bg-white/[0.10] text-white">
                 <tr>

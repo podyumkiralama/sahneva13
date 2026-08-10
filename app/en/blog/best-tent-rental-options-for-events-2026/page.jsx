@@ -286,7 +286,7 @@ function TentTypeTable() {
           Sizes are indicative; a precise plan requires a site survey combined with the intended use.
         </p>
       </div>
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Comparison table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-gray-200">
@@ -329,7 +329,7 @@ function CapacityTable() {
           For an initial estimate only; the exact size is calculated with the seating plan and technical equipment.
         </p>
       </div>
-      <div className="overflow-x-auto">
+      <div role="region" aria-label="Comparison table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-gray-200">

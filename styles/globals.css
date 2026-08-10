@@ -97,8 +97,13 @@
     @apply text-blue-600 underline-offset-4;
   }
 
-  a:hover {
-    @apply text-blue-700 underline;
+  /* Tailwind v4 `hover:` varyantlarını zaten (hover: hover) ile sarıyor.
+     Elle yazılan bu kurallar sarılmazsa dokunmatik ekranda hover durumu
+     parmak kalktıktan sonra üzerinde kalıyor. */
+  @media (hover: hover) {
+    a:hover {
+      @apply text-blue-700 underline;
+    }
   }
 
   img,
@@ -106,6 +111,13 @@
   canvas,
   svg {
     @apply max-w-full h-auto block;
+  }
+
+  /* Yatay kaydırılan tablo/şerit kapsayıcıları: mobilde tablonun sonuna
+     gelince kaydırma sayfaya zincirlenip tarayıcının "geri" hareketini
+     tetikliyordu. */
+  .overflow-x-auto {
+    overscroll-behavior-x: contain;
   }
 
   /* Guaranteed container behavior */
@@ -190,8 +202,10 @@
   .glossary-card {
     @apply flex h-full flex-col scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200;
   }
-  .glossary-card:hover {
-    @apply -translate-y-0.5 border-blue-400 shadow-md;
+  @media (hover: hover) {
+    .glossary-card:hover {
+      @apply -translate-y-0.5 border-blue-400 shadow-md;
+    }
   }
   .glossary-card:focus-within {
     @apply border-blue-500 shadow-md;
@@ -204,8 +218,10 @@
   .glossary-cta {
     @apply inline-flex min-h-[44px] items-center justify-center rounded-xl bg-slate-950 px-4 text-sm font-black text-white transition;
   }
-  .glossary-cta:hover {
-    @apply bg-blue-700;
+  @media (hover: hover) {
+    .glossary-cta:hover {
+      @apply bg-blue-700;
+    }
   }
   .glossary-cta:focus-visible {
     @apply outline outline-2 outline-offset-2 outline-blue-600;
@@ -471,8 +487,12 @@
     backface-visibility: hidden;
   }
 
-  .brand-logo-rail:hover {
-    animation-play-state: paused;
+  /* Dokunmatikte :hover kalıcı olduğu için şeridin animasyonu bir dokunuşta
+     kalıcı olarak duruyordu; duraklatmayı yalnızca imleçli cihazlara ver. */
+  @media (hover: hover) {
+    .brand-logo-rail:hover {
+      animation-play-state: paused;
+    }
   }
 
   .sahneva-gradient-glow-float {

@@ -289,7 +289,7 @@ export default function BlogPostCorporate() {
                 </figure>
 
                 {/* Accessible Table */}
-                <div className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                <div role="region" aria-label="2. Görsel Etki: LED Ekran Teknolojileri tablosunu yatay kaydır" tabIndex={0} className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
                   <table className="w-full text-sm text-left bg-white min-w-[600px]">
                     <caption className="sr-only">LED Ekran Seçim Tablosu</caption>
                     <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs border-b">

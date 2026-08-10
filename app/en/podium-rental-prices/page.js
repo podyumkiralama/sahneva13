@@ -441,7 +441,7 @@ export default function Page() {
             </div>
 
             <div className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden">
-              <div className="overflow-x-auto">
+              <div role="region" aria-label="2026 Current Unit Price Table table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
                 <table className="min-w-full border-separate border-spacing-0">
                   <caption className="sr-only">
                     2026 podium rental unit prices table: platform, carpet, skirt, and Istanbul
@@ -561,7 +561,7 @@ export default function Page() {
                   (installation+dismantling included), carpet + skirt. Finalized by site conditions.
                 </p>
 
-                <div className="overflow-x-auto">
+                <div role="region" aria-label="Reference Budget Ranges by m² table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
                   <table className="min-w-full border-separate border-spacing-0 bg-white rounded-2xl overflow-hidden">
                     <thead>
                       <tr className="bg-gray-50 text-left">

@@ -17,8 +17,10 @@ const INITIAL_FORM = {
   amount: "",
 };
 
+// text-base (16px) şart: iOS Safari 16px'in altındaki alanlara odaklanınca
+// sayfayı otomatik yakınlaştırıyor ve ödeme formu kullanılamaz hale geliyor.
 const FIELD_CLASS =
-  "mt-1 w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none focus:border-neutral-900 focus:ring-2 focus:ring-neutral-900/10 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:focus:border-neutral-100";
+  "mt-1 min-h-[44px] w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 text-base text-neutral-900 outline-none focus:border-neutral-900 focus:ring-2 focus:ring-neutral-900/10 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:focus:border-neutral-100";
 
 const LABEL_CLASS = "block text-sm font-semibold text-neutral-800 dark:text-neutral-200";
 
@@ -242,6 +244,8 @@ export default function PaytrCheckout({
         />
       </div>
 
+      {/* shrink-0 olmadan flex kutusu onay kutusunu 13px'e eziyordu;
+          24px WCAG 2.2 (2.5.8) asgari dokunma hedefi. */}
       <div className="flex items-start gap-3">
         <input
           id="paytr-terms"
@@ -250,7 +254,7 @@ export default function PaytrCheckout({
           required
           checked={terms}
           onChange={(event) => setTerms(event.target.checked)}
-          className="mt-1 h-4 w-4 rounded border-neutral-400"
+          className="mt-0.5 h-6 w-6 shrink-0 rounded border-neutral-400"
         />
         <label htmlFor="paytr-terms" className="text-sm text-neutral-700 dark:text-neutral-300">
           <Link href="/mesafeli-satis-sozlesmesi" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">

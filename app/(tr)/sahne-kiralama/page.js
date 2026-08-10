@@ -686,7 +686,7 @@ function SizeGuide() {
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-6xl overflow-x-auto rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+        <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="mx-auto mt-10 max-w-6xl overflow-x-auto rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
           <h3 className="mb-5 text-2xl font-black text-gray-950">
             Etkinlik ölçeğine göre başlangıç referansı
           </h3>

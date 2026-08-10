@@ -84,7 +84,7 @@ export default function IptalVeIadeKosullariPage() {
           talebinin tarafımıza <strong>yazılı olarak</strong> (e-posta) ulaştığı tarih esas alınır:
         </p>
 
-        <div className="overflow-x-auto">
+        <div role="region" aria-label="2. Ön Ödeme Alınan İşlemlerde İade Oranları tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-neutral-100 text-left">

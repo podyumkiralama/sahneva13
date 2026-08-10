@@ -814,13 +814,14 @@ export default function ArabicHomePage() {
               
             </div>
 
-            <div className="-mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 px-4 sm:px-6 lg:px-8 xl:px-12">
-              <ServicesTabs
-                servicesData={SERVICES_AR}
-                dictionary={SERVICES_DICTIONARY_AR}
-                containerProps={{ dir: "rtl" }}
-              />
-            </div>
+            {/* Negatif margin'li sarmalayıcı kutuyu kapsayıcıdan 16px taşırıyordu
+                (overflow-x:hidden gizliyordu). Diğer diller ServicesTabs'ı
+                doğrudan render ediyor. */}
+            <ServicesTabs
+              servicesData={SERVICES_AR}
+              dictionary={SERVICES_DICTIONARY_AR}
+              containerProps={{ dir: "rtl" }}
+            />
           </div>
         </section>
 

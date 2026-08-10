@@ -194,7 +194,7 @@ function ProTip({ title = "Profesyonel İpucu", children }) {
 
 function DataTable({ caption, columns, rows }) {
   return (
-    <div className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+    <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
       <table className="w-full text-sm text-left bg-white min-w-[600px]">
         {caption ? <caption className="sr-only">{caption}</caption> : null}
         <thead className="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs border-b">

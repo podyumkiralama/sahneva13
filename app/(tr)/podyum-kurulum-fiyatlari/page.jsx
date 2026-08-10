@@ -511,7 +511,7 @@ export default function Page() {
             </div>
 
             <div className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden">
-              <div className="overflow-x-auto">
+              <div role="region" aria-label="Podyum Fiyatları Neye Göre Değişir? tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
                 <table className="min-w-full border-separate border-spacing-0">
                   <caption className="sr-only">
                     2026 podyum kurulum birim fiyatları: platform m² maliyeti, halı kaplama,
@@ -627,7 +627,7 @@ export default function Page() {
                   halı + kumaş giydirme dahil örnek senaryolardır.
                 </p>
 
-                <div className="overflow-x-auto">
+                <div role="region" aria-label="m²'ye Göre Referans Kurulum Maliyeti tablosunu yatay kaydır" tabIndex={0} className="overflow-x-auto">
                   <table className="min-w-full border-separate border-spacing-0 bg-white rounded-2xl overflow-hidden">
                     <thead>
                       <tr className="bg-gray-50 text-left">
