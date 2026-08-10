@@ -233,7 +233,7 @@ export default function Faq({
               <div className="pt-4">
                 <a
                   href={dictionary.seeAllHref}
-                  className={`inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 transition-colors hover:border-sky-300/70 hover:text-white ${FOCUS_RING_CLASS}`}
+                  className={`inline-flex min-h-12 items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 transition-colors hover:border-sky-300/70 hover:text-white ${FOCUS_RING_CLASS}`}
                 >
                   <span aria-hidden="true">+</span>
                   {dictionary.seeAllLabel}

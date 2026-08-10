@@ -204,21 +204,21 @@ export default function AnalyticsConsentWrapper() {
       role="dialog"
       aria-live="polite"
       aria-label="Analytics consent"
-      className="fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl rounded-lg border border-neutral-200 bg-white p-4 text-neutral-900 shadow-2xl sm:inset-x-6 sm:flex sm:items-center sm:justify-between sm:gap-4"
+      className="mobile-consent-banner fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl rounded-lg border border-neutral-200 bg-white p-4 text-neutral-900 shadow-2xl sm:inset-x-6 sm:flex sm:items-center sm:justify-between sm:gap-4"
     >
       <p className="text-sm leading-6 text-neutral-700">{copy.body}</p>
-      <div className="mt-3 flex shrink-0 items-center gap-2 sm:mt-0">
+      <div className="mt-3 flex w-full shrink-0 items-center gap-2 sm:mt-0 sm:w-auto">
         <button
           type="button"
           onClick={rejectConsent}
-          className="min-h-11 rounded-md border border-neutral-300 px-4 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          className="min-h-12 flex-1 rounded-md border border-neutral-300 px-4 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 sm:flex-none"
         >
           {copy.reject}
         </button>
         <button
           type="button"
           onClick={acceptConsent}
-          className="min-h-11 rounded-md bg-blue-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          className="min-h-12 flex-1 rounded-md bg-blue-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 sm:flex-none"
         >
           {copy.accept}
         </button>

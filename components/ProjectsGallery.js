@@ -214,7 +214,7 @@ const GalleryCard = memo(function GalleryCard({
         {gallery.href && (
           <Link
             href={gallery.href}
-            className="mt-4 inline-flex min-h-[40px] items-center justify-center rounded-full border border-blue-300/30 bg-blue-400/10 px-4 py-2 text-xs font-black text-blue-100 transition hover:bg-blue-400/20"
+            className="mt-4 inline-flex min-h-12 items-center justify-center rounded-full border border-blue-300/30 bg-blue-400/10 px-4 py-2 text-xs font-black text-blue-100 transition hover:bg-blue-400/20"
           >
             {dictionary.caseStudyCta}
           </Link>
@@ -268,6 +268,7 @@ export default function ProjectsGallery({
   }, [galleries]);
 
   const lastFocus = useRef(null);
+  const scrollYRef = useRef(0);
   const portal = useRef(null);
   const closeBtn = useRef(null);
   const dialogRef = useRef(null);
@@ -457,6 +458,41 @@ export default function ProjectsGallery({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [openState.isOpen, close, next, prev]);
 
+  // Mobil Safari dahil modal acikken arka sayfanin kaymasini engelle ve
+  // kapatildiginda kullaniciyi ayni kaydirma konumuna geri getir.
+  useEffect(() => {
+    if (!openState.isOpen) return undefined;
+
+    const body = document.body;
+    scrollYRef.current = window.scrollY;
+    const previousStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      overflow: body.style.overflow,
+      width: body.style.width,
+    };
+
+    const lockFrame = window.requestAnimationFrame(() => {
+      body.style.position = "fixed";
+      body.style.top = `-${scrollYRef.current}px`;
+      body.style.overflow = "hidden";
+      body.style.width = "100%";
+    });
+
+    return () => {
+      window.cancelAnimationFrame(lockFrame);
+      body.style.position = previousStyles.position;
+      body.style.top = previousStyles.top;
+      body.style.overflow = previousStyles.overflow;
+      body.style.width = previousStyles.width;
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, scrollYRef.current);
+      root.style.scrollBehavior = previousScrollBehavior;
+    };
+  }, [openState.isOpen]);
+
   const entries = Object.entries(normalizedGalleries);
 
   const computedHeadingId = ariaLabelledby ?? `projects-title-${headingId}`;
@@ -554,7 +590,7 @@ export default function ProjectsGallery({
         type="button"
         ref={closeBtn}
         className={`
-          absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
+          mobile-safe-dialog-close absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
           hover:text-white hover:bg-white/20
           ${LIGHTBOX_FOCUS_RING}
         `}
@@ -612,7 +648,7 @@ export default function ProjectsGallery({
       )}
 
       <div
-        className="relative w-full max-w-6xl h-[80vh] p-6 flex items-center justify-center"
+        className="relative flex h-[80dvh] max-h-[calc(100dvh-4rem)] w-full max-w-6xl items-center justify-center p-4 sm:p-6"
         onClick={handleImageClick}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -637,7 +673,7 @@ export default function ProjectsGallery({
             <button
               type="button"
               onClick={prev}
-              className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
+              className={`inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-full bg-white/10 px-3 py-2 ${LIGHTBOX_FOCUS_RING}`}
               aria-label={normalizedDictionary.mobilePrevLabel}
             >
               <span aria-hidden="true">‹</span>
@@ -654,7 +690,7 @@ export default function ProjectsGallery({
             <button
               type="button"
               onClick={next}
-              className={`inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full ${LIGHTBOX_FOCUS_RING}`}
+              className={`inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-full bg-white/10 px-3 py-2 ${LIGHTBOX_FOCUS_RING}`}
               aria-label={normalizedDictionary.mobileNextLabel}
             >
               <span className="sr-only">{normalizedDictionary.nextSr}</span>

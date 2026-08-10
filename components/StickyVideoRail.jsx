@@ -247,7 +247,7 @@ function StickyVideoRailInner({
   if (isExpanded && isOpen) {
     return (
       <div
-        className="fixed inset-0 z-[80] bg-black/90 backdrop-blur-sm flex flex-col items-center px-2 sm:px-6 py-2"
+        className="mobile-safe-dialog fixed inset-0 z-[80] flex flex-col items-center bg-black/90 px-2 py-2 backdrop-blur-sm sm:px-6"
         aria-modal="true"
         role="dialog"
         aria-labelledby={ariaLabel ? undefined : computedHeadingId}
@@ -435,7 +435,7 @@ function StickyVideoRailInner({
           setIsExpanded(false);
           setIsOpen(true);
         }}
-        className="fixed z-[60] bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs sm:text-sm shadow-lg border border-white/20 hover:from-purple-700 hover:to-blue-700 transition-all duration-200 group"
+        className="mobile-fixed-bottom-end fixed bottom-4 right-4 z-[60] flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-3 text-xs text-white shadow-lg transition-all duration-200 hover:from-purple-700 hover:to-blue-700 sm:bottom-6 sm:right-6 sm:text-sm group"
         aria-label={`${watchVideosLabel} - ${openLabel} - ${openPlayerAriaLabel}`}
       >
         <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:scale-110 transition-transform" aria-hidden="true">
@@ -454,7 +454,7 @@ function StickyVideoRailInner({
   return (
     <div
       ref={dragRef}
-      className="fixed z-[60] bottom-0 right-0"
+      className="mobile-fixed-bottom-end fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6"
       style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
       role={computedRole}
       aria-labelledby={ariaLabel ? undefined : computedHeadingId}
@@ -466,7 +466,7 @@ function StickyVideoRailInner({
         <p id={computedDescriptionId}>{accessibleDescription}</p>
       </div>
 
-      <div className="mb-4 w-[280px] sm:w-[340px] bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-lg">
+      <div className="w-[280px] overflow-hidden rounded-2xl border border-white/20 bg-slate-900/95 shadow-2xl backdrop-blur-lg sm:w-[340px]">
         {/* Başlık + drag alanı */}
         <div
           className="flex items-center justify-between px-4 py-3 cursor-move select-none bg-gradient-to-r from-slate-800 to-slate-900 border-b border-white/10"

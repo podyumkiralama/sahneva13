@@ -160,7 +160,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
           setServicesOpen(false);
           setResearchOpen(false);
         }}
-        className={`lg:hidden inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-neutral-200 bg-white p-3 transition-all duration-200 hover:scale-105 hover:bg-neutral-50 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
+        className={`lg:hidden inline-flex min-h-12 min-w-12 items-center justify-center rounded-xl border border-neutral-200 bg-white p-3 transition-all duration-200 hover:scale-105 hover:bg-neutral-50 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
         aria-label={open ? labels.close : labels.open}
         aria-expanded={open ? "true" : "false"}
         aria-controls={menuId}
@@ -197,9 +197,9 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
         aria-hidden={!open}
         inert={!open || undefined}
         data-open={open ? "true" : undefined}
-        className={`fixed left-0 right-0 top-16 z-50 overflow-hidden border-t border-neutral-200 bg-white shadow-2xl transition-all duration-300 ease-in-out nav-dark:border-white/10 nav-dark:bg-[#0B1120] lg:hidden ${
+        className={`mobile-menu-panel fixed left-0 right-0 top-16 z-50 overflow-hidden border-t border-neutral-200 bg-white shadow-2xl transition-all duration-300 ease-in-out nav-dark:border-white/10 nav-dark:bg-[#0B1120] lg:hidden ${
           open
-            ? "max-h-[85vh] opacity-100 pointer-events-auto visible"
+            ? "opacity-100 pointer-events-auto visible"
             : "max-h-0 opacity-0 pointer-events-none invisible"
         }`}
       >
@@ -213,10 +213,12 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
         <nav aria-labelledby={headingId} aria-describedby={descId}>
           {/* overscroll-contain: menü sonuna gelince kaydırmanın arkadaki
               sayfaya geçmesini engeller. */}
-          <div className="max-h-[80vh] space-y-3 overflow-y-auto overscroll-contain px-5 py-6">
+          <div className="mobile-menu-scroller space-y-3 overflow-y-auto overscroll-contain px-5 pt-6">
             <div className="mb-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 nav-dark:border-white/10 nav-dark:bg-white/[0.06]">
               <LanguageSwitcher locale={locale} align="left" />
-              <ThemeSwitcher align="left" locale={locale} />
+              <div className="ml-auto">
+                <ThemeSwitcher align="right" locale={locale} />
+              </div>
             </div>
 
             <Link href={links.about} prefetch={false} onClick={() => closeMenu()} className={menuLinkClass}>
@@ -239,7 +241,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               onToggle={(event) => setServicesOpen(event.currentTarget.open)}
             >
               <summary
-                className={`flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
               >
                 <span className="flex items-center gap-3">
                   <span className="text-lg" aria-hidden="true">
@@ -288,7 +290,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               onToggle={(event) => setResearchOpen(event.currentTarget.open)}
             >
               <summary
-                className={`flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
               >
                 <span className="flex items-center gap-3">
                   <span className="text-lg" aria-hidden="true">
@@ -348,7 +350,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 aria-label={`${labels.support} - ${isEn ? "opens in new tab" : isDe ? "wird in einem neuen Tab geöffnet" : "yeni sekmede açılır"}`}
-                className={`mt-4 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-800 shadow-sm transition-all duration-200 hover:bg-emerald-100 hover:shadow-md nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
+                className={`mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-800 shadow-sm transition-all duration-200 hover:bg-emerald-100 hover:shadow-md nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-emerald-300 nav-dark:hover:bg-white/15 ${FOCUS_RING_CLASS}`}
                 onClick={() => closeMenu()}
               >
                 <span aria-hidden="true" className="text-base">

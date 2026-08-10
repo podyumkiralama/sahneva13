@@ -155,7 +155,7 @@ const DEFAULT_DICTIONARY = {
 
 const TITLE_TEMPLATE_TOKEN = /\{\{\s*title\s*\}\}/g;
 const SERVICE_CARD_IMAGE_SIZES =
-  "(max-width: 1023px) calc(100vw - 32px), (max-width: 1279px) calc((100vw - 56px) / 2), 400px";
+  "(max-width: 767px) calc(100vw - 32px), (max-width: 1279px) calc((100vw - 56px) / 2), 400px";
 // Yalnızca kart ölçüsüne göre önceden boyutlandırılmış varyant optimizer'ı atlar.
 // 1600px'lik ham kaynak görseller Next optimizer'dan geçerek srcset ile küçültülür.
 const P19_PROOF_DISPLAY_IMAGE_SRC =

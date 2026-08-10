@@ -1347,7 +1347,7 @@ function Technical() {
                 <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
                   <summary
                     aria-controls={detailsId}
-                    className="cursor-pointer select-none font-semibold text-gray-900"
+                    className="flex min-h-12 cursor-pointer select-none items-center rounded-lg font-semibold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                   >
                     Detayları gör
                   </summary>

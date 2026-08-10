@@ -183,7 +183,7 @@
   }
 
   .rail-control {
-    @apply inline-flex items-center justify-center gap-2 min-w-10 h-10 px-3 rounded-xl font-semibold transition-all duration-150;
+    @apply inline-flex min-h-12 min-w-12 items-center justify-center gap-2 px-3 rounded-xl font-semibold transition-all duration-150;
     background-color: rgba(15, 23, 42, 0.6);
     border: 1px solid rgba(148, 163, 184, 0.4);
     color: rgb(226, 232, 240);
@@ -861,6 +861,78 @@
 
 .focus-ring:focus:not(:focus-visible) {
   box-shadow: none;
+}
+
+/* Mobil tarayici cubuklari, ekran kesikleri ve sayfaya ozel sabit CTA'lar
+   ayni alt kenari paylasirken kontrollerin birbirini kapatmasini engeller. */
+@media (max-width: 767px) {
+  body:has([data-mobile-action-bar]) {
+    --mobile-action-bar-offset: calc(
+      5rem + env(safe-area-inset-bottom, 0px)
+    );
+  }
+
+  .mobile-action-bar {
+    padding-right: max(0.5rem, env(safe-area-inset-right, 0px));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
+  }
+
+  .mobile-action-bar-spacer {
+    height: calc(7rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-fixed-bottom-start {
+    bottom: calc(
+      var(--mobile-action-bar-offset, 0px) +
+        max(1rem, env(safe-area-inset-bottom, 0px))
+    );
+    left: max(1rem, env(safe-area-inset-left, 0px));
+  }
+
+  .mobile-fixed-bottom-end {
+    right: max(1rem, env(safe-area-inset-right, 0px));
+    bottom: calc(
+      var(--mobile-action-bar-offset, 0px) +
+        max(1rem, env(safe-area-inset-bottom, 0px))
+    );
+  }
+
+  .mobile-consent-banner {
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    bottom: calc(
+      var(--mobile-action-bar-offset, 0px) +
+        max(0.75rem, env(safe-area-inset-bottom, 0px))
+    );
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+  }
+
+  body:has(.mobile-consent-banner) .mobile-fixed-bottom-start,
+  body:has(.mobile-consent-banner) .mobile-fixed-bottom-end {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .mobile-menu-panel[data-open="true"],
+  .mobile-menu-scroller {
+    max-height: calc(100dvh - 4rem);
+  }
+
+  .mobile-menu-scroller {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-safe-dialog {
+    padding-top: max(0.5rem, env(safe-area-inset-top, 0px));
+    padding-right: max(0.5rem, env(safe-area-inset-right, 0px));
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+    padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
+  }
+
+  .mobile-safe-dialog-close {
+    top: max(1.5rem, env(safe-area-inset-top, 0px));
+    right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
 }
 
 .blog-layout-scope img {

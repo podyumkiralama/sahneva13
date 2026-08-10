@@ -712,14 +712,17 @@ export default function ContactPage() {
         </section>
 
         {/* Mobil bar için ekstra boşluk (yapışmayı engeller) */}
-        <div className="h-28 md:hidden" aria-hidden="true" />
+        <div className="mobile-action-bar-spacer md:hidden" aria-hidden="true" />
       </div>
 
       {/* Mobile CTA Bar */}
-      <div className="fixed bottom-0 left-0 w-full bg-white shadow-2xl border-t py-4 flex justify-around md:hidden z-50">
+      <div
+        data-mobile-action-bar
+        className="mobile-action-bar fixed bottom-0 left-0 z-50 flex w-full bg-white px-2 pt-4 shadow-2xl border-t md:hidden"
+      >
         <a
           href={`tel:${PHONE}`}
-          className="flex flex-col items-center text-blue-600 font-bold text-sm"
+          className="flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center rounded-lg px-2 text-sm font-bold text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
           aria-label="Sahneva'yı ara"
         >
           <span className="text-lg">📞</span>
@@ -729,7 +732,7 @@ export default function ContactPage() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="flex flex-col items-center text-green-800 font-bold text-sm"
+          className="flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center rounded-lg px-2 text-sm font-bold text-green-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-700"
           aria-label="WhatsApp üzerinden Sahneva'ya yaz (yeni sekmede açılır)"
         >
           <span className="text-lg">💬</span>
@@ -737,7 +740,7 @@ export default function ContactPage() {
         </a>
         <a
           href="#teklif-formu"
-          className="flex flex-col items-center text-purple-600 font-bold text-sm"
+          className="flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center rounded-lg px-2 text-sm font-bold text-purple-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
           aria-label="Teklif formuna git"
         >
           <span className="text-lg">📝</span>

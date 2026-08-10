@@ -466,7 +466,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
 
   return (
     <div
-      className="fixed bottom-4 left-4 z-[70] print:hidden"
+      className="mobile-fixed-bottom-start fixed bottom-4 left-4 z-[70] print:hidden"
       dir={isRtl ? "rtl" : "ltr"}
     >
       {open ? (
@@ -494,7 +494,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
               type="button"
               onClick={() => setOpen(false)}
               aria-label={dictionary.closeLabel}
-              className="-me-1 shrink-0 rounded-lg p-1.5 text-white/90 transition hover:bg-white/15 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="-me-1 inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center rounded-lg text-white/90 transition hover:bg-white/15 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <X aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
             </button>
@@ -578,7 +578,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
                   type="button"
                   onClick={() => setAttachment(null)}
                   aria-label={dictionary.removeFile}
-                  className="shrink-0 rounded p-0.5 text-violet-700 hover:bg-violet-100"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-violet-700 hover:bg-violet-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
                 >
                   <X aria-hidden="true" className="h-3.5 w-3.5" />
                 </button>
@@ -607,7 +607,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
                     onClick={() => fileInputRef.current?.click()}
                     aria-label={dictionary.attachFile}
                     title={dictionary.attachFile}
-                    className="inline-flex h-11 w-9 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
                   >
                     <Paperclip aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
                   </button>
@@ -622,14 +622,14 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
                 onKeyDown={onDraftKeyDown}
                 placeholder={dictionary.messagePlaceholder}
                 maxLength={1500}
-                className="max-h-32 min-h-[2.75rem] flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+                className="max-h-32 min-h-12 flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 sm:text-sm"
               />
               <button
                 type="button"
                 disabled={busy || (!draft.trim() && !attachment)}
                 onClick={() => (session ? sendMessage() : startConversation())}
                 aria-label={session ? dictionary.sendButton : dictionary.startButton}
-                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#6d28d9] text-white transition hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#6d28d9] text-white transition hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 <Send aria-hidden="true" className="h-4 w-4 rtl:-scale-x-100" strokeWidth={2.2} />
               </button>
@@ -649,7 +649,7 @@ export default function SupportWidget({ locale = "tr", attachments = false }) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="relative inline-flex items-center gap-2 rounded-full bg-[#6d28d9] py-3 ps-4 pe-5 text-sm font-semibold text-white shadow-xl transition hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2"
+          className="relative inline-flex min-h-12 items-center gap-2 rounded-full bg-[#6d28d9] py-3 ps-4 pe-5 text-sm font-semibold text-white shadow-xl transition hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2"
         >
           <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2.2} />
           <span>{dictionary.launcher}</span>
@@ -706,7 +706,7 @@ function Bubble({ entry, locale, dictionary, session, onDownload, muted = false 
                 <button
                   type="button"
                   onClick={() => onDownload?.(entry.file)}
-                  className="mt-1.5 inline-flex items-center gap-1 rounded-lg bg-[#6d28d9] px-2 py-1 text-xs font-semibold text-white hover:bg-[#5b21b6]"
+                  className="mt-1.5 inline-flex min-h-11 items-center gap-1 rounded-lg bg-[#6d28d9] px-3 py-2 text-xs font-semibold text-white hover:bg-[#5b21b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
                 >
                   <Download aria-hidden="true" className="h-3 w-3" />
                   {dictionary.downloadFile}
@@ -743,7 +743,7 @@ function Field({ id, label, value, onChange, placeholder, autoComplete, maxLengt
         placeholder={placeholder}
         autoComplete={autoComplete}
         maxLength={maxLength}
-        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 sm:text-sm"
       />
       {hint ? <span className="mt-1 block text-xs text-slate-500">{hint}</span> : null}
     </div>
