@@ -13,7 +13,7 @@ import {
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
-import heroStyles from "./ProjectsGalleryHero.module.css";
+import heroStyles from "./ProjectsGalleryTriptych.module.css";
 
 // ===============================================================
 // GALERİ VERİLERİ — Sabit 3 kategori (A seçildi)
@@ -140,8 +140,8 @@ const GalleryCard = memo(function GalleryCard({
     const titleId = `project-mosaic-${i}-title`;
     const detailId = `project-mosaic-${i}-detail`;
     const imageSizes = featured
-      ? "(max-width: 767px) calc(100vw - 2rem), (max-width: 1535px) 66vw, 960px"
-      : "(max-width: 767px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 33vw, 480px";
+      ? "(max-width: 1023px) calc(100vw - 2rem), (max-width: 1535px) 58vw, 900px"
+      : "(max-width: 1023px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 58vw, 900px";
 
     return (
       <article className={heroStyles.card} aria-labelledby={titleId}>
@@ -181,7 +181,14 @@ const GalleryCard = memo(function GalleryCard({
           </span>
 
           <span className={heroStyles.openMark} aria-hidden="true">
-            +
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="square"
+              />
+            </svg>
           </span>
         </button>
       </article>
