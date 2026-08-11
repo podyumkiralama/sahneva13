@@ -6,7 +6,6 @@ import Link from "next/link";
 import TurkishHomepageHero, {
   TR_HOME_PRIMARY_IMAGE,
 } from "@/components/home/TurkishHomepageHero";
-import HeroBelow from "@/components/HeroBelow";
 
 import ServicesTabs from "@/components/ServicesTabs";
 import CorporateEvents from "@/components/CorporateEvents";
@@ -15,6 +14,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import DeferredHydration from "@/components/DeferredHydration.client";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLd from "@/components/seo/JsonLd";
+import sectionStyles from "@/components/TurkishProjectsSection.module.css";
 import { FAQ_ITEMS } from "@/lib/faqData";
 
 import {
@@ -33,7 +33,7 @@ export const revalidate = 3600;
 const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
   loading: () => (
     <div
-      className="flex justify-center items-center h-64"
+      className={sectionStyles.loading}
       role="status"
       aria-label="Galeri yükleniyor"
     >
@@ -45,6 +45,48 @@ const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
     </div>
   ),
 });
+
+const TR_HOME_PROJECT_GALLERIES = {
+  "Milli Uzay Programı Lansmanı": {
+    images: [
+      "/img/blog/milli-uzay-programi-podyum.webp",
+      "/img/blog/milli-uzay-programi-hero.webp",
+      "/img/blog/milli-uzay-programi-lazer-led.webp",
+    ],
+    description: "Dome, lazer–LED ve akustik prodüksiyonu",
+    code: "01 / MİLLİ UZAY / 2021",
+    shortTitle: "Milli Uzay Lansmanı",
+    meta: "DOME · LAZER–LED · AKUSTİK",
+    coverPosition: "50% 45%",
+    stats: "Immersive Lansman Prodüksiyonu",
+  },
+  "Fişekhane PUBG Dünya Rekoru": {
+    images: [
+      "/img/blog/fisekhane-pubg-koreografili.webp",
+      "/img/blog/fisekhane-pubg-etkinlik.webp",
+      "/img/blog/fisekhane-pubg-guinness-rekoru.webp",
+    ],
+    description: "Guinness Dünya Rekoru etkinlik prodüksiyonu",
+    code: "02 / FİŞEKHANE / PUBG",
+    shortTitle: "PUBG Dünya Rekoru",
+    meta: "SAHNE · LED · SES–IŞIK · REJİ",
+    coverPosition: "50% 44%",
+    stats: "Guinness Dünya Rekoru",
+  },
+  "Sıfır Atık Festivali": {
+    images: [
+      "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp",
+      "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-vinc-destekli-sahne-kurulumu.webp",
+      "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-dev-led-ekran-goruntu-sistemi.webp",
+    ],
+    description: "Festival ana sahne sistemleri",
+    code: "03 / SIFIR ATIK / FESTİVAL",
+    shortTitle: "Festival Ana Sahnesi",
+    meta: "SAHNE · LED · LINE ARRAY · TRUSS",
+    coverPosition: "50% 50%",
+    stats: "Festival Prodüksiyonu",
+  },
+};
 
 const Faq = dynamic(() => import("@/components/Faq"), {
   loading: () => (
@@ -310,36 +352,59 @@ export default function HomePage() {
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
 
       <TurkishHomepageHero />
-      <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
-        <HeroBelow />
-      </div>
 
       <div id="teklif-al" aria-hidden="true" />
 
-      <div className="bg-[#0B1120] pb-2 pt-0">
-        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
-          Yurt dışından Türkiye’ye gelen marka ve ajanslar için{" "}
-          <Link href="/turkiyede-etkinlik-cozum-ortagi" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
-            Türkiye’de etkinlik çözüm ortağı
-          </Link>{" "}
-          yaklaşımımızı ayrıca inceleyebilirsiniz.
-        </p>
-      </div>
-
-      {/* Marka konumlandırması */}
-      <div className="bg-[#0B1120] pb-2 pt-0">
-        <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/50 md:text-base">
-          Sahneva, Türkiye genelinde kurumsal etkinlikler için sahne, LED ekran, ses-ışık, podyum, truss ve teknik prodüksiyon süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir.
-        </p>
-      </div>
-
       {/* Projeler */}
-      <div className="content-visibility-auto cv-home-projects bg-black">
-        <p className="sr-only">
-          700+ kurumsal etkinlik, konser, fuar ve organizasyonda profesyonel çözüm ortağı olduk.
-        </p>
-        <a className="sr-only" href="/projeler">Projeleri inceleyin</a>
-        <ProjectsGallery />
+      <div className={sectionStyles.sectionRoot}>
+        <div className={sectionStyles.header}>
+          <div className={sectionStyles.headingBlock}>
+            <p className={sectionStyles.eyebrow}>
+              Saha kayıtları / 03
+            </p>
+            <h2
+              id="tr-projects-title"
+              className={sectionStyles.heading}
+            >
+              Üç saha.{" "}
+              <span className={sectionStyles.headingAccent}>
+                Tek teknik refleks.
+              </span>
+            </h2>
+          </div>
+
+          <div className={sectionStyles.introBlock}>
+            <p
+              id="tr-projects-description"
+              className={sectionStyles.description}
+            >
+              Sahne, LED ekran, ses–ışık ve dome yapı: 700+ projelik deneyimden
+              üç gerçek saha kaydı.
+            </p>
+            <div className={sectionStyles.links}>
+              <Link
+                href="/projeler"
+                className={sectionStyles.primaryLink}
+              >
+                Tüm projeleri incele →
+              </Link>
+              <Link
+                href="/turkiyede-etkinlik-cozum-ortagi"
+                className={sectionStyles.secondaryLink}
+              >
+                Türkiye’de çözüm ortaklığı
+              </Link>
+            </div>
+          </div>
+        </div>
+        <ProjectsGallery
+          compact
+          showHeader={false}
+          variant="heroMosaic"
+          galleries={TR_HOME_PROJECT_GALLERIES}
+          ariaLabelledby="tr-projects-title"
+          ariaDescribedby="tr-projects-description"
+        />
       </div>
 
       {/* Hizmetler */}

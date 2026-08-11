@@ -13,6 +13,7 @@ import {
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
+import heroStyles from "./ProjectsGalleryHero.module.css";
 
 // ===============================================================
 // GALERİ VERİLERİ — Sabit 3 kategori (A seçildi)
@@ -121,6 +122,8 @@ const GalleryCard = memo(function GalleryCard({
   title,
   gallery,
   i,
+  variant,
+  featured,
   open,
   prefersReducedMotion,
   getSrc,
@@ -132,6 +135,58 @@ const GalleryCard = memo(function GalleryCard({
   const [canLoadCover] = useState(true);
 
   const handleOpen = () => open(title, gallery.images, 0);
+
+  if (variant === "heroMosaic") {
+    const titleId = `project-mosaic-${i}-title`;
+    const detailId = `project-mosaic-${i}-detail`;
+    const imageSizes = featured
+      ? "(max-width: 767px) calc(100vw - 2rem), (max-width: 1535px) 66vw, 960px"
+      : "(max-width: 767px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 33vw, 480px";
+
+    return (
+      <article className={heroStyles.card} aria-labelledby={titleId}>
+        <button
+          type="button"
+          onClick={handleOpen}
+          className={heroStyles.button}
+          aria-labelledby={titleId}
+          aria-describedby={detailId}
+        >
+          <Image
+            src={coverSrc}
+            alt={fillTemplate(dictionary.lightboxAlt, {
+              title,
+              index: 1,
+            })}
+            fill
+            sizes={imageSizes}
+            quality={75}
+            loading="lazy"
+            className={`${heroStyles.image} ${
+              prefersReducedMotion ? heroStyles.reducedMotion : ""
+            }`}
+            style={{ objectPosition: gallery.coverPosition ?? "50% 50%" }}
+            onError={() => onError(cover)}
+          />
+
+          <span className={heroStyles.shade} aria-hidden="true" />
+          <span className={heroStyles.caption}>
+            <span className={heroStyles.code}>{gallery.code}</span>
+            <span id={titleId} className={heroStyles.projectTitle}>
+              {gallery.shortTitle ?? title}
+            </span>
+            <span id={detailId} className={heroStyles.meta}>
+              {gallery.meta ?? gallery.description}
+            </span>
+          </span>
+
+          <span className={heroStyles.openMark} aria-hidden="true">
+            +
+          </span>
+        </button>
+      </article>
+    );
+  }
 
   return (
     <article
@@ -230,6 +285,9 @@ const GalleryCard = memo(function GalleryCard({
 export default function ProjectsGallery({
   galleries,
   dictionary,
+  compact = false,
+  showHeader = true,
+  variant = "default",
   role,
   ariaLabel,
   ariaLabelledby,
@@ -494,10 +552,13 @@ export default function ProjectsGallery({
   }, [openState.isOpen]);
 
   const entries = Object.entries(normalizedGalleries);
+  const isHeroMosaic = variant === "heroMosaic" && entries.length === 3;
 
-  const computedHeadingId = ariaLabelledby ?? `projects-title-${headingId}`;
+  const computedHeadingId =
+    ariaLabelledby ?? (showHeader ? `projects-title-${headingId}` : undefined);
   const computedDescriptionId =
-    ariaDescribedby ?? `projects-desc-${descriptionId}`;
+    ariaDescribedby ??
+    (showHeader ? `projects-desc-${descriptionId}` : undefined);
   const computedRole =
     role ?? (ariaLabel || computedHeadingId ? "region" : undefined);
   const lightboxImageSrc = openState.isOpen
@@ -506,49 +567,99 @@ export default function ProjectsGallery({
 
   return (
     <section
-      className="relative py-20 2xl:py-24 bg-[#0B1120] overflow-hidden"
+      className={`relative overflow-hidden bg-[#0B1120] ${
+        compact
+          ? "pb-14 pt-3 md:pb-16 md:pt-4 2xl:pb-20 2xl:pt-5"
+          : "py-20 2xl:py-24"
+      }`}
       aria-labelledby={ariaLabel ? undefined : computedHeadingId}
       aria-label={ariaLabel}
       aria-describedby={computedDescriptionId}
       role={computedRole}
     >
       {/* Arka Plan — Faq.js ile aynı grid + mavi glow */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Grid */}
-        <div
-          className="
-            absolute inset-0
-            grid-overlay
-          "
-        />
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
-      </div>
+      {isHeroMosaic ? (
+        <div className={heroStyles.backdrop} aria-hidden="true" />
+      ) : (
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          {/* Grid */}
+          <div
+            className="
+              absolute inset-0
+              grid-overlay
+            "
+          />
+          {/* Glow */}
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
+        </div>
+      )}
 
       {/* Başlık */}
-      <div className="container px-4 mx-auto relative z-10 text-center max-w-3xl mb-16">
-        <h2
-          id={computedHeadingId}
-          className="text-4xl md:text-5xl font-bold text-white leading-tight"
+      {showHeader && (
+        <div
+          className={`container relative z-10 mx-auto max-w-3xl px-4 text-center ${
+            compact ? "mb-8 md:mb-10" : "mb-16"
+          }`}
         >
-          <span className="gradient-text gradient-text--safe-xl">
-            {normalizedDictionary.title}
-          </span>
-        </h2>
-        <p id={computedDescriptionId} className="text-slate-400 text-lg mt-4">
-          {normalizedDictionary.subtitle}
-        </p>
-      </div>
+          <h2
+            id={computedHeadingId}
+            className={`font-bold leading-tight text-white ${
+              compact ? "text-3xl md:text-5xl" : "text-4xl md:text-5xl"
+            }`}
+          >
+            <span className="gradient-text gradient-text--safe-xl">
+              {normalizedDictionary.title}
+            </span>
+          </h2>
+          <p
+            id={computedDescriptionId}
+            className={`text-slate-400 ${
+              compact
+                ? "mt-3 text-sm leading-relaxed md:text-base"
+                : "mt-4 text-lg"
+            }`}
+          >
+            {normalizedDictionary.subtitle}
+          </p>
+        </div>
+      )}
 
       {/* Grid */}
-      <div className="container px-4 mx-auto relative z-10">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        className={
+          isHeroMosaic
+            ? "relative z-10 mx-auto w-full max-w-[1480px] px-4 md:px-6"
+            : "container relative z-10 mx-auto px-4"
+        }
+      >
+        <ul
+          className={
+            isHeroMosaic
+              ? heroStyles.mosaic
+              : "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          }
+        >
           {entries.map(([title, gallery], i) => (
-            <li key={title} className="list-none">
+            <li
+              key={title}
+              className={
+                isHeroMosaic
+                  ? `${heroStyles.item} ${
+                      i === 0
+                        ? heroStyles.featured
+                        : i === 1
+                          ? heroStyles.sideTop
+                          : heroStyles.sideBottom
+                    }`
+                  : "list-none"
+              }
+            >
               <GalleryCard
                 title={title}
                 gallery={gallery}
                 i={i}
+                variant={isHeroMosaic ? "heroMosaic" : "default"}
+                featured={isHeroMosaic && i === 0}
                 open={open}
                 prefersReducedMotion={reduced}
                 getSrc={getSrc}

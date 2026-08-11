@@ -1,0 +1,130 @@
+.sectionRoot {
+  background: #040817;
+}
+
+.header {
+  display: grid;
+  width: 100%;
+  max-width: 92.5rem;
+  margin-inline: auto;
+  gap: 1.25rem;
+  padding: 1.75rem 1rem 1rem;
+}
+
+.headingBlock {
+  border-top: 1px solid rgb(167 139 250 / 35%);
+  padding-top: 1rem;
+}
+
+.eyebrow {
+  color: rgb(196 181 253 / 80%);
+  font-size: 0.625rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 18ch;
+  margin-top: 0.5rem;
+  color: #f1efe7;
+  font-size: clamp(2rem, 8.7vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.headingAccent {
+  display: block;
+  color: #a78bfa;
+}
+
+.introBlock {
+  min-width: 0;
+}
+
+.description {
+  max-width: 48rem;
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 1.4rem;
+  row-gap: 0.15rem;
+  margin-top: 0.65rem;
+}
+
+.primaryLink,
+.secondaryLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-underline-offset: 0.25rem;
+}
+
+.primaryLink {
+  color: #fff;
+}
+
+.secondaryLink {
+  color: rgb(196 181 253 / 72%);
+}
+
+.primaryLink:hover,
+.primaryLink:focus-visible,
+.secondaryLink:hover,
+.secondaryLink:focus-visible {
+  color: #c4b5fd;
+  text-decoration-line: underline;
+}
+
+.loading {
+  display: flex;
+  height: 22rem;
+  align-items: center;
+  justify-content: center;
+  background: #040817;
+}
+
+@media (min-width: 768px) {
+  .header {
+    grid-template-columns: minmax(0, 0.92fr) minmax(22rem, 1.08fr);
+    align-items: end;
+    gap: 2.5rem;
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .introBlock {
+    border-left: 1px solid rgb(167 139 250 / 30%);
+    padding-left: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .primaryLink,
+  .secondaryLink {
+    font-size: 0.875rem;
+  }
+
+  .loading {
+    height: 34rem;
+  }
+}
