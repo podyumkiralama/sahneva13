@@ -161,6 +161,7 @@ const GalleryCard = memo(function GalleryCard({
             fill
             sizes={imageSizes}
             quality={75}
+            unoptimized={shouldBypassImageOptimizer(coverSrc)}
             loading="lazy"
             className={`${heroStyles.image} ${
               prefersReducedMotion ? heroStyles.reducedMotion : ""
