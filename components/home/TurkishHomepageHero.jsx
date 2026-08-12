@@ -90,9 +90,10 @@ const FEATURED_PROJECT_REFERENCES = FEATURED_REFERENCE_ORGS.map((org) =>
 ).filter(Boolean);
 
 const MOSAIC_LIGHT_PATH_OUTER =
-  "M56 0 L75 0 L100 25 L100 100 L8 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
+  "M56 0 L75 0 L100 24.5 L100 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
 
-const MOSAIC_LIGHT_PATH_INNER = "M100 52.5 L62 76 L35 52.5 Z";
+const MOSAIC_WIREFRAME_PATH =
+  "M56 0 L75 0 L100 24.5 L100 100 L0 100 L35 52.5 L3 24.5 L47 25 Z M47 25 L100 24.5 M35 52.5 L100 52.5 M35 52.5 L62 76 L100 52.5 M62 76 L8 100";
 
 function ArrowIcon() {
   return (
@@ -174,24 +175,8 @@ function ServiceMosaic() {
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <polygon
-          points="56,0 75,0 100,25 47,25"
-          vectorEffect="non-scaling-stroke"
-        />
-        <polygon
-          points="3,24.5 100,24.5 100,53 35,53"
-          vectorEffect="non-scaling-stroke"
-        />
-        <polygon
-          points="35,52.5 100,52.5 62,76"
-          vectorEffect="non-scaling-stroke"
-        />
-        <polygon
-          points="35,52.5 62,76 8,100 0,100"
-          vectorEffect="non-scaling-stroke"
-        />
-        <polygon
-          points="100,52.5 100,100 8,100 62,76"
+        <path
+          d={MOSAIC_WIREFRAME_PATH}
           vectorEffect="non-scaling-stroke"
         />
 
@@ -210,22 +195,6 @@ function ServiceMosaic() {
           />
         </g>
 
-        <g
-          className={`${styles.mosaicLightTrail} ${styles.mosaicLightTrailInner}`}
-        >
-          <path
-            className={styles.mosaicLightHalo}
-            d={MOSAIC_LIGHT_PATH_INNER}
-            pathLength="100"
-            vectorEffect="non-scaling-stroke"
-          />
-          <path
-            className={styles.mosaicLightCore}
-            d={MOSAIC_LIGHT_PATH_INNER}
-            pathLength="100"
-            vectorEffect="non-scaling-stroke"
-          />
-        </g>
       </svg>
     </HeroMosaicParallax>
   );
@@ -261,12 +230,25 @@ export default function TurkishHomepageHero() {
           <h1
             id="hero-title"
             className={styles.heroTitle}
+            aria-label="Sahne, LED, Ses–Işık. Tek Ekip."
           >
             <span>Sahne,</span>
             <span>
               LED, <em>Ses–Işık.</em>
             </span>
-            <span>Tek Ekip.</span>
+            <span>
+              Tek Ekip
+              <Image
+                src="/favicon.svg"
+                alt=""
+                width={70}
+                height={66}
+                loading="eager"
+                unoptimized
+                aria-hidden="true"
+                className={styles.heroTitleStar}
+              />
+            </span>
           </h1>
 
           <p id="hero-desc" className={styles.heroDescription}>
