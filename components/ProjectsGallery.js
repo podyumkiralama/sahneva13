@@ -133,12 +133,15 @@ const GalleryCard = memo(function GalleryCard({
   const cover = gallery.images?.[0];
   const coverSrc = getSrc(cover);
   const [canLoadCover] = useState(true);
+  const cardId = useId();
 
   const handleOpen = () => open(title, gallery.images, 0);
 
   if (variant === "heroMosaic") {
-    const titleId = `project-mosaic-${i}-title`;
-    const detailId = `project-mosaic-${i}-detail`;
+    const titleId = `project-mosaic-${cardId}-title`;
+    const detailId = `project-mosaic-${cardId}-detail`;
+    const countId = `project-mosaic-${cardId}-count`;
+    const imageCount = gallery.images.length;
     const imageSizes = featured
       ? "(max-width: 1023px) calc(100vw - 2rem), (max-width: 1535px) 58vw, 900px"
       : "(max-width: 1023px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 58vw, 900px";
@@ -150,7 +153,8 @@ const GalleryCard = memo(function GalleryCard({
           onClick={handleOpen}
           className={heroStyles.button}
           aria-labelledby={titleId}
-          aria-describedby={detailId}
+          aria-describedby={`${detailId} ${countId}`}
+          aria-haspopup="dialog"
         >
           <Image
             src={coverSrc}
@@ -171,6 +175,9 @@ const GalleryCard = memo(function GalleryCard({
           />
 
           <span className={heroStyles.shade} aria-hidden="true" />
+          <span id={countId} className={heroStyles.assetCount}>
+            GALERİ · {imageCount} KARE
+          </span>
           <span className={heroStyles.caption}>
             <span className={heroStyles.code}>{gallery.code}</span>
             <span id={titleId} className={heroStyles.projectTitle}>

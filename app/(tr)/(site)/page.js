@@ -355,6 +355,11 @@ export default function HomePage() {
 
       <div id="teklif-al" aria-hidden="true" />
 
+      {/* Hizmetler */}
+      <div className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_850px]">
+        <TurkishHomeServices />
+      </div>
+
       {/* Projeler */}
       <div className={sectionStyles.sectionRoot}>
         <div className={sectionStyles.header}>
@@ -378,8 +383,8 @@ export default function HomePage() {
               id="tr-projects-description"
               className={sectionStyles.description}
             >
-              Sahne, LED ekran, ses–ışık ve dome yapı: 700+ projelik deneyimden
-              üç gerçek saha kaydı.
+              Sahne, LED ekran, ses–ışık ve dome yapıdan üç gerçek
+              saha kaydı.
             </p>
             <div className={sectionStyles.links}>
               <Link
@@ -405,11 +410,6 @@ export default function HomePage() {
           ariaLabelledby="tr-projects-title"
           ariaDescribedby="tr-projects-description"
         />
-      </div>
-
-      {/* Hizmetler */}
-      <div className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_850px]">
-        <TurkishHomeServices />
       </div>
 
       {/* Teknik */}
