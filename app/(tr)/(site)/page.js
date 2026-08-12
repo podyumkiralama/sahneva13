@@ -365,16 +365,13 @@ export default function HomePage() {
         <div className={sectionStyles.header}>
           <div className={sectionStyles.headingBlock}>
             <p className={sectionStyles.eyebrow}>
-              Saha kayıtları / 03
+              Projeler / 03
             </p>
             <h2
               id="tr-projects-title"
               className={sectionStyles.heading}
             >
-              Üç saha.{" "}
-              <span className={sectionStyles.headingAccent}>
-                Tek teknik refleks.
-              </span>
+              Seçilmiş Projeler
             </h2>
           </div>
 
