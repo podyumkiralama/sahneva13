@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { CLIENT_REFERENCES } from "@/lib/clientReferences";
+import { getClientReferences } from "@/lib/clientReferences";
 import HeroMosaicParallax from "./HeroMosaicParallax.client";
 import styles from "./TurkishHomepageHeroEffects.module.css";
 
@@ -78,16 +78,12 @@ const MOSAIC_TILES = [
   },
 ];
 
-const FEATURED_REFERENCE_ORGS = [
+const FEATURED_PROJECT_REFERENCES = getClientReferences([
   "Fatih Belediyesi",
   "PUBG Mobile — PMGC 2023 Dünya Finali",
   "SAHA 2026",
   "Sıfır Atık Festivali",
-];
-
-const FEATURED_PROJECT_REFERENCES = FEATURED_REFERENCE_ORGS.map((org) =>
-  CLIENT_REFERENCES.find((entry) => entry.org === org),
-).filter(Boolean);
+]);
 
 const MOSAIC_LIGHT_PATH_OUTER =
   "M56 0 L75 0 L100 24.5 L100 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
@@ -251,7 +247,9 @@ export default function TurkishHomepageHero() {
             <span className={styles.projectReferencesLabel}>Proje kayıtları</span>
             <ul>
               {FEATURED_PROJECT_REFERENCES.map((reference) => (
-                <li key={reference.org}>{reference.org.split(" — ")[0]}</li>
+                <li key={reference.org}>
+                  {reference.shortName ?? reference.org}
+                </li>
               ))}
             </ul>
           </aside>
