@@ -14,8 +14,9 @@ export const TR_HOME_PRIMARY_IMAGE = {
 const MOSAIC_TILES = [
   {
     label: "Sahne",
-    ariaLabel: "Sahne kiralama hizmetini inceleyin",
-    href: "/sahne-kiralama",
+    videoId: "173gBurWSRQ",
+    videoTitle: "PUBG Türkiye Finali 2023",
+    videoMeta: "Sahne · LED ekran · ses–ışık · reji",
     image: "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp",
     imagePosition: "50% 50%",
     tileClass: styles.tileTop,
@@ -23,8 +24,9 @@ const MOSAIC_TILES = [
   },
   {
     label: "Çadır",
-    ariaLabel: "Çadır kiralama hizmetini inceleyin",
-    href: "/cadir-kiralama",
+    videoId: "x-BYu0vgO2E",
+    videoTitle: "SAHA 2026 Özel Etkinlik Alanı ve Fuar Prodüksiyonu",
+    videoMeta: "Dome çadır · zemin · ambiyans ışığı",
     image: "/images/projects/saha-2026-dome-cadir-final.webp",
     imagePosition: "64% 40%",
     tileClass: styles.tileMiddle,
@@ -32,32 +34,38 @@ const MOSAIC_TILES = [
   },
   {
     label: "Podyum",
-    ariaLabel: "Podyum kiralama hizmetini inceleyin",
-    href: "/podyum-kiralama",
-    image: "/img/podyum/moda-defilesi-sahne.webp",
-    imagePosition: "50% 58%",
+    videoId: "z4DqZERYXkM",
+    videoTitle: "Sıfır Atık Festivali Ana Sahne Prodüksiyonu",
+    videoMeta: "Sahne · LED ekran · ses–ışık",
+    image:
+      "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp",
+    imagePosition: "50% 50%",
     tileClass: styles.tileLowerCenter,
   },
   {
     label: "LED Ekran",
-    ariaLabel: "LED ekran kiralama hizmetini inceleyin",
-    href: "/led-ekran-kiralama",
+    videoId: "c72ILTyJH4A",
+    videoTitle: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
+    videoMeta: "Sahne · LED ekran · ses–ışık · teknik prodüksiyon",
     image: "/img/led/gala-led-sahne-video-wall-sahneva.webp",
     imagePosition: "50% 50%",
     tileClass: styles.tileLowerLeft,
   },
   {
     label: "Ses–Işık",
-    ariaLabel: "Ses ve ışık sistemleri hizmetini inceleyin",
-    href: "/ses-isik-sistemleri",
+    videoId: "1R5Av0x5ouA",
+    videoTitle: "PUBG Sahne, LED Ekran ve Işık Provaları",
+    videoMeta: "Işık · prova · teknik reji",
     image: "/img/kurumsal/premium/konser-isik-tasarimi.webp",
     imagePosition: "62% 50%",
     tileClass: styles.tileLowerRight,
   },
 ];
 
-const MOSAIC_LIGHT_PATH =
-  "M47 25 L56 0 L75 0 L100 25 L47 25 L3 24.5 L100 24.5 L100 53 L35 53 L100 52.5 L62 76 L35 52.5 L0 100 L8 100 L62 76 L100 100 L100 52.5";
+const MOSAIC_LIGHT_PATH_OUTER =
+  "M56 0 L75 0 L100 25 L100 100 L8 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
+
+const MOSAIC_LIGHT_PATH_INNER = "M100 52.5 L62 76 L35 52.5 Z";
 
 function ArrowIcon() {
   return (
@@ -79,20 +87,27 @@ function ArrowIcon() {
 }
 
 function ServiceMosaic() {
+  const videos = MOSAIC_TILES.map(({ videoId, videoTitle, videoMeta }) => ({
+    videoId,
+    videoTitle,
+    videoMeta,
+  }));
+
   return (
-    <HeroMosaicParallax className={styles.mosaicShell}>
-      <ul className={styles.mosaicTiles} aria-label="Sahneva hizmetleri">
-        {MOSAIC_TILES.map((service) => (
+    <HeroMosaicParallax className={styles.mosaicShell} videos={videos}>
+      <ul className={styles.mosaicTiles} aria-label="Sahneva proje videoları">
+        {MOSAIC_TILES.map((service, index) => (
           <li
-            key={service.href}
+            key={service.videoId}
             className={`${styles.tile} ${service.tileClass}`}
             data-mosaic-parallax-tile
           >
-            <Link
-              href={service.href}
-              prefetch={false}
+            <button
+              type="button"
               className={styles.tileLink}
-              aria-label={service.ariaLabel}
+              data-mosaic-video-index={index}
+              aria-label={`${service.videoTitle} videosunu oynat`}
+              aria-haspopup="dialog"
               style={{ position: "absolute" }}
             >
               <Image
@@ -106,10 +121,11 @@ function ServiceMosaic() {
                 style={{ objectPosition: service.imagePosition }}
               />
               <span className={styles.tileShade} aria-hidden="true" />
-              <span className={styles.tileLabel} aria-hidden="true">
-                {service.label}
+              <span className={styles.tileLabel}>
+                <span aria-hidden="true">▶</span>
+                {service.label} / Video
               </span>
-            </Link>
+            </button>
           </li>
         ))}
       </ul>
@@ -144,13 +160,30 @@ function ServiceMosaic() {
         <g className={styles.mosaicLightTrail}>
           <path
             className={styles.mosaicLightHalo}
-            d={MOSAIC_LIGHT_PATH}
+            d={MOSAIC_LIGHT_PATH_OUTER}
             pathLength="100"
             vectorEffect="non-scaling-stroke"
           />
           <path
             className={styles.mosaicLightCore}
-            d={MOSAIC_LIGHT_PATH}
+            d={MOSAIC_LIGHT_PATH_OUTER}
+            pathLength="100"
+            vectorEffect="non-scaling-stroke"
+          />
+        </g>
+
+        <g
+          className={`${styles.mosaicLightTrail} ${styles.mosaicLightTrailInner}`}
+        >
+          <path
+            className={styles.mosaicLightHalo}
+            d={MOSAIC_LIGHT_PATH_INNER}
+            pathLength="100"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            className={styles.mosaicLightCore}
+            d={MOSAIC_LIGHT_PATH_INNER}
             pathLength="100"
             vectorEffect="non-scaling-stroke"
           />

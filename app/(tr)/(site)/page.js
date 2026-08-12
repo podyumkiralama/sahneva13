@@ -7,7 +7,7 @@ import TurkishHomepageHero, {
   TR_HOME_PRIMARY_IMAGE,
 } from "@/components/home/TurkishHomepageHero";
 
-import ServicesTabs from "@/components/ServicesTabs";
+import TurkishHomeServices from "@/components/home/TurkishHomeServices";
 import CorporateEvents from "@/components/CorporateEvents";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -408,8 +408,8 @@ export default function HomePage() {
       </div>
 
       {/* Hizmetler */}
-      <div className="content-visibility-auto cv-home-services bg-black">
-        <ServicesTabs maxItems={6} />
+      <div className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_850px]">
+        <TurkishHomeServices />
       </div>
 
       {/* Teknik */}

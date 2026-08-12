@@ -1,6 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+import styles from "./HeroProjectVideoDialog.module.css";
 
 const TILT_X_DEGREES = 2.4;
 const TILT_Y_DEGREES = 3.2;
@@ -33,12 +35,19 @@ function addMediaListener(mediaQuery, listener) {
   return () => mediaQuery.removeListener(listener);
 }
 
-export default function HeroMosaicParallax({ children, className }) {
+export default function HeroMosaicParallax({ children, className, videos = [] }) {
   const shellRef = useRef(null);
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const videoTriggerRef = useRef(null);
   const activeTileRef = useRef(null);
   const animationFrameRef = useRef(null);
   const latestPositionRef = useRef(null);
   const parallaxEnabledRef = useRef(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(null);
+
+  const activeVideo =
+    activeVideoIndex === null ? null : videos[activeVideoIndex] ?? null;
 
   const resetParallax = useCallback(() => {
     if (animationFrameRef.current !== null) {
@@ -80,6 +89,59 @@ export default function HeroMosaicParallax({ children, className }) {
       resetParallax();
     };
   }, [resetParallax]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog || !activeVideo) return;
+
+    if (!dialog.open) dialog.showModal();
+    closeButtonRef.current?.focus();
+  }, [activeVideo]);
+
+  useEffect(() => {
+    if (!activeVideo) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
+    };
+  }, [activeVideo]);
+
+  const handleDialogClose = useCallback(() => {
+    setActiveVideoIndex(null);
+    window.requestAnimationFrame(() => videoTriggerRef.current?.focus());
+  }, []);
+
+  const closeVideo = useCallback(() => {
+    dialogRef.current?.close();
+  }, []);
+
+  const handleMosaicClick = useCallback(
+    (event) => {
+      const eventTarget = event.target;
+      if (!(eventTarget instanceof Element)) return;
+
+      const trigger = eventTarget.closest("[data-mosaic-video-index]");
+      if (!(trigger instanceof HTMLButtonElement)) return;
+
+      const index = Number(trigger.dataset.mosaicVideoIndex);
+      if (!Number.isInteger(index) || !videos[index]) return;
+
+      resetParallax();
+      videoTriggerRef.current = trigger;
+      setActiveVideoIndex(index);
+    },
+    [resetParallax, videos],
+  );
 
   const handlePointerMove = (event) => {
     if (!parallaxEnabledRef.current || event.pointerType === "touch") {
@@ -148,8 +210,57 @@ export default function HeroMosaicParallax({ children, className }) {
       onPointerLeave={resetParallax}
       onPointerCancel={resetParallax}
       onFocusCapture={resetParallax}
+      onClick={handleMosaicClick}
     >
       {children}
+
+      {activeVideo ? (
+        <dialog
+          ref={dialogRef}
+          id="hero-project-video-dialog"
+          className={styles.dialog}
+          aria-labelledby="hero-project-video-title"
+          onClose={handleDialogClose}
+          onClick={(event) => {
+            if (event.currentTarget === event.target) closeVideo();
+          }}
+        >
+          <div className={styles.window}>
+            <header className={styles.header}>
+              <div>
+                <p className={styles.eyebrow}>Proje kaydı / Sahneva</p>
+                <h2 id="hero-project-video-title" className={styles.title}>
+                  {activeVideo.videoTitle}
+                </h2>
+              </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className={styles.closeButton}
+                onClick={closeVideo}
+                aria-label="Proje videosunu kapat"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </header>
+
+            <div className={styles.videoFrame}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${activeVideo.videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1`}
+                title={activeVideo.videoTitle}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+
+            <footer className={styles.footer}>
+              <span>{activeVideo.videoMeta}</span>
+              <span aria-hidden="true">Kapatmak için ESC</span>
+            </footer>
+          </div>
+        </dialog>
+      ) : null}
     </div>
   );
 }

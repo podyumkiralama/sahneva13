@@ -1,0 +1,186 @@
+.dialog {
+  position: fixed;
+  inset: auto clamp(1rem, 3vw, 3rem) clamp(1rem, 3vw, 3rem) auto;
+  width: min(34rem, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #8b5cf6;
+  background: #040715;
+  color: #ffffff;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+  animation: project-video-in 180ms ease-out both;
+}
+
+.dialog::backdrop {
+  background: rgb(2 6 23 / 54%);
+}
+
+.window {
+  display: grid;
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  border: 3px solid #040715;
+  background: #040715;
+}
+
+.header {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.85rem 0.8rem 1rem;
+  border-bottom: 1px solid rgb(139 92 246 / 42%);
+}
+
+.eyebrow {
+  margin: 0 0 0.28rem;
+  color: #a78bfa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  font-weight: 850;
+  line-height: 1.15;
+}
+
+.closeButton {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(196 181 253 / 58%);
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  border-color: #ffffff;
+  background: #8b5cf6;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.videoFrame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+
+.videoFrame iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.footer {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  color: rgb(226 232 240 / 78%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@keyframes project-video-in {
+  from {
+    opacity: 0;
+    transform: translate3d(1rem, 0.75rem, 0) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .dialog {
+    inset: auto 0 0;
+    width: 100%;
+    max-height: min(82dvh, 40rem);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    clip-path: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    animation-name: project-video-mobile-in;
+  }
+
+  .dialog::backdrop {
+    background: rgb(2 6 23 / 68%);
+  }
+
+  .window {
+    max-height: min(82dvh, 40rem);
+  }
+
+  .footer span:last-child {
+    display: none;
+  }
+}
+
+@media (max-height: 560px) and (min-width: 768px) {
+  .dialog {
+    width: min(27rem, calc(100vw - 2rem));
+  }
+
+  .header {
+    min-height: 3.75rem;
+    padding-block: 0.55rem;
+  }
+
+  .footer {
+    min-height: 2.25rem;
+    padding-block: 0.45rem;
+  }
+}
+
+@keyframes project-video-mobile-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    animation: none;
+  }
+}
