@@ -230,25 +230,12 @@ export default function TurkishHomepageHero() {
           <h1
             id="hero-title"
             className={styles.heroTitle}
-            aria-label="Sahne, LED, Ses–Işık. Tek Ekip."
           >
             <span>Sahne,</span>
             <span>
               LED, <em>Ses–Işık.</em>
             </span>
-            <span>
-              Tek Ekip
-              <Image
-                src="/favicon.svg"
-                alt=""
-                width={70}
-                height={66}
-                loading="eager"
-                unoptimized
-                aria-hidden="true"
-                className={styles.heroTitleStar}
-              />
-            </span>
+            <span>Tek Ekip.</span>
           </h1>
 
           <p id="hero-desc" className={styles.heroDescription}>
