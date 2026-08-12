@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 import styles from "./HeroProjectVideoDialog.module.css";
 
@@ -256,7 +257,14 @@ export default function HeroMosaicParallax({ children, className, videos = [] })
 
             <footer className={styles.footer}>
               <span>{activeVideo.videoMeta}</span>
-              <span aria-hidden="true">Kapatmak için ESC</span>
+              <Link
+                href={activeVideo.href}
+                prefetch={false}
+                className={styles.videoCta}
+              >
+                {activeVideo.ctaLabel}
+                <span aria-hidden="true">→</span>
+              </Link>
             </footer>
           </div>
         </dialog>

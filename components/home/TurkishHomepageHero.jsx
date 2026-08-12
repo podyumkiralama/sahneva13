@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CLIENT_REFERENCES } from "@/lib/clientReferences";
 import HeroMosaicParallax from "./HeroMosaicParallax.client";
 import styles from "./TurkishHomepageHeroEffects.module.css";
 
@@ -14,9 +15,12 @@ export const TR_HOME_PRIMARY_IMAGE = {
 const MOSAIC_TILES = [
   {
     label: "Sahne",
+    projectLabel: "PUBG Türkiye Finali",
     videoId: "173gBurWSRQ",
     videoTitle: "PUBG Türkiye Finali 2023",
     videoMeta: "Sahne · LED ekran · ses–ışık · reji",
+    href: "/sahne-kiralama",
+    ctaLabel: "Sahne sistemlerini incele",
     image: "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp",
     imagePosition: "50% 50%",
     tileClass: styles.tileTop,
@@ -24,9 +28,12 @@ const MOSAIC_TILES = [
   },
   {
     label: "Çadır",
+    projectLabel: "SAHA 2026",
     videoId: "x-BYu0vgO2E",
     videoTitle: "SAHA 2026 Özel Etkinlik Alanı ve Fuar Prodüksiyonu",
     videoMeta: "Dome çadır · zemin · ambiyans ışığı",
+    href: "/cadir-kiralama",
+    ctaLabel: "Çadır çözümlerini incele",
     image: "/images/projects/saha-2026-dome-cadir-final.webp",
     imagePosition: "64% 40%",
     tileClass: styles.tileMiddle,
@@ -34,9 +41,12 @@ const MOSAIC_TILES = [
   },
   {
     label: "Podyum",
+    projectLabel: "Sıfır Atık Festivali",
     videoId: "z4DqZERYXkM",
     videoTitle: "Sıfır Atık Festivali Ana Sahne Prodüksiyonu",
     videoMeta: "Sahne · LED ekran · ses–ışık",
+    href: "/podyum-kiralama",
+    ctaLabel: "Podyum çözümlerini incele",
     image:
       "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp",
     imagePosition: "50% 50%",
@@ -44,23 +54,40 @@ const MOSAIC_TILES = [
   },
   {
     label: "LED Ekran",
+    projectLabel: "Fatih Belediyesi",
     videoId: "c72ILTyJH4A",
     videoTitle: "Fatih Belediyesi 5 Yılda Fatih'e Değer 400 Proje Etkinliği",
     videoMeta: "Sahne · LED ekran · ses–ışık · teknik prodüksiyon",
+    href: "/led-ekran-kiralama",
+    ctaLabel: "LED ekran çözümlerini incele",
     image: "/img/led/gala-led-sahne-video-wall-sahneva.webp",
     imagePosition: "50% 50%",
     tileClass: styles.tileLowerLeft,
   },
   {
     label: "Ses–Işık",
+    projectLabel: "PUBG Provaları",
     videoId: "1R5Av0x5ouA",
     videoTitle: "PUBG Sahne, LED Ekran ve Işık Provaları",
     videoMeta: "Işık · prova · teknik reji",
+    href: "/ses-isik-sistemleri",
+    ctaLabel: "Ses–ışık çözümlerini incele",
     image: "/img/kurumsal/premium/konser-isik-tasarimi.webp",
     imagePosition: "62% 50%",
     tileClass: styles.tileLowerRight,
   },
 ];
+
+const FEATURED_REFERENCE_ORGS = [
+  "Fatih Belediyesi",
+  "PUBG Mobile — PMGC 2023 Dünya Finali",
+  "SAHA 2026",
+  "Sıfır Atık Festivali",
+];
+
+const FEATURED_PROJECT_REFERENCES = FEATURED_REFERENCE_ORGS.map((org) =>
+  CLIENT_REFERENCES.find((entry) => entry.org === org),
+).filter(Boolean);
 
 const MOSAIC_LIGHT_PATH_OUTER =
   "M56 0 L75 0 L100 25 L100 100 L8 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
@@ -87,11 +114,15 @@ function ArrowIcon() {
 }
 
 function ServiceMosaic() {
-  const videos = MOSAIC_TILES.map(({ videoId, videoTitle, videoMeta }) => ({
-    videoId,
-    videoTitle,
-    videoMeta,
-  }));
+  const videos = MOSAIC_TILES.map(
+    ({ videoId, videoTitle, videoMeta, href, ctaLabel }) => ({
+      videoId,
+      videoTitle,
+      videoMeta,
+      href,
+      ctaLabel,
+    }),
+  );
 
   return (
     <HeroMosaicParallax className={styles.mosaicShell} videos={videos}>
@@ -122,8 +153,15 @@ function ServiceMosaic() {
               />
               <span className={styles.tileShade} aria-hidden="true" />
               <span className={styles.tileLabel}>
-                <span aria-hidden="true">▶</span>
-                {service.label} / Video
+                <span className={styles.tileServiceLabel}>
+                  <span className={styles.tilePlayIcon} aria-hidden="true">
+                    ▶
+                  </span>
+                  <span>{service.label}</span>
+                </span>
+                <span className={styles.tileProjectLabel}>
+                  {service.projectLabel}
+                </span>
               </span>
             </button>
           </li>
@@ -236,6 +274,18 @@ export default function TurkishHomepageHero() {
             keşiften söküme tek teknik ekip. 700+ proje deneyimiyle Türkiye
             genelinde kurulum.
           </p>
+
+          <aside
+            className={styles.projectReferences}
+            aria-label="Öne çıkan proje kayıtları"
+          >
+            <span className={styles.projectReferencesLabel}>Proje kayıtları</span>
+            <ul>
+              {FEATURED_PROJECT_REFERENCES.map((reference) => (
+                <li key={reference.org}>{reference.org.split(" — ")[0]}</li>
+              ))}
+            </ul>
+          </aside>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link

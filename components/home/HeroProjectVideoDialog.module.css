@@ -113,6 +113,30 @@
   text-transform: uppercase;
 }
 
+.videoCta {
+  display: inline-flex;
+  min-height: 2.75rem;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.55rem;
+  border-left: 1px solid rgb(139 92 246 / 42%);
+  padding-left: 1rem;
+  color: #c4b5fd;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.videoCta:hover,
+.videoCta:focus-visible {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.videoCta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
 @keyframes project-video-in {
   from {
     opacity: 0;
@@ -146,8 +170,19 @@
     max-height: min(82dvh, 40rem);
   }
 
-  .footer span:last-child {
-    display: none;
+  .footer {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .videoCta {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: space-between;
+    border-top: 1px solid rgb(139 92 246 / 36%);
+    border-left: 0;
+    padding-top: 0.55rem;
+    padding-left: 0;
   }
 }
 
