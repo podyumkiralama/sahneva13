@@ -43,8 +43,17 @@ const WA_TEXT =
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
 
 // hero.webp gercek olculeri: 1200x630 olarak bildirilmesi paylasim onizlemesini bozuyordu.
+// Bu iki sabit hero.webp'yi tarif ediyor ve JSON-LD primaryImageOfPage'de de
+// kullaniliyor; paylasim gorseli icin yeniden kullanilmamali.
 const HERO_IMAGE_WIDTH = 1024;
 const HERO_IMAGE_HEIGHT = 541;
+
+// Paylasim onizlemesi icin ayri asset: WhatsApp ve LinkedIn WebP og:image
+// render etmiyor, bu yuzden hero'nun 1200x630 JPEG kopyasi kullaniliyor.
+// Sayfa ici gorseller WebP kalmaya devam ediyor.
+const OG_IMAGE = `${SITE_URL}/img/cadir/og-cadir-kiralama.jpg`;
+const OG_IMAGE_WIDTH = 1200;
+const OG_IMAGE_HEIGHT = 630;
 
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
@@ -80,10 +89,11 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/cadir/hero.webp`,
-        width: HERO_IMAGE_WIDTH,
-        height: HERO_IMAGE_HEIGHT,
-        alt: "Sahneva Organizasyon çadır kiralama - pagoda, şeffaf dome ve büyük açıklıklı çadır çözümleri",
+        url: OG_IMAGE,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        type: "image/jpeg",
+        alt: "Sahneva çadır kiralama - büyük açıklıklı etkinlik çadırının vinçle kurulumu ve yanındaki pagoda çadırlar",
       },
     ],
   },
@@ -92,7 +102,7 @@ export const metadata = {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
       "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri.",
-    images: [`${ORIGIN}/img/cadir/hero.webp`],
+    images: [OG_IMAGE],
   },
   robots: AI_PREVIEW_ROBOTS,
 };

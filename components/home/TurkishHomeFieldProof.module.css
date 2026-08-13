@@ -1,0 +1,352 @@
+.root {
+  --bg: #040715;
+  --deep: #02040d;
+  --ink: #f7f5ff;
+  --muted: rgb(226 232 240 / 72%);
+  --line: rgb(139 92 246 / 42%);
+  --soft-line: rgb(139 92 246 / 22%);
+  --violet: #a78bfa;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.shell { width: calc(100% - 2rem); max-width: 92.5rem; margin-inline: auto; }
+
+.techSection,
+.corporateSection { position: relative; overflow: hidden; background: var(--bg); }
+
+.techSection { border-top: 1px solid var(--line); padding-block: 3.25rem; }
+.corporateSection { border-block: 1px solid var(--soft-line); padding-block: 3rem; }
+
+.techSection::before,
+.corporateSection::before {
+  position: absolute;
+  inset: 0 auto 0 max(1rem, calc((100vw - 92.5rem) / 2));
+  width: 1px;
+  background: var(--soft-line);
+  content: "";
+  pointer-events: none;
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(24rem, 1.08fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 0.75rem;
+  color: var(--violet);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before { width: 2.5rem; height: 1px; background: #8b5cf6; content: ""; }
+
+.techTitle,
+.corporateTitle {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.25rem, 4.1vw, 4.75rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.corporateTitle { font-size: clamp(2.15rem, 3.5vw, 4rem); }
+
+.description {
+  max-width: 48rem;
+  margin: 0;
+  border-left: 1px solid var(--line);
+  padding-left: clamp(1.25rem, 2.5vw, 2.5rem);
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.34fr) minmax(23rem, 0.86fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: 1.75rem;
+}
+
+.controlPanel {
+  position: relative;
+  height: 23.5rem;
+  margin: 0;
+  overflow: hidden;
+  border-top: 1px solid rgb(196 181 253 / 68%);
+  border-left: 1px solid rgb(196 181 253 / 38%);
+  background: var(--deep);
+  clip-path: polygon(0 0, calc(100% - 2.75rem) 0, 100% 2.75rem, 100% 100%, 1.5rem 100%, 0 calc(100% - 1.5rem));
+}
+
+.controlPanel::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(2 4 13 / 24%);
+  content: "";
+  pointer-events: none;
+}
+
+.controlImage { object-fit: cover; filter: saturate(0.86) contrast(1.06) brightness(0.82); }
+
+.signalPath {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  grid-template-columns: auto minmax(1.25rem, 4vw) auto minmax(1.25rem, 4vw) auto;
+  align-items: center;
+  border: 1px solid rgb(196 181 253 / 45%);
+  background: rgb(4 7 21 / 88%);
+  color: #ddd6fe;
+  font: 800 0.5625rem ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.13em;
+  padding: 0.6rem 0.7rem;
+  text-transform: uppercase;
+}
+
+.signalPath i { height: 1px; margin-inline: 0.45rem; background: #8b5cf6; }
+
+.controlCaption {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  width: min(78%, 40rem);
+  min-height: 5.5rem;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid var(--line);
+  border-left: 2px solid #8b5cf6;
+  background: rgb(4 7 21 / 94%);
+  padding: 1rem 2.5rem 1rem 1.25rem;
+  clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%, 0 1.5rem);
+}
+
+.controlCaption span,
+.filmCopy > span {
+  color: var(--violet);
+  font: 800 0.625rem ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.controlCaption strong { margin-top: 0.35rem; color: #fff; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.15; }
+
+.ledger { border-top: 1px solid var(--line); border-right: 1px solid var(--soft-line); background: var(--deep); }
+
+.ledgerHeader {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 4rem;
+  min-height: 2rem;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  color: rgb(196 181 253 / 66%);
+  font: 800 0.5rem ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.13em;
+  padding-inline: 0.75rem;
+  text-transform: uppercase;
+}
+
+.ledgerHeader span:last-child { text-align: right; }
+.connectionList { margin: 0; padding: 0; list-style: none; }
+.connectionList li { border-bottom: 1px solid var(--soft-line); }
+.connectionList li:last-child { border-bottom: 0; }
+
+.connectionLink {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.5rem;
+  min-height: 4.3rem;
+  align-items: center;
+  color: var(--ink);
+  outline: 2px solid transparent;
+  outline-offset: -3px;
+  padding: 0.6rem 0.75rem;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.connectionLink:hover { background: rgb(139 92 246 / 10%); color: #fff; }
+
+.connectionLink:focus-visible,
+.corporateLink:focus-visible { outline: 2px solid #ddd6fe; outline-offset: 3px; }
+
+.connectionCode {
+  color: var(--violet);
+  font: 900 0.6875rem ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.connectionCopy { display: flex; min-width: 0; flex-direction: column; gap: 0.18rem; }
+.connectionCopy strong { font-size: 0.95rem; line-height: 1.2; }
+.connectionCopy > span { color: rgb(203 213 225 / 68%); font-size: 0.6875rem; line-height: 1.35; }
+
+.arrow {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-left: 1px solid var(--line);
+  color: #c4b5fd;
+}
+
+.arrow svg,
+.corporateLink svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.7;
+}
+
+.filmStrip {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) minmax(0, 1fr);
+  height: 17rem;
+  gap: 1px;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  overflow: hidden;
+  border-block: 1px solid rgb(139 92 246 / 68%);
+  background: var(--line);
+  clip-path: polygon(0 0, calc(100% - 1.75rem) 0, 100% 1.75rem, 100% 100%, 1.75rem 100%, 0 calc(100% - 1.75rem));
+  list-style: none;
+}
+
+.filmFrame { position: relative; min-width: 0; overflow: hidden; background: var(--deep); }
+
+.filmFrame::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(2 4 13 / 20%);
+  content: "";
+}
+
+.filmImage { object-fit: cover; filter: saturate(0.82) contrast(1.04) brightness(0.72); }
+
+.filmCopy {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  width: 88%;
+  min-height: 8.4rem;
+  border-top: 1px solid var(--line);
+  border-left: 2px solid #8b5cf6;
+  background: rgb(4 7 21 / 94%);
+  padding: 0.9rem 1.6rem 0.9rem 1rem;
+  clip-path: polygon(0 0, 91% 0, 100% 100%, 0 100%);
+}
+
+.filmCopy h3 { margin: 0.35rem 0 0; color: #fff; font-size: clamp(1rem, 1.45vw, 1.35rem); font-weight: 900; line-height: 1.05; }
+.filmCopy p { max-width: 35ch; margin: 0.5rem 0 0; color: rgb(226 232 240 / 76%); font-size: 0.75rem; line-height: 1.42; }
+.action { display: flex; justify-content: flex-end; margin-top: 1.25rem; }
+
+.corporateLink {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid #a78bfa;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding-inline: 0.15rem;
+  text-decoration: none;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.corporateLink:hover { border-color: #fff; color: #ddd6fe; }
+
+@media (max-width: 1023px) {
+  .sectionHeader { grid-template-columns: 1fr; gap: 1rem; }
+  .description { padding-left: 1.25rem; }
+  .techGrid { grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr); }
+  .controlPanel { height: 22rem; }
+  .connectionLink { min-height: 4rem; }
+}
+
+@media (max-width: 767px) {
+  .techSection { padding-block: 2rem; }
+  .corporateSection { padding-block: 1.75rem; }
+  .techSection::before, .corporateSection::before { left: 1rem; }
+  .eyebrow { margin-bottom: 0.55rem; font-size: 0.59375rem; }
+  .eyebrow::before { width: 1.75rem; }
+  .techTitle { font-size: clamp(2rem, 10.2vw, 2.55rem); line-height: 0.96; }
+  .corporateTitle { font-size: clamp(1.8rem, 8.5vw, 2.2rem); line-height: 0.96; }
+  .description { padding-left: 0.9rem; font-size: 0.875rem; line-height: 1.5; }
+  .techGrid { grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.125rem; }
+
+  .controlPanel {
+    height: 13.5rem;
+    clip-path: polygon(0 0, calc(100% - 1.5rem) 0, 100% 1.5rem, 100% 100%, 0 100%);
+  }
+
+  .signalPath { top: 0.65rem; left: 0.65rem; font-size: 0.46875rem; padding: 0.45rem 0.5rem; }
+  .controlCaption { width: 86%; min-height: 4.35rem; padding: 0.75rem 1.5rem 0.75rem 0.9rem; }
+  .controlCaption span { font-size: 0.53125rem; }
+  .controlCaption strong { margin-top: 0.25rem; font-size: 0.875rem; }
+
+  .ledgerHeader {
+    grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+    min-height: 1.6rem;
+    padding-inline: 0.55rem;
+  }
+
+  .ledgerHeader span:last-child { overflow: hidden; color: transparent; }
+  .connectionLink { grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem; min-height: 3.75rem; padding: 0.5rem 0.55rem; }
+  .connectionCopy strong { font-size: 0.8125rem; }
+  .connectionCopy > span { font-size: 0.7rem; }
+  .arrow { width: 2rem; height: 2rem; }
+
+  .filmStrip {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin-top: 0.875rem;
+    border-block-width: 1px;
+    clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%);
+  }
+
+  .filmFrame { min-height: 7.5rem; }
+  .filmImage { right: 0 !important; left: auto !important; width: 48% !important; }
+
+  .filmCopy {
+    inset: 0 auto auto 0;
+    display: flex;
+    width: 76%;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 0;
+    padding: 0.65rem 1.4rem 0.65rem 0.8rem;
+  }
+
+  .filmCopy > span { font-size: 0.5rem; }
+  .filmCopy h3 { margin-top: 0.25rem; font-size: 0.95rem; }
+  .filmCopy p { margin-top: 0.35rem; font-size: 0.72rem; line-height: 1.38; }
+  .action { justify-content: flex-start; margin-top: 0.875rem; }
+  .corporateLink { width: 100%; min-height: 3rem; justify-content: space-between; font-size: 0.8125rem; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .connectionLink:hover { background: transparent; color: var(--ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connectionLink, .corporateLink { transition: none; }
+}

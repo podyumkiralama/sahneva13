@@ -21,8 +21,9 @@ const SERVICES = [
     description:
       "Lansman, toplantı ve törenler için ölçüye göre podyum, merdiven ve yüzey kaplama sağlıyoruz.",
     href: "/podyum-kiralama",
-    image: "/img/podyum/defile-runway-tasarimi.webp",
-    imagePosition: "50% 52%",
+    image: "/img/blog/podyum-sahne-profesyonel-etkinlik.webp",
+    imagePosition: "54% 50%",
+    imageTone: "bright",
   },
   {
     code: "03 / GÖRÜNTÜ",
@@ -63,6 +64,7 @@ const SERVICES = [
     href: "/masa-sandalye-kiralama",
     image: "/img/sandalye/sandalye-masa-kiralama-sahneva.webp",
     imagePosition: "50% 52%",
+    imageTone: "bright",
   },
 ];
 
@@ -83,9 +85,9 @@ export default function TurkishHomeServices() {
     >
       <header className={styles.header}>
         <div>
-          <p className={styles.eyebrow}>Hizmet indeksi / 06</p>
+          <p className={styles.eyebrow}>Hizmetler / 06</p>
           <h2 id="tr-home-services-title" className={styles.title}>
-            Bir etkinliğin <span>teknik omurgası.</span>
+            Teknik Kiralama Hizmetleri
           </h2>
         </div>
 
@@ -102,7 +104,10 @@ export default function TurkishHomeServices() {
 
       <ol className={styles.matrix}>
         {SERVICES.map((service) => (
-          <li key={service.href} className={styles.item}>
+          <li
+            key={service.href}
+            className={`${styles.item} ${service.imageTone === "bright" ? styles.imageBright : ""}`}
+          >
             <Link
               href={service.href}
               prefetch={false}
@@ -115,7 +120,6 @@ export default function TurkishHomeServices() {
                 sizes="(max-width: 639px) 40vw, (max-width: 1023px) 50vw, 34vw"
                 quality={68}
                 loading="lazy"
-                unoptimized
                 className={styles.image}
                 style={{ objectPosition: service.imagePosition }}
               />

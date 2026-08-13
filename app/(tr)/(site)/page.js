@@ -8,11 +8,8 @@ import TurkishHomepageHero, {
 } from "@/components/home/TurkishHomepageHero";
 
 import TurkishHomeServices from "@/components/home/TurkishHomeServices";
-import CorporateEvents from "@/components/CorporateEvents";
-import TechCapabilities from "@/components/TechCapabilities";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import DeferredHydration from "@/components/DeferredHydration.client";
-import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
+import TurkishHomeDecisionDesk from "@/components/home/TurkishHomeDecisionDesk";
+import TurkishHomeFieldProof from "@/components/home/TurkishHomeFieldProof";
 import JsonLd from "@/components/seo/JsonLd";
 import sectionStyles from "@/components/TurkishProjectsSection.module.css";
 import { FAQ_ITEMS } from "@/lib/faqData";
@@ -87,38 +84,6 @@ const TR_HOME_PROJECT_GALLERIES = {
     stats: "Festival Prodüksiyonu",
   },
 };
-
-const Faq = dynamic(() => import("@/components/Faq"), {
-  loading: () => (
-    <div
-      className="flex justify-center items-center h-32"
-      role="status"
-      aria-label="SSS yükleniyor"
-    >
-      <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
-        aria-hidden="true"
-      />
-      <span className="sr-only">SSS yükleniyor...</span>
-    </div>
-  ),
-});
-
-function SectionLoading({ label, height = "h-48" }) {
-  return (
-    <div
-      className={`flex ${height} items-center justify-center`}
-      role="status"
-      aria-label={label}
-    >
-      <div
-        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
-        aria-hidden="true"
-      />
-      <span className="sr-only">{label}</span>
-    </div>
-  );
-}
 
 const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
@@ -353,8 +318,6 @@ export default function HomePage() {
 
       <TurkishHomepageHero />
 
-      <div id="teklif-al" aria-hidden="true" />
-
       {/* Hizmetler */}
       <div className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_850px]">
         <TurkishHomeServices />
@@ -390,12 +353,6 @@ export default function HomePage() {
               >
                 Tüm projeleri incele →
               </Link>
-              <Link
-                href="/turkiyede-etkinlik-cozum-ortagi"
-                className={sectionStyles.secondaryLink}
-              >
-                Türkiye’de çözüm ortaklığı
-              </Link>
             </div>
           </div>
         </div>
@@ -409,33 +366,8 @@ export default function HomePage() {
         />
       </div>
 
-      {/* Teknik */}
-      <div className="content-visibility-auto cv-home-tech bg-[#0B1120] py-0">
-        <TechCapabilities sectionPaddingClassName="pt-16 pb-8 md:pt-20 md:pb-10 2xl:pt-24 2xl:pb-12" />
-      </div>
-
-      {/* Kurumsal */}
-      <div className="content-visibility-auto cv-home-corporate-events bg-slate-50 py-0 m-0 w-full">
-        <CorporateEvents sectionPaddingClassName="pt-8 pb-16 md:pt-10 md:pb-24 2xl:pt-12 2xl:pb-28" />
-      </div>
-
-      {/* Why Choose Us */}
-      <div className="content-visibility-auto cv-home-why w-full p-0 m-0">
-        <WhyChooseUs />
-      </div>
-
-      {/* FAQ */}
-      <div className="content-visibility-auto cv-home-faq w-full bg-transparent p-0 m-0">
-        <DeferredHydration
-          fallback={<SectionLoading label="SSS yükleniyor" height="h-64" />}
-          rootMargin="500px"
-          idleTimeout={6000}
-        >
-          <Faq />
-        </DeferredHydration>
-      </div>
-
-      <PaymentOptionsNote />
+      <TurkishHomeFieldProof />
+      <TurkishHomeDecisionDesk />
     </div>
   );
 }

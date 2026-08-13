@@ -19,10 +19,11 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgb(2 6 23 / 96%) 0%,
-    rgb(2 6 23 / 88%) 27%,
-    rgb(2 6 23 / 54%) 47%,
-    rgb(2 6 23 / 12%) 70%,
+    rgb(2 6 23 / 98%) 0%,
+    rgb(2 6 23 / 94%) 30%,
+    rgb(2 6 23 / 80%) 52%,
+    rgb(2 6 23 / 38%) 68%,
+    rgb(2 6 23 / 10%) 80%,
     transparent 100%
   );
 }
@@ -53,7 +54,7 @@
 }
 
 .heroTitle em {
-  color: #8b5cf6;
+  color: #a78bfa;
   font-style: normal;
 }
 

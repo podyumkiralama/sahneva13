@@ -18,6 +18,12 @@ const WA_TEXT =
   "Hello%2C+I'd+like+to+request+a+quote+for+tent+rental.+Event+type%3A+%5Bwedding%2Ffair%2Fconcert%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Guest+count%3A+%5Bxxx%5D.";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${WA_TEXT}`;
 
+// Dedicated share asset: WhatsApp and LinkedIn do not render WebP og:image, so
+// the 1200x630 JPEG copy of the hero is used. On-page images stay WebP.
+const OG_IMAGE = `${ORIGIN}/img/cadir/og-cadir-kiralama.jpg`;
+const OG_IMAGE_WIDTH = 1200;
+const OG_IMAGE_HEIGHT = 630;
+
 // Base64 blur placeholder
 const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
@@ -56,10 +62,11 @@ export const metadata = {
     siteName: "Sahneva",
     locale: "en_US",
     images: [{
-      url: `${ORIGIN}/img/cadir/hero.webp`,
-      width: 1200,
-      height: 630,
-      alt: "Sahneva tent rental - professional event structures"
+      url: OG_IMAGE,
+      width: OG_IMAGE_WIDTH,
+      height: OG_IMAGE_HEIGHT,
+      type: "image/jpeg",
+      alt: "Sahneva tent rental - crane installation of a large clear-span event tent with pagoda tents alongside"
     }],
   },
   twitter: {
@@ -67,7 +74,7 @@ export const metadata = {
     title: "Tent Rental | Pagoda, Clear Span & Dome Structures | Sahneva",
     description:
       "Pagoda, transparent dome and industrial tent rentals with turnkey installation, flooring, lighting and climate control.",
-    images: [`${ORIGIN}/img/cadir/hero.webp`],
+    images: [OG_IMAGE],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
