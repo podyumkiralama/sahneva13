@@ -313,7 +313,7 @@ export default function Footer({
     : isRu
       ? ["700+ проектов", "81 город", "Операции 24/7"]
       : isZh
-        ? ["700+ 项目", "81 座城市", "24/7 运营"]
+        ? ["700+ 项目", "土耳其全国", "24/7 运营"]
         : isDe
           ? ["700+ Projekte", "81 Städte", "Betreuung rund um die Uhr"]
           : ["700+ proje", "81 il", "7/24 operasyon"];

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
@@ -65,6 +67,12 @@ const CONTACT_CHANNELS = [
     description: "发送日期、城市和简要需求，快速获取回复。",
   },
   {
+    title: "微信",
+    value: "sahneva",
+    href: "#wechat",
+    description: "扫描二维码或搜索微信号，发送城市、日期、场地与活动类型。",
+  },
+  {
     title: "电话",
     value: "+90 545 304 86 71",
     href: "tel:+905453048671",
@@ -82,7 +90,7 @@ const BRIEF_ITEMS = [
 export const metadata = {
   title: "联系我们 — 获取土耳其活动设备租赁报价",
   description:
-    "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
+    "通过微信、WhatsApp、电子邮箱或表单联系 Sahneva，获取土耳其活动的舞台、LED显示屏、音响灯光、运输、安装与现场技术报价。",
   alternates: {
     canonical: ZH_CONTACT_URL,
     languages: {
@@ -98,7 +106,7 @@ export const metadata = {
   openGraph: {
     title: "联系我们 — 获取土耳其活动设备租赁报价 | Sahneva",
     description:
-      "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
+      "通过微信、WhatsApp、电子邮箱或表单联系 Sahneva，获取土耳其活动技术方案与中文报价。",
     url: ZH_CONTACT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -109,7 +117,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "联系我们 — 获取土耳其活动设备租赁报价 | Sahneva",
     description:
-      "联系 Sahneva 获取报价：在伊斯坦布尔及土耳其全境为您的会议、展览与企业活动提供舞台、LED屏幕、音响灯光、篷房与桌椅租赁，支持中文沟通。",
+      "通过微信、WhatsApp、电子邮箱或表单联系 Sahneva，获取土耳其活动技术方案与中文报价。",
     images: [ZH_CONTACT_IMAGE],
   },
 };
@@ -141,7 +149,7 @@ const CONTACT_JSON_LD = {
 
 export default function ChineseContactPage() {
   return (
-    <div className="container mx-auto space-y-12 px-4 py-10">
+    <div className="container mx-auto space-y-12 px-4 pb-10 pt-24 md:pt-28">
       <JsonLd id="zh-contact-jsonld" data={CONTACT_JSON_LD} />
       <header className="max-w-3xl space-y-3">
         <h1 className="text-3xl font-black text-neutral-900">联系 Sahneva</h1>
@@ -151,7 +159,7 @@ export default function ChineseContactPage() {
         </p>
       </header>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {CONTACT_CHANNELS.map((channel) => (
           <a key={channel.title} href={channel.href} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <h2 className="text-lg font-black text-neutral-900">{channel.title}</h2>
@@ -160,6 +168,36 @@ export default function ChineseContactPage() {
           </a>
         ))}
       </div>
+
+      <section
+        id="wechat"
+        className="scroll-mt-24 grid gap-6 rounded-3xl border border-emerald-100 bg-emerald-50/70 p-6 shadow-sm lg:grid-cols-[1fr_auto] lg:items-center md:p-8"
+        aria-labelledby="zh-contact-wechat-title"
+      >
+        <div className="max-w-2xl">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-emerald-700">
+            WeChat
+          </p>
+          <h2 id="zh-contact-wechat-title" className="mt-3 text-3xl font-black text-neutral-900">
+            添加 Sahneva 微信，发送活动需求
+          </h2>
+          <p className="mt-4 text-base leading-7 text-neutral-700">
+            微信号：<strong>sahneva</strong>。扫码后请发送城市、日期、场地、活动类型、预计人数与所需服务，
+            我们会据此准备技术方案与报价。
+          </p>
+        </div>
+
+        <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-lg">
+          <Image
+            src="/img/zh/sahneva-wechat-qr.jpeg"
+            alt="Sahneva微信二维码"
+            fill
+            quality={90}
+            sizes="256px"
+            className="object-cover object-center"
+          />
+        </div>
+      </section>
 
       <section className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-6 md:p-8">
         <h2 className="text-2xl font-black text-neutral-900">快速报价需要提供什么？</h2>
