@@ -39,7 +39,6 @@ import {
   FAQ_ITEMS,
   FORMAT_ITEMS,
   GALLERY_IMAGES,
-  GUIDE_UPDATED_ISO,
   HERO,
   HERO_STATS,
   OVERVIEW_POINTS,
@@ -51,12 +50,17 @@ import {
   VIDEO_GALLERY,
 } from "./data";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 export const revalidate = 86400;
 
 const ORIGIN = BASE_SITE_URL;
 const PHONE = "+905453048671";
 const PAGE_URL = `${ORIGIN}/kurumsal-organizasyon`;
+const PAGE_LAST_MODIFIED = getLastModifiedDateTimeForFile(
+  "app/(tr)/kurumsal-organizasyon/page.js",
+  "2026-04-29T00:00:00+03:00",
+);
 const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
 const PAGE_DESCRIPTION =
   "Lansman, konferans ve gala için sahne, LED ekran, ses-ışık, truss ve teknik rejiyi tek ekipten yönetin. Türkiye geneli kurumsal organizasyon çözümleri.";
@@ -204,17 +208,6 @@ const TECHNICAL_DISCOVERY = [
     title: "Prova ve yedek senaryo",
     text: "Run-of-show, prova saatleri, yedek güç ve kritik geçişler saha günü başlamadan plana bağlanır.",
   },
-];
-
-const CORPORATE_PROCESS_STEPS = [
-  "Brief ve hedef belirleme",
-  "Mekan keşfi",
-  "Sahne, LED ekran ve teknik plan",
-  "İçerik ve run-of-show akışı",
-  "Prova ve yedek senaryo",
-  "Kurulum ve saha koordinasyonu",
-  "Etkinlik günü operasyon yönetimi",
-  "Söküm, teslim ve etkinlik sonrası kapanış",
 ];
 
 const EVENT_TYPE_SOLUTIONS = [
@@ -429,7 +422,7 @@ function CorporateOrganizationJsonLd() {
       url: PAGE_URL,
       name: PAGE_TITLE,
       description: PAGE_DESCRIPTION,
-      dateModified: GUIDE_UPDATED_ISO,
+      dateModified: PAGE_LAST_MODIFIED,
       inLanguage: "tr-TR",
       isPartOf: { "@id": WEBSITE_ID },
       author: { "@id": ORGANIZATION_ID },
@@ -811,61 +804,14 @@ function Positioning() {
   );
 }
 
-function CorporateGuideSections() {
+function CorporateServiceSections() {
   return (
     <>
-      <Section id="kurumsal-organizasyon-nedir" className="bg-white" deferredClass="content-visibility-auto cv-corporate-guide">
-        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
-          <SectionHeader
-            eyebrow="Kapsam tanımı"
-            title="Kurumsal Organizasyon Nedir?"
-            desc="Kurumsal organizasyon; marka, şirket veya kurumların belirli bir hedef doğrultusunda düzenlediği lansman, konferans, bayi toplantısı, gala, ödül töreni, fuar katılımı veya açık alan etkinliklerini kapsar."
-          />
-          <div className="grid gap-5 text-base leading-8 text-slate-700 md:text-lg">
-            <p>
-              Bu süreç yalnızca davetli yönetimi veya ekipman kiralama ile sınırlı değildir. Sahneva için şirket etkinliği; teknik prodüksiyon kapsamını, prova akışını ve saha koordinasyonunu birlikte yöneten planlı bir çalışma disiplinidir.
-            </p>
-            <p>
-              Doğru planlanan bir kurumsal etkinlikte sahne, konuşmacı, marka görselleri, teknik ekip ve etkinlik sonrası kapanış aynı operasyon planı içinde ilerler. Böylece marka sahnede daha kontrollü, net ve güven veren bir görünüm kazanır.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      <Section id="kurumsal-organizasyon-sureci" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-guide-process">
-        <SectionHeader
-          eyebrow="Planlama disiplini"
-          title="Kurumsal Organizasyon Süreci Nasıl Planlanır?"
-          desc="Kurumsal etkinliklerde süreç, ilk görüşmeden etkinlik sonrası söküme kadar aşamalı ilerler. Her adımın baştan netleşmesi, teknik riskleri azaltır ve teklif kapsamını daha anlaşılır hale getirir."
-        />
-        <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
-          <div className="border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-base leading-8 text-slate-700">
-              Daha geniş kontrol listesi için{" "}
-              <Link href="/blog/kurumsal-etkinlik-planlama-rehberi-2026" className="font-black text-blue-700 underline underline-offset-4">
-                kurumsal etkinlik planlama rehberi
-              </Link>{" "}
-              içeriğindeki brief, bütçe, teknik keşif ve operasyon başlıkları da incelenebilir.
-            </p>
-          </div>
-          <ol className="grid gap-3 sm:grid-cols-2">
-            {CORPORATE_PROCESS_STEPS.map((step, index) => (
-              <li key={step} className="flex gap-3 border border-slate-200 bg-white p-4 shadow-sm">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-slate-950 text-xs font-black text-white">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="pt-1 text-sm font-black leading-6 text-slate-800">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </Section>
-
       <Section id="etkinlik-turleri-kurumsal-cozumler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
         <SectionHeader
-          eyebrow="Etkinlik türleri"
-          title="Etkinlik Türlerine Göre Kurumsal Çözümler"
-          desc="Her kurumsal etkinlik aynı teknik dili gerektirmez. Lansman, konferans, bayi toplantısı, gala, fuar veya açık hava organizasyonlarında teknik prodüksiyon kapsamı etkinliğin hedefiyle birlikte değerlendirilir."
+          eyebrow="Hizmet kapsamı"
+          title="Lansman, konferans ve gala için teknik çözümler"
+          desc="Sahne, LED ekran, ses-ışık ve reji kapsamı; etkinlik formatına, mekâna, katılımcı sayısına ve marka görünürlüğü hedeflerine göre projelendirilir."
         />
         <p className="mb-8 max-w-4xl text-base leading-8 text-slate-700 md:text-lg">
           Sahneva, etkinlik türüne göre ekipman listesinden önce sahne deneyimini planlar. İzleyici mesafesi, marka görünürlüğü, konuşmacı akışı, içerik formatı ve saha koşulları birlikte okunduğunda kurumsal prodüksiyon daha güçlü bir bütünlüğe kavuşur.
@@ -1267,17 +1213,14 @@ export default function Page() {
       <div className="bg-white">
         <Hero />
 
-        {/* Once soruyu cevapla: "kurumsal organizasyon" arayan once ne oldugunu
-            ve nasil planlandigini ariyor. Bu bolumler daha once 6. siradaydi. */}
-        <CorporateGuideSections />
-
-        {/* Sonra kanit: rakiplerin taklit edemedigi tek sey gercek saha kaydi. */}
+        {/* Ticari niyeti gercek referanslar ve saha kayitlariyla destekle. */}
         {/* Adlandirilmis kurum referanslari, saha kayitlarinin hemen ustunde:
             once "kimlerle calistik", hemen ardindan "iste kaydi". */}
         <ClientReferences />
 
         <VideoProof />
         <VisualProof />
+        <CorporateServiceSections />
 
         {/* Surec: teknik kesif (h2) + saha akisi (h3) */}
         <TechnicalDiscoverySection />

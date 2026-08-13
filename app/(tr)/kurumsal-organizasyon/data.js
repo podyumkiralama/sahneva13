@@ -13,8 +13,6 @@ export const HERO_STATS = [
 ];
 
 export const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
-export const GUIDE_UPDATED = "24 Mayıs 2026";
-export const GUIDE_UPDATED_ISO = "2026-05-24T00:00:00+03:00";
 
 export const BRAND_LOGOS = [
   { src: "/img/ses-isik/dbaudio.png", alt: "d&b audiotechnik ses sistemi markası", width: 230, height: 68 },
@@ -327,10 +325,6 @@ export const FAQ_ITEMS = [
   {
     q: "Teklif için hangi bilgiler yeterli?",
     a: "Etkinlik tarihi, şehir veya mekan, katılımcı sayısı, sahne beklentisi, LED ekran ihtiyacı ve program akışı ilk kapsamı çıkarmak için yeterlidir.",
-  },
-  {
-    q: "Kurumsal organizasyon süreci nasıl ilerler?",
-    a: "Süreç brief, mekan keşfi, teknik plan, içerik akışı, prova, kurulum, etkinlik günü saha koordinasyonu ve söküm adımlarıyla ilerler. Sahne, LED ekran, ses-ışık, truss ve reji kapsamı aynı operasyon planında netleştirilir.",
   },
   {
     q: "Türkiye genelinde kurumsal organizasyon desteği veriyor musunuz?",

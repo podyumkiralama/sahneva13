@@ -27,7 +27,7 @@ const TOC_ITEMS = [
   { href: "#s1", label: "Kurumsal organizasyon nedir?" },
   { href: "#s2", label: "Neden yapılmalı? (amaçlar)" },
   { href: "#s3", label: "Kurumsal etkinlik türleri" },
-  { href: "#s4", label: "Planlamanın 7 adımı" },
+  { href: "#s4", label: "Planlamaya başlangıç" },
   { href: "#s5", label: "Bütçe ve mekân" },
   { href: "#s6", label: "Teknik prodüksiyonun rolü" },
   { href: "#s7", label: "Ajansla mı, kendiniz mi?" },
@@ -36,7 +36,7 @@ const TOC_ITEMS = [
 ];
 
 const CORNERSTONE_LINKS = [
-  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+  { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon Hizmeti" },
   { href: "/sahne-kiralama", label: "Sahne Kiralama" },
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
   { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
@@ -44,50 +44,48 @@ const CORNERSTONE_LINKS = [
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Kurumsal Organizasyon Nedir, Nasıl Planlanır?",
+  title: "Kurumsal Etkinlik Türleri ve Amaçları Rehberi",
   description:
-    "Kurumsal organizasyon nedir, neden yapılır ve nasıl planlanır? Etkinlik türleri, hedefler, bütçe, mekân ve teknik prodüksiyon adımlarını içeren kapsamlı başlangıç rehberi.",
+    "Lansman, bayi toplantısı, konferans, gala ve açılış gibi kurumsal etkinlik türlerini; amaç, bütçe, mekân ve teknik hazırlık başlıklarıyla öğrenin.",
   alternates: {
     canonical: BLOG_URL,
   },
   image: HERO_IMAGE,
   openGraph: {
-    title: "Kurumsal Organizasyon Nedir, Nasıl Planlanır? | Sahneva",
+    title: "Kurumsal Etkinlik Türleri ve Amaçları | Sahneva",
     description:
-      "Kurumsal organizasyon nedir, neden yapılır, nasıl planlanır? Etkinlik türleri, hedefler, bütçe, mekân ve teknik prodüksiyon rehberi.",
+      "Lansman, bayi toplantısı, konferans, gala ve açılış türlerini; amaç, bütçe, mekân ve teknik hazırlık başlıklarıyla karşılaştırın.",
     url: BLOG_URL,
     siteName: "Sahneva",
     type: "article",
+    publishedTime: PUBLISH_DATE,
+    modifiedTime: MODIFIED_DATE,
     locale: "tr_TR",
     images: [
       {
         url: `${SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Kurumsal organizasyon nedir ve nasıl planlanır rehberi öne çıkan görseli",
+        alt: "Kurumsal etkinlik türleri ve amaçları başlangıç rehberi öne çıkan görseli",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurumsal Organizasyon Nedir, Nasıl Planlanır?",
+    title: "Kurumsal Etkinlik Türleri ve Amaçları",
     description:
-      "Kurumsal organizasyonun tanımı, amacı, etkinlik türleri ve planlama adımları için başlangıç rehberi.",
+      "Kurumsal etkinlik türlerini, amaçlarını ve planlama öncesinde netleştirilecek temel başlıkları öğrenin.",
     images: [`${SITE_URL}${OG_IMAGE}`],
   },
   keywords: [
     "kurumsal organizasyon nedir",
-    "kurumsal organizasyon",
     "kurumsal etkinlik türleri",
-    "kurumsal organizasyon nasıl planlanır",
-    "kurumsal etkinlik planlama",
+    "kurumsal etkinlik amaçları",
+    "kurumsal etkinlik planlamasına başlama",
     "teknik prodüksiyon",
-    "sahne kiralama",
-    "LED ekran kiralama",
   ],
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva",
-  date: PUBLISH_DATE,
   category: "Kurumsal Organizasyon",
 };
 
@@ -104,9 +102,9 @@ const FAQ_ITEMS = [
       "Marka bilinirliğini artırmak, çalışan ve bayi motivasyonunu yükseltmek, yeni ürün/stratejiyi duyurmak, iş ilişkilerini güçlendirmek ve kurumsal itibarı pekiştirmek için. İyi planlanmış bir organizasyon ölçülebilir iş sonucu üretir.",
   },
   {
-    question: "Kurumsal organizasyon nasıl planlanır?",
+    question: "Kurumsal etkinlik planlamasına nereden başlanır?",
     answer:
-      "Amaç ve hedef kitle netleştirilir; tür, bütçe, tarih ve mekân belirlenir; teknik keşif sonrası sahne–LED–ses–ışık ve reji planı kurulur, dakika dakika run-of-show hazırlanır ve etkinlik sonrası başarı ölçülür.",
+      "Önce amaç ve hedef kitle netleştirilir; ardından etkinlik türü, bütçe, tarih ve mekân belirlenir. Teknik keşif, sahne–LED–ses–ışık kapsamı ve ayrıntılı run-of-show planı bu başlangıç kararlarından sonra hazırlanır.",
   },
 ];
 
@@ -241,7 +239,7 @@ export default function KurumsalOrganizasyonNedirPage() {
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: "Kurumsal Organizasyon Nedir, Nasıl Planlanır?", url: BLOG_URL },
+    { name: "Kurumsal Etkinlik Türleri ve Amaçları", url: BLOG_URL },
   ];
 
   return (
@@ -256,8 +254,8 @@ export default function KurumsalOrganizasyonNedirPage() {
           src: HERO_IMAGE,
           alt: "Kurumsal organizasyon: dev LED ekranlı sahne ve izleyici",
         }}
-        pills={["Sahneva Blog", "Başlangıç Rehberi", "Kurumsal Organizasyon"]}
-        title="Kurumsal Organizasyon Nedir, Nasıl Planlanır?"
+        pills={["Sahneva Blog", "Başlangıç Rehberi", "Kurumsal Etkinlik"]}
+        title="Kurumsal Etkinlik Türleri ve Amaçları: Başlangıç Rehberi"
         description={metadata.description}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
@@ -268,7 +266,7 @@ export default function KurumsalOrganizasyonNedirPage() {
         currentCategory={metadata?.category}
         currentKeywords={metadata?.keywords}
         primaryLinks={[
-          { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon", icon: "🏢" },
+          { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon Hizmeti", icon: "🏢" },
           { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎭" },
           { href: "/led-ekran-kiralama", label: "LED Ekran", icon: "🟦" },
         ]}
@@ -282,9 +280,9 @@ export default function KurumsalOrganizasyonNedirPage() {
         </div>
 
         <p>
-          Bu rehber üç temel soruyu net biçimde yanıtlıyor: kurumsal organizasyon{" "}
-          <strong>nedir</strong>, <strong>neden</strong> yapılmalı ve baştan sona <strong>nasıl</strong>{" "}
-          planlanır? Detaya inmek istediğiniz her adımda ilgili derin rehberlere de yönlendiriyoruz.
+          Bu başlangıç rehberi üç temel soruyu yanıtlıyor: kurumsal organizasyon <strong>nedir</strong>, hangi
+          <strong> amaçlarla</strong> yapılır ve hangi <strong>etkinlik türü</strong> hangi ihtiyaca uygundur?
+          Ayrıntılı uygulama ve operasyon adımları için ilgili planlama rehberlerine yönlendiriyoruz.
         </p>
 
         <div className="not-prose my-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -302,9 +300,9 @@ export default function KurumsalOrganizasyonNedirPage() {
         </div>
 
         <ProTip title="Bu yazıyı nasıl kullanın?">
-          Bu rehber bir “başlangıç haritası”dır: kurumsal organizasyonun ne olduğunu ve nasıl planlandığını
-          bütün olarak gösterir. Her bölümde, konuyu derinleştiren özel rehberlere (planlama, yönetim, bayi
-          toplantısı, lansman) bağlantı bulacaksınız.
+          Bu rehber bir “başlangıç haritası”dır: etkinlik türlerini, amaçlarını ve planlama öncesinde
+          netleştirilecek temel kararları gösterir. Ayrıntılı uygulama için planlama, yönetim, bayi toplantısı
+          ve lansman rehberlerine geçebilirsiniz.
         </ProTip>
 
         {/* s1 */}
@@ -314,7 +312,7 @@ export default function KurumsalOrganizasyonNedirPage() {
           yönelik belirli bir amaçla düzenlediği planlı etkinliklerin genel adıdır. Bir ürün lansmanı da
           kurumsal organizasyondur, bir bayi toplantısı da, yıl sonu gala gecesi de. Ortak nokta şudur: net
           bir hedef, planlı bir akış ve bu akışı taşıyan{" "}
-          <Link href="/kurumsal-organizasyon">kurumsal organizasyon</Link> ve teknik prodüksiyon altyapısı.
+          <Link href="/kurumsal-organizasyon">kurumsal organizasyon hizmeti</Link> ve teknik prodüksiyon altyapısı.
         </p>
         <p>
           Kısacası kurumsal organizasyon, “bir araya gelme” değil “bir amaç etrafında tasarlanmış deneyim”dir.
@@ -393,10 +391,10 @@ export default function KurumsalOrganizasyonNedirPage() {
         </ul>
 
         {/* s4 */}
-        <h2 id="s4">4. Kurumsal organizasyon nasıl planlanır? 7 adım</h2>
+        <h2 id="s4">4. Kurumsal etkinlik planlamasına nereden başlanır?</h2>
         <p>
-          Planlama, amaçtan ölçüme uzanan bir zincirdir. Aşağıdaki yedi adım her kurumsal organizasyonun
-          iskeletini oluşturur. Her adımın detaylı uygulaması için{" "}
+          Aşağıdaki yedi başlık, teklif ve ayrıntılı operasyon planından önce netleştirilmesi gereken başlangıç
+          çerçevesini oluşturur. Her adımın detaylı uygulaması için{" "}
           <Link href="/blog/kurumsal-etkinlik-planlama-rehberi-2026">
             2026 kurumsal etkinlik planlama rehberi
           </Link>{" "}
@@ -574,7 +572,7 @@ export default function KurumsalOrganizasyonNedirPage() {
 
         <BlogRelatedLinks
           services={[
-            { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon" },
+            { href: "/kurumsal-organizasyon", label: "Kurumsal Organizasyon Hizmeti" },
             { href: "/sahne-kiralama", label: "Sahne Kiralama" },
           ]}
         />
