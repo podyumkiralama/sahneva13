@@ -1,4 +1,5 @@
 // app/(site)/hakkimizda/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
@@ -14,7 +15,7 @@ import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 export const metadata = {
   title: "Hakkımızda | Etkinlik Prodüksiyon Ekibimiz",
   description:
-    "10+ yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.",
+    `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.`,
   alternates: {
     canonical: "https://www.sahneva.com/hakkimizda",
     languages: {
@@ -30,14 +31,14 @@ export const metadata = {
   openGraph: {
     title: "Hakkımızda | Sahneva",
     description:
-      "10+ yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.",
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.`,
     url: "https://www.sahneva.com/hakkimizda",
     images: [
       {
         url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
-        alt: "Sahneva Organizasyon ekibi – 10+ yıllık deneyimle profesyonel etkinlik prodüksiyon hizmetleri",
+        alt: `Sahneva Organizasyon ekibi – ${YEARS_OF_EXPERIENCE} yıllık deneyimle profesyonel etkinlik prodüksiyon hizmetleri`,
       },
     ],
     type: "website",
@@ -48,7 +49,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Hakkımızda | Sahneva – Profesyonel Etkinlik Teknolojileri",
     description:
-      "10+ yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.",
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -207,7 +208,7 @@ export default function HakkimizdaPage() {
   <div className="absolute inset-0 pointer-events-none">
     <Image
       src="/img/hakkimizda-hero-corporate.webp"
-      alt="Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde 10+ Yıllık Deneyim"
+      alt={`Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde ${YEARS_OF_EXPERIENCE} Yıllık Deneyim`}
       fill
       priority
       fetchPriority="high"
@@ -277,7 +278,7 @@ export default function HakkimizdaPage() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Etkinlik Teknolojilerinde • 10+ Yıl Deneyim • 700+ Proje
+          Etkinlik Teknolojilerinde • {YEARS_OF_EXPERIENCE} Yıl Deneyim • 700+ Proje
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
@@ -329,7 +330,7 @@ export default function HakkimizdaPage() {
             <span className="text-2xl mb-2" aria-hidden="true">
               ⭐
             </span>
-            <div className="text-xl font-black text-white">12+</div>
+            <div className="text-xl font-black text-white">{YEARS_OF_EXPERIENCE}</div>
             <div className="text-white/80 text-sm">Yıl Deneyim</div>
           </div>
 
@@ -505,7 +506,7 @@ export default function HakkimizdaPage() {
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                10+ yıldır kurumsal firmalar, kamu kuruluşları ve organizasyon ajanslarına profesyonel hizmet  verdik hala sunuyoruz
+                {YEARS_OF_EXPERIENCE} yıldır kurumsal firmalar, kamu kuruluşları ve organizasyon ajanslarına profesyonel hizmet  verdik hala sunuyoruz
               </p>
             </div>
 
@@ -599,7 +600,7 @@ export default function HakkimizdaPage() {
         <section className="py-16 bg-gray-50" aria-labelledby="services-links-title">
           <div className="container max-w-5xl mx-auto px-4 text-center">
             <h2 id="services-links-title" className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              10+ Yıllık Deneyimle Sunduğumuz Hizmetler
+              {YEARS_OF_EXPERIENCE} Yıllık Deneyimle Sunduğumuz Hizmetler
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
               700'den fazla projede kullandığımız ekipman parkı ve teknik ekibimizle aşağıdaki hizmetleri Türkiye genelinde sunuyoruz.
@@ -625,7 +626,7 @@ export default function HakkimizdaPage() {
               Projenizde <span className="text-yellow-300">Birlikte Çalışalım</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              10+ yıllık deneyimimiz ve uzman ekibimizle etkinliğiniz için en ideal çözümleri sunmaya hazırız.
+              {YEARS_OF_EXPERIENCE} yıllık deneyimimiz ve uzman ekibimizle etkinliğiniz için en ideal çözümleri sunmaya hazırız.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">

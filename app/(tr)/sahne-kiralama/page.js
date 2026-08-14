@@ -1,4 +1,5 @@
 ﻿// app/sahne-kiralama/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -378,7 +379,7 @@ const HERO_BADGES = [
 
 const HERO_METRICS = [
   {
-    value: "10+",
+    value: `${YEARS_OF_EXPERIENCE}`,
     label: "Yıl Deneyim",
     detail: "Konser, konferans ve festival sahnelerinde kesintisiz operasyon.",
   },
@@ -1207,7 +1208,7 @@ function StatsBand() {
     { value: "300+", label: "Sahne Kurulumu", icon: "🏆" },
     { value: "50+", label: "Konser Projesi", icon: "🎵" },
     { value: "81", label: "İlde Hizmet", icon: "🗺️" },
-    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
 
   return (
@@ -1524,7 +1525,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
+                      {YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
                     </strong>{" "}
                     ile sahne kiralama konusunda güvenilir çözüm ortağınız. En
                     son teknoloji ekipman, uzman ekip ve 7/24 teknik destek
@@ -1925,7 +1926,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 10+ yıl deneyim
+              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 // app/blog/urun-lansmani-organizasyonu/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
@@ -175,7 +176,7 @@ export default function Page() {
         </div>
 
         <p>
-          Sahneva olarak, 2012&apos;den beri edindiğimiz 10+ yıllık deneyim ve 1200&apos;den fazla başarılı proje ile bu kritik anı riske atmıyoruz. Türkiye genelinde kusursuz teknik prodüksiyon çözümleri sunuyoruz.
+          Sahneva olarak, 2012&apos;den beri edindiğimiz {YEARS_OF_EXPERIENCE} yıllık deneyim ve 1200&apos;den fazla başarılı proje ile bu kritik anı riske atmıyoruz. Türkiye genelinde kusursuz teknik prodüksiyon çözümleri sunuyoruz.
         </p>
 
         <h2 id="teknik-kusursuzluk">1. Neden Teknik Kusursuzluk?</h2>
@@ -301,7 +302,7 @@ export default function Page() {
             <strong>Premium Envanter:</strong> Sürekli güncellenen, bakımlı ve en son teknolojili ekipman parkuru.
           </li>
           <li>
-            <strong>Kriz Yönetimi:</strong> Sahada 10+ yıl deneyimli, çözüm odaklı ve soğukkanlı teknik kadro.
+            <strong>Kriz Yönetimi:</strong> Sahada {YEARS_OF_EXPERIENCE} yıl deneyimli, çözüm odaklı ve soğukkanlı teknik kadro.
           </li>
           <li>
             <strong>Kurumsal Güvence:</strong> Sözleşmeli çalışma ve sigortalı ekipman desteği.

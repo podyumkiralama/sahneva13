@@ -1,5 +1,6 @@
 ﻿// app/en/runway-podium-rental/page.js
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -630,7 +631,7 @@ function UseCasesSection() {
 function StatsSection() {
   const stats = [
     { value: "300+", label: "Fashion Events", icon: "👗" },
-    { value: "10+", label: "Years Experience", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years Experience", icon: "⭐" },
     { value: "End-to-End", label: "Service", icon: "🚀" },
     { value: "TS EN", label: "Safety Standard", icon: "🛡️" },
   ];

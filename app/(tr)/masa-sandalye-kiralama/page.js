@@ -1,4 +1,5 @@
 ﻿// app/masa-sandalye-kiralama/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1223,7 +1224,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
+                      {YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
                     </strong>{" "}
                     ile masa sandalye kiralama konusunda güvenilir çözüm
                     ortağınız. Geniş envanter, uzman ekip ve 7/24 teknik destek
@@ -1609,7 +1610,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 5+ yıl deneyim
+              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

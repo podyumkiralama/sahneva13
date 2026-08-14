@@ -1,3 +1,5 @@
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+
 export const HERO = {
   src: "/img/kurumsal/premium/kurumsal-organizasyon-hero-desktop.webp",
   tabletSrc: "/img/kurumsal/premium/kurumsal-organizasyon-hero-tablet.webp",
@@ -7,7 +9,7 @@ export const HERO = {
 };
 
 export const HERO_STATS = [
-  { value: "10+ yıl", label: "Deneyim" },
+  { value: `${YEARS_OF_EXPERIENCE} yıl`, label: "Deneyim" },
   { value: "700+", label: "Başarılı proje" },
   { value: "300 m²", label: "P1.9 LED stoğu" },
 ];

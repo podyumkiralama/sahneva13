@@ -1,4 +1,5 @@
 ﻿// app/en/tent-rental/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -494,7 +495,7 @@ function StatsBand() {
     { value: "850+", label: "Successful events", icon: "🎪" },
     { value: "40+", label: "Enterprise clients", icon: "🏢" },
     { value: "81", label: "Cities served", icon: "🗺️" },
-    { value: "10+", label: "Years of expertise", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of expertise", icon: "⭐" },
   ];
 
   return (
@@ -704,7 +705,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>10+ years of experience, 700+ successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
                   </p>
                 </div>
               </div>
@@ -1033,7 +1034,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service across 81 cities • ⏰ 24/7 technical support • ⭐ 10+ years of experience
+              📍 Service across 81 cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>

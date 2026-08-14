@@ -1,5 +1,6 @@
 // app/de/page.js
 
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -505,7 +506,7 @@ const CORPORATE_INTRO_DICT_DE = {
   ],
   stats: [
     { value: "250+", label: "Firmenveranstaltungen" },
-    { value: "10+", label: "Jahre Praxis vor Ort" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Jahre Praxis vor Ort" },
     { value: "24/7", label: "Technische Erreichbarkeit" },
   ],
   imageAlt:
@@ -728,7 +729,7 @@ const WHY_CHOOSE_US_DICT_DE = {
   sectionTitleHighlight: "Sahneva",
   sectionTitleSuffix: "?",
   sectionDesc:
-    "Über zehn Jahre Praxis, aktuelles Equipment und ein eingespieltes Team — für jedes Detail Ihrer Veranstaltung.",
+    `${YEARS_OF_EXPERIENCE} Jahre Praxis, aktuelles Equipment und ein eingespieltes Team — für jedes Detail Ihrer Veranstaltung.`,
   advantagesGroupAriaLabel: "Infrastrukturvorteile von Sahneva",
   bigLeftTitle: "Technische Betreuung und Umsetzung von A bis Z",
   bigLeftDesc:
@@ -766,7 +767,7 @@ const WHY_CHOOSE_US_DICT_DE = {
     },
     {
       title: "Erfahrenes Technikteam",
-      desc: "Über zehn Jahre Praxis in Bühnenbau, Ton, Licht und LED-Technik.",
+      desc: `${YEARS_OF_EXPERIENCE} Jahre Praxis in Bühnenbau, Ton, Licht und LED-Technik.`,
       stat: "15+ Fachkräfte",
     },
     {

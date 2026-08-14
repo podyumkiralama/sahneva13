@@ -1,4 +1,5 @@
 ﻿// app/en/stage-rental/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -886,7 +887,7 @@ function StatsBand() {
     { value: "300+", label: "Stage Installations", icon: "🏆" },
     { value: "50+", label: "Concert Projects", icon: "🎵" },
     { value: "81", label: "Cities Served", icon: "🗺️" },
-    { value: "10+", label: "Years of Experience", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of Experience", icon: "⭐" },
   ];
 
   return (
@@ -1199,7 +1200,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      10+ years of experience, 700+ successful projects and
+                      {YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and
                       nationwide service across 81 cities
                     </strong>{" "}
                     make Sahneva a reliable stage partner. Our team plans the
@@ -1576,7 +1577,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Nationwide service • ⏰ 24/7 technical support • ⭐ 10+ years
+              📍 Nationwide service • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years
               of experience
             </div>
           </div>

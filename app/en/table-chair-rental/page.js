@@ -1,4 +1,5 @@
 ﻿// app/en/table-chair-rental/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -845,7 +846,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>10+ years of experience, 700+ successful projects and service across 81 provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and service across 81 provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
                   </p>
                 </div>
               </div>
@@ -1130,7 +1131,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Nationwide coverage • ⏰ 24/7 technical support • ⭐ 5+ years of expertise
+              📍 Nationwide coverage • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>
         </div>

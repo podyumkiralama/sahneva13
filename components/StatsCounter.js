@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { YEARS_OF_EXPERIENCE } from '@/lib/experience';
 
 function StatsCounter() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -33,7 +34,7 @@ function StatsCounter() {
       };
 
       increment(700, 'projects');
-      increment(10, 'experience');
+      increment(YEARS_OF_EXPERIENCE, 'experience');
       increment(81, 'cities');
     }
     return () => {
@@ -49,7 +50,7 @@ function StatsCounter() {
       color: "from-blue-500 to-cyan-500"
     },
     {
-      number: `${counters.experience}+`,
+      number: `${counters.experience}`,
       label: "Yıl Deneyim",
       color: "from-purple-500 to-pink-500"
     },

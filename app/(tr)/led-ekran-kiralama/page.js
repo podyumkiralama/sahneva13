@@ -1,5 +1,6 @@
 ﻿// app/led-ekran-kiralama/page.jsx
 
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -1378,7 +1379,7 @@ function StatsBand() {
     { value: "300 m²", label: "P1.9 Indoor LED Envanteri" },
     { value: "700+", label: "Başarılı Proje" },
     { value: "81 İl", label: "Kendi Araçlarımızla Kurulum" },
-    { value: "10+", label: "Yıllık Deneyim" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıllık Deneyim" },
   ];
 
   return (

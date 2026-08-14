@@ -1,4 +1,5 @@
 ﻿// app/(tr)/konser-icin-podyum-kiralama/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -331,7 +332,7 @@ function HeroSection() {
   const stats = [
     { icon: "🎤", value: "500+", label: "Konser & Festival" },
     { icon: "🇹🇷", value: "Türkiye Geneli", label: "Hizmet Alanı" },
-    { icon: "⏱️", value: "10+ Yıl", label: "Sahne Deneyimi" },
+    { icon: "⏱️", value: `${YEARS_OF_EXPERIENCE} Yıl`, label: "Sahne Deneyimi" },
     { icon: "🛡️", value: "Mühendislik", label: "Onaylı Sistemler" },
   ];
 

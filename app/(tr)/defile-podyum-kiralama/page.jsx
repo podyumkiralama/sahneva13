@@ -1,4 +1,5 @@
 ﻿// app/(tr)/defile-podyum-kiralama/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
@@ -726,7 +727,7 @@ function UseCasesSection() {
 function StatsSection() {
   const stats = [
     { value: "300+", label: "Moda Etkinliği", icon: "👗" },
-    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
     { value: "Uçtan", label: "Uca Hizmet", icon: "🚀" },
     { value: "TS EN", label: "Güvenlik Standardı", icon: "🛡️" },
   ];

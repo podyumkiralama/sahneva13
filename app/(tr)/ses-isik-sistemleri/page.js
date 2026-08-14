@@ -1,4 +1,5 @@
 ﻿// app/ses-isik-sistemleri/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -197,7 +198,7 @@ const HERO_BADGES = [
 
 const HERO_METRICS = [
   {
-    value: "10+",
+    value: `${YEARS_OF_EXPERIENCE}`,
     label: "Yıl Deneyim",
     detail: "Konser, festival ve kurumsal etkinliklerde canlı operasyon.",
   },
@@ -616,7 +617,7 @@ function StatsBand() {
     { value: "700+", label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "81", label: "İlde Hizmet", icon: "🗺️" },
-    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
   
   return (
@@ -849,7 +850,7 @@ function Articles() {
                     Neden Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>10+ yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet</strong> ile 
+                    <strong>{YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet</strong> ile 
                     ses ve ışık sistemleri konusunda güvenilir çözüm ortağınız. Profesyonel ekipman, 
                     uzman ekip ve 7/24 teknik destek garantisi.
                   </p>
@@ -1168,7 +1169,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ 10+ yıl deneyim
+              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

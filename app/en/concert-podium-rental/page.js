@@ -1,4 +1,5 @@
 ﻿// app/en/concert-podium-rental/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -212,7 +213,7 @@ function HeroSection() {
   const stats = [
     { icon: "🎤", value: "500+", label: "Concerts & Festivals" },
     { icon: "🇹🇷", value: "Nationwide", label: "Service Area" },
-    { icon: "??", value: "10+ Years", label: "Field Experience" },
+    { icon: "??", value: `${YEARS_OF_EXPERIENCE} Years`, label: "Field Experience" },
     { icon: "🛡️", value: "Engineering", label: "Certified Systems" },
   ];
 

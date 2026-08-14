@@ -1,4 +1,5 @@
 ﻿// app/(tr)/podyum-kiralama/page.jsx
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -917,7 +918,7 @@ function StatsSection() {
     { value: "700+", label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "2-6", label: "Saat Kurulum", icon: "⏱️" },
-    { value: "10+", label: "Yıl Deneyim", icon: "⭐" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (
     <section

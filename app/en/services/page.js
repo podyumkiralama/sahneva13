@@ -1,4 +1,5 @@
 // app/en/services/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
@@ -649,7 +650,7 @@ export default function EnglishServicesPage() {
                 Why <span className="text-blue-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-                10+ years of expertise and specialised teams that deliver exceptional results
+                {YEARS_OF_EXPERIENCE} years of expertise and specialised teams that deliver exceptional results
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
             </div>

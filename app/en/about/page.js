@@ -1,4 +1,5 @@
 // app/en/about/page.js
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
@@ -15,7 +16,7 @@ export const metadata = {
   // The locale layout appends " | Sahneva"; do not repeat the brand here.
   title: "About Us — Professional Event Technologies",
   description:
-    "Over 10 years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. 700+ completed projects.",
+    `${YEARS_OF_EXPERIENCE} years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. 700+ completed projects.`,
   alternates: {
     canonical: "https://www.sahneva.com/en/about",
     languages: {
@@ -31,14 +32,14 @@ export const metadata = {
   openGraph: {
     title: "About Us | Sahneva - Professional Event Technologies",
     description:
-      "Professional event solutions across Türkiye with 10+ years of expertise. 700+ successful projects and 98% client satisfaction.",
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. 700+ successful projects and 98% client satisfaction.`,
     url: "https://www.sahneva.com/en/about",
     images: [
       {
         url: "https://www.sahneva.com/img/hakkimizda-hero-corporate.webp",
         width: 1200,
         height: 630,
-        alt: "Sahneva Team – Professional Event Technologies, 10+ years of experience",
+        alt: `Sahneva Team – Professional Event Technologies, ${YEARS_OF_EXPERIENCE} years of experience`,
       },
     ],
     type: "website",
@@ -49,7 +50,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "About Us | Sahneva – Professional Event Technologies",
     description:
-      "Professional event solutions across Türkiye with 10+ years of expertise. 700+ successful projects and 98% client satisfaction.",
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. 700+ successful projects and 98% client satisfaction.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -191,7 +192,7 @@ export default function AboutPage() {
   <div className="absolute inset-0 pointer-events-none">
     <Image
       src="/img/hakkimizda-hero-corporate.webp"
-      alt="Sahneva professional crew with more than a decade of event technology experience"
+      alt={`Sahneva professional crew with ${YEARS_OF_EXPERIENCE} years of event technology experience`}
       fill
       priority
       fetchPriority="high"
@@ -261,7 +262,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Event Technologies • 10+ Years of Expertise • 700+ Productions
+          Event Technologies • {YEARS_OF_EXPERIENCE} Years of Expertise • 700+ Productions
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
@@ -314,7 +315,7 @@ export default function AboutPage() {
             <span className="text-2xl mb-2" aria-hidden="true">
               ⭐
             </span>
-            <div className="text-xl font-black text-white">12+</div>
+            <div className="text-xl font-black text-white">{YEARS_OF_EXPERIENCE}</div>
             <div className="text-white/80 text-sm">Years of experience</div>
           </div>
 
@@ -480,7 +481,7 @@ export default function AboutPage() {
                 <span className="gradient-text gradient-text--safe-xl"> Partners</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                For over a decade we have supported corporate brands, public institutions and creative agencies with turnkey production.
+                For {YEARS_OF_EXPERIENCE} years we have supported corporate brands, public institutions and creative agencies with turnkey production.
               </p>
             </div>
 
@@ -576,7 +577,7 @@ export default function AboutPage() {
               Let's collaborate on your <span className="text-yellow-300">next production</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Our experienced crew is ready to deliver the most suitable solutions for your event with more than a decade of know-how.
+              Our experienced crew is ready to deliver the most suitable solutions for your event with {YEARS_OF_EXPERIENCE} years of know-how.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">

@@ -1,5 +1,6 @@
 // app/en/page.js
 
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -552,7 +553,7 @@ const CORPORATE_INTRO_DICT_EN = {
   ],
   stats: [
     { value: "250+", label: "Corporate events" },
-    { value: "10+", label: "Years of field experience" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of field experience" },
     { value: "7/24", label: "Technical support" },
   ],
   imageAlt:
@@ -771,7 +772,7 @@ const WHY_CHOOSE_US_DICT_EN = {
   sectionTitleHighlight: "Sahneva",
   sectionTitleSuffix: "?",
   sectionDesc:
-    "10+ years of experience, modern equipment and an expert team at your service for every detail of your event.",
+    `${YEARS_OF_EXPERIENCE} years of experience, modern equipment and an expert team at your service for every detail of your event.`,
   advantagesGroupAriaLabel: "Sahneva Infrastructure Advantages",
   bigLeftTitle: "End-to-End Technical Service & Professional Solutions",
   bigLeftDesc:
@@ -795,7 +796,7 @@ const WHY_CHOOSE_US_DICT_EN = {
     { title: "High Customer Satisfaction", desc: "Over 98% customer satisfaction rate. References and reviews are our strongest indicator.", stat: "98% Satisfaction" },
     { title: "Fast Setup & Delivery", desc: "Same-day professional installation for stage, LED screen and sound-lighting setups.", stat: "2–6 Hours" },
     { title: "Premium LED Technology", desc: "High brightness and clarity with P2–P6 indoor/outdoor LED screens.", stat: "P2–P6" },
-    { title: "Expert Technical Team", desc: "10+ years of experience in stage, sound, lighting and LED — expert technical crew.", stat: "15+ Experts" },
+    { title: "Expert Technical Team", desc: `${YEARS_OF_EXPERIENCE} years of experience in stage, sound, lighting and LED — expert technical crew.`, stat: "15+ Experts" },
     { title: "Competitive Pricing Guarantee", desc: "Transparent and predictable pricing that fits your budget without compromising quality.", stat: "30% Savings" },
     { title: "Nationwide Service", desc: "Production support across all 81 provinces from our Istanbul-based team.", stat: "81 Provinces" },
   ],

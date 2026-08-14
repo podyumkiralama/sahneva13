@@ -1,6 +1,7 @@
 // app/ar/about/page.js
 import Image from "next/image";
 import Link from "next/link";
+import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
@@ -12,7 +13,7 @@ const AR_ABOUT_OG_IMAGE_URL = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
 export const metadata = {
   title: "من نحن | شركة إنتاج الفعاليات في تركيا",
   description:
-    "أكثر من 10 سنوات من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.",
+    `${YEARS_OF_EXPERIENCE} عامًا من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.`,
   alternates: {
     canonical: AR_ABOUT_URL,
     languages: {
@@ -28,7 +29,7 @@ export const metadata = {
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:
-      "حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد لأكثر من 10 سنوات. أكثر من 700 مشروع ناجح ونسبة رضا 98%.",
+      `حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد إلى ${YEARS_OF_EXPERIENCE} عامًا. أكثر من 700 مشروع ناجح ونسبة رضا 98%.`,
     url: AR_ABOUT_URL,
     images: [
       {
@@ -166,7 +167,7 @@ export default function ArabicAboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/img/hakkimizda-hero-corporate.webp"
-            alt="فريق سحنيفا يتمتع بأكثر من عقد من الخبرة في تقنيات الفعاليات"
+            alt={`فريق سحنيفا يتمتع بخبرة ${YEARS_OF_EXPERIENCE} عامًا في تقنيات الفعاليات`}
             fill
             priority
             fetchPriority="high"
@@ -195,7 +196,7 @@ export default function ArabicAboutPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-            تقنيات الفعاليات • خبرة تمتد لأكثر من 10 سنوات • أكثر من 700 إنتاج
+            تقنيات الفعاليات • خبرة تمتد إلى {YEARS_OF_EXPERIENCE} عامًا • أكثر من 700 إنتاج
           </p>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
             بوصفنا <span className="font-semibold text-white">شريكاً رائداً في تقنيات الفعاليات في تركيا</span>، نجمع بين التميّز التقني والتنفيذ الإبداعي في كل مشروع.
@@ -231,7 +232,7 @@ export default function ArabicAboutPage() {
             </div>
             <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
               <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-              <div className="text-xl font-black text-white">12+</div>
+              <div className="text-xl font-black text-white">{YEARS_OF_EXPERIENCE}</div>
               <div className="text-white/80 text-sm">سنة خبرة</div>
             </div>
             <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -406,7 +407,7 @@ export default function ArabicAboutPage() {
                 <span className="gradient-text gradient-text--safe-xl"> الموثوقون</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                على مدى أكثر من عقد دعمنا العلامات التجارية المؤسسية والمؤسسات الحكومية والوكالات الإبداعية بإنتاج متكامل.
+                على مدى {YEARS_OF_EXPERIENCE} عامًا دعمنا العلامات التجارية المؤسسية والمؤسسات الحكومية والوكالات الإبداعية بإنتاج متكامل.
               </p>
             </div>
 
@@ -502,7 +503,7 @@ export default function ArabicAboutPage() {
               لنتعاون في <span className="text-yellow-300">إنتاجك القادم</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              فريقنا المتمرّس جاهز لتقديم أنسب الحلول لفعاليتك بخبرة تمتد لأكثر من عقد.
+              فريقنا المتمرّس جاهز لتقديم أنسب الحلول لفعاليتك بخبرة تمتد إلى {YEARS_OF_EXPERIENCE} عامًا.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
