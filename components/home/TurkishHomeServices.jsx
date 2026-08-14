@@ -30,7 +30,7 @@ const SERVICES = [
     title: "LED Ekran Kiralama",
     scope: "P1.9–P2.9 · 3840 Hz · reji",
     description:
-      "Fuar, lansman ve kurumsal etkinlikler için iç ve dış mekân LED ekranlarını taşıyıcı sistem, içerik ve teknik rejiyle birlikte planlıyoruz.",
+      "Fuar ve lansmanlar için LED ekranı taşıyıcı sistem, içerik ve rejiyle planlıyoruz.",
     href: "/led-ekran-kiralama",
     image: "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp",
     imagePosition: "50% 58%",

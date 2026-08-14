@@ -309,9 +309,9 @@ export default function Footer({
           ? "Angebot über WhatsApp anfordern"
           : "WhatsApp’tan teklif alın";
   const proofItems = isEn
-    ? ["700+ projects", "Nationwide Türkiye", "24/7 operations"]
+    ? ["700+ projects", "Across Türkiye", "24/7 operations"]
     : isRu
-      ? ["700+ проектов", "По всей Турции", "Операции 24/7"]
+      ? ["700+ проектов", "По всей Турции", "Поддержка 24/7"]
       : isZh
         ? ["700+ 项目", "土耳其全国", "24/7 运营"]
         : isDe

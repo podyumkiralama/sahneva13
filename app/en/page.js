@@ -458,6 +458,12 @@ const HERO_DICT_EN = {
   titleLine2: "One Team, One Roof, One Solution",
   description:
     "With <strong>700+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
+  proofPoints: [
+    { value: "700+", label: "completed projects" },
+    { value: "Across Türkiye", label: "local logistics and setup" },
+    { value: "24/7", label: "communication and support" },
+    { value: "One team", label: "stage, LED, audio and lighting" },
+  ],
   ctaCall: "Call Now",
   ctaCallAria: "Call Sahneva now",
   ctaWhatsapp: "WhatsApp Quote",

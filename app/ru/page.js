@@ -85,10 +85,10 @@ const HERO_DICTIONARY = {
   titleLine1: "технический партнёр",
   titleLine2: "для мероприятий в Турции",
   description:
-    "Локально планируем и реализуем <strong>сцены, подиумы, LED-экраны, звук, свет, truss-системы, шатры и мебель</strong> для конференций, концертов, выставок, корпоративных событий и проектов на открытом воздухе по всей Турции.",
+    "Как местная команда в Турции, мы планируем и реализуем <strong>сцены, подиумы, LED-экраны, звук, свет, truss-системы, шатры и мебель</strong> для конференций, концертов, выставок, корпоративных событий и проектов на открытом воздухе.",
   proofPoints: [
     { value: "700+", label: "проектов" },
-    { value: "Вся Турция", label: "логистика и монтаж" },
+    { value: "По всей Турции", label: "логистика и монтаж" },
     { value: "24/7", label: "связь и поддержка" },
     { value: "1 команда", label: "сцена, LED, звук" },
   ],
@@ -376,7 +376,7 @@ export default function RussianHomePage() {
               id="ru-local-advantages-title"
               className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl"
             >
-              Почему Sahneva для проекта в Турции
+              Почему для проекта в Турции выбирают Sahneva
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-700 md:text-lg">
               Sahneva помогает брендам, агентствам и частным организаторам, которые

@@ -59,8 +59,8 @@ export default function TurkishHomeDecisionDesk() {
             <h2 id="home-offer-title">Teklif dosyasında ne netleşir?</h2>
             <p>
               Teklif, ekipman listesinin yanında sahadaki uygulamanın kapsamını,
-              sırasını ve sorumluluklarını da gösterir. Başlangıç için şehir,
-              tarih, mekân ve etkinlik türünü paylaşmanız yeterlidir.
+              sırasını ve sorumluluklarını da gösterir. Teklif sürecini başlatmak
+              için şehir, tarih, mekân ve etkinlik türünü paylaşmanız yeterlidir.
             </p>
             <dl>
               <div>

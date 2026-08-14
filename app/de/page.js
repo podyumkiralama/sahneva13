@@ -411,6 +411,12 @@ const HERO_DICT_DE = {
   titleLine2: "Ein Team, ein Zeitplan, eine Verantwortung",
   description:
     "Mit <strong>über 700 realisierten Projekten</strong> in Bühnenbau, LED-Wänden, Ton- und Lichttechnik sowie Podestbau übernehmen wir die technische Produktion in der gesamten Türkei.",
+  proofPoints: [
+    { value: "700+", label: "realisierte Projekte" },
+    { value: "Türkeiweit", label: "lokale Logistik und Aufbau" },
+    { value: "24/7", label: "Kommunikation und Betreuung" },
+    { value: "Ein Team", label: "Bühne, LED, Ton und Licht" },
+  ],
   ctaCall: "Jetzt anrufen",
   ctaCallAria: "Sahneva jetzt anrufen",
   ctaWhatsapp: "Angebot über WhatsApp",
