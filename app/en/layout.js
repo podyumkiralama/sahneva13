@@ -116,7 +116,7 @@ const globalJsonLd = {
         streetAddress: "Hamidiye, Anadolu Cd. 61 A",
         addressLocality: "Kagithane",
         addressRegion: "Istanbul",
-        postalCode: "34400",
+        postalCode: "34408",
         addressCountry: "TR",
       },
       openingHoursSpecification: [
