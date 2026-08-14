@@ -33,7 +33,7 @@ const CARD_LOGOS = [
 const WHATSAPP_URL =
   "https://wa.me/905453048671?text=" +
   encodeURIComponent(
-    "Merhaba, etkinliğim için teknik kapsamı netleştirip teklif almak istiyorum.",
+    "Merhaba, etkinliğim için teknik kapsamı netleştirip teklif almak istiyorum.\n\nŞehir:\nTarih:\nMekân:\nEtkinlik türü:",
   ) +
   "&utm_source=homepage&utm_medium=decision_desk";
 
@@ -59,7 +59,8 @@ export default function TurkishHomeDecisionDesk() {
             <h2 id="home-offer-title">Teklif dosyasında ne netleşir?</h2>
             <p>
               Teklif, ekipman listesinin yanında sahadaki uygulamanın kapsamını,
-              sırasını ve sorumluluklarını da gösterir.
+              sırasını ve sorumluluklarını da gösterir. Başlangıç için şehir,
+              tarih, mekân ve etkinlik türünü paylaşmanız yeterlidir.
             </p>
             <dl>
               <div>

@@ -31,21 +31,21 @@ const HERO_IMAGE_ALT_AR =
 
 const HERO_FEATURES_AR = [
   {
-    icon: "⭐",
-    title: "تقييم 4.9/5",
-    description: "أكثر من 500 عميل راضٍ",
+    icon: "📍",
+    title: "فريق محلي في تركيا",
+    description: "تخطيط وتنسيق مباشر مع موقع الفعالية",
     color: "from-yellow-400 to-orange-400",
   },
   {
-    icon: "⚡",
-    title: "تركيب في نفس اليوم",
-    description: "نشر سريع في جميع المدن",
+    icon: "🚚",
+    title: "لوجستيات محلية",
+    description: "نقل وتركيب وفك ضمن خطة واحدة",
     color: "from-blue-400 to-cyan-400",
   },
   {
-    icon: "👑",
-    title: "معدات متميزة",
-    description: "جودة موثوقة في كل فعالية",
+    icon: "🎛️",
+    title: "دعم تقني في الموقع",
+    description: "طاقم تشغيل أثناء الفعالية",
     color: "from-purple-400 to-pink-400",
   },
 ];
@@ -53,43 +53,61 @@ const HERO_FEATURES_AR = [
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const AR_PAGE_URL = buildCanonical("/ar");
 const AR_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
+const AR_WHATSAPP_HREF = `https://wa.me/905453048671?text=${encodeURIComponent(
+  "مرحبًا، أود الحصول على عرض سعر لفعالية في تركيا.\n\nالمدينة:\nالتاريخ:\nمكان الفعالية:\nنوع الفعالية:",
+)}`;
 
 const WHY_SAHNEVA_FEATURES_AR = [
   {
-    icon: "⭐",
-    title: "رضا عملاء استثنائي",
-    desc: "نحافظ على معدل رضا يتجاوز 98% بفضل التخطيط الشفاف والفرق التقنية المتواجدة في الموقع طوال الفعالية.",
-    stat: "%98 رضا",
+    icon: "📍",
+    title: "فريق محلي في تركيا",
+    desc: "فريق واحد يتولى التخطيط والتنسيق مع الموقع والتنفيذ التقني من بداية المشروع حتى تسليم المساحة.",
+    stat: "فريق محلي",
   },
   {
     icon: "⚡",
-    title: "تنفيذ سريع على مستوى تركيا",
-    desc: "تركيب منصات، شاشات LED وأنظمة صوت وإضاءة في نفس اليوم أينما كانت الفعالية داخل تركيا.",
-    stat: "تركيب خلال 2–6 ساعات",
+    title: "استجابة واضحة وسريعة",
+    desc: "نراجع تفاصيل المدينة والتاريخ والمكان ونوضح المعلومات الناقصة قبل إعداد النطاق الفني.",
+    stat: "تواصل مباشر",
   },
   {
-    icon: "🖥️",
-    title: "تقنيات LED بمعايير البث",
-    desc: "ألواح داخلية وخارجية بدقة P2–P6 مع معالجة HDR وهياكل ميدانية قوية للمهرجانات والمؤتمرات.",
-    stat: "P2–P6",
+    icon: "🗺️",
+    title: "تنفيذ في أنحاء تركيا",
+    desc: "نخطط للموارد والجدول وحركة الفريق وفق مدينة المشروع ومتطلبات الموقع وموعد الفعالية.",
+    stat: "تغطية وطنية",
   },
   {
-    icon: "👷",
-    title: "فريق تقني متخصص",
-    desc: "مهندسون ذوو خبرة في المنصات، الصوت، الإضاءة، التعليق وأنظمة الفيديو لضمان تدفق الحدث بسلاسة.",
-    stat: "+15 متخصصًا",
+    icon: "🚚",
+    title: "لوجستيات محلية",
+    desc: "ننسق النقل والدخول إلى الموقع والتفريغ واستلام المعدات وإعادتها بعد انتهاء الفعالية.",
+    stat: "نقل وتجهيز",
   },
   {
-    icon: "💰",
-    title: "ميزانيات محسّنة",
-    desc: "تسعير تنافسي مع حزم مرنة، ونطاقات واضحة، وخطط تفصيلية حسب احتياجاتكم.",
-    stat: "توفير حتى 30%",
+    icon: "🛠️",
+    title: "تركيب وفك احترافي",
+    desc: "يقوم الطاقم بتركيب الأنظمة واختبارها ثم فكها وإخلاء الموقع وفق الجدول المتفق عليه.",
+    stat: "من التركيب إلى الفك",
   },
   {
-    icon: "🏙️",
-    title: "تغطية وطنية",
-    desc: "لوجستيات كاملة وقدرة تركيب في 81 مدينة بما في ذلك إسطنبول، أنقرة، إزمير والمناطق الساحلية.",
-    stat: "81 مدينة",
+    icon: "🎛️",
+    title: "دعم تقني في الموقع",
+    desc: "يتابع المشغل والفنيون الصوت والصورة والإضاءة وتدفق البرنامج أثناء الفعالية.",
+    stat: "تشغيل ميداني",
+  },
+];
+
+const AR_QUOTE_STEPS = [
+  {
+    title: "أرسلوا تفاصيل الفعالية",
+    desc: "المدينة، التاريخ، المكان، نوع الفعالية، عدد الضيوف والخدمات المطلوبة.",
+  },
+  {
+    title: "نجهز الحل الفني",
+    desc: "نجمع المنصة، شاشة LED، الصوت، الإضاءة، اللوجستيات والطاقم في خطة واحدة.",
+  },
+  {
+    title: "استلموا العرض الفني والمالي",
+    desc: "نطاق واضح يشمل المعدات والنقل والتركيب والتشغيل في الموقع والفك.",
   },
 ];
 
@@ -712,7 +730,7 @@ export default function ArabicHomePage() {
                 </a>
 
                 <a
-                  href="https://wa.me/905453048671?text=%D8%A3%D8%B1%D9%8A%D8%AF+%D8%B9%D8%B1%D8%B6+%D8%B3%D8%B9%D8%B1+%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2+%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
+                  href={AR_WHATSAPP_HREF}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className="w-full sm:w-auto min-w-[180px] text-center group relative bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold text-base px-6 py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20 backdrop-blur-sm focus-ring"
@@ -757,11 +775,11 @@ export default function ArabicHomePage() {
                       🎯
                     </div>
                   </div>
-                  <div className="flex-1 text-center md:text-right">
+                  <div className="flex-1 text-center md:text-start">
                     <p className="text-white text-xl md:text-2xl font-bold mb-2">استشارة تقنية مجانية</p>
                     <p className="text-white/90 text-base leading-relaxed">
                       لنخطط معًا الحزمة المثالية من المنصات، شاشات LED وأنظمة الصوت والإضاءة مع مخططات تفصيلية وقوائم معدات ولوجستيات.
-                      <strong className="text-yellow-300"> عروض سعر في نفس اليوم.</strong>
+                      <strong className="text-yellow-300"> عرض سعر واضح حسب نطاق العمل.</strong>
                     </p>
                   </div>
                   <div className="flex-shrink-0">
@@ -788,7 +806,59 @@ export default function ArabicHomePage() {
       </section>
 
       <div id="main" className="relative">
-        <div id="get-a-quote" className="sr-only" aria-hidden="true" />
+        <section
+          id="get-a-quote"
+          dir="rtl"
+          aria-labelledby="ar-quote-steps-title"
+          className="scroll-mt-24 bg-slate-950 py-12 text-white md:py-16"
+        >
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">
+                عرض السعر في 3 خطوات
+              </p>
+              <h2
+                id="ar-quote-steps-title"
+                className="mt-3 text-3xl font-black leading-tight md:text-4xl"
+              >
+                من تفاصيل الفعالية إلى عرض واضح للتنفيذ في تركيا
+              </h2>
+              <p className="mt-4 text-base leading-8 text-white/75">
+                أرسلوا المعلومات الأساسية مرة واحدة، وسنحوّلها إلى خطة تجمع التجهيزات
+                واللوجستيات والتركيب والدعم الميداني.
+              </p>
+            </div>
+
+            <ol className="mx-auto mt-8 grid max-w-6xl list-none gap-4 p-0 md:grid-cols-3">
+              {AR_QUOTE_STEPS.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="rounded-2xl border border-white/10 bg-white/[0.06] p-6"
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-300 font-black text-slate-950"
+                      aria-hidden="true"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-xl font-black">{step.title}</h3>
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-white/75">{step.desc}</p>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-8 text-center">
+              <a
+                href="/ar/contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-cyan-300 px-7 font-black text-slate-950 transition hover:bg-cyan-200 focus-ring"
+              >
+                أرسلوا طلب عرض السعر
+              </a>
+            </div>
+          </div>
+        </section>
 
         <div aria-hidden="true" className="h-12 lg:h-16" />
 
@@ -882,7 +952,7 @@ export default function ArabicHomePage() {
                   لماذا تختار <span className="gradient-text gradient-text--safe-xl">سحنيفا</span>
                 </h2>
                 <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-                  أكثر من عقد من الخبرة، معدات متميزة وفرق تقنية دقيقة التفاصيل في خدمتك
+                  فريق محلي ولوجستيات منظمة وتركيب وتشغيل ميداني ضمن خطة واحدة
                 </p>
               </div>
             
@@ -896,7 +966,7 @@ export default function ArabicHomePage() {
                         className="group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 p-6 border border-neutral-100 hover:border-blue-200/70 hover:scale-105"
                         aria-labelledby={`why-card-${i}-title`}
                       >
-                        <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <div className="absolute top-3 end-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                           {stat}
                         </div>
                         <div className="text-3xl mb-4 gradient-text gradient-text--safe-xl" aria-hidden="true">

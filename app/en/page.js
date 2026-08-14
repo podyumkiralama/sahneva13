@@ -452,7 +452,7 @@ const HERO_DICT_EN = {
     { text: "Podium Setup", color: "text-emerald-200" },
   ],
   keywordsAriaLabel: "Featured services",
-  badge: "Nationwide \u2022 Rapid Setup \u2022 Same-Day Activation",
+  badge: "Turkey-Based Team \u2022 Nationwide Coverage \u2022 One Technical Partner",
   titleLine1Prefix: "with Sahneva",
   titleLine1: "Event Production",
   titleLine2: "One Team, One Roof, One Solution",
@@ -463,42 +463,43 @@ const HERO_DICT_EN = {
   ctaWhatsapp: "WhatsApp Quote",
   ctaWhatsappAria: "Get a WhatsApp quote \u2014 opens in new tab",
   ctaQuote: "Get a Quote",
-  ctaQuoteAria: "Jump to the quote section",
-  quoteAnchor: "#get-a-quote",
-  whatsappText:
-    "Hello%2C+I%27m+reaching+out+from+your+website.+I%27d+like+to+get+a+detailed+quote.",
+  ctaQuoteAria: "Open the event quote request form",
+  quoteAnchor: "/en/contact#proposal-form",
+  whatsappText: encodeURIComponent(
+    "Hello, I would like a quote for an event in Türkiye.\n\nCity:\nDate:\nVenue:\nEvent type:",
+  ),
 };
 
 const HERO_BELOW_DICT_EN = {
   processSteps: [
     {
-      title: "Discovery & Planning",
-      desc: "Venue measurements, capacity and concept verification to select the right package",
+      title: "Share Your Event Brief",
+      desc: "Send the city, date, venue, event type, guest count and required services",
       badge: "1",
     },
     {
-      title: "Setup & Testing",
-      desc: "Field crew, safety and backup power checks with same-day activation",
+      title: "We Configure the Solution",
+      desc: "We combine stage, LED, audio, lighting, logistics and crew in one technical plan",
       badge: "2",
     },
     {
-      title: "Live Management",
-      desc: "Operator, director and technical lead for uninterrupted event flow",
+      title: "Receive Your Quote",
+      desc: "Get a clear scope covering equipment, delivery, setup, event support and dismantling",
       badge: "3",
     },
   ],
   features: HERO_FEATURES_EN,
-  featuresAriaLabel: "Featured service advantages",
-  processAriaLabel: "Project workflow steps",
+  featuresAriaLabel: "Local delivery advantages in Türkiye",
+  processAriaLabel: "Three steps to request an event quote in Türkiye",
   consultationTitle: "Free Professional Consultation",
   consultationDesc:
     "Let us plan the <strong>ideal stage and podium rental solution</strong> for your event and match LED screen rental options to your budget \u2014 at no charge. <span class=\"block mt-1 text-yellow-300 font-medium\">\u26a1 Detailed quote guaranteed within 2 hours.</span>",
   consultationCta: "Get a Quote",
-  consultationCtaHref: "#get-a-quote",
-  sectionBadge: "Process & Assurance",
-  sectionTitle: "From setup to teardown \u2014 one team, one timeline",
+  consultationCtaHref: "/en/contact#proposal-form",
+  sectionBadge: "3 Steps to Your Quote",
+  sectionTitle: "Brief, technical solution and a clear quote",
   sectionDesc:
-    "The Sahneva team handles discovery, static calculations, LED content prep, truss rental and on-stage operations under one roof \u2014 delivering both speed and flawless execution.",
+    "Share the essential event details once. Our Turkey-based team turns them into one plan for equipment, local logistics, setup, on-site operation and dismantling.",
   srHeading: "Stage Rental Service Features and Consultation",
 };
 

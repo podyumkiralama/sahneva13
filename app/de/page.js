@@ -416,42 +416,43 @@ const HERO_DICT_DE = {
   ctaWhatsapp: "Angebot über WhatsApp",
   ctaWhatsappAria: "Angebot über WhatsApp anfordern — wird in einem neuen Tab geöffnet",
   ctaQuote: "Angebot anfordern",
-  ctaQuoteAria: "Zum Angebotsbereich springen",
-  quoteAnchor: "#angebot",
-  whatsappText:
-    "Guten+Tag%2C+ich+schreibe+Ihnen+über+Ihre+Website.+Ich+h%C3%A4tte+gerne+ein+ausf%C3%BChrliches+Angebot.",
+  ctaQuoteAria: "Formular für eine Angebotsanfrage öffnen",
+  quoteAnchor: "/de/kontakt#angebot-formular",
+  whatsappText: encodeURIComponent(
+    "Guten Tag, ich möchte ein Angebot für eine Veranstaltung in der Türkei.\n\nStadt:\nDatum:\nVeranstaltungsort:\nArt der Veranstaltung:",
+  ),
 };
 
 const HERO_BELOW_DICT_DE = {
   processSteps: [
     {
-      title: "Klärung & Planung",
-      desc: "Aufmaß der Location, Kapazität und Konzept – daraus entsteht die passende Technikliste",
+      title: "Veranstaltungsdaten senden",
+      desc: "Stadt, Datum, Veranstaltungsort, Format, Gästezahl und benötigte Leistungen mitteilen",
       badge: "1",
     },
     {
-      title: "Aufbau & Test",
-      desc: "Crew vor Ort, Sicherheitsprüfung und Notstromkonzept, Abnahme vor der Veranstaltung",
+      title: "Wir planen die Technik",
+      desc: "Bühne, LED-Wand, Ton, Licht, Logistik und Crew werden in einem Konzept gebündelt",
       badge: "2",
     },
     {
-      title: "Betreuung im Betrieb",
-      desc: "Operator, Regie und technische Leitung für einen störungsfreien Ablauf",
+      title: "Angebot erhalten",
+      desc: "Sie erhalten einen klaren Umfang für Lieferung, Aufbau, Betreuung und Abbau vor Ort",
       badge: "3",
     },
   ],
   features: HERO_FEATURES_DE,
   featuresAriaLabel: "Vorteile unserer Leistungen",
-  processAriaLabel: "Schritte im Projektablauf",
+  processAriaLabel: "Drei Schritte zur Angebotsanfrage für eine Veranstaltung in der Türkei",
   consultationTitle: "Kostenlose technische Beratung",
   consultationDesc:
     "Wir planen die <strong>passende Bühnen- und Podestlösung</strong> für Ihre Veranstaltung und stimmen die LED-Technik auf Ihr Budget ab — unverbindlich. <span class=\"block mt-1 text-yellow-300 font-medium\">⚡ Ausführliches Angebot innerhalb von 2 Stunden.</span>",
   consultationCta: "Angebot anfordern",
-  consultationCtaHref: "#angebot",
-  sectionBadge: "Ablauf & Verlässlichkeit",
-  sectionTitle: "Vom Aufbau bis zum Abbau — ein Team, ein Zeitplan",
+  consultationCtaHref: "/de/kontakt#angebot-formular",
+  sectionBadge: "In 3 Schritten zum Angebot",
+  sectionTitle: "Briefing, technische Lösung und klares Angebot",
   sectionDesc:
-    "Sahneva übernimmt Bedarfsklärung, statische Nachweise, Vorbereitung der LED-Inhalte, Traversenbau und den Betrieb auf der Bühne im eigenen Haus — das spart Abstimmungswege und macht den Ablauf planbar.",
+    "Senden Sie die Eckdaten einmal. Unser Team in der Türkei bündelt Technik, lokale Logistik, Aufbau, Betrieb und Abbau in einem belastbaren Plan.",
   srHeading: "Leistungsmerkmale und Beratung rund um die Bühnenvermietung",
 };
 
@@ -857,7 +858,7 @@ export default function GermanHomePage() {
           Kongresse und internationale Events. Für Marken und Agenturen aus dem deutschsprachigen Raum
           arbeiten wir in zwei Modellen: als Hauptauftragnehmer für die gesamte Produktion oder als{" "}
           <Link
-            href="/de/leistungen"
+            href="/de/eventproduktion-tuerkei"
             className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
           >
             technischer Partner im Hintergrund Ihrer Agentur

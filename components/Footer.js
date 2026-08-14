@@ -227,7 +227,7 @@ export default function Footer({
   const popularPagesTitle = isIntl ? (footerStrings?.popularPagesTitle ?? "Popular Pages") : "Popüler Sayfalar";
   const contactTitle = isEn ? "Contact Information" : isRu ? "Контакты" : isZh ? "联系方式" : isDe ? "Kontaktdaten" : "İletişim Bilgileri";
   const officeTitle = isIntl ? (footerStrings?.officeTitle ?? "Main Office") : "Merkez Ofis";
-  const address = isIntl ? (footerStrings?.address ?? "Kağıthane, Istanbul") : "Kağıthane, İstanbul";
+  const address = isIntl ? (footerStrings?.address ?? "34408 Kağıthane, Istanbul") : "34408 Kağıthane, İstanbul";
   const nationwide = isEn ? "Nationwide service" : isRu ? "Обслуживание по всей Турции" : isZh ? "服务覆盖土耳其全境" : isDe ? "Landesweit im Einsatz" : "Türkiye geneli hizmet";
   const workingHoursLabel = isIntl ? (footerStrings?.workingHours ?? "Working Hours") : "Çalışma Saatleri";
   const workingHoursValue = isIntl ? (footerStrings?.workingHoursValue ?? "Open 24 hours") : "7/24 Açık";
@@ -309,13 +309,13 @@ export default function Footer({
           ? "Angebot über WhatsApp anfordern"
           : "WhatsApp’tan teklif alın";
   const proofItems = isEn
-    ? ["700+ projects", "81 cities", "24/7 operations"]
+    ? ["700+ projects", "Nationwide Türkiye", "24/7 operations"]
     : isRu
-      ? ["700+ проектов", "81 город", "Операции 24/7"]
+      ? ["700+ проектов", "По всей Турции", "Операции 24/7"]
       : isZh
         ? ["700+ 项目", "土耳其全国", "24/7 运营"]
         : isDe
-          ? ["700+ Projekte", "81 Städte", "Betreuung rund um die Uhr"]
+          ? ["700+ Projekte", "Türkeiweit", "Betreuung rund um die Uhr"]
           : ["700+ proje", "81 il", "7/24 operasyon"];
 
   const computedHeadingId =

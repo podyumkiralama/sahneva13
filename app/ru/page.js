@@ -80,15 +80,15 @@ const HERO_DICTIONARY = {
     { text: "Шатры в Турции", color: "text-emerald-200" },
   ],
   keywordsAriaLabel: "Основные услуги Sahneva на русском языке",
-  badge: "Сцены • LED-экраны • Звук • Свет • Шатры в Турции",
-  titleLine1Prefix: "Sahneva",
-  titleLine1: "аренда оборудования",
+  badge: "Локальная техническая команда в Турции",
+  titleLine1Prefix: "Sahneva —",
+  titleLine1: "технический партнёр",
   titleLine2: "для мероприятий в Турции",
   description:
-    "Профессиональная <strong>аренда сцен, подиумов, LED-экранов, звука, света, truss-систем, шатров, столов и стульев</strong> для конференций, концертов, выставок, корпоративных событий и open-air проектов в Стамбуле и по всей Турции.",
+    "Локально планируем и реализуем <strong>сцены, подиумы, LED-экраны, звук, свет, truss-системы, шатры и мебель</strong> для конференций, концертов, выставок, корпоративных событий и проектов на открытом воздухе по всей Турции.",
   proofPoints: [
     { value: "700+", label: "проектов" },
-    { value: "81 город", label: "по Турции" },
+    { value: "Вся Турция", label: "логистика и монтаж" },
     { value: "24/7", label: "связь и поддержка" },
     { value: "1 команда", label: "сцена, LED, звук" },
   ],
@@ -96,20 +96,21 @@ const HERO_DICTIONARY = {
   ctaCallAria: "Позвонить в Sahneva",
   ctaWhatsapp: "WhatsApp",
   ctaWhatsappAria: "Открыть WhatsApp для запроса расчета",
-  ctaQuote: "Услуги",
-  ctaQuoteAria: "Перейти к услугам",
-  quoteAnchor: "#ru-services",
-  whatsappText:
-    "%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%20%D0%B2%20%D0%A2%D1%83%D1%80%D1%86%D0%B8%D0%B8.",
+  ctaQuote: "Получить расчёт",
+  ctaQuoteAria: "Открыть страницу запроса расчёта",
+  quoteAnchor: "/ru/contact",
+  whatsappText: encodeURIComponent(
+    "Здравствуйте, хочу получить расчёт для мероприятия в Турции.\n\nГород:\nДата:\nПлощадка:\nТип мероприятия:",
+  ),
 };
 
 const RU_WHATSAPP_HREF = `https://wa.me/905453048671?text=${HERO_DICTIONARY.whatsappText}`;
 
 const HERO_BELOW_DICTIONARY = {
-  sectionBadge: "Как мы работаем",
-  sectionTitle: "Технический комплект под мероприятие в Турции",
+  sectionBadge: "3 шага к расчёту",
+  sectionTitle: "От брифа до понятного предложения",
   sectionDesc:
-    "Если вы планируете конференцию, выставку, gala, запуск продукта или open-air проект в Турции, Sahneva собирает сцену, LED, звук, свет, шатры, мебель и монтажную команду в одном рабочем плане.",
+    "Сообщите основные параметры события. Команда Sahneva в Турции объединит оборудование, местную логистику, монтаж, работу на площадке и демонтаж в одном плане.",
   featuresAriaLabel: "Преимущества Sahneva для русскоязычных клиентов",
   features: [
     {
@@ -133,25 +134,26 @@ const HERO_BELOW_DICTIONARY = {
   ],
   processSteps: [
     {
-      title: "Бриф",
+      title: "Отправьте бриф",
       desc: "Город, дата, площадка, формат события, гости и нужные услуги.",
       badge: "1",
     },
     {
-      title: "Комплект",
-      desc: "Сцена, LED, звук, свет, шатер, мебель и монтажная команда.",
+      title: "Мы подготовим решение",
+      desc: "Сцена, LED, звук, свет, шатёр, мебель, логистика и техническая команда.",
       badge: "2",
     },
     {
-      title: "Монтаж",
-      desc: "Доставка, установка, тесты, поддержка и демонтаж после события.",
+      title: "Получите предложение",
+      desc: "Понятный объём работ: доставка, монтаж, тесты, поддержка и демонтаж.",
       badge: "3",
     },
   ],
+  processAriaLabel: "Три шага для получения расчёта мероприятия в Турции",
   consultationTitle: "Нужен расчет для мероприятия в Турции?",
   consultationDesc:
-    "Отправьте дату, город и нужные услуги: <strong>сцена, LED-экран, звук, свет, шатер или мебель</strong>. Мы подготовим понятный комплект.",
-  consultationCta: "Связаться",
+    "Отправьте город, дату, площадку и тип события. Мы подготовим техническое решение для <strong>сцены, LED-экрана, звука, света, шатра или мебели</strong>.",
+  consultationCta: "Получить расчёт",
   consultationCtaHref: "/ru/contact",
 };
 
@@ -168,15 +170,31 @@ const SERVICES_DICTIONARY = {
   imageAlt: "{{title}} в Турции - Sahneva",
 };
 
-const CITY_SIGNALS = [
-  "Стамбул",
-  "Анталья",
-  "Анкара",
-  "Измир",
-  "Бурса",
-  "Коджаэли",
-  "Конья",
-  "по всей Турции",
+const RU_LOCAL_ADVANTAGES = [
+  {
+    title: "Локальная команда в Турции",
+    text: "Планирование, координацию с площадкой и техническое исполнение ведёт одна команда.",
+  },
+  {
+    title: "Быстрая связь",
+    text: "Обсуждаем бриф на русском, английском или турецком и оперативно уточняем детали.",
+  },
+  {
+    title: "Работа по всей Турции",
+    text: "Планируем выезд, график и ресурсы под город, площадку и дату проекта.",
+  },
+  {
+    title: "Локальная логистика",
+    text: "Организуем транспорт, заезд, разгрузку и вывоз оборудования после события.",
+  },
+  {
+    title: "Монтаж и демонтаж",
+    text: "Профессиональная бригада устанавливает, тестирует и разбирает технический комплект.",
+  },
+  {
+    title: "Техник на площадке",
+    text: "Оператор и технический специалист поддерживают программу во время мероприятия.",
+  },
 ];
 
 const RU_EVENT_FORMATS = [
@@ -348,14 +366,17 @@ export default function RussianHomePage() {
       <div id="ru-services" />
       <ServicesTabs servicesData={RU_SERVICES} dictionary={SERVICES_DICTIONARY} />
 
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-14 md:py-18" aria-labelledby="ru-local-advantages-title">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
-              Мероприятия в Турции
+              Локальный партнёр в Турции
             </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
-              Оборудование и площадочная команда под русскоязычный бриф
+            <h2
+              id="ru-local-advantages-title"
+              className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl"
+            >
+              Почему Sahneva для проекта в Турции
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-700 md:text-lg">
               Sahneva помогает брендам, агентствам и частным организаторам, которые
@@ -364,13 +385,16 @@ export default function RussianHomePage() {
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {CITY_SIGNALS.map((city) => (
-              <div
-                key={city}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-extrabold text-slate-900"
+            {RU_LOCAL_ADVANTAGES.map((advantage) => (
+              <article
+                key={advantage.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4"
               >
-                {city}
-              </div>
+                <h3 className="text-base font-extrabold text-slate-950">
+                  {advantage.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-700">{advantage.text}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -472,4 +496,3 @@ export default function RussianHomePage() {
     </div>
   );
 }
-

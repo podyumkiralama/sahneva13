@@ -331,6 +331,8 @@ export default function ContactPage() {
                       <strong className="block text-neutral-900">{COMPANY.legalName}</strong>
                       {COMPANY.address}
                       <br />
+                      Posta Kodu: {COMPANY.postalCode}
+                      <br />
                       Vergi Dairesi / No: {COMPANY.taxOffice} / {COMPANY.taxNumber}
                       <br />
                       MERSİS No: {COMPANY.mersisNo}
