@@ -44,7 +44,7 @@ const SOCIAL_LINKS = [
     rel: "me",
   },
   {
-    href: "https://www.linkedin.com/in/sahneva-organizasyon/",
+    href: "https://www.linkedin.com/company/sahneva-organizasyon",
     label: "Sahneva LinkedIn",
     title: "LinkedIn",
     icon: Linkedin,
