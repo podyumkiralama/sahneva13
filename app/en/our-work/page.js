@@ -6,6 +6,8 @@ import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import CaseSpecStrip from "@/components/en/CaseSpecStrip";
+import { getEnProjects } from "@/lib/enProjects";
 
 export const revalidate = 86400;
 
@@ -365,6 +367,63 @@ export default function OurWorkPage() {
             </div>
           </div>
           <VideoGallery videos={PROJECT_VIDEOS} />
+        </div>
+      </section>
+
+      {/* Vaka çalışmaları — video galerisi neyi kurduğumuzu gösteriyor, bu bölüm
+          nasıl kurulduğunu anlatıyor. Teknik kapsam şeridi her vakada aynı
+          sırada, böylece iki proje yan yana karşılaştırılabiliyor. */}
+      <section
+        className="relative px-4 py-16 sm:px-6 lg:px-8"
+        aria-labelledby="case-studies-title"
+      >
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-10">
+            <SectionEyebrow>Case Studies</SectionEyebrow>
+            <h2
+              id="case-studies-title"
+              className="mt-4 text-3xl font-black tracking-tight md:text-5xl"
+            >
+              Selected projects, with the technical scope
+            </h2>
+          </div>
+
+          <ul className="grid list-none grid-cols-1 gap-6 p-0 lg:grid-cols-2">
+            {getEnProjects().map((project) => (
+              <li
+                key={project.slug}
+                className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur md:p-8"
+              >
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
+                  {project.category}
+                </p>
+                <h3 className="mt-3 text-xl font-black leading-snug md:text-2xl">
+                  <Link
+                    href={`/en/projects/${project.slug}`}
+                    className="transition hover:text-cyan-200"
+                  >
+                    {project.title}
+                  </Link>
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-slate-300">
+                  {project.excerpt}
+                </p>
+
+                <CaseSpecStrip
+                  specs={project.specs}
+                  className="mt-6 !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-2"
+                />
+
+                <Link
+                  href={`/en/projects/${project.slug}`}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-black text-cyan-200 underline underline-offset-4 transition hover:text-white"
+                >
+                  Read the full case study
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

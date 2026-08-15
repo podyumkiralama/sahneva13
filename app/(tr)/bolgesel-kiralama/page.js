@@ -4,6 +4,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -163,7 +164,7 @@ function CoverageNote() {
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
         <div className="max-w-3xl">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
-            81 il kurulum ağı
+            {PROVINCES_COUNT} il kurulum ağı
           </p>
           <h2 id="tum-sehirler-baslik" className="mt-3 text-2xl font-black md:text-3xl">
             Hangi illerde kurulum yapıyoruz?

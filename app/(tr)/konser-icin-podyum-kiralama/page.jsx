@@ -11,6 +11,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -330,7 +331,7 @@ function StructuredData() {
 // --- HERO ---
 function HeroSection() {
   const stats = [
-    { icon: "🎤", value: "500+", label: "Konser & Festival" },
+    { icon: "🎤", value: PROJECTS_COMPLETED, label: "Tamamlanan Proje" },
     { icon: "🇹🇷", value: "Türkiye Geneli", label: "Hizmet Alanı" },
     { icon: "⏱️", value: `${YEARS_OF_EXPERIENCE} Yıl`, label: "Sahne Deneyimi" },
     { icon: "🛡️", value: "Mühendislik", label: "Onaylı Sistemler" },

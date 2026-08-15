@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_URL = `${SITE_URL}/de/faq`;
@@ -73,7 +74,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Sind Sie in der gesamten Türkei im Einsatz",
-        a: "Ja. Unser Team sitzt in Istanbul und fährt in alle 81 Provinzen. Für Projekte außerhalb Istanbuls weisen wir Transport, Anfahrt und Unterbringung im Angebot getrennt aus.",
+        a: `Ja. Unser Team sitzt in Istanbul und fährt in alle ${PROVINCES_COUNT} Provinzen. Für Projekte außerhalb Istanbuls weisen wir Transport, Anfahrt und Unterbringung im Angebot getrennt aus.`,
       },
       {
         q: "Ist Ihr Equipment aktuell und wie wird es gewartet",

@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -226,17 +227,17 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">183+ client reviews</div>
+            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
+            <div className="text-white/80 text-sm">{GOOGLE_REVIEW_COUNT}+ client reviews</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Completed projects</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 cities</div>
+            <div className="text-xl font-black text-white">{PROVINCES_COUNT} cities</div>
             <div className="text-white/80 text-sm">Nationwide coverage</div>
           </div>
         </div>
@@ -470,9 +471,9 @@ function Technical() {
 /* ================== Performance stats ================== */
 function StatsBand() {
   const stats = [
-    { value: "300+", label: "Delivered productions", icon: "🎬" },
+    { value: PROJECTS_COMPLETED, label: "Delivered productions", icon: "🎬" },
     { value: "50+", label: "Enterprise clients", icon: "🏢" },
-    { value: "81", label: "Cities served", icon: "🗺️" },
+    { value: `${PROVINCES_COUNT}`, label: "Cities served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of experience", icon: "⭐" },
   ];
 
@@ -705,7 +706,7 @@ function Articles() {
                     Why partner with Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and service across 81 cities</strong>
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and service across {PROVINCES_COUNT} cities</strong>
                     position us as your trusted LED screen partner, backed by cutting-edge equipment,
                     certified crews and 24/7 technical response.
                   </p>
@@ -1043,7 +1044,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service in 81 cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+              📍 Service in {PROVINCES_COUNT} cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>
@@ -1071,8 +1072,8 @@ function LedScreenJsonLd() {
         url: `${ORIGIN}/en/led-screen-rental`,
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "183",
+          ratingValue: GOOGLE_RATING,
+          reviewCount: `${GOOGLE_REVIEW_COUNT}`,
           bestRating: "5"
         },
       },

@@ -10,6 +10,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -801,7 +802,7 @@ export default function Page() {
                 <p className="mt-2 text-sm leading-7 text-slate-700">
                   At Sahneva, with the experience gained across{" "}
                   <strong className="font-semibold text-slate-900">
-                    700+ successful projects
+                    {PROJECTS_COMPLETED} successful projects
                   </strong>{" "}
                   in stage, sound-lighting, LED screen and tent rental, we manage
                   the entire process from technical scouting to installation under

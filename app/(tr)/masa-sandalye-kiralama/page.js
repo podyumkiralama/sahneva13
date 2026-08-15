@@ -16,6 +16,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -364,14 +365,14 @@ function Hero() {
             <span className="text-2xl mb-2" aria-hidden="true">
               🏆
             </span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Proje</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">
               🚀
             </span>
-            <div className="text-xl font-black text-white">81 İl</div>
+            <div className="text-xl font-black text-white">{PROVINCES_COUNT} İl</div>
             <div className="text-white/80 text-sm">Hizmet</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -908,8 +909,8 @@ function StatsBand() {
   const stats = [
     { value: "3000+", label: "Sandalye", icon: "🪑" },
     { value: "500+", label: "Masa", icon: "🎪" },
-    { value: "300+", label: "Başarılı Proje", icon: "🏆" },
-    { value: "81", label: "İlde Hizmet", icon: "🗺️" },
+    { value: PROJECTS_COMPLETED, label: "Başarılı Proje", icon: "🏆" },
+    { value: `${PROVINCES_COUNT}`, label: "İlde Hizmet", icon: "🗺️" },
   ];
 
   return (
@@ -1224,7 +1225,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      {YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
+                      {YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet
                     </strong>{" "}
                     ile masa sandalye kiralama konusunda güvenilir çözüm
                     ortağınız. Geniş envanter, uzman ekip ve 7/24 teknik destek
@@ -1610,7 +1611,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

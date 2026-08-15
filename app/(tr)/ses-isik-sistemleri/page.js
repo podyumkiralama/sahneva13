@@ -21,6 +21,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -50,7 +51,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title: "Ses ve Işık Sistemleri Kiralama",
-  description: "Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. 81 ilde canlı operasyon desteği.",
+  description: `Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. ${PROVINCES_COUNT} ilde canlı operasyon desteği.`,
   alternates: buildLanguageAlternates({
     tr: "/ses-isik-sistemleri",
     en: "/en/sound-light-rental",
@@ -203,19 +204,19 @@ const HERO_METRICS = [
     detail: "Konser, festival ve kurumsal etkinliklerde canlı operasyon.",
   },
   {
-    value: "700+",
+    value: PROJECTS_COMPLETED,
     label: "Etkinlik",
     detail: "Lansmandan festivale her ölçekte ses ve ışık kurulumu.",
   },
   {
-    value: "81 İl",
+    value: `${PROVINCES_COUNT} İl`,
     label: "Kurulum Operasyonu",
     detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
   },
   {
-    value: "4.9/5",
+    value: `${GOOGLE_RATING}/5`,
     label: "Müşteri Puanı",
-    detail: "250+ değerlendirmede yüksek memnuniyet ortalaması.",
+    detail: `Google Business Profile üzerinde ${GOOGLE_REVIEW_COUNT}+ değerlendirme ortalaması.`,
   },
 ];
 
@@ -614,9 +615,9 @@ function Technical() {
 /* ================== İstatistik Bant ================== */
 function StatsBand() {
   const stats = [
-    { value: "700+", label: "Başarılı Proje", icon: "🏆" },
+    { value: PROJECTS_COMPLETED, label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
-    { value: "81", label: "İlde Hizmet", icon: "🗺️" },
+    { value: `${PROVINCES_COUNT}`, label: "İlde Hizmet", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
   
@@ -850,7 +851,7 @@ function Articles() {
                     Neden Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet</strong> ile 
+                    <strong>{YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet</strong> ile 
                     ses ve ışık sistemleri konusunda güvenilir çözüm ortağınız. Profesyonel ekipman, 
                     uzman ekip ve 7/24 teknik destek garantisi.
                   </p>
@@ -1148,7 +1149,7 @@ function CTA() {
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun ses ve ışık sistemlerini sunalım. Ücretsiz keşif, profesyonel danışmanlık ve 
-              rekabetçi fiyat garantisi ile hizmetinizdeyiz.
+              kalem kalem şeffaf fiyatlandırma ile hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
@@ -1169,7 +1170,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>
@@ -1248,7 +1249,7 @@ function SoundLightJsonLd() {
         "@id": webPageId,
         name: "Ses ve Işık Sistemleri Kiralama | Profesyonel Çözümler | Sahneva",
         description:
-          "Konser, festival ve kurumsal etkinlikler için profesyonel ses & ışık sistemleri kiralama. Line array, dijital mikser, hareketli ışık, truss ve canlı operasyon. 81 ilde hizmet.",
+          `Konser, festival ve kurumsal etkinlikler için profesyonel ses & ışık sistemleri kiralama. Line array, dijital mikser, hareketli ışık, truss ve canlı operasyon. ${PROVINCES_COUNT} ilde hizmet.`,
         url: pageUrl,
         inLanguage: "tr-TR",
         isPartOf: { "@id": WEBSITE_ID },

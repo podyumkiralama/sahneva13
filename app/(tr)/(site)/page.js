@@ -22,6 +22,7 @@ import {
   HOME_PAGE_TITLE,
 } from "@/lib/seo/seoConfig";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
@@ -93,7 +94,7 @@ const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
 const HOME_PAGE_DESCRIPTION =
-  "Sahne, podyum, LED ekran, ses ve ışık sistemlerini tek ekipten kiralayın. Türkiye geneli hızlı kurulum, 700+ proje deneyimiyle anahtar teslim prodüksiyon.";
+  `Sahne, podyum, LED ekran, ses ve ışık sistemlerini tek ekipten kiralayın. Türkiye geneli hızlı kurulum, ${PROJECTS_COMPLETED} proje deneyimiyle anahtar teslim prodüksiyon.`;
 
 const ogUrl =
   getOgImageUrl?.({ path: "/img/hero-bg.webp", absolute: true }) ??

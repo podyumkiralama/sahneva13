@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. SETTINGS & CONSTANTS ================== */
 export const revalidate = 86400;
@@ -211,7 +212,7 @@ function StructuredData() {
 // --- HERO ---
 function HeroSection() {
   const stats = [
-    { icon: "🎤", value: "500+", label: "Concerts & Festivals" },
+    { icon: "🎤", value: PROJECTS_COMPLETED, label: "Completed Projects" },
     { icon: "🇹🇷", value: "Nationwide", label: "Service Area" },
     { icon: "??", value: `${YEARS_OF_EXPERIENCE} Years`, label: "Field Experience" },
     { icon: "🛡️", value: "Engineering", label: "Certified Systems" },

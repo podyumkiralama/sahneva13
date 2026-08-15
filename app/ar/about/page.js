@@ -5,6 +5,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 const AR_ABOUT_URL = buildCanonical("/ar/about");
@@ -29,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:
-      `حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد إلى ${YEARS_OF_EXPERIENCE} عامًا. أكثر من 700 مشروع ناجح ونسبة رضا 98%.`,
+      `حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد إلى ${YEARS_OF_EXPERIENCE} عامًا. أكثر من ${PROJECTS_COMPLETED_COUNT} مشروع ناجح وتقييم ${GOOGLE_RATING}/5 على Google.`,
     url: AR_ABOUT_URL,
     images: [
       {
@@ -227,7 +228,7 @@ export default function ArabicAboutPage() {
           <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
             <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
               <span className="text-2xl mb-2" aria-hidden="true">🎬</span>
-              <div className="text-xl font-black text-white">700+</div>
+              <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
               <div className="text-white/80 text-sm">مشروع منجز</div>
             </div>
             <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -270,10 +271,10 @@ export default function ArabicAboutPage() {
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   {[
-                    { number: "700+", label: "مشروع منجز" },
-                    { number: "98%", label: "نسبة الرضا" },
-                    { number: "81", label: "محافظة نغطّيها" },
-                    { number: "15+", label: "فرد في الفريق المتخصص" },
+                    { number: PROJECTS_COMPLETED, label: "مشروع منجز" },
+                    { number: `${GOOGLE_RATING}/5`, label: "تقييم Google" },
+                    { number: `${PROVINCES_COUNT}`, label: "محافظة نغطّيها" },
+                    { number: TECHNICAL_TEAM_SIZE, label: "فرد في الفريق المتخصص" },
                   ].map((stat, index) => (
                     <div
                       key={index}
@@ -460,7 +461,7 @@ export default function ArabicAboutPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "أهداف خالية من الأخطاء في البنية التحتية التقنية",
-                    "نجاح يتجاوز 98% في رضا العملاء",
+                    "متابعة رضا العملاء عبر تقييمات Google العلنية",
                     "ابتكار مستمر وتحديث للمعدات",
                     "عمليات مراعية للبيئة ومستدامة",
                   ].map((item, index) => (
@@ -476,7 +477,7 @@ export default function ArabicAboutPage() {
                 <div className="text-4xl mb-4" aria-hidden="true">🚀</div>
                 <h3 className="text-3xl font-black text-gray-900 mb-6">رؤيتنا</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  أن نكون <strong>أكبر شركة تقنيات فعاليات في تركيا</strong> بحلول 2028 وأن ننمو لنصبح علامة عالمية في أوروبا والشرق الأوسط، بوضع معايير جديدة من خلال التحوّل الرقمي والتقنيات الخضراء.
+                  <strong>هدفنا حتى 2028:</strong> أن نصبح من أكبر شركات تقنيات الفعاليات في تركيا وعلامة معروفة في أوروبا والشرق الأوسط، بوضع معايير جديدة من خلال التحوّل الرقمي والتقنيات الخضراء.
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   {[

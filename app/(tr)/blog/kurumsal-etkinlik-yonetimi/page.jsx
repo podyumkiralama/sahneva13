@@ -395,7 +395,7 @@ export default function BlogPostCorporate() {
                     </div>
                     <div className="mt-6 pt-6 border-t border-gray-100 text-center">
                       <p className="text-green-800 font-medium text-lg m-0">
-                        "Sonuç: Sıfır teknik aksama, %98 katılımcı memnuniyeti."
+                        "Sonuç: Program tek bir teknik kesinti yaşamadan tamamlandı, tüm oturumlar planlanan saatte başladı."
                       </p>
                     </div>
                   </div>

@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -226,17 +227,17 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.9/5</div>
+            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
             <div className="text-white/80 text-sm">250+ reviews</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Events delivered</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 provinces</div>
+            <div className="text-xl font-black text-white">{PROVINCES_COUNT} provinces</div>
             <div className="text-white/80 text-sm">Nationwide coverage</div>
           </div>
         </div>
@@ -478,9 +479,9 @@ function Technical() {
 /* ================== Statistics band ================== */
 function StatsBand() {
   const stats = [
-    { value: "700+", label: "Successful Projects", icon: "??" },
+    { value: PROJECTS_COMPLETED, label: "Successful Projects", icon: "??" },
     { value: "50+", label: "Enterprise clients", icon: "🏢" },
-    { value: "81", label: "Provinces served", icon: "🗺️" },
+    { value: `${PROVINCES_COUNT}`, label: "Provinces served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of experience", icon: "⭐" },
   ];
 
@@ -704,7 +705,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and nationwide coverage</strong>
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and nationwide coverage</strong>
                     make us a trusted production partner. Premium equipment, specialised crews and 24/7 technical support are included with every project.
                   </p>
                 </div>
@@ -1031,7 +1032,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service across 81 provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
+              📍 Service across {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>
         </div>

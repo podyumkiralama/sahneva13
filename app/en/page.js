@@ -13,6 +13,8 @@ import CorporateEvents from "@/components/CorporateEvents";
 import CorporateIntro from "@/components/CorporateIntro";
 import TechCapabilities from "@/components/TechCapabilities";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import WhyInternationalClients from "@/components/en/WhyInternationalClients";
+import ProductionCapabilities from "@/components/en/ProductionCapabilities";
 import DeferredHydration from "@/components/DeferredHydration.client";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -20,6 +22,7 @@ import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/se
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_EN } from "@/lib/faqData";
+import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
@@ -446,35 +449,41 @@ const SERVICES_EN = [
 ];
 
 const HERO_DICT_EN = {
+  // Kapsam şeridi: hizmet adları yerine teknik departmanlar. Uluslararası
+  // ekipler kapsamı departman adıyla okuyor.
   keywords: [
-    { text: "Stage Rental", color: "text-blue-200" },
-    { text: "LED Screen Rental", color: "text-purple-200" },
-    { text: "Sound & Lighting", color: "text-cyan-200" },
-    { text: "Podium Setup", color: "text-emerald-200" },
+    { text: "Stage", color: "text-blue-200" },
+    { text: "LED", color: "text-purple-200" },
+    { text: "Sound", color: "text-cyan-200" },
+    { text: "Lighting", color: "text-amber-200" },
+    { text: "Truss", color: "text-emerald-200" },
+    { text: "Technical Crew", color: "text-sky-200" },
   ],
-  keywordsAriaLabel: "Featured services",
-  badge: "Turkey-Based Team \u2022 Nationwide Coverage \u2022 One Technical Partner",
-  titleLine1Prefix: "with Sahneva",
-  titleLine1: "Event Production",
-  titleLine2: "One Team, One Roof, One Solution",
+  keywordsAriaLabel: "Technical production scope",
+  badge: "One Team • One Roof • One Solution",
+  titleLine1Prefix: "Your Trusted",
+  titleLine1: "Technical Production Partner",
+  titleLine2: "in Türkiye",
   description:
-    "With <strong>700+ projects</strong> in stage rental, LED screen rental, sound-lighting systems and podium installation, we deliver turnkey solutions across T\u00fcrkiye.",
+    "From international conferences to product launches, exhibitions and large-scale events — we provide the technical production, equipment and on-site execution your project needs.",
   proofPoints: [
-    { value: "700+", label: "completed projects" },
-    { value: "Across Türkiye", label: "local logistics and setup" },
-    { value: "24/7", label: "communication and support" },
-    { value: "One team", label: "stage, LED, audio and lighting" },
+    { value: PROJECTS_COMPLETED, label: "Projects" },
+    { value: `${PROVINCES_COUNT}`, label: "Cities" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years" },
   ],
-  ctaCall: "Call Now",
-  ctaCallAria: "Call Sahneva now",
-  ctaWhatsapp: "WhatsApp Quote",
-  ctaWhatsappAria: "Get a WhatsApp quote \u2014 opens in new tab",
-  ctaQuote: "Get a Quote",
-  ctaQuoteAria: "Open the event quote request form",
+  // "Call Now" hero'dan cikarildi; footer ve /en/contact sayfasinda duruyor.
+  // Birincil CTA teklif formu, ikincil CTA WhatsApp.
+  ctaOrder: ["quote", "whatsapp"],
+  ctaWhatsapp: "WhatsApp Our Team",
+  ctaWhatsappAria: "Message the Sahneva team on WhatsApp — opens in new tab",
+  ctaQuote: "Plan Your Event",
+  ctaQuoteAria: "Open the event planning and proposal form",
   quoteAnchor: "/en/contact#proposal-form",
   whatsappText: encodeURIComponent(
-    "Hello, I would like a quote for an event in Türkiye.\n\nCity:\nDate:\nVenue:\nEvent type:",
+    "Hello, we are planning an event in Türkiye and would like to discuss technical production.\n\nCity:\nDate:\nVenue:\nEvent type:\nExpected guests:",
   ),
+  whatsappUtm:
+    "utm_source=homepage_en&utm_medium=hero_secondary_cta&utm_campaign=plan_your_event",
 };
 
 const HERO_BELOW_DICT_EN = {
@@ -552,7 +561,7 @@ const CORPORATE_INTRO_DICT_EN = {
     "Emergency scenario and backup system",
   ],
   stats: [
-    { value: "250+", label: "Corporate events" },
+    { value: CORPORATE_EVENTS, label: "Corporate events" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of field experience" },
     { value: "7/24", label: "Technical support" },
   ],
@@ -731,14 +740,14 @@ const CORPORATE_EVENTS_DICT_EN = {
     "https://wa.me/905453048671?text=Hello%2C+I'm+planning+a+corporate+event.+Can+we+discuss+staging+and+technical+production+options%3F",
   whatsappCtaAria: "Send a WhatsApp message",
   whatsappSrHint: "(opens in a new tab)",
-  supportStats: ["24/7 technical standby", "Replies within 15 minutes"],
+  supportStats: ["24/7 technical standby", "Detailed quote within 2 hours"],
 };
 
 const TECH_CAPABILITIES_DICT_EN = {
   sectionPill: "Technical Capacity & Infrastructure",
-  sectionTitlePrefix: "Türkiye's",
-  sectionTitleHighlight: "#1",
-  sectionTitleSuffix: "Event Technology Partner",
+  sectionTitlePrefix: "A Trusted",
+  sectionTitleHighlight: "Event Production Partner",
+  sectionTitleSuffix: "in Türkiye",
   sectionDescription:
     "LED wall technology, sound-light systems and reliable infrastructure solutions covering all corporate event needs under one roof.",
   card1Title: "Technical Solutions",
@@ -793,12 +802,12 @@ const WHY_CHOOSE_US_DICT_EN = {
     "Generator, UPS and redundant power infrastructure",
   ],
   features: [
-    { title: "High Customer Satisfaction", desc: "Over 98% customer satisfaction rate. References and reviews are our strongest indicator.", stat: "98% Satisfaction" },
+    { title: "Rated by Our Clients", desc: `${GOOGLE_RATING}/5 average from ${GOOGLE_REVIEW_COUNT}+ verified Google reviews. Named client references and on-site project videos back it up.`, stat: `${GOOGLE_RATING}/5 on Google` },
     { title: "Fast Setup & Delivery", desc: "Same-day professional installation for stage, LED screen and sound-lighting setups.", stat: "2–6 Hours" },
     { title: "Premium LED Technology", desc: "High brightness and clarity with P2–P6 indoor/outdoor LED screens.", stat: "P2–P6" },
-    { title: "Expert Technical Team", desc: `${YEARS_OF_EXPERIENCE} years of experience in stage, sound, lighting and LED — expert technical crew.`, stat: "15+ Experts" },
-    { title: "Competitive Pricing Guarantee", desc: "Transparent and predictable pricing that fits your budget without compromising quality.", stat: "30% Savings" },
-    { title: "Nationwide Service", desc: "Production support across all 81 provinces from our Istanbul-based team.", stat: "81 Provinces" },
+    { title: "Expert Technical Team", desc: `${YEARS_OF_EXPERIENCE} years of experience in stage, sound, lighting and LED — expert technical crew.`, stat: `${TECHNICAL_TEAM_SIZE} Experts` },
+    { title: "Transparent, Itemised Pricing", desc: "Every quote lists equipment, crew, logistics, setup and dismantling as separate lines, so you can see exactly what you are paying for.", stat: "Itemised Quotes" },
+    { title: "Nationwide Service", desc: `Production support across all ${PROVINCES_COUNT} provinces from our Istanbul-based team.`, stat: `${PROVINCES_COUNT} Provinces` },
   ],
 };
 
@@ -830,13 +839,13 @@ const FAQ_DICT_EN = {
 
 /* ================== Metadata ================== */
 export const metadata = {
-  title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye",
+  title: "Technical Production Partner in Türkiye | Stage, LED, Sound",
   description:
-    "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation for corporate events, concerts and public activations across Türkiye.",
+    "Türkiye-based technical production partner for conferences, launches and large-scale events. Stage, LED, sound, lighting, truss and on-site crew from one team.",
   openGraph: {
-    title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye | Sahneva",
+    title: "Your Trusted Technical Production Partner in Türkiye | Sahneva",
     description:
-      "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation for corporate events, concerts and public activations across Türkiye.",
+      "From international conferences to product launches and exhibitions, Sahneva delivers the technical production, equipment and on-site execution your event needs across Türkiye.",
     url: EN_HOME_URL,
     type: "website",
     locale: "en_US",
@@ -846,15 +855,15 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/og/sahneva-og.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva – Stage, LED Wall, Sound & Lighting Rentals across Türkiye",
+        alt: "Sahneva – technical production partner in Türkiye: stage, LED, sound and lighting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stage, LED Wall, Sound & Lighting Rentals Across Türkiye | Sahneva",
+    title: "Your Trusted Technical Production Partner in Türkiye | Sahneva",
     description:
-      "Sahneva delivers stages, LED walls, sound and lighting systems with turnkey installation across Türkiye.",
+      "Stage, LED, sound, lighting, truss and on-site technical crew for conferences, launches and large-scale events across Türkiye.",
     images: [`${BASE_SITE_URL}/img/og/sahneva-og.webp`],
   },
   alternates: {
@@ -889,6 +898,10 @@ export default function EnglishHomePage() {
         </p>
       </div>
 
+      {/* Why international clients choose Sahneva — kısa sürüm.
+          Uzun sürüm /en/event-production-company-turkey sayfasında. */}
+      <WhyInternationalClients />
+
       {/* Services */}
       <section
         aria-labelledby="services-title"
@@ -903,6 +916,9 @@ export default function EnglishHomePage() {
         <ServicesTabs servicesData={SERVICES_EN} dictionary={SERVICES_DICT_EN} />
       </section>
 
+      {/* Ürettiğimiz etkinlik formatları — hizmet listesinin bir katman üstü. */}
+      <ProductionCapabilities />
+
       {/* Projects */}
       <section
         aria-labelledby="projects-title"
@@ -910,7 +926,7 @@ export default function EnglishHomePage() {
       >
         <h2 id="projects-title" className="sr-only">Our Projects</h2>
         <p className="sr-only">
-          Professional partner for 700+ corporate events, concerts, fairs and activations.
+          Professional partner for {PROJECTS_COMPLETED} corporate events, concerts, fairs and activations.
         </p>
         <Link className="sr-only" href="/en/projects">View projects</Link>
         <DeferredHydration

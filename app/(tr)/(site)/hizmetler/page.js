@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -344,7 +345,7 @@ export default function ServicesPage() {
     {
       icon: "🌍",
       title: "Türkiye Geneli",
-      description: "81 ilde teknik ekip ve lojistik altyapı"
+      description: `${PROVINCES_COUNT} ilde teknik ekip ve lojistik altyapı`
     },
     {
       icon: "📞",

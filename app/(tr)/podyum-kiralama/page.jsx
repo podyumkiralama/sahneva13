@@ -25,6 +25,7 @@ import {
   Ruler,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -915,7 +916,7 @@ function TechnicalSection() {
 
 function StatsSection() {
   const stats = [
-    { value: "700+", label: "Başarılı Proje", icon: "🏆" },
+    { value: PROJECTS_COMPLETED, label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
     { value: "2-6", label: "Saat Kurulum", icon: "⏱️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },

@@ -1,4 +1,5 @@
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const HERO = {
   src: "/img/kurumsal/premium/kurumsal-organizasyon-hero-desktop.webp",
@@ -10,7 +11,7 @@ export const HERO = {
 
 export const HERO_STATS = [
   { value: `${YEARS_OF_EXPERIENCE} yıl`, label: "Deneyim" },
-  { value: "700+", label: "Başarılı proje" },
+  { value: PROJECTS_COMPLETED, label: "Başarılı proje" },
   { value: "300 m²", label: "P1.9 LED stoğu" },
 ];
 
@@ -45,7 +46,7 @@ export const ASSURANCE_ITEMS = [
 // içeriğinin sayfadaki diğer bölümlerle tekrara düşmediği kontrol edilmeli.
 export const GUIDE_PROMISES = [
   "Sahne, LED, ışık ve reji aynı teknik plan içinde",
-  "2012'den bu yana 700+ etkinlik deneyimi",
+  `2012'den bu yana ${PROJECTS_COMPLETED} etkinlik deneyimi`,
   "Kurumsal ekipler için net sorumluluk ve tek muhatap",
   "Prova, yedek akış ve saha günü operasyon disiplini",
   "Görsel gücü yüksek, marka algısını taşıyan prodüksiyon",

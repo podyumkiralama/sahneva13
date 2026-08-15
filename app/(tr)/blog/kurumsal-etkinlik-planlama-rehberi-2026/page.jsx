@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -685,7 +686,7 @@ export default function KurumsalEtkinlikPlanlamaPage() {
             Etkinliğinizi şansa bırakmayın
           </h3>
           <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
-            Sahneva olarak 700+ başarılı projede edindiğimiz deneyimle, 81 ilde teknik keşiften yayın
+            Sahneva olarak {PROJECTS_COMPLETED} başarılı projede edindiğimiz deneyimle, {PROVINCES_COUNT} ilde teknik keşiften yayın
             zincirine kadar tüm süreci tek elden yönetiyoruz. Çoğu projede 2 saat içinde projelendirilmiş
             teklif çıkıyoruz.
           </p>

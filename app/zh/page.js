@@ -21,6 +21,7 @@ import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 const ZH_HOME_URL = buildCanonical("/zh");
 
@@ -107,7 +108,7 @@ const HERO_DICTIONARY = {
   description:
     "从<strong>LED显示屏、舞台、音响灯光</strong>到本地运输、专业安装、现场技术支持和活动结束后的拆除，均由 Sahneva 土耳其本地团队统一协调执行，服务覆盖土耳其全国。",
   proofPoints: [
-    { value: "700+", label: "已完成项目" },
+    { value: PROJECTS_COMPLETED, label: "已完成项目" },
     { value: "全国", label: "本地物流与执行" },
     { value: "24/7", label: "活动现场支持" },
     { value: "1 个团队", label: "安装、执行与拆除" },

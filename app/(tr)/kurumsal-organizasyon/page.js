@@ -51,6 +51,7 @@ import {
 } from "./data";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -600,7 +601,7 @@ function Hero() {
           <dl className="mt-5 grid gap-4">
             {[
               ...HERO_STATS,
-              { value: "81 il", label: "Türkiye geneli kurulum" },
+              { value: `${PROVINCES_COUNT} il`, label: "Türkiye geneli kurulum" },
             ].map((item) => (
               <div key={item.label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/[0.10] pb-4 last:border-b-0 last:pb-0">
                 <dt className="text-2xl font-black text-white">{item.value}</dt>

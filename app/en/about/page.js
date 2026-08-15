@@ -10,13 +10,14 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
   // The locale layout appends " | Sahneva"; do not repeat the brand here.
   title: "About Us — Professional Event Technologies",
   description:
-    `${YEARS_OF_EXPERIENCE} years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. 700+ completed projects.`,
+    `${YEARS_OF_EXPERIENCE} years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. ${PROJECTS_COMPLETED} completed projects.`,
   alternates: {
     canonical: "https://www.sahneva.com/en/about",
     languages: {
@@ -32,7 +33,7 @@ export const metadata = {
   openGraph: {
     title: "About Us | Sahneva - Professional Event Technologies",
     description:
-      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. 700+ successful projects and 98% client satisfaction.`,
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. ${PROJECTS_COMPLETED} successful projects and a ${GOOGLE_RATING}/5 Google rating.`,
     url: "https://www.sahneva.com/en/about",
     images: [
       {
@@ -50,7 +51,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "About Us | Sahneva – Professional Event Technologies",
     description:
-      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. 700+ successful projects and 98% client satisfaction.`,
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. ${PROJECTS_COMPLETED} successful projects and a ${GOOGLE_RATING}/5 Google rating.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -150,7 +151,7 @@ export default function AboutPage() {
     {
       icon: "🌍",
       title: "Nationwide Coverage",
-      description: "Technical crews and logistics ready to serve all 81 provinces",
+      description: `Technical crews and logistics ready to serve all ${PROVINCES_COUNT} provinces`,
     },
     {
       icon: "📞",
@@ -262,7 +263,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Event Technologies • {YEARS_OF_EXPERIENCE} Years of Expertise • 700+ Productions
+          Event Technologies • {YEARS_OF_EXPERIENCE} Years of Expertise • {PROJECTS_COMPLETED} Productions
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
@@ -307,7 +308,7 @@ export default function AboutPage() {
             <span className="text-2xl mb-2" aria-hidden="true">
               🎬
             </span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Completed projects</div>
           </div>
 
@@ -534,7 +535,7 @@ export default function AboutPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "Zero-error targets in technical infrastructure",
-                    "98%+ success in customer satisfaction",
+                    "Client satisfaction tracked through public Google reviews",
                     "Continuous innovation and equipment upgrades",
                     "Environmentally conscious and sustainable operations",
                   ].map((item, index) => (
@@ -550,7 +551,7 @@ export default function AboutPage() {
                 <div className="text-4xl mb-4" aria-hidden="true">🚀</div>
                 <h3 className="text-3xl font-black text-gray-900 mb-6">Our Vision</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  To become <strong>Türkiye's largest event technology company</strong> by 2028 and grow into a global brand across Europe and the Middle East, setting new standards with digital transformation and green technologies.
+                  <strong>Our goal for 2028:</strong> to grow into one of Türkiye's largest event technology companies and become a recognised brand across Europe and the Middle East, setting new standards with digital transformation and green technologies.
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   {[

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import RichText from "@/components/RichText";
+import { PROJECTS_COMPLETED, YEARS_OF_EXPERIENCE } from "@/lib/stats";
 
 const CheckIcon = () => (
   <svg
@@ -58,8 +59,8 @@ const DEFAULT_DICTIONARY = {
     "Acil durum senaryosu ve yedek sistem",
   ],
   stats: [
-    { value: "700+", label: "Ba?ar?l? proje" },
-    { value: "15+", label: "Y\u0131ll\u0131k saha deneyimi" },
+    { value: PROJECTS_COMPLETED, label: "Ba?ar?l? proje" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Y\u0131ll\u0131k saha deneyimi" },
     { value: "7/24", label: "Teknik destek" },
   ],
   imageAlt:

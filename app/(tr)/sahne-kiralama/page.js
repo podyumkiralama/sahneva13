@@ -31,6 +31,7 @@ import {
   Eye,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -67,7 +68,7 @@ const BLUR_DATA_URL =
 export const metadata = {
   title: "Profesyonel Sahne Kiralama",
   description:
-    "Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. 81 ilde hızlı kurulum ve teknik destek.",
+    `Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. ${PROVINCES_COUNT} ilde hızlı kurulum ve teknik destek.`,
   alternates: buildLanguageAlternates({
     tr: "/sahne-kiralama",
     canonical: "/sahne-kiralama",
@@ -384,19 +385,19 @@ const HERO_METRICS = [
     detail: "Konser, konferans ve festival sahnelerinde kesintisiz operasyon.",
   },
   {
-    value: "700+",
+    value: PROJECTS_COMPLETED,
     label: "Tamamlanan Proje",
     detail: "Kurumsal lansmanlardan açık hava festivallerine geniş referans.",
   },
   {
-    value: "81 İl",
+    value: `${PROVINCES_COUNT} İl`,
     label: "Kurulum Operasyonu",
     detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
   },
   {
-    value: "300+",
-    label: "Sahne Kurulumu",
-    detail: "Mini sahneden konser sahnesine her ölçekte kurulum.",
+    value: "7/24",
+    label: "Teknik Destek",
+    detail: "Mini sahneden konser sahnesine her ölçekte kurulum ve saha desteği.",
   },
 ];
 
@@ -1205,9 +1206,9 @@ function Technical() {
 /* ================== İstatistik Bant ================== */
 function StatsBand() {
   const stats = [
-    { value: "300+", label: "Sahne Kurulumu", icon: "🏆" },
-    { value: "50+", label: "Konser Projesi", icon: "🎵" },
-    { value: "81", label: "İlde Hizmet", icon: "🗺️" },
+    { value: PROJECTS_COMPLETED, label: "Tamamlanan Proje", icon: "🏆" },
+    { value: "7/24", label: "Teknik Destek", icon: "🎵" },
+    { value: `${PROVINCES_COUNT}`, label: "İlde Hizmet", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
 
@@ -1525,7 +1526,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      {YEARS_OF_EXPERIENCE} yıllık deneyim, 700+ başarılı proje ve 81 ilde hizmet
+                      {YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet
                     </strong>{" "}
                     ile sahne kiralama konusunda güvenilir çözüm ortağınız. En
                     son teknoloji ekipman, uzman ekip ve 7/24 teknik destek
@@ -1899,8 +1900,8 @@ function CTA() {
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun sahne sistemlerini sunalım. Ücretsiz
-              keşif, profesyonel danışmanlık ve rekabetçi fiyat garantisi ile
-              hizmetinizdeyiz.
+              keşif, profesyonel danışmanlık ve kalem kalem şeffaf fiyatlandırma
+              ile hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -1926,7 +1927,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 81 ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

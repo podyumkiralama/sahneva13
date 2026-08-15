@@ -5,6 +5,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -566,7 +567,7 @@ function Stats() {
     <SectionShell variant="soft" id="stats">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
         {[
-          { v: "700+", l: "Events produced across Turkey" },
+          { v: PROJECTS_COMPLETED, l: "Events produced across Turkey" },
           { v: "2012", l: "Operating since" },
           { v: "English", l: "All project communication" },
           { v: "24h", l: "Technical quote turnaround" },

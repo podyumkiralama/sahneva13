@@ -14,6 +14,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import heroStyles from "./ProjectsGalleryTriptych.module.css";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 // ===============================================================
 // GALERİ VERİLERİ — Sabit 3 kategori (A seçildi)
@@ -61,7 +62,7 @@ const DEFAULT_GALLERIES = {
 const DEFAULT_DICTIONARY = {
   title: "Proje Galerisi",
   subtitle:
-    "700+ kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.",
+    `${PROJECTS_COMPLETED} kurumsal etkinlik, konser, fuar ve etkinlik organizasyonu projesinde profesyonel çözüm ortağı olduk.`,
   hoverCta: "Projeyi incele",
   statsLabel: "Tamamlanan proje",
   caseStudyCta: "Vaka çalışmasını aç",

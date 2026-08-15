@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -296,7 +297,7 @@ export default function Page() {
 
         <ul>
           <li>
-            <strong>Türkiye Geneli Hizmet:</strong> 81 ilde aynı yüksek kalite standartlarında operasyon yeteneği.
+            <strong>Türkiye Geneli Hizmet:</strong> {PROVINCES_COUNT} ilde aynı yüksek kalite standartlarında operasyon yeteneği.
           </li>
           <li>
             <strong>Premium Envanter:</strong> Sürekli güncellenen, bakımlı ve en son teknolojili ekipman parkuru.

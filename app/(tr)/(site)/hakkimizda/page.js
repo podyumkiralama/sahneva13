@@ -10,12 +10,13 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
   title: "Hakkımızda | Etkinlik Prodüksiyon Ekibimiz",
   description:
-    `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. 700+ başarılı proje.`,
+    `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde sahne kiralama, LED ekran, ses-ışık sistemleri ve profesyonel etkinlik prodüksiyonu. ${PROJECTS_COMPLETED} başarılı proje.`,
   alternates: {
     canonical: "https://www.sahneva.com/hakkimizda",
     languages: {
@@ -31,7 +32,7 @@ export const metadata = {
   openGraph: {
     title: "Hakkımızda | Sahneva",
     description:
-      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.`,
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} başarılı proje, Google'da ${GOOGLE_RATING}/5 puan.`,
     url: "https://www.sahneva.com/hakkimizda",
     images: [
       {
@@ -49,7 +50,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Hakkımızda | Sahneva – Profesyonel Etkinlik Teknolojileri",
     description:
-      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. 700+ başarılı proje, %98 müşteri memnuniyeti.`,
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} başarılı proje, Google'da ${GOOGLE_RATING}/5 puan.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -122,7 +123,7 @@ export default function HakkimizdaPage() {
       year: "2024",
       title: "İnovasyon Liderliği",
       description:
-        "Yeni nesil ekipman parkı, dijital entegrasyon ve canlı yayın çözümleriyle sektörde fark yarattık. 700+ proje deneyimine ulaştık.",
+        `Yeni nesil ekipman parkı, dijital entegrasyon ve canlı yayın çözümleriyle sektörde fark yarattık. ${PROJECTS_COMPLETED} proje deneyimine ulaştık.`,
       icon: "⚡",
     },
     {
@@ -165,7 +166,7 @@ export default function HakkimizdaPage() {
     {
       icon: "🌍",
       title: "Türkiye Geneli",
-      description: "81 ilde teknik ekip ve lojistik altyapı ile kesintisiz hizmet",
+      description: `${PROVINCES_COUNT} ilde teknik ekip ve lojistik altyapı ile kesintisiz hizmet`,
     },
     {
       icon: "📞",
@@ -278,7 +279,7 @@ export default function HakkimizdaPage() {
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Etkinlik Teknolojilerinde • {YEARS_OF_EXPERIENCE} Yıl Deneyim • 700+ Proje
+          Etkinlik Teknolojilerinde • {YEARS_OF_EXPERIENCE} Yıl Deneyim • {PROJECTS_COMPLETED} Proje
         </p>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
@@ -322,7 +323,7 @@ export default function HakkimizdaPage() {
             <span className="text-2xl mb-2" aria-hidden="true">
               🎬
             </span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Başarılı Proje</div>
           </div>
 
@@ -560,7 +561,7 @@ export default function HakkimizdaPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "Teknik altyapıda sıfır hata hedefi",
-                    "Müşteri memnuniyetinde %98 ve üzeri başarı",
+                    "Google değerlendirmeleri üzerinden takip edilen müşteri memnuniyeti",
                     "Sürekli inovasyon ve ekipman yenileme",
                     "Çevreye duyarlı, sürdürülebilir çözümler",
                   ].map((item, index) => (
@@ -576,11 +577,11 @@ export default function HakkimizdaPage() {
                 <div className="text-4xl mb-4" aria-hidden="true">🚀</div>
                 <h3 className="text-3xl font-black text-gray-900 mb-6">Vizyonumuz</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  2028'e kadar <strong>Türkiye'nin en büyük etkinlik teknolojileri şirketi</strong> olmak, Avrupa ve Orta Doğu'da global bir marka haline gelmek. Dijital dönüşüm ve yeşil teknolojilerle sektörde yeni standartlar belirlemek.
+                  <strong>2028 hedefimiz:</strong> Türkiye'nin en büyük etkinlik teknolojisi şirketlerinden biri olmak, Avrupa ve Orta Doğu'da tanınan bir marka hâline gelmek. Dijital dönüşüm ve yeşil teknolojilerle sektörde yeni standartlar belirlemek.
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   {[
-                    "Türkiye'nin 81 ilinde %100 kapsama",
+                    `Türkiye'nin ${PROVINCES_COUNT} ilinde %100 kapsama`,
                     "Avrupa ve Orta Doğu'da genişleme",
                     "AR/VR entegrasyonlu etkinlik çözümleri",
                     "Karbon nötr operasyon hedefi",

@@ -1,6 +1,7 @@
 // components/HeroSection.js
 import Link from "next/link";
 import RichText from "@/components/RichText";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 const DEFAULT_KEYWORDS = [
   { text: "Kurumsal Lansman", color: "text-blue-200" },
@@ -18,10 +19,10 @@ const DEFAULT_DICTIONARY = {
   titleLine1: "Sahne Kiralama, LED ve Podyum",
   titleLine2: "Tek Ekipten Kurulum",
   description:
-    "Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>700+ proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.",
+    `Kurumsal lansman, konser, a\u00e7\u0131l\u0131\u015f, t\u00f6ren ve festival projelerinde <strong>sahne kiralama, podyum kurulumu, LED ekran ve ses-\u0131\u015f\u0131k sistemlerini</strong> tek teknik ekipten planl\u0131yoruz. <strong>${PROJECTS_COMPLETED} proje</strong> deneyimiyle T\u00fcrkiye genelinde anahtar teslim kurulum sunuyoruz.`,
   proofPoints: [
-    { value: "700+", label: "Tamamlanan proje" },
-    { value: "81 il", label: "T\u00fcrkiye geneli kurulum" },
+    { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
+    { value: `${PROVINCES_COUNT} il`, label: "T\u00fcrkiye geneli kurulum" },
     { value: "2-6 saat", label: "H\u0131zl\u0131 devreye alma" },
     { value: "Tek ekip", label: "Sahne, LED, ses ve podyum" },
   ],
@@ -34,10 +35,20 @@ const DEFAULT_DICTIONARY = {
   quoteAnchor: "#teklif-al",
   whatsappText:
     "Merhaba%2C+web+sitenizden+ula%C5%9F%C4%B1yorum.+Detayl%C4%B1+teklif+almak+istiyorum.",
+  // Hero'daki CTA'lar ve s\u0131ralar\u0131. \u0130lk s\u0131radaki her zaman birincil (dolu beyaz)
+  // g\u00f6r\u00fcn\u00fcm\u00fc al\u0131r; dolay\u0131s\u0131yla hiyerar\u015fi diziyi de\u011fi\u015ftirerek ayarlan\u0131r.
+  ctaOrder: ["call", "whatsapp", "quote"],
+  whatsappUtm: "utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp",
 };
 
 const CTA_BASE =
   "w-full max-w-sm sm:w-auto sm:min-w-[180px] min-h-[44px] inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-ring";
+
+const CTA_STYLES = {
+  primary: "bg-white text-slate-950 hover:bg-white/90",
+  whatsapp: "bg-gradient-to-r from-green-500 to-emerald-600 text-white",
+  outline: "border border-white/20 bg-white/10 text-white hover:bg-white/15",
+};
 
 function KeywordPills({ keywords, ariaLabel }) {
   return (
@@ -58,11 +69,22 @@ function KeywordPills({ keywords, ariaLabel }) {
   );
 }
 
+// Kanıt şeridi 3 veya 4 maddeyle gelebiliyor; sütun sayısı madde sayısına
+// göre belirlenmezse 3 maddede son satırda boşluk kalıyor.
+const PROOF_COLUMNS = {
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+};
+
 function ProofStrip({ items }) {
   if (!items?.length) return null;
 
+  const columns = PROOF_COLUMNS[items.length] ?? "md:grid-cols-4";
+
   return (
-    <ul className="mx-auto mt-7 grid w-full max-w-sm list-none grid-cols-2 gap-2 p-0 sm:max-w-4xl md:grid-cols-4">
+    <ul
+      className={`mx-auto mt-7 grid w-full max-w-sm list-none grid-cols-2 gap-2 p-0 sm:max-w-4xl ${columns}`}
+    >
       {items.map((item) => (
         <li key={`${item.value}-${item.label}`}>
           <div className="h-full rounded-2xl border border-white/15 bg-black/45 px-2 py-2.5 text-center shadow-[0_10px_24px_rgba(0,0,0,0.24)] md:px-3 md:py-3">
@@ -162,31 +184,52 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
             <ProofStrip items={d.proofPoints} />
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href="tel:+905453048671"
-                className={`${CTA_BASE} bg-white text-slate-950 hover:bg-white/90`}
-                aria-label={d.ctaCallAria}
-              >
-                {d.ctaCall}
-              </a>
+              {d.ctaOrder.map((cta, index) => {
+                const style = index === 0
+                  ? CTA_STYLES.primary
+                  : cta === "whatsapp"
+                    ? CTA_STYLES.whatsapp
+                    : CTA_STYLES.outline;
 
-              <a
-                href={`https://wa.me/905453048671?text=${d.whatsappText}&utm_source=homepage&utm_medium=hero_cta&utm_campaign=whatsapp`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className={`${CTA_BASE} bg-gradient-to-r from-green-500 to-emerald-600 text-white`}
-                aria-label={d.ctaWhatsappAria}
-              >
-                {d.ctaWhatsapp}
-              </a>
+                if (cta === "call") {
+                  return (
+                    <a
+                      key={cta}
+                      href="tel:+905453048671"
+                      className={`${CTA_BASE} ${style}`}
+                      aria-label={d.ctaCallAria}
+                    >
+                      {d.ctaCall}
+                    </a>
+                  );
+                }
 
-              <Link
-                href={d.quoteAnchor}
-                className={`${CTA_BASE} border border-white/20 bg-white/10 text-white hover:bg-white/15`}
-                aria-label={d.ctaQuoteAria}
-              >
-                {d.ctaQuote}
-              </Link>
+                if (cta === "whatsapp") {
+                  return (
+                    <a
+                      key={cta}
+                      href={`https://wa.me/905453048671?text=${d.whatsappText}&${d.whatsappUtm}`}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className={`${CTA_BASE} ${style}`}
+                      aria-label={d.ctaWhatsappAria}
+                    >
+                      {d.ctaWhatsapp}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={cta}
+                    href={d.quoteAnchor}
+                    className={`${CTA_BASE} ${style}`}
+                    aria-label={d.ctaQuoteAria}
+                  >
+                    {d.ctaQuote}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

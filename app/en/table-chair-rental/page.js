@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -280,17 +281,17 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.9/5</div>
-            <div className="text-white/80 text-sm">183+ Reviews</div>
+            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
+            <div className="text-white/80 text-sm">{GOOGLE_REVIEW_COUNT}+ Reviews</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">700+</div>
+            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
             <div className="text-white/80 text-sm">Projects Delivered</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 Provinces</div>
+            <div className="text-xl font-black text-white">{PROVINCES_COUNT} Provinces</div>
             <div className="text-white/80 text-sm">Nationwide Service</div>
           </div>
         </div>
@@ -636,7 +637,7 @@ function Technical() {
 /* ================== Stats Band ================== */
 const STATS = [
   {
-    value: "500+",
+    value: CORPORATE_EVENTS,
     label: "Banquet & corporate events",
   },
   {
@@ -648,8 +649,8 @@ const STATS = [
     label: "Average installation time",
   },
   {
-    value: "98%",
-    label: "Client satisfaction score",
+    value: `${GOOGLE_RATING}/5`,
+    label: "Google review rating",
   },
 ];
 
@@ -846,7 +847,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and service across 81 provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and service across {PROVINCES_COUNT} provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
                   </p>
                 </div>
               </div>
@@ -969,7 +970,7 @@ const FAQ_ITEMS = [
   {
     question: "Which cities do you serve?",
     answer:
-      "We deliver nationwide across 81 provinces. Istanbul, Ankara, Izmir and Antalya have dedicated crews for rapid response.",
+      `We deliver nationwide across ${PROVINCES_COUNT} provinces. Istanbul, Ankara, Izmir and Antalya have dedicated crews for rapid response.`,
   },
   {
     question: "How early should we confirm our booking?",
@@ -1166,8 +1167,8 @@ function TableChairJsonLd() {
         mainEntityOfPage: { "@id": webPageId },
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "183",
+          ratingValue: GOOGLE_RATING,
+          reviewCount: `${GOOGLE_REVIEW_COUNT}`,
           bestRating: "5",
         },
       },

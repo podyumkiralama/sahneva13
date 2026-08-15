@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== CONSTANTS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -176,7 +177,7 @@ export default function Page() {
         </div>
 
         <p>
-          As Sahneva, with {YEARS_OF_EXPERIENCE} years of experience and 700+ successful
+          As Sahneva, with {YEARS_OF_EXPERIENCE} years of experience and {PROJECTS_COMPLETED} successful
           projects, we never leave this critical moment to chance. We deliver flawless technical
           production solutions across Turkey.
         </p>
@@ -292,7 +293,7 @@ export default function Page() {
         <ul>
           <li>
             <strong>Nationwide Service:</strong> Operational capability with the same high quality
-            standards in all 81 provinces of Turkey.
+            standards in all {PROVINCES_COUNT} provinces of Turkey.
           </li>
           <li>
             <strong>Premium Inventory:</strong> A continuously updated, well-maintained fleet of

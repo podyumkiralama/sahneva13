@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Instagram, Linkedin, Twitter, Youtube } from "@/components/icons/BrandIcons";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 const FOCUS_RING_CLASS =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020617]";
@@ -309,14 +310,14 @@ export default function Footer({
           ? "Angebot über WhatsApp anfordern"
           : "WhatsApp’tan teklif alın";
   const proofItems = isEn
-    ? ["700+ projects", "Across Türkiye", "24/7 operations"]
+    ? [`${PROJECTS_COMPLETED} projects`, "Across Türkiye", "24/7 operations"]
     : isRu
-      ? ["700+ проектов", "По всей Турции", "Поддержка 24/7"]
+      ? [`${PROJECTS_COMPLETED} проектов`, "По всей Турции", "Поддержка 24/7"]
       : isZh
-        ? ["700+ 项目", "土耳其全国", "24/7 运营"]
+        ? [`${PROJECTS_COMPLETED} 项目`, "土耳其全国", "24/7 运营"]
         : isDe
-          ? ["700+ Projekte", "Türkeiweit", "Betreuung rund um die Uhr"]
-          : ["700+ proje", "81 il", "7/24 operasyon"];
+          ? [`${PROJECTS_COMPLETED} Projekte`, "Türkeiweit", "Betreuung rund um die Uhr"]
+          : [`${PROJECTS_COMPLETED} proje`, `${PROVINCES_COUNT} il`, "7/24 operasyon"];
 
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;

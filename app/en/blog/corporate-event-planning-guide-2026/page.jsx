@@ -11,6 +11,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -826,10 +827,10 @@ export default function Page() {
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-slate-700">
                   At Sahneva, with experience from{" "}
-                  <strong className="font-semibold text-slate-900">700+ successful projects</strong>,
+                  <strong className="font-semibold text-slate-900">{PROJECTS_COMPLETED} successful projects</strong>,
                   we manage the entire process from technical survey to broadcast chain — all under
                   one roof, across{" "}
-                  <strong className="font-semibold text-slate-900">81 provinces</strong>. Message us
+                  <strong className="font-semibold text-slate-900">{PROVINCES_COUNT} provinces</strong>. Message us
                   on WhatsApp for a quick quote; for most projects, we turn around a detailed proposal
                   in{" "}
                   <strong className="font-semibold text-slate-900">under 2 hours</strong>.

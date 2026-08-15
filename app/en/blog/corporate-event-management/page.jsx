@@ -371,7 +371,7 @@ export default function BlogPostCorporate() {
                     </div>
                     <div className="mt-6 pt-6 border-t border-gray-100 text-center">
                       <p className="text-green-800 font-medium text-lg m-0">
-                        "Result: Zero technical disruption, 98% participant satisfaction."
+                        "Result: the programme ran without a single technical interruption, and every session started on schedule."
                       </p>
                     </div>
                   </div>

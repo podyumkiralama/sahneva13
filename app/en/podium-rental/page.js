@@ -9,6 +9,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -367,9 +368,9 @@ export default function PodiumRentalPage() {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { value: "700+", label: "Successful Projects" },
+              { value: PROJECTS_COMPLETED, label: "Successful Projects" },
               { value: "12 m²", label: "Min. Size" },
-              { value: "81", label: "Cities" },
+              { value: `${PROVINCES_COUNT}`, label: "Cities" },
               { value: "24/7", label: "Support" },
             ].map((s) => (
               <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">

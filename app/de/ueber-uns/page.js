@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { FOUNDING_YEAR, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT } from "@/lib/stats";
 
 const DE_ABOUT_URL = buildCanonical("/de/ueber-uns");
 const DE_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
@@ -45,7 +46,7 @@ const MILESTONES = [
   },
   {
     year: "Heute",
-    title: "Über 700 Projekte",
+    title: `Über ${PROJECTS_COMPLETED_COUNT} Projekte`,
     text: "Kongresse, Produktlaunches, Konzerte, Messen und Open-Air-Formate – als Hauptauftragnehmer oder als technischer Partner von Agenturen.",
   },
 ];
@@ -83,7 +84,7 @@ const WORKING_MODELS = [
 export const metadata = {
   title: "Über uns — Ihr Technikteam in der Türkei",
   description:
-    "Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit 2012 über 700 Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.",
+    `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.`,
   alternates: {
     canonical: DE_ABOUT_URL,
     languages: {
@@ -99,7 +100,7 @@ export const metadata = {
   openGraph: {
     title: "Über uns — Technikteam für Veranstaltungen in der Türkei | Sahneva",
     description:
-      "Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit 2012 über 700 Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.",
+      `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.`,
     url: DE_ABOUT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -117,7 +118,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Über uns — Technikteam für Veranstaltungen in der Türkei | Sahneva",
     description:
-      "Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit 2012 über 700 Projekte.",
+      `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte.`,
     images: [DE_ABOUT_IMAGE],
   },
 };
@@ -177,8 +178,8 @@ export default function GermanAboutPage() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
                 { value: "2012", label: "seit der Gründung" },
-                { value: "700+", label: "realisierte Projekte" },
-                { value: "81", label: "Provinzen abgedeckt" },
+                { value: PROJECTS_COMPLETED, label: "realisierte Projekte" },
+                { value: `${PROVINCES_COUNT}`, label: "Provinzen abgedeckt" },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-2xl bg-white/[0.08] p-4 backdrop-blur">
                   <p className="text-2xl font-black text-white">{stat.value}</p>

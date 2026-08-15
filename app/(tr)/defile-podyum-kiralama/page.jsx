@@ -11,6 +11,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -389,8 +390,8 @@ function HeroSection() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {[
-                { icon: "⭐", value: "4.8/5", label: "200+ Değerlendirme" },
-                { icon: "👗", value: "300+", label: "Moda Etkinliği" },
+                { icon: "⭐", value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT}+ Değerlendirme` },
+                { icon: "👗", value: PROJECTS_COMPLETED, label: "Tamamlanan Proje" },
                 { icon: "🚀", value: "Uçtan Uca", label: "Hizmet" },
                 { icon: "🛡️", value: "TS EN", label: "Güvenlik Standartları" },
               ].map((s) => (
@@ -726,7 +727,7 @@ function UseCasesSection() {
 
 function StatsSection() {
   const stats = [
-    { value: "300+", label: "Moda Etkinliği", icon: "👗" },
+    { value: PROJECTS_COMPLETED, label: "Tamamlanan Proje", icon: "👗" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
     { value: "Uçtan", label: "Uca Hizmet", icon: "🚀" },
     { value: "TS EN", label: "Güvenlik Standardı", icon: "🛡️" },

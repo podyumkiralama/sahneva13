@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getClientReferences } from "@/lib/clientReferences";
 import HeroMosaicParallax from "./HeroMosaicParallax.client";
 import styles from "./TurkishHomepageHeroEffects.module.css";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const TR_HOME_PRIMARY_IMAGE = {
   src: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
@@ -236,7 +237,7 @@ export default function TurkishHomepageHero() {
 
           <p id="hero-desc" className={styles.heroDescription}>
             Sahne kiralama, LED ekran, ses–ışık, podyum ve çadır sistemleri;
-            keşiften söküme tek teknik ekip. 700+ proje deneyimiyle Türkiye
+            keşiften söküme tek teknik ekip. {PROJECTS_COMPLETED} proje deneyimiyle Türkiye
             genelinde kurulum.
           </p>
 

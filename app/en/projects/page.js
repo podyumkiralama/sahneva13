@@ -8,6 +8,7 @@ import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -152,8 +153,8 @@ export default async function ProjectsIndexPageEn() {
               <div className="text-white/60 text-sm">Completed Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-purple-300">100%</div>
-              <div className="text-white/60 text-sm">Client Satisfaction</div>
+              <div className="text-2xl md:text-3xl font-bold text-purple-300">{`${GOOGLE_RATING}/5`}</div>
+              <div className="text-white/60 text-sm">Google review rating</div>
             </div>
           </div>
         </header>

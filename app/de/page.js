@@ -20,6 +20,7 @@ import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/se
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_DE } from "@/lib/faqData";
+import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
@@ -413,7 +414,7 @@ const HERO_DICT_DE = {
   description:
     "Mit <strong>über 700 realisierten Projekten</strong> in Bühnenbau, LED-Wänden, Ton- und Lichttechnik sowie Podestbau übernehmen wir die technische Produktion in der gesamten Türkei.",
   proofPoints: [
-    { value: "700+", label: "realisierte Projekte" },
+    { value: PROJECTS_COMPLETED, label: "realisierte Projekte" },
     { value: "Türkeiweit", label: "lokale Logistik und Aufbau" },
     { value: "24/7", label: "Kommunikation und Betreuung" },
     { value: "Ein Team", label: "Bühne, LED, Ton und Licht" },
@@ -505,7 +506,7 @@ const CORPORATE_INTRO_DICT_DE = {
     "Notfallszenario und Backup-Systeme",
   ],
   stats: [
-    { value: "250+", label: "Firmenveranstaltungen" },
+    { value: CORPORATE_EVENTS, label: "Firmenveranstaltungen" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Jahre Praxis vor Ort" },
     { value: "24/7", label: "Technische Erreichbarkeit" },
   ],
@@ -688,7 +689,7 @@ const CORPORATE_EVENTS_DICT_DE = {
     "https://wa.me/905453048671?text=Guten+Tag%2C+wir+planen+eine+Firmenveranstaltung.+K%C3%B6nnen+wir+%C3%BCber+B%C3%BChne+und+Technik+sprechen%3F",
   whatsappCtaAria: "Nachricht über WhatsApp senden",
   whatsappSrHint: "(wird in einem neuen Tab geöffnet)",
-  supportStats: ["Technische Erreichbarkeit rund um die Uhr", "Antwort in der Regel binnen 15 Minuten"],
+  supportStats: ["Technische Erreichbarkeit rund um die Uhr", "Ausführliches Angebot innerhalb von 2 Stunden"],
 };
 
 const TECH_CAPABILITIES_DICT_DE = {
@@ -751,9 +752,9 @@ const WHY_CHOOSE_US_DICT_DE = {
   ],
   features: [
     {
-      title: "Hohe Kundenzufriedenheit",
-      desc: "Über 98 % zufriedene Kunden. Referenzen und Bewertungen sind unser aussagekräftigster Beleg.",
-      stat: "98 % Zufriedenheit",
+      title: "Bewertet von unseren Kunden",
+      desc: `Im Schnitt ${GOOGLE_RATING.replace(".", ",")}/5 aus ${GOOGLE_REVIEW_COUNT}+ geprüften Google-Bewertungen. Namentlich genannte Referenzen und Projektvideos vor Ort belegen das zusätzlich.`,
+      stat: `${GOOGLE_RATING.replace(".", ",")}/5 bei Google`,
     },
     {
       title: "Schneller Aufbau",
@@ -768,17 +769,17 @@ const WHY_CHOOSE_US_DICT_DE = {
     {
       title: "Erfahrenes Technikteam",
       desc: `${YEARS_OF_EXPERIENCE} Jahre Praxis in Bühnenbau, Ton, Licht und LED-Technik.`,
-      stat: "15+ Fachkräfte",
+      stat: `${TECHNICAL_TEAM_SIZE} Fachkräfte`,
     },
     {
-      title: "Nachvollziehbare Preise",
-      desc: "Transparente Kalkulation, die zum Budget passt, ohne bei der Ausführung Abstriche zu machen.",
-      stat: "30 % Ersparnis",
+      title: "Transparente Einzelpreise",
+      desc: "Jedes Angebot weist Technik, Crew, Logistik, Aufbau und Abbau als getrennte Positionen aus — Sie sehen genau, wofür Sie zahlen.",
+      stat: "Angebot nach Positionen",
     },
     {
       title: "Landesweit im Einsatz",
-      desc: "Von Istanbul aus betreuen wir Projekte in allen 81 Provinzen der Türkei.",
-      stat: "81 Provinzen",
+      desc: `Von Istanbul aus betreuen wir Projekte in allen ${PROVINCES_COUNT} Provinzen der Türkei.`,
+      stat: `${PROVINCES_COUNT} Provinzen`,
     },
   ],
 };

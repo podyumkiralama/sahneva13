@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -362,7 +363,7 @@ export default function GermanServicesPage() {
     {
       icon: "🌍",
       title: "Landesweit im Einsatz",
-      description: "Technikcrew und Logistik in allen 81 Provinzen der Türkei",
+      description: `Technikcrew und Logistik in allen ${PROVINCES_COUNT} Provinzen der Türkei`,
     },
     {
       icon: "📞",

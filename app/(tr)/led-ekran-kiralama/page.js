@@ -45,6 +45,7 @@ import {
   Gauge,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -781,8 +782,8 @@ function Hero() {
             {[
               ["Indoor", "iç mekan LED"],
               ["Outdoor", "dış mekan LED"],
-              ["700+", "tamamlanan proje"],
-              ["81 il", "kurulum operasyonu"],
+              [PROJECTS_COMPLETED, "tamamlanan proje"],
+              [`${PROVINCES_COUNT} il`, "kurulum operasyonu"],
             ].map(([value, label]) => (
               <div key={label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
                 <dt className="text-2xl font-black text-white">{value}</dt>
@@ -1377,8 +1378,8 @@ function Technical() {
 function StatsBand() {
   const stats = [
     { value: "300 m²", label: "P1.9 Indoor LED Envanteri" },
-    { value: "700+", label: "Başarılı Proje" },
-    { value: "81 İl", label: "Kendi Araçlarımızla Kurulum" },
+    { value: PROJECTS_COMPLETED, label: "Başarılı Proje" },
+    { value: `${PROVINCES_COUNT} İl`, label: "Kendi Araçlarımızla Kurulum" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıllık Deneyim" },
   ];
 
@@ -1436,7 +1437,7 @@ function WhySahneva() {
     },
     {
       Icon: Activity,
-      title: "Türkiye Geneli 81 İl Hizmet",
+      title: `Türkiye Geneli ${PROVINCES_COUNT} İl Hizmet`,
       description:
         "Uzman teknik kadromuz kurulumdan söküme kadar her aşamada sahada yer alarak operasyonel süreci planlı ve kontrollü şekilde yönetir.",
     },
@@ -1980,7 +1981,7 @@ function CTA() {
               Profesyonel LED Ekran Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Türkiye'nin 81 ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
+              Türkiye'nin {PROVINCES_COUNT} ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
               etkinlik akışınıza uygun teknik planlamayla hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -2032,7 +2033,7 @@ function LedScreenJsonLd() {
       "@type": "Country",
       name: "Türkiye",
       description:
-        "Türkiye'nin 81 ilinde profesyonel LED ekran kiralama hizmeti",
+        `Türkiye'nin ${PROVINCES_COUNT} ilinde profesyonel LED ekran kiralama hizmeti`,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",

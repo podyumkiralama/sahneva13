@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/seo/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
+import CaseSpecStrip from "@/components/en/CaseSpecStrip";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -182,6 +183,20 @@ export default async function EnProjectPage({ params }) {
             ))}
           </dl>
         </section>
+
+        {/* TECHNICAL SCOPE — ortak vaka kartı şablonu (CaseSpecStrip).
+            Yalnızca yayımlanmış değeri olan slotlar basılır. */}
+        {project.specs && (
+          <section aria-labelledby="project-scope" className="mt-8">
+            <h2
+              id="project-scope"
+              className="mb-4 text-sm font-black uppercase tracking-[0.18em] text-white/60"
+            >
+              Technical scope
+            </h2>
+            <CaseSpecStrip specs={project.specs} labelledBy="project-scope" />
+          </section>
+        )}
 
         {/* VIDEO */}
         {project.video && (

@@ -1,3 +1,4 @@
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 export const CHINESE_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
@@ -20,7 +21,7 @@ export const CHINESE_SERVICE_PAGES = {
     heroStats: [
       { value: "全国", label: "土耳其服务覆盖" },
       { value: "2-6 小时", label: "常规安装" },
-      { value: "700+", label: "项目案例" },
+      { value: PROJECTS_COMPLETED, label: "项目案例" },
     ],
     intro:
       "Sahneva 根据活动形式、场地、高度、人数和节目流程设计舞台方案。可以单独租赁舞台，也可以配置完整方案：舞台、T台、LED屏幕、音响、灯光、桁架与技术团队。",

@@ -1,3 +1,4 @@
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 export const RUSSIAN_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
@@ -17,9 +18,9 @@ export const RUSSIAN_SERVICE_PAGES = {
       zh: "/zh/stage-rental",
     },
     heroStats: [
-      { value: "81", label: "город Турции" },
+      { value: `${PROVINCES_COUNT}`, label: "город Турции" },
       { value: "2-6 ч", label: "типовой монтаж" },
-      { value: "700+", label: "проектов" },
+      { value: PROJECTS_COMPLETED, label: "проектов" },
     ],
     intro:
       "Sahneva проектирует сцену под формат события, площадку, высоту, количество гостей и сценарий программы. Можно заказать отдельную сцену или собрать единый комплект: сцена, подиум, LED-экран, звук, свет, truss и техническая команда.",

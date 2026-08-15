@@ -6,6 +6,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -166,7 +167,7 @@ function GlassCard({ children, className = "" }) {
 
 /* ===== Hero ===== */
 const HERO_STATS = [
-  { t: "700+ Events", d: "Technical production experience" },
+  { t: `${PROJECTS_COMPLETED} Events`, d: "Technical production experience" },
   { t: "English-first", d: "Project coordination & on-site team" },
   { t: "Istanbul · Antalya", d: "& nationwide Türkiye logistics" },
 ];
@@ -711,9 +712,9 @@ function StatsBand() {
       />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { v: "700+", l: "Event projects completed" },
+          { v: PROJECTS_COMPLETED, l: "Event projects completed" },
           { v: "10+ yrs", l: "MICE production experience" },
-          { v: "81 cities", l: "Coverage across Turkey" },
+          { v: `${PROVINCES_COUNT} cities`, l: "Coverage across Turkey" },
           { v: "24h", l: "Quote turnaround for MICE briefs" },
         ].map((s) => (
           <Card key={s.l} dark>

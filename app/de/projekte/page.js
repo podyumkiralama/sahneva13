@@ -4,6 +4,7 @@ import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
+import { PROJECTS_COMPLETED_COUNT } from "@/lib/stats";
 
 const DE_PROJECTS_URL = buildCanonical("/de/projekte");
 const DE_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -144,7 +145,7 @@ export default function GermanProjectsPage() {
               Realisierte Produktionen in der gesamten Türkei
             </h1>
             <p className="mt-6 text-lg leading-8 text-white/[0.84]">
-              Über 700 Projekte in Kongressen, Produktlaunches, Konzerten, Messen und Open-Air-Formaten.
+              Über {PROJECTS_COMPLETED_COUNT} Projekte in Kongressen, Produktlaunches, Konzerten, Messen und Open-Air-Formaten.
               Auf dieser Seite finden Sie den Umfang der Arbeiten; die bewegten Aufnahmen dazu liegen
               unter Referenzen.
             </p>

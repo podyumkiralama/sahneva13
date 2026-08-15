@@ -13,6 +13,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Music, Layout, Monitor, Layers } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -378,15 +379,15 @@ function Hero() {
                 <span className="text-2xl mb-2" aria-hidden="true">
                   ⭐
                 </span>
-                <div className="text-xl font-black text-white">4.9/5</div>
-                <div className="text-white/80 text-sm">183+ Reviews</div>
+                <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
+                <div className="text-white/80 text-sm">{GOOGLE_REVIEW_COUNT}+ Reviews</div>
               </div>
 
               <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
                 <span className="text-2xl mb-2" aria-hidden="true">
                   🏆
                 </span>
-                <div className="text-xl font-black text-white">700+</div>
+                <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
                 <div className="text-white/80 text-sm">Projects</div>
               </div>
 
@@ -394,7 +395,7 @@ function Hero() {
                 <span className="text-2xl mb-2" aria-hidden="true">
                   🚀
                 </span>
-                <div className="text-xl font-black text-white">81 Provinces</div>
+                <div className="text-xl font-black text-white">{PROVINCES_COUNT} Provinces</div>
                 <div className="text-white/80 text-sm">Coverage</div>
               </div>
             </div>
@@ -884,9 +885,9 @@ function Technical() {
 /* ================== Stats Band ================== */
 function StatsBand() {
   const stats = [
-    { value: "300+", label: "Stage Installations", icon: "🏆" },
-    { value: "50+", label: "Concert Projects", icon: "🎵" },
-    { value: "81", label: "Cities Served", icon: "🗺️" },
+    { value: PROJECTS_COMPLETED, label: "Completed Projects", icon: "🏆" },
+    { value: "24/7", label: "Technical Support", icon: "🎵" },
+    { value: `${PROVINCES_COUNT}`, label: "Cities Served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of Experience", icon: "⭐" },
   ];
 
@@ -1200,8 +1201,8 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>
-                      {YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and
-                      nationwide service across 81 cities
+                      {YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and
+                      nationwide service across {PROVINCES_COUNT} cities
                     </strong>{" "}
                     make Sahneva a reliable stage partner. Our team plans the
                     equipment, crew and technical support for each project.

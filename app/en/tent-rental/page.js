@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -234,7 +235,7 @@ function Hero() {
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">4.8/5</div>
+            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
             <div className="text-white/80 text-sm">180+ client reviews</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
@@ -244,7 +245,7 @@ function Hero() {
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">81 cities</div>
+            <div className="text-xl font-black text-white">{PROVINCES_COUNT} cities</div>
             <div className="text-white/80 text-sm">Nationwide coverage</div>
           </div>
         </div>
@@ -494,7 +495,7 @@ function StatsBand() {
   const stats = [
     { value: "850+", label: "Successful events", icon: "🎪" },
     { value: "40+", label: "Enterprise clients", icon: "🏢" },
-    { value: "81", label: "Cities served", icon: "🗺️" },
+    { value: `${PROVINCES_COUNT}`, label: "Cities served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of expertise", icon: "⭐" },
   ];
 
@@ -705,7 +706,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, 700+ successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
                   </p>
                 </div>
               </div>
@@ -832,7 +833,7 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "Which cities do you serve?",
     answer:
-      "We provide professional tent rentals across all 81 Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara and Izmir.",
+      `We provide professional tent rentals across all ${PROVINCES_COUNT} Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara and Izmir.`,
   },
 ];
 
@@ -852,7 +853,7 @@ function FAQ() {
     },
     {
       q: "Which cities do you serve?",
-      a: "We provide professional tent rentals across all 81 Turkish provinces. Metropolitan cities such as Istanbul, Ankara and Izmir benefit from even faster logistics, while our quality and documentation remain consistent nationwide.",
+      a: `We provide professional tent rentals across all ${PROVINCES_COUNT} Turkish provinces. Metropolitan cities such as Istanbul, Ankara and Izmir benefit from even faster logistics, while our quality and documentation remain consistent nationwide.`,
     },
   ];
 
@@ -1013,7 +1014,7 @@ function CTA() {
               Ready for professional tent solutions?
             </h2>
             <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Tell us about your event and we will prepare the ideal tent system with free site survey, professional consulting and competitive pricing guarantees.
+              Tell us about your event and we will prepare the ideal tent system with a free site survey, professional consulting and transparent, itemised pricing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -1034,7 +1035,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service across 81 cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+              📍 Service across {PROVINCES_COUNT} cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>
@@ -1068,8 +1069,8 @@ function TentJsonLd() {
         mainEntityOfPage: { "@id": webPageId },
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.8",
-          reviewCount: "180",
+          ratingValue: GOOGLE_RATING,
+          reviewCount: `${GOOGLE_REVIEW_COUNT}`,
           bestRating: "5"
         },
       },

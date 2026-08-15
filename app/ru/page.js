@@ -6,6 +6,7 @@ import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 const RU_HOME_URL = buildCanonical("/ru");
 
@@ -87,7 +88,7 @@ const HERO_DICTIONARY = {
   description:
     "Как местная команда в Турции, мы планируем и реализуем <strong>сцены, подиумы, LED-экраны, звук, свет, truss-системы, шатры и мебель</strong> для конференций, концертов, выставок, корпоративных событий и проектов на открытом воздухе.",
   proofPoints: [
-    { value: "700+", label: "проектов" },
+    { value: PROJECTS_COMPLETED, label: "проектов" },
     { value: "По всей Турции", label: "логистика и монтаж" },
     { value: "24/7", label: "связь и поддержка" },
     { value: "1 команда", label: "сцена, LED, звук" },

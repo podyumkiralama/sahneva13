@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PROVINCES_COUNT } from "@/lib/stats";
 
 // Onceden burada 12 sehir sayfasina link veren bir cip blogu vardi. Sehir
 // sayfalari 7 sablondan uretildigi ve hizmet sayfalariyla ayni sorgularda
@@ -38,7 +39,7 @@ export default function RegionalCityLinks({ service = "etkinlik ekipmanı kirala
         </h2>
 
         <p className="text-lg leading-relaxed text-gray-700">
-          {serviceLabel} hizmetini 81 ilde planlıyoruz. {COVERAGE_CITIES.join(", ")} ve
+          {serviceLabel} hizmetini {PROVINCES_COUNT} ilde planlıyoruz. {COVERAGE_CITIES.join(", ")} ve
           çevre illerde kurulum, kendi ekibimiz ve lojistik planımızla yürütülür;
           şehir dışı nakliye maliyeti ilk teklifte net olarak paylaşılır.
         </p>

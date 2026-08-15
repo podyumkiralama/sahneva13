@@ -1,3 +1,4 @@
+import { CORPORATE_EVENTS, PROVINCES_COUNT } from "@/lib/stats";
 // Zentrale Inhaltsquelle der deutschen Leistungsseiten.
 // Jede Seite unter /de/<slug> rendert diese Daten über ServicePage.jsx.
 
@@ -497,9 +498,9 @@ export const GERMAN_SERVICE_LIST = [
     heroImage: "/img/kurumsal/kurumsal-sahne-led-ekran.webp",
     gallery: "corporate",
     heroStats: [
-      { value: "250+", label: "Firmenveranstaltungen" },
+      { value: CORPORATE_EVENTS, label: "Firmenveranstaltungen" },
       { value: "2 Modelle", label: "Direktauftrag oder Agenturpartner" },
-      { value: "81", label: "Provinzen abgedeckt" },
+      { value: `${PROVINCES_COUNT}`, label: "Provinzen abgedeckt" },
     ],
     planningNotes: [
       "Datum, Stadt und Location der Veranstaltung",

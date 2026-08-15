@@ -1,5 +1,6 @@
 // components/WhyChooseUs.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
 
 const ICON_CLASS = "w-7 h-7";
 
@@ -50,12 +51,12 @@ const GlobeMapIcon = ({ className }) => (
 );
 
 const DEFAULT_FEATURES = [
-  { icon: <CheckStarIcon className={ICON_CLASS} />, title: "Yüksek Müşteri Memnuniyeti", desc: "%98'in üzerinde müşteri memnuniyeti. Referanslar ve yorumlar bizim için en güçlü gösterge.", stat: "%98 Memnuniyet", gradient: "from-amber-400 to-orange-400", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
+  { icon: <CheckStarIcon className={ICON_CLASS} />, title: "Müşterilerimizin Değerlendirmesi", desc: `Google'da ${GOOGLE_REVIEW_COUNT}+ doğrulanmış değerlendirmede ${GOOGLE_RATING}/5 ortalama. Adı açık kurum referansları ve sahada çekilmiş proje videoları da bunu destekliyor.`, stat: `Google'da ${GOOGLE_RATING}/5`, gradient: "from-amber-400 to-orange-400", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
   { icon: <BoltClockIcon className={ICON_CLASS} />, title: "Hızlı Kurulum ve Teslimat", desc: "Sahne, LED ekran ve ses-ışık kurulumlarında aynı gün içinde profesyonel montaj.", stat: "2–6 Saat", gradient: "from-cyan-400 to-sky-400", accentHoverClass: "group-hover:text-cyan-200", pillClass: "bg-cyan-500/10 border-cyan-400/40 text-cyan-100" },
   { icon: <DisplayIcon className={ICON_CLASS} />, title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6", gradient: "from-violet-400 to-fuchsia-400", accentHoverClass: "group-hover:text-fuchsia-200", pillClass: "bg-fuchsia-500/10 border-fuchsia-400/40 text-fuchsia-100" },
-  { icon: <UsersIcon className={ICON_CLASS} />, title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: "15+ Uzman", gradient: "from-emerald-400 to-green-400", accentHoverClass: "group-hover:text-emerald-200", pillClass: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100" },
-  { icon: <CurrencyIcon className={ICON_CLASS} />, title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "Şeffaf Fiyatlama", gradient: "from-amber-400 to-orange-500", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
-  { icon: <GlobeMapIcon className={ICON_CLASS} />, title: "Türkiye Geneli Hizmet", desc: "İstanbul merkezli ekibimizle 81 ilde etkinlik prodüksiyon desteği sağlıyoruz.", stat: "81 İl", gradient: "from-indigo-400 to-sky-400", accentHoverClass: "group-hover:text-sky-200", pillClass: "bg-indigo-500/10 border-indigo-400/40 text-indigo-100" },
+  { icon: <UsersIcon className={ICON_CLASS} />, title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: `${TECHNICAL_TEAM_SIZE} Uzman`, gradient: "from-emerald-400 to-green-400", accentHoverClass: "group-hover:text-emerald-200", pillClass: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100" },
+  { icon: <CurrencyIcon className={ICON_CLASS} />, title: "Şeffaf ve Kalem Kalem Fiyatlandırma", desc: "Her teklifte ekipman, ekip, lojistik, kurulum ve söküm ayrı kalemler hâlinde yazılır; neye ödeme yaptığınızı kalem bazında görürsünüz.", stat: "Kalem Kalem Teklif", gradient: "from-amber-400 to-orange-500", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
+  { icon: <GlobeMapIcon className={ICON_CLASS} />, title: "Türkiye Geneli Hizmet", desc: `İstanbul merkezli ekibimizle ${PROVINCES_COUNT} ilde etkinlik prodüksiyon desteği sağlıyoruz.`, stat: `${PROVINCES_COUNT} İl`, gradient: "from-indigo-400 to-sky-400", accentHoverClass: "group-hover:text-sky-200", pillClass: "bg-indigo-500/10 border-indigo-400/40 text-indigo-100" },
 ];
 
 const DEFAULT_DICTIONARY = {
@@ -82,12 +83,12 @@ const DEFAULT_DICTIONARY = {
     "Jeneratör, UPS ve yedekli enerji altyapısı",
   ],
   features: [
-    { title: "Yüksek Müşteri Memnuniyeti", desc: "%98'in üzerinde müşteri memnuniyeti. Referanslar ve yorumlar bizim için en güçlü gösterge.", stat: "%98 Memnuniyet" },
+    { title: "Müşterilerimizin Değerlendirmesi", desc: `Google'da ${GOOGLE_REVIEW_COUNT}+ doğrulanmış değerlendirmede ${GOOGLE_RATING}/5 ortalama. Adı açık kurum referansları ve sahada çekilmiş proje videoları da bunu destekliyor.`, stat: `Google'da ${GOOGLE_RATING}/5` },
     { title: "Hızlı Kurulum ve Teslimat", desc: "Sahne, LED ekran ve ses-ışık kurulumlarında aynı gün içinde profesyonel montaj.", stat: "2–6 Saat" },
     { title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6" },
-    { title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: "15+ Uzman" },
-    { title: "Rekabetçi Fiyat Garantisi", desc: "Kaliteden ödün vermeden bütçenize uygun, şeffaf ve öngörülebilir fiyatlandırma.", stat: "Şeffaf Fiyatlama" },
-    { title: "Türkiye Geneli Hizmet", desc: "İstanbul merkezli ekibimizle 81 ilde etkinlik prodüksiyon desteği sağlıyoruz.", stat: "81 İl" },
+    { title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: `${TECHNICAL_TEAM_SIZE} Uzman` },
+    { title: "Şeffaf ve Kalem Kalem Fiyatlandırma", desc: "Her teklifte ekipman, ekip, lojistik, kurulum ve söküm ayrı kalemler hâlinde yazılır; neye ödeme yaptığınızı kalem bazında görürsünüz.", stat: "Kalem Kalem Teklif" },
+    { title: "Türkiye Geneli Hizmet", desc: `İstanbul merkezli ekibimizle ${PROVINCES_COUNT} ilde etkinlik prodüksiyon desteği sağlıyoruz.`, stat: `${PROVINCES_COUNT} İl` },
   ],
 };
 

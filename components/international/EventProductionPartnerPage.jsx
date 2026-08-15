@@ -604,7 +604,8 @@ export default function EventProductionPartnerPage({ locale }) {
         <section className="px-6 py-20 md:px-10">
           <div className="mx-auto max-w-7xl">
             <SectionHeading {...content.why} />
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {/* EN'de 5 kart var (birleştirilmiş blok), diğer dillerde 3. */}
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {content.why.cards.map(([title, text]) => (
                 <article key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
                   <h3 className="text-xl font-black text-slate-950">{title}</h3>
