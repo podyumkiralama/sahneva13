@@ -1,4 +1,4 @@
-import { PROJECTS_COMPLETED } from "@/lib/stats";
+import { PROJECTS_COMPLETED, setupDurationText } from "@/lib/stats";
 export const CHINESE_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
@@ -20,7 +20,7 @@ export const CHINESE_SERVICE_PAGES = {
     },
     heroStats: [
       { value: "全国", label: "土耳其服务覆盖" },
-      { value: "2-6 小时", label: "常规安装" },
+      { value: setupDurationText("overall", "zh"), label: "常规安装" },
       { value: PROJECTS_COMPLETED, label: "项目案例" },
     ],
     intro:

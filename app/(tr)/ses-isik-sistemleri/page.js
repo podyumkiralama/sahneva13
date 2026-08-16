@@ -21,7 +21,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -216,7 +216,7 @@ const HERO_METRICS = [
   {
     value: `${GOOGLE_RATING}/5`,
     label: "Müşteri Puanı",
-    detail: `Google Business Profile üzerinde ${GOOGLE_REVIEW_COUNT}+ değerlendirme ortalaması.`,
+    detail: `Google Business Profile üzerinde ${GOOGLE_REVIEW_COUNT_DISPLAY}+ değerlendirme ortalaması.`,
   },
 ];
 

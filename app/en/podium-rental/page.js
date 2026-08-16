@@ -9,7 +9,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 export const revalidate = 86400;
 
@@ -165,7 +165,7 @@ const TECHNICAL_SPECS = [
     title: "Site Process",
     icon: "⚡",
     description: "Transport, setup, teardown and on-time site management",
-    features: ["2-6 hour setup", "Professional team", "Istanbul transport", "Teardown service"],
+    features: [`${setupDurationText("podium", "en")} setup`, "Professional team", "Istanbul transport", "Teardown service"],
   },
   {
     title: "Technical Support",
@@ -182,7 +182,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How long does setup take?",
-    a: "Standard 24-48 m² podiums are set up within 2-6 hours at most venues. Large areas and special requirements may require additional time.",
+    a: `Standard 24-48 m² podiums are set up within ${setupDurationText("podium", "en")} at most venues. Large areas and special requirements may require additional time.`,
   },
   {
     q: "What panels do you use?",

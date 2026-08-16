@@ -20,7 +20,7 @@ import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/se
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_DE } from "@/lib/faqData";
-import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
+import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
@@ -753,13 +753,13 @@ const WHY_CHOOSE_US_DICT_DE = {
   features: [
     {
       title: "Bewertet von unseren Kunden",
-      desc: `Im Schnitt ${GOOGLE_RATING.replace(".", ",")}/5 aus ${GOOGLE_REVIEW_COUNT}+ geprüften Google-Bewertungen. Namentlich genannte Referenzen und Projektvideos vor Ort belegen das zusätzlich.`,
+      desc: `Im Schnitt ${GOOGLE_RATING.replace(".", ",")}/5 aus ${GOOGLE_REVIEW_COUNT_DISPLAY}+ geprüften Google-Bewertungen. Namentlich genannte Referenzen und Projektvideos vor Ort belegen das zusätzlich.`,
       stat: `${GOOGLE_RATING.replace(".", ",")}/5 bei Google`,
     },
     {
       title: "Schneller Aufbau",
-      desc: "Bühne, LED-Wand sowie Ton- und Lichttechnik lassen sich bei Bedarf am selben Tag aufbauen.",
-      stat: "2–6 Stunden",
+      desc: "Podeste und LED-Wände stehen in wenigen Stunden; ein kompletter Bühnenbau mit Traversen und Rigging dauert länger. Jedes Angebot nennt das Aufbaufenster für Ihren Umfang.",
+      stat: setupDurationText("overall", "de"),
     },
     {
       title: "Aktuelle LED-Technik",

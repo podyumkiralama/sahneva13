@@ -11,7 +11,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED } from "@/lib/stats";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -390,7 +390,7 @@ function HeroSection() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {[
-                { icon: "⭐", value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT}+ Değerlendirme` },
+                { icon: "⭐", value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT_DISPLAY}+ Değerlendirme` },
                 { icon: "👗", value: PROJECTS_COMPLETED, label: "Tamamlanan Proje" },
                 { icon: "🚀", value: "Uçtan Uca", label: "Hizmet" },
                 { icon: "🛡️", value: "TS EN", label: "Güvenlik Standartları" },

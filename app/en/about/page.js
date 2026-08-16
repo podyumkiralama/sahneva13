@@ -10,7 +10,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -140,7 +140,7 @@ export default function AboutPage() {
       icon: "⚡",
       title: "Rapid Installation",
       description:
-        "Same-day deployment with professional stage and technical delivery within 2-6 hours",
+        `Same-day deployment: podium builds in ${setupDurationText("podium", "en")}, full stage builds with truss and rigging in ${setupDurationText("stage", "en")}`,
     },
     {
       icon: "💎",

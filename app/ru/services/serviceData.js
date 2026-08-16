@@ -1,4 +1,4 @@
-import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 export const RUSSIAN_SERVICE_PAGES = {
   "stage-rental": {
     slug: "stage-rental",
@@ -19,7 +19,7 @@ export const RUSSIAN_SERVICE_PAGES = {
     },
     heroStats: [
       { value: `${PROVINCES_COUNT}`, label: "город Турции" },
-      { value: "2-6 ч", label: "типовой монтаж" },
+      { value: setupDurationText("overall", "ru"), label: "типовой монтаж" },
       { value: PROJECTS_COMPLETED, label: "проектов" },
     ],
     intro:

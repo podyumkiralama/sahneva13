@@ -10,7 +10,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -155,7 +155,7 @@ export default function HakkimizdaPage() {
       icon: "⚡",
       title: "Hızlı Kurulum",
       description:
-        "Aynı gün kurulum, 2-6 saat içinde profesyonel sahne ve teknik altyapı teslimi",
+        `Aynı gün kurulum: podyum ${setupDurationText("podium", "tr")}, truss ve rigging içeren sahne ${setupDurationText("stage", "tr")}`,
     },
     {
       icon: "💎",

@@ -25,7 +25,7 @@ import {
   Ruler,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { PROJECTS_COMPLETED } from "@/lib/stats";
+import { PROJECTS_COMPLETED, setupDurationText } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -188,7 +188,7 @@ const TECHNICAL_SPECS = [
     title: "Saha Süreci",
     icon: "⚡",
     description: "Nakliye, kurulum, söküm ve zaman planına uygun saha yönetimi",
-    features: ["2-6 saat kurulum", "Profesyonel ekip", "İstanbul ve Türkiye geneli lojistik", "Söküm hizmeti"],
+    features: [`${setupDurationText("podium", "tr")} kurulum`, "Profesyonel ekip", "İstanbul ve Türkiye geneli lojistik", "Söküm hizmeti"],
   },
   {
     title: "Teknik Destek",
@@ -205,7 +205,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kurulum ne kadar sürer?",
-    a: "Standart 24-48 m² podyumlar çoğu mekânda 2-6 saat içinde kurulur. Geniş alanlar ve özel gereksinimler ek süre gerektirebilir.",
+    a: `Standart 24-48 m² podyumlar çoğu mekânda ${setupDurationText("podium", "tr")} içinde kurulur. Geniş alanlar ve özel gereksinimler ek süre gerektirebilir.`,
   },
   {
     q: "Hangi panelleri kullanıyorsunuz?",
@@ -695,7 +695,7 @@ function PodiumFlowSection() {
               {[
                 ["12-48 m²", "Başlangıç ölçüsü"],
                 ["10-200 cm", "Yükseklik planı"],
-                ["2-6 saat", "Kurulum"],
+                [setupDurationText("podium", "tr"), "Kurulum"],
               ].map(([value, label]) => (
                 <div
                   key={label}
@@ -918,7 +918,7 @@ function StatsSection() {
   const stats = [
     { value: PROJECTS_COMPLETED, label: "Başarılı Proje", icon: "🏆" },
     { value: "50+", label: "Kurumsal Müşteri", icon: "🏢" },
-    { value: "2-6", label: "Saat Kurulum", icon: "⏱️" },
+    { value: setupDurationText("podium", "tr"), label: "Kurulum", icon: "⏱️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
   return (

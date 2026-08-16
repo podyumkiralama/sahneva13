@@ -1,7 +1,7 @@
 // components/HeroSection.js
 import Link from "next/link";
 import RichText from "@/components/RichText";
-import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 const DEFAULT_KEYWORDS = [
   { text: "Kurumsal Lansman", color: "text-blue-200" },
@@ -23,7 +23,7 @@ const DEFAULT_DICTIONARY = {
   proofPoints: [
     { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
     { value: `${PROVINCES_COUNT} il`, label: "T\u00fcrkiye geneli kurulum" },
-    { value: "2-6 saat", label: "H\u0131zl\u0131 devreye alma" },
+    { value: setupDurationText("overall", "tr"), label: "H\u0131zl\u0131 devreye alma" },
     { value: "Tek ekip", label: "Sahne, LED, ses ve podyum" },
   ],
   ctaCall: "Hemen Ara",

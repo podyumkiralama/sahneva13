@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -433,7 +433,7 @@ function Technical() {
       category: "installation",
       title: "Installation Process",
       description: "Rapid mobilisation with experienced crew, logistics and dismantle",
-      features: ["2–6 hour setup", "Certified crew", "Dedicated logistics", "Post-event dismantle"],
+      features: [`${setupDurationText("tent", "en")} setup`, "Certified crew", "Dedicated logistics", "Post-event dismantle"],
     },
     {
       category: "support",

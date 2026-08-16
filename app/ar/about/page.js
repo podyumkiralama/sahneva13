@@ -5,7 +5,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 const AR_ABOUT_URL = buildCanonical("/ar/about");
@@ -118,7 +118,7 @@ export default function ArabicAboutPage() {
       icon: "⚡",
       title: "التركيب السريع",
       description:
-        "نشر في نفس اليوم مع تسليم المنصة والتقنيات الاحترافية في غضون 2-6 ساعات",
+        `تركيب في نفس اليوم: المنصة خلال ${setupDurationText("podium", "ar")}، والمسرح الكامل مع التراس والتعليق خلال ${setupDurationText("stage", "ar")}`,
     },
     {
       icon: "💎",

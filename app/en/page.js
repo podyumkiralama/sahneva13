@@ -22,7 +22,7 @@ import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/se
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_EN } from "@/lib/faqData";
-import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE } from "@/lib/stats";
+import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ================== ISR ================== */
 export const revalidate = 3600;
@@ -802,8 +802,8 @@ const WHY_CHOOSE_US_DICT_EN = {
     "Generator, UPS and redundant power infrastructure",
   ],
   features: [
-    { title: "Rated by Our Clients", desc: `${GOOGLE_RATING}/5 average from ${GOOGLE_REVIEW_COUNT}+ verified Google reviews. Named client references and on-site project videos back it up.`, stat: `${GOOGLE_RATING}/5 on Google` },
-    { title: "Fast Setup & Delivery", desc: "Same-day professional installation for stage, LED screen and sound-lighting setups.", stat: "2–6 Hours" },
+    { title: "Rated by Our Clients", desc: `${GOOGLE_RATING}/5 average from ${GOOGLE_REVIEW_COUNT_DISPLAY}+ verified Google reviews. Named client references and on-site project videos back it up.`, stat: `${GOOGLE_RATING}/5 on Google` },
+    { title: "Fast Setup & Delivery", desc: "Podiums and LED walls go up in hours; a full stage build with truss and rigging takes longer. Every quote states the setup window for your scope.", stat: setupDurationText("overall", "en") },
     { title: "Premium LED Technology", desc: "High brightness and clarity with P2–P6 indoor/outdoor LED screens.", stat: "P2–P6" },
     { title: "Expert Technical Team", desc: `${YEARS_OF_EXPERIENCE} years of experience in stage, sound, lighting and LED — expert technical crew.`, stat: `${TECHNICAL_TEAM_SIZE} Experts` },
     { title: "Transparent, Itemised Pricing", desc: "Every quote lists equipment, crew, logistics, setup and dismantling as separate lines, so you can see exactly what you are paying for.", stat: "Itemised Quotes" },

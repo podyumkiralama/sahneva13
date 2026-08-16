@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { PROVINCES_COUNT } from "@/lib/stats";
+import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -330,7 +330,7 @@ export default function ServicesPage() {
     {
       icon: "⚡",
       title: "Aynı Gün Kurulum",
-      description: "2-6 saat içinde profesyonel kurulum ve teslimat"
+      description: `Kapsama göre ${setupDurationText("overall", "tr")} içinde profesyonel kurulum ve teslimat`
     },
     {
       icon: "🛡️",
