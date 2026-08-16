@@ -371,17 +371,26 @@ const STANDARDS = [
 ];
 
 /* ---------- Sistem ve Standart ---------- */
-// Boyutsal degerler ureticinin (Eschenbach) teknik foyunden alindi.
+// KAYNAK: Eschenbach montaj cizim paketi "AHA 31 (30, 25, 20)/4-C — EN 13782 —
+// Rev. 04", Index g (02.12.2021), Eschenbach-Nr. 0092-00. Genel gorunus
+// paftalari 11221-4 / 11223-4 / 11225-4 / 11227-3.
 //
-// "Mahya (tepe) yuksekligi" satiri BILINCLI olarak yok. Foyde yalnizca 40 m
-// icin dogrulanmis bir deger var (10,50 m); 20 ve 30 m degerleri henuz teyit
-// edilmedi. Yarim dolu bir satir tabloyu okunmaz yapiyor, tahmini deger ise
-// sozlesmede taahhut sayiliyor. Teyit gelince satir bu diziye eklenecek.
+// Paftalardan birebir okunan degerler (4,00 m sacak / "C" varyanti):
+//   AHA 20 -> aciklik 20.000 mm, mahya 7.249 mm, 3 alin diregi
+//   AHA 25 -> aciklik 25.000 mm, mahya 8.061 mm, 4 alin diregi
+//   AHA 30 -> aciklik 30.000 mm, mahya 8.874 mm, 5 alin diregi
+//   AHA 31 -> aciklik 31.000 mm, mahya 9.036 mm, 5 alin diregi
+// Sitedeki "30'luk" = AHA 30 (isletme teyidi, 16.08.2026).
+//
+// 40 m sutunu bu cizim paketinde YOK; ayri bir sistem ve statigi ayri
+// (isletme teyidi). Degerleri gorev dosyasindan geliyor, kendi statigi elde
+// edilince dogrulanmali.
 const SPAN_SYSTEM_COLUMNS = ["20 m", "30 m", "40 m"];
 
 const SPAN_SYSTEM_SPECS = [
   { label: "Açıklık (kolonsuz)", values: ["20,00 m", "30,00 m", "40,00 m"] },
   { label: "Saçak yüksekliği", values: ["4,00 m", "4,00 m", "4,00 m"] },
+  { label: "Mahya (tepe) yüksekliği", values: ["7,25 m", "8,87 m", "10,50 m"] },
   { label: "Çatı eğimi", values: ["18°", "18°", "18°"] },
   { label: "Modül aralığı", values: ["5,00 m", "5,00 m", "5,00 m"] },
   { label: "Alın direği sayısı", values: ["3", "5", "7"] },
@@ -401,12 +410,40 @@ const SPAN_OFFER_ITEMS = SPAN_SYSTEM_COLUMNS.map((span) => ({
   description: `Kolonsuz ${span} açıklık, 4,00 m saçak yüksekliği ve 5,00 m modül aralığıyla kurulan büyük açıklıklı çadır sistemi.`,
 }));
 
+// Malzeme ve imalat verileri Eschenbach montaj cizim paketinden (Index g,
+// 02.12.2021) alindi. Bu satirlar "kaliteli malzeme kullaniyoruz" cumlesinin
+// dogrulanabilir hali — alasim, imalat sinifi ve kaynak muayenesi yazili.
+const MATERIAL_SPECS = [
+  {
+    label: "Taşıyıcı profiller",
+    value: "EN AW-6082 T5 alüminyum",
+    detail:
+      "Ana taşıyıcıda 270×100×7×4 mm, ara profillerde 235×100 mm, bağlantı profillerinde 95×95 ve 60×60 mm kesitler kullanılır.",
+  },
+  {
+    label: "Köşe ve mahya çubukları",
+    value: "S235JRG2 çelik boru",
+    detail: "Ø48,3×5,6 mm ve Ø60,3×4 mm kesitli çelik borular; açıklığa göre seçilir.",
+  },
+  {
+    label: "Çatı ve duvar çaprazı",
+    value: "Ø12 mm çelik halat",
+    detail: "M20 gergi (liftbox) ile gerdirilir; yapının yatay yük taşıma kurgusunu tamamlar.",
+  },
+  {
+    label: "İmalat sınıfı",
+    value: "EXC 2 — DIN EN 1090-2",
+    detail:
+      "Taşıyıcı çelik imalatı bu sınıfın gerekliliklerini karşılar; kaynakların tamamına %100 gözle muayene (VT) uygulanır.",
+  },
+];
+
 const ANCHORING_METHODS = [
   {
     surface: "Toprak ve çim",
     method: "Kazık ankrajı",
     detail:
-      "Kazık çakılmadan önce yeraltı altyapısı sorgulanır; elektrik, su ve doğalgaz hattı geçen akslar kurulum planının dışında bırakılır.",
+      "Ø30 mm S235JR çelik kazıklar; kolon tipine göre ayak başına 4 ila 6 adet, 1.000–1.200 mm boyunda. Kazık çakılmadan önce yeraltı altyapısı sorgulanır.",
   },
   {
     surface: "Parke, beton, asfalt",
@@ -1409,6 +1446,24 @@ function SystemAndStandardSection() {
                 </li>
               ))}
             </ul>
+            {/* Belge kimligi: "belgemiz var" demek ile hesabin kim tarafindan,
+                hangi tarihte ve hangi revizyonla yapildigini yazmak ayni sey
+                degil. Rakip "TUV belgeli" yaziyor; dogrulanabilir referans
+                daha guclu. */}
+            <dl className="mt-6 space-y-2 border-t border-slate-200 pt-5 text-sm leading-6 text-gray-700">
+              <div className="flex gap-2">
+                <dt className="font-black text-gray-950">Hesabı yapan:</dt>
+                <dd>Ing.-Büro Strauch</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="font-black text-gray-950">Doküman:</dt>
+                <dd>AHA 31 (30, 25, 20)/4-C — Rev. 04, 356 sayfa</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="font-black text-gray-950">Üretici kaydı:</dt>
+                <dd>Eschenbach No. 0092-00</dd>
+              </div>
+            </dl>
           </div>
         </div>
 
@@ -1473,11 +1528,47 @@ function SystemAndStandardSection() {
             </table>
           </div>
 
-          <p className="border-t border-slate-200 bg-slate-50 px-8 py-5 text-sm leading-6 text-gray-700">
-            Değerler üretici teknik föyünden alınmıştır. Modül aralığı 5,00 m olduğu için
-            çadır uzunluğu 5 metrenin katları hâlinde büyür; toplam alan seçilen modül
-            sayısıyla belirlenir.
+          <div className="border-t border-slate-200 bg-slate-50 px-8 py-5 text-sm leading-6 text-gray-700">
+            <p>
+              Değerler üreticinin EN 13782 montaj çizim paketinden alınmıştır. Modül
+              aralığı 5,00 m olduğu için çadır uzunluğu 5 metrenin katları hâlinde büyür;
+              toplam alan seçilen modül sayısıyla belirlenir.
+            </p>
+            <p className="mt-3">
+              20 ve 30 metrelik sistemlerde saçak yüksekliği 3,00 m veya 4,00 m olarak
+              kurulabilir. Tablodaki mahya yükseklikleri 4,00 m saçak kurulumuna aittir;
+              3,00 m saçak seçildiğinde mahya bir metre alçalır.
+            </p>
+          </div>
+        </div>
+
+        {/* Malzeme ve imalat standardi */}
+        <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+          <h3 className="text-2xl font-black tracking-tight text-gray-950 md:text-3xl">
+            Taşıyıcı sistem hangi malzemeden imal ediliyor?
+          </h3>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-gray-700 md:text-lg">
+            Bir çadırın rüzgârda ayakta kalmasını sağlayan şey brandası değil, taşıyıcı
+            iskeletin alaşımı, kesiti ve imalat kalitesidir. Sahneva’nın büyük açıklıklı
+            sistemlerinde bu değerler üreticinin montaj çizim paketinde tanımlıdır.
           </p>
+
+          <dl className="mt-8 grid gap-5 sm:grid-cols-2">
+            {MATERIAL_SPECS.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
+              >
+                <dt className="text-xs font-black uppercase tracking-wider text-blue-700">
+                  {item.label}
+                </dt>
+                <dd>
+                  <p className="mt-3 text-xl font-black text-gray-950">{item.value}</p>
+                  <p className="mt-3 text-sm leading-6 text-gray-700">{item.detail}</p>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
         {/* 2.3 — Tek parça / birleştirilmiş ayrımı */}
