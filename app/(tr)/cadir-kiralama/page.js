@@ -121,6 +121,7 @@ const PAGE_SECTIONS = [
   { href: "#fiyatlar", label: "Fiyatlar" },
   { href: "#referanslar", label: "Referanslar" },
   { href: "#guvenlik-standartlari", label: "Güvenlik standardı" },
+  { href: "#sistem-ve-standart", label: "Sistem ve standart" },
   { href: "#sss", label: "Sık sorulanlar" },
 ];
 
@@ -150,23 +151,23 @@ const VIDEO_EMBEDS = [
 
 // Not: cadir-saha-3 ve cadir-saha-9 karelerinde sosyal medya filigrani/arayuz izi
 // bulunduğu icin galeriden cikarildi; cadir-saha-5 ayni sahanin temiz cekimi.
+// Dome kareleri (SAHA 2026, DicleFest, blog dome gorselleri) bilincli olarak
+// burada degil; dome ayri bir hizmet ve /dome-cadir-kiralama sayfasinda anlatiliyor.
 const GALLERY_IMAGES = [
-  { src: "/images/projects/saha-2026-dome-cadir-final.webp", alt: "SAHA 2026 fuarında kurulan dome çadır ve ambiyans aydınlatmalı markalı giriş cephesi" },
   { src: "/img/galeri/cadir-kiralama-15.webp", alt: "Şeffaf çadırın gece iç görünümü: aydınlatılmış ağaçlar ve hazırlanan davet alanı" },
   { src: "/img/cadir/cadir-saha-1.webp", alt: "Deniz kenarındaki fuar alanında büyük açıklıklı çadır ve pagoda çadır sırası" },
   { src: "/img/galeri/cadir-kiralama-7.webp", alt: "Çadır içinde tören düzeni: sahne, iki LED ekran ve yüzlerce beyaz sandalye" },
-  { src: "/img/galeri/cadir-kiralama-4.webp", alt: "Kale duvarı önünde gece: kurulmuş şişme dome çadır ve yanındaki dome iskeletleri" },
+  { src: "/img/cadir/cadir-saha-6.webp", alt: "Beton saha üzerinde kolonsuz kurulan büyük açıklıklı çadır; iç hacimde dikme yok" },
   { src: "/img/cadir/pagoda.webp", alt: "Yan yana dizilmiş pagoda çadırlar ve önünde yükseltilmiş oturma platformu" },
   { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Büyük açıklıklı çadırın vinçle kurulumu, yanında pagoda çadırlar" },
   { src: "/img/cadir/seffaf.webp", alt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı" },
-  { src: "/img/blog/dome-cadir-gece-ambiyans.webp", alt: "Festival alanında gece aydınlatmalı dome çadır, sahne ve kalabalık izleyici alanı" },
   { src: "/img/galeri/cadir-kiralama-6.webp", alt: "Otel bahçesinde havuz başına kurulan büyük etkinlik çadırı" },
   { src: "/img/cadir/cadir-liman-etkinlik-alani.webp", alt: "Liman sahasında kurulan yan duvarsız büyük açıklıklı etkinlik çadırı" },
   { src: "/img/galeri/cadir-kiralama-12.webp", alt: "Havadan festival alanı: etkinlik çadırı, oyun alanı ve karşılama aksı" },
   { src: "/img/cadir/cadir-kitap-fuari-karsilama.webp", alt: "Kitap ve kültür fuarı için cami avlusuna kurulan çadır ve karşılama girişi" },
   { src: "/img/galeri/cadir-kiralama-9.webp", alt: "Havadan görünüm: şeffaf pencereli yan duvarlarıyla uzun büyük açıklıklı çadır" },
   { src: "/img/galeri/cadir-kiralama-5.webp", alt: "Kurulum aşamasında çadır iskeleti ve arkasında sıralanmış pagoda çadırlar" },
-  { src: "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-kurulum-sureci.webp", alt: "Meydanda kurulan dome çadırın geodezik iskeleti ve vinçle indirilen branda" },
+  { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Boş sahada büyük açıklıklı çadır iskeletinin vinçle kurulması; açıklığın altı boş" },
   { src: "/img/cadir/cadir-saha-7.webp", alt: "Fuar çadırının iç görünümü: stant sıraları ve geniş açıklıklı taşıyıcı yapı" },
   { src: "/img/cadir/2.webp", alt: "Çadır içinde kurulan sahne, LED ekran ve oturma alanı düzeni" },
   { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulmuş yan duvarsız büyük açıklıklı çadır gölgeliği" },
@@ -174,10 +175,10 @@ const GALLERY_IMAGES = [
 ];
 
 const GALLERY_FALLBACK_CARDS = [
-  { src: "/images/projects/saha-2026-dome-cadir-final.webp", title: "Dome Çadır", alt: "SAHA 2026 fuarında kurulan dome çadır" },
   { src: "/img/galeri/cadir-kiralama-15.webp", title: "Şeffaf Davet Çadırı", alt: "Şeffaf çadırın gece iç görünümü" },
   { src: "/img/cadir/cadir-saha-1.webp", title: "Fuar Alanı Kurulumu", alt: "Deniz kenarındaki fuar alanında büyük çadır ve pagoda çadırlar" },
   { src: "/img/galeri/cadir-kiralama-7.webp", title: "Tören ve Protokol Düzeni", alt: "Çadır içinde sahne, LED ekran ve sandalye düzeni" },
+  { src: "/img/cadir/cadir-saha-6.webp", title: "Kolonsuz Büyük Açıklık", alt: "Beton saha üzerinde kolonsuz kurulan büyük açıklıklı çadır" },
 ];
 
 const FAQ_ITEMS = [
@@ -212,10 +213,6 @@ const FAQ_ITEMS = [
   {
     q: "Şeffaf çadır ile pagoda çadır arasındaki fark nedir?",
     a: "Pagoda çadırlar fuaye, karşılama, VIP alan ve küçük etkinliklerde hızlı ve modüler çözüm sağlar. Şeffaf çadırlar ise kır düğünü, lansman ve premium davetlerde manzarayı koruyan daha atmosferik bir alan oluşturur.",
-  },
-  {
-    q: "Dome çadır hangi etkinliklerde tercih ediliyor?",
-    a: "Dome çadır; lansman, deneyim alanı, konsept stant ve 360° projeksiyon kurgularında tercih edilir. Küresel iç yüzeyi mapping ve sahne kurgusuna uygun kapalı bir alan oluşturur. SAHA 2026’da kapalı fuar alanında dome çadır ve markalı giriş cephesi, DicleFest Şanlıurfa’da ise meydanda geodezik dome kurulumu yaptık.",
   },
   {
     q: "Büyük çadırlarda iklimlendirme yapılabilir mi?",
@@ -290,15 +287,6 @@ const TENT_SELECTOR_CARDS = [
     sizing: "10, 20, 30 ve 40 m açıklık seçenekleriyle projelendirilir.",
     advantage: "Kolonsuz geniş alan, kontrollü giriş-çıkış ve teknik entegrasyon sağlar.",
   },
-  {
-    title: "Dome Çadır",
-    badge: "Deneyim alanı",
-    img: "/images/projects/saha-2026-dome-cadir-final.webp",
-    imgAlt: "SAHA 2026 fuarında kurulan geodezik dome çadır ve markalı giriş cephesi",
-    usage: "Lansman, deneyim alanı, 360° projeksiyon ve konsept stant",
-    sizing: "Çap, iç yükseklik ve giriş cephesine göre projelendirilir.",
-    advantage: "Küresel iç yüzeyi mapping ve sahne kurgusuna uygun kapalı deneyim alanı yaratır.",
-  },
 ];
 
 const TENT_STOCK = [
@@ -348,9 +336,12 @@ const TENT_STOCK = [
 
 const STANDARDS = [
   {
+    // Deger uretici teknik foyunden alindi. Onceki "650 gr/m²" ifadesi foyle
+    // ortusmuyordu; yuvarlanmis degeri "yaklasik" olmadan yazmak sozlesmede
+    // taahhut sayilir.
     feature: "Branda Gramajı",
-    standard: "650 gr/m² UV dayanımlı branda",
-    detail: "Güneş, yağmur ve yoğun kullanıma karşı profesyonel dış mekan standardı.",
+    standard: "Yaklaşık 630 gr/m² UV dayanımlı branda",
+    detail: "Üretici teknik föyünde belirtilen değer. Güneş, yağmur ve yoğun kullanıma karşı profesyonel dış mekan standardı.",
   },
   {
     feature: "Yangın Sınıfı",
@@ -376,6 +367,58 @@ const STANDARDS = [
     feature: "Zemin Kontrolü",
     standard: "Zemin türüne göre sabitleme",
     detail: "Kot farkı, yüzey hassasiyeti ve yük dağılımı saha keşfinde netleştirilir.",
+  },
+];
+
+/* ---------- Sistem ve Standart ---------- */
+// Boyutsal degerler ureticinin (Eschenbach) teknik foyunden alindi.
+//
+// "Mahya (tepe) yuksekligi" satiri BILINCLI olarak yok. Foyde yalnizca 40 m
+// icin dogrulanmis bir deger var (10,50 m); 20 ve 30 m degerleri henuz teyit
+// edilmedi. Yarim dolu bir satir tabloyu okunmaz yapiyor, tahmini deger ise
+// sozlesmede taahhut sayiliyor. Teyit gelince satir bu diziye eklenecek.
+const SPAN_SYSTEM_COLUMNS = ["20 m", "30 m", "40 m"];
+
+const SPAN_SYSTEM_SPECS = [
+  { label: "Açıklık (kolonsuz)", values: ["20,00 m", "30,00 m", "40,00 m"] },
+  { label: "Saçak yüksekliği", values: ["4,00 m", "4,00 m", "4,00 m"] },
+  { label: "Çatı eğimi", values: ["18°", "18°", "18°"] },
+  { label: "Modül aralığı", values: ["5,00 m", "5,00 m", "5,00 m"] },
+  { label: "Alın direği sayısı", values: ["3", "5", "7"] },
+  { label: "Modül başına alan", values: ["100 m²", "150 m²", "200 m²"] },
+  { label: "Sistem ağırlığı", values: ["15 kg/m²", "15 kg/m²", "15 kg/m²"] },
+];
+
+// Buyuk aciklikli sistemlerde birim fiyat ortak (m² bazli). Katalogda yine de
+// her aciklik ayri kalem: alici "40 m acikliginiz var mi" diye ariyor, tek bir
+// "Buyuk Cadirlar" kalemi bu soruya cevap vermiyor.
+const SPAN_OFFER_ITEMS = SPAN_SYSTEM_COLUMNS.map((span) => ({
+  title: `${span} Açıklıklı Çadır`,
+  price: `${UNIT_PRICES.tentSqm} TL / m²`,
+  amount: UNIT_PRICES.tentSqm,
+  unitCode: "MTK",
+  unitText: "m²",
+  description: `Kolonsuz ${span} açıklık, 4,00 m saçak yüksekliği ve 5,00 m modül aralığıyla kurulan büyük açıklıklı çadır sistemi.`,
+}));
+
+const ANCHORING_METHODS = [
+  {
+    surface: "Toprak ve çim",
+    method: "Kazık ankrajı",
+    detail:
+      "Kazık çakılmadan önce yeraltı altyapısı sorgulanır; elektrik, su ve doğalgaz hattı geçen akslar kurulum planının dışında bırakılır.",
+  },
+  {
+    surface: "Parke, beton, asfalt",
+    method: "Su tankı balastı",
+    detail:
+      "Kolon diplerine su dolu IBC tankları yerleştirilir. Sahada su temini ve çadır çevresinde tankların oturacağı ek alan gerekir.",
+  },
+  {
+    surface: "Spor sahası, parkur, hassas yüzey",
+    method: "Beton blok balast",
+    detail:
+      "Yüzeye delik açılmadan ağırlık uygulanır. Nakliye yükü en yüksek yöntemdir; blok sayısı ve sevkiyat planı teklifte ayrıca gösterilir.",
   },
 ];
 
@@ -501,7 +544,7 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-3xl text-[20px] font-semibold leading-[1.4] text-white/[0.94] md:text-[23px]">
-              Pagoda çadır, şeffaf dome ve büyük açıklıklı sistemlerle{" "}<br className="hidden md:block" />
+              Pagoda çadır, şeffaf çadır ve büyük açıklıklı sistemlerle{" "}<br className="hidden md:block" />
               zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
             </p>
             <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
@@ -632,7 +675,7 @@ function TentSelectorSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {TENT_SELECTOR_CARDS.map((item) => (
             <article
               key={item.title}
@@ -680,7 +723,22 @@ function TentSelectorSection() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+        {/* Dome bu sayfadan cikarildi; koprude tek cumleyle ayri hizmete
+            yonlendiriliyor. Burada dome anlatmak iki sayfayi yeniden
+            yamyamlastirir. */}
+        <p className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 text-base leading-7 text-slate-700">
+          360° mapping, deneyim alanı ve konsept stant kurguları için dome çadır ayrı bir
+          çözümdür —{" "}
+          <Link
+            href="/dome-cadir-kiralama"
+            className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-800"
+          >
+            dome çadır kiralama
+          </Link>{" "}
+          sayfasına bakabilirsiniz.
+        </p>
+
+        <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-base leading-7 text-slate-700">
             Hangi tipin uygun olduğundan emin değilseniz ölçü, tarih ve zemin bilgisini
             paylaşın; çadır tipini ve yerleşim planını birlikte netleştirelim.
@@ -747,6 +805,8 @@ function TentStockSection() {
                 projelerde ise 20 metre açıklıklı çadırlarda 4.000 m², 30 metre
                 açıklıklı çadırlarda 2.000 m² ve 40 metre açıklıklı çadırlarda 5.000 m²
                 kurulum kapasitesiyle geniş alan ihtiyaçlarına çözüm sunulur.
+                Bu değerler elimizdeki stok adedini gösterir, tek bir çadırın ölçüsünü
+                değil; açıklık büyüdükçe kurulabilir toplam alan otomatik olarak artmaz.
               </p>
               <p>
                 Çadır kurulumları yalnızca branda ve taşıyıcı sistem olarak ele alınmaz.
@@ -771,29 +831,42 @@ function TentStockSection() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {TENT_STOCK.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
-              >
-                <p className="text-xs font-black uppercase tracking-widest text-blue-300">
-                  {item.group}
-                </p>
-                <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
-                <div className="mt-5">
-                  <div className="text-4xl font-black leading-none text-white">
-                    {item.capacity}
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {TENT_STOCK.map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
+                >
+                  <p className="text-xs font-black uppercase tracking-widest text-blue-300">
+                    {item.group}
+                  </p>
+                  <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
+                  <div className="mt-5">
+                    <div className="text-4xl font-black leading-none text-white">
+                      {item.capacity}
+                    </div>
+                    <div className="mt-2 text-sm font-bold text-blue-200/80">
+                      {item.typeLabel}
+                    </div>
                   </div>
-                  <div className="mt-2 text-sm font-bold text-blue-200/80">
-                    {item.typeLabel}
-                  </div>
-                </div>
-                <p className="mt-5 text-sm leading-6 text-cyan-50/[0.76]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
+                  <p className="mt-5 text-sm leading-6 text-cyan-50/[0.76]">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            {/* 30 m kapasitesinin 20 m'den dusuk olmasi okuyanda tereddut
+                yaratiyordu; rakam envanter gercegi, aciklamasi kartlarin
+                altinda duruyor. */}
+            <p className="mt-5 rounded-3xl border border-white/[0.14] bg-slate-950/50 p-5 text-sm leading-7 text-cyan-50/[0.78] backdrop-blur-md">
+              <strong className="font-black text-white">Kapasite nasıl okunur:</strong>{" "}
+              Büyük açıklıklı sistemlerde yazan metrekare, o açıklıkta elimizde bulunan
+              toplam stok alanıdır. Açıklık büyüdükçe kurulabilir alan artmaz; her ölçünün
+              stok adedi birbirinden bağımsızdır. Bir projede tek seferde kurulabilecek
+              alan, seçilen açıklığın stoğuyla sınırlıdır.
+            </p>
           </div>
         </div>
       </div>
@@ -1237,6 +1310,253 @@ function StandardsTable() {
   );
 }
 
+/* ================== Sistem ve Standart ================== */
+// Sayfada daha once marka adi, statik standardi ve tek bir boyutsal veri yoktu.
+// Rakipler "TUV belgeli, DIN 4102 B1" yaziyor; buradaki veri seti daha guclu.
+function SystemAndStandardSection() {
+  return (
+    <section
+      id="sistem-ve-standart"
+      className="scroll-mt-24 bg-slate-50 py-20"
+      aria-labelledby="sistem-ve-standart-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+            Sistem ve standart
+          </p>
+          <h2
+            id="sistem-ve-standart-baslik"
+            className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
+          >
+            Çadır Sistemi Hangi Standarda Göre Kuruluyor?
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-gray-700">
+            Bir etkinlik çadırının güvenliği brandanın kalınlığından önce taşıyıcı
+            sistemin nereden geldiğine, statik hesabın hangi standarda göre yapıldığına
+            ve zemine nasıl bağlandığına bakılarak değerlendirilir.
+          </p>
+        </div>
+
+        {/* 2.1 — Tek tedarikçi */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="text-2xl font-black tracking-tight text-gray-950 md:text-3xl">
+              Sistemlerin tamamı neden tek üreticiden geliyor?
+            </h3>
+            <p className="mt-5 text-base leading-8 text-gray-700 md:text-lg">
+              Sahneva’nın pagoda, şeffaf ve büyük açıklıklı çadır sistemlerinin tamamı
+              aynı Alman üreticiden — <strong className="font-black text-gray-950">Eschenbach</strong> —
+              tedarik edilir. Sektörde envanter çoğunlukla farklı üreticilerden parça parça
+              toplanır; bu durumda her sistemin kendi belge seti, kendi bağlantı detayı ve
+              kendi yangın sınıfı olur.
+            </p>
+            <ul className="mt-7 grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  title: "Tek belge seti",
+                  detail: "Yangın ve statik belgeleri tüm ölçüler için aynı kaynaktan çıkar.",
+                },
+                {
+                  title: "Uyumlu parçalar",
+                  detail: "Kolon, makas ve bağlantı elemanları sistemler arasında birbirine oturur.",
+                },
+                {
+                  title: "Aynı standart",
+                  detail: "Pagodadan 40 metrelik sisteme kadar aynı yangın ve statik standardı geçerlidir.",
+                },
+              ].map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                >
+                  <p className="text-base font-black text-gray-950">{item.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-gray-700">{item.detail}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 2.4 — EN 13782 */}
+          <div className="rounded-3xl border border-blue-200 bg-white p-8 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-700">
+              Statik hesap standardı
+            </p>
+            <h3 className="mt-3 text-3xl font-black tracking-tight text-gray-950">
+              EN 13782
+            </h3>
+            <p className="mt-4 text-base leading-8 text-gray-700">
+              Büyük açıklıklı çadır sistemlerinin statik hesabı, geçici çadır yapıları için
+              Avrupa standardı olan EN 13782’ye göre bağımsız bir mühendislik bürosu
+              tarafından yapılmıştır.
+            </p>
+            <p className="mt-5 text-sm font-black uppercase tracking-wider text-gray-950">
+              Standardın kapsadıkları
+            </p>
+            <ul className="mt-3 space-y-3 text-sm leading-6 text-gray-700">
+              {[
+                "Rüzgâr, kar ve sismik yük varsayımları",
+                "Devrilme, kayma ve kalkma stabilite kontrolleri",
+                "Ankraj gereklilikleri",
+                "Yerinde çekme testleri",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <CheckCircle
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-700"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* 2.2 — Boyutsal veri tablosu. Gercek <table>; div-grid ile kurulan
+            sahte tablolar ayristiricilar tarafindan tablo olarak okunmuyor. */}
+        <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-200 px-8 py-6">
+            <h3 className="text-2xl font-black tracking-tight text-gray-950 md:text-3xl">
+              Büyük açıklıklı sistemlerin ölçüleri nedir?
+            </h3>
+            <p className="mt-3 text-base leading-7 text-gray-700">
+              Sahne, LED ekran ve asma kurgusu planlanan bir çadırda belirleyici olan
+              rakamlar açıklık, saçak yüksekliği ve modül aralığıdır.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-left">
+              <caption className="sr-only">
+                Sahneva büyük açıklıklı çadır sistemlerinin 20, 30 ve 40 metre
+                açıklıklardaki boyutsal verileri
+              </caption>
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th
+                    scope="col"
+                    className="px-8 py-4 text-sm font-black uppercase tracking-wider text-gray-950"
+                  >
+                    Özellik
+                  </th>
+                  {SPAN_SYSTEM_COLUMNS.map((col) => (
+                    <th
+                      key={col}
+                      scope="col"
+                      className="px-6 py-4 text-sm font-black uppercase tracking-wider text-blue-700"
+                    >
+                      {col}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {SPAN_SYSTEM_SPECS.map((row) => (
+                  <tr key={row.label} className="border-b border-slate-100 last:border-b-0">
+                    <th
+                      scope="row"
+                      className="px-8 py-4 text-[15px] font-bold text-gray-950"
+                    >
+                      {row.label}
+                    </th>
+                    {row.values.map((value, i) => (
+                      <td
+                        key={SPAN_SYSTEM_COLUMNS[i]}
+                        className="px-6 py-4 text-[15px] font-semibold text-gray-700"
+                      >
+                        {value}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="border-t border-slate-200 bg-slate-50 px-8 py-5 text-sm leading-6 text-gray-700">
+            Değerler üretici teknik föyünden alınmıştır. Modül aralığı 5,00 m olduğu için
+            çadır uzunluğu 5 metrenin katları hâlinde büyür; toplam alan seçilen modül
+            sayısıyla belirlenir.
+          </p>
+        </div>
+
+        {/* 2.3 — Tek parça / birleştirilmiş ayrımı */}
+        <div className="mt-8 grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:grid-cols-2 lg:gap-0">
+          <div className="p-8 lg:p-10">
+            <h3 className="text-2xl font-black tracking-tight text-gray-950 md:text-3xl">
+              Açıklık tek parça mı geçiliyor, birleştirilerek mi?
+            </h3>
+            <p className="mt-5 text-base leading-8 text-gray-700 md:text-lg">
+              Türkiye’de büyük çadır kurulumlarının çoğu, geniş alanı yan yana
+              birleştirilmiş ünitelerle elde eder; ünitelerin kesiştiği yerde oluk hattı ve
+              kolon dizisi oluşur. Sahneva’nın 40 metrelik sistemi bu açıklığı tek parça
+              geçer. Taşıyıcı yalnızca çevre kolonlarında ve alın cephelerindedir; iç
+              hacimde hiçbir dikme bulunmaz.
+            </p>
+            <p className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-base leading-7 text-gray-700">
+              <strong className="font-black text-gray-950">Pratikte ne değişir:</strong>{" "}
+              40 metrelik sistemde mahya (tepe) yüksekliği 10,50 metredir ve bu yüksekliğin
+              altında oluk hattı ya da iç kolon yoktur. Sahne aksı, ziyaretçi akışı ve stant
+              yerleşimi kolon konumlarına göre değil, etkinliğin ihtiyacına göre kurulur.
+            </p>
+          </div>
+          <figure className="relative m-0 min-h-[320px] lg:min-h-full">
+            <Image
+              src="/img/cadir/buyuk-olcekli-cadir-kurulumu.webp"
+              alt="Kurulum hâlindeki büyük açıklıklı çadır iskeleti; çatı makasları açıklığı tek parça geçiyor ve altlarında iç dikme bulunmuyor"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              quality={80}
+              loading="lazy"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent px-6 pb-5 pt-12 text-sm leading-6 text-white">
+              Kaplama çekilmeden önceki iskelet: açıklığı geçen çatı makaslarının altında
+              iç kolon bulunmuyor.
+            </figcaption>
+          </figure>
+        </div>
+
+        {/* 2.5 — Ankraj yontemleri */}
+        <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+          <h3 className="text-2xl font-black tracking-tight text-gray-950 md:text-3xl">
+            Çadır zemine nasıl sabitleniyor?
+          </h3>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-gray-700 md:text-lg">
+            Sabitleme yöntemi zemine göre değişir ve her yöntemin sahada ayrı bir maliyeti,
+            ayrı bir alan ihtiyacı vardır. Yöntem saha keşfinde seçilir; teklifin içeriğini
+            doğrudan etkilediği için baştan konuşulması gerekir.
+          </p>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {ANCHORING_METHODS.map((item) => (
+              <article
+                key={item.method}
+                className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6"
+              >
+                <p className="text-xs font-black uppercase tracking-wider text-blue-700">
+                  {item.surface}
+                </p>
+                <h4 className="mt-3 text-xl font-black text-gray-950">{item.method}</h4>
+                <p className="mt-4 text-sm leading-6 text-gray-700">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* Asma yuk rakami statik hesaptan gelecek; rakam olmadan yayimlanmiyor.
+              Ground support cumlesi rakamdan bagimsiz ve dogru. */}
+          <p className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 text-base leading-7 text-gray-700">
+            <strong className="font-black text-gray-950">Çatıya asılan yükler:</strong>{" "}
+            Sahne, ses, ışık ve LED ekran kurgularında çatıya asılacak yük proje bazında
+            statik hesapla değerlendirilir. Sistemin taşıma sınırını aşan kurgular çadırdan
+            bağımsız ground support üzerine alınır.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
@@ -1353,11 +1673,7 @@ function InstallationProcess() {
           {[
             { src: "/img/cadir/buyuk-olcekli-cadir-kurulumu.webp", alt: "Boş sahada çadır iskeletinin vinçle kurulması" },
             { src: "/img/cadir/sahneva-cadir-kurulumu.webp", alt: "Taşıyıcı iskelet üzerine çadır brandasının çekilmesi" },
-            {
-              src: "/img/projeler/diclefest-sanliurfa/diclefest-sanliurfa-dome-cadir-kurulum-sureci.webp",
-              alt: "Meydanda kurulan dome çadırın geodezik iskeleti ve vinçle indirilen branda",
-              position: "object-[center_38%]",
-            },
+            { src: "/img/galeri/cadir-kiralama-5.webp", alt: "Kurulum aşamasında çadır iskeleti ve arkasında sıralanmış pagoda çadırlar" },
             { src: "/img/cadir/cadir-saha-8.webp", alt: "Meydanda kurulumu tamamlanmış büyük açıklıklı çadır" },
           ].map((photo) => (
             <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
@@ -1589,12 +1905,20 @@ function TentRentalJsonLd() {
       { "@type": "City", name: "İstanbul" },
       { "@type": "AdministrativeArea", name: "Marmara Bölgesi" },
     ],
+    // Tasiyici sistemlerin tamami tek Alman ureticiden geliyor; marka adi
+    // sayfanin teknik guvenilirlik sinyalinin parcasi.
+    brand: { "@type": "Brand", name: "Eschenbach" },
     // `offers` yalnizca Offer/Demand kabul eder; katalog icin dogru ozellik
     // `hasOfferCatalog`. Sitedeki diger hizmet sayfalari da bunu kullaniyor.
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Çadır Kiralama Fiyatları 2026",
-      itemListElement: PRICING_ITEMS.map((item, index) => ({
+      // Gorunen fiyat tablosundaki genel "Buyuk Cadirlar" kalemi katalogda
+      // 20/30/40 m acikliklara aciliyor; birim fiyat ucunde de ayni.
+      itemListElement: [
+        ...PRICING_ITEMS.filter((item) => item.title !== "Büyük Çadırlar"),
+        ...SPAN_OFFER_ITEMS,
+      ].map((item, index) => ({
         "@type": "Offer",
         position: index + 1,
         name: item.title,
@@ -1697,8 +2021,11 @@ function TentRentalJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       webPageNode,
+      // Not: burada eskiden `serviceNode.offers` vardi. Node `hasOfferCatalog`
+      // kullaniyor, `offers` diye bir alani hic olmadi; undefined deger
+      // JSON.stringify tarafindan `null` olarak yaziliyor ve @graph'a gecersiz
+      // bir dugum birakiyordu.
       serviceNode,
-      serviceNode.offers,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       faqNode,
@@ -1771,6 +2098,8 @@ export default function Page() {
       <Gallery />
       <DividerLightToDark />
       <StandardsTable />
+      <DividerDarkToLight />
+      <SystemAndStandardSection />
       <UseCases />
       <InstallationProcess />
       <DividerBlueToWhite />
@@ -1789,9 +2118,9 @@ export default function Page() {
             intent: "Etkinlik türüne göre çadır sistemi seçimi",
           },
           {
-            href: "/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping",
-            label: "Dome Çadır Rehberi",
-            intent: "Pnömatik yapı ve 360° mapping kurgusu",
+            href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
+            label: "Teknik Keşif ve Planlama Rehberi",
+            intent: "Zemin, ölçü ve ankraj kararını kurulumdan önce netleştirmek için",
           },
           {
             href: "/blog/kurumsal-etkinlik-yonetimi",

@@ -661,7 +661,11 @@ export default function DicleFestSanliurfaProjectPage() {
                 </Link>
                 ,{" "}
                 <Link href="/cadir-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
-                  etkinlik çadırı ve dome çadır çözümleri
+                  etkinlik çadırı
+                </Link>{" "}
+                ve{" "}
+                <Link href="/dome-cadir-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                  dome çadır çözümleri
                 </Link>{" "}
                 ve ziyaretçi yönlendirme başlıkları birbirinden bağımsız değil, aynı saha akışının
                 parçalarıdır.

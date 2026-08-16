@@ -59,7 +59,7 @@ const GALLERY = [
 ];
 
 const SERVICES = [
-  { href: "/cadir-kiralama", label: "Dome çadır kurulumu", icon: TentTree },
+  { href: "/dome-cadir-kiralama", label: "Dome çadır kurulumu", icon: TentTree },
   { href: "/podyum-kiralama", label: "Podyum ve zemin altyapısı", icon: Layers3 },
   { href: "/ses-isik-sistemleri", label: "Ambiyans ışık planı", icon: Lightbulb },
   { href: "/led-ekran-kiralama", label: "LED ekran ve teknik prodüksiyon", icon: Film },
