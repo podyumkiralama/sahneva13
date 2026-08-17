@@ -351,69 +351,6 @@ const ARTICLE_SECTIONS = [
   { id: "istanbul-kurulum-sureci", label: "İstanbul operasyon süreci" },
 ];
 
-const SUCCESS_STORIES = [
-  {
-    title: "360° Senkronize Deneyim: Ankara Beştepe Lansmanı",
-    category: "Devlet & Kamu Etkinliği",
-    transformation: "Sıradan bir kongre salonu, 360 derecelik devasa dijital bir uzay üssüne dönüştü.",
-    before: "Ankara Beştepe Kongre Merkezi'nde standart ekranların yetersiz kaldığı, devasa bir görsel alana ihtiyaç duyulması.",
-    after: "Pnömatik dome yapıya entegre edilen P2.5 yüksek çözünürlüklü kavisli panellerle senkronize bir görüntü akışı sağlandı.",
-    result: "300+ kişilik kongre katılımcısına yüksek çözünürlüklü canlı yayın aktarıldı; 8 saatlik etkinlik boyunca planlanan teknik akış korunarak yüksek müşteri memnuniyeti sağlandı.",
-    quote: "Böylesine kritik bir canlı yayında yüksek senkronizasyon ve net görüntü kalitesiyle operasyonu başarıyla yönettiler.",
-    client: "Organizasyon Komitesi",
-  },
-  {
-    title: "Sarıyer Premium Açık Hava Kır Düğünü",
-    category: "Özel Davet & Gala",
-    transformation: "Gündüz ışığında sönük kalacak anılar, 6500 nit parlaklıkla açık havanın yıldızı oldu.",
-    before: "İstanbul Sarıyer'de gündüz saatlerinde, açık alandaki yoğun güneş ışığı nedeniyle anı videolarının görünmeme riski.",
-    after: "6500 nit parlaklığa sahip P3.9 dış mekan LED ekran kurularak, doğrudan güneş ışığı altında yüksek görünürlük ve netlik sağlandı.",
-    result: "250+ davetlinin tamamı, en arka sıradaki misafirler dahil, canlı yayın görüntüsünü sinema kalitesinde izledi; kurulum etkinlik başlamadan 2 saat önce tamamlandı.",
-    quote: "En mutlu günümüzde görüntü kalitesi harikaydı, her şey tam saatinde profesyonelce hazırdı.",
-    client: "Gelin & Damat",
-  },
-  {
-    title: "Kocaeli İzmit AVM İçi E-Spor Turnuvası",
-    category: "Spor & Eğlence",
-    transformation: "Sessiz bir AVM köşesi, yüzlerce kişinin heyecanla maçı takip ettiği dev bir dijital arenaya evrildi.",
-    before: "Kocaeli İzmit'teki dar kapalı alanda kalabalık bir kitlenin anlık skorları ve oyun içi hızlı hareketleri takip edememesi.",
-    after: "Hızlı kurulan paneller ve 3840 Hz yenileme hızına sahip ekranlarla, kamera dostu ve yüksek kare hızlı oyun yayını gerçekleştirildi.",
-    result: "500+ izleyiciye anlık skor ve oyun yayını yüksek senkronizasyonla aktarıldı; AVM'nin o bölgesindeki etkinlik trafiği organizatörün beklentisinin belirgin biçimde üzerine çıktı.",
-    quote: "Oyuncuların dinamizmine ayak uyduran, kamera dostu ve güçlü bir ekran kurulumu oldu.",
-    client: "Etkinlik Koordinatörü",
-  },
-  {
-    title: "İstanbul TÜYAP Fuarında Havada Asılı LED Box",
-    category: "Kurumsal Fuar",
-    transformation: "Standart tasarımların arasında kaybolan fuar alanı, havada süzülen 4 cepheli bir çekim merkezine dönüştü.",
-    before: "Beylikdüzü TÜYAP Fuar alanında markanın öne çıkabilmesi için havada duran yaratıcı bir dijital tasarıma ihtiyaç vardı.",
-    after: "Hafif kasa modülleri ve profesyonel truss askı sistemleri kullanılarak güvenli, 4 cepheli bir LED Box oluşturuldu.",
-    result: "Stant ziyaret süresi önceki yıla kıyasla gözlemlenebilir ölçüde uzadı; 4 cepheli yapı sayesinde marka görünürlüğü hol genelinde güçlendirildi.",
-    quote: "Tasarım tam istediğimiz gibi havada asılı ve çok dikkat çekiciydi. Ekibin rigging uzmanlığına hayran kaldık.",
-    client: "Kurumsal İletişim Müdürü",
-  },
-  {
-    title: "Üniversite Mezuniyet Töreni: 2.000 Kişilik Dev Salon",
-    category: "Eğitim & Tören",
-    transformation: "Projeksiyon ışığının yetersiz kaldığı devasa salon, her köşeye eşit parlaklık sunan LED wall ile dönüştü.",
-    before: "Ankara'da 2.000 kişilik üniversite mezuniyet salonunda projektörün uzak tribünlere yetmemesi ve görüntü solgunluğu sorunu.",
-    after: "P2.9 yüksek çözünürlüklü 12m × 4m LED ekran, salonun ön cephesine monte edilerek tüm oturma sektörlerine eşit parlaklık sağlandı.",
-    result: "2.000 mezun ve ailesine yüksek görünürlüklü sahne destek ekranları sunuldu; kurulum standart projeksiyon sistemine kıyasla belirgin şekilde daha hızlı tamamlandı.",
-    quote: "En arka sıradaki veliler de konuşmacıyı daha net takip edebildi. LED ekran kurulumu organizasyonun görünürlüğünü güçlendirdi.",
-    client: "Üniversite Organizasyon Koordinatörü",
-  },
-  {
-    title: "Cumhuriyet Bayramı Kutlaması: İlçe Meydanı Konseri",
-    category: "Belediye & Açık Hava",
-    transformation: "Meydan kalabalığında sahneden kopuk kalan vatandaşlar, 8.000 kişiyi saran dijital deneyimle buluştu.",
-    before: "İstanbul'da kalabalık meydan etkinliğinde sahne arkasındaki ve yan kesimlerdeki vatandaşların sanatçıyı görmekte zorlanması.",
-    after: "IP65 korumalı P3.9 dış mekan LED ekranlar sahnenin iki yanına konumlandırılarak 180° görüş açısı ve 6500 nit parlaklık sağlandı.",
-    result: "8.000+ vatandaşın katıldığı etkinlikte sahne destek ekranlarıyla geniş izleyici alanına güçlü görüntü aktarımı sağlandı.",
-    quote: "Sahneyi doğrudan göremeyen alanlarda ekranlar izleyici deneyimini belirgin şekilde güçlendirdi.",
-    client: "Belediye Kültür Müdürlüğü",
-  },
-];
-
 const FAQ_ITEMS = [
   {
     q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
@@ -1062,51 +999,6 @@ function Gallery() {
               </article>
             ))}
           </div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8 mb-20">
-          {SUCCESS_STORIES.map((story, index) => (
-            <article key={index} className="bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
-              
-              <div className="mb-4">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-wider">
-                  {story.category}
-                </span>
-              </div>
-              
-              <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">{story.title}</h3>
-              
-              <p className="text-blue-700 font-semibold italic text-base mb-6 pb-6 border-b border-gray-100">
-                ✨ {story.transformation}
-              </p>
-              
-              <div className="space-y-5 flex-grow">
-                <div className="relative pl-4 border-l-4 border-orange-400">
-                  <p className="text-xs font-black text-orange-800 uppercase tracking-widest mb-1">Durum / İhtiyaç</p>
-                  <p className="text-gray-700 text-sm">{story.before}</p>
-                </div>
-                <div className="relative pl-4 border-l-4 border-blue-500">
-                  <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Teknik Çözüm</p>
-                  <p className="text-gray-700 text-sm">{story.after}</p>
-                </div>
-                <div className="relative pl-4 border-l-4 border-green-500">
-                  <p className="text-xs font-black text-green-800 uppercase tracking-widest mb-1">Etki / Sonuç</p>
-                  <p className="text-gray-900 font-medium text-sm">{story.result}</p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-100 bg-gray-50/50 -mx-8 -mb-8 p-8 rounded-b-3xl">
-                <div className="flex gap-3">
-                  <MessageCircle className="text-blue-300 flex-shrink-0" size={32} aria-hidden="true" />
-                  <div>
-                    <p className="text-gray-700 italic text-sm mb-2 font-medium">"{story.quote}"</p>
-                    <p className="text-xs font-black text-gray-900 uppercase tracking-wider">— {story.client}</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
         </div>
 
         <div className="mb-20">
