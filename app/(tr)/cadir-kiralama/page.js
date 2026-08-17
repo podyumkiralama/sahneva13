@@ -16,7 +16,12 @@ import TentCalculatorCta from "@/components/TentCalculatorCta";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
-import { UNIT_PRICES } from "@/lib/pricing";
+import {
+  UNIT_PRICES,
+  TENT_PACKAGE_PRICES,
+  formatTRY,
+  buildTentPriceSentence,
+} from "@/lib/pricing";
 import { 
   Monitor, 
   MessageCircle, 
@@ -184,7 +189,7 @@ const GALLERY_FALLBACK_CARDS = [
 const FAQ_ITEMS = [
   {
     q: "Çadır kiralama fiyatları ne kadar?",
-    a: "2026 fiyatlarımız: 5×5 çadır 9.000 TL + nakliye, 4×4 çadır 8.000 TL + nakliye, 3×3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 450 TL’dir.",
+    a: buildTentPriceSentence(),
   },
   {
     q: "Çadır kurulumu ne kadar sürer?",
@@ -233,21 +238,27 @@ const PRICING_ITEMS = [
   // Onceden fiyat sadece serbest metindi ve arama motorlari icin okunamiyordu.
   {
     title: "3x3 Çadır",
-    price: "7.000 TL",
-    amount: 7000,
+    price: `${formatTRY(TENT_PACKAGE_PRICES["3x3"])} TL`,
+    amount: TENT_PACKAGE_PRICES["3x3"],
     description: "Karşılama, kayıt masası ve kompakt stand alanları için 9 m² hızlı kurulum.",
   },
   {
     title: "4x4 Çadır",
-    price: "8.000 TL",
-    amount: 8000,
+    price: `${formatTRY(TENT_PACKAGE_PRICES["4x4"])} TL`,
+    amount: TENT_PACKAGE_PRICES["4x4"],
     description: "Fuaye, ikram, küçük satış alanı ve orta ölçekli etkinlik noktaları için 16 m².",
   },
   {
     title: "5x5 Çadır",
-    price: "9.000 TL",
-    amount: 9000,
+    price: `${formatTRY(TENT_PACKAGE_PRICES["5x5"])} TL`,
+    amount: TENT_PACKAGE_PRICES["5x5"],
     description: "VIP alan, lansman, kır daveti ve yüksek görünürlüklü pagoda çadır paketi.",
+  },
+  {
+    title: "6x6 Çadır",
+    price: `${formatTRY(TENT_PACKAGE_PRICES["6x6"])} TL`,
+    amount: TENT_PACKAGE_PRICES["6x6"],
+    description: "Geniş fuaye, yemek alanı ve çok masalı düzenler için 36 m² pagoda çadır.",
   },
   {
     title: "Büyük Çadırlar",
@@ -511,7 +522,11 @@ const USE_CASES = [
 const HERO_METRICS = [
   { value: "370", suffix: "adet", label: "Pagoda çadır stoğu" },
   { value: "11.000", suffix: "m²", label: "Büyük açıklıklı kapasite" },
-  { value: "7.000 TL", suffix: "+ nakliye", label: "3x3 başlangıç fiyatı" },
+  {
+    value: `${formatTRY(TENT_PACKAGE_PRICES["3x3"])} TL`,
+    suffix: "+ nakliye",
+    label: "3x3 başlangıç fiyatı",
+  },
   { value: "Rüzgâr", suffix: "& zemin", label: "Güvenlik kontrolü" },
 ];
 

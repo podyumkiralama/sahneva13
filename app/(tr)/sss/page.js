@@ -2,6 +2,7 @@
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
+import { buildTentPriceSentence } from "@/lib/pricing";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -235,7 +236,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "2026 çadır kiralama fiyatları nedir?",
-        a: "2026 fiyatlarımız: 5x5 çadır 9.000 TL + nakliye, 4x4 çadır 8.000 TL + nakliye, 3x3 çadır 7.000 TL + nakliye. 10’luk, 20’lik, 30’luk ve 40’lık büyük ölçekli çadırlarda metrekare fiyatı 450 TL’dir.",
+        a: buildTentPriceSentence(),
       },
       {
         q: "Kiralama süresi uzatılabilir mi?",
