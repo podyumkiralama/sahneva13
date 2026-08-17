@@ -96,11 +96,13 @@ const SECTIONS = [
     heading: "5. Cookies und Reichweitenmessung",
     body: [
       "Für den Betrieb der Website notwendige Funktionen kommen ohne einwilligungspflichtige Cookies aus. Ihre Entscheidung zur Analyse speichern wir lokal in Ihrem Browser, damit wir Sie nicht bei jedem Besuch erneut fragen müssen.",
-      "Analyse-Werkzeuge werden erst geladen, nachdem Sie zugestimmt haben. Ohne Ihre Einwilligung findet keine Reichweitenmessung statt. Sie können Ihre Entscheidung jederzeit ändern, indem Sie die lokal gespeicherten Website-Daten in Ihrem Browser löschen.",
+      "Analyse-Werkzeuge, die Cookies setzen, werden erst geladen, nachdem Sie zugestimmt haben. Ohne Ihre Einwilligung findet keine cookiebasierte Reichweitenmessung statt. Sie können Ihre Entscheidung jederzeit ändern, indem Sie die lokal gespeicherten Website-Daten in Ihrem Browser löschen.",
+      "Daneben zählt ein cookiefreies Werkzeug die Seitenaufrufe in aggregierter Form. Es speichert keine Cookies und keine vergleichbaren Kennungen auf Ihrem Gerät, verfolgt Sie nicht über Websites hinweg und bildet keine persönlichen Profile – deshalb ist es nicht an Ihre Einwilligung gebunden. Rechtsgrundlage ist unser berechtigtes Interesse an einer datensparsamen Reichweitenmessung (Art. 6 Abs. 1 lit. f DSGVO).",
     ],
     list: [
       "Google Analytics – Auswertung der Seitennutzung, nur nach Einwilligung.",
       "Microsoft Clarity – anonymisierte Auswertung des Nutzungsverhaltens, nur nach Einwilligung.",
+      "Ahrefs Web Analytics – cookiefreie, aggregierte Zählung der Seitenaufrufe, ohne Einwilligung.",
       "Vercel Speed Insights – Messung technischer Leistungswerte der Seiten.",
     ],
   },

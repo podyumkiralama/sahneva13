@@ -24,6 +24,7 @@ import {
 } from "@/lib/seo/schemaIds";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
@@ -167,6 +168,7 @@ export default function ArabicLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
+        <AhrefsAnalytics />
         <SpeculationRules locale="ar" />
       </head>
       <body className="flex flex-col" dir={content.direction}>

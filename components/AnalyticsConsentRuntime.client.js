@@ -6,8 +6,6 @@ const GTAG_ORIGIN = "https://www.googletagmanager.com";
 const GTAG_PATH = "/gtag/js";
 const CLARITY_ORIGIN = "https://www.clarity.ms";
 const CLARITY_PATH_PREFIX = "/tag/";
-const AHREFS_ANALYTICS_ORIGIN = "https://analytics.ahrefs.com";
-const AHREFS_ANALYTICS_PATH = "/analytics.js";
 
 function createTrustedScriptUrl(url) {
   if (typeof window === "undefined" || !window.trustedTypes) return url;
@@ -26,11 +24,7 @@ function createTrustedScriptUrl(url) {
           parsedUrl.origin === CLARITY_ORIGIN &&
           parsedUrl.pathname.startsWith(CLARITY_PATH_PREFIX);
 
-        const isAhrefsAnalyticsUrl =
-          parsedUrl.origin === AHREFS_ANALYTICS_ORIGIN &&
-          parsedUrl.pathname === AHREFS_ANALYTICS_PATH;
-
-        if (isGtagUrl || isClarityUrl || isAhrefsAnalyticsUrl) {
+        if (isGtagUrl || isClarityUrl) {
           return parsedUrl.toString();
         }
 
@@ -117,32 +111,8 @@ function loadClarityScript(clarityId) {
   document.head.appendChild(script);
 }
 
-function loadAhrefsAnalyticsScript(ahrefsAnalyticsKey) {
-  if (typeof window === "undefined" || !ahrefsAnalyticsKey) return;
-  if (
-    document.getElementById("ahrefs-analytics-script") ||
-    window.__ahrefsAnalyticsInitialized
-  ) {
-    return;
-  }
-  window.__ahrefsAnalyticsInitialized = true;
-
-  const script = document.createElement("script");
-  script.id = "ahrefs-analytics-script";
-  script.async = true;
-  script.setAttribute("data-key", ahrefsAnalyticsKey);
-  script.src = createTrustedScriptUrl(
-    `${AHREFS_ANALYTICS_ORIGIN}${AHREFS_ANALYTICS_PATH}`,
-  );
-  document.head.appendChild(script);
-}
-
-export function activateAnalyticsConsent({
-  gaId,
-  clarityId,
-  ahrefsAnalyticsKey,
-} = {}) {
-  if ((!gaId && !clarityId && !ahrefsAnalyticsKey) || typeof window === "undefined") {
+export function activateAnalyticsConsent({ gaId, clarityId } = {}) {
+  if ((!gaId && !clarityId) || typeof window === "undefined") {
     return;
   }
 
@@ -163,5 +133,4 @@ export function activateAnalyticsConsent({
   }
 
   loadClarityScript(clarityId);
-  loadAhrefsAnalyticsScript(ahrefsAnalyticsKey);
 }

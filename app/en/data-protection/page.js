@@ -94,8 +94,8 @@ export default function DataProtectionPage() {
           such as your name, phone number and email. The event venue, date and equipment requirements
           are also needed by us for operations planning. We also collect company or tax information
           to issue invoices. When you visit our website, we collect anonymous usage statistics via
-          Google Analytics to understand which pages attract interest; this data is processed in
-          aggregate only, not personalised.
+          Google Analytics and the cookieless Ahrefs Web Analytics to understand which pages attract
+          interest; this data is processed in aggregate only, not personalised.
         </p>
 
         <h2 className="text-xl font-semibold">2. Why Do We Use This Information?</h2>
@@ -135,7 +135,8 @@ export default function DataProtectionPage() {
 
         <h2 className="text-xl font-semibold">6. International Transfers</h2>
         <p>
-          Google Analytics and some cloud infrastructure services we use operate on overseas servers.
+          Google Analytics, Ahrefs Web Analytics and some cloud infrastructure services we use
+          operate on overseas servers.
           These transfers are made with the necessary guarantees under Article 9 of the KVKK. The
           privacy policies of these services are published on the respective providers&apos; own websites.
         </p>
@@ -154,8 +155,10 @@ export default function DataProtectionPage() {
         <p>
           We only use essential cookies and Google Analytics 4 analytics cookies on our site. GA4
           measures interactions such as page views and clicks in aggregate; it does not create
-          individual visitor profiles. You can delete or block these cookies at any time through
-          your browser&apos;s cookie settings. If you disable non-essential cookies, some sections of
+          individual visitor profiles. Tools that rely on analytics cookies load only after you
+          consent. Ahrefs Web Analytics, which counts page views, is not tied to consent because it
+          writes no cookie or comparable record to your device. You can delete or block these
+          cookies at any time through your browser&apos;s cookie settings. If you disable non-essential cookies, some sections of
           the site may not work as expected.
         </p>
 

@@ -290,6 +290,12 @@ export default function PrivacyPolicyPage() {
                   <li>Tarayıcı türü ve ekran boyutu gibi teknik bilgiler</li>
                   <li>Anonimleştirilmiş IP adresi</li>
                 </ul>
+                <p className="mt-2">
+                  Bunun yanında sayfa görüntülemelerini toplu olarak sayan, çerez
+                  kullanmayan bir ölçüm aracı (Ahrefs Web Analytics) çalışıyor. Bu araç
+                  cihazınıza çerez ya da benzeri bir kayıt yazmıyor, ziyaretçileri
+                  siteler arasında izlemiyor ve kişisel profil oluşturmuyor.
+                </p>
               </section>
 
               {/* 2. İşleme Amaçları */}
@@ -404,6 +410,7 @@ export default function PrivacyPolicyPage() {
                   <li>Lojistik ve taşıma hizmetleri sağlayıcıları (kurulum operasyonları için)</li>
                   <li>Muhasebe yazılımı ve barındırma altyapısı sağlayıcıları</li>
                   <li>Google Analytics — anonim kullanım istatistikleri için</li>
+                  <li>Ahrefs Web Analytics — çerezsiz, toplu sayfa görüntüleme ölçümü için</li>
                   <li>Hukuki zorunluluk doğduğunda yetkili kamu kurumları</li>
                 </ul>
                 <p className="mt-2">
@@ -478,6 +485,12 @@ export default function PrivacyPolicyPage() {
                     oluşturmaz.
                   </li>
                 </ul>
+                <p className="mt-2">
+                  Analitik çerezleri kullanan araçlar yalnızca siz onay verdikten sonra
+                  yükleniyor. Sayfa görüntülemelerini sayan çerezsiz ölçüm aracı (Ahrefs
+                  Web Analytics) ise cihazınıza hiçbir kayıt yazmadığı için onaya bağlı
+                  değil.
+                </p>
                 <p className="mt-2">
                   Tarayıcınızın ayarlarından çerezleri yönetebilir ya da tamamen
                   engelleyebilirsiniz. Zorunlu çerezleri kapatırsanız sitenin bazı

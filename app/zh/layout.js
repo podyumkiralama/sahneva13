@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
@@ -175,6 +176,7 @@ export default function ChineseLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
+        <AhrefsAnalytics />
         <SpeculationRules locale="zh" />
       </head>
       <body className="flex flex-col">

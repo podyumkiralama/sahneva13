@@ -11,6 +11,7 @@ import SupportLauncher from "@/components/support/SupportLauncher.client";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
@@ -238,6 +239,7 @@ export default function TurkishLayout({ children }) {
     <html lang="tr" className={`${inter.variable} font-sans`}>
       <head>
         <TrustedTypesPolicy />
+        <AhrefsAnalytics />
         <SpeculationRules locale="tr" />
         <link
           rel="search"

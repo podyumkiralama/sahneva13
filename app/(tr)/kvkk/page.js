@@ -109,8 +109,8 @@ export default function KvkkPage() {
           ekipman gereksinimleri de operasyon planlaması için bize gerekiyor. Bunların yanı sıra
           fatura düzenleyebilmek için şirket veya vergi bilgilerini alıyoruz. Web sitemizi
           ziyaret ettiğinizde ise hangi sayfaların ilgi gördüğünü anlamak için Google Analytics
-          aracılığıyla anonim kullanım istatistikleri topluyoruz; bu veriler kişiselleştirilmiş
-          değil, yalnızca toplu hâlde işleniyor.
+          ve çerez kullanmayan Ahrefs Web Analytics aracılığıyla anonim kullanım istatistikleri
+          topluyoruz; bu veriler kişiselleştirilmiş değil, yalnızca toplu hâlde işleniyor.
         </p>
 
         <h2 className="text-xl font-semibold">2. Bu Bilgileri Neden Kullanıyoruz?</h2>
@@ -150,8 +150,8 @@ export default function KvkkPage() {
 
         <h2 className="text-xl font-semibold">6. Yurt Dışına Aktarım</h2>
         <p>
-          Google Analytics ve kullandığımız bazı bulut altyapı hizmetleri yurt dışı
-          sunucularında çalışıyor. Bu aktarımlar, KVKK'nın 9. maddesi kapsamında gerekli
+          Google Analytics, Ahrefs Web Analytics ve kullandığımız bazı bulut altyapı
+          hizmetleri yurt dışı sunucularında çalışıyor. Bu aktarımlar, KVKK'nın 9. maddesi kapsamında gerekli
           güvenceler sağlanarak gerçekleştiriliyor. Söz konusu hizmetlerin gizlilik
           politikaları, ilgili sağlayıcıların kendi sitelerinde yayınlanıyor.
         </p>
@@ -171,9 +171,12 @@ export default function KvkkPage() {
         <p>
           Sitemizde yalnızca zorunlu çerezler ve Google Analytics 4 analitik çerezleri
           kullanıyoruz. GA4 sayfa görüntüleme ve tıklama gibi etkileşimleri toplu olarak
-          ölçüyor; bireysel ziyaretçi profili çıkarmıyor. Tarayıcınızın çerez ayarlarından
-          bu çerezleri istediğiniz zaman silebilir veya engelleyebilirsiniz. Zorunlu çerezler
-          dışındakileri kapatırsanız sitenin bazı bölümleri beklendiği gibi çalışmayabilir.
+          ölçüyor; bireysel ziyaretçi profili çıkarmıyor. Analitik çerez kullanan araçlar
+          yalnızca siz onay verdikten sonra yükleniyor. Sayfa görüntülemelerini sayan Ahrefs
+          Web Analytics ise cihazınıza çerez ya da benzeri bir kayıt yazmadığı için onaya
+          bağlı değil. Tarayıcınızın çerez ayarlarından bu çerezleri istediğiniz zaman
+          silebilir veya engelleyebilirsiniz. Zorunlu çerezler dışındakileri kapatırsanız
+          sitenin bazı bölümleri beklendiği gibi çalışmayabilir.
         </p>
 
         <h2 className="text-xl font-semibold">9. Haklarınız</h2>

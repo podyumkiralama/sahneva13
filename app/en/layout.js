@@ -12,6 +12,7 @@ import { isFilesConfigured } from "@/lib/support/files";
 import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
+import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
 import TrustedTypesPolicy from "@/components/security/TrustedTypesPolicy";
 import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration.client";
 import SpeculationRules from "@/components/performance/SpeculationRules";
@@ -243,6 +244,7 @@ export default function EnglishLayout({ children }) {
     >
       <head>
         <TrustedTypesPolicy />
+        <AhrefsAnalytics />
         <SpeculationRules locale="en" />
       </head>
       <body className="flex flex-col">

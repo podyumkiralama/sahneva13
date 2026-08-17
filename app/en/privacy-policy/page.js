@@ -285,6 +285,12 @@ export default function PrivacyPolicyPage() {
                   <li>Technical information such as browser type and screen size</li>
                   <li>Anonymized IP address</li>
                 </ul>
+                <p className="mt-2">
+                  Alongside this, a cookieless measurement tool (Ahrefs Web Analytics)
+                  counts page views in aggregate. It writes no cookie or comparable
+                  record to your device, does not track visitors across sites and does
+                  not build personal profiles.
+                </p>
               </section>
 
               {/* 2. Processing Purposes */}
@@ -400,6 +406,7 @@ export default function PrivacyPolicyPage() {
                   <li>Logistics and transportation service providers (for installation operations)</li>
                   <li>Accounting software and hosting infrastructure providers</li>
                   <li>Google Analytics — for anonymous usage statistics</li>
+                  <li>Ahrefs Web Analytics — for cookieless, aggregate page-view measurement</li>
                   <li>Authorized public authorities when legally required</li>
                 </ul>
                 <p className="mt-2">
@@ -472,6 +479,11 @@ export default function PrivacyPolicyPage() {
                     which pages are more useful; does not create personal profiles.
                   </li>
                 </ul>
+                <p className="mt-2">
+                  Tools that rely on analytics cookies load only after you consent. The
+                  cookieless page-view measurement (Ahrefs Web Analytics) is not tied to
+                  consent, because it writes nothing to your device.
+                </p>
                 <p className="mt-2">
                   You can manage or completely block cookies through your browser settings. If
                   you disable essential cookies, some sections of the site may not work as
