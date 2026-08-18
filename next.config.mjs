@@ -187,11 +187,11 @@ const nextConfig = {
         destination: "/sahne-kiralama",
         statusCode: 301,
       },
-      {
-        source: "/dome-cadir-kiralama",
-        destination: "/cadir-kiralama",
-        statusCode: 301,
-      },
+      // Not: /dome-cadir-kiralama buraya 301 EKLENMEZ. Dome 2 May 2026da
+      // /cadir-kiralamaya katlanmisti, 16 Agu 2026da tekrar ayri hizmet
+      // sayfasi oldu ve sitemapte yayinlaniyor. Yonlendirmeler dosya
+      // sisteminden once calistigi icin buradaki bir kayit sayfayi tamamen
+      // erisilemez yapar.
       {
         source: "/isik-sistemleri-kiralama",
         destination: "/ses-isik-sistemleri",

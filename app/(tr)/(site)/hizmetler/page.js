@@ -8,6 +8,7 @@ import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -121,7 +122,7 @@ function ServicesStructuredData() {
           'priceSpecification': {
             '@type': 'PriceSpecification',
             'priceCurrency': 'TRY',
-            'minPrice': '275.00',
+            'minPrice': PODIUM_UNIT_PRICES.platformSqmWeek.toFixed(2),
             'maxPrice': '100000.00'
           }
         },

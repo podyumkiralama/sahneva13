@@ -6,6 +6,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 
 export const revalidate = 86400;
 
@@ -18,12 +19,14 @@ const PUBLISH_DATE = "2026-02-09T00:00:00+03:00";
 const PRICE_VALID_UNTIL = "2027-12-31";
 
 /* ================== PRICES (2026) ================== */
+// Single source: lib/pricing.js. The Turkish, English and German podium
+// pages all read the same table, so a raise only has to be entered once.
 const UNIT_PRICES = {
-  platform_m2_week: 270, // TRY
-  carpet_m2_week: 130, // TRY
-  skirt_ml_week: 100, // TRY (per metre)
-  ist_nakliye: 9000, // TRY (Istanbul fixed)
-  currency: "TRY",
+  platform_m2_week: PODIUM_UNIT_PRICES.platformSqmWeek,
+  carpet_m2_week: PODIUM_UNIT_PRICES.carpetSqmWeek,
+  skirt_ml_week: PODIUM_UNIT_PRICES.skirtMetreWeek,
+  ist_nakliye: PODIUM_UNIT_PRICES.istanbulTransport,
+  currency: PODIUM_UNIT_PRICES.currency,
 };
 
 const BLUR_DATA_URL =

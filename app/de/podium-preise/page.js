@@ -5,6 +5,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 
 export const revalidate = 86400;
 
@@ -13,13 +14,16 @@ const url = `${BASE_SITE_URL}${slug}`;
 
 const PRICE_VALID_UNTIL = "2027-12-31";
 
-/* Einheitspreise – identisch mit der türkischen und englischen Preisseite. */
+/* Einheitspreise – identisch mit der türkischen und englischen Preisseite.
+   Die Werte stammen aus lib/pricing.js; hier wird keine Zahl fest
+   eingetragen. Zuvor standen hier 270 statt 275 pro m², die Zusage der
+   Preisgleichheit stimmte also nicht. */
 const UNIT_PRICES = {
-  platform_m2_week: 270,
-  carpet_m2_week: 130,
-  skirt_ml_week: 100,
-  ist_transport: 9000,
-  currency: "TRY",
+  platform_m2_week: PODIUM_UNIT_PRICES.platformSqmWeek,
+  carpet_m2_week: PODIUM_UNIT_PRICES.carpetSqmWeek,
+  skirt_ml_week: PODIUM_UNIT_PRICES.skirtMetreWeek,
+  ist_transport: PODIUM_UNIT_PRICES.istanbulTransport,
+  currency: PODIUM_UNIT_PRICES.currency,
 };
 
 function tl(n) {
