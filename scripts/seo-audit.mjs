@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -400,6 +400,130 @@ function analyzeLocalBusiness() {
   return findings;
 }
 
+/**
+ * Bir Next.js redirect `source` desenini eslestirici duzenli ifadeye cevirir.
+ *
+ * Desteklenen bicimler: "/sabit", "/:ad", "/:ad*", "/:ad(kendi-regexi)".
+ * Amac tam bir path-to-regexp uyarlamasi degil; bu dosyadaki desenleri
+ * dogru eslestirip yanlis alarm URETMEMEK. Cozemedigi bir desen gelirse
+ * null doner ve o kural sessizce atlanir — hatali bir eslestirmeyle build'i
+ * kirmaktansa o kurali denetlememek yeglenir.
+ */
+function redirectSourceToRegExp(source) {
+  if (!source.startsWith("/")) return null;
+
+  let out = "";
+  let i = 0;
+
+  while (i < source.length) {
+    const char = source[i];
+
+    if (char !== ":") {
+      out += char.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      i += 1;
+      continue;
+    }
+
+    // :ad
+    const nameMatch = /^:([A-Za-z0-9_]+)/.exec(source.slice(i));
+    if (!nameMatch) return null;
+    i += nameMatch[0].length;
+
+    // :ad(...) — kendi regexi
+    if (source[i] === "(") {
+      let depth = 0;
+      const start = i;
+      while (i < source.length) {
+        if (source[i] === "(") depth += 1;
+        else if (source[i] === ")") {
+          depth -= 1;
+          if (depth === 0) {
+            i += 1;
+            break;
+          }
+        }
+        i += 1;
+      }
+      if (depth !== 0) return null;
+      out += `(?:${source.slice(start + 1, i - 1)})`;
+    } else {
+      out += "[^/]+";
+    }
+
+    // :ad* / :ad+ / :ad?
+    if (source[i] === "*") {
+      out += "*";
+      i += 1;
+    } else if (source[i] === "+") {
+      out += "+";
+      i += 1;
+    } else if (source[i] === "?") {
+      out += "?";
+      i += 1;
+    }
+  }
+
+  try {
+    return new RegExp(`^${out}$`);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Yonlendirme ile sitemap/sayfa cakismasi.
+ *
+ * Next dokumanindaki kural: "Redirects are checked before the filesystem."
+ * Yani bir yolun redirect `source`'u varsa o yoldaki sayfaya ASLA ulasilamaz.
+ * Sayfa yine de build'e girer, prerender edilir ve HTML denetiminden gecer;
+ * hicbir sey kirilmaz. Tek belirti canli istekte 301 gormek ya da GSC'nin
+ * "Sitemap'te gonderilen URL yonlendirme iceriyor" demesidir.
+ *
+ * 16 Agustos 2026'da /dome-cadir-kiralama tam olarak boyle iki gun boyunca
+ * erisilemez kaldi: sayfa Mayis'ta /cadir-kiralama'ya katlanilmisti, Agustos'ta
+ * yeniden acilip sitemap'e eklendi ama eski 301 silinmemisti.
+ */
+async function auditRedirectConflicts(sitemapPaths) {
+  const configPath = path.join(rootDir, "next.config.mjs");
+  if (!fs.existsSync(configPath)) {
+    return { skipped: "next.config.mjs bulunamadi", conflicts: [] };
+  }
+
+  let redirects;
+  try {
+    const mod = await import(pathToFileURL(configPath).href);
+    redirects = await mod.default.redirects();
+  } catch (error) {
+    return { skipped: `next.config.mjs okunamadi: ${error.message}`, conflicts: [] };
+  }
+
+  const routes = [...sitemapPaths];
+  const conflicts = [];
+
+  for (const rule of redirects) {
+    const source = rule?.source;
+    if (typeof source !== "string") continue;
+
+    const hit = [];
+
+    if (sitemapPaths.has(source)) {
+      hit.push("sitemap'te bu adres yayinlaniyor");
+    } else if (source.includes(":")) {
+      const matcher = redirectSourceToRegExp(source);
+      const matched = matcher ? routes.filter((route) => matcher.test(route)) : [];
+      if (matched.length) {
+        hit.push(`sitemap'teki ${matched.length} adresi kapsiyor: ${matched.slice(0, 3).join(", ")}`);
+      }
+    }
+
+    if (hit.length) {
+      conflicts.push({ source, destination: rule.destination, reason: hit.join("; ") });
+    }
+  }
+
+  return { skipped: null, conflicts };
+}
+
 function printSection(title) {
   console.log("");
   console.log(`== ${title} ==`);
@@ -414,10 +538,11 @@ function printList(items, formatter, emptyText = "OK") {
   items.forEach((item) => console.log(formatter(item)));
 }
 
-function main() {
+async function main() {
   const allSourceFiles = walk(rootDir);
   const pageFiles = walk(APP_DIR).filter((filePath) => /[\\/]page\.(js|jsx)$/.test(filePath));
   const sitemapPaths = extractSitemapStaticPaths();
+  const redirectReport = await auditRedirectConflicts(sitemapPaths);
   const { pages, pageReports, fileToRoute } = analyzePages(pageFiles, sitemapPaths);
   const linkReport = analyzeLinks(allSourceFiles, pages, fileToRoute);
   const localBusinessReport = analyzeLocalBusiness();
@@ -477,10 +602,38 @@ function main() {
     console.log(`- ${finding.file}: ${result}`);
   }
 
+  printSection("Redirect / Sitemap Conflicts");
+  if (redirectReport.skipped) {
+    console.log(`- Skipped: ${redirectReport.skipped}`);
+  } else if (!redirectReport.conflicts.length) {
+    console.log("No redirect shadows a sitemap URL.");
+  } else {
+    for (const conflict of redirectReport.conflicts) {
+      console.log(`- HATA ${conflict.source} -> ${conflict.destination}`);
+      console.log(`        ${conflict.reason}`);
+    }
+    console.log("");
+    console.log("  Yonlendirmeler dosya sisteminden ONCE calisir; bu adreslerdeki");
+    console.log("  sayfalara ulasilamaz ama sitemap onlari Google'a bildiriyor.");
+    console.log("  Ya next.config.mjs'teki kurali ya da sitemap kaydini kaldirin.");
+  }
+
   printSection("Notes");
   console.log("- This audit is read-only and does not change pages.");
   console.log("- Metadata signals can be inherited from layouts; review warnings before editing.");
   console.log("- Use Search Console/Vercel logs for live 404 evidence before adding redirects.");
+
+  // Bu denetimin tek KIRAN kontrolu. Digerleri uyari niteliginde oldugu icin
+  // cikis kodunu etkilemez; yonlendirme/sitemap cakismasi ise her zaman hatadir
+  // ve baska hicbir asama yakalamaz (build yesil kalir, HTML denetimi temiz gecer).
+  if (redirectReport.conflicts.length) {
+    console.log("");
+    console.log(`[seo-audit] ${redirectReport.conflicts.length} yonlendirme/sitemap cakismasi.`);
+    process.exitCode = 1;
+  }
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
