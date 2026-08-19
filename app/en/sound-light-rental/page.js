@@ -6,7 +6,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
@@ -39,15 +39,7 @@ export const metadata = {
   title: "Sound & Lighting Rental in Turkey",
   description:
     "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
-  alternates: buildLanguageAlternates({
-    tr: "/ses-isik-sistemleri",
-    en: "/en/sound-light-rental",
-    de: "/de/ton-und-lichttechnik",
-    ru: "/ru/sound-light-rental",
-    zh: "/zh/sound-light-rental",
-    canonical: "/en/sound-light-rental",
-    xDefault: "/en/sound-light-rental",
-  }),
+  alternates: buildAlternatesForPath("/en/sound-light-rental"),
   openGraph: {
     title: "Sound & Lighting Rental | Professional Audio Visual Solutions",
     description:

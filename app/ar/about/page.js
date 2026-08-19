@@ -6,6 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 const AR_ABOUT_URL = buildCanonical("/ar/about");
@@ -15,18 +16,7 @@ export const metadata = {
   title: "من نحن | شركة إنتاج الفعاليات في تركيا",
   description:
     `${YEARS_OF_EXPERIENCE} عامًا من الخبرة في تأجير المنصات على مستوى تركيا وشاشات LED وأنظمة الصوت والإضاءة وإنتاج الفعاليات الكاملة. أكثر من 700 مشروع منجز.`,
-  alternates: {
-    canonical: AR_ABOUT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hakkimizda`,
-      en: `${SITE_URL}/en/about`,
-      de: `${SITE_URL}/de/ueber-uns`,
-      ar: AR_ABOUT_URL,
-      ru: `${SITE_URL}/ru/about`,
-      zh: `${SITE_URL}/zh/about`,
-      "x-default": `${SITE_URL}/en/about`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ar/about"),
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:

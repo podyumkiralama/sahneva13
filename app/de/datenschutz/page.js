@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 
@@ -14,15 +15,7 @@ export const metadata = {
   title: "Datenschutz | Umgang mit personenbezogenen Daten",
   description:
     "Wie Sahneva personenbezogene Daten erhebt, verarbeitet und schützt: Anfrageformular, Analyse-Cookies, eingebettete Videos sowie Ihre Rechte nach DSGVO und KVKK.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/gizlilik-politikasi`,
-      en: `${SITE_URL}/en/privacy-policy`,
-      de: PAGE_URL,
-      "x-default": `${SITE_URL}/en/privacy-policy`,
-    },
-  },
+  alternates: buildAlternatesForPath("/de/datenschutz"),
   openGraph: {
     title: "Datenschutz | Sahneva",
     description:

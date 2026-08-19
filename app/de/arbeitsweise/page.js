@@ -1,7 +1,7 @@
 // app/de/arbeitsweise/page.js
 import Image from "next/image";
 import Link from "next/link";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -18,13 +18,7 @@ export const metadata = {
   title: "Arbeitsweise — unser Ablauf in 8 Schritten",
   description:
     "So läuft ein Projekt bei Sahneva: Bedarf klären, Angebot, Reservierung, technische Begehung, Aufbau, Betreuung am Veranstaltungstag und Abbau.",
-  alternates: buildLanguageAlternates({
-    tr: "/nasil-calisiyoruz",
-    en: "/en/how-we-work",
-    de: PAGE_PATH,
-    canonical: PAGE_PATH,
-    xDefault: "/en/how-we-work",
-  }),
+  alternates: buildAlternatesForPath("/de/arbeitsweise"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

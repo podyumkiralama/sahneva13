@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const ZH_ABOUT_URL = buildCanonical("/zh/about");
 const ZH_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
@@ -17,18 +18,7 @@ export const metadata = {
   title: "关于我们 — 土耳其活动技术制作团队",
   description:
     "Sahneva 是一支总部位于伊斯坦布尔的活动技术制作团队，自 2012 年以来完成 700 多个项目，提供舞台、LED屏幕、音响灯光、桁架与篷房的一站式执行。",
-  alternates: {
-    canonical: ZH_ABOUT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hakkimizda`,
-      en: `${SITE_URL}/en/about`,
-      de: `${SITE_URL}/de/ueber-uns`,
-      ar: `${SITE_URL}/ar/about`,
-      ru: `${SITE_URL}/ru/about`,
-      zh: ZH_ABOUT_URL,
-      "x-default": `${SITE_URL}/en/about`,
-    },
-  },
+  alternates: buildAlternatesForPath("/zh/about"),
   openGraph: {
     title: "关于我们 — 土耳其活动技术制作团队",
     description:

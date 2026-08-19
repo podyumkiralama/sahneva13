@@ -4,6 +4,7 @@ import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const RU_PROJECTS_URL = buildCanonical("/ru/projects");
 const RU_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -30,18 +31,7 @@ export const metadata = {
   title: "Проекты — сцены, LED-экраны и шатры в Турции",
   description:
     "Примеры проектов Sahneva: сцены, LED-экраны, звук, свет, truss, шатры и полная техническая подготовка мероприятий.",
-  alternates: {
-    canonical: RU_PROJECTS_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/projeler`,
-      en: `${SITE_URL}/en/projects`,
-      de: `${SITE_URL}/de/projekte`,
-      ar: `${SITE_URL}/ar/projects`,
-      ru: RU_PROJECTS_URL,
-      zh: `${SITE_URL}/zh/projects`,
-      "x-default": `${SITE_URL}/en/projects`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ru/projects"),
   openGraph: {
     title: "Проекты | Sahneva",
     description:

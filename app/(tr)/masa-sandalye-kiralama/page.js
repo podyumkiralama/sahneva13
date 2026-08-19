@@ -12,7 +12,7 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -56,12 +56,7 @@ export const metadata = {
   title: "Masa Sandalye Kiralama İstanbul | Davet & Toplantı",
   description:
     "Masa sandalye kiralama: Napolyon ve konferans sandalyesi, banket-bistro masa, örtü-kılıf. İstanbul'da düğün ve kurumsal etkinliklere hızlı teslim.",
-  alternates: buildLanguageAlternates({
-    tr: "/masa-sandalye-kiralama",
-    en: "/en/table-chair-rental",
-    de: "/de/tische-und-stuehle-mieten",
-    xDefault: "/en/table-chair-rental",
-  }),
+  alternates: buildAlternatesForPath("/masa-sandalye-kiralama"),
   openGraph: {
     title: "Masa Sandalye Kiralama | Sahneva",
     description:
@@ -1719,7 +1714,6 @@ function TableChairJsonLd() {
       />
     );
 }
-
 
 /* ================== Sayfa Bileşeni ================== */
 export default function Page() {

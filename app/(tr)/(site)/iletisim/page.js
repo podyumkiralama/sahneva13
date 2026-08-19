@@ -10,6 +10,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const PAGE_URL = `${BASE_SITE_URL}/iletisim`;
 
@@ -17,18 +18,7 @@ export const metadata = {
   title: "İletişim | Hızlı Teklif ve Kiralama Danışmanlığı",
   description:
     "Sahne kiralama, LED ekran, ses-ışık sistemleri için hemen ulaşın. Türkiye geneli hızlı kurulum ve profesyonel danışmanlık.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": PAGE_URL,
-      en: `${BASE_SITE_URL}/en/contact`,
-      de: `${BASE_SITE_URL}/de/kontakt`,
-      ar: `${BASE_SITE_URL}/ar/contact`,
-      ru: `${BASE_SITE_URL}/ru/contact`,
-      zh: `${BASE_SITE_URL}/zh/contact`,
-      "x-default": `${BASE_SITE_URL}/en/contact`,
-    },
-  },
+  alternates: buildAlternatesForPath("/iletisim"),
   openGraph: {
     title: "İletişim | Sahneva",
     description:
@@ -214,7 +204,6 @@ export default function ContactPage() {
   {/* alt geçiş */}
   <div className="h-12 bg-gradient-to-b from-transparent to-white" />
 </section>
-
 
       <div
         id="main"

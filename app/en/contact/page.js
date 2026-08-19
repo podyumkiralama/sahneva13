@@ -9,6 +9,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const PAGE_URL = `${BASE_SITE_URL}/en/contact`;
 
@@ -16,18 +17,7 @@ export const metadata = {
   title: "Contact | Quick Proposal and Rental Consultation",
   description:
     "Reach Sahneva for stage rentals, LED screens and turnkey technical production. Fast nationwide installation and dedicated consultants across Türkiye.",
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${BASE_SITE_URL}/iletisim`,
-      en: PAGE_URL,
-      de: `${BASE_SITE_URL}/de/kontakt`,
-      ar: `${BASE_SITE_URL}/ar/contact`,
-      ru: `${BASE_SITE_URL}/ru/contact`,
-      zh: `${BASE_SITE_URL}/zh/contact`,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/contact"),
   openGraph: {
     title: "Contact | Sahneva - Professional Event Solutions",
     description:
@@ -211,7 +201,6 @@ export default function ContactPage() {
   {/* bottom transition */}
   <div className="h-12 bg-gradient-to-b from-transparent to-white" />
 </section>
-
 
       <div
         id="main"

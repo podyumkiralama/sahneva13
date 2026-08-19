@@ -8,7 +8,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
@@ -51,15 +51,7 @@ export const metadata = {
   },
   description:
     `Sahneva produces large-scale corporate events in Istanbul and across Turkey: stage, LED screen, sound, lighting and field crew from one team. ${PROJECTS_COMPLETED} projects.`,
-  alternates: buildLanguageAlternates({
-    tr: "/kurumsal-organizasyon",
-    en: "/en/corporate-events",
-    de: "/de/firmenevents",
-    ru: "/ru/corporate-events",
-    zh: "/zh/corporate-events",
-    canonical: "/en/corporate-events",
-    xDefault: "/en/corporate-events",
-  }),
+  alternates: buildAlternatesForPath("/en/corporate-events"),
   openGraph: {
     title:
       "Large-Scale Corporate Event Production in Turkey | Sahneva",
@@ -650,7 +642,6 @@ function QuickAnswerSection() {
     </SectionShell>
   );
 }
-
 
 /* ================== Intro Section ================== */
 function IntroSection() {

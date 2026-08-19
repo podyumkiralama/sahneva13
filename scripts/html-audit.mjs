@@ -29,7 +29,21 @@
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import path from "node:path";
 
+import {
+  PAGE_GROUPS,
+  LOCALES as EQUIV_LOCALES,
+  HREFLANG_CODE as EQUIV_HREFLANG,
+} from "../lib/i18n/pageEquivalents.js";
+
 const BUILD_DIR = path.resolve(process.cwd(), ".next/server/app");
+
+// Esdegerlik tablosu goreli yollar tutar; HTML mutlak adres basar. Sondaki
+// egik cizgi hreflangIndex'te de kirpildigi icin burada da kirpiliyor.
+const SITE_ORIGIN = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.SITE_URL ??
+  "https://www.sahneva.com"
+).replace(/\/$/, "");
 
 /* -------------------- esikler -------------------- */
 const TITLE_MAX = 62;
@@ -473,6 +487,53 @@ if (existsSync(PUBLIC_DIR)) {
   for (const [src, routes] of imageRefs) {
     if (existsSync(path.join(PUBLIC_DIR, src.replace(/^\//, "")))) continue;
     addError(routes[0], "image-missing", `${src} (public/ altinda yok, ${routes.length} sayfada)`);
+  }
+}
+
+/* -------------------- hreflang <-> esdegerlik tablosu -------------------- */
+// Tek kaynak korumasi: hreflang'i artik lib/i18n/pageEquivalents.js uretiyor.
+// Bir sayfa tabloda tanimliysa yayina cikan etiketleri tablonun `translations`
+// listesiyle BIREBIR ayni olmalidir. Ayrisma iki yonlu da hatadir:
+//   - tabloda olup HTML'de yoksa: sayfa ortak sistemden kopmus (elle alternates)
+//   - HTML'de olup tabloda yoksa: tablonun bilmedigi bir iliski yayinlaniyor
+// `fallbacks` bilincli olarak DISARIDA: onlar dil seciciye ozgudur, hreflang
+// esdegerlik beyani degildir (ornegin /podyum-kiralama icin /de/buehne-mieten).
+for (const group of PAGE_GROUPS) {
+  const expected = new Map();
+  for (const locale of EQUIV_LOCALES) {
+    const target = group.translations[locale];
+    if (target) expected.set(EQUIV_HREFLANG[locale], `${SITE_ORIGIN}${target === "/" ? "" : target}`);
+  }
+
+  for (const locale of EQUIV_LOCALES) {
+    const route = group.translations[locale];
+    if (!route) continue;
+
+    const url = `${SITE_ORIGIN}${route === "/" ? "" : route}`;
+    const entry = hreflangIndex.get(url);
+    if (!entry) continue; // sayfa build'de yoksa mevcut sitemap denetimi zaten yakalar
+
+    const actual = new Map(
+      [...entry.langs.entries()].filter(([lang]) => lang !== "x-default"),
+    );
+
+    for (const [lang, href] of expected) {
+      if (!actual.has(lang)) {
+        addError(entry.route, "hreflang-table-missing", `[${lang}] tabloda var, HTML'de yok`);
+      } else if (actual.get(lang) !== href) {
+        addError(
+          entry.route,
+          "hreflang-table-mismatch",
+          `[${lang}] tablo=${href} HTML=${actual.get(lang)}`,
+        );
+      }
+    }
+
+    for (const [lang, href] of actual) {
+      if (!expected.has(lang)) {
+        addError(entry.route, "hreflang-table-extra", `[${lang}] -> ${href} tabloda yok`);
+      }
+    }
   }
 }
 

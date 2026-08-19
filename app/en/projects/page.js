@@ -9,6 +9,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 
@@ -18,18 +19,7 @@ export const metadata = {
   title: "Projects | Our Stage & LED Screen References",
   description:
     "Browse Sahneva's completed concert, corporate event and activation projects. Stage, podium, LED screen and sound-lighting references across Türkiye.",
-  alternates: {
-    canonical: `${ORIGIN}/en/projects`,
-    languages: {
-      "tr-TR": `${ORIGIN}/projeler`,
-      "en": `${ORIGIN}/en/projects`,
-      "de": `${ORIGIN}/de/projekte`,
-      "ar": `${ORIGIN}/ar/projects`,
-      "ru": `${ORIGIN}/ru/projects`,
-      "zh": `${ORIGIN}/zh/projects`,
-      "x-default": `${ORIGIN}/en/projects`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/projects"),
   openGraph: {
     title: "Projects | Sahneva",
     description:

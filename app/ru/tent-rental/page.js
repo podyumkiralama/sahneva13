@@ -1,6 +1,7 @@
 import ServicePage from "../services/ServicePage";
 import { RUSSIAN_SERVICE_PAGES } from "../services/serviceData";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const service = RUSSIAN_SERVICE_PAGES["tent-rental"];
 const canonical = buildCanonical(service.href);
@@ -8,17 +9,7 @@ const canonical = buildCanonical(service.href);
 export const metadata = {
   title: service.title,
   description: service.description,
-  alternates: {
-    canonical,
-    languages: {
-      "tr-TR": `${SITE_URL}${service.equivalent.tr}`,
-      en: `${SITE_URL}${service.equivalent.en}`,
-      de: `${SITE_URL}${service.equivalent.de}`,
-      ru: canonical,
-      zh: `${SITE_URL}${service.equivalent.zh}`,
-      "x-default": `${SITE_URL}${service.equivalent.en}`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ru/tent-rental"),
   openGraph: {
     title: service.title,
     description: service.description,

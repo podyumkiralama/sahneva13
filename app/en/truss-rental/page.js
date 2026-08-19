@@ -4,7 +4,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -57,13 +57,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: buildLanguageAlternates({
-    tr: "/truss-kiralama",
-    en: "/en/truss-rental",
-    de: "/de/traversen-mieten",
-    canonical: "/en/truss-rental",
-    xDefault: "/en/truss-rental",
-  }),
+  alternates: buildAlternatesForPath("/en/truss-rental"),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

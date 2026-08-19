@@ -1,5 +1,5 @@
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -14,13 +14,7 @@ export const metadata = {
   title: "Regional Rental | Istanbul, Ankara, Izmir & Türkiye",
   description:
     "LED screen, truss, stage/podium and sound-lighting rental across Turkey. Setup, testing and dismantling for Istanbul, Ankara, Izmir and Antalya.",
-  alternates: buildLanguageAlternates({
-    tr: "/bolgesel-kiralama",
-    en: PAGE_PATH,
-    de: "/de/regionale-vermietung",
-    canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
-  }),
+  alternates: buildAlternatesForPath("/en/regional-rental"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

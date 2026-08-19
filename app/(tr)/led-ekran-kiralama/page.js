@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -158,15 +158,7 @@ export const metadata = {
     "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
-  alternates: buildLanguageAlternates({
-    tr: "/led-ekran-kiralama",
-    en: "/en/led-screen-rental",
-    de: "/de/led-wand-mieten",
-    ru: "/ru/led-screen-rental",
-    zh: "/zh/led-screen-rental",
-    xDefault: "/en/led-screen-rental",
-    canonical: "/led-ekran-kiralama",
-  }),
+  alternates: buildAlternatesForPath("/led-ekran-kiralama"),
   openGraph: {
     title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
     description:

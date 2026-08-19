@@ -3,6 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { FOUNDING_YEAR, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const DE_ABOUT_URL = buildCanonical("/de/ueber-uns");
 const DE_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
@@ -85,18 +86,7 @@ export const metadata = {
   title: "Über uns — Ihr Technikteam in der Türkei",
   description:
     `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.`,
-  alternates: {
-    canonical: DE_ABOUT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hakkimizda`,
-      en: `${SITE_URL}/en/about`,
-      de: DE_ABOUT_URL,
-      ar: `${SITE_URL}/ar/about`,
-      ru: `${SITE_URL}/ru/about`,
-      zh: `${SITE_URL}/zh/about`,
-      "x-default": `${SITE_URL}/en/about`,
-    },
-  },
+  alternates: buildAlternatesForPath("/de/ueber-uns"),
   openGraph: {
     title: "Über uns — Technikteam für Veranstaltungen in der Türkei | Sahneva",
     description:

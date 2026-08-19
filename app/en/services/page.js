@@ -8,24 +8,14 @@ import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 export const metadata = {
   title: "Our Services | Professional Event Equipment Rentals",
   description:
     "Professional stage rentals, LED walls, sound-light systems, podiums, tents and full event production across Türkiye.",
-  alternates: {
-    canonical: `${BASE_SITE_URL}/en/services`,
-    languages: {
-      "tr-TR": `${BASE_SITE_URL}/hizmetler`,
-      "en": `${BASE_SITE_URL}/en/services`,
-      de: `${BASE_SITE_URL}/de/leistungen`,
-      "ar": `${BASE_SITE_URL}/ar/services`,
-      "ru": `${BASE_SITE_URL}/ru/services`,
-      "zh": `${BASE_SITE_URL}/zh/services`,
-      "x-default": `${BASE_SITE_URL}/en/services`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/services"),
   openGraph: {
     title: "Our Services | Sahneva - Professional Event Solutions",
     description:

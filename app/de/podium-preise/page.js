@@ -1,7 +1,7 @@
 // app/de/podium-preise/page.js
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -127,13 +127,7 @@ export const metadata = {
   title: "Podium mieten: Preise nach m²",
   description:
     "Preise für Podeste nach Quadratmeter: Fläche, Teppich, Frontverkleidung und Transportpauschale für Istanbul mit Aufbau und Abbau – inklusive Rechenbeispielen.",
-  alternates: buildLanguageAlternates({
-    tr: "/podyum-kurulum-fiyatlari",
-    en: "/en/podium-rental-prices",
-    de: slug,
-    canonical: slug,
-    xDefault: "/en/podium-rental-prices",
-  }),
+  alternates: buildAlternatesForPath("/de/podium-preise"),
   openGraph: {
     title: "Podium mieten: Preise nach m² | Sahneva",
     description:

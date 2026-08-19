@@ -1,6 +1,6 @@
 // app/(tr)/nasil-calisiyoruz/page.js
 import HowItWorksClient from "./HowItWorksClient";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -16,12 +16,7 @@ export const metadata = {
   title: "Nasıl Çalışıyoruz? | Etkinlik Sürecimiz",
   description:
     "Sahneva’da süreç; ihtiyaç analizi, teklif, teknik keşif, kurulum ve etkinlik sonrası söküm dahil uçtan uca planlanır.",
-  alternates: buildLanguageAlternates({
-    tr: PAGE_PATH,
-    en: "/en/how-we-work",
-    de: "/de/arbeitsweise",
-    xDefault: "/en/how-we-work",
-  }),
+  alternates: buildAlternatesForPath("/nasil-calisiyoruz"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

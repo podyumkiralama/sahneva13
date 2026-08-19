@@ -5,6 +5,7 @@ import { getProjects } from "@/lib/projects";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -12,18 +13,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 export const metadata = {
   title: "Projeler | Etkinlik Sahne ve LED Referanslarımız",
   description: "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",
-  alternates: {
-    canonical: "https://www.sahneva.com/projeler",
-    languages: {
-      "tr-TR": "https://www.sahneva.com/projeler",
-      "en": "https://www.sahneva.com/en/projects",
-      "de": "https://www.sahneva.com/de/projekte",
-      "ar": "https://www.sahneva.com/ar/projects",
-      "ru": "https://www.sahneva.com/ru/projects",
-      "zh": "https://www.sahneva.com/zh/projects",
-      "x-default": "https://www.sahneva.com/en/projects",
-    },
-  },
+  alternates: buildAlternatesForPath("/projeler"),
   openGraph: {
     title: "Projeler | Sahneva",
     description: "Sahneva olarak gerçekleştirdiğimiz konser, kurumsal etkinlik ve organizasyon projelerimizi inceleyin. Sahne, podyum, LED ekran ve ses-ışık referanslarımız.",

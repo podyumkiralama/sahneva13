@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import GlossarySearch from "@/components/GlossarySearch.client";
 import {
@@ -28,12 +28,7 @@ export const metadata = {
   title: "Event Production Glossary | Technical Terms",
   description:
     "Event production glossary: what the stage, LED screen, sound, lighting, truss and tent terms used in quotes mean, and what each one changes on site.",
-  alternates: buildLanguageAlternates({
-    tr: TR_PAGE_PATH,
-    en: PAGE_PATH,
-    canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
-  }),
+  alternates: buildAlternatesForPath("/en/glossary"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

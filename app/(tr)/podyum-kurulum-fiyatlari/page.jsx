@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
@@ -115,13 +115,7 @@ export const metadata = {
   title: "Podyum Kurulum Fiyatları 2026 | m² Podyum Maliyeti",
   description:
     "Podyum kurulum fiyatları; metrekare, yükseklik, halı kaplama, kumaş giydirme, nakliye ve etkinlik süresine göre değişir. Sahneva'dan hızlı fiyat alın.",
-  alternates: buildLanguageAlternates({
-    tr: slug,
-    canonical: slug,
-    en: "/en/podium-rental-prices",
-    de: "/de/podium-preise",
-    xDefault: "/en/podium-rental-prices",
-  }),
+  alternates: buildAlternatesForPath("/podyum-kurulum-fiyatlari"),
   openGraph: {
     type: "website",
     url,

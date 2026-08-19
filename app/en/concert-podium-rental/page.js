@@ -4,7 +4,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
@@ -152,13 +152,7 @@ export const metadata = {
   title: "Concert Podium Rental | Festival Stage Solutions",
   description:
     "Concert and festival podium rental with main platforms, side towers, FOH areas and end-to-end technical support across Turkey.",
-  alternates: buildLanguageAlternates({
-    tr: "/konser-icin-podyum-kiralama",
-    en: "/en/concert-podium-rental",
-    de: "/de/konzertbuehne-mieten",
-    canonical: "/en/concert-podium-rental",
-    xDefault: "/en/concert-podium-rental",
-  }),
+  alternates: buildAlternatesForPath("/en/concert-podium-rental"),
   openGraph: {
     title: "Concert Podium Rental | Sahneva",
     description:

@@ -3,6 +3,7 @@ import Image from "next/image";
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const ZH_CONTACT_URL = buildCanonical("/zh/contact");
 const ZH_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
@@ -91,18 +92,7 @@ export const metadata = {
   title: "联系我们 — 获取土耳其活动设备租赁报价",
   description:
     "通过微信、WhatsApp、电子邮箱或表单联系 Sahneva，获取土耳其活动的舞台、LED显示屏、音响灯光、运输、安装与现场技术报价。",
-  alternates: {
-    canonical: ZH_CONTACT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/iletisim`,
-      en: `${SITE_URL}/en/contact`,
-      de: `${SITE_URL}/de/kontakt`,
-      ar: `${SITE_URL}/ar/contact`,
-      ru: `${SITE_URL}/ru/contact`,
-      zh: ZH_CONTACT_URL,
-      "x-default": `${SITE_URL}/en/contact`,
-    },
-  },
+  alternates: buildAlternatesForPath("/zh/contact"),
   openGraph: {
     title: "联系我们 — 获取土耳其活动设备租赁报价 | Sahneva",
     description:

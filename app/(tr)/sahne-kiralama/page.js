@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -63,21 +63,12 @@ const EventWeatherWidget = dynamic(
 const BLUR_DATA_URL =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
 
-
 /* ================== META ================== */
 export const metadata = {
   title: "Profesyonel Sahne Kiralama",
   description:
     `Konser, konferans ve festival için anahtar teslim sahne kiralama: truss, podyum, LED ekran, profesyonel ses-ışık. ${PROVINCES_COUNT} ilde hızlı kurulum ve teknik destek.`,
-  alternates: buildLanguageAlternates({
-    tr: "/sahne-kiralama",
-    canonical: "/sahne-kiralama",
-    en: "/en/stage-rental",
-    de: "/de/buehne-mieten",
-    ru: "/ru/stage-rental",
-    zh: "/zh/stage-rental",
-    xDefault: "/en/stage-rental",
-  }),
+  alternates: buildAlternatesForPath("/sahne-kiralama"),
   openGraph: {
     title: "Sahne Kiralama | Sahneva",
     description:

@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { RUSSIAN_SERVICE_LIST } from "./serviceData";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const RU_SERVICES_URL = buildCanonical("/ru/services");
 const RU_SERVICES_TITLE = "Услуги для мероприятий в Турции";
@@ -44,18 +45,7 @@ const SERVICES_JSON_LD = {
 export const metadata = {
   title: RU_SERVICES_TITLE,
   description: RU_SERVICES_DESCRIPTION,
-  alternates: {
-    canonical: RU_SERVICES_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hizmetler`,
-      en: `${SITE_URL}/en/services`,
-      de: `${SITE_URL}/de/leistungen`,
-      ar: `${SITE_URL}/ar/services`,
-      ru: RU_SERVICES_URL,
-      zh: `${SITE_URL}/zh/services`,
-      "x-default": `${SITE_URL}/en/services`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ru/services"),
   openGraph: {
     title: `${RU_SERVICES_TITLE} | Sahneva`,
     description: RU_SERVICES_DESCRIPTION,

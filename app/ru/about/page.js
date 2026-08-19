@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const RU_ABOUT_URL = buildCanonical("/ru/about");
 const RU_ABOUT_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
@@ -18,18 +19,7 @@ export const metadata = {
   title: "О компании — технический продакшен мероприятий",
   description:
     "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
-  alternates: {
-    canonical: RU_ABOUT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hakkimizda`,
-      en: `${SITE_URL}/en/about`,
-      de: `${SITE_URL}/de/ueber-uns`,
-      ar: `${SITE_URL}/ar/about`,
-      ru: RU_ABOUT_URL,
-      zh: `${SITE_URL}/zh/about`,
-      "x-default": `${SITE_URL}/en/about`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ru/about"),
   openGraph: {
     title: "О Sahneva",
     description:

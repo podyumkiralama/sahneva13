@@ -5,7 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -304,12 +304,7 @@ export const metadata = {
   title: "Podyum Kiralama | İstanbul ve Türkiye Geneli",
   description:
     "İstanbul ve Türkiye genelinde etkinliklere özel modüler podyum kiralama, nakliye, güvenli kurulum ve söküm hizmeti. Ölçünüze özel teklif alın.",
-  alternates: buildLanguageAlternates({
-    tr: "/podyum-kiralama",
-    canonical: "/podyum-kiralama",
-    en: "/en/podium-rental",
-    xDefault: "/en/podium-rental",
-  }),
+  alternates: buildAlternatesForPath("/podyum-kiralama"),
   openGraph: {
     title: "Podyum Kiralama | İstanbul ve Türkiye Geneli | Sahneva",
     description:
@@ -1166,7 +1161,6 @@ function ProcessAndTipsSection() {
     </section>
   );
 }
-
 
 function FAQSection() {
   return (

@@ -9,23 +9,13 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 export const metadata = {
   title: "Hizmetlerimiz | Etkinlik Ekipmanları Kiralama",
   description: "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri, podyum, çadır kiralama ve etkinlik prodüksiyon hizmetleri. Türkiye geneli hızlı kurulum.",
-  alternates: {
-    canonical: `${BASE_SITE_URL}/hizmetler`,
-    languages: {
-      "tr-TR": `${BASE_SITE_URL}/hizmetler`,
-      "en": `${BASE_SITE_URL}/en/services`,
-      de: `${BASE_SITE_URL}/de/leistungen`,
-      "ar": `${BASE_SITE_URL}/ar/services`,
-      "ru": `${BASE_SITE_URL}/ru/services`,
-      "zh": `${BASE_SITE_URL}/zh/services`,
-      "x-default": `${BASE_SITE_URL}/en/services`,
-    },
-  },
+  alternates: buildAlternatesForPath("/hizmetler"),
   openGraph: {
     title: "Hizmetlerimiz | Sahneva",
     description: "Sahne, LED ekran, ses-ışık, podyum, çadır kiralama ve komple etkinlik prodüksiyon hizmetleri. Türkiye genelinde profesyonel çözümler.",

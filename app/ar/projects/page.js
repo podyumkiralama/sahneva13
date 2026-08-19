@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const AR_PROJECTS_URL = buildCanonical("/ar/projects");
 const AR_PROJECTS_TITLE = "مشاريع فعاليات في تركيا";
@@ -129,18 +130,7 @@ export const metadata = {
     description: AR_PROJECTS_DESCRIPTION,
     images: [AR_PROJECTS_OG_IMAGE_URL],
   },
-  alternates: {
-    canonical: AR_PROJECTS_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/projeler`,
-      en: `${SITE_URL}/en/projects`,
-      de: `${SITE_URL}/de/projekte`,
-      ar: AR_PROJECTS_URL,
-      ru: `${SITE_URL}/ru/projects`,
-      zh: `${SITE_URL}/zh/projects`,
-      "x-default": `${SITE_URL}/en/projects`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ar/projects"),
 };
 
 export default function ArabicProjectsPage() {

@@ -3,7 +3,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -220,12 +220,7 @@ export const metadata = {
   title: "Podium Rental | Modular Stage & Platform Systems",
   description:
     "Modular podium rental across Turkey for concerts, weddings and corporate events. Delivery, setup and teardown included.",
-  alternates: buildLanguageAlternates({
-    tr: "/podyum-kiralama",
-    en: PAGE_PATH,
-    canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
-  }),
+  alternates: buildAlternatesForPath("/en/podium-rental"),
   openGraph: {
     title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
     description:

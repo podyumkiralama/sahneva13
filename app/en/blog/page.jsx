@@ -8,7 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 /* ================== RUNTIME & ISR ================== */
 export const runtime = "nodejs";
 export const revalidate = 3600;
@@ -29,14 +29,7 @@ export const metadata = {
   // /blog ile karsilikli esdeger — bkz. lib/i18n/pageEquivalents.js. Dil kodu
   // "en-US" degil "en": grubun Turkce uyesi de "en" ile isaret ediyor ve
   // karsiliklilik ancak ayni kodla kurulur.
-  alternates: {
-    canonical: `${getBaseUrl()}/en/blog`,
-    languages: {
-      "tr-TR": `${getBaseUrl()}/blog`,
-      en: `${getBaseUrl()}/en/blog`,
-      "x-default": `${getBaseUrl()}/en/blog`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/blog"),
   openGraph: {
     title: "Sahneva | Event Technologies Guide",
     description:

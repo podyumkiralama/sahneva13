@@ -11,6 +11,7 @@ import {
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -18,18 +19,7 @@ export const metadata = {
   title: "About Us — Professional Event Technologies",
   description:
     `${YEARS_OF_EXPERIENCE} years of nationwide stage rentals, LED video walls, sound & lighting systems and full-scale event production. ${PROJECTS_COMPLETED} completed projects.`,
-  alternates: {
-    canonical: "https://www.sahneva.com/en/about",
-    languages: {
-      "tr-TR": "https://www.sahneva.com/hakkimizda",
-      "en": "https://www.sahneva.com/en/about",
-      "de": "https://www.sahneva.com/de/ueber-uns",
-      "ar": "https://www.sahneva.com/ar/about",
-      "ru": "https://www.sahneva.com/ru/about",
-      "zh": "https://www.sahneva.com/zh/about",
-      "x-default": "https://www.sahneva.com/en/about",
-    },
-  },
+  alternates: buildAlternatesForPath("/en/about"),
   openGraph: {
     title: "About Us | Sahneva - Professional Event Technologies",
     description:

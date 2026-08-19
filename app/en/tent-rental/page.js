@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -44,17 +45,7 @@ export const metadata = {
   title: "Tent Rental | Pagoda, Clear Span & Dome Structures",
   description:
     "Pagoda, clear-span and dome tent rentals with flooring, climate control, lighting and nationwide installation for events across Türkiye.",
-  alternates: {
-    canonical: `${ORIGIN}/en/tent-rental`,
-    languages: {
-      "tr-TR": `${ORIGIN}/cadir-kiralama`,
-      "en": `${ORIGIN}/en/tent-rental`,
-      "de": `${ORIGIN}/de/zelt-mieten`,
-      "ru": `${ORIGIN}/ru/tent-rental`,
-      "zh": `${ORIGIN}/zh/tent-rental`,
-      "x-default": `${ORIGIN}/en/tent-rental`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/tent-rental"),
   openGraph: {
     title: "Tent Rental | Professional Event Structures | Sahneva",
     description:

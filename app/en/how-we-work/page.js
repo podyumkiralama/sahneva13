@@ -1,7 +1,7 @@
 // app/en/how-we-work/page.js
 import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
 import { EN_HOW_IT_WORKS_DICTIONARY } from "./dictionary";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -18,13 +18,7 @@ export const metadata = {
   title: "How We Work — Our 8-Step Event Production Process",
   description:
     "At Sahneva, the process is planned end-to-end: needs analysis, quote, technical survey, installation, and post-event dismantling.",
-  alternates: buildLanguageAlternates({
-    tr: "/nasil-calisiyoruz",
-    en: PAGE_PATH,
-    de: "/de/arbeitsweise",
-    canonical: PAGE_PATH,
-    xDefault: PAGE_PATH,
-  }),
+  alternates: buildAlternatesForPath("/en/how-we-work"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

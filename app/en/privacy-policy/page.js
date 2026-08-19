@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -13,15 +14,7 @@ export const metadata = {
   title: "Privacy Policy | KVKK and GDPR Compliant",
   description:
     "Sahneva processes, stores, and protects your personal data in compliance with KVKK and GDPR. Review our privacy policy for data security details.",
-  alternates: {
-    canonical: `${SITE_URL}/en/privacy-policy`,
-    languages: {
-      "tr-TR": `${SITE_URL}/gizlilik-politikasi`,
-      en: `${SITE_URL}/en/privacy-policy`,
-      de: `${SITE_URL}/de/datenschutz`,
-      "x-default": `${SITE_URL}/en/privacy-policy`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/privacy-policy"),
   openGraph: {
     title: "Privacy Policy | Sahneva",
     description:

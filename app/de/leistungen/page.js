@@ -8,24 +8,14 @@ import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 export const metadata = {
   title: "Leistungen | Veranstaltungstechnik in der Türkei",
   description:
     "Bühnen, LED-Wände, Ton- und Lichttechnik, Podeste, Zelte und komplette Eventproduktion in der gesamten Türkei – geplant, aufgebaut und betreut von einem Team.",
-  alternates: {
-    canonical: `${BASE_SITE_URL}/de/leistungen`,
-    languages: {
-      "tr-TR": `${BASE_SITE_URL}/hizmetler`,
-      en: `${BASE_SITE_URL}/en/services`,
-      de: `${BASE_SITE_URL}/de/leistungen`,
-      ar: `${BASE_SITE_URL}/ar/services`,
-      ru: `${BASE_SITE_URL}/ru/services`,
-      zh: `${BASE_SITE_URL}/zh/services`,
-      "x-default": `${BASE_SITE_URL}/en/services`,
-    },
-  },
+  alternates: buildAlternatesForPath("/de/leistungen"),
   openGraph: {
     title: "Leistungen | Sahneva – Veranstaltungstechnik in der Türkei",
     description:

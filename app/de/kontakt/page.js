@@ -1,6 +1,7 @@
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const DE_CONTACT_URL = buildCanonical("/de/kontakt");
 const DE_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
@@ -96,18 +97,7 @@ export const metadata = {
   title: "Kontakt — Angebot für Veranstaltungstechnik",
   description:
     "Sahneva kontaktieren: Bühne, LED-Wand, Ton- und Lichttechnik, Zelte und Mobiliar für Ihre Veranstaltung in der Türkei. Angebot auf Deutsch, Englisch oder Türkisch.",
-  alternates: {
-    canonical: DE_CONTACT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/iletisim`,
-      en: `${SITE_URL}/en/contact`,
-      de: DE_CONTACT_URL,
-      ar: `${SITE_URL}/ar/contact`,
-      ru: `${SITE_URL}/ru/contact`,
-      zh: `${SITE_URL}/zh/contact`,
-      "x-default": `${SITE_URL}/en/contact`,
-    },
-  },
+  alternates: buildAlternatesForPath("/de/kontakt"),
   openGraph: {
     title: "Kontakt — Angebot für Veranstaltungstechnik in der Türkei | Sahneva",
     description:

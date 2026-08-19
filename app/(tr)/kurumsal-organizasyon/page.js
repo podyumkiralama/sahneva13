@@ -20,7 +20,7 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import { DEFAULT_BLUR_DATA_URL } from "@/lib/seo/imagePlaceholders";
@@ -250,15 +250,7 @@ export const metadata = {
     "kurumsal etkinlik prodüksiyonu",
     "sahne led ekran prodüksiyonu",
   ],
-  alternates: buildLanguageAlternates({
-    tr: "/kurumsal-organizasyon",
-    en: "/en/corporate-events",
-    de: "/de/firmenevents",
-    ru: "/ru/corporate-events",
-    zh: "/zh/corporate-events",
-    canonical: "/kurumsal-organizasyon",
-    xDefault: "/en/corporate-events",
-  }),
+  alternates: buildAlternatesForPath("/kurumsal-organizasyon"),
   openGraph: {
     title: OG_TITLE,
     description: OG_DESCRIPTION,

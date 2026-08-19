@@ -11,7 +11,7 @@ import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
@@ -52,14 +52,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Ses ve Işık Sistemleri Kiralama",
   description: `Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. ${PROVINCES_COUNT} ilde canlı operasyon desteği.`,
-  alternates: buildLanguageAlternates({
-    tr: "/ses-isik-sistemleri",
-    en: "/en/sound-light-rental",
-    de: "/de/ton-und-lichttechnik",
-    ru: "/ru/sound-light-rental",
-    zh: "/zh/sound-light-rental",
-    xDefault: "/en/sound-light-rental",
-  }),
+  alternates: buildAlternatesForPath("/ses-isik-sistemleri"),
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
     description: "Türkiye genelinde uçtan uca ses & ışık çözümleri: keşif, projelendirme, kurulum, canlı miksaj ve söküm.",

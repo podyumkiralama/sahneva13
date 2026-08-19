@@ -3,7 +3,7 @@ import BlogList from "@/components/blog/BlogList.client";
 import { getBlogPosts } from "@/lib/blogPosts";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 export const revalidate = 3600;
 
 const ORIGIN = "https://www.sahneva.com";
@@ -21,14 +21,7 @@ export const metadata = {
   // tanimiyordu (TR yalnizca tr-TR, EN yalnizca en-US basiyordu) ve her ikisinin
   // x-default'u kendini gosteriyordu. Dil secici bunlari zaten esdeger sayiyordu.
   // Grup uyeligi lib/i18n/pageEquivalents.js'te tanimli.
-  alternates: {
-    canonical: `${getBaseUrl()}/blog`,
-    languages: {
-      "tr-TR": `${getBaseUrl()}/blog`,
-      en: `${getBaseUrl()}/en/blog`,
-      "x-default": `${getBaseUrl()}/en/blog`,
-    },
-  },
+  alternates: buildAlternatesForPath("/blog"),
   openGraph: {
     title: "Sahneva | Etkinlik Teknolojileri Rehberi",
     description:

@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -54,15 +54,7 @@ export const metadata = {
   title: PAGE_TITLE,
   description:
     "Turnkey stage rental in Turkey: truss, modular decks, LED screens, sound & lighting for concerts, conferences and festivals. Nationwide crew and fast setup.",
-  alternates: buildLanguageAlternates({
-    tr: "/sahne-kiralama",
-    en: "/en/stage-rental",
-    de: "/de/buehne-mieten",
-    ru: "/ru/stage-rental",
-    zh: "/zh/stage-rental",
-    canonical: "/en/stage-rental",
-    xDefault: "/en/stage-rental",
-  }),
+  alternates: buildAlternatesForPath("/en/stage-rental"),
   openGraph: {
     title: PAGE_TITLE_BRANDED,
     description:

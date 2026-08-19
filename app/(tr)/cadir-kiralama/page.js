@@ -33,6 +33,7 @@ import {
   Phone
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -73,17 +74,7 @@ export const metadata = {
   title: "Profesyonel Çadır Kiralama",
   description:
     "Pagoda, şeffaf ve büyük açıklıklı çadır kiralama çözümleri. Düğün, fuar, festival, lansman ve kurumsal etkinlikler için Türkiye geneli kurulum.",
-  alternates: {
-    canonical: `${ORIGIN}/cadir-kiralama`,
-    languages: {
-      "tr-TR": `${ORIGIN}/cadir-kiralama`,
-      "en": `${ORIGIN}/en/tent-rental`,
-      de: `${SITE_URL}/de/zelt-mieten`,
-      "ru": `${ORIGIN}/ru/tent-rental`,
-      "zh": `${ORIGIN}/zh/tent-rental`,
-      "x-default": `${ORIGIN}/en/tent-rental`,
-    },
-  },
+  alternates: buildAlternatesForPath("/cadir-kiralama"),
   openGraph: {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:

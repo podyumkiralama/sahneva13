@@ -4,7 +4,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { buildFaqSchema } from "@/lib/structuredData/faq";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
@@ -139,13 +139,7 @@ export const metadata = {
   title: "Runway & Podium Rental | Fashion Event Stage",
   description:
     "Runway & fashion podium rental: T/U-shape, straight runway, LED backdrop, projection mapping + full technical support. Istanbul professional event stages.",
-  alternates: buildLanguageAlternates({
-    tr: "/defile-podyum-kiralama",
-    en: "/en/runway-podium-rental",
-    de: "/de/laufsteg-mieten",
-    canonical: "/en/runway-podium-rental",
-    xDefault: "/en/runway-podium-rental",
-  }),
+  alternates: buildAlternatesForPath("/en/runway-podium-rental"),
   openGraph: {
     title: "Runway & Podium Rental | Sahneva",
     description:

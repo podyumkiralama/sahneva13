@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { COMPANY } from "@/lib/legal/companyInfo";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -11,15 +12,7 @@ export const metadata = {
   title: "KVKK Aydınlatma Metni | Kişisel Veri Koruması",
   description:
     "Sahneva KVKK aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri, saklama süreleri, aktarımı ve ilgili kişi hakları.",
-  alternates: {
-    canonical: `${SITE_URL}/kvkk`,
-    languages: {
-      "tr-TR": `${SITE_URL}/kvkk`,
-      en: `${SITE_URL}/en/data-protection`,
-      "en-US": `${SITE_URL}/en/data-protection`,
-      "x-default": `${SITE_URL}/en/data-protection`,
-    },
-  },
+  alternates: buildAlternatesForPath("/kvkk"),
   openGraph: {
     title: "KVKK Aydınlatma Metni | Sahneva",
     description:

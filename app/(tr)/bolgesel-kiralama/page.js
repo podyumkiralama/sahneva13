@@ -1,6 +1,6 @@
 
 import RegionalRentalClient from "./RegionalRentalClient";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -17,12 +17,7 @@ export const metadata = {
   title: "Bölgesel Kiralama | Türkiye Geneli",
   description:
     "Türkiye genelinde LED ekran, truss, sahne/podyum ve ses-ışık kiralama. Ankara, İzmir, Antalya ve diğer şehirler için kurulum dahil planlama.",
-  alternates: buildLanguageAlternates({
-    tr: PAGE_PATH,
-    en: "/en/regional-rental",
-    de: "/de/regionale-vermietung",
-    xDefault: "/en/regional-rental",
-  }),
+  alternates: buildAlternatesForPath("/bolgesel-kiralama"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

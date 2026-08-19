@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
 import { PROJECTS_COMPLETED_COUNT } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const DE_PROJECTS_URL = buildCanonical("/de/projekte");
 const DE_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -67,18 +68,7 @@ export const metadata = {
   title: "Projekte — Eventproduktion in der Türkei",
   description:
     "Realisierte Produktionen von Sahneva: Bühnenbau, LED-Wände, Ton- und Lichttechnik sowie Zelte für Kongresse, Messen und Firmenevents in der Türkei.",
-  alternates: {
-    canonical: DE_PROJECTS_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/projeler`,
-      en: `${SITE_URL}/en/projects`,
-      de: DE_PROJECTS_URL,
-      ar: `${SITE_URL}/ar/projects`,
-      ru: `${SITE_URL}/ru/projects`,
-      zh: `${SITE_URL}/zh/projects`,
-      "x-default": `${SITE_URL}/en/projects`,
-    },
-  },
+  alternates: buildAlternatesForPath("/de/projekte"),
   openGraph: {
     title: "Projekte — Referenzen aus der Eventproduktion in der Türkei | Sahneva",
     description:

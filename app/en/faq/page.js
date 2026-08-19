@@ -1,6 +1,6 @@
 // app/en/faq/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -11,13 +11,7 @@ export const metadata = {
   title: "Frequently Asked Questions | Event Rental FAQ Guide",
   description:
     "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
-  alternates: buildLanguageAlternates({
-    tr: "/sss",
-    en: "/en/faq",
-    de: "/de/faq",
-    canonical: "/en/faq",
-    xDefault: "/en/faq",
-  }),
+  alternates: buildAlternatesForPath("/en/faq"),
   openGraph: {
     title: "Frequently Asked Questions | Sahneva",
     description:

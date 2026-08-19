@@ -1,6 +1,7 @@
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const RU_CONTACT_URL = buildCanonical("/ru/contact");
 const RU_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
@@ -83,18 +84,7 @@ export const metadata = {
   title: "Контакты — расчет аренды оборудования в Турции",
   description:
     "Свяжитесь с Sahneva для расчета аренды сцены, LED-экрана, звука, света, шатра и мебели для мероприятий в Турции.",
-  alternates: {
-    canonical: RU_CONTACT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/iletisim`,
-      en: `${SITE_URL}/en/contact`,
-      de: `${SITE_URL}/de/kontakt`,
-      ar: `${SITE_URL}/ar/contact`,
-      ru: RU_CONTACT_URL,
-      zh: `${SITE_URL}/zh/contact`,
-      "x-default": `${SITE_URL}/en/contact`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ru/contact"),
   openGraph: {
     title: "Контакты | Sahneva",
     description:

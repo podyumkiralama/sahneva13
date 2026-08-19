@@ -8,6 +8,7 @@ import VideoGallery from "./VideoGallery.client";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import CaseSpecStrip from "@/components/en/CaseSpecStrip";
 import { getEnProjects } from "@/lib/enProjects";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 
@@ -186,18 +187,7 @@ const PROJECT_VIDEOS = [
 export const metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/yaptiklarimiz`,
-      "en": PAGE_URL,
-      "de": `${SITE_URL}/de/referenzen`,
-      "ru": `${SITE_URL}/ru/our-work`,
-      "zh": `${SITE_URL}/zh/our-work`,
-      "ar": `${SITE_URL}/ar/our-work`,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/our-work"),
   openGraph: {
     type: "website",
     title: PAGE_TITLE,

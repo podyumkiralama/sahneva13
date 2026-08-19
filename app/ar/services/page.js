@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const AR_SERVICES_URL = buildCanonical("/ar/services");
 const AR_SERVICES_TITLE = "خدمات تجهيز الفعاليات في تركيا";
@@ -144,18 +145,7 @@ export const metadata = {
     description: AR_SERVICES_DESCRIPTION,
     images: [AR_SERVICES_IMAGE],
   },
-  alternates: {
-    canonical: AR_SERVICES_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/hizmetler`,
-      en: `${SITE_URL}/en/services`,
-      de: `${SITE_URL}/de/leistungen`,
-      ar: AR_SERVICES_URL,
-      ru: `${SITE_URL}/ru/services`,
-      zh: `${SITE_URL}/zh/services`,
-      "x-default": `${SITE_URL}/en/services`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ar/services"),
 };
 
 export default function ArabicServicesPage() {

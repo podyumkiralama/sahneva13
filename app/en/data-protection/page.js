@@ -2,6 +2,7 @@
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import LegalPageJsonLd from "@/components/seo/LegalPageJsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 
@@ -9,15 +10,7 @@ export const metadata = {
   title: "Data Protection & Privacy Policy",
   description:
     "Sahneva's data protection and privacy policy: how we collect, use, store and protect your personal data in compliance with KVKK and GDPR.",
-  alternates: {
-    canonical: `${SITE_URL}/en/data-protection`,
-    languages: {
-      "tr-TR": `${SITE_URL}/kvkk`,
-      en: `${SITE_URL}/en/data-protection`,
-      "en-US": `${SITE_URL}/en/data-protection`,
-      "x-default": `${SITE_URL}/en/data-protection`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/data-protection"),
   openGraph: {
     title: "Data Protection & Privacy | Sahneva",
     description:

@@ -1,7 +1,7 @@
 // app/de/faq/page.js
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
@@ -15,13 +15,7 @@ export const metadata = {
   title: "Häufige Fragen zur Veranstaltungstechnik",
   description:
     "Antworten zu Bühne, LED-Wand, Ton- und Lichttechnik sowie Zelten: Aufbauzeiten, Logistik, Personal, Preisbildung und Vertragsbedingungen in der Türkei.",
-  alternates: buildLanguageAlternates({
-    tr: "/sss",
-    en: "/en/faq",
-    de: "/de/faq",
-    canonical: "/de/faq",
-    xDefault: "/en/faq",
-  }),
+  alternates: buildAlternatesForPath("/de/faq"),
   openGraph: {
     title: "Häufige Fragen | Sahneva",
     description:

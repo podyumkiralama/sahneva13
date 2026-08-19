@@ -1,6 +1,6 @@
 // app/de/regionale-vermietung/page.js
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -17,13 +17,7 @@ export const metadata = {
   title: "Regionale Vermietung | Istanbul, Ankara, Izmir",
   description:
     "Veranstaltungstechnik nach Stadt geplant: LED-Wand, Traversen, Bühne und Ton- und Lichttechnik mit Logistik, Aufbau und Betreuung in der gesamten Türkei.",
-  alternates: buildLanguageAlternates({
-    tr: "/bolgesel-kiralama",
-    en: "/en/regional-rental",
-    de: PAGE_PATH,
-    canonical: PAGE_PATH,
-    xDefault: "/en/regional-rental",
-  }),
+  alternates: buildAlternatesForPath("/de/regionale-vermietung"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

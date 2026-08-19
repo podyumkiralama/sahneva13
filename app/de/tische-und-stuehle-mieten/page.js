@@ -1,7 +1,7 @@
 import ServicePage from "../leistungen/ServicePage";
 import { GERMAN_SERVICE_PAGES } from "../leistungen/serviceData";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const service = GERMAN_SERVICE_PAGES["tische-und-stuehle-mieten"];
 const canonical = buildCanonical(service.href);
@@ -9,14 +9,7 @@ const canonical = buildCanonical(service.href);
 export const metadata = {
   title: service.metaTitle ?? service.title,
   description: service.metaDescription ?? service.description,
-  alternates: buildLanguageAlternates({
-    tr: service.equivalent.tr,
-    en: service.equivalent.en,
-    de: service.href,
-    ru: service.equivalent.ru,
-    zh: service.equivalent.zh,
-    canonical: service.href,
-  }),
+  alternates: buildAlternatesForPath("/de/tische-und-stuehle-mieten"),
   openGraph: {
     title: service.title,
     description: service.description,

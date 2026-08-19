@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -38,15 +39,7 @@ export const metadata = {
   title: "Table & Chair Rental | Banquet & Cocktail Setups",
   description:
     "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
-  alternates: {
-    canonical: `${ORIGIN}/en/table-chair-rental`,
-    languages: {
-      "tr-TR": `${ORIGIN}/masa-sandalye-kiralama`,
-      "en": `${ORIGIN}/en/table-chair-rental`,
-      "de": `${ORIGIN}/de/tische-und-stuehle-mieten`,
-      "x-default": `${ORIGIN}/en/table-chair-rental`,
-    },
-  },
+  alternates: buildAlternatesForPath("/en/table-chair-rental"),
   openGraph: {
     title: "Table & Chair Rental | Professional Seating Solutions | Sahneva",
     description:

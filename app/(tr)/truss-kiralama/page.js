@@ -4,7 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
@@ -64,12 +64,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: buildLanguageAlternates({
-    tr: "/truss-kiralama",
-    en: "/en/truss-rental",
-    de: "/de/traversen-mieten",
-    xDefault: "/en/truss-rental",
-  }),
+  alternates: buildAlternatesForPath("/truss-kiralama"),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

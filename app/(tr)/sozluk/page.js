@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { PODIUM_GLOSSARY_DETAIL_SLUGS } from "@/lib/glossaryDetailContent";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import GlossarySearch from "@/components/GlossarySearch.client";
@@ -34,12 +34,7 @@ export const metadata = {
   title: "Etkinlik Prodüksiyonu Sözlüğü | Teknik Terimler",
   description:
     "Sahne, LED ekran, ses, ışık, truss ve çadır projelerinde geçen teknik terimlerin saha karşılıklarıyla açıklandığı etkinlik prodüksiyonu sözlüğü.",
-  alternates: buildLanguageAlternates({
-    tr: PAGE_PATH,
-    en: "/en/glossary",
-    canonical: PAGE_PATH,
-    xDefault: "/en/glossary",
-  }),
+  alternates: buildAlternatesForPath("/sozluk"),
   openGraph: {
     type: "website",
     url: PAGE_URL,

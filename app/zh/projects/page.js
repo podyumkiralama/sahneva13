@@ -4,6 +4,7 @@ import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { getFeaturedPortfolio } from "@/lib/portfolioGallery";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const ZH_PROJECTS_URL = buildCanonical("/zh/projects");
 const ZH_PROJECTS_IMAGE = `${SITE_URL}/img/kurumsal/kurumsal-sahne-led-ekran.webp`;
@@ -30,18 +31,7 @@ export const metadata = {
   title: "项目案例 — 舞台、LED屏幕与活动制作",
   description:
     "浏览 Sahneva 在土耳其完成的项目：企业会议、新品发布、音乐节与展览现场的舞台、LED屏幕、音响灯光、桁架与篷房搭建实例。",
-  alternates: {
-    canonical: ZH_PROJECTS_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/projeler`,
-      en: `${SITE_URL}/en/projects`,
-      de: `${SITE_URL}/de/projekte`,
-      ar: `${SITE_URL}/ar/projects`,
-      ru: `${SITE_URL}/ru/projects`,
-      zh: ZH_PROJECTS_URL,
-      "x-default": `${SITE_URL}/en/projects`,
-    },
-  },
+  alternates: buildAlternatesForPath("/zh/projects"),
   openGraph: {
     title: "项目案例 — 舞台、LED屏幕与活动制作 | Sahneva",
     description:

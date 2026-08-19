@@ -6,6 +6,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
 // Layout başlık şablonu " | Sahneva" ekliyor; sayfa başlığında marka tekrarlanmaz.
@@ -153,18 +154,7 @@ export const metadata = {
     description: AR_CONTACT_DESCRIPTION,
     images: [AR_CONTACT_OG_IMAGE_URL],
   },
-  alternates: {
-    canonical: AR_CONTACT_URL,
-    languages: {
-      "tr-TR": `${SITE_URL}/iletisim`,
-      en: `${SITE_URL}/en/contact`,
-      de: `${SITE_URL}/de/kontakt`,
-      ar: AR_CONTACT_URL,
-      ru: `${SITE_URL}/ru/contact`,
-      zh: `${SITE_URL}/zh/contact`,
-      "x-default": `${SITE_URL}/en/contact`,
-    },
-  },
+  alternates: buildAlternatesForPath("/ar/contact"),
 };
 
 export default function ArabicContactPage() {
