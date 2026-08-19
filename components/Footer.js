@@ -12,7 +12,7 @@ import {
   Phone,
   Star,
 } from "lucide-react";
-import { Instagram, Linkedin, Twitter, Youtube } from "@/components/icons/BrandIcons";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "@/components/icons/BrandIcons";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
@@ -50,6 +50,14 @@ const SOCIAL_LINKS = [
     title: "LinkedIn",
     icon: Linkedin,
     gradient: "from-sky-500/30 via-blue-500/30 to-cyan-400/20",
+    rel: "me",
+  },
+  {
+    href: "https://www.facebook.com/sahnevaorganizasyon",
+    label: "Sahneva Facebook",
+    title: "Facebook",
+    icon: Facebook,
+    gradient: "from-blue-600/30 via-blue-500/30 to-sky-400/20",
     rel: "me",
   },
 ];
