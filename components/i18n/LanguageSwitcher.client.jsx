@@ -7,7 +7,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { HREFLANG_CODE, getSwitcherTargets } from "@/lib/i18n/pageEquivalents";
 
 // Yalnizca gorunum bilgisi. Hangi dilin hangi adrese gittigi burada DEGIL,
-// lib/i18n/pageEquivalents.js'te tanimlidir — hreflang ile ayni tablo.
+// lib/i18n/pageEquivalents.js'te tanimlidir. Ayni tablo hreflang icin de
+// tasarlandi ama sayfalar henuz ona bagli degil; oradaki nota bakin.
 const LOCALE_UI = [
   { value: "tr", short: "TR", label: "Türkçe" },
   { value: "en", short: "EN", label: "English" },
