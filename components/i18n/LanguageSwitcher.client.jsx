@@ -4,41 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Check, Languages } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { HREFLANG_CODE, getSwitcherTargets } from "@/lib/i18n/pageEquivalents";
 
-const LOCALES = [
-  { value: "tr", short: "TR", label: "Türkçe", href: "/" },
-  { value: "en", short: "EN", label: "English", href: "/en" },
-  { value: "de", short: "DE", label: "Deutsch", href: "/de" },
-  { value: "ar", short: "AR", label: "العربية", href: "/ar" },
-  { value: "ru", short: "RU", label: "Русский", href: "/ru" },
-  { value: "zh", short: "ZH", label: "中文", href: "/zh" },
-];
-
-const PAGE_EQUIVALENTS = [
-  { tr: "/", en: "/en", de: "/de", ar: "/ar", ru: "/ru", zh: "/zh" },
-  { tr: "/hakkimizda", en: "/en/about", de: "/de/ueber-uns", ar: "/ar/about", ru: "/ru/about", zh: "/zh/about" },
-  { tr: "/blog", en: "/en/blog", de: "/de", ar: "/ar", ru: "/ru", zh: "/zh" },
-  { tr: "/hizmetler", en: "/en/services", de: "/de/leistungen", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
-  { tr: "/projeler", en: "/en/projects", de: "/de/projekte", ar: "/ar/projects", ru: "/ru/projects", zh: "/zh/projects" },
-  { tr: "/yaptiklarimiz", en: "/en/our-work", de: "/de/referenzen", ar: "/ar/our-work", ru: "/ru/our-work", zh: "/zh/our-work" },
-  { tr: "/iletisim", en: "/en/contact", de: "/de/kontakt", ar: "/ar/contact", ru: "/ru/contact", zh: "/zh/contact" },
-  { tr: "/nasil-calisiyoruz", en: "/en/how-we-work", de: "/de/arbeitsweise", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
-  { tr: "/bolgesel-kiralama", en: "/en/regional-rental", de: "/de/regionale-vermietung", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
-  { tr: "/sss", en: "/en/faq", de: "/de/faq", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
-  { tr: "/podyum-kiralama", en: "/en/podium-rental", de: "/de/buehne-mieten", ar: "/ar/services", ru: "/ru/services#stage", zh: "/zh/services#stage-rental" },
-  { tr: "/led-ekran-kiralama", en: "/en/led-screen-rental", de: "/de/led-wand-mieten", ar: "/ar/services", ru: "/ru/led-screen-rental", zh: "/zh/led-screen-rental" },
-  { tr: "/sahne-kiralama", en: "/en/stage-rental", de: "/de/buehne-mieten", ar: "/ar/services", ru: "/ru/stage-rental", zh: "/zh/stage-rental" },
-  { tr: "/ses-isik-sistemleri", en: "/en/sound-light-rental", de: "/de/ton-und-lichttechnik", ar: "/ar/services", ru: "/ru/sound-light-rental", zh: "/zh/sound-light-rental" },
-  { tr: "/truss-kiralama", en: "/en/truss-rental", de: "/de/traversen-mieten", ar: "/ar/services", ru: "/ru/sound-light-rental", zh: "/zh/sound-light-rental" },
-  { tr: "/cadir-kiralama", en: "/en/tent-rental", de: "/de/zelt-mieten", ar: "/ar/services", ru: "/ru/tent-rental", zh: "/zh/tent-rental" },
-  { tr: "/masa-sandalye-kiralama", en: "/en/table-chair-rental", de: "/de/tische-und-stuehle-mieten", ar: "/ar/services", ru: "/ru/services#furniture", zh: "/zh/services" },
-  { tr: "/kurumsal-organizasyon", en: "/en/corporate-events", de: "/de/firmenevents", ar: "/ar/services", ru: "/ru/corporate-events", zh: "/zh/corporate-events" },
-  { tr: "/turkiyede-etkinlik-cozum-ortagi", en: "/en/event-production-company-turkey", de: "/de/eventproduktion-tuerkei", ar: "/ar/event-production-company-turkey", ru: "/ru/event-production-company-turkey", zh: "/zh" },
-  { tr: "/podyum-kurulum-fiyatlari", en: "/en/podium-rental-prices", de: "/de/podium-preise", ar: "/ar/services", ru: "/ru/contact", zh: "/zh/contact" },
-  { tr: "/sozluk", en: "/en/glossary", de: "/de/leistungen", ar: "/ar/services", ru: "/ru/services", zh: "/zh/services" },
-  { tr: "/konser-icin-podyum-kiralama", en: "/en/concert-podium-rental", de: "/de/konzertbuehne-mieten", ar: "/ar/services", ru: "/ru/stage-rental", zh: "/zh/stage-rental" },
-  { tr: "/defile-podyum-kiralama", en: "/en/runway-podium-rental", de: "/de/laufsteg-mieten", ar: "/ar/services", ru: "/ru/stage-rental", zh: "/zh/stage-rental" },
-  { tr: "/kvkk", en: "/en/privacy-policy", de: "/de/datenschutz", ar: "/ar/contact", ru: "/ru/contact", zh: "/zh/contact" },
+// Yalnizca gorunum bilgisi. Hangi dilin hangi adrese gittigi burada DEGIL,
+// lib/i18n/pageEquivalents.js'te tanimlidir — hreflang ile ayni tablo.
+const LOCALE_UI = [
+  { value: "tr", short: "TR", label: "Türkçe" },
+  { value: "en", short: "EN", label: "English" },
+  { value: "de", short: "DE", label: "Deutsch" },
+  { value: "ar", short: "AR", label: "العربية" },
+  { value: "ru", short: "RU", label: "Русский" },
+  { value: "zh", short: "ZH", label: "中文" },
 ];
 
 const SWITCHER_LABELS = {
@@ -50,27 +26,15 @@ const SWITCHER_LABELS = {
   zh: { label: "语言选择", prefix: "语言" },
 };
 
-function normalizePath(pathname) {
-  if (!pathname || pathname === "/") return "/";
-  return pathname.replace(/\/$/, "");
-}
-
+// Hedefleri ortak esdegerlik tablosu belirler: once gercek ceviri, yoksa en
+// yakin sayfa, o da yoksa dilin ana sayfasi. Bu yuzden burada eslesme yoksa
+// diye ayri bir dal yok — tablo her dil icin bir adres dondurur.
 function getLocaleLinks(pathname, currentLocale) {
-  const currentPath = normalizePath(pathname);
-  const match = PAGE_EQUIVALENTS.find((page) =>
-    LOCALES.some((locale) => page[locale.value] === currentPath),
-  );
+  const targets = getSwitcherTargets(pathname);
 
-  if (match) {
-    return LOCALES.map((locale) => ({
-      ...locale,
-      href: match[locale.value],
-      active: locale.value === currentLocale,
-    }));
-  }
-
-  return LOCALES.map((locale) => ({
+  return LOCALE_UI.map((locale) => ({
     ...locale,
+    href: targets[locale.value],
     active: locale.value === currentLocale,
   }));
 }
@@ -80,9 +44,9 @@ export default function LanguageSwitcher({ locale = "tr", align = "right", compa
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
 
-  const currentLocale = LOCALES.some((item) => item.value === locale) ? locale : "tr";
+  const currentLocale = LOCALE_UI.some((item) => item.value === locale) ? locale : "tr";
   const switcherLabels = SWITCHER_LABELS[currentLocale] ?? SWITCHER_LABELS.tr;
-  const activeLocale = LOCALES.find((item) => item.value === currentLocale) || LOCALES[0];
+  const activeLocale = LOCALE_UI.find((item) => item.value === currentLocale) || LOCALE_UI[0];
   const links = useMemo(
     () => getLocaleLinks(pathname, currentLocale),
     [currentLocale, pathname],
@@ -134,7 +98,7 @@ export default function LanguageSwitcher({ locale = "tr", align = "right", compa
               href={item.href}
               prefetch={false}
               role="menuitem"
-              hrefLang={item.value === "tr" ? "tr-TR" : item.value}
+              hrefLang={HREFLANG_CODE[item.value]}
               aria-current={item.active ? "page" : undefined}
               onClick={() => setOpen(false)}
               className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-bold no-underline transition-colors ${

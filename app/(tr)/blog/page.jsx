@@ -17,11 +17,16 @@ export const metadata = {
   title: "Blog | Etkinlik ve Organizasyon Rehberleri",
   description:
     "Kurumsal etkinlik yönetimi, sahne kiralama, LED ekran teknolojileri, ses-ışık sistemleri hakkında uzman rehberleri.",
+  // Blog indeksi ile /en/blog karsilikli esdeger; ikisi daha once birbirini hic
+  // tanimiyordu (TR yalnizca tr-TR, EN yalnizca en-US basiyordu) ve her ikisinin
+  // x-default'u kendini gosteriyordu. Dil secici bunlari zaten esdeger sayiyordu.
+  // Grup uyeligi lib/i18n/pageEquivalents.js'te tanimli.
   alternates: {
     canonical: `${getBaseUrl()}/blog`,
     languages: {
       "tr-TR": `${getBaseUrl()}/blog`,
-      "x-default": `${getBaseUrl()}/blog`,
+      en: `${getBaseUrl()}/en/blog`,
+      "x-default": `${getBaseUrl()}/en/blog`,
     },
   },
   openGraph: {

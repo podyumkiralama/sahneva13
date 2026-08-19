@@ -26,7 +26,17 @@ export const metadata = {
   title: "Blog | Event & Organization Guides",
   description:
     "Expert guides on corporate event management, stage rental, LED screen technology, sound and lighting systems.",
-  alternates: { canonical: `${getBaseUrl()}/en/blog`, languages: { "en-US": `${getBaseUrl()}/en/blog`, "x-default": `${getBaseUrl()}/en/blog` } },
+  // /blog ile karsilikli esdeger — bkz. lib/i18n/pageEquivalents.js. Dil kodu
+  // "en-US" degil "en": grubun Turkce uyesi de "en" ile isaret ediyor ve
+  // karsiliklilik ancak ayni kodla kurulur.
+  alternates: {
+    canonical: `${getBaseUrl()}/en/blog`,
+    languages: {
+      "tr-TR": `${getBaseUrl()}/blog`,
+      en: `${getBaseUrl()}/en/blog`,
+      "x-default": `${getBaseUrl()}/en/blog`,
+    },
+  },
   openGraph: {
     title: "Sahneva | Event Technologies Guide",
     description:
