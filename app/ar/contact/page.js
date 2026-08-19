@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
 // Layout başlık şablonu " | Sahneva" ekliyor; sayfa başlığında marka tekrarlanmaz.
@@ -124,7 +125,7 @@ const CONTACT_JSON_LD = {
   url: AR_CONTACT_URL,
   inLanguage: "ar",
   about: {
-    "@id": `${SITE_URL}/#localbusiness`,
+    "@id": LOCAL_BUSINESS_ID,
   },
 };
 

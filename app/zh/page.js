@@ -21,6 +21,7 @@ import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 const ZH_HOME_URL = buildCanonical("/zh");
@@ -288,15 +289,21 @@ const ZH_HOME_FAQ_ITEMS = [
   },
 ];
 
+// Bu dugum merkezi LocalBusiness varligini GENISLETIR, yenisini tanimlamaz.
+// Onceden `${ZH_HOME_URL}#business` kimligiyle ayri bir isletme gibi duruyordu;
+// layout zaten ayni sayfada tam LocalBusiness dugumunu basiyor, yani Google iki
+// ayri Sahneva gorebilirdi. Ayni @id ile basilinca ikisi tek varlikta birlesiyor.
+//
+// url / telephone / areaServed alanlari BILINCLI olarak kaldirildi: merkezi dugum
+// bunlari zaten tasiyor ve farkli degerlerle (ana adres, bosluksuz telefon, "TR")
+// tasiyor. Ikisi birden basilsa tek varlik celiskili degerler tasirdi. Asagida
+// kalanlar merkezi dugumde OLMAYAN, ZH diline ozgu eklemelerdir.
 const ZH_HOME_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": `${ZH_HOME_URL}#business`,
+  "@id": LOCAL_BUSINESS_ID,
   name: "Sahneva Organizasyon",
-  url: ZH_HOME_URL,
   image: `${SITE_URL}/img/hero-bg.webp`,
-  telephone: "+90 545 304 86 71",
-  areaServed: "Türkiye",
   geo: {
     "@type": "GeoCoordinates",
     latitude: 41.096173214009205,

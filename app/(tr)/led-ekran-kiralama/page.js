@@ -45,6 +45,7 @@ import {
   Gauge,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
@@ -1910,7 +1911,7 @@ function LedScreenJsonLd() {
       "@id": serviceId,
     },
     isPartOf: {
-      "@id": `${ORIGIN}#website`,
+      "@id": WEBSITE_ID,
     },
     about: {
       "@id": serviceId,

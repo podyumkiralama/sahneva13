@@ -5,21 +5,13 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getPortfolioImages } from "@/lib/portfolioGallery";
 
 import { RUSSIAN_SERVICE_LIST } from "./serviceData";
 
 const WHATSAPP_TEXT =
   "%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%20%D0%B2%20%D0%A2%D1%83%D1%80%D1%86%D0%B8%D0%B8.";
-
-const BUSINESS_ADDRESS = {
-  "@type": "PostalAddress",
-  streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-  addressLocality: "Kagithane",
-  addressRegion: "Istanbul",
-  postalCode: "34408",
-  addressCountry: "TR",
-};
 
 function buildServiceJsonLd(service) {
   const pageUrl = `${SITE_URL}${service.href}`;
@@ -34,7 +26,7 @@ function buildServiceJsonLd(service) {
       name: service.title,
       description: service.description,
       inLanguage: "ru-RU",
-      isPartOf: { "@id": `${SITE_URL}/ru#website` },
+      isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": serviceId },
       hasPart: [{ "@id": faqId }],
     },
@@ -51,14 +43,12 @@ function buildServiceJsonLd(service) {
         { "@type": "City", name: "Анкара" },
         { "@type": "City", name: "Измир" },
       ],
-      provider: {
-        "@type": "LocalBusiness",
-        "@id": `${SITE_URL}/ru#business`,
-        name: "Sahneva Organizasyon",
-        url: `${SITE_URL}/ru`,
-        telephone: "+90 545 304 86 71",
-        address: BUSINESS_ADDRESS,
-      },
+      // Kurulus/site kimlikleri merkezi: lib/seo/schemaIds.js. Burada bir zamanlar
+      // LOCALE#business ve LOCALE#website vardi; ayni sirketi ve ayni siteyi her
+      // dilde AYRI birer varlik gibi gosteriyordu. Layout zaten bu sayfada tam
+      // Organization/WebSite/LocalBusiness dugumlerini basiyor, o yuzden burada
+      // yalnizca referans veriliyor.
+      provider: { "@id": ORGANIZATION_ID },
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",

@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getPortfolioImages } from "@/lib/portfolioGallery";
 
 import { GERMAN_SERVICE_LIST } from "./serviceData";
@@ -12,15 +13,6 @@ import { GERMAN_SERVICE_LIST } from "./serviceData";
 const WHATSAPP_TEXT = encodeURIComponent(
   "Guten Tag, ich hätte gerne ein Angebot für Veranstaltungstechnik von Sahneva.",
 );
-
-const BUSINESS_ADDRESS = {
-  "@type": "PostalAddress",
-  streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-  addressLocality: "Kagithane",
-  addressRegion: "Istanbul",
-  postalCode: "34408",
-  addressCountry: "TR",
-};
 
 function buildServiceJsonLd(service) {
   const pageUrl = `${SITE_URL}${service.href}`;
@@ -35,7 +27,7 @@ function buildServiceJsonLd(service) {
       name: service.title,
       description: service.description,
       inLanguage: "de-DE",
-      isPartOf: { "@id": `${SITE_URL}/de#website` },
+      isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": serviceId },
       hasPart: [{ "@id": faqId }],
     },
@@ -52,14 +44,12 @@ function buildServiceJsonLd(service) {
         { "@type": "City", name: "Ankara" },
         { "@type": "City", name: "Izmir" },
       ],
-      provider: {
-        "@type": "LocalBusiness",
-        "@id": `${SITE_URL}/de#business`,
-        name: "Sahneva Organizasyon",
-        url: `${SITE_URL}/de`,
-        telephone: "+90 545 304 86 71",
-        address: BUSINESS_ADDRESS,
-      },
+      // Kurulus/site kimlikleri merkezi: lib/seo/schemaIds.js. Burada bir zamanlar
+      // LOCALE#business ve LOCALE#website vardi; ayni sirketi ve ayni siteyi her
+      // dilde AYRI birer varlik gibi gosteriyordu. Layout zaten bu sayfada tam
+      // Organization/WebSite/LocalBusiness dugumlerini basiyor, o yuzden burada
+      // yalnizca referans veriliyor.
+      provider: { "@id": ORGANIZATION_ID },
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",

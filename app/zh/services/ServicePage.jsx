@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getPortfolioImages } from "@/lib/portfolioGallery";
 
 import { CHINESE_SERVICE_LIST } from "./serviceData";
@@ -12,15 +13,6 @@ import { CHINESE_SERVICE_LIST } from "./serviceData";
 const WHATSAPP_TEXT = encodeURIComponent(
   "您好，我想咨询在土耳其举办活动的设备租赁与报价。"
 );
-
-const BUSINESS_ADDRESS = {
-  "@type": "PostalAddress",
-  streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-  addressLocality: "Kagithane",
-  addressRegion: "Istanbul",
-  postalCode: "34408",
-  addressCountry: "TR",
-};
 
 function buildServiceJsonLd(service) {
   const pageUrl = `${SITE_URL}${service.href}`;
@@ -35,7 +27,7 @@ function buildServiceJsonLd(service) {
       name: service.title,
       description: service.description,
       inLanguage: "zh-CN",
-      isPartOf: { "@id": `${SITE_URL}/zh#website` },
+      isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": serviceId },
       hasPart: [{ "@id": faqId }],
     },
@@ -52,14 +44,12 @@ function buildServiceJsonLd(service) {
         { "@type": "City", name: "安卡拉" },
         { "@type": "City", name: "伊兹密尔" },
       ],
-      provider: {
-        "@type": "LocalBusiness",
-        "@id": `${SITE_URL}/zh#business`,
-        name: "Sahneva Organizasyon",
-        url: `${SITE_URL}/zh`,
-        telephone: "+90 545 304 86 71",
-        address: BUSINESS_ADDRESS,
-      },
+      // Kurulus/site kimlikleri merkezi: lib/seo/schemaIds.js. Burada bir zamanlar
+      // LOCALE#business ve LOCALE#website vardi; ayni sirketi ve ayni siteyi her
+      // dilde AYRI birer varlik gibi gosteriyordu. Layout zaten bu sayfada tam
+      // Organization/WebSite/LocalBusiness dugumlerini basiyor, o yuzden burada
+      // yalnizca referans veriliyor.
+      provider: { "@id": ORGANIZATION_ID },
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
