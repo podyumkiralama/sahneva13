@@ -4,18 +4,15 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
