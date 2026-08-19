@@ -412,6 +412,15 @@ function analyzeLocalBusiness() {
 function redirectSourceToRegExp(source) {
   if (!source.startsWith("/")) return null;
 
+  // Tanidigimiz yapilari (":ad", ":ad*", ":ad(...)") cikardiktan sonra geriye
+  // desen sozdizimi kaliyorsa bu kurali anlamiyoruz demektir. Bunu kontrol
+  // etmezsek asagidaki dongu o karakterleri KACIS'a cevirip duz metinmis gibi
+  // eslestirir ve gercekte golgelenen bir adres icin "temiz" raporlar.
+  const residue = source
+    .replace(/:[A-Za-z0-9_]+\([^)]*\)[*+?]?/g, "")
+    .replace(/:[A-Za-z0-9_]+[*+?]?/g, "");
+  if (/[()*+?[\]{}|]/.test(residue)) return null;
+
   let out = "";
   let i = 0;
 
@@ -430,6 +439,8 @@ function redirectSourceToRegExp(source) {
     i += nameMatch[0].length;
 
     // :ad(...) — kendi regexi
+    let base;
+    let hadOwnRegex = false;
     if (source[i] === "(") {
       let depth = 0;
       const start = i;
@@ -445,21 +456,27 @@ function redirectSourceToRegExp(source) {
         i += 1;
       }
       if (depth !== 0) return null;
-      out += `(?:${source.slice(start + 1, i - 1)})`;
+      base = `(?:${source.slice(start + 1, i - 1)})`;
+      hadOwnRegex = true;
     } else {
-      out += "[^/]+";
+      base = "[^/]+";
     }
 
-    // :ad* / :ad+ / :ad?
-    if (source[i] === "*") {
-      out += "*";
-      i += 1;
-    } else if (source[i] === "+") {
-      out += "+";
-      i += 1;
-    } else if (source[i] === "?") {
-      out += "?";
-      i += 1;
+    // :ad* / :ad+ / :ad?  — niceleyiciyi tabana YAPISTIRMA; "[^/]+" + "*"
+    // gecersiz bir ic ice niceleyici uretir ve kural sessizce denetlenemez olur.
+    // Adlandirilmis parametre yildizliysa Next'te birden cok segmenti (egik
+    // cizgi dahil) yakalar, bu yuzden tabani ".*" ile degistiriyoruz.
+    const quantifier = "*+?".includes(source[i]) ? source[i] : "";
+    if (quantifier) i += 1;
+
+    if (!quantifier) {
+      out += base;
+    } else if (quantifier === "?") {
+      out += `(?:${base})?`;
+    } else if (hadOwnRegex) {
+      out += `(?:${base})${quantifier}`;
+    } else {
+      out += quantifier === "*" ? ".*" : ".+";
     }
   }
 
@@ -486,7 +503,7 @@ function redirectSourceToRegExp(source) {
 async function auditRedirectConflicts(sitemapPaths) {
   const configPath = path.join(rootDir, "next.config.mjs");
   if (!fs.existsSync(configPath)) {
-    return { skipped: "next.config.mjs bulunamadi", conflicts: [] };
+    return { skipped: "next.config.mjs bulunamadi", conflicts: [], unchecked: [] };
   }
 
   let redirects;
@@ -494,34 +511,57 @@ async function auditRedirectConflicts(sitemapPaths) {
     const mod = await import(pathToFileURL(configPath).href);
     redirects = await mod.default.redirects();
   } catch (error) {
-    return { skipped: `next.config.mjs okunamadi: ${error.message}`, conflicts: [] };
+    return {
+      skipped: `next.config.mjs okunamadi: ${error.message}`,
+      conflicts: [],
+      unchecked: [],
+    };
   }
 
   const routes = [...sitemapPaths];
   const conflicts = [];
+  const unchecked = [];
+
+  // Duz karsilastirmanin yetmedigi kurallar. ":" adlandirilmis parametredir;
+  // "*" ve "(" desen sozdizimidir. Bunlar varken source bir sablondur, tek bir
+  // adres degil — Set.has() ile bakmak yaniltici bir "temiz" sonucu verir.
+  const isPattern = (source) => /[:*(]/.test(source);
 
   for (const rule of redirects) {
     const source = rule?.source;
-    if (typeof source !== "string") continue;
-
-    const hit = [];
-
-    if (sitemapPaths.has(source)) {
-      hit.push("sitemap'te bu adres yayinlaniyor");
-    } else if (source.includes(":")) {
-      const matcher = redirectSourceToRegExp(source);
-      const matched = matcher ? routes.filter((route) => matcher.test(route)) : [];
-      if (matched.length) {
-        hit.push(`sitemap'teki ${matched.length} adresi kapsiyor: ${matched.slice(0, 3).join(", ")}`);
-      }
+    if (typeof source !== "string") {
+      unchecked.push({ source: String(source), why: "source bir metin degil" });
+      continue;
     }
 
-    if (hit.length) {
-      conflicts.push({ source, destination: rule.destination, reason: hit.join("; ") });
+    if (!isPattern(source)) {
+      if (sitemapPaths.has(source)) {
+        conflicts.push({
+          source,
+          destination: rule.destination,
+          reason: "sitemap'te bu adres yayinlaniyor",
+        });
+      }
+      continue;
+    }
+
+    const matcher = redirectSourceToRegExp(source);
+    if (!matcher) {
+      unchecked.push({ source, why: "desen eslestirici duzenli ifadeye cevrilemedi" });
+      continue;
+    }
+
+    const matched = routes.filter((route) => matcher.test(route));
+    if (matched.length) {
+      conflicts.push({
+        source,
+        destination: rule.destination,
+        reason: `sitemap'teki ${matched.length} adresi kapsiyor: ${matched.slice(0, 3).join(", ")}`,
+      });
     }
   }
 
-  return { skipped: null, conflicts };
+  return { skipped: null, conflicts, unchecked };
 }
 
 function printSection(title) {
@@ -605,17 +645,33 @@ async function main() {
   printSection("Redirect / Sitemap Conflicts");
   if (redirectReport.skipped) {
     console.log(`- Skipped: ${redirectReport.skipped}`);
-  } else if (!redirectReport.conflicts.length) {
-    console.log("No redirect shadows a sitemap URL.");
   } else {
-    for (const conflict of redirectReport.conflicts) {
-      console.log(`- HATA ${conflict.source} -> ${conflict.destination}`);
-      console.log(`        ${conflict.reason}`);
+    if (!redirectReport.conflicts.length) {
+      console.log("No redirect shadows a sitemap URL.");
+    } else {
+      for (const conflict of redirectReport.conflicts) {
+        console.log(`- HATA ${conflict.source} -> ${conflict.destination}`);
+        console.log(`        ${conflict.reason}`);
+      }
+      console.log("");
+      console.log("  Yonlendirmeler dosya sisteminden ONCE calisir; bu adreslerdeki");
+      console.log("  sayfalara ulasilamaz ama sitemap onlari Google'a bildiriyor.");
+      console.log("  Ya next.config.mjs'teki kurali ya da sitemap kaydini kaldirin.");
     }
-    console.log("");
-    console.log("  Yonlendirmeler dosya sisteminden ONCE calisir; bu adreslerdeki");
-    console.log("  sayfalara ulasilamaz ama sitemap onlari Google'a bildiriyor.");
-    console.log("  Ya next.config.mjs'teki kurali ya da sitemap kaydini kaldirin.");
+
+    // Cevrilemeyen desenler denetimin KOR NOKTASI. Sessizce atlanirsa yukaridaki
+    // "No redirect shadows a sitemap URL" satiri oldugundan guvenli gorunur.
+    // Build'i kirmaz — kural bozuk demek degil, denetleyemedik demek.
+    if (redirectReport.unchecked.length) {
+      console.log("");
+      for (const item of redirectReport.unchecked) {
+        console.log(`- UYARI bu redirect deseni denetlenemedi: ${item.source}`);
+        console.log(`        ${item.why}`);
+      }
+      console.log("");
+      console.log("  Bu kurallarin sitemap'i golgeleyip golgelemedigi BILINMIYOR.");
+      console.log("  Elle kontrol edin ya da redirectSourceToRegExp'i genisletin.");
+    }
   }
 
   printSection("Notes");
