@@ -52,8 +52,8 @@ const TEAMS = [
     icon: ShieldCheck,
     title: "Güvenlik Personeli",
     description:
-      "5188 sayılı kanun kapsamında belgeli özel güvenlik görevlileri. Giriş kontrolü, alan güvenliği, sahne önü ve protokol bölgesi.",
-    points: ["Belgeli özel güvenlik", "Giriş ve akreditasyon kontrolü", "Alan ve sahne önü güvenliği"],
+      "5188 sayılı kanun kapsamında belgeli özel güvenlik görevlileri. Eğitimleri tamamlanmış ve ön güvenlik soruşturmasından geçmiş kadro.",
+    points: ["Belgeli özel güvenlik", "Ön güvenlik soruşturması", "Amir denetiminde vardiya"],
   },
   {
     icon: BrushCleaning,
@@ -113,6 +113,19 @@ const PHASES = [
   },
 ];
 
+/**
+ * Festival ve buyuk alan islerinde guvenlik kadrosunun fiilen ustlendigi gorevler.
+ * Kapsam basliklari; jenerik "guvenlik saglanir" cumlesi yerine ne yapildigini yazar.
+ */
+const SECURITY_SCOPE = [
+  "Giriş ve akreditasyon kontrolü",
+  "Kalabalık yoğunluğunun yönetimi",
+  "Telsiz iletişim ve anons koordinasyonu",
+  "Trafik ve otopark yönlendirme",
+  "Acil durum ve tahliye planının uygulanması",
+  "Kolluk, itfaiye ve sağlık ekipleriyle koordinasyon",
+];
+
 const FAQ_ITEMS = [
   {
     q: "Güvenlik personeliniz belgeli mi?",
@@ -131,8 +144,8 @@ const FAQ_ITEMS = [
     a: "Etkinlik süresi ve çalışma saatleri dikkate alınarak vardiya planı çıkarılır. Uzun süren etkinliklerde kadro vardiyalara bölünerek kesintisiz hizmet sağlanır; planlama teklif aşamasında netleştirilir.",
   },
   {
-    q: "Süpervizör hizmeti dahil mi?",
-    a: "Güvenlik ve temizlik ekiplerinde süpervizör görevlendiriyoruz. Süpervizör ekibin saha yönetiminden sorumludur ve organizasyon tarafındaki yetkiliyle doğrudan iletişim kurar.",
+    q: "Ekibin saha yönetimi nasıl kurgulanıyor?",
+    a: "Güvenlik ve temizlik ekiplerinde vardiya başına nöbetçi amir, lokasyon genelinde ise denetim sorumlusu görevlendirilir. Görev başı denetimleri bu yapı üzerinden yürür ve organizasyon tarafındaki yetkili tek bir kişiyle muhatap olur.",
   },
   {
     q: "Türkiye genelinde hizmet veriyor musunuz?",
@@ -360,6 +373,31 @@ export default function Page() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ---------- Guvenlik operasyon kapsami ---------- */}
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <h2 className="text-3xl font-bold text-slate-900">
+          Festival ve büyük alan güvenliğinde kapsam
+        </h2>
+        <p className="mt-4 max-w-3xl text-lg text-slate-600">
+          Geniş alanlı etkinliklerde güvenlik, giriş kontrolünden ibaret değil. Kadronun
+          fiilen üstlendiği görevler şunlar:
+        </p>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SECURITY_SCOPE.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
+            >
+              <ShieldCheck
+                className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
+                aria-hidden="true"
+              />
+              <span className="text-slate-800">{item}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ---------- Fark ---------- */}
