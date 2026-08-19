@@ -7,9 +7,22 @@
  * sablonlari, metadata birlesmesi ve bilesen davranisi sonrasi *gercekten*
  * yayina cikan isaretleme dogrulanir.
  *
- * Kullanim:  npm run build && npm run seo:html
+ * Bu script `npm run build` boru hattinin SON adimidir:
  *
- * ERROR bulgusunda cikis kodu 1 doner (CI'da build'i kirar), WARN bulgusu
+ *     seo:audit  ->  build:next (next build)  ->  seo:html
+ *
+ * Vercel varsayilan olarak `npm run build` calistirdigi icin ucu de deploy
+ * sirasinda otomatik calisir; biri kirilirsa deploy basarisiz olur. Denetimi
+ * atlayip yalnizca derlemek icin `npm run build:next` kullanin.
+ *
+ * DIKKAT: bu script `next build`'i ASLA cagirmamalidir. Build onu cagiriyor;
+ * tersi de olursa sonsuz dongu olusur. Build ciktisi yoksa hata verip cikar,
+ * kendisi build almaya calismaz.
+ *
+ * Tek basina calistirmak icin once bir build ciktisi gerekir:
+ *     npm run build:next && npm run seo:html
+ *
+ * ERROR bulgusunda cikis kodu 1 doner (deploy'u kirar), WARN bulgusu
  * yalnizca raporlanir.
  */
 
@@ -120,7 +133,8 @@ const addWarning = (route, rule, detail) => warnings.push({ route, rule, detail 
 if (!existsSync(BUILD_DIR)) {
   console.error(
     `[html-audit] Build ciktisi bulunamadi: ${BUILD_DIR}\n` +
-      `Once "npm run build" calistirin.`,
+      `Once "npm run build:next" calistirin (ham derleme). "npm run build"\n` +
+      `zaten bu denetimi kendisi cagirdigi icin buradan onu onermiyoruz.`,
   );
   process.exit(1);
 }

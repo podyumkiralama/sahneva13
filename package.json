@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "dev:webpack": "next dev --webpack",
-    "build": "next build",
-    "build:webpack": "next build --webpack",
-    "build:web": "next build",
+    "build": "npm run seo:audit && npm run build:next && npm run seo:html",
+    "build:next": "next build",
+    "build:webpack": "npm run seo:audit && next build --webpack && npm run seo:html",
+    "build:web": "npm run build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "analyze": "next experimental-analyze",
