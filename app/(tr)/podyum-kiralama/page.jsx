@@ -803,6 +803,16 @@ function PriceSummarySection() {
           Podyum kurulum fiyatları ve m² maliyeti
           <ArrowRight size={20} className="ml-2" aria-hidden="true" />
         </Link>
+        <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600">
+          Podyum kalemlerinin toplam sahne bütçesine etkisini karşılaştırmak için{" "}
+          <Link
+            href="/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir"
+            className="font-bold text-blue-700 underline underline-offset-4"
+          >
+            sahne kiralama fiyatlarını belirleyen teknik kalemleri
+          </Link>{" "}
+          inceleyin.
+        </p>
       </div>
     </section>
   );
