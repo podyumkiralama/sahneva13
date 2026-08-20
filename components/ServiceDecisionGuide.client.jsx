@@ -4,6 +4,12 @@ import Link from "next/link";
 import { ArrowRight, Check, ClipboardList, Info, MessageCircle, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 
+const GLOSSARY_DETAIL_LINKS = {
+  "line-array": { href: "/sozluk/line-array" },
+  riser: { href: "/sozluk/riser" },
+  "cadir-zemini": { href: "/sozluk/cadir-zemini" },
+};
+
 function ChoiceButton({ active, children, description, onClick }) {
   return (
     <button
@@ -165,7 +171,7 @@ export default function ServiceDecisionGuide({ guide }) {
               <p className="text-sm font-black text-white">Terim desteği</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {guide.terms.map(([slug, label]) => (
-                  <Link key={slug} href={`/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-blue-100 transition hover:bg-white/10 hover:text-white">{label}</Link>
+                  <Link key={slug} href={GLOSSARY_DETAIL_LINKS[slug]?.href ?? `/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-blue-100 transition hover:bg-white/10 hover:text-white">{label}</Link>
                 ))}
               </div>
             </div>

@@ -41,15 +41,14 @@ const IGNORE_ORPHAN_CANDIDATES = new Set([
   "/tesekkurler",
 ]);
 
-// Dinamik sözlük rotası yalnızca Line Array için statik olarak üretilir.
-// Kaynak dosya adı tek başına URL'yi göstermediğinden, bağlantı denetiminde
-// build ile üretilen bu somut yolu ayrıca tanımlarız.
-const EXPLICIT_STATIC_DYNAMIC_PAGES = [
-  {
-    route: "/sozluk/line-array",
-    filePath: path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js"),
-  },
-];
+// Kaynak dosya adı dinamik sözlük URL'lerini tek başına göstermediğinden,
+// hizmet rehberlerinin doğrudan bağlandığı detay yollarını denetime ekleriz.
+const GLOSSARY_DETAIL_SLUGS = ["line-array", "riser", "cadir-zemini"];
+const GLOSSARY_DETAIL_PAGE_FILE = path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js");
+const EXPLICIT_STATIC_DYNAMIC_PAGES = GLOSSARY_DETAIL_SLUGS.map((slug) => ({
+  route: `/sozluk/${slug}`,
+  filePath: GLOSSARY_DETAIL_PAGE_FILE,
+}));
 
 const MEDIA_EXTENSION_PATTERN =
   /\.(avif|webp|png|jpe?g|svg|gif|ico|mp4|webm|mov|pdf|xlsx?|docx?)(?:$|[?#])/i;
