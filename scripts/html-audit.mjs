@@ -208,8 +208,8 @@ for (const file of files) {
   }
 
   /* ---- ic link ve gorsel referanslari (capraz kontroller icin) ---- */
-  // Baglantilar hem SSR HTML'de (href="/x") hem RSC payload'inda (\"href\":\"/x\")
-  // gecebiliyor; ikisi de sayilmazsa orphan kontrolu yanlis alarm veriyor.
+  // Baglantilar hem SSR HTML'deki href niteliklerinde hem RSC payload'indaki href
+  // alanlarinda gecebiliyor; ikisi de sayilmazsa orphan kontrolu yanlis alarm veriyor.
   for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
     linkedRoutes.add(m[1].length > 1 ? m[1].replace(/\/$/, "") : "/");
   }
