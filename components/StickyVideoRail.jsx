@@ -120,6 +120,9 @@ function StickyVideoRailInner({
   const watchVideosLabel = isEn ? "Watch Videos" : "Videoları Görüntüle";
   const openLabel = isEn ? "Open" : "Aç";
   const openPlayerAriaLabel = isEn ? "Open video player" : "Video oynatıcıyı aç";
+  const movePlayerAriaLabel = isEn
+    ? "Move the video player. Use the arrow keys to reposition it."
+    : "Video oynatıcıyı taşı. Ok tuşlarıyla yeniden konumlandırabilirsiniz.";
 
   const currentVideo = VIDEOS[activeIndex];
   const playlistForExpanded = VIDEOS.filter((_, i) => i !== activeIndex);
@@ -476,7 +479,7 @@ function StickyVideoRailInner({
           <div
             className="flex items-center gap-2 flex-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
             tabIndex={0}
-            aria-label="Video oynatıcıyı taşı. Ok tuşlarıyla yeniden konumlandırabilirsiniz."
+            aria-label={movePlayerAriaLabel}
             onKeyDown={(e) => {
               const STEP = 40;
               const moves = {

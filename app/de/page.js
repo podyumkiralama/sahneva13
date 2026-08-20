@@ -408,6 +408,8 @@ const HERO_DICT_DE = {
     { text: "Podestbau", color: "text-emerald-200" },
   ],
   keywordsAriaLabel: "Ausgewählte Leistungen",
+  backgroundAlt:
+    "Sahneva Eventproduktion: Bühne, LED-Wand, Ton-Licht und Podium-Aufbau",
   badge: "Türkeiweit • Planbarer Aufbau • Ein Ansprechpartner",
   titleLine1Prefix: "mit Sahneva",
   titleLine1: "Eventproduktion",

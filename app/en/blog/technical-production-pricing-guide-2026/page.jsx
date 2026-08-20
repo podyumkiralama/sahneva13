@@ -833,12 +833,14 @@ export default function Page() {
               </section>
 
               <SmartBlogSuggestions
+                locale="en"
                 currentSlug={slug.replace("/en/blog/", "")}
                 currentCategory={metadata?.category}
                 currentKeywords={metadata?.keywords}
               />
 
               <BlogRelatedLinks
+                locale="en"
                 services={[
                   { href: "/en/stage-rental", label: "Stage Rental" },
                   { href: "/en/led-screen-rental", label: "LED Screen Rental" },

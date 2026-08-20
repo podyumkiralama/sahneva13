@@ -183,7 +183,7 @@ function ArticleSchema() {
 function YouTubeEmbed({ title, videoId, thumbnailUrl }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
-      <LazyVideoEmbed videoId={videoId} title={title} thumbnailUrl={thumbnailUrl} />
+      <LazyVideoEmbed locale="en" videoId={videoId} title={title} thumbnailUrl={thumbnailUrl} />
     </div>
   );
 }
@@ -201,6 +201,7 @@ export default function BlogPostDome360Mapping() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
@@ -404,6 +405,7 @@ export default function BlogPostDome360Mapping() {
               </div>
 
               <BlogRelatedLinks
+                locale="en"
                 services={[
                   { href: "/en/tent-rental", label: "Tent Rental" },
                   { href: "/en/stage-rental", label: "Stage Rental" },

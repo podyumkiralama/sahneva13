@@ -801,6 +801,7 @@ export default function Page() {
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks
+        locale="en"
         links={[
           { href: "/en/blog/choosing-the-right-podium-for-your-event", label: "Choosing the Right Podium for Your Event" },
           { href: "/en/blog/why-podium-stages-are-preferred", label: "Why Are Podium Stages Preferred?" },

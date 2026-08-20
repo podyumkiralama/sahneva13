@@ -334,6 +334,7 @@ export default function Page() {
       <ArticleSchema />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{
@@ -624,6 +625,7 @@ export default function Page() {
         </p>
 
         <BlogRelatedLinks
+          locale="en"
           services={[
             { href: PODIUM_SERVICE_PATH, label: "Podium Rental" },
             { href: STAGE_SERVICE_PATH, label: "Stage Rental" },

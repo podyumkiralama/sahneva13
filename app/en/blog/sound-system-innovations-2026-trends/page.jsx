@@ -147,6 +147,7 @@ export default function BlogPostAudioTrends2026() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
@@ -352,6 +353,7 @@ export default function BlogPostAudioTrends2026() {
               </div>
 
               <BlogRelatedLinks
+                locale="en"
                 services={[
                   { href: "/en/sound-light-rental", label: "Sound & Lighting Systems" },
                   { href: "/en/stage-rental", label: "Stage Rental" },

@@ -646,6 +646,7 @@ export default function Page() {
       <Technical />
       <FAQ />
       <ServiceBlogLinks
+        locale="en"
         links={[
           {
             href: "/en/blog/pmgc-world-finals-behind-the-scenes",

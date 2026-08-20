@@ -11,7 +11,33 @@ import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
  *
  * Not: JSON-LD breadcrumb / Article schema gibi scriptleri sayfa içinde bırakın.
  */
+const LAYOUT_COPY = {
+  tr: {
+    whatsappAria: "WhatsApp ile iletişime geç — yeni sekmede açılır",
+    navAria: "Makale navigasyonu",
+    tocEyebrow: "Bu yazıda",
+    tocTitle: "Hızlı içerik akışı",
+    tocDesc:
+      "Uzun rehberlerde doğrudan ilgili bölüme atlayabilmeniz için ana başlıkları burada topladık.",
+    cornerstoneTitle: "Ana hizmet merkezleri",
+    cornerstoneDesc:
+      "Rehberin bağlandığı ana hizmet sayfalarına buradan geçebilir, detay ve teklif akışını hızlandırabilirsiniz.",
+  },
+  en: {
+    whatsappAria: "Contact us on WhatsApp — opens in a new tab",
+    navAria: "Article navigation",
+    tocEyebrow: "In this article",
+    tocTitle: "Quick content overview",
+    tocDesc:
+      "We have collected the main headings here so you can jump straight to the section you need in long guides.",
+    cornerstoneTitle: "Core service pages",
+    cornerstoneDesc:
+      "Jump to the main service pages this guide links to and move faster from detail to quotation.",
+  },
+};
+
 export default function BlogLayout({
+  locale = "tr",
   breadcrumbItems = [],
   heroImage,
   pills = [],
@@ -30,7 +56,8 @@ export default function BlogLayout({
   currentKeywords,
   children,
 }) {
-  const formattedDate = publishDate ? formatTrDate(publishDate) : null;
+  const copy = LAYOUT_COPY[locale] ?? LAYOUT_COPY.tr;
+  const formattedDate = publishDate ? formatPublishDate(publishDate, locale) : null;
 
   const links = Array.isArray(primaryLinks) ? primaryLinks.filter(Boolean) : [];
   const safeTocItems = Array.isArray(tocItems) ? tocItems.filter((item) => item?.href && item?.label) : [];
@@ -120,7 +147,7 @@ export default function BlogLayout({
                   href={whatsappUrl}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  aria-label="WhatsApp ile iletişime geç — yeni sekmede açılır"
+                  aria-label={copy.whatsappAria}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5"
                 >
                   <span aria-hidden="true">💬</span> WhatsApp
@@ -138,7 +165,7 @@ export default function BlogLayout({
 
           {(safeTocItems.length || safeCornerstoneLinks.length) ? (
             <section
-              aria-label="Makale navigasyonu"
+              aria-label={copy.navAria}
               className="mb-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]"
             >
               {safeTocItems.length ? (
@@ -149,13 +176,13 @@ export default function BlogLayout({
                     </span>
                     <div>
                       <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
-                        Bu yazıda
+                        {copy.tocEyebrow}
                       </p>
                       <h2 className="mt-2 text-xl font-black text-slate-950">
-                        Hızlı içerik akışı
+                        {copy.tocTitle}
                       </h2>
                       <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        Uzun rehberlerde doğrudan ilgili bölüme atlayabilmeniz için ana başlıkları burada topladık.
+                        {copy.tocDesc}
                       </p>
                     </div>
                   </div>
@@ -183,10 +210,10 @@ export default function BlogLayout({
                     </span>
                     <div>
                       <h2 className="mt-2 text-xl font-black text-white">
-                        Ana hizmet merkezleri
+                        {copy.cornerstoneTitle}
                       </h2>
                       <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                        Rehberin bağlandığı ana hizmet sayfalarına buradan geçebilir, detay ve teklif akışını hızlandırabilirsiniz.
+                        {copy.cornerstoneDesc}
                       </p>
                     </div>
                   </div>
@@ -214,6 +241,7 @@ export default function BlogLayout({
           </article>
 
           <SmartBlogSuggestions
+            locale={locale}
             currentSlug={currentSlug}
             currentCategory={currentCategory}
             currentKeywords={currentKeywords}
@@ -271,9 +299,12 @@ function safePath(url) {
   }
 }
 
-function formatTrDate(iso) {
+function formatPublishDate(iso, locale) {
   try {
     const d = new Date(iso);
+    if (locale === "en") {
+      return new Intl.DateTimeFormat("en-US", { day: "numeric", month: "long", year: "numeric" }).format(d);
+    }
     return new Intl.DateTimeFormat("tr-TR", { day: "2-digit", month: "long", year: "numeric" }).format(d);
   } catch {
     return null;

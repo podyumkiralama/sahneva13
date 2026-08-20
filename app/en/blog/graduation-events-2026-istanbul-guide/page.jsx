@@ -157,6 +157,7 @@ export default function BlogPostGraduationGuide() {
       <JsonLd data={buildFaqJsonLd()} />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{
@@ -599,6 +600,7 @@ export default function BlogPostGraduationGuide() {
         <div className="my-10 grid gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
             <LazyVideoEmbed
+              locale="en"
               videoId={VIDEO_PRIMARY_ID}
               title="Graduation event stage and production example"
               thumbnailUrl={`https://i.ytimg.com/vi/${VIDEO_PRIMARY_ID}/hqdefault.jpg`}
@@ -606,6 +608,7 @@ export default function BlogPostGraduationGuide() {
           </div>
           <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
             <LazyVideoEmbed
+              locale="en"
               videoId={VIDEO_SECONDARY_ID}
               title="Istanbul graduation ceremony event video example"
               thumbnailUrl={`https://i.ytimg.com/vi/${VIDEO_SECONDARY_ID}/hqdefault.jpg`}
@@ -819,6 +822,7 @@ export default function BlogPostGraduationGuide() {
       <section className="bg-white pb-16">
         <div className="container mx-auto px-4">
           <BlogRelatedLinks
+            locale="en"
             currentSlug={SLUG}
             services={[
               { href: "/en/stage-rental", label: "Stage Rental" },

@@ -1633,6 +1633,7 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks
+        locale="en"
         title="Guides on this topic"
         links={[
           {

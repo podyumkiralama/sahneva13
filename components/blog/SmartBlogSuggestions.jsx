@@ -7,6 +7,31 @@ import path from "path";
 const FALLBACK_IMAGE = "/img/blog/default.webp";
 const MAX_ITEMS = 3;
 
+// Her locale kendi blog klasorunden okur; EN yazilarin altinda TR kartlar
+// cikmasin diye kaynak dizin ve link oneki birlikte secilir.
+const LOCALE_SOURCES = {
+  tr: {
+    dir: ["app", "(tr)", "blog"],
+    basePath: "/blog",
+    heading: "Diğer yazılara da göz atın",
+    allPosts: "Tüm yazılar",
+    fallbackDescription: "Bu makale için açıklama girilmemiş.",
+    fallbackCategory: "Genel",
+    fallbackReadTime: "3 dk okuma",
+    fallbackAuthor: "Sahneva Editör",
+  },
+  en: {
+    dir: ["app", "en", "blog"],
+    basePath: "/en/blog",
+    heading: "Explore more articles",
+    allPosts: "All posts",
+    fallbackDescription: "No description entered for this article.",
+    fallbackCategory: "General",
+    fallbackReadTime: "3 min read",
+    fallbackAuthor: "Sahneva Editor",
+  },
+};
+
 function safeDateString(date) {
   if (!date) return null;
   const d = new Date(date);
@@ -22,7 +47,7 @@ function normalizeKeywords(value) {
     .filter(Boolean);
 }
 
-function normalizePostMeta(slug, rawMeta = {}) {
+function normalizePostMeta(slug, rawMeta = {}, source = LOCALE_SOURCES.tr) {
   const fallbackTitle = slug
     .replace(/-/g, " ")
     .replace(/\b\w/g, (l) => l.toUpperCase());
@@ -30,19 +55,28 @@ function normalizePostMeta(slug, rawMeta = {}) {
   return {
     slug,
     title: rawMeta.title || fallbackTitle,
-    description: rawMeta.description || "Bu makale için açıklama girilmemiş.",
+    description: rawMeta.description || source.fallbackDescription,
     date: safeDateString(rawMeta.date),
     image: rawMeta.image || FALLBACK_IMAGE,
-    category: rawMeta.category || "Genel",
-    readTime: rawMeta.readTime || "3 dk okuma",
+    category: rawMeta.category || source.fallbackCategory,
+    readTime: rawMeta.readTime || source.fallbackReadTime,
     draft: rawMeta.draft === true,
-    author: rawMeta.author || "Sahneva Editör",
+    author: rawMeta.author || source.fallbackAuthor,
     keywords: normalizeKeywords(rawMeta.keywords),
   };
 }
 
-async function getBlogPosts() {
-  const blogDir = path.join(process.cwd(), "app", "(tr)", "blog");
+async function importPostModule(locale, postSlug) {
+  // Sablon degiskeni bundler'in context modulu uretebilmesi icin sabit onekle
+  // yaziliyor; tek bir birlesik yol kullanilirsa iki blog agaci da cozulmez.
+  if (locale === "en") {
+    return import(`@/app/en/blog/${postSlug}/page`);
+  }
+  return import(`@/app/(tr)/blog/${postSlug}/page`);
+}
+
+async function getBlogPosts(locale, source) {
+  const blogDir = path.join(process.cwd(), ...source.dir);
 
   if (!existsSync(blogDir)) {
     return [];
@@ -69,9 +103,9 @@ async function getBlogPosts() {
     if (!existsSync(pageJsPath) && !existsSync(pageJsxPath)) continue;
 
     try {
-      const postModule = await import(`@/app/(tr)/blog/${postSlug}/page`);
+      const postModule = await importPostModule(locale, postSlug);
       const postMetadata = postModule?.metadata || {};
-      const normalized = normalizePostMeta(postSlug, postMetadata);
+      const normalized = normalizePostMeta(postSlug, postMetadata, source);
       if (normalized.draft) continue;
       posts.push(normalized);
     } catch (error) {
@@ -99,14 +133,17 @@ function scorePost(post, currentCategory, currentKeywords) {
 }
 
 export default async function SmartBlogSuggestions({
+  locale = "tr",
   currentSlug,
   currentCategory,
   currentKeywords,
-  heading = "Diğer yazılara da göz atın",
+  heading,
 }) {
   if (!currentSlug) return null;
 
-  const posts = await getBlogPosts();
+  const source = LOCALE_SOURCES[locale] ?? LOCALE_SOURCES.tr;
+  const resolvedHeading = heading ?? source.heading;
+  const posts = await getBlogPosts(locale, source);
   const filtered = posts.filter((post) => post.slug !== currentSlug);
 
   const scored = filtered.map((post) => ({
@@ -128,16 +165,16 @@ export default async function SmartBlogSuggestions({
   return (
     <section className="mt-12">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-xl font-semibold text-slate-900">{heading}</h2>
-        <Link href="/blog" className="text-sm text-blue-600 hover:text-blue-700">
-          Tüm yazılar
+        <h2 className="text-xl font-semibold text-slate-900">{resolvedHeading}</h2>
+        <Link href={source.basePath} className="text-sm text-blue-600 hover:text-blue-700">
+          {source.allPosts}
         </Link>
       </div>
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((post) => (
           <Link
             key={post.slug}
-            href={`/blog/${post.slug}`}
+            href={`${source.basePath}/${post.slug}`}
             className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5"
           >
             <div className="relative aspect-[16/9] w-full bg-slate-100">

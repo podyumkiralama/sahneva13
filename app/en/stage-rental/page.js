@@ -513,7 +513,7 @@ function Services() {
 /* ================== Packages ================== */
 function Packages() {
   const formatTRY = (n) =>
-    new Intl.NumberFormat("tr-TR", {
+    new Intl.NumberFormat("en-GB", {
       style: "currency",
       currency: "TRY",
       maximumFractionDigits: 0,
@@ -1689,6 +1689,7 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks
+        locale="en"
         title="Related Guides on Stage Rental"
         links={[
           {

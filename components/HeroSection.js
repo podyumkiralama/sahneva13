@@ -14,6 +14,8 @@ const DEFAULT_KEYWORDS = [
 const DEFAULT_DICTIONARY = {
   keywords: DEFAULT_KEYWORDS,
   keywordsAriaLabel: "\u00d6ne \u00e7\u0131kan hizmetler",
+  backgroundAlt:
+    "Sahneva etkinlik prod\u00fcksiyonu i\u00e7in sahne, LED ekran, ses-\u0131\u015f\u0131k ve podyum kurulumu",
   badge: "Kurumsal Etkinlik \u2022 Konser \u2022 Lansman \u2022 Festival",
   titleLine1Prefix: "Sahneva ile",
   titleLine1: "Sahne Kiralama, LED ve Podyum",
@@ -128,7 +130,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           />
           <img
             src="/img/hero-bg-mobile.webp"
-            alt="Sahneva etkinlik prodüksiyonu için sahne, LED ekran, ses-ışık ve podyum kurulumu"
+            alt={d.backgroundAlt}
             width="640"
             height="853"
             fetchPriority="high"

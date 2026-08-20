@@ -4,6 +4,23 @@
  * - aria-label yoksa, görünür metni baz alarak erişilebilir adı otomatik üretir
  * - clsx/extra bağımlılık YOK
  */
+const NEW_TAB_COPY = {
+  tr: {
+    hint: "yeni sekmede açılır",
+    standalone: "Yeni sekmede açılır",
+    instagram: "Instagram hesabı",
+    youtube: "YouTube kanalı",
+    whatsapp: "WhatsApp hattı",
+  },
+  en: {
+    hint: "opens in a new tab",
+    standalone: "Opens in a new tab",
+    instagram: "Instagram account",
+    youtube: "YouTube channel",
+    whatsapp: "WhatsApp line",
+  },
+};
+
 export default function ExternalLink({
   href,
   children,
@@ -12,9 +29,11 @@ export default function ExternalLink({
   rel,
   nofollow = false,
   ariaLabel,
+  locale = "tr",
   ...rest
 }) {
   const isNewTab = target === "_blank";
+  const copy = NEW_TAB_COPY[locale] ?? NEW_TAB_COPY.tr;
 
   const DEFAULT_BRAND = "Sahneva";
 
@@ -48,9 +67,9 @@ export default function ExternalLink({
   }
 
   const defaultPlatformLabel = {
-    instagram: `${DEFAULT_BRAND} Instagram hesabı`,
-    youtube: `${DEFAULT_BRAND} YouTube kanalı`,
-    whatsapp: `${DEFAULT_BRAND} WhatsApp hattı`,
+    instagram: `${DEFAULT_BRAND} ${copy.instagram}`,
+    youtube: `${DEFAULT_BRAND} ${copy.youtube}`,
+    whatsapp: `${DEFAULT_BRAND} ${copy.whatsapp}`,
   }[platform];
 
   const baseAriaLabel =
@@ -60,8 +79,8 @@ export default function ExternalLink({
     ? baseAriaLabel
       ? hasNewTabHint(baseAriaLabel)
         ? baseAriaLabel
-        : `${baseAriaLabel} – yeni sekmede açılır`
-      : "Yeni sekmede açılır"
+        : `${baseAriaLabel} – ${copy.hint}`
+      : copy.standalone
     : baseAriaLabel;
   const shouldUseAriaLabel = Boolean(ariaLabel) || !visibleText;
   const shouldRenderNewTabHint =
@@ -116,7 +135,7 @@ export default function ExternalLink({
       {/* Görünür içerik */}
       {children}
       {shouldRenderNewTabHint ? (
-        <span className="sr-only"> (yeni sekmede açılır)</span>
+        <span className="sr-only"> ({copy.hint})</span>
       ) : null}
     </a>
   );

@@ -148,6 +148,7 @@ export default function Page() {
       <ArticleSchema />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
@@ -375,6 +376,7 @@ export default function Page() {
         </div>
 
         <BlogRelatedLinks
+          locale="en"
           services={[
             { href: "/en/corporate-events", label: "Corporate Events" },
             { href: "/en/stage-rental", label: "Stage Rental" },

@@ -435,7 +435,7 @@ export default function PodiumRentalPage() {
                   </ul>
                   <div className="border-t pt-4">
                     <p className="text-xs text-neutral-500">Starting from (Istanbul)</p>
-                    <p className="text-2xl font-black text-neutral-900">{price.toLocaleString("tr-TR")} ₺</p>
+                    <p className="text-2xl font-black text-neutral-900">{price.toLocaleString("en-GB")} TRY</p>
                   </div>
                 </div>
               );
@@ -450,7 +450,7 @@ export default function PodiumRentalPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-neutral-900 mb-2">Price Calculator</h2>
           <p className="text-neutral-600 mb-8">Enter your dimensions for an instant estimate.</p>
-          <PriceEstimatorPodyum unitPrices={UNIT_PRICES} />
+          <PriceEstimatorPodyum locale="en" unitPrices={UNIT_PRICES} />
         </div>
       </section>
 
@@ -563,6 +563,7 @@ export default function PodiumRentalPage() {
       </section>
 
       <ServiceBlogLinks
+        locale="en"
         title="Guides on this topic"
         links={[
           { href: "/en/blog/choosing-the-right-podium-for-your-event", label: "Choosing the Right Podium for Your Event" },

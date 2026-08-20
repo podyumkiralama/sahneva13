@@ -102,6 +102,7 @@ const HERO_DICTIONARY = {
     { text: "品牌活动", color: "text-amber-200" },
   ],
   keywordsAriaLabel: "Sahneva 服务的活动类型",
+  backgroundAlt: "Sahneva 活动制作：舞台、LED 屏幕、声光系统与舞台平台搭建",
   badge: "土耳其本地团队 • 技术制作 • 现场执行",
   titleLine1Prefix: "中国企业在土耳其的",
   titleLine1: "本地活动技术合作伙伴",
