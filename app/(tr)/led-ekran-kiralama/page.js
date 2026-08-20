@@ -152,7 +152,7 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor",
   description:
-    "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
+    "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.5/P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildAlternatesForPath("/led-ekran-kiralama"),
@@ -1641,7 +1641,7 @@ function Articles() {
               </div>
               
 
-              <h3 id="kurulum-sureci">Kurulum Süreci Nasıl İlerler?</h3>
+              <h3 id="kurulum-sureci">LED Ekran Kurulumu Nasıl İlerler?</h3>
               <p>
                 Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
                 yayın sırasında oluşabilecek kesinti riskini azaltır ve içerik akışının kontrollü şekilde yönetilmesine yardımcı olur.

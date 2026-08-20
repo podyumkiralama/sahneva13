@@ -102,7 +102,7 @@ const HERO = {
 const SERVICES = [
   {
     icon: "🪑",
-    title: "Napolyon Sandalyeler",
+    title: "Napolyon Sandalye Kiralama",
     description:
       "Klasik ve şık tasarım, ahşap/PP seçenekleri ile davetler için ideal",
     features: [
@@ -114,7 +114,7 @@ const SERVICES = [
   },
   {
     icon: "💼",
-    title: "Konferans Sandalyeleri",
+    title: "Konferans Sandalyesi Kiralama",
     description:
       "Yastıklı, profesyonel görünüm, uzun süreli oturumlar için konfor",
     features: [
@@ -126,7 +126,7 @@ const SERVICES = [
   },
   {
     icon: "🎪",
-    title: "Banket Masaları",
+    title: "Banket Masa Kiralama",
     description:
       "Yuvarlak ve dikdörtgen masalar, her etkinliğe uygun çözümler",
     features: [
@@ -138,20 +138,20 @@ const SERVICES = [
   },
   {
     icon: "🥂",
-    title: "Bistro Masalar",
+    title: "Bistro Masa Kiralama",
     description:
       "Kokteyl ve networking etkinlikleri için kompakt çözümler",
-    features: ["Ø60-80 cm", "Hafif tasarım", "Strech kılıf", "Mobil kullanım"],
+    features: ["Ø60-80 cm", "Hafif tasarım", "Stretch kılıf", "Mobil kullanım"],
   },
   {
     icon: "🧵",
     title: "Örtü & Kılıf Sistemleri",
     description:
-      "Keten, tafta, strech kumaşlar ile zengin renk ve doku seçenekleri",
+      "Keten, tafta, stretch kumaşlar ile zengin renk ve doku seçenekleri",
     features: [
       "Keten örtüler",
       "Tafta şallar",
-      "Strech kılıflar",
+      "Stretch kılıflar",
       "20+ renk",
     ],
   },
@@ -254,7 +254,7 @@ const PACKAGES = [
     },
     includes: [
       "15 × bistro kokteyl masası (Ø60–80 cm)",
-      "Strech kılıf (beyaz/siyah/renkli)",
+      "Stretch kılıf (beyaz/siyah/renkli)",
       "Opsiyon: fırfır/tafta şal",
       "Teslimat + toplama",
     ],
@@ -317,8 +317,8 @@ function Hero() {
           Düğün • Nişan • Konferans • Kokteyl • Kurumsal Etkinlikler
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          İstanbul'da düğün, nişan ve kurumsal organizasyonlar için Napolyon ve konferans sandalyeleri,
-          banket masalar, örtü-kılıf sistemleri ile
+          İstanbul'da düğün, nişan ve kurumsal organizasyonlar için kiralık masa ve sandalye seçenekleri sunuyoruz:
+          Napolyon ve konferans sandalyeleri, banket masalar, örtü-kılıf sistemleri ile
           <span className="font-semibold text-white"> yerleşim planı ve hızlı kurulum</span>
         </p>
 
@@ -397,9 +397,9 @@ function Services() {
             id="hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
-            Profesyonel{" "}
+            Masa Sandalye{" "}
             <span className="text-blue-700">
-              Hizmetlerimiz
+              Kiralama Seçenekleri
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -500,9 +500,9 @@ function Packages() {
             id="paketler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
-            Hazır{" "}
+            Masa Sandalye Kiralama{" "}
             <span className="text-blue-700">
-              Paketler
+              Fiyatları ve Paketler
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -695,7 +695,7 @@ const GALLERY_IMAGES = [
   },
   {
     src: "/img/sandalye/3.webp",
-    alt: "Bistro masalarla kokteyl alanı - strech kılıf ve şal ile dekoratif detaylar",
+    alt: "Bistro masalarla kokteyl alanı - stretch kılıf ve şal ile dekoratif detaylar",
   },
   {
     src: "/img/sandalye/sandalye-masa.webp",
@@ -797,7 +797,7 @@ function Technical() {
       features: [
         "Keten masa örtüleri",
         "Tafta şallar",
-        "Strech kılıflar",
+        "Stretch kılıflar",
         "20+ renk seçeneği",
       ],
     },
@@ -1247,7 +1247,7 @@ function Articles() {
                 <p>
                   Masa örtüsü ve kılıf seçimleri etkinliğinizin estetik
                   görünümünü doğrudan etkiler. Keten kumaşlar şıklık ve
-                  doğallık, tafta kumaşlar parlaklık ve lüks, strech kılıflar
+                  doğallık, tafta kumaşlar parlaklık ve lüks, stretch kılıflar
                   ise pratiklik ve modern görünüm sunar.
                 </p>
                 <p>
@@ -1286,7 +1286,7 @@ function Articles() {
                         className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0"
                         aria-hidden="true"
                       />
-                      Strech: Siyah, Beyaz, Kırmızı, Mavi
+                      Stretch: Siyah, Beyaz, Kırmızı, Mavi
                     </li>
                     <li className="flex items-center gap-3">
                       <span
@@ -1377,8 +1377,8 @@ function Articles() {
 /* ================== SSS ================== */
 const FAQ_ITEMS = [
   {
-    q: "Masa sandalye kiralama fiyatı neye göre belirlenir?",
-    a: "Masa sandalye kiralama fiyatı; ürün tipi (Napolyon/konferans sandalyesi, banket/bistro masa), adet, örtü-kılıf seçimi, kurulum-söküm iş gücü ve İstanbul içi nakliye kalemine göre hesaplanır. Küçük etkinliklerde tek kalem, büyük organizasyonlarda paket fiyatlandırması daha avantajlıdır. Net rakam için etkinlik tarihi, kişi sayısı ve düzen tipini paylaşmanız yeterlidir.",
+    q: "Masa sandalye kiralama fiyatları neye göre belirlenir?",
+    a: "Masa sandalye kiralama fiyatları; ürün tipi (Napolyon/konferans sandalyesi, banket/bistro masa), adet, örtü-kılıf seçimi, kurulum-söküm iş gücü ve İstanbul içi nakliye kalemine göre hesaplanır. Küçük etkinliklerde tek kalem, büyük organizasyonlarda paket fiyatlandırması daha avantajlıdır. Net rakam için etkinlik tarihi, kişi sayısı ve düzen tipini paylaşmanız yeterlidir.",
   },
   {
     q: "Düğün ve nişan için masa sandalye kiralama nasıl planlanır?",
@@ -1398,7 +1398,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Örtü ve kılıf renk seçenekleri neler?",
-    a: "Keten örtülerde beyaz, krem, fildişi; tafta şallarda altın, gümüş, bordo, lacivert; strech kılıflarda ise beyaz, siyah, kırmızı, mavi başta olmak üzere 20+ renk seçeneğimiz bulunmaktadır. Özel renk talepleriniz için özel kumaş temin edebiliriz.",
+    a: "Keten örtülerde beyaz, krem, fildişi; tafta şallarda altın, gümüş, bordo, lacivert; stretch kılıflarda ise beyaz, siyah, kırmızı, mavi başta olmak üzere 20+ renk seçeneğimiz bulunmaktadır. Özel renk talepleriniz için özel kumaş temin edebiliriz.",
   },
   {
     q: "Kurulum ve toplama hizmeti veriyor musunuz?",

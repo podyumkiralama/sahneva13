@@ -580,13 +580,12 @@ export default function Page() {
             {/* M2 MALIYET HESAPLAMA */}
             <div className="mt-10 max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3 text-center">
-                m² Podyum Kurulum Maliyeti Nasıl Hesaplanır?
+                Taşınabilir Sahne Platformu Fiyatları Nasıl Hesaplanır?
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center">
-                Toplam podyum kurulum ücreti; platform m² × birim fiyat + halı m² × birim
-                fiyat + kumaş/skört metre × birim fiyat + nakliye ve söküm bedeli
-                formülüyle hesaplanır. Aşağıdaki örnek hesap ve aralık tablosu bu formülü
-                somutlaştırır.
+                Podyum kiralama fiyatları ve taşınabilir sahne platformu maliyeti; platform m² × birim
+                fiyat + halı m² × birim fiyat + kumaş/skört metre × birim fiyat + nakliye ve söküm
+                bedeli formülüyle hesaplanır. Aşağıdaki örnek hesap ve aralık tablosu bu formülü somutlaştırır.
               </p>
             </div>
 

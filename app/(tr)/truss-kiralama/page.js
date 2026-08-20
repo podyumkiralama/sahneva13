@@ -28,9 +28,9 @@ const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PAGE_PATH = "/truss-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
-const TITLE = "Truss Kiralama | Truss Sahne ve Alüminyum Sistemleri";
+const TITLE = "Truss Kiralama | Alüminyum Truss Sistemleri";
 const DESCRIPTION =
-  "Kare, üçgen, daire ve kemer dahil truss kiralama ve truss sahne kurulumları. LED ekran, ses-ışık rigging ve sahne portalı için montaj desteği.";
+  "Kare, üçgen, daire ve kemer alüminyum truss kiralama. Sahne truss, LED ekran ve ses-ışık rigging kurulumu için proje bazlı fiyat teklifi alın.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
@@ -247,7 +247,7 @@ const GUIDE_CHECKLIST = [
 /* ================== FAQ ================== */
 const FAQ_ITEMS = [
   {
-    q: "Hangi truss çeşitlerini kurabiliyorsunuz?",
+    q: "Hangi alüminyum truss çeşitlerini kurabiliyorsunuz?",
     a: "Kare truss, üçgen truss, circle/oval truss, kemer (gate) truss ve özel kurgu gerektiren kurulumlar dahil etkinliğe uygun her türlü truss sistemini kurabiliyoruz.",
   },
   {
@@ -265,6 +265,10 @@ const FAQ_ITEMS = [
   {
     q: "İstanbul dışında hizmet veriyor musunuz?",
     a: "Evet. İstanbul başta olmak üzere Türkiye genelinde proje bazlı hizmet verebiliyoruz.",
+  },
+  {
+    q: "Sahne truss kiralama hizmetine neler dahildir?",
+    a: "Sahne truss kiralama hizmeti; alan ve yük planı, uygun alüminyum truss seçimi, bağlantı ve sabitleme parçaları, nakliye, kurulum, LED ekran veya ışık rigging entegrasyonu, saha kontrolü ve söküm kalemlerini proje ihtiyacına göre kapsar.",
   },
 ];
 
@@ -290,9 +294,9 @@ function Hero() {
         </p>
 
         <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-          Truss Sahne Kiralama{" "}
+          Truss Kiralama{" "}
           <span className="gradient-text gradient-text--safe-xl">
-            ve Kurulum
+            ve Sahne Truss Kurulumu
           </span>
         </h1>
 
@@ -378,7 +382,7 @@ function Content() {
             uygun truss kiralama, truss sahne ve kurulum hizmeti sunuyoruz.
           </p>
 
-          <h3>Hangi truss çeşitlerini kuruyoruz?</h3>
+          <h3>Hangi alüminyum truss çeşitlerini kuruyoruz?</h3>
           <ul>
             <li><strong>Kare Truss:</strong> Yüksek taşıma kapasitesi ile LED ekran askıları ve rigging için idealdir.</li>
             <li><strong>Üçgen Truss:</strong> Orta ölçekli kurgu ve dekoratif uygulamalarda esneklik sağlar.</li>
@@ -405,7 +409,7 @@ function Content() {
               </Link>
               ,{" "}
               <Link className="font-bold text-blue-700 hover:text-blue-900" href="/ses-isik-sistemleri">
-                Ses & Işık Sistemleri
+                Ses ve Işık Sistemleri Kiralama
               </Link>{" "}
               ve{" "}
               <Link className="font-bold text-blue-700 hover:text-blue-900" href="/sahne-kiralama">

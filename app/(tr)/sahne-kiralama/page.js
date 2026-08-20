@@ -254,7 +254,7 @@ const PACKAGES = [
   },
   {
     id: "konser-sahnesi",
-    name: "Konser Sahnesi — 48 m²",
+    name: "Konser Sahnesi Kiralama — 48 m²",
     badge: "Profesyonel",
     specs: {
       area: "48 m²",
@@ -727,9 +727,9 @@ function Services() {
             id="hizmetler-baslik"
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            Profesyonel{" "}
+            Modüler Sahne Platformu{" "}
             <span className="text-blue-700">
-              Hizmetlerimiz
+              Kiralama ve Teknik Hizmetlerimiz
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -814,13 +814,13 @@ function Packages() {
             id="paketler-baslik"
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            Hazır{" "}
+            Sahne Kiralama{" "}
             <span className="text-blue-700">
-              Paketler
+              Fiyatları ve Hazır Paketler
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            İhtiyacınıza uygun, anahtar teslim sahne çözümleri
+            Sahne kiralama ücretleri; ölçü, yükseklik, teknik ekipman ve saha koşullarına göre netleşir.
           </p>
         </div>
 
@@ -1699,6 +1699,10 @@ const FAQ_ITEMS = [
   {
     q: "İç mekan ile dış mekan sahne kurulumu arasındaki fark nedir?",
     a: "İç mekanda zemin genellikle düzdür ve rüzgar yükü hesaba katılmaz. Dış mekanda ise zemin stabilitesi, rüzgar yükü hesaplaması ve gerektiğinde su geçirmez ekipman öncelikli değerlendirilir. Her iki durumda da truss ve podyum sistemleri aynı kalitede kurulur; fark kurulum süresi ve alınan ek güvenlik önlemlerinde ortaya çıkar.",
+  },
+  {
+    q: "Düğün sahne fiyatları nasıl belirlenir?",
+    a: "Düğün sahne fiyatları; nikah veya dans platformunun ölçüsü ve yüksekliği, dekoratif kaplama, merdiven ya da rampa, LED ekran, ses ve ışık sistemi, nakliye, kurulum ve söküm kapsamına göre belirlenir. Mekan ölçüsü ile davet akışını paylaştığınızda uygun sahne planı ve net teklif hazırlanır.",
   },
 ];
 

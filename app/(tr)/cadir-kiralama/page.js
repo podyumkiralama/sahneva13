@@ -70,7 +70,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 });
 
 export const metadata = {
-  title: "Profesyonel Çadır Kiralama",
+  title: "Çadır Kiralama | Pagoda, Şeffaf ve Büyük Çadır",
   description:
     "Pagoda, şeffaf ve büyük açıklıklı çadır kiralama çözümleri. Düğün, fuar, festival, lansman ve kurumsal etkinlikler için Türkiye geneli kurulum.",
   alternates: buildAlternatesForPath("/cadir-kiralama"),
@@ -262,7 +262,7 @@ const PRICING_ITEMS = [
 
 const TENT_SELECTOR_CARDS = [
   {
-    title: "Pagoda Çadır",
+    title: "Pagoda Çadır Kiralama",
     badge: "Karşılama ve fuaye",
     img: "/img/cadir/pagoda.webp",
     imgAlt: "Yan yana dizilmiş pagoda çadırlar ve etkinlik alanı platformu",
@@ -271,7 +271,7 @@ const TENT_SELECTOR_CARDS = [
     advantage: "Hızlı kurulur, kurumsal görünür ve yan yana çoğaltılabilir.",
   },
   {
-    title: "Şeffaf Çadır",
+    title: "Şeffaf Çadır Kiralama",
     badge: "Premium davet",
     img: "/img/cadir/seffaf.webp",
     imgAlt: "Gece aydınlatmalı şeffaf çadır kurulumu, otel bahçesinde davet alanı",
@@ -280,7 +280,7 @@ const TENT_SELECTOR_CARDS = [
     advantage: "Mekan hissini kapatmadan hava koşullarına karşı kontrollü alan sağlar.",
   },
   {
-    title: "Büyük Açıklıklı Çadır",
+    title: "Büyük Açıklıklı Çadır Kiralama",
     badge: "Fuar ve festival",
     img: "/img/cadir/cadir-saha-1.webp",
     imgAlt: "Fuar alanında kurulmuş büyük açıklıklı çadır ve yanındaki pagoda çadırlar",
@@ -489,7 +489,7 @@ const USE_CASES = [
   },
   {
     icon: "🎤",
-    text: "Konser çadırı ve festival çadırı",
+    text: "Konser ve festival çadırı kiralama",
     desc: "Kulis, sağlık, teknik ekip ve izleyici destek alanları için hızlı kurulabilen açık hava etkinlik çadırı.",
   },
   {
@@ -590,8 +590,8 @@ function Hero() {
               zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
             </p>
             <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
-              Etkinliğinizin ölçüsüne, zemine ve hava koşullarına göre güvenli,
-              şık ve anahtar teslim çadır alanları kuruyoruz.
+              İstanbul’da çadır kiralama ihtiyaçları ve Türkiye genelindeki projeler için ölçü,
+              zemin ve hava koşullarına göre güvenli, şık ve anahtar teslim alanlar kuruyoruz.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -1871,7 +1871,7 @@ function RelatedServices() {
     },
     {
       href: "/masa-sandalye-kiralama",
-      title: "Masa & Sandalye",
+      title: "Masa Sandalye Kiralama",
       Icon: Users,
       desc: "Konforlu oturma alanları ve tamamlayıcı mobilyalar",
     },
