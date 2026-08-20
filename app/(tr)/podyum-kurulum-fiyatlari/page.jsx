@@ -904,6 +904,16 @@ export default function Page() {
                 Etkinlik türü, trafik yoğunluğu ve teknik entegrasyon podyum kurulum
                 maliyetini doğrudan etkiler.
               </p>
+              <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto leading-7">
+                Ana platformun truss, LED, ses-ışık ve rider ile birlikte bütçeye nasıl yansıdığını{" "}
+                <Link
+                  href="/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir"
+                  className="font-bold text-blue-700 underline underline-offset-4"
+                >
+                  sahne kiralama fiyatlarını etkileyen unsurlar
+                </Link>{" "}
+                rehberinde görebilirsiniz.
+              </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
               <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500">

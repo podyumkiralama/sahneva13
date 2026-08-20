@@ -41,15 +41,14 @@ const IGNORE_ORPHAN_CANDIDATES = new Set([
   "/tesekkurler",
 ]);
 
-// Dinamik sözlük rotası yalnızca Line Array için statik olarak üretilir.
-// Kaynak dosya adı tek başına URL'yi göstermediğinden, bağlantı denetiminde
-// build ile üretilen bu somut yolu ayrıca tanımlarız.
-const EXPLICIT_STATIC_DYNAMIC_PAGES = [
-  {
-    route: "/sozluk/line-array",
-    filePath: path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js"),
-  },
-];
+// Kaynak dosya adı dinamik sözlük URL'lerini tek başına göstermediğinden,
+// hizmet rehberlerinin doğrudan bağlandığı detay yollarını denetime ekleriz.
+const GLOSSARY_DETAIL_SLUGS = ["line-array", "riser", "cadir-zemini"];
+const GLOSSARY_DETAIL_PAGE_FILE = path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js");
+const EXPLICIT_STATIC_DYNAMIC_PAGES = GLOSSARY_DETAIL_SLUGS.map((slug) => ({
+  route: `/sozluk/${slug}`,
+  filePath: GLOSSARY_DETAIL_PAGE_FILE,
+}));
 
 const MEDIA_EXTENSION_PATTERN =
   /\.(avif|webp|png|jpe?g|svg|gif|ico|mp4|webm|mov|pdf|xlsx?|docx?)(?:$|[?#])/i;
@@ -216,7 +215,7 @@ function extractSitemapStaticPaths() {
 function pageSignals(text) {
   const title = /\btitle\s*:|export\s+async\s+function\s+generateMetadata|export\s+function\s+generateMetadata/.test(text);
   const description = /\bdescription\s*:/.test(text);
-  const canonical = /canonical\s*:|buildCanonical\(|buildLanguageAlternates\(|\bconst\s+canonical\b/.test(text);
+  const canonical = /canonical\s*:|buildCanonical\(|buildLanguageAlternates\(|buildAlternatesForPath\(|\bconst\s+canonical\b/.test(text);
   const openGraph = /\bopenGraph\s*:/.test(text);
   const twitter = /\btwitter\s*:/.test(text);
   const jsonLd = /<JsonLd\b|BreadcrumbJsonLd|FAQPage|LocalBusiness|Service"|<ServicePage\b/.test(text);
