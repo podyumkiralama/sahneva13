@@ -433,6 +433,12 @@ export default function KurumsalEtkinlikPlanlamaPage() {
             ["Contingency (beklenmeyen)", "10–15", "Ek kablo, yedek operatör, revizyon, ekstra ekip"],
           ]}
         />
+        <p>
+          Güvenlik, karşılama, servis ve temizlik kadrosunu teknik ekipten ayrı
+          planlıyorsanız, görev ve vardiya kapsamını{" "}
+          <Link href="/etkinlik-personel-temini">etkinlik personel temini</Link>
+          {" "}hizmetimizde inceleyebilirsiniz.
+        </p>
         <ProTip title="Anahtar teslim notu">
           Büyük etkinliklerde “anahtar teslim teknik paket” (sahne + LED + ses/ışık + yayın) en az sürpriz
           çıkaran modeldir. Tek plan, tek sorumluluk.

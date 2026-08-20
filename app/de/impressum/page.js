@@ -11,6 +11,7 @@ export const revalidate = 86400;
 
 const PAGE_PATH = "/de/impressum";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/img/hakkimizda-hero-corporate.webp`;
 
 export const metadata = {
   // Das Locale-Layout hängt " | Sahneva" an – Marke hier nicht wiederholen.
@@ -30,12 +31,21 @@ export const metadata = {
     type: "website",
     siteName: "Sahneva",
     locale: "de_DE",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Sahneva Unternehmensdarstellung mit Bühne und Veranstaltungstechnik",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Impressum | Sahneva",
     description:
       "Anbieterkennzeichnung von Sahneva: Firmierung, Rechtsform, Anschrift, Registereintrag und Steuerangaben.",
+    images: [OG_IMAGE],
   },
   robots: buildAiPreviewRobots(COMPANY_INFO_COMPLETE),
 };

@@ -49,7 +49,7 @@ const CORNERSTONE_LINKS = [
 export const metadata = {
   title: "Bayi Toplantısı Organizasyonu Rehberi 2026",
   description:
-    "Bayi toplantısı organizasyonu rehberi: format seçimi, salon ve şehir dışı lojistiği, sahne-LED-ses kurgusu, ödül gecesi prodüksiyonu ve indirilebilir kontrol listesi.",
+    "Bayi toplantısı organizasyonu rehberi: format ve salon seçimi, şehir dışı lojistik, sahne-LED-ses kurgusu, ödül gecesi ve indirilebilir kontrol listesi.",
   alternates: {
     canonical: BLOG_URL,
   },
@@ -582,6 +582,12 @@ export default function BayiToplantisiPage() {
             ["Contingency", "10–15", "Yedek ekipman ve son dakika revizyon"],
           ]}
         />
+        <p>
+          Karşılama, kayıt, servis ve giriş güvenliği kadrosu için görev dağılımını
+          önceden netleştirin; ekip ve vardiya seçeneklerini{" "}
+          <Link href="/etkinlik-personel-temini">etkinlik personel temini</Link>
+          {" "}sayfamızda görebilirsiniz.
+        </p>
         <ProTip title="Anahtar teslim notu">
           Gündüz sunum + gece gala tek ekiple yürütüldüğünde kurulum, revizyon ve operasyon zamanı ciddi
           biçimde kısalır. Tek plan, tek sorumluluk noktası.
