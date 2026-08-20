@@ -49,7 +49,7 @@ const CORNERSTONE_LINKS = [
 export const metadata = {
   title: "Bayi Toplantısı Organizasyonu Rehberi 2026",
   description:
-    "Bayi toplantısı organizasyonu rehberi: format seçimi, salon ve şehir dışı lojistiği, sahne-LED-ses kurgusu, ödül gecesi prodüksiyonu ve indirilebilir kontrol listesi.",
+    "Bayi toplantısı organizasyonu rehberi: format ve salon seçimi, şehir dışı lojistik, sahne-LED-ses kurgusu, ödül gecesi ve indirilebilir kontrol listesi.",
   alternates: {
     canonical: BLOG_URL,
   },

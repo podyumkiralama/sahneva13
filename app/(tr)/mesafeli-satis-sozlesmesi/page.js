@@ -10,7 +10,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 export const metadata = {
   title: "Mesafeli Satış Sözleşmesi",
   description:
-    "Sahneva online ödeme sistemi üzerinden alınan etkinlik prodüksiyon hizmetlerine ilişkin mesafeli satış sözleşmesi: taraflar, hizmet bedeli, ödeme, cayma hakkı ve uyuşmazlık çözümü.",
+    "Sahneva online ödeme sistemiyle alınan etkinlik prodüksiyon hizmetleri için taraflar, hizmet bedeli, ödeme, cayma hakkı ve uyuşmazlık koşullarını inceleyin.",
   alternates: { canonical: `${SITE_URL}/mesafeli-satis-sozlesmesi` },
   // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
   // devraliyor; og:url canonical yerine anasayfayi gosteriyordu.
