@@ -171,6 +171,7 @@ export default function Page() {
       <JsonLd data={faqJsonLd} />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{
@@ -579,6 +580,7 @@ export default function Page() {
         </div>
 
         <BlogRelatedLinks
+          locale="en"
           services={[
             { href: "/en/podium-rental", label: "Podium Rental" },
             { href: "/en/stage-rental", label: "Stage Rental" },

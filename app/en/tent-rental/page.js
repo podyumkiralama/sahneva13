@@ -42,12 +42,12 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Tent Rental | Pagoda, Clear Span & Dome Structures",
+  title: "Event Tent Rental in Turkey | Pagoda & Clear Span",
   description:
-    "Pagoda, clear-span and dome tent rentals with flooring, climate control, lighting and nationwide installation for events across Türkiye.",
+    "Event tent rental in Turkey for corporate events, fairs and outdoor productions. Pagoda, clear-span and dome structures with flooring and installation.",
   alternates: buildAlternatesForPath("/en/tent-rental"),
   openGraph: {
-    title: "Tent Rental | Professional Event Structures | Sahneva",
+    title: "Event Tent Rental in Turkey | Pagoda & Clear Span | Sahneva",
     description:
       "Pagoda, transparent dome and industrial tent solutions with nationwide installation, flooring, lighting and support.",
     url: `${ORIGIN}/en/tent-rental`,
@@ -64,7 +64,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tent Rental | Pagoda, Clear Span & Dome Structures | Sahneva",
+    title: "Event Tent Rental in Turkey | Pagoda & Clear Span | Sahneva",
     description:
       "Pagoda, transparent dome and industrial tent rentals with turnkey installation, flooring, lighting and climate control.",
     images: [OG_IMAGE],
@@ -190,15 +190,15 @@ function Hero() {
         </div>
 
         <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Professional <span className="gradient-text gradient-text--safe-xl">Tent Rental</span>
+          <span className="gradient-text gradient-text--safe-xl">Event Tent Rental</span> in Turkey
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Weddings • Fairs • Festivals • Launches • Special Events
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Pagoda tents, transparent domes and industrial structures with
-          <span className="font-semibold text-white"> turnkey delivery</span>
+          Pagoda, clear-span, marquee and dome structures with
+          <span className="font-semibold text-white"> nationwide turnkey installation</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -252,10 +252,10 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Professional <span className="gradient-text gradient-text--safe-xl">Services</span>
+            Event tent and <span className="gradient-text gradient-text--safe-xl">marquee rental services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Tent rental lifecycle covering site survey, structural design, installation, on-site support and dismantle
+            Event tent rental in Turkey covering site survey, structural design, flooring, installation, on-site support and dismantling
           </p>
         </div>
 
@@ -534,7 +534,7 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="use-cases-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Where our <span className="gradient-text gradient-text--safe-xl">tents shine</span>
+            Tent rental for <span className="gradient-text gradient-text--safe-xl">events across Turkey</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Primary event scenarios and bespoke solutions we deliver with tent infrastructure
@@ -822,9 +822,9 @@ const FAQ_SCHEMA_ITEMS = [
       "Tents are engineered for 90 km/h wind loads with TS EN 13782 compliant aluminium frames and 650 gr/m2 UV-resistant PVC membranes. Integrated rain gutters support water drainage during heavy showers.",
   },
   {
-    question: "Which cities do you serve?",
+    question: "Do you provide event tent rental across Turkey?",
     answer:
-      `We provide professional tent rentals across all ${PROVINCES_COUNT} Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara and Izmir.`,
+      `Yes. We provide pagoda, clear-span, marquee, dome and industrial tent rentals across all ${PROVINCES_COUNT} Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara, Izmir and Antalya.`,
   },
 ];
 
@@ -843,8 +843,8 @@ function FAQ() {
       a: "Yes. All tents are engineered for 90 km/h wind loads with TS EN 13782 compliant aluminium frames and 650 gr/m² UV-resistant PVC membranes. Integrated rain gutters ensure safe water drainage during heavy showers.",
     },
     {
-      q: "Which cities do you serve?",
-      a: `We provide professional tent rentals across all ${PROVINCES_COUNT} Turkish provinces. Metropolitan cities such as Istanbul, Ankara and Izmir benefit from even faster logistics, while our quality and documentation remain consistent nationwide.`,
+      q: "Do you provide event tent rental across Turkey?",
+      a: `Yes. We provide pagoda, clear-span, marquee, dome and industrial tent rentals across all ${PROVINCES_COUNT} Turkish provinces. Istanbul, Ankara, Izmir and Antalya benefit from faster logistics, while installation and safety documentation remain consistent nationwide.`,
     },
   ];
 
@@ -1026,7 +1026,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service across {PROVINCES_COUNT} cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+              📍 Service across {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>
@@ -1047,11 +1047,11 @@ function TentJsonLd() {
       {
         "@type": "Service",
         "@id": serviceId,
-        name: "Tent Rental Service",
-        description: "Professional tent rental covering pagoda, transparent dome and industrial structures with nationwide installation and support.",
+        name: "Event Tent Rental in Turkey",
+        description: "Event tent rental in Turkey covering pagoda, clear-span, marquee, dome and industrial structures with nationwide installation and support.",
           provider,
         areaServed: { "@type": "Country", name: "Turkey" },
-        serviceType: "EventProduction",
+        serviceType: "Event tent and temporary structure rental",
         offers: {
           "@type": "Offer",
           description: "Professional tent rental packages"
@@ -1068,8 +1068,8 @@ function TentJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Tent Rental | Professional Event Structures | Sahneva",
-        description: "Pagoda, transparent dome and industrial tent rental with flooring, lighting, climate control and nationwide installation.",
+        name: "Event Tent Rental in Turkey | Pagoda & Clear Span | Sahneva",
+        description: "Pagoda, clear-span, marquee, dome and industrial tent rental in Turkey with flooring, lighting, climate control and nationwide installation.",
         url: pageUrl,
         inLanguage: "en-US",
         isPartOf: { "@id": WEBSITE_ID },

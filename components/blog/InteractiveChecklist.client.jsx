@@ -10,11 +10,31 @@ function normalizeKey(key) {
     .slice(0, 80);
 }
 
+const COPY = {
+  tr: {
+    title: "Kontrol Listesi",
+    done: (done, total) => `${done}/${total} tamamlandı`,
+    reset: "Sıfırla",
+    check: "İşaretle",
+    uncheck: "İşaret kaldır",
+  },
+  en: {
+    title: "Checklist",
+    done: (done, total) => `${done}/${total} completed`,
+    reset: "Reset",
+    check: "Mark as done",
+    uncheck: "Clear mark",
+  },
+};
+
 export default function InteractiveChecklist({
-  title = "Kontrol Listesi",
+  title,
   items = [],
   storageKey,
+  locale = "tr",
 }) {
+  const t = COPY[locale] ?? COPY.tr;
+  const resolvedTitle = title ?? t.title;
   const key = useMemo(() => `sv_ck_${normalizeKey(storageKey)}`, [storageKey]);
 
   const [checked, setChecked] = useState(() => {
@@ -50,9 +70,9 @@ export default function InteractiveChecklist({
     <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <div className="text-sm font-semibold text-slate-900">{title}</div>
+          <div className="text-sm font-semibold text-slate-900">{resolvedTitle}</div>
           <div className="mt-1 text-xs text-slate-500">
-            {doneCount}/{items.length} tamamlandı
+            {t.done(doneCount, items.length)}
           </div>
         </div>
 
@@ -61,12 +81,12 @@ export default function InteractiveChecklist({
           onClick={reset}
           className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
         >
-          Sıfırla
+          {t.reset}
         </button>
       </div>
 
       <ul className="mt-3 space-y-2">
-        {items.map((t, i) => {
+        {items.map((item, i) => {
           const isOn = !!checked[i];
           return (
             <li key={i} className="flex items-start gap-3">
@@ -80,7 +100,7 @@ export default function InteractiveChecklist({
                     : "border-slate-200 bg-slate-50 text-slate-700",
                 ].join(" ")}
                 aria-pressed={isOn}
-                aria-label={isOn ? "İşaret kaldır" : "İşaretle"}
+                aria-label={isOn ? t.uncheck : t.check}
               >
                 ✓
               </button>
@@ -90,7 +110,7 @@ export default function InteractiveChecklist({
                 onClick={() => toggle(i)}
                 className="text-left text-sm leading-6 text-slate-700 hover:text-slate-900"
               >
-                {t}
+                {item}
               </button>
             </li>
           );

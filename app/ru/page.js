@@ -82,6 +82,8 @@ const HERO_DICTIONARY = {
     { text: "Шатры в Турции", color: "text-emerald-200" },
   ],
   keywordsAriaLabel: "Основные услуги Sahneva на русском языке",
+  backgroundAlt:
+    "Производство мероприятий Sahneva: сцена, LED-экран, звук-свет и монтаж подиума",
   badge: "Локальная техническая команда в Турции",
   titleLine1Prefix: "Sahneva —",
   titleLine1: "технический партнёр",

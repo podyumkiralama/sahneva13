@@ -1,14 +1,52 @@
-const SERVICE_OPTIONS = [
-  ["stage", "Stage / Sahne"],
-  ["podium", "Podium / Podyum"],
-  ["led_screen", "LED Screen / LED Ekran"],
-  ["sound_light_av", "Sound-Light AV / Ses-Işık AV"],
-  ["truss_rigging", "Truss & Rigging"],
-  ["tent_outdoor_infrastructure", "Tent & Outdoor Infrastructure / Çadır"],
-  ["corporate_event_production", "Corporate Event Production"],
-  ["esports_arena_production", "Esports Arena Production"],
-  ["technical_field_operation", "Technical Field Operation"],
+const SERVICE_VALUES = [
+  "stage",
+  "podium",
+  "led_screen",
+  "sound_light_av",
+  "truss_rigging",
+  "tent_outdoor_infrastructure",
+  "corporate_event_production",
+  "esports_arena_production",
+  "technical_field_operation",
 ];
+
+// Secim etiketleri sayfanin diliyle ayni olmali; tek bir iki dilli liste hem
+// Ingilizce hem Almanca sayfada Turkce terim gosteriyordu.
+const SERVICE_LABELS = {
+  tr: {
+    stage: "Sahne",
+    podium: "Podyum",
+    led_screen: "LED Ekran",
+    sound_light_av: "Ses-Işık AV",
+    truss_rigging: "Truss & Rigging",
+    tent_outdoor_infrastructure: "Çadır ve Açık Alan Altyapısı",
+    corporate_event_production: "Kurumsal Etkinlik Prodüksiyonu",
+    esports_arena_production: "E-spor Arena Prodüksiyonu",
+    technical_field_operation: "Teknik Saha Operasyonu",
+  },
+  en: {
+    stage: "Stage",
+    podium: "Podium",
+    led_screen: "LED Screen",
+    sound_light_av: "Sound-Light AV",
+    truss_rigging: "Truss & Rigging",
+    tent_outdoor_infrastructure: "Tent & Outdoor Infrastructure",
+    corporate_event_production: "Corporate Event Production",
+    esports_arena_production: "Esports Arena Production",
+    technical_field_operation: "Technical Field Operation",
+  },
+  de: {
+    stage: "Bühne",
+    podium: "Podium",
+    led_screen: "LED-Wand",
+    sound_light_av: "Ton-Licht-AV",
+    truss_rigging: "Traversen & Rigging",
+    tent_outdoor_infrastructure: "Zelt- und Outdoor-Infrastruktur",
+    corporate_event_production: "Corporate-Event-Produktion",
+    esports_arena_production: "Esport-Arena-Produktion",
+    technical_field_operation: "Technischer Vor-Ort-Betrieb",
+  },
+};
 
 const CAPABILITY_FORM_PROPS = {
   toolname: "checkServiceCapability",
@@ -178,6 +216,7 @@ const inputClass =
 
 export default function WebMcpServiceTools({ locale = "tr", contactHref = "/iletisim" }) {
   const text = COPY[locale] || COPY.tr;
+  const serviceLabels = SERVICE_LABELS[locale] || SERVICE_LABELS.tr;
 
   return (
     <section className="bg-slate-950 py-20 text-white" aria-labelledby="webmcp-service-tools-title">
@@ -210,9 +249,9 @@ export default function WebMcpServiceTools({ locale = "tr", contactHref = "/ilet
                   required
                   {...CAPABILITY_FIELD_PROPS.serviceCategory}
                 >
-                  {SERVICE_OPTIONS.map(([value, label]) => (
+                  {SERVICE_VALUES.map((value) => (
                     <option key={value} value={value}>
-                      {label}
+                      {serviceLabels[value]}
                     </option>
                   ))}
                 </select>

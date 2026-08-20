@@ -113,6 +113,7 @@ export default function Page() {
       />
 
       <BlogLayout
+        locale="en"
         siteUrl={BASE_SITE_URL}
         breadcrumbItems={[
           { name: "Home", url: BASE_SITE_URL },

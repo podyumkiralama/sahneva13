@@ -36,12 +36,12 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Table & Chair Rental | Banquet & Cocktail Setups",
+  title: "Event Furniture Rental in Turkey | Tables & Chairs",
   description:
-    "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
+    "Event furniture rental in Turkey for conferences, banquets, exhibitions and corporate events, with tables, chairs, layout planning, delivery and setup.",
   alternates: buildAlternatesForPath("/en/table-chair-rental"),
   openGraph: {
-    title: "Table & Chair Rental | Professional Seating Solutions | Sahneva",
+    title: "Event Furniture Rental in Turkey | Tables & Chairs | Sahneva",
     description:
       "Full-scale table and chair rental for banquets, conferences and cocktail events with styling, numbering and setup services.",
     url: `${ORIGIN}/en/table-chair-rental`,
@@ -57,7 +57,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Table & Chair Rental | Banquet & Cocktail Setups",
+    title: "Event Furniture Rental in Turkey | Tables & Chairs | Sahneva",
     description:
       "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
     images: [`${ORIGIN}/img/sandalye/3.webp`],
@@ -236,19 +236,19 @@ function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
           </span>
-          <span className="text-sm font-bold text-white">Rapid delivery across Istanbul</span>
+          <span className="text-sm font-bold text-white">Nationwide event furniture delivery</span>
         </div>
 
         <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Professional <span className="gradient-text gradient-text--safe-xl">Table & Chair Rental</span>
+          <span className="gradient-text gradient-text--safe-xl">Event Furniture Rental</span> in Turkey
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Weddings • Conferences • Cocktails • Corporate Events
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Napoleon and conference chairs, banquet tables, linen & cover systems with
-          <span className="font-semibold text-white"> professional event styling</span>
+          Table and chair rental, lounge seating, cocktail furniture and exhibition setups with
+          <span className="font-semibold text-white"> delivery, layout and installation</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -300,10 +300,10 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-heading" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Our Professional <span className="gradient-text gradient-text--safe-xl">Services</span>
+            Table, chair & <span className="gradient-text gradient-text--safe-xl">event furniture rental</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive table and chair rental: large inventory, styling and expert installation
+            Event furniture rental in Turkey with banquet, conference, cocktail and exhibition layouts, delivery and expert installation
           </p>
         </div>
 
@@ -356,7 +356,7 @@ function Services() {
 /* ================== Packages ================== */
 function Packages() {
   const formatTRY = (n) =>
-    new Intl.NumberFormat("tr-TR", {
+    new Intl.NumberFormat("en-GB", {
       style: "currency",
       currency: "TRY",
       maximumFractionDigits: 0,
@@ -674,7 +674,7 @@ function UseCases() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="usecases-heading" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Where <span className="gradient-text gradient-text--safe-xl">We Add Value</span>
+            Event furniture for <span className="gradient-text gradient-text--safe-xl">every venue format</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Trusted seating and furniture solutions for every event format and audience profile
@@ -961,9 +961,9 @@ const FAQ_ITEMS = [
       "All packages include transport, crewed installation and dismantle. Night-time operations and multi-day rentals are available on request.",
   },
   {
-    question: "Which cities do you serve?",
+    question: "Do you provide event furniture rental across Turkey?",
     answer:
-      `We deliver nationwide across ${PROVINCES_COUNT} provinces. Istanbul, Ankara, Izmir and Antalya have dedicated crews for rapid response.`,
+      `Yes. We provide table and chair rental, banquet furniture, conference seating, cocktail tables and exhibition furniture across ${PROVINCES_COUNT} provinces. Istanbul, Ankara, Izmir and Antalya have dedicated crews for rapid delivery, layout and setup.`,
   },
   {
     question: "How early should we confirm our booking?",
@@ -1146,12 +1146,12 @@ function TableChairJsonLd() {
       {
         "@type": "Service",
         "@id": serviceId,
-        name: "Table and Chair Rental Service",
+        name: "Event Furniture Rental in Turkey",
         description:
-          "Professional table and chair rental with Napoleon and conference chairs, banquet and cocktail tables, linen styling and layout planning across Türkiye.",
+          "Event furniture rental in Turkey with tables, chairs, banquet and cocktail furniture, exhibition setups, linen styling and layout planning.",
           provider,
         areaServed: { "@type": "Country", name: "Turkey" },
-        serviceType: "EventProduction",
+        serviceType: "Event furniture, table and chair rental",
         offers: {
           "@type": "Offer",
           description: "Professional table and chair rental packages",
@@ -1168,9 +1168,9 @@ function TableChairJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Table & Chair Rental | Banquet & Cocktail Setups",
+        name: "Event Furniture Rental in Turkey | Tables & Chairs | Sahneva",
         description:
-          "Napoleon and conference chairs, banquet and cocktail tables, linen & cover styling with professional layout and rapid delivery across Türkiye.",
+          "Event furniture rental in Turkey for conferences, banquets, exhibitions and corporate events, with tables, chairs, layout planning, delivery and setup.",
         url: pageUrl,
         inLanguage: "en-US",
         isPartOf: { "@id": WEBSITE_ID },

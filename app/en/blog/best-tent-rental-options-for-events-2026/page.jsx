@@ -414,6 +414,7 @@ export default function Page() {
       <ArticleJsonLd />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{

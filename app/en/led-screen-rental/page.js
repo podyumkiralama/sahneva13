@@ -35,12 +35,12 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "LED Screen Rental | Professional LED Wall Rentals",
+  title: "LED Screen & LED Wall Rental in Turkey",
   description:
-    "P2–P6 pixel pitch, 4K processors and ultra-bright LED wall rentals. Indoor/outdoor, concert, expo and corporate event solutions across Turkey.",
+    "LED screen rental company in Turkey for indoor and outdoor LED walls, with P2–P6 pixel pitch, 4K processing, installation and on-site operators.",
   alternates: buildAlternatesForPath("/en/led-screen-rental"),
   openGraph: {
-    title: "LED Screen Rental | Professional Solutions",
+    title: "LED Screen & LED Wall Rental in Turkey | Sahneva",
     description:
       "Indoor and outdoor LED screen rental with P2–P6 pixel pitch, high brightness, IP65 protection and certified installation.",
     url: `${ORIGIN}/en/led-screen-rental`,
@@ -56,7 +56,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LED Screen Rental | Professional LED Wall Rentals",
+    title: "LED Screen & LED Wall Rental in Turkey | Sahneva",
     description:
       "LED screen rental with high brightness, 4K processors and nationwide certified crews for concerts, expos and corporate events.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
@@ -88,12 +88,12 @@ const SERVICES = [
   {
     icon: "🌞",
     title: "Outdoor LED Screens",
-    description: "Weather-proof LED walls with P4–P6 pixel pitch and ultra brightness",
+    description: "Weather-resistant LED walls with P4–P6 pixel pitch and high-brightness output",
     features: ["P4–P6 pixel pitch", "5000–6500+ nit", "IP65 weatherproof", "UV-resistant panels"],
   },
   {
     icon: "🎬",
-    title: "Video Wall Systems",
+    title: "LED Video Wall Systems",
     description: "Modular video wall configurations for creative layouts and scenic designs",
     features: ["Modular design", "Flexible configurations", "High refresh rates", "Professional controllers"],
   },
@@ -182,15 +182,15 @@ function Hero() {
         </div>
 
         <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Premium <span className="gradient-text gradient-text--safe-xl">LED Screen Rental</span>
+          <span className="gradient-text gradient-text--safe-xl">LED Screen Rental</span> in Turkey
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Concerts • Trade shows • Launch events • Festivals • Corporate productions
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          P2–P6 pixel pitch, 4K processing and ultra brightness for
-          <span className="font-semibold text-white"> immersive visual experiences</span>
+          Indoor and outdoor LED walls, 4K processing and high-brightness output with
+          <span className="font-semibold text-white"> nationwide installation and operators</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -238,6 +238,33 @@ function Hero() {
   );
 }
 
+/* ================== Commercial quick answer ================== */
+function QuickAnswer() {
+  return (
+    <section className="py-10 bg-white" aria-labelledby="led-rental-turkey-heading">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+            LED screen rental company in Turkey
+          </p>
+          <h2 id="led-rental-turkey-heading" className="mt-3 text-2xl font-black text-slate-950">
+            Indoor and outdoor LED wall rental, installed and operated by one team.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            Sahneva supplies event LED screens in Istanbul and across Turkey for conferences,
+            exhibitions, product launches, concerts and festivals. We handle the site survey,
+            nationwide logistics, safe rigging, installation, video processing, content testing,
+            live operation and dismantling. International agencies can also combine the LED wall
+            with our <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
+            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
+            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/corporate-events">corporate event production</Link>.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Services ================== */
 function Services() {
   return (
@@ -245,7 +272,7 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Professional <span className="gradient-text gradient-text--safe-xl">services</span>
+            LED screen and <span className="gradient-text gradient-text--safe-xl">LED wall rental services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             LED screen rental with technical consultancy, installation, operation and 24/7 support
@@ -513,7 +540,7 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="use-cases-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Where our <span className="gradient-text gradient-text--safe-xl">LED walls shine</span>
+            LED screen rental for <span className="gradient-text gradient-text--safe-xl">events across Turkey</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Key event types that benefit from our LED screen packages and specialist workflows
@@ -831,6 +858,11 @@ const FAQ_SCHEMA_ITEMS = [
     answer:
       "Pixel pitch should match viewing distance. P2.5 to P3.9 suits 3 to 10 metre audiences, P4 suits 10 to 25 metres and P6 suits 25 metres and above.",
   },
+  {
+    question: "Do you provide LED screen rental outside Istanbul?",
+    answer:
+      "Yes. We provide indoor and outdoor LED wall rental across Turkey, including nationwide transport, installation, video processing, on-site operators and dismantling. International agencies can coordinate the complete local scope through one English-speaking production contact.",
+  },
 ];
 
 function FAQ() {
@@ -850,6 +882,10 @@ function FAQ() {
     {
       q: "Which pixel pitch should I choose?",
       a: "Match the pixel pitch to viewing distance. Pick P2.5–P3.9 for 3–10 m audiences, P4 for 10–25 m and P6 for 25 m+. Indoor events usually select P2.5–P3.9 while outdoor concerts and rallies use P4–P6 for optimal clarity."
+    },
+    {
+      q: "Do you provide LED screen rental outside Istanbul?",
+      a: "Yes. We provide indoor and outdoor LED wall rental across Turkey, including nationwide transport, installation, video processing, on-site operators and dismantling. International agencies can coordinate the complete local scope through one English-speaking production contact."
     },
   ];
 
@@ -1036,7 +1072,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-blue-200 text-lg">
-              📍 Service in {PROVINCES_COUNT} cities • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+              📍 Service in {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>
@@ -1052,11 +1088,11 @@ function LedScreenJsonLd() {
     "@graph": [
       {
         "@type": "Service",
-        name: "LED Screen Rental Service",
-        description: "Professional LED screen rental with P2–P6 pixel pitch, indoor/outdoor LED walls, video wall processors and nationwide certified installation teams.",
+        name: "LED Screen and LED Wall Rental in Turkey",
+        description: "Professional LED screen rental in Turkey with P2–P6 pixel pitch, indoor and outdoor LED walls, video processors, installation teams and on-site operators.",
           provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
-        serviceType: "EventProduction",
+        serviceType: "LED screen and LED wall rental",
         offers: {
           "@type": "Offer",
           description: "Comprehensive LED wall rental with installation and operators"
@@ -1071,8 +1107,8 @@ function LedScreenJsonLd() {
       },
       {
         "@type": "WebPage",
-        name: "LED Screen Rental | Professional LED Wall Rentals",
-        description: "P2–P6 pixel pitch, 4K processing and high-brightness LED wall rentals for indoor/outdoor concerts, trade shows and corporate events across Turkey.",
+        name: "LED Screen & LED Wall Rental in Turkey | Sahneva",
+        description: "LED screen rental in Turkey with P2–P6 pixel pitch, 4K processing, high-brightness indoor and outdoor LED walls, installation and operators.",
         url: `${ORIGIN}/en/led-screen-rental`,
         mainEntity: {
           "@type": "Service",
@@ -1112,6 +1148,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
+      <QuickAnswer />
       <Services />
       <Gallery />
       <Technical />

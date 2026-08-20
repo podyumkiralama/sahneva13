@@ -376,6 +376,7 @@ export default function Page() {
                 </ProTip>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s1_strategy"
                   items={[
                     "Has the event's purpose and target audience been documented?",
@@ -396,6 +397,7 @@ export default function Page() {
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s1a_smart"
                   items={[
                     "Mission: Has the event's 'why' been written in one sentence?",
@@ -428,6 +430,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s2_team"
                   items={[
                     "Has the project owner (single decision point) been identified?",
@@ -466,6 +469,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s3_timeline"
                   items={[
                     "Have decision and delivery dates been added to the timeline?",
@@ -515,6 +519,7 @@ export default function Page() {
                 </ProTip>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s4_budget"
                   items={[
                     "Has the technical production budget been itemized separately?",
@@ -535,6 +540,7 @@ export default function Page() {
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s5_theme"
                   items={[
                     "Is the theme aligned with the brand identity?",
@@ -565,6 +571,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s6_survey"
                   items={[
                     "Has the electrical infrastructure and capacity been checked?",
@@ -589,6 +596,7 @@ export default function Page() {
                 </ProTip>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s6a_runofshow"
                   items={[
                     "Is the run-of-show file ready minute by minute?",
@@ -624,6 +632,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s7_stage"
                   items={[
                     "Are stage dimensions and podium height confirmed?",
@@ -648,7 +657,7 @@ export default function Page() {
                     LED Screen Rental
                   </Link>{" "}
                   •{" "}
-                  <Link className="font-semibold underline underline-offset-4" href="/blog/led-ekran-teknoloji-trendleri-2026">
+                  <Link className="font-semibold underline underline-offset-4" href="/en/blog/led-screen-technology-trends-2026">
                     2026 LED trends
                   </Link>
                 </p>
@@ -660,6 +669,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s8_led"
                   items={[
                     "Is the indoor/outdoor panel class correct (brightness)?",
@@ -685,7 +695,7 @@ export default function Page() {
                   •{" "}
                   <Link
                     className="font-semibold underline underline-offset-4"
-                    href="/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping"
+                    href="/en/blog/dome-tent-revolution-pneumatic-360-mapping"
                   >
                     Dome Tent Guide
                   </Link>
@@ -698,6 +708,7 @@ export default function Page() {
                 />
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s9_tent"
                   items={[
                     "Are tent dimensions and load capacity plan confirmed?",
@@ -717,12 +728,13 @@ export default function Page() {
                 </p>
 
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  <Link className="font-semibold underline underline-offset-4" href="/masa-sandalye-kiralama">
+                  <Link className="font-semibold underline underline-offset-4" href="/en/table-chair-rental">
                     Tables &amp; Chairs Rental
                   </Link>
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s10_flow"
                   items={[
                     "Is the seating plan (conference/gala/cocktail) confirmed?",
@@ -750,6 +762,7 @@ export default function Page() {
                 </ProTip>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s11_setup"
                   items={[
                     "Has the setup plan been shared with all crews?",
@@ -769,6 +782,7 @@ export default function Page() {
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s11a_dayof"
                   items={[
                     "Have arrival/setup times been confirmed with all suppliers?",
@@ -790,6 +804,7 @@ export default function Page() {
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s12_post"
                   items={[
                     "Has the technical team debrief been conducted?",
@@ -809,6 +824,7 @@ export default function Page() {
                 </p>
 
                 <InteractiveChecklist
+                  locale="en"
                   storageKey="s12a_roi"
                   items={[
                     "Has the post-event survey been sent?",
@@ -877,12 +893,14 @@ export default function Page() {
               </section>
 
               <SmartBlogSuggestions
+                locale="en"
                 currentSlug={SLUG}
                 currentCategory={metadata?.category}
                 currentKeywords={metadata?.keywords}
               />
 
               <BlogRelatedLinks
+                locale="en"
                 services={[
                   { href: "/en/corporate-events", label: "Corporate Events" },
                   { href: "/en/stage-rental", label: "Stage Rental" },
@@ -930,24 +948,24 @@ export default function Page() {
                   <li><Link className="hover:text-slate-900" href="/en/tent-rental">Tent Rental</Link></li>
                   <li><Link className="hover:text-slate-900" href="/en/stage-rental">Stage Rental</Link></li>
                   <li><Link className="hover:text-slate-900" href="/en/podium-rental">Podium Rental</Link></li>
-                  <li><Link className="hover:text-slate-900" href="/masa-sandalye-kiralama">Tables &amp; Chairs Rental</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/en/table-chair-rental">Tables &amp; Chairs Rental</Link></li>
                 </ul>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="text-sm font-semibold text-slate-900">Related Articles</div>
                 <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                  <li><Link className="hover:text-slate-900" href="/blog/led-ekran-teknoloji-trendleri-2026">2026 LED Screen Technology Trends</Link></li>
-                  <li><Link className="hover:text-slate-900" href="/blog/ses-sistemlerinde-2026-yenilikleri-trendler">2026 Audio System Innovations</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/en/blog/led-screen-technology-trends-2026">2026 LED Screen Technology Trends</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/en/blog/sound-system-innovations-2026-trends">2026 Audio System Innovations</Link></li>
                   <li>
                     <Link
                       className="hover:text-slate-900"
-                      href="/blog/kurumsal-etkinliklerde-dome-cadir-devrimi-pnomatik-yapi-360-mapping"
+                      href="/en/blog/dome-tent-revolution-pneumatic-360-mapping"
                     >
                       Dome Tent Guide: 360° Mapping
                     </Link>
                   </li>
-                  <li><Link className="hover:text-slate-900" href="/blog/kurumsal-etkinlik-yonetimi">Corporate Event Management Guide</Link></li>
+                  <li><Link className="hover:text-slate-900" href="/en/blog/corporate-event-management">Corporate Event Management Guide</Link></li>
                 </ul>
               </div>
             </aside>

@@ -461,6 +461,8 @@ const HERO_DICT_EN = {
     { text: "Technical Crew", color: "text-sky-200" },
   ],
   keywordsAriaLabel: "Technical production scope",
+  backgroundAlt:
+    "Sahneva event production: stage, LED screen, sound-lighting and podium installation",
   badge: "One Team • One Roof • One Solution",
   titleLine1Prefix: "Your Trusted",
   titleLine1: "Technical Production Partner",

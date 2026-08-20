@@ -18,7 +18,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 const ORIGIN = SITE_URL;
 
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
-  "Hello, I would like to get a quote for podium rental."
+  "Hello, I would like to get a quote for stage platform rental."
 )}`;
 
 const BLUR_DATA_URL =
@@ -53,32 +53,32 @@ const PriceEstimatorPodyum = dynamic(
 const SERVICES = [
   {
     icon: "🎭",
-    title: "Modular Podium Systems",
+    title: "Modular Stage Platform Systems",
     description: "Flexible and safe stage solutions with 1×1m and 2×1m modular panels",
     features: ["1×1m and 2×1m panels", "Non-slip surface", "40-100cm height", "Quick setup"],
   },
   {
     icon: "💍",
-    title: "Wedding & Special Event Podiums",
-    description: "Elegant and safe podium solutions for special occasions",
+    title: "Wedding & Ceremony Platforms",
+    description: "Elegant, stable stage platforms for ceremonies and special occasions",
     features: ["Elegant appearance", "Safe structure", "Carpet covering", "Custom decoration"],
   },
   {
     icon: "🎤",
-    title: "Concert & Performance Podiums",
-    description: "Durable podium systems for professional stage performances",
+    title: "Concert Stage Risers",
+    description: "Durable event risers for musicians, performers and technical positions",
     features: ["High durability", "Sound insulation", "Cable channels", "Safety equipment"],
   },
   {
     icon: "🏢",
-    title: "Corporate Launch Podiums",
-    description: "Professional and functional podium solutions for company events",
+    title: "Corporate Presentation Stages",
+    description: "Professional modular platforms for launches, panels and company events",
     features: ["Branded covering", "Ramp and stairs", "LED integration", "Professional setup"],
   },
   {
     icon: "🎪",
-    title: "Exhibition & Fair Podiums",
-    description: "Optimised podium systems for fairs and exhibitions",
+    title: "Exhibition Platforms",
+    description: "Modular raised platforms for fairs, booths and product displays",
     features: ["Modular design", "Quick setup", "Brand integration", "Portability"],
   },
   {
@@ -92,7 +92,7 @@ const SERVICES = [
 const PACKAGES = [
   {
     id: "pkg-mini",
-    name: "Mini Podium — 12 m²",
+    name: "Mini Stage Platform — 12 m²",
     layout: { width: 3, depth: 4, area: 12, perimeter: 14 },
     height: "40 cm",
     includes: [
@@ -105,7 +105,7 @@ const PACKAGES = [
   },
   {
     id: "pkg-mid",
-    name: "Medium Podium — 24 m²",
+    name: "Medium Stage Platform — 24 m²",
     layout: { width: 4, depth: 6, area: 24, perimeter: 20 },
     height: "60 cm",
     includes: [
@@ -118,7 +118,7 @@ const PACKAGES = [
   },
   {
     id: "pkg-pro",
-    name: "Pro Podium — 48 m²",
+    name: "Pro Stage Platform — 48 m²",
     layout: { width: 6, depth: 8, area: 48, perimeter: 28 },
     height: "80-100 cm",
     includes: [
@@ -132,10 +132,10 @@ const PACKAGES = [
 ];
 
 const USE_CASES = [
-  { icon: "💍", text: "Weddings, engagements and special events", desc: "Elegant podium solutions for special occasions" },
+  { icon: "💍", text: "Weddings, engagements and special events", desc: "Elegant stage platforms for ceremonies and special occasions" },
   { icon: "🎤", text: "Concerts, festivals and stage performances", desc: "Stages for professional performances" },
   { icon: "🏢", text: "Corporate launches and meetings", desc: "Professional solutions for company events" },
-  { icon: "🎓", text: "Graduation ceremonies and school events", desc: "Podiums for educational institutions" },
+  { icon: "🎓", text: "Graduation ceremonies and school events", desc: "Stage platforms and risers for educational institutions" },
   { icon: "🏛️", text: "Municipal ceremonies and official events", desc: "Official ceremonies and public events" },
   { icon: "🛍️", text: "Shopping mall events and fair stands", desc: "Solutions for commercial events" },
 ];
@@ -162,7 +162,7 @@ const TECHNICAL_SPECS = [
   {
     title: "Complementary Services",
     icon: "🔧",
-    description: "Professional services that complete the podium setup",
+    description: "Professional services that complete the stage platform setup",
     features: ["Carpet covering systems", "Skirt covering", "Branding and decoration", "Lighting integration"],
   },
   {
@@ -181,12 +181,12 @@ const TECHNICAL_SPECS = [
 
 const FAQ_ITEMS = [
   {
-    q: "How are podium rental prices calculated?",
+    q: "How are stage platform rental prices calculated?",
     a: `Price is calculated based on area (m²), carpet (m²), skirt (metres) and Istanbul transport (setup+teardown included). Our 2026 unit prices: platform ${UNIT_PRICES.platform_m2_week} TRY/m², carpet ${UNIT_PRICES.carpet_m2_week} TRY/m², skirt ${UNIT_PRICES.skirt_ml_week} TRY/metre, Istanbul transport ${UNIT_PRICES.ist_nakliye} TRY (fixed).`,
   },
   {
     q: "How long does setup take?",
-    a: `Standard 24-48 m² podiums are set up within ${setupDurationText("podium", "en")} at most venues. Large areas and special requirements may require additional time.`,
+    a: `Standard 24-48 m² stage platforms are set up within ${setupDurationText("podium", "en")} at most venues. Large areas and special requirements may require additional time.`,
   },
   {
     q: "What panels do you use?",
@@ -195,6 +195,10 @@ const FAQ_ITEMS = [
   {
     q: "Are carpet and skirt mandatory?",
     a: "They are not mandatory, but recommended for visual completeness and safety. The carpet is non-slip, and the skirt provides a professional look.",
+  },
+  {
+    q: "Does podium rental mean a lectern or a stage platform?",
+    a: "On this page, podium means a raised modular stage platform or event riser, not a speaker's lectern. Tell us if you need a presentation lectern as part of the same event setup so it can be quoted separately.",
   },
 ];
 
@@ -217,24 +221,24 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 const OG_IMAGE = `${ORIGIN}/img/podyum/hero.webp`;
 
 export const metadata = {
-  title: "Podium Rental | Modular Stage & Platform Systems",
+  title: "Stage Platform Rental in Turkey | Modular Risers",
   description:
-    "Modular podium rental across Turkey for concerts, weddings and corporate events. Delivery, setup and teardown included.",
+    "Modular stage platform and event riser rental in Turkey for conferences, ceremonies, launches and performances, with delivery, setup and dismantling.",
   alternates: buildAlternatesForPath("/en/podium-rental"),
   openGraph: {
-    title: "Podium Rental | Modular Stage & Platform Systems | Sahneva",
+    title: "Stage Platform Rental in Turkey | Modular Risers | Sahneva",
     description:
-      "Professional modular podium rental. Stage platforms for concerts, weddings, corporate events. Delivery, setup and teardown included.",
+      "Modular stage platforms and event risers for conferences, ceremonies, launches and performances across Turkey, with delivery and installation.",
     url: PAGE_URL,
     siteName: "Sahneva",
     type: "website",
     locale: "en_US",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva podium rental – modular stage and platform systems" }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva modular stage platform and event riser rental" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podium Rental | Modular Stage Platforms | Sahneva",
-    description: "Professional modular podium rental across Türkiye. Setup, teardown and transport included.",
+    title: "Stage Platform Rental in Turkey | Modular Risers | Sahneva",
+    description: "Modular stage platform and event riser rental in Turkey with transport, setup and dismantling.",
     images: [OG_IMAGE],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -263,8 +267,8 @@ function PodiumRentalJsonLd({ faqs }) {
         "@type": "WebPage",
         "@id": pageId,
         url: PAGE_URL,
-        name: "Podium Rental | Modular Stage & Platform Systems",
-        description: "Professional modular podium rental across Türkiye. Delivery, setup and teardown included.",
+        name: "Stage Platform Rental in Turkey | Modular Risers | Sahneva",
+        description: "Modular stage platform and event riser rental in Turkey with delivery, setup and dismantling.",
         isPartOf: { "@id": webId },
         about: { "@id": orgId },
         inLanguage: "en-US",
@@ -275,16 +279,16 @@ function PodiumRentalJsonLd({ faqs }) {
         "@id": breadcrumbId,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/en` },
-          { "@type": "ListItem", position: 2, name: "Podium Rental", item: PAGE_URL },
+          { "@type": "ListItem", position: 2, name: "Stage Platform Rental", item: PAGE_URL },
         ],
       },
       {
         "@type": "Service",
         "@id": serviceId,
-        name: "Podium Rental",
+        name: "Stage Platform and Event Riser Rental",
         provider: { "@id": orgId },
         areaServed: { "@type": "Country", name: "Türkiye" },
-        description: "Professional modular podium and stage platform rental with setup and teardown across Türkiye.",
+        description: "Professional modular stage platform and event riser rental with setup and dismantling across Turkey.",
       },
       {
         "@type": "FAQPage",
@@ -305,7 +309,7 @@ function PodiumRentalJsonLd({ faqs }) {
 export default function PodiumRentalPage() {
   const breadcrumbItems = [
     { name: "Home", url: `${ORIGIN}/en` },
-    { name: "Podium Rental", url: PAGE_URL },
+    { name: "Stage Platform Rental", url: PAGE_URL },
   ];
 
   return (
@@ -327,11 +331,12 @@ export default function PodiumRentalPage() {
                 Professional Stage Solutions
               </div>
               <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Podium Rental
+                Stage Platform Rental in Turkey
               </h1>
               <p className="mt-4 text-lg text-slate-300 leading-relaxed">
-                Modular podium systems for concerts, weddings, corporate events and ceremonies.
-                Professional setup and teardown included across Türkiye.
+                Modular stage platforms and event risers—often called podium systems in Turkey—for
+                concerts, weddings, corporate events and ceremonies. Delivery, installation and
+                dismantling are available across Turkey.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -353,7 +358,7 @@ export default function PodiumRentalPage() {
             <div className="relative">
               <Image
                 src="/img/podyum/hero.webp"
-                alt="Sahneva podium rental – professional modular stage platforms"
+                alt="Sahneva modular stage platform and event riser installation"
                 width={640}
                 height={480}
                 placeholder="blur"
@@ -384,8 +389,8 @@ export default function PodiumRentalPage() {
       {/* Services */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-black text-neutral-900 mb-2">Our Services</h2>
-          <p className="text-neutral-600 mb-10">Comprehensive podium and stage solutions for every event type.</p>
+          <h2 className="text-3xl font-black text-neutral-900 mb-2">Stage Platform & Riser Rental Services</h2>
+          <p className="text-neutral-600 mb-10">Modular platforms, risers and raised event areas for productions across Turkey.</p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
               <div key={s.title} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -430,7 +435,7 @@ export default function PodiumRentalPage() {
                   </ul>
                   <div className="border-t pt-4">
                     <p className="text-xs text-neutral-500">Starting from (Istanbul)</p>
-                    <p className="text-2xl font-black text-neutral-900">{price.toLocaleString("tr-TR")} ₺</p>
+                    <p className="text-2xl font-black text-neutral-900">{price.toLocaleString("en-GB")} TRY</p>
                   </div>
                 </div>
               );
@@ -445,14 +450,14 @@ export default function PodiumRentalPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-neutral-900 mb-2">Price Calculator</h2>
           <p className="text-neutral-600 mb-8">Enter your dimensions for an instant estimate.</p>
-          <PriceEstimatorPodyum unitPrices={UNIT_PRICES} />
+          <PriceEstimatorPodyum locale="en" unitPrices={UNIT_PRICES} />
         </div>
       </section>
 
       {/* Use Cases */}
       <section className="py-16 bg-neutral-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-black text-neutral-900 mb-10">Who Uses Our Podiums?</h2>
+          <h2 className="text-3xl font-black text-neutral-900 mb-10">Where Stage Platforms & Risers Are Used</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {USE_CASES.map((u) => (
               <div key={u.text} className="flex items-start gap-3 rounded-xl bg-white border border-neutral-200 p-4">
@@ -558,6 +563,7 @@ export default function PodiumRentalPage() {
       </section>
 
       <ServiceBlogLinks
+        locale="en"
         title="Guides on this topic"
         links={[
           { href: "/en/blog/choosing-the-right-podium-for-your-event", label: "Choosing the Right Podium for Your Event" },
@@ -567,7 +573,7 @@ export default function PodiumRentalPage() {
       <GlossaryTermLinks
         locale="en"
         servicePath="/en/podium-rental"
-        title="Terms used in a podium rental quote"
+        title="Terms used in a stage platform rental quote"
         description="Deck sizes, leg heights, ramps and skirting change both the price and the build time; the definitions are in the glossary."
       />
     </div>

@@ -104,7 +104,7 @@ const FAQ = [
 /* ================== HELPERS ================== */
 function tl(n) {
   try {
-    return new Intl.NumberFormat("tr-TR").format(n);
+    return new Intl.NumberFormat("en-GB").format(n);
   } catch {
     return String(n);
   }

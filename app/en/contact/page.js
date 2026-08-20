@@ -571,7 +571,7 @@ export default function ContactPage() {
                     <p className="text-xs text-neutral-500 text-center">
                       By submitting the form you accept our
                       <Link
-                        href="/gizlilik-politikasi"
+                        href="/en/privacy-policy"
                         className="text-blue-600 hover:text-blue-700 underline"
                       >
                         &nbsp;privacy policy

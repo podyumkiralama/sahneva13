@@ -1,11 +1,82 @@
 // components/PriceEstimatorPodyum.jsx
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useCallback, useId, useMemo, useState } from "react";
 
 import ExternalLink from "@/components/ExternalLink";
 
-export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
+const COPY = {
+  tr: {
+    heading: "Hızlı Fiyat Hesaplama",
+    srDesc:
+      "Ölçüleri, konumu ve paket seçeneklerini güncellediğinizde toplam maliyetler otomatik olarak hesaplanır.",
+    locationLabel: "Konum",
+    locationInCity: "İstanbul içi",
+    locationOutOfCity: "Şehir dışı",
+    widthLabel: "Genişlik (m)",
+    widthAria: "Podyum genişlik (metre)",
+    depthLabel: "Derinlik (m)",
+    depthAria: "Podyum derinlik (metre)",
+    areaLabel: "Alan",
+    perimeterLabel: "Çevre",
+    platformLabel: "Platform",
+    carpetRow: "Halı (ops.)",
+    skirtRow: "Skört (ops.)",
+    logisticsRow: "Nakliye + Kurulum/Söküm",
+    quoteOver200: "200 m² üzeri: Teklife göre",
+    quoteOutOfCity: "Şehir dışı: Teklife göre",
+    packageTotal: "Önerilen Paket (Halı + Skört)",
+    grandTotal: "Genel Toplam (Paket + Nakliye/Kurulum)",
+    note: (amount) =>
+      `*İstanbul içi ≤200 m² projelerde sabit ${amount} uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.`,
+    waLabel: "WhatsApp’tan Sor",
+    waAria: "WhatsApp’tan Sor — yeni sekmede açılır",
+    waText: "Merhaba Sahneva, Podyum fiyat hesaplayıcısından yazıyorum.",
+    liveLogisticsIncluded: (amount) => `Nakliye ve kurulum dahil ${amount}`,
+    liveLogisticsOver200: "200 metrekare üzeri projelerde nakliye ve kurulum teklife göre",
+    liveLogisticsOutOfCity: "Şehir dışı projelerde nakliye ve kurulum teklife göre",
+    liveUnset: "Belirtilmedi",
+    liveSummary: (pkg, logistics, total) =>
+      `Önerilen paket toplamı ${pkg}. ${logistics}. Genel toplam: ${total}.`,
+  },
+  en: {
+    heading: "Quick Price Estimate",
+    srDesc:
+      "Total costs are recalculated automatically as you update the dimensions, location and package options.",
+    locationLabel: "Location",
+    locationInCity: "Within Istanbul",
+    locationOutOfCity: "Outside Istanbul",
+    widthLabel: "Width (m)",
+    widthAria: "Podium width in metres",
+    depthLabel: "Depth (m)",
+    depthAria: "Podium depth in metres",
+    areaLabel: "Area",
+    perimeterLabel: "Perimeter",
+    platformLabel: "Platform",
+    carpetRow: "Carpet (opt.)",
+    skirtRow: "Skirt (opt.)",
+    logisticsRow: "Transport + Installation/Dismantling",
+    quoteOver200: "Over 200 m²: on quotation",
+    quoteOutOfCity: "Outside Istanbul: on quotation",
+    packageTotal: "Recommended Package (Carpet + Skirt)",
+    grandTotal: "Grand Total (Package + Transport/Installation)",
+    note: (amount) =>
+      `*A fixed ${amount} applies to projects of 200 m² or less within Istanbul. Larger projects and projects outside Istanbul are calculated per site survey, route and shift.`,
+    waLabel: "Ask on WhatsApp",
+    waAria: "Ask on WhatsApp — opens in a new tab",
+    waText: "Hello Sahneva, I am writing from the podium price calculator.",
+    liveLogisticsIncluded: (amount) => `Transport and installation included: ${amount}`,
+    liveLogisticsOver200: "Transport and installation are quoted separately above 200 square metres",
+    liveLogisticsOutOfCity: "Transport and installation are quoted separately outside Istanbul",
+    liveUnset: "Not specified",
+    liveSummary: (pkg, logistics, total) =>
+      `Recommended package total ${pkg}. ${logistics}. Grand total: ${total}.`,
+  },
+};
+
+export default function PriceEstimatorPodyum({ unitPrices, className = "", locale = "tr" }) {
+  const t = COPY[locale] ?? COPY.tr;
+  const money = useCallback((value) => formatTRY(value, locale), [locale]);
   const [w, setW] = useState(4);
   const [d, setD] = useState(6);
   const [loc, setLoc] = useState("istanbul"); // istanbul | sehir-disi
@@ -39,14 +110,14 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
     const lojistikMetni =
       loc === "istanbul"
         ? area <= 200
-          ? `Nakliye ve kurulum dahil ${formatTRY(lojistikTL ?? 0)}`
-          : "200 metrekare üzeri projelerde nakliye ve kurulum teklife göre"
-        : "Şehir dışı projelerde nakliye ve kurulum teklife göre";
+          ? t.liveLogisticsIncluded(money(lojistikTL ?? 0))
+          : t.liveLogisticsOver200
+        : t.liveLogisticsOutOfCity;
 
-    const genelToplamMetni = lojistikTL ? formatTRY(genelToplam) : "Belirtilmedi";
+    const genelToplamMetni = lojistikTL ? money(genelToplam) : t.liveUnset;
 
-    return `Önerilen paket toplamı ${formatTRY(paketToplam)}. ${lojistikMetni}. Genel toplam: ${genelToplamMetni}.`;
-  }, [area, genelToplam, loc, lojistikTL, paketToplam]);
+    return t.liveSummary(money(paketToplam), lojistikMetni, genelToplamMetni);
+  }, [area, genelToplam, loc, lojistikTL, paketToplam, t, money]);
 
   return (
     <div
@@ -62,7 +133,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
       <div className="rounded-t-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent px-4 py-3 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 id="podyum-fiyat-hesaplayici" className="text-sm font-semibold text-neutral-900">
-            Hızlı Fiyat Hesaplama
+            {t.heading}
           </h3>
           <div className="flex flex-wrap gap-1.5">
             {presets.map((p) => {
@@ -94,65 +165,65 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
       {/* Gövde */}
       <div className="px-4 py-4 sm:px-6 sm:py-6">
         <p id="podyum-fiyat-hesaplayici-aciklama" className="sr-only">
-          Ölçüleri, konumu ve paket seçeneklerini güncellediğinizde toplam maliyetler otomatik olarak hesaplanır.
+          {t.srDesc}
         </p>
 
         {/* Konum seçimi */}
         <div className="mb-4 grid gap-3 sm:grid-cols-3">
           <SelectField
-            label="Konum"
+            label={t.locationLabel}
             value={loc}
             onChange={setLoc}
             name="konum"
             options={[
-              { value: "istanbul", label: "İstanbul içi" },
-              { value: "sehir-disi", label: "Şehir dışı" },
+              { value: "istanbul", label: t.locationInCity },
+              { value: "sehir-disi", label: t.locationOutOfCity },
             ]}
           />
           <Field
-            label="Genişlik (m)"
+            label={t.widthLabel}
             value={w}
             onChange={(v) => setW(sanitizeNum(v))}
             name="genislik"
-            inputProps={{ min: 1, step: 0.5, "aria-label": "Podyum genişlik (metre)" }}
+            inputProps={{ min: 1, step: 0.5, "aria-label": t.widthAria }}
           />
           <Field
-            label="Derinlik (m)"
+            label={t.depthLabel}
             value={d}
             onChange={(v) => setD(sanitizeNum(v))}
             name="derinlik"
-            inputProps={{ min: 1, step: 0.5, "aria-label": "Podyum derinlik (metre)" }}
+            inputProps={{ min: 1, step: 0.5, "aria-label": t.depthAria }}
           />
         </div>
 
         {/* Özet kartları */}
         <div className="grid gap-3 sm:grid-cols-3">
-          <Info label="Alan" value={`${area} m²`} />
-          <Info label="Çevre" value={`${perimeter} m`} />
-          <Info label="Platform" value={formatTRY(base)} emphasize />
+          <Info label={t.areaLabel} value={`${area} m²`} />
+          <Info label={t.perimeterLabel} value={`${perimeter} m`} />
+          <Info label={t.platformLabel} value={money(base)} emphasize />
         </div>
 
         {/* Ayrıntı + Toplam */}
         <div className="mt-4 rounded-xl border border-primary/25 bg-primary/10 p-4">
-          <Row left="Halı (ops.)" right={formatTRY(carpet)} />
-          <Row left="Skört (ops.)" right={formatTRY(skirt)} />
+          <Row left={t.carpetRow} right={money(carpet)} />
+          <Row left={t.skirtRow} right={money(skirt)} />
           <Row
-            left="Nakliye + Kurulum/Söküm"
+            left={t.logisticsRow}
             right={
               loc === "istanbul"
-                ? (area <= 200 ? formatTRY(lojistikTL ?? 0) : "200 m² üzeri: Teklife göre")
-                : "Şehir dışı: Teklife göre"
+                ? (area <= 200 ? money(lojistikTL ?? 0) : t.quoteOver200)
+                : t.quoteOutOfCity
             }
           />
           <div className="my-3 h-px w-full bg-primary/10" />
           <div className="flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] font-medium text-neutral-900">Önerilen Paket (Halı + Skört)</span>
-            <span className="text-base font-semibold tracking-tight text-neutral-900">{formatTRY(paketToplam)}</span>
+            <span className="text-[13px] font-medium text-neutral-900">{t.packageTotal}</span>
+            <span className="text-base font-semibold tracking-tight text-neutral-900">{money(paketToplam)}</span>
           </div>
           <div className="mt-1 flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
-            <span className="text-[13px] font-medium text-neutral-900">Genel Toplam (Paket + Nakliye/Kurulum)</span>
+            <span className="text-[13px] font-medium text-neutral-900">{t.grandTotal}</span>
             <span className="text-lg font-bold tracking-tight text-blue-800">
-              {lojistikTL ? formatTRY(genelToplam) : "—"}
+              {lojistikTL ? money(genelToplam) : "—"}
             </span>
           </div>
           <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -163,15 +234,16 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "" }) {
         {/* Alt satır */}
         <div className="mt-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
           <span className="text-xs text-neutral-700">
-            *İstanbul içi ≤200 m² projelerde sabit {formatTRY(unitPrices.ist_nakliye)} uygulanır. Üzeri ve şehir dışı projelerde keşfe/rota ve vardiyaya göre hesaplanır.
+            {t.note(money(unitPrices.ist_nakliye))}
           </span>
           <ExternalLink
+            locale={locale}
             nofollow
-            href="https://wa.me/905453048671?text=Merhaba%20Sahneva%2C%20Podyum%20fiyat%20hesaplay%C4%B1c%C4%B1s%C4%B1ndan%20yaz%C4%B1yorum."
+            href={`https://wa.me/905453048671?text=${encodeURIComponent(t.waText)}`}
             className="inline-flex items-center rounded-lg border border-blue-300 bg-white px-3 py-1.5 text-xs font-semibold text-blue-800 hover:bg-blue-50"
-            ariaLabel="WhatsApp’tan Sor — yeni sekmede açılır"
+            ariaLabel={t.waAria}
           >
-            WhatsApp’tan Sor
+            {t.waLabel}
           </ExternalLink>
         </div>
       </div>
@@ -256,9 +328,9 @@ function sanitizeNum(v) {
   return Math.round(n * 2) / 2; // 0.5 adım
 }
 
-function formatTRY(n) {
+function formatTRY(n, locale = "tr") {
   try {
-    return new Intl.NumberFormat("tr-TR", {
+    return new Intl.NumberFormat(locale === "en" ? "en-GB" : "tr-TR", {
       style: "currency",
       currency: "TRY",
       maximumFractionDigits: 0,

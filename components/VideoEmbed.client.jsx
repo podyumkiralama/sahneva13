@@ -52,6 +52,15 @@ const PLAY_LABELS = {
   de: "Video ansehen",
 };
 
+const PLAYER_TITLES = {
+  tr: "Sahneva video oynatıcı",
+  en: "Sahneva video player",
+  ru: "Видеоплеер Sahneva",
+  ar: "مشغل فيديو Sahneva",
+  zh: "Sahneva 视频播放器",
+  de: "Sahneva Videoplayer",
+};
+
 const PREVIEW_ERROR_LABELS = {
   tr: "Önizleme yüklenemedi",
   en: "Preview unavailable",
@@ -63,7 +72,7 @@ const PREVIEW_ERROR_LABELS = {
 
 export default function VideoEmbed({
   videoId,
-  title = "Sahneva video oynatıcı",
+  title,
   thumbnailUrl,
   autoplayOnClick = true,
   muteOnAutoplay = true,
@@ -79,6 +88,7 @@ export default function VideoEmbed({
   locale = "tr",
   className = "",
 }) {
+  const resolvedTitle = title ?? PLAYER_TITLES[locale] ?? PLAYER_TITLES.tr;
   const resolvedPlayLabel = playLabel ?? PLAY_LABELS[locale] ?? PLAY_LABELS.tr;
   const previewErrorLabel = PREVIEW_ERROR_LABELS[locale] ?? PREVIEW_ERROR_LABELS.tr;
   const thumbs = useMemo(() => {
@@ -170,7 +180,7 @@ export default function VideoEmbed({
       {iframeSrc ? (
         <iframe
           src={iframeSrc}
-          title={title}
+          title={resolvedTitle}
           className="absolute inset-0 h-full w-full"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -192,7 +202,7 @@ export default function VideoEmbed({
           {!thumbFailed ? (
             <img
               src={currentThumb}
-              alt={title}
+              alt={resolvedTitle}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               decoding="async"
@@ -216,7 +226,7 @@ export default function VideoEmbed({
             <span className="rounded-2xl bg-white/20 px-6 py-3 text-base font-semibold shadow-lg backdrop-blur-md">
               {resolvedPlayLabel}
             </span>
-            <span className="sr-only">{title}</span>
+            <span className="sr-only">{resolvedTitle}</span>
           </div>
         </button>
       ) : null}

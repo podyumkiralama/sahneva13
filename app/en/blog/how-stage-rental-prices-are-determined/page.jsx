@@ -102,6 +102,7 @@ return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
@@ -498,7 +499,7 @@ return (
               Stage Rental Details
             </Link>
             <Link
-              href="/iletisim"
+              href="/en/contact"
               className="inline-flex items-center justify-center rounded-2xl border border-gray-300 bg-white px-6 py-4 font-bold text-gray-900 hover:bg-gray-50"
             >
               Discovery / Get a Quote
@@ -506,6 +507,7 @@ return (
           </div>
 
           <BlogRelatedLinks
+            locale="en"
             services={[
               { href: "/en/stage-rental", label: "Stage Rental" },
               { href: "/en/podium-rental", label: "Podium Rental" },

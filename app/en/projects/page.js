@@ -46,6 +46,36 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
+// Turkce-only projelerin listeleme kopyasi. Sayfanin kendisi Turkce kaldigi
+// icin kart "Project page in Turkish" notunu ve hrefLang="tr" isaretini
+// koruyor; burada yalnizca listeleme metni Ingilizceye cevriliyor.
+const TR_PROJECT_DISPLAY = {
+  "sifir-atik-festivali-ana-sahne-teknik-produksiyon": {
+    title: "Zero Waste Festival Main Stage Technical Production",
+    excerpt:
+      "The main stage, LED screen, sound, lighting, truss, podium, backstage control and crane-assisted build were managed on site by Sahneva.",
+    tags: ["Festival Stage Production", "Main Stage", "LED Screen", "Line Array", "Backstage Control"],
+  },
+  "istanbul-amator-futbol-kuluplerine-nakdi-destek-programi": {
+    title: "180 Million TRY Cash Support Programme for Istanbul Amateur Football Clubs",
+    excerpt:
+      "At the indoor protocol event held by the Ministry of Youth and Sports at Millet Bahçesi Hangar, the LED screen, stage, podium, sound-lighting, truss, technical control and hall layout were coordinated by Sahneva.",
+    tags: ["LED Screen", "Stage Installation", "Protocol Event", "Sound & Lighting", "Technical Control"],
+  },
+  "diclefest-sanliurfa": {
+    title: "DicleFest Şanlıurfa",
+    excerpt:
+      "At DicleFest on Topçu Meydanı, the dome tents, play areas, concert area, decor applications and the outdoor festival site operation were coordinated by Sahneva.",
+    tags: ["Outdoor Festival", "Dome Tent", "Concert Area", "Play Areas", "Site Operation"],
+  },
+  "saha-2026-dome-cadir-kurulumu": {
+    title: "SAHA 2026 Dome Tent and Bespoke Event Area Installation",
+    excerpt:
+      "A bespoke event area built inside an indoor exhibition hall with a dome tent, a custom entrance facade, floor infrastructure and ambient lighting.",
+    tags: ["Dome Tent", "Exhibition", "Installation"],
+  },
+};
+
 function ProjectsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
@@ -92,16 +122,19 @@ export default async function ProjectsIndexPageEn() {
     })),
     ...getProjects()
       .filter((project) => !coveredTrSlugs.has(project.slug))
-      .map((project) => ({
-        key: project.slug,
-        href: `/projeler/${project.slug}`,
-        title: project.title,
-        excerpt: project.excerpt,
-        cover: project.cover,
-        date: project.date,
-        tags: project.tags,
-        inTurkish: true,
-      })),
+      .map((project) => {
+        const display = TR_PROJECT_DISPLAY[project.slug] ?? {};
+        return {
+          key: project.slug,
+          href: `/projeler/${project.slug}`,
+          title: display.title ?? project.title,
+          excerpt: display.excerpt ?? project.excerpt,
+          cover: project.cover,
+          date: project.date,
+          tags: display.tags ?? project.tags,
+          inTurkish: true,
+        };
+      }),
   ];
 
   return (

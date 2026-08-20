@@ -660,6 +660,7 @@ export default function ConcertPodiumRentalPage() {
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks
+        locale="en"
         links={[
           {
             href: "/en/blog/choosing-the-right-podium-for-your-event",

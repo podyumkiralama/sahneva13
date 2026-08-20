@@ -186,6 +186,7 @@ export default function BlogPost() {
       <FaqSchema />
 
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: HERO_IMAGE, alt: "12 Fun Corporate Event Ideas 2026" }}
@@ -434,12 +435,13 @@ export default function BlogPost() {
         </div>
 
         <SmartBlogSuggestions
+          locale="en"
           currentSlug={SLUG}
           currentCategory={metadata.category}
           currentKeywords={metadata.keywords}
         />
 
-        <BlogRelatedLinks services={[
+        <BlogRelatedLinks locale="en" services={[
           { href: "/en/corporate-events", label: "Corporate Events" },
           { href: "/en/stage-rental", label: "Stage Rental" },
           { href: "/en/led-screen-rental", label: "LED Screen Rental" },

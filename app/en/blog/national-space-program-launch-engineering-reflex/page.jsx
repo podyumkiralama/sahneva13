@@ -160,6 +160,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
       <BlogLayout
+        locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
         heroImage={{ src: HERO_IMG, alt: TITLE }}
@@ -314,6 +315,7 @@ export default function Page() {
           <div className="not-prose my-8" aria-labelledby="video-title">
             <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
               <LazyVideoEmbed
+                locale="en"
                 videoId={VIDEO_ID}
                 title="National Space Program Launch Video"
                 thumbnailUrl={VIDEO_THUMB}
@@ -337,6 +339,7 @@ export default function Page() {
           </ul>
 
           <BlogRelatedLinks
+            locale="en"
             services={[
               { href: "/en/stage-rental", label: "Stage Rental" },
               { href: "/en/led-screen-rental", label: "LED Screen Rental" },
