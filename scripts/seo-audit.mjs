@@ -216,7 +216,7 @@ function extractSitemapStaticPaths() {
 function pageSignals(text) {
   const title = /\btitle\s*:|export\s+async\s+function\s+generateMetadata|export\s+function\s+generateMetadata/.test(text);
   const description = /\bdescription\s*:/.test(text);
-  const canonical = /canonical\s*:|buildCanonical\(|buildLanguageAlternates\(|\bconst\s+canonical\b/.test(text);
+  const canonical = /canonical\s*:|buildCanonical\(|buildLanguageAlternates\(|buildAlternatesForPath\(|\bconst\s+canonical\b/.test(text);
   const openGraph = /\bopenGraph\s*:/.test(text);
   const twitter = /\btwitter\s*:/.test(text);
   const jsonLd = /<JsonLd\b|BreadcrumbJsonLd|FAQPage|LocalBusiness|Service"|<ServicePage\b/.test(text);
