@@ -582,6 +582,12 @@ export default function BayiToplantisiPage() {
             ["Contingency", "10–15", "Yedek ekipman ve son dakika revizyon"],
           ]}
         />
+        <p>
+          Karşılama, kayıt, servis ve giriş güvenliği kadrosu için görev dağılımını
+          önceden netleştirin; ekip ve vardiya seçeneklerini{" "}
+          <Link href="/etkinlik-personel-temini">etkinlik personel temini</Link>
+          {" "}sayfamızda görebilirsiniz.
+        </p>
         <ProTip title="Anahtar teslim notu">
           Gündüz sunum + gece gala tek ekiple yürütüldüğünde kurulum, revizyon ve operasyon zamanı ciddi
           biçimde kısalır. Tek plan, tek sorumluluk noktası.
