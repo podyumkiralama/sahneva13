@@ -22,7 +22,7 @@ const ORGANIZATION_ID = `${ORIGIN}/#org`;
 const WEBSITE_ID = `${ORIGIN}/#website`;
 const SITE_URL = ORIGIN;
 const PHONE = "+905453048671";
-const PAGE_TITLE = "Stage Rental | Professional Stage Solutions";
+const PAGE_TITLE = "Stage Rental in Turkey | Concert & Event Stages";
 const PAGE_TITLE_BRANDED = `${PAGE_TITLE} | Sahneva`;
 const WA_TEXT =
   "Hello%2C+I%27d+like+to+request+a+quote+for+stage+rental.+Event+type%3A+%5Bconcert%2Fconference%2Flaunch%5D%2C+Date%3A+%5Bdd.mm.yyyy%5D%2C+Estimated+audience%3A+%5Bxxx%5D%2C+Stage+size%3A+%5Bsqm%5D.";
@@ -53,7 +53,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: PAGE_TITLE,
   description:
-    "Turnkey stage rental in Turkey: truss, modular decks, LED screens, sound & lighting for concerts, conferences and festivals. Nationwide crew and fast setup.",
+    "Stage rental in Turkey for concerts, festivals, conferences and launches, with modular decks, truss roofs, LED, sound, lighting, setup and technical crew.",
   alternates: buildAlternatesForPath("/en/stage-rental"),
   openGraph: {
     title: PAGE_TITLE_BRANDED,
@@ -325,8 +325,7 @@ function Hero() {
               id="hero-title"
               className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
             >
-              Professional{" "}
-              <span className="text-blue-200">Stage Rental</span>
+              <span className="text-blue-200">Stage Rental</span> in Turkey
             </h1>
 
             <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
@@ -404,15 +403,16 @@ function QuickAnswer() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
           <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
-            Quick answer
+            Stage rental company in Turkey
           </p>
           <h2 id="stage-rental-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
-            Stage rental covers the platform, roof or truss, and technical setup.
+            Concert and event stage rental with one accountable field team.
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-700">
             A good stage plan starts with event type, audience size, venue access, power,
-            sound, lighting, and LED screen needs. Sahneva handles setup, show support,
-            and dismantling with one field team.
+            sound, lighting and LED screen needs. Sahneva supplies modular stages, outdoor
+            stage roofs and concert stage systems in Istanbul and across Turkey, then handles
+            installation, show support and dismantling with one field team.
           </p>
           <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-3">
             <li className="rounded-xl bg-white px-4 py-3">1. Pick stage size</li>
@@ -439,8 +439,8 @@ function Services() {
             id="services-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
-            Professional{" "}
-            <span className="text-blue-700">Services</span>
+            Stage Rental{" "}
+            <span className="text-blue-700">Services in Turkey</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Stage rental covers the platform, truss, LED screen, sound,
@@ -1363,6 +1363,11 @@ const FAQ_ITEMS = [
     answer:
       "Every package includes core sound and lighting. Mini Stage includes 2 LED bars and 2 spot lights. Standard Stage adds moving heads, wash lights and a PA system. Concert Stage includes line-array sound, monitors and a larger lighting rig.",
   },
+  {
+    question: "Do you provide stage rental outside Istanbul?",
+    answer:
+      "Yes. We provide modular, concert and outdoor stage rental across Turkey. The scope can include transport, stage decks, roof or truss, stairs, barriers, LED screens, sound, lighting, technical crew, installation and dismantling.",
+  },
 ];
 
 function FAQ() {
@@ -1597,7 +1602,7 @@ function StageJsonLd() {
 
   const baseService = {
     "@type": "Service",
-    name: "Stage Rental",
+    name: "Stage Rental in Turkey",
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Turkey" },

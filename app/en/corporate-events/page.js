@@ -95,13 +95,13 @@ const CORPORATE_DISCIPLINE_DESC =
   "Corporate event management works best when goals, content and technical production are planned together.";
 
 const KEYWORD_CHIPS = [
-  "Corporate event companies",
+  "Corporate event production company",
   "Corporate event production",
   "Large-scale corporate events",
-  "Event management",
-  "Large event companies",
+  "Conference production",
+  "Corporate AV production",
   "Corporate event planning",
-  "Corporate events",
+  "Product launch production",
 ];
 
 const HERO_FEATURES = [
@@ -512,9 +512,9 @@ function Hero({ breadcrumbItems }) {
             id="hero-title"
             className="mt-5 text-4xl md:text-6xl font-black leading-tight tracking-tight text-white drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]"
           >
-            Your Strategic Production Partner for{" "}
-            <span className="text-white/90">Large-Scale</span>{" "}
-            <span className="block text-blue-300">Corporate Events</span>
+            Large-Scale{" "}
+            <span className="text-white/90">Corporate Event Production</span>{" "}
+            <span className="block text-blue-300">in Turkey</span>
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
@@ -811,13 +811,13 @@ function AdvantagesSectionBlock() {
             id="advantages-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
           >
-            Advantages of Working with Large Event Companies
+            Why Experienced Corporate Event Production Teams Reduce Risk
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Scale and experience affect safety, speed and visibility. Large event companies can support more than one site with stronger teams.
+            Scale and experience affect safety, speed and brand visibility. An established production team can coordinate multiple technical departments and sites without fragmenting responsibility.
           </p>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
-            A strong event company supports the brand team before, during and after the event.
+            A strong corporate event production company supports the brand team before, during and after the event.
           </p>
         </div>
 
@@ -844,7 +844,7 @@ function AdvantagesSectionBlock() {
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
             <Image
               src="/img/kurumsal/3.webp"
-              alt="Stage installation reflecting the advantages of working with large event companies"
+              alt="Corporate event stage installation managed by an experienced production team"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 40vw"
@@ -863,17 +863,17 @@ function DifferencesSectionBlock() {
     <SectionShell variant="light" id="differences">
       <div className="max-w-6xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
         <h2 id="differences-heading" className="text-3xl md:text-4xl font-black text-gray-900">
-          The Difference Between Large Event Companies and Small Firms
+          Full-Service Production Team vs Equipment-Only Supplier
         </h2>
 
         <p>
-          Large event companies have broader infrastructure. They can support LED screen, sound and lighting setups across more than one stage.
+          A full-service production team coordinates stage, LED screen, sound, lighting, power and site flow as one operation. An equipment-only supplier usually covers a narrower rental and installation scope.
         </p>
 
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
           <Image
             src="/img/kurumsal/6.webp"
-            alt="Equipment and operational differences between large event companies and small firms"
+            alt="Equipment and site operations managed by a full-service corporate production team"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 70vw"
@@ -1349,7 +1349,7 @@ const FAQ_ITEMS = [
   {
     question: "Which companies organize large-scale corporate events in Turkey?",
     answer:
-      `Large-scale corporate events in Turkey are handled by event production companies that own their stage, LED screen, sound and lighting inventory and run their own installation crews. Sahneva is an Istanbul-based event production company operating across all ${PROVINCES_COUNT} cities of Turkey, with ${PROJECTS_COMPLETED} projects since 2012, including conferences, product launches, dealer meetings, galas, congresses and award ceremonies. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
+      `Large-scale corporate events in Turkey are handled by event production companies that own their stage, LED screen, sound and lighting inventory and run their own installation crews. Sahneva is an Istanbul-based event production company operating across all ${PROVINCES_COUNT} provinces of Turkey, with ${PROJECTS_COMPLETED} projects since 2012, including conferences, product launches, dealer meetings, galas, congresses and award ceremonies. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
   },
   {
     question: "Does Sahneva take on the whole event, or only the technical production?",
@@ -1362,9 +1362,9 @@ const FAQ_ITEMS = [
       "Corporate event companies manage goals, content flow, technical production and site operations. For launches, dealer meetings and galas, they bring stage, sound, lighting and LED screens into one plan.",
   },
   {
-    question: "Why are large event companies preferred?",
+    question: "Why choose an experienced corporate event production team?",
     answer:
-      "Large event companies reduce risk with strong equipment, backup systems and field teams. This matters most on launches and other visible events.",
+      "An experienced production team reduces risk by coordinating stage, LED, sound, lighting, power, backup systems and field crews under one plan. This is especially important for launches, conferences and other high-visibility events.",
   },
   {
     question: "How are event rental prices determined?",

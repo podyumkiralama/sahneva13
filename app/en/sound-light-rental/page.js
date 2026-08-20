@@ -36,12 +36,12 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Sound & Lighting Rental in Turkey",
+  title: "Sound System & Event Lighting Rental in Turkey",
   description:
-    "Line-array audio, digital mixers, moving-head lighting & truss systems with nationwide crew support for concerts, festivals and corporate events in Türkiye.",
+    "Sound system, PA and event lighting rental in Turkey for conferences, concerts and corporate events, with line-array audio, AV crews, setup and live operation.",
   alternates: buildAlternatesForPath("/en/sound-light-rental"),
   openGraph: {
-    title: "Sound & Lighting Rental | Professional Audio Visual Solutions",
+    title: "Sound System & Event Lighting Rental in Turkey | Sahneva",
     description:
       "Turnkey sound and lighting system rental with acoustic planning, rigging, digital mixing and on-site operation for any scale event.",
     url: `${ORIGIN}/en/sound-light-rental`,
@@ -57,7 +57,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sound & Lighting Rental | Concert-Grade AV Systems",
+    title: "Sound System & Event Lighting Rental in Turkey | Sahneva",
     description:
       "Professional line-array audio, digital consoles, wireless microphones, moving-head lighting, truss and technical crew support across Türkiye.",
     images: [`${ORIGIN}/img/ses-isik/hero.webp`],
@@ -183,15 +183,15 @@ function Hero() {
         </div>
 
         <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          Professional <span className="gradient-text gradient-text--safe-xl">Sound & Lighting</span>
+          <span className="gradient-text gradient-text--safe-xl">Sound & Lighting Rental</span> in Turkey
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
           Concert • Festival • Launch • Conference
         </p>
         <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Line-array audio, digital consoles and moving-head fixtures with
-          <span className="font-semibold text-white"> turnkey deployment</span>
+          PA systems, professional audio and event lighting with
+          <span className="font-semibold text-white"> nationwide technical crews</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
@@ -238,6 +238,33 @@ function Hero() {
   );
 }
 
+/* ================== Commercial quick answer ================== */
+function QuickAnswer() {
+  return (
+    <section className="py-10 bg-white" aria-labelledby="sound-rental-turkey-heading">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+            Sound and lighting rental company in Turkey
+          </p>
+          <h2 id="sound-rental-turkey-heading" className="mt-3 text-2xl font-black text-slate-950">
+            Sound system, PA and event lighting rental for live events.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            Sahneva supplies line-array and PA systems, wireless microphones, digital consoles,
+            conference audio and concert sound systems, moving-head fixtures and on-site AV crews
+            in Istanbul and across Turkey. One technical team plans the venue coverage, transport,
+            installation, soundcheck, live mixing, lighting cues and dismantling. For a wider scope,
+            combine this service with our <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
+            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
+            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/corporate-events">corporate event production</Link>.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Services ================== */
 function Services() {
   return (
@@ -245,7 +272,7 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Our professional <span className="gradient-text gradient-text--safe-xl">services</span>
+            Sound system, PA & <span className="gradient-text gradient-text--safe-xl">event lighting rental</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Complete sound and lighting rental including discovery, design, installation, live operation and dismantle
@@ -471,7 +498,7 @@ function Technical() {
 /* ================== Statistics band ================== */
 function StatsBand() {
   const stats = [
-    { value: PROJECTS_COMPLETED, label: "Successful Projects", icon: "??" },
+    { value: PROJECTS_COMPLETED, label: "Successful Projects", icon: "🎚️" },
     { value: "50+", label: "Enterprise clients", icon: "🏢" },
     { value: `${PROVINCES_COUNT}`, label: "Provinces served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of experience", icon: "⭐" },
@@ -521,7 +548,7 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="use-cases-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Where we <span className="gradient-text gradient-text--safe-xl">excel</span>
+            Sound and lighting for <span className="gradient-text gradient-text--safe-xl">events across Turkey</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Customised sound and lighting solutions tailored to each event format and venue layout
@@ -611,19 +638,14 @@ function Articles() {
                       Sound systems & technology
                     </h4>
                     <p>
-                      <strong className="text-gray-900">Sahneva</strong> delivers
-                      <Link href="/en/sound-light-rental" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
-                        professional sound system rentals
-                      </Link>
-                      and
-                      <Link href="/en/sound-light-rental" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
-                        lighting system rentals
-                      </Link>
-                      with corporate-level engineering across Türkiye.
+                      <strong className="text-gray-900">Sahneva</strong> delivers{" "}
+                      <strong>professional sound system rentals</strong> and{" "}
+                      <strong>lighting system rentals</strong>{" "}
+                      with corporate-level engineering across Turkey.
                     </p>
                     <p>
-                      Whether your event is an outdoor concert or an indoor summit, our turnkey model covers acoustic discovery, technical design, certified
-                      <em className="text-gray-600">truss & rigging</em>
+                      Whether your event is an outdoor concert or an indoor summit, our turnkey model covers acoustic assessment, technical design, certified{" "}
+                      <em className="text-gray-600">truss & rigging</em>{" "}
                       and live operation so every workflow is managed by one expert team.
                     </p>
                   </div>
@@ -631,7 +653,7 @@ function Articles() {
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
                       <span className="bg-purple-100 text-purple-600 rounded-2xl p-3" aria-hidden="true">💡</span>
-                      Lighting design & programming
+                      Audio coverage & lighting programming
                     </h4>
                     <p>
                       Carefully tuned <em className="text-gray-600">line-array</em> systems achieve uniform SPL distribution, while digital consoles and
@@ -653,7 +675,7 @@ function Articles() {
                     {[
                       {
                         icon: "🎯",
-                        title: "Detailed discovery",
+                        title: "Site and acoustic assessment",
                         desc: "Acoustic measurements, venue analysis and needs assessment"
                       },
                       {
@@ -825,6 +847,11 @@ const FAQ_SCHEMA_ITEMS = [
     answer:
       "We collect generator or venue power details, then coordinate electrical requirements with certified electricians and professional distribution systems.",
   },
+  {
+    question: "Do you provide sound system and AV rental outside Istanbul?",
+    answer:
+      "Yes. We provide PA systems, professional audio, event lighting and on-site AV crews across Turkey. The project scope can include transport, setup, soundcheck, live operation and dismantling under one technical contact.",
+  },
 ];
 
 function FAQ() {
@@ -839,11 +866,15 @@ function FAQ() {
     },
     {
       q: "Do you provide live operation and technical staff?",
-      a: "Absolutely. Every project includes FOH sound engineers, monitor engineers and lighting operators who manage the show end-to-end. Our emergency technical response line is available 24/7.",
+      a: "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end-to-end. Our emergency technical response line is available 24/7.",
     },
     {
       q: "How is power distribution handled?",
       a: "Transport, installation and operation are on us. We gather generator or venue power details from you, then coordinate electrical requirements with our certified electricians and professional distribution systems.",
+    },
+    {
+      q: "Do you provide sound system and AV rental outside Istanbul?",
+      a: "Yes. We provide PA systems, professional audio, event lighting and on-site AV crews across Turkey. The project scope can include transport, setup, soundcheck, live operation and dismantling under one technical contact.",
     },
   ];
 
@@ -941,7 +972,7 @@ function RelatedServices() {
             id="related-services-title"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Complementary
+            Complementary{" "}
             <span className="gradient-text gradient-text--safe-xl">
               services
             </span>
@@ -1045,11 +1076,11 @@ function SoundLightJsonLd() {
       {
         "@type": "Service",
         "@id": serviceId,
-        name: "Sound & Lighting System Rental",
-        description: "Professional sound and lighting rental services with line-array speakers, digital consoles, wireless microphones, moving-head lights, truss systems and live operation across Türkiye.",
+        name: "Sound System and Event Lighting Rental in Turkey",
+        description: "Sound system, PA and event lighting rental in Turkey with line-array speakers, digital consoles, wireless microphones, AV crews and live operation.",
           provider,
         areaServed: { "@type": "Country", name: "Turkey" },
-        serviceType: "EventProduction",
+        serviceType: "Sound system, PA and event lighting rental",
         offers: {
           "@type": "Offer",
           description: "Professional sound and lighting system rental service"
@@ -1060,8 +1091,8 @@ function SoundLightJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Sound & Lighting Rental | Concert-Grade AV Systems",
-        description: "Line-array audio, digital mixing consoles, moving-head lighting and truss systems with nationwide crew support for concerts, festivals and corporate events across Türkiye.",
+        name: "Sound System & Event Lighting Rental in Turkey | Sahneva",
+        description: "Sound system, PA and event lighting rental in Turkey with line-array audio, digital mixing, moving-head fixtures and nationwide AV crews.",
         url: pageUrl,
         inLanguage: "en-US",
         isPartOf: { "@id": WEBSITE_ID },
@@ -1103,7 +1134,7 @@ export default function Page() {
   const breadcrumbItems = [
     { name: "Home", url: `${baseUrl}/en` },
     { name: "Services", url: `${baseUrl}/en/services` },
-    { name: "Sound & Light Rental", url: canonical },
+    { name: "Sound & Lighting Rental", url: canonical },
   ];
 
   return (
@@ -1111,6 +1142,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <SoundLightJsonLd />
       <Hero />
+      <QuickAnswer />
       <Services />
       <Gallery />
       <Technical />

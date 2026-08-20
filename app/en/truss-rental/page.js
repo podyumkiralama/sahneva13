@@ -24,9 +24,9 @@ const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 const PAGE_PATH = "/en/truss-rental";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
-const TITLE = "Truss Rental | Aluminum Truss Systems";
+const TITLE = "Truss Rental in Turkey | Aluminium Rigging";
 const DESCRIPTION =
-  "Truss rental for square, triangular, circle and arch systems. Transport, assembly, dismantling and technical team support included.";
+  "Truss rental in Turkey for stage roofs, LED walls, lighting and event rigging. Square, triangular, arch and ground-support systems with installation.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
@@ -124,13 +124,13 @@ function TrussJsonLd() {
       {
         "@type": "Service",
         "@id": `${PAGE_URL}#service`,
-        name: "Truss Rental and Installation",
-        serviceType: "Truss rental",
+        name: "Truss Rental and Rigging in Turkey",
+        serviceType: "Event truss and rigging rental",
         provider: { "@id": LOCAL_BUSINESS_ID },
         areaServed: "TR",
         url: PAGE_URL,
           description:
-            "Truss rental and professional installation and dismantling service including square truss, triangular truss, circle/oval truss, and arch (gate) truss for any event.",
+            "Event truss and rigging rental in Turkey, including square, triangular, circle, arch and ground-support systems with professional installation and dismantling.",
           offers: {
           "@type": "Offer",
           url: PAGE_URL,
@@ -190,8 +190,8 @@ const FAQ_ITEMS = [
     a: "Prices are determined on a project basis based on truss type, footage, height, rigging complexity, additional equipment (base/foot, connections, supports, motors, etc.), transportation, and event duration.",
   },
   {
-    q: "Do you serve outside Istanbul?",
-    a: "Yes. We can provide project-based services primarily in Istanbul and across Turkey.",
+    q: "Do you provide truss rental and rigging outside Istanbul?",
+    a: "Yes. We provide stage truss, lighting truss and ground-support systems in Istanbul and across Turkey. Project planning can include transport, load and venue checks, installation, on-site technical support and dismantling.",
   },
 ];
 
@@ -217,15 +217,16 @@ function Hero() {
         </p>
 
         <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-          Truss Rental{" "}
+          Truss Rental in Turkey{" "}
           <span className="gradient-text gradient-text--safe-xl">
             and Installation
           </span>
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl 2xl:max-w-4xl">
-          We plan <strong>every type of truss</strong> system, including square, triangular, circle, and arch (gate),
-          according to your event; providing transportation, installation-dismantling, and on-site technical team support.
+          We plan <strong>event truss and rigging systems</strong> for stages, LED walls and lighting,
+          including square, triangular, circle, arch and ground-support configurations. Transport,
+          installation, on-site technical support and dismantling are coordinated by one team.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -281,26 +282,26 @@ function Content() {
       <div className="container mx-auto px-4 max-w-4xl">
         <header className="text-center mb-16">
           <h2 id="content-heading" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            What Is{" "}
+            Event{" "}
             <span className="gradient-text gradient-text--safe-xl">
-              Truss Rental?
+              Truss and Rigging Rental
             </span>
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            The right truss configuration for your event: a critical building block for safety, stability, and a professional look.
+            The right stage truss, lighting truss or ground-support configuration is a critical part of safe event infrastructure.
           </p>
         </header>
 
         <article className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700">
           <p>
-            Truss is an aluminum structural system composed of modular parts, fixed with connecting elements,
+            Truss is an aluminium structural system composed of modular parts, fixed with connecting elements,
             and used for load-bearing purposes. On stage, it ensures that lighting, sound, and LED screen
             equipment is safely carried and correctly positioned.
           </p>
 
           <p>
-            As Sahneva Organization, we provide truss rental and installation services suitable for all types
-            of configurations at concerts, festivals, trade fairs, launches, and corporate events, including{" "}
+            Sahneva provides truss rental and installation in Turkey for concerts, festivals, trade fairs,
+            launches and corporate events, including{" "}
             <strong>square truss, triangular truss, circle/oval truss, and arch (gate) truss</strong>.
           </p>
 

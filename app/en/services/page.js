@@ -12,14 +12,14 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
 export const metadata = {
-  title: "Our Services | Professional Event Equipment Rentals",
+  title: "Event Equipment Rental Services in Turkey",
   description:
-    "Professional stage rentals, LED walls, sound-light systems, podiums, tents and full event production across Türkiye.",
+    "Event equipment rental services in Turkey: stage, LED screen, sound, lighting, truss, tents, platforms and furniture with nationwide technical crews.",
   alternates: buildAlternatesForPath("/en/services"),
   openGraph: {
-    title: "Our Services | Sahneva - Professional Event Solutions",
+    title: "Event Equipment Rental Services in Turkey | Sahneva",
     description:
-      "Stage, LED wall, sound-light, podium, tent rentals and turnkey event production services across Türkiye.",
+      "Stage, LED screen, sound, lighting, truss, tent, platform and event furniture rental services across Turkey.",
     url: `${BASE_SITE_URL}/en/services`,
     images: [
       {
@@ -35,9 +35,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Services | Sahneva - Professional Event Solutions",
+    title: "Event Equipment Rental Services in Turkey | Sahneva",
     description:
-      "Stage, LED wall, sound-light, podium, tent rentals and turnkey event production services across Türkiye.",
+      "Stage, LED screen, sound, lighting, truss, tent, platform and event furniture rental services across Turkey.",
     images: [`${BASE_SITE_URL}/img/hizmetler-hero.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -53,7 +53,7 @@ function ServicesStructuredData() {
     "@type": "Service",
     name: "Sahneva Services",
     description:
-      "Professional stage rentals, LED walls, sound-light systems, podium, tent rentals and event production services",
+      "Event equipment rental services in Turkey covering stages, LED screens, sound, lighting, truss, tents, platforms and furniture",
       image: `${SITE_URL}/img/hizmetler-hero.webp`,
       provider: { "@id": ORGANIZATION_ID },
       areaServed: "TR",
@@ -272,18 +272,32 @@ export default function EnglishServicesPage() {
 
   const QUICK_ACCESS = [
     {
-      href: "#stage-services",
-      title: "Stage & Podiums",
-      description: "Truss roofs, modular stages and catwalk solutions",
+      href: "/en/stage-rental",
+      title: "Stage Rental",
+      description: "Concert, festival and corporate event stages",
       icon: "🎪",
       color: "from-blue-500 to-cyan-500",
     },
     {
-      href: "#led-services",
+      href: "/en/led-screen-rental",
       title: "LED Wall Rentals",
       description: "P2–P6 pixel pitch, indoor/outdoor solutions",
       icon: "🖥️",
       color: "from-green-500 to-emerald-500",
+    },
+    {
+      href: "/en/podium-rental",
+      title: "Stage Platforms & Risers",
+      description: "Modular decks for presentations, ceremonies and performances",
+      icon: "🎤",
+      color: "from-cyan-500 to-blue-600",
+    },
+    {
+      href: "/en/truss-rental",
+      title: "Truss & Rigging",
+      description: "Stage roofs, lighting truss and ground-support systems",
+      icon: "🏗️",
+      color: "from-slate-500 to-blue-700",
     },
     {
       href: "/en/event-production-company-turkey",
@@ -307,28 +321,28 @@ export default function EnglishServicesPage() {
       color: "from-amber-500 to-orange-500",
     },
     {
-      href: "#audio-services",
+      href: "/en/sound-light-rental",
       title: "Sound Systems",
       description: "Line-array audio, wireless mics, digital mixing",
       icon: "🎵",
       color: "from-orange-500 to-red-500",
     },
     {
-      href: "#lighting-services",
+      href: "/en/sound-light-rental",
       title: "Lighting Systems",
       description: "Moving-head fixtures, effects and DMX control",
       icon: "💡",
       color: "from-purple-500 to-pink-500",
     },
     {
-      href: "#tent-services",
+      href: "/en/tent-rental",
       title: "Event Tents",
       description: "Pagoda, clear-span and industrial tent systems",
       icon: "⛺",
       color: "from-teal-500 to-blue-500",
     },
     {
-      href: "#seating-services",
+      href: "/en/table-chair-rental",
       title: "Seating & Furniture",
       description: "Banquet, conference and cocktail furniture",
       icon: "🪑",
@@ -542,14 +556,14 @@ export default function EnglishServicesPage() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
-          <span className="block">PROFESSIONAL</span>{" "}
-          <span className="text-blue-200">Services</span>
+          <span className="block">Event Equipment Rental</span>{" "}
+          <span className="text-blue-200">Services in Turkey</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-          From stages and LED walls to full-scale production,
+          Stage, LED screen, sound, lighting, truss, tents and event furniture,
           <br />
-          <strong className="text-blue-300">premium solutions under one roof</strong>
+          <strong className="text-blue-300">planned, installed and operated by one local team</strong>
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
