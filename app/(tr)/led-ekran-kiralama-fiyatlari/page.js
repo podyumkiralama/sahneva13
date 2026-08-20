@@ -962,7 +962,7 @@ export default function Page() {
               <div>
                 <SectionHeader
                   eyebrow="Operasyon"
-                  title="Kurulum, söküm, NovaStar görüntü işlemcisi ve teknik reji"
+                  title="LED ekran kurulumu, sökümü, NovaStar görüntü işlemcisi ve teknik reji"
                   description="LED ekran projesinde fiyatı belirleyen en önemli farklardan biri operasyon kapsamıdır. Ekran sadece panel değildir; sinyal akışı, scaler/görüntü işlemcisi ayarı, içerik kontrolü, kablolama, test ve etkinlik anı teknik ekip desteği birlikte planlanır."
                 />
                 <p className="mt-6 text-lg leading-8 text-slate-300">

@@ -50,7 +50,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title: "Ses ve Işık Sistemleri Kiralama",
-  description: `Konser, festival ve kurumsal etkinliklere profesyonel ses-ışık kiralama: line array, dijital mikser, moving head, truss. ${PROVINCES_COUNT} ilde canlı operasyon desteği.`,
+  description: `Konser, festival ve kurumsal etkinlikler için ses sistemi kiralama, ışık sistemi kiralama ve line array çözümleri. ${PROVINCES_COUNT} ilde kurulum ve canlı operasyon.`,
   alternates: buildAlternatesForPath("/ses-isik-sistemleri"),
   openGraph: {
     title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
@@ -92,8 +92,8 @@ const HERO = {
 const SERVICES = [
   {
     icon: "🔊",
-    title: "Line Array & PA Sistemleri",
-    description: "Yüksek ses kalitesi ve homojen dağılım için profesyonel çözümler",
+    title: "Line Array Kiralama ve PA Sistemleri",
+    description: "Konser ses sistemi kiralama ve geniş alanlarda homojen kapsama için profesyonel çözümler",
     features: ["L/R cluster + sub dizilim", "Monitörleme (wedges/IEM)", "FOH miks & akustik ölçüm"],
   },
   {
@@ -110,7 +110,7 @@ const SERVICES = [
   },
   {
     icon: "💡",
-    title: "Işık Tasarımı & Sistemleri",
+    title: "Işık Sistemi Kiralama ve Tasarım",
     description: "Etkileyici görsel deneyim için hareketli ışık sistemleri",
     features: ["RGBW spot, wash, beam", "DMX programlama", "Haze/duman efektleri"],
   },
@@ -269,7 +269,7 @@ function Hero() {
             id="hero-title"
             className="text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl"
           >
-            Ses & Işık Sistemleri{" "}
+            Ses ve Işık Sistemleri{" "}
             <span className="gradient-text-clip-safe mt-2 block bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-300 bg-clip-text text-3xl font-black md:text-4xl lg:text-5xl">
               Kiralama ve Canlı Operasyon
             </span>
@@ -391,7 +391,7 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Profesyonel <span className="text-blue-700">Hizmetlerimiz</span>
+            Ses ve Işık Sistemleri <span className="text-blue-700">Kiralama Hizmetleri</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık sistemleri kiralama hizmetlerimiz: keşif, projelendirme, kurulum, canlı operasyon ve söküm
@@ -971,6 +971,14 @@ const FAQ_ITEMS = [
     { 
       q: "Güç ihtiyacı ve elektrik altyapısı nasıl sağlanıyor?", 
       a: "Nakliye, kurulum ve operasyon bizden. Güç altyapısı (jeneratör/tesisat) bilgilerini sizden alıyor, gerekli yönlendirme ve koordinasyonu ekibimiz sağlıyor. Profesyonel güç dağıtım üniteleri ve elektrik mühendisleri ile güvenli çözümler sunuyoruz." 
+    },
+    {
+      q: "Ses sistemi kiralama fiyatları nasıl belirlenir?",
+      a: "Ses sistemi kiralama fiyatları; alanın büyüklüğü, seyirci sayısı, line array veya top-sub seçimi, mikrofon ve monitör adedi, FOH altyapısı, nakliye, rigging, kurulum ve canlı operasyon kapsamına göre belirlenir. Etkinlik tarihi ile alan bilgilerini paylaştığınızda ihtiyaca uygun teknik liste ve teklif hazırlanır.",
+    },
+    {
+      q: "Konser ses sistemi kiralama hizmetine neler dahildir?",
+      a: "Konser ses sistemi kiralama kapsamında ihtiyaca göre line array veya top-sub PA sistemi, sahne monitörü ya da IEM, mikrofonlar, dijital mikser, stagebox, FOH ve monitör mühendisliği, soundcheck, kurulum, canlı operasyon ve söküm planlanır.",
     },
   ];
 

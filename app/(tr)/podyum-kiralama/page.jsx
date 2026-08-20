@@ -52,7 +52,7 @@ const PodiumDecisionGuide = dynamic(
 const SERVICES = [
   {
     icon: "🎭",
-    title: "Modüler Podyum Sistemleri",
+    title: "Modüler Podyum ve Taşınabilir Sahne Platformu Sistemleri",
     description:
       "1×1m ve 2×1m modüler paneller ile esnek ve güvenli sahne çözümleri",
     features: ["1×1m ve 2×1m paneller", "Kaymaz kaplama", "10-200cm yükseklik planı", "Hızlı kurulum"],
@@ -65,7 +65,7 @@ const SERVICES = [
   },
   {
     icon: "🎤",
-    title: "Konser & Performans Podyumları",
+    title: "Konser Podyumu ve Performans Platformları",
     description:
       "Profesyonel sahne performansları için dayanıklı podyum sistemleri",
     features: ["Yüksek dayanıklılık", "Ses izolasyonu", "Kablo kanalları", "Güvenlik ekipmanları"],
@@ -737,7 +737,7 @@ function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Kurumsal <span className="text-blue-700">Podyum Uygulamaları</span>
+            Modüler Podyum ve <span className="text-blue-700">Taşınabilir Sahne Platformu Uygulamaları</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Keşif, karolaj planı, nakliye, kurulum, saha kontrolü ve söküm aynı teknik kapsam içinde yürütülür.
@@ -790,7 +790,7 @@ function PriceSummarySection() {
       <div className="container mx-auto max-w-5xl px-4 text-center">
         <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Fiyat rehberi</p>
         <h2 id="podyum-fiyat-ozeti-title" className="text-3xl font-black text-gray-900 md:text-5xl">
-          Podyum kurulum maliyetini ayrı rehberde inceleyin
+          Podyum Kiralama Fiyatları ve Kurulum Maliyeti
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-gray-700">
           Bu ana hizmet sayfası podyum sistemini ve kurulum kapsamını anlatır. m² birim değerleri, örnek fiyatlar
@@ -1085,8 +1085,10 @@ function ProcessAndTipsSection() {
               Kısa süreli podyum kiralama mümkün mü?
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Evet, kısa süreli podyum kiralama mümkündür. Günlük, haftalık veya etkinlik bazlı kiralama yapılabilir.
-              Defile, konser ve kurumsal lansman gibi organizasyonlarda aynı gün kurulum/söküm planlaması uygunluk durumuna göre yapılır.
+              Evet, kısa süreli podyum kiralama mümkündür. Günlük, haftalık veya etkinlik bazlı kiralama yapılabilir.{" "}
+              <Link className="font-bold text-blue-700 underline underline-offset-4" href="/defile-podyum-kiralama">Defile</Link>,{" "}
+              <Link className="font-bold text-blue-700 underline underline-offset-4" href="/konser-icin-podyum-kiralama">konser</Link>{" "}
+              ve kurumsal lansman gibi organizasyonlarda aynı gün kurulum/söküm planlaması uygunluk durumuna göre yapılır.
             </p>
 
             <div className="mt-6 rounded-2xl bg-white p-5 border border-blue-200">
