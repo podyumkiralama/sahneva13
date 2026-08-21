@@ -1354,9 +1354,9 @@ const FAQ_ITEMS = [
       `A full scope covers stage and podium build, LED screen sizing and content path, speech-intelligible audio, presenter and room lighting, truss and rigging with load planning, power distribution, a rehearsed run of show, event-day operation and de-rig. Sahneva delivers these as one contract rather than separate hires, across ${PROJECTS_COMPLETED} projects since 2012 in all ${PROVINCES_COUNT} provinces of Turkey. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
   },
   {
-    question: "Does Sahneva take on the whole event, or only the technical production?",
+    question: "We already work with an event agency — can Sahneva still be involved?",
     answer:
-      "Both. Sahneva can take an event end to end as the main contractor — planning, equipment, installation, event-day operation and dismantling under one contract — so the client has a single responsible party instead of managing several suppliers. Sahneva also works as the technical production partner behind event agencies, PCOs and DMCs running projects in Turkey; in that setup the agency keeps client ownership and creative direction, while Sahneva covers equipment, local logistics, venue coordination, installation and event-day operation with English-speaking project contacts.",
+      "Yes. On corporate programmes we are most often the technical production partner behind an agency that keeps client ownership and creative direction, and we can equally take the event end to end as main contractor where there is no agency. For a corporate buyer the practical difference is who holds the contract and the creative call; the technical scope and the on-site team are the same either way. How each model works is set out on our event production company in Turkey page.",
   },
   {
     question: "What do corporate event companies do?",

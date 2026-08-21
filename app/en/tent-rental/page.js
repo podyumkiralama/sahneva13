@@ -1,5 +1,6 @@
 ﻿// app/en/tent-rental/page.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -1132,6 +1133,16 @@ export default function Page() {
         servicePath="/en/tent-rental"
         title="Terms that come up on tent projects"
         description="Anchoring, wind load, flooring and drainage decide how safe a tent build is; the definitions are in the glossary."
+      />
+      <ServiceBlogLinks
+        locale="en"
+        links={[
+          { href: "/en/blog/best-tent-rental-options-for-events-2026", label: "Best Tent Rental Options for Events in 2026" },
+          { href: "/en/blog/dome-tent-revolution-pneumatic-360-mapping", label: "Dome Tent and 360° Mapping for Corporate Events" },
+        ]}
+        relatedServices={[
+          { href: "/en/event-production-istanbul", label: "Event Production Istanbul", intent: "Outdoor builds with venue access and ground planning" },
+        ]}
       />
       <CTA />
     </>

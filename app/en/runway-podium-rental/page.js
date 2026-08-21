@@ -43,7 +43,7 @@ const CONTENT_IMAGES = [
   },
   {
     src: "/img/podyum/podyum-isik-entegrasyonu.webp",
-    alt: "Podium lighting integration – LED-supported runway stage",
+    alt: "Catwalk lighting integration – LED-supported runway stage",
     width: 1194,
     height: 1913,
   },
@@ -67,7 +67,7 @@ const SERVICES = [
   },
   {
     icon: "🏗️",
-    title: "Elevated Podium Platforms",
+    title: "Elevated Catwalk Platforms",
     description:
       "Safe and aesthetic elevated presentation platforms that maximize the audience&apos;s viewing angle.",
     features: ["Adjustable height", "Step transitions", "Non-slip surface", "Safety details"],
@@ -110,7 +110,7 @@ const FAQ_ITEMS = [
     a: "We offer straight (linear), U-shape, and T-shape runway designs. We plan the most suitable type together based on the collection&apos;s flow, model walking rhythm, and audience seating arrangement.",
   },
   {
-    q: "What podium surface covering options are there?",
+    q: "What catwalk surface covering options are there?",
     a: "Glossy, matte, and carpet-covered options are available. For haute couture presentations, satin or special fabric coverings can also be applied on request.",
   },
   {
@@ -141,7 +141,7 @@ export const metadata = {
     "Runway & fashion podium rental: T/U-shape, straight runway, LED backdrop, projection mapping + full technical support. Istanbul professional event stages.",
   alternates: buildAlternatesForPath("/en/runway-podium-rental"),
   openGraph: {
-    title: "Runway & Podium Rental | Sahneva",
+    title: "Runway & Catwalk Rental | Sahneva",
     description:
       "T-shape runway, LED integration, and full technical support for fashion shows and podium events.",
     url: `${ORIGIN}/en/runway-podium-rental`,
@@ -159,7 +159,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Runway & Podium Rental | Professional Fashion Stage Solutions | Sahneva",
+    title: "Runway & Catwalk Rental | Fashion Show Staging | Sahneva",
     description:
       "T-shape, U-shape, and straight runway designs, LED integration, and professional installation for fashion shows.",
     images: [`${ORIGIN}${HERO_IMAGE}`],
@@ -175,14 +175,14 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "Service",
-        name: "Runway & Podium Rental",
+        name: "Runway & Catwalk Rental",
         description: metadata.description,
           provider: { "@id": ORGANIZATION_ID },
           areaServed: { "@type": "AdministrativeArea", name: "Istanbul" },
-          serviceType: "Runway Podium Rental",
+          serviceType: "Runway and catwalk rental",
           hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Runway Podium Rental Services",
+          name: "Runway & Catwalk Rental Services",
           itemListElement: SERVICES.map((s) => ({
             "@type": "Offer",
             itemOffered: {
@@ -785,7 +785,7 @@ export default function Page() {
   const breadcrumbItems = [
     { name: "Home", url: `${baseUrl}/en` },
     { name: "Services", url: `${baseUrl}/en/services` },
-    { name: "Runway & Podium Rental", url: canonical },
+    { name: "Runway & Catwalk Rental", url: canonical },
   ];
 
   return (

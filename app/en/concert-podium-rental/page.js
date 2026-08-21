@@ -103,7 +103,7 @@ const SERVICES = [
 
 const FAQ_ITEMS = [
   {
-    q: "How are concert podium rental prices determined?",
+    q: "How are concert stage deck rental prices determined?",
     a: "Concert stage pricing is determined based on stage area (m²), height, LED/truss integration, extra platforms (FOH, drums, side stage), and installation time. Special transportation fees apply for projects outside Istanbul.",
   },
   {
@@ -123,13 +123,13 @@ const FAQ_ITEMS = [
 const RELATED_SERVICES = [
   {
     href: "/en/podium-rental",
-    title: "Podium Rental",
+    title: "Stage Platform Rental",
     icon: "🎭",
     desc: "Modular podium solutions for all event types",
   },
   {
     href: "/en/runway-podium-rental",
-    title: "Runway Podium Rental",
+    title: "Runway & Catwalk Rental",
     icon: "👗",
     desc: "Fashion show and brand launch podiums",
   },
@@ -172,7 +172,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Concert Podium Rental | Festival Stage Solutions | Sahneva",
+    title: "Concert Stage Deck Rental | Festival Staging | Sahneva",
     description:
       "Professional stage installation for concerts and festival events.",
     images: [`${ORIGIN}/img/podyum/konser-hero.webp`],
@@ -189,7 +189,7 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "Service",
-        name: "Concert Podium Rental",
+        name: "Concert Stage Deck Rental",
         description: metadata.description,
           provider: { "@id": ORGANIZATION_ID },
           areaServed: { "@type": "AdministrativeArea", name: "Turkey" },
@@ -646,7 +646,7 @@ export default function ConcertPodiumRentalPage() {
   const breadcrumbItems = [
     { name: "Home", url: `${baseUrl}/en` },
     { name: "Services", url: `${baseUrl}/en/services` },
-    { name: "Concert Podium Rental", url: canonical },
+    { name: "Concert Stage Deck Rental", url: canonical },
   ];
 
   return (

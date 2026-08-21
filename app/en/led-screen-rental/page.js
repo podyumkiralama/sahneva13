@@ -1,6 +1,7 @@
 ﻿// app/en/led-screen-rental/page.js
 
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -1168,6 +1169,17 @@ export default function Page() {
         servicePath="/en/led-screen-rental"
         title="Terms used in an LED screen quote"
         description="Pixel pitch, nits, cabinets and the video processor drive both the price and the image quality; the definitions are in the glossary."
+      />
+      <ServiceBlogLinks
+        locale="en"
+        links={[
+          { href: "/en/blog/led-screen-technology-trends-2026", label: "2026 LED Screen Technology Trends" },
+          { href: "/en/blog/event-technical-scouting-and-planning-guide", label: "Event Technical Scouting and Planning Guide" },
+        ]}
+        relatedServices={[
+          { href: "/en/av-rental-istanbul", label: "AV Rental Istanbul", intent: "LED bundled with audio, lighting and crew for Istanbul events" },
+          { href: "/en/conference-av-rental-istanbul", label: "Conference AV Rental Istanbul", intent: "Plenary and exhibition-stand screens inside congress venues" },
+        ]}
       />
       <CTA />
     </>

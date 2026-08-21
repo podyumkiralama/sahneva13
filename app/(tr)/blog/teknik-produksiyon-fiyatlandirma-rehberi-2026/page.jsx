@@ -1,5 +1,15 @@
 // app/(tr)/blog/teknik-produksiyon-fiyatlandirma-rehberi-2026/page.jsx
-import Image from "next/image";
+//
+// 21 Agustos 2026 — yazi alici tarafina cevrildi.
+// Onceki hali tedarikci mantigina gore kurulmustu: "Ek Hizmetler Asil Kardir",
+// "Algi ve Psikolojik Fiyatlandirma", "yogun donemlerde fiyati artirmak toplam
+// geliri optimize eder". Musteriye donuk bir sitede bu hem teklife guveni
+// dusuruyor hem de rakibe fiyatlama stratejisi ogretiyordu.
+// Karlilik / upsell / gelir optimizasyonu bolumleri tamamen kaldirildi ve
+// yazi EN esiyle ayni alti alici odakli bolume indirildi.
+//
+// KORUNANLAR: URL, canonical, datePublished, karsilikli hreflang (tr <-> en).
+
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
@@ -15,86 +25,63 @@ const BLOG_URL = `${SITE_URL}${SLUG}`;
 const PUBLISH_DATE = "2026-04-07T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile(
   "app/(tr)/blog/teknik-produksiyon-fiyatlandirma-rehberi-2026/page.jsx",
-  "2026-04-07T00:00:00+03:00"
+  "2026-08-21T00:00:00+03:00"
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const HERO_IMAGE = "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp";
 const OG_IMAGE = HERO_IMAGE;
 const WA_URL =
   "https://wa.me/905453048671?text=" +
-  encodeURIComponent("Merhaba, teknik prodüksiyon için stratejik teklif almak istiyorum.");
+  encodeURIComponent("Merhaba, etkinliğimiz için kalem kalem teknik prodüksiyon teklifi almak istiyorum.");
 
 const TOC_ITEMS = [
-  { href: "#s1", label: "Neden stratejik fiyatlandırma?" },
-  { href: "#s2", label: "Deneyim ve değer satışı" },
-  { href: "#s3", label: "Talep bazlı fiyatlandırma" },
-  { href: "#s4", label: "Fiyatlandırma modelleri" },
-  { href: "#s5", label: "Boyut ve kapsam yanılgısı" },
-  { href: "#s6", label: "Ek hizmetler asıl kârdır" },
-  { href: "#s7", label: "Lokasyon, mevsim, pazar" },
-  { href: "#s8", label: "Algı ve psikolojik fiyat" },
-  { href: "#s9", label: "Türkiye'ye özel yaklaşım" },
-  { href: "#s10", label: "Düşük talep dönemleri" },
-  { href: "#s11", label: "Sonuç" },
+  { href: "#s1", label: "Maliyeti belirleyen unsurlar" },
+  { href: "#s2", label: "Teklifte ayrı fiyatlanan kalemler" },
+  { href: "#s3", label: "Sezon, şehir, mekân ve lojistik" },
+  { href: "#s4", label: "Teklifleri aynı kapsamda karşılaştırma" },
+  { href: "#s5", label: "Eksik veya riskli teklif işaretleri" },
+  { href: "#s6", label: "Gönderilecek brief" },
+  { href: "#sss", label: "Sık sorulan sorular" },
 ];
 
 const CORNERSTONE_LINKS = [
   { href: "/sahne-kiralama", label: "Sahne Kiralama" },
   { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
   { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
-  { href: "/cadir-kiralama", label: "Çadır Kiralama" },
+  { href: "/podyum-kurulum-fiyatlari", label: "Podyum Kurulum Fiyatları" },
 ];
 
-/* ================== META DATA ================== */
-export const metadata = {
-  title: "Teknik Prodüksiyon Fiyatlandırma Rehberi 2026",
-  description:
-    "Sahne, ses, ışık, LED ekran ve çadır kiralamada paket modeli, talep bazlı fiyatlandırma ve ek hizmet stratejileri.",
-  alternates: buildLanguageAlternates({
-    canonical: SLUG,
-    tr: SLUG,
-    en: "/en/blog/technical-production-pricing-guide-2026",
-  }),
-  image: HERO_IMAGE,
-  openGraph: {
-    title: "Teknik Prodüksiyon ve Sahne Kiralama Fiyatlandırma Rehberi (2026) | Sahneva",
-    description:
-      "Sahne, ses, ışık, LED ekran ve çadır kiralama fiyatlandırma stratejileri. Paket modeli, talep bazlı fiyatlandırma ve ek hizmet kârlılığı rehberi.",
-    url: BLOG_URL,
-    siteName: "Sahneva",
-    type: "article",
-    locale: "tr_TR",
-    images: [
-      {
-        url: `${SITE_URL}${OG_IMAGE}`,
-        width: 1200,
-        height: 630,
-        alt: "Teknik Prodüksiyon Fiyatlandırma Rehberi 2026",
-      },
-    ],
+const PAGE_TITLE = "Teknik Prodüksiyon Maliyetleri 2026";
+const PAGE_DESCRIPTION =
+  "Teknik prodüksiyon maliyetini ne belirler, teklifte hangi kalemler ayrı fiyatlanır ve iki teklif aynı kapsam üzerinden nasıl karşılaştırılır.";
+
+/* ================== SSS ================== */
+const SSS = [
+  {
+    q: "Teknik prodüksiyon maliyetini ne belirler?",
+    a: "Altı girdi her şeyden fazla etkiler: kurulumun fiziksel ölçeği (sahne alanı, ekran metrekaresi, rig ağırlığı), ekipman sınıfı, ekip sayısı ve kaç vardiya çalıştığı, kurulum-söküm süresi, nakliye mesafesi ve mekânın kendi kısıtları. Ekipman kalemi çoğu projede en büyük kalem değildir; ekip, süre ve erişim genellikle onu geçer.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Teknik Prodüksiyon Fiyatlandırma Rehberi (2026)",
-    description:
-      "Sahne, ses, ışık, LED ekran ve çadır kiralama fiyatlandırma stratejileri. Paket modeli, talep bazlı fiyatlandırma ve ek hizmet kârlılığı rehberi.",
-    images: [`${SITE_URL}${OG_IMAGE}`],
+  {
+    q: "Bir teklifte hangi kalemler ayrı görünmeli?",
+    a: "Disiplin bazında ekipman, rol ve vardiya bazında ekip, nakliye, kurulum ve söküm, halı-skört gibi sarf kalemleri, enerji dağıtımı, rigging ve yük hesabı, canlı yayın penceresi için operatörler, yedeklilik ve stand-by. Kalemlerin ayrı yazılması teklifin şişirildiği anlamına gelmez; hiçbir şeyin sessizce kapsam dışı bırakılmadığını doğrulamanın yoludur.",
   },
-  keywords: [
-    "sahne kiralama fiyatlandırma",
-    "prodüksiyon fiyatları 2026",
-    "etkinlik ekipman kiralama",
-    "ses ışık fiyat",
-    "LED ekran kiralama fiyat",
-    "teknik prodüksiyon fiyatlandırma",
-    "sahne kiralama fiyatları",
-    "çadır kiralama fiyat",
-  ],
-  authors: [{ name: AUTHOR_NAME }],
-  publisher: "Sahneva",
-  date: PUBLISH_DATE,
-  category: "Fiyatlandırma",
-};
+  {
+    q: "Aynı etkinlik için gelen iki teklif neden çok farklı olabiliyor?",
+    a: "Neredeyse her zaman farklı kapsamları fiyatladıkları için. Biri kurulum-sökümü ekipman kalemine dahil ederken diğeri ayrı yazıyor olabilir; biri enerjiyi mekânın sağladığını varsaymış olabilir; biri daha geniş bir pixel pitch veya daha az ekip hesaplamış olabilir. Kapsamı önce eşitleyin — aynı metrekare, aynı teknik özellik, aynı gün sayısı, aynı ekip — aradaki fark genellikle belirgin şekilde daralır.",
+  },
+  {
+    q: "Sezon ve şehir fiyatı değiştirir mi?",
+    a: "Evet. Prodüksiyon zaman bazlıdır: aynı ekipman aynı gün iki etkinlikte olamaz, bu yüzden yoğun tarihlerde esneklik azalır. Depoya olan mesafe nakliyeyi, belirli bir menzilin ötesinde ise ekip konaklamasını devreye sokar. Mekân erişimi — asansör ölçüsü, yükleme saatleri, yalnızca gece verilen kurulum penceresi — ekipman listesi hiç değişmeden bir vardiya ekleyebilir.",
+  },
+  {
+    q: "Riskli bir teklifin işaretleri nelerdir?",
+    a: "Kalem dökümü olmayan tek bir toplam, ekip sayısının yazılmaması, kurulum ve söküm sürelerinin belirtilmemesi, nakliyenin “netleşecek” olarak bırakılması, pixel pitch yazılmadan verilen LED kalemi, yük hesabı olmayan rigging ve bir arıza hâlinde stand-by’ın kimde olduğunun hiç geçmemesi. Bunların her biri ortadan kalkmış bir maliyet değil, henüz yazılmamış bir maliyettir.",
+  },
+  {
+    q: "Doğru fiyat için hangi bilgileri göndermeliyim?",
+    a: "Mekân ve salon adı, etkinlik tarihi ile kurulum-söküm erişim pencereleri, beklenen katılımcı sayısı ve oturum düzeni, etkinlik formatı, ekranda ne görüneceği ve oturumun canlı yayınlanıp yayınlanmayacağı. Bu altı bilgiyle teklif tahmini olmaktan çıkıp kalem kalem hazırlanabilir hâle gelir.",
+  },
+];
 
 /* ================== SCHEMA (JSON-LD) ================== */
 function ArticleSchema() {
@@ -109,8 +96,8 @@ function ArticleSchema() {
       {
         "@type": "BlogPosting",
         "@id": `${BLOG_URL}#blogposting`,
-        headline: "Teknik Prodüksiyon ve Sahne Kiralama Fiyatlandırma Rehberi (2026)",
-        description: metadata?.description,
+        headline: "Teknik Prodüksiyon Maliyetleri: 2026 Alıcı Rehberi",
+        description: PAGE_DESCRIPTION,
         image: `${site}${HERO_IMAGE}`,
         datePublished: PUBLISH_DATE,
         dateModified: modified,
@@ -119,6 +106,25 @@ function ArticleSchema() {
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
+        audience: {
+          "@type": "BusinessAudience",
+          name: "Etkinlik organizatörleri, kurumsal satın alma ekipleri, ajanslar ve PCO'lar",
+        },
+        about: [
+          { "@type": "Thing", name: "Teknik prodüksiyon maliyetleri" },
+          { "@type": "Thing", name: "Etkinlik teknik bütçesi" },
+          { "@type": "Thing", name: "Teknik prodüksiyon tekliflerini karşılaştırma" },
+          { "@type": "Thing", name: "Teklif kalemleri ve kapsam" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${BLOG_URL}#faq`,
+        mainEntity: SSS.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
       },
     ],
   };
@@ -126,31 +132,56 @@ function ArticleSchema() {
   return <JsonLd data={schema} suppressHydrationWarning />;
 }
 
-/* ================== YEREL BİLEŞENLER (prose içi, not-prose) ================== */
-function Figure({ src, alt, caption, priority = false, loading = "lazy" }) {
-  return (
-    <figure className="my-10 not-prose">
-      <Image
-        src={src}
-        alt={alt}
-        width={1200}
-        height={675}
-        sizes="(max-width: 768px) 100vw, 800px"
-        className="w-full h-auto rounded-2xl shadow-lg"
-        priority={priority}
-        loading={loading}
-        fetchPriority={priority ? "high" : "auto"}
-      />
-      {caption ? (
-        <figcaption className="mt-3 text-sm text-gray-600 text-center font-medium">
-          {caption}
-        </figcaption>
-      ) : null}
-    </figure>
-  );
-}
+/* ================== META DATA ================== */
+export const metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: buildLanguageAlternates({
+    canonical: SLUG,
+    tr: SLUG,
+    en: "/en/blog/technical-production-pricing-guide-2026",
+  }),
+  image: HERO_IMAGE,
+  openGraph: {
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
+    url: BLOG_URL,
+    siteName: "Sahneva",
+    type: "article",
+    locale: "tr_TR",
+    images: [
+      {
+        url: `${SITE_URL}${OG_IMAGE}`,
+        width: 1200,
+        height: 630,
+        alt: "Teknik prodüksiyon maliyet kalemleri — sahne, LED ekran ve ses-ışık",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
+    images: [`${SITE_URL}${OG_IMAGE}`],
+  },
+  keywords: [
+    "teknik prodüksiyon maliyetleri",
+    "etkinlik teknik bütçesi",
+    "teknik prodüksiyon teklifi karşılaştırma",
+    "sahne kiralama maliyeti",
+    "LED ekran kiralama maliyeti",
+    "ses ışık bütçesi",
+    "etkinlik teklif kalemleri",
+    "kalem kalem teklif",
+  ],
+  authors: [{ name: AUTHOR_NAME }],
+  publisher: "Sahneva",
+  date: PUBLISH_DATE,
+  category: "Fiyatlandırma",
+};
 
-function ProTip({ title = "Profesyonel İpucu", children }) {
+/* ================== YEREL BİLEŞENLER (prose içi, not-prose) ================== */
+function ProTip({ title = "Kontrol edin", children }) {
   return (
     // Kenar notu: belge başlık hiyerarşisine girmemeli (h2 → h4 atlaması yaratıyordu).
     <aside
@@ -209,12 +240,27 @@ function DataTable({ caption, columns, rows }) {
   );
 }
 
+function RiskList({ items }) {
+  return (
+    <ul className="not-prose my-8 space-y-3">
+      {items.map(([baslik, metin]) => (
+        <li key={baslik} className="flex gap-3 text-base leading-relaxed text-gray-700">
+          <span className="mt-[10px] h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" aria-hidden="true" />
+          <span>
+            <strong className="font-bold text-gray-900">{baslik}.</strong> {metin}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /* ================== ANA SAYFA ================== */
 export default function TeknikProduksiyonFiyatlandirmaPage() {
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${SITE_URL}/` },
     { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: "Teknik Prodüksiyon Fiyatlandırma Rehberi 2026", url: BLOG_URL },
+    { name: "Teknik Prodüksiyon Maliyetleri 2026", url: BLOG_URL },
   ];
 
   return (
@@ -229,12 +275,12 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
           src: HERO_IMAGE,
           alt: "Profesyonel sahne, LED ekran ve ses-ışık sistemi ile kurumsal etkinlik prodüksiyonu",
         }}
-        pills={["Sahneva Blog", "Fiyatlandırma", "Teknik Prodüksiyon"]}
-        title="Teknik Prodüksiyon ve Sahne Kiralama Fiyatlandırma Rehberi (2026)"
-        description={metadata.description}
+        pills={["Sahneva Blog", "Bütçeleme", "Teklif Okuma"]}
+        title="Teknik Prodüksiyon Maliyetleri: 2026 Alıcı Rehberi"
+        description={PAGE_DESCRIPTION}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
-        readTime="9 dk okuma"
+        readTime="8 dk okuma"
         tocItems={TOC_ITEMS}
         cornerstoneLinks={CORNERSTONE_LINKS}
         currentSlug={SLUG.split("/").pop()}
@@ -243,284 +289,328 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
         primaryLinks={[
           { href: "/sahne-kiralama", label: "Sahne Kiralama", icon: "🎭" },
           { href: "/led-ekran-kiralama", label: "LED Ekran", icon: "🟦" },
-          { href: "/ses-isik-sistemleri", label: "Ses & Işık", icon: "🔊" },
+          { href: "/podyum-kurulum-fiyatlari", label: "Fiyat Listesi", icon: "📋" },
         ]}
         whatsappUrl={WA_URL}
       >
         <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
-            Etkinlik prodüksiyonu fiyatlandırması, birçok firmanın sandığından çok daha stratejik bir
-            konudur. Doğru fiyatlandırma; maliyetleri karşılamanın ötesinde firmanızın pazardaki konumunu
-            güçlendirir ve daha az iş ile daha yüksek kârlılık sağlar.
+            Bir etkinliği ilk kez bütçeleyen çoğu kişi, ekipman listesinin fiyat olduğunu varsayar.
+            Nadiren öyledir. Ekip, kurulum süresi ve kamyonun yükleme rampasına ne kadar zor
+            ulaştığı; teknik prodüksiyon bütçesini hoparlör ya da LED panel seçiminden daha fazla
+            hareket ettirir.
           </p>
         </div>
 
         <p>
-          Bu rehber; paket modelleri, talep bazlı strateji ve Türkiye pazarına özel yaklaşımları kapsar.
-          Amaç, kendinizi bir ekipman tedarikçisi değil, etkinliklerin teknik prodüksiyon partneri olarak
-          konumlandırmanıza yardımcı olmaktır.
+          Bu rehber üç soruya cevap veriyor: rakamı gerçekte ne belirliyor, teklifte hangi kalemleri
+          ayrı görmeyi beklemelisiniz ve birbirine hiç benzemeyen iki teklifi nasıl karşılaştırırsınız.
         </p>
 
         {/* s1 */}
-        <h2 id="s1">1. Neden Stratejik Fiyatlandırma?</h2>
+        <h2 id="s1">1. Teknik prodüksiyon maliyetini belirleyen unsurlar</h2>
         <p>
-          Etkinlik prodüksiyonu fiyatlandırması, birçok firmanın sandığından çok daha stratejik bir konudur.
-          Çoğu işletme hâlâ fiyatlarını sadece “sahne metrekaresi” veya “ekipman adedi” üzerinden belirliyor.
-          Ancak bu yaklaşım, özellikle kurumsal organizasyon, düğün ve konser gibi rekabetin yüksek olduğu
-          alanlarda ciddi gelir kaybına yol açıyor.
+          Bir teknik prodüksiyon bütçesi altı girdiden kurulur. Birini değiştirdiğinizde toplam
+          hareket eder; mekânı değiştirdiğinizde aynı anda birkaçı birden hareket eder. Hangi kolu
+          çektiğinizi bilmek, bütçe konuşmasını pazarlıktan çıkarıp kapsam kararına dönüştürür.
         </p>
+
+        <DataTable
+          caption="Teknik prodüksiyon bütçesini hareket ettiren altı girdi"
+          columns={["Girdi", "Neyi kapsar", "Toplamı neden hareket ettirir"]}
+          rows={[
+            [
+              "Fiziksel ölçek",
+              "Sahne alanı (m²), ekran ölçüsü, rig ağırlığı, çadır açıklığı",
+              "Malzeme miktarını belirler ama araç sayısı ve ekip saatini de büyütür; ölçek tek başına artmaz",
+            ],
+            [
+              "Ekipman sınıfı",
+              "Pixel pitch, hoparlör tipi, armatür kalitesi, platform yük sınıfı",
+              "Daha dar pixel pitch veya line array hem m² başına daha pahalıdır hem de arkasında daha fazla işleme gerektirir",
+            ],
+            [
+              "Ekip ve vardiya",
+              "Rigger, ses, ışık, görüntü, sahne elemanı, operatör",
+              "Orta ölçekli kurulumlarda genellikle en büyük tek kalem; kişi sayısından çok vardiya sayısı belirleyicidir",
+            ],
+            [
+              "Kurulum ve söküm süresi",
+              "Kapı açılmadan önce ve son misafirden sonra sahada geçen saat",
+              "İki günlük kurulum, bir günlüğün iki katı değildir; konaklama, stand-by ve mekân kirası da ekler",
+            ],
+            [
+              "Nakliye",
+              "Araç sayısı, mesafe, yükleme ekipmanı",
+              "Depoya olan mesafe; belirli bir menzilin ötesinde ekip yolculuğu ve konaklaması devreye girer",
+            ],
+            [
+              "Mekân kısıtları",
+              "Asansör ölçüsü, yükleme saatleri, tavan yüksekliği, enerji, rigging noktaları",
+              "Ekipman listesinde tek bir kalem değişmeden bütün bir vardiya ekleyebilir",
+            ],
+          ]}
+        />
+
         <p>
-          Çünkü bu sektörde satılan şey sadece bir <Link href="/sahne-kiralama">sahne</Link>,{" "}
-          <Link href="/ses-isik-sistemleri">ses sistemi</Link> veya{" "}
-          <Link href="/led-ekran-kiralama">LED ekran</Link> değildir. Satılan; etkinliğin görsel ve işitsel
-          kalitesi, profesyonel kurulum, zamanında teslim ve sorunsuz deneyimdir. Doğru fiyatlandırma,
-          maliyetleri karşılamanın ötesinde firmanızın pazardaki konumunu güçlendirir ve daha az iş ile daha
-          yüksek kârlılık sağlar.
+          Beklenmedik olanı sonuncusudur. İki farklı salondaki birebir aynı teknik şartname, yalnızca
+          birinin yük asansörü tam boy platform alırken diğerinin almaması yüzünden ciddi biçimde
+          farklı fiyatlanabilir. Doğru teklif bu yüzden genellikle keşiften sonra çıkar, keşiften önce
+          değil: bütçenin neyin karşılanabilir olduğuna karar vermesinden önce salon neyin mümkün
+          olduğuna karar verir.
         </p>
-        <p>
-          LED kaleminde ekran metrekaresi, pixel pitch, kurulum-söküm, NovaStar processor ve reji kapsamını
-          birlikte görmek için{" "}
-          <Link href="/led-ekran-kiralama-fiyatlari">LED ekran kiralama fiyatları</Link> sayfasındaki
-          başlangıç fiyat mantığını ayrıca inceleyebilirsiniz.
-        </p>
-        <p>
-          Kurulum öncesindeki saha ölçümü, enerji, yükleme ve prova takvimi için{" "}
-          <Link href="/blog/etkinlik-teknik-kesif-ve-planlama-rehberi">etkinlik teknik keşif rehberi</Link>{" "}
-          fiyatın hangi kalemlerden oluştuğunu daha net okumanıza yardımcı olur.
-        </p>
-        <p>
-          Yanlış fiyatlandırma düşük doluluk yaratmaz; düşük algı yaratır. Müşteri “ucuz” görünen teklifte
-          kalite şüphesi duyar. Doğru fiyatlandırma ise premium algı ile daha yüksek kabul oranı getirir.
-        </p>
+
+        <ProTip title="Para genelde nerede">
+          Kurumsal kurulumların çoğunda ekipman kirası en büyük kalem değildir. Ekip, kurulum saatleri
+          ve lojistik birlikte onu geçer. Bir teklifte maliyetin neredeyse tamamı ekipman olarak
+          görünüyorsa, ekip ve kurulum süresinin nereye gittiğini sorun — ortadan kalkmış olamazlar.
+        </ProTip>
 
         {/* s2 */}
-        <h2 id="s2">2. Deneyim ve Değer Satışı: Ekipman Değil Prodüksiyon Satılır</h2>
+        <h2 id="s2">2. Teklifte ayrı fiyatlanabilen kalemler</h2>
         <p>
-          Kurumsal bir lansman, düğün veya konser düzenleyen müşteri teknik ekipman kiralarken aslında şunu
-          satın alır: etkinliğin unutulmaz olması, sesin netliği, ışığın etkisi, LED ekranın görselliği ve
-          sahnenin sağlamlığı.
+          Kalem kalem yazılmış bir teklif daha uzun bir fatura değil, okunabilir bir faturadır.
+          Aşağıdakilerin her biri gerçekten ayrı bir maliyettir ve listelenmiş olmaları hiçbir şeyin
+          varsayımla atlanmadığını kontrol etmenizi sağlar. Bir kalem eksikse, çoğunlukla ücretsiz
+          verildiği için değil kapsam dışı bırakıldığı için eksiktir.
         </p>
-        <p>
-          Boş bir <Link href="/podyum-kiralama">podyum</Link> ile profesyonel truss sistemi, kaliteli moving
-          head ışıklar, yüksek çözünürlüklü <Link href="/led-ekran-kiralama">LED ekran</Link> ve akustik
-          olarak optimize edilmiş <Link href="/ses-isik-sistemleri">ses sistemi</Link> arasındaki fark,
-          metrekareden değil, algılanan değerden gelir.
-        </p>
-        <p>
-          Fiyat belirlerken sorulması gereken temel soru şudur: “Bu prodüksiyon müşteriye nasıl bir sahne
-          deneyimi ve teknik güven sunuyor?” Güçlü bir teknik altyapı ve profesyonel kurulum varsa, piyasa
-          ortalamasının üzerinde fiyatlandırma yapmak mümkündür. Zayıf algı ise fiyatı düşürmekten başka çare
-          bırakmaz.
-        </p>
-        <Figure
-          src="/img/blog/kurumsal-etkinlik-sahne-genel.webp"
-          alt="Profesyonel prodüksiyon kurulumu — sahne, ışık ve ses sistemleri bir arada"
-          caption="Profesyonel truss, moving head ışıklar ve LED ekran ile donatılmış bir sahne kurulumu — değer algısını artıran en güçlü unsur."
+
+        <DataTable
+          caption="Teklifte görmeyi beklemeniz gereken kalemler ve her birinin kapsamı"
+          columns={["Kalem", "Neyi kapsamalı", "Yoksa ne sorulmalı"]}
+          rows={[
+            [
+              "Disiplin bazında ekipman",
+              "Sahne, LED, ses, ışık, truss ayrı ayrı ve teknik özelliğiyle",
+              "Hangi şartname varsayıldı — pitch, hoparlör tipi, platform yük sınıfı?",
+            ],
+            [
+              "Rol ve vardiya bazında ekip",
+              "Kaç kişi, hangi rollerde, kaç vardiya",
+              "Kurulumu kim yapıyor, etkinlik sırasında kim işletiyor?",
+            ],
+            [
+              "Nakliye",
+              "Araç, mesafe, forklift veya vinç gibi yükleme ekipmanı",
+              "Teslimat dahil mi, nereden?",
+            ],
+            [
+              "Kurulum ve söküm",
+              "Muğlak bir pay değil, saat olarak planlanmış kurulum ve söküm",
+              "Ekip ne zaman geliyor, mekân ne zaman teslim ediliyor?",
+            ],
+            [
+              "Yüzey ve bitiş",
+              "Halı, skört, kenar koruma, rampa ve merdiven",
+              "Platform bitmiş hâlde mi yoksa ham mı teslim ediliyor?",
+            ],
+            [
+              "Enerji ve dağıtım",
+              "Dağıtım panosu, kablolama, kablo kanalı, gerekiyorsa jeneratör",
+              "Mekân enerjisinin yeterli olduğu varsayıldı mı, bunu kim doğruladı?",
+            ],
+            [
+              "Rigging ve yük hesabı",
+              "Nokta yükleri, hesap raporu, tavan rigging yoksa yerden taşıyıcı sistem",
+              "Mekân için yük hesabını kim imzalıyor?",
+            ],
+            [
+              "Canlı pencere operatörleri",
+              "Şov sırasında ses, ışık ve sunum operatörleri",
+              "Kapılar açıldıktan sonra masada biri var mı?",
+            ],
+            [
+              "Yedeklilik ve stand-by",
+              "Yedek kanal, yedek playback yolu, çağrılabilir ekip",
+              "Kritik hat oturum sırasında arızalanırsa ne oluyor?",
+            ],
+          ]}
         />
+
+        <p>
+          LED kaleminde ekran metrekaresi, pixel pitch, kurulum-söküm, NovaStar processor ve reji
+          kapsamını birlikte görmek için{" "}
+          <Link href="/led-ekran-kiralama-fiyatlari">LED ekran kiralama fiyatları</Link> sayfasındaki
+          başlangıç fiyat mantığını ayrıca inceleyebilirsiniz. Tek bir disiplinde alan, kaplama ve
+          nakliyenin nasıl birleştiğini görmek içinse{" "}
+          <Link href="/podyum-kurulum-fiyatlari">podyum kurulum fiyatları</Link> sayfasında m² bazlı
+          rakamlar ve işlenmiş bir örnek yayımlanıyor.
+        </p>
 
         {/* s3 */}
-        <h2 id="s3">3. Talep Bazlı Fiyatlandırma</h2>
+        <h2 id="s3">3. Sezon, şehir, mekân ve lojistik etkisi</h2>
         <p>
-          Prodüksiyon sektörü de zaman bazlıdır. Aynı ekipman aynı gün birden fazla etkinlikte kullanılamaz.
-          Bu yüzden bazı dönemler çok daha değerlidir.
+          Prodüksiyon, kiralanan çoğu üründen farklı olarak zamana bağlıdır: aynı LED duvar aynı akşam
+          iki etkinlikte birden bulunamaz. Tarihler arasında göreceğiniz farkın çoğunu ve yoğun
+          dönemlerin dışında bulacağınız esnekliğin tamamını bu tek kısıt açıklar.
         </p>
-        <p>
-          Türkiye’de en yoğun talep dönemleri: yaz ayları (açık hava konserleri, düğünler, festival), cuma
-          akşamı ve cumartesi (düğün + kurumsal), yılbaşı, bayramlar, özel günler (14 Şubat, 8 Mart vb.),
-          kurumsal zirve ve lansman sezonları (ilkbahar ve sonbahar).
-        </p>
-        <p>
-          Yoğun dönemlerde fiyatı artırmak, düşük talep dönemlerinde ise (hafta içi, kış ayları) esnek
-          paketler sunmak toplam geliri optimize eder. Sabit fiyat listesiyle çalışmak en değerli fırsatları
-          kaçırmak anlamına gelir.
-        </p>
+
         <DataTable
-          caption="Mevsimsel Talep ve Fiyatlandırma Stratejisi"
-          columns={["Dönem", "Talep Seviyesi", "Fiyatlandırma Stratejisi"]}
+          caption="Ekipman listesi dışında rakamı değiştiren etkenler"
+          columns={["Etken", "Teklife tipik etkisi"]}
           rows={[
-            ["Yaz ayları (Haziran–Ağustos)", "Çok Yüksek", "Premium fiyat + erken rezervasyon avantajı"],
-            ["Cuma–Cumartesi", "Yüksek", "Hafta sonu prim fiyatı"],
-            ["Yılbaşı, bayramlar, özel günler", "Yüksek", "Özel dönem fiyatlandırması"],
-            ["İlkbahar–Sonbahar (kurumsal)", "Orta–Yüksek", "Paket bazlı fiyat"],
-            ["Hafta içi, kış ayları", "Düşük", "Esnek paketler + kampanya"],
+            [
+              "Yoğun tarihler",
+              "Yaz hafta sonları, mezuniyet ve ödül sezonu ile yılbaşı en az müsaitliğin olduğu dönemlerdir. Ekip ve stok en erken burada bağlanır; geç kalan talep yalnızca daha pahalı değil, daha az seçenekli olur.",
+            ],
+            [
+              "Hafta içi ve sezon dışı",
+              "Hafta içi ve kış tarihleri gerçek esnekliğin bulunduğu yerdir: ekip planlamasında, kurulum penceresinde ve ekipmanın sahada ne kadar kalabileceğinde.",
+            ],
+            [
+              "Depoya mesafe",
+              "Nakliye mesafeyle birlikte artar; belirli bir menzilin ötesinde ekip yolculuğu ve konaklaması hesaba katılır.",
+            ],
+            [
+              "Mekân erişimi",
+              "Yük asansörü ölçüsü, rampa randevu saatleri ve koridor dönüşleri salona fiziksel olarak ne girebileceğini belirler; gece kurulumunu zorunlu kılabilir.",
+            ],
+            [
+              "İç mekân / açık hava",
+              "Açık hava; hava koşullarına dayanıklı ekipman, balast veya ankraj, jeneratör ve bir B planı ekler. Bunların hepsi gerçek kalemlerdir.",
+            ],
+            [
+              "Paylaşılan kurulum penceresi",
+              "Kongre ve fuar mekânlarında zemini ve yük asansörünü başka yüklenicilerle paylaşırsınız; bu, ekipman eklemeden kurulum süresini uzatır.",
+            ],
           ]}
         />
+
+        <ProTip title="Tarihiniz esnekse">
+          Kurumsal bir etkinliği haziranda cumartesiden sezon dışı bir hafta içine almak, genellikle
+          size açılan seçenek yelpazesini fiyatı düşürdüğünden daha fazla genişletir. Takvimi
+          sabitlemeden önce alternatif tarihlerde ekip ve stok durumunun ne olduğunu sorun.
+        </ProTip>
 
         {/* s4 */}
-        <h2 id="s4">4. Fiyatlandırma Modelleri ve En Verimli Yaklaşımlar</h2>
-        <p>Prodüksiyon firmaları genellikle şu modelleri kullanır:</p>
-        <ol>
-          <li>
-            <strong>Sabit Paket Modeli:</strong> En popüler ve en hızlı dönüş sağlayan model. “Düğün Paketi”,
-            “Kurumsal Lansman Paketi”, “Konser Prodüksiyon Paketi” gibi hazır seçenekler sunmak müşteride
-            belirsizliği ortadan kaldırır ve karar sürecini hızlandırır.
-          </li>
-          <li>
-            <strong>Modüler / A La Carte Modeli:</strong> Sadece{" "}
-            <Link href="/sahne-kiralama">sahne</Link>, sadece ses, sadece{" "}
-            <Link href="/led-ekran-kiralama">LED ekran</Link> isteyen müşteriler için. Avantajı esneklik olsa
-            da, toplam ciroyu sınırlayabilir.
-          </li>
-          <li>
-            <strong>Hibrit Model (En Önerilen):</strong> Temel paket + ek hizmetler. Örneğin temel
-            ses-ışık-sahne paketine LED ekran, truss, <Link href="/cadir-kiralama">çadır</Link>,
-            kurulum-söküm ve teknik personel ekleyerek ciroyu artırabilirsiniz.
-          </li>
-        </ol>
+        <h2 id="s4">4. Teklifleri aynı kapsam üzerinden karşılaştırma</h2>
+        <p>
+          Aynı etkinlik için gelen iki teklif çoğu zaman ciddi biçimde farklıdır ve sebebi neredeyse
+          hiçbir zaman bir tedarikçinin pahalı olması değildir. Farklı işleri fiyatlıyor olmalarıdır.
+          Toplamları karşılaştırmadan önce kapsamı eşitleyin.
+        </p>
+
         <DataTable
-          caption="Fiyatlandırma Modelleri Karşılaştırması"
-          columns={["Model", "Avantaj", "Dezavantaj", "En Uygun"]}
+          caption="Toplamları karşılaştırmadan önce bunları eşitleyin"
+          columns={["Kontrol", "İki teklifte hizalanacak bilgi"]}
           rows={[
-            ["Sabit Paket", "Hızlı karar, net fiyat", "Esneklik sınırlı", "Düğün, küçük kurumsal"],
-            ["Modüler / A La Carte", "Tam esneklik", "Ciro sınırlı kalabilir", "Tekil ekipman talebi"],
-            ["Hibrit (Önerilen)", "Esneklik + upsell", "Daha fazla sunum çalışması", "Orta-büyük etkinlik"],
+            ["Alan ve ölçü", "Sahne m², ekran ölçüsü (metre), platform yüksekliği — tarif eden kelimeler değil"],
+            ["Teknik şartname", "Pixel pitch, hoparlör tipi, armatür adedi, platform yük sınıfı"],
+            ["Gün sayısı", "Kiralama günü mü etkinlik günü mü; kurulum günü ücretlendiriliyor mu?"],
+            ["Ekip", "Kişi sayısı, roller ve her biri için kaç vardiya"],
+            ["Dahil / hariç", "Nakliye, kurulum, söküm, enerji, rigging, operatörler"],
+            ["Saha varsayımları", "Enerjiyi kim sağlıyor, keşif yapıldı mı, hangi erişim rotası varsayıldı"],
+            ["Yedeklilik", "Stand-by ekip, yedek kanal, yedek playback yolu"],
+            ["Vergi ve şartlar", "Rakam KDV dahil mi, ödeme takvimi nedir"],
           ]}
         />
-        <Figure
-          src="/img/blog/sahne-kiralama-fiyatlari-teknik-sistemler.webp"
-          alt="Truss, LED ekran ve ses-ışık sistemleri — fiyatı belirleyen teknik katmanlar"
-          caption="Sahne, truss, LED ekran ve ses-ışık sistemlerinin bütünleşik kullanımı — hibrit paket modelinin temelini oluşturur."
-        />
+
+        <p>
+          Bunlar hizalandıktan sonra kalan fark anlamlıdır ve doğrudan sorulmaya değer. Deneyimimizde
+          dürüst cevap genellikle üçünden biri olur: farklı bir ekipman sınıfı, farklı bir ekip
+          varsayımı veya tedarikçilerden birinin mekânı çoktan keşfetmiş, diğerinin etmemiş olması.
+        </p>
 
         {/* s5 */}
-        <h2 id="s5">5. Boyut ve Kapsam Yanılgısı</h2>
+        <h2 id="s5">5. Eksik veya riskli teklif işaretleri</h2>
         <p>
-          Birçok firma fiyatı sadece “sahne boyutu”na göre belirler. Oysa büyük bir sahne her zaman daha
-          yüksek kâr anlamına gelmez.
+          Ucuz teklif ile eksik teklif kurulum gününe kadar birbirinin aynısı görünür. Aşağıdakiler,
+          sonradan — elinizde ne pazarlık gücü ne de zaman varken — ek işe dönüşen atlamalardır.
         </p>
-        <p>
-          Önemli olan: etkinlik türü, katılımcı sayısı ve beklenen etki, kişi başı teknik kalite beklentisi,
-          ek hizmet potansiyeli (<Link href="/led-ekran-kiralama">LED ekran</Link>, efekt ışık,{" "}
-          <Link href="/cadir-kiralama">çadır</Link>, jeneratör vb.).
-        </p>
-        <p>
-          Daha küçük ama yüksek kaliteli bir prodüksiyon (örneğin premium ses + büyük LED ekran), büyük ama
-          temel seviyede bir kurulumdan daha kârlı olabilir. Odak noktanız doluluk değil, kârlılık olmalıdır.
-        </p>
-        <ProTip title="Kârlılık Formülü">
-          Büyük sahne + düşük kalite &lt; Küçük sahne + premium ses-ışık-LED. Değer odaklı düşünün.
+
+        <RiskList
+          items={[
+            ["Kalem dökümü olmayan tek toplam", "İhtiyacınız olmayanı çıkaramazsınız, hiç dahil edilmemiş olanı da göremezsiniz."],
+            ["Ekip sayısı veya vardiya planı yok", "İşçilik genellikle en büyük değişkendir. Yazılmamışsa kapsanmamıştır."],
+            ["Kurulum ve söküm süresi yok", "Erişim saatleri mekânın kısıtıdır. Bunu atlayan bir teklif mekânın kurallarını okumamıştır."],
+            ["Nakliye “netleşecek”", "Mesafe teklif aşamasında bilinebilir. Açık bırakmak, bilinen bir maliyeti sizin risk hanenize taşır."],
+            ["Pixel pitch yazılmamış LED", "Pitch hem fiyatı hem de ön sıradakinin ekranı okuyup okuyamayacağını belirler."],
+            ["Yük hesabı olmayan rigging", "Bu bir evrak değil güvenlik belgesidir. Yokluğu bu listedeki en ciddi maddedir."],
+            ["Stand-by veya yedekliliğe hiç değinilmemiş", "Canlı pencerede kritik hat arızalanırsa ne olduğunu sorun."],
+            ["KDV ve ödeme şartları belirsiz", "Vergi hariç çıkan bir rakam karşılaştırmanızın tamamını yeniden sıralar."],
+          ]}
+        />
+
+        <ProTip title="En işe yarayan tek soru">
+          Her tedarikçiye sorun: “Bu teklifin kapsamı dışında kalan nedir?” İyi kurgulanmış bir teklif
+          bunu tek cümlede yanıtlar. Muğlak olan hiç yanıtlayamaz — aradığınız bilgi de zaten budur.
         </ProTip>
 
         {/* s6 */}
-        <h2 id="s6">6. Ek Hizmetler Asıl Kârdır</h2>
-        <p>Asıl kâr genellikle temel kiralama bedelinden değil, ek hizmetlerden gelir:</p>
-        <ul>
-          <li>Profesyonel kurulum ve söküm hizmeti</li>
-          <li>Teknik personel (tonmaister, ışık tasarımcısı)</li>
-          <li>Uzatılmış kullanım süresi</li>
-          <li>Taşıma ve lojistik</li>
-          <li>
-            <Link href="/cadir-kiralama">Çadır</Link> + zemin + dekor entegrasyonu
-          </li>
-          <li>Canlı yayın ve kayıt sistemi</li>
-          <li>Yedek ekipman ve B planı desteği</li>
-        </ul>
+        <h2 id="s6">6. Doğru fiyat almak için gönderilecek brief</h2>
         <p>
-          Bu hizmetleri “ücretsiz” sunmak yerine ayrı konumlandırdığınızda veya akıllı paketlere dahil
-          ettiğinizde geliriniz ciddi oranda artar. Ek hizmetler, fiyatı büyütmenin en etkili yoludur.
+          Teklif turlarının çoğu ilk brief eksik olduğu için iki üç revizyona gider. Aşağıdakileri
+          baştan göndermek, ilk teklifin sonuncusuna yakın çıkması ve içindeki her kalemin
+          istediğiniz bir şeye karşılık gelmesi anlamına gelir.
         </p>
 
-        {/* s7 */}
-        <h2 id="s7">7. Lokasyon, Mevsim ve Pazar Dinamikleri</h2>
-        <p>
-          İstanbul gibi büyük şehirlerde semt ve mekan tipi fiyatı etkiler. Açık hava etkinlikleri için{" "}
-          <Link href="/cadir-kiralama">çadır</Link> + <Link href="/sahne-kiralama">sahne</Link> kombinasyonu,
-          kapalı mekanlar için ise kompakt <Link href="/led-ekran-kiralama">LED</Link> +{" "}
-          <Link href="/ses-isik-sistemleri">ses sistemleri</Link> daha fazla talep görür.
-        </p>
-        <p>
-          Ancak lokasyon tek başına belirleyici değildir. Zayıf bir bölgede dahi yüksek kaliteli ekipman,
-          hızlı kurulum ve güvenilir hizmet ile premium fiyatlandırma yapılabilir.
-        </p>
-        <Figure
-          src="/img/blog/kurumsal-etkinlik-cadir.webp"
-          alt="Açık hava kurumsal etkinlik çadır kurulumu"
-          caption="Açık hava etkinliklerinde çadır + sahne + LED kombinasyonu, lokasyona göre fiyatlandırmanın temelini oluşturur."
-        />
-
-        {/* s8 */}
-        <h2 id="s8">8. Algı ve Psikolojik Fiyatlandırma</h2>
-        <p>
-          Çok düşük fiyat teklifleri, özellikle kurumsal müşterilerde “acemi veya kalitesiz” algısı yaratır.
-          Profesyonel sunum, net paket listesi, referans fotoğraflar ve video gösterimleri fiyatın kabul
-          edilme şansını artırır.
-        </p>
-        <p>Müşteri çoğu zaman en ucuz teklifi değil, en güven veren ve risksiz görünen teklifi tercih eder.</p>
-        <ProTip title="Algı ile Sat">
-          Fiyat kırarak satış yapmayın, algı inşa ederek satın. Net paketler, profesyonel sunum ve referans
-          görseller, fiyat itirazını en aza indirir.
-        </ProTip>
-
-        {/* s9 */}
-        <h2 id="s9">9. Türkiye’ye Özel Yaklaşım (2026)</h2>
-        <p>
-          Türkiye’de prodüksiyon fiyatları sabit bir standart taşımaz. Aynı ekipman bile etkinlik türüne,
-          tarihe ve müşteri profiline göre farklı fiyatlandırılır.
-        </p>
         <DataTable
-          caption="Segment Bazlı Fiyatlandırma Yaklaşımı — Türkiye"
-          columns={["Segment", "Yaklaşım", "Odak Noktası"]}
+          caption="Bu altısını gönderin, teklif tahmin değil kalem kalem hazırlansın"
+          columns={["Bilgi", "Teklifi neden değiştirir"]}
           rows={[
-            ["Küçük ölçekli düğünler", "Giriş seviyesi paketler", "Net fiyat, hızlı karar"],
-            ["Orta segment kurumsal", "Hibrit paketler + ek hizmetler", "Ciro artırma, upsell"],
-            ["Büyük konser ve festival", "Tam prodüksiyon paketi", "Yüksek fiyat, premium kalite"],
+            [
+              "Mekân ve salon adı",
+              "Tavan yüksekliği, rigging noktaları ve yükleme rotası adı konmuş bir salonun bilinen özellikleridir. Tek başına bu alan teknik seçeneklerin çoğunu eler veya açar.",
+            ],
+            [
+              "Tarih ve erişim penceresi",
+              "Etkinlik tarihi ile salonun kurulum ve söküm için gerçekten müsait olduğu saatler. Paylaşılan kurulum pencereleri erken bildirilmeli.",
+            ],
+            [
+              "Katılımcı ve düzen",
+              "Kişi sayısı ve oturum düzeni — tiyatro, kokteyl, yuvarlak masa. Kapsama ve görüş açıları düzeni takip eder, yalnızca kişi sayısını değil.",
+            ],
+            [
+              "Etkinlik formatı",
+              "Konferans, lansman, gala, ödül töreni, konser veya fuar. Format sahne geometrisini, mikrofon sayısını ve ekip büyüklüğünü belirler.",
+            ],
+            [
+              "Ekranda ne görünecek",
+              "Sunum, video, canlı kamera. Bu; ekranı, işleme zincirini ve operatör gerekip gerekmediğini belirler.",
+            ],
+            [
+              "Canlı yayın veya kayıt",
+              "Oturum canlı yayınlanacak mı, kaydedilecek mi ve hangi platforma. Kamera ve encode ayrı bir kapsamdır.",
+            ],
           ]}
         />
-        <p>
-          Önemli olan rakip ortalamasına uymak değil, kendi teknik gücünüzü ve farkınızı doğru
-          konumlandırmaktır.
-        </p>
-        <Figure
-          src="/img/blog/kurumsal-etkinlik-butce-infografik.webp"
-          alt="Kurumsal etkinlik bütçe planlaması — prodüksiyon fiyatlandırma stratejisi"
-          caption="Etkinlik segmentine göre bütçe ve fiyatlandırma yaklaşımı — her ölçek için farklı strateji."
-        />
 
-        {/* s10 */}
-        <h2 id="s10">10. Düşük Talep Dönemlerini Değerlendirmek</h2>
         <p>
-          Başarılı firmalar sadece yaz ve hafta sonuna odaklanmaz. Hafta içi kurumsal etkinlikler, eğitim
-          organizasyonları, fuar standları ve özel kampanyalarla düşük sezonları doldurur.
-        </p>
-        <p>
-          Amaç fiyatı düşürmek değil, doğru müşteriye doğru paketi sunmaktır. Bu sayede gelir dalgalanması
-          azalır ve iş sürdürülebilir hale gelir.
+          Briefin bir kısmı gerçekten netleşmediyse tahmin etmek yerine bunu belirtin. İyi bir
+          tedarikçi belirsiz kalemi, varsayımı toplamın içine gömmek yerine açıkça işaretlenmiş bir
+          opsiyon olarak fiyatlar.
         </p>
 
-        {/* s11 */}
-        <h2 id="s11">11. Sonuç</h2>
-        <p>
-          <Link href="/sahne-kiralama">Sahne</Link>,{" "}
-          <Link href="/ses-isik-sistemleri">ses, ışık</Link>,{" "}
-          <Link href="/led-ekran-kiralama">LED ekran</Link> ve{" "}
-          <Link href="/cadir-kiralama">çadır</Link> kiralama fiyatlandırması sabit kurallarla yönetilemez.
-          Yanlış yaklaşımlar genellikle aynıdır: sadece ekipman liste fiyatıyla çalışmak, talep değişimini göz
-          ardı etmek, ek hizmetleri ücretsiz vermek ve “sadece kiralama” odaklı düşünmek.
-        </p>
-        <p>
-          Doğru yaklaşım, kendinizi bir ekipman tedarikçisi değil, etkinliklerin teknik prodüksiyon partneri
-          olarak konumlandırmaktır. Fiyatlandırma da sunduğunuz deneyimin ve güvenin değeri üzerinden
-          yapılmalıdır.
-        </p>
-        <p>
-          Bu bakış açısını benimsediğinizde, daha az iş alarak daha yüksek kârlılık elde etmek mümkündür.
-          Çünkü bu sektörde kazananlar en ucuz olanlar değil, değerini doğru anlatan, kaliteli prodüksiyon
-          sunan ve fiyatını haklı çıkaranlardır.
-        </p>
+        {/* SSS */}
+        <h2 id="sss">Sık sorulan sorular</h2>
+        <div className="not-prose my-8 space-y-4">
+          {SSS.map((item) => (
+            <details
+              key={item.q}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+            >
+              <summary className="cursor-pointer list-none text-base font-bold text-gray-900">
+                {item.q}
+              </summary>
+              <p className="mt-3 text-base leading-relaxed text-gray-700">{item.a}</p>
+            </details>
+          ))}
+        </div>
 
         {/* BOTTOM CTA */}
         <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">
-            Etkinliğiniz için stratejik teklif alın
+            Etkinliğiniz için kalem kalem teklif alın
           </h3>
           <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
-            Sahne, ses-ışık, LED ekran ve çadır kiralamada teknik keşiften kuruluma kadar tüm süreci tek
-            elden yönetiyoruz. Çoğu projede 2 saat içinde projelendirilmiş teklif çıkıyoruz.
+            Sahne, ses-ışık, LED ekran ve çadır kiralamada teknik keşiften söküme kadar tüm süreci tek
+            elden yönetiyoruz. Yukarıdaki altı bilgiyi gönderin; kalem bazında ayrılmış, belirsiz
+            kısımları toplamın içine gömmek yerine opsiyon olarak işaretlenmiş bir teklif alın.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <a
-              href="https://wa.me/905453048671"
+              href={WA_URL}
               target="_blank"
               rel="nofollow noopener noreferrer"
               aria-label="WhatsApp üzerinden teklif isteyin — yeni sekmede açılır"
@@ -542,8 +632,8 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
             { href: "/sahne-kiralama", label: "Sahne Kiralama" },
             { href: "/led-ekran-kiralama", label: "LED Ekran Kiralama" },
             { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
+            { href: "/podyum-kurulum-fiyatlari", label: "Podyum Kurulum Fiyatları" },
             { href: "/cadir-kiralama", label: "Çadır Kiralama" },
-            { href: "/podyum-kiralama", label: "Podyum Kiralama" },
           ]}
         />
       </BlogLayout>

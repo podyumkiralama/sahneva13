@@ -1,5 +1,6 @@
 ﻿// app/en/table-chair-rental/page.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -1234,6 +1235,16 @@ export default function Page() {
         servicePath="/en/table-chair-rental"
         title="Terms used when planning a seating layout"
         description="Capacity, layout type, registration area and flooring decide how many guests an area really holds; the definitions are in the glossary."
+      />
+      <ServiceBlogLinks
+        locale="en"
+        links={[
+          { href: "/en/blog/corporate-event-planning-guide-2026", label: "2026 Corporate Event Planning Guide" },
+          { href: "/en/blog/12-fun-corporate-event-ideas", label: "12 Corporate Event Ideas" },
+        ]}
+        relatedServices={[
+          { href: "/en/corporate-events", label: "Corporate Event Production", intent: "Seating layout as part of the wider event build" },
+        ]}
       />
       <CTA />
     </>

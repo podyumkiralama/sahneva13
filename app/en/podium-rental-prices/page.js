@@ -36,7 +36,7 @@ const BLUR_DATA_URL =
 export const metadata = {
   title: "Stage Platform Rental Prices 2026 | Istanbul m²",
   description:
-    "2026 podium rental prices by m² with carpet, skirt, Istanbul transport, setup and dismantling. Request a fast quote.",
+    "2026 stage platform rental prices by m² with carpet, skirt, Istanbul transport, setup and dismantling. Request a fast quote.",
   alternates: buildAlternatesForPath("/en/podium-rental-prices"),
   openGraph: {
     type: "website",
@@ -51,7 +51,7 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Podium rental prices 2026 – m² based Istanbul current price list",
+        alt: "Stage platform rental prices 2026 – m² based Istanbul current price list",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const metadata = {
 /* ================== FAQ (2026 / Price Intent) ================== */
 const FAQ = [
   {
-    q: "How are podium rental prices calculated for 2026?",
+    q: "How are stage platform rental prices calculated for 2026?",
     a: "The price is calculated based on platform area (m²), carpet covering (m²), skirt (metres), and Istanbul transportation (installation+dismantling included).",
   },
   {
@@ -76,20 +76,24 @@ const FAQ = [
     a: "Yes. The Istanbul transportation fee on this page is 9,000 TRY and includes installation + dismantling (fixed).",
   },
   {
-    q: "What determines podium rental prices for a fashion show?",
+    q: "What determines catwalk rental prices for a fashion show?",
     a: "Runway dimensions, height, floor conditions, traffic volume, and operation details such as load-in/out hours affect the total budget. Unit prices are in the table; a precise quote is generated with project information.",
   },
   {
-    q: "Are podium rental prices different for concert events?",
+    q: "Are stage deck rental prices different for concert events?",
     a: "For concerts, since technical integration (sound/lighting/LED), heavy traffic, and time constraints may be higher, the total budget may vary based on the site plan. Unit prices are the same; application conditions are confirmed based on the project.",
   },
   {
-    q: "Is short-term podium rental possible?",
+    q: "Is short-term stage platform rental possible?",
     a: "Yes. Daily/weekly rental is available. For short-term projects, transportation and site planning can be a more prominent cost item.",
   },
   {
-    q: "What determines podium prices?",
+    q: "What determines stage platform prices?",
     a: "Area (m²), height, floor conditions, carpet/covering, skirt metre requirement, transportation, and site plan determine the total budget.",
+  },
+  {
+    q: "Is a \"podium\" the same as a stage platform?",
+    a: "On this site, yes. In British and American English a podium usually means the small lectern a speaker stands behind, while the raised modular floor an audience looks at is a stage platform, stage deck or riser. Turkish uses \"podyum\" for the raised floor, so the two terms get mixed in translation. Everything priced on this page is the raised modular platform, not a lectern.",
   },
   {
     q: "What information is needed for a fast quote?",
@@ -133,10 +137,10 @@ function buildJsonLd() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Podium Rental",
+        name: "Stage Platform Rental",
         item: `${BASE_SITE_URL}/en/podium-rental`,
       },
-      { "@type": "ListItem", position: 3, name: "Podium Rental Prices", item: url },
+      { "@type": "ListItem", position: 3, name: "Stage Platform Rental Prices", item: url },
     ],
   };
 
@@ -153,17 +157,17 @@ function buildJsonLd() {
 
   const mainService = {
     "@type": "Service",
-    name: "Podium Rental Prices (m² Based) — 2026",
+    name: "Stage Platform Rental Prices (m² Based) — 2026",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: [
       { "@type": "Country", name: "Turkey" },
       { "@type": "AdministrativeArea", name: "Istanbul" },
       ],
-      serviceType: "Podium rental pricing and quoting (platform/carpet/skirt/transportation)",
+      serviceType: "Stage platform rental pricing and quoting (platform/carpet/skirt/transportation)",
       offers: [
       {
         "@type": "Offer",
-        name: "Platform (Modular Podium) — 2026",
+        name: "Platform (Modular Stage Deck) — 2026",
         price: String(UNIT_PRICES.platform_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
@@ -238,7 +242,7 @@ function buildJsonLd() {
     "@type": "WebPage",
     "@id": url,
     url,
-    name: "Podium Rental Prices 2026",
+    name: "Stage Platform Rental Prices 2026",
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORGANIZATION_ID },
     datePublished: PUBLISH_DATE,
@@ -325,7 +329,7 @@ export default function Page() {
         items={[
           { name: "Home", url: `${BASE_SITE_URL}/en` },
           { name: "Podium Rental", url: `${BASE_SITE_URL}/en/podium-rental` },
-          { name: "Podium Rental Prices", url },
+          { name: "Stage Platform Rental Prices", url },
         ]}
       />
 
@@ -340,7 +344,7 @@ export default function Page() {
           <div className="absolute inset-0 pointer-events-none">
             <Image
               src="/img/podyum/podyum-kiralama-fiyatlari-hero.webp"
-              alt="Podium price table and professional modular podium installation"
+              alt="Stage platform price table and modular platform installation"
               fill
               priority
               fetchPriority="high"
@@ -617,7 +621,7 @@ export default function Page() {
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
                 src="/img/podyum/6.webp"
-                alt="Alignment of podium modules and surface preparation during installation"
+                alt="Alignment of stage platform modules and surface preparation during installation"
                 width={1600}
                 height={1000}
                 className="w-full h-[280px] md:h-[380px] object-cover"
@@ -665,7 +669,7 @@ export default function Page() {
             <figure className="mt-10 overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
                 src="/img/podyum/7.webp"
-                alt="Edge finish and surface quality in a completed podium application"
+                alt="Edge finish and surface quality in a completed stage platform build"
                 width={1600}
                 height={1000}
                 className="w-full h-[280px] md:h-[380px] object-cover"
@@ -809,7 +813,7 @@ export default function Page() {
             <figure className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
               <Image
                 src="/img/podyum/8.webp"
-                alt="View from a completed podium in use at the event venue"
+                alt="View from a completed stage platform in use at the event venue"
                 width={1600}
                 height={1000}
                 className="w-full h-[280px] md:h-[420px] object-cover"

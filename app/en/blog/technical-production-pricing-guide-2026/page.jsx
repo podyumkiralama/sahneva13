@@ -14,17 +14,29 @@ import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const revalidate = 86400;
 
+// 21 Agustos 2026 — yazi alici tarafina cevrildi.
+// Onceki hali tedarikci mantigina gore kurulmustu: "add-ons are the real
+// profit", "raising prices during peak periods optimises total revenue",
+// deger satisi, psikolojik fiyatlama. Musteriye donuk bir sitede bu hem teklife
+// guveni dusuruyor hem de rakibe fiyatlama stratejisi ogretiyordu.
+// Karlilik / upsell / gelir optimizasyonu bolumleri tamamen kaldirildi.
+// URL, canonical ve yayin tarihi korundu.
+
 const slug = "/en/blog/technical-production-pricing-guide-2026";
 const url = `${BASE_SITE_URL}${slug}`;
 const FEATURED_IMAGE = "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp";
 const OG_IMAGE = FEATURED_IMAGE;
 const AUTHOR_NAME = "Sahneva Content Team";
 const PUBLISH_DATE = "2026-04-07T00:00:00+03:00";
+const MODIFIED_DATE = "2026-08-21T00:00:00+03:00";
+
+const PAGE_TITLE = "Event Technical Production Costs 2026";
+const PAGE_DESCRIPTION =
+  "What drives stage, LED, sound and lighting production cost, which line items are quoted separately, and how to compare event production quotes.";
 
 export const metadata = {
-  title: "Technical Production & Stage Rental Pricing 2026",
-  description:
-    "Stage, sound, lighting, LED screen and tent rental pricing strategies: package model, demand-based pricing and add-on services.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: buildLanguageAlternates({
     canonical: slug,
     tr: "/blog/teknik-produksiyon-fiyatlandirma-rehberi-2026",
@@ -32,10 +44,8 @@ export const metadata = {
   }),
   image: FEATURED_IMAGE,
   openGraph: {
-    title:
-      "Technical Production and Stage Rental Pricing Guide (2026) | Sahneva",
-    description:
-      "Stage, sound, lighting, LED screen and tent rental pricing strategies. Package model, demand-based pricing and add-on service profitability guide.",
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
     url,
     siteName: "Sahneva",
     type: "article",
@@ -45,31 +55,30 @@ export const metadata = {
         url: `${BASE_SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Technical Production Pricing Guide 2026",
+        alt: "Event technical production cost breakdown — stage, LED screen and sound-lighting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technical Production Pricing Guide (2026)",
-    description:
-      "Stage, sound, lighting, LED screen and tent rental pricing strategies. Package model, demand-based pricing and add-on service profitability guide.",
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
     images: [`${BASE_SITE_URL}${OG_IMAGE}`],
   },
   keywords: [
-    "stage rental pricing",
-    "production prices 2026",
-    "event equipment rental",
-    "sound lighting price",
-    "LED screen rental price",
-    "technical production pricing",
-    "stage rental rates",
-    "tent rental price",
+    "event technical production costs",
+    "AV production budget",
+    "comparing event production quotes",
+    "stage rental cost",
+    "LED screen rental cost",
+    "sound and lighting budget",
+    "event production quotation",
+    "AV quote comparison",
   ],
   authors: [{ name: AUTHOR_NAME }],
   date: PUBLISH_DATE,
   category: "Pricing",
-  readTime: "9 min read",
+  readTime: "8 min read",
   author: AUTHOR_NAME,
 };
 
@@ -85,7 +94,7 @@ function H2({ id, children }) {
   );
 }
 
-function ProTip({ title = "Pro Tip", children }) {
+function ProTip({ title = "Worth checking", children }) {
   return (
     <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50 p-4">
       <div className="text-sm font-semibold text-sky-900">{title}</div>
@@ -154,10 +163,39 @@ function Figure({ src, alt, caption, priority = false, loading = "lazy" }) {
   );
 }
 
+/* ---------- FAQ ---------- */
+const FAQ_ITEMS = [
+  {
+    q: "What makes up the cost of event technical production?",
+    a: "Six things move it more than anything else: the physical scale of the build (stage area, screen size, rig weight), the class of equipment, the number of crew and how many shifts they work, build and de-rig time, transport distance, and the constraints of the venue itself. Equipment is rarely the largest line; crew, time and access usually are.",
+  },
+  {
+    q: "Which items should appear separately on an AV production quote?",
+    a: "Equipment by discipline, crew by role and shift, transport, setup and dismantling, consumables such as carpet and skirting, power distribution, rigging and load engineering, operators for the live window, and any standby or redundancy. Seeing them itemised is not a sign of padding — it is how you check that nothing has been quietly left out.",
+  },
+  {
+    q: "Why do two suppliers quote very different prices for the same event?",
+    a: "Almost always because they are quoting different scopes. One may include setup and dismantling in the equipment line while the other lists it separately; one may assume the venue supplies power; one may have priced a lower pixel pitch or fewer crew. Normalise the scope first — same area, same specification, same days, same crew — and the gap usually narrows sharply.",
+  },
+  {
+    q: "Does the season or the city change the price?",
+    a: "Yes. Production is time-bound: the same equipment cannot serve two events on the same day, so peak dates carry less flexibility. Distance from the supplier's warehouse adds transport and, beyond a certain range, crew accommodation. Venue access — lift dimensions, dock hours, night-only load-in — can add a shift regardless of the equipment list.",
+  },
+  {
+    q: "What are the warning signs of a risky quote?",
+    a: "A single lump sum with no breakdown, no stated crew count, no build and de-rig times, transport marked to be confirmed, LED quoted without a pixel pitch, rigging without a load calculation, and no mention of who covers standby if something fails. Each of these is a cost that has not disappeared — it has just not been written down yet.",
+  },
+  {
+    q: "What information do you need to price an event accurately?",
+    a: "Venue and hall name, event date plus build-up and de-rig access windows, expected audience and seating layout, event format, what has to appear on screen, and whether the session is streamed or recorded. With those six, a quotation can be itemised rather than estimated.",
+  },
+];
+
 export default function Page() {
   const publishedISO = PUBLISH_DATE;
   const publishedHuman = "April 7, 2026";
-  const readingTime = "9 min read";
+  const updatedHuman = "August 21, 2026";
+  const readingTime = "8 min read";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -166,13 +204,11 @@ export default function Page() {
         "@type": "BlogPosting",
         "@id": `${url}#post`,
         mainEntityOfPage: { "@id": url },
-        headline:
-          "Technical Production and Stage Rental Pricing Guide (2026)",
-        description:
-          "Stage, sound, lighting, LED screen and tent rental pricing strategies. Package model, demand-based pricing, add-on service profitability and approaches tailored to the market.",
+        headline: "Event Technical Production Costs: A 2026 Buyer's Guide",
+        description: PAGE_DESCRIPTION,
         image: `${BASE_SITE_URL}${FEATURED_IMAGE}`,
         datePublished: publishedISO,
-        dateModified: publishedISO,
+        dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
         author: {
           "@type": "Organization",
@@ -182,22 +218,32 @@ export default function Page() {
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,
+        audience: {
+          "@type": "BusinessAudience",
+          name: "Event organisers, corporate buyers, agencies and PCOs budgeting technical production",
+        },
         about: [
-          { "@type": "Thing", name: "Stage rental pricing strategies" },
-          { "@type": "Thing", name: "LED screen rental prices" },
-          { "@type": "Thing", name: "Technical production package models" },
-          { "@type": "Thing", name: "Event equipment rental" },
+          { "@type": "Thing", name: "Event technical production costs" },
+          { "@type": "Thing", name: "AV production budget" },
+          { "@type": "Thing", name: "Comparing event production quotes" },
+          { "@type": "Thing", name: "Event production quotation line items" },
         ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: FAQ_ITEMS.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
       },
     ],
   };
 
   return (
     <>
-      <JsonLd
-        id="ld-blogposting"
-        data={jsonLd}
-      />
+      <JsonLd id="ld-blogposting" data={jsonLd} />
 
       <div className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-10 md:px-6 md:pt-14">
@@ -205,44 +251,43 @@ export default function Page() {
             items={[
               { name: "Home", url: BASE_SITE_URL },
               { name: "Blog", url: `${BASE_SITE_URL}/en/blog` },
-              {
-                name: "Technical Production Pricing Guide 2026",
-                url,
-              },
+              { name: "Event Technical Production Costs 2026", url },
             ]}
           />
 
           {/* Header */}
           <header>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700">
-              Pricing • technical production • stage rental
+              Budgeting • technical production • reading a quote
             </div>
 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-              Technical Production and Stage Rental{" "}
+              Event Technical Production Costs{" "}
               <span className="block text-slate-600">
-                Pricing Guide (2026)
+                A 2026 Buyer&apos;s Guide
               </span>
             </h1>
 
             <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">
-              Event production pricing is a far more strategic subject than
-              many companies realise. Correct pricing goes beyond covering
-              costs — it strengthens your market position and delivers higher
-              profitability with fewer projects. This guide covers package
-              models, demand-based strategy, and approaches tailored to the
-              market.
+              Most people budgeting an event for the first time assume the
+              equipment list is the price. It rarely is. Crew, build time and
+              how hard it is to get a truck to the loading dock routinely move
+              a technical production budget more than the choice of speaker or
+              LED panel does. This guide sets out what actually drives the
+              number, which items you should expect to see quoted separately,
+              and how to compare two proposals that look nothing alike.
             </p>
 
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">
               <time dateTime={publishedISO}>{publishedHuman}</time>
+              <span aria-hidden="true">•</span>
+              <span>Updated {updatedHuman}</span>
               <span aria-hidden="true">•</span>
               <span>{readingTime}</span>
               <span aria-hidden="true">•</span>
               <span>{AUTHOR_NAME}</span>
             </div>
 
-            {/* CTA row */}
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="https://wa.me/905453048671"
@@ -250,21 +295,21 @@ export default function Page() {
                 rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
               >
-                Message on WhatsApp (quote in 2 hours)
+                Message on WhatsApp
               </a>
 
               <Link
                 href="/en/contact"
                 className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
-                Get a Quote / Contact
+                Get an itemised quote
               </Link>
             </div>
 
             <Figure
               src={FEATURED_IMAGE}
-              alt="Corporate event production with professional stage, LED screen and sound-lighting system"
-              caption="Corporate event production with professional stage, LED screen and sound-lighting system — the technical infrastructure that forms the foundation of correct pricing."
+              alt="Corporate event build with stage, LED screen and sound-lighting system in place"
+              caption="A corporate build with stage, LED screen and sound-lighting in place. What you can see is the equipment; what moves the budget is the crew and the hours it took to get there."
               priority
               loading="eager"
             />
@@ -281,17 +326,13 @@ export default function Page() {
                 </h2>
                 <ul className="mt-3 grid gap-2 text-sm text-slate-700 md:grid-cols-2">
                   {[
-                    ["#s1", "1. Why Strategic Pricing?"],
-                    ["#s2", "2. Experience & Value Selling"],
-                    ["#s3", "3. Demand-Based Pricing"],
-                    ["#s4", "4. Pricing Models"],
-                    ["#s5", "5. The Size & Scope Fallacy"],
-                    ["#s6", "6. Add-Ons Are the Real Profit"],
-                    ["#s7", "7. Location, Season & Market Dynamics"],
-                    ["#s8", "8. Perception & Psychological Pricing"],
-                    ["#s9", "9. Market-Specific Approach (2026)"],
-                    ["#s10", "10. Making the Most of Low-Demand Periods"],
-                    ["#s11", "11. Conclusion"],
+                    ["#s1", "1. What drives the cost"],
+                    ["#s2", "2. Line items quoted separately"],
+                    ["#s3", "3. Season, city, venue and logistics"],
+                    ["#s4", "4. Comparing quotes on the same scope"],
+                    ["#s5", "5. Signs of a risky quote"],
+                    ["#s6", "6. The brief to send"],
+                    ["#faq", "Frequently asked questions"],
                   ].map(([href, text]) => (
                     <li key={href}>
                       <a className="hover:text-slate-900" href={href}>
@@ -304,514 +345,357 @@ export default function Page() {
 
               {/* s1 */}
               <section className="mt-10">
-                <H2 id="s1">1. Why Strategic Pricing?</H2>
+                <H2 id="s1">1. What drives the cost of technical production</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Event production pricing is a far more strategic subject
-                  than many companies realise. Most businesses still set their
-                  prices based solely on "stage square meterage" or "number
-                  of equipment items". However, this approach leads to
-                  significant revenue loss — especially in highly competitive
-                  areas such as corporate events, weddings, and concerts.
+                  A technical production budget is built from six inputs. Change
+                  any one of them and the total moves; change the venue and
+                  several move at once. Understanding which lever you are
+                  pulling is what turns a budget conversation from haggling into
+                  a scope decision.
                 </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Because what is sold in this industry is not merely a{" "}
-                  <Link
-                    href="/en/stage-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    stage
-                  </Link>
-                  ,{" "}
-                  <Link
-                    href="/en/sound-light-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    sound system
-                  </Link>{" "}
-                  or{" "}
-                  <Link
-                    href="/en/led-screen-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    LED screen
-                  </Link>
-                  . What is sold is the visual and audio quality of the event,
-                  professional installation, on-time delivery, and a flawless
-                  experience. Correct pricing goes beyond covering costs — it
-                  strengthens your market position and delivers higher
-                  profitability with fewer projects.
+
+                <Table
+                  caption="The six inputs that move a technical production budget"
+                  columns={["Input", "What it covers", "Why it moves the total"]}
+                  rows={[
+                    [
+                      "Physical scale",
+                      "Stage area in m², screen size, rig weight, tent span",
+                      "Drives material quantity, but also truck count and crew hours — scale rarely rises alone",
+                    ],
+                    [
+                      "Equipment class",
+                      "Pixel pitch, PA type, fixture quality, deck load rating",
+                      "A finer pixel pitch or a line array costs more per m² and often needs more processing behind it",
+                    ],
+                    [
+                      "Crew and shifts",
+                      "Riggers, audio, lighting, video, stage hands, operators",
+                      "Usually the largest single line on a mid-size build; shift count matters more than headcount",
+                    ],
+                    [
+                      "Build and de-rig time",
+                      "Hours on site before doors and after the last guest",
+                      "A two-day build is not twice a one-day build — it adds accommodation, standby and venue hire",
+                    ],
+                    [
+                      "Transport",
+                      "Vehicle count, distance, loading equipment",
+                      "Distance from the warehouse; beyond a certain range, crew travel and accommodation follow",
+                    ],
+                    [
+                      "Venue constraints",
+                      "Lift size, dock hours, ceiling height, power, rigging points",
+                      "Can add an entire shift without changing a single item on the equipment list",
+                    ],
+                  ]}
+                />
+
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  The counter-intuitive one is the last. Two identical
+                  specifications in two different rooms can differ
+                  substantially in price purely because one venue has a goods
+                  lift that takes a full-size deck and the other does not. This
+                  is why a site survey usually precedes an accurate quotation
+                  rather than following it — the room decides what is possible
+                  before the budget decides what is affordable.
                 </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Incorrect pricing does not create low occupancy; it creates
-                  a low perception of quality. The customer sees a "cheap"
-                  quote and doubts the quality. Correct pricing, on the other
-                  hand, brings a premium perception and a higher acceptance rate.
-                </p>
+
+                <ProTip title="Where the money usually is">
+                  On most corporate builds, equipment hire is not the biggest
+                  line. Crew, build hours and logistics together typically
+                  outweigh it. If a quote shows equipment as almost the entire
+                  cost, ask where the crew and installation time have gone —
+                  they have not stopped existing.
+                </ProTip>
               </section>
 
               {/* s2 */}
               <section className="mt-10">
-                <H2 id="s2">
-                  2. Experience &amp; Value Selling: You Sell Production, Not Equipment
-                </H2>
+                <H2 id="s2">2. Line items that can be priced separately</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  A customer organising a corporate launch, wedding, or concert
-                  is actually buying the following when renting technical
-                  equipment: the event being unforgettable, the clarity of the
-                  sound, the impact of the lighting, the visual impact of the
-                  LED screen, and the solidity of the stage.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The difference between a bare{" "}
-                  <Link
-                    href="/en/podium-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    podium
-                  </Link>{" "}
-                  and a professional truss system, quality moving-head lights,
-                  a high-resolution{" "}
-                  <Link
-                    href="/en/led-screen-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    LED screen
-                  </Link>{" "}
-                  and an acoustically optimised{" "}
-                  <Link
-                    href="/en/sound-light-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    sound system
-                  </Link>{" "}
-                  comes not from square meterage, but from perceived value.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The fundamental question to ask when setting a price is:
-                  "What kind of stage experience and technical confidence does
-                  this production offer the client?"
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  If there is a strong technical infrastructure and professional
-                  installation, it is possible to price above market average.
-                  Weak perception, however, leaves no option but to lower the price.
+                  An itemised quotation is not a longer bill; it is a readable
+                  one. Each of the following is a genuinely distinct cost, and
+                  seeing them listed lets you check that nothing has been
+                  assumed away. If a line is missing, it has usually been
+                  omitted from the scope rather than provided free.
                 </p>
 
-                <Figure
-                  src="/img/blog/kurumsal-etkinlik-sahne-genel.webp"
-                  alt="Professional production setup — stage, lighting and sound systems together"
-                  caption="A stage setup equipped with professional truss, moving-head lights and LED screen — the most powerful element for building perceived value."
+                <Table
+                  caption="Line items you should expect to see, and what each one covers"
+                  columns={["Line item", "What it should cover", "What to ask if it is missing"]}
+                  rows={[
+                    [
+                      "Equipment by discipline",
+                      "Stage, LED, audio, lighting, truss listed separately with specification",
+                      "Which specification was assumed — pitch, PA type, deck rating?",
+                    ],
+                    [
+                      "Crew by role and shift",
+                      "How many people, in which roles, across how many shifts",
+                      "Who installs it, and who operates it during the event?",
+                    ],
+                    [
+                      "Transport",
+                      "Vehicles, distance, loading equipment such as forklift or crane",
+                      "Is delivery included, and from where?",
+                    ],
+                    [
+                      "Setup and dismantling",
+                      "Build and de-rig as scheduled hours, not a vague allowance",
+                      "When does the crew arrive, and when is the venue handed back?",
+                    ],
+                    [
+                      "Surfaces and finishing",
+                      "Carpet, skirting, edge protection, ramps and stairs",
+                      "Is the platform delivered finished or bare?",
+                    ],
+                    [
+                      "Power and distribution",
+                      "Distribution, cabling, ramping, generator if required",
+                      "Is house power assumed sufficient, and who verified that?",
+                    ],
+                    [
+                      "Rigging and load engineering",
+                      "Point loads, calculations, ground support where roof rigging is unavailable",
+                      "Who signs off the load calculation for the venue?",
+                    ],
+                    [
+                      "Operators for the live window",
+                      "Audio, lighting and presentation operators during the show",
+                      "Is anyone at the desk once the doors open?",
+                    ],
+                    [
+                      "Standby and redundancy",
+                      "Spare channels, backup playback, on-call crew",
+                      "What happens if a critical path fails mid-session?",
+                    ],
+                  ]}
                 />
+
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  For a worked example of how area, covering and transport
+                  combine on a single discipline, our{" "}
+                  <Link
+                    href="/en/podium-rental-prices"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
+                    stage platform rental prices
+                  </Link>{" "}
+                  page publishes the m² rates and shows the arithmetic on a
+                  sample build.
+                </p>
               </section>
 
               {/* s3 */}
               <section className="mt-10">
-                <H2 id="s3">3. Demand-Based Pricing</H2>
+                <H2 id="s3">3. Season, city, venue and logistics</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The production industry is also time-based. The same
-                  equipment cannot be used at multiple events on the same day.
-                  This makes certain periods far more valuable.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The highest demand periods: Summer months (outdoor concerts,
-                  weddings, festivals), Friday evenings and Saturdays (wedding +
-                  corporate), New Year, public holidays and special days
-                  (Valentine's Day, International Women's Day, etc.), corporate
-                  summit and launch seasons (spring and autumn).
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Raising prices during peak periods and offering flexible
-                  packages during low-demand periods (weekdays, winter months)
-                  optimises total revenue. Working with a fixed price list means
-                  missing the most valuable opportunities.
+                  Production is time-bound in a way that most rented goods are
+                  not: the same LED wall cannot be at two events on the same
+                  evening. That single constraint explains most of the variation
+                  you will see between dates, and most of the flexibility you
+                  will find outside them.
                 </p>
 
                 <Table
-                  caption="Seasonal Demand and Pricing Strategy"
-                  columns={["Period", "Demand Level", "Pricing Strategy"]}
+                  caption="Factors outside the equipment list that change the number"
+                  columns={["Factor", "Typical effect on a quote"]}
                   rows={[
                     [
-                      "Summer months (June–August)",
-                      "Very High",
-                      "Premium price + early booking advantage",
-                    ],
-                    ["Friday–Saturday", "High", "Weekend premium pricing"],
-                    [
-                      "New Year, holidays, special days",
-                      "High",
-                      "Special period pricing",
+                      "Peak dates",
+                      "Summer weekends, the graduation and awards seasons and year-end carry the least availability. Crew and stock are committed earliest here, so late enquiries have fewer options rather than simply higher prices.",
                     ],
                     [
-                      "Spring–Autumn (corporate)",
-                      "Medium–High",
-                      "Package-based pricing",
+                      "Weekday and off-season",
+                      "Midweek and winter dates are where genuine flexibility exists — on crew scheduling, on build windows and on how long equipment can stay on site.",
                     ],
                     [
-                      "Weekdays, winter months",
-                      "Low",
-                      "Flexible packages + promotions",
+                      "Distance from the warehouse",
+                      "Transport scales with distance, and past a certain range crew travel and overnight accommodation join the calculation.",
+                    ],
+                    [
+                      "Venue access",
+                      "Goods lift dimensions, dock booking hours and corridor turns cap what can physically reach the room, and can force an overnight build.",
+                    ],
+                    [
+                      "Indoor versus outdoor",
+                      "Outdoor adds weather-rated equipment, ballast or anchoring, generator power and a contingency plan — all of which are real line items.",
+                    ],
+                    [
+                      "Shared build windows",
+                      "In congress and exhibition venues you share the floor and the freight lift with other contractors, which lengthens the build without adding equipment.",
                     ],
                   ]}
                 />
+
+                <ProTip title="If your date is flexible">
+                  Moving a corporate event from a Saturday in June to a weekday
+                  outside peak season usually widens what is available to you
+                  more than it lowers the headline price. Ask what the crew and
+                  stock situation looks like on your alternative dates before
+                  you fix the calendar.
+                </ProTip>
               </section>
 
               {/* s4 */}
               <section className="mt-10">
-                <H2 id="s4">
-                  4. Pricing Models and the Most Effective Approaches
-                </H2>
+                <H2 id="s4">4. Comparing quotes on the same scope</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Production companies typically use the following models:
+                  Two quotes for the same event routinely differ by a wide
+                  margin, and the reason is almost never that one supplier is
+                  simply expensive. It is that they are quoting different work.
+                  Before comparing totals, normalise the scope — then compare
+                  like with like.
                 </p>
-                <ol className="mt-3 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700">
-                  <li>
-                    <strong className="font-semibold text-slate-900">
-                      Fixed Package Model:
-                    </strong>{" "}
-                    The most popular model with the fastest turnaround. Offering
-                    ready-made options such as "Wedding Package", "Corporate
-                    Launch Package", and "Concert Production Package" eliminates
-                    uncertainty for the client and accelerates the decision-making
-                    process.
-                  </li>
-                  <li>
-                    <strong className="font-semibold text-slate-900">
-                      Modular / À La Carte Model:
-                    </strong>{" "}
-                    For clients who only want a{" "}
-                    <Link
-                      href="/en/stage-rental"
-                      className="font-medium text-blue-600 hover:underline"
-                    >
-                      stage
-                    </Link>
-                    , only sound, or only an{" "}
-                    <Link
-                      href="/en/led-screen-rental"
-                      className="font-medium text-blue-600 hover:underline"
-                    >
-                      LED screen
-                    </Link>
-                    . Its advantage is flexibility, though it may limit total revenue.
-                  </li>
-                  <li>
-                    <strong className="font-semibold text-slate-900">
-                      Hybrid Model (Most Recommended):
-                    </strong>{" "}
-                    Core package + add-on services. For example, you can increase
-                    revenue by adding LED screen, truss,{" "}
-                    <Link
-                      href="/en/tent-rental"
-                      className="font-medium text-blue-600 hover:underline"
-                    >
-                      tent
-                    </Link>
-                    , setup-breakdown, and technical personnel to a core
-                    sound-lighting-stage package.
-                  </li>
-                </ol>
 
                 <Table
-                  caption="Pricing Models Comparison"
-                  columns={["Model", "Advantage", "Disadvantage", "Best For"]}
+                  caption="Normalise these before you compare totals"
+                  columns={["Check", "What to line up across both quotes"]}
                   rows={[
-                    [
-                      "Fixed Package",
-                      "Fast decision, clear price",
-                      "Limited flexibility",
-                      "Weddings, small corporate",
-                    ],
-                    [
-                      "Modular / À La Carte",
-                      "Full flexibility",
-                      "Revenue may remain limited",
-                      "Single equipment requests",
-                    ],
-                    [
-                      "Hybrid (Recommended)",
-                      "Flexibility + upsell",
-                      "More presentation work required",
-                      "Medium-large events",
-                    ],
+                    ["Area and dimensions", "Stage m², screen dimensions in metres, deck height — not just descriptive words"],
+                    ["Specification", "Pixel pitch, PA type, fixture count, deck load rating"],
+                    ["Days", "Rental days versus event days; is the build day charged?"],
+                    ["Crew", "Number of people, roles, and how many shifts each"],
+                    ["Included or excluded", "Transport, setup, de-rig, power, rigging, operators"],
+                    ["Site assumptions", "Who supplies power, whether a survey has happened, which access route was assumed"],
+                    ["Contingency", "Standby crew, spare channels, backup playback path"],
+                    ["Tax and terms", "Whether the figure includes VAT, and the payment schedule"],
                   ]}
                 />
 
-                <Figure
-                  src="/img/blog/sahne-kiralama-fiyatlari-teknik-sistemler.webp"
-                  alt="Truss, LED screen and sound-lighting systems — the technical layers that determine price"
-                  caption="Integrated use of stage, truss, LED screen and sound-lighting systems — forms the foundation of the hybrid package model."
-                />
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  Once these are aligned, a remaining gap is meaningful and
+                  worth asking about directly. In our experience the honest
+                  answers are usually one of three: a different equipment class,
+                  a different crew assumption, or one supplier having already
+                  surveyed the venue while the other has not.
+                </p>
               </section>
 
               {/* s5 */}
               <section className="mt-10">
-                <H2 id="s5">5. The Size and Scope Fallacy</H2>
+                <H2 id="s5">5. Signs of a missing or risky quote</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Many companies set prices based solely on "stage size". But a
-                  larger stage does not always mean higher profit.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  What matters is: event type, number of attendees and expected
-                  impact, per-person technical quality expectations, add-on
-                  service potential ({" "}
-                  <Link
-                    href="/en/led-screen-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    LED screen
-                  </Link>
-                  , effect lighting,{" "}
-                  <Link
-                    href="/en/tent-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    tent
-                  </Link>
-                  , generator, etc.)
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  A smaller but high-quality production (for example, premium
-                  sound + large LED screen) can be more profitable than a large
-                  but basic-level setup. Your focus should be on profitability,
-                  not occupancy.
+                  A cheap quote and an incomplete quote look identical until
+                  build day. These are the omissions that most often turn into a
+                  variation order later, when you have no leverage and no time.
                 </p>
 
-                <ProTip title="Profitability Formula">
-                  Profitability formula: Large stage + low quality &lt; Small
-                  stage + premium sound-lighting-LED. Think value-first.
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
+                  {[
+                    ["One lump sum, no breakdown", "You cannot remove what you do not need, and you cannot see what was never included."],
+                    ["No crew count or shift plan", "Labour is usually the largest variable. If it is not stated, it has not been scoped."],
+                    ["No build and de-rig times", "Access hours are a venue constraint. A quote that ignores them has not read the venue's rules."],
+                    ["Transport 'to be confirmed'", "Distance is knowable at quotation stage. Leaving it open moves a known cost into your risk column."],
+                    ["LED quoted with no pixel pitch", "Pitch drives both price and whether the front row can read the screen."],
+                    ["Rigging with no load calculation", "This is a safety document, not paperwork. Its absence is the most serious item on this list."],
+                    ["No standby or redundancy mentioned", "Ask what happens if the critical path fails during the live window."],
+                    ["VAT and payment terms unstated", "A figure that turns out to be pre-tax reorders your comparison entirely."],
+                  ].map(([title, body]) => (
+                    <li key={title} className="flex gap-3">
+                      <span className="mt-[10px] h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" aria-hidden="true" />
+                      <span>
+                        <strong className="font-semibold text-slate-900">{title}.</strong>{" "}
+                        {body}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <ProTip title="The single most useful question">
+                  Ask any supplier: &quot;What is explicitly excluded from this
+                  quote?&quot; A well-scoped proposal answers it in a sentence.
+                  A vague one cannot answer it at all, and that is the
+                  information you were looking for.
                 </ProTip>
               </section>
 
               {/* s6 */}
               <section className="mt-10">
-                <H2 id="s6">6. Add-Ons Are the Real Profit</H2>
+                <H2 id="s6">6. The brief to send for an accurate price</H2>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The real profit usually comes not from the base rental fee,
-                  but from add-on services:
-                </p>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700">
-                  <li>Professional setup and breakdown service</li>
-                  <li>Technical personnel (sound engineer, lighting designer)</li>
-                  <li>Extended usage period</li>
-                  <li>Transport and logistics</li>
-                  <li>
-                    <Link
-                      href="/en/tent-rental"
-                      className="font-medium text-blue-600 hover:underline"
-                    >
-                      Tent
-                    </Link>{" "}
-                    + flooring + décor integration
-                  </li>
-                  <li>Live streaming and recording system</li>
-                  <li>Backup equipment and contingency plan support</li>
-                </ul>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  When you position these services separately rather than
-                  offering them "for free", or when you include them in smart
-                  packages, your revenue increases significantly. Add-on
-                  services are the most effective way to grow your price.
-                </p>
-              </section>
-
-              {/* s7 */}
-              <section className="mt-10">
-                <H2 id="s7">7. Location, Season and Market Dynamics</H2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  In large cities, the district and venue type affect pricing.
-                  For outdoor events,{" "}
-                  <Link
-                    href="/en/tent-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    tent
-                  </Link>{" "}
-                  +{" "}
-                  <Link
-                    href="/en/stage-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    stage
-                  </Link>{" "}
-                  combinations see more demand, while compact{" "}
-                  <Link
-                    href="/en/led-screen-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    LED
-                  </Link>{" "}
-                  +{" "}
-                  <Link
-                    href="/en/sound-light-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    sound systems
-                  </Link>{" "}
-                  are more in demand for indoor venues.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  However, location is not the sole determining factor. Even in
-                  a less affluent area, premium pricing is achievable with
-                  high-quality equipment, fast setup, and reliable service.
-                </p>
-
-                <Figure
-                  src="/img/blog/kurumsal-etkinlik-cadir.webp"
-                  alt="Outdoor corporate event tent setup"
-                  caption="Tent + stage + LED combination at outdoor events forms the basis of location-based pricing."
-                />
-              </section>
-
-              {/* s8 */}
-              <section className="mt-10">
-                <H2 id="s8">8. Perception and Psychological Pricing</H2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Very low price quotes — especially with corporate clients —
-                  create a perception of being "inexperienced or low-quality".
-                  Professional presentations, clear package lists, reference
-                  photos and video demonstrations increase the likelihood of
-                  the price being accepted.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The client often chooses not the cheapest quote, but the one
-                  that appears most trustworthy and risk-free.
-                </p>
-
-                <ProTip title="Sell Through Perception">
-                  Don't sell by cutting prices — sell by building perception.
-                  Clear packages, professional presentations and reference
-                  visuals minimise price objections.
-                </ProTip>
-              </section>
-
-              {/* s9 */}
-              <section className="mt-10">
-                <H2 id="s9">9. Market-Specific Approach (2026)</H2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Production prices do not follow a fixed standard. Even the
-                  same equipment is priced differently depending on event type,
-                  date, and client profile.
+                  Most quotation rounds go through two or three revisions
+                  because the first brief was incomplete. Sending the following
+                  up front usually means the first quotation is close to the
+                  final one, and every line in it is traceable to something you
+                  asked for.
                 </p>
 
                 <Table
-                  caption="Segment-Based Pricing Approach"
-                  columns={["Segment", "Approach", "Focus"]}
+                  caption="Send these six and the quotation can be itemised rather than estimated"
+                  columns={["Item", "Why it changes the quote"]}
                   rows={[
                     [
-                      "Small-scale weddings",
-                      "Entry-level packages",
-                      "Clear price, fast decision",
+                      "Venue and hall name",
+                      "Ceiling height, rigging points and the load-in route are known properties of a named room. This single field rules most technical options in or out.",
                     ],
                     [
-                      "Mid-segment corporate",
-                      "Hybrid packages + add-on services",
-                      "Revenue growth, upsell",
+                      "Dates and access windows",
+                      "Event date plus when the room is genuinely available for build and de-rig. Shared build windows need flagging early.",
                     ],
                     [
-                      "Large concerts and festivals",
-                      "Full production package",
-                      "High price, premium quality",
+                      "Audience and layout",
+                      "Headcount and seating style — theatre, cabaret, standing. Coverage and sightlines follow the layout, not the guest count alone.",
+                    ],
+                    [
+                      "Event format",
+                      "Conference, launch, gala, awards, concert or exhibition. Format sets stage geometry, microphone count and crew size.",
+                    ],
+                    [
+                      "What appears on screen",
+                      "Presentations, video playback, live camera. This decides the screen, the processing chain and whether an operator is needed.",
+                    ],
+                    [
+                      "Streaming or recording",
+                      "Whether the session goes out live or is captured, and to which platform. Camera and encode are separate scope.",
                     ],
                   ]}
                 />
 
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  What matters is not conforming to the competitor average, but
-                  correctly positioning your own technical strength and
-                  differentiation.
-                </p>
-
-                <Figure
-                  src="/img/blog/kurumsal-etkinlik-butce-infografik.webp"
-                  alt="Corporate event budget planning — production pricing strategy"
-                  caption="Budget and pricing approach by event segment — a different strategy for every scale."
-                />
-              </section>
-
-              {/* s10 */}
-              <section className="mt-10">
-                <H2 id="s10">10. Making the Most of Low-Demand Periods</H2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Successful companies don't focus only on summer and weekends.
-                  They fill the off-season with weekday corporate events,
-                  training sessions, trade fair stands, and targeted promotions.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The goal is not to lower the price, but to offer the right
-                  package to the right client. This reduces revenue fluctuation
-                  and makes the business sustainable.
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  If part of the brief is genuinely undecided, say so rather
+                  than guessing. A good supplier will quote the uncertain
+                  element as a clearly marked option instead of burying an
+                  assumption inside the total.
                 </p>
               </section>
 
-              {/* s11 */}
+              {/* FAQ */}
               <section className="mt-10">
-                <H2 id="s11">11. Conclusion</H2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  <Link
-                    href="/en/stage-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    Stage
-                  </Link>
-                  ,{" "}
-                  <Link
-                    href="/en/sound-light-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    sound, lighting
-                  </Link>
-                  ,{" "}
-                  <Link
-                    href="/en/led-screen-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    LED screen
-                  </Link>{" "}
-                  and{" "}
-                  <Link
-                    href="/en/tent-rental"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    tent
-                  </Link>{" "}
-                  rental pricing cannot be managed with fixed rules. Incorrect
-                  approaches are usually the same: working only with an equipment
-                  list price, ignoring demand fluctuations, providing add-on
-                  services free of charge, and thinking only about "just rental".
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  The correct approach is to position yourself not as an
-                  equipment supplier, but as the technical production partner
-                  for events. Pricing should also reflect the value of the
-                  experience and confidence you deliver.
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  When you adopt this perspective, it becomes possible to
-                  achieve higher profitability by taking on fewer projects.
-                  Because in this industry, the winners are not the cheapest
-                  — they are those who communicate their value correctly, deliver
-                  quality production, and justify their price.
-                </p>
+                <H2 id="faq">Frequently asked questions</H2>
+                <div className="mt-4 space-y-4">
+                  {FAQ_ITEMS.map((item) => (
+                    <details
+                      key={item.q}
+                      className="rounded-2xl border border-slate-200 bg-white p-5"
+                    >
+                      <summary className="cursor-pointer list-none text-sm font-semibold text-slate-900 md:text-base">
+                        {item.q}
+                      </summary>
+                      <p className="mt-3 text-sm leading-7 text-slate-700">
+                        {item.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
               </section>
 
               {/* CTA */}
               <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <h2 className="text-lg font-semibold text-slate-900">
-                  Get a strategic quote for your event
+                  Get an itemised quote for your event
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-slate-700">
-                  At Sahneva, with the experience gained across{" "}
+                  Sahneva has delivered{" "}
                   <strong className="font-semibold text-slate-900">
-                    {PROJECTS_COMPLETED} successful projects
+                    {PROJECTS_COMPLETED} projects
                   </strong>{" "}
-                  in stage, sound-lighting, LED screen and tent rental, we manage
-                  the entire process from technical scouting to installation under
-                  one roof. Message us on WhatsApp for a fast quote; on most
-                  projects we deliver a fully scoped proposal within{" "}
-                  <strong className="font-semibold text-slate-900">
-                    2 hours
-                  </strong>
-                  .
+                  covering stage, sound-lighting, LED screen and tent, managing
+                  the process from technical survey to de-rig under one
+                  contract. Send the six items above and you will get a
+                  quotation broken down by line, with anything uncertain marked
+                  as an option rather than folded into the total.
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -846,7 +730,7 @@ export default function Page() {
                   { href: "/en/led-screen-rental", label: "LED Screen Rental" },
                   { href: "/en/sound-light-rental", label: "Sound & Lighting Systems" },
                   { href: "/en/tent-rental", label: "Tent Rental" },
-                  { href: "/en/podium-rental", label: "Podium Rental" },
+                  { href: "/en/podium-rental", label: "Stage Platform Rental" },
                 ]}
               />
             </article>
@@ -858,7 +742,7 @@ export default function Page() {
                   Quick Quote
                 </div>
                 <p className="mt-2 text-sm leading-6 text-slate-700">
-                  Share your event details and we'll scope it quickly.
+                  Share your event details and we&apos;ll scope it quickly.
                 </p>
                 <div className="mt-4 flex flex-col gap-2">
                   <a
@@ -880,47 +764,48 @@ export default function Page() {
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <div className="text-sm font-semibold text-slate-900">
+                  Published prices
+                </div>
+                <p className="mt-2 text-sm leading-6 text-slate-700">
+                  Our stage platform rates are published by m², with a worked
+                  example.
+                </p>
+                <Link
+                  className="mt-3 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-900"
+                  href="/en/podium-rental-prices"
+                >
+                  Stage platform prices 2026 →
+                </Link>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="text-sm font-semibold text-slate-900">
                   Services
                 </div>
                 <ul className="mt-3 space-y-2 text-sm text-slate-700">
                   <li>
-                    <Link
-                      className="hover:text-slate-900"
-                      href="/en/stage-rental"
-                    >
+                    <Link className="hover:text-slate-900" href="/en/stage-rental">
                       Stage Rental
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="hover:text-slate-900"
-                      href="/en/led-screen-rental"
-                    >
+                    <Link className="hover:text-slate-900" href="/en/led-screen-rental">
                       LED Screen Rental
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="hover:text-slate-900"
-                      href="/en/sound-light-rental"
-                    >
+                    <Link className="hover:text-slate-900" href="/en/sound-light-rental">
                       Sound &amp; Lighting Systems
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="hover:text-slate-900"
-                      href="/en/tent-rental"
-                    >
+                    <Link className="hover:text-slate-900" href="/en/tent-rental">
                       Tent Rental
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="hover:text-slate-900"
-                      href="/en/podium-rental"
-                    >
-                      Podium Rental
+                    <Link className="hover:text-slate-900" href="/en/av-rental-istanbul">
+                      AV Rental Istanbul
                     </Link>
                   </li>
                 </ul>
@@ -950,9 +835,9 @@ export default function Page() {
                   <li>
                     <Link
                       className="hover:text-slate-900"
-                      href="/en/blog/led-screen-technology-trends-2026"
+                      href="/en/blog/event-technical-scouting-and-planning-guide"
                     >
-                      2026 LED Screen Technology Trends
+                      Event Technical Scouting and Planning Guide
                     </Link>
                   </li>
                   <li>

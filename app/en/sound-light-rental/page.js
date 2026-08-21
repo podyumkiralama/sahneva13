@@ -1,5 +1,6 @@
 ﻿// app/en/sound-light-rental/page.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
@@ -1162,6 +1163,17 @@ export default function Page() {
         servicePath="/en/sound-light-rental"
         title="Terms used on sound and lighting projects"
         description="Line array, FOH, delay speakers, DMX and haze are the headings that decide coverage and look; the definitions are in the glossary."
+      />
+      <ServiceBlogLinks
+        locale="en"
+        links={[
+          { href: "/en/blog/sound-system-innovations-2026-trends", label: "2026 Audio System Innovations and Trends" },
+          { href: "/en/blog/event-technical-scouting-and-planning-guide", label: "Event Technical Scouting and Planning Guide" },
+        ]}
+        relatedServices={[
+          { href: "/en/av-rental-istanbul", label: "AV Rental Istanbul", intent: "Sound and lighting bundled with LED, mics and streaming" },
+          { href: "/en/conference-av-rental-istanbul", label: "Conference AV Rental Istanbul", intent: "Speech intelligibility and interpretation in congress halls" },
+        ]}
       />
       <CTA />
     </>

@@ -174,12 +174,12 @@ const HERO_STATS = [
 
 const KEYWORD_CHIPS = [
   "MICE Turkey",
-  "MICE Istanbul",
-  "MICE Antalya",
+  "PCO technical partner",
+  "DMC production support",
   "Congress production Turkey",
-  "Conference AV Turkey",
-  "Incentive event Turkey",
+  "Incentive programme Turkey",
   "Exhibition production Turkey",
+  "Multi-city MICE logistics",
 ];
 
 function Hero() {
