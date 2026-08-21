@@ -936,6 +936,12 @@ function FAQ() {
 function RelatedServices() {
   const services = [
     {
+      href: "/en/av-rental-istanbul",
+      title: "AV rental in Istanbul",
+      icon: "🎚️",
+      desc: "The whole AV package — audio, mics, lighting, LED and streaming — from one supplier in Istanbul",
+    },
+    {
       href: "/en/led-screen-rental",
       title: "LED screen rental",
       icon: "🖥️",

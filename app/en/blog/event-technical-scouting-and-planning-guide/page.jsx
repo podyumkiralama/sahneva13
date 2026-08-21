@@ -661,7 +661,7 @@ export default function Page() {
               </p>
               <div className="mt-5">
                 <a
-                  href="https://www.sahneva.com/files/kurumsal-etkinlik-kontrol-listesi-2026.pdf"
+                  href="https://www.sahneva.com/files/corporate-event-planning-checklist-2026-en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-700"

@@ -1691,6 +1691,18 @@ export default function Page() {
       <ServiceBlogLinks
         locale="en"
         title="Related Guides on Stage Rental"
+        relatedServices={[
+          {
+            href: "/en/event-production-istanbul",
+            label: "Event Production Istanbul",
+            intent: "Venue access, load-in windows and crew for an Istanbul build",
+          },
+          {
+            href: "/en/av-rental-istanbul",
+            label: "AV Rental Istanbul",
+            intent: "Stage bundled with audio, lighting, LED and technicians",
+          },
+        ]}
         links={[
           {
             href: "/en/blog/how-stage-rental-prices-are-determined",

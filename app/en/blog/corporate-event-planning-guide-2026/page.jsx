@@ -176,7 +176,7 @@ export default function Page() {
   const publishedISO = PUBLISH_DATE;
   const publishedHuman = "January 28, 2026";
   const readingTime = "12–14 min read";
-  const pdfHref = "/files/kurumsal-etkinlik-kontrol-listesi-2026.pdf";
+  const pdfHref = "/files/corporate-event-planning-checklist-2026-en.pdf";
 
   const jsonLd = {
     "@context": "https://schema.org",

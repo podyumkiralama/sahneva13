@@ -1635,6 +1635,18 @@ export default function Page() {
       <ServiceBlogLinks
         locale="en"
         title="Guides on this topic"
+        relatedServices={[
+          {
+            href: "/en/event-production-istanbul",
+            label: "Event Production Istanbul",
+            intent: "If the event is in Istanbul, the city-level production page",
+          },
+          {
+            href: "/en/conference-av-rental-istanbul",
+            label: "Conference AV Rental Istanbul",
+            intent: "Congress format: interpretation, breakouts, speaker management",
+          },
+        ]}
         links={[
           {
             href: "/en/blog/corporate-event-management",

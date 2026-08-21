@@ -227,6 +227,8 @@ export default function Page() {
   ];
 
   const services = [
+    { title: "Event Production Istanbul", href: "/en/event-production-istanbul" },
+    { title: "AV Rental Istanbul", href: "/en/av-rental-istanbul" },
     { title: "LED Screen Rental", href: "/en/led-screen-rental" },
     { title: "Truss Rental", href: "/en/truss-rental" },
     { title: "Stage / Podium Rental", href: "/en/podium-rental" },

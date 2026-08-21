@@ -314,6 +314,27 @@ export default function EnglishServicesPage() {
       color: "from-violet-500 to-purple-600",
     },
     {
+      href: "/en/event-production-istanbul",
+      title: "Event Production Istanbul",
+      description: "Venue access, load-in planning and technical crew for events in Istanbul",
+      icon: "🌉",
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      href: "/en/av-rental-istanbul",
+      title: "AV Rental Istanbul",
+      description: "Audio, microphones, lighting, LED, playback and livestream as one package",
+      icon: "🎚️",
+      color: "from-teal-500 to-emerald-600",
+    },
+    {
+      href: "/en/conference-av-rental-istanbul",
+      title: "Conference AV Rental Istanbul",
+      description: "Interpretation, breakout rooms, speaker management and hybrid congress delivery",
+      icon: "🎙️",
+      color: "from-indigo-500 to-violet-600",
+    },
+    {
       href: "/en/event-production-antalya",
       title: "Event Production Antalya",
       description: "Full AV and technical production for resort hotels, Belek, Kemer and Side",
