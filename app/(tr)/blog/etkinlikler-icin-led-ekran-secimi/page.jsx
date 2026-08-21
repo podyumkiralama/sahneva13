@@ -14,7 +14,7 @@ const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
 const PUBLISH_DATE = "2026-04-12T09:00:00+03:00";
-const MODIFIED_DATE = "2026-04-12T09:00:00+03:00";
+const MODIFIED_DATE = "2026-08-22T00:00:00+03:00";
 
 const HERO_IMG = "/img/blog/etkinlikler-icin-led-ekran-secimi-hero.webp";
 const CONFERENCE_IMG = "/img/blog/kurumsal-konferans-led-ekran-kurulumu.webp";
@@ -25,7 +25,7 @@ const AUDITORIUM_IMG = "/img/blog/konferans-salonu-led-ekran-sunumu.webp";
 
 const TITLE = "LED Ekran Seçimi Rehberi";
 const DESCRIPTION =
-  "Etkinlik için LED ekran seçimi: indoor/outdoor kullanım, pixel pitch, parlaklık, görüş açısı ve güvenli kurulum kriterlerini öğrenin.";
+  "Etkinlik için LED ekran seçimi: indoor/outdoor, pixel pitch, parlaklık, 3840 Hz kamera performansı ve güvenli kurulum kriterleri.";
 
 const WA_URL =
   "https://wa.me/905453048671?text=" +
@@ -68,6 +68,8 @@ export const metadata = {
     "indoor LED ekran",
     "pixel pitch",
     "LED ekran parlaklık",
+    "kamera dostu LED ekran",
+    "3840 Hz LED ekran",
     "sahne LED ekran",
   ],
   openGraph: {
@@ -114,6 +116,11 @@ const FAQ_ITEMS = [
       "Yüksek parlaklık, geniş görüş açısı, IP65 ve üzeri koruma sınıfı, sağlam taşıyıcı sistem, rüzgar yükü planlaması ve hızlı servis erişimi dış mekan LED ekranlarda kritik kriterlerdir.",
   },
   {
+    question: "Kamera çekiminde LED ekran neden titrer?",
+    answer:
+      "Düşük yenileme hızı veya kamera ayarlarıyla uyumsuz tarama yapısı görüntüde flicker ve çizgilenme oluşturabilir. Canlı yayın ve kayıt projelerinde 3840 Hz sınıfı paneller tercih edilmeli; kamera shutter ayarı, çekim açısı, içerik FPS değeri ve ekran parlaklığı etkinlik öncesi provada birlikte test edilmelidir.",
+  },
+  {
     question: "LED ekran kiralama fiyatını en çok hangi kalemler etkiler?",
     answer:
       "LED ekran kiralama fiyatını ekran ölçüsü, pixel pitch, indoor/outdoor panel tipi, kurulum yüksekliği, taşıyıcı sistem, nakliye, teknik ekip, görüntü işlemci, reji ve etkinlik süresi etkiler.",
@@ -154,6 +161,7 @@ function ArticleSchema() {
           { "@type": "Thing", name: "LED ekran kiralama" },
           { "@type": "Thing", name: "Etkinlik prodüksiyonu" },
           { "@type": "Thing", name: "Sahne LED ekran kurulumu" },
+          { "@type": "Thing", name: "Kamera dostu 3840 Hz LED ekran" },
         ],
       },
       {
@@ -247,8 +255,8 @@ export default function Page() {
           alt: "Konferans salonunda geniş LED ekran kurulumu ve sahne prodüksiyonu",
         }}
         pills={["LED Ekran", "Kiralama Rehberi", "Etkinlik Prodüksiyonu"]}
-        title="LED Ekran Seçimi Rehberi"
-        highlight="Kiralama Rehberi"
+        title="LED Ekran Seçimi"
+        highlight="Rehberi"
         description={DESCRIPTION}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}
@@ -346,6 +354,12 @@ export default function Page() {
           LED çözümler önemli avantaj sağlar. Burada yalnızca panel kalitesi değil; taşıma, kurulum ekibi,
           enerji altyapısı ve hızlı test süreci de planlamaya dahil edilmelidir.
         </p>
+        <p>
+          Sahneva envanterindeki Unilumin P2.6 ve P2.9 panellerde bulunan Flip-Shield köşe koruma yapısı,
+          taşıma ve montaj sırasında hassas piksel köşelerini korumaya yardımcı olur. Bu özellik görüntü
+          kalitesinden bağımsız görünse de yoğun kurulum-söküm trafiğinde panel sürekliliğini destekleyen
+          önemli bir operasyon kriteridir.
+        </p>
 
         <h2 id="secim-kriterleri">LED ekran seçerken nelere dikkat edilmeli?</h2>
         <p>
@@ -395,7 +409,12 @@ export default function Page() {
         <p>
           Profesyonel etkinliklerde kamera kaydı veya canlı yayın varsa yenileme hızı kritik hale gelir.
           Düşük yenileme hızına sahip ekranlar kamerada titreme, çizgilenme veya görüntü bozulması
-          oluşturabilir. Bu nedenle panellerin yayın dostu olması teklif aşamasında mutlaka sorgulanmalıdır.
+          oluşturabilir. Sahneva envanterindeki Unilumin P2.6 ve P2.9 panellerin 3840 Hz yenileme hızı,
+          flicker ve tarama çizgisi riskini azaltmaya yardımcı olur. Moiré riskinde pixel pitch, çekim
+          mesafesi, lens ve kamera açısı da etkili olduğundan ekran ile kamera etkinlik öncesi birlikte
+          test edilmelidir. Envanter ve indirilebilir ürün bilgileri için{" "}
+          <Link href="/led-ekran-kiralama#teknik-dokumanlar">LED ekran teknik dokümanlarını</Link>{" "}
+          inceleyebilirsiniz.
         </p>
 
         <h3>Kurulum güvenliği ve teknik ekip</h3>

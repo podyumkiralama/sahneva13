@@ -102,7 +102,7 @@ const CURVED_P19_INSTALLATION_IMAGES = [
     title: "Kavis geometrisi kontrolü",
     caption:
       "Absen P1.9 kabinetleri sahaya çıkmadan önce hedeflenen kavis formunda dizilerek mekanik birleşim ve yüzey sürekliliği kontrol edildi.",
-    positionClass: "object-center",
+    positionClass: "object-[center_75%]",
   },
   {
     src: "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp",
@@ -325,15 +325,6 @@ const USE_CASES = [
     title: "Canlı Yayın ve Stüdyo Uygulamaları",
     desc: "3840 Hz yenileme hızıyla profesyonel kameralarda tarama çizgisi riskini azaltan, yayın standartlarına uygun arka plan çözümleri sağlıyoruz."
   }
-];
-
-const ARTICLE_SECTIONS = [
-  { id: "led-ekran-nedir", label: "LED ekran kiralama nedir?" },
-  { id: "neden-tercih-edilir", label: "Neden tercih edilir?" },
-  { id: "ic-dis-mekan-farki", label: "İç / dış mekan farkı" },
-  { id: "kurulum-sureci", label: "Kurulum süreci" },
-  { id: "kullanim-senaryolari", label: "Hangi etkinliklerde kullanılır?" },
-  { id: "istanbul-kurulum-sureci", label: "İstanbul operasyon süreci" },
 ];
 
 const FAQ_ITEMS = [
@@ -729,19 +720,19 @@ function CurvedP19InstallationProof() {
         <div className="mt-9 space-y-5">
           <CurvedP19ImageCard
             item={preAssembly}
-            aspectClass="aspect-[16/9]"
+            aspectClass="h-[300px] sm:h-[380px] lg:h-[480px]"
             sizes="(max-width: 768px) 100vw, 80vw"
           />
           <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[0.75fr_1.25fr] md:overflow-visible md:px-0 md:pb-0">
             <CurvedP19ImageCard
               item={stageInstallation}
-              aspectClass="aspect-[3/4]"
+              aspectClass="h-[360px] sm:h-[480px] lg:h-[600px]"
               sizes="(max-width: 768px) 100vw, 38vw"
               className="w-[82vw] shrink-0 snap-start md:w-auto"
             />
             <CurvedP19ImageCard
               item={technicalRehearsal}
-              aspectClass="aspect-[4/3]"
+              aspectClass="h-[360px] sm:h-[480px] lg:h-[600px]"
               sizes="(max-width: 768px) 100vw, 62vw"
               className="w-[82vw] shrink-0 snap-start md:w-auto"
             />
@@ -1092,9 +1083,9 @@ function Gallery() {
           </Link>
         </div>
 
-        <div className="mb-12 grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-          <article className="relative overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
-            <div className="relative aspect-[16/10] lg:h-full lg:min-h-[720px] lg:aspect-auto">
+        <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
+          <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
+            <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
               <Image
                 src={GALLERY_IMAGES[0].src}
                 alt={GALLERY_IMAGES[0].alt}
@@ -1123,7 +1114,7 @@ function Gallery() {
                 key={image.src}
                 className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto"
               >
-                <div className="relative aspect-[4/3]">
+                <div className="relative h-[240px] lg:h-[260px]">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -1153,7 +1144,7 @@ function Gallery() {
                 key={image.src}
                 className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
               >
-                <div className="relative aspect-[4/5]">
+                <div className="relative h-[320px] md:h-[360px]">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -1742,215 +1733,6 @@ function RegionalService() {
   );
 }
 
-/* ================== Bilgi & Rehber ================== */
-function Articles() {
-  return (
-    <section className="bg-gradient-to-b from-white to-gray-50/50 py-8 md:py-10" aria-labelledby="bilgi-rehber-baslik">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <summary className="cursor-pointer list-none p-5 marker:content-none sm:p-7 [&::-webkit-details-marker]:hidden">
-            <h2 id="bilgi-rehber-baslik" className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <span className="max-w-4xl">
-                <span className="block text-xs font-black uppercase tracking-[0.16em] text-violet-700">Detaylı bilgi kütüphanesi</span>
-                <span className="mt-2 block text-2xl font-black leading-tight text-gray-900 md:text-3xl">
-                  LED Ekran Kiralama Rehberi
-                </span>
-                <span className="mt-2 block text-sm font-medium leading-6 text-gray-600">
-                  Panel seçimi, indoor ve outdoor farkları, kurulum süreci ve kamera dostu görüntü altyapısı.
-                </span>
-              </span>
-              <span className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-full bg-violet-700 px-5 text-sm font-black text-white transition group-open:bg-slate-950 sm:self-auto">
-                <span className="group-open:hidden">Rehberi aç</span>
-                <span className="hidden group-open:inline">Rehberi kapat</span>
-              </span>
-            </h2>
-          </summary>
-
-          <div className="hidden border-t border-slate-200 p-4 group-open:block sm:p-6">
-
-        <nav
-          aria-label="LED ekran kiralama rehber başlıkları"
-          className="mb-8 flex flex-wrap justify-center gap-3"
-        >
-          {ARTICLE_SECTIONS.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className="inline-flex items-center rounded-full border border-violet-100 bg-white px-4 py-2 text-sm font-semibold text-violet-700 shadow-sm transition hover:border-violet-200 hover:bg-violet-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
-            >
-              {section.label}
-            </a>
-          ))}
-        </nav>
-
-        <article className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-          <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-              LED Ekran Kiralama: Etkinliklerde Yüksek Etki İçin Doğru Planlama
-            </h3>
-            <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
-              Konserden fuara, kurumsal lansmandan gala gecelerine kadar her organizasyonda; güçlü görsel iletişim ve yüksek çözünürlüklü profesyonel çözümler
-            </p>
-          </header>
-
-          <div className="p-8 md:p-10">
-            <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-violet-500">
-              <h3 id="led-ekran-nedir">LED Ekran Kiralama Nedir?</h3>
-              <p>
-                <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
-                kurulum, operasyon ve teknik destek dahil şekilde proje bazlı temin edilmesidir. Kalıcı ekipman yönetimi gerektirmeden profesyonel ekipman
-                kullanmanıza olanak tanır.
-              </p>
-
-              <h3 id="neden-tercih-edilir">Neden LED Ekran Kiralama Tercih Edilmeli?</h3>
-              <p>
-                Dönemsel organizasyonlarda kalıcı yatırım yerine kiralama modeli, operasyon planlamasında daha esnek bir çözüm sunar.
-                Doğru planlama ile hem izleyici deneyimi artar hem de teknik riskler minimuma iner.
-              </p>
-              <ul>
-                <li>Kalıcı ekipman depolama ve bakım yükünü üstlenmeme</li>
-                <li>Etkinliğe uygun m² ve Piksel Aralığı seçebilme</li>
-                <li>Kurulum, söküm ve teknik operasyonun tek ekipten alınması</li>
-                <li>İç Mekan ve Dış Mekan için farklı parlaklık / koruma alternatifleri</li>
-              </ul>
-
-              <h3 id="ic-dis-mekan-farki">İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
-              <p>
-                İç mekan LED ekranlarda Absen P1.9 ile Unilumin P2.6 / P2.9 seçeneklerinde yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
-                ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
-              </p>
-
-              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={LED_BALLROOM_LAUNCH_IMAGE_SRC}
-                  alt="İç mekan LED ekran kiralama uygulaması ve kurumsal lansman sahnesi"
-                  width={1600}
-                  height={1200}
-                  className="w-full h-auto object-cover"
-                  sizes="(max-width: 1024px) 100vw, 1080px"
-                  quality={70}
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="bg-violet-50 border-l-4 border-violet-600 rounded-r-2xl p-6 my-6">
-                <h4 className="font-black text-violet-700 text-lg mb-3">Kamera Dostu Performans: 3840 Hz Yenileme Hızı</h4>
-                <p className="text-gray-700 mb-0">
-                  Unilumin P2.6 / P2.9 panellerin 3840 Hz yenileme hızı, televizyon çekimleri ve canlı yayınlarda
-                  tarama çizgisi (moiré) ile titreşim (flicker) riskini azaltmaya yardımcı olur. Yüksek gri skala
-                  derinliği sayesinde kamera karşısında daha dengeli bir görüntü akışı elde edilir.
-                </p>
-              </div>
-
-              <div className="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6 mb-8">
-                <h4 className="font-black text-green-700 text-lg mb-3">Flip-Shield ile Gelişmiş Köşe Koruması</h4>
-                <p className="text-gray-700 mb-0">
-                  Unilumin P2.6 / P2.9 panellerdeki <strong>Flip-Shield köşe koruma mekanizması</strong>, kurulum ve taşıma
-                  sırasında panellerin hassas köşe noktalarını korumaya yardımcı olur. Bu yapı, piksel hasarı riskini
-                  azaltarak operasyonel güvenliği destekler.
-                </p>
-              </div>
-
-              <div className="bg-violet-50 border-l-4 border-violet-500 rounded-r-2xl p-6 my-8">
-                <h4 className="font-black text-violet-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
-                <p className="text-gray-700 mb-0">
-                  İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P1.9/P2.6/P2.9; orta-uzak mesafede P3.9/P4
-                  tercih edilerek daha net ve dengeli görüntü elde edilir.
-                </p>
-              </div>
-
-              <div className="not-prose my-8 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm">
-                <h4 className="text-lg font-black text-gray-900">Etkinlik tipine göre LED ekran seçimi</h4>
-                <p className="mt-2 text-sm leading-6 text-gray-600">
-                  Konferans, lansman, festival veya açık hava organizasyonu için ekran ölçüsü,
-                  pixel pitch ve parlaklık kararını daha detaylı görmek isterseniz hazırladığımız
-                  rehberi inceleyebilirsiniz.
-                </p>
-                <Link
-                  href="/blog/etkinlikler-icin-led-ekran-secimi"
-                  className="mt-4 inline-flex items-center font-bold text-violet-700 hover:text-violet-900"
-                >
-                  LED ekran seçimi rehberini oku
-                </Link>
-              </div>
-              
-
-              <h3 id="kurulum-sureci">LED Ekran Kurulumu Nasıl İlerler?</h3>
-              <p>
-                Profesyonel süreç; keşif, projelendirme, kurulum, test-kalibrasyon ve etkinlik anı teknik destek adımlarından oluşur. Bu yapı,
-                yayın sırasında oluşabilecek kesinti riskini azaltır ve içerik akışının kontrollü şekilde yönetilmesine yardımcı olur.
-              </p>
-
-              <div className="not-prose my-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-                <p className="text-sm leading-6 text-amber-950">
-                  Taşıyıcı sistem, elektrik dağıtımı, bariyerleme ve ekip sorumluluklarını saha öncesinde kontrol etmek için{" "}
-                  <Link href="/blog/led-ekran-kurulum-guvenligi" className="font-black underline underline-offset-4">
-                    LED ekran kurulum güvenliği kontrol listesini
-                  </Link>{" "}
-                  inceleyebilirsiniz.
-                </p>
-              </div>
-
-              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={P19_TECHNICAL_CONTROL_IMAGE_SRC}
-                  alt="Absen P1.9 indoor LED ekran kiralama kurulum süreci ve teknik prodüksiyon ekibi"
-                  width={1600}
-                  height={739}
-                  className="w-full h-auto object-cover"
-                  sizes="(max-width: 1024px) 100vw, 1080px"
-                  quality={70}
-                  loading="lazy"
-                />
-              </div>
-
-              <h3 id="kullanim-senaryolari">Hangi Etkinliklerde Kullanılır?</h3>
-              <ul>
-                <li>Konser, festival ve sahne performansları</li>
-                <li>Kurumsal Toplantı, Kongre ve Lansmanlar</li>
-                <li>Fuar, Sergi ve Stant Organizasyonları</li>
-                <li>Gala, Prestijli Davetler ve Canlı Yayın Prodüksiyonları</li>
-                <li>AVM ve Perakende Alanlarında Dijital Reklam Gösterimleri</li>
-              </ul>
-
-              <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={LED_OUTDOOR_CONCERT_IMAGE_SRC}
-                  alt="Açık hava konser ve etkinliklerde büyük LED ekran kiralama uygulaması"
-                  width={1600}
-                  height={1199}
-                  className="w-full h-auto object-cover"
-                  sizes="(max-width: 1024px) 100vw, 1080px"
-                  quality={70}
-                  loading="lazy"
-                />
-              </div>
-              
-              <h3 id="istanbul-kurulum-sureci">İstanbul'da LED Ekran Kiralama Süreci Nasıl İşler?</h3>
-              <p>
-                Megakent İstanbul'un lojistik zorluklarını bilerek, kurulum süreçlerimizi <strong>"Tam Zamanında Teslimat"</strong> ilkesine göre planlıyoruz. 
-                Kadıköy'deki bir lansman ile Beylikdüzü'ndeki bir fuar organizasyonunun farklı trafik dinamiklerine sahip olduğunun bilincindeyiz. 
-                Bu nedenle, İstanbul'un her iki yakasında bulunan teknik ekiplerimiz, etkinlikten saatler önce mekânda hazır bulunarak 
-                montaj ve sinyal testlerini tamamlamaktadır.
-              </p>
-
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
-                <h4 className="font-black text-yellow-700 text-lg mb-3">Sonuç</h4>
-                <p className="text-yellow-800 mb-0">
-                  Doğru planlanan bir <strong>LED ekran kiralama</strong> hizmeti, etkinliğinizin görsel etkisini artırır, marka algısını güçlendirir
-                  ve katılımcı deneyimini belirgin şekilde iyileştirir. İhtiyaca uygun teknik seçim + uzman operasyon = başarılı etkinlik.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-          </div>
-        </details>
-      </div>
-    </section>
-  );
-}
-
 /* ================== Tamamlayıcı Hizmetler ================== */
 function RelatedServices() {
   const services = [
@@ -1976,8 +1758,15 @@ function RelatedServices() {
           <h2 id="tamamlayici-hizmetler-baslik" className="text-2xl font-black text-gray-900 md:text-3xl">
             Prodüksiyonu <span className="text-violet-700">tamamlayan hizmetler</span>
           </h2>
-          <p className="text-sm font-medium text-gray-600">
-            Aynı teknik plan içinde birlikte çalışır.
+          <p className="text-sm font-medium leading-6 text-gray-600">
+            Aynı teknik plan içinde birlikte çalışır.{" "}
+            <Link href="/blog/etkinlikler-icin-led-ekran-secimi" className="font-black text-violet-700 hover:text-violet-900">
+              LED ekran seçimi rehberi
+            </Link>{" "}
+            ·{" "}
+            <Link href="/blog/led-ekran-kurulum-guvenligi" className="font-black text-violet-700 hover:text-violet-900">
+              kurulum güvenliği
+            </Link>
           </p>
         </div>
 
@@ -2000,45 +1789,6 @@ function RelatedServices() {
             ))}
           </div>
         </nav>
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  return (
-    <section className="bg-white py-8 md:py-10" aria-labelledby="cta-baslik">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-950 via-violet-950 to-slate-950 p-6 text-white md:p-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(139,92,246,0.25),transparent_35%)]" aria-hidden="true" />
-          <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <h2 id="cta-baslik" className="text-2xl font-black leading-tight md:text-3xl">
-                LED ekran projenizi birlikte planlayalım
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-violet-100 md:text-base">
-                Türkiye'nin {PROVINCES_COUNT} ilinde keşif, sevkiyat, güvenli kurulum, teknik operasyon ve sökümü tek ekip akışında planlıyoruz.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/iletisim"
-                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-6 font-black text-violet-800 transition hover:bg-violet-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
-              >
-                Teklif isteyin
-              </Link>
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/40 px-6 font-black text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
-              >
-                <MessageCircle size={18} aria-hidden="true" />
-                WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -2246,9 +1996,7 @@ export default function Page() {
       <Gallery />
       <RegionalService />
       <FAQ />
-      <Articles />
       <RelatedServices />
-      <CTA />
     </>
   );
 }
