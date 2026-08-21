@@ -11,6 +11,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
@@ -22,7 +23,6 @@ import {
   Zap,
   Settings,
   MessageCircle,
-  CheckCircle,
   Layout,
   ArrowRight,
   Camera,
@@ -577,101 +577,73 @@ function VisualProofStrip() {
 }
 
 /* ================== HERO ================== */
+const HERO_BADGES = [
+  "İç Mekan LED",
+  "Dış Mekan LED",
+  "LED Wall & Video Wall",
+  "Reji ve Teknik Ekip",
+  "Kredi Kartı ile Taksitli Ödeme",
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "Teklif Al - WhatsApp üzerinden LED ekran kiralama teklifi alın",
+  },
+  {
+    key: "services",
+    label: "Hizmet Kapsamını İncele",
+    href: "#hizmetler",
+    ariaLabel: "LED ekran hizmet kapsamına gidin",
+  },
+];
+
+const HERO_METRICS = [
+  {
+    value: "Indoor",
+    label: "İç Mekan LED",
+    detail: "Salon, konferans ve stüdyo kurulumlarında yüksek çözünürlüklü LED wall.",
+  },
+  {
+    value: "Outdoor",
+    label: "Dış Mekan LED",
+    detail: "Açık hava etkinliklerinde parlaklık ve hava koşullarına dayanıklı sistemler.",
+  },
+  {
+    value: PROJECTS_COMPLETED,
+    label: "Tamamlanan Proje",
+    detail: "Kurumsal lansmandan festival ana sahnesine geniş saha referansı.",
+  },
+  {
+    value: `${PROVINCES_COUNT} İl`,
+    label: "Kurulum Operasyonu",
+    detail: "Türkiye genelinde nakliye, kurulum, reji ve söküm koordinasyonu.",
+  },
+];
+
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#05070d] pt-24 pb-14 md:pt-28 md:pb-20 lg:min-h-[760px] lg:pt-32 lg:pb-24" aria-labelledby="hero-title">
-      <div className="absolute inset-0">
-        <picture>
-          <source media="(max-width: 640px)" srcSet={HERO.mobileSrc} />
-          <source media="(max-width: 1024px)" srcSet={HERO.tabletSrc} />
-          <img
-            src={HERO.src}
-            alt={HERO.alt}
-            width="1440"
-            height="810"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            decoding="async"
-            fetchPriority="high"
-          />
-        </picture>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.92)_0%,rgba(2,6,23,.64)_42%,rgba(2,6,23,.24)_72%,rgba(2,6,23,.06)_100%)]" aria-hidden="true" />
-        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/70 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#05070d] via-[#05070d]/60 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.14)_1px,transparent_1px)] [background-size:96px_96px]" aria-hidden="true" />
-      </div>
-
-      <div className="relative z-10 container mx-auto grid max-w-7xl items-end gap-10 px-4 text-white lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
-        <div className="max-w-4xl">
-          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
-            <span>İstanbul ve Türkiye geneli LED ekran kiralama</span>
-          </div>
-
-          <h1 id="hero-title" className="max-w-4xl text-5xl font-black leading-[0.96] text-white md:text-7xl lg:text-8xl">
-            LED Ekran Kiralama
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-white/85 md:text-2xl">
-            İstanbul ve Türkiye genelinde LED ekran kiralama hizmeti sunuyoruz. İç mekan LED ekran, dış mekan LED
-            ekran, LED wall ve video wall çözümlerini; kurulum, söküm, teknik ekip, görüntü işlemcisi ve reji
-            desteğiyle birlikte projeye özel planlıyoruz.
-          </p>
-
-          <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/85">
-            {["İç Mekan LED", "Dış Mekan LED", "LED Wall & Video Wall", "Reji ve Teknik Ekip", "Kredi Kartı ile Taksitli Ödeme"].map((item) => (
-              <span key={item} className="rounded-full border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm">
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href={WHATSAPP}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              aria-label="Teklif Al - WhatsApp üzerinden LED ekran kiralama teklifi alın"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-bold text-slate-950 transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
-            >
-              <MessageCircle size={20} aria-hidden="true" />
-              <span>Teklif Al</span>
-            </Link>
-
-            <Link
-              href="#hizmetler"
-              aria-label="LED ekran hizmet kapsamına gidin"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/30 bg-black/25 px-6 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-            >
-              <Monitor size={20} aria-hidden="true" />
-              <span>Hizmet Kapsamını İncele</span>
-            </Link>
-          </div>
-        </div>
-
-        <aside className="hidden rounded-3xl border border-white/15 bg-black/30 p-5 backdrop-blur-md lg:block" aria-label="LED ekran hero operasyon özeti">
-          <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-            <CheckCircle size={22} className="text-emerald-300" aria-hidden="true" />
-            <div>
-              <p className="text-sm font-semibold text-white/80">Sahneva LED Ops</p>
-              <p className="text-lg font-black text-white">Teknik operasyon akışı</p>
-            </div>
-          </div>
-          <dl className="mt-5 grid gap-4">
-            {[
-              ["Indoor", "iç mekan LED"],
-              ["Outdoor", "dış mekan LED"],
-              [PROJECTS_COMPLETED, "tamamlanan proje"],
-              [`${PROVINCES_COUNT} il`, "kurulum operasyonu"],
-            ].map(([value, label]) => (
-              <div key={label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
-                <dt className="text-2xl font-black text-white">{value}</dt>
-                <dd className="text-sm font-medium text-white/85">{label}</dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="İstanbul ve Türkiye geneli LED ekran kiralama"
+      title="LED Ekran Kiralama"
+      description="İstanbul ve Türkiye genelinde LED ekran kiralama hizmeti sunuyoruz. İç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall çözümlerini; kurulum, söküm, teknik ekip, görüntü işlemcisi ve reji desteğiyle birlikte projeye özel planlıyoruz."
+      badges={HERO_BADGES}
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS}
+      image={{
+        src: HERO.src,
+        alt: HERO.alt,
+        width: 1440,
+        height: 810,
+        sources: [
+          { media: "(max-width: 640px)", srcSet: HERO.mobileSrc },
+          { media: "(max-width: 1024px)", srcSet: HERO.tabletSrc },
+        ],
+      }}
+    />
   );
 }
 

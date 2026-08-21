@@ -8,6 +8,7 @@ import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { MessageCircle, Eye, CheckCircle } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -350,157 +351,62 @@ function GalleryFallback() {
   );
 }
 
+const HERO_BADGES = [
+  "Ses entegrasyonu",
+  "LED içerik ekranı",
+  "Anahtar teslim kurulum",
+  "Kart ile taksitli ödeme",
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Hemen Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "WhatsApp üzerinden dijital kürsü teklifi alın",
+  },
+  {
+    key: "types",
+    label: "Kürsü Tiplerini İncele",
+    href: "#kursu-tipleri",
+  },
+];
+
 function Hero() {
   return (
-    <section
-      className="relative isolate flex min-h-[620px] items-start overflow-hidden bg-[#0a1429] pt-8 pb-10 text-white sm:min-h-[680px] md:min-h-[90svh] md:items-center md:pt-20 md:pb-16 lg:pt-20 lg:pb-16"
-      aria-labelledby="hero-title"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src="/img/dijital-kursu/dijital-kursu-hero.webp"
-          alt="Dijital kürsü kiralama – LED ekranlı sunum kürsüsü gerçek saha kurulumu"
-          fill
-          priority
-          loading="eager"
-          fetchPriority="high"
-          className="object-cover"
-          sizes="100vw"
-          quality={88}
-          blurDataURL={BLUR_DATA_URL}
-          placeholder="blur"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1429]/97 via-[#1e3a8a]/88 to-[#0f172a]/94" aria-hidden="true" />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(30,58,138,0.38),transparent_44%),radial-gradient(circle_at_82%_13%,rgba(15,23,42,0.42),transparent_40%)]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 opacity-[0.09] bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px]"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
-        <nav aria-label="Sayfa yolu" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-sm text-white/60">
-            <li><Link className="hover:text-white transition-colors" href="/">Ana Sayfa</Link></li>
-            <li aria-hidden="true">/</li>
-            <li><Link className="hover:text-white transition-colors" href="/hizmetler">Hizmetler</Link></li>
-            <li aria-hidden="true">/</li>
-            <li className="text-white/90 font-semibold">Dijital Kürsü Kiralama</li>
-          </ol>
-        </nav>
-
-        <div className="mx-auto grid max-w-7xl gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/[0.06] px-5 py-2.5 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
-              <div className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-70" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
-              </div>
-              <span className="text-sm font-black tracking-[0.6px] text-white/90">
-                DİJİTAL KÜRSÜ • STOK HAZIR • TÜRKİYE GENELİ
-              </span>
-            </div>
-
-            <h1
-              id="hero-title"
-              className="mt-7 max-w-4xl text-[50px] font-black leading-[0.94] tracking-[-1.5px] text-white drop-shadow-[0_5px_25px_rgba(0,0,0,0.45)] md:text-[64px] lg:text-[76px] xl:text-[84px]"
-            >
-              Profesyonel{" "}
-              <span className="gradient-text-clip-safe block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
-                Dijital Kürsü Kiralama
-              </span>
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-[20px] font-semibold leading-[1.4] text-white/[0.94] md:text-[23px]">
-              LED ekranlı, şeffaf ve özel tasarım kürsülerle<br className="hidden md:block" />
-              ses entegrasyonu ve kurulumu tek elden planlıyoruz.
-            </p>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
-              Konferans, lansman, mezuniyet ve protokol etkinlikleri için nakliye, montaj ve saha teknik desteği dahil anahtar teslim hizmet.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(30,64,175,0.45)] transition-all hover:brightness-110 active:scale-[0.985]"
-              >
-                <MessageCircle className="h-5 w-5 transition group-hover:-rotate-12" />
-                HEMEN TEKLİF AL
-              </Link>
-
-              <Link
-                href="#kursu-tipleri"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.06] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.14] active:scale-[0.985]"
-              >
-                KÜRSÜ TİPLERİNİ İNCELE
-              </Link>
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-3 max-w-2xl sm:grid-cols-4 sm:gap-6 border-t border-white/10 pt-8">
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center">
-                <span className="text-2xl mb-1.5" aria-hidden="true">🎙️</span>
-                <div className="text-lg md:text-xl font-black text-white">Ses</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Entegrasyonu</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">🖥️</span>
-                <div className="text-lg md:text-xl font-black text-white">LED</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">İçerik Ekranı</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">🚀</span>
-                <div className="text-lg md:text-xl font-black text-white">Anahtar</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Teslim Kurulum</div>
-              </div>
-              <div className="flex flex-col items-start sm:items-center text-left sm:text-center border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0">
-                <span className="text-2xl mb-1.5" aria-hidden="true">💳</span>
-                <div className="text-lg md:text-xl font-black text-white">Kart</div>
-                <div className="text-blue-200/70 text-xs md:text-sm font-medium">Taksitli Ödeme</div>
-              </div>
-            </div>
-          </div>
-
-          <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end mt-4 xl:mt-0" aria-label="Hizmet özeti">
-            <div className="absolute -inset-6 rounded-[2.8rem] bg-blue-400/10 blur-3xl" aria-hidden="true" />
-            <div className="relative">
-              <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/[0.15] bg-white/[0.07] px-5 py-3.5 backdrop-blur-xl">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[1px] text-blue-300">HİZMET ÖZETİ</p>
-                  <p className="mt-0.5 text-sm text-blue-200/80">Kürsü tipi, entegrasyon ve kurulum tek planda</p>
-                </div>
-                <span className="rounded-full bg-emerald-400/15 px-3.5 py-1 text-xs font-black text-emerald-300">HAZIR STOK</span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {HERO_METRICS.map((item, i) => (
-                  <div key={i} className="rounded-2xl border border-white/[0.12] bg-white/[0.06] p-5 backdrop-blur-xl">
-                    <div className="text-[28px] font-black leading-none text-white">{item.value}</div>
-                    <div className="mt-1 text-xs font-black uppercase tracking-widest text-blue-300">{item.suffix}</div>
-                    <div className="mt-3 text-sm font-semibold text-blue-200/80">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-white/[0.12] bg-slate-950/40 p-5 backdrop-blur-xl">
-                <p className="text-xs font-black uppercase tracking-widest text-blue-300">UYUMLU HİZMETLER</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {["Sahne Kiralama", "LED Ekran", "Ses & Işık", "Kurumsal Org."].map((f, i) => (
-                    <span key={i} className="rounded-full border border-white/[0.15] bg-white/[0.07] px-3.5 py-1 text-sm font-black text-white">
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      breadcrumb={[
+        { label: "Ana Sayfa", href: "/" },
+        { label: "Hizmetler", href: "/hizmetler" },
+        { label: "Dijital Kürsü Kiralama" },
+      ]}
+      eyebrow="Dijital kürsü · Stok hazır · Türkiye geneli"
+      title="Profesyonel"
+      titleAccent="Dijital Kürsü Kiralama"
+      titleWide
+      description="LED ekranlı, şeffaf ve özel tasarım kürsülerle ses entegrasyonu ve kurulumu tek elden planlıyoruz."
+      note="Konferans, lansman, mezuniyet ve protokol etkinlikleri için nakliye, montaj ve saha teknik desteği dahil anahtar teslim hizmet."
+      badges={HERO_BADGES}
+      chipGroups={[
+        {
+          label: "Uyumlu hizmetler",
+          items: ["Sahne Kiralama", "LED Ekran", "Ses & Işık", "Kurumsal Org."],
+        },
+      ]}
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS.map((metric) => ({
+        value: `${metric.value} ${metric.suffix}`,
+        label: metric.label,
+      }))}
+      image={{
+        src: "/img/dijital-kursu/dijital-kursu-hero.webp",
+        alt: "Dijital kürsü kiralama – LED ekranlı sunum kürsüsü gerçek saha kurulumu",
+        sizes: "100vw",
+        quality: 78,
+        blurDataURL: BLUR_DATA_URL,
+      }}
+    />
   );
 }
 

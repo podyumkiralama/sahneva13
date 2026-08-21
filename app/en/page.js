@@ -747,29 +747,41 @@ const CORPORATE_EVENTS_ADVANTAGES_EN = [
     icon: "⚡",
     label: "Lightning-Fast Build",
     desc: "Same-day installation by experienced crews",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
+    bg: "bg-white/[0.04]",
+    border: "border-white/10",
+    textColor: "text-white",
+    labelColor: "text-white",
+    descColor: "text-slate-300",
   },
   {
     icon: "🎛",
     label: "Modern Equipment",
     desc: "Latest-generation audio, lighting and LED inventory",
-    bg: "bg-green-50",
-    border: "border-green-200",
+    bg: "bg-white/[0.04]",
+    border: "border-white/10",
+    textColor: "text-white",
+    labelColor: "text-white",
+    descColor: "text-slate-300",
   },
   {
     icon: "👷",
     label: "Experienced Crew",
     desc: "Certified engineers overseeing every discipline",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
+    bg: "bg-white/[0.04]",
+    border: "border-white/10",
+    textColor: "text-white",
+    labelColor: "text-white",
+    descColor: "text-slate-300",
   },
   {
     icon: "🛡",
     label: "Safety & Backup",
     desc: "Redundant power and contingency planning",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
+    bg: "bg-white/[0.04]",
+    border: "border-white/10",
+    textColor: "text-white",
+    labelColor: "text-white",
+    descColor: "text-slate-300",
   },
 ];
 
@@ -939,13 +951,17 @@ export const metadata = {
 /* ================== Page ================== */
 export default function EnglishHomePage() {
   return (
-    <div className="overflow-x-hidden bg-black">
+    <div className="overflow-x-hidden bg-[#0B1120]">
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
       <HomepageHero dictionary={HERO_DICT_EN} />
       <div className="relative z-10 bg-[#0B1120]">
-        <HeroBelow dictionary={HERO_BELOW_DICT_EN} />
+        <HeroBelow
+          dictionary={HERO_BELOW_DICT_EN}
+          sectionClassName="bg-[#0B1120]"
+          transitionClassName="from-[#0B1120]/0 via-[#0B1120]/70 to-[#0B1120]"
+        />
       </div>
 
       <div id="get-a-quote" aria-hidden="true" />
@@ -969,7 +985,7 @@ export default function EnglishHomePage() {
       {/* Services */}
       <section
         aria-labelledby="services-title"
-        className="content-visibility-auto cv-home-services bg-black"
+        className="content-visibility-auto cv-home-services bg-[#0B1120]"
       >
         <h2 id="services-title" className="sr-only">Services</h2>
         <p className="sr-only">
@@ -986,7 +1002,7 @@ export default function EnglishHomePage() {
       {/* Projects */}
       <section
         aria-labelledby="projects-title"
-        className="content-visibility-auto cv-home-projects bg-black"
+        className="content-visibility-auto cv-home-projects bg-[#0B1120]"
       >
         <h2 id="projects-title" className="sr-only">Our Projects</h2>
         <p className="sr-only">
@@ -1003,12 +1019,12 @@ export default function EnglishHomePage() {
       </section>
 
       {/* Technical */}
-      <div className="content-visibility-auto cv-home-tech bg-slate-900 py-10">
+      <div className="content-visibility-auto cv-home-tech bg-[#0B1120] py-10">
         <TechCapabilities dictionary={TECH_CAPABILITIES_DICT_EN} />
       </div>
 
       {/* Corporate */}
-      <div className="content-visibility-auto cv-home-corporate-events bg-slate-50 py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-events bg-[#0B1120] py-0 m-0 w-full">
         <CorporateEvents
           cards={CORPORATE_EVENTS_CARDS_EN}
           advantages={CORPORATE_EVENTS_ADVANTAGES_EN}
@@ -1016,17 +1032,17 @@ export default function EnglishHomePage() {
         />
       </div>
 
-      <div className="content-visibility-auto cv-home-corporate-intro bg-black py-0 m-0 w-full">
+      <div className="content-visibility-auto cv-home-corporate-intro bg-[#0B1120] py-0 m-0 w-full">
         <CorporateIntro dictionary={CORPORATE_INTRO_DICT_EN} />
       </div>
 
       {/* Why Choose Us */}
-      <div className="content-visibility-auto cv-home-why w-full p-0 m-0">
+      <div className="content-visibility-auto cv-home-why w-full bg-[#0B1120] p-0 m-0">
         <WhyChooseUs dictionary={WHY_CHOOSE_US_DICT_EN} />
       </div>
 
       {/* FAQ */}
-      <div className="content-visibility-auto cv-home-faq w-full bg-transparent p-0 m-0">
+      <div className="content-visibility-auto cv-home-faq w-full bg-[#0B1120] p-0 m-0">
         <Faq items={FAQ_ITEMS_EN} dictionary={FAQ_DICT_EN} />
       </div>
     </div>

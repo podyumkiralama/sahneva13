@@ -85,16 +85,20 @@ function ProcessList({ steps, ariaLabel }) {
   );
 }
 
-export default function HeroBelow({ dictionary: dictionaryOverride } = {}) {
+export default function HeroBelow({
+  dictionary: dictionaryOverride,
+  sectionClassName = "bg-slate-950",
+  transitionClassName = "from-slate-950/0 via-slate-950/70 to-slate-950",
+} = {}) {
   const d = { ...DEFAULT_DICTIONARY, ...dictionaryOverride };
   return (
     <section
-      className="home-section home-section--surface relative mt-0 overflow-hidden bg-slate-950 py-8 md:py-10"
+      className={`home-section home-section--surface relative mt-0 overflow-hidden ${sectionClassName} py-8 md:py-10`}
       aria-labelledby="hero-supporting-title"
     >
       {/* Hero -> HeroBelow geçişini yumuşat (beyaz band hissi azalır) */}
       <div
-        className="pointer-events-none absolute inset-x-0 -top-10 h-16 bg-gradient-to-b from-slate-950/0 via-slate-950/70 to-slate-950"
+        className={`pointer-events-none absolute inset-x-0 -top-10 h-16 bg-gradient-to-b ${transitionClassName}`}
         aria-hidden="true"
       />
 

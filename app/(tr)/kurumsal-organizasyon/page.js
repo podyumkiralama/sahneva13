@@ -20,6 +20,7 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
@@ -503,107 +504,39 @@ function Hero() {
   const heroPicture = getOptimizedHeroPictureProps();
 
   return (
-    <section
-      className="relative isolate overflow-hidden bg-[#05070d] pb-12 pt-24 text-white md:pb-16 md:pt-28 lg:min-h-[760px] lg:pb-20 lg:pt-32"
-      aria-labelledby="hero-title"
-    >
-      <picture>
-        <source
-          media="(max-width: 640px)"
-          srcSet={heroPicture.mobileSrcSet}
-          sizes="100vw"
-        />
-        <source
-          media="(max-width: 1024px)"
-          srcSet={heroPicture.tabletSrcSet}
-          sizes="100vw"
-        />
-        <img {...heroPicture.imageProps} alt={HERO.alt} fetchPriority="high" />
-      </picture>
-
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,.96)_0%,rgba(2,6,23,.86)_36%,rgba(2,6,23,.56)_64%,rgba(2,6,23,.12)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#05070d] via-[#05070d]/75 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-0 hidden grid-overlay opacity-35 md:block" aria-hidden="true" />
-      <div className="absolute inset-0 corporate-stage-lights" aria-hidden="true">
-        <span className="corporate-stage-beam corporate-stage-beam-left" />
-        <span className="corporate-stage-beam corporate-stage-beam-right" />
-      </div>
-
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 md:px-6 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center">
-        <div className="min-w-0 max-w-4xl">
-          <div className="mb-5 inline-flex items-center gap-3 border border-white/[0.16] bg-black/[0.34] px-4 py-2 text-sm font-bold text-white/90 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_18px_rgba(52,211,153,.85)]" aria-hidden="true" />
-            <span>Türkiye'nin Kurumsal Etkinlik Teknoloji Partneri</span>
-          </div>
-
-          <h1
-            id="hero-title"
-            className="max-w-4xl text-5xl font-black leading-[0.96] tracking-normal text-white md:text-7xl lg:text-8xl"
-          >
-            Kurumsal Organizasyon
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-xl font-black leading-tight text-sky-100 md:text-3xl">
-            <span className="block sm:inline">Sahne, LED ekran ve</span>{" "}
-            <span className="block sm:inline">teknik prodüksiyon</span>{" "}
-            <span className="block sm:inline">tek ekipten.</span>
-          </p>
-
-          <p className="mt-5 max-w-[20rem] break-words text-base leading-8 text-white/[0.82] sm:max-w-2xl md:text-lg">
-            Sahneva, kurumsal organizasyonlarda sahne, LED ekran, ses-ışık, truss ve teknik reji süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir. Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili ve etkinlik sonrası söküm planı tek muhatapla ilerler.
-          </p>
-
-          <div className="mt-7 flex flex-wrap gap-2.5 text-sm font-semibold text-white/[0.86]">
-            {[...ASSURANCE_ITEMS.slice(0, 4), "Kredi Kartı ile Taksitli Ödeme"].map((item) => (
-              <span key={item} className="border border-white/[0.14] bg-white/[0.08] px-3.5 py-2 backdrop-blur-sm">
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={generateWhatsAppLink("kurumsal organizasyon")}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-white px-6 py-4 font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
-            >
-              <PhoneCall size={20} aria-hidden="true" />
-              <span>Kurumsal Teklif Al</span>
-            </a>
-            <Link
-              href="#saha-kaniti"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 border border-white/[0.26] bg-black/[0.28] px-6 py-4 font-black text-white backdrop-blur-md transition hover:bg-white/[0.10] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/[0.22]"
-            >
-              <Camera size={20} aria-hidden="true" />
-              <span>Saha Kanıtını Gör</span>
-            </Link>
-          </div>
-        </div>
-
-        <aside className="hidden border border-white/[0.14] bg-black/[0.30] p-5 backdrop-blur-md lg:block" aria-label="Kurumsal organizasyon operasyon özeti">
-          <div className="flex items-center gap-3 border-b border-white/[0.10] pb-4">
-            <Sparkles size={22} className="text-sky-200" aria-hidden="true" />
-            <div>
-              <p className="text-sm font-semibold text-white/[0.62]">Sahneva Ops</p>
-              <p className="text-lg font-black text-white">Premium prodüksiyon akışı</p>
-            </div>
-          </div>
-          <dl className="mt-5 grid gap-4">
-            {[
-              ...HERO_STATS,
-              { value: `${PROVINCES_COUNT} il`, label: "Türkiye geneli kurulum" },
-            ].map((item) => (
-              <div key={item.label} className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-b border-white/[0.10] pb-4 last:border-b-0 last:pb-0">
-                <dt className="text-2xl font-black text-white">{item.value}</dt>
-                <dd className="text-sm font-medium text-white/[0.72]">{item.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Türkiye'nin kurumsal etkinlik teknoloji partneri"
+      title="Kurumsal Organizasyon"
+      description="Sahne, LED ekran ve teknik prodüksiyon tek ekipten."
+      note="Sahneva, kurumsal organizasyonlarda sahne, LED ekran, ses-ışık, truss ve teknik reji süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir. Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili ve etkinlik sonrası söküm planı tek muhatapla ilerler."
+      badges={[...ASSURANCE_ITEMS.slice(0, 4), "Kredi Kartı ile Taksitli Ödeme"]}
+      actions={[
+        {
+          key: "quote",
+          label: "Kurumsal Teklif Al",
+          href: generateWhatsAppLink("kurumsal organizasyon"),
+          external: true,
+          ariaLabel: "WhatsApp üzerinden kurumsal organizasyon teklifi alın",
+        },
+        {
+          key: "proof",
+          label: "Saha Kanıtını Gör",
+          href: "#saha-kaniti",
+        },
+      ]}
+      metrics={[
+        ...HERO_STATS,
+        { value: `${PROVINCES_COUNT} il`, label: "Türkiye geneli kurulum" },
+      ]}
+      image={{
+        alt: HERO.alt,
+        imgProps: heroPicture.imageProps,
+        sources: [
+          { media: "(max-width: 640px)", srcSet: heroPicture.mobileSrcSet },
+          { media: "(max-width: 1024px)", srcSet: heroPicture.tabletSrcSet },
+        ],
+      }}
+    />
   );
 }
 

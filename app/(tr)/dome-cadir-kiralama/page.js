@@ -15,6 +15,7 @@ import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -257,75 +258,39 @@ const FAQ_ITEMS = [
 ];
 
 /* ================== Hero ================== */
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Dome İçin Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "WhatsApp üzerinden dome çadır teklifi alın",
+  },
+  {
+    key: "call",
+    label: PHONE_DISPLAY,
+    href: `tel:${PHONE}`,
+    ariaLabel: "Sahneva'yı telefonla arayın",
+  },
+];
+
 function Hero() {
   return (
-    <section
-      className="relative isolate overflow-hidden bg-[#0a1429] py-16 text-white md:py-24"
-      aria-labelledby="dome-hero-baslik"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={HERO_IMAGE.src}
-          alt={HERO_IMAGE.alt}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          quality={72}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#0a1429]/96 via-[#1e3a8a]/86 to-[#0f172a]/94"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 opacity-[0.09] bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px]"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        <div className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/[0.06] px-5 py-2.5 backdrop-blur-xl">
-          <span className="text-sm font-black tracking-[0.6px] text-white/90">
-            DOME ÇADIR • 360° MAPPING • DENEYİM ALANI
-          </span>
-        </div>
-
-        <h1
-          id="dome-hero-baslik"
-          className="mt-7 max-w-4xl text-[46px] font-black leading-[0.96] tracking-[-1.5px] text-white md:text-[64px] lg:text-[74px]"
-        >
-          Dome Çadır Kiralama
-        </h1>
-
-        <p className="mt-6 max-w-3xl text-[20px] font-semibold leading-[1.45] text-white/[0.94] md:text-[23px]">
-          Dome, alanı hava koşullarından korumak için değil, kendisi bir görüntü ve ses
-          yüzeyi olsun diye kurulur.
-        </p>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
-          Lansman, deneyim alanı ve konsept stant kurgularında pnömatik ve geodezik dome
-          kurulumunu; projeksiyon, akustik ve zemin planıyla birlikte tek elden yürütüyoruz.
-        </p>
-
-        <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            className="inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(30,64,175,0.45)] transition hover:brightness-110"
-          >
-            <MessageCircle className="h-5 w-5" aria-hidden="true" />
-            DOME İÇİN TEKLİF AL
-          </Link>
-          <Link
-            href={`tel:${PHONE}`}
-            className="inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.06] px-9 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14]"
-          >
-            <Phone className="h-5 w-5" aria-hidden="true" />
-            {PHONE_DISPLAY}
-          </Link>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      titleId="dome-hero-baslik"
+      descriptionId="dome-hero-aciklama"
+      eyebrow="Dome çadır · 360° mapping · Deneyim alanı"
+      title="Dome Çadır Kiralama"
+      description="Dome, alanı hava koşullarından korumak için değil, kendisi bir görüntü ve ses yüzeyi olsun diye kurulur."
+      note="Lansman, deneyim alanı ve konsept stant kurgularında pnömatik ve geodezik dome kurulumunu; projeksiyon, akustik ve zemin planıyla birlikte tek elden yürütüyoruz."
+      actions={HERO_ACTIONS}
+      image={{
+        src: HERO_IMAGE.src,
+        alt: HERO_IMAGE.alt,
+        sizes: "100vw",
+        quality: 72,
+      }}
+    />
   );
 }
 

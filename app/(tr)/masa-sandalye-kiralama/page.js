@@ -1,6 +1,5 @@
 ﻿// app/masa-sandalye-kiralama/page.jsx
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
-import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -8,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
@@ -263,123 +263,72 @@ const PACKAGES = [
 ];
 
 /* ================== HERO ================== */
+const HERO_BADGES = [
+  "Düğün",
+  "Nişan",
+  "Konferans",
+  "Kokteyl",
+  "Kurumsal etkinlik",
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Hemen Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "WhatsApp üzerinden hemen teklif alın",
+  },
+  {
+    key: "packages",
+    label: "Fiyat ve Paketler",
+    href: "#paketler",
+    ariaLabel: "Fiyat ve paket seçeneklerini inceleyin",
+  },
+];
+
+const HERO_METRICS = [
+  {
+    value: "Geniş",
+    label: "Stok kapasitesi",
+    detail: "Napolyon, konferans sandalyesi ve banket masa stoğu.",
+  },
+  {
+    value: PROJECTS_COMPLETED,
+    label: "Tamamlanan proje",
+    detail: "Düğünden kurumsal konferansa geniş yerleşim deneyimi.",
+  },
+  {
+    value: `${PROVINCES_COUNT} İl`,
+    label: "Hizmet bölgesi",
+    detail: "İstanbul merkezli, Türkiye geneli teslimat ve kurulum.",
+  },
+  {
+    value: "Kart",
+    label: "Taksitli ödeme",
+    detail: "Teklifte anlaşılan tutar online kredi kartıyla ödenebilir.",
+  },
+];
+
 function Hero() {
   return (
-    <section
-      className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 pb-14 md:pb-16 lg:pt-24"
-      aria-labelledby="hero-title"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={HERO.src}
-          alt={HERO.alt}
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover"
-          sizes={HERO.sizes}
-          // quality={85}  // <-- KALDIRILDI
-          quality={70}    // Daha agresif sıkıştırma, LCP uyarısını yumuşatır
-         
-          blurDataURL={BLUR_DATA_URL}
-          loading="eager"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">İstanbul Geneli Hızlı Teslim</span>
-        </div>
-
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl"
-        >
-          Profesyonel{" "}
-          <span className="text-blue-200">
-            Masa Sandalye Kiralama
-          </span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Düğün • Nişan • Konferans • Kokteyl • Kurumsal Etkinlikler
-        </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          İstanbul'da düğün, nişan ve kurumsal organizasyonlar için kiralık masa ve sandalye seçenekleri sunuyoruz:
-          Napolyon ve konferans sandalyeleri, banket masalar, örtü-kılıf sistemleri ile
-          <span className="font-semibold text-white"> yerleşim planı ve hızlı kurulum</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen teklif alın"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              💬
-            </span>
-            <span className="text-base">Hemen Teklif Al</span>
-          </Link>
-
-          <Link
-            href="#paketler"
-            aria-label="Fiyat ve paket seçeneklerini inceleyin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              🎯
-            </span>
-            <span className="text-base">Fiyat ve Paketler</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto sm:grid-cols-4">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🪑
-            </span>
-            <div className="text-xl font-black text-white">Geniş</div>
-            <div className="text-white/80 text-sm">Stok Kapasitesi</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🏆
-            </span>
-            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
-            <div className="text-white/80 text-sm">Proje</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🚀
-            </span>
-            <div className="text-xl font-black text-white">{PROVINCES_COUNT} İl</div>
-            <div className="text-white/80 text-sm">Hizmet</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              💳
-            </span>
-            <div className="text-xl font-black text-white">Kart</div>
-            <div className="text-white/80 text-sm">Taksitli Ödeme</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="İstanbul geneli hızlı teslim"
+      title="Profesyonel"
+      titleAccent="Masa Sandalye Kiralama"
+      titleWide
+      description="İstanbul'da düğün, nişan ve kurumsal organizasyonlar için kiralık masa ve sandalye seçenekleri sunuyoruz: Napolyon ve konferans sandalyeleri, banket masalar, örtü-kılıf sistemleri ile <strong>yerleşim planı ve hızlı kurulum</strong>."
+      badges={HERO_BADGES}
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS}
+      image={{
+        src: HERO.src,
+        alt: HERO.alt,
+        sizes: HERO.sizes,
+        quality: 70,
+        blurDataURL: BLUR_DATA_URL,
+      }}
+    />
   );
 }
 

@@ -1,0 +1,447 @@
+/* Sahneva kurumsal hero — anasayfadaki (TurkishHomepageHero) tasarım dilinin
+   iç sayfalar için ortak sürümü: #040817 zemin, mor aksan, keskin geometri,
+   mono etiketler ve ağır büyük harf başlık. Renk/tipografi değerleri
+   TurkishHomepageHeroEffects.module.css ve TurkishHomeServices.module.css ile
+   aynı kaynaktan gelir; burada tek bir yerde toplanır. */
+
+.hero {
+  position: relative;
+  z-index: 0;
+  min-height: clamp(600px, 78svh, 780px);
+  isolation: isolate;
+  overflow: hidden;
+  background: #040817;
+  color: #ffffff;
+}
+
+.heroCompact {
+  min-height: clamp(460px, 58svh, 600px);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: scale(1.01);
+}
+
+.heroWash {
+  position: absolute;
+  inset: 0;
+  background: rgb(2 6 23 / 22%);
+}
+
+.copyShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(2 6 23 / 97%) 0%,
+    rgb(2 6 23 / 92%) 32%,
+    rgb(2 6 23 / 76%) 54%,
+    rgb(2 6 23 / 36%) 72%,
+    rgb(2 6 23 / 10%) 86%,
+    transparent 100%
+  );
+}
+
+.bottomFade {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 6rem;
+  background: linear-gradient(180deg, transparent 0%, rgb(4 8 23 / 92%) 100%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: inherit;
+  align-items: center;
+  max-width: 1680px;
+  margin-inline: auto;
+  padding: clamp(6.5rem, 12vh, 8.5rem) clamp(1.25rem, 4vw, 4rem)
+    clamp(4rem, 8vh, 6rem);
+}
+
+.copy {
+  width: min(100%, 60rem);
+}
+
+.breadcrumb {
+  margin: 0 0 1.1rem;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(226 232 240 / 62%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  margin-left: 0.5rem;
+  color: rgb(167 139 250 / 62%);
+  content: "/";
+}
+
+.breadcrumb a {
+  color: rgb(226 232 240 / 62%);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+  color: #c4b5fd;
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current] {
+  color: #a78bfa;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.15rem;
+  color: #a78bfa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 1px;
+  background: #8b5cf6;
+  content: "";
+}
+
+.title {
+  max-width: 15ch;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.75rem, 5.1vw, 5.25rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-shadow: 0 12px 36px rgb(0 0 0 / 48%);
+}
+
+.title em {
+  display: block;
+  color: #a78bfa;
+  font-style: normal;
+}
+
+.titleWide {
+  max-width: 22ch;
+  font-size: clamp(2.45rem, 4.1vw, 4.25rem);
+}
+
+.description {
+  max-width: 44rem;
+  margin: 1.5rem 0 0;
+  color: rgb(255 255 255 / 88%);
+  font-size: clamp(1rem, 1.18vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.58;
+  text-wrap: balance;
+}
+
+.description strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.note {
+  max-width: 44rem;
+  margin: 0.85rem 0 0;
+  color: rgb(226 232 240 / 76%);
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgb(139 92 246 / 38%);
+  border-left-width: 2px;
+  border-left-color: #8b5cf6;
+  background: rgb(4 7 21 / 74%);
+  padding: 0.42rem 0.7rem;
+  color: rgb(226 232 240 / 92%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.chipGroupLabel {
+  flex: 0 0 auto;
+  color: #a78bfa;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.85rem;
+}
+
+.action {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 65%);
+  background: rgb(4 8 23 / 60%);
+  padding: 0.875rem 1.5rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.action:hover,
+.action:focus-visible {
+  border-color: #ffffff;
+  background: rgb(11 17 32 / 92%);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.actionPrimary {
+  border-color: #a78bfa;
+  background: #7c3aed;
+}
+
+.actionPrimary:hover,
+.actionPrimary:focus-visible {
+  border-color: #ddd6fe;
+  background: #8b5cf6;
+}
+
+.actionIcon {
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 58rem;
+  margin: 2.35rem 0 0;
+  padding: 0;
+  border-top: 1px solid rgb(139 92 246 / 32%);
+  border-left: 1px solid rgb(139 92 246 / 32%);
+  list-style: none;
+}
+
+.metric {
+  min-width: 0;
+  border-right: 1px solid rgb(139 92 246 / 32%);
+  border-bottom: 1px solid rgb(139 92 246 / 32%);
+  background: rgb(4 7 21 / 62%);
+  padding: 0.9rem 1rem 1rem;
+}
+
+.metricValue {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.metricLabel {
+  display: block;
+  margin-top: 0.4rem;
+  color: #c4b5fd;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.metricDetail {
+  display: none;
+  margin: 0.5rem 0 0;
+  color: rgb(226 232 240 / 66%);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .action {
+    min-width: 13rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .copy {
+    width: min(62vw, 60rem);
+  }
+
+  .metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .metricDetail {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero,
+  .heroCompact {
+    min-height: auto;
+  }
+
+  .heroWash {
+    background: rgb(2 6 23 / 40%);
+  }
+
+  .copyShade {
+    background: linear-gradient(
+      180deg,
+      rgb(2 6 23 / 93%) 0%,
+      rgb(2 6 23 / 82%) 46%,
+      rgb(2 6 23 / 70%) 74%,
+      rgb(2 6 23 / 92%) 100%
+    );
+  }
+
+  .inner {
+    padding-top: clamp(5.5rem, 14vh, 7rem);
+    padding-bottom: clamp(3rem, 8vh, 4rem);
+  }
+
+  .title,
+  .titleWide {
+    max-width: none;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 9.5vw, 4.25rem);
+  }
+
+  .titleWide {
+    font-size: clamp(2.25rem, 8vw, 3.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(2.15rem, 11vw, 3rem);
+  }
+
+  .titleWide {
+    font-size: clamp(1.95rem, 9.5vw, 2.6rem);
+  }
+
+  .badge {
+    font-size: 0.5625rem;
+    letter-spacing: 0.07em;
+  }
+
+  .action {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition: none;
+  }
+}
+
+/* Sanatsal kırpım gerektiren hero görselleri next/image yerine <picture> ile
+   geliyor; fill davranışını burada elle kuruyoruz. */
+.heroImageRaw {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}

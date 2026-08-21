@@ -9,6 +9,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -273,83 +274,71 @@ const FAQ_ITEMS = [
 ];
 
 /* ================== Bölüm Bileşenleri ================== */
+const HERO_METRICS = [
+  {
+    value: "Kurulum + Söküm",
+    label: "Saha operasyonu",
+    detail: "Profesyonel ekip ile sahada tam operasyon",
+  },
+  {
+    value: "Nakliye Dahil",
+    label: "Lojistik",
+    detail: "İstanbul ve proje bazlı Türkiye geneli",
+  },
+  {
+    value: "Rigging Uyumlu",
+    label: "Taşıyıcı planlama",
+    detail: "LED ekran ve ışık sistemleri için planlama",
+  },
+  {
+    value: "Taksitli Ödeme",
+    label: "Kredi kartı",
+    detail: "Teklifte anlaştığımız tutarı online kartla ödeyebilirsiniz",
+  },
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "whatsapp",
+    label: "WhatsApp Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "WhatsApp üzerinden truss kiralama teklifi al (yeni sekmede açılır)",
+  },
+  {
+    key: "call",
+    label: "Hemen Ara",
+    href: `tel:${PHONE}`,
+    ariaLabel: "Telefonla ara",
+  },
+  {
+    key: "form",
+    label: "Form ile Fiyat Al",
+    href: "#teklif",
+  },
+];
+
 function Hero() {
   return (
-    <header className="pt-20 pb-14 md:pb-16 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-7xl">
-        <nav aria-label="Sayfa yolu" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-            <li>
-              <Link className="hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="/">
-                Ana Sayfa
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li className="text-gray-900 font-semibold">Truss Kiralama</li>
-          </ol>
-        </nav>
-
-        <p className="text-sm font-semibold text-blue-700">
-          Sahne • LED Ekran • Işık & Ses • Fuar & Organizasyon
-        </p>
-
-        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-          Truss Kiralama{" "}
-          <span className="gradient-text gradient-text--safe-xl">
-            ve Sahne Truss Kurulumu
-          </span>
-        </h1>
-
-        <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl 2xl:max-w-4xl">
-          Kare, üçgen, circle ve kemer (gate) dahil <strong>her türlü truss</strong> sistemini
-          etkinliğinize göre planlıyor; nakliye, kurulum-söküm ve sahada teknik ekip desteği sağlıyoruz.
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
-            aria-label="WhatsApp üzerinden truss kiralama teklifi al (yeni sekmede açılır)"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">💬</span>
-            <span>WhatsApp Teklif Al</span>
-          </a>
-
-          <a
-            href={`tel:${PHONE}`}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
-            aria-label="Telefonla ara"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">📞</span>
-            <span>Hemen Ara</span>
-          </a>
-
-          <a
-            href="#teklif"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-gray-300 text-gray-800 hover:bg-gray-900 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">🧾</span>
-            <span>Form ile Fiyat Al</span>
-          </a>
-        </div>
-
-        <ul className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4 text-gray-700">
-          {[
-            { title: "Kurulum + Söküm", desc: "Profesyonel ekip ile sahada tam operasyon" },
-            { title: "Nakliye Dahil", desc: "İstanbul ve proje bazlı Türkiye geneli" },
-            { title: "Rigging Uyumlu", desc: "LED ekran ve ışık sistemleri için planlama" },
-            { title: "Kredi Kartı ile Taksit", desc: "Teklifte anlaştığımız tutarı online kartla ödeyebilirsiniz" },
-          ].map((x) => (
-            <li key={x.title} className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
-              <p className="font-black text-gray-900 text-lg">{x.title}</p>
-              <p className="mt-2 text-gray-600 leading-relaxed">{x.desc}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
+    <PageHero
+      breadcrumb={[
+        { label: "Ana Sayfa", href: "/" },
+        { label: "Truss Kiralama" },
+      ]}
+      eyebrow="Sahne · LED ekran · Işık & ses · Fuar & organizasyon"
+      title="Truss Kiralama"
+      titleAccent="ve Sahne Truss Kurulumu"
+      titleWide
+      description="Kare, üçgen, circle ve kemer (gate) dahil <strong>her türlü truss</strong> sistemini etkinliğinize göre planlıyor; nakliye, kurulum-söküm ve sahada teknik ekip desteği sağlıyoruz."
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS}
+      image={{
+        src: "/img/truss/truss-1.webp",
+        alt: "Konser sahnesinde kare truss kurulumu",
+        sizes: "100vw",
+        quality: 68,
+      }}
+    />
   );
 }
 

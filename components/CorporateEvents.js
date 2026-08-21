@@ -171,6 +171,7 @@ export default function CorporateEvents({
               const desc = hasDetails ? item.desc : null;
               const icon = hasDetails ? item.icon : null;
               const textColor = hasDetails ? item.textColor ?? "text-slate-950" : "";
+              const labelColor = hasDetails ? item.labelColor ?? "" : "";
               const descColor = hasDetails ? item.descColor ?? "text-slate-700" : "";
               const colorClasses = hasDetails
                 ? `${item.bg ?? "bg-white"} ${item.border ?? "border-white/20"} ${textColor}`
@@ -191,7 +192,7 @@ export default function CorporateEvents({
                           {icon}
                         </span>
                       ) : null}
-                      <p className="font-bold leading-snug">{label}</p>
+                      <p className={`font-bold leading-snug ${labelColor}`}>{label}</p>
                       {desc ? (
                         <p className={`mt-2 text-sm leading-relaxed ${descColor}`}>
                           {desc}

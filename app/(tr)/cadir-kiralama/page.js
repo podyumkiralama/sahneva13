@@ -6,6 +6,7 @@ import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
@@ -523,148 +524,52 @@ const HERO_METRICS = [
 const HERO_FORMATS = ["3x3", "4x4", "5x5", "20 m", "30 m", "40 m"];
 
 const HERO_BADGES = [
-  { icon: "📐", title: "Saha keşfi", detail: "Ölçü ve zemin analizi" },
-  { icon: "🧰", title: "Kendi ekibimiz", detail: "Kurulum ve saha desteği" },
-  { icon: "🚚", title: "Türkiye geneli", detail: "Nakliye ilk teklifte net" },
-  { icon: "💳", title: "Taksitli ödeme", detail: "Kredi kartına taksit" },
+  { title: "Saha keşfi", detail: "Ölçü ve zemin analizi" },
+  { title: "Kendi ekibimiz", detail: "Kurulum ve saha desteği" },
+  { title: "Türkiye geneli", detail: "Nakliye ilk teklifte net" },
+  { title: "Taksitli ödeme", detail: "Kredi kartına taksit" },
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Hemen Teklif Al",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "WhatsApp üzerinden çadır kiralama teklifi alın",
+  },
+  {
+    key: "call",
+    label: PHONE_DISPLAY,
+    href: `tel:${PHONE}`,
+    ariaLabel: "Sahneva'yı telefonla arayın",
+  },
 ];
 
 /* ================== HERO ================== */
 function Hero() {
   return (
-    <section
-      className="relative isolate flex min-h-[620px] items-start overflow-hidden bg-[#0a1429] pt-8 pb-10 text-white sm:min-h-[680px] md:min-h-[90svh] md:items-center md:pt-20 md:pb-16 lg:pt-20 lg:pb-16"
-      aria-labelledby="hero-title"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={HERO.src}
-          alt={HERO.alt}
-          fill
-          priority
-          className="object-cover"
-          sizes={HERO.sizes}
-          quality={72}
-          blurDataURL={BLUR_DATA_URL}
-          placeholder="blur"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#0a1429]/97 via-[#1e3a8a]/88 to-[#0f172a]/94"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(30,58,138,0.38),transparent_44%),radial-gradient(circle_at_82%_13%,rgba(15,23,42,0.42),transparent_40%)]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 opacity-[0.09] bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px]"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 py-6 md:py-8">
-        <div className="mx-auto grid max-w-7xl gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:items-center 2xl:grid-cols-[minmax(0,1fr)_440px]">
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/[0.06] px-5 py-2.5 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
-              <div className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-70" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
-              </div>
-              <span className="text-sm font-black tracking-[0.6px] text-white/90">
-                ETKİNLİK ÇADIRI • STOK HAZIR • TÜRKİYE GENELİ
-              </span>
-            </div>
-
-            <h1
-              id="hero-title"
-              className="mt-7 max-w-4xl text-[50px] font-black leading-[0.94] tracking-[-1.5px] text-white drop-shadow-[0_5px_25px_rgba(0,0,0,0.45)] md:text-[64px] lg:text-[76px] xl:text-[84px]"
-            >
-              Anahtar Teslim{" "}
-              <span className="gradient-text-clip-safe block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
-                Çadır Kiralama
-              </span>
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-[20px] font-semibold leading-[1.4] text-white/[0.94] md:text-[23px]">
-              Pagoda çadır, şeffaf çadır ve büyük açıklıklı sistemlerle{" "}<br className="hidden md:block" />
-              zemin, iklimlendirme ve lojistiği tek elden planlıyoruz.
-            </p>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-blue-100/80 md:text-lg">
-              İstanbul’da çadır kiralama ihtiyaçları ve Türkiye genelindeki projeler için ölçü,
-              zemin ve hava koşullarına göre güvenli, şık ve anahtar teslim alanlar kuruyoruz.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Link
-                href={WHATSAPP}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] px-9 text-[17px] font-black text-white shadow-[0_20px_55px_rgba(30,64,175,0.45)] transition-all hover:brightness-110 active:scale-[0.985]"
-              >
-                <MessageCircle className="h-5 w-5 transition group-hover:-rotate-12" />
-                HEMEN TEKLİF AL
-              </Link>
-
-              <Link
-                href={`tel:${PHONE}`}
-                className="group inline-flex h-[58px] min-w-[220px] items-center justify-center gap-3 rounded-3xl border border-white/30 bg-white/[0.06] px-9 text-[17px] font-black text-white backdrop-blur-xl transition-all hover:bg-white/[0.14] active:scale-[0.985]"
-              >
-                <Phone className="h-5 w-5" aria-hidden="true" />
-                {PHONE_DISPLAY}
-              </Link>
-            </div>
-
-            {/* Güven Rozetleri */}
-            <ul className="mt-10 grid grid-cols-2 gap-3 max-w-2xl sm:grid-cols-4 sm:gap-6 border-t border-white/10 pt-8">
-              {HERO_BADGES.map((badge, i) => (
-                <li
-                  key={badge.title}
-                  className={`flex flex-col items-start sm:items-center text-left sm:text-center ${i > 0 ? "border-l border-white/10 pl-3 sm:pl-0 sm:border-l-0" : ""}`}
-                >
-                  <span className="text-2xl mb-1.5" aria-hidden="true">{badge.icon}</span>
-                  <span className="text-lg md:text-xl font-black text-white">{badge.title}</span>
-                  <span className="text-blue-200/80 text-xs md:text-sm font-medium">{badge.detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <aside className="relative w-full max-w-xl xl:max-w-none xl:justify-self-end mt-4 xl:mt-0" aria-label="Kapasite özeti">
-            <div className="absolute -inset-6 rounded-[2.8rem] bg-blue-400/10 blur-3xl" aria-hidden="true" />
-            <div className="relative">
-              <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/[0.15] bg-white/[0.07] px-5 py-3.5 backdrop-blur-xl">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[1px] text-blue-300">OPERASYON ÖZETİ</p>
-                  <p className="mt-0.5 text-sm text-blue-200/80">Ölçü, stok ve güvenlik tek planda</p>
-                </div>
-                <span className="rounded-full bg-emerald-400/15 px-3.5 py-1 text-xs font-black text-emerald-300">HAZIR STOK</span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {HERO_METRICS.map((item, i) => (
-                  <div key={i} className="rounded-2xl border border-white/[0.12] bg-white/[0.06] p-5 backdrop-blur-xl">
-                    <div className="text-[34px] font-black leading-none text-white">{item.value}</div>
-                    <div className="mt-1 text-xs font-black uppercase tracking-widest text-blue-300">{item.suffix}</div>
-                    <div className="mt-3 text-sm font-semibold text-blue-200/80">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-white/[0.12] bg-slate-950/40 p-5 backdrop-blur-xl">
-                <p className="text-xs font-black uppercase tracking-widest text-blue-300">KURULUM FORMATLARI</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {HERO_FORMATS.map((f, i) => (
-                    <span key={i} className="rounded-full border border-white/[0.15] bg-white/[0.07] px-3.5 py-1 text-sm font-black text-white">
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Etkinlik çadırı · Stok hazır · Türkiye geneli"
+      title="Anahtar Teslim"
+      titleAccent="Çadır Kiralama"
+      description="Pagoda çadır, şeffaf çadır ve büyük açıklıklı sistemlerle zemin, iklimlendirme ve lojistiği tek elden planlıyoruz."
+      note="İstanbul'da çadır kiralama ihtiyaçları ve Türkiye genelindeki projeler için ölçü, zemin ve hava koşullarına göre güvenli, şık ve anahtar teslim alanlar kuruyoruz."
+      badges={HERO_BADGES.map((badge) => `${badge.title} · ${badge.detail}`)}
+      chipGroups={[{ label: "Kurulum formatları", items: HERO_FORMATS }]}
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS.map((metric) => ({
+        value: `${metric.value} ${metric.suffix}`,
+        label: metric.label,
+      }))}
+      image={{
+        src: HERO.src,
+        alt: HERO.alt,
+        sizes: HERO.sizes,
+        quality: 72,
+        blurDataURL: BLUR_DATA_URL,
+      }}
+    />
   );
 }
 /* ================== Sayfa İçi Hızlı Geçiş ================== */
