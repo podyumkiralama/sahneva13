@@ -163,7 +163,7 @@ export default function ServiceDecisionGuide({ guide }) {
             ) : (
               <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-6 text-slate-300">
                 <ClipboardList className="mb-3 h-6 w-6 text-violet-200" aria-hidden="true" />
-                Her cevaptan sonra bir sonraki soru açılır. Üç cevap tamamlandığında, teknik ekip için anlaşılır bir başlangıç planını burada göreceksiniz.
+                Her cevaptan sonra bir sonraki soru açılır. {guide.questions.length} cevap tamamlandığında, teknik ekip için anlaşılır bir başlangıç planını burada göreceksiniz.
               </div>
             )}
 

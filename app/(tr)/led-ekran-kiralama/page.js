@@ -7,8 +7,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import AccessibleFaq from "@/components/AccessibleFaq.client";
-import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
-import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
@@ -238,6 +236,7 @@ const HERO = {
 const SERVICES = [
   {
     Icon: Monitor,
+    image: P19_PROOF_DISPLAY_IMAGE_SRC,
     title: "İç Mekan LED Ekranlar",
     description: "Absen P1.9 ile Unilumin P2.6 ve P2.9 seçenekleriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun indoor LED ekran kurulumları.",
     features: ["Absen P1.9", "Unilumin P2.6 / P2.9", "300 m² Absen P1.9 Envanteri", "Yakın İzleme Netliği"],
@@ -245,6 +244,7 @@ const SERVICES = [
   },
   {
     Icon: Sun,
+    image: LED_OUTDOOR_CONCERT_IMAGE_SRC,
     title: "Dış Mekan LED Ekranlar",
     description: "P3.9 dış mekan LED ekranlarla konser, festival, belediye etkinliği ve açık hava organizasyonlarında yüksek parlaklık ve güvenilir görüntü.",
     features: ["P3.9 Piksel Aralığı", "5000 - 6500+ Nit Parlaklık", "IP65 Hava Koşullarına Dayanıklılık", "UV Korumalı Panel Yapısı"],
@@ -252,6 +252,7 @@ const SERVICES = [
   },
   {
     Icon: Layers,
+    image: "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp",
     title: "Video Wall Sistemleri",
     description: "Modüler LED wall ve video wall kurulumlarında görüntü kontrolü, NovaStar görüntü işlemcisi, teknik reji ve kreatif ekran tasarımı birlikte planlanır.",
     features: ["Modüler tasarım", "Esnek konfigürasyon", "Yüksek yenileme hızı", "Profesyonel kontrol", "Kavisli tasarım (-10°/+10°)"],
@@ -259,6 +260,7 @@ const SERVICES = [
   },
   {
     Icon: Cpu,
+    image: P19_TECHNICAL_CONTROL_IMAGE_SRC,
     title: "Kontrol & Yayın Sistemleri",
     description: "Profesyonel video işleme, kontrol ve canlı yayın sistemleri",
     features: ["NovaStar Görüntü İşlemcileri", "4K Scaler Altyapısı", "Medya Sunucuları", "Canlı Yayın Entegrasyonu", "3840 Hz Yenileme Hızı"],
@@ -266,6 +268,7 @@ const SERVICES = [
   },
   {
     Icon: Zap,
+    image: LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC,
     title: "Kurulum & Rigging",
     description: "Profesyonel kurulum, truss sistemleri ve güvenlik çözümleri",
     features: ["Ground Stack Kurulum", "Truss ve Rigging Sistemleri", "Güvenlik ve Kilitleme Donanımları", "Hızlı Montaj Avantajı", "Click-Lock Güvenli Kilit Teknolojisi"],
@@ -273,6 +276,7 @@ const SERVICES = [
   },
   {
     Icon: Headphones,
+    image: "/img/led/absen-p19-led-teknik-ekip-kablo-hazirlik-sahneva.webp",
     title: "Operatör & Teknik Destek",
     description: "Deneyimli operatörler ve 7/24 teknik destek hizmeti",
     features: ["Profesyonel Reji ve Ekran Operatörü", "Anlık İçerik ve Reji Yönetimi", "7/24 Teknik Destek Planı", "Hızlı Müdahale Protokolü"],
@@ -323,24 +327,6 @@ const USE_CASES = [
   }
 ];
 
-const QUICK_SELECTION_SCENARIOS = [
-  {
-    title: "Lansman ve fuar standı",
-    recommendation: "P1.9 / P2.6",
-    detail: "Yakın izleme ve sunum netliği için 300 m² Absen P1.9 indoor LED envanterimizle yüksek çözünürlüklü iç mekan panel çözümleri önerilir.",
-  },
-  {
-    title: "Kurumsal etkinlik ve hibrit sahne",
-    recommendation: "P1.9 / P2.9",
-    detail: "Salon içi kullanımda yakın izleme netliği, içerik akışı ve teknik operasyon birlikte planlanır.",
-  },
-  {
-    title: "Konser, festival ve açık hava",
-    recommendation: "P3.9",
-    detail: "Açık havada görünürlük, geniş alan etkisi ve dış mekan dayanımı öne çıkar.",
-  },
-];
-
 const ARTICLE_SECTIONS = [
   { id: "led-ekran-nedir", label: "LED ekran kiralama nedir?" },
   { id: "neden-tercih-edilir", label: "Neden tercih edilir?" },
@@ -383,128 +369,76 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section className="bg-white py-10 md:py-14" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-10">
-          <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan <span className="text-violet-700">Sorular</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            LED ekran kiralama hakkında merak edilen sorular ve cevapları
-          </p>
-        </div>
+        <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
+          <summary className="cursor-pointer list-none p-5 marker:content-none sm:p-7 [&::-webkit-details-marker]:hidden">
+            <h2 id="sss-baslik" className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <span className="max-w-2xl">
+                <span className="block text-xs font-black uppercase tracking-[0.16em] text-violet-700">
+                  {FAQ_ITEMS.length} yanıtlanmış soru
+                </span>
+                <span className="mt-2 block text-2xl font-black text-gray-900 md:text-3xl">
+                  LED ekran hakkında sık sorulan sorular
+                </span>
+                <span className="mt-2 block text-sm font-medium leading-6 text-gray-600">
+                  Fiyat, ölçü, pixel pitch, kurulum, teknik doküman ve operasyon yanıtlarını tek yerde açın.
+                </span>
+              </span>
+              <span className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-full bg-violet-700 px-5 text-sm font-black text-white transition group-open:bg-slate-950 sm:self-auto">
+                <span className="group-open:hidden">Soruları aç</span>
+                <span className="hidden group-open:inline">Soruları kapat</span>
+              </span>
+            </h2>
+          </summary>
 
-        <AccessibleFaq items={FAQ_ITEMS} />
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Daha fazla sorunuz mu var? Uzman ekibimiz sizi arayıp bilgilendirsin.
-          </p>
-          <Link
-            href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
-            aria-label="Tüm SSS'yi Görüntüle - Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
-          >
-            <ArrowRight size={20} aria-hidden="true" className="mr-3" />
-            <span className="text-lg">Tüm SSS'yi Görüntüle</span>
-          </Link>
-        </div>
+          <div className="hidden border-t border-slate-200 bg-white p-4 group-open:block sm:p-6">
+            <AccessibleFaq items={FAQ_ITEMS} />
+            <div className="mt-8 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-6 text-gray-600">Başka bir teknik sorunuz varsa ekibimizle doğrudan görüşebilirsiniz.</p>
+              <Link
+                href="/sss"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-violet-700 px-5 text-sm font-black text-white transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
+              >
+                Tüm SSS sayfası
+              </Link>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
   );
 }
 
-function QuickSelectionGuide() {
+function CompactDecisionGuide() {
+  const guide = SERVICE_DECISION_GUIDES.ledScreen;
+  const questionCount = guide.questions.length;
+
   return (
-    <section
-      id="led-secim-rehberi"
-      className="py-20 bg-gradient-to-b from-white to-slate-50"
-      aria-labelledby="led-secim-rehberi-baslik"
-    >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-12 md:mb-16">
-          <h2
-            id="led-secim-rehberi-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5"
-          >
-            Etkinliğinize göre <span className="text-violet-700 normal-case">panel önerisi</span>
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            En sık karşılaştığımız üç senaryoda hangi piksel aralığının öne çıktığını ve nedenini kısaca özetledik.
-          </p>
-        </div>
-
-        {/*
-          17 Ağu 2026 — sol sütundaki QUICK_SELECTION_STEPS kaldırıldı: hemen
-          üstteki ServiceDecisionGuide ile aynı üç kararı (iç/dış mekân, izleme
-          mesafesi, ölçü) sorduruyordu. Senaryo kartları benzersiz olduğu için
-          korundu ve tek sütuna alındı.
-        */}
-        <div className="mx-auto max-w-3xl">
-
-          <aside className="w-full">
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 text-white shadow-2xl">
-              <div className="relative aspect-[16/9]">
-                <Image
-                  src={LED_CORPORATE_CONFERENCE_ASIDE_IMAGE_SRC}
-                  alt="Kurumsal konferans sahnesinde profesyonel LED ekran ve sahne ışık kurulumu"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  loading="lazy"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-                <div className="absolute left-5 top-5 rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
-                  Hızlı seçim özeti
-                </div>
-              </div>
-
-              <div className="p-5 md:p-6">
-                <h3 className="text-[1.45rem] font-black leading-tight">Projeye göre hızlı öneri</h3>
-                <p className="mt-2 text-sm text-white/75 leading-relaxed">
-                  En sık kullanılan üç senaryo için kısa yönlendirme:
-                </p>
-
-                <div className="mt-4 space-y-2.5">
-                  {QUICK_SELECTION_SCENARIOS.map((scenario) => (
-                    <div
-                      key={scenario.title}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-3"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <h4 className="text-base font-bold leading-snug text-white">{scenario.title}</h4>
-                          <p className="mt-1.5 text-xs leading-relaxed text-white/85 md:text-[13px]">{scenario.detail}</p>
-                        </div>
-                        <span className="shrink-0 rounded-full bg-violet-500/20 px-2.5 py-1 text-xs font-bold text-violet-200">
-                          {scenario.recommendation}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-4 flex flex-col gap-2.5 sm:flex-row">
-                  <a
-                    href={WHATSAPP}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-green-700 px-5 py-3 font-bold text-white shadow-[0_14px_32px_rgba(21,128,61,0.28)] transition hover:bg-green-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
-                  >
-                    WhatsApp ile ölçü paylaş
-                  </a>
-                  <Link
-                    href="#teknik-altyapi"
-                    className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-                  >
-                    Teknik detayları incele
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
+    <section className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
+      <div className="mx-auto max-w-6xl">
+        <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <summary className="flex cursor-pointer list-none flex-col gap-4 p-5 marker:content-none sm:flex-row sm:items-center sm:justify-between sm:p-7 [&::-webkit-details-marker]:hidden">
+            <span className="max-w-3xl">
+              <span className="block text-xs font-black uppercase tracking-[0.16em] text-violet-700">
+                İsteğe bağlı teknik seçim aracı
+              </span>
+              <span className="mt-2 block text-xl font-black leading-tight text-slate-950 sm:text-2xl">
+                {questionCount} soruda LED ekran planını netleştirin
+              </span>
+              <span className="mt-2 block text-sm leading-6 text-slate-600">
+                Ortam, kurulum biçimi, izleme mesafesi ve içerik akışını seçerek teknik ekibe gönderilecek ilk briefi oluşturun.
+              </span>
+            </span>
+            <span className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-slate-950 px-5 text-sm font-black text-white transition group-open:bg-violet-700">
+              <span className="group-open:hidden">Aracı aç</span>
+              <span className="hidden group-open:inline">Aracı kapat</span>
+            </span>
+          </summary>
+          <div className="hidden border-t border-slate-200 group-open:block [&>section]:py-10">
+            <ServiceDecisionGuide guide={guide} />
+          </div>
+        </details>
       </div>
     </section>
   );
@@ -700,9 +634,9 @@ function TechnicalDocuments() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
             {inventoryProofImages.map((item) => (
-              <figure key={item.src} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+              <figure key={item.src} className="w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl md:w-auto">
                 <div className={`relative overflow-hidden ${item.aspectClass}`}>
                   <Image
                     src={item.src}
@@ -727,9 +661,9 @@ function TechnicalDocuments() {
   );
 }
 
-function CurvedP19ImageCard({ item, aspectClass, sizes }) {
+function CurvedP19ImageCard({ item, aspectClass, sizes, className = "" }) {
   return (
-    <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+    <figure className={`${className} overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl`}>
       <div className={`relative overflow-hidden bg-slate-950 ${aspectClass}`}>
         <Image
           src={item.src}
@@ -798,16 +732,18 @@ function CurvedP19InstallationProof() {
             aspectClass="aspect-[16/9]"
             sizes="(max-width: 768px) 100vw, 80vw"
           />
-          <div className="grid items-start gap-5 md:grid-cols-[0.75fr_1.25fr]">
+          <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[0.75fr_1.25fr] md:overflow-visible md:px-0 md:pb-0">
             <CurvedP19ImageCard
               item={stageInstallation}
               aspectClass="aspect-[3/4]"
               sizes="(max-width: 768px) 100vw, 38vw"
+              className="w-[82vw] shrink-0 snap-start md:w-auto"
             />
             <CurvedP19ImageCard
               item={technicalRehearsal}
               aspectClass="aspect-[4/3]"
               sizes="(max-width: 768px) 100vw, 62vw"
+              className="w-[82vw] shrink-0 snap-start md:w-auto"
             />
           </div>
         </div>
@@ -834,11 +770,11 @@ function VisualProofStrip() {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
           {VISUAL_FLOW_IMAGES.map((item, index) => (
             <article
               key={item.src}
-              className={`overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl ${
+              className={`w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl md:w-auto ${
                 index === 0 ? "md:translate-y-6" : index === 2 ? "md:-translate-y-6" : ""
               }`}
             >
@@ -943,88 +879,93 @@ function Hero() {
 /* ================== Hizmetler ================== */
 function Services() {
   return (
-    <section id="hizmetler" className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="hizmetler-baslik">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+    <section
+      id="hizmetler"
+      className="bg-gradient-to-b from-white to-violet-50/50 py-14 md:py-16"
+      aria-labelledby="hizmetler-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Görsel çözüm portföyü</p>
+            <h2 id="hizmetler-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
             LED Ekran Kiralama <span className="text-violet-700">Hizmetlerimiz</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Indoor LED ekran, outdoor LED ekran, LED wall ve video wall kurulumlarını etkinlik tipine göre; ekran ölçüsü, izleme mesafesi, piksel aralığı, taşıyıcı sistem, reji ve teknik ekip ihtiyacıyla birlikte planlıyoruz.
-          </p>
-          <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Fiyat, m² hesabı ve maliyeti oluşturan kalemler için{" "}
-            <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-900">
-              güncel LED ekran kiralama fiyatları
-            </Link>{" "}
-            sayfasında ayrı bir fiyat rehberi hazırladık; bu sayfa ise hizmet ve teknik çözüm kapsamına odaklanır.
-          </p>
-          <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Salon ölçünüze ve izleme mesafenize uygun ekran boyutunu kendiniz denemek isterseniz{" "}
-            <Link href="/led-ekran-hesaplama" className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-900">
-              LED ekran ölçü hesaplama aracını
-            </Link>{" "}
-            kullanabilirsiniz.
-          </p>
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg">
+              Indoor, outdoor, kavisli LED, görüntü kontrolü, rigging ve teknik operasyonu gerçek kurulum
+              örnekleri üzerinden inceleyin.
+            </p>
+          </div>
+
+          <nav aria-label="LED ekran fiyat ve ölçü araçları" className="flex flex-wrap gap-2">
+            <Link
+              href="/led-ekran-kiralama-fiyatlari"
+              className="inline-flex min-h-11 items-center rounded-full border border-violet-200 bg-white px-4 text-sm font-black text-violet-800 transition hover:bg-violet-50"
+            >
+              Fiyat rehberi
+            </Link>
+            <Link
+              href="/led-ekran-hesaplama"
+              className="inline-flex min-h-11 items-center rounded-full border border-slate-200 bg-white px-4 text-sm font-black text-slate-800 transition hover:bg-slate-50"
+            >
+              Ekran ölçüsü hesapla
+            </Link>
+          </nav>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {SERVICES.map((service, index) => {
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+          {SERVICES.map((service) => {
             const id = `svc-${slugify(service.title)}`;
-            const delayClass = `animation-delay-${index * 100}`;
             return (
-              <div key={id} className="group">
-                <article
-                  className={`bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col animate-fade-up ${delayClass}`}
-                  aria-labelledby={id}
-                >
-                  <div className="mb-4 text-violet-600 group-hover:scale-110 transition-transform duration-300">
-                    <service.Icon size={36} aria-hidden="true" />
+              <article
+                key={id}
+                className="group relative min-h-[360px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl sm:w-auto"
+                aria-labelledby={id}
+              >
+                <Image
+                  src={service.image}
+                  alt={`${service.title} için Sahneva gerçek LED ekran kurulumu`}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                  unoptimized={shouldBypassLedImageOptimizer(service.image)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/62 to-slate-950/10" aria-hidden="true" />
+
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white md:p-6">
+                  <div className="mb-3 inline-flex rounded-xl border border-white/15 bg-white/10 p-2.5 text-violet-100 backdrop-blur-sm">
+                    <service.Icon size={24} aria-hidden="true" />
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
+                  <h3 id={id} className="text-xl font-black md:text-2xl">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
+                  <p className="mt-2 text-sm leading-relaxed text-white/78">
                     {service.description}
                   </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                        <span className="text-base">{feature}</span>
-                      </li>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {service.features.slice(0, 2).map((feature) => (
+                      <span key={feature} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-bold text-white/90 backdrop-blur-sm">
+                        {feature}
+                      </span>
                     ))}
-                  </ul>
-                  {service.cta && (
-                    <div className="mt-8">
-                      <Link
-                        href={getServiceWhatsappLink(service.title)}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-500"
-                        aria-label={`${service.title} için ${service.cta.label}`}
-                      >
-                        <ArrowRight size={18} aria-hidden="true" />
-                        <span>{service.cta.label}</span>
-                      </Link>
-                    </div>
-                  )}
-                </article>
-              </div>
+                  </div>
+                  {service.cta ? (
+                    <a
+                      href={getServiceWhatsappLink(service.title)}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer"
+                      className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 text-sm font-black text-slate-950 transition hover:bg-violet-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
+                      aria-label={`${service.title} için ${service.cta.label}`}
+                    >
+                      {service.cta.label}
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </a>
+                  ) : null}
+                </div>
+              </article>
             );
           })}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
-          >
-            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
-            <span>Detaylı Teklif için İletişime Geçin</span>
-          </Link>
         </div>
       </div>
     </section>
@@ -1130,36 +1071,30 @@ const VISUAL_FLOW_IMAGES = [
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
   return (
-    <section className="py-20 bg-slate-50" aria-labelledby="galeri-baslik">
+    <section className="bg-slate-50 py-14 md:py-16" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Gerçek LED Ekran <span className="text-violet-700">Kurulumlarımız</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
-            Gerçek saha görselleriyle; LED ekran kurulum kapasitemizi, sahne entegrasyon gücümüzü ve prodüksiyon kalitemizi öne çıkarıyoruz.
-          </p>
+        <div className="mb-9 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Sahneva görsel arşivi</p>
+            <h2 id="galeri-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+              Gerçek LED Ekran <span className="text-violet-700">Kurulumlarımız</span>
+            </h2>
+            <p className="mt-4 text-base font-medium leading-relaxed text-gray-600 md:text-lg">
+              Kurulum kapasitemizi, sahne entegrasyonunu ve prodüksiyon kalitesini gerçek saha görüntüleriyle gösteriyoruz.
+            </p>
+          </div>
+          <Link
+            href="/projeler"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border border-violet-200 bg-white px-5 text-sm font-black text-violet-800 transition hover:bg-violet-50 lg:self-auto"
+          >
+            <Eye size={18} aria-hidden="true" />
+            Tüm projeleri görün
+          </Link>
         </div>
 
-        <ul className="mb-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" aria-label="Hizmet verdiğimiz sektörler">
-          {[
-            { icon: "🎵", label: "Konser & Festival" },
-            { icon: "🏛️", label: "Devlet & Belediye" },
-            { icon: "🎓", label: "Eğitim & Tören" },
-            { icon: "🏢", label: "Kurumsal & Fuar Stantları" },
-            { icon: "🎮", label: "Spor & E-spor" },
-            { icon: "✨", label: "Gala & Davet" },
-          ].map((sector) => (
-            <li key={sector.label} className="flex flex-col items-center gap-2 bg-white rounded-2xl p-4 border border-gray-200 shadow-sm text-center">
-              <span className="text-2xl" aria-hidden="true">{sector.icon}</span>
-              <span className="text-sm font-bold text-gray-700 leading-tight">{sector.label}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr] mb-16">
+        <div className="mb-12 grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
           <article className="relative overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
-            <div className="relative aspect-[16/10]">
+            <div className="relative aspect-[16/10] lg:h-full lg:min-h-[720px] lg:aspect-auto">
               <Image
                 src={GALLERY_IMAGES[0].src}
                 alt={GALLERY_IMAGES[0].alt}
@@ -1182,11 +1117,11 @@ function Gallery() {
             </div>
           </article>
 
-          <div className="grid gap-6">
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
             {GALLERY_IMAGES.slice(1, 3).map((image) => (
               <article
                 key={image.src}
-                className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg"
+                className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto"
               >
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -1207,16 +1142,16 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="mb-20">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Sahadan Uygulama Görselleri</h3>
-            <p className="text-lg text-gray-600 mb-8">Daha derli toplu bir akış için saha görsellerini sabit oranlı, tek ritimde bir gride aldık.</p>
+        <div className="mb-14">
+          <div className="mb-7">
+            <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Sahadan uygulama görselleri</h3>
+            <p className="mt-2 text-base text-gray-600">Kurumsal salon, lansman, gala ve açık hava uygulamalarından seçilmiş gerçek kareler.</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
             {GALLERY_IMAGES.slice(3, 8).map((image) => (
               <article
                 key={image.src}
-                className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
               >
                 <div className="relative aspect-[4/5]">
                   <Image
@@ -1237,21 +1172,21 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="mt-20 mb-10">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+        <div className="mt-14">
+          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <h3 className="text-2xl font-black text-gray-900 md:text-3xl">
               Video <span className="text-violet-700">Galerisi</span>
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="max-w-2xl text-base leading-relaxed text-gray-600">
               Gerçek kurulumlarımızdan ve saha operasyonlarımızdan seçilmiş kısa videolar
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3">
             {VIDEO_GALLERY.map((video) => (
               <article
                 key={video.id}
-                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+                className="flex w-[86vw] shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:shadow-xl md:w-auto"
                 aria-labelledby={`video-${video.id}-title`}
               >
                 <div className="relative w-full aspect-video bg-black">
@@ -1261,7 +1196,7 @@ function Gallery() {
                     thumbnailUrl={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
                   />
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
+                <div className="flex flex-grow flex-col p-5">
                   <h4
                     id={`video-${video.id}-title`}
                     className="text-xl font-black text-gray-900 mb-3"
@@ -1274,29 +1209,6 @@ function Gallery() {
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-16 bg-gradient-to-br from-violet-900 to-slate-900 rounded-3xl p-8 md:p-14 text-center border border-violet-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
-          
-          <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-              Daha Fazla İlham Mı Arıyorsunuz?
-            </h3>
-            
-            <p className="text-violet-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-violet-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
-            </p>
-            
-            <Link
-              href="/projeler"
-              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-violet-900 hover:bg-violet-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
-            >
-              <Eye size={24} className="mr-3" aria-hidden="true" />
-              <span className="text-lg">Tüm Resimleri Gör</span>
-            </Link>
           </div>
         </div>
 
@@ -1417,10 +1329,10 @@ function Technical() {
   ];
 
   return (
-    <section id="teknik-altyapi" className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section id="teknik-altyapi" className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="altyapi-baslik">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+        <div className="mb-8 text-center md:mb-10">
+          <h2 id="altyapi-baslik" className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl">
             Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1428,12 +1340,12 @@ function Technical() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
           {technicalItems.map((item) => {
             const detailsId = `${slugify(item.title)}-details`;
 
             return (
-            <div key={item.category} className="group">
+            <div key={item.category} className="group w-[82vw] shrink-0 snap-start md:w-auto">
               <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-violet-600 transition-colors flex items-center gap-3">
                   <span className="text-violet-600 group-hover:scale-110 transition-transform duration-300">
@@ -1544,14 +1456,14 @@ function WhySahneva() {
   return (
     <section
       id="neden-sahneva"
-      className="py-20 bg-gradient-to-b from-violet-50/50 to-white"
+      className="bg-gradient-to-b from-violet-50/50 to-white py-14 md:py-20"
       aria-labelledby="neden-sahneva-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
+        <div className="mb-8 text-center md:mb-16">
           <h2
             id="neden-sahneva-baslik"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
+            className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl"
           >
             Neden <span className="text-violet-700">Sahneva?</span>
           </h2>
@@ -1564,9 +1476,9 @@ function WhySahneva() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="-mx-4 flex max-w-6xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
           {features.map((feature) => (
-            <div key={feature.title} className="group">
+            <div key={feature.title} className="group w-[82vw] shrink-0 snap-start md:w-auto">
               <article
                 className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col"
                 aria-labelledby={`why-${slugify(feature.title)}`}
@@ -1588,7 +1500,7 @@ function WhySahneva() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-8 text-center md:mt-12">
           <a
             href={WHATSAPP}
             target="_blank"
@@ -1608,10 +1520,10 @@ function WhySahneva() {
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
-    <section id="kullanim-alanlari" className="py-20 bg-slate-950" aria-labelledby="kullanim-alanlari-baslik">
+    <section id="kullanim-alanlari" className="bg-slate-950 py-14 md:py-20" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+        <div className="mb-8 text-center md:mb-16">
+          <h2 id="kullanim-alanlari-baslik" className="mb-4 text-3xl font-black text-white md:mb-6 md:text-5xl lg:text-6xl">
             LED Ekran <span className="text-violet-400">Kullanım Alanları</span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
@@ -1620,11 +1532,11 @@ function UseCases() {
           <div className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 lg:gap-6">
           {USE_CASES.map((uc) => (
             <li
               key={uc.title}
-              className="bg-white/5 border border-white/10 p-6 rounded-3xl hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
+              className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-white/30 hover:bg-white/10 md:w-auto"
             >
               <div className="text-violet-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
                 <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
@@ -1662,20 +1574,63 @@ function RegionalService() {
       districts: "Tekirdağ, İzmit, Kocaeli, Yalova, Bursa, Sakarya, Düzce, Bolu, Edirne"
     }
   ];
+  const operationHighlights = [
+    {
+      Icon: Truck,
+      title: "İstanbul'da iki yaka",
+      detail: "Araç erişimi, trafik ve yükleme saatine göre erken saha girişi planlanır.",
+    },
+    {
+      Icon: Shield,
+      title: "Marmara'da planlı sevkiyat",
+      detail: "Rota, teknik ekip ve gerekiyorsa konaklama etkinlik takvimine bağlanır.",
+    },
+    {
+      Icon: Users,
+      title: "Türkiye geneli " + PROVINCES_COUNT + " il",
+      detail: "Nakliye, kurulum, reji ve söküm aynı operasyon planında yönetilir.",
+    },
+  ];
 
   return (
-    <section className="py-20 bg-gray-50" aria-labelledby="bolgesel-hizmet-baslik">
+    <section className="bg-gray-50 py-14 md:py-16" aria-labelledby="bolgesel-hizmet-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        <div className="mb-8 max-w-5xl">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kurulum ve lojistik ağı</p>
+          <h2 id="bolgesel-hizmet-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
             İstanbul, Marmara ve Çevre İllerde <span className="text-violet-700">Lider Güç</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Bölgenizin coğrafi ve lojistik dinamiklerini biliyoruz. İstanbul trafiğine özel erken kurulum stratejilerimiz ve çevre illere özel şeffaf nakliye çözümlerimizle etkinliklerinizi güvence altına alıyoruz.
+          <p className="mt-4 max-w-4xl text-base leading-relaxed text-gray-600 md:text-lg">
+            İstanbul trafiğini, çevre il rotalarını ve saha giriş saatlerini kurulum planının parçası olarak ele alıyoruz.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+        <div className="grid gap-3 md:grid-cols-3">
+          {operationHighlights.map((item) => (
+            <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="mb-3 inline-flex rounded-xl bg-violet-50 p-2.5 text-violet-700">
+                <item.Icon size={22} aria-hidden="true" />
+              </div>
+              <h3 className="font-black text-slate-950">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <details className="group mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <summary className="flex cursor-pointer list-none flex-col gap-3 p-5 marker:content-none sm:flex-row sm:items-center sm:justify-between [&::-webkit-details-marker]:hidden">
+            <span>
+              <span className="block font-black text-slate-950">İlçe kapsamı ve lojistik karşılaştırması</span>
+              <span className="mt-1 block text-sm leading-6 text-slate-600">Avrupa Yakası, Anadolu Yakası ve çevre il operasyon detaylarını açın.</span>
+            </span>
+            <span className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-full bg-slate-950 px-5 text-sm font-black text-white group-open:bg-violet-700 sm:self-auto">
+              <span className="group-open:hidden">Detayları aç</span>
+              <span className="hidden group-open:inline">Detayları kapat</span>
+            </span>
+          </summary>
+
+          <div className="hidden border-t border-slate-200 p-4 group-open:block sm:p-6">
+        <div className="mb-10 grid items-start gap-8 lg:grid-cols-2">
           {/* Sol Taraf: Bölgesel Dağılım */}
           <div className="space-y-8">
             {regions.map((region) => (
@@ -1732,7 +1687,7 @@ function RegionalService() {
         </div>
 
         {/* Bölgesel Lojistik ve Operasyon Karşılaştırma Tablosu */}
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden mt-10">
+        <div className="mt-8 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg">
           <div className="px-6 md:px-10 py-8 border-b border-gray-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h3 id="regional-ops-table-title" className="text-2xl md:text-3xl font-black text-gray-900">Bölgesel Lojistik ve Operasyon Karşılaştırması</h3>
@@ -1779,6 +1734,8 @@ function RegionalService() {
             </table>
           </div>
         </div>
+          </div>
+        </details>
 
       </div>
     </section>
@@ -1788,16 +1745,28 @@ function RegionalService() {
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="bilgi-rehber-baslik">
+    <section className="bg-gradient-to-b from-white to-gray-50/50 py-8 md:py-10" aria-labelledby="bilgi-rehber-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            LED Ekran Kiralama <span className="text-violet-700">Rehberi</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Etkinliğiniz için doğru LED ekranı seçmek, kurulum sürecini planlamak ve teknik gereksinimleri netleştirmek için kapsamlı rehber
-          </p>
-        </div>
+        <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <summary className="cursor-pointer list-none p-5 marker:content-none sm:p-7 [&::-webkit-details-marker]:hidden">
+            <h2 id="bilgi-rehber-baslik" className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <span className="max-w-4xl">
+                <span className="block text-xs font-black uppercase tracking-[0.16em] text-violet-700">Detaylı bilgi kütüphanesi</span>
+                <span className="mt-2 block text-2xl font-black leading-tight text-gray-900 md:text-3xl">
+                  LED Ekran Kiralama Rehberi
+                </span>
+                <span className="mt-2 block text-sm font-medium leading-6 text-gray-600">
+                  Panel seçimi, indoor ve outdoor farkları, kurulum süreci ve kamera dostu görüntü altyapısı.
+                </span>
+              </span>
+              <span className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-full bg-violet-700 px-5 text-sm font-black text-white transition group-open:bg-slate-950 sm:self-auto">
+                <span className="group-open:hidden">Rehberi aç</span>
+                <span className="hidden group-open:inline">Rehberi kapat</span>
+              </span>
+            </h2>
+          </summary>
+
+          <div className="hidden border-t border-slate-200 p-4 group-open:block sm:p-6">
 
         <nav
           aria-label="LED ekran kiralama rehber başlıkları"
@@ -1912,6 +1881,16 @@ function Articles() {
                 yayın sırasında oluşabilecek kesinti riskini azaltır ve içerik akışının kontrollü şekilde yönetilmesine yardımcı olur.
               </p>
 
+              <div className="not-prose my-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <p className="text-sm leading-6 text-amber-950">
+                  Taşıyıcı sistem, elektrik dağıtımı, bariyerleme ve ekip sorumluluklarını saha öncesinde kontrol etmek için{" "}
+                  <Link href="/blog/led-ekran-kurulum-guvenligi" className="font-black underline underline-offset-4">
+                    LED ekran kurulum güvenliği kontrol listesini
+                  </Link>{" "}
+                  inceleyebilirsiniz.
+                </p>
+              </div>
+
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={P19_TECHNICAL_CONTROL_IMAGE_SRC}
@@ -1965,6 +1944,8 @@ function Articles() {
             </div>
           </div>
         </article>
+          </div>
+        </details>
       </div>
     </section>
   );
@@ -1973,96 +1954,52 @@ function Articles() {
 /* ================== Tamamlayıcı Hizmetler ================== */
 function RelatedServices() {
   const services = [
-    { 
-      href: "/ses-isik-sistemleri", 
-      title: "Ses & Işık Sistemleri", 
-      Icon: Music, 
-      desc: "Line Array ses sistemleri ve akıllı robot ışık tasarımı ile profesyonel prodüksiyon çözümleri." 
-    },
-    { 
-      href: "/sahne-kiralama", 
-      title: "Sahne Kiralama", 
-      Icon: Layers, 
-      desc: "Modüler sahne sistemleri, güvenli truss yapıları ve estetik sahne dekor uygulamaları." 
-    },
-    { 
-      href: "/podyum-kiralama", 
-      title: "Podyum Kiralama", 
-      Icon: Layout, 
-      desc: "Profesyonel sahne platformları ve podyum sistemleri." 
-    },
-    { 
-      href: "/cadir-kiralama", 
-      title: "Çadır Kiralama", 
-      Icon: Tent, 
-      desc: "Profesyonel etkinlik çadırları ve tenteli alan çözümleri." 
-    },
+    { href: "/ses-isik-sistemleri", title: "Ses & Işık", Icon: Music },
+    { href: "/sahne-kiralama", title: "Sahne", Icon: Layers },
+    { href: "/podyum-kiralama", title: "Podyum", Icon: Layout },
+    { href: "/cadir-kiralama", title: "Çadır", Icon: Tent },
     {
       waTitle: "Kamera & Reji",
       title: "Kamera & Reji",
       Icon: Camera,
-      desc: "Çok kameralı canlı yayın reji hizmetleri ve anlık görüntü miksajı.",
       external: true,
     },
   ];
   
   return (
     <section 
-      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30" 
+      className="bg-gradient-to-br from-gray-50 to-violet-100/30 py-10 md:py-12"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 
-            id="tamamlayici-hizmetler-baslik" 
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
-          >
-            Tamamlayıcı{" "}
-            <span className="text-violet-700">
-              Hizmetlerimiz
-            </span>
+        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h2 id="tamamlayici-hizmetler-baslik" className="text-2xl font-black text-gray-900 md:text-3xl">
+            Prodüksiyonu <span className="text-violet-700">tamamlayan hizmetler</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            LED ekran kurulumunuzu tamamlayacak diğer profesyonel etkinlik çözümlerimiz
+          <p className="text-sm font-medium text-gray-600">
+            Aynı teknik plan içinde birlikte çalışır.
           </p>
-          <div 
-            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full" 
-            aria-hidden="true" 
-          />
         </div>
 
         <nav aria-label="Tamamlayıcı hizmetler">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             {services.map((service) => (
               <Link
                 key={service.title}
                 href={service.external ? getServiceWhatsappLink(service.waTitle ?? service.title) : service.href}
                 {...(service.external ? { target: "_blank", rel: "nofollow noopener noreferrer" } : {})}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
+                className="group flex min-h-20 items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition hover:border-violet-300 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
               >
-                <div 
-                  className="mb-6 text-violet-600 group-hover:scale-110 transition-transform duration-300" 
-                  aria-hidden="true"
-                >
-                  <service.Icon size={36} aria-hidden="true" />
+                <div className="shrink-0 rounded-xl bg-violet-50 p-2.5 text-violet-700" aria-hidden="true">
+                  <service.Icon size={22} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
+                <h3 className="text-sm font-black leading-tight text-gray-900 transition-colors group-hover:text-violet-700">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
-                  {service.desc}
-                </p>
               </Link>
             ))}
           </div>
         </nav>
-
-        <div className="sr-only">
-          <p>
-            Bu bölümde LED ekran kurulumunuzu tamamlayacak diğer hizmetlerimiz bulunmaktadır. 
-            Her bir hizmet kartına tıklayarak veya klavye ile seçerek ilgili sayfaya gidebilirsiniz.
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -2070,37 +2007,36 @@ function RelatedServices() {
 
 function CTA() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="cta-baslik">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
-          <div className="relative z-10">
-            <h2 id="cta-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-              Profesyonel LED Ekran Çözümlerine Hazır Mısınız?
-            </h2>
-            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Türkiye'nin {PROVINCES_COUNT} ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
-              etkinlik akışınıza uygun teknik planlamayla hizmetinizdeyiz.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <section className="bg-white py-8 md:py-10" aria-labelledby="cta-baslik">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-950 via-violet-950 to-slate-950 p-6 text-white md:p-8">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(139,92,246,0.25),transparent_35%)]" aria-hidden="true" />
+          <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <h2 id="cta-baslik" className="text-2xl font-black leading-tight md:text-3xl">
+                LED ekran projenizi birlikte planlayalım
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-violet-100 md:text-base">
+                Türkiye'nin {PROVINCES_COUNT} ilinde keşif, sevkiyat, güvenli kurulum, teknik operasyon ve sökümü tek ekip akışında planlıyoruz.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/iletisim"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-6 font-black text-violet-800 transition hover:bg-violet-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
               >
-                <MessageCircle size={20} aria-hidden="true" className="mr-3" />
-                <span className="text-lg">Hemen Teklif Al</span>
+                Teklif isteyin
               </Link>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/40 px-6 font-black text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
               >
-                <MessageCircle size={20} aria-hidden="true" className="mr-3" />
-                <span className="text-lg">WhatsApp'tan Yaz</span>
+                <MessageCircle size={18} aria-hidden="true" />
+                WhatsApp
               </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -2297,8 +2233,7 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
-      <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.ledScreen} />
-      <QuickSelectionGuide />
+      <CompactDecisionGuide />
       <VisualProofStrip />
       <StatsBand />
       <UseCases />
@@ -2313,16 +2248,6 @@ export default function Page() {
       <FAQ />
       <Articles />
       <RelatedServices />
-      <ServiceBlogLinks {...CONTENT_CLUSTERS.ledScreen} links={CONTENT_CLUSTERS.ledScreen.guides} />
-      {/*
-        17 Ağu 2026 — sayfa sonundaki dört ayrı link bloğu ikiye indirildi.
-        GlossaryTermLinks kaldırıldı: ServiceDecisionGuide zaten aynı terimleri
-        (pixel pitch, parlaklık, kabinet, görüntü işlemcisi) sözlüğe bağlıyor.
-        RegionalCityLinks kaldırıldı: tek bir /bolgesel-kiralama linki için
-        tam genişlikte bölüm ayırıyordu.
-        PaymentOptionsNote kaldırıldı: kiralama teklifi öncesi ödeme koşulu
-        bu sayfada karar aşamasının dışında kalıyor.
-      */}
       <CTA />
     </>
   );
