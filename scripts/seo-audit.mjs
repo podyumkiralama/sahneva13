@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { getEnProjectSlugs } from "../lib/enProjects.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,10 +46,17 @@ const IGNORE_ORPHAN_CANDIDATES = new Set([
 // hizmet rehberlerinin doğrudan bağlandığı detay yollarını denetime ekleriz.
 const GLOSSARY_DETAIL_SLUGS = ["line-array", "riser", "cadir-zemini"];
 const GLOSSARY_DETAIL_PAGE_FILE = path.join(APP_DIR, "(tr)", "sozluk", "[slug]", "page.js");
-const EXPLICIT_STATIC_DYNAMIC_PAGES = GLOSSARY_DETAIL_SLUGS.map((slug) => ({
-  route: `/sozluk/${slug}`,
-  filePath: GLOSSARY_DETAIL_PAGE_FILE,
-}));
+const EN_PROJECT_DETAIL_PAGE_FILE = path.join(APP_DIR, "en", "projects", "[slug]", "page.js");
+const EXPLICIT_STATIC_DYNAMIC_PAGES = [
+  ...GLOSSARY_DETAIL_SLUGS.map((slug) => ({
+    route: `/sozluk/${slug}`,
+    filePath: GLOSSARY_DETAIL_PAGE_FILE,
+  })),
+  ...getEnProjectSlugs().map((slug) => ({
+    route: `/en/projects/${slug}`,
+    filePath: EN_PROJECT_DETAIL_PAGE_FILE,
+  })),
+];
 
 const MEDIA_EXTENSION_PATTERN =
   /\.(avif|webp|png|jpe?g|svg|gif|ico|mp4|webm|mov|pdf|xlsx?|docx?)(?:$|[?#])/i;
@@ -147,6 +155,7 @@ function extractImplicitDataLinks() {
   const sources = [
     { relativeFile: "lib/blogPosts.js", prefix: "/blog/" },
     { relativeFile: "lib/data.js", prefix: "/projeler/" },
+    { relativeFile: "lib/enProjects.js", prefix: "/en/projects/" },
   ];
   const links = [];
 
@@ -261,7 +270,7 @@ function isMoneyRoute(route) {
 function shouldCheckStaticSitemapRegistry(route) {
   if (IGNORE_SITEMAP_MISSING.has(route)) return false;
   if (route.startsWith("/blog/") || route.startsWith("/en/blog/")) return false;
-  if (route.startsWith("/projeler/")) return false;
+  if (route.startsWith("/projeler/") || route.startsWith("/en/projects/")) return false;
   if (ROUTE_REJECT_PATTERNS.some((pattern) => pattern.test(route))) return false;
   return true;
 }
