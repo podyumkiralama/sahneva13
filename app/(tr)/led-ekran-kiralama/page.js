@@ -40,6 +40,8 @@ import {
   Lock,
   RotateCcw,
   Gauge,
+  FileText,
+  Download,
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -92,6 +94,37 @@ const PAGE_LAST_MODIFIED = getLastModifiedForFile(
 );
 const PAGE_PUBLISHED_DATE = "2025-10-25";
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
+const ABSEN_P19_TECHNICAL_PDF =
+  "/files/absen-p19-kavisli-led-on-teknik-ozellikler-en.pdf";
+const CURVED_P19_INSTALLATION_IMAGES = [
+  {
+    src: "/img/led/absen-p19-kavisli-led-depo-on-montaj-sahneva.webp",
+    alt: "Absen P1.9 kavisli LED kabinetlerinin depoda kurulum öncesi yarım daire formunda test dizilimi",
+    eyebrow: "Depo ön montajı",
+    title: "Kavis geometrisi kontrolü",
+    caption:
+      "Absen P1.9 kabinetleri sahaya çıkmadan önce hedeflenen kavis formunda dizilerek mekanik birleşim ve yüzey sürekliliği kontrol edildi.",
+    positionClass: "object-center",
+  },
+  {
+    src: "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp",
+    alt: "Etkinlik sahnesinde Absen P1.9 kavisli üst LED bant ve dairesel asılı LED ekran kurulumu",
+    eyebrow: "Saha uygulaması",
+    title: "Kavisli üst bant ve LED halka",
+    caption:
+      "Kavisli üst bant ve dairesel LED halka, ana sahne ekranıyla birlikte kullanıldı.",
+    positionClass: "object-top",
+  },
+  {
+    src: "/img/led/absen-p19-kavisli-led-acik-hava-teknik-prova-sahneva.webp",
+    alt: "Açık hava etkinlik sahnesinde Absen P1.9 kavisli LED ekran kurulumu ve teknik prova",
+    eyebrow: "Teknik prova",
+    title: "İçerik ve görüntü testi",
+    caption:
+      "Test deseniyle ekran geometrisi, görüntü akışı ve sahne bütünlüğü etkinlik öncesinde kontrol edildi.",
+    positionClass: "object-center",
+  },
+];
 const PHONE = "+905453048671";
 const WA_TEXT = "Merhaba, LED ekran kiralama projemiz için profesyonel teklif almak istiyoruz. Etkinlik türü: [Konser/Fuar/Düğün], Tarih: [Tarih], Şehir: [Şehir].";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
@@ -114,13 +147,13 @@ const LED_PIXEL_ROWS = [
     usage: "Lansman, Fuar, Gala, Konferans ve Yakın İzleme",
   },
   {
-    model: "P2.5",
+    model: "P2.6",
     badge: "Yüksek Çözünürlük Dengesi",
     badgeClass: "bg-purple-100 text-purple-700",
     clarity: "Ultra High HD",
     detailIndex: "●●●●",
     detailText: "Yüksek çözünürlük düzeyi",
-    distance: "2.5 m ve Üzeri",
+    distance: "2.6 m ve Üzeri",
     refreshRate: "3840 Hz",
     usage: "Lansman, Fuar ve Yakın İzleme Sunumları",
   },
@@ -152,14 +185,14 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor",
   description:
-    "İstanbul ve Türkiye genelinde iç ve dış mekan LED ekran kiralama. 300 m² P1.9 indoor envanter, P2.5/P2.9/P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
+    "İstanbul ve Türkiye genelinde LED ekran kiralama. 300 m² Absen P1.9 indoor, Unilumin P2.6/P2.9 ve P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
-    "led ekran kiralama, p1.9 led ekran, p2.9 led ekran, p2.5 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
+    "led ekran kiralama, p1.9 led ekran, kavisli led ekran kiralama, p2.9 led ekran, p2.6 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildAlternatesForPath("/led-ekran-kiralama"),
   openGraph: {
     title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
     description:
-      "İstanbul ve Türkiye genelinde iç mekan LED ekran, dış mekan LED ekran, LED wall ve video wall kurulumları. 300 m² P1.9 Indoor LED envanteri, NovaStar reji ve teknik ekip desteğiyle planlayın.",
+      "İstanbul ve Türkiye genelinde iç ve dış mekan LED wall kurulumları. 300 m² Absen P1.9, Unilumin P2.6/P2.9, NovaStar reji ve teknik ekip desteği.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -206,8 +239,8 @@ const SERVICES = [
   {
     Icon: Monitor,
     title: "İç Mekan LED Ekranlar",
-    description: "P1.9, P2.5 ve P2.9 seçenekleriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun yüksek çözünürlüklü indoor LED ekran kurulumları.",
-    features: ["P1.9 / P2.5 / P2.9 Piksel Aralığı", "300 m² P1.9 Indoor LED Envanteri", "Yakın İzleme Netliği", "4K Çözünürlük Desteği"],
+    description: "Absen P1.9 ile Unilumin P2.6 ve P2.9 seçenekleriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun indoor LED ekran kurulumları.",
+    features: ["Absen P1.9", "Unilumin P2.6 / P2.9", "300 m² Absen P1.9 Envanteri", "Yakın İzleme Netliği"],
     cta: { label: "Detaylı Bilgi" },
   },
   {
@@ -293,8 +326,8 @@ const USE_CASES = [
 const QUICK_SELECTION_SCENARIOS = [
   {
     title: "Lansman ve fuar standı",
-    recommendation: "P1.9 / P2.5",
-    detail: "Yakın izleme ve sunum netliği için 300 m² P1.9 indoor LED envanterimizle yüksek çözünürlüklü iç mekan panel çözümleri önerilir.",
+    recommendation: "P1.9 / P2.6",
+    detail: "Yakın izleme ve sunum netliği için 300 m² Absen P1.9 indoor LED envanterimizle yüksek çözünürlüklü iç mekan panel çözümleri önerilir.",
   },
   {
     title: "Kurumsal etkinlik ve hibrit sahne",
@@ -320,7 +353,7 @@ const ARTICLE_SECTIONS = [
 const FAQ_ITEMS = [
   {
     q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
-    a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 300 m² genişliğindeki P1.9 Indoor LED envanteri, en yakın izleme açısında bile yüksek çözünürlüklü görüntü kalitesi ve özmal altyapı gücü sağlar."
+    a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 300 m² genişliğindeki Absen P1.9 Indoor LED envanteri, yakın izleme mesafesinde yüksek çözünürlüklü görüntü ve özmal altyapı gücü sağlar."
   },
   {
     q: "İç Mekan (Indoor) ve Dış Mekan (Outdoor) LED Ekran Arasındaki Fark Nedir?",
@@ -341,6 +374,10 @@ const FAQ_ITEMS = [
   {
     q: "Daha önce bizimkine benzer bir etkinlikte nasıl bir çözüm sundunuz?",
     a: "Her etkinlik tipi için gerçek uygulama örneklerimiz var. Örneğin Kocaeli'de 500+ izleyicili e-spor turnuvasında 3840 Hz yenileme hızıyla kamera dostu oyun yayını planladık. TÜYAP'ta havada asılı 4 cepheli LED Box ile stant görünürlüğünü güçlendirdik. Açık hava davetlerinde 6500 nit parlaklıkla yüksek görünürlük sağlayan dış mekan ekran çözümleri kurduk. Belediye meydan konserlerinde geniş kitlelere yönelik sahne destek ekranlarıyla izleyici deneyimini güçlendirdik. Sizi en yakın referansımızla eşleştirip teknik detayları paylaşabiliriz."
+  },
+  {
+    q: "LED ekran teknik dokümanını müşterimizin teknik ekibi indirebilir mi?",
+    a: "Evet. Absen P1.9 kavisli indoor LED için İngilizce ön teknik bilgi PDF'si bu sayfadaki LED Ekran Teknik Dokümanları bölümünden doğrudan açılabilir veya indirilebilir. Unilumin P2.6 ve P2.9 projelerinde kesin kabinet, işlemci, toplam çözünürlük ve güç planı etkinlik ölçülerine göre yazılı teklifle birlikte teyit edilir."
   }
 ];
 
@@ -482,11 +519,11 @@ function P19InvestmentProof() {
             Özmal Envanter Gücü
           </div>
           <h2 id="p19-yatirim-baslik" className="text-3xl font-black leading-tight text-gray-900 md:text-5xl">
-            300 m² P1.9 Indoor LED Envanteri
+            300 m² Absen P1.9 Indoor LED Envanteri
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600 md:text-xl">
-            Türkiye'de sayılı firmada bulunan P1.9 Indoor LED altyapısıyla lansman, fuar, gala ve konferanslarda
-            yakın izleme mesafesinde yüksek çözünürlüklü ve dengeli görüntü altyapısı kuruyoruz.
+            Absen P1.9 Indoor LED altyapısıyla lansman, fuar, gala ve konferanslarda yakın izleme mesafesine
+            uygun, yüksek çözünürlüklü ve dengeli görüntü alanları kuruyoruz.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
@@ -505,7 +542,7 @@ function P19InvestmentProof() {
           <div className="relative aspect-[16/9]">
             <Image
               src={P19_PROOF_DISPLAY_IMAGE_SRC}
-              alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
+              alt="Sahneva 300 m² Absen P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 54vw"
@@ -523,6 +560,262 @@ function P19InvestmentProof() {
             </p>
           </figcaption>
         </figure>
+      </div>
+    </section>
+  );
+}
+
+function TechnicalDocuments() {
+  const preliminarySpecs = [
+    { label: "Marka ve sınıf", value: "Absen P1.9 kavisli indoor LED" },
+    { label: "Kabinet ölçüsü", value: "500 × 500 mm" },
+    { label: "Kabinet çözünürlüğü", value: "256 × 256 piksel" },
+    { label: "Yenileme hızı", value: "≥ 3.840 Hz (ön bilgi)" },
+    { label: "Kurulum biçimi", value: "İçbükey / dışbükey kavis" },
+    { label: "Kontrol uyumu", value: "NovaStar / Brompton" },
+  ];
+  const inventoryProofImages = [
+    {
+      src: "/img/led/absen-p19-led-kablo-envanteri-sahneva.webp",
+      alt: "Sahneva deposunda Absen P1.9 LED ekranlar için hazırlanmış güç ve sinyal kabloları",
+      eyebrow: "Bağlantı altyapısı",
+      caption: "LED kabinetleri için güç ve sinyal kablolarının düzenli özmal envanteri.",
+      aspectClass: "aspect-[16/9]",
+      positionClass: "object-center",
+    },
+    {
+      src: "/img/led/absen-p19-led-flight-case-depo-envanteri-sahneva.webp",
+      alt: "Sahneva deposunda tekerlekli flight case kasalarında saklanan Absen P1.9 LED ekran envanteri",
+      eyebrow: "Taşıma ve depolama",
+      caption: "Sevkiyata hazır, korumalı flight case kasalarında saklanan LED kabinetleri.",
+      aspectClass: "aspect-[4/5] md:aspect-[16/9]",
+      positionClass: "object-center",
+    },
+    {
+      src: "/img/led/absen-p19-led-teknik-ekip-kablo-hazirlik-sahneva.webp",
+      alt: "Sahneva teknik ekibi Absen P1.9 LED ekran sevkiyatı öncesinde kablo ve bağlantı hazırlığı yaparken",
+      eyebrow: "Teknik hazırlık",
+      caption: "Teknik ekibin sevkiyat öncesi kablo, konnektör ve ekipman kontrolleri.",
+      aspectClass: "aspect-[16/9]",
+      positionClass: "object-center",
+    },
+  ];
+
+  return (
+    <section
+      id="teknik-dokumanlar"
+      className="bg-gradient-to-b from-slate-950 via-[#11182b] to-[#0B1120] py-16 text-white md:py-20"
+      aria-labelledby="teknik-dokumanlar-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-300/25 bg-violet-300/10 px-4 py-2 text-sm font-black uppercase tracking-[0.14em] text-violet-200">
+              <FileText size={18} aria-hidden="true" />
+              Müşteri teknik ekipleri için
+            </div>
+            <h2 id="teknik-dokumanlar-baslik" className="text-3xl font-black leading-tight md:text-5xl">
+              LED Ekran <span className="text-violet-300">Teknik Dokümanları</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
+              Absen P1.9 kavisli indoor LED çözümünün temel teknik özelliklerini sayfadan inceleyebilir,
+              İngilizce ön teknik föyü müşterinizin teknik departmanına doğrudan iletebilirsiniz.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href={ABSEN_P19_TECHNICAL_PDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                type="application/pdf"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-black text-slate-950 transition hover:bg-violet-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300 sm:w-auto"
+                aria-label="Absen P1.9 kavisli LED İngilizce ön teknik özellikler PDF dosyasını yeni sekmede aç"
+              >
+                <FileText size={19} aria-hidden="true" />
+                PDF'yi Aç
+              </a>
+              <a
+                href={ABSEN_P19_TECHNICAL_PDF}
+                download="Sahneva-Absen-P19-Kavisli-LED-On-Teknik-Ozellikler-EN.pdf"
+                type="application/pdf"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-black text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300 sm:w-auto"
+                aria-label="Absen P1.9 kavisli LED İngilizce ön teknik özellikler PDF dosyasını indir"
+              >
+                <Download size={19} aria-hidden="true" />
+                PDF İndir
+              </a>
+              <a
+                href={getServiceWhatsappLink("Absen P1.9 kavisli LED ekran")}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-green-300/30 bg-green-400/15 px-5 py-3 font-black text-green-100 transition hover:bg-green-400/25 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300 sm:w-auto"
+              >
+                <MessageCircle size={19} aria-hidden="true" />
+                Projeye Özel Teyit Al
+              </a>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-white/55">
+              PDF · İngilizce · 1 sayfa · 24 KB. Belge hızlı teknik değerlendirme için ön bilgi niteliğindedir;
+              kesin seri/model, parlaklık, toplam ekran çözünürlüğü, güç ve işlemci konfigürasyonu projeye göre yazılı teklifte teyit edilir.
+            </p>
+          </div>
+
+          <article className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-sm md:p-7">
+            <div className="mb-5 flex flex-col gap-2 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.14em] text-violet-300">Portföy teknik kartı</p>
+                <h3 className="mt-2 text-2xl font-black text-white">Absen P1.9 Kavisli Indoor LED</h3>
+              </div>
+              <span className="w-fit rounded-full border border-amber-300/25 bg-amber-300/10 px-3 py-1 text-xs font-bold text-amber-100">
+                Ön teknik bilgi
+              </span>
+            </div>
+
+            <dl className="grid gap-3 sm:grid-cols-2">
+              {preliminarySpecs.map((spec) => (
+                <div key={spec.label} className="rounded-2xl border border-white/10 bg-slate-950/45 p-4">
+                  <dt className="text-xs font-black uppercase tracking-[0.12em] text-white/50">{spec.label}</dt>
+                  <dd className="mt-2 text-base font-bold text-white">{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-5 rounded-2xl border border-violet-300/15 bg-violet-300/[0.08] p-4">
+              <p className="text-sm font-black text-violet-200">Envanter marka–pitch ayrımı</p>
+              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/75">
+                <li><strong className="text-white">Absen:</strong> P1.9 kavisli indoor LED</li>
+                <li><strong className="text-white">Unilumin:</strong> P2.6 ve P2.9 LED paneller</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-violet-300">Özmal envanter kanıtı</p>
+            <h3 className="mt-2 text-2xl font-black text-white md:text-3xl">Dokümanın arkasındaki saha hazırlığı</h3>
+            <p className="mt-3 text-base leading-relaxed text-white/65">
+              Kabinetler, bağlantı kabloları ve flight case düzeni; teknik dokümandaki ekipmanın sahadaki taşıma,
+              kurulum ve kontrol süreciyle birlikte yönetildiğini gösterir.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {inventoryProofImages.map((item) => (
+              <figure key={item.src} className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+                <div className={`relative overflow-hidden ${item.aspectClass}`}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className={`object-cover ${item.positionClass}`}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" aria-hidden="true" />
+                </div>
+                <figcaption className="p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.14em] text-violet-300">{item.eyebrow}</span>
+                  <p className="mt-2 text-sm leading-relaxed text-white/72">{item.caption}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CurvedP19ImageCard({ item, aspectClass, sizes }) {
+  return (
+    <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+      <div className={`relative overflow-hidden bg-slate-950 ${aspectClass}`}>
+        <Image
+          src={item.src}
+          alt={item.alt}
+          fill
+          className={`object-cover ${item.positionClass}`}
+          sizes={sizes}
+          loading="lazy"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"
+          aria-hidden="true"
+        />
+      </div>
+      <figcaption className="p-5">
+        <span className="text-xs font-black uppercase tracking-[0.14em] text-violet-300">
+          {item.eyebrow}
+        </span>
+        <h3 className="mt-2 text-xl font-black text-white">{item.title}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-white/68">{item.caption}</p>
+      </figcaption>
+    </figure>
+  );
+}
+
+function CurvedP19InstallationProof() {
+  const [preAssembly, stageInstallation, technicalRehearsal] =
+    CURVED_P19_INSTALLATION_IMAGES;
+
+  return (
+    <section
+      id="absen-p19-kavisli-led-kurulumu"
+      className="border-t border-white/10 bg-[#0B1120] py-16 text-white md:py-20"
+      aria-labelledby="absen-p19-kavisli-led-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-300">
+              Gerçek P1.9 uygulaması
+            </p>
+            <h2 id="absen-p19-kavisli-led-baslik" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
+              Absen P1.9 <span className="text-violet-300">Kavisli LED Kurulumu</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/72">
+              Kavisli LED ekran kurulumu yalnızca kabinetleri yan yana getirmekten ibaret değildir. Bu uygulamada
+              Absen P1.9 paneller önce depoda hedeflenen formda test edildi; ardından kavisli üst bant, dairesel LED
+              halka ve ana sahne ekranı etkinlik alanında kurularak görüntü provası yapıldı.
+            </p>
+          </div>
+
+          <a
+            href={getServiceWhatsappLink("Absen P1.9 kavisli LED kurulumu")}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-violet-300/30 bg-violet-300/10 px-5 py-3 font-black text-violet-100 transition hover:bg-violet-300/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300 sm:w-fit"
+          >
+            Kavisli LED İçin Teklif Al
+            <ArrowRight size={18} aria-hidden="true" />
+          </a>
+        </div>
+
+        <div className="mt-9 space-y-5">
+          <CurvedP19ImageCard
+            item={preAssembly}
+            aspectClass="aspect-[16/9]"
+            sizes="(max-width: 768px) 100vw, 80vw"
+          />
+          <div className="grid items-start gap-5 md:grid-cols-[0.75fr_1.25fr]">
+            <CurvedP19ImageCard
+              item={stageInstallation}
+              aspectClass="aspect-[3/4]"
+              sizes="(max-width: 768px) 100vw, 38vw"
+            />
+            <CurvedP19ImageCard
+              item={technicalRehearsal}
+              aspectClass="aspect-[4/3]"
+              sizes="(max-width: 768px) 100vw, 62vw"
+            />
+          </div>
+        </div>
+
+        <p className="mt-6 max-w-4xl text-sm leading-relaxed text-white/55">
+          Kesin kavis çapı, ekran ölçüsü, asma veya zemin taşıma yöntemi; mekân keşfi, görüş açısı ve statik yük
+          planına göre projelendirilir.
+        </p>
       </div>
     </section>
   );
@@ -742,13 +1035,13 @@ function Services() {
 const GALLERY_IMAGES = [
   {
     src: P19_PROOF_DISPLAY_IMAGE_SRC,
-    alt: "Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
-    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 300 m² P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
+    alt: "Sahneva 300 m² Absen P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
+    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 300 m² Absen P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
   },
   {
     src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
-    alt: "P1.9 indoor LED ekran sahnesinde teknik prodüksiyon kontrol masası ve canlı görüntü akışı",
-    caption: "Teknik Operasyon | P1.9 Indoor LED | Merkezi Kontrol Masası | Gerçek Zamanlı Sahne Yönetimi"
+    alt: "Absen P1.9 indoor LED ekran sahnesinde teknik prodüksiyon kontrol masası ve canlı görüntü akışı",
+    caption: "Teknik Operasyon | Absen P1.9 Indoor LED | Merkezi Kontrol Masası | Gerçek Zamanlı Sahne Yönetimi"
   },
   {
     src: LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
@@ -882,7 +1175,7 @@ function Gallery() {
                   Öne çıkan kurulum
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white">
-                  P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
+                  Absen P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
               </div>
@@ -1084,7 +1377,7 @@ function Technical() {
       title: "Piksel Teknolojileri",
       description: "P1.9-P3.9 piksel aralığı ile yakın izleme ve geniş alan ihtiyaçlarına uygun çözümler",
       Icon: Eye,
-      features: ["P1.9: Yakın İzleme Premium İç Mekan", "P2.5 / P2.9: İç Mekan ve Hibrit", "P3.9: Açık Hava ve Geniş Alan", "P4.8: Uzak Mesafe (Opsiyonel)"]
+      features: ["Absen P1.9: Yakın İzleme Premium İç Mekan", "Unilumin P2.6 / P2.9: İç Mekan ve Hibrit", "P3.9: Açık Hava ve Geniş Alan", "P4.8: Uzak Mesafe (Opsiyonel)"]
     },
     {
       category: "parlaklik",
@@ -1182,7 +1475,7 @@ function Technical() {
 /* ================== İstatistik Bant (Güncellenmiş) ================== */
 function StatsBand() {
   const stats = [
-    { value: "300 m²", label: "P1.9 Indoor LED Envanteri" },
+    { value: "300 m²", label: "Absen P1.9 Indoor LED Envanteri" },
     { value: PROJECTS_COMPLETED, label: "Başarılı Proje" },
     { value: `${PROVINCES_COUNT} İl`, label: "Kendi Araçlarımızla Kurulum" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıllık Deneyim" },
@@ -1263,7 +1556,7 @@ function WhySahneva() {
             Neden <span className="text-violet-700">Sahneva?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle yüksek standartlı prodüksiyon altyapısı
+            Absen P1.9 ile Unilumin P2.6 ve P2.9 panelleri, entegre sahne deneyimiyle birlikte planlıyoruz
           </p>
           <div
             className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full"
@@ -1301,7 +1594,7 @@ function WhySahneva() {
             target="_blank"
             rel="nofollow noopener noreferrer"
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
-            aria-label="Teknik Danışmanlık Alın - Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
+            aria-label="Absen P1.9 ve Unilumin P2.6/P2.9 LED envanteri için teknik danışmanlık ve teklif alın"
           >
             <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Teknik Danışmanlık Alın</span>
@@ -1554,7 +1847,7 @@ function Articles() {
 
               <h3 id="ic-dis-mekan-farki">İç Mekan ve Dış Mekan LED Ekran Farkı</h3>
               <p>
-                İç mekan LED ekranlarda (P2.5 / P2.9) yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
+                İç mekan LED ekranlarda Absen P1.9 ile Unilumin P2.6 / P2.9 seçeneklerinde yakın izleme mesafesine uygun netlik ön plandadır. Dış mekan LED ekranlarda (P3.9 ve üzeri)
                 ise güneş altında görünürlük, IP koruma sınıfı ve dayanıklılık kritik rol oynar.
               </p>
 
@@ -1574,7 +1867,7 @@ function Articles() {
               <div className="bg-violet-50 border-l-4 border-violet-600 rounded-r-2xl p-6 my-6">
                 <h4 className="font-black text-violet-700 text-lg mb-3">Kamera Dostu Performans: 3840 Hz Yenileme Hızı</h4>
                 <p className="text-gray-700 mb-0">
-                  Unilumin URMIII panellerinin 3840 Hz yenileme hızı, televizyon çekimleri ve canlı yayınlarda
+                  Unilumin P2.6 / P2.9 panellerin 3840 Hz yenileme hızı, televizyon çekimleri ve canlı yayınlarda
                   tarama çizgisi (moiré) ile titreşim (flicker) riskini azaltmaya yardımcı olur. Yüksek gri skala
                   derinliği sayesinde kamera karşısında daha dengeli bir görüntü akışı elde edilir.
                 </p>
@@ -1583,7 +1876,7 @@ function Articles() {
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6 mb-8">
                 <h4 className="font-black text-green-700 text-lg mb-3">Flip-Shield ile Gelişmiş Köşe Koruması</h4>
                 <p className="text-gray-700 mb-0">
-                  Unilumin URMIII teknolojisindeki <strong>Flip-Shield köşe koruma mekanizması</strong>, kurulum ve taşıma
+                  Unilumin P2.6 / P2.9 panellerdeki <strong>Flip-Shield köşe koruma mekanizması</strong>, kurulum ve taşıma
                   sırasında panellerin hassas köşe noktalarını korumaya yardımcı olur. Bu yapı, piksel hasarı riskini
                   azaltarak operasyonel güvenliği destekler.
                 </p>
@@ -1592,7 +1885,7 @@ function Articles() {
               <div className="bg-violet-50 border-l-4 border-violet-500 rounded-r-2xl p-6 my-8">
                 <h4 className="font-black text-violet-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
                 <p className="text-gray-700 mb-0">
-                  İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
+                  İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P1.9/P2.6/P2.9; orta-uzak mesafede P3.9/P4
                   tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
@@ -1622,7 +1915,7 @@ function Articles() {
               <div className="not-prose my-8 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={P19_TECHNICAL_CONTROL_IMAGE_SRC}
-                  alt="P1.9 indoor LED ekran kiralama kurulum süreci ve teknik prodüksiyon ekibi"
+                  alt="Absen P1.9 indoor LED ekran kiralama kurulum süreci ve teknik prodüksiyon ekibi"
                   width={1600}
                   height={739}
                   className="w-full h-auto object-cover"
@@ -1821,6 +2114,7 @@ function LedScreenJsonLd() {
   const pageDescription = metadata.description;
   const serviceId = `${pageUrl}#service`;
   const webPageId = `${pageUrl}#webpage`;
+  const technicalDocumentId = `${pageUrl}#absen-p19-teknik-dokuman`;
 
   const providerRef = {
     "@id": ORGANIZATION_ID,
@@ -1849,6 +2143,8 @@ function LedScreenJsonLd() {
         "LED wall kiralama",
         "Video wall kiralama",
         "Sahne LED ekran kurulumu",
+        "Absen P1.9 kavisli LED ekran kiralama",
+        "Unilumin P2.6 ve P2.9 LED ekran kiralama",
       ].map((name) => ({
         "@type": "Offer",
         itemOffered: {
@@ -1882,11 +2178,28 @@ function LedScreenJsonLd() {
       url: `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
       width: 1600,
       height: 739,
-      caption: "Sahneva 300 m² P1.9 Indoor LED ekran envanteri",
+      caption: "Sahneva 300 m² Absen P1.9 Indoor LED ekran envanteri",
     },
     datePublished: PAGE_PUBLISHED_DATE,
     dateModified: PAGE_LAST_MODIFIED,
     author: providerRef,
+  };
+
+  const technicalDocumentSchema = {
+    "@type": "DigitalDocument",
+    "@id": technicalDocumentId,
+    name: "Absen P1.9 Kavisli Indoor LED Ön Teknik Özellikler",
+    description:
+      "Müşteri teknik ekiplerinin ilk değerlendirmesi için Absen P1.9 kavisli indoor LED temel özelliklerini içeren İngilizce ön teknik bilgi föyü.",
+    url: `${ORIGIN}${ABSEN_P19_TECHNICAL_PDF}`,
+    encodingFormat: "application/pdf",
+    inLanguage: "en",
+    isPartOf: {
+      "@id": webPageId,
+    },
+    about: {
+      "@id": serviceId,
+    },
   };
 
   const videoObjects = VIDEO_GALLERY.map((video, index) => ({
@@ -1915,10 +2228,19 @@ function LedScreenJsonLd() {
     webPageId,
     name: "LED ekran kiralama galeri görselleri",
   });
+  const curvedP19ImageUrls = CURVED_P19_INSTALLATION_IMAGES.map(
+    (image) => `${ORIGIN}${image.src}`
+  );
 
-  serviceNode.image = gallerySchema.imageUrls;
-  webpageSchema.image = [`${ORIGIN}${P19_PROOF_IMAGE_SRC}`, `${ORIGIN}${HERO.src}`, ...gallerySchema.imageUrls];
+  serviceNode.image = [...gallerySchema.imageUrls, ...curvedP19ImageUrls];
+  webpageSchema.image = [
+    `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
+    `${ORIGIN}${HERO.src}`,
+    ...gallerySchema.imageUrls,
+    ...curvedP19ImageUrls,
+  ];
   webpageSchema.hasPart = [
+    { "@id": technicalDocumentId },
     ...VIDEO_GALLERY.map((video, index) => ({
       "@id": `${pageUrl}#video-${index + 1}`,
     })),
@@ -1944,6 +2266,7 @@ function LedScreenJsonLd() {
     "@graph": [
       webpageSchema,
       serviceNode,
+      technicalDocumentSchema,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...videoObjects,
@@ -1981,6 +2304,8 @@ export default function Page() {
       <UseCases />
       <Services />
       <P19InvestmentProof />
+      <TechnicalDocuments />
+      <CurvedP19InstallationProof />
       <Technical />
       <WhySahneva />
       <Gallery />
