@@ -4,7 +4,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import HeroSection from "@/components/HeroSection";
+import HomepageHero, { HOME_PRIMARY_IMAGE } from "@/components/home/TurkishHomepageHero";
 import HeroBelow from "@/components/HeroBelow";
 import { HERO_FEATURES_EN } from "@/lib/heroFeatures";
 
@@ -96,9 +96,9 @@ const HOME_JSON_LD = {
       "@type": "WebPage",
       "@id": WEBPAGE_ID,
       url: EN_HOME_URL,
-      name: "Stage, LED Wall, Sound & Lighting Rentals | Nationwide Türkiye | Sahneva",
+      name: "Technical Production Partner in Türkiye | Stage, LED, Sound | Sahneva",
       description:
-        "Discover professional stage, podium, LED wall, sound and lighting rental solutions with Sahneva. Istanbul-based, fast installation across Türkiye.",
+        "Türkiye-based technical production partner for international conferences, launches, exhibitions and large-scale events. Stage, LED, sound, lighting and truss equipment, technical crew and on-site execution from one team.",
       inLanguage: "en-US",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
@@ -108,9 +108,9 @@ const HOME_JSON_LD = {
     {
       "@type": "ImageObject",
       "@id": HERO_IMAGE_ID,
-      contentUrl: `${BASE_SITE_URL}/img/hero-bg.webp`,
-      width: 1600,
-      height: 900,
+      contentUrl: `${BASE_SITE_URL}${HOME_PRIMARY_IMAGE.src}`,
+      width: HOME_PRIMARY_IMAGE.width,
+      height: HOME_PRIMARY_IMAGE.height,
     },
     {
       "@type": "ImageObject",
@@ -449,29 +449,90 @@ const SERVICES_EN = [
   },
 ];
 
+const EN_HOME_MOSAIC_TILES = [
+  {
+    label: "Stage",
+    projectLabel: "PUBG T\u00fcrkiye Final",
+    videoId: "173gBurWSRQ",
+    videoTitle: "PUBG T\u00fcrkiye Final 2023",
+    videoMeta: "Stage \u00b7 LED wall \u00b7 sound and lighting \u00b7 show control",
+    href: "/en/stage-rental",
+    ctaLabel: "Explore stage rental",
+    image: "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp",
+    imagePosition: "50% 50%",
+    eager: true,
+  },
+  {
+    label: "Event Tent",
+    projectLabel: "SAHA 2026",
+    videoId: "x-BYu0vgO2E",
+    videoTitle: "SAHA 2026 Special Event Area and Exhibition Production",
+    videoMeta: "Dome tent \u00b7 flooring \u00b7 ambient lighting",
+    href: "/en/tent-rental",
+    ctaLabel: "Explore event tent rental",
+    image: "/images/projects/saha-2026-dome-cadir-final.webp",
+    imagePosition: "64% 40%",
+    eager: true,
+  },
+  {
+    label: "Stage Platform",
+    projectLabel: "Zero Waste Festival",
+    videoId: "z4DqZERYXkM",
+    videoTitle: "Zero Waste Festival Main Stage Production",
+    videoMeta: "Stage platform \u00b7 LED wall \u00b7 sound and lighting",
+    href: "/en/podium-rental",
+    ctaLabel: "Explore stage platform rental",
+    image:
+      "/img/projeler/sifir-atik-festivali/sifir-atik-festivali-ana-sahne-teknik-produksiyon-hero.webp",
+    imagePosition: "50% 50%",
+  },
+  {
+    label: "LED Wall",
+    projectLabel: "Fatih Municipality",
+    videoId: "c72ILTyJH4A",
+    videoTitle: "Fatih Municipality 400 Projects Event",
+    videoMeta: "Stage \u00b7 LED wall \u00b7 sound and lighting \u00b7 technical production",
+    href: "/en/led-screen-rental",
+    ctaLabel: "Explore LED wall rental",
+    image: "/img/led/gala-led-sahne-video-wall-sahneva.webp",
+    imagePosition: "50% 50%",
+  },
+  {
+    label: "Sound & Lighting",
+    projectLabel: "PUBG Rehearsals",
+    videoId: "1R5Av0x5ouA",
+    videoTitle: "PUBG Stage, LED Wall and Lighting Rehearsals",
+    videoMeta: "Lighting \u00b7 rehearsal \u00b7 technical show control",
+    href: "/en/sound-light-rental",
+    ctaLabel: "Explore sound and lighting rental",
+    image: "/img/kurumsal/premium/konser-isik-tasarimi.webp",
+    imagePosition: "62% 50%",
+  },
+];
+
 const HERO_DICT_EN = {
-  // Kapsam şeridi: hizmet adları yerine teknik departmanlar. Uluslararası
-  // ekipler kapsamı departman adıyla okuyor.
-  keywords: [
-    { text: "Stage", color: "text-blue-200" },
-    { text: "LED", color: "text-purple-200" },
-    { text: "Sound", color: "text-cyan-200" },
-    { text: "Lighting", color: "text-amber-200" },
-    { text: "Truss", color: "text-emerald-200" },
-    { text: "Technical Crew", color: "text-sky-200" },
-  ],
-  keywordsAriaLabel: "Technical production scope",
-  backgroundAlt:
-    "Sahneva event production: stage, LED screen, sound-lighting and podium installation",
   badge: "One Team • One Roof • One Solution",
-  titleLine1Prefix: "Your Trusted",
-  titleLine1: "Technical Production Partner",
-  titleLine2: "in Türkiye",
-  description:
-    "From international conferences to product launches, exhibitions and large-scale events — we provide the technical production, equipment and on-site execution your project needs.",
+  titleVariant: "english",
+  titleLines: [
+    { text: "Your Trusted" },
+    { text: "Technical" },
+    { text: "Production ", emphasis: "Partner", compact: true },
+    { text: "in T\u00fcrkiye." },
+  ],
+  heroDescription:
+    "Technical production for international conferences, product launches, exhibitions and large-scale events: stage, LED, sound, lighting and truss equipment, technical crew and on-site execution from one T\u00fcrkiye-based team.",
+  proofLabel: "Delivery record",
+  proofAriaLabel: "Sahneva delivery record in T\u00fcrkiye",
+  mosaicTiles: EN_HOME_MOSAIC_TILES,
+  mosaicAriaLabel: "Sahneva project videos and service areas",
+  tilePlayAria: "Play {{title}} video",
+  dialogLabels: {
+    eyebrow: "Project footage / Sahneva",
+    closeLabel: "Close project video",
+  },
   proofPoints: [
     { value: PROJECTS_COMPLETED, label: "Projects" },
-    { value: `${PROVINCES_COUNT}`, label: "Cities" },
+    { value: `${PROVINCES_COUNT}`, label: "Provinces" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years" },
   ],
   // "Call Now" hero'dan cikarildi; footer ve /en/contact sayfasinda duruyor.
@@ -882,8 +943,8 @@ export default function EnglishHomePage() {
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
       <BreadcrumbJsonLd items={BREADCRUMB_ITEMS} />
 
-      <HeroSection dictionary={HERO_DICT_EN} />
-      <div className="relative z-10 -mt-16 md:-mt-24 bg-[#0B1120]">
+      <HomepageHero dictionary={HERO_DICT_EN} />
+      <div className="relative z-10 bg-[#0B1120]">
         <HeroBelow dictionary={HERO_BELOW_DICT_EN} />
       </div>
 

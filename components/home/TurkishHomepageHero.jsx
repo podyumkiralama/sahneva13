@@ -6,14 +6,16 @@ import HeroMosaicParallax from "./HeroMosaicParallax.client";
 import styles from "./TurkishHomepageHeroEffects.module.css";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
-export const TR_HOME_PRIMARY_IMAGE = {
+export const HOME_PRIMARY_IMAGE = {
   src: "/img/led/acik-hava-konser-led-ekran-sahneva.webp",
   width: 1600,
   height: 1199,
   alt: "Açık hava etkinliğinde dev LED ekranlar, sahne ışıkları ve izleyici alanı",
 };
 
-const MOSAIC_TILES = [
+export const TR_HOME_PRIMARY_IMAGE = HOME_PRIMARY_IMAGE;
+
+const DEFAULT_MOSAIC_TILES = [
   {
     label: "Sahne",
     projectLabel: "PUBG Türkiye Finali",
@@ -86,6 +88,51 @@ const FEATURED_PROJECT_REFERENCES = getClientReferences([
   "Sıfır Atık Festivali",
 ]);
 
+const DEFAULT_PROOF_POINTS = FEATURED_PROJECT_REFERENCES.map((reference) => ({
+  label: reference.shortName ?? reference.org,
+}));
+
+const DEFAULT_DICTIONARY = {
+  eyebrow: "Kurumsal Etkinlik \u00b7 Konser \u00b7 Lansman \u00b7 Festival",
+  titleLines: [
+    { text: "Sahne," },
+    { text: "LED, ", emphasis: "Ses\u2013I\u015f\u0131k." },
+    { text: "Tek Ekip." },
+  ],
+  description: `Sahne kiralama, LED ekran, ses\u2013\u0131\u015f\u0131k, podyum ve \u00e7ad\u0131r sistemleri; ke\u015fiften s\u00f6k\u00fcme tek teknik ekip. ${PROJECTS_COMPLETED} proje deneyimiyle T\u00fcrkiye genelinde kurulum.`,
+  proofLabel: "Proje kay\u0131tlar\u0131",
+  proofAriaLabel: "\u00d6ne \u00e7\u0131kan proje kay\u0131tlar\u0131",
+  proofPoints: DEFAULT_PROOF_POINTS,
+  mosaicTiles: DEFAULT_MOSAIC_TILES,
+  mosaicAriaLabel: "Sahneva proje videolar\u0131",
+  tilePlayAria: "{{title}} videosunu oynat",
+  dialogLabels: {
+    eyebrow: "Proje kayd\u0131 / Sahneva",
+    closeLabel: "Proje videosunu kapat",
+  },
+  actions: [
+    {
+      key: "projects",
+      label: "Projeleri incele",
+      href: "/projeler",
+      prefetch: false,
+    },
+    {
+      key: "quote",
+      label: "Teklif al",
+      href: "#teklif-al",
+    },
+  ],
+};
+
+const TILE_CLASSES = [
+  styles.tileTop,
+  styles.tileMiddle,
+  styles.tileLowerCenter,
+  styles.tileLowerLeft,
+  styles.tileLowerRight,
+];
+
 const MOSAIC_LIGHT_PATH_OUTER =
   "M56 0 L75 0 L100 24.5 L100 100 L0 100 L35 52.5 L3 24.5 L47 25 Z";
 
@@ -111,8 +158,17 @@ function ArrowIcon() {
   );
 }
 
-function ServiceMosaic() {
-  const videos = MOSAIC_TILES.map(
+function formatLabel(template, title) {
+  return template.replace("{{title}}", title);
+}
+
+function ServiceMosaic({
+  tiles,
+  ariaLabel,
+  tilePlayAria,
+  dialogLabels,
+}) {
+  const videos = tiles.map(
     ({ videoId, videoTitle, videoMeta, href, ctaLabel }) => ({
       videoId,
       videoTitle,
@@ -123,19 +179,23 @@ function ServiceMosaic() {
   );
 
   return (
-    <HeroMosaicParallax className={styles.mosaicShell} videos={videos}>
-      <ul className={styles.mosaicTiles} aria-label="Sahneva proje videoları">
-        {MOSAIC_TILES.map((service, index) => (
+    <HeroMosaicParallax
+      className={styles.mosaicShell}
+      videos={videos}
+      dialogLabels={dialogLabels}
+    >
+      <ul className={styles.mosaicTiles} aria-label={ariaLabel}>
+        {tiles.map((service, index) => (
           <li
             key={service.videoId}
-            className={`${styles.tile} ${service.tileClass}`}
+            className={`${styles.tile} ${service.tileClass ?? TILE_CLASSES[index]}`}
             data-mosaic-parallax-tile
           >
             <button
               type="button"
               className={styles.tileLink}
               data-mosaic-video-index={index}
-              aria-label={`${service.videoTitle} videosunu oynat`}
+              aria-label={formatLabel(tilePlayAria, service.videoTitle)}
               aria-haspopup="dialog"
               style={{ position: "absolute" }}
             >
@@ -197,7 +257,74 @@ function ServiceMosaic() {
   );
 }
 
-export default function TurkishHomepageHero() {
+function getActions(dictionaryOverride) {
+  if (dictionaryOverride?.actions) return dictionaryOverride.actions;
+  if (!dictionaryOverride?.ctaOrder) return DEFAULT_DICTIONARY.actions;
+
+  return dictionaryOverride.ctaOrder.map((key) => {
+    if (key === "whatsapp") {
+      return {
+        key,
+        label: dictionaryOverride.ctaWhatsapp,
+        ariaLabel: dictionaryOverride.ctaWhatsappAria,
+        href: `https://wa.me/905453048671?text=${dictionaryOverride.whatsappText}&${dictionaryOverride.whatsappUtm}`,
+        external: true,
+      };
+    }
+
+    return {
+      key,
+      label: dictionaryOverride.ctaQuote,
+      ariaLabel: dictionaryOverride.ctaQuoteAria,
+      href: dictionaryOverride.quoteAnchor,
+    };
+  });
+}
+
+function HeroAction({ action, primary }) {
+  const className = primary
+    ? "inline-flex min-h-12 items-center justify-between gap-6 border border-violet-400 bg-violet-600 px-6 py-3.5 text-sm font-extrabold text-white no-underline transition-colors hover:border-violet-200 hover:bg-violet-500 hover:no-underline focus-ring sm:min-w-[210px]"
+    : "inline-flex min-h-12 items-center justify-between gap-6 border border-white/65 bg-[#040817]/60 px-6 py-3.5 text-sm font-extrabold text-white no-underline transition-colors hover:border-white hover:bg-[#0b1120]/90 hover:no-underline focus-ring sm:min-w-[180px]";
+  const content = (
+    <>
+      {action.label}
+      <ArrowIcon />
+    </>
+  );
+
+  if (action.external) {
+    return (
+      <a
+        href={action.href}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className={className}
+        aria-label={action.ariaLabel}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={action.href}
+      prefetch={action.prefetch}
+      className={className}
+      aria-label={action.ariaLabel}
+    >
+      {content}
+    </Link>
+  );
+}
+
+export default function TurkishHomepageHero({ dictionary: dictionaryOverride } = {}) {
+  const d = { ...DEFAULT_DICTIONARY, ...dictionaryOverride };
+  const eyebrow =
+    dictionaryOverride?.eyebrow ?? dictionaryOverride?.badge ?? DEFAULT_DICTIONARY.eyebrow;
+  const description = dictionaryOverride?.heroDescription ?? d.description;
+  const actions = getActions(dictionaryOverride);
+
   return (
     <section
       className={`${styles.hero} relative isolate overflow-hidden bg-[#040817] pb-28 pt-24 text-white sm:pb-32 sm:pt-28 lg:pb-36 lg:pt-28`}
@@ -206,7 +333,7 @@ export default function TurkishHomepageHero() {
     >
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src={TR_HOME_PRIMARY_IMAGE.src}
+          src={HOME_PRIMARY_IMAGE.src}
           alt=""
           fill
           priority
@@ -221,62 +348,65 @@ export default function TurkishHomepageHero() {
       <div className="pointer-events-none relative z-20 mx-auto w-full max-w-[1680px] px-5 sm:px-8 lg:px-12 xl:px-16">
         <div className={`${styles.heroCopy} pointer-events-auto`}>
           <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-violet-200 sm:text-xs">
-            Kurumsal Etkinlik · Konser · Lansman · Festival
+            {eyebrow}
           </p>
 
           <h1
             id="hero-title"
-            className={styles.heroTitle}
+            aria-label={d.titleLines
+              .map((line) => `${line.text}${line.emphasis ?? ""}`)
+              .join(" ")}
+            className={`${styles.heroTitle} ${d.titleVariant === "english" ? styles.heroTitleEnglish : ""}`}
           >
-            <span>Sahne,</span>
-            <span>
-              LED, <em>Ses–Işık.</em>
-            </span>
-            <span>Tek Ekip.</span>
+            {d.titleLines.map((line, index) => (
+              <span
+                key={`${line.text}-${index}`}
+                className={line.compact ? styles.heroTitleCompactLine : undefined}
+              >
+                {line.text}
+                {line.emphasis ? <em>{line.emphasis}</em> : null}
+              </span>
+            ))}
           </h1>
 
           <p id="hero-desc" className={styles.heroDescription}>
-            Sahne kiralama, LED ekran, ses–ışık, podyum ve çadır sistemleri;
-            keşiften söküme tek teknik ekip. {PROJECTS_COMPLETED} proje deneyimiyle Türkiye
-            genelinde kurulum.
+            {description}
           </p>
 
-          <aside
-            className={styles.projectReferences}
-            aria-label="Öne çıkan proje kayıtları"
-          >
-            <span className={styles.projectReferencesLabel}>Proje kayıtları</span>
-            <ul>
-              {FEATURED_PROJECT_REFERENCES.map((reference) => (
-                <li key={reference.org}>
-                  {reference.shortName ?? reference.org}
-                </li>
-              ))}
-            </ul>
-          </aside>
+          {d.proofPoints?.length ? (
+            <aside
+              className={styles.projectReferences}
+              aria-label={d.proofAriaLabel}
+            >
+              <span className={styles.projectReferencesLabel}>{d.proofLabel}</span>
+              <ul>
+                {d.proofPoints.map((item, index) => (
+                  <li key={`${item.value ?? "proof"}-${item.label}-${index}`}>
+                    {item.value ? (
+                      <strong className={styles.proofValue}>{item.value}</strong>
+                    ) : null}
+                    <span>{item.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          ) : null}
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/projeler"
-              prefetch={false}
-              className="inline-flex min-h-12 items-center justify-between gap-6 border border-violet-400 bg-violet-600 px-6 py-3.5 text-sm font-extrabold text-white no-underline transition-colors hover:border-violet-200 hover:bg-violet-500 hover:no-underline focus-ring sm:min-w-[210px]"
-            >
-              Projeleri incele
-              <ArrowIcon />
-            </Link>
-            <Link
-              href="#teklif-al"
-              className="inline-flex min-h-12 items-center justify-between gap-6 border border-white/65 bg-[#040817]/60 px-6 py-3.5 text-sm font-extrabold text-white no-underline transition-colors hover:border-white hover:bg-[#0b1120]/90 hover:no-underline focus-ring sm:min-w-[180px]"
-            >
-              Teklif al
-              <ArrowIcon />
-            </Link>
+            {actions.map((action, index) => (
+              <HeroAction key={action.key} action={action} primary={index === 0} />
+            ))}
           </div>
         </div>
       </div>
 
       <div className={styles.mosaicStage}>
-        <ServiceMosaic />
+        <ServiceMosaic
+          tiles={d.mosaicTiles}
+          ariaLabel={d.mosaicAriaLabel}
+          tilePlayAria={d.tilePlayAria}
+          dialogLabels={d.dialogLabels}
+        />
       </div>
 
       <div

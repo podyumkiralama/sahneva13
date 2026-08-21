@@ -58,6 +58,20 @@
   font-style: normal;
 }
 
+.heroTitleEnglish {
+  max-width: 13ch;
+  font-size: clamp(3.1rem, 4.15vw, 5rem);
+  line-height: 0.93;
+}
+
+.heroTitleEnglish em {
+  margin-left: 0.13em;
+}
+
+.heroTitleCompactLine {
+  font-size: 0.84em;
+}
+
 .heroDescription {
   max-width: 35rem;
   margin-top: 1.55rem;
@@ -95,6 +109,18 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.projectReferences li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+}
+
+.proofValue {
+  color: white;
+  font-size: 1.12em;
+  font-weight: 900;
 }
 
 .projectReferences li:not(:last-child)::after {
@@ -369,6 +395,11 @@
     font-size: clamp(3.45rem, 5.8vw, 4.9rem);
   }
 
+  .heroTitleEnglish {
+    max-width: 13ch;
+    font-size: clamp(3rem, 4.5vw, 3.9rem);
+  }
+
   .mosaicStage {
     width: clamp(550px, 46vw, 620px);
   }
@@ -405,6 +436,11 @@
   .heroTitle {
     max-width: none;
     font-size: clamp(3rem, 11vw, 5.5rem);
+  }
+
+  .heroTitleEnglish {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 8.4vw, 4.8rem);
   }
 
   .heroDescription {
@@ -551,6 +587,16 @@
   .heroTitle {
     font-size: clamp(2.7rem, 13.3vw, 4rem);
     line-height: 0.9;
+  }
+
+  .heroTitleEnglish {
+    max-width: 12ch;
+    font-size: clamp(2.45rem, 11.5vw, 3.45rem);
+    line-height: 0.94;
+  }
+
+  .heroTitleEnglish .heroTitleCompactLine {
+    font-size: 0.64em;
   }
 
   .heroTitle span:nth-child(2) {

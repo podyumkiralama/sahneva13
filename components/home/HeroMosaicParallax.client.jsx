@@ -17,6 +17,11 @@ const PARALLAX_PROPERTIES = [
   "--mosaic-image-y",
 ];
 
+const DEFAULT_DIALOG_LABELS = {
+  eyebrow: "Proje kayd\u0131 / Sahneva",
+  closeLabel: "Proje videosunu kapat",
+};
+
 function clearParallaxStyles(tile) {
   if (!tile) return;
 
@@ -36,7 +41,13 @@ function addMediaListener(mediaQuery, listener) {
   return () => mediaQuery.removeListener(listener);
 }
 
-export default function HeroMosaicParallax({ children, className, videos = [] }) {
+export default function HeroMosaicParallax({
+  children,
+  className,
+  videos = [],
+  dialogLabels: dialogLabelsOverride,
+}) {
+  const dialogLabels = { ...DEFAULT_DIALOG_LABELS, ...dialogLabelsOverride };
   const shellRef = useRef(null);
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -229,7 +240,7 @@ export default function HeroMosaicParallax({ children, className, videos = [] })
           <div className={styles.window}>
             <header className={styles.header}>
               <div>
-                <p className={styles.eyebrow}>Proje kaydı / Sahneva</p>
+                <p className={styles.eyebrow}>{dialogLabels.eyebrow}</p>
                 <h2 id="hero-project-video-title" className={styles.title}>
                   {activeVideo.videoTitle}
                 </h2>
@@ -239,7 +250,7 @@ export default function HeroMosaicParallax({ children, className, videos = [] })
                 type="button"
                 className={styles.closeButton}
                 onClick={closeVideo}
-                aria-label="Proje videosunu kapat"
+                aria-label={dialogLabels.closeLabel}
               >
                 <span aria-hidden="true">×</span>
               </button>
