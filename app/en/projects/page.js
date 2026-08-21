@@ -15,15 +15,21 @@ export const revalidate = 86400;
 
 const ORIGIN = "https://www.sahneva.com";
 
+// Baslik ve aciklama tek yerde: daha once meta / OG / Twitter / JSON-LD
+// ayrisiyordu ve OG hala eski "Projects" genel metnini tasiyordu.
+const PAGE_TITLE = "Project Case Studies | Stage, LED & AV Builds";
+const PAGE_DESCRIPTION =
+  "Written case studies of Sahneva builds: dimensions, structure, crew and schedule for concert, congress, corporate and activation projects across Türkiye.";
+const OG_IMAGE_ALT =
+  "Sahneva project case studies — stage, LED screen and technical production builds";
+
 export const metadata = {
-  title: "Projects | Our Stage & LED Screen References",
-  description:
-    "Browse Sahneva's completed concert, corporate event and activation projects. Stage, podium, LED screen and sound-lighting references across Türkiye.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: buildAlternatesForPath("/en/projects"),
   openGraph: {
-    title: "Projects | Sahneva",
-    description:
-      "Browse Sahneva's completed concert, corporate event and activation projects. Stage, podium, LED screen and sound-lighting references across Türkiye.",
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
     url: `${ORIGIN}/en/projects`,
     type: "website",
     locale: "en_US",
@@ -33,14 +39,14 @@ export const metadata = {
         url: `${ORIGIN}/img/og/sahneva-og.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva – Stage, podium, LED screen and sound-lighting projects",
+        alt: OG_IMAGE_ALT,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects | Sahneva",
-    description: "Browse our completed stage and LED screen setups from events across Türkiye.",
+    title: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
     images: [`${ORIGIN}/img/og/sahneva-og.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -79,10 +85,9 @@ const TR_PROJECT_DISPLAY = {
 function ProjectsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Projects | Sahneva",
-    description:
-      "Stage, podium, LED screen and sound-lighting projects completed by Sahneva.",
+    "@type": "CollectionPage",
+    name: `${PAGE_TITLE} | Sahneva`,
+    description: PAGE_DESCRIPTION,
     url: `${ORIGIN}/en/projects`,
     image: `${ORIGIN}/img/og/sahneva-og.webp`,
     inLanguage: "en-US",
@@ -154,19 +159,19 @@ export default async function ProjectsIndexPageEn() {
         <header className="text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
             <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse" />
-            <span className="text-sm text-white/70">Project Portfolio</span>
+            <span className="text-sm text-white/70">Written technical scope</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
             <span className="gradient-text gradient-text--safe-xl">
-              Our Projects
+              Project Case Studies
             </span>
           </h1>
 
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            A selection of projects we have brought to life as Sahneva.{" "}
-            <span className="text-blue-300 font-semibold">Meticulously designed</span>{" "}
-            stages, LED screens and technical setups for corporate events, concerts, fairs and more.
+            Each project written up with the part that usually goes unrecorded:{" "}
+            <span className="text-blue-300 font-semibold">dimensions, structure, crew size</span>{" "}
+            and the venue constraints that shaped the build. For footage of the work itself, see the videos.
           </p>
 
           {/* Stats */}

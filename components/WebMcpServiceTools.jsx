@@ -3,6 +3,7 @@ const SERVICE_VALUES = [
   "podium",
   "led_screen",
   "sound_light_av",
+  "conference_congress_av",
   "truss_rigging",
   "tent_outdoor_infrastructure",
   "corporate_event_production",
@@ -18,6 +19,7 @@ const SERVICE_LABELS = {
     podium: "Podyum",
     led_screen: "LED Ekran",
     sound_light_av: "Ses-Işık AV",
+    conference_congress_av: "Kongre ve Konferans AV",
     truss_rigging: "Truss & Rigging",
     tent_outdoor_infrastructure: "Çadır ve Açık Alan Altyapısı",
     corporate_event_production: "Kurumsal Etkinlik Prodüksiyonu",
@@ -29,6 +31,7 @@ const SERVICE_LABELS = {
     podium: "Podium",
     led_screen: "LED Screen",
     sound_light_av: "Sound-Light AV",
+    conference_congress_av: "Conference & Congress AV",
     truss_rigging: "Truss & Rigging",
     tent_outdoor_infrastructure: "Tent & Outdoor Infrastructure",
     corporate_event_production: "Corporate Event Production",
@@ -40,6 +43,7 @@ const SERVICE_LABELS = {
     podium: "Podium",
     led_screen: "LED-Wand",
     sound_light_av: "Ton-Licht-AV",
+    conference_congress_av: "Kongress- und Konferenz-AV",
     truss_rigging: "Traversen & Rigging",
     tent_outdoor_infrastructure: "Zelt- und Outdoor-Infrastruktur",
     corporate_event_production: "Corporate-Event-Produktion",
@@ -51,13 +55,13 @@ const SERVICE_LABELS = {
 const CAPABILITY_FORM_PROPS = {
   toolname: "checkServiceCapability",
   tooldescription:
-    "Check whether Sahneva provides a requested event production service category in Turkey and identify the information needed for a confirmed quote. This does not confirm real-time equipment availability or fixed pricing.",
+    "Check whether Sahneva provides a requested event production service category in Turkey and identify the information needed for a confirmed quote. Istanbul enquiries map to three dedicated pages: end-to-end production (/en/event-production-istanbul), AV equipment and technicians (/en/av-rental-istanbul), and congress or conference room AV including interpretation (/en/conference-av-rental-istanbul). This does not confirm real-time equipment availability or fixed pricing.",
 };
 
 const CAPABILITY_FIELD_PROPS = {
   serviceCategory: {
     toolparamdescription:
-      "Requested Sahneva service category such as stage, podium, LED screen, sound-light AV, truss, tent, corporate event production or esports arena production.",
+      "Requested Sahneva service category such as stage, podium, LED screen, sound-light AV, conference and congress AV, truss, tent, corporate event production or esports arena production.",
   },
   city: {
     toolparamdescription:

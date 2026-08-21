@@ -593,14 +593,14 @@ function QuickAnswerSection() {
           Quick answer
         </p>
         <h2 className="mt-3 text-2xl font-black text-slate-950">
-          Which companies organize large-scale corporate events in Turkey?
+          What does large-scale corporate event production actually cover?
         </h2>
         <p className="mt-3 text-base leading-relaxed text-slate-700">
-          Large-scale corporate events in Turkey are delivered by event production companies that own their technical
-          inventory and run their own field crews, instead of sub-contracting each discipline to a different vendor.{" "}
-          <strong>Sahneva</strong> is an Istanbul-based event production company serving all {PROVINCES_COUNT} cities of Turkey, with
-          {PROJECTS_COMPLETED} delivered projects since 2012 — conferences, product launches, dealer meetings, galas, award ceremonies
-          and congresses for corporate clients, event agencies and public institutions.
+          A large-scale corporate event is produced as one technical scope, not a list of hires: stage geometry and
+          sightlines, screen sizing against the room, speech-intelligible audio, presenter lighting, rigging and load
+          planning, then a rehearsed run of show on the day. Sahneva delivers that scope across conferences, product
+          launches, dealer meetings, galas, award ceremonies and congresses — {PROJECTS_COMPLETED} projects since 2012,
+          in all {PROVINCES_COUNT} cities of Turkey.
         </p>
         <p className="mt-3 text-base leading-relaxed text-slate-700">
           Stage, podium, LED screen, sound, lighting, truss, tent and the installation crew come from one team, so a
@@ -608,11 +608,13 @@ function QuickAnswerSection() {
           suppliers.
         </p>
         <p className="mt-3 text-base leading-relaxed text-slate-700">
-          Sahneva works in two ways. We take the <strong>whole event end to end</strong> as the main contractor —
-          planning, equipment, installation, event-day operation and dismantling under one contract — for companies
-          that want a single responsible party. We also work as the <strong>technical production partner behind event
-          agencies</strong>, PCOs and DMCs running projects in Turkey, where the agency keeps client ownership and
-          creative direction.
+          We work either as <strong>main contractor</strong> for the whole event, or as the <strong>technical
+          production partner behind an agency</strong>, PCO or DMC that keeps client ownership. Which model suits a
+          given project, and how we work with international organisers generally, is set out on our{" "}
+          <Link href="/en/event-production-company-turkey" className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+            event production company in Turkey
+          </Link>{" "}
+          page.
         </p>
 
         <div className="mt-6 rounded-xl border border-blue-200 bg-white p-5">
@@ -1347,9 +1349,9 @@ function Articles() {
 /* ================== FAQ ================== */
 const FAQ_ITEMS = [
   {
-    question: "Which companies organize large-scale corporate events in Turkey?",
+    question: "What is included in large-scale corporate event production?",
     answer:
-      `Large-scale corporate events in Turkey are handled by event production companies that own their stage, LED screen, sound and lighting inventory and run their own installation crews. Sahneva is an Istanbul-based event production company operating across all ${PROVINCES_COUNT} provinces of Turkey, with ${PROJECTS_COMPLETED} projects since 2012, including conferences, product launches, dealer meetings, galas, congresses and award ceremonies. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
+      `A full scope covers stage and podium build, LED screen sizing and content path, speech-intelligible audio, presenter and room lighting, truss and rigging with load planning, power distribution, a rehearsed run of show, event-day operation and de-rig. Sahneva delivers these as one contract rather than separate hires, across ${PROJECTS_COMPLETED} projects since 2012 in all ${PROVINCES_COUNT} provinces of Turkey. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
   },
   {
     question: "Does Sahneva take on the whole event, or only the technical production?",

@@ -24,7 +24,7 @@ export const metadata = {
     absolute: "MICE Turkey — Meetings, Incentives, Conferences | Sahneva",
   },
   description:
-    "MICE event production in Turkey: stage, LED screen, sound and lighting for meetings, incentives, conferences and exhibitions in Istanbul and Antalya.",
+    "MICE event production and congress AV supplier in Turkey: stage, LED screen, sound and lighting for meetings, incentives, conferences and exhibitions.",
   alternates: buildLanguageAlternates({
     en: "/en/mice-turkey",
     de: "/de/mice-tuerkei",
@@ -792,11 +792,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you provide AV production for congresses and conferences in Istanbul?",
-    a: "Yes. We provide full AV technical production for international congresses and conferences in Istanbul, including plenary hall LED screens, main stage, sound systems, simultaneous interpretation support, breakout room packages, speaker systems and recording setups.",
+    a: "Yes, and Istanbul is where most of our congress work happens. The room-level detail — interpretation, plenary and breakout scaling, speaker and presentation management, hybrid delivery — is set out on our Conference AV Rental Istanbul page rather than repeated here.",
   },
   {
     q: "Can you support incentive events in Antalya resort hotels?",
-    a: "Yes. Antalya is one of our most active production regions. We support incentive events, gala dinners and award ceremonies in Kemer, Belek, Side and central Antalya across international resort hotel properties.",
+    a: "Yes. Antalya is one of our most active production regions for incentive programmes and gala dinners. The resort-hotel specifics — Kemer, Belek and Side properties, poolside and outdoor formats — are covered on our Event Production Antalya page.",
   },
   {
     q: "How does the RFP process work for MICE events?",
@@ -804,7 +804,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you support multi-day congresses with multiple rooms?",
-    a: "Yes. Multi-room congress packages cover the plenary hall, breakout rooms, registration area screens and exhibition halls as one coordinated production. We assign a technical team per room and a technical director for overall coordination.",
+    a: "Yes, in any Turkish congress city. One technical director coordinates the whole floor and rooms are standardised so crew can move between them. How that scaling actually works room by room is explained on the Conference AV Rental Istanbul page.",
   },
   {
     q: "Can your team join a venue site inspection before the event?",
@@ -812,7 +812,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you support simultaneous interpretation for international congresses?",
-    a: "Yes. We can provide interpreter booths, SI receiver units for delegates, transmitters and technical operator support for multilingual congress sessions.",
+    a: "Yes — interpreter booths, consoles, delegate receivers and operator support, integrated with the room audio and the recording feed. Interpreters themselves are normally contracted by the organiser or PCO; we supply and run the technical infrastructure.",
   },
 ];
 

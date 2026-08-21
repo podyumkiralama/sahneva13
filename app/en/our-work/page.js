@@ -6,8 +6,9 @@ import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import VideoGallery from "./VideoGallery.client";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import CaseSpecStrip from "@/components/en/CaseSpecStrip";
 import { getEnProjects } from "@/lib/enProjects";
+
+const CASE_STUDY_COUNT = getEnProjects().length;
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
@@ -15,9 +16,9 @@ export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/en/our-work";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "Our Work | Stage & LED Screen Production Projects";
+const PAGE_TITLE = "Our Work | On-Site Event Production Videos";
 const PAGE_DESCRIPTION =
-  "Explore stage, LED screen, podium, sound, lighting, truss, tent and corporate event projects completed by Sahneva — with real on-site video references.";
+  "On-site video references from Sahneva builds: stage, LED screen, podium, sound, lighting, truss and tent installations filmed during setup and on event day.";
 const PUBLISHED_AT = "2026-06-08T00:00:00+03:00";
 
 const PROJECT_VIDEOS = [
@@ -299,10 +300,10 @@ export default function OurWorkPage() {
             <div>
               <SectionEyebrow>Video Project Showcase</SectionEyebrow>
               <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                Our completed stage, LED screen and event production projects
+                Event production videos from the field
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-                We bring together on-site references showing how we install stage, LED screen, sound-lighting, truss, podium and tent solutions at real event venues.
+                Footage shot on real builds — stage, LED screen, sound-lighting, truss, podium and tent going up in the venues they were made for. For the technical write-ups, the case studies are on the projects page.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -316,7 +317,7 @@ export default function OurWorkPage() {
                   href="/en/projects"
                   className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white backdrop-blur transition hover:bg-white/15"
                 >
-                  Browse Project Details
+                  Read the case studies
                 </Link>
               </div>
             </div>
@@ -360,60 +361,41 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Vaka çalışmaları — video galerisi neyi kurduğumuzu gösteriyor, bu bölüm
-          nasıl kurulduğunu anlatıyor. Teknik kapsam şeridi her vakada aynı
-          sırada, böylece iki proje yan yana karşılaştırılabiliyor. */}
+      {/* Yazili vaka calismalari bu sayfada TEKRARLANMAZ. Onceden burada
+          getEnProjects()'in tamami kart olarak basiliyordu ve /en/projects ile
+          %28 ortusme uretiyordu; iki sayfa ayni sorgu icin yarisiyordu.
+          Bu sayfa video kaniti, /en/projects yazili kapsam. Burasi sadece
+          gecis veriyor. */}
       <section
         className="relative px-4 py-16 sm:px-6 lg:px-8"
-        aria-labelledby="case-studies-title"
+        aria-labelledby="written-cases-title"
       >
         <div className="relative mx-auto max-w-7xl">
-          <div className="mb-10">
-            <SectionEyebrow>Case Studies</SectionEyebrow>
-            <h2
-              id="case-studies-title"
-              className="mt-4 text-3xl font-black tracking-tight md:text-5xl"
-            >
-              Selected projects, with the technical scope
-            </h2>
-          </div>
-
-          <ul className="grid list-none grid-cols-1 gap-6 p-0 lg:grid-cols-2">
-            {getEnProjects().map((project) => (
-              <li
-                key={project.slug}
-                className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur md:p-8"
-              >
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-200">
-                  {project.category}
-                </p>
-                <h3 className="mt-3 text-xl font-black leading-snug md:text-2xl">
-                  <Link
-                    href={`/en/projects/${project.slug}`}
-                    className="transition hover:text-cyan-200"
-                  >
-                    {project.title}
-                  </Link>
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-slate-300">
-                  {project.excerpt}
-                </p>
-
-                <CaseSpecStrip
-                  specs={project.specs}
-                  className="mt-6 !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-2"
-                />
-
-                <Link
-                  href={`/en/projects/${project.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-black text-cyan-200 underline underline-offset-4 transition hover:text-white"
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 backdrop-blur md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <SectionEyebrow>Written case studies</SectionEyebrow>
+                <h2
+                  id="written-cases-title"
+                  className="mt-4 text-3xl font-black tracking-tight md:text-4xl"
                 >
-                  Read the full case study
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  The videos show what was built. The case studies explain how.
+                </h2>
+                <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+                  {CASE_STUDY_COUNT} projects are written up in full on the case
+                  study pages — dimensions, structure, crew size, build schedule
+                  and the constraints that shaped each decision.
+                </p>
+              </div>
+              <Link
+                href="/en/projects"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-7 py-3 text-sm font-black text-white backdrop-blur transition hover:bg-white/15"
+              >
+                Read the case studies
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -149,12 +149,12 @@ const RELATED_SERVICES = [
 
 /* ================== 3. METADATA ================== */
 export const metadata = {
-  title: "Concert Podium Rental | Festival Stage Solutions",
+  title: "Concert Stage Deck Rental | Festival Staging",
   description:
     "Concert and festival podium rental with main platforms, side towers, FOH areas and end-to-end technical support across Turkey.",
   alternates: buildAlternatesForPath("/en/concert-podium-rental"),
   openGraph: {
-    title: "Concert Podium Rental | Sahneva",
+    title: "Concert Stage Deck Rental | Sahneva",
     description:
       "Modular stage systems, LED integration, and professional installation for festivals and concerts.",
     url: `${ORIGIN}/en/concert-podium-rental`,
@@ -245,7 +245,7 @@ function HeroSection() {
           >
             Concert{" "}
             <span className="gradient-text-clip-safe bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
-              Podium Rental
+              Stage Deck Rental
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10">

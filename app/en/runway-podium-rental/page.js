@@ -136,7 +136,7 @@ const RELATED_SERVICES = [
 
 /* ================== 4. METADATA ================== */
 export const metadata = {
-  title: "Runway & Podium Rental | Fashion Event Stage",
+  title: "Runway & Catwalk Rental | Fashion Show Staging",
   description:
     "Runway & fashion podium rental: T/U-shape, straight runway, LED backdrop, projection mapping + full technical support. Istanbul professional event stages.",
   alternates: buildAlternatesForPath("/en/runway-podium-rental"),
@@ -249,7 +249,7 @@ function HeroSection() {
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
               Runway &amp;{" "}
-              <span className="text-pink-200">Podium Rental</span>
+              <span className="text-pink-200">Catwalk Rental</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-3">

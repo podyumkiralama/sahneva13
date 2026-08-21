@@ -116,7 +116,34 @@ async function getBlogPosts(locale, source) {
   return posts;
 }
 
-function scorePost(post, currentCategory, currentKeywords) {
+// Her baslikta gecen kelimeler ayirt edici degil; puanlamaya girerlerse her
+// yazi her yaziya benzer cikiyor.
+const SCORING_STOPWORDS = new Set(
+  (
+    "the and for with your our from that this what how why when are was will can " +
+    "event events organization organisation production rental hire turkey turkiye " +
+    "istanbul guide sahneva etkinlik organizasyon kiralama rehber rehberi turkiye " +
+    "icin nasil nedir ile ve bir bu"
+  ).split(" "),
+);
+
+function toTokens(value) {
+  if (!value) return [];
+  const text = Array.isArray(value) ? value.join(" ") : String(value);
+  return (text.toLowerCase().match(/[a-z0-9çğıöşü]{3,}/g) || []).filter(
+    (token) => !SCORING_STOPWORDS.has(token),
+  );
+}
+
+function overlapCount(aTokens, bTokenSet) {
+  let hits = 0;
+  for (const token of new Set(aTokens)) {
+    if (bTokenSet.has(token)) hits += 1;
+  }
+  return hits;
+}
+
+function scorePost(post, currentCategory, currentKeywords, currentTextTokens) {
   let score = 0;
 
   if (currentCategory && post.category === currentCategory) {
@@ -124,9 +151,20 @@ function scorePost(post, currentCategory, currentKeywords) {
   }
 
   if (currentKeywords?.length) {
-    const keywords = new Set(currentKeywords.map((item) => item.toLowerCase()));
-    const overlap = post.keywords.filter((kw) => keywords.has(kw));
-    score += overlap.length * 2;
+    const exact = new Set(currentKeywords.map((item) => item.toLowerCase().trim()));
+    // Tam ifade eslesmesi en guclu sinyal olarak kaliyor.
+    score += post.keywords.filter((kw) => exact.has(kw)).length * 3;
+
+    // Token ortusmesi: "led screen rental" ile "led screen technology" artik
+    // birbirini goruyor.
+    const currentKeywordTokens = new Set(toTokens(currentKeywords));
+    score += Math.min(overlapCount(toTokens(post.keywords), currentKeywordTokens), 4);
+  }
+
+  // Zayif topikal sinyal: keywords/category bos oldugunda tek ayirici bu.
+  if (currentTextTokens?.size) {
+    const postTokens = toTokens(`${post.title} ${post.description}`);
+    score += Math.min(overlapCount(postTokens, currentTextTokens), 3) * 0.5;
   }
 
   return score;
@@ -146,9 +184,11 @@ export default async function SmartBlogSuggestions({
   const posts = await getBlogPosts(locale, source);
   const filtered = posts.filter((post) => post.slug !== currentSlug);
 
+  const currentTextTokens = new Set(toTokens([currentSlug.replace(/-/g, " "), ...(currentKeywords ?? [])]));
+
   const scored = filtered.map((post) => ({
     ...post,
-    score: scorePost(post, currentCategory, currentKeywords),
+    score: scorePost(post, currentCategory, currentKeywords, currentTextTokens),
   }));
 
   scored.sort((a, b) => {

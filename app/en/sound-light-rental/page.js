@@ -38,7 +38,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Sound System & Event Lighting Rental in Turkey",
   description:
-    "Sound system, PA and event lighting rental in Turkey for conferences, concerts and corporate events, with line-array audio, AV crews, setup and live operation.",
+    "Sound system, PA and concert lighting rental in Turkey for conferences, concerts and corporate events, with line-array audio, AV crews, setup and live operation.",
   alternates: buildAlternatesForPath("/en/sound-light-rental"),
   openGraph: {
     title: "Sound System & Event Lighting Rental in Turkey | Sahneva",

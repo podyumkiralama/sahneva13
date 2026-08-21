@@ -34,14 +34,14 @@ const BLUR_DATA_URL =
 
 /* ================== SEO METADATA ================== */
 export const metadata = {
-  title: "Podium Rental Prices 2026 | Istanbul Current m² List",
+  title: "Stage Platform Rental Prices 2026 | Istanbul m²",
   description:
     "2026 podium rental prices by m² with carpet, skirt, Istanbul transport, setup and dismantling. Request a fast quote.",
   alternates: buildAlternatesForPath("/en/podium-rental-prices"),
   openGraph: {
     type: "website",
     url,
-    title: "Podium Rental Prices 2026 | Istanbul Current m² List | Sahneva",
+    title: "Stage Platform Rental Prices 2026 | Istanbul m² | Sahneva",
     description:
       "Current m² based prices, sample calculations, and fast quotes. 2026 price guide with fixed Istanbul transportation (installation+dismantling included).",
     locale: "en_US",
@@ -57,7 +57,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podium Rental Prices 2026 | Istanbul Current m² List",
+    title: "Stage Platform Rental Prices 2026 | Istanbul m²",
     description:
       "Current m² based prices, sample calculations, and fast quotes. 2026 price guide with fixed Istanbul transportation (installation+dismantling included).",
     images: [`${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`],
@@ -376,7 +376,7 @@ export default function Page() {
                 </div>
 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-                  Podium Rental <span className="text-blue-200">Prices</span>{" "}
+                  Stage Platform <span className="text-blue-200">Rental Prices</span>{" "}
                   2026
                 </h1>
 

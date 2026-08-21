@@ -26,7 +26,7 @@ const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 
 const TITLE = "Truss Rental in Turkey | Aluminium Rigging";
 const DESCRIPTION =
-  "Truss rental in Turkey for stage roofs, LED walls, lighting and event rigging. Square, triangular, arch and ground-support systems with installation.";
+  "Truss rental in Turkey for stage roofs, LED walls, lighting and event rigging. Square, triangular, arch and ground-support trussing with load planning.";
 
 const OG_IMAGE = `${ORIGIN}/img/truss/truss-1.webp`;
 
