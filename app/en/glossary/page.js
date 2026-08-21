@@ -130,7 +130,7 @@ export default function GlossaryPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 px-4 py-16 text-white sm:py-20">
         <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(59,130,246,0.25),transparent_38%),linear-gradient(135deg,#020617,#111827_48%,#0f172a)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(139, 92, 246,0.25),transparent_38%),linear-gradient(135deg,#020617,#111827_48%,#0f172a)]"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-4xl">
@@ -172,7 +172,7 @@ export default function GlossaryPage() {
               <a
                 key={category.key}
                 href={`#${category.key}`}
-                className="inline-flex min-h-[44px] items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-bold text-white/85 transition hover:bg-white/12 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+                className="inline-flex min-h-[44px] items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-bold text-white/85 transition hover:bg-white/12 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300"
               >
                 {category.title}
               </a>
@@ -196,7 +196,7 @@ export default function GlossaryPage() {
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <Link
                   href={`#${entry.slug}`}
-                  className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-violet-500 hover:text-violet-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 >
                   {entry.term}
                 </Link>
@@ -263,7 +263,7 @@ export default function GlossaryPage() {
                         <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                           <Link
                             href={entry.related.href}
-                            className="inline-flex min-h-[44px] items-center text-sm font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900"
+                            className="inline-flex min-h-[44px] items-center text-sm font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
                           >
                             {entry.related.label}
                           </Link>
@@ -318,7 +318,7 @@ export default function GlossaryPage() {
             <Link
               href={TR_PAGE_PATH}
               hrefLang="tr-TR"
-              className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900"
+              className="font-semibold text-violet-700 underline underline-offset-4 hover:text-violet-900"
             >
               Etkinlik Prodüksiyonu Sözlüğü
             </Link>

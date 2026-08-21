@@ -354,7 +354,7 @@ export default function Page() {
               blurDataURL={BLUR_DATA_URL}
             />
             <div className="absolute inset-0 bg-black/45" />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/45 via-purple-900/20 to-slate-950/65" />
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-900/45 via-purple-900/20 to-slate-950/65" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-purple-900/25" />
             <div
               className="absolute inset-0 opacity-35"
@@ -380,7 +380,7 @@ export default function Page() {
                 </div>
 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-                  Stage Platform <span className="text-blue-200">Rental Prices</span>{" "}
+                  Stage Platform <span className="text-violet-200">Rental Prices</span>{" "}
                   2026
                 </h1>
 
@@ -428,7 +428,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                2026 Current <span className="text-blue-700">Unit Price</span>{" "}
+                2026 Current <span className="text-violet-700">Unit Price</span>{" "}
                 Table
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -553,7 +553,7 @@ export default function Page() {
               </div>
 
               {/* M2 RANGES */}
-              <div className="rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-8 shadow-lg">
+              <div className="rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-8 shadow-lg">
                 <h2 className="text-3xl font-black text-gray-900 mb-4">
                   Reference Budget Ranges by m²
                 </h2>
@@ -729,7 +729,7 @@ export default function Page() {
             </div>
 
             {/* SAMPLE CALC */}
-            <div className="mt-14 rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-6 md:p-8">
+            <div className="mt-14 rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-6 md:p-8">
               <p className="text-lg font-bold text-gray-900">
                 Sample calculation (reference)
               </p>
@@ -763,11 +763,11 @@ export default function Page() {
         </section>
 
         {/* USE CASES */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/40">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-violet-50/40">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                Budget <span className="text-blue-700">by Event Type</span>
+                Budget <span className="text-violet-700">by Event Type</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Traffic volume and technical integration may affect the budget for events like
@@ -775,8 +775,8 @@ export default function Page() {
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500">
-                <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
+                <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                   Fashion show podium prices
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
@@ -784,14 +784,14 @@ export default function Page() {
                 </p>
                 <Link
                   href="/en/runway-podium-rental"
-                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
                   Runway Podium Page →
                 </Link>
               </div>
 
-              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500">
-                <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
+                <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                   Concert podium prices
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
@@ -799,7 +799,7 @@ export default function Page() {
                 </p>
                 <Link
                   href="/en/concert-podium-rental"
-                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
                   Concert Podium Page →
                 </Link>
@@ -831,7 +831,7 @@ export default function Page() {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                Frequently Asked <span className="text-blue-700">Questions</span>
+                Frequently Asked <span className="text-violet-700">Questions</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 The most frequently asked questions about 2026 prices and the quoting process.
@@ -841,15 +841,15 @@ export default function Page() {
               {FAQ.map((item) => (
                 <details
                   key={item.q}
-                  className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+                  className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-violet-50 open:border-violet-200 border-2 border-transparent open:border"
                 >
                   <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
                     <span className="pr-4">{item.q}</span>
-                    <span className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                    <span className="ml-4 transition-transform duration-500 group-open:rotate-180 text-violet-600 bg-violet-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
                       ⌄
                     </span>
                   </summary>
-                  <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                  <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500">
                     {item.a}
                   </div>
                 </details>
@@ -861,13 +861,13 @@ export default function Page() {
         {/* CTA */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+            <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" />
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
                   Get a Fast Quote
                 </h2>
-                <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
                   Send us date + district + m² + height + carpet/skirt information and we&apos;ll
                   get back to you within 24 hours with a clear quote and site plan.
                 </p>
@@ -876,7 +876,7 @@ export default function Page() {
                     href="https://wa.me/905453048671?text=Hello%2C+I+would+like+a+podium+rental+price+quote.+Date%3A+%5Bdd.mm.yyyy%5D+Area%3A+%5Bm2%5D+Height%3A+%5Bcm%5D+District%3A+%5Bdistrict%5D+Carpet%3A+%5Byes%2Fno%5D+Skirt%3A+%5Bmetres%5D"
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
+                    className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
                   >
                     <span className="text-xl mr-3">💬</span> Message via WhatsApp
                   </a>

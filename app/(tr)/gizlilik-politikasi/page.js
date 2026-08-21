@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
                   <span className="inline-flex items-center rounded-full border border-purple-400/30 bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-100">
                     Güvenli iletişim (HTTPS)
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-100">
+                  <span className="inline-flex items-center rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-100">
                     Çerez yönetimi
                   </span>
                 </div>
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
                     <dd>
                       <a
                         href={`mailto:${MAIL}`}
-                        className="text-sky-300 underline-offset-2 hover:underline"
+                        className="text-violet-300 underline-offset-2 hover:underline"
                       >
                         {MAIL}
                       </a>
@@ -161,7 +161,7 @@ export default function PrivacyPolicyPage() {
                     <dd>
                       <a
                         href={`tel:${PHONE}`}
-                        className="text-sky-300 underline-offset-2 hover:underline"
+                        className="text-violet-300 underline-offset-2 hover:underline"
                       >
                         0 (545) 304 86 71
                       </a>
@@ -191,52 +191,52 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#toplanan-veriler" className="hover:text-sky-300">
+                    <a href="#toplanan-veriler" className="hover:text-violet-300">
                       1. Toplanan Veriler
                     </a>
                   </li>
                   <li>
-                    <a href="#isleme-amaclari" className="hover:text-sky-300">
+                    <a href="#isleme-amaclari" className="hover:text-violet-300">
                       2. İşleme Amaçları
                     </a>
                   </li>
                   <li>
-                    <a href="#hukuki-dayanak" className="hover:text-sky-300">
+                    <a href="#hukuki-dayanak" className="hover:text-violet-300">
                       3. Hukuki Dayanak
                     </a>
                   </li>
                   <li>
-                    <a href="#saklama-sureleri" className="hover:text-sky-300">
+                    <a href="#saklama-sureleri" className="hover:text-violet-300">
                       4. Saklama Süreleri
                     </a>
                   </li>
                   <li>
-                    <a href="#veri-aktarimi" className="hover:text-sky-300">
+                    <a href="#veri-aktarimi" className="hover:text-violet-300">
                       5. Veri Aktarımı
                     </a>
                   </li>
                   <li>
-                    <a href="#haklariniz" className="hover:text-sky-300">
+                    <a href="#haklariniz" className="hover:text-violet-300">
                       6. Haklarınız
                     </a>
                   </li>
                   <li>
-                    <a href="#guvenlik" className="hover:text-sky-300">
+                    <a href="#guvenlik" className="hover:text-violet-300">
                       7. Veri Güvenliği
                     </a>
                   </li>
                   <li>
-                    <a href="#cerezler" className="hover:text-sky-300">
+                    <a href="#cerezler" className="hover:text-violet-300">
                       8. Çerezler
                     </a>
                   </li>
                   <li>
-                    <a href="#degisiklikler" className="hover:text-sky-300">
+                    <a href="#degisiklikler" className="hover:text-violet-300">
                       9. Değişiklikler
                     </a>
                   </li>
                   <li>
-                    <a href="#iletisim" className="hover:text-sky-300">
+                    <a href="#iletisim" className="hover:text-violet-300">
                       10. İletişim
                     </a>
                   </li>
@@ -430,7 +430,7 @@ export default function PrivacyPolicyPage() {
                 </ul>
                 <p className="mt-2">
                   Talebinizi{" "}
-                  <a href={`mailto:${MAIL}`} className="text-sky-300 underline-offset-2 hover:underline">
+                  <a href={`mailto:${MAIL}`} className="text-violet-300 underline-offset-2 hover:underline">
                     {MAIL}
                   </a>{" "}
                   adresine iletmeniz yeterli. 30 gün içinde yanıtlıyoruz.
@@ -503,7 +503,7 @@ export default function PrivacyPolicyPage() {
                   Hizmet kapsamımız veya yasal düzenlemeler değiştiğinde bu sayfayı
                   güncelliyoruz. Önemli bir değişiklik olduğunda bunu burada açıkça
                   belirtiyoruz. Güncel metin her zaman{" "}
-                  <span className="text-sky-300">/gizlilik-politikasi</span> adresinde
+                  <span className="text-violet-300">/gizlilik-politikasi</span> adresinde
                   bulunabilir.
                 </p>
               </section>
@@ -518,7 +518,7 @@ export default function PrivacyPolicyPage() {
                   talep ve başvurunuz için aşağıdaki kanallardan bize ulaşabilirsiniz:
                 </p>
 
-                <div className="mt-4 rounded-3xl border border-purple-500/40 bg-gradient-to-r from-purple-900/50 via-slate-900 to-sky-900/40 p-5 shadow-lg shadow-purple-900/40">
+                <div className="mt-4 rounded-3xl border border-purple-500/40 bg-gradient-to-r from-purple-900/50 via-slate-900 to-violet-900/40 p-5 shadow-lg shadow-purple-900/40">
                   <p className="text-sm text-slate-100">
                     <span className="font-semibold">Veri Sorumlusu:</span> Sahneva Organizasyon
                   </p>
@@ -526,7 +526,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">E-posta:</span>{" "}
                     <a
                       href={`mailto:${MAIL}`}
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       {MAIL}
                     </a>
@@ -535,7 +535,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">Telefon:</span>{" "}
                     <a
                       href={`tel:${PHONE}`}
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       0 (545) 304 86 71
                     </a>
@@ -544,7 +544,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">Web sitesi:</span>{" "}
                     <Link
                       href="/"
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       www.sahneva.com
                     </Link>

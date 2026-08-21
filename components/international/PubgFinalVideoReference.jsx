@@ -99,13 +99,13 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
 
   return (
     <section dir={isRtl ? "rtl" : undefined} className="relative -mt-10 overflow-hidden bg-slate-950 px-6 pb-16 pt-6 text-white md:-mt-12 md:px-10 md:pb-20 md:pt-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(59,130,246,0.24),transparent_34%),radial-gradient(circle_at_82%_46%,rgba(34,211,238,0.12),transparent_30%)]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(139, 92, 246,0.24),transparent_34%),radial-gradient(circle_at_82%_46%,rgba(167, 139, 250,0.12),transparent_30%)]" aria-hidden="true" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:48px_48px] opacity-20" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-black/30 backdrop-blur md:p-6 lg:p-8">
           <header className="mx-auto max-w-5xl text-center">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-cyan-200/10 px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-cyan-100">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-violet-200/10 px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-violet-100">
               {content.label}
             </p>
             <h2 className="mx-auto mt-5 max-w-5xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -125,7 +125,7 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:items-stretch">
             <div className="relative min-w-0">
-              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 to-cyan-400/10 blur-2xl" aria-hidden="true" />
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-violet-500/20 to-violet-400/10 blur-2xl" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
                 <LazyVideoEmbed
                   videoId={PUBG_FINAL_VIDEO_ID}
@@ -150,13 +150,13 @@ export default function PubgFinalVideoReference({ locale = "en" }) {
                 </ul>
               </div>
 
-              <div className="rounded-3xl border border-cyan-200/20 bg-cyan-200/[0.08] p-6">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{content.emailIntro}</p>
+              <div className="rounded-3xl border border-violet-200/20 bg-violet-200/[0.08] p-6">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-100">{content.emailIntro}</p>
                 <p className="mt-3 text-sm leading-relaxed text-white/[0.76]">
                   {content.emailText}{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="font-black text-cyan-100 underline decoration-cyan-200/40 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    className="font-black text-violet-100 underline decoration-violet-200/40 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-200 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                   >
                     {CONTACT_EMAIL}
                   </a>

@@ -439,7 +439,7 @@ function RentalFlow() {
       <div className="container mx-auto px-4">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-blue-700">
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-violet-700">
               Hızlı karar akışı
             </p>
             <h2
@@ -466,7 +466,7 @@ function RentalFlow() {
               </Link>
               <Link
                 href="#paketler"
-                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl border border-gray-300 bg-white px-6 py-3 font-bold text-gray-950 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 hover:no-underline focus-ring sm:w-auto"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl border border-gray-300 bg-white px-6 py-3 font-bold text-gray-950 shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:no-underline focus-ring sm:w-auto"
               >
                 Paketleri Karşılaştır
                 <ArrowRight size={18} aria-hidden="true" />
@@ -480,11 +480,11 @@ function RentalFlow() {
                 key={step.title}
                 className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-sm sm:p-6"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-700 text-white">
                   <step.Icon size={23} aria-hidden="true" />
                 </div>
                 <div>
-                  <div className="mb-1 text-sm font-black uppercase tracking-wide text-blue-700">
+                  <div className="mb-1 text-sm font-black uppercase tracking-wide text-violet-700">
                     Adım {index + 1}
                   </div>
                   <h3 className="text-xl font-black leading-snug text-gray-950">
@@ -499,7 +499,7 @@ function RentalFlow() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 max-w-7xl rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+        <div className="mx-auto mt-10 max-w-7xl rounded-3xl border border-violet-100 bg-violet-50 p-5 sm:p-6">
           <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h3 className="text-2xl font-black text-gray-950">
@@ -517,7 +517,7 @@ function RentalFlow() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group rounded-2xl border border-white bg-white p-5 shadow-sm transition hover:border-blue-300 hover:shadow-md hover:no-underline focus-ring"
+                className="group rounded-2xl border border-white bg-white p-5 shadow-sm transition hover:border-violet-300 hover:shadow-md hover:no-underline focus-ring"
               >
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <h4 className="text-xl font-black text-gray-950">
@@ -525,7 +525,7 @@ function RentalFlow() {
                   </h4>
                   <ArrowRight
                     size={19}
-                    className="text-blue-700 transition group-hover:translate-x-1"
+                    className="text-violet-700 transition group-hover:translate-x-1"
                     aria-hidden="true"
                   />
                 </div>
@@ -552,7 +552,7 @@ function SizeGuide() {
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-blue-700">
+          <p className="mb-3 text-sm font-extrabold uppercase tracking-wide text-violet-700">
             3 adımda doğru sahne
           </p>
           <h2
@@ -573,10 +573,10 @@ function SizeGuide() {
               key={step.title}
               className="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-sm sm:p-8"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-700 text-white">
                 <step.Icon size={23} aria-hidden="true" />
               </div>
-              <div className="mb-2 text-sm font-black uppercase tracking-wide text-blue-700">
+              <div className="mb-2 text-sm font-black uppercase tracking-wide text-violet-700">
                 Adım {index + 1}
               </div>
               <h3 className="text-xl font-black leading-snug text-gray-950">
@@ -589,13 +589,13 @@ function SizeGuide() {
           ))}
         </div>
 
-        <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="mx-auto mt-10 max-w-6xl overflow-x-auto rounded-3xl border border-blue-100 bg-blue-50 p-5 sm:p-6">
+        <div role="region" aria-label="Karşılaştırma tablosunu yatay kaydır" tabIndex={0} className="mx-auto mt-10 max-w-6xl overflow-x-auto rounded-3xl border border-violet-100 bg-violet-50 p-5 sm:p-6">
           <h3 className="mb-5 text-2xl font-black text-gray-950">
             Etkinlik ölçeğine göre başlangıç referansı
           </h3>
           <table className="w-full min-w-[560px] border-collapse text-left text-sm sm:text-base">
             <thead>
-              <tr className="border-b border-blue-200 text-gray-700">
+              <tr className="border-b border-violet-200 text-gray-700">
                 <th className="py-3 pr-4 font-black">Etkinlik ölçeği</th>
                 <th className="py-3 pr-4 font-black">Katılımcı sayısı</th>
                 <th className="py-3 pr-4 font-black">Önerilen alan</th>
@@ -604,7 +604,7 @@ function SizeGuide() {
             </thead>
             <tbody>
               {SIZE_GUIDE_TABLE.map((row) => (
-                <tr key={row.scale} className="border-b border-blue-100 last:border-0">
+                <tr key={row.scale} className="border-b border-violet-100 last:border-0">
                   <td className="py-3 pr-4 font-bold text-gray-900">{row.scale}</td>
                   <td className="py-3 pr-4 text-gray-700">{row.participants}</td>
                   <td className="py-3 pr-4 text-gray-700">{row.area}</td>
@@ -629,7 +629,7 @@ function Services() {
   return (
     <section
       id="hizmetler"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="py-20 bg-gradient-to-b from-white to-violet-50/50"
       aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto px-4">
@@ -639,7 +639,7 @@ function Services() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Modüler Sahne Platformu{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Kiralama ve Teknik Hizmetlerimiz
             </span>
           </h2>
@@ -666,7 +666,7 @@ function Services() {
                   </div>
                   <h3
                     id={id}
-                    className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors"
+                    className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors"
                   >
                     {service.title}
                   </h3>
@@ -680,7 +680,7 @@ function Services() {
                         className="flex items-center gap-3 text-gray-700"
                       >
                         <span
-                          className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0"
+                          className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0"
                           aria-hidden="true"
                         />
                         <span className="text-base">{feature}</span>
@@ -698,7 +698,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">
               📞
@@ -726,7 +726,7 @@ function Packages() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Sahne Kiralama{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Fiyatları ve Hazır Paketler
             </span>
           </h2>
@@ -741,19 +741,19 @@ function Packages() {
               <div
                 className={`bg-white rounded-3xl border-2 shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 h-full flex flex-col ${
                   pkg.badge === "Popüler"
-                    ? "border-blue-500 ring-4 ring-blue-500/20 lg:scale-105 lg:group-hover:scale-110"
+                    ? "border-violet-500 ring-4 ring-violet-500/20 lg:scale-105 lg:group-hover:scale-110"
                     : "border-gray-100 lg:group-hover:scale-105"
                 }`}
               >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-700 to-purple-700 p-8 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-r from-violet-700 to-purple-700 p-8 text-white relative overflow-hidden">
                   {pkg.badge && (
                     <div
                       className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-bold ${
                         pkg.badge === "Popüler"
                           ? "bg-orange-800"
                           : pkg.badge === "Profesyonel"
-                          ? "bg-blue-600"
+                          ? "bg-violet-600"
                           : "bg-green-700"
                       }`}
                     >
@@ -766,14 +766,14 @@ function Packages() {
                     {pkg.id === "konser-sahnesi" && "🚀"}
                   </div>
                   <h3 className="text-2xl font-black mb-2">{pkg.name}</h3>
-                  <div className="flex items-center gap-4 text-blue-100 text-sm">
+                  <div className="flex items-center gap-4 text-violet-100 text-sm">
                     <span>{pkg.specs.dimensions}</span>
                     <span>•</span>
                     <span>{pkg.specs.area}</span>
                     <span>•</span>
                     <span>{pkg.specs.height}</span>
                   </div>
-                  <p className="text-blue-100 text-lg mt-2">{pkg.note}</p>
+                  <p className="text-violet-100 text-lg mt-2">{pkg.note}</p>
                 </div>
 
                 {/* Content */}
@@ -781,7 +781,7 @@ function Packages() {
                   <div className="mb-6">
                     <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
                       <span
-                        className="w-2 h-2 bg-blue-600 rounded-full"
+                        className="w-2 h-2 bg-violet-600 rounded-full"
                         aria-hidden="true"
                       />
                       Paket İçeriği
@@ -927,7 +927,7 @@ function Gallery() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Proje{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Galerimiz
             </span>
           </h2>
@@ -1053,7 +1053,7 @@ function Technical() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Teknik{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Altyapımız
             </span>
           </h2>
@@ -1067,7 +1067,7 @@ function Technical() {
           {technicalItems.map((item) => (
             <div key={item.category} className="group">
               <div className="h-full rounded-3xl border-2 border-gray-100 bg-white p-6 shadow-lg transition-all duration-500 hover:shadow-xl lg:group-hover:scale-105 sm:p-8">
-                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold leading-tight text-gray-900 transition-colors group-hover:text-blue-600 sm:text-2xl">
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold leading-tight text-gray-900 transition-colors group-hover:text-violet-600 sm:text-2xl">
                   <span className="text-3xl" aria-hidden="true">
                     {item.category === "podyum" && "🎭"}
                     {item.category === "truss" && "🏗️"}
@@ -1088,7 +1088,7 @@ function Technical() {
                       className="flex items-center gap-3 text-gray-700"
                     >
                       <span
-                        className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0"
+                        className="w-2 h-2 bg-gradient-to-r from-green-500 to-violet-500 rounded-full flex-shrink-0"
                         aria-hidden="true"
                       />
                       <span className="text-base">{feature}</span>
@@ -1115,7 +1115,7 @@ function StatsBand() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
       aria-label="Başarı İstatistiklerimiz"
     >
       <div className="container mx-auto px-4">
@@ -1143,7 +1143,7 @@ function StatsBand() {
                 </h3>
                 <p
                   id={`sahne-stat-${index}-label`}
-                  className="text-blue-100 text-lg font-semibold"
+                  className="text-violet-100 text-lg font-semibold"
                 >
                   {stat.label}
                 </p>
@@ -1160,7 +1160,7 @@ function StatsBand() {
 function UseCases() {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1170,7 +1170,7 @@ function UseCases() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Kullanım{" "}
-            <span className="text-cyan-300">
+            <span className="text-violet-300">
               Alanları
             </span>
           </h2>
@@ -1179,7 +1179,7 @@ function UseCases() {
             çözümlerimiz
           </p>
           <div
-            className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
+            className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full"
             aria-hidden="true"
           />
         </div>
@@ -1202,7 +1202,7 @@ function UseCases() {
                   {uc.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
                     {uc.text}
                   </h3>
                   <p className="text-white/70 text-lg leading-relaxed">
@@ -1246,7 +1246,7 @@ function Articles() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Bilgi &{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Profesyonel Rehber
             </span>
           </h2>
@@ -1259,7 +1259,7 @@ function Articles() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Ana Makale */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
+            <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div
                 className="absolute inset-0 bg-black/10"
                 aria-hidden="true"
@@ -1272,7 +1272,7 @@ function Articles() {
                   <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
                     ⭐ Uzman Görüşü
                   </span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
+                  <span className="bg-violet-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">
                     🎯 Pratik Çözümler
                   </span>
                 </div>
@@ -1280,7 +1280,7 @@ function Articles() {
                   Profesyonel Sahne Kiralama: Etkinlik Başarınız İçin Anahtar
                   Teslim Çözümler
                 </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+                <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Modüler sahne sistemleri, truss rigging, LED ekran entegrasyonu
                   ve profesyonel ekip ile etkinliklerinizde mükemmel performans
                 </p>
@@ -1288,12 +1288,12 @@ function Articles() {
             </header>
 
             <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-violet-500">
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
                       <span
-                        className="bg-blue-100 text-blue-600 rounded-2xl p-3"
+                        className="bg-violet-100 text-violet-600 rounded-2xl p-3"
                         aria-hidden="true"
                       >
                         🎭
@@ -1342,8 +1342,8 @@ function Articles() {
                 </div>
 
                 {/* Önemli Bilgi Kutusu */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 rounded-r-2xl p-6 mb-8">
-                  <h5 className="font-black text-blue-700 text-xl mb-4 flex items-center gap-3">
+                <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-l-4 border-violet-500 rounded-r-2xl p-6 mb-8">
+                  <h5 className="font-black text-violet-700 text-xl mb-4 flex items-center gap-3">
                     <span className="text-2xl" aria-hidden="true">
                       💡
                     </span>
@@ -1395,7 +1395,7 @@ function Articles() {
                     ].map((item, index) => (
                       <div
                         key={index}
-                        className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200"
+                        className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200"
                       >
                         <div className="flex items-start gap-4">
                           <span
@@ -1405,7 +1405,7 @@ function Articles() {
                             {item.icon}
                           </span>
                           <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h5>
                             <p className="text-gray-600 leading-relaxed">
@@ -1440,11 +1440,11 @@ function Articles() {
 
           {/* Yan Makaleler */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-purple-600 to-violet-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Truss & Rigging Sistemleri
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Profesyonel sahne güvenliği için kritik unsurlar ve standartlar
               </p>
             </header>
@@ -1508,11 +1508,11 @@ function Articles() {
           </article>
 
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Etkinlik Türlerine Özel Çözümler
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Her etkinlik türüne özel sahne stratejileri ve teknik çözümler
               </p>
             </header>
@@ -1520,10 +1520,10 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <div className="space-y-6">
-                  <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
+                  <div className="bg-violet-50 rounded-2xl p-5 border border-violet-200">
                     <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
                       <span
-                        className="bg-blue-100 text-blue-600 rounded-xl p-2"
+                        className="bg-violet-100 text-violet-600 rounded-xl p-2"
                         aria-hidden="true"
                       >
                         🎵
@@ -1627,7 +1627,7 @@ function FAQ() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Sık Sorulan{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Sorular
             </span>
           </h2>
@@ -1643,7 +1643,7 @@ function FAQ() {
           {FAQ_ITEMS.map((faq, index) => (
             <details
               key={index}
-              className="group rounded-3xl border-2 border-transparent bg-gray-50 p-6 transition-all duration-500 hover:bg-gray-100 open:border open:border-blue-200 open:bg-blue-50 sm:p-8"
+              className="group rounded-3xl border-2 border-transparent bg-gray-50 p-6 transition-all duration-500 hover:bg-gray-100 open:border open:border-violet-200 open:bg-violet-50 sm:p-8"
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
@@ -1651,13 +1651,13 @@ function FAQ() {
                 <span className="pr-4">{faq.q}</span>
                 <span
                   aria-hidden="true"
-                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-violet-600 bg-violet-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
                 >
                   ⌄
                 </span>
               </summary>
               <div
-                className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500"
+                className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500"
                 role="region"
               >
                 {faq.a}
@@ -1673,7 +1673,7 @@ function FAQ() {
           <Link
             href="/sss"
             prefetch={false}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
             aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
             <span aria-hidden="true" className="text-xl mr-3">
@@ -1724,7 +1724,7 @@ function RelatedServices() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1734,7 +1734,7 @@ function RelatedServices() {
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Tamamlayıcı{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -1743,7 +1743,7 @@ function RelatedServices() {
             çözümlerimiz
           </p>
           <div
-            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full"
             aria-hidden="true"
           />
         </div>
@@ -1755,15 +1755,15 @@ function RelatedServices() {
                 key={service.href}
                 href={service.href}
                 prefetch={false}
-                className="group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 text-center shadow-xl transition-all duration-500 hover:border-blue-200 hover:shadow-2xl focus-ring lg:hover:scale-105 sm:p-8"
+                className="group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-6 text-center shadow-xl transition-all duration-500 hover:border-violet-200 hover:shadow-2xl focus-ring lg:hover:scale-105 sm:p-8"
               >
                 <div
-                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300"
+                  className="mb-6 text-violet-600 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
                   <service.Icon size={36} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -1791,7 +1791,7 @@ function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div
             className="absolute inset-0 bg-black/10"
             aria-hidden="true"
@@ -1803,7 +1803,7 @@ function CTA() {
             >
               Profesyonel Sahne Çözümlerine Hazır Mısınız?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun sahne sistemlerini sunalım. Ücretsiz
               keşif, profesyonel danışmanlık ve kalem kalem şeffaf fiyatlandırma
               ile hizmetinizdeyiz.
@@ -1812,7 +1812,7 @@ function CTA() {
               <Link
                 href="/iletisim"
                 prefetch={false}
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
               >
                 <span aria-hidden="true" className="text-xl mr-3">
                   📞
@@ -1831,7 +1831,7 @@ function CTA() {
                 <span className="text-lg">WhatsApp&apos;tan Yaz</span>
               </a>
             </div>
-            <div className="mt-8 text-blue-200 text-lg">
+            <div className="mt-8 text-violet-200 text-lg">
               📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>

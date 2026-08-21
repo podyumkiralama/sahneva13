@@ -104,16 +104,16 @@ function ChoiceButton({ active, children, description, onClick }) {
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${
+      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-700 ${
         active
-          ? "border-blue-600 bg-blue-50 shadow-sm"
-          : "border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50"
+          ? "border-violet-600 bg-violet-50 shadow-sm"
+          : "border-slate-200 bg-white hover:border-violet-300 hover:bg-slate-50"
       }`}
     >
       <span className="flex items-start gap-3">
         <span
           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-            active ? "border-blue-600 bg-blue-600 text-white" : "border-slate-300"
+            active ? "border-violet-600 bg-violet-600 text-white" : "border-slate-300"
           }`}
           aria-hidden="true"
         >
@@ -130,8 +130,8 @@ function ChoiceButton({ active, children, description, onClick }) {
 
 function LearningNote({ children }) {
   return (
-    <div className="mt-4 flex gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
-      <Info className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" aria-hidden="true" />
+    <div className="mt-4 flex gap-3 rounded-2xl border border-violet-100 bg-violet-50 p-4 text-sm leading-6 text-slate-700">
+      <Info className="mt-0.5 h-5 w-5 shrink-0 text-violet-700" aria-hidden="true" />
       <p>{children}</p>
     </div>
   );
@@ -166,13 +166,13 @@ export default function PodiumDecisionGuide() {
   return (
     <section
       id="podyum-kesif-rehberi"
-      className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-4 py-16 text-white sm:py-20"
+      className="bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950 px-4 py-16 text-white sm:py-20"
       aria-labelledby="podyum-kesif-rehberi-baslik"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Podyum için soru-cevap rehberi</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">Podyum için soru-cevap rehberi</p>
             <h2 id="podyum-kesif-rehberi-baslik" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               Podyum ölçüsünü bilmiyorsanız buradan başlayın
             </h2>
@@ -278,7 +278,7 @@ export default function PodiumDecisionGuide() {
           </div>
 
           <aside className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-7" aria-live="polite">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Sizin için başlangıç planı</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">Sizin için başlangıç planı</p>
             {isReady ? (
               <>
                 <h3 className="mt-3 text-2xl font-black leading-tight">Podyum ölçüsü ve yüksekliği netleşiyor</h3>
@@ -286,13 +286,13 @@ export default function PodiumDecisionGuide() {
 
                 <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   <article className="rounded-2xl bg-white/8 p-4">
-                    <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-200">Önerilen başlangıç alanı</p>
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-violet-200">Önerilen başlangıç alanı</p>
                     <p className="mt-2 text-2xl font-black text-white">{area.area}</p>
-                    <p className="mt-1 text-sm font-bold text-blue-100">{area.layout}</p>
+                    <p className="mt-1 text-sm font-bold text-violet-100">{area.layout}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{area.note}</p>
                   </article>
                   <article className="rounded-2xl bg-white/8 p-4">
-                    <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-200">Görüşe göre yükseklik</p>
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-violet-200">Görüşe göre yükseklik</p>
                     <p className="mt-2 text-2xl font-black text-white">{viewing.height}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{viewing.note}</p>
                   </article>
@@ -350,7 +350,7 @@ export default function PodiumDecisionGuide() {
                   ["sahne-yuku", "Sahne yükü"],
                   ["korkuluk-merdiven", "Korkuluk ve merdiven"],
                 ].map(([slug, label]) => (
-                  <Link key={slug} href={`/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-blue-100 transition hover:bg-white/10 hover:text-white">
+                  <Link key={slug} href={`/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-violet-100 transition hover:bg-white/10 hover:text-white">
                     {label}
                   </Link>
                 ))}

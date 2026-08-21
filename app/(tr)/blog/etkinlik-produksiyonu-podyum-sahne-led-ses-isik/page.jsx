@@ -204,9 +204,9 @@ function InfoBox({ title, children }) {
     <aside
       role="note"
       aria-label={title}
-      className="not-prose my-9 rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50 to-slate-50 p-6 shadow-sm"
+      className="not-prose my-9 rounded-2xl border border-violet-100 bg-gradient-to-r from-violet-50 to-slate-50 p-6 shadow-sm"
     >
-      <p className="m-0 text-base font-black text-blue-950">{title}</p>
+      <p className="m-0 text-base font-black text-violet-950">{title}</p>
       <div className="mt-2 text-base leading-relaxed text-slate-700">{children}</div>
     </aside>
   );
@@ -215,7 +215,7 @@ function InfoBox({ title, children }) {
 function ProductionCta() {
   return (
     <section className="not-prose my-12 rounded-3xl bg-slate-950 p-7 text-white shadow-xl md:p-10">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-200">Teklif ve teknik keşif</p>
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-200">Teklif ve teknik keşif</p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-white md:text-3xl">
         Etkinliğiniz için doğru sistemi birlikte planlayalım
       </h2>
@@ -226,7 +226,7 @@ function ProductionCta() {
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
           href="/iletisim"
-          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-blue-50"
+          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-violet-50"
         >
           Teklif isteyin
         </Link>
@@ -281,7 +281,7 @@ export default function EventProductionBlogPage() {
         whatsappUrl={WA_URL}
       >
         <div className="mx-auto max-w-4xl">
-          <div className="not-prose mb-10 rounded-2xl border-l-4 border-blue-600 bg-blue-50 px-6 py-5 text-lg font-medium leading-relaxed text-slate-800">
+          <div className="not-prose mb-10 rounded-2xl border-l-4 border-violet-600 bg-violet-50 px-6 py-5 text-lg font-medium leading-relaxed text-slate-800">
             Başarılı etkinlik; tek tek kiralanmış ekipmanlardan değil, sahne, görüntü, ses, ışık, güvenlik ve
             operasyonun aynı plan içinde çalışmasından doğar.
           </div>

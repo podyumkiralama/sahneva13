@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { PODIUM_GLOSSARY_DETAIL_SLUGS } from "@/lib/glossaryDetailContent";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -136,58 +137,31 @@ export default function GlossaryPage() {
       <JsonLdScript id="ld-json-sozluk" data={GLOSSARY_JSON_LD} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 px-4 py-16 text-white sm:py-20">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(59,130,246,0.25),transparent_38%),linear-gradient(135deg,#020617,#111827_48%,#0f172a)]"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-4xl">
-          <nav aria-label="Site içi konum" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60">
-              <li>
-                <Link href="/" className="hover:text-white">
-                  Ana Sayfa
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-white/90">
-                Sözlük
-              </li>
-            </ol>
-          </nav>
-
-          <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-            Etkinlik prodüksiyonu sözlüğü
-          </h1>
-          <p
-            data-speakable
-            className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg"
-          >
-            Teklif ve keşif görüşmelerinde geçen teknik terimlerin ne anlama geldiğini,
-            sahada neyi değiştirdiğini ve hangi kararı etkilediğini bir arada topladık.
-            {" "}
-            {GLOSSARY_TERMS.length} terim, {GLOSSARY_CATEGORIES.length} başlık altında.
-          </p>
-
-          {/* Canlı arama — kategori butonlarının üzerinde. JavaScript kapalıysa
-              bileşen hiç görünmez, terimlerin tamamı listede kalır. */}
-          <div className="mt-10">
-            <GlossarySearch totalCount={GLOSSARY_TERMS.length} />
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {GLOSSARY_CATEGORIES.map((category) => (
-              <a
-                key={category.key}
-                href={`#${category.key}`}
-                className="inline-flex min-h-[44px] items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-bold text-white/85 transition hover:bg-white/12 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
-              >
-                {category.title}
-              </a>
-            ))}
-          </div>
+      <PageHero
+        compact
+        breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "Sözlük" }]}
+        eyebrow={`${GLOSSARY_TERMS.length} terim · ${GLOSSARY_CATEGORIES.length} başlık`}
+        title="Etkinlik Prodüksiyonu"
+        titleAccent="Sözlüğü"
+        titleWide
+        descriptionSpeakable
+        description={
+          <>
+            Teklif ve keşif görüşmelerinde geçen teknik terimlerin ne anlama
+            geldiğini, sahada neyi değiştirdiğini ve hangi kararı etkilediğini bir
+            arada topladık.
+          </>
+        }
+        quickLinks={GLOSSARY_CATEGORIES.map((category) => ({
+          href: `#${category.key}`,
+          label: category.title,
+        }))}
+        quickLinksLabel="Sözlük kategorileri"
+      >
+        <div className="mt-8">
+          <GlossarySearch totalCount={GLOSSARY_TERMS.length} />
         </div>
-      </section>
+      </PageHero>
 
       {/* Alfabetik dizin — 80+ terimde kategori gezinmesi tek başına yetmiyor.
           Tamamen sunucuda basılır; JavaScript olmadan da çalışır. */}
@@ -213,7 +187,7 @@ export default function GlossaryPage() {
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <Link
                   href={glossaryHref(entry.slug)}
-                  className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-violet-500 hover:text-violet-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 >
                   {entry.term}
                 </Link>
@@ -261,7 +235,7 @@ export default function GlossaryPage() {
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
                         {GLOSSARY_DETAIL_SLUGS.has(entry.slug) ? (
-                          <Link href={glossaryHref(entry.slug)} className="hover:text-blue-800">
+                          <Link href={glossaryHref(entry.slug)} className="hover:text-violet-800">
                             {entry.term}
                           </Link>
                         ) : (
@@ -306,7 +280,7 @@ export default function GlossaryPage() {
                         <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                           <Link
                             href={entry.related.href}
-                            className="inline-flex min-h-[44px] items-center text-sm font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900"
+                            className="inline-flex min-h-[44px] items-center text-sm font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
                           >
                             {entry.related.label}
                           </Link>

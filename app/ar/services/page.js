@@ -170,13 +170,13 @@ export default function ArabicServicesPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-blue-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-violet-950/70" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:64px_64px] opacity-20" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-4xl text-right">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
               Sahneva services
             </p>
             <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
@@ -236,7 +236,7 @@ export default function ArabicServicesPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-right">
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-300">
                     {service.eyebrow}
                   </p>
                   <h2 className="mt-2 text-2xl font-black text-white">{service.title}</h2>
@@ -265,7 +265,7 @@ export default function ArabicServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-3xl bg-slate-950 p-7 text-white md:p-8">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
                 خطة العمل
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
@@ -280,7 +280,7 @@ export default function ArabicServicesPage() {
             <div className="grid gap-4 md:grid-cols-3">
               {PLANNING_STEPS.map((step, index) => (
                 <article key={step.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <span className="text-sm font-black text-indigo-600">0{index + 1}</span>
+                  <span className="text-sm font-black text-violet-600">0{index + 1}</span>
                   <h3 className="mt-4 text-xl font-black text-slate-950">{step.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-slate-700">{step.text}</p>
                 </article>
@@ -291,10 +291,10 @@ export default function ArabicServicesPage() {
       </section>
 
       <section className="container mx-auto px-4 py-14">
-        <div className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-7 md:p-8">
+        <div className="rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50 to-white p-7 md:p-8">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
                 لماذا Sahneva؟
               </p>
               <h2 className="mt-3 text-3xl font-black text-slate-950">

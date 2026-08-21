@@ -40,7 +40,7 @@ const HERO_FEATURES_AR = [
     icon: "🚚",
     title: "لوجستيات محلية",
     description: "نقل وتركيب وفك ضمن خطة واحدة",
-    color: "from-blue-400 to-cyan-400",
+    color: "from-violet-500 to-purple-400",
   },
   {
     icon: "🎛️",
@@ -326,7 +326,7 @@ const FAQ_DICTIONARY_AR = {
         label: "هاتف",
         description: "+90 545 304 8671",
         className:
-          "inline-flex items-center gap-3 bg-blue-100 hover:bg-blue-200 border border-blue-300 text-blue-900 font-bold px-5 py-3 rounded-xl transition-all duration-200 hover:shadow-md hover:scale-105 min-h-[48px] text-sm",
+          "inline-flex items-center gap-3 bg-violet-100 hover:bg-violet-200 border border-violet-300 text-violet-900 font-bold px-5 py-3 rounded-xl transition-all duration-200 hover:shadow-md hover:scale-105 min-h-[48px] text-sm",
       },
       {
         href: "https://wa.me/905453048671?text=%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84+%D9%85%D8%B9+%D9%81%D8%B1%D9%8A%D9%82+%D8%B3%D8%AD%D9%86%D9%8A%D9%81%D8%A7+%D9%84%D9%84%D8%AD%D8%B5%D9%88%D9%84+%D8%B9%D9%84%D9%89+%D8%B9%D8%B1%D8%B6+%D8%B3%D8%B9%D8%B1",
@@ -360,7 +360,7 @@ const CORPORATE_EVENTS_CARDS_AR = [
     alt: "منصة وشاشة LED وإضاءة احترافية لإطلاق منتج تنفذه سحنيفا",
     text: "سرد بصري عبر شاشات LED، تصميم منصة، عروض إضاءة وبث مباشر لإطلاقات لا تُنسى.",
     icon: "🚀",
-    gradient: "from-purple-500/10 to-blue-500/10",
+    gradient: "from-purple-500/10 to-violet-500/10",
     color: "text-purple-700",
   },
   {
@@ -390,8 +390,8 @@ const CORPORATE_EVENTS_ADVANTAGES_AR = [
     icon: "⚡",
     label: "تركيب منظم ومختبر",
     desc: "فِرق خبيرة تنفذ التركيب والاختبارات وفق جدول الموقع",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
+    bg: "bg-violet-50",
+    border: "border-violet-200",
   },
   {
     icon: "🎛",
@@ -668,7 +668,7 @@ export default function ArabicHomePage() {
       <StructuredData />
 
       <section
-        className="relative min-h-[80vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0f1a] via-blue-950 to-purple-950 pt-16 lg:pt-20"
+        className="relative min-h-[80vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#040817] via-violet-950 to-purple-950 pt-16 lg:pt-20"
         aria-labelledby="hero-title"
       >
         <div className="absolute inset-0" aria-hidden="true">
@@ -676,7 +676,7 @@ export default function ArabicHomePage() {
         </div>
 
         <div
-          className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/70 to-purple-900/75"
+          className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-violet-900/70 to-purple-900/75"
           aria-hidden="true"
         />
         <div
@@ -718,7 +718,7 @@ export default function ArabicHomePage() {
               <div className="flex flex-col sm:flex-row justify-center items-center gap-3 md:gap-4 mb-12">
                 <a
                   href="tel:+905453048671"
-                  className="w-full sm:w-auto min-w-[180px] text-center group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-base px-6 py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20 backdrop-blur-sm focus-ring"
+                  className="w-full sm:w-auto min-w-[180px] text-center group relative bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold text-base px-6 py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/20 backdrop-blur-sm focus-ring"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <span aria-hidden="true">📞</span> اتصل بفريقنا
@@ -768,7 +768,7 @@ export default function ArabicHomePage() {
             
 
             
-              <div className="bg-gradient-to-r from-blue-600/90 to-purple-600/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-xl max-w-4xl mx-auto">
+              <div className="bg-gradient-to-r from-violet-600/90 to-purple-600/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-xl max-w-4xl mx-auto">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-xl" aria-hidden="true">
@@ -785,7 +785,7 @@ export default function ArabicHomePage() {
                   <div className="flex-shrink-0">
                     <a
                       href="#get-a-quote"
-                      className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-5 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg text-sm focus-ring"
+                      className="bg-white text-violet-600 hover:bg-gray-100 font-bold px-5 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg text-sm focus-ring"
                     >
                       احصل على عرض سعر
                     </a>
@@ -814,7 +814,7 @@ export default function ArabicHomePage() {
         >
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-black text-cyan-300">
+              <p className="text-sm font-black text-violet-300">
                 عرض السعر في 3 خطوات
               </p>
               <h2
@@ -837,7 +837,7 @@ export default function ArabicHomePage() {
                 >
                   <div className="flex items-center gap-3">
                     <span
-                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-300 font-black text-slate-950"
+                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-violet-300 font-black text-slate-950"
                       aria-hidden="true"
                     >
                       {String(index + 1).padStart(2, "0")}
@@ -852,7 +852,7 @@ export default function ArabicHomePage() {
             <div className="mt-8 text-center">
               <a
                 href="/ar/contact"
-                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-cyan-300 px-7 font-black text-slate-950 transition hover:bg-cyan-200 focus-ring"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-violet-300 px-7 font-black text-slate-950 transition hover:bg-violet-200 focus-ring"
               >
                 أرسلوا طلب عرض السعر
               </a>
@@ -896,7 +896,7 @@ export default function ArabicHomePage() {
         </section>
 
         <section
-          className="py-12 bg-gradient-to-br from-neutral-900 to-blue-900/95"
+          className="py-12 bg-gradient-to-br from-neutral-900 to-violet-900/95"
           aria-labelledby="projects-title"
         >
           <div className="container">
@@ -942,7 +942,7 @@ export default function ArabicHomePage() {
         </section>
 
         <section
-          className="py-12 bg-gradient-to-br from-blue-50/80 to-purple-50/60"
+          className="py-12 bg-gradient-to-br from-violet-50/80 to-purple-50/60"
           aria-labelledby="why-heading"
         >
           <div className="container">
@@ -963,16 +963,16 @@ export default function ArabicHomePage() {
                   <li key={title} className="m-0 p-0">
                     
                       <article
-                        className="group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 p-6 border border-neutral-100 hover:border-blue-200/70 hover:scale-105"
+                        className="group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 p-6 border border-neutral-100 hover:border-violet-200/70 hover:scale-105"
                         aria-labelledby={`why-card-${i}-title`}
                       >
-                        <div className="absolute top-3 end-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <div className="absolute top-3 end-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                           {stat}
                         </div>
                         <div className="text-3xl mb-4 gradient-text gradient-text--safe-xl" aria-hidden="true">
                           {icon}
                         </div>
-                        <p id={`why-card-${i}-title`} className="font-black text-lg mb-3 text-neutral-900 group-hover:text-blue-600 transition-colors">
+                        <p id={`why-card-${i}-title`} className="font-black text-lg mb-3 text-neutral-900 group-hover:text-violet-600 transition-colors">
                           {title}
                         </p>
                         <p className="text-neutral-700 leading-relaxed text-sm">{desc}</p>
@@ -998,9 +998,9 @@ export default function ArabicHomePage() {
 
             <div className="grid gap-6 lg:gap-8 lg:grid-cols-2">
               
-                <article className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 shadow-lg border border-blue-100">
+                <article className="bg-gradient-to-br from-violet-50 to-white rounded-2xl p-6 shadow-lg border border-violet-100">
                   <p className="font-black text-xl mb-4 text-neutral-900 flex items-center gap-3">
-                    <span className="bg-blue-500 text-white p-2 rounded-lg" aria-hidden="true">🚀</span>
+                    <span className="bg-violet-500 text-white p-2 rounded-lg" aria-hidden="true">🚀</span>
                     إنتاج تقني ولوجستي للضيوف القادمين إلى تركيا
                   </p>
                   <div className="prose max-w-none text-neutral-700">
@@ -1008,21 +1008,21 @@ export default function ArabicHomePage() {
                       عندما تخطط شركة أو وكالة عربية لفعالية في إسطنبول أو أي مدينة تركية، تقوم <strong>سحنيفا</strong> بتصميم ونقل وتشغيل{" "}
                       <a
                         href="/ar/services#stage"
-                        className="text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
+                        className="text-violet-600 hover:text-violet-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
                       >
                         منصات معيارية
                       </a>
                       {" "}و{" "}
                       <a
                         href="/ar/services#led"
-                        className="text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
+                        className="text-violet-600 hover:text-violet-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
                       >
                         شاشات LED
                       </a>
                       {" "}و{" "}
                       <a
                         href="/ar/services#audio"
-                        className="text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
+                        className="text-violet-600 hover:text-violet-700 font-semibold underline decoration-2 inline-block px-2 py-1 rounded-md underline-offset-4 transition-colors"
                       >
                         أنظمة الصوت والإضاءة
                       </a>{" "}
@@ -1036,7 +1036,7 @@ export default function ArabicHomePage() {
                         "تراس، Rigging، خيام وحلول منصة متوافقة مع طبيعة المكان",
                       ].map((item) => (
                         <li key={item} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                          <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                           {item}
                         </li>
                       ))}
@@ -1076,7 +1076,7 @@ export default function ArabicHomePage() {
         </section>
 
         <section
-          className="py-12 bg-gradient-to-br from-neutral-900 to-blue-900/95"
+          className="py-12 bg-gradient-to-br from-neutral-900 to-violet-900/95"
           aria-labelledby="faq-title"
         >
           <div className="container">

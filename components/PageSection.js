@@ -7,8 +7,8 @@ export default function PageSection({
   const variants = {
     light: "py-12 bg-white",
     lightGrid: "relative py-8 bg-gradient-to-b from-white to-neutral-50/80",
-    dark: "py-12 bg-gradient-to-br from-neutral-900 to-blue-900/95",
-    brand: "py-12 bg-gradient-to-br from-blue-50/80 to-purple-50/60",
+    dark: "py-12 bg-gradient-to-br from-neutral-900 to-violet-900/95",
+    brand: "py-12 bg-gradient-to-br from-violet-50/80 to-purple-50/60",
   };
 
   const variantClass = variants[variant] || variants.light;

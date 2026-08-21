@@ -228,7 +228,7 @@ function ImgFigure({ src, alt, caption, portrait = false }) {
 
 function Checklist({ items }) {
   return (
-    <div className="not-prose my-10 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+    <div className="not-prose my-10 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
       <h2 className="m-0 text-2xl font-black text-slate-950">
         İçerik planına başlamadan önce kısa kontrol listesi
       </h2>

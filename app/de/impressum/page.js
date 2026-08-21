@@ -151,13 +151,13 @@ function InfoTable({ title, rows }) {
       <dl className="mt-5 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.05]">
         {rows.map((row) => (
           <div key={row.label} className="grid gap-1 p-5 sm:grid-cols-[minmax(0,16rem)_1fr] sm:gap-6">
-            <dt className="text-sm font-black uppercase tracking-[0.08em] text-cyan-200">
+            <dt className="text-sm font-black uppercase tracking-[0.08em] text-violet-200">
               {row.label}
             </dt>
             <dd className="text-base leading-7 text-slate-200">
               {row.href ? (
                 <a
-                  className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
+                  className="font-bold text-violet-200 underline underline-offset-4 hover:text-white"
                   href={row.href}
                 >
                   {row.value}
@@ -186,7 +186,7 @@ export default function GermanImprintPage() {
 
       <div className="container mx-auto max-w-4xl px-4 py-16 md:py-20">
         <header className="border-b border-white/10 pb-8">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
             Rechtliche Hinweise
           </p>
           <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -227,14 +227,14 @@ export default function GermanImprintPage() {
               Wie wir personenbezogene Daten im Zusammenhang mit dieser Website verarbeiten und welche
               Rechte Ihnen dabei zustehen, erläutern wir in den{" "}
               <Link
-                className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
+                className="font-bold text-violet-200 underline underline-offset-4 hover:text-white"
                 href="/de/datenschutz"
               >
                 Datenschutzhinweisen
               </Link>
               . Für Anfragen zu einem Projekt erreichen Sie uns über die{" "}
               <Link
-                className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
+                className="font-bold text-violet-200 underline underline-offset-4 hover:text-white"
                 href="/de/kontakt"
               >
                 Kontaktseite

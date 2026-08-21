@@ -7,7 +7,7 @@ import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
 import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
 
 const FOCUS_RING_CLASS =
-  "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
+  "focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-white";
 
 const WHATSAPP_MESSAGE = {
   tr: encodeURIComponent("Merhaba, Sahneva ile etkinlik ekipmanları için teklif ve destek almak istiyorum."),
@@ -142,7 +142,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
     return () => document.removeEventListener("keydown", onTab);
   }, [open]);
 
-  const menuLinkClass = `flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent hover:border-blue-200 transform hover:scale-[1.02] nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 nav-dark:hover:border-white/10 ${FOCUS_RING_CLASS}`;
+  const menuLinkClass = `flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl hover:bg-violet-50 hover:text-violet-700 transition-all duration-200 border border-transparent hover:border-violet-200 transform hover:scale-[1.02] nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200 nav-dark:hover:border-white/10 ${FOCUS_RING_CLASS}`;
   const cardClass =
     "rounded-xl border border-neutral-200 bg-white nav-dark:border-white/10 nav-dark:bg-white/[0.06]";
 
@@ -241,7 +241,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               onToggle={(event) => setServicesOpen(event.currentTarget.open)}
             >
               <summary
-                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-violet-50 hover:text-violet-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200 ${FOCUS_RING_CLASS}`}
               >
                 <span className="flex items-center gap-3">
                   <span className="text-lg" aria-hidden="true">
@@ -267,7 +267,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
                       href={href}
                       prefetch={false}
                       onClick={() => closeMenu()}
-                      className={`flex w-full items-start gap-3 rounded-md px-3 py-2 text-sm text-neutral-700 transition-all duration-200 hover:scale-[1.01] hover:bg-blue-50 hover:text-blue-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                      className={`flex w-full items-start gap-3 rounded-md px-3 py-2 text-sm text-neutral-700 transition-all duration-200 hover:scale-[1.01] hover:bg-violet-50 hover:text-violet-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200 ${FOCUS_RING_CLASS}`}
                     >
                       <span className="mt-0.5 flex-shrink-0 text-base opacity-70" aria-hidden="true">
                         {icon}
@@ -290,7 +290,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
               onToggle={(event) => setResearchOpen(event.currentTarget.open)}
             >
               <summary
-                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-[15px] font-bold text-neutral-900 transition-all duration-200 hover:bg-violet-50 hover:text-violet-700 nav-dark:text-white nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200 ${FOCUS_RING_CLASS}`}
               >
                 <span className="flex items-center gap-3">
                   <span className="text-lg" aria-hidden="true">
@@ -316,7 +316,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
                       href={href}
                       prefetch={false}
                       onClick={() => closeMenu()}
-                      className={`flex w-full items-start gap-3 rounded-md px-3 py-2 text-sm text-neutral-700 transition-all duration-200 hover:scale-[1.01] hover:bg-blue-50 hover:text-blue-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+                      className={`flex w-full items-start gap-3 rounded-md px-3 py-2 text-sm text-neutral-700 transition-all duration-200 hover:scale-[1.01] hover:bg-violet-50 hover:text-violet-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200 ${FOCUS_RING_CLASS}`}
                     >
                       <span className="mt-0.5 flex-shrink-0 text-base opacity-70" aria-hidden="true">
                         {icon}

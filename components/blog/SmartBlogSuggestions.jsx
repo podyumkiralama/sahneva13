@@ -206,7 +206,7 @@ export default async function SmartBlogSuggestions({
     <section className="mt-12">
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-xl font-semibold text-slate-900">{resolvedHeading}</h2>
-        <Link href={source.basePath} className="text-sm text-blue-600 hover:text-blue-700">
+        <Link href={source.basePath} className="text-sm text-violet-600 hover:text-violet-700">
           {source.allPosts}
         </Link>
       </div>
@@ -230,7 +230,7 @@ export default async function SmartBlogSuggestions({
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
                 {post.category}
               </p>
-              <h3 className="mt-2 text-base font-semibold text-slate-900 group-hover:text-blue-700">
+              <h3 className="mt-2 text-base font-semibold text-slate-900 group-hover:text-violet-700">
                 {post.title}
               </h3>
               <p className="mt-2 text-sm text-slate-600 line-clamp-3">

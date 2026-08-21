@@ -3,6 +3,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import {
   BASE_SITE_URL,
@@ -122,7 +123,7 @@ export default function HakkimizdaPage() {
       description: (
         <>
           Yakın izleme mesafesine uygun 300 m²{" "}
-          <Link href="/led-ekran-kiralama" className="font-bold text-blue-700 underline underline-offset-4">
+          <Link href="/led-ekran-kiralama" className="font-bold text-violet-700 underline underline-offset-4">
             P1.9 indoor LED ekran
           </Link>{" "}
           envanteriyle{" "}
@@ -184,162 +185,42 @@ export default function HakkimizdaPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <AboutStructuredData />
 
-    {/* HERO - Hakkımızda (Premium + GSC-safe, istatistikler hero içinde) */}
-    {/* ================== HERO - Hakkımızda (FINAL / CWV-safe) ================== */}
-<section
-  className="
-    relative overflow-hidden bg-slate-950 text-white
-    pt-16 md:pt-20
-    min-h-[75svh] md:min-h-[70vh]
-    flex items-center
-  "
-  aria-labelledby="hero-title"
->
-  {/* FULL-BLEED BACKGROUND */}
-  <div className="absolute inset-0 pointer-events-none">
-    <Image
-      src="/img/hakkimizda-hero-corporate.webp"
-      alt={`Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde ${YEARS_OF_EXPERIENCE} Yıllık Deneyim`}
-      fill
-      priority
-      fetchPriority="high"
-      className="object-cover object-center"
-      sizes="100vw"
-      quality={85}
-      placeholder="blur"
-      blurDataURL={BLUR_DATA_URL}
-    />
-
-    {/* okunabilirlik filmi */}
-    <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
-
-    {/* gradient (morluk azaltıldı) */}
-    <div
-      className="absolute inset-0"
-      aria-hidden="true"
-      style={{
-        background:
-          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.62) 100%)",
-      }}
-    />
-    <div
-      className="absolute inset-0"
-      aria-hidden="true"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(2,6,23,0.74) 0%, rgba(2,6,23,0.18) 45%, rgba(2,6,23,0.82) 100%)",
-      }}
-    />
-
-    {/* grid overlay (faq vibe) */}
-    <div
-      className="absolute inset-0 opacity-30"
-      aria-hidden="true"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
-    />
-
-    {/* glow blobs */}
-    <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
-    <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
-  </div>
-
-  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
-  <div className="relative z-10 w-full">
-    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
-      <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">
-            2012&apos;den Bugüne Güvenilir Çözüm
-          </span>
-        </div>
-
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
-        >
-          Hakkımızda <span className="text-blue-200">Sahneva</span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Etkinlik Teknolojilerinde • {YEARS_OF_EXPERIENCE} Yıl Deneyim • {PROJECTS_COMPLETED} Proje
-        </p>
-
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-8">
-          Türkiye&apos;nin{" "}
-          <span className="font-semibold text-white">
-            1 numaralı etkinlik teknoloji partneri
-          </span>{" "}
-          olarak her projede teknik mükemmellik ve yaratıcı vizyonu
-          buluşturuyoruz
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg min-h-[44px]"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              💬
-            </span>
-            <span className="text-base">Hemen İletişime Geç</span>
-          </Link>
-
-          <Link
-            href="#tarihce"
-            aria-label="Şirket tarihçemizi öğrenin"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/70 backdrop-blur-lg hover:bg-slate-900/85 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg min-h-[44px]"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">
-              📖
-            </span>
-            <span className="text-base">Tarihçemiz</span>
-          </Link>
-        </div>
-
-        {/* Stats – hero içinde */}
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🎬
-            </span>
-            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
-            <div className="text-white/80 text-sm">Başarılı Proje</div>
-          </div>
-
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              ⭐
-            </span>
-            <div className="text-xl font-black text-white">{YEARS_OF_EXPERIENCE}</div>
-            <div className="text-white/80 text-sm">Yıl Deneyim</div>
-          </div>
-
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">
-              🗺️
-            </span>
-            <div className="text-xl font-black text-white">81</div>
-            <div className="text-white/80 text-sm">İlde Hizmet</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* SAFE alt boşluk: taşma/renk sarkması yapmaz */}
-  <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/10" />
-</section>
+      {/* ================== HERO - Hakkımızda ================== */}
+      <PageHero
+        eyebrow="2012'den bugüne güvenilir çözüm"
+        title="Hakkımızda"
+        titleAccent="Sahneva"
+        description={`Etkinlik teknolojilerinde ${YEARS_OF_EXPERIENCE} yıl deneyim ve ${PROJECTS_COMPLETED} proje.`}
+        note="Türkiye'nin <strong>1 numaralı etkinlik teknoloji partneri</strong> olarak her projede teknik mükemmellik ve yaratıcı vizyonu buluşturuyoruz."
+        actions={[
+          {
+            key: "whatsapp",
+            label: "Hemen İletişime Geç",
+            href: WHATSAPP,
+            external: true,
+            ariaLabel:
+              "WhatsApp üzerinden hemen iletişime geçin – yeni sekmede açılır",
+          },
+          {
+            key: "history",
+            label: "Tarihçemiz",
+            href: "#tarihce",
+            ariaLabel: "Şirket tarihçemizi öğrenin",
+          },
+        ]}
+        metrics={[
+          { value: PROJECTS_COMPLETED, label: "Başarılı proje" },
+          { value: YEARS_OF_EXPERIENCE, label: "Yıl deneyim" },
+          { value: PROVINCES_COUNT, label: "İlde hizmet" },
+        ]}
+        image={{
+          src: "/img/hakkimizda-hero-corporate.webp",
+          alt: `Sahneva Profesyonel Ekip - Etkinlik Teknolojilerinde ${YEARS_OF_EXPERIENCE} Yıllık Deneyim`,
+          sizes: "100vw",
+          quality: 78,
+          blurDataURL: BLUR_DATA_URL,
+        }}
+      />
 
         {/* BİZ KİMİZ */}
         <section
@@ -349,7 +230,7 @@ export default function HakkimizdaPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid gap-10 lg:grid-cols-2 items-center">
               <div className="order-2 lg:order-1">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-600 mb-3">
                   Biz Kimiz?
                 </p>
                 <h2
@@ -396,7 +277,7 @@ export default function HakkimizdaPage() {
         </section>
 
         {/* DEĞERLERİMİZ */}
-        <section className="py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/60" aria-labelledby="degerlerimiz-title">
+        <section className="py-20 bg-gradient-to-br from-violet-50/80 to-purple-50/60" aria-labelledby="degerlerimiz-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="degerlerimiz-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -414,12 +295,12 @@ export default function HakkimizdaPage() {
               {VALUES.map((value, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {value.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{value.description}</p>
@@ -439,12 +320,12 @@ export default function HakkimizdaPage() {
                   Başarı Hikayemiz
                 </span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto" aria-hidden="true" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" aria-hidden="true" />
             </div>
 
             <div className="relative">
               <div
-                className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 h-full hidden lg:block"
+                className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-violet-500 to-purple-500 h-full hidden lg:block"
                 aria-hidden="true"
               />
               <div className="space-y-12 lg:space-y-0">
@@ -462,10 +343,10 @@ export default function HakkimizdaPage() {
                             {item.icon}
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                            <div className="text-sm font-bold text-violet-600 bg-violet-50 px-3 py-1 rounded-full">
                               {item.year}
                             </div>
-                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h3>
                           </div>
@@ -475,7 +356,7 @@ export default function HakkimizdaPage() {
                     </div>
 
                     <div className="absolute left-1/2 -translate-x-1/2 lg:flex items-center justify-center hidden" aria-hidden="true">
-                      <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
+                      <div className="w-6 h-6 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
                     </div>
 
                     <div className="lg:w-1/2 hidden lg:block" aria-hidden="true" />
@@ -487,7 +368,7 @@ export default function HakkimizdaPage() {
         </section>
 
         {/* MÜŞTERİ PORTFÖYÜ */}
-        <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="musteri-title">
+        <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="musteri-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="musteri-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -509,7 +390,7 @@ export default function HakkimizdaPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-3 h-3 bg-green-400 rounded-full motion-safe:animate-pulse" aria-hidden="true" />
-                    <span className="text-white font-medium group-hover:text-blue-300 transition-colors">{client}</span>
+                    <span className="text-white font-medium group-hover:text-violet-300 transition-colors">{client}</span>
                   </div>
                 </div>
               ))}
@@ -538,10 +419,10 @@ export default function HakkimizdaPage() {
         </section>
 
         {/* VİZYON & MİSYON */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/30" aria-labelledby="vizyon-title">
+        <section className="py-20 bg-gradient-to-b from-white to-violet-50/30" aria-labelledby="vizyon-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100">
+              <div className="bg-gradient-to-br from-violet-50 to-white rounded-2xl p-8 shadow-lg border border-violet-100">
                 <div className="text-4xl mb-4" aria-hidden="true">🎯</div>
                 <h3 className="text-3xl font-black text-gray-900 mb-6">Misyonumuz</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -556,7 +437,7 @@ export default function HakkimizdaPage() {
                     "Çevreye duyarlı, sürdürülebilir çözümler",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -597,21 +478,21 @@ export default function HakkimizdaPage() {
               700'den fazla projede kullandığımız ekipman parkı ve teknik ekibimizle aşağıdaki hizmetleri Türkiye genelinde sunuyoruz.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/sahne-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Sahne Kiralama</Link>
-              <Link href="/led-ekran-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">LED Ekran Kiralama</Link>
-              <Link href="/ses-isik-sistemleri" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Ses ve Işık Sistemleri</Link>
-              <Link href="/podyum-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Podyum Kiralama</Link>
-              <Link href="/cadir-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Çadır Kiralama</Link>
-              <Link href="/truss-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Truss Kiralama</Link>
-              <Link href="/kurumsal-organizasyon" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Kurumsal Organizasyon</Link>
-              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Masa Sandalye Kiralama</Link>
-              <Link href="/dijital-kursu-kiralama" className="rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-800 shadow-sm transition hover:bg-blue-50">Dijital Kürsü Kiralama</Link>
+              <Link href="/sahne-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Sahne Kiralama</Link>
+              <Link href="/led-ekran-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">LED Ekran Kiralama</Link>
+              <Link href="/ses-isik-sistemleri" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Ses ve Işık Sistemleri</Link>
+              <Link href="/podyum-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Podyum Kiralama</Link>
+              <Link href="/cadir-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Çadır Kiralama</Link>
+              <Link href="/truss-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Truss Kiralama</Link>
+              <Link href="/kurumsal-organizasyon" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Kurumsal Organizasyon</Link>
+              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Masa Sandalye Kiralama</Link>
+              <Link href="/dijital-kursu-kiralama" className="rounded-full border border-violet-200 bg-white px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-50">Dijital Kürsü Kiralama</Link>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600" aria-labelledby="cta-title">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600" aria-labelledby="cta-title">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 id="cta-title" className="text-4xl md:text-5xl font-black mb-6">
               Projenizde <span className="text-yellow-300">Birlikte Çalışalım</span>
@@ -623,7 +504,7 @@ export default function HakkimizdaPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href={`tel:${PHONE}`}
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Hemen ara - Profesyonel danışmanlık için"
               >
                 <span className="flex items-center justify-center gap-2">📞 Hemen Ara</span>

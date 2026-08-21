@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import TentCalculatorClient from "./TentCalculatorClient";
+import PageHero from "@/components/PageHero";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -183,6 +184,22 @@ export default function TentCalculatorPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
       <JsonLd />
+
+      <PageHero
+        compact
+        breadcrumb={[
+          { label: "Ana Sayfa", href: "/" },
+          { label: "Çadır Kiralama", href: "/cadir-kiralama" },
+          { label: "Çadır Hesaplama" },
+        ]}
+        eyebrow="Çadır hesaplama aracı"
+        title="Kaç Kişiye"
+        titleAccent="Kaç m² Çadır Gerekir?"
+        titleWide
+        descriptionSpeakable
+        description="Kişi sayısı, oturma düzeni ve sahne, LED ekran, catering gibi ek alanlara göre etkinliğiniz için yaklaşık çadır ölçüsünü hesaplayın."
+      />
+
       <TentCalculatorClient />
 
       <section className="relative border-t border-white/10 bg-[#0B1120] px-4 py-20">
@@ -190,7 +207,7 @@ export default function TentCalculatorPage() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Planlama Rehberi</p>
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-violet-200">Planlama Rehberi</p>
               <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
                 Çadır ölçüsü sadece kişi sayısıyla belirlenmez
               </h2>
@@ -202,19 +219,19 @@ export default function TentCalculatorPage() {
               </p>
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Net proje planında{" "}
-                <Link href="/cadir-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                <Link href="/cadir-kiralama" className="font-bold text-violet-100 underline underline-offset-4">
                   çadır kiralama
                 </Link>{" "}
                 kapsamı;{" "}
-                <Link href="/sahne-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                <Link href="/sahne-kiralama" className="font-bold text-violet-100 underline underline-offset-4">
                   sahne kiralama
                 </Link>
                 ,{" "}
-                <Link href="/led-ekran-kiralama" className="font-bold text-blue-100 underline underline-offset-4">
+                <Link href="/led-ekran-kiralama" className="font-bold text-violet-100 underline underline-offset-4">
                   LED ekran kiralama
                 </Link>{" "}
                 ve{" "}
-                <Link href="/ses-isik-sistemleri" className="font-bold text-blue-100 underline underline-offset-4">
+                <Link href="/ses-isik-sistemleri" className="font-bold text-violet-100 underline underline-offset-4">
                   ses-ışık sistemleri
                 </Link>{" "}
                 ihtiyaçlarıyla birlikte değerlendirilmelidir.
@@ -256,7 +273,7 @@ export default function TentCalculatorPage() {
       <section className="bg-[#0B1120] px-4 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Örnek Kullanımlar</p>
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-violet-200">Örnek Kullanımlar</p>
             <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
               Hangi etkinlikte nasıl çadır hesabı yapılır?
             </h2>
@@ -288,7 +305,7 @@ export default function TentCalculatorPage() {
       <section className="bg-[#0B1120] px-4 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 text-center">
-            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Sıkça Sorulan Sorular</p>
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-violet-200">Sıkça Sorulan Sorular</p>
             <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">Çadır hesaplama hakkında merak edilenler</h2>
           </div>
 
@@ -308,7 +325,7 @@ export default function TentCalculatorPage() {
       <section className="bg-[#0B1120] px-4 pb-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 max-w-3xl">
-            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">İlgili Rehberler</p>
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-violet-200">İlgili Rehberler</p>
             <h2 className="text-3xl font-black tracking-[-0.5px] md:text-4xl">
               Çadır ölçüsünden sonra planlamayı netleştirin
             </h2>
@@ -322,9 +339,9 @@ export default function TentCalculatorPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-xl transition hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/50"
+                className="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-xl transition hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300/50"
               >
-                <span className="block text-lg font-black text-white group-hover:text-blue-100">{item.title}</span>
+                <span className="block text-lg font-black text-white group-hover:text-violet-100">{item.title}</span>
                 <span className="mt-3 block text-sm leading-6 text-slate-300">{item.text}</span>
               </Link>
             ))}
@@ -333,10 +350,10 @@ export default function TentCalculatorPage() {
       </section>
 
       <section className="bg-[#0B1120] px-4 pb-24">
-        <div className="mx-auto max-w-7xl rounded-[34px] border border-blue-300/20 bg-gradient-to-br from-blue-500/20 via-white/[0.07] to-slate-950 p-6 shadow-2xl md:p-10">
+        <div className="mx-auto max-w-7xl rounded-[34px] border border-violet-300/20 bg-gradient-to-br from-violet-500/20 via-white/[0.07] to-slate-950 p-6 shadow-2xl md:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-blue-200">Ana Hizmet Sayfası</p>
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.3em] text-violet-200">Ana Hizmet Sayfası</p>
               <h2 className="text-4xl font-black tracking-[-1px] md:text-5xl">
                 Net fiyat ve kurulum planı için çadır kiralama sayfasına geçin
               </h2>

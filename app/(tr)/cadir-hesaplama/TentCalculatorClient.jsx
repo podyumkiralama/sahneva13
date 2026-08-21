@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 
 import { UNIT_PRICES } from "@/lib/pricing";
-import { Calculator, CheckCircle, MessageCircle, Ruler, Tent, Users } from "lucide-react";
+import { CheckCircle, MessageCircle, Ruler, Tent, Users } from "lucide-react";
 
 const PHONE = "905453048671";
 
@@ -65,29 +65,16 @@ export default function TentCalculatorClient() {
   );
 
   return (
-    <section className="relative isolate overflow-hidden px-4 pb-16 pt-24 md:pb-24 md:pt-32">
+    <section className="relative isolate overflow-hidden px-4 pb-16 pt-12 md:pb-24 md:pt-16">
       <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:52px_52px]" />
-      <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/25 blur-[130px]" />
-      <div className="absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-cyan-400/10 blur-[120px]" />
+      <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet-500/20 blur-[130px]" />
+      <div className="absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-violet-400/10 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.07] px-5 py-2.5 text-sm font-black text-blue-100 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
-            <Calculator className="h-4 w-4" />
-            ÇADIR HESAPLAMA ARACI
-          </div>
-          <h1 className="text-[44px] font-black leading-[0.96] tracking-[-1.4px] md:text-[68px]">
-            Kaç kişiye kaç m² çadır gerekir?
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
-            Kişi sayısı, oturma düzeni ve sahne, LED ekran, catering gibi ek alanlara göre etkinliğiniz için yaklaşık çadır ölçüsünü hesaplayın.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
           <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Users className="h-4 w-4 text-blue-200" />
+              <Users className="h-4 w-4 text-violet-200" />
               Kişi sayısı
             </label>
             <input
@@ -95,11 +82,11 @@ export default function TentCalculatorClient() {
               min="1"
               value={people}
               onChange={(event) => setPeople(event.target.value)}
-              className="mb-7 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-blue-400/30 transition focus:ring-4"
+              className="mb-7 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-violet-400/30 transition focus:ring-4"
             />
 
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Ruler className="h-4 w-4 text-blue-200" />
+              <Ruler className="h-4 w-4 text-violet-200" />
               Oturma / kullanım düzeni
             </label>
             <div className="mb-7 grid gap-3 sm:grid-cols-2">
@@ -110,7 +97,7 @@ export default function TentCalculatorClient() {
                   onClick={() => setLayout(key)}
                   className={`rounded-2xl border px-4 py-4 text-left transition ${
                     layout === key
-                      ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
+                      ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
                       : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                   }`}
                 >
@@ -122,7 +109,7 @@ export default function TentCalculatorClient() {
             </div>
 
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <CheckCircle className="h-4 w-4 text-blue-200" />
+              <CheckCircle className="h-4 w-4 text-violet-200" />
               Ek alanlar
             </label>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -139,7 +126,7 @@ export default function TentCalculatorClient() {
                     }
                     className={`rounded-2xl border px-4 py-4 text-left transition ${
                       active
-                        ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
+                        ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
                         : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                     }`}
                   >
@@ -151,13 +138,13 @@ export default function TentCalculatorClient() {
             </div>
           </div>
 
-          <aside className="rounded-[34px] border border-blue-300/20 bg-gradient-to-br from-blue-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">
+          <aside className="rounded-[34px] border border-violet-300/20 bg-gradient-to-br from-violet-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">
             <div className="mb-7 flex items-start gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-400/20 ring-1 ring-blue-200/20">
-                <Tent className="h-7 w-7 text-blue-100" />
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-violet-400/20 ring-1 ring-violet-200/20">
+                <Tent className="h-7 w-7 text-violet-100" />
               </div>
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.4px] text-blue-100">Önerilen çadır</p>
+                <p className="text-sm font-black uppercase tracking-[0.4px] text-violet-100">Önerilen çadır</p>
                 <h2 className="mt-1 text-3xl font-black tracking-[-0.5px]">{result.recommended.label}</h2>
                 <p className="mt-2 text-sm leading-6 text-slate-300">{result.recommended.type} • {result.recommended.area} m² kurulum alanı</p>
               </div>

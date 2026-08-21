@@ -231,7 +231,7 @@ export default function GermanPodiumPricesPage() {
       <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100">
               Preise
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -250,7 +250,7 @@ export default function GermanPodiumPricesPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Einheitspreise
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -284,7 +284,7 @@ export default function GermanPodiumPricesPage() {
                   <tr key={row.item} className="border-b border-slate-200">
                     <td className="py-4 pr-4 text-base font-bold text-slate-900">{row.item}</td>
                     <td className="py-4 pr-4 text-sm text-slate-700">{row.unit}</td>
-                    <td className="py-4 pr-4 text-base font-black text-indigo-700">
+                    <td className="py-4 pr-4 text-base font-black text-violet-700">
                       {tl(row.price)} TRY
                     </td>
                     <td className="py-4 text-sm leading-6 text-slate-700">{row.note}</td>
@@ -306,7 +306,7 @@ export default function GermanPodiumPricesPage() {
       <section className="bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Rechenbeispiele
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -326,7 +326,7 @@ export default function GermanPodiumPricesPage() {
                   key={example.name}
                   className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
                 >
-                  <p className="text-sm font-black uppercase tracking-[0.16em] text-indigo-600">
+                  <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-600">
                     {example.name}
                   </p>
                   <p className="mt-4 text-3xl font-black text-slate-950">{tl(total)} TRY</p>
@@ -347,7 +347,7 @@ export default function GermanPodiumPricesPage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Häufige Fragen
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -357,7 +357,7 @@ export default function GermanPodiumPricesPage() {
               Details zur Konstruktion selbst finden Sie auf der Seite{" "}
               <Link
                 href="/de/buehne-mieten"
-                className="font-bold text-indigo-700 underline underline-offset-4 hover:text-indigo-900"
+                className="font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
               >
                 Bühne mieten
               </Link>

@@ -15,7 +15,7 @@ const GRID_ASPECTS = [
 ];
 
 const FOCUS_RING =
-  "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
+  "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
 
 const LIGHTBOX_RING =
   "focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black";
@@ -350,8 +350,8 @@ function CaseGallery({
                 type="button"
                 className={`relative aspect-[4/3] overflow-hidden rounded-2xl border bg-white transition duration-300 ${FOCUS_RING} ${
                   index === activeIndex
-                    ? "border-blue-600 shadow-lg shadow-blue-900/15"
-                    : "border-slate-200 hover:border-blue-400 hover:shadow-md"
+                    ? "border-violet-600 shadow-lg shadow-violet-900/15"
+                    : "border-slate-200 hover:border-violet-400 hover:shadow-md"
                 }`}
                 onClick={() => {
                   setActiveIndex(index);
@@ -389,7 +389,7 @@ function CaseGallery({
               >
                 <button
                   type="button"
-                  className={`group relative block w-full overflow-hidden rounded-[1.4rem] border border-slate-200 bg-slate-100 shadow-lg shadow-slate-900/5 transition duration-300 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl ${FOCUS_RING} ${
+                  className={`group relative block w-full overflow-hidden rounded-[1.4rem] border border-slate-200 bg-slate-100 shadow-lg shadow-slate-900/5 transition duration-300 hover:-translate-y-1 hover:border-violet-400 hover:shadow-xl ${FOCUS_RING} ${
                     index === 0 ? "aspect-[4/3] h-full" : aspect
                   }`}
                   onClick={() => openLightbox(index)}

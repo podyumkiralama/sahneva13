@@ -82,14 +82,14 @@ function SectionShell({ variant = "light", id, children }) {
                 backgroundSize: "64px 64px",
               }}
             />
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
-            <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-400/12 blur-[140px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
+            <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-400/12 blur-[140px]" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/60" />
           </>
         ) : (
           <>
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
-            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-500/8 blur-[120px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
+            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-500/8 blur-[120px]" />
           </>
         )}
       </div>
@@ -110,7 +110,7 @@ function H2({ kicker, title, desc, dark = false, center = false }) {
               : "border-slate-200 bg-white text-slate-700",
           ].join(" ")}
         >
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+          <span className="h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
           <span className="font-semibold">{kicker}</span>
         </div>
       )}
@@ -207,7 +207,7 @@ function Hero() {
             backgroundSize: "72px 72px",
           }}
         />
-        <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[130px]" />
+        <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-[130px]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120]/92 via-[#0B1120]/55 to-[#0B1120]/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
       </div>
@@ -215,7 +215,7 @@ function Hero() {
       <div className="relative z-10 container mx-auto px-4 pt-14 md:pt-16 lg:pt-20 pb-10 md:pb-12">
         <div className="flex items-center gap-2 text-white/70 text-sm">
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
           </span>
           <Link href="/en" className="font-medium hover:text-white/90 transition">Home</Link>
           <span className="text-white/40">/</span>
@@ -224,7 +224,7 @@ function Hero() {
 
         <div className="mt-8 max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Technical production partner in Türkiye
           </div>
 
@@ -233,7 +233,7 @@ function Hero() {
             className="mt-5 text-4xl md:text-6xl font-black leading-tight tracking-tight text-white drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]"
           >
             MICE Turkey —{" "}
-            <span className="text-blue-300">Technical Production</span>
+            <span className="text-violet-300">Technical Production</span>
             {" "}for Meetings, Incentives, Conferences & Exhibitions
           </h1>
 
@@ -246,7 +246,7 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(124, 58, 237,0.35)] hover:bg-violet-500 transition"
             >
               Send Event Brief
             </Link>
@@ -306,8 +306,8 @@ function Hero() {
 function WhatIsMice() {
   return (
     <SectionShell variant="soft" id="what-is-mice">
-      <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-        <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+      <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
           Quick answer
         </p>
         <h2 className="mt-3 text-2xl font-black text-slate-950">
@@ -318,19 +318,19 @@ function WhatIsMice() {
         </p>
         <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-4">
           <li className="rounded-xl bg-white px-4 py-3">
-            <span className="block text-blue-700 text-xs uppercase tracking-wide mb-1">M</span>
+            <span className="block text-violet-700 text-xs uppercase tracking-wide mb-1">M</span>
             Meetings
           </li>
           <li className="rounded-xl bg-white px-4 py-3">
-            <span className="block text-blue-700 text-xs uppercase tracking-wide mb-1">I</span>
+            <span className="block text-violet-700 text-xs uppercase tracking-wide mb-1">I</span>
             Incentives
           </li>
           <li className="rounded-xl bg-white px-4 py-3">
-            <span className="block text-blue-700 text-xs uppercase tracking-wide mb-1">C</span>
+            <span className="block text-violet-700 text-xs uppercase tracking-wide mb-1">C</span>
             Conferences
           </li>
           <li className="rounded-xl bg-white px-4 py-3">
-            <span className="block text-blue-700 text-xs uppercase tracking-wide mb-1">E</span>
+            <span className="block text-violet-700 text-xs uppercase tracking-wide mb-1">E</span>
             Exhibitions
           </li>
         </ul>
@@ -415,7 +415,7 @@ function MiceCategories() {
         title={
           <>
             MICE Event Technical Production —{" "}
-            <span className="text-blue-700">M · I · C · E</span>
+            <span className="text-violet-700">M · I · C · E</span>
           </>
         }
         desc="Each MICE format has distinct technical requirements. Sahneva covers all four as a single local production partner in Turkey."
@@ -430,10 +430,10 @@ function MiceCategories() {
           >
             <div>
               <div className="inline-flex items-center gap-3 mb-5">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-2xl font-black text-white shadow-lg">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-600 text-2xl font-black text-white shadow-lg">
                   {cat.letter}
                 </span>
-                <span className="text-sm font-semibold uppercase tracking-widest text-blue-700">
+                <span className="text-sm font-semibold uppercase tracking-widest text-violet-700">
                   {cat.label}
                 </span>
               </div>
@@ -444,7 +444,7 @@ function MiceCategories() {
               <ul className="grid sm:grid-cols-2 gap-3">
                 {cat.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-gray-700 text-sm">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
                     {f}
                   </li>
                 ))}
@@ -454,7 +454,7 @@ function MiceCategories() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition text-sm"
+                  className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-3 font-bold text-white hover:bg-violet-500 transition text-sm"
                 >
                   Request a Quote for {cat.label}
                 </Link>
@@ -545,7 +545,7 @@ function MiceCities() {
         title={
           <>
             Turkey's Top{" "}
-            <span className="text-blue-700">MICE Cities</span>
+            <span className="text-violet-700">MICE Cities</span>
           </>
         }
         desc="Sahneva provides local technical production support across Turkey's four main MICE destinations — with Istanbul and Antalya as primary hubs."
@@ -558,13 +558,13 @@ function MiceCities() {
             <h3 className="text-xl font-black text-gray-900 mb-3">{city.name}</h3>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">{city.desc}</p>
             <div className="border-t border-slate-100 pt-4">
-              <div className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-2">
+              <div className="text-xs font-semibold text-violet-700 uppercase tracking-wide mb-2">
                 MICE formats active in {city.name}
               </div>
               <ul className="space-y-1">
                 {city.events.map((e) => (
                   <li key={e} className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600" aria-hidden="true" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-violet-600" aria-hidden="true" />
                     {e}
                   </li>
                 ))}
@@ -621,12 +621,12 @@ function TechnicalScope() {
               href: "/en/tent-rental",
             },
           ].map((s) => (
-            <Link key={s.href} href={s.href} className="rounded-3xl focus-visible:outline-blue-600">
+            <Link key={s.href} href={s.href} className="rounded-3xl focus-visible:outline-violet-600">
               <Card className="h-full">
-                <div className="text-sm font-semibold text-blue-700 mb-1">MICE production</div>
+                <div className="text-sm font-semibold text-violet-700 mb-1">MICE production</div>
                 <div className="text-xl font-black text-gray-900">{s.t}</div>
                 <p className="mt-3 text-gray-600 text-sm leading-relaxed">{s.d}</p>
-                <div className="mt-5 text-blue-700 font-bold text-sm">Learn more →</div>
+                <div className="mt-5 text-violet-700 font-bold text-sm">Learn more →</div>
               </Card>
             </Link>
           ))}
@@ -648,7 +648,7 @@ function PcoDmc() {
               title={
                 <>
                   We Work Directly with{" "}
-                  <span className="text-blue-700">PCOs, DMCs & Agency Partners</span>
+                  <span className="text-violet-700">PCOs, DMCs & Agency Partners</span>
                 </>
               }
               desc="If you are a Professional Conference Organiser, Destination Management Company or international event agency bringing a project to Turkey, Sahneva can become your local technical production arm."
@@ -663,7 +663,7 @@ function PcoDmc() {
               ].map(([t, d]) => (
                 <Card key={t} className="p-5">
                   <div className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
                     <div>
                       <div className="font-black text-gray-900">{t}</div>
                       <p className="mt-1 text-gray-600 text-sm leading-relaxed">{d}</p>
@@ -745,7 +745,7 @@ function PhotoGallery() {
     <SectionShell variant="soft" id="gallery">
       <H2
         kicker="Production references"
-        title={<>MICE Event Production in Turkey — <span className="text-blue-700">Our Work</span></>}
+        title={<>MICE Event Production in Turkey — <span className="text-violet-700">Our Work</span></>}
         desc="Selected technical production references from corporate meetings, conferences, incentive galas and exhibitions across Turkey."
         center
       />
@@ -867,10 +867,10 @@ function RelatedServices() {
         ].map((s) => (
           <Link key={s.href} href={s.href}>
             <Card className="h-full">
-              <div className="text-sm font-semibold text-blue-700">Service</div>
+              <div className="text-sm font-semibold text-violet-700">Service</div>
               <div className="mt-2 text-lg font-black text-gray-900">{s.t}</div>
               <p className="mt-2 text-gray-600 text-sm leading-relaxed">{s.d}</p>
-              <div className="mt-4 text-blue-700 font-bold text-sm">Explore →</div>
+              <div className="mt-4 text-violet-700 font-bold text-sm">Explore →</div>
             </Card>
           </Link>
         ))}
@@ -901,7 +901,7 @@ function Cta() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white hover:bg-violet-500 transition"
               >
                 Send Event Brief on WhatsApp
               </a>

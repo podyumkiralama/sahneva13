@@ -11,11 +11,11 @@ import {
   MessageCircle,
   Monitor,
   Ruler,
-  Sparkles,
   Truck,
 } from "lucide-react";
 
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import LedPriceCalculator from "@/components/LedPriceCalculator.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
@@ -354,7 +354,7 @@ function SectionHeader({ eyebrow, title, description, align = "left" }) {
   return (
     <div className={`max-w-3xl ${alignClass}`}>
       {eyebrow ? (
-        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-300">
           {eyebrow}
         </p>
       ) : null}
@@ -464,8 +464,8 @@ const calculatorStyles = {
     width: "20px",
   },
   resultCard: {
-    background: "rgba(103, 232, 249, 0.1)",
-    border: "1px solid rgba(103, 232, 249, 0.3)",
+    background: "rgba(196, 181, 253, 0.1)",
+    border: "1px solid rgba(196, 181, 253, 0.3)",
     borderRadius: "1.5rem",
     padding: "24px",
   },
@@ -560,135 +560,60 @@ export default function Page() {
       />
       <JsonLd id="ld-json-led-ekran-fiyatlari" data={jsonLd} />
 
-      <div className="min-h-screen overflow-hidden bg-[#07111f] text-white">
-        <section className="relative min-h-[680px] overflow-hidden pt-24 md:pt-28">
-          <div className="absolute inset-0">
-            <Image
-              src={HERO_IMAGE}
-              alt="LED ekran kiralama fiyatları 2026 için P1.9 Indoor LED ekran sahne kurulumu"
-              fill
-              priority
-              fetchPriority="high"
-              sizes="100vw"
-              className="object-cover"
-              unoptimized
-            />
-            <div className="absolute inset-0 bg-slate-950/50" />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.96)_0%,rgba(7,17,31,0.78)_42%,rgba(7,17,31,0.32)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_26%,rgba(34,211,238,0.26),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(16,185,129,0.2),transparent_30%)]" />
-            <div
-              className="absolute inset-0 opacity-30"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
-                backgroundSize: "44px 44px",
-              }}
-            />
-          </div>
-
-          <div className="container relative z-10 mx-auto px-4 pb-16">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.18)]">
-                <Sparkles size={16} aria-hidden="true" />
-                2026 m² başlangıç fiyatları
-              </div>
-
-              <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.98] text-white md:text-7xl">
-                LED Ekran Kiralama Fiyatları 2026
-              </h1>
-
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-200 md:text-2xl md:leading-10">
-                Standart indoor/outdoor LED ekran, P1.9 Indoor LED, kurulum, söküm,
-                NovaStar görüntü işlemcisi, teknik reji ve saha ekibi kapsamını m² hesabıyla birlikte
-                netleştiren fiyat sayfası.
-              </p>
-
-              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 md:text-lg md:leading-8">
-                Bu sayfada m² bazlı başlangıç bedellerini ve fiyatı etkileyen teknik kalemleri inceleyebilirsiniz.
-                Envanter gücü, kurulum senaryoları, rigging, reji ve saha operasyon detayları için ana hizmet sayfamız olan{" "}
-                <Link href="/led-ekran-kiralama" className="font-black text-cyan-100 underline underline-offset-4">
-                  LED Ekran Kiralama
-                </Link>{" "}
-                bölümünü ziyaret edebilirsiniz.
-              </p>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:max-w-3xl">
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur">
-                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-slate-300">
-                    Standart LED ekran
-                  </p>
-                  <p className="mt-2 text-3xl font-black text-white">
-                    {tl(PRICES.standard)} TL/m²
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">başlayan fiyatlarla</p>
-                </div>
-                <div className="rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-5 backdrop-blur">
-                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-cyan-100">
-                    P1.9 Indoor LED
-                  </p>
-                  <p className="mt-2 text-3xl font-black text-white">
-                    {tl(PRICES.premiumP19)} TL/m²
-                  </p>
-                  <p className="mt-1 text-sm text-cyan-100/80">başlayan fiyatlarla</p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-7 py-4 font-black text-slate-950 transition hover:bg-emerald-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
-                >
-                  <MessageCircle size={20} aria-hidden="true" />
-                  WhatsApp ile fiyat iste
-                </a>
-                <a
-                  href="#led-ekran-hesaplama-araci"
-                  style={{
-                    alignItems: "center",
-                    background: "rgba(103, 232, 249, 0.1)",
-                    border: "1px solid rgba(103, 232, 249, 0.4)",
-                    borderRadius: "1rem",
-                    color: "#ecfeff",
-                    display: "inline-flex",
-                    fontWeight: 900,
-                    gap: "0.5rem",
-                    justifyContent: "center",
-                    minHeight: "52px",
-                    padding: "1rem 1.75rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  <Calculator size={20} aria-hidden="true" />
-                  LED fiyat hesapla
-                </a>
-                <Link
-                  href="/led-ekran-kiralama"
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-7 py-4 font-black text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
-                >
-                  LED ekran kiralama
-                  <ArrowRight size={20} aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-
-            <nav
-              aria-label="LED ekran fiyatları sayfa bölümleri"
-              className="mt-12 flex max-w-5xl flex-wrap gap-2 rounded-3xl border border-white/10 bg-slate-950/55 p-3 backdrop-blur-xl"
-            >
-              {quickLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-cyan-300/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </section>
+      <div className="min-h-screen overflow-hidden bg-[#040817] text-white">
+        <PageHero
+          eyebrow="2026 m² başlangıç fiyatları"
+          title="LED Ekran Kiralama"
+          titleAccent="Fiyatları 2026"
+          titleWide
+          description="Standart indoor/outdoor LED ekran, P1.9 Indoor LED, kurulum, söküm, NovaStar görüntü işlemcisi, teknik reji ve saha ekibi kapsamını m² hesabıyla birlikte netleştiren fiyat sayfası."
+          note={
+            <>
+              Bu sayfada m² bazlı başlangıç bedellerini ve fiyatı etkileyen teknik
+              kalemleri inceleyebilirsiniz. Envanter gücü, kurulum senaryoları,
+              rigging, reji ve saha operasyon detayları için ana hizmet sayfamız olan{" "}
+              <Link href="/led-ekran-kiralama">LED Ekran Kiralama</Link> bölümünü
+              ziyaret edebilirsiniz.
+            </>
+          }
+          metrics={[
+            {
+              value: `${tl(PRICES.standard)} TL/m²`,
+              label: "Standart LED ekran",
+              detail: "başlayan fiyatlarla",
+            },
+            {
+              value: `${tl(PRICES.premiumP19)} TL/m²`,
+              label: "P1.9 Indoor LED",
+              detail: "başlayan fiyatlarla",
+            },
+          ]}
+          actions={[
+            {
+              key: "whatsapp",
+              label: "WhatsApp ile fiyat iste",
+              href: WHATSAPP_URL,
+              external: true,
+            },
+            {
+              key: "calculator",
+              label: "LED fiyat hesapla",
+              href: "#led-ekran-hesaplama-araci",
+            },
+            {
+              key: "service",
+              label: "LED ekran kiralama",
+              href: "/led-ekran-kiralama",
+            },
+          ]}
+          quickLinks={quickLinks}
+          quickLinksLabel="LED ekran fiyatları sayfa bölümleri"
+          image={{
+            src: HERO_IMAGE,
+            alt: "LED ekran kiralama fiyatları 2026 için P1.9 Indoor LED ekran sahne kurulumu",
+            sizes: "100vw",
+          }}
+        />
 
         <LedPriceCalculatorSection />
 
@@ -717,7 +642,7 @@ export default function Page() {
                 description="LED ekran fiyatı tek bir katalog rakamıyla doğru okunmaz. Toplam m², piksel aralığı, indoor/outdoor kullanım, kurulum erişimi, NovaStar görüntü işlemcisi, teknik reji ve şehir dışı lojistik aynı teklif içinde değerlendirilir."
               />
 
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-cyan-950/30">
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-violet-950/30">
                 <table className="min-w-full border-separate border-spacing-0">
                   <caption className="sr-only">
                     2026 LED ekran kiralama fiyatları m² başlangıç fiyatları ve proje kapsamı.
@@ -735,7 +660,7 @@ export default function Page() {
                         <td className="border-b border-white/10 px-5 py-5 align-top text-sm font-bold text-white">
                           {row.type}
                         </td>
-                        <td className="border-b border-white/10 px-5 py-5 align-top text-sm font-black text-cyan-200">
+                        <td className="border-b border-white/10 px-5 py-5 align-top text-sm font-black text-violet-200">
                           {row.price}
                         </td>
                         <td className="border-b border-white/10 px-5 py-5 align-top text-sm leading-6 text-slate-300">
@@ -754,7 +679,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div>
-                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-700">
                   Ortalama m² Fiyatları
                 </p>
                 <h2 className="text-3xl font-black leading-tight md:text-5xl">
@@ -768,11 +693,11 @@ export default function Page() {
                 </p>
                 <p className="mt-5 text-lg leading-8 text-slate-700">
                   Ana hizmet kapsamını görmek için{" "}
-                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/led-ekran-kiralama">
+                  <Link className="font-black text-violet-700 underline underline-offset-4" href="/led-ekran-kiralama">
                     LED ekran kiralama
                   </Link>{" "}
                   sayfasını; platform ve sahne ilişkisini karşılaştırmak için{" "}
-                  <Link className="font-black text-blue-700 underline underline-offset-4" href="/podyum-kurulum-fiyatlari">
+                  <Link className="font-black text-violet-700 underline underline-offset-4" href="/podyum-kurulum-fiyatlari">
                     podyum kurulum fiyatları
                   </Link>{" "}
                   sayfasını inceleyebilirsiniz.
@@ -819,7 +744,7 @@ export default function Page() {
                 },
               ].map((card) => (
                 <article key={card.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
-                  <card.icon className="text-cyan-300" size={34} aria-hidden="true" />
+                  <card.icon className="text-violet-300" size={34} aria-hidden="true" />
                   <h3 className="mt-5 text-2xl font-black text-white">{card.title}</h3>
                   <ul className="mt-5 space-y-3 text-slate-300">
                     {card.items.map((item) => (
@@ -844,8 +769,8 @@ export default function Page() {
                   title="P1.9 Indoor LED ekran kiralama fiyatı"
                   description="P1.9 LED ekranlar; yakın izleme mesafesi, yüksek çözünürlük, lansman, gala, konferans ve kapalı alan protokol etkinlikleri için tercih edilir. Bu yüzden standart LED panellere göre daha yüksek m² başlangıç fiyatıyla planlanır."
                 />
-                <div className="mt-8 rounded-3xl border border-cyan-300/30 bg-cyan-300/10 p-6">
-                  <p className="text-lg leading-8 text-cyan-50">
+                <div className="mt-8 rounded-3xl border border-violet-300/30 bg-violet-300/10 p-6">
+                  <p className="text-lg leading-8 text-violet-50">
                     Sahneva, LED ekran envanterine <strong>300 m² P1.9 Indoor LED envanteri</strong> eklemiştir.
                     Bu özmal envanter gücü, yakın izleme mesafesinde yüksek çözünürlüklü görüntü isteyen kurumsal sahnelerde
                     fiyat/performans kararını daha net hale getirir.
@@ -853,7 +778,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-cyan-950/40">
+              <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-violet-950/40">
                 <Image
                   src={HERO_IMAGE}
                   alt="Sahneva 300 m² P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
@@ -893,7 +818,7 @@ export default function Page() {
                 },
               ].map((item) => (
                 <article key={item.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-                  <item.icon className="text-blue-700" size={34} aria-hidden="true" />
+                  <item.icon className="text-violet-700" size={34} aria-hidden="true" />
                   <h2 className="mt-5 text-2xl font-black">{item.title}</h2>
                   <p className="mt-3 text-base leading-7 text-slate-700">{item.text}</p>
                 </article>
@@ -907,14 +832,14 @@ export default function Page() {
                 P1.9 yakın izleme netliği, büyük ekran yüzeyi ve teknik reji ihtiyacının sahada nasıl karşılık bulduğunu{" "}
                 <Link
                   href="/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi"
-                  className="font-black text-blue-700 underline underline-offset-4"
+                  className="font-black text-violet-700 underline underline-offset-4"
                 >
                   Millet Bahçesi Hangar P1.9 LED referansında
                 </Link>{" "}
                 görebilirsiniz. Daha geniş sahne, podyum ve LED yüzeyi ilişkisi için{" "}
                 <Link
                   href="/projeler/kapali-alan-led-sahne-kurulumu"
-                  className="font-black text-blue-700 underline underline-offset-4"
+                  className="font-black text-violet-700 underline underline-offset-4"
                 >
                   kapalı alan LED ve sahne kurulumu
                 </Link>{" "}
@@ -967,15 +892,15 @@ export default function Page() {
                 />
                 <p className="mt-6 text-lg leading-8 text-slate-300">
                   Kurumsal etkinliklerde{" "}
-                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/kurumsal-organizasyon">
+                  <Link className="font-black text-violet-200 underline underline-offset-4" href="/kurumsal-organizasyon">
                     kurumsal etkinlik teknik prodüksiyonu
                   </Link>
                   ,{" "}
-                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/ses-isik-sistemleri">
+                  <Link className="font-black text-violet-200 underline underline-offset-4" href="/ses-isik-sistemleri">
                     ses ve ışık sistemleri
                   </Link>{" "}
                   ve{" "}
-                  <Link className="font-black text-cyan-200 underline underline-offset-4" href="/sahne-kiralama">
+                  <Link className="font-black text-violet-200 underline underline-offset-4" href="/sahne-kiralama">
                     sahne kurulumu
                   </Link>{" "}
                   aynı teknik akış içinde değerlendirilirse teklif daha doğru çıkar.
@@ -989,7 +914,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
-                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+                <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-700">
                   m² Hesabı
                 </p>
                 <h2 className="text-3xl font-black leading-tight md:text-5xl">
@@ -1003,7 +928,7 @@ export default function Page() {
               </div>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
                 <div className="flex items-center gap-3">
-                  <Ruler className="text-blue-700" size={32} aria-hidden="true" />
+                  <Ruler className="text-violet-700" size={32} aria-hidden="true" />
                   <h3 className="text-2xl font-black">Basit hesap mantığı</h3>
                 </div>
                 <div className="mt-6 rounded-2xl bg-white p-6 font-mono text-lg font-black text-slate-950 shadow-sm">
@@ -1029,7 +954,7 @@ export default function Page() {
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {requiredInfo.map((item) => (
                 <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <Calculator className="text-cyan-300" size={24} aria-hidden="true" />
+                  <Calculator className="text-violet-300" size={24} aria-hidden="true" />
                   <p className="mt-4 font-semibold leading-7 text-slate-200">{item}</p>
                 </div>
               ))}
@@ -1040,7 +965,7 @@ export default function Page() {
         <section id="ornek-fiyat-senaryolari" className="bg-white py-20 text-slate-950">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-700">
                 Senaryolar
               </p>
               <h2 className="text-3xl font-black leading-tight md:text-5xl">
@@ -1054,7 +979,7 @@ export default function Page() {
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {scenarios.map((scenario) => (
                 <article key={scenario.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-                  <Layers className="text-blue-700" size={30} aria-hidden="true" />
+                  <Layers className="text-violet-700" size={30} aria-hidden="true" />
                   <h3 className="mt-5 text-2xl font-black">{scenario.title}</h3>
                   <ul className="mt-5 space-y-3 text-slate-700">
                     {[scenario.meters, scenario.screen, scenario.detail, scenario.price].map((item) => (
@@ -1082,15 +1007,15 @@ export default function Page() {
               {faq.map((item) => (
                 <details
                   key={item.q}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 open:border-cyan-300/40 open:bg-cyan-300/10"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 open:border-violet-300/40 open:bg-violet-300/10"
                 >
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-black text-white">
                     {item.q}
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/10 text-cyan-200 transition group-open:rotate-180">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/10 text-violet-200 transition group-open:rotate-180">
                       ⌄
                     </span>
                   </summary>
-                  <p className="mt-5 border-l-4 border-cyan-300 pl-5 leading-8 text-slate-300">
+                  <p className="mt-5 border-l-4 border-violet-300 pl-5 leading-8 text-slate-300">
                     {item.a}
                   </p>
                 </details>
@@ -1113,7 +1038,7 @@ export default function Page() {
               />
               <div className="absolute inset-0 bg-slate-950/65" />
               <div className="relative z-10 max-w-3xl">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
                   Teklif CTA
                 </p>
                 <h2 className="mt-3 text-3xl font-black leading-tight md:text-5xl">

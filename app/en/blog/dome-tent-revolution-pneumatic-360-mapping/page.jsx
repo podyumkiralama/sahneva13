@@ -380,15 +380,15 @@ export default function BlogPostDome360Mapping() {
                 Are you planning a project of Dicle Fest calibre?
               </p>
 
-              <div className="not-prose mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+              <div className="not-prose mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-violet-100 bg-violet-50 p-6">
                 <div>
-                  <p className="text-lg font-semibold text-blue-900">
+                  <p className="text-lg font-semibold text-violet-900">
                     👉 Dome Tent &amp; Technical Production Quote
                   </p>
-                  <p className="text-sm text-blue-800">
+                  <p className="text-sm text-violet-800">
                     Get in touch within 2 hours for a 3D layout plan and mapping concept.
                   </p>
-                  <p className="text-sm text-blue-800 mt-2">
+                  <p className="text-sm text-violet-800 mt-2">
                     Other options:{" "}
                     <Link href="/en/tent-rental" className="underline font-semibold">
                       View our tent rental options
@@ -398,7 +398,7 @@ export default function BlogPostDome360Mapping() {
 
                 <Link
                   href="/en/stage-rental"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                  className="inline-flex items-center justify-center rounded-full bg-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-700"
                 >
                   Get a Quote
                 </Link>

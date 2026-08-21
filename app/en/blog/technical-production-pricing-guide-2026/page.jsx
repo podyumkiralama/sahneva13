@@ -96,8 +96,8 @@ function H2({ id, children }) {
 
 function ProTip({ title = "Worth checking", children }) {
   return (
-    <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50 p-4">
-      <div className="text-sm font-semibold text-sky-900">{title}</div>
+    <div className="mt-5 rounded-2xl border border-violet-200 bg-violet-50 p-4">
+      <div className="text-sm font-semibold text-violet-900">{title}</div>
       <div className="mt-2 text-sm leading-6 text-slate-700">{children}</div>
     </div>
   );
@@ -478,7 +478,7 @@ export default function Page() {
                   combine on a single discipline, our{" "}
                   <Link
                     href="/en/podium-rental-prices"
-                    className="font-medium text-blue-600 hover:underline"
+                    className="font-medium text-violet-600 hover:underline"
                   >
                     stage platform rental prices
                   </Link>{" "}
@@ -771,7 +771,7 @@ export default function Page() {
                   example.
                 </p>
                 <Link
-                  className="mt-3 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-900"
+                  className="mt-3 inline-flex text-sm font-semibold text-violet-700 hover:text-violet-900"
                   href="/en/podium-rental-prices"
                 >
                   Stage platform prices 2026 →

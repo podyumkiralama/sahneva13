@@ -8,7 +8,7 @@ import { useState, useEffect, useRef, useCallback, useMemo, useId } from "react"
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
 const FOCUS_RING_CLASS =
-  "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
+  "focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-white";
 
 const MOBILE_MENU_HEADING_ID = "navbar-mobile-menu-heading";
 const MOBILE_MENU_DESCRIPTION_ID = "navbar-mobile-menu-description";
@@ -140,7 +140,7 @@ export default function Navbar({
   }, []);
 <Link
   href="/search"
-  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50"
+  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/50"
   aria-label="Yardım ve arama"
 >
   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
@@ -415,8 +415,8 @@ export default function Navbar({
           relative text-[15px] font-bold transition-all duration-200 px-4 py-2.5 rounded-xl
           ${
             active(href)
-              ? "text-blue-700 bg-blue-50 border border-blue-200"
-              : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 hover:border hover:border-neutral-200 border border-transparent"
+              ? "text-violet-700 bg-violet-50 border border-violet-200"
+              : "text-neutral-800 hover:text-violet-700 hover:bg-neutral-50 hover:border hover:border-neutral-200 border border-transparent"
           }
           ${FOCUS_RING_CLASS} ${className}
         `}
@@ -438,8 +438,8 @@ export default function Navbar({
         }}
         className={`
           group flex items-start gap-3 rounded-xl px-5 py-3.5
-          text-sm text-neutral-700 hover:bg-blue-50 hover:text-blue-700
-          transition-all duration-200 border border-transparent hover:border-blue-200
+          text-sm text-neutral-700 hover:bg-violet-50 hover:text-violet-700
+          transition-all duration-200 border border-transparent hover:border-violet-200
           ${FOCUS_RING_CLASS}
         `}
         onClick={() => setServicesOpen(false)}
@@ -454,7 +454,7 @@ export default function Navbar({
           {icon}
         </span>
         <div className="min-w-0 flex-1">
-          <div className="font-extrabold text-neutral-900 group-hover:text-blue-700">
+          <div className="font-extrabold text-neutral-900 group-hover:text-violet-700">
             {label}
           </div>
           <div className="mt-0.5 text-xs font-medium text-neutral-600">
@@ -462,7 +462,7 @@ export default function Navbar({
           </div>
         </div>
         <span
-          className="ml-2 text-neutral-400 group-hover:text-blue-600"
+          className="ml-2 text-neutral-400 group-hover:text-violet-600"
           aria-hidden="true"
         >
           ›
@@ -556,8 +556,8 @@ export default function Navbar({
                     relative text-[15px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 group border
                     ${
                       servicesOpen
-                        ? "text-blue-700 bg-blue-50 border-blue-200"
-                        : "text-neutral-800 hover:text-blue-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200"
+                        ? "text-violet-700 bg-violet-50 border-violet-200"
+                        : "text-neutral-800 hover:text-violet-700 hover:bg-neutral-50 border-transparent hover:border-neutral-200"
                     }
                     ${FOCUS_RING_CLASS}
                   `}
@@ -843,8 +843,8 @@ export default function Navbar({
               onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
-                hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
-                hover:border-blue-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
+                hover:bg-violet-50 hover:text-violet-700 transition-all duration-200 border border-transparent
+                hover:border-violet-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
               `}
               aria-current={active("/hakkimizda") ? "page" : undefined}
             >
@@ -857,8 +857,8 @@ export default function Navbar({
               onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
-                hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
-                hover:border-blue-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
+                hover:bg-violet-50 hover:text-violet-700 transition-all duration-200 border border-transparent
+                hover:border-violet-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
               `}
               aria-current={active("/blog") ? "page" : undefined}
             >
@@ -876,8 +876,8 @@ export default function Navbar({
                 aria-controls="mobile-services-list"
                 className={`
                   w-full flex items-center justify-between gap-3 py-3.5 px-4 text-[15px] font-bold
-                  text-neutral-900 rounded-xl hover:bg-blue-50 hover:text-blue-700
-                  transition-all duration-200 border border-transparent hover:border-blue-200
+                  text-neutral-900 rounded-xl hover:bg-violet-50 hover:text-violet-700
+                  transition-all duration-200 border border-transparent hover:border-violet-200
                   min-h-[44px] transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
                 `}
               >
@@ -921,7 +921,7 @@ export default function Navbar({
                       onClick={() => closeMobileMenu({ restoreFocus: false })}
                       className={`
                         flex items-start gap-3 px-3 py-2 text-sm text-neutral-700
-                        hover:bg-blue-50 hover:text-blue-700 rounded-md
+                        hover:bg-violet-50 hover:text-violet-700 rounded-md
                         transition-all duration-200 w-full transform hover:scale-[1.01]
                         ${FOCUS_RING_CLASS}
                       `}
@@ -951,8 +951,8 @@ export default function Navbar({
               onClick={() => closeMobileMenu({ restoreFocus: false })}
               className={`
                 flex items-center gap-3 py-3.5 px-4 text-neutral-900 font-bold text-[15px] rounded-xl
-                hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 border border-transparent
-                hover:border-blue-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
+                hover:bg-violet-50 hover:text-violet-700 transition-all duration-200 border border-transparent
+                hover:border-violet-200 transform hover:scale-[1.02] ${FOCUS_RING_CLASS}
               `}
               aria-current={active("/iletisim") ? "page" : undefined}
             >

@@ -131,12 +131,12 @@ export default function LedCalculatorClient() {
   return (
     <section className="relative isolate overflow-hidden px-4 pb-16 pt-24 md:pb-24 md:pt-32">
       <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:52px_52px]" />
-      <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/25 blur-[130px]" />
-      <div className="absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-cyan-400/10 blur-[120px]" />
+      <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet-500/25 blur-[130px]" />
+      <div className="absolute -right-32 top-40 h-[420px] w-[420px] rounded-full bg-violet-400/10 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.07] px-5 py-2.5 text-sm font-black text-blue-100 shadow-[0_20px_70px_rgba(30,58,138,0.25)] backdrop-blur-xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.07] px-5 py-2.5 text-sm font-black text-violet-100 shadow-[0_20px_70px_rgba(76, 29, 149,0.25)] backdrop-blur-xl">
             <Calculator className="h-4 w-4" />
             LED EKRAN HESAPLAMA ARACI
           </div>
@@ -151,7 +151,7 @@ export default function LedCalculatorClient() {
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
           <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Monitor className="h-4 w-4 text-blue-200" />
+              <Monitor className="h-4 w-4 text-violet-200" />
               LED ekran tipi
             </label>
             <div className="mb-7 grid gap-3 md:grid-cols-3">
@@ -169,7 +169,7 @@ export default function LedCalculatorClient() {
                   }}
                   className={`rounded-2xl border px-4 py-4 text-left transition ${
                     screenType === key
-                      ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
+                      ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
                       : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                   }`}
                 >
@@ -182,7 +182,7 @@ export default function LedCalculatorClient() {
             <div className="mb-7 grid gap-4 sm:grid-cols-3">
               <div>
                 <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                  <Ruler className="h-4 w-4 text-blue-200" />
+                  <Ruler className="h-4 w-4 text-violet-200" />
                   {screenType === "direction" ? "Adet" : "En (m)"}
                 </label>
                 <input
@@ -191,14 +191,14 @@ export default function LedCalculatorClient() {
                   step="0.5"
                   value={width}
                   onChange={(event) => setWidth(event.target.value)}
-                  className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-blue-400/30 transition focus:ring-4"
+                  className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-violet-400/30 transition focus:ring-4"
                 />
               </div>
 
               {screenType !== "direction" ? (
                 <div>
                   <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                    <Ruler className="h-4 w-4 text-blue-200" />
+                    <Ruler className="h-4 w-4 text-violet-200" />
                     Boy (m)
                   </label>
                   <input
@@ -207,14 +207,14 @@ export default function LedCalculatorClient() {
                     step="0.5"
                     value={height}
                     onChange={(event) => setHeight(event.target.value)}
-                    className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-blue-400/30 transition focus:ring-4"
+                    className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-violet-400/30 transition focus:ring-4"
                   />
                 </div>
               ) : null}
 
               <div>
                 <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-                  <CheckCircle className="h-4 w-4 text-blue-200" />
+                  <CheckCircle className="h-4 w-4 text-violet-200" />
                   Gün sayısı
                 </label>
                 <input
@@ -222,13 +222,13 @@ export default function LedCalculatorClient() {
                   min="1"
                   value={days}
                   onChange={(event) => setDays(event.target.value)}
-                  className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-blue-400/30 transition focus:ring-4"
+                  className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-violet-400/30 transition focus:ring-4"
                 />
               </div>
             </div>
 
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Sparkles className="h-4 w-4 text-blue-200" />
+              <Sparkles className="h-4 w-4 text-violet-200" />
               Pixel pitch
             </label>
             <div className="mb-7 grid gap-3 sm:grid-cols-4">
@@ -239,7 +239,7 @@ export default function LedCalculatorClient() {
                   onClick={() => setPitch(item)}
                   className={`rounded-2xl border px-4 py-3 text-center font-black transition ${
                     pitch === item
-                      ? "border-blue-300 bg-blue-500/20 text-white"
+                      ? "border-violet-300 bg-violet-500/20 text-white"
                       : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                   }`}
                 >
@@ -249,7 +249,7 @@ export default function LedCalculatorClient() {
             </div>
 
             <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <CheckCircle className="h-4 w-4 text-blue-200" />
+              <CheckCircle className="h-4 w-4 text-violet-200" />
               Ek hizmetler
             </label>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -266,7 +266,7 @@ export default function LedCalculatorClient() {
                     }
                     className={`rounded-2xl border px-4 py-4 text-left transition ${
                       active
-                        ? "border-blue-300 bg-blue-500/20 text-white shadow-[0_15px_50px_rgba(59,130,246,0.18)]"
+                        ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
                         : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                     }`}
                   >
@@ -281,13 +281,13 @@ export default function LedCalculatorClient() {
             </div>
           </div>
 
-          <aside className="rounded-[34px] border border-blue-300/20 bg-gradient-to-br from-blue-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">
+          <aside className="rounded-[34px] border border-violet-300/20 bg-gradient-to-br from-violet-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">
             <div className="mb-7 flex items-start gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-400/20 ring-1 ring-blue-200/20">
-                <Monitor className="h-7 w-7 text-blue-100" />
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-violet-400/20 ring-1 ring-violet-200/20">
+                <Monitor className="h-7 w-7 text-violet-100" />
               </div>
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.4px] text-blue-100">Hesap sonucu</p>
+                <p className="text-sm font-black uppercase tracking-[0.4px] text-violet-100">Hesap sonucu</p>
                 <h2 className="mt-1 text-3xl font-black tracking-[-0.5px]">{result.area.toFixed(2)} m² LED ekran</h2>
                 <p className="mt-2 text-sm leading-6 text-slate-300">{result.type.label} • {pitch}</p>
               </div>

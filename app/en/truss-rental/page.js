@@ -47,7 +47,7 @@ const getServiceWhatsappLink = (title) => {
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   loading: () => (
     <div className="flex justify-center items-center h-64" role="status" aria-label="Loading gallery">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600" aria-hidden="true" />
       <span className="sr-only">Loading gallery...</span>
     </div>
   ),
@@ -198,12 +198,12 @@ const FAQ_ITEMS = [
 /* ================== Section Components ================== */
 function Hero() {
   return (
-    <header className="pt-20 pb-14 md:pb-16 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <header className="pt-20 pb-14 md:pb-16 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-violet-50">
       <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-7xl">
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
             <li>
-              <Link className="hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="/en">
+              <Link className="hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded" href="/en">
                 Home
               </Link>
             </li>
@@ -212,7 +212,7 @@ function Hero() {
           </ol>
         </nav>
 
-        <p className="text-sm font-semibold text-blue-700">
+        <p className="text-sm font-semibold text-violet-700">
           Stage • LED Screen • Lighting &amp; Sound • Trade Fair &amp; Events
         </p>
 
@@ -234,7 +234,7 @@ function Hero() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
             aria-label="Get a truss rental quote via WhatsApp (opens in new tab)"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
@@ -243,7 +243,7 @@ function Hero() {
 
           <a
             href={`tel:${PHONE}`}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             aria-label="Call us"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
@@ -327,15 +327,15 @@ function Content() {
             <span className="font-black text-gray-900 block text-lg mb-2">Compatible Services</span>
             <span className="text-gray-700 leading-relaxed block">
               Truss systems are generally planned together with{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/led-screen-rental">
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/led-screen-rental">
                 LED Screen Rental
               </Link>
               ,{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/sound-light-rental">
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/sound-light-rental">
                 Sound &amp; Lighting Systems
               </Link>
               {" "}and{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/stage-rental">
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/stage-rental">
                 Stage Rental
               </Link>
               .
@@ -376,7 +376,7 @@ function Gallery() {
           </p>
           <Link
             href="/en/projects"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             aria-label="View all projects"
           >
             <span aria-hidden="true" className="text-xl mr-3">📸</span>
@@ -452,7 +452,7 @@ function Technical() {
                   href={getServiceWhatsappLink(it.title)}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+                  className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
                   aria-label={`Request a quote for ${it.title} via WhatsApp (opens in new tab)`}
                 >
                   <span aria-hidden="true" className="mr-2">➡️</span>
@@ -468,7 +468,7 @@ function Technical() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Contact Us for a Detailed Quote</span>
@@ -503,18 +503,18 @@ function FAQ() {
             return (
               <article key={faq.q} role="listitem">
                 <details
-                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden"
+                  className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-violet-100 [&_summary::-webkit-details-marker]:hidden"
                   id={panelId}
                   aria-labelledby={headingId}
                 >
                   <summary
                     id={headingId}
-                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl"
+                    className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-3xl"
                   >
                     <span className="pr-4 flex-1">{faq.q}</span>
                     <span
                       aria-hidden="true"
-                      className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
+                      className="ml-4 transition-transform duration-300 text-violet-600 bg-violet-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180"
                     >
                       ⌄
                     </span>
@@ -522,7 +522,7 @@ function FAQ() {
 
                   <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
                     <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
-                      <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
+                      <p className="pl-4 border-l-4 border-violet-500">{faq.a}</p>
                     </div>
                   </div>
                 </details>
@@ -539,7 +539,7 @@ function FAQ() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
             aria-label="Message via WhatsApp (opens in new tab)"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
@@ -587,7 +587,7 @@ function Offer() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-[1.02] transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
             aria-label="Get a quote via WhatsApp (opens in new tab)"
           >
             <span aria-hidden="true" className="text-xl mr-3">✅</span>
@@ -596,7 +596,7 @@ function Offer() {
 
           <a
             href={`tel:${PHONE}`}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transform transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             aria-label="Call us"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
@@ -607,15 +607,15 @@ function Offer() {
         <div className="mt-12 text-center text-gray-600">
           <p>
             Related services:{" "}
-            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/led-screen-rental">
+            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/led-screen-rental">
               LED Screen Rental
             </Link>{" "}
             •{" "}
-            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/sound-light-rental">
+            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/sound-light-rental">
               Sound &amp; Lighting Systems
             </Link>{" "}
             •{" "}
-            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/stage-rental">
+            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/stage-rental">
               Stage Rental
             </Link>
           </p>

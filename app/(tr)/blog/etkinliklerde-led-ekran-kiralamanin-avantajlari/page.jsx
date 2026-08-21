@@ -171,8 +171,8 @@ function ImgFigure({ src, alt, caption }) {
 
 function HighlightNote({ children }) {
   return (
-    <div className="not-prose my-10 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Planlama notu</p>
+    <div className="not-prose my-10 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Planlama notu</p>
       <div className="mt-3 text-base leading-relaxed text-slate-700">{children}</div>
     </div>
   );

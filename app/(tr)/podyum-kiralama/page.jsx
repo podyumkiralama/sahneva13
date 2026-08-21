@@ -435,7 +435,7 @@ function InfrastructureAssuranceSection() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
-            <p className="mb-3 text-sm font-black uppercase tracking-widest text-blue-700">
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-violet-700">
               Operasyon güvencesi
             </p>
             <h2 id="podyum-stok-title" className="max-w-3xl text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -443,15 +443,15 @@ function InfrastructureAssuranceSection() {
             </h2>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
               Geniş özmal ekipman altyapımız sayesinde farklı ölçekteki podyum projelerini İstanbul ve{" "}
-              <Link href="/bolgesel-kiralama" className="font-bold text-blue-700 underline decoration-blue-300 underline-offset-4">
+              <Link href="/bolgesel-kiralama" className="font-bold text-violet-700 underline decoration-violet-300 underline-offset-4">
                 Türkiye genelinde
               </Link>{" "}
               planlayıp uyguluyoruz. Kapasite; yükseklik, zemin ve saha erişimine göre teknik planla netleşir.
             </p>
           </div>
 
-          <aside className="rounded-3xl border border-blue-100 bg-blue-50 p-6 shadow-sm">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">Planlama notu</p>
+          <aside className="rounded-3xl border border-violet-100 bg-violet-50 p-6 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-700">Planlama notu</p>
             <p className="mt-3 text-base font-medium leading-relaxed text-slate-700">
               Aşağıdaki değerler aynı yükseklikte planlanabilen referans alanları gösterir. Nihai kapsam,
               keşif ve kurulum planı sonrasında belirlenir.
@@ -477,7 +477,7 @@ function InfrastructureAssuranceSection() {
         <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.07)]">
           <div className="flex flex-col gap-3 border-b border-slate-200 bg-slate-950 px-6 py-5 text-white md:flex-row md:items-center md:justify-between md:px-8">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">Kapasite rehberi</p>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-300">Kapasite rehberi</p>
               <h3 className="mt-1 text-xl font-black md:text-2xl">Planlanan yüksekliğe göre referans alan</h3>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-slate-300">
@@ -497,7 +497,7 @@ function InfrastructureAssuranceSection() {
               {PODIUM_HEIGHT_CAPACITIES.map((item, index) => (
                 <tr key={item.height} className={index % 2 === 0 ? "bg-white" : "bg-slate-50/70"}>
                   <th scope="row" className="px-5 py-4 md:px-8 md:py-5">
-                    <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-black text-blue-800">
+                    <span className="inline-flex rounded-full border border-violet-100 bg-violet-50 px-3 py-1 text-sm font-black text-violet-800">
                       {item.height}
                     </span>
                   </th>
@@ -515,7 +515,7 @@ function InfrastructureAssuranceSection() {
 
         <div className="mt-6 grid overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
           <div className="p-6 md:p-8 lg:p-10">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-300">Özel sistem</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-300">Özel sistem</p>
             <h3 className="mt-3 text-2xl font-black leading-tight text-white md:text-3xl">
               Altı kayıt dönülmüş 2x1 özel podyum
             </h3>
@@ -559,7 +559,7 @@ function PodiumFlowSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_0.82fr] gap-8 items-stretch">
           <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6 md:p-8">
-            <p className="text-sm font-black uppercase tracking-widest text-blue-700 mb-3">
+            <p className="text-sm font-black uppercase tracking-widest text-violet-700 mb-3">
               Doğru ölçü, güvenli kurulum
             </p>
             <h2
@@ -581,7 +581,7 @@ function PodiumFlowSection() {
                   className="rounded-2xl bg-white border border-gray-200 p-5 shadow-sm"
                 >
                   <div
-                    className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white"
+                    className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-700 text-white"
                     aria-hidden="true"
                   >
                     <Icon size={22} aria-hidden="true" />
@@ -595,8 +595,8 @@ function PodiumFlowSection() {
             </ul>
           </div>
 
-          <aside className="self-start overflow-hidden rounded-3xl border border-blue-200 bg-blue-50 shadow-sm">
-            <div className="relative aspect-[16/10] bg-blue-100">
+          <aside className="self-start overflow-hidden rounded-3xl border border-violet-200 bg-violet-50 shadow-sm">
+            <div className="relative aspect-[16/10] bg-violet-100">
               <Image
                 src="/img/podyum/9.webp"
                 alt="Kurumsal etkinlik için kurulmuş podyum sistemi"
@@ -623,7 +623,7 @@ function PodiumFlowSection() {
                 {STARTING_LAYOUT_GUIDE.map((item) => (
                   <li key={item} className="flex gap-3 text-gray-800 leading-relaxed">
                     <ArrowRight
-                      className="mt-1 h-5 w-5 flex-shrink-0 text-blue-700"
+                      className="mt-1 h-5 w-5 flex-shrink-0 text-violet-700"
                       aria-hidden="true"
                     />
                     <span>{item}</span>
@@ -640,12 +640,12 @@ function PodiumFlowSection() {
               ].map(([value, label]) => (
                 <div
                   key={label}
-                  className="rounded-2xl border border-blue-200 bg-white/80 p-3 text-center"
+                  className="rounded-2xl border border-violet-200 bg-white/80 p-3 text-center"
                 >
                   <dt className="text-xs font-bold uppercase tracking-wide text-gray-600">
                     {label}
                   </dt>
-                  <dd className="mt-1 text-sm font-black text-blue-800">{value}</dd>
+                  <dd className="mt-1 text-sm font-black text-violet-800">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -661,7 +661,7 @@ function PodiumFlowSection() {
               </a>
               <Link
                 href="#hizmetler"
-                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border-2 border-blue-700 px-6 py-3 font-black text-blue-800 transition hover:bg-blue-100"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border-2 border-violet-700 px-6 py-3 font-black text-violet-800 transition hover:bg-violet-100"
               >
                 Podyum uygulamalarını incele
               </Link>
@@ -678,13 +678,13 @@ function ServicesSection() {
   return (
     <section
       id="hizmetler"
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-violet-50/50"
       aria-labelledby="hizmetler-title"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Modüler Podyum ve <span className="text-blue-700">Taşınabilir Sahne Platformu Uygulamaları</span>
+            Modüler Podyum ve <span className="text-violet-700">Taşınabilir Sahne Platformu Uygulamaları</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Keşif, karolaj planı, nakliye, kurulum, saha kontrolü ve söküm aynı teknik kapsam içinde yürütülür.
@@ -702,7 +702,7 @@ function ServicesSection() {
               >
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -721,7 +721,7 @@ function ServicesSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">📞</span> Teknik kapsam için iletişime geçin
           </a>
@@ -735,7 +735,7 @@ function PriceSummarySection() {
   return (
     <section id="podyum-fiyat-ozeti" className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="podyum-fiyat-ozeti-title">
       <div className="container mx-auto max-w-5xl px-4 text-center">
-        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Fiyat rehberi</p>
+        <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Fiyat rehberi</p>
         <h2 id="podyum-fiyat-ozeti-title" className="text-3xl font-black text-gray-900 md:text-5xl">
           Podyum Kiralama Fiyatları ve Kurulum Maliyeti
         </h2>
@@ -745,7 +745,7 @@ function PriceSummarySection() {
         </p>
         <Link
           href="/podyum-kurulum-fiyatlari"
-          className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-4 font-black text-white transition hover:bg-blue-800"
+          className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-violet-700 px-7 py-4 font-black text-white transition hover:bg-violet-800"
         >
           Podyum kurulum fiyatları ve m² maliyeti
           <ArrowRight size={20} className="ml-2" aria-hidden="true" />
@@ -754,7 +754,7 @@ function PriceSummarySection() {
           Podyum kalemlerinin toplam sahne bütçesine etkisini karşılaştırmak için{" "}
           <Link
             href="/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir"
-            className="font-bold text-blue-700 underline underline-offset-4"
+            className="font-bold text-violet-700 underline underline-offset-4"
           >
             sahne kiralama fiyatlarını belirleyen teknik kalemleri
           </Link>{" "}
@@ -771,13 +771,13 @@ function GallerySection() {
   return (
     <section
       id="uygulamalar"
-      className="py-16 bg-gradient-to-b from-white to-blue-50/50 md:py-20"
+      className="py-16 bg-gradient-to-b from-white to-violet-50/50 md:py-20"
       aria-labelledby="uygulamalar-title"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="uygulamalar-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Podyum Uygulamalarından <span className="text-blue-700">Seçkiler</span>
+            Podyum Uygulamalarından <span className="text-violet-700">Seçkiler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Kurumsal etkinlik, konser, spor organizasyonu ve açık hava projelerinden gerçek kurulum örnekleri
@@ -833,7 +833,7 @@ function TechnicalSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="teknik-altyapi-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Teknik <span className="text-blue-700">Altyapımız</span>
+            Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Podyum kurulumu yalnızca platform parçalarının birleştirilmesi değildir. Sahneva, saha keşfi,
@@ -845,7 +845,7 @@ function TechnicalSection() {
           {TECHNICAL_SPECS.map((item, idx) => (
             <li key={idx} className="h-full">
               <article className="group bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-violet-600 transition-colors flex items-center gap-3">
                   <span className="text-3xl" aria-hidden="true">{item.icon}</span> {item.title}
                 </h3>
                 <p className="text-gray-600 mb-6 text-lg leading-relaxed">
@@ -874,7 +874,7 @@ function StatsSection() {
   ];
   return (
     <section
-      className="content-visibility-auto [contain-intrinsic-size:auto_600px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      className="content-visibility-auto [contain-intrinsic-size:auto_600px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
       aria-label="Sahneva podyum kiralama istatistikleri"
     >
       <div className="container mx-auto px-4">
@@ -895,7 +895,7 @@ function StatsSection() {
               >
                 {stat.value}
               </p>
-              <p id={`podyum-stat-${idx}-label`} className="text-blue-100 text-lg font-semibold mb-0">
+              <p id={`podyum-stat-${idx}-label`} className="text-violet-100 text-lg font-semibold mb-0">
                 {stat.label}
               </p>
             </article>
@@ -910,18 +910,18 @@ function UseCasesSection() {
   return (
     <section
       id="kullanim-alanlari"
-      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-title"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-cyan-300">Alanları</span>
+            Kullanım <span className="text-violet-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Podyum çözümlerimizin tercih edildiği başlıca etkinlik türleri
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full" />
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {USE_CASES.map((uc, idx) => (
@@ -937,7 +937,7 @@ function UseCasesSection() {
                   {uc.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
                     {uc.text}
                   </h3>
                   <p className="text-white/70 text-lg leading-relaxed">{uc.desc}</p>
@@ -951,7 +951,7 @@ function UseCasesSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">💬</span> Etkinliğiniz için Özel Çözüm Alın
           </a>
@@ -972,7 +972,7 @@ function ProcessAndTipsSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
           <h2 id="surec-ipuclari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Podyum Kiralama <span className="text-blue-700">Süreci</span> ve İpuçları
+            Podyum Kiralama <span className="text-violet-700">Süreci</span> ve İpuçları
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             İstanbul ve Türkiye genelinde podyum kiralama teklifinizi daha hızlı netleştirmek için süreç adımlarını ve kritik noktaları özetledik.
@@ -1027,18 +1027,18 @@ function ProcessAndTipsSection() {
           </article>
 
           {/* 2 */}
-          <article className="rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-8 shadow-xl">
+          <article className="rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-8 shadow-xl">
             <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-3">
               Kısa süreli podyum kiralama mümkün mü?
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
               Evet, kısa süreli podyum kiralama mümkündür. Günlük, haftalık veya etkinlik bazlı kiralama yapılabilir.{" "}
-              <Link className="font-bold text-blue-700 underline underline-offset-4" href="/defile-podyum-kiralama">Defile</Link>,{" "}
-              <Link className="font-bold text-blue-700 underline underline-offset-4" href="/konser-icin-podyum-kiralama">konser</Link>{" "}
+              <Link className="font-bold text-violet-700 underline underline-offset-4" href="/defile-podyum-kiralama">Defile</Link>,{" "}
+              <Link className="font-bold text-violet-700 underline underline-offset-4" href="/konser-icin-podyum-kiralama">konser</Link>{" "}
               ve kurumsal lansman gibi organizasyonlarda aynı gün kurulum/söküm planlaması uygunluk durumuna göre yapılır.
             </p>
 
-            <div className="mt-6 rounded-2xl bg-white p-5 border border-blue-200">
+            <div className="mt-6 rounded-2xl bg-white p-5 border border-violet-200">
               <p className="font-black text-gray-900 mb-1">Hızlı teklif için minimum bilgi</p>
               <p className="text-gray-700">
                 Tarih • İlçe • m² • Yükseklik • Halı (evet/hayır) • Skört (metre)
@@ -1061,7 +1061,7 @@ function ProcessAndTipsSection() {
               <Link
                 href="/sahne-kiralama"
                 prefetch={false}
-                className="font-bold text-blue-700 underline underline-offset-4"
+                className="font-bold text-violet-700 underline underline-offset-4"
               >
                 sahne kiralama
               </Link>{" "}
@@ -1090,14 +1090,14 @@ function ProcessAndTipsSection() {
               <Link
                 href="/ses-isik-sistemleri"
                 prefetch={false}
-                className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
               >
                 Ses &amp; Işık Sistemleri →
               </Link>
               <Link
                 href="/led-ekran-kiralama"
                 prefetch={false}
-                className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                className="inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
               >
                 LED Ekran Kiralama →
               </Link>
@@ -1130,7 +1130,7 @@ function FAQSection() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 id="sss-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan <span className="text-blue-700">Sorular</span>
+            Sık Sorulan <span className="text-violet-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Podyum kiralama hakkında merak edilen sorular ve cevapları
@@ -1140,17 +1140,17 @@ function FAQSection() {
         <ul className="space-y-6">
           {FAQ_ITEMS.map((faq, index) => (
             <li key={index}>
-              <details className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border">
-                <summary className="flex min-h-[56px] cursor-pointer touch-manipulation list-none items-center justify-between gap-4 py-2 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
+              <details className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-violet-50 open:border-violet-200 border-2 border-transparent open:border">
+                <summary className="flex min-h-[56px] cursor-pointer touch-manipulation list-none items-center justify-between gap-4 py-2 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200">
                   <span className="pr-4">{faq.q}</span>
                   <span
-                    className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-500 group-open:rotate-180"
+                    className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-violet-100 text-violet-600 transition-transform duration-500 group-open:rotate-180"
                     aria-hidden="true"
                   >
                     ⌄
                   </span>
                 </summary>
-                <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500">
                   {faq.a}
                 </div>
               </details>
@@ -1165,7 +1165,7 @@ function FAQSection() {
           <Link
             href="/sss"
             prefetch={false}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span className="text-xl mr-3" aria-hidden="true">📚</span>
             <span className="text-lg">Tüm SSS&apos;yi Görüntüle</span>
@@ -1180,13 +1180,13 @@ function RelatedServicesSection() {
   return (
     <section
       id="tamamlayici-hizmetler"
-      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="tamamlayici-hizmetler-title"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="tamamlayici-hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Tamamlayıcı <span className="text-blue-700">Hizmetlerimiz</span>
+            Tamamlayıcı <span className="text-violet-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Podyum kurulumunuzu tamamlayacak diğer profesyonel etkinlik çözümlerimiz
@@ -1198,12 +1198,12 @@ function RelatedServicesSection() {
               <Link
                 href={service.href}
                 prefetch={false}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center h-full flex flex-col"
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center h-full flex flex-col"
               >
-                <div className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                <div className="mb-6 text-violet-600 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                   <service.Icon size={36} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed">{service.desc}</p>
@@ -1223,13 +1223,13 @@ function CTASection() {
       aria-labelledby="cta-title"
     >
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10">
             <h2 id="cta-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Profesyonel Podyum Çözümlerine Hazır Mısınız?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun podyum sistemlerini sunalım. Ücretsiz keşif, profesyonel danışmanlık ve
               etkinliğinize uygun teknik planlamayla hizmetinizdeyiz.
             </p>
@@ -1237,7 +1237,7 @@ function CTASection() {
               <Link
                 href="/iletisim"
                 prefetch={false}
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
               >
                 <span className="text-xl mr-3" aria-hidden="true">📞</span> Hemen Teklif Al
               </Link>

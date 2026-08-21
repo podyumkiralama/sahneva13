@@ -304,8 +304,8 @@ function ImgFigure({ src, alt, caption }) {
 
 function FieldNote({ title, children }) {
   return (
-    <div className="not-prose my-8 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Saha notu</p>
+    <div className="not-prose my-8 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Saha notu</p>
       <h3 className="mt-3 text-2xl font-black text-slate-950">{title}</h3>
       <div className="mt-3 text-base leading-relaxed text-slate-700">{children}</div>
     </div>
@@ -314,8 +314,8 @@ function FieldNote({ title, children }) {
 
 function ShortAnswer() {
   return (
-    <div className="geo-answer not-prose my-8 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Kısa cevap</p>
+    <div className="geo-answer not-prose my-8 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Kısa cevap</p>
       <p className="mt-3 text-lg leading-relaxed text-slate-800">
         LED ekran kurulumu, doğru taşıyıcı sistem, rüzgar ve zemin kontrolü, elektrik güvenliği,
         kablo yönetimi ve yetkin teknik ekiple yapıldığında güvenlidir. Risk genellikle panelden
@@ -352,7 +352,7 @@ function TechnicalRanges() {
 
   return (
     <section className="not-prose my-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-700">
         Pratik teknik aralıklar
       </p>
       <h2 className="mt-3 text-3xl font-black text-slate-950">
@@ -377,7 +377,7 @@ function TechnicalRanges() {
 function SafetyChecklist() {
   return (
     <section id="kontrol-listesi" className="not-prose my-12 rounded-3xl border border-slate-200 bg-slate-950 p-6 text-white md:p-8">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-200">Kontrol listesi</p>
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-200">Kontrol listesi</p>
       <h2 className="mt-3 text-3xl font-black">Etkinlik öncesi LED ekran güvenlik kontrolü</h2>
       <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-300">
         Bu liste teklif aşamasında bile karar kalitesini artırır. Kurulum günü ekibin hızlanmasını değil, doğru sırayla ve güvenli çalışmasını sağlar.
@@ -424,7 +424,7 @@ function GalleryStrip() {
   return (
     <section className="not-prose my-12 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
       <div className="max-w-3xl">
-        <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-700">Sahadan görüntüler</p>
+        <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Sahadan görüntüler</p>
         <h2 className="mt-3 text-3xl font-black text-slate-950">Güvenlik kararı görüntünün arkasında başlar</h2>
         <p className="mt-3 text-base leading-relaxed text-slate-600">
           LED ekran sahnede tek parça görünür; fakat arkasında panel, taşıyıcı, enerji, ses, kontrol ve personel akışından oluşan çok katmanlı bir kurulum vardır.

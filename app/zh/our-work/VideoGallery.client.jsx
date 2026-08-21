@@ -59,8 +59,8 @@ function searchableText(video) {
 
 function ProjectVideoCard({ video, index }) {
   return (
-    <article className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-3 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-blue-300/35 hover:bg-white/[0.075]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.16),transparent_34%)] opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden="true" />
+    <article className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-3 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-violet-300/35 hover:bg-white/[0.075]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139, 92, 246,0.16),transparent_34%)] opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden="true" />
       <div className="relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-black">
         <LazyVideoEmbed
           videoId={video.id}
@@ -80,7 +80,7 @@ function ProjectVideoCard({ video, index }) {
         <p className="mt-3 text-sm leading-relaxed text-slate-300 md:text-base">{video.description}</p>
         <ul className="mt-5 flex flex-wrap gap-2" aria-label="视频中涉及的服务">
           {video.services.map((service) => (
-            <li key={service} className="rounded-full border border-blue-300/20 bg-blue-500/10 px-3 py-1 text-xs font-black text-blue-100">
+            <li key={service} className="rounded-full border border-violet-300/20 bg-violet-500/10 px-3 py-1 text-xs font-black text-violet-100">
               {service}
             </li>
           ))}
@@ -112,7 +112,7 @@ export default function VideoGallery({ videos }) {
       <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] px-4 py-3 text-sm text-slate-300 shadow-xl shadow-black/10 backdrop-blur">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100">
+            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-violet-100">
               <SlidersHorizontal className="h-4 w-4" />
               项目筛选
             </span>
@@ -131,8 +131,8 @@ export default function VideoGallery({ videos }) {
                   aria-pressed={isActive}
                   className={`inline-flex min-h-[36px] items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-black transition ${
                     isActive
-                      ? "border-blue-200 bg-blue-300 text-slate-950 shadow-lg shadow-blue-950/20"
-                      : "border-white/10 bg-white/5 text-slate-200 hover:border-blue-200/50 hover:bg-white/10"
+                      ? "border-violet-200 bg-violet-300 text-slate-950 shadow-lg shadow-violet-950/20"
+                      : "border-white/10 bg-white/5 text-slate-200 hover:border-violet-200/50 hover:bg-white/10"
                   }`}
                 >
                   {isActive ? <Check className="h-3.5 w-3.5" /> : null}

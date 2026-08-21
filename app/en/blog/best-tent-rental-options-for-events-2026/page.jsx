@@ -240,9 +240,9 @@ function ArticleJsonLd() {
 
 function DecisionBox({ title, children }) {
   return (
-    <div className="not-prose rounded-2xl border border-blue-100 bg-blue-50 p-5">
-      <p className="m-0 text-base font-black text-blue-950">{title}</p>
-      <div className="mt-2 text-sm leading-relaxed text-blue-900">{children}</div>
+    <div className="not-prose rounded-2xl border border-violet-100 bg-violet-50 p-5">
+      <p className="m-0 text-base font-black text-violet-950">{title}</p>
+      <div className="mt-2 text-sm leading-relaxed text-violet-900">{children}</div>
     </div>
   );
 }
@@ -360,7 +360,7 @@ function TentGallery() {
   return (
     <section id="tent-gallery" className="not-prose my-10 scroll-mt-28">
       <div className="mb-5">
-        <p className="m-0 text-sm font-black uppercase tracking-wide text-blue-700">
+        <p className="m-0 text-sm font-black uppercase tracking-wide text-violet-700">
           Tent rental application gallery
         </p>
         <h2 className="m-0 mt-2 text-2xl font-black text-gray-950">
@@ -683,7 +683,7 @@ export default function Page() {
           {FAQ_ITEMS.map((item) => (
             <details
               key={item.question}
-              className="group rounded-xl border border-gray-200 bg-white open:border-blue-300 open:ring-2 open:ring-blue-100"
+              className="group rounded-xl border border-gray-200 bg-white open:border-violet-300 open:ring-2 open:ring-violet-100"
             >
               <summary className="cursor-pointer list-none px-5 py-4 font-bold text-gray-900">
                 {item.question}
@@ -695,16 +695,16 @@ export default function Page() {
           ))}
         </section>
 
-        <div className="not-prose mt-12 rounded-3xl bg-gradient-to-br from-gray-900 to-blue-900 p-8 text-white shadow-2xl">
+        <div className="not-prose mt-12 rounded-3xl bg-gradient-to-br from-gray-900 to-violet-900 p-8 text-white shadow-2xl">
           <h2 className="m-0 text-2xl font-black">Let's choose the right tent for your event</h2>
-          <p className="mb-0 mt-3 text-blue-100">
+          <p className="mb-0 mt-3 text-violet-100">
             Size, ground, anchoring, climate control and stage-LED integration — clarified in a
             single plan.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href={TENT_SERVICE_PATH}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-bold text-blue-950 hover:bg-blue-50"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-bold text-violet-950 hover:bg-violet-50"
             >
               Explore the Tent Rental Service
             </Link>
@@ -733,7 +733,7 @@ export default function Page() {
               <li key={service.href}>
                 <Link
                   href={service.href}
-                  className="text-sm font-semibold text-blue-700 hover:text-blue-900"
+                  className="text-sm font-semibold text-violet-700 hover:text-violet-900"
                 >
                   {service.label}
                 </Link>

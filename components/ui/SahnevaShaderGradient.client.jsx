@@ -112,7 +112,7 @@ export default function SahnevaShaderGradient({ className = "" }) {
         width * 0.28,
         height * 0.2,
         -0.16,
-        "rgba(103,232,249,",
+        "rgba(196, 181, 253,",
         0.28,
       );
       drawBlob(
@@ -121,7 +121,7 @@ export default function SahnevaShaderGradient({ className = "" }) {
         width * 0.34,
         height * 0.22,
         -0.12,
-        "rgba(59,130,246,",
+        "rgba(139, 92, 246,",
         0.26,
       );
       drawBlob(

@@ -128,7 +128,7 @@ export default function GermanProjectsPage() {
       <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100">
               Projekte
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -146,7 +146,7 @@ export default function GermanProjectsPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_900px] lg:[contain-intrinsic-size:auto_600px] py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Projektarten
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -158,7 +158,7 @@ export default function GermanProjectsPage() {
               <Link
                 key={group.title}
                 href={group.href}
-                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
+                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl"
               >
                 <div className="relative h-44 w-full">
                   <Image
@@ -172,7 +172,7 @@ export default function GermanProjectsPage() {
                 <div className="p-6">
                   <h3 className="text-xl font-black text-slate-950">{group.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-slate-700">{group.text}</p>
-                  <span className="mt-4 inline-flex text-sm font-black text-indigo-700 group-hover:text-indigo-900">
+                  <span className="mt-4 inline-flex text-sm font-black text-violet-700 group-hover:text-violet-900">
                     Leistung ansehen →
                   </span>
                 </div>
@@ -185,7 +185,7 @@ export default function GermanProjectsPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_900px] lg:[contain-intrinsic-size:auto_600px] bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Ausgewählte Projekte
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -208,7 +208,7 @@ export default function GermanProjectsPage() {
                   {project.tags.map((tag) => (
                     <li
                       key={tag}
-                      className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-indigo-700"
+                      className="rounded-full bg-violet-50 px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-violet-700"
                     >
                       {tag}
                     </li>
@@ -224,7 +224,7 @@ export default function GermanProjectsPage() {
         <section className="content-visibility-auto [contain-intrinsic-size:auto_1000px] lg:[contain-intrinsic-size:auto_700px] py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="mx-auto mb-9 max-w-3xl text-center">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
                 Bildergalerie
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">

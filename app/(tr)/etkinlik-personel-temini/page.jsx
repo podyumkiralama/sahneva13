@@ -1,7 +1,7 @@
 // app/(tr)/etkinlik-personel-temini/page.jsx
-import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -263,49 +263,32 @@ export default function Page() {
       />
 
       {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 opacity-25">
-          <Image
-            src="/img/ekip-calisma.webp"
-            alt="Sahneva ekibi etkinlik hazırlığı sırasında"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-amber-400">
-            Etkinlik Operasyon Hizmetleri
-          </p>
-          <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-            Etkinlik Personel Temini
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-200">
-            Festival ve kurumsal etkinlikler için belgeli güvenlik, temizlik, ikram,
-            hostes, servis ve teknik personel. Kadro süpervizör yönetiminde,
-            vardiyalı düzende sahaya çıkar.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-7 py-4 font-semibold text-slate-950 transition hover:bg-amber-400"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              WhatsApp&apos;tan teklif alın
-            </a>
-            <Link
-              href="/iletisim"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 font-semibold text-white transition hover:bg-white/10"
-            >
-              İletişim formu
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        compact
+        eyebrow="Etkinlik operasyon hizmetleri"
+        title="Etkinlik Personel Temini"
+        titleWide
+        description="Festival ve kurumsal etkinlikler için belgeli güvenlik, temizlik, ikram, hostes, servis ve teknik personel. Kadro süpervizör yönetiminde, vardiyalı düzende sahaya çıkar."
+        actions={[
+          {
+            key: "whatsapp",
+            label: "WhatsApp'tan teklif alın",
+            href: WHATSAPP,
+            external: true,
+            rel: "noopener noreferrer",
+          },
+          {
+            key: "contact",
+            label: "İletişim formu",
+            href: "/iletisim",
+          },
+        ]}
+        image={{
+          src: "/img/ekip-calisma.webp",
+          alt: "Sahneva ekibi etkinlik hazırlığı sırasında",
+          sizes: "100vw",
+        }}
+      />
 
       {/* ---------- Kadrolar ---------- */}
       <section className="mx-auto max-w-6xl px-4 py-20">

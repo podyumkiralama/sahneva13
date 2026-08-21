@@ -204,7 +204,7 @@ export default function BlogPost() {
         readTime="9 dk okuma"
       >
 
-        <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+        <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
             Profesyonellik ile eğlence arasındaki hassas dengeyi kurmak, kurumsal etkinlik planlarken en zorlayıcı konulardan biridir.
           </p>

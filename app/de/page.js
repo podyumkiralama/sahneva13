@@ -35,7 +35,7 @@ const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
       aria-label="Galerie wird geladen"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Galerie wird geladen …</span>
@@ -51,7 +51,7 @@ const Faq = dynamic(() => import("@/components/Faq"), {
       aria-label="Häufige Fragen werden geladen"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Häufige Fragen werden geladen …</span>
@@ -67,7 +67,7 @@ function SectionLoading({ label, height = "h-48" }) {
       aria-label={label}
     >
       <div
-        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
+        className="h-12 w-12 animate-spin rounded-full border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">{label}</span>
@@ -402,9 +402,9 @@ const SERVICES_DE = [
 
 const HERO_DICT_DE = {
   keywords: [
-    { text: "Bühne mieten", color: "text-blue-200" },
+    { text: "Bühne mieten", color: "text-violet-200" },
     { text: "LED-Wand mieten", color: "text-purple-200" },
-    { text: "Ton & Licht", color: "text-cyan-200" },
+    { text: "Ton & Licht", color: "text-violet-200" },
     { text: "Podestbau", color: "text-emerald-200" },
   ],
   keywordsAriaLabel: "Ausgewählte Leistungen",
@@ -605,7 +605,7 @@ const CORPORATE_EVENTS_CARDS_DE = [
     alt: "Bühne, LED-Wand und Lichtdesign für einen Produktlaunch von Sahneva",
     text: "Inszenierung über die LED-Fläche, Bühnenbild, Lichtdesign und Livestream-Workflow für den Moment der Enthüllung.",
     icon: "🚀",
-    gradient: "from-purple-500/10 to-blue-500/10",
+    gradient: "from-purple-500/10 to-violet-500/10",
     color: "text-purple-700",
   },
   {
@@ -635,8 +635,8 @@ const CORPORATE_EVENTS_ADVANTAGES_DE = [
     icon: "⚡",
     label: "Zügiger Aufbau",
     desc: "Eingespielte Crew, Aufbau am selben Tag möglich",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
+    bg: "bg-violet-50",
+    border: "border-violet-200",
   },
   {
     icon: "🎛",
@@ -870,7 +870,7 @@ export default function GermanHomePage() {
           arbeiten wir in zwei Modellen: als Hauptauftragnehmer für die gesamte Produktion oder als{" "}
           <Link
             href="/de/eventproduktion-tuerkei"
-            className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
+            className="font-bold text-violet-200 underline underline-offset-4 hover:text-white"
           >
             technischer Partner im Hintergrund Ihrer Agentur
           </Link>{" "}

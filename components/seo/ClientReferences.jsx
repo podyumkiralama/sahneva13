@@ -25,7 +25,7 @@ export default function ClientReferences({
       className="[content-visibility:auto] [contain-intrinsic-size:auto_640px] bg-white px-4 py-14 md:py-20"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-black uppercase tracking-widest text-blue-700">Referanslar</p>
+        <p className="text-sm font-black uppercase tracking-widest text-violet-700">Referanslar</p>
         <h2
           id="kurum-referanslari-baslik"
           className="mt-3 text-3xl font-black leading-tight tracking-tight text-slate-950 md:text-4xl"
@@ -39,7 +39,7 @@ export default function ClientReferences({
             <li key={`${entry.org}-${entry.work}`} className="bg-white">
               <Link
                 href={entry.href}
-                className="flex h-full flex-col justify-between gap-3 p-6 transition hover:bg-blue-50/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
+                className="flex h-full flex-col justify-between gap-3 p-6 transition hover:bg-violet-50/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-violet-600"
               >
                 <span className="text-lg font-black leading-snug text-slate-950">{entry.org}</span>
                 <span className="text-sm leading-6 text-slate-600">{entry.work}</span>

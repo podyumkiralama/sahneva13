@@ -216,7 +216,7 @@ function FormField({ label, children, inverse = false }) {
 }
 
 const inputClass =
-  "min-h-[48px] w-full rounded-xl border border-slate-200 bg-white px-4 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100";
+  "min-h-[48px] w-full rounded-xl border border-slate-200 bg-white px-4 text-slate-900 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100";
 
 export default function WebMcpServiceTools({ locale = "tr", contactHref = "/iletisim" }) {
   const text = COPY[locale] || COPY.tr;
@@ -226,7 +226,7 @@ export default function WebMcpServiceTools({ locale = "tr", contactHref = "/ilet
     <section className="bg-slate-950 py-20 text-white" aria-labelledby="webmcp-service-tools-title">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-cyan-200">
+          <p className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-violet-200">
             {text.eyebrow}
           </p>
           <h2 id="webmcp-service-tools-title" className="text-3xl font-black md:text-5xl">
@@ -303,7 +303,7 @@ export default function WebMcpServiceTools({ locale = "tr", contactHref = "/ilet
 
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-blue-700 px-5 font-black text-white transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-violet-700 px-5 font-black text-white transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             >
               {text.submitCapability}
             </button>
@@ -312,7 +312,7 @@ export default function WebMcpServiceTools({ locale = "tr", contactHref = "/ilet
           <form
             action={contactHref}
             method="get"
-            className="rounded-3xl border border-cyan-200/30 bg-slate-900 p-6 text-white shadow-2xl md:p-8"
+            className="rounded-3xl border border-violet-200/30 bg-slate-900 p-6 text-white shadow-2xl md:p-8"
             {...PODIUM_ESTIMATE_FORM_PROPS}
           >
             <h3 className="text-2xl font-black">{text.estimateTitle}</h3>
@@ -363,7 +363,7 @@ export default function WebMcpServiceTools({ locale = "tr", contactHref = "/ilet
 
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-cyan-300 px-5 font-black text-slate-950 transition hover:bg-cyan-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-100"
+              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-violet-300 px-5 font-black text-slate-950 transition hover:bg-violet-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-100"
             >
               {text.submitEstimate}
             </button>

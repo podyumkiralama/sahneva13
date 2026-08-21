@@ -179,13 +179,13 @@ export default function ArabicContactPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-blue-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-violet-950/70" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
             <div className="text-right">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
                 Contact Sahneva
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
@@ -237,9 +237,9 @@ export default function ArabicContactPage() {
                 href={channel.href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "nofollow noopener noreferrer" : undefined}
-                className="rounded-3xl border border-slate-200 bg-white p-6 text-right shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-lg"
+                className="rounded-3xl border border-slate-200 bg-white p-6 text-right shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-lg"
               >
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-indigo-600">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-600">
                   {channel.title}
                 </p>
                 <h2
@@ -260,7 +260,7 @@ export default function ArabicContactPage() {
       <section className="container mx-auto px-4 pb-14">
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 text-right">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Request a quote
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950">
@@ -295,7 +295,7 @@ export default function ArabicContactPage() {
                   required
                   autoComplete="name"
                   {...WEB_MCP_QUOTE_FIELD_PROPS.name}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
                 />
               </div>
               <div>
@@ -312,7 +312,7 @@ export default function ArabicContactPage() {
                   dir="ltr"
                   placeholder="+90 ..."
                   {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
                 />
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function ArabicContactPage() {
                   dir="ltr"
                   placeholder="name@example.com"
                   {...WEB_MCP_QUOTE_FIELD_PROPS.email}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-slate-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
                 />
               </div>
               <div>
@@ -345,7 +345,7 @@ export default function ArabicContactPage() {
                   required
                   autoComplete="off"
                   {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
                 >
                   <option value="">اختر نوع الفعالية</option>
                   <option value="Corporate Event">فعالية شركات</option>
@@ -370,7 +370,7 @@ export default function ArabicContactPage() {
                 autoComplete="off"
                 placeholder="المدينة، التاريخ، المكان، عدد الحضور، الخدمات المطلوبة..."
                 {...WEB_MCP_QUOTE_FIELD_PROPS.message}
-                className="mt-2 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                className="mt-2 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
               />
             </div>
 
@@ -380,7 +380,7 @@ export default function ArabicContactPage() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-indigo-600 px-6 text-sm font-black text-white transition hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200"
+              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-violet-600 px-6 text-sm font-black text-white transition hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
             >
               إرسال طلب العرض
             </button>
@@ -392,7 +392,7 @@ export default function ArabicContactPage() {
         <div className="container mx-auto px-4">
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="rounded-3xl bg-slate-950 p-7 text-white md:p-8">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
                 عرض أسرع
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
@@ -419,7 +419,7 @@ export default function ArabicContactPage() {
         <div className="grid gap-4 md:grid-cols-3">
           {RESPONSE_STEPS.map((step, index) => (
             <article key={step.title} className="rounded-3xl border border-slate-200 bg-white p-6 text-right shadow-sm">
-              <span className="text-sm font-black text-indigo-600">0{index + 1}</span>
+              <span className="text-sm font-black text-violet-600">0{index + 1}</span>
               <h2 className="mt-4 text-xl font-black text-slate-950">{step.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-700">{step.text}</p>
             </article>
@@ -432,7 +432,7 @@ export default function ArabicContactPage() {
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 text-right md:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_0.7fr] lg:items-center">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
                   تركيا بالكامل
                 </p>
                 <h2 className="mt-3 text-3xl font-black">

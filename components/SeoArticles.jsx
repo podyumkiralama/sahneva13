@@ -155,7 +155,7 @@ export default async function SeoArticles({
     <section
       className={`${
         compact ? "py-10" : "py-12"
-      } bg-gradient-to-br from-white via-neutral-50 to-blue-50/30`}
+      } bg-gradient-to-br from-white via-neutral-50 to-violet-50/30`}
       aria-labelledby="articles-title"
     >
       <div className="container">
@@ -185,12 +185,12 @@ export default async function SeoArticles({
 
             return (
               <li key={a.slug} className="h-full">
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-xl focus-within:ring-2 focus-within:ring-blue-500">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-xl focus-within:ring-2 focus-within:ring-violet-500">
                   {/* Üst görsel */}
                   <div className="relative h-40 w-full overflow-hidden rounded-t-2xl bg-neutral-200">
                     <Link
                       href={a.href}
-                      className="absolute inset-0 block rounded-t-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                      className="absolute inset-0 block rounded-t-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                       aria-label={a.title}
                     >
                       <span className="sr-only">{a.title}</span>
@@ -216,7 +216,7 @@ export default async function SeoArticles({
                     )}
 
                     {a.category && (
-                      <span className="absolute left-2 top-2 rounded-full bg-blue-600/90 px-2 py-1 text-sm font-semibold text-white shadow-sm">
+                      <span className="absolute left-2 top-2 rounded-full bg-violet-600/90 px-2 py-1 text-sm font-semibold text-white shadow-sm">
                         {a.category}
                       </span>
                     )}
@@ -238,10 +238,10 @@ export default async function SeoArticles({
                       )}
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-semibold text-neutral-900 line-clamp-2 group-hover:text-blue-700 transition-colors">
+                    <h3 className="text-sm sm:text-base font-semibold text-neutral-900 line-clamp-2 group-hover:text-violet-700 transition-colors">
                       <Link
                         href={a.href}
-                        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
+                        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-sm"
                       >
                         {a.title}
                       </Link>
@@ -251,10 +251,10 @@ export default async function SeoArticles({
                       {a.desc}
                     </p>
 
-                    <div className="mt-4 flex items-center justify-between text-xs font-semibold text-blue-600">
+                    <div className="mt-4 flex items-center justify-between text-xs font-semibold text-violet-600">
                       <Link
                         href={a.href}
-                        className="inline-flex items-center gap-1 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
+                        className="inline-flex items-center gap-1 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-sm"
                       >
                         Devamını oku
                         <span aria-hidden="true">→</span>

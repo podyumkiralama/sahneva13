@@ -180,7 +180,7 @@ function ProjectImage({ src, alt, caption }) {
 function ProjectCta() {
   return (
     <section id="teklif" className="not-prose my-12 rounded-3xl bg-slate-950 p-7 text-white shadow-xl md:p-10">
-      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-blue-200">Teklif ve proje planı</p>
+      <p className="m-0 text-sm font-black uppercase tracking-[0.18em] text-violet-200">Teklif ve proje planı</p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-white md:text-3xl">
         Çadır, podyum ve lojistik ihtiyacınızı birlikte planlayalım
       </h2>
@@ -191,7 +191,7 @@ function ProjectCta() {
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
           href="/iletisim"
-          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-blue-50"
+          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-violet-50"
         >
           Teklif isteyin
         </Link>
@@ -244,7 +244,7 @@ export default function TeknofestGolcukCadirPodyumPage() {
         whatsappUrl={WA_URL}
       >
         <div className="mx-auto max-w-4xl">
-          <div className="not-prose mb-10 rounded-2xl border-l-4 border-blue-600 bg-blue-50 px-6 py-5 text-lg font-medium leading-relaxed text-slate-800">
+          <div className="not-prose mb-10 rounded-2xl border-l-4 border-violet-600 bg-violet-50 px-6 py-5 text-lg font-medium leading-relaxed text-slate-800">
             Geniş ölçekli etkinlik alanlarında çadır, podyum, sevkiyat ve saha ekibi aynı planın parçalarıdır.
             Gölcük'teki bu kurulum, Sahneva'nın Türkiye geneli operasyon kapasitesini somutlaştıran projelerden biridir.
           </div>

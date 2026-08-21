@@ -268,7 +268,7 @@ export default function GermanFaqPage() {
               bleibt, schildern Sie uns Ihr Projekt über die{" "}
               <Link
                 href="/de/kontakt"
-                className="font-bold text-cyan-300 underline underline-offset-4 hover:text-cyan-100"
+                className="font-bold text-violet-300 underline underline-offset-4 hover:text-violet-100"
               >
                 Kontaktseite
               </Link>
@@ -281,7 +281,7 @@ export default function GermanFaqPage() {
               <a
                 key={category.id}
                 href={`#${category.id}`}
-                className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-slate-600 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-cyan-400/70 hover:text-cyan-100"
+                className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-slate-600 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-violet-400/70 hover:text-violet-100"
               >
                 <span aria-hidden="true">{category.icon}</span>
                 {category.title}
@@ -308,7 +308,7 @@ export default function GermanFaqPage() {
                   {category.href ? (
                     <Link
                       href={category.href}
-                      className="inline-flex min-h-[40px] items-center text-sm font-bold text-cyan-300 underline underline-offset-4 transition hover:text-cyan-100"
+                      className="inline-flex min-h-[40px] items-center text-sm font-bold text-violet-300 underline underline-offset-4 transition hover:text-violet-100"
                     >
                       {category.hrefLabel}
                     </Link>
@@ -330,7 +330,7 @@ export default function GermanFaqPage() {
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-12">
             <a
               href="tel:+905453048671"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-400"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-violet-500 px-4 py-2 font-semibold text-slate-950 hover:bg-violet-400"
             >
               📞 Jetzt anrufen
             </a>
@@ -338,14 +338,14 @@ export default function GermanFaqPage() {
               href={WHATSAPP_HREF}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 transition hover:border-cyan-400/70 hover:text-cyan-100"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 transition hover:border-violet-400/70 hover:text-violet-100"
               aria-label="Frage über WhatsApp stellen – wird in einem neuen Tab geöffnet"
             >
               💬 Über WhatsApp fragen
             </a>
             <Link
               href="/de/arbeitsweise"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 transition hover:border-cyan-400/70 hover:text-cyan-100"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 transition hover:border-violet-400/70 hover:text-violet-100"
             >
               🧭 Unsere Arbeitsweise
             </Link>

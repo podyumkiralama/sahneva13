@@ -590,7 +590,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
         <button
           type="button"
           onClick={() => setIsActive(true)}
-          className="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
+          className="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
           aria-label="Erişilebilirlik ayarlarını aç"
         >
           ♿
@@ -608,14 +608,14 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
         } z-[10000] w-full max-w-96 h-screen bg-white shadow-2xl border-l border-gray-200 flex flex-col`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="flex items-center justify-between p-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
               <span className="text-xl">♿</span>
             </div>
             <div>
               <h2 className="font-bold text-lg">Erişilebilirlik</h2>
-              <p className="text-blue-100 text-sm">
+              <p className="text-violet-100 text-sm">
                 Ayarlarınızı kişiselleştirin
               </p>
             </div>
@@ -658,7 +658,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
               onClick={() => setActiveTab(tab.id)}
               className={`flex-1 flex flex-col items-center py-3 text-xs font-medium transition-colors ${
                 activeTab === tab.id
-                  ? "text-blue-600 bg-white border-b-2 border-blue-600"
+                  ? "text-violet-600 bg-white border-b-2 border-violet-600"
                   : "text-gray-600 hover:text-gray-900"
               }`}
             >
@@ -745,7 +745,7 @@ setLS(LS_KEYS.PANEL_POSITION, "left");
                   >
                     A-
                   </button>
-                  <div className="flex-1 text-center py-3 bg-blue-50 text-blue-700 rounded-lg font-bold">
+                  <div className="flex-1 text-center py-3 bg-violet-50 text-violet-700 rounded-lg font-bold">
                     {fontSize}px
                   </div>
                   <button
@@ -1002,7 +1002,7 @@ function ToggleCard({
               asButtonOnly
                 ? "bg-red-500 hover:bg-red-600"
                 : isActive
-                ? "bg-blue-600"
+                ? "bg-violet-600"
                 : "bg-gray-300"
             }`}
             aria-pressed={isActive}
@@ -1033,7 +1033,7 @@ function ActionCard({ icon, title, description, onClick }) {
       onClick={onClick}
       className="w-full flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-3 hover:bg-gray-50 text-left transition-colors"
     >
-      <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-lg text-blue-600">
+      <div className="w-10 h-10 rounded-lg bg-violet-50 flex items-center justify-center text-lg text-violet-600">
         {icon}
       </div>
       <div className="flex-1">

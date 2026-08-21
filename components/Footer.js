@@ -17,7 +17,7 @@ import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 const FOCUS_RING_CLASS =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020617]";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020617]";
 
 const SOCIAL_LINKS = [
   {
@@ -25,7 +25,7 @@ const SOCIAL_LINKS = [
     label: "Sahneva Instagram",
     title: "Instagram",
     icon: Instagram,
-    gradient: "from-blue-500/30 via-purple-500/30 to-pink-500/20",
+    gradient: "from-violet-500/30 via-purple-500/30 to-pink-500/20",
     rel: "me",
   },
   {
@@ -49,7 +49,7 @@ const SOCIAL_LINKS = [
     label: "Sahneva LinkedIn",
     title: "LinkedIn",
     icon: Linkedin,
-    gradient: "from-sky-500/30 via-blue-500/30 to-cyan-400/20",
+    gradient: "from-violet-500/30 via-purple-500/28 to-fuchsia-400/18",
     rel: "me",
   },
   {
@@ -57,7 +57,7 @@ const SOCIAL_LINKS = [
     label: "Sahneva Facebook",
     title: "Facebook",
     icon: Facebook,
-    gradient: "from-blue-600/30 via-blue-500/30 to-sky-400/20",
+    gradient: "from-violet-700/30 via-violet-500/28 to-violet-400/18",
     rel: "me",
   },
 ];
@@ -135,7 +135,7 @@ const LANGUAGE_LINKS = [
 const FooterLink = ({
   href,
   children,
-  hoverColorClass = "hover:text-blue-400 hover:border-blue-400",
+  hoverColorClass = "hover:text-violet-400 hover:border-violet-400",
   target,
   rel,
 }) => (
@@ -261,14 +261,14 @@ export default function Footer({
           : "Profesyonel etkinlik prodüksiyon ve organizasyon firması hizmetleri.";
 
   const brandDesc1 = isEn
-    ? (<span className="block">Across Türkiye: <span className="text-blue-300 font-semibold">stage rental, podium rental, LED screen rental</span>, sound and light systems and truss rental with full-scale setup.</span>)
+    ? (<span className="block">Across Türkiye: <span className="text-violet-300 font-semibold">stage rental, podium rental, LED screen rental</span>, sound and light systems and truss rental with full-scale setup.</span>)
     : isRu
-      ? (<span className="block">В Турции: <span className="text-blue-300 font-semibold">аренда сцен, подиумов и LED-экранов</span>, звук, свет и truss с монтажной командой.</span>)
+      ? (<span className="block">В Турции: <span className="text-violet-300 font-semibold">аренда сцен, подиумов и LED-экранов</span>, звук, свет и truss с монтажной командой.</span>)
       : isZh
-        ? (<span className="block">在土耳其全境提供<span className="text-blue-300 font-semibold">舞台租赁、T台租赁、LED屏幕租赁</span>、音响灯光系统与桁架租赁及现场安装。</span>)
+        ? (<span className="block">在土耳其全境提供<span className="text-violet-300 font-semibold">舞台租赁、T台租赁、LED屏幕租赁</span>、音响灯光系统与桁架租赁及现场安装。</span>)
         : isDe
-        ? (<span className="block">In der gesamten Türkei: <span className="text-blue-300 font-semibold">Bühnen, Podeste und LED-Wände mieten</span>, dazu Ton- und Lichttechnik sowie Traversen inklusive Aufbau.</span>)
-        : (<span className="block">Türkiye genelinde{" "}<span className="text-blue-300 font-semibold">sahne kiralama, podyum kiralama, LED ekran kiralama</span>, ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.</span>);
+        ? (<span className="block">In der gesamten Türkei: <span className="text-violet-300 font-semibold">Bühnen, Podeste und LED-Wände mieten</span>, dazu Ton- und Lichttechnik sowie Traversen inklusive Aufbau.</span>)
+        : (<span className="block">Türkiye genelinde{" "}<span className="text-violet-300 font-semibold">sahne kiralama, podyum kiralama, LED ekran kiralama</span>, ses ışık sistemleri ve truss kiralama ile tam kapasiteli kurulum.</span>);
 
   const brandDesc2 = isEn
     ? (<span className="block mt-1 text-slate-300/90 leading-relaxed">Festival, fair, concert, corporate event and graduation organizations with tent rental and table-chair rental solutions.</span>)
@@ -376,7 +376,7 @@ export default function Footer({
             }}
           />
         </div>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
       </div>
 
       {/* Görünmez ana başlık (SR + başlık hiyerarşisi için) */}
@@ -397,7 +397,7 @@ export default function Footer({
         className="relative z-10 border-b border-white/10"
         style={{
           backgroundImage:
-            "linear-gradient(110deg, rgba(37,99,235,0.16), rgba(124,58,237,0.08) 48%, rgba(16,185,129,0.11))",
+            "linear-gradient(110deg, rgba(124, 58, 237,0.16), rgba(124,58,237,0.08) 48%, rgba(16,185,129,0.11))",
         }}
       >
         <section
@@ -408,7 +408,7 @@ export default function Footer({
           "
         >
           <div>
-            <p className="mb-2 text-xs font-bold tracking-[0.18em] text-cyan-300">
+            <p className="mb-2 text-xs font-bold tracking-[0.18em] text-violet-300">
               {ctaEyebrow}
             </p>
             <h3
@@ -434,7 +434,7 @@ export default function Footer({
                   text-center text-xs font-bold leading-tight
                   ${
                     index === 0
-                      ? "border-blue-400/25 bg-blue-400/10 text-blue-100"
+                      ? "border-violet-400/25 bg-violet-400/10 text-violet-100"
                       : index === 1
                         ? "border-violet-400/25 bg-violet-400/10 text-violet-100"
                         : "border-emerald-400/25 bg-emerald-400/10 text-emerald-100"
@@ -524,7 +524,7 @@ export default function Footer({
               id="ft-services"
               className="mb-4 flex items-center gap-2 text-lg font-bold text-white"
             >
-              <span className="h-5 w-1 rounded-full bg-blue-400" aria-hidden="true" />
+              <span className="h-5 w-1 rounded-full bg-violet-400" aria-hidden="true" />
               {servicesTitle}
             </h3>
             <ul className="space-y-0.5 text-sm text-gray-300">
@@ -532,7 +532,7 @@ export default function Footer({
                 <FooterLink
                   key={link.href}
                   href={link.href}
-                  hoverColorClass="hover:text-blue-300 hover:border-blue-400"
+                  hoverColorClass="hover:text-violet-300 hover:border-violet-400"
                 >
                   {link.label}
                 </FooterLink>
@@ -750,7 +750,7 @@ export default function Footer({
                       text-xs font-bold no-underline transition-colors
                       ${
                         isActive
-                          ? "border-blue-400/70 bg-blue-500/15 text-blue-100"
+                          ? "border-violet-400/70 bg-violet-500/15 text-violet-100"
                           : "border-white/10 bg-white/5 text-slate-300 hover:border-white/25 hover:bg-white/10 hover:text-white"
                       }
                       ${FOCUS_RING_CLASS}

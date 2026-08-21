@@ -133,7 +133,7 @@ export default function SiteHeader({ locale, strings }) {
       >
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href={homeHref} className={`flex items-center gap-3 ${focusRingClass}`}>
-            <span className="text-2xl font-black text-indigo-600 nav-dark:text-white">Sahneva</span>
+            <span className="text-2xl font-black text-violet-600 nav-dark:text-white">Sahneva</span>
             <span className="hidden sm:block text-sm text-neutral-500 font-medium nav-dark:text-slate-300">
               {strings.tagline}
             </span>
@@ -145,7 +145,7 @@ export default function SiteHeader({ locale, strings }) {
                 <div key={item.href} className="group relative">
                   <Link
                     href={item.href}
-                    className={`inline-flex items-center gap-1 text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
+                    className={`inline-flex items-center gap-1 text-sm font-semibold text-neutral-700 hover:text-violet-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-violet-200 ${focusRingClass}`}
                   >
                     {strings.servicesMenuLabel ?? item.label}
                     <ChevronDown aria-hidden="true" className="h-4 w-4" />
@@ -169,7 +169,7 @@ export default function SiteHeader({ locale, strings }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-semibold text-neutral-700 hover:text-indigo-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-blue-200 ${focusRingClass}`}
+                  className={`text-sm font-semibold text-neutral-700 hover:text-violet-600 px-2 py-1 rounded-lg nav-dark:text-slate-100 nav-dark:hover:text-violet-200 ${focusRingClass}`}
                 >
                   {item.label}
                 </Link>

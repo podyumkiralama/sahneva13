@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -396,105 +397,55 @@ export default function Page() {
 
       <div className="bg-white">
         {/* HERO */}
-        <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
-          <div className="absolute inset-0 pointer-events-none">
-            <Image
-              src="/img/podyum/podyum-kiralama-fiyatlari-hero.webp"
-              alt="Podyum kurulum maliyeti ve modüler podyum kurulum fiyat tablosu"
-              fill
-              priority
-              fetchPriority="high"
-              className="object-cover"
-              sizes="100vw"
-              placeholder="blur"
-              blurDataURL={BLUR_DATA_URL}
-            />
-            <div className="absolute inset-0 bg-black/45" />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/45 via-purple-900/20 to-slate-950/65" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-purple-900/25" />
-            <div
-              className="absolute inset-0 opacity-35"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-                backgroundSize: "28px 28px",
-              }}
-            />
-          </div>
-
-          <div className="relative z-10">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 px-4 py-2 mb-5">
-                  <span
-                    className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_6px_rgba(16,185,129,0.2)]"
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm font-extrabold text-white">
-                    2026 Güncel Liste • m² Bazlı Maliyet Hesaplama
-                  </span>
-                </div>
-
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-                  Podyum Kurulum <span className="text-blue-200">Fiyatları</span>{" "}
-                  2026
-                </h1>
-
-                <p className="text-base md:text-xl text-white/85 leading-relaxed mb-4 max-w-3xl mx-auto">
-                  <b>Podyum kurulum fiyatları</b>; metrekare, yükseklik, halı kaplama,
-                  kumaş giydirme, nakliye ve söküm kalemlerine göre değişir.
-                  Bu sayfada <b>m² podyum maliyeti</b>, etkinlik türüne göre bütçe
-                  aralıkları ve örnek hesaplamalar yer alır.
-                </p>
-
-                <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-5">
-                  Platform (m²) · Halı kaplama (m²) · Kumaş/skört (metre) ·{" "}
-                  <b>İstanbul içi nakliye ve söküm bedeli</b>
-                </p>
-
-                <p className="mx-auto mb-6 max-w-3xl text-sm md:text-base text-white/75">
-                  Podyum kiralama hizmeti hakkında genel bilgi almak için{" "}
-                  <Link className="font-semibold text-white underline underline-offset-4" href="/podyum-kiralama">
-                    podyum kiralama
-                  </Link>{" "}
-                  ana sayfasını inceleyebilirsiniz. Bu sayfada ise podyum kurulum
-                  fiyatları, m² maliyetleri ve fiyatı etkileyen unsurları açıklıyoruz.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                  <Link
-                    href="/podyum-kiralama"
-                    className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-xl transition shadow-lg"
-                  >
-                    <span className="text-xl mr-2">🎯</span> Podyum Kiralama
-                  </Link>
-                  <a
-                    href="https://wa.me/905453048671?text=Merhaba%2C+podyum+kurulum+fiyat+teklifi+istiyorum.%20Tarih%3A%20%5Bgg.aa.yyyy%5D%20Alan%3A%20%5Bm2%5D%20Ilce%3A%20%5Bilce%5D"
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
-                  >
-                    <span className="text-xl mr-2">💬</span> WhatsApp ile Teklif
-                  </a>
-                </div>
-
-                <p className="mt-6 text-sm text-white/70">
-                  Fiyatlar {PRICE_VALID_UNTIL} tarihine kadar güncellenebilir;
-                  sezon yoğunluğuna göre teklif şartları değişebilir.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
-        </section>
+        <PageHero
+          eyebrow="2026 güncel liste · m² bazlı maliyet hesaplama"
+          title="Podyum Kurulum"
+          titleAccent="Fiyatları 2026"
+          titleWide
+          description="<strong>Podyum kurulum fiyatları</strong>; metrekare, yükseklik, halı kaplama, kumaş giydirme, nakliye ve söküm kalemlerine göre değişir. Bu sayfada <strong>m² podyum maliyeti</strong>, etkinlik türüne göre bütçe aralıkları ve örnek hesaplamalar yer alır."
+          note={
+            <>
+              Podyum kiralama hizmeti hakkında genel bilgi almak için{" "}
+              <Link href="/podyum-kiralama">podyum kiralama</Link> ana sayfasını
+              inceleyebilirsiniz. Bu sayfada ise podyum kurulum fiyatları, m²
+              maliyetleri ve fiyatı etkileyen unsurları açıklıyoruz. Fiyatlar{" "}
+              {PRICE_VALID_UNTIL} tarihine kadar güncellenebilir; sezon yoğunluğuna
+              göre teklif şartları değişebilir.
+            </>
+          }
+          badges={[
+            "Platform (m²)",
+            "Halı kaplama (m²)",
+            "Kumaş/skört (metre)",
+            "İstanbul içi nakliye ve söküm",
+          ]}
+          actions={[
+            {
+              key: "whatsapp",
+              label: "WhatsApp ile Teklif",
+              href: "https://wa.me/905453048671?text=Merhaba%2C+podyum+kurulum+fiyat+teklifi+istiyorum.%20Tarih%3A%20%5Bgg.aa.yyyy%5D%20Alan%3A%20%5Bm2%5D%20Ilce%3A%20%5Bilce%5D",
+              external: true,
+            },
+            {
+              key: "service",
+              label: "Podyum Kiralama",
+              href: "/podyum-kiralama",
+            },
+          ]}
+          image={{
+            src: "/img/podyum/podyum-kiralama-fiyatlari-hero.webp",
+            alt: "Podyum kurulum maliyeti ve modüler podyum kurulum fiyat tablosu",
+            sizes: "100vw",
+            blurDataURL: BLUR_DATA_URL,
+          }}
+        />
 
         {/* PRICING TABLE */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                Podyum Fiyatları <span className="text-blue-700">Neye Göre</span>{" "}
+                Podyum Fiyatları <span className="text-violet-700">Neye Göre</span>{" "}
                 Değişir?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -611,7 +562,7 @@ export default function Page() {
               </div>
 
               {/* M2 RANGES */}
-              <div className="rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-8 shadow-lg">
+              <div className="rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-8 shadow-lg">
                 <h2 className="text-3xl font-black text-gray-900 mb-4">
                   m²'ye Göre Referans Kurulum Maliyeti
                 </h2>
@@ -632,7 +583,7 @@ export default function Page() {
                         </th>
                         <th className="border-b border-gray-200 px-5 py-4 text-base font-bold text-gray-900">
                           Maliyet Aralığı
-                          <span className="ml-2 whitespace-nowrap rounded-full bg-blue-100 px-2 py-1 text-xs font-extrabold text-blue-800">
+                          <span className="ml-2 whitespace-nowrap rounded-full bg-violet-100 px-2 py-1 text-xs font-extrabold text-violet-800">
                             Haftalık
                           </span>
                         </th>
@@ -651,7 +602,7 @@ export default function Page() {
                             <span className="font-semibold text-gray-900">
                               {tl(r.low)} – {tl(r.high)} TL
                             </span>
-                            <span className="ml-2 whitespace-nowrap rounded-full bg-blue-50 px-2 py-1 text-xs font-extrabold text-blue-700">
+                            <span className="ml-2 whitespace-nowrap rounded-full bg-violet-50 px-2 py-1 text-xs font-extrabold text-violet-700">
                               / Haftalık
                             </span>
                             <span className="text-gray-500"> (referans)</span>
@@ -667,7 +618,7 @@ export default function Page() {
                           <span className="font-semibold text-gray-900">
                             {tl(sampleTotal)} TL
                           </span>{" "}
-                          <span className="whitespace-nowrap rounded-full bg-blue-50 px-2 py-1 text-xs font-extrabold text-blue-700">
+                          <span className="whitespace-nowrap rounded-full bg-violet-50 px-2 py-1 text-xs font-extrabold text-violet-700">
                             / Haftalık
                           </span>{" "}
                           <span className="text-gray-500">
@@ -688,11 +639,11 @@ export default function Page() {
 
             <section
               id="podyum-fiyat-hesaplama"
-              className="mt-14 rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-6 md:p-8"
+              className="mt-14 rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-6 md:p-8"
               aria-labelledby="podyum-fiyat-hesaplama-title"
             >
               <div className="mx-auto max-w-4xl text-center">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">Hesaplama aracı</p>
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-700">Hesaplama aracı</p>
                 <h2 id="podyum-fiyat-hesaplama-title" className="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
                   m² podyum fiyatını hızlıca hesaplayın
                 </h2>
@@ -712,7 +663,7 @@ export default function Page() {
               aria-labelledby="podyum-fiyat-paketleri-title"
             >
               <div className="mx-auto max-w-3xl text-center">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">Örnek paketler</p>
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-700">Örnek paketler</p>
                 <h2 id="podyum-fiyat-paketleri-title" className="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
                   Podyum paket fiyatları ve kapsamı
                 </h2>
@@ -727,14 +678,14 @@ export default function Page() {
                   const prices = calculatePackagePrice(pkg.layout);
                   return (
                     <article key={pkg.id} id={pkg.id} className="rounded-3xl border-2 border-gray-100 bg-white p-6 shadow-lg">
-                      <p className="text-sm font-black uppercase tracking-wide text-blue-700">
+                      <p className="text-sm font-black uppercase tracking-wide text-violet-700">
                         {pkg.layout.width}×{pkg.layout.depth} m · {pkg.height}
                       </p>
                       <h3 className="mt-3 text-2xl font-black text-gray-900">{pkg.name}</h3>
                       <ul className="mt-5 space-y-2 text-sm leading-6 text-gray-700">
                         {pkg.includes.map((item) => (
                           <li key={item} className="flex gap-2">
-                            <span aria-hidden="true" className="font-black text-blue-700">•</span>
+                            <span aria-hidden="true" className="font-black text-violet-700">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -743,7 +694,7 @@ export default function Page() {
                         <div className="flex justify-between gap-3"><dt>Platform</dt><dd className="font-semibold text-gray-900">{formatTRY(prices.platform)}</dd></div>
                         <div className="flex justify-between gap-3"><dt>Halı + skört</dt><dd className="font-semibold text-gray-900">{formatTRY(prices.carpet + prices.skirt)}</dd></div>
                         <div className="flex justify-between gap-3"><dt>İstanbul içi temel nakliye</dt><dd className="font-semibold text-gray-900">{formatTRY(prices.transport)}</dd></div>
-                        <div className="flex justify-between gap-3 border-t border-gray-200 pt-3 text-base"><dt className="font-black text-gray-900">Başlangıç toplamı</dt><dd className="font-black text-blue-700">{formatTRY(prices.total)}</dd></div>
+                        <div className="flex justify-between gap-3 border-t border-gray-200 pt-3 text-base"><dt className="font-black text-gray-900">Başlangıç toplamı</dt><dd className="font-black text-violet-700">{formatTRY(prices.total)}</dd></div>
                       </dl>
                       <p className="mt-4 text-sm leading-6 text-gray-600">{pkg.note}</p>
                     </article>
@@ -859,7 +810,7 @@ export default function Page() {
             </div>
 
             {/* SAMPLE CALC */}
-            <div className="mt-14 rounded-3xl border-2 border-blue-100 bg-blue-50/60 p-6 md:p-8">
+            <div className="mt-14 rounded-3xl border-2 border-violet-100 bg-violet-50/60 p-6 md:p-8">
               <p className="text-lg font-bold text-gray-900">
                 Örnek kurulum maliyeti hesabı (referans)
               </p>
@@ -893,11 +844,11 @@ export default function Page() {
         </section>
 
         {/* USE CASES */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/40">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-violet-50/40">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                Etkinlik Türüne <span className="text-blue-700">Göre</span> Podyum Maliyetleri
+                Etkinlik Türüne <span className="text-violet-700">Göre</span> Podyum Maliyetleri
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Etkinlik türü, trafik yoğunluğu ve teknik entegrasyon podyum kurulum
@@ -907,7 +858,7 @@ export default function Page() {
                 Ana platformun truss, LED, ses-ışık ve rider ile birlikte bütçeye nasıl yansıdığını{" "}
                 <Link
                   href="/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir"
-                  className="font-bold text-blue-700 underline underline-offset-4"
+                  className="font-bold text-violet-700 underline underline-offset-4"
                 >
                   sahne kiralama fiyatlarını etkileyen unsurlar
                 </Link>{" "}
@@ -915,8 +866,8 @@ export default function Page() {
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500">
-                <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
+                <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                   Defile için sahne podyum kurulum fiyatı
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
@@ -925,14 +876,14 @@ export default function Page() {
                 </p>
                 <Link
                   href="/defile-podyum-kiralama"
-                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
                   Defile Podyumu Sayfası →
                 </Link>
               </div>
 
-              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500">
-                <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+              <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
+                <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                   Konser için sahne podyum kurulum fiyatı
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
@@ -941,7 +892,7 @@ export default function Page() {
                 </p>
                 <Link
                   href="/konser-icin-podyum-kiralama"
-                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-blue-200 hover:text-blue-700 transition"
+                  className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
                   Konser Podyumu Sayfası →
                 </Link>
@@ -973,7 +924,7 @@ export default function Page() {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-                Sık Sorulan <span className="text-blue-700">Sorular</span>
+                Sık Sorulan <span className="text-violet-700">Sorular</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Podyum kurulum maliyeti ve teklif süreci hakkında en çok sorulan sorular.
@@ -983,15 +934,15 @@ export default function Page() {
               {FAQ.map((item) => (
                 <details
                   key={item.q}
-                  className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+                  className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-violet-50 open:border-violet-200 border-2 border-transparent open:border"
                 >
                   <summary className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900">
                     <span className="pr-4">{item.q}</span>
-                    <span className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                    <span className="ml-4 transition-transform duration-500 group-open:rotate-180 text-violet-600 bg-violet-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
                       ⌄
                     </span>
                   </summary>
-                  <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500">
+                  <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500">
                     {item.a}
                   </div>
                 </details>
@@ -1003,17 +954,17 @@ export default function Page() {
         {/* CTA */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+            <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" />
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
                   Podyum Kurulum Fiyatı İçin Hızlı Teklif Alın
                 </h2>
-                <p className="text-blue-100 text-xl mb-4 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-violet-100 text-xl mb-4 max-w-3xl mx-auto leading-relaxed">
                   Tarih + ilçe + m² + yükseklik + halı/kumaş bilgilerini iletin,
                   24 saat içinde net podyum kurulum maliyeti ve saha planıyla dönüş yapalım.
                 </p>
-                <p className="text-blue-200 text-base mb-8 max-w-2xl mx-auto">
+                <p className="text-violet-200 text-base mb-8 max-w-2xl mx-auto">
                   Podyum kurulum fiyatları ve m² maliyetleri hakkında bilgi almak için
                   bu sayfayı inceliyorsunuz.{" "}
                   <Link href="/podyum-kiralama" className="font-bold text-white underline underline-offset-4">
@@ -1026,7 +977,7 @@ export default function Page() {
                     href="https://wa.me/905453048671?text=Merhaba%2C+podyum+kurulum+fiyat+teklifi+istiyorum.%20Tarih%3A%20%5Bgg.aa.yyyy%5D%20Alan%3A%20%5Bm2%5D%20Yukseklik%3A%20%5Bcm%5D%20Ilce%3A%20%5Bilce%5D%20Hali%3A%20%5Bevet%2Fhayir%5D%20Skort%3A%20%5Bmetre%5D"
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
+                    className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl"
                   >
                     <span className="text-xl mr-3">💬</span> WhatsApp'tan Yaz
                   </a>

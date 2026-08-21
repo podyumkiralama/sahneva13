@@ -75,8 +75,8 @@ function ProseSection({ id, children }) {
 
 function InlineCard({ title, children }) {
   return (
-    <div className="my-6 rounded-2xl border border-blue-100 bg-blue-50 p-5 md:p-6">
-      {title && <div className="text-sm font-black uppercase tracking-[0.15em] text-blue-700 mb-2">{title}</div>}
+    <div className="my-6 rounded-2xl border border-violet-100 bg-violet-50 p-5 md:p-6">
+      {title && <div className="text-sm font-black uppercase tracking-[0.15em] text-violet-700 mb-2">{title}</div>}
       {children}
     </div>
   );
@@ -87,7 +87,7 @@ function CheckList({ items }) {
     <ul className="space-y-2 my-4">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 text-gray-700">
-          <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+          <span className="mt-1.5 h-2 w-2 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
           <span>{item}</span>
         </li>
       ))}
@@ -97,7 +97,7 @@ function CheckList({ items }) {
 
 function Callout({ children }) {
   return (
-    <div className="my-6 border-l-4 border-blue-600 pl-5 py-2">
+    <div className="my-6 border-l-4 border-violet-600 pl-5 py-2">
       <p className="text-gray-700 italic leading-relaxed">{children}</p>
     </div>
   );
@@ -196,7 +196,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
 
               <h1 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
                 How to Organize a Corporate Event in Turkey —{" "}
-                <span className="text-blue-300">A Guide for International Companies</span>
+                <span className="text-violet-300">A Guide for International Companies</span>
               </h1>
 
               <p className="mt-5 text-lg text-white/75 leading-relaxed max-w-2xl">
@@ -219,7 +219,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
           <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start max-w-6xl mx-auto">
 
             {/* Article body */}
-            <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline">
+            <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-a:text-violet-700 prose-a:no-underline hover:prose-a:underline">
 
               <ProseSection id="why-turkey">
                 <h2>Why International Companies Choose Turkey for Corporate Events</h2>
@@ -279,13 +279,13 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                   <div role="region" aria-label="Ankara table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
-                        <tr className="text-left border-b border-blue-200">
+                        <tr className="text-left border-b border-violet-200">
                           <th className="py-2 pr-4 font-black text-slate-900">City</th>
                           <th className="py-2 pr-4 font-black text-slate-900">Best for</th>
                           <th className="py-2 font-black text-slate-900">Peak season</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-blue-50">
+                      <tbody className="divide-y divide-violet-50">
                         {[
                           ["Istanbul", "Congresses, launches, executive meetings, galas", "Year-round"],
                           ["Antalya", "Incentives, dealer meetings, resort congresses", "Mar–Nov"],
@@ -385,7 +385,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                 <InlineCard title="Sahneva as your local production partner">
                   <p className="text-sm text-slate-700 leading-relaxed">
                     Sahneva works with international companies, PCOs and DMCs as a local technical production arm in Turkey. We provide stage, LED screen, sound, lighting, truss and tent — all coordinated by an English-speaking project manager. We work in Istanbul, Antalya, Izmir, Ankara, Bodrum and across Turkey.{" "}
-                    <Link href="/en/event-production-company-turkey" className="font-bold text-blue-700">
+                    <Link href="/en/event-production-company-turkey" className="font-bold text-violet-700">
                       Learn more about our international partner model →
                     </Link>
                   </p>
@@ -492,7 +492,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                     ["Post-event", "Strike and load-out. Venue handover. Technical debrief. Recording delivery."],
                   ].map(([time, action]) => (
                     <div key={time} className="flex gap-4 items-start p-4 rounded-xl border border-slate-200 bg-white">
-                      <div className="text-sm font-black text-blue-700 shrink-0 w-36">{time}</div>
+                      <div className="text-sm font-black text-violet-700 shrink-0 w-36">{time}</div>
                       <p className="text-sm text-gray-700 leading-relaxed">{action}</p>
                     </div>
                   ))}
@@ -617,7 +617,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
 
               {/* CTA within article */}
               <div className="my-10 rounded-3xl bg-[#0B1120] p-8 md:p-10 not-prose">
-                <div className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">
+                <div className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-3">
                   Sahneva · Local production partner in Türkiye
                 </div>
                 <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
@@ -631,7 +631,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                     href={WHATSAPP}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition text-sm"
+                    className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white hover:bg-violet-500 transition text-sm"
                   >
                     Send Your Event Brief
                   </a>
@@ -657,7 +657,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                       <li key={item.id}>
                         <a
                           href={`#${item.id}`}
-                          className="text-sm text-gray-700 hover:text-blue-700 transition block py-1 leading-snug"
+                          className="text-sm text-gray-700 hover:text-violet-700 transition block py-1 leading-snug"
                         >
                           {item.label}
                         </a>
@@ -668,16 +668,16 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
               </div>
 
               {/* Quick CTA */}
-              <div className="rounded-2xl bg-blue-600 p-5 text-white">
+              <div className="rounded-2xl bg-violet-600 p-5 text-white">
                 <div className="font-black text-lg mb-2">Planning an event in Turkey?</div>
-                <p className="text-blue-100 text-sm leading-relaxed mb-4">
+                <p className="text-violet-100 text-sm leading-relaxed mb-4">
                   Send us your brief — city, event type, date, guest count. We respond within 24 hours.
                 </p>
                 <a
                   href={WHATSAPP}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2.5 font-bold text-blue-700 hover:bg-blue-50 transition text-sm"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2.5 font-bold text-violet-700 hover:bg-violet-50 transition text-sm"
                 >
                   WhatsApp Brief
                 </a>
@@ -695,7 +695,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
                     { href: "/en/blog/corporate-event-planning-guide-2026", label: "Corporate Event Planning Guide 2026" },
                   ].map((l) => (
                     <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-blue-700 hover:underline">
+                      <Link href={l.href} className="text-sm text-violet-700 hover:underline">
                         {l.label} →
                       </Link>
                     </li>

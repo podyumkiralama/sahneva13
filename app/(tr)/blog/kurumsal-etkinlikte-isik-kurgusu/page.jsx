@@ -321,8 +321,8 @@ function ImgFigure({ src, alt, caption, aspect = "wide", position = "center" }) 
 
 function AnswerBox() {
   return (
-    <section id="kisa-cevap" className="geo-answer not-prose my-10 rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-      <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-700">
+    <section id="kisa-cevap" className="geo-answer not-prose my-10 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-700">
         Kısa cevap
       </p>
       <h2 className="mt-3 text-2xl font-black text-slate-950">

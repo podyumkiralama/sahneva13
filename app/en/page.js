@@ -37,7 +37,7 @@ const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
       aria-label="Loading gallery"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Loading gallery...</span>
@@ -53,7 +53,7 @@ const Faq = dynamic(() => import("@/components/Faq"), {
       aria-label="Loading FAQ"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Loading FAQ...</span>
@@ -69,7 +69,7 @@ function SectionLoading({ label, height = "h-48" }) {
       aria-label={label}
     >
       <div
-        className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"
+        className="h-12 w-12 animate-spin rounded-full border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">{label}</span>
@@ -717,7 +717,7 @@ const CORPORATE_EVENTS_CARDS_EN = [
     alt: "Stage, LED wall and lighting design for a corporate product launch by Sahneva",
     text: "LED wall storytelling, stage scenography, lighting design and live broadcast workflows for unforgettable reveals.",
     icon: "🚀",
-    gradient: "from-purple-500/10 to-blue-500/10",
+    gradient: "from-purple-500/10 to-violet-500/10",
     color: "text-purple-700",
   },
   {
@@ -971,7 +971,7 @@ export default function EnglishHomePage() {
           Sahneva is a Turkey-based event production company specializing in stage design, LED screen
           rental, professional audio systems, lighting and technical production services for corporate
           events, congresses and international organizations. For international agencies and brands planning events in Türkiye, Sahneva works as a local{" "}
-          <Link href="/en/event-production-company-turkey" className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white">
+          <Link href="/en/event-production-company-turkey" className="font-bold text-violet-200 underline underline-offset-4 hover:text-white">
             event production partner in Turkey
           </Link>{" "}
           for venue coordination, stage, LED screen, sound, lighting, truss and field operation.

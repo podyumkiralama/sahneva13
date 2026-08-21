@@ -1,5 +1,6 @@
 // app/sss/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/lib/faqData";
 import { buildTentPriceSentence } from "@/lib/pricing";
@@ -307,7 +308,7 @@ function CategoryChips() {
         <a
           key={c.id}
           href={`#${c.id}`}
-          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100 transition-colors"
+          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-violet-400/70 hover:text-violet-100 transition-colors"
         >
           <span className="mr-1">{c.icon}</span>
           {c.title}
@@ -362,7 +363,7 @@ function FaqSection({ id, icon, title, items, links }) {
               <a
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center gap-2 font-semibold text-cyan-200 hover:text-cyan-100"
+                className="inline-flex items-center gap-2 font-semibold text-violet-200 hover:text-violet-100"
               >
                 <span aria-hidden="true">🔗</span>
                 <span>{link.label}</span>
@@ -399,14 +400,17 @@ export default function FaqPage() {
       <JsonLd data={jsonLd} />
       )}
 
+      <PageHero
+        compact
+        breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "SSS" }]}
+        eyebrow="Teklif, kurulum ve saha operasyonu"
+        title="Sık Sorulan"
+        titleAccent="Sorular"
+        description="Sahne, LED ekran, ses-ışık, podyum ve çadır projelerinde teklif sürecinden saha gününe kadar en çok sorulan başlıkları burada topladık."
+      />
+
       <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
         <div className="container py-10 md:py-14 text-slate-100">
-        
-          <h1 className="text-3xl md:text-[34px] font-extrabold tracking-tight text-center mb-6 text-white">
-            Sık Sorulan Sorular
-          </h1>
-        
-
         
           <CategoryChips />
         
@@ -421,7 +425,7 @@ export default function FaqPage() {
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="tel:+905453048671"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-400"
+              className="inline-flex items-center gap-2 rounded-lg bg-violet-500 px-4 py-2 font-semibold text-slate-950 hover:bg-violet-400"
             >
               📞 Hemen Teklif Al
             </a>
@@ -429,7 +433,7 @@ export default function FaqPage() {
               href="https://wa.me/905453048671"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-violet-400/70 hover:text-violet-100"
               aria-label="WhatsApp’tan Sor — yeni sekmede açılır"
             >
               💬 WhatsApp’tan Sor

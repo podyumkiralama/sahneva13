@@ -89,14 +89,14 @@ function RelatedServices({ currentSlug }) {
         <Link
           key={item.slug}
           href={item.href}
-          className="group rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-cyan-300/50 hover:bg-white/[0.09]"
+          className="group rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-violet-300/50 hover:bg-white/[0.09]"
         >
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-200/80">
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-200/80">
             {item.eyebrow}
           </p>
           <h3 className="mt-2 text-lg font-black text-white">{item.shortTitle}</h3>
           <p className="mt-2 text-sm leading-6 text-white/[0.68]">{item.description}</p>
-          <span className="mt-4 inline-flex text-sm font-black text-cyan-200 group-hover:text-white">
+          <span className="mt-4 inline-flex text-sm font-black text-violet-200 group-hover:text-white">
             Подробнее
           </span>
         </Link>
@@ -130,20 +130,20 @@ export default function ServicePage({ service }) {
           sizes="100vw"
           className="object-cover opacity-72"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/64 to-slate-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950/64 to-slate-950/90" />
         <div className="absolute inset-0 grid-overlay opacity-25" aria-hidden="true" />
         <div
-          className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-cyan-400/18 blur-[120px]"
+          className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-violet-400/18 blur-[120px]"
           aria-hidden="true"
         />
         <div
-          className="absolute -left-24 bottom-10 h-72 w-72 rounded-full bg-blue-500/18 blur-[120px]"
+          className="absolute -left-24 bottom-10 h-72 w-72 rounded-full bg-violet-500/18 blur-[120px]"
           aria-hidden="true"
         />
 
         <div className="container relative z-10 mx-auto grid min-h-[72vh] gap-10 px-4 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="max-w-4xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100 backdrop-blur">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100 backdrop-blur">
               {service.eyebrow}
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -152,7 +152,7 @@ export default function ServicePage({ service }) {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-white/[0.86]">
               {service.description}
             </p>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-cyan-50/76">
+            <p className="mt-4 max-w-3xl text-base leading-8 text-violet-50/76">
               {service.intent}
             </p>
 
@@ -175,7 +175,7 @@ export default function ServicePage({ service }) {
           </div>
 
           <aside className="rounded-3xl border border-white/14 bg-white/[0.08] p-5 shadow-2xl backdrop-blur md:p-6">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
               Быстрый ориентир
             </p>
             <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
@@ -204,7 +204,7 @@ export default function ServicePage({ service }) {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1250px] lg:[contain-intrinsic-size:auto_760px] bg-white py-16 md:py-20">
         <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Комплект услуги
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -217,7 +217,7 @@ export default function ServicePage({ service }) {
               {service.scenarios.map((scenario) => (
                 <span
                   key={scenario}
-                  className="rounded-full bg-indigo-50 px-3 py-2 text-xs font-black uppercase tracking-[0.08em] text-indigo-700"
+                  className="rounded-full bg-violet-50 px-3 py-2 text-xs font-black uppercase tracking-[0.08em] text-violet-700"
                 >
                   {scenario}
                 </span>
@@ -239,7 +239,7 @@ export default function ServicePage({ service }) {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1180px] lg:[contain-intrinsic-size:auto_760px] bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Что входит
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -266,7 +266,7 @@ export default function ServicePage({ service }) {
         <section className="content-visibility-auto [contain-intrinsic-size:auto_1200px] lg:[contain-intrinsic-size:auto_800px] bg-white py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="mx-auto mb-9 max-w-3xl text-center">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
                 Портфолио
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -281,7 +281,7 @@ export default function ServicePage({ service }) {
             <div className="mt-8 text-center">
               <Link
                 href="/ru/our-work"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-violet-600 px-7 text-sm font-black text-violet-700 transition hover:bg-violet-600 hover:text-white"
               >
                 Смотреть видео с площадок
               </Link>
@@ -294,7 +294,7 @@ export default function ServicePage({ service }) {
         <div className="container mx-auto px-4">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
                 Сценарии использования
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -316,7 +316,7 @@ export default function ServicePage({ service }) {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_980px] lg:[contain-intrinsic-size:auto_620px] bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
               Процесс
             </p>
             <h2 className="mt-3 text-3xl font-black md:text-5xl">
@@ -329,7 +329,7 @@ export default function ServicePage({ service }) {
                 key={step}
                 className="relative rounded-3xl border border-white/10 bg-white/[0.06] p-6"
               >
-                <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-200 text-base font-black text-slate-950">
+                <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-200 text-base font-black text-slate-950">
                   {index + 1}
                 </div>
                 <p className="text-sm font-semibold leading-7 text-white/[0.76]">{step}</p>
@@ -345,7 +345,7 @@ export default function ServicePage({ service }) {
       >
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[1fr_0.88fr] lg:items-start">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Вопросы
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950">
@@ -395,7 +395,7 @@ export default function ServicePage({ service }) {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_620px] bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
               Дополнительные услуги
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight md:text-5xl">

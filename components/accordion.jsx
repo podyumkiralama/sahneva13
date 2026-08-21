@@ -138,7 +138,7 @@ export default function Accordion({ items = [], variant = "light" }) {
                 <div className="mt-3 pt-3 border-t border-gray-200">
                   <a 
                     href={item.link.href}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors"
                     title={item.link.title}
                     itemProp="url"
                   >

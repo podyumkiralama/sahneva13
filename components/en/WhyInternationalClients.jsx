@@ -41,7 +41,7 @@ export default function WhyInternationalClients() {
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-300">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-300">
             For international teams
           </p>
           <h2
@@ -67,7 +67,7 @@ export default function WhyInternationalClients() {
         <p className="mt-8 text-center text-base text-white/70">
           <Link
             href="/en/event-production-company-turkey"
-            className="font-bold text-cyan-200 underline underline-offset-4 hover:text-white"
+            className="font-bold text-violet-200 underline underline-offset-4 hover:text-white"
           >
             See how we work with international agencies and brands
           </Link>

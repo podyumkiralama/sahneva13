@@ -205,7 +205,7 @@ export default function BlogPostCorporate() {
       >
 
                 
-                <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+                <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
                   <p className="text-lg text-gray-700 font-medium italic m-0">
                     <Link href="/kurumsal-organizasyon">Kurumsal etkinlikler</Link>, bir şirketin vizyonunu paydaşlarına gösterdiği en güçlü sahnelerdir. Bu sahnenin arkasındaki görünmeyen kahraman ise; doğru planlanmış <strong>teknik altyapı</strong>dır.
                   </p>
@@ -233,16 +233,16 @@ export default function BlogPostCorporate() {
                 <aside
                   role="note"
                   aria-label="Profesyonel İpucu"
-                  className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+                  className="my-10 bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-100 p-6 rounded-2xl shadow-sm not-prose"
                 >
                   <div className="flex items-start gap-4">
                     <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
                     <div>
-                      <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">Profesyonel İpucu</p>
-                      <p className="mb-2 text-blue-800 text-base">
+                      <p className="text-violet-900 font-bold mt-0 mb-2 text-lg">Profesyonel İpucu</p>
+                      <p className="mb-2 text-violet-800 text-base">
                         Etkinlik planlamasına <strong>en az 2–3 ay önceden</strong> başlamak ve teknik tedarikçi ile mekan keşfini (site survey) birlikte yapmak:
                       </p>
-                      <ul className="text-blue-800 list-disc pl-5 space-y-1 text-sm m-0">
+                      <ul className="text-violet-800 list-disc pl-5 space-y-1 text-sm m-0">
                         <li className="m-0">Bütçe sapmalarını %20 azaltır.</li>
                         <li className="m-0">Elektrik ve sahne ölçüsü problemlerini önler.</li>
                         <li className="m-0">Güçlü bir B planı oluşturmanızı sağlar.</li>
@@ -302,19 +302,19 @@ export default function BlogPostCorporate() {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P2.9</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P2.9</th>
                         <td className="p-4">3m+</td>
                         <td className="p-4">İç Mekan (Lansman)</td>
                         <td className="p-4 text-gray-600">$$$</td>
                       </tr>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P3.9</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P3.9</th>
                         <td className="p-4">4m+</td>
                         <td className="p-4">İç Mekan (Konferans)</td>
                         <td className="p-4 text-gray-600">$$</td>
                       </tr>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P4.8</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P4.8</th>
                         <td className="p-4">5m+</td>
                         <td className="p-4">İç/Dış Mekan</td>
                         <td className="p-4 text-gray-600">$</td>
@@ -406,9 +406,9 @@ export default function BlogPostCorporate() {
 
                 <div className="not-prose bg-gray-50 border border-gray-200 rounded-xl p-6 my-8 space-y-5">
                   {[
-                    { label: "Ses ve Işık Sistemleri", pct: 40, w: "40%", color: "bg-blue-600" },
+                    { label: "Ses ve Işık Sistemleri", pct: 40, w: "40%", color: "bg-violet-600" },
                     { label: "Görsel (LED Ekran)", pct: 30, w: "30%", color: "bg-purple-600" },
-                    { label: "Sahne ve Altyapı", pct: 20, w: "20%", color: "bg-indigo-500" },
+                    { label: "Sahne ve Altyapı", pct: 20, w: "20%", color: "bg-violet-500" },
                     { label: "Personel & Lojistik", pct: 10, w: "10%", color: "bg-gray-400" },
                   ].map((item, i) => (
                     <div key={i}>
@@ -435,8 +435,8 @@ export default function BlogPostCorporate() {
                         Ürün lansmanlarında fiziksel mekan sınırlarını aşmak için AR destekli LED ekran çözümleri. Misafirler telefonlarıyla ürünleri 3B inceleyebiliyor.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-100">
-                      <h4 className="font-bold text-lg mb-2 text-blue-900">Hibrit Sistemler</h4>
+                    <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl p-5 border border-violet-100">
+                      <h4 className="font-bold text-lg mb-2 text-violet-900">Hibrit Sistemler</h4>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Hem fiziksel hem online katılım için entegre ses/ışık/görüntü sistemleri. Canlı yayın kalitesi artık lüks değil, standart.
                       </p>
@@ -465,7 +465,7 @@ export default function BlogPostCorporate() {
                 <section aria-labelledby="faq-heading" className="not-prose space-y-3 mt-6">
                   <h3 id="faq-heading" className="sr-only">Sıkça Sorulan Sorular</h3>
                   {FAQ_ITEMS.map((item, index) => (
-                    <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200">
+                    <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200">
                     <summary
                       className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
                     >
@@ -480,11 +480,11 @@ export default function BlogPostCorporate() {
                 </section>
 
                 {/* BOTTOM CTA */}
-                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                   
                   <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">Etkinliğinizi Şansa Bırakmayın</h3>
-                  <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
+                  <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
                     Profesyonel kurumsal etkinlik çözümlerimizle markanızı en iyi şekilde temsil edelim. Ücretsiz keşif için hemen ulaşın.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -497,7 +497,7 @@ export default function BlogPostCorporate() {
                     >
                       <span>💬</span> WhatsApp'tan Yazın
                     </a>
-                    <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+                    <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
                       <span>📞</span> Hemen Arayın
                     </a>
                   </div>

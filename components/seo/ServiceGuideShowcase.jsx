@@ -14,11 +14,11 @@ export default function ServiceGuideShowcase({
 }) {
   const accent = {
     blue: {
-      badge: "bg-blue-50 text-blue-700 ring-blue-100",
-      text: "text-blue-700",
-      border: "border-blue-100",
-      panel: "from-blue-50/80 via-white to-slate-50",
-      button: "bg-blue-700 hover:bg-blue-800 focus-visible:ring-blue-500",
+      badge: "bg-violet-50 text-violet-700 ring-violet-100",
+      text: "text-violet-700",
+      border: "border-violet-100",
+      panel: "from-violet-50/80 via-white to-slate-50",
+      button: "bg-violet-700 hover:bg-violet-800 focus-visible:ring-violet-500",
     },
     violet: {
       badge: "bg-violet-50 text-violet-700 ring-violet-100",

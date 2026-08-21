@@ -270,8 +270,8 @@ function OurWorkStructuredData() {
 
 function SectionEyebrow({ children }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/20 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-blue-100 shadow-lg shadow-blue-950/20 backdrop-blur">
-      <span className="h-2 w-2 rounded-full bg-blue-300 shadow-[0_0_18px_rgba(147,197,253,0.85)]" />
+    <div className="inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-violet-100 shadow-lg shadow-violet-950/20 backdrop-blur">
+      <span className="h-2 w-2 rounded-full bg-violet-300 shadow-[0_0_18px_rgba(147,197,253,0.85)]" />
       {children}
     </div>
   );
@@ -285,9 +285,9 @@ export default function OurWorkPage() {
       <OurWorkStructuredData />
 
       <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.24),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(14,165,233,0.16),transparent_28%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,64px_64px,64px_64px]" aria-hidden="true" />
-        <div className="absolute -left-28 top-20 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" aria-hidden="true" />
-        <div className="absolute -right-32 top-36 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(124, 58, 237,0.24),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(139, 92, 246,0.16),transparent_28%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,64px_64px,64px_64px]" aria-hidden="true" />
+        <div className="absolute -left-28 top-20 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" aria-hidden="true" />
+        <div className="absolute -right-32 top-36 h-80 w-80 rounded-full bg-violet-400/10 blur-3xl" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/65">
@@ -308,7 +308,7 @@ export default function OurWorkPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/en/contact"
-                  className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:bg-blue-50"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-violet-950/20 transition hover:-translate-y-0.5 hover:bg-violet-50"
                 >
                   Get a Quote for a Similar Project
                   <ArrowRight className="h-4 w-4" />
@@ -323,14 +323,14 @@ export default function OurWorkPage() {
             </div>
 
             <div className="relative">
-              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 to-cyan-400/10 blur-2xl" aria-hidden="true" />
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-violet-500/20 to-violet-400/10 blur-2xl" aria-hidden="true" />
               <div className="relative rounded-[2rem] border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-black/30 backdrop-blur">
                 <div className="mb-3 flex items-center justify-between gap-3 px-2 pt-1 text-sm text-slate-300">
                   <span className="inline-flex items-center gap-2 font-black text-white">
-                    <Sparkles className="h-4 w-4 text-blue-200" />
+                    <Sparkles className="h-4 w-4 text-violet-200" />
                     Featured Video
                   </span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-blue-100">Sahneva</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-violet-100">Sahneva</span>
                 </div>
                 <LazyVideoEmbed
                   videoId={featuredVideo.id}
@@ -347,7 +347,7 @@ export default function OurWorkPage() {
       </section>
 
       <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="video-gallery-title">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_20%,rgba(59,130,246,0.10),transparent_32%)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_20%,rgba(139, 92, 246,0.10),transparent_32%)]" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -400,12 +400,12 @@ export default function OurWorkPage() {
       </section>
 
       <section className="relative px-4 pb-20 pt-8 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] shadow-2xl shadow-blue-950/20 backdrop-blur">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] shadow-2xl shadow-violet-950/20 backdrop-blur">
           <div className="relative p-8 md:p-10 lg:p-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.16),transparent_35%)]" aria-hidden="true" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139, 92, 246,0.16),transparent_35%)]" aria-hidden="true" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black text-blue-100">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black text-violet-100">
                   <Clapperboard className="h-4 w-4" />
                   Sahneva Project Archive
                 </div>
@@ -418,7 +418,7 @@ export default function OurWorkPage() {
               </div>
               <Link
                 href="/en/contact"
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-blue-500 px-7 py-3 text-sm font-black text-white shadow-xl shadow-blue-950/25 transition hover:-translate-y-0.5 hover:bg-blue-400"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-violet-500 px-7 py-3 text-sm font-black text-white shadow-xl shadow-violet-950/25 transition hover:-translate-y-0.5 hover:bg-violet-400"
               >
                 Get a Quote
                 <ArrowRight className="h-4 w-4" />

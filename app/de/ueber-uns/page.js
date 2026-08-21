@@ -151,10 +151,10 @@ export default function GermanAboutPage() {
           sizes="100vw"
           className="object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/70 to-slate-950/92" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950/70 to-slate-950/92" />
         <div className="container relative z-10 mx-auto px-4 py-20 md:py-24">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100 backdrop-blur">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100 backdrop-blur">
               Über uns
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -184,7 +184,7 @@ export default function GermanAboutPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_900px] lg:[contain-intrinsic-size:auto_600px] py-16 md:py-20">
         <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Wie wir arbeiten
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -211,7 +211,7 @@ export default function GermanAboutPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1000px] lg:[contain-intrinsic-size:auto_640px] bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Kapazität
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -236,7 +236,7 @@ export default function GermanAboutPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1000px] lg:[contain-intrinsic-size:auto_640px] py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Entwicklung
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -249,7 +249,7 @@ export default function GermanAboutPage() {
                 key={milestone.year}
                 className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-indigo-600">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-600">
                   {milestone.year}
                 </p>
                 <h3 className="mt-3 text-lg font-black text-slate-950">{milestone.title}</h3>
@@ -263,7 +263,7 @@ export default function GermanAboutPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_800px] lg:[contain-intrinsic-size:auto_520px] bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
               Zusammenarbeit
             </p>
             <h2 className="mt-3 text-3xl font-black md:text-5xl">

@@ -187,7 +187,7 @@ export default function SahaDomeProjectPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-slate-950/55 to-[#0B1120]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_35%,rgba(59,130,246,0.22),transparent_36%),linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:auto,64px_64px,64px_64px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_35%,rgba(139, 92, 246,0.22),transparent_36%),linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:auto,64px_64px,64px_64px]" />
 
         <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20">
           <div className="max-w-4xl">
@@ -198,8 +198,8 @@ export default function SahaDomeProjectPage() {
               <span aria-hidden="true">/</span>
               <span className="text-white">SAHA 2026 Dome Çadır</span>
             </nav>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-blue-300" />
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-violet-100 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-violet-300" />
               Referans Proje / Uygulama Örneği
             </div>
             <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -211,7 +211,7 @@ export default function SahaDomeProjectPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/iletisim"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-violet-50"
               >
                 Benzer Proje İçin Teklif Al
                 <ArrowRight className="h-4 w-4" />
@@ -239,7 +239,7 @@ export default function SahaDomeProjectPage() {
             ["Işık", "Ambiyans aydınlatması"],
           ].map(([label, value]) => (
             <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-200">{label}</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-violet-200">{label}</p>
               <p className="mt-2 text-lg font-black text-white">{value}</p>
             </div>
           ))}
@@ -254,7 +254,7 @@ export default function SahaDomeProjectPage() {
               Dome çadır, giriş alanı ve teknik altyapı birlikte planlandı.
             </h2>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 leading-relaxed text-slate-200 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 leading-relaxed text-slate-200 shadow-2xl shadow-violet-950/20 backdrop-blur md:p-8">
             <p>
               SAHA 2026 kapsamında kapalı fuar alanı içerisinde özel bir dome çadır alanı hazırlandı.
               Projede yalnızca çadır gövdesi değil; taşıyıcı sistem, zemin altyapısı, kaplama uygulaması,
@@ -268,10 +268,10 @@ export default function SahaDomeProjectPage() {
 
       <section className="relative px-4 pb-16 sm:px-6 lg:px-8" aria-labelledby="brand-position-title">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
-          <div className="absolute bottom-0 right-16 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+          <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
+          <div className="absolute bottom-0 right-16 h-64 w-64 rounded-full bg-violet-400/10 blur-3xl" />
         </div>
-        <div className="relative mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-blue-950/15 backdrop-blur md:p-8 lg:p-10">
+        <div className="relative mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-violet-950/15 backdrop-blur md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <SectionEyebrow>Teknik Üretim</SectionEyebrow>
@@ -340,7 +340,7 @@ export default function SahaDomeProjectPage() {
             <ul className="mt-7 grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
               {["Taşıyıcı sistem kontrolü", "Zemin oturumu ve kaplama", "Giriş aksı planı", "Saha güvenliği"].map((item) => (
                 <li key={item} className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-300" />
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-violet-300" />
                   {item}
                 </li>
               ))}
@@ -360,7 +360,7 @@ export default function SahaDomeProjectPage() {
               Dome çadır uygulamasının final görünümünü, alan atmosferini ve tamamlanmış proje deneyimini gösteren kısa video.
             </p>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-4">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-violet-950/20 backdrop-blur md:p-4">
             <div className="overflow-hidden rounded-2xl bg-black">
               <LazyVideoEmbed
                 videoId={VIDEO.id}
@@ -427,13 +427,13 @@ export default function SahaDomeProjectPage() {
               <Link
                 key={href}
                 href={href}
-                className="group rounded-3xl border border-white/10 bg-white/[0.06] p-5 text-white shadow-xl shadow-black/15 backdrop-blur transition hover:-translate-y-1 hover:border-blue-300/40 hover:bg-white/[0.09]"
+                className="group rounded-3xl border border-white/10 bg-white/[0.06] p-5 text-white shadow-xl shadow-black/15 backdrop-blur transition hover:-translate-y-1 hover:border-violet-300/40 hover:bg-white/[0.09]"
               >
-                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-200">
+                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-200">
                   <Icon className="h-5 w-5" />
                 </span>
                 <span className="block text-lg font-black">{label}</span>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-200">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-violet-200">
                   İncele <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </Link>
@@ -443,8 +443,8 @@ export default function SahaDomeProjectPage() {
       </section>
 
       <section className="relative px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-600/25 via-white/[0.07] to-purple-600/20 p-8 text-center shadow-2xl shadow-blue-950/30 backdrop-blur md:p-12">
-          <div className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-blue-100">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-600/25 via-white/[0.07] to-purple-600/20 p-8 text-center shadow-2xl shadow-violet-950/30 backdrop-blur md:p-12">
+          <div className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-violet-100">
             <ShieldCheck className="h-7 w-7" />
           </div>
           <h2 className="text-3xl font-black tracking-tight md:text-4xl">
@@ -473,7 +473,7 @@ export default function SahaDomeProjectPage() {
 
 function SectionEyebrow({ children }) {
   return (
-    <p className="m-0 text-xs font-black uppercase tracking-[0.28em] text-blue-200">
+    <p className="m-0 text-xs font-black uppercase tracking-[0.28em] text-violet-200">
       {children}
     </p>
   );
@@ -482,8 +482,8 @@ function SectionEyebrow({ children }) {
 function BackgroundGlow() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-violet-400/10 blur-3xl" />
     </div>
   );
 }

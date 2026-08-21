@@ -52,11 +52,11 @@ const GlobeMapIcon = ({ className }) => (
 
 const DEFAULT_FEATURES = [
   { icon: <CheckStarIcon className={ICON_CLASS} />, title: "Müşterilerimizin Değerlendirmesi", desc: `Google'da ${GOOGLE_REVIEW_COUNT_DISPLAY}+ doğrulanmış değerlendirmede ${GOOGLE_RATING}/5 ortalama. Adı açık kurum referansları ve sahada çekilmiş proje videoları da bunu destekliyor.`, stat: `Google'da ${GOOGLE_RATING}/5`, gradient: "from-amber-400 to-orange-400", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
-  { icon: <BoltClockIcon className={ICON_CLASS} />, title: "Hızlı Kurulum ve Teslimat", desc: "Podyum ve LED ekran birkaç saatte kalkar; truss ve rigging içeren sahne kurulumu daha uzun sürer. Her teklifte kapsamınıza ait kurulum penceresi yazılıdır.", stat: setupDurationText("overall", "tr"), gradient: "from-cyan-400 to-sky-400", accentHoverClass: "group-hover:text-cyan-200", pillClass: "bg-cyan-500/10 border-cyan-400/40 text-cyan-100" },
+  { icon: <BoltClockIcon className={ICON_CLASS} />, title: "Hızlı Kurulum ve Teslimat", desc: "Podyum ve LED ekran birkaç saatte kalkar; truss ve rigging içeren sahne kurulumu daha uzun sürer. Her teklifte kapsamınıza ait kurulum penceresi yazılıdır.", stat: setupDurationText("overall", "tr"), gradient: "from-violet-500 to-purple-400", accentHoverClass: "group-hover:text-violet-200", pillClass: "bg-violet-500/10 border-violet-400/40 text-violet-100" },
   { icon: <DisplayIcon className={ICON_CLASS} />, title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6", gradient: "from-violet-400 to-fuchsia-400", accentHoverClass: "group-hover:text-fuchsia-200", pillClass: "bg-fuchsia-500/10 border-fuchsia-400/40 text-fuchsia-100" },
   { icon: <UsersIcon className={ICON_CLASS} />, title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: `${TECHNICAL_TEAM_SIZE} Uzman`, gradient: "from-emerald-400 to-green-400", accentHoverClass: "group-hover:text-emerald-200", pillClass: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100" },
   { icon: <CurrencyIcon className={ICON_CLASS} />, title: "Şeffaf ve Kalem Kalem Fiyatlandırma", desc: "Her teklifte ekipman, ekip, lojistik, kurulum ve söküm ayrı kalemler hâlinde yazılır; neye ödeme yaptığınızı kalem bazında görürsünüz.", stat: "Kalem Kalem Teklif", gradient: "from-amber-400 to-orange-500", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
-  { icon: <GlobeMapIcon className={ICON_CLASS} />, title: "Türkiye Geneli Hizmet", desc: `İstanbul merkezli ekibimizle ${PROVINCES_COUNT} ilde etkinlik prodüksiyon desteği sağlıyoruz.`, stat: `${PROVINCES_COUNT} İl`, gradient: "from-indigo-400 to-sky-400", accentHoverClass: "group-hover:text-sky-200", pillClass: "bg-indigo-500/10 border-indigo-400/40 text-indigo-100" },
+  { icon: <GlobeMapIcon className={ICON_CLASS} />, title: "Türkiye Geneli Hizmet", desc: `İstanbul merkezli ekibimizle ${PROVINCES_COUNT} ilde etkinlik prodüksiyon desteği sağlıyoruz.`, stat: `${PROVINCES_COUNT} İl`, gradient: "from-violet-500 to-purple-400", accentHoverClass: "group-hover:text-violet-200", pillClass: "bg-violet-500/10 border-violet-400/40 text-violet-100" },
 ];
 
 const DEFAULT_DICTIONARY = {
@@ -110,7 +110,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
     <section aria-labelledby="why-choose-title" className="relative overflow-hidden bg-[#0B1120]">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
-        <div className="absolute top-0 left-0 w-[420px] h-[420px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
+        <div className="absolute top-0 left-0 w-[420px] h-[420px] bg-violet-600/10 blur-[120px] rounded-full mix-blend-screen" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 2xl:py-24">
@@ -140,7 +140,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
             </p>
             <ul className="mt-5 space-y-2 text-sm md:text-[15px] text-slate-200 leading-relaxed">
               {(dictionary.bigLeftFeatures ?? DEFAULT_DICTIONARY.bigLeftFeatures).map((item) => (
-                <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-sky-400" aria-hidden="true">•</span><span>{item}</span></li>
+                <li key={item} className="flex items-start gap-2"><span className="mt-[3px] text-violet-400" aria-hidden="true">•</span><span>{item}</span></li>
               ))}
             </ul>
           </article>
@@ -180,7 +180,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
                     shadow-[0_18px_45px_rgba(0,0,0,0.6)]
                     transition-all duration-500
                     hover:-translate-y-[4px]
-                    hover:shadow-[0_26px_70px_rgba(56,189,248,0.45)]
+                    hover:shadow-[0_26px_70px_rgba(167, 139, 250,0.45)]
                   "
                 >
                   <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -194,7 +194,7 @@ export default function WhyChooseUs({ dictionary: dictionaryOverride }) {
                         opacity-80
                         bg-purple-500/45
                         transition-[background-color,opacity] duration-500
-                        group-hover:bg-sky-500/55
+                        group-hover:bg-violet-500/55
                         group-hover:opacity-100
                       "
                     />

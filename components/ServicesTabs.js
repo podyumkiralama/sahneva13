@@ -22,7 +22,7 @@ const PodiumIcon = (props) => (
 
 const TechCheckIcon = () => (
   <svg
-    className="w-4 h-4 text-cyan-400 shrink-0"
+    className="w-4 h-4 text-violet-400 shrink-0"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -219,7 +219,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         </div>
 
         <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400 text-slate-950 shadow-lg">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-400 text-slate-950 shadow-lg">
             {ServiceIcon ? (
               <ServiceIcon size={22} />
             ) : (
@@ -233,13 +233,13 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
       </div>
 
       <div className="p-5 md:p-6">
-        <p className="border-l-2 border-cyan-400 pl-4 text-sm leading-relaxed text-white/90 md:text-base">
+        <p className="border-l-2 border-violet-400 pl-4 text-sm leading-relaxed text-white/90 md:text-base">
           {service.description}
         </p>
 
         <div className="mt-5">
           <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white/90">
-            <span className="h-[2px] w-4 bg-cyan-500" aria-hidden="true" />
+            <span className="h-[2px] w-4 bg-violet-500" aria-hidden="true" />
             {dictionary.featuresHeading}
           </p>
           <ul className="flex flex-wrap gap-2">
@@ -258,7 +258,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
         <div className="mt-5">
           <Link
             href={service.href}
-            className="group inline-flex min-h-11 items-center gap-3 rounded-xl bg-cyan-200 px-5 py-2.5 text-sm font-extrabold text-slate-950 shadow-[0_0_20px_rgba(165,243,252,0.28)] ring-1 ring-cyan-50/80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_28px_rgba(165,243,252,0.42)] focus:outline-none focus:ring-4 focus:ring-cyan-200/70 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="group inline-flex min-h-11 items-center gap-3 rounded-xl bg-violet-200 px-5 py-2.5 text-sm font-extrabold text-slate-950 shadow-[0_0_20px_rgba(165,243,252,0.28)] ring-1 ring-violet-50/80 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_28px_rgba(165,243,252,0.42)] focus:outline-none focus:ring-4 focus:ring-violet-200/70 focus:ring-offset-2 focus:ring-offset-slate-950"
             title={formatTitleTemplate(
               dictionary.ctaTitle,
               service.title,
@@ -268,7 +268,7 @@ function ServiceCard({ service, dictionary, imageAltTemplate }) {
           >
             <span>{dictionary.ctaLabel}</span>
             <span
-                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-white transition-colors group-hover:bg-cyan-950 group-hover:text-cyan-100"
+                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-white transition-colors group-hover:bg-violet-950 group-hover:text-violet-100"
               aria-hidden="true"
             >
               <ArrowRightIcon className="h-3.5 w-3.5" />
@@ -315,15 +315,15 @@ export default function ServicesTabs({
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
-        <div className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
+        <div className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4">
         {!ariaLabelledBy && (
           <div className="mx-auto mb-10 max-w-4xl text-center md:mb-12">
             <div className="mb-3 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-cyan-400 shadow-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-violet-400 shadow-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet-400" aria-hidden="true" />
                 {dictionary.sectionPill}
               </span>
             </div>

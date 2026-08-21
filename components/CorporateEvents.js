@@ -91,7 +91,7 @@ export default function CorporateEvents({
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
-        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
+        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen" />
         <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px] mix-blend-screen" />
       </div>
 
@@ -142,7 +142,7 @@ export default function CorporateEvents({
                 <div className="border-t border-white/10 pt-4">
                   <Link
                     href={dictionary.cardCtaHref}
-                    className={`inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-white transition-colors hover:text-blue-400 ${FOCUS_RING_CLASS}`}
+                    className={`inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-white transition-colors hover:text-violet-400 ${FOCUS_RING_CLASS}`}
                   >
                     <span>{dictionary.cardCtaLabel}</span>
                     <span className="sr-only"> - {card.title}</span>
@@ -209,13 +209,13 @@ export default function CorporateEvents({
         </section>
 
         <div
-          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-900 via-indigo-900 to-[#0B1120] p-6 text-center text-white shadow-2xl md:p-10"
+          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-900 via-violet-900 to-[#0B1120] p-6 text-center text-white shadow-2xl md:p-10"
           role="region"
           aria-labelledby="corporate-events-banner-title"
           aria-describedby="corporate-events-banner-desc"
         >
           <div className="absolute left-0 top-0 h-full w-full overflow-hidden pointer-events-none" aria-hidden="true">
-            <div className="absolute left-[-20%] top-[-50%] h-[80%] w-[80%] rounded-full bg-blue-500/20 blur-[120px]" />
+            <div className="absolute left-[-20%] top-[-50%] h-[80%] w-[80%] rounded-full bg-violet-500/20 blur-[120px]" />
             <div className="absolute bottom-[-50%] right-[-20%] h-[80%] w-[80%] rounded-full bg-purple-500/20 blur-[120px]" />
           </div>
 
@@ -229,7 +229,7 @@ export default function CorporateEvents({
 
             <p
               id="corporate-events-banner-desc"
-              className="mb-8 text-sm leading-relaxed text-blue-100/90 md:text-lg"
+              className="mb-8 text-sm leading-relaxed text-violet-100/90 md:text-lg"
             >
               {dictionary.bannerDescription}
             </p>
@@ -237,7 +237,7 @@ export default function CorporateEvents({
             <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a
                 href={dictionary.phoneCtaHref}
-                className={`inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-bold text-blue-950 transition-all hover:scale-105 hover:bg-blue-50 md:text-base ${FOCUS_RING_CLASS}`}
+                className={`inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-bold text-violet-950 transition-all hover:scale-105 hover:bg-violet-50 md:text-base ${FOCUS_RING_CLASS}`}
               >
                 <span>{dictionary.phoneCtaLabel}</span>
               </a>
@@ -252,7 +252,7 @@ export default function CorporateEvents({
               </a>
             </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-blue-200/80">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-violet-200/80">
               {supportStats.map((label) => (
                 <div key={label} className="flex items-center gap-1.5">
                   <div

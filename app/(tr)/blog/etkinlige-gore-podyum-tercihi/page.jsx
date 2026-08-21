@@ -216,7 +216,7 @@ const InfoBox = ({ icon, title, children, variant = "info" }) => {
   const styles =
     variant === "warn"
       ? "bg-amber-50 border-amber-200 text-amber-900"
-      : "bg-blue-50 border-blue-200 text-blue-900";
+      : "bg-violet-50 border-violet-200 text-violet-900";
 
   return (
     <div className={`not-prose border rounded-2xl p-6 ${styles}`}>
@@ -513,7 +513,7 @@ export default function Page() {
 
                 {/* CTA */}
                 <h2 id="cta">💡 Etkinlik Planınıza Özel Çözüm Mü Arıyorsunuz?</h2>
-                <div className="not-prose bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
+                <div className="not-prose bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                   <p className="m-0 text-lg font-semibold relative z-10">
                     Podyum yüksekliği, yüzey kaplaması (halı, pleksi, cam) ve merdiven seçenekleri hakkında{" "}
@@ -524,7 +524,7 @@ export default function Page() {
                     butonuna tıklayın veya {PHONE_E164} üzerinden bize ulaşın.
                   </p>
 
-                  <p className="mt-3 mb-0 text-sm text-blue-100 relative z-10">
+                  <p className="mt-3 mb-0 text-sm text-violet-100 relative z-10">
                     Not: “<strong>Kiralık podyum fiyatları</strong>” etkinliğe göre değişir; doğru ölçü + doğru kurulum
                     kalemleri toplam maliyeti belirler. İhtiyaca göre{" "}
                     <Link className="underline underline-offset-4 text-white" href={STAGE_SERVICE_PATH}>
@@ -536,7 +536,7 @@ export default function Page() {
                   <div className="mt-6 flex flex-col sm:flex-row gap-3 relative z-10">
                     <Link
                       href={PODIUM_SERVICE_PATH}
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-6 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-violet-900 hover:bg-violet-50 font-bold py-3.5 px-6 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-400"
                     >
                       🧾 Hemen Teklif Al
                     </Link>
@@ -569,7 +569,7 @@ export default function Page() {
                   {FAQ_ITEMS.map((item, index) => (
                     <details
                       key={index}
-                      className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200"
+                      className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200"
                     >
                       <summary className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors">
                         {item.question}

@@ -26,7 +26,7 @@ export default function CadirKiralamaLayout({ children }) {
           top: -5rem;
           width: 14rem;
           height: 14rem;
-          background: rgba(34, 211, 238, 0.12);
+          background: rgba(167, 139, 250, 0.12);
         }
 
         #stok-kapasitesi > div > div > div:first-child > div::after {
@@ -34,7 +34,7 @@ export default function CadirKiralamaLayout({ children }) {
           bottom: -6rem;
           width: 16rem;
           height: 16rem;
-          background: rgba(59, 130, 246, 0.12);
+          background: rgba(139, 92, 246, 0.12);
         }
 
         #stok-kapasitesi > div > div > div:first-child > div > * {
@@ -50,8 +50,8 @@ export default function CadirKiralamaLayout({ children }) {
 
         #stok-kapasitesi > div > div > div:first-child > div a {
           color: rgb(255, 255, 255) !important;
-          text-decoration-color: rgba(103, 232, 249, 0.72) !important;
-          text-shadow: 0 0 18px rgba(34, 211, 238, 0.22);
+          text-decoration-color: rgba(196, 181, 253, 0.72) !important;
+          text-shadow: 0 0 18px rgba(167, 139, 250, 0.22);
         }
 
         #stok-kapasitesi > div > div > div:first-child > div a:hover {

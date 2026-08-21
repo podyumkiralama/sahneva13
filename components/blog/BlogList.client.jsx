@@ -24,7 +24,7 @@ function BlogCard({ post, index }) {
   const shouldPrefetch = index < 3;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-xl">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-violet-300 hover:shadow-xl">
       <Link
         href={`/blog/${post.slug}`}
         prefetch={shouldPrefetch}
@@ -45,7 +45,7 @@ function BlogCard({ post, index }) {
             className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"
             aria-hidden="true"
           />
-          <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-blue-800 shadow-sm backdrop-blur">
+          <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-violet-800 shadow-sm backdrop-blur">
             {post.category}
           </span>
         </div>
@@ -67,7 +67,7 @@ function BlogCard({ post, index }) {
             <span>{post.readTime}</span>
           </div>
 
-          <h2 className="mb-3 line-clamp-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-blue-600">
+          <h2 className="mb-3 line-clamp-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-violet-600">
             {post.title}
           </h2>
 
@@ -76,7 +76,7 @@ function BlogCard({ post, index }) {
           </p>
 
           <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-            <span className="text-sm font-semibold text-blue-600 group-hover:underline">
+            <span className="text-sm font-semibold text-violet-600 group-hover:underline">
               Devamını Oku
             </span>
             <span
@@ -130,8 +130,8 @@ export default function BlogList({ posts }) {
               onClick={() => handleCategoryChange(category)}
               className={`min-h-[44px] rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                 isActive
-                  ? "border-blue-600 bg-blue-600 text-white shadow-md"
-                  : "border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:text-blue-700"
+                  ? "border-violet-600 bg-violet-600 text-white shadow-md"
+                  : "border-gray-200 bg-white text-gray-700 hover:border-violet-300 hover:text-violet-700"
               }`}
             >
               {category}
@@ -158,7 +158,7 @@ export default function BlogList({ posts }) {
                 type="button"
                 onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
                 aria-controls="blog-post-grid"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-blue-700 focus-ring"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-violet-700 focus-ring"
               >
                 Daha Fazla Yazı Göster
               </button>

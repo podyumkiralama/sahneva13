@@ -116,7 +116,7 @@ export default function ChineseProjectsPage() {
 
       <section>
         <div className="mx-auto mb-8 max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
             项目图库
           </p>
           <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-4xl">
@@ -136,7 +136,7 @@ export default function ChineseProjectsPage() {
         <div className="mt-8 text-center">
           <Link
             href="/zh/our-work"
-            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-violet-600 px-7 text-sm font-black text-violet-700 transition hover:bg-violet-600 hover:text-white"
           >
             观看现场视频
           </Link>

@@ -6,6 +6,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
@@ -305,113 +306,40 @@ function StructuredData() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-slate-950 text-white pt-20 pb-14 md:pb-16 lg:pt-24">
-      <div className="absolute inset-0 pointer-events-none">
-        <Image
-          src={HERO_IMAGE}
-          alt="Moda defilesi için profesyonel podyum kurulumu – runway sahne tasarımı"
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
-          quality={60}
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-        />
-
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/50 via-pink-900/20 to-slate-950/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-violet-900/25" />
-
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-
-        <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-violet-500/14 blur-3xl" />
-        <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-pink-500/12 blur-3xl" />
-      </div>
-
-      <div className="relative z-10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 px-4 py-2 mb-5">
-              <span
-                className="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_6px_rgba(34,197,94,0.18)]"
-                aria-hidden="true"
-              />
-              <span className="text-sm font-extrabold text-white">
-                İstanbul Geneli Profesyonel Moda Sahne Hizmeti
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]">
-              Defile &amp;{" "}
-              <span className="text-pink-200">Podyum Kiralama</span>
-            </h1>
-
-            <p className="text-lg md:text-2xl text-white/90 leading-relaxed mb-3">
-              Defile • Runway • Moda Haftası • Lansman • Showroom
-            </p>
-
-            <p className="text-base md:text-xl text-white/75 leading-relaxed mb-7 max-w-3xl mx-auto">
-              T tipi, U tipi ve düz runway tasarımları, LED arka plan sahneleri ve{" "}
-              <span className="font-semibold text-white">uçtan uca teknik destek</span>{" "}
-              ile moda etkinliklerinize sofistike bir sahne
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-9">
-              <Link
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl transition"
-              >
-                <span className="text-xl mr-2">💬</span> Hemen Teklif Al
-              </Link>
-
-              <Link
-                href="#hizmetler"
-                className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-xl transition shadow-lg"
-              >
-                <span className="text-xl mr-2">👗</span> Hizmetlerimiz
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {[
-                { icon: "⭐", value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT_DISPLAY}+ Değerlendirme` },
-                { icon: "👗", value: PROJECTS_COMPLETED, label: "Tamamlanan Proje" },
-                { icon: "🚀", value: "Uçtan Uca", label: "Hizmet" },
-                { icon: "🛡️", value: "TS EN", label: "Güvenlik Standartları" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/12 px-4 py-4 text-center"
-                >
-                  <div className="text-2xl mb-1" aria-hidden="true">
-                    {s.icon}
-                  </div>
-                  <div className="text-xl font-black">{s.value}</div>
-                  <div className="text-sm text-white/70 font-semibold">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <span className="sr-only">Defile Podyum Kiralama - Sahneva Organizasyon</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
-    </section>
+    <PageHero
+      eyebrow="İstanbul geneli profesyonel moda sahne hizmeti"
+      title="Defile &"
+      titleAccent="Podyum Kiralama"
+      description="T tipi, U tipi ve düz runway tasarımları, LED arka plan sahneleri ve <strong>uçtan uca teknik destek</strong> ile moda etkinliklerinize sofistike bir sahne."
+      badges={["Defile", "Runway", "Moda Haftası", "Lansman", "Showroom"]}
+      actions={[
+        {
+          key: "quote",
+          label: "Hemen Teklif Al",
+          href: WHATSAPP_URL,
+          external: true,
+          ariaLabel: "WhatsApp üzerinden defile podyumu teklifi alın",
+        },
+        {
+          key: "services",
+          label: "Hizmetlerimiz",
+          href: "#hizmetler",
+        },
+      ]}
+      metrics={[
+        { value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT_DISPLAY}+ değerlendirme` },
+        { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
+        { value: "Uçtan Uca", label: "Hizmet kapsamı" },
+        { value: "TS EN", label: "Güvenlik standartları" },
+      ]}
+      image={{
+        src: HERO_IMAGE,
+        alt: "Moda defilesi için profesyonel podyum kurulumu – runway sahne tasarımı",
+        sizes: "100vw",
+        quality: 60,
+        blurDataURL: BLUR_DATA_URL,
+      }}
+    />
   );
 }
 

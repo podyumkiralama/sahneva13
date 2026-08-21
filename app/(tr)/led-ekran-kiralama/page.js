@@ -105,7 +105,7 @@ const LED_PIXEL_ROWS = [
   {
     model: "P1.9",
     badge: "Yeni Premium Envanter",
-    badgeClass: "bg-cyan-100 text-cyan-700",
+    badgeClass: "bg-violet-100 text-violet-700",
     clarity: "Ultra Fine Pixel",
     detailIndex: "●●●●●",
     detailText: "En yüksek çözünürlük düzeyi",
@@ -127,7 +127,7 @@ const LED_PIXEL_ROWS = [
   {
     model: "P2.9",
     badge: "En dengeli seçim",
-    badgeClass: "bg-blue-100 text-blue-700",
+    badgeClass: "bg-violet-100 text-violet-700",
     clarity: "High Definition",
     detailIndex: "●●●",
     detailText: "Dengeli çözünürlük düzeyi",
@@ -350,7 +350,7 @@ function FAQ() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan <span className="text-blue-700">Sorular</span>
+            Sık Sorulan <span className="text-violet-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             LED ekran kiralama hakkında merak edilen sorular ve cevapları
@@ -365,7 +365,7 @@ function FAQ() {
           </p>
           <Link
             href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
             aria-label="Tüm SSS'yi Görüntüle - Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
             <ArrowRight size={20} aria-hidden="true" className="mr-3" />
@@ -390,7 +390,7 @@ function QuickSelectionGuide() {
             id="led-secim-rehberi-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5"
           >
-            Etkinliğinize göre <span className="text-blue-700 normal-case">panel önerisi</span>
+            Etkinliğinize göre <span className="text-violet-700 normal-case">panel önerisi</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             En sık karşılaştığımız üç senaryoda hangi piksel aralığının öne çıktığını ve nedenini kısaca özetledik.
@@ -440,7 +440,7 @@ function QuickSelectionGuide() {
                           <h4 className="text-base font-bold leading-snug text-white">{scenario.title}</h4>
                           <p className="mt-1.5 text-xs leading-relaxed text-white/85 md:text-[13px]">{scenario.detail}</p>
                         </div>
-                        <span className="shrink-0 rounded-full bg-blue-500/20 px-2.5 py-1 text-xs font-bold text-blue-200">
+                        <span className="shrink-0 rounded-full bg-violet-500/20 px-2.5 py-1 text-xs font-bold text-violet-200">
                           {scenario.recommendation}
                         </span>
                       </div>
@@ -478,7 +478,7 @@ function P19InvestmentProof() {
     <section className="bg-white py-20" aria-labelledby="p19-yatirim-baslik">
       <div className="container mx-auto grid max-w-7xl items-center gap-8 px-4 lg:grid-cols-[0.92fr_1.08fr]">
         <div>
-          <div className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+          <div className="mb-4 inline-flex rounded-full border border-violet-100 bg-violet-50 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-700">
             Özmal Envanter Gücü
           </div>
           <h2 id="p19-yatirim-baslik" className="text-3xl font-black leading-tight text-gray-900 md:text-5xl">
@@ -515,7 +515,7 @@ function P19InvestmentProof() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/82 via-transparent to-transparent" />
           </div>
           <figcaption className="absolute inset-x-5 bottom-5">
-            <span className="inline-flex rounded-full bg-white/12 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100 backdrop-blur">
+            <span className="inline-flex rounded-full bg-white/12 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-100 backdrop-blur">
               Gerçek kurulum kanıtı
             </span>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-white/86">
@@ -534,7 +534,7 @@ function VisualProofStrip() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 text-center">
           <h2 id="gorsel-ritim-baslik" className="text-3xl md:text-4xl font-black text-white mb-3">
-            Gerçek Kurulumlardan <span className="text-blue-400">Hızlı Görsel Özet</span>
+            Gerçek Kurulumlardan <span className="text-violet-400">Hızlı Görsel Özet</span>
           </h2>
           <p className="text-white/70 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
             Sayfadaki teknik akışı desteklemesi için farklı kullanım senaryolarından seçilmiş örnek kurulumları öne çıkardık.
@@ -561,7 +561,7 @@ function VisualProofStrip() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
-                  <div className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+                  <div className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-violet-300">
                     {item.eyebrow}
                   </div>
                   <h3 className="text-xl font-black text-white">{item.title}</h3>
@@ -650,25 +650,25 @@ function Hero() {
 /* ================== Hizmetler ================== */
 function Services() {
   return (
-    <section id="hizmetler" className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="hizmetler-baslik">
+    <section id="hizmetler" className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="hizmetler-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            LED Ekran Kiralama <span className="text-blue-700">Hizmetlerimiz</span>
+            LED Ekran Kiralama <span className="text-violet-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Indoor LED ekran, outdoor LED ekran, LED wall ve video wall kurulumlarını etkinlik tipine göre; ekran ölçüsü, izleme mesafesi, piksel aralığı, taşıyıcı sistem, reji ve teknik ekip ihtiyacıyla birlikte planlıyoruz.
           </p>
           <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Fiyat, m² hesabı ve maliyeti oluşturan kalemler için{" "}
-            <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+            <Link href="/led-ekran-kiralama-fiyatlari" className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-900">
               güncel LED ekran kiralama fiyatları
             </Link>{" "}
             sayfasında ayrı bir fiyat rehberi hazırladık; bu sayfa ise hizmet ve teknik çözüm kapsamına odaklanır.
           </p>
           <p className="mt-5 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Salon ölçünüze ve izleme mesafenize uygun ekran boyutunu kendiniz denemek isterseniz{" "}
-            <Link href="/led-ekran-hesaplama" className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-900">
+            <Link href="/led-ekran-hesaplama" className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-900">
               LED ekran ölçü hesaplama aracını
             </Link>{" "}
             kullanabilirsiniz.
@@ -685,10 +685,10 @@ function Services() {
                   className={`bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col animate-fade-up ${delayClass}`}
                   aria-labelledby={id}
                 >
-                  <div className="mb-4 text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                  <div className="mb-4 text-violet-600 group-hover:scale-110 transition-transform duration-300">
                     <service.Icon size={36} aria-hidden="true" />
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -697,7 +697,7 @@ function Services() {
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
                         <span className="text-base">{feature}</span>
                       </li>
                     ))}
@@ -708,7 +708,7 @@ function Services() {
                         href={getServiceWhatsappLink(service.title)}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                        className="inline-flex items-center justify-center gap-2 font-bold px-5 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-500"
                         aria-label={`${service.title} için ${service.cta.label}`}
                       >
                         <ArrowRight size={18} aria-hidden="true" />
@@ -727,7 +727,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
           >
             <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Detaylı Teklif için İletişime Geçin</span>
@@ -841,7 +841,7 @@ function Gallery() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Gerçek LED Ekran <span className="text-blue-700">Kurulumlarımız</span>
+            Gerçek LED Ekran <span className="text-violet-700">Kurulumlarımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
             Gerçek saha görselleriyle; LED ekran kurulum kapasitemizi, sahne entegrasyon gücümüzü ve prodüksiyon kalitemizi öne çıkarıyoruz.
@@ -878,7 +878,7 @@ function Gallery() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 max-w-2xl">
-                <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-200 backdrop-blur">
+                <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">
                   Öne çıkan kurulum
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white">
@@ -947,7 +947,7 @@ function Gallery() {
         <div className="mt-20 mb-10">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Video <span className="text-blue-700">Galerisi</span>
+              Video <span className="text-violet-700">Galerisi</span>
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Gerçek kurulumlarımızdan ve saha operasyonlarımızdan seçilmiş kısa videolar
@@ -984,8 +984,8 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-blue-900 to-slate-900 rounded-3xl p-8 md:p-14 text-center border border-blue-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="mt-16 bg-gradient-to-br from-violet-900 to-slate-900 rounded-3xl p-8 md:p-14 text-center border border-violet-800 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
           
           <div className="relative z-10">
@@ -993,13 +993,13 @@ function Gallery() {
               Daha Fazla İlham Mı Arıyorsunuz?
             </h3>
             
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-blue-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
+            <p className="text-violet-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Daha fazla uygulama örneği ve detaylı görsel için <a href="/projeler" className="underline font-bold text-white hover:text-violet-200 transition-colors">Tüm Proje Galerimizi inceleyin</a>. Yüzlerce başarılı referansımız arasından etkinliğinize en uygun LED ekran çözümünü birlikte tasarlayalım.
             </p>
             
             <Link
               href="/projeler"
-              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+              className="inline-flex items-center justify-center font-black px-10 py-5 rounded-2xl bg-white text-violet-900 hover:bg-violet-50 transform transition-all duration-300 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             >
               <Eye size={24} className="mr-3" aria-hidden="true" />
               <span className="text-lg">Tüm Resimleri Gör</span>
@@ -1064,7 +1064,7 @@ function TechnicalComparison() {
                     <span className="sr-only">{row.detailText}</span>
                   </td>
                   <td className="px-6 py-4 text-gray-700">{row.distance}</td>
-                  <td className="px-6 py-4 font-semibold text-blue-700">{row.refreshRate}</td>
+                  <td className="px-6 py-4 font-semibold text-violet-700">{row.refreshRate}</td>
                   <td className="px-6 py-4 text-gray-700">{row.usage}</td>
                 </tr>
               ))}
@@ -1128,7 +1128,7 @@ function Technical() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Teknik <span className="text-blue-700">Altyapımız</span>
+            Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             En son teknoloji LED ekranlar ve profesyonel teknik altyapı ile hizmetinizdeyiz
@@ -1142,8 +1142,8 @@ function Technical() {
             return (
             <div key={item.category} className="group">
               <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
-                <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-3">
-                  <span className="text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                <h3 className="font-black text-xl text-gray-900 mb-3 group-hover:text-violet-600 transition-colors flex items-center gap-3">
+                  <span className="text-violet-600 group-hover:scale-110 transition-transform duration-300">
                     <item.Icon size={28} aria-hidden="true" />
                   </span>
                   {item.title}
@@ -1154,14 +1154,14 @@ function Technical() {
                 <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/50 p-4">
                   <summary
                     aria-controls={detailsId}
-                    className="flex min-h-12 cursor-pointer select-none items-center rounded-lg font-semibold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                    className="flex min-h-12 cursor-pointer select-none items-center rounded-lg font-semibold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2"
                   >
                     Detayları gör
                   </summary>
                   <ul id={detailsId} className="mt-3 space-y-2">
                     {item.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3 text-gray-700">
-                        <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="mt-2 w-2 h-2 bg-violet-600 rounded-full flex-shrink-0" aria-hidden="true" />
                         <span className="text-sm leading-relaxed">{feature}</span>
                       </li>
                     ))}
@@ -1251,7 +1251,7 @@ function WhySahneva() {
   return (
     <section
       id="neden-sahneva"
-      className="py-20 bg-gradient-to-b from-blue-50/50 to-white"
+      className="py-20 bg-gradient-to-b from-violet-50/50 to-white"
       aria-labelledby="neden-sahneva-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -1260,13 +1260,13 @@ function WhySahneva() {
             id="neden-sahneva-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Neden <span className="text-blue-700">Sahneva?</span>
+            Neden <span className="text-violet-700">Sahneva?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Unilumin URMIII serisi paneller ve entegre sahne deneyimiyle yüksek standartlı prodüksiyon altyapısı
           </p>
           <div
-            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full"
             aria-hidden="true"
           />
         </div>
@@ -1278,12 +1278,12 @@ function WhySahneva() {
                 className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col"
                 aria-labelledby={`why-${slugify(feature.title)}`}
               >
-                <div className="mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-blue-700 group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-5 w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-violet-700 group-hover:scale-110 transition-transform duration-300">
                   <feature.Icon size={28} aria-hidden="true" />
                 </div>
                 <h3
                   id={`why-${slugify(feature.title)}`}
-                  className="text-xl font-black text-gray-900 mb-3 group-hover:text-blue-700 transition-colors"
+                  className="text-xl font-black text-gray-900 mb-3 group-hover:text-violet-700 transition-colors"
                 >
                   {feature.title}
                 </h3>
@@ -1300,7 +1300,7 @@ function WhySahneva() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500"
             aria-label="Teknik Danışmanlık Alın - Unilumin URMIII teknolojisi hakkında detaylı bilgi ve teklif alın"
           >
             <MessageCircle size={20} aria-hidden="true" className="mr-3" />
@@ -1319,12 +1319,12 @@ function UseCases() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            LED Ekran <span className="text-blue-400">Kullanım Alanları</span>
+            LED Ekran <span className="text-violet-400">Kullanım Alanları</span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Sektörel ihtiyaçlara özel, yüksek performanslı dijital görüntüleme çözümleri.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
         <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1333,7 +1333,7 @@ function UseCases() {
               key={uc.title}
               className="bg-white/5 border border-white/10 p-6 rounded-3xl hover:bg-white/10 hover:border-white/30 transition-all duration-300 group"
             >
-              <div className="text-blue-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+              <div className="text-violet-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
                 <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
               </div>
               <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
@@ -1375,7 +1375,7 @@ function RegionalService() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bolgesel-hizmet-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            İstanbul, Marmara ve Çevre İllerde <span className="text-blue-700">Lider Güç</span>
+            İstanbul, Marmara ve Çevre İllerde <span className="text-violet-700">Lider Güç</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Bölgenizin coğrafi ve lojistik dinamiklerini biliyoruz. İstanbul trafiğine özel erken kurulum stratejilerimiz ve çevre illere özel şeffaf nakliye çözümlerimizle etkinliklerinizi güvence altına alıyoruz.
@@ -1386,10 +1386,10 @@ function RegionalService() {
           {/* Sol Taraf: Bölgesel Dağılım */}
           <div className="space-y-8">
             {regions.map((region) => (
-              <div key={region.name} className="group p-6 bg-white rounded-2xl border-l-4 border-blue-600 hover:bg-blue-50 transition-colors shadow-sm">
+              <div key={region.name} className="group p-6 bg-white rounded-2xl border-l-4 border-violet-600 hover:bg-violet-50 transition-colors shadow-sm">
                 <h3 className="font-black text-gray-900 text-xl mb-2">{region.name}</h3>
                 <p className="text-gray-700 mb-3">{region.detail}</p>
-                <div className="text-sm font-semibold text-blue-800 bg-blue-100/50 p-3 rounded-xl border border-blue-100">
+                <div className="text-sm font-semibold text-violet-800 bg-violet-100/50 p-3 rounded-xl border border-violet-100">
                   📍 Kapsam: {region.districts}
                 </div>
               </div>
@@ -1398,15 +1398,15 @@ function RegionalService() {
 
           {/* Sağ Taraf: Operasyonel Güvence */}
           <div className="bg-slate-900 rounded-3xl p-10 text-white shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-violet-600 rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
             
-            <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-blue-400">
+            <h3 className="text-2xl font-black mb-8 flex items-center gap-3 text-violet-400">
               <Shield size={28} aria-hidden="true" /> Operasyonel Avantajlarımız
             </h3>
             
             <div className="space-y-8 relative z-10">
               <div className="flex gap-4">
-                <div className="bg-blue-600/20 p-3 rounded-xl h-fit"><Truck className="text-blue-400" aria-hidden="true" /></div>
+                <div className="bg-violet-600/20 p-3 rounded-xl h-fit"><Truck className="text-violet-400" aria-hidden="true" /></div>
                 <div>
                   <h4 className="font-bold text-lg">Trafik ve Zaman Yönetimi</h4>
                   <p className="text-white/80 text-sm mt-1 leading-relaxed">
@@ -1457,7 +1457,7 @@ function RegionalService() {
               <thead>
                 <tr>
                   <th className="px-8 py-6 font-black text-gray-900 w-1/4 bg-gray-50 border-b-2 border-gray-200">Hizmet Kriteri</th>
-                  <th className="px-8 py-6 font-black text-blue-800 w-3/8 bg-blue-50 border-b-2 border-blue-200">İstanbul İçi (Avrupa & Anadolu)</th>
+                  <th className="px-8 py-6 font-black text-violet-800 w-3/8 bg-violet-50 border-b-2 border-violet-200">İstanbul İçi (Avrupa & Anadolu)</th>
                   <th className="px-8 py-6 font-black text-green-800 w-3/8 bg-green-50 border-b-2 border-green-200">Çevre İller (Marmara Bölgesi)</th>
                 </tr>
               </thead>
@@ -1499,7 +1499,7 @@ function Articles() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            LED Ekran Kiralama <span className="text-blue-700">Rehberi</span>
+            LED Ekran Kiralama <span className="text-violet-700">Rehberi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Etkinliğiniz için doğru LED ekranı seçmek, kurulum sürecini planlamak ve teknik gereksinimleri netleştirmek için kapsamlı rehber
@@ -1514,7 +1514,7 @@ function Articles() {
             <a
               key={section.id}
               href={`#${section.id}`}
-              className="inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+              className="inline-flex items-center rounded-full border border-violet-100 bg-white px-4 py-2 text-sm font-semibold text-violet-700 shadow-sm transition hover:border-violet-200 hover:bg-violet-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
             >
               {section.label}
             </a>
@@ -1522,17 +1522,17 @@ function Articles() {
         </nav>
 
         <article className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-          <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10">
+          <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
               LED Ekran Kiralama: Etkinliklerde Yüksek Etki İçin Doğru Planlama
             </h3>
-            <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+            <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
               Konserden fuara, kurumsal lansmandan gala gecelerine kadar her organizasyonda; güçlü görsel iletişim ve yüksek çözünürlüklü profesyonel çözümler
             </p>
           </header>
 
           <div className="p-8 md:p-10">
-            <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-blue-500">
+            <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-900 prose-ul:mt-4 prose-ul:mb-6 prose-li:marker:text-violet-500">
               <h3 id="led-ekran-nedir">LED Ekran Kiralama Nedir?</h3>
               <p>
                 <strong>LED ekran kiralama</strong>, kısa veya orta süreli etkinlikler için yüksek görüntü kalitesi sunan LED ekran sistemlerinin
@@ -1571,8 +1571,8 @@ function Articles() {
                 />
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6 my-6">
-                <h4 className="font-black text-blue-700 text-lg mb-3">Kamera Dostu Performans: 3840 Hz Yenileme Hızı</h4>
+              <div className="bg-violet-50 border-l-4 border-violet-600 rounded-r-2xl p-6 my-6">
+                <h4 className="font-black text-violet-700 text-lg mb-3">Kamera Dostu Performans: 3840 Hz Yenileme Hızı</h4>
                 <p className="text-gray-700 mb-0">
                   Unilumin URMIII panellerinin 3840 Hz yenileme hızı, televizyon çekimleri ve canlı yayınlarda
                   tarama çizgisi (moiré) ile titreşim (flicker) riskini azaltmaya yardımcı olur. Yüksek gri skala
@@ -1589,15 +1589,15 @@ function Articles() {
                 </p>
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-2xl p-6 my-8">
-                <h4 className="font-black text-blue-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
+              <div className="bg-violet-50 border-l-4 border-violet-500 rounded-r-2xl p-6 my-8">
+                <h4 className="font-black text-violet-700 text-xl mb-3">Hızlı Teknik Seçim İpucu</h4>
                 <p className="text-gray-700 mb-0">
                   İzleyici ekrana ne kadar yakınsa piksel aralığı o kadar küçük olmalıdır. Yakın mesafede P2.5/P2.9; orta-uzak mesafede P3.9/P4
                   tercih edilerek daha net ve dengeli görüntü elde edilir.
                 </p>
               </div>
 
-              <div className="not-prose my-8 rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+              <div className="not-prose my-8 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm">
                 <h4 className="text-lg font-black text-gray-900">Etkinlik tipine göre LED ekran seçimi</h4>
                 <p className="mt-2 text-sm leading-6 text-gray-600">
                   Konferans, lansman, festival veya açık hava organizasyonu için ekran ölçüsü,
@@ -1606,7 +1606,7 @@ function Articles() {
                 </p>
                 <Link
                   href="/blog/etkinlikler-icin-led-ekran-secimi"
-                  className="mt-4 inline-flex items-center font-bold text-blue-700 hover:text-blue-900"
+                  className="mt-4 inline-flex items-center font-bold text-violet-700 hover:text-violet-900"
                 >
                   LED ekran seçimi rehberini oku
                 </Link>
@@ -1715,7 +1715,7 @@ function RelatedServices() {
   
   return (
     <section 
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30" 
+      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30" 
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1725,7 +1725,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -1733,7 +1733,7 @@ function RelatedServices() {
             LED ekran kurulumunuzu tamamlayacak diğer profesyonel etkinlik çözümlerimiz
           </p>
           <div 
-            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full" 
+            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full" 
             aria-hidden="true" 
           />
         </div>
@@ -1745,15 +1745,15 @@ function RelatedServices() {
                 key={service.title}
                 href={service.external ? getServiceWhatsappLink(service.waTitle ?? service.title) : service.href}
                 {...(service.external ? { target: "_blank", rel: "nofollow noopener noreferrer" } : {})}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white h-full flex flex-col"
               >
                 <div 
-                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 
+                  className="mb-6 text-violet-600 group-hover:scale-110 transition-transform duration-300" 
                   aria-hidden="true"
                 >
                   <service.Icon size={36} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -1779,20 +1779,20 @@ function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
           <div className="relative z-10">
             <h2 id="cta-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Profesyonel LED Ekran Çözümlerine Hazır Mısınız?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Türkiye'nin {PROVINCES_COUNT} ilinde kendi lojistik altyapımız ve uzman kadromuzla hızlı kurulum sağlıyoruz. Ücretsiz keşif, profesyonel danışmanlık ve
               etkinlik akışınıza uygun teknik planlamayla hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/iletisim"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-lg"
               >
                 <MessageCircle size={20} aria-hidden="true" className="mr-3" />
                 <span className="text-lg">Hemen Teklif Al</span>

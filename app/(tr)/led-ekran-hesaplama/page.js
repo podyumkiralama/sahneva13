@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -88,35 +89,37 @@ export default function Page() {
   return (
     <main className="bg-slate-950 pb-20 text-white">
       <JsonLd id="ld-json-led-ekran-olcu-planlama" data={PLANNING_PAGE_SCHEMA} />
-      <section className="border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.34),transparent_48%)] px-4 pb-16 pt-24 md:pb-24 md:pt-32">
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.28em] text-blue-200">Teknik planlama rehberi</p>
-          <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">LED ekran ölçüsünü doğru planlayın</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
-            Bu sayfa ekran ölçüsü, izleme mesafesi ve kurulum koşullarını netleştirmenize yardımcı olur. Ana hizmet kapsamı ve teknik çözüm seçenekleri için önce hizmet sayfasını inceleyin.
-          </p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/led-ekran-kiralama"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-blue-100"
-            >
-              LED ekran kiralama hizmeti
-            </Link>
-            <Link
-              href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-white/30 px-7 py-4 font-black text-white transition hover:bg-white/10"
-            >
-              LED ekran kiralama fiyatları ve hesaplama aracı
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        compact
+        breadcrumb={[
+          { label: "Ana Sayfa", href: "/" },
+          { label: "LED Ekran Kiralama", href: "/led-ekran-kiralama" },
+          { label: "Ölçü Planlama" },
+        ]}
+        eyebrow="Teknik planlama rehberi"
+        title="LED Ekran Ölçüsünü"
+        titleAccent="Doğru Planlayın"
+        titleWide
+        description="Bu sayfa ekran ölçüsü, izleme mesafesi ve kurulum koşullarını netleştirmenize yardımcı olur. Ana hizmet kapsamı ve teknik çözüm seçenekleri için önce hizmet sayfasını inceleyin."
+        actions={[
+          {
+            key: "service",
+            label: "LED ekran kiralama hizmeti",
+            href: "/led-ekran-kiralama",
+          },
+          {
+            key: "pricing",
+            label: "Fiyatlar ve hesaplama aracı",
+            href: "/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci",
+          },
+        ]}
+      />
 
       <section className="px-4 py-16 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
           {PLANNING_STEPS.map((step, index) => (
             <article key={step.title} className="rounded-3xl border border-white/10 bg-white/[0.05] p-7">
-              <p className="text-sm font-black text-blue-200">Adım {index + 1}</p>
+              <p className="text-sm font-black text-violet-200">Adım {index + 1}</p>
               <h2 className="mt-3 text-2xl font-black">{step.title}</h2>
               <p className="mt-4 leading-7 text-slate-300">{step.text}</p>
             </article>
@@ -125,15 +128,15 @@ export default function Page() {
       </section>
 
       <section className="px-4">
-        <div className="mx-auto max-w-4xl rounded-[28px] border border-blue-300/20 bg-blue-500/10 p-7 text-center md:p-10">
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-200">Fiyat ve m² hesabı</p>
+        <div className="mx-auto max-w-4xl rounded-[28px] border border-violet-300/20 bg-violet-500/10 p-7 text-center md:p-10">
+          <p className="text-sm font-black uppercase tracking-[0.24em] text-violet-200">Fiyat ve m² hesabı</p>
           <h2 className="mt-3 text-3xl font-black">Hesaplama ve maliyet kalemleri fiyat sayfasında</h2>
           <p className="mx-auto mt-4 max-w-3xl leading-7 text-slate-200">
             Birim bedeller, paket kapsamları ve fiyat hesaplama aracı yalnızca LED ekran kiralama fiyatları sayfasında yer alır. Böylece hizmet seçimi ile fiyat araştırması ayrı ve net kalır.
           </p>
           <Link
             href="/led-ekran-kiralama-fiyatlari#led-ekran-hesaplama-araci"
-            className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-blue-100"
+            className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-violet-100"
           >
             LED ekran kiralama fiyatlarını incele
           </Link>

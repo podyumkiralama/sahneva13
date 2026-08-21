@@ -213,7 +213,7 @@ const GalleryCard = memo(function GalleryCard({
       <button
         type="button"
         onClick={handleOpen}
-        className="relative block w-full aspect-[4/3] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+        className="relative block w-full aspect-[4/3] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
       >
         {canLoadCover ? (
           <Image
@@ -285,7 +285,7 @@ const GalleryCard = memo(function GalleryCard({
         {gallery.href && (
           <Link
             href={gallery.href}
-            className="mt-4 inline-flex min-h-12 items-center justify-center rounded-full border border-blue-300/30 bg-blue-400/10 px-4 py-2 text-xs font-black text-blue-100 transition hover:bg-blue-400/20"
+            className="mt-4 inline-flex min-h-12 items-center justify-center rounded-full border border-violet-300/30 bg-violet-400/10 px-4 py-2 text-xs font-black text-violet-100 transition hover:bg-violet-400/20"
           >
             {dictionary.caseStudyCta}
           </Link>
@@ -606,7 +606,7 @@ export default function ProjectsGallery({
             "
           />
           {/* Glow */}
-          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-600/10 blur-[120px] rounded-full mix-blend-screen" />
         </div>
       )}
 

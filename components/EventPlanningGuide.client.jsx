@@ -152,16 +152,16 @@ function ChoiceButton({ active, children, onClick, description }) {
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${
+      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 ${
         active
-          ? "border-blue-600 bg-blue-50 shadow-sm"
-          : "border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50"
+          ? "border-violet-600 bg-violet-50 shadow-sm"
+          : "border-slate-200 bg-white hover:border-violet-300 hover:bg-slate-50"
       }`}
     >
       <span className="flex items-start gap-3">
         <span
           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-            active ? "border-blue-600 bg-blue-600 text-white" : "border-slate-300"
+            active ? "border-violet-600 bg-violet-600 text-white" : "border-slate-300"
           }`}
           aria-hidden="true"
         >
@@ -218,7 +218,7 @@ export default function EventPlanningGuide() {
     <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-xl shadow-slate-950/5 sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">Kısa keşif</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-700">Kısa keşif</p>
           <h2 id="etkinlik-rehberi-baslik" className="mt-2 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
             Etkinliğiniz için doğru sorularla başlayın
           </h2>
@@ -230,7 +230,7 @@ export default function EventPlanningGuide() {
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 text-sm font-bold text-slate-700 transition hover:border-blue-300 hover:text-blue-800"
+            className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 text-sm font-bold text-slate-700 transition hover:border-violet-300 hover:text-violet-800"
           >
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Baştan seç
@@ -317,7 +317,7 @@ export default function EventPlanningGuide() {
         </div>
 
         <aside className="rounded-3xl bg-slate-950 p-6 text-white sm:p-7" aria-live="polite">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Size özel başlangıç noktası</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">Size özel başlangıç noktası</p>
           {isReady ? (
             <>
               <h3 className="mt-3 text-2xl font-black leading-tight">
@@ -330,7 +330,7 @@ export default function EventPlanningGuide() {
                 <ul className="mt-3 space-y-3">
                   {plan.services.map((service) => (
                     <li key={service.href} className="rounded-2xl bg-white/8 p-3">
-                      <Link href={service.href} className="text-sm font-black text-white underline decoration-blue-300/60 underline-offset-4 hover:text-blue-200">
+                      <Link href={service.href} className="text-sm font-black text-white underline decoration-violet-300/60 underline-offset-4 hover:text-violet-200">
                         {service.label}
                       </Link>
                       <p className="mt-1 text-xs leading-5 text-slate-300">{service.why}</p>
@@ -370,20 +370,20 @@ export default function EventPlanningGuide() {
                     <details key={faq.q} className="group rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                       <summary className="cursor-pointer list-none pr-5 text-sm font-bold text-white marker:hidden">
                         {faq.q}
-                        <span className="float-right text-blue-200 transition group-open:rotate-45" aria-hidden="true">+</span>
+                        <span className="float-right text-violet-200 transition group-open:rotate-45" aria-hidden="true">+</span>
                       </summary>
                       <p className="mt-3 text-sm leading-6 text-slate-300">{faq.a}</p>
                     </details>
                   ))}
                 </div>
-                <Link href="/sss#genel" className="mt-3 inline-flex text-xs font-bold text-blue-200 underline underline-offset-4 hover:text-white">
+                <Link href="/sss#genel" className="mt-3 inline-flex text-xs font-bold text-violet-200 underline underline-offset-4 hover:text-white">
                   Tüm genel SSS&apos;yi inceleyin
                 </Link>
               </div>
 
               <Link
                 href={plannerUrl}
-                className="mt-7 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 text-sm font-black text-slate-950 transition hover:bg-blue-50"
+                className="mt-7 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 text-sm font-black text-slate-950 transition hover:bg-violet-50"
               >
                 Kapsamı ve yaklaşık bütçeyi oluştur
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -391,7 +391,7 @@ export default function EventPlanningGuide() {
             </>
           ) : (
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-6 text-slate-300">
-              <ClipboardList className="mb-3 h-6 w-6 text-blue-200" aria-hidden="true" />
+              <ClipboardList className="mb-3 h-6 w-6 text-violet-200" aria-hidden="true" />
               Seçimleriniz tamamlandığında, hangi hizmetlerin neden öne çıktığını ve ekibe hangi bilgileri vermeniz gerektiğini burada göreceksiniz.
             </div>
           )}

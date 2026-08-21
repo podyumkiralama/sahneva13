@@ -243,7 +243,7 @@ export default async function LineArrayGlossaryPage({ params }) {
             className="h-full w-full object-cover object-center"
           />
           <div
-            className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(59,130,246,0.23),transparent_38%),linear-gradient(100deg,rgba(2,6,23,.97),rgba(2,6,23,.86)_48%,rgba(15,23,42,.56))]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(139, 92, 246,0.23),transparent_38%),linear-gradient(100deg,rgba(2,6,23,.97),rgba(2,6,23,.86)_48%,rgba(15,23,42,.56))]"
             aria-hidden="true"
           />
         </div>
@@ -257,7 +257,7 @@ export default async function LineArrayGlossaryPage({ params }) {
               <li aria-current="page" className="text-white/90">Line Array</li>
             </ol>
           </nav>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-300">Ses sistemleri sözlüğü</p>
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">Ses sistemleri sözlüğü</p>
           <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
             Line Array Nedir?
           </h1>
@@ -271,7 +271,7 @@ export default async function LineArrayGlossaryPage({ params }) {
       <main>
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="kisa-tanim">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Kısa tanım</p>
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kısa tanım</p>
             <h2 id="kisa-tanim" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               Uzak mesafeye kontrollü ses taşımak için tasarlanan dizi sistemi
             </h2>
@@ -300,7 +300,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         <section className="border-y border-slate-200 bg-slate-50 px-4 py-14 sm:py-16" aria-labelledby="calisma-mantigi">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.78fr_1.22fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Sistemin çalışma mantığı</p>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Sistemin çalışma mantığı</p>
               <h2 id="calisma-mantigi" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
                 Dizinin açısı, dinleyici alanına göre kurulur
               </h2>
@@ -312,7 +312,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="geleneksel-fark">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Geleneksel hoparlörden farkı</p>
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Geleneksel hoparlörden farkı</p>
           <h2 id="geleneksel-fark" className="mt-3 max-w-3xl text-3xl font-black tracking-tight sm:text-4xl">
             Line array bir ürün değil, alanı kapsama yaklaşımıdır
           </h2>
@@ -329,7 +329,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         <section className="bg-slate-950 px-4 py-14 text-white sm:py-16" aria-labelledby="kullanim-etkinlikleri">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-300">Kullanım etkinlikleri</p>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-300">Kullanım etkinlikleri</p>
               <h2 id="kullanim-etkinlikleri" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
                 Farklı ölçeklerde, farklı ses hedefleri
               </h2>
@@ -350,7 +350,7 @@ export default async function LineArrayGlossaryPage({ params }) {
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="planlama">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Hoparlör adedi ve asılma açısının belirlenmesi</p>
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Hoparlör adedi ve asılma açısının belirlenmesi</p>
             <h2 id="planlama" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               Adet, açı ve asılma yüksekliği keşif sonucudur
             </h2>
@@ -362,7 +362,7 @@ export default async function LineArrayGlossaryPage({ params }) {
           <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {LINE_ARRAY_DETAIL_CONTENT.arrayPlanning.map((item, index) => (
               <li key={item} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-black text-white">{index + 1}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet-700 text-sm font-black text-white">{index + 1}</span>
                 <span className="text-base leading-7 text-slate-700">{item}</span>
               </li>
             ))}
@@ -372,7 +372,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         <section className="border-y border-slate-200 bg-slate-50 px-4 py-14 sm:py-16" aria-labelledby="secim-kriterleri">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Seçim kriterleri</p>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Seçim kriterleri</p>
               <h2 id="secim-kriterleri" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
                 Doğru sistem, program ve mekânla birlikte seçilir
               </h2>
@@ -386,7 +386,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="sik-hatalar">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Sık hatalar</p>
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Sık hatalar</p>
           <h2 id="sik-hatalar" className="mt-3 max-w-3xl text-3xl font-black tracking-tight sm:text-4xl">
             Ses sistemi kararını tek bir değişkene indirmemek gerekir
           </h2>
@@ -411,7 +411,7 @@ export default async function LineArrayGlossaryPage({ params }) {
               <figcaption className="px-5 py-4 text-sm leading-6 text-white/65">Kurumsal etkinlikte kurulu line array ses sistemi</figcaption>
             </figure>
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-300">Kurumsal kullanım örneği</p>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-300">Kurumsal kullanım örneği</p>
               <h2 id="kurumsal-kullanim" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
                 Görsel sahne kurgusunun yanında çalışan ses planı
               </h2>
@@ -437,7 +437,7 @@ export default async function LineArrayGlossaryPage({ params }) {
                 <figcaption className="px-5 py-4 text-sm leading-6 text-slate-600">Açık hava festival sahnesinde kurulu line array ses sistemi</figcaption>
               </figure>
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">Sahneva gerçek uygulama örneği</p>
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Sahneva gerçek uygulama örneği</p>
                 <h2 id="sahneva-uygulama" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
                   Açık hava festival sahnesinde bütünleşik ses planı
                 </h2>
@@ -450,14 +450,14 @@ export default async function LineArrayGlossaryPage({ params }) {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="ilgili-hizmetler">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">İlgili hizmetler</p>
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">İlgili hizmetler</p>
           <h2 id="ilgili-hizmetler" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Teknik planı tamamlayan hizmetler</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {RELATED_SERVICES.map((service) => (
-              <Link key={service.href} href={service.href} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-md">
-                <h3 className="text-xl font-black tracking-tight group-hover:text-blue-800">{service.title}</h3>
+              <Link key={service.href} href={service.href} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-400 hover:shadow-md">
+                <h3 className="text-xl font-black tracking-tight group-hover:text-violet-800">{service.title}</h3>
                 <p className="mt-3 text-base leading-7 text-slate-700">{service.description}</p>
-                <span className="mt-5 inline-flex text-sm font-black text-blue-700 underline underline-offset-4">Hizmeti incele <span aria-hidden="true" className="ml-1.5">→</span></span>
+                <span className="mt-5 inline-flex text-sm font-black text-violet-700 underline underline-offset-4">Hizmeti incele <span aria-hidden="true" className="ml-1.5">→</span></span>
               </Link>
             ))}
           </div>
@@ -465,14 +465,14 @@ export default async function LineArrayGlossaryPage({ params }) {
 
         <section className="border-y border-slate-200 bg-slate-50 px-4 py-14 sm:py-16" aria-labelledby="ilgili-terimler">
           <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">İlgili teknik terimler</p>
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">İlgili teknik terimler</p>
             <h2 id="ilgili-terimler" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Line array planında sık geçen başlıklar</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {relatedTerms.map((relatedTerm) => (
-                <Link key={relatedTerm.slug} href={`/sozluk#${relatedTerm.slug}`} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-400 hover:shadow-md">
+                <Link key={relatedTerm.slug} href={`/sozluk#${relatedTerm.slug}`} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-violet-400 hover:shadow-md">
                   <h3 className="text-xl font-black tracking-tight text-slate-950">{relatedTerm.term}</h3>
                   <p className="mt-3 text-base leading-7 text-slate-700">{relatedTerm.definition}</p>
-                  <span className="mt-5 inline-flex text-sm font-black text-blue-700 underline underline-offset-4">Sözlükte görüntüle</span>
+                  <span className="mt-5 inline-flex text-sm font-black text-violet-700 underline underline-offset-4">Sözlükte görüntüle</span>
                 </Link>
               ))}
             </div>
@@ -481,14 +481,14 @@ export default async function LineArrayGlossaryPage({ params }) {
 
         <section className="bg-white px-4 py-14 sm:py-16" aria-labelledby="iletisim-cta">
           <div className="mx-auto max-w-4xl rounded-3xl bg-slate-950 px-6 py-10 text-center text-white sm:px-10 sm:py-14">
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-300">İletişim</p>
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-300">İletişim</p>
             <h2 id="iletisim-cta" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Etkinliğiniz için doğru ses planını birlikte çıkaralım</h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
               Tarih, mekan krokisi, seyirci düzeni, program akışı ve varsa sahne görsellerini paylaşın; line array,
               subwoofer, FOH ve rigging ihtiyaçlarını aynı teknik plan içinde değerlendirelim.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link href="/iletisim" className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-white px-6 text-sm font-black text-slate-950 transition hover:bg-blue-100">Teklif ve keşif talep edin</Link>
+              <Link href="/iletisim" className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-white px-6 text-sm font-black text-slate-950 transition hover:bg-violet-100">Teklif ve keşif talep edin</Link>
               <Link href="/ses-isik-sistemleri" className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-white/80 px-6 text-sm font-black text-white transition hover:bg-white hover:text-slate-950">Ses sistemlerini inceleyin</Link>
             </div>
           </div>

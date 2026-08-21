@@ -203,7 +203,7 @@ export default function AboutPage() {
       aria-hidden="true"
       style={{
         background:
-          "linear-gradient(135deg, rgba(30,58,138,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.62) 100%)",
+          "linear-gradient(135deg, rgba(76, 29, 149,0.42) 0%, rgba(88,28,135,0.22) 55%, rgba(2,6,23,0.62) 100%)",
       }}
     />
     <div
@@ -227,7 +227,7 @@ export default function AboutPage() {
     />
 
     {/* glow blobs */}
-    <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-blue-500/14 blur-3xl" />
+    <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-violet-500/14 blur-3xl" />
     <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-purple-500/12 blur-3xl" />
   </div>
 
@@ -249,7 +249,7 @@ export default function AboutPage() {
           id="hero-title"
           className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
-          About Us <span className="text-blue-200">Sahneva</span>
+          About Us <span className="text-violet-200">Sahneva</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
@@ -334,7 +334,7 @@ export default function AboutPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid gap-10 lg:grid-cols-2 items-center">
               <div className="order-2 lg:order-1">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-600 mb-3">
                   Who Are We?
                 </p>
                 <h2
@@ -345,7 +345,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
                   <p>
-                    <strong className="text-blue-600">Sahneva</strong> has been one of Türkiye's
+                    <strong className="text-violet-600">Sahneva</strong> has been one of Türkiye's
                     leading event production companies since 2012. With a team specialised in stage
                     rentals, LED walls, sound-light systems and professional installation,
                     we bring every event to life through technical excellence and creative vision.
@@ -377,7 +377,7 @@ export default function AboutPage() {
         </section>
 
         {/* VALUES */}
-        <section className="py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/60" aria-labelledby="values-title">
+        <section className="py-20 bg-gradient-to-br from-violet-50/80 to-purple-50/60" aria-labelledby="values-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="values-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -393,12 +393,12 @@ export default function AboutPage() {
               {VALUES.map((value, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {value.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{value.description}</p>
@@ -416,12 +416,12 @@ export default function AboutPage() {
                 Our Journey &
                 <span className="gradient-text gradient-text--safe-xl"> Success Story</span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto" aria-hidden="true" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" aria-hidden="true" />
             </div>
 
             <div className="relative">
               <div
-                className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 h-full hidden lg:block"
+                className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-violet-500 to-purple-500 h-full hidden lg:block"
                 aria-hidden="true"
               />
               <div className="space-y-12 lg:space-y-0">
@@ -439,10 +439,10 @@ export default function AboutPage() {
                             {item.icon}
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                            <div className="text-sm font-bold text-violet-600 bg-violet-50 px-3 py-1 rounded-full">
                               {item.year}
                             </div>
-                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h3>
                           </div>
@@ -452,7 +452,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="absolute left-1/2 -translate-x-1/2 lg:flex items-center justify-center hidden" aria-hidden="true">
-                      <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
+                      <div className="w-6 h-6 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
                     </div>
 
                     <div className="lg:w-1/2 hidden lg:block" aria-hidden="true" />
@@ -464,7 +464,7 @@ export default function AboutPage() {
         </section>
 
         {/* CLIENT PORTFOLIO */}
-        <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="clients-title">
+        <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="clients-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="clients-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -484,7 +484,7 @@ export default function AboutPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-3 h-3 bg-green-400 rounded-full motion-safe:animate-pulse" aria-hidden="true" />
-                    <span className="text-white font-medium group-hover:text-blue-300 transition-colors">{client}</span>
+                    <span className="text-white font-medium group-hover:text-violet-300 transition-colors">{client}</span>
                   </div>
                 </div>
               ))}
@@ -513,10 +513,10 @@ export default function AboutPage() {
         </section>
 
         {/* VISION & MISSION */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/30" aria-labelledby="vision-title">
+        <section className="py-20 bg-gradient-to-b from-white to-violet-50/30" aria-labelledby="vision-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100">
+              <div className="bg-gradient-to-br from-violet-50 to-white rounded-2xl p-8 shadow-lg border border-violet-100">
                 <div className="text-4xl mb-4" aria-hidden="true">🎯</div>
                 <h3 className="text-3xl font-black text-gray-900 mb-6">Our Mission</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -530,7 +530,7 @@ export default function AboutPage() {
                     "Environmentally conscious and sustainable operations",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -562,7 +562,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600" aria-labelledby="cta-title">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600" aria-labelledby="cta-title">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 id="cta-title" className="text-4xl md:text-5xl font-black mb-6">
               Let's collaborate on your <span className="text-yellow-300">next production</span>
@@ -574,7 +574,7 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href={`tel:${PHONE}`}
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Call now for professional consultation"
               >
                 <span className="flex items-center justify-center gap-2">📞 Call now</span>

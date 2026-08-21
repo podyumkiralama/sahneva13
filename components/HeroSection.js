@@ -4,9 +4,9 @@ import RichText from "@/components/RichText";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 
 const DEFAULT_KEYWORDS = [
-  { text: "Kurumsal Lansman", color: "text-blue-200" },
+  { text: "Kurumsal Lansman", color: "text-violet-200" },
   { text: "Konser & Festival", color: "text-purple-200" },
-  { text: "Sahne + LED", color: "text-cyan-200" },
+  { text: "Sahne + LED", color: "text-fuchsia-200" },
   { text: "Podyum & Ses", color: "text-emerald-200" },
   { text: "Kredi Kartı ile Taksit", color: "text-amber-200" },
 ];
@@ -147,7 +147,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(145deg, rgba(30,58,138,0.18) 0%, rgba(88,28,135,0.06) 48%, rgba(2,6,23,0.72) 100%)",
+              "linear-gradient(145deg, rgba(76, 29, 149,0.18) 0%, rgba(88,28,135,0.06) 48%, rgba(2,6,23,0.72) 100%)",
           }}
         />
 
@@ -167,7 +167,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
               className="mx-auto mt-3 max-w-[22rem] text-[2rem] font-black leading-[1.08] tracking-tight sm:max-w-5xl sm:text-4xl md:mt-4 md:text-6xl md:leading-[1.15] md:drop-shadow-[0_14px_40px_rgba(0,0,0,0.60)] lg:text-7xl"
             >
               <span className="block sm:inline">{d.titleLine1Prefix}</span>{" "}
-              <span className="block text-blue-200 sm:inline md:[text-shadow:0_0_18px_rgba(59,130,246,0.22)]">
+              <span className="block text-violet-200 sm:inline md:[text-shadow:0_0_18px_rgba(139, 92, 246,0.22)]">
                 {d.titleLine1}
               </span>
               {" "}

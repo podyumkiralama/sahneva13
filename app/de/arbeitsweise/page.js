@@ -225,10 +225,10 @@ export default function GermanHowWeWorkPage() {
           sizes="100vw"
           className="object-cover opacity-55"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/72 to-slate-950/92" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950/72 to-slate-950/92" />
         <div className="container relative z-10 mx-auto px-4 py-20 md:py-24">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100 backdrop-blur">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100 backdrop-blur">
               Arbeitsweise
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -263,7 +263,7 @@ export default function GermanHowWeWorkPage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] lg:[contain-intrinsic-size:auto_1600px] py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Die acht Schritte
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -291,7 +291,7 @@ export default function GermanHowWeWorkPage() {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white">
                       {step.stepNo}
                     </span>
-                    <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-indigo-700">
+                    <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-violet-700">
                       {step.label}
                     </span>
                   </div>
@@ -314,7 +314,7 @@ export default function GermanHowWeWorkPage() {
               {INCLUDED.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700">
                   <span
-                    className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-indigo-500"
+                    className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-violet-500"
                     aria-hidden="true"
                   />
                   <span>{item}</span>
@@ -345,7 +345,7 @@ export default function GermanHowWeWorkPage() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-[40px] items-center text-sm font-bold text-indigo-700 underline underline-offset-4 transition hover:text-indigo-900"
+                    className="inline-flex min-h-[40px] items-center text-sm font-bold text-violet-700 underline underline-offset-4 transition hover:text-violet-900"
                   >
                     {link.label}
                   </Link>
@@ -362,7 +362,7 @@ export default function GermanHowWeWorkPage() {
       >
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Häufige Fragen zum Ablauf
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -372,7 +372,7 @@ export default function GermanHowWeWorkPage() {
               Weitere Antworten zu Technik, Preisen und Logistik finden Sie in unseren{" "}
               <Link
                 href="/de/faq"
-                className="font-bold text-indigo-700 underline underline-offset-4 hover:text-indigo-900"
+                className="font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
               >
                 häufigen Fragen
               </Link>

@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  Camera,
   CheckCircle2,
   ClipboardCheck,
   Layers3,
@@ -11,7 +10,6 @@ import {
   PhoneCall,
   RadioTower,
   ShieldCheck,
-  Sparkles,
   Zap,
 } from "lucide-react";
 
@@ -330,7 +328,7 @@ function SectionHeader({ eyebrow, title, desc, dark = false, center = false, lev
       {eyebrow ? (
         <p
           className={`text-sm font-black uppercase tracking-normal ${
-            dark ? "text-white" : "text-blue-700"
+            dark ? "text-white" : "text-violet-700"
           }`}
         >
           {eyebrow}
@@ -575,7 +573,7 @@ function VisualProof() {
               {/* Kanit bolumu: gorselin ne oldugunu anlatir, envanter iddiasini
                   tekrarlamaz. Iddia zaten hero istatistiginde, teknik altyapi
                   bolumunde ve SSS'te geciyor. */}
-              <p className="mb-2 inline-flex border border-sky-200/[0.24] bg-sky-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-sky-100">
+              <p className="mb-2 inline-flex border border-violet-200/[0.24] bg-violet-400/[0.14] px-3 py-1 text-xs font-black uppercase tracking-normal text-violet-100">
                 Saha kaydı
               </p>
               <h3 className="text-2xl font-black text-white md:text-4xl">
@@ -687,7 +685,7 @@ function TechnicalDiscoverySection() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {TECHNICAL_DISCOVERY.map((item) => (
           <article key={item.title} className="border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
+            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center border border-violet-100 bg-violet-50 text-violet-700">
               <ClipboardCheck size={21} aria-hidden="true" />
             </div>
             <h3 className="text-lg font-black text-slate-950">{item.title}</h3>
@@ -718,7 +716,7 @@ function Positioning() {
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {OVERVIEW_POINTS.slice(0, 6).map((item) => (
           <article key={item.title} className="border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-blue-100 bg-blue-50 text-blue-700">
+            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-violet-100 bg-violet-50 text-violet-700">
               <BadgeCheck size={22} aria-hidden="true" />
             </div>
             <h3 className="text-xl font-black text-slate-950">{item.title}</h3>
@@ -800,7 +798,7 @@ function PackagePlanningSection() {
                 href={generateWhatsAppLink(item.whatsappIntent)}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-blue-700 hover:text-blue-900"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-violet-700 hover:text-violet-900"
               >
                 {item.cta}
                 <ArrowRight size={16} aria-hidden="true" />
@@ -829,7 +827,7 @@ function PackagePlanningSection() {
 
       {/* Kapsam ve butce dusunen kullanicinin tam olarak bulundugu nokta;
           planlayici bu sorunun dogrudan karsiligi. */}
-      <div className="mt-6 border border-blue-200 bg-blue-50 p-6 md:flex md:items-center md:justify-between md:gap-6">
+      <div className="mt-6 border border-violet-200 bg-violet-50 p-6 md:flex md:items-center md:justify-between md:gap-6">
         <div className="max-w-2xl">
           <p className="text-lg font-black text-slate-950">
             Kapsamı ve bütçeyi kendiniz görmek ister misiniz?
@@ -841,7 +839,7 @@ function PackagePlanningSection() {
         </div>
         <Link
           href="/etkinlik-planlayici"
-          className="mt-5 inline-flex min-h-[48px] items-center justify-center gap-2 bg-slate-950 px-6 text-sm font-black text-white transition hover:bg-blue-700 md:mt-0 md:shrink-0"
+          className="mt-5 inline-flex min-h-[48px] items-center justify-center gap-2 bg-slate-950 px-6 text-sm font-black text-white transition hover:bg-violet-700 md:mt-0 md:shrink-0"
         >
           Etkinlik planlayıcıyı açın
           <ArrowRight size={16} aria-hidden="true" />
@@ -936,7 +934,7 @@ function ProductionStack() {
 
           return (
             <PremiumCard key={item.title} as="article" className="group">
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-sky-200/[0.18] bg-sky-300/[0.10] text-sky-200">
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center border border-violet-200/[0.18] bg-violet-300/[0.10] text-violet-200">
                 <Icon size={23} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-black text-white">{item.title}</h3>
@@ -945,7 +943,7 @@ function ProductionStack() {
                 href={generateWhatsAppLink(item.whatsappIntent)}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition group-hover:text-white"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-violet-200 transition group-hover:text-white"
               >
                 {SERVICE_CTA_LABELS[index] ?? "Teknik kapsamı konuş"}
                 <ArrowRight size={16} aria-hidden="true" />
@@ -1002,21 +1000,21 @@ function InternalLinks() {
             <Link
               key={link.href}
               href={link.href}
-              className="group flex items-center justify-between border border-slate-200 bg-white px-5 py-4 font-black text-slate-950 transition hover:border-blue-200 hover:bg-blue-50"
+              className="group flex items-center justify-between border border-slate-200 bg-white px-5 py-4 font-black text-slate-950 transition hover:border-violet-200 hover:bg-violet-50"
             >
               <span>{link.label}</span>
-              <ArrowRight size={18} className="text-blue-700 transition group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight size={18} className="text-violet-700 transition group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           ))}
         </div>
 
         <div className="border border-slate-200 bg-white p-6">
-          <p className="text-sm font-black uppercase tracking-normal text-blue-700">{CLUSTER.eyebrow}</p>
+          <p className="text-sm font-black uppercase tracking-normal text-violet-700">{CLUSTER.eyebrow}</p>
           <h3 className="mt-3 text-2xl font-black text-slate-950">{CLUSTER.title}</h3>
           <p className="mt-3 text-sm leading-7 text-slate-600">{CLUSTER.description}</p>
           <div className="mt-5 grid gap-3">
             {CLUSTER.guides.slice(0, 2).map((guide) => (
-              <Link key={guide.href} href={guide.href} className="text-sm font-black text-blue-700 hover:text-blue-900">
+              <Link key={guide.href} href={guide.href} className="text-sm font-black text-violet-700 hover:text-violet-900">
                 {guide.anchorText}
               </Link>
             ))}
@@ -1098,7 +1096,7 @@ function CTASection() {
   return (
     <section className="relative isolate overflow-hidden bg-[#05070d] py-16 text-white md:py-20" aria-labelledby="cta-title">
       <div className="absolute inset-0 grid-overlay opacity-35" aria-hidden="true" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/60 to-transparent" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-normal text-white">Teklif briefi</p>
@@ -1114,7 +1112,7 @@ function CTASection() {
           href={generateWhatsAppLink("kurumsal organizasyon briefi")}
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="inline-flex min-h-[56px] items-center justify-center gap-2 bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
+          className="inline-flex min-h-[56px] items-center justify-center gap-2 bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-violet-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
         >
           <PhoneCall size={20} aria-hidden="true" />
           <span>WhatsApp ile Brief Paylaş</span>

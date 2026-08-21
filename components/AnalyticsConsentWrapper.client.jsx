@@ -209,14 +209,14 @@ export default function AnalyticsConsentWrapper() {
         <button
           type="button"
           onClick={rejectConsent}
-          className="min-h-12 flex-1 rounded-md border border-neutral-300 px-4 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 sm:flex-none"
+          className="min-h-12 flex-1 rounded-md border border-neutral-300 px-4 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 sm:flex-none"
         >
           {copy.reject}
         </button>
         <button
           type="button"
           onClick={acceptConsent}
-          className="min-h-12 flex-1 rounded-md bg-blue-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 sm:flex-none"
+          className="min-h-12 flex-1 rounded-md bg-violet-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 sm:flex-none"
         >
           {copy.accept}
         </button>

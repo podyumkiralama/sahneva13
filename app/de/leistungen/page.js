@@ -248,7 +248,7 @@ function ServicesDetailList() {
           <ul className="grid md:grid-cols-2 gap-3">
             {service.items.map((item, itemIndex) => (
               <li key={itemIndex} className="flex items-center gap-3 text-neutral-700">
-                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" />
                 {item}
               </li>
             ))}
@@ -274,7 +274,7 @@ export default function GermanServicesPage() {
       title: "Bühne & Podeste",
       description: "Traversendächer, modulare Bühnen und Laufstege",
       icon: "🎪",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-violet-600 to-purple-500",
     },
     {
       href: "/de/led-wand-mieten",
@@ -295,7 +295,7 @@ export default function GermanServicesPage() {
       title: "Eventzelte",
       description: "Pagoden, stützenfreie Zelte und Industriezelte",
       icon: "⛺",
-      color: "from-teal-500 to-blue-500",
+      color: "from-teal-500 to-violet-500",
     },
     {
       href: "/de/firmenevents",
@@ -309,7 +309,7 @@ export default function GermanServicesPage() {
       title: "Projekte",
       description: "Realisierte Produktionen mit Umfang und Rahmenbedingungen",
       icon: "🗺️",
-      color: "from-sky-500 to-indigo-500",
+      color: "from-violet-600 to-purple-500",
     },
     {
       href: "/de/referenzen",
@@ -323,7 +323,7 @@ export default function GermanServicesPage() {
       title: "Mobiliar & Bestuhlung",
       description: "Bankett-, Konferenz- und Stehtischausstattung",
       icon: "🪑",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-violet-500 to-purple-500",
     },
     {
       href: "/de/kontakt",
@@ -397,14 +397,14 @@ export default function GermanServicesPage() {
 
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-violet-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
       >
         Zum Hauptinhalt springen
       </a>
 
       {/* HERO */}
       <section
-        className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
+        className="relative bg-gradient-to-br from-slate-900 via-violet-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
         aria-labelledby="hero-title"
       >
         <div className="absolute inset-0 pointer-events-none">
@@ -426,7 +426,7 @@ export default function GermanServicesPage() {
             aria-hidden="true"
             style={{
               background:
-                "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,58,138,0.35) 45%, rgba(88,28,135,0.28) 100%)",
+                "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(76, 29, 149,0.35) 45%, rgba(88,28,135,0.28) 100%)",
             }}
           />
 
@@ -441,7 +441,7 @@ export default function GermanServicesPage() {
           />
 
           <div className="absolute -top-28 -right-28 w-96 h-96 bg-purple-500/14 rounded-full blur-3xl" />
-          <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-blue-500/14 rounded-full blur-3xl" />
+          <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-violet-500/14 rounded-full blur-3xl" />
         </div>
 
         <div
@@ -468,19 +468,19 @@ export default function GermanServicesPage() {
                 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
               >
                 <span className="block">UNSERE</span>{" "}
-                <span className="text-blue-200">Leistungen</span>
+                <span className="text-violet-200">Leistungen</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
                 Von der Bühne über die LED-Wand bis zur kompletten Produktion —
                 <br />
-                <strong className="text-blue-300">alles aus einer Hand</strong>
+                <strong className="text-violet-300">alles aus einer Hand</strong>
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a
                   href="#service-list"
-                  className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="group bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   aria-label="Zu den Leistungen springen"
                 >
                   <span className="flex items-center gap-2">
@@ -516,16 +516,16 @@ export default function GermanServicesPage() {
 
       <div id="main" className="relative" style={{ color: "#0f172a" }}>
         {/* SCHNELLZUGRIFF */}
-        <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
+        <section className="py-20 bg-gradient-to-br from-white to-violet-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Alle <span className="text-blue-700">Leistungen</span>
+                Alle <span className="text-violet-700">Leistungen</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Equipment, Crew und Betreuung für Ihre Veranstaltung – von einem Anbieter
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -533,7 +533,7 @@ export default function GermanServicesPage() {
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                   aria-label={`Details zu ${service.title} öffnen`}
                 >
                   <div
@@ -542,11 +542,11 @@ export default function GermanServicesPage() {
                   >
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed text-sm">{service.description}</p>
-                  <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold text-sm">
+                  <div className="mt-4 flex items-center gap-2 text-violet-600 font-semibold text-sm">
                     <span>Details ansehen</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -557,28 +557,28 @@ export default function GermanServicesPage() {
         </section>
 
         {/* MERKMALE */}
-        <section className="py-20 bg-gradient-to-br from-neutral-50 to-blue-100/30">
+        <section className="py-20 bg-gradient-to-br from-neutral-50 to-violet-100/30">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Warum <span className="text-blue-700">Sahneva?</span>
+                Warum <span className="text-violet-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 {YEARS_OF_EXPERIENCE} Jahre Praxis und eingespielte Gewerke, die vor Ort zusammenarbeiten
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {SERVICE_FEATURES.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed">{feature.description}</p>
@@ -593,12 +593,12 @@ export default function GermanServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Technik für <span className="text-blue-700">jede Veranstaltung</span>
+                Technik für <span className="text-violet-700">jede Veranstaltung</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Vom Bühnenaufbau bis zur Leitung der gesamten Produktion übernehmen wir jeden Schritt
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <ServicesDetailList />
@@ -610,13 +610,13 @@ export default function GermanServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Zwei Wege der <span className="text-blue-700">Zusammenarbeit</span>
+                Zwei Wege der <span className="text-violet-700">Zusammenarbeit</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Ob Sie als Unternehmen direkt beauftragen oder als Agentur einen Technikpartner vor Ort
                 suchen – beide Wege sind bei uns eingespielt.
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
@@ -630,7 +630,7 @@ export default function GermanServicesPage() {
                   <ul className="mt-6 space-y-3">
                     {model.points.map((point) => (
                       <li key={point} className="flex items-start gap-3 text-neutral-700">
-                        <div className="mt-2 w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                        <div className="mt-2 w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -642,16 +642,16 @@ export default function GermanServicesPage() {
         </section>
 
         {/* ERGÄNZENDE LEISTUNGEN */}
-        <section className="py-20 bg-gradient-to-br from-neutral-900 to-blue-900/95">
+        <section className="py-20 bg-gradient-to-br from-neutral-900 to-violet-900/95">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Ergänzende <span className="text-blue-200">Leistungen</span>
+                Ergänzende <span className="text-violet-200">Leistungen</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Damit auch die Bereiche rund um die Technik zuverlässig laufen
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8" />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
@@ -672,7 +672,7 @@ export default function GermanServicesPage() {
                       "Sicherheitskonzept und Besucherlenkung",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                        <div className="w-2 h-2 bg-violet-400 rounded-full flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -757,7 +757,7 @@ export default function GermanServicesPage() {
         <WebMcpServiceTools locale="de" contactHref="/de/kontakt" />
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Angebot
@@ -771,7 +771,7 @@ export default function GermanServicesPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href="tel:+905453048671"
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Für ein ausführliches Angebot anrufen"
               >
                 <span className="flex items-center justify-center gap-2">📞 Anrufen</span>

@@ -69,7 +69,7 @@ export default function BlogLayout({
     <>
       {/* HERO */}
       <header className="relative py-24 bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-blue-900/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-violet-900/40 z-10" />
         {heroImage?.src ? (
           <div className="absolute inset-0 z-0">
             <Image
@@ -171,11 +171,11 @@ export default function BlogLayout({
               {safeTocItems.length ? (
                 <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                   <div className="flex items-start gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
                       <ListTree className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-700">
+                      <p className="m-0 text-xs font-black uppercase tracking-[0.2em] text-violet-700">
                         {copy.tocEyebrow}
                       </p>
                       <h2 className="mt-2 text-xl font-black text-slate-950">
@@ -192,7 +192,7 @@ export default function BlogLayout({
                       <a
                         key={`toc-${item.href.replace(/[^a-z0-9_-]/gi, "")}`}
                         href={item.href}
-                        className="group inline-flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-200 hover:text-blue-700"
+                        className="group inline-flex min-h-[56px] items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 transition hover:border-violet-200 hover:text-violet-700"
                       >
                         <span>{item.label}</span>
                         <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" />
@@ -236,7 +236,7 @@ export default function BlogLayout({
             </section>
           ) : null}
 
-          <article className="blog-layout-scope prose prose-xl lg:prose-2xl max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+          <article className="blog-layout-scope prose prose-xl lg:prose-2xl max-w-none prose-headings:font-black prose-headings:scroll-mt-32 prose-p:text-[1.24rem] lg:prose-p:text-[1.34rem] prose-p:leading-[1.7] prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline">
             {children}
           </article>
 
@@ -254,7 +254,7 @@ export default function BlogLayout({
 
 function buttonClass(isPrimary) {
   if (isPrimary) {
-    return "inline-flex items-center justify-center gap-2 rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5";
+    return "inline-flex items-center justify-center gap-2 rounded-xl bg-white text-violet-900 hover:bg-violet-50 font-bold py-3.5 px-7 transition-transform hover:-translate-y-0.5";
   }
   return "inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold py-3.5 px-7 border border-white/20 transition-transform hover:-translate-y-0.5";
 }

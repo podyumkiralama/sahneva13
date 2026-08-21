@@ -419,7 +419,7 @@ function KursuTipleriSection() {
     >
       <div className="container mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-4 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-blue-700">
+          <div className="mx-auto mb-4 inline-block rounded-full bg-violet-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-violet-700">
             DOĞRU KÜRSÜYÜ SEÇİN
           </div>
           <h2
@@ -437,7 +437,7 @@ function KursuTipleriSection() {
           {KURSU_TIPLERI.map((item) => (
             <article
               key={item.title}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.14)]"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-[0_24px_70px_rgba(124, 58, 237,0.14)]"
             >
               <div className="relative aspect-[3/2] overflow-hidden">
                 <Image
@@ -483,16 +483,16 @@ function KursuTipleriSection() {
 function IntegrationSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="relative overflow-hidden bg-[#040817] py-20 text-white"
       aria-labelledby="entegrasyon-baslik"
     >
       <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:50px_50px]" aria-hidden="true" />
-      <div className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#1e3a8a]/25 blur-[110px]" aria-hidden="true" />
+      <div className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#4c1d95]/25 blur-[110px]" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-300">Teknik entegrasyon</p>
+            <p className="text-sm font-black uppercase tracking-widest text-violet-300">Teknik entegrasyon</p>
             <h2 id="entegrasyon-baslik" className="mt-4 text-4xl font-black leading-tight md:text-5xl">
               Dijital Kürsü Teknik Entegrasyon Standartları
             </h2>
@@ -519,9 +519,9 @@ function IntegrationSection() {
                 key={item.feature}
                 className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
               >
-                <p className="text-xs font-black uppercase tracking-widest text-blue-300">{item.feature}</p>
+                <p className="text-xs font-black uppercase tracking-widest text-violet-300">{item.feature}</p>
                 <h3 className="mt-3 text-xl font-black text-white">{item.standard}</h3>
-                <p className="mt-5 text-sm leading-6 text-cyan-50/[0.76]">{item.description ?? item.detail}</p>
+                <p className="mt-5 text-sm leading-6 text-violet-50/[0.76]">{item.description ?? item.detail}</p>
               </article>
             ))}
           </div>
@@ -534,7 +534,7 @@ function IntegrationSection() {
 function TechSpecsSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="relative overflow-hidden bg-[#040817] py-20 text-white"
       aria-labelledby="teknik-ozellikler-baslik"
     >
       <div
@@ -542,13 +542,13 @@ function TechSpecsSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute left-[-8rem] top-10 h-72 w-72 rounded-full bg-cyan-400/[0.18] blur-[90px]"
+        className="absolute left-[-8rem] top-10 h-72 w-72 rounded-full bg-violet-400/[0.18] blur-[90px]"
         aria-hidden="true"
       />
 
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
-          <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-200">
             HAGEL TD5000XD • Türk Mühendisliği Tasarımı
           </p>
           <h2
@@ -557,7 +557,7 @@ function TechSpecsSection() {
           >
             Dijital Kürsü Teknik Özellikleri
           </h2>
-          <p className="text-xl text-cyan-50/[0.78] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-violet-50/[0.78] max-w-3xl mx-auto leading-relaxed">
             Kiralama filomuzda yer alan dijital kürsünün donanım ve yazılım özellikleri.
           </p>
         </div>
@@ -566,9 +566,9 @@ function TechSpecsSection() {
           {TECH_SPECS.map((row) => (
             <article
               key={row.feature}
-              className="rounded-3xl border border-blue-500/30 bg-slate-800/80 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              className="rounded-3xl border border-violet-500/30 bg-slate-800/80 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             >
-              <p className="text-xs font-black uppercase tracking-widest text-cyan-300">
+              <p className="text-xs font-black uppercase tracking-widest text-violet-300">
                 {row.feature}
               </p>
               <h3 className="mt-3 text-xl font-black text-white">{row.standard}</h3>
@@ -590,7 +590,7 @@ function TechSpecsSection() {
                 {TECH_SPECS.map((row) => (
                   <tr key={row.feature} className="hover:bg-white/[0.08]">
                     <td className="px-6 py-4 font-semibold text-white">{row.feature}</td>
-                    <td className="px-6 py-4 text-cyan-50/[0.78]">{row.standard}</td>
+                    <td className="px-6 py-4 text-violet-50/[0.78]">{row.standard}</td>
                   </tr>
                 ))}
               </tbody>
@@ -608,7 +608,7 @@ function Gallery() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-700">Saha kanıtı</p>
+            <p className="text-sm font-black uppercase tracking-widest text-violet-700">Saha kanıtı</p>
             <h2 id="galeri-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-950 md:text-5xl">
               Gerçek Saha Kurulumlarından Görseller
             </h2>
@@ -620,14 +620,14 @@ function Gallery() {
 
         <CaseGallery images={GALLERY_IMAGES} visibleCount={3} />
 
-        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-blue-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-violet-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
           <div>
             <h4 className="text-xl font-black text-gray-950">Daha fazla saha görseli için proje galerisini inceleyebilirsiniz.</h4>
             <p className="mt-2 text-sm leading-6 text-gray-600">Tamamlanan etkinlik ve kurumsal organizasyon projeleri galeri sayfasında yer alır.</p>
           </div>
           <Link
             href="/projeler"
-            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-violet-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             <Eye className="mr-2 h-5 w-5" aria-hidden="true" />
             Proje Galerisini Aç
@@ -640,7 +640,7 @@ function Gallery() {
 
 function UseCasesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="kullanim-baslik">
+    <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -650,7 +650,7 @@ function UseCasesSection() {
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
             Dijital kürsü kiralamanın en çok tercih edildiği etkinlik formatları
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" role="list">
@@ -665,7 +665,7 @@ function UseCasesSection() {
                   {uc.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">{uc.text}</h3>
+                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">{uc.text}</h3>
                   <p className="text-white/70 text-lg leading-relaxed">{uc.desc}</p>
                 </div>
               </div>
@@ -686,7 +686,7 @@ function UseCasesSection() {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-950/75 via-gray-950/25 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8 md:px-14">
             <div>
-              <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Saha Kaydı</p>
+              <p className="text-xs font-black uppercase tracking-widest text-violet-300 mb-2">Saha Kaydı</p>
               <p className="text-white font-black text-2xl md:text-3xl max-w-sm leading-snug">
                 Dijital kürsü — konuşmacıyı sahnenin odağına taşır
               </p>
@@ -700,13 +700,13 @@ function UseCasesSection() {
 
 function InstallationProcess() {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-labelledby="kurulum-sureci-baslik">
+    <section className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-labelledby="kurulum-sureci-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kurulum-sureci-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-violet-100 max-w-3xl mx-auto leading-relaxed">
             Keşiften söküme dijital kürsü kurulum operasyonunun adımları.
           </p>
         </div>
@@ -730,7 +730,7 @@ function InstallationProcess() {
             <article key={step.title} className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 p-6 hover:bg-white/20 transition-all duration-500">
               <div className="text-3xl font-black text-white mb-4">{String(index + 1).padStart(2, "0")}</div>
               <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-              <p className="text-blue-100 text-base leading-relaxed">{step.description}</p>
+              <p className="text-violet-100 text-base leading-relaxed">{step.description}</p>
             </article>
           ))}
         </div>
@@ -744,7 +744,7 @@ function FAQ() {
     <section className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700 mb-4">Sık sorulan sorular</p>
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700 mb-4">Sık sorulan sorular</p>
           <h2 id="sss-baslik" className="text-4xl md:text-5xl font-black text-gray-950 mb-6">
             Dijital Kürsü Kiralama SSS
           </h2>
@@ -753,14 +753,14 @@ function FAQ() {
         <div className="space-y-4" role="list">
           {FAQ_ITEMS.map((faq) => (
             <article key={faq.q} role="listitem">
-              <details className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-blue-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-3xl">
+              <details className="group bg-gray-50 rounded-3xl border-2 border-transparent transition-all duration-500 hover:bg-gray-100 open:bg-gray-100 open:border-violet-100 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="cursor-pointer w-full list-none text-left flex items-center justify-between gap-4 px-8 py-6 text-xl font-bold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded-3xl">
                   <span className="pr-4 flex-1">{faq.q}</span>
-                  <span aria-hidden="true" className="ml-4 transition-transform duration-300 text-blue-600 bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180">⌄</span>
+                  <span aria-hidden="true" className="ml-4 transition-transform duration-300 text-violet-600 bg-violet-100 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 group-open:rotate-180">⌄</span>
                 </summary>
                 <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 px-8 pb-0">
                   <div className="overflow-hidden text-gray-700 leading-relaxed text-lg pt-0 group-open:pt-2 group-open:pb-6">
-                    <p className="pl-4 border-l-4 border-blue-500">{faq.a}</p>
+                    <p className="pl-4 border-l-4 border-violet-500">{faq.a}</p>
                   </div>
                 </div>
               </details>
@@ -777,9 +777,9 @@ function Offer() {
     <section id="teklif" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="teklif-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
-          <div className="relative bg-[#0a1429] px-6 py-8 text-white md:px-10">
+          <div className="relative bg-[#040817] px-6 py-8 text-white md:px-10">
             <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:44px_44px]" aria-hidden="true" />
-            <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#1e3a8a]/30 blur-[90px]" aria-hidden="true" />
+            <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#4c1d95]/30 blur-[90px]" aria-hidden="true" />
             <div className="relative z-10">
               <p className="text-sm font-black uppercase tracking-widest text-white/70">HIZLI TEKLİF</p>
               <h2 id="teklif-baslik" className="mt-3 text-3xl font-black md:text-5xl">
@@ -801,7 +801,7 @@ function Offer() {
               "Ek ihtiyaçlar (sahne / LED ekran / ses-ışık)",
             ].map((x) => (
               <div key={x} className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" aria-hidden="true" />
+                <CheckCircle className="h-5 w-5 text-violet-600 flex-shrink-0" aria-hidden="true" />
                 <p className="font-semibold text-gray-900 text-sm">{x}</p>
               </div>
             ))}
@@ -810,24 +810,24 @@ function Offer() {
           <div className="border-t border-slate-200 px-6 py-6 md:px-10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
             <p className="text-sm font-semibold leading-6 text-gray-700">
               İlgili hizmetler:{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/sahne-kiralama">Sahne</Link> •{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/ses-isik-sistemleri">Ses & Işık</Link> •{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/led-ekran-kiralama">LED Ekran</Link> •{" "}
-              <Link className="font-bold text-blue-700 hover:text-blue-900" href="/kurumsal-organizasyon">Kurumsal Org.</Link>
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/sahne-kiralama">Sahne</Link> •{" "}
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/ses-isik-sistemleri">Ses & Işık</Link> •{" "}
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/led-ekran-kiralama">LED Ekran</Link> •{" "}
+              <Link className="font-bold text-violet-700 hover:text-violet-900" href="/kurumsal-organizasyon">Kurumsal Org.</Link>
             </p>
             <div className="flex gap-3 flex-shrink-0">
               <Link
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-blue-700 px-6 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-violet-700 px-6 py-3 font-black text-white shadow-lg transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
               >
                 <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                 WhatsApp Teklif
               </Link>
               <a
                 href={`tel:${PHONE}`}
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 font-black text-slate-900 shadow-sm transition hover:border-blue-300 hover:text-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 font-black text-slate-900 shadow-sm transition hover:border-violet-300 hover:text-violet-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
               >
                 Ara
               </a>

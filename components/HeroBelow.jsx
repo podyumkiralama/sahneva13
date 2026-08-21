@@ -70,7 +70,7 @@ function ProcessList({ steps, ariaLabel }) {
           key={step.title}
           className="relative h-full rounded-2xl border border-white/10 bg-slate-900/55 p-4 backdrop-blur-[2px] shadow-md"
         >
-          <div className="absolute -top-3 left-4 inline-flex items-center justify-center rounded-full bg-white text-blue-900 font-bold w-8 h-8 shadow-lg">
+          <div className="absolute -top-3 left-4 inline-flex items-center justify-center rounded-full bg-white text-violet-900 font-bold w-8 h-8 shadow-lg">
             {step.badge}
           </div>
           <h3 className="text-white font-semibold text-lg mt-2 mb-2">
@@ -104,7 +104,7 @@ export default function HeroBelow({
 
       <div className="home-container mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-2">
-          <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-blue-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+          <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-violet-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
             <span
               className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"
               aria-hidden="true"

@@ -94,7 +94,7 @@ export default function ThemeSwitcher({ align = "right", compact = false, locale
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] min-w-[40px] px-2.5" : "min-h-12 min-w-12 px-3"}`}
+        className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm transition-all duration-200 hover:bg-neutral-50 hover:text-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-white nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-white nav-dark:hover:bg-white/15 nav-dark:hover:text-violet-200 ${compact ? "min-h-[40px] min-w-[40px] px-2.5" : "min-h-12 min-w-12 px-3"}`}
         title={`${t.prefix}: ${activeOption.label}`}
       >
         <ActiveIcon aria-hidden="true" className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
@@ -120,8 +120,8 @@ export default function ThemeSwitcher({ align = "right", compact = false, locale
                 onClick={() => selectTheme(option.value)}
                 className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-bold transition-colors ${
                   selected
-                    ? "bg-blue-50 text-blue-700 nav-dark:bg-white/10 nav-dark:text-blue-200"
-                    : "text-neutral-700 hover:bg-neutral-50 hover:text-blue-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-blue-200"
+                    ? "bg-violet-50 text-violet-700 nav-dark:bg-white/10 nav-dark:text-violet-200"
+                    : "text-neutral-700 hover:bg-neutral-50 hover:text-violet-700 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 nav-dark:hover:text-violet-200"
                 }`}
               >
                 <OptionIcon aria-hidden="true" className="h-4 w-4" />

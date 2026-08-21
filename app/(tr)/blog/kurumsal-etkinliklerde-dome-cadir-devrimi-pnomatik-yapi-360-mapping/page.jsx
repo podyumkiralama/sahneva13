@@ -193,7 +193,7 @@ const Breadcrumbs = () => (
   <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-600">
     <ol className="flex items-center space-x-2 flex-wrap">
       <li>
-        <Link href="/" className="hover:text-blue-600 transition-colors">
+        <Link href="/" className="hover:text-violet-600 transition-colors">
           Anasayfa
         </Link>
       </li>
@@ -201,7 +201,7 @@ const Breadcrumbs = () => (
         /
       </li>
       <li>
-        <Link href="/blog" className="hover:text-blue-600 transition-colors">
+        <Link href="/blog" className="hover:text-violet-600 transition-colors">
           Blog
         </Link>
       </li>
@@ -440,15 +440,15 @@ export default function BlogPostDome360Mapping() {
                 Dicle Fest kalitesinde bir proje mi planlıyorsunuz?
               </p>
 
-              <div className="not-prose mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+              <div className="not-prose mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-violet-100 bg-violet-50 p-6">
                 <div>
-                  <p className="text-lg font-semibold text-blue-900">
+                  <p className="text-lg font-semibold text-violet-900">
                     👉 Dome Çadır &amp; Teknik Prodüksiyon Teklifi
                   </p>
-                  <p className="text-sm text-blue-800">
+                  <p className="text-sm text-violet-800">
                     2 saat içinde 3D yerleşim planı ve mapping konsepti için iletişime geçin.
                   </p>
-                  <p className="text-sm text-blue-800 mt-2">
+                  <p className="text-sm text-violet-800 mt-2">
                     Diğer seçenekler:{" "}
                     <Link href="/cadir-kiralama" className="underline font-semibold">
                       Çadır kiralama seçeneklerimizi görün
@@ -458,7 +458,7 @@ export default function BlogPostDome360Mapping() {
 
                 <Link
                   href="/sahne-kiralama"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                  className="inline-flex items-center justify-center rounded-full bg-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-700"
                 >
                   Teklif Alın
                 </Link>

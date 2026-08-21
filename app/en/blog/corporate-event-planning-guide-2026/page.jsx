@@ -105,8 +105,8 @@ function H2({ id, children }) {
 
 function ProTip({ title = "Pro Tip", children }) {
   return (
-    <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50 p-4">
-      <div className="text-sm font-semibold text-sky-900">{title}</div>
+    <div className="mt-5 rounded-2xl border border-violet-200 bg-violet-50 p-4">
+      <div className="text-sm font-semibold text-violet-900">{title}</div>
       <div className="mt-2 text-sm leading-6 text-slate-700">{children}</div>
     </div>
   );

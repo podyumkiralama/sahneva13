@@ -169,8 +169,8 @@ export default function ArabicAboutPage() {
             blurDataURL={BLUR_DATA_URL}
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-900/80 via-purple-800/70 to-violet-950/90" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
@@ -237,7 +237,7 @@ export default function ArabicAboutPage() {
 
       <div className="relative">
         {/* WHO WE ARE */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="who-we-are-title">
+        <section className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="who-we-are-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="who-we-are-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -251,7 +251,7 @@ export default function ArabicAboutPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  <strong className="text-blue-600">سحنيفا</strong> من أبرز{" "}
+                  <strong className="text-violet-600">سحنيفا</strong> من أبرز{" "}
                   <strong>شركات إنتاج الفعاليات الرائدة في تركيا</strong> منذ عام 2012. بفريق متخصص في تأجير المنصات وشاشات LED وأنظمة الصوت والإضاءة والتركيب الاحترافي، نضخّ الحياة في كل فعالية من خلال التميّز التقني والرؤية الإبداعية.
                 </p>
 
@@ -271,7 +271,7 @@ export default function ArabicAboutPage() {
                       className="text-center p-4 bg-white rounded-xl shadow-lg border border-gray-100"
                       aria-label={`${stat.number} ${stat.label}`}
                     >
-                      <div className="text-2xl font-black text-blue-600">{stat.number}</div>
+                      <div className="text-2xl font-black text-violet-600">{stat.number}</div>
                       <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                     </div>
                   ))}
@@ -290,11 +290,11 @@ export default function ArabicAboutPage() {
                   />
                 </div>
                 <div
-                  className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl -z-10"
+                  className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl -z-10"
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl -z-10"
+                  className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-r from-violet-600 to-purple-500 rounded-2xl -z-10"
                   aria-hidden="true"
                 />
               </div>
@@ -303,7 +303,7 @@ export default function ArabicAboutPage() {
         </section>
 
         {/* VALUES */}
-        <section className="py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/60" aria-labelledby="values-title">
+        <section className="py-20 bg-gradient-to-br from-violet-50/80 to-purple-50/60" aria-labelledby="values-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="values-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -319,12 +319,12 @@ export default function ArabicAboutPage() {
               {VALUES.map((value, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-gray-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {value.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{value.description}</p>
@@ -342,12 +342,12 @@ export default function ArabicAboutPage() {
                 مسيرتنا و
                 <span className="gradient-text gradient-text--safe-xl"> قصّة نجاحنا</span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto" aria-hidden="true" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" aria-hidden="true" />
             </div>
 
             <div className="relative">
               <div
-                className="absolute right-1/2 translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 h-full hidden lg:block"
+                className="absolute right-1/2 translate-x-1/2 w-1 bg-gradient-to-b from-violet-500 to-purple-500 h-full hidden lg:block"
                 aria-hidden="true"
               />
               <div className="space-y-12 lg:space-y-0">
@@ -365,10 +365,10 @@ export default function ArabicAboutPage() {
                             {item.icon}
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                            <div className="text-sm font-bold text-violet-600 bg-violet-50 px-3 py-1 rounded-full">
                               {item.year}
                             </div>
-                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h3>
                           </div>
@@ -378,7 +378,7 @@ export default function ArabicAboutPage() {
                     </div>
 
                     <div className="absolute right-1/2 translate-x-1/2 lg:flex items-center justify-center hidden" aria-hidden="true">
-                      <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
+                      <div className="w-6 h-6 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full border-4 border-white shadow-lg" />
                     </div>
 
                     <div className="lg:w-1/2 hidden lg:block" aria-hidden="true" />
@@ -390,7 +390,7 @@ export default function ArabicAboutPage() {
         </section>
 
         {/* CLIENT PORTFOLIO */}
-        <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="clients-title">
+        <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="clients-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 id="clients-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -410,7 +410,7 @@ export default function ArabicAboutPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-3 h-3 bg-green-400 rounded-full motion-safe:animate-pulse" aria-hidden="true" />
-                    <span className="text-white font-medium group-hover:text-blue-300 transition-colors">{client}</span>
+                    <span className="text-white font-medium group-hover:text-violet-300 transition-colors">{client}</span>
                   </div>
                 </div>
               ))}
@@ -439,10 +439,10 @@ export default function ArabicAboutPage() {
         </section>
 
         {/* VISION & MISSION */}
-        <section className="py-20 bg-gradient-to-b from-white to-blue-50/30" aria-labelledby="vision-title">
+        <section className="py-20 bg-gradient-to-b from-white to-violet-50/30" aria-labelledby="vision-title">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border border-blue-100">
+              <div className="bg-gradient-to-br from-violet-50 to-white rounded-2xl p-8 shadow-lg border border-violet-100">
                 <div className="text-4xl mb-4" aria-hidden="true">🎯</div>
                 <h3 id="vision-title" className="text-3xl font-black text-gray-900 mb-6">مهمّتنا</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -456,7 +456,7 @@ export default function ArabicAboutPage() {
                     "عمليات مراعية للبيئة ومستدامة",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -488,7 +488,7 @@ export default function ArabicAboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600" aria-labelledby="cta-title">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600" aria-labelledby="cta-title">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 id="cta-title" className="text-4xl md:text-5xl font-black mb-6">
               لنتعاون في <span className="text-yellow-300">إنتاجك القادم</span>
@@ -500,7 +500,7 @@ export default function ArabicAboutPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href={`tel:${PHONE}`}
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="اتصل الآن للحصول على استشارة احترافية"
               >
                 <span className="flex items-center justify-center gap-2">📞 اتصل الآن</span>

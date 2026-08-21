@@ -359,7 +359,7 @@ function StickyVideoRailInner({
                   </p>
                 </div>
               </div>
-              <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full">
+              <span className="text-xs bg-violet-500 text-white px-2 py-1 rounded-full">
                 {playlistForExpanded.length}
               </span>
             </div>
@@ -382,9 +382,9 @@ function StickyVideoRailInner({
                 return (
                   <label
                     key={video.id}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left text-slate-100 text-sm transition-colors border-b border-white/5 last:border-b-0 cursor-pointer focus-within:ring-2 focus-within:ring-blue-400 focus-within:ring-inset rounded-sm ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left text-slate-100 text-sm transition-colors border-b border-white/5 last:border-b-0 cursor-pointer focus-within:ring-2 focus-within:ring-violet-400 focus-within:ring-inset rounded-sm ${
                       isActive
-                        ? "bg-blue-500/20 border-r-2 border-blue-500"
+                        ? "bg-violet-500/20 border-r-2 border-violet-500"
                         : "hover:bg-slate-800/80 border-r-2 border-transparent"
                     }`}
                   >
@@ -438,7 +438,7 @@ function StickyVideoRailInner({
           setIsExpanded(false);
           setIsOpen(true);
         }}
-        className="mobile-fixed-bottom-end fixed bottom-4 right-4 z-[60] flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-3 text-xs text-white shadow-lg transition-all duration-200 hover:from-purple-700 hover:to-blue-700 sm:bottom-6 sm:right-6 sm:text-sm group"
+        className="mobile-fixed-bottom-end fixed bottom-4 right-4 z-[60] flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-purple-600 to-violet-600 px-4 py-3 text-xs text-white shadow-lg transition-all duration-200 hover:from-purple-700 hover:to-violet-700 sm:bottom-6 sm:right-6 sm:text-sm group"
         aria-label={`${watchVideosLabel} - ${openLabel} - ${openPlayerAriaLabel}`}
       >
         <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:scale-110 transition-transform" aria-hidden="true">
@@ -477,7 +477,7 @@ function StickyVideoRailInner({
           onTouchStart={startDrag}
         >
           <div
-            className="flex items-center gap-2 flex-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
+            className="flex items-center gap-2 flex-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-inset"
             tabIndex={0}
             aria-label={movePlayerAriaLabel}
             onKeyDown={(e) => {
@@ -580,7 +580,7 @@ function StickyVideoRailInner({
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="font-medium">Diğer Videolar</span>
-              <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full">
+              <span className="text-xs bg-violet-500 text-white px-2 py-1 rounded-full">
                 {VIDEOS.length - 1}
               </span>
             </div>
@@ -602,9 +602,9 @@ function StickyVideoRailInner({
                   key={video.id}
                   className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors border-r-2 cursor-pointer ${
                     isActive
-                      ? "bg-blue-500/20 border-blue-500"
+                      ? "bg-violet-500/20 border-violet-500"
                       : "hover:bg-slate-700/50 border-transparent"
-                  } focus-within:ring-2 focus-within:ring-blue-400 focus-within:ring-inset rounded-sm`}
+                  } focus-within:ring-2 focus-within:ring-violet-400 focus-within:ring-inset rounded-sm`}
                 >
                   <input
                     type="radio"

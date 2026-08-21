@@ -252,7 +252,7 @@ function BlogCard({ post, isFeatured = false }) {
     : null;
 
   return (
-    <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+    <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-violet-300 hover:shadow-xl transition-all duration-300">
       <Link
         href={`/en/blog/${post.slug}`}
         className="flex flex-col h-full"
@@ -268,7 +268,7 @@ function BlogCard({ post, isFeatured = false }) {
             priority={isFeatured}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-          <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-blue-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+          <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-violet-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
             {post.category}
           </span>
         </div>
@@ -286,7 +286,7 @@ function BlogCard({ post, isFeatured = false }) {
             <span className="flex items-center gap-1">⏱️ {post.readTime}</span>
           </div>
 
-          <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+          <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-violet-600 transition-colors">
             {post.title}
           </h2>
 
@@ -295,7 +295,7 @@ function BlogCard({ post, isFeatured = false }) {
           </p>
 
           <div className="pt-4 mt-auto border-t border-gray-100 flex items-center justify-between">
-            <span className="text-blue-600 text-sm font-semibold group-hover:underline">
+            <span className="text-violet-600 text-sm font-semibold group-hover:underline">
               Read More
             </span>
             <span className="text-gray-600 text-lg transition-transform group-hover:translate-x-1">
@@ -319,7 +319,7 @@ export default async function BlogPage() {
       <BlogJsonLd posts={posts} baseUrl={baseUrl} />
 
       <section className="relative bg-[#0f172a] text-white py-24 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -338,7 +338,7 @@ export default async function BlogPage() {
       <section className="container mx-auto px-4 -mt-12 relative z-20 pb-20">
         <div className="bg-white rounded-xl shadow-lg p-4 mb-12 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-12 border border-gray-100">
           <div className="text-center">
-            <span className="block text-2xl font-bold text-blue-600">
+            <span className="block text-2xl font-bold text-violet-600">
               {posts.length}
             </span>
             <span className="text-xs text-gray-600 uppercase tracking-wider font-semibold">
@@ -369,18 +369,18 @@ export default async function BlogPage() {
             <p className="text-gray-600 mt-2">
               Blog content is being prepared, please check back later.
             </p>
-            <Link href="/" className="mt-6 text-blue-600 hover:underline">
+            <Link href="/" className="mt-6 text-violet-600 hover:underline">
               Go to Homepage
             </Link>
           </div>
         )}
 
-        <div className="mt-24 bg-blue-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="mt-24 bg-violet-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Join Our Newsletter
             </h3>
-            <p className="text-blue-100 mb-8">
+            <p className="text-violet-100 mb-8">
               Be the first to hear about our new articles and event industry news.
             </p>
 
@@ -392,17 +392,17 @@ export default async function BlogPage() {
                 id="newsletter-email"
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-400"
                 required
               />
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-400 px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg"
+                className="bg-violet-500 hover:bg-violet-400 px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg"
               >
                 Subscribe
               </button>
             </form>
-            <p className="text-xs text-blue-300 mt-4 opacity-70">
+            <p className="text-xs text-violet-300 mt-4 opacity-70">
               No spam, just valuable content.
             </p>
           </div>

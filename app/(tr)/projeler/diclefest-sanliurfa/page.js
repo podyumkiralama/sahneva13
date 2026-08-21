@@ -459,7 +459,7 @@ export default function DicleFestSanliurfaProjectPage() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <Breadcrumb />
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-blue-100">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-300/25 bg-violet-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-violet-100">
               Referans Proje / Açık Alan Festival
             </p>
             <h1 className="text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
@@ -468,7 +468,7 @@ export default function DicleFestSanliurfaProjectPage() {
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 md:text-xl">
               Şanlıurfa Topçu Meydanı’nda düzenlenen DicleFest kapsamında dome çadırlar, etkinlik
               çadırları, oyun alanları, konser alanı, dekor uygulamaları ve genel festival saha
-              operasyonu <Link href="/" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">Sahneva</Link>{" "}
+              operasyonu <Link href="/" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">Sahneva</Link>{" "}
               koordinasyonunda yönetildi.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -476,7 +476,7 @@ export default function DicleFestSanliurfaProjectPage() {
                 href="https://wa.me/905453048671?text=Merhaba%2C+DicleFest+%C5%9Eanl%C4%B1urfa+benzeri+a%C3%A7%C4%B1k+alan+festival+kurulumu+i%C3%A7in+teklif+almak+istiyorum."
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-blue-950/30 transition hover:-translate-y-0.5 hover:bg-blue-50"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-xl shadow-violet-950/30 transition hover:-translate-y-0.5 hover:bg-violet-50"
               >
                 Projeniz İçin Teklif Al
                 <ArrowRight className="h-4 w-4" />
@@ -490,7 +490,7 @@ export default function DicleFestSanliurfaProjectPage() {
             </div>
           </div>
 
-          <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-blue-950/30">
+          <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-violet-950/30">
             <div className="relative aspect-[16/10]">
               <Image
                 src={HERO_IMAGE.src}
@@ -514,8 +514,8 @@ export default function DicleFestSanliurfaProjectPage() {
         <div className="mx-auto mt-10 grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PROJECT_FACTS.map(({ label, value, icon: Icon }) => (
             <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-xl shadow-black/10 backdrop-blur">
-              <Icon className="mb-4 h-5 w-5 text-blue-200" aria-hidden="true" />
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-100/80">{label}</p>
+              <Icon className="mb-4 h-5 w-5 text-violet-200" aria-hidden="true" />
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-violet-100/80">{label}</p>
               <p className="mt-2 text-base font-bold leading-snug text-white">{value}</p>
             </div>
           ))}
@@ -548,7 +548,7 @@ export default function DicleFestSanliurfaProjectPage() {
                 Sahneva olarak DicleFest Şanlıurfa projesinde dome çadırlar, etkinlik çadırları,
                 oyun alanları, konser alanı, dekor uygulamaları ve genel festival saha kurgusunu
                 bütüncül bir{" "}
-                <Link href="/kurumsal-organizasyon" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/kurumsal-organizasyon" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   kurumsal organizasyon
                 </Link>{" "}
                 yönetimi anlayışıyla ele aldık. Dome çadır, festivalin en dikkat çeken yapısal
@@ -564,7 +564,7 @@ export default function DicleFestSanliurfaProjectPage() {
             <ul className="mt-6 grid gap-3">
               {PROJECT_SCOPE.map((item) => (
                 <li key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-[#0B1120]/55 px-4 py-3 text-sm font-semibold text-slate-200">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-200" aria-hidden="true" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-200" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -591,7 +591,7 @@ export default function DicleFestSanliurfaProjectPage() {
               günü deneyiminin temelini oluşturur. Bu nedenle saha hazırlığı yalnızca hızlı kurulum
               hedefiyle değil, güvenli kullanım, düzenli akış ve güçlü görsel sonuç hedefiyle yürütüldü.
               Bu süreçte{" "}
-              <Link href="/podyum-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+              <Link href="/podyum-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                 podyum ve zemin uygulamaları
               </Link>{" "}
               saha planının önemli parçalarından biri oldu.
@@ -602,7 +602,7 @@ export default function DicleFestSanliurfaProjectPage() {
       </section>
 
       <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="etkinlik-bilgisi">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-300/20 bg-blue-400/[0.08] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8 lg:p-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-violet-300/20 bg-violet-400/[0.08] p-6 shadow-2xl shadow-violet-950/20 backdrop-blur md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <SectionEyebrow>Etkinlik Bilgisi</SectionEyebrow>
@@ -622,7 +622,7 @@ export default function DicleFestSanliurfaProjectPage() {
                 href={DICLEFEST_SOURCE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-blue-200/25 bg-white/10 px-5 py-3 text-sm font-black text-blue-100 transition hover:-translate-y-0.5 hover:bg-white/15"
+                className="inline-flex items-center gap-2 rounded-full border border-violet-200/25 bg-white/10 px-5 py-3 text-sm font-black text-violet-100 transition hover:-translate-y-0.5 hover:bg-white/15"
               >
                 DicleFest resmi etkinlik bilgileri
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -633,7 +633,7 @@ export default function DicleFestSanliurfaProjectPage() {
       </section>
 
       <section className="relative px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="baglantili-hizmetler">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8 lg:p-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-violet-950/20 backdrop-blur md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <SectionEyebrow>Bağlantılı Teknik Hizmetler</SectionEyebrow>
@@ -644,27 +644,27 @@ export default function DicleFestSanliurfaProjectPage() {
             <div className="space-y-5 text-base leading-relaxed text-slate-300 md:text-lg">
               <p>
                 Açık alan festival operasyonunda{" "}
-                <Link href="/sahne-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/sahne-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   sahne kurulumu
                 </Link>
                 ,{" "}
-                <Link href="/led-ekran-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/led-ekran-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   LED ekran çözümleri
                 </Link>
                 ,{" "}
-                <Link href="/ses-isik-sistemleri" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/ses-isik-sistemleri" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   ses ve ışık sistemleri
                 </Link>
                 ,{" "}
-                <Link href="/truss-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/truss-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   truss sistemleri
                 </Link>
                 ,{" "}
-                <Link href="/cadir-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/cadir-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   etkinlik çadırı
                 </Link>{" "}
                 ve{" "}
-                <Link href="/dome-cadir-kiralama" className="font-bold text-blue-200 underline decoration-blue-300/40 underline-offset-4">
+                <Link href="/dome-cadir-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
                   dome çadır çözümleri
                 </Link>{" "}
                 ve ziyaretçi yönlendirme başlıkları birbirinden bağımsız değil, aynı saha akışının
@@ -699,8 +699,8 @@ export default function DicleFestSanliurfaProjectPage() {
       </section>
 
       <section className="relative px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-600/25 via-white/[0.07] to-slate-950 p-8 text-center shadow-2xl shadow-blue-950/30 backdrop-blur md:p-12">
-          <div className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-blue-100">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-600/25 via-white/[0.07] to-slate-950 p-8 text-center shadow-2xl shadow-violet-950/30 backdrop-blur md:p-12">
+          <div className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-violet-100">
             <ShieldCheck className="h-7 w-7" aria-hidden="true" />
           </div>
           <h2 className="text-3xl font-black tracking-tight md:text-4xl">
@@ -756,7 +756,7 @@ function CaseSection({ section, flip = false }) {
         <div>
           <SectionEyebrow>{section.eyebrow}</SectionEyebrow>
           <div className="mt-3 flex items-start gap-4">
-            <span className="mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-blue-300/20 bg-blue-400/10 text-blue-100">
+            <span className="mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-violet-300/20 bg-violet-400/10 text-violet-100">
               <Icon className="h-6 w-6" aria-hidden="true" />
             </span>
             <h2 id={slugify(section.title)} className="text-3xl font-black tracking-tight md:text-4xl">
@@ -821,7 +821,7 @@ function ImageFigure({ image, className = "", compact = false }) {
 
 function SectionEyebrow({ children }) {
   return (
-    <p className="m-0 text-xs font-black uppercase tracking-[0.28em] text-blue-200">
+    <p className="m-0 text-xs font-black uppercase tracking-[0.28em] text-violet-200">
       {children}
     </p>
   );
@@ -830,7 +830,7 @@ function SectionEyebrow({ children }) {
 function SiteBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.18),transparent_32%),radial-gradient(circle_at_85%_30%,rgba(14,165,233,0.1),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.2),#0B1120_92%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139, 92, 246,0.18),transparent_32%),radial-gradient(circle_at_85%_30%,rgba(139, 92, 246,0.1),transparent_28%),linear-gradient(180deg,rgba(2,6,23,0.2),#0B1120_92%)]" />
       <div className="absolute inset-0 grid-overlay opacity-70" />
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#0B1120] to-transparent" />
     </div>

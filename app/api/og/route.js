@@ -58,7 +58,7 @@ export async function GET(request) {
           height: "100%",
           display: "flex",
           position: "relative",
-          backgroundColor: "#07111f",
+          backgroundColor: "#040817",
           color: "white",
           overflow: "hidden",
           fontFamily: "Inter, Arial, sans-serif",
@@ -81,7 +81,7 @@ export async function GET(request) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(110deg, rgba(7,17,31,0.96) 0%, rgba(11,24,48,0.82) 46%, rgba(30,64,175,0.54) 100%)",
+              "linear-gradient(110deg, rgba(7,17,31,0.96) 0%, rgba(11,24,48,0.82) 46%, rgba(91, 33, 182,0.54) 100%)",
           }}
         />
         <div
@@ -89,7 +89,7 @@ export async function GET(request) {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at 78% 18%, rgba(59,130,246,0.48), transparent 30%), radial-gradient(circle at 18% 88%, rgba(147,51,234,0.36), transparent 34%)",
+              "radial-gradient(circle at 78% 18%, rgba(139, 92, 246,0.48), transparent 30%), radial-gradient(circle at 18% 88%, rgba(147,51,234,0.36), transparent 34%)",
           }}
         />
         <div
@@ -119,13 +119,13 @@ export async function GET(request) {
                 width: 62,
                 height: 62,
                 borderRadius: 18,
-                background: "linear-gradient(135deg, #2563eb, #7c3aed)",
+                background: "linear-gradient(135deg, #7c3aed, #7c3aed)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize: 32,
                 fontWeight: 900,
-                boxShadow: "0 18px 60px rgba(37,99,235,0.42)",
+                boxShadow: "0 18px 60px rgba(124, 58, 237,0.42)",
               }}
             >
               S

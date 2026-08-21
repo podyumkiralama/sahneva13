@@ -38,7 +38,7 @@ export default function PaymentOptionsNote() {
 
         <Link
           href="/odeme"
-          className="mt-6 inline-flex min-h-12 items-center justify-center rounded-xl border border-neutral-300 bg-white px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800"
+          className="mt-6 inline-flex min-h-12 items-center justify-center rounded-xl border border-neutral-300 bg-white px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:border-violet-300 hover:bg-violet-50 hover:text-violet-800"
         >
           Ödeme Seçenekleri →
         </Link>

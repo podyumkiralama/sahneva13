@@ -123,11 +123,16 @@ export default function PageHero({
   titleAccent,
   titleWide = false,
   description,
+  descriptionSpeakable = false,
   note,
   badges,
   chipGroups,
   actions,
   metrics,
+  quickLinks,
+  quickLinksLabel = "Sayfa bölümleri",
+  aside,
+  asideLabel,
   image,
   compact = false,
   titleId = "hero-title",
@@ -149,9 +154,11 @@ export default function PageHero({
           <div className={styles.heroWash} />
           <div className={styles.copyShade} />
         </div>
-      ) : null}
+      ) : (
+        <div className={styles.backdropPlain} aria-hidden="true" />
+      )}
 
-      <div className={styles.inner}>
+      <div className={`${styles.inner}${aside ? ` ${styles.innerSplit}` : ""}`}>
         <div className={styles.copy}>
           {breadcrumb?.length ? (
             <nav aria-label="Sayfa yolu" className={styles.breadcrumb}>
@@ -173,11 +180,17 @@ export default function PageHero({
 
           <h1 id={titleId} className={titleClassName} aria-label={ariaLabel}>
             {title}
-            {titleAccent ? <em>{titleAccent}</em> : null}
+            {/* Vurgu satırı blok olarak akıyor; aradaki boşluk görsel olarak
+                yutulur ama metin çıkarımında iki cümle birbirine yapışmaz. */}
+            {titleAccent ? <> <em>{titleAccent}</em></> : null}
           </h1>
 
           {description ? (
-            <p id={descriptionId} className={styles.description}>
+            <p
+              id={descriptionId}
+              className={styles.description}
+              data-speakable={descriptionSpeakable ? "" : undefined}
+            >
               {typeof description === "string" ? (
                 <RichText text={description} />
               ) : (
@@ -230,7 +243,10 @@ export default function PageHero({
           ) : null}
 
           {metrics?.length ? (
-            <ul className={styles.metrics}>
+            <ul
+              className={styles.metrics}
+              style={{ "--metric-columns": Math.min(metrics.length, 4) }}
+            >
               {metrics.map((metric) => (
                 <li key={`${metric.value}-${metric.label}`} className={styles.metric}>
                   <span className={styles.metricValue}>{metric.value}</span>
@@ -244,7 +260,25 @@ export default function PageHero({
           ) : null}
 
           {children}
+
+          {quickLinks?.length ? (
+            <nav className={styles.quickLinks} aria-label={quickLinksLabel}>
+              <ul>
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href}>{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
         </div>
+
+        {aside ? (
+          <aside className={styles.aside} aria-label={asideLabel}>
+            {aside}
+          </aside>
+        ) : null}
       </div>
 
       <div className={styles.bottomFade} aria-hidden="true" />

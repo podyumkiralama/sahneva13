@@ -78,13 +78,13 @@ function SectionShell({ variant = "light", id, children }) {
                 backgroundSize: "64px 64px",
               }}
             />
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/60" />
           </>
         ) : (
           <>
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
-            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-500/8 blur-[120px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
+            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-500/8 blur-[120px]" />
           </>
         )}
       </div>
@@ -105,7 +105,7 @@ function H2({ kicker, title, desc, dark = false, center = false }) {
               : "border-slate-200 bg-white text-slate-700",
           ].join(" ")}
         >
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+          <span className="h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
           <span className="font-semibold">{kicker}</span>
         </div>
       )}
@@ -186,7 +186,7 @@ function Hero() {
             backgroundSize: "72px 72px",
           }}
         />
-        <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[130px]" />
+        <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-[130px]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120]/92 via-[#0B1120]/55 to-[#0B1120]/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
       </div>
@@ -194,7 +194,7 @@ function Hero() {
       <div className="relative z-10 container mx-auto px-4 pt-14 md:pt-16 lg:pt-20 pb-10 md:pb-12">
         <div className="flex items-center gap-2 text-white/70 text-sm">
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
           </span>
           <Link href="/en" className="font-medium hover:text-white/90 transition">Home</Link>
           <span className="text-white/40">/</span>
@@ -203,7 +203,7 @@ function Hero() {
 
         <div className="mt-8 max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Local technical production partner · Antalya
           </div>
 
@@ -212,7 +212,7 @@ function Hero() {
             className="mt-5 text-4xl md:text-6xl font-black leading-tight tracking-tight text-white drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]"
           >
             Event Production{" "}
-            <span className="text-blue-300">Antalya</span>{" "}
+            <span className="text-violet-300">Antalya</span>{" "}
             — Stage, AV & Technical Support for International Events
           </h1>
 
@@ -225,7 +225,7 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(124, 58, 237,0.35)] hover:bg-violet-500 transition"
             >
               Send Antalya Event Brief
             </Link>
@@ -283,8 +283,8 @@ function Hero() {
 function WhyAntalya() {
   return (
     <SectionShell variant="soft" id="why-antalya">
-      <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-        <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+      <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
           Antalya for international events
         </p>
         <h2 className="mt-3 text-2xl font-black text-slate-950">
@@ -346,7 +346,7 @@ function AntalyaVenues() {
         title={
           <>
             Antalya Venue Areas —{" "}
-            <span className="text-blue-700">Where We Work</span>
+            <span className="text-violet-700">Where We Work</span>
           </>
         }
         desc="Sahneva supports technical event production across all of Antalya's main resort and congress zones — from Belek's luxury hotel ballrooms to Side's coastal congress venues and the city's international congress centre."
@@ -359,13 +359,13 @@ function AntalyaVenues() {
             <h3 className="text-xl font-black text-gray-900 mb-3">{area.name}</h3>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">{area.desc}</p>
             <div className="border-t border-slate-100 pt-3">
-              <div className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-2">
+              <div className="text-xs font-semibold text-violet-700 uppercase tracking-wide mb-2">
                 Event formats
               </div>
               <ul className="space-y-1">
                 {area.formats.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs text-gray-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
                     {f}
                   </li>
                 ))}
@@ -387,7 +387,7 @@ function EventFormats() {
         title={
           <>
             Event Formats We Produce{" "}
-            <span className="text-blue-700">in Antalya</span>
+            <span className="text-violet-700">in Antalya</span>
           </>
         }
         desc="From pharmaceutical congresses and corporate dealer meetings to incentive galas and trade exhibitions — these are Antalya's most common international event formats."
@@ -439,7 +439,7 @@ function EventFormats() {
             <ul className="space-y-1">
               {f.services.map((s) => (
                 <li key={s} className="flex items-center gap-2 text-xs text-gray-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
                   {s}
                 </li>
               ))}
@@ -472,7 +472,7 @@ function TechnicalServices() {
               ["Event Tents", "Large-span tent structures for outdoor gala dinners, beach events and product exhibition areas not covered by the hotel's existing structures."],
             ].map(([t, d]) => (
               <div key={t} className="flex items-start gap-4 p-5 rounded-2xl border border-slate-200 bg-white">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+                <span className="mt-1.5 h-2 w-2 rounded-full bg-violet-600 shrink-0" aria-hidden="true" />
                 <div>
                   <div className="font-black text-gray-900">{t}</div>
                   <p className="mt-1 text-gray-600 text-sm leading-relaxed">{d}</p>
@@ -573,7 +573,7 @@ function Stats() {
           { v: "24h", l: "Technical quote turnaround" },
         ].map((s) => (
           <Card key={s.l} className="text-center p-6">
-            <div className="text-3xl font-black text-blue-700">{s.v}</div>
+            <div className="text-3xl font-black text-violet-700">{s.v}</div>
             <div className="mt-2 text-gray-600 text-sm font-semibold">{s.l}</div>
           </Card>
         ))}
@@ -599,7 +599,7 @@ function AntalyaGallery() {
     <SectionShell variant="soft" id="antalya-gallery">
       <H2
         kicker="Production references"
-        title={<>Antalya Events — <span className="text-blue-700">Our Work</span></>}
+        title={<>Antalya Events — <span className="text-violet-700">Our Work</span></>}
         desc="Technical production from conferences, incentive galas, product launches and corporate meetings at Antalya resort hotels and congress venues."
         center
       />
@@ -705,10 +705,10 @@ function RelatedPages() {
         ].map((s) => (
           <Link key={s.href} href={s.href}>
             <Card className="h-full">
-              <div className="text-sm font-semibold text-blue-700">Sahneva</div>
+              <div className="text-sm font-semibold text-violet-700">Sahneva</div>
               <div className="mt-2 text-lg font-black text-gray-900">{s.t}</div>
               <p className="mt-2 text-gray-600 text-sm leading-relaxed">{s.d}</p>
-              <div className="mt-4 text-blue-700 font-bold text-sm">Explore →</div>
+              <div className="mt-4 text-violet-700 font-bold text-sm">Explore →</div>
             </Card>
           </Link>
         ))}
@@ -739,7 +739,7 @@ function Cta() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white hover:bg-violet-500 transition"
               >
                 Send Brief on WhatsApp
               </a>

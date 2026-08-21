@@ -5,7 +5,7 @@ const FAQ_WHATSAPP_MESSAGE = encodeURIComponent(
 );
 
 const FOCUS_RING_CLASS =
-  "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]";
+  "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]";
 
 const DEFAULT_DICTIONARY = {
   sectionPill: "Merak Edilenler",
@@ -51,7 +51,7 @@ function mergeDictionary(base, override = {}) {
 
 function FaqRow({ item }) {
   return (
-    <details className="group overflow-hidden rounded-2xl border border-white/5 bg-white/5 transition-colors open:border-sky-400/50 open:bg-white/10">
+    <details className="group overflow-hidden rounded-2xl border border-white/5 bg-white/5 transition-colors open:border-violet-400/50 open:bg-white/10">
       <summary
         className={`flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left ${FOCUS_RING_CLASS}`}
       >
@@ -59,7 +59,7 @@ function FaqRow({ item }) {
           {item.question}
         </span>
         <span
-          className="ml-4 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-transform group-open:rotate-180 group-open:border-sky-500 group-open:bg-sky-600 group-open:text-white"
+          className="ml-4 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-transform group-open:rotate-180 group-open:border-violet-500 group-open:bg-violet-600 group-open:text-white"
           aria-hidden="true"
         >
           <svg
@@ -90,7 +90,7 @@ function FaqRow({ item }) {
 function SupportCard({ dictionary }) {
   return (
       <div className="w-full space-y-6 rounded-3xl border border-white/10 bg-[#0F1623] p-6 shadow-2xl md:p-8">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-purple-600 text-2xl shadow-lg">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 text-2xl shadow-lg">
         ?
       </div>
 
@@ -102,16 +102,16 @@ function SupportCard({ dictionary }) {
       <div className="space-y-3">
         <a
           href={dictionary.contactPhoneHref}
-          className={`group flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-3 transition-all hover:border-sky-500/30 hover:bg-white/10 ${FOCUS_RING_CLASS}`}
+          className={`group flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-3 transition-all hover:border-violet-500/30 hover:bg-white/10 ${FOCUS_RING_CLASS}`}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/10 text-sky-400 transition-colors group-hover:bg-sky-500 group-hover:text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-500/10 text-violet-400 transition-colors group-hover:bg-violet-500 group-hover:text-white">
             T
           </span>
           <div className="min-w-0">
             <span className="block text-sm font-medium text-slate-400">
               {dictionary.supportPhoneLabel}
             </span>
-            <span className="block break-words text-sm font-bold text-white group-hover:text-sky-300">
+            <span className="block break-words text-sm font-bold text-white group-hover:text-violet-300">
               <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
                 {dictionary.contactPhone}
               </span>
@@ -190,7 +190,7 @@ export default function Faq({
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
-        <div className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
+        <div className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen" />
         <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-purple-600/10 blur-[140px] mix-blend-screen" />
       </div>
 
@@ -198,8 +198,8 @@ export default function Faq({
         {!ariaLabelledBy && (
           <div className="mx-auto mb-16 max-w-4xl text-center">
             <div className="mb-4 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-sky-200 shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-sky-400" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-sm font-bold uppercase tracking-[0.16em] text-violet-200 shadow-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet-400" aria-hidden="true" />
                 {dictionary.sectionPill}
               </span>
             </div>
@@ -233,7 +233,7 @@ export default function Faq({
               <div className="pt-4">
                 <a
                   href={dictionary.seeAllHref}
-                  className={`inline-flex min-h-12 items-center gap-2 rounded-full border border-sky-400/40 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-100 transition-colors hover:border-sky-300/70 hover:text-white ${FOCUS_RING_CLASS}`}
+                  className={`inline-flex min-h-12 items-center gap-2 rounded-full border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-100 transition-colors hover:border-violet-300/70 hover:text-white ${FOCUS_RING_CLASS}`}
                 >
                   <span aria-hidden="true">+</span>
                   {dictionary.seeAllLabel}

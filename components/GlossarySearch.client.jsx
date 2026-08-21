@@ -130,13 +130,13 @@ export default function GlossarySearch({ totalCount, locale = "tr" }) {
           onChange={(event) => setQuery(event.target.value)}
           placeholder={strings.placeholder}
           autoComplete="off"
-          className="min-h-[52px] w-full rounded-2xl border border-white/15 bg-white/10 px-5 pr-28 text-base font-medium text-white placeholder:text-white/45 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="min-h-[52px] w-full rounded-2xl border border-white/15 bg-white/10 px-5 pr-28 text-base font-medium text-white placeholder:text-white/45 focus:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
         />
         {query ? (
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-2 top-1/2 inline-flex min-h-[40px] -translate-y-1/2 items-center rounded-xl bg-white/15 px-4 text-sm font-bold text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+            className="absolute right-2 top-1/2 inline-flex min-h-[40px] -translate-y-1/2 items-center rounded-xl bg-white/15 px-4 text-sm font-bold text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300"
           >
             {strings.clear}
           </button>

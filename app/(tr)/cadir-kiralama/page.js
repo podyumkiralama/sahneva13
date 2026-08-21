@@ -585,7 +585,7 @@ function SectionJumpNav() {
             <li key={section.href} className="snap-start">
               <Link
                 href={section.href}
-                className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-5 text-sm font-black text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-5 text-sm font-black text-slate-700 transition hover:border-violet-300 hover:bg-violet-50 hover:text-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
               >
                 {section.label}
               </Link>
@@ -607,7 +607,7 @@ function TentSelectorSection() {
     >
       <div className="container mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-4 inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-blue-700">
+          <div className="mx-auto mb-4 inline-block rounded-full bg-violet-100 px-4 py-1 text-xs font-black tracking-[1.5px] text-violet-700">
             DOĞRU ÇADIRI SEÇİN
           </div>
           <h2
@@ -626,7 +626,7 @@ function TentSelectorSection() {
           {TENT_SELECTOR_CARDS.map((item) => (
             <article
               key={item.title}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.14)]"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-[0_24px_70px_rgba(124, 58, 237,0.14)]"
             >
               {/* Fotoğraf üst alan */}
               <div className="relative aspect-[3/2] overflow-hidden">
@@ -678,7 +678,7 @@ function TentSelectorSection() {
           çözümdür —{" "}
           <Link
             href="/dome-cadir-kiralama"
-            className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-800"
+            className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-800"
           >
             dome çadır kiralama
           </Link>{" "}
@@ -694,7 +694,7 @@ function TentSelectorSection() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex min-h-[48px] shrink-0 items-center justify-center rounded-2xl bg-blue-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+            className="inline-flex min-h-[48px] shrink-0 items-center justify-center rounded-2xl bg-violet-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             Uygun çadır tipini sorun
           </Link>
@@ -709,7 +709,7 @@ function TentStockSection() {
   return (
     <section
       id="stok-kapasitesi"
-      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1800px] md:[contain-intrinsic-size:auto_1300px] lg:[contain-intrinsic-size:auto_940px] relative overflow-hidden bg-[#040817] py-20 text-white"
       aria-labelledby="stok-kapasitesi-baslik"
     >
       <div
@@ -717,7 +717,7 @@ function TentStockSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#1e3a8a]/25 blur-[110px]"
+        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#4c1d95]/25 blur-[110px]"
         aria-hidden="true"
       />
       <div
@@ -728,7 +728,7 @@ function TentStockSection() {
       <div className="container relative z-10 mx-auto px-4 max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-300">
+            <p className="text-sm font-black uppercase tracking-widest text-violet-300">
               Stok ve büyük ölçek gücü
             </p>
             <h2
@@ -785,7 +785,7 @@ function TentStockSection() {
                   key={item.title}
                   className="rounded-3xl border border-white/[0.14] bg-white/[0.08] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.22)] backdrop-blur-md"
                 >
-                  <p className="text-xs font-black uppercase tracking-widest text-blue-300">
+                  <p className="text-xs font-black uppercase tracking-widest text-violet-300">
                     {item.group}
                   </p>
                   <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
@@ -793,11 +793,11 @@ function TentStockSection() {
                     <div className="text-4xl font-black leading-none text-white">
                       {item.capacity}
                     </div>
-                    <div className="mt-2 text-sm font-bold text-blue-200/80">
+                    <div className="mt-2 text-sm font-bold text-violet-200/80">
                       {item.typeLabel}
                     </div>
                   </div>
-                  <p className="mt-5 text-sm leading-6 text-cyan-50/[0.76]">
+                  <p className="mt-5 text-sm leading-6 text-violet-50/[0.76]">
                     {item.description}
                   </p>
                 </article>
@@ -807,7 +807,7 @@ function TentStockSection() {
             {/* 30 m kapasitesinin 20 m'den dusuk olmasi okuyanda tereddut
                 yaratiyordu; rakam envanter gercegi, aciklamasi kartlarin
                 altinda duruyor. */}
-            <p className="mt-5 rounded-3xl border border-white/[0.14] bg-slate-950/50 p-5 text-sm leading-7 text-cyan-50/[0.78] backdrop-blur-md">
+            <p className="mt-5 rounded-3xl border border-white/[0.14] bg-slate-950/50 p-5 text-sm leading-7 text-violet-50/[0.78] backdrop-blur-md">
               <strong className="font-black text-white">Kapasite nasıl okunur:</strong>{" "}
               Büyük açıklıklı sistemlerde yazan metrekare, o açıklıkta elimizde bulunan
               toplam stok alanıdır. Açıklık büyüdükçe kurulabilir alan artmaz; her ölçünün
@@ -829,10 +829,10 @@ function TurnkeyInfrastructure() {
       aria-labelledby="anahtar-teslim-baslik"
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-3xl border border-blue-100 p-8 md:p-10 shadow-xl">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-violet-50 via-white to-purple-50 rounded-3xl border border-violet-100 p-8 md:p-10 shadow-xl">
           <div className="flex flex-col lg:flex-row items-start gap-8">
             <div className="flex-1">
-              <p className="text-sm font-bold uppercase tracking-widest text-blue-600 mb-3">
+              <p className="text-sm font-bold uppercase tracking-widest text-violet-600 mb-3">
                 Anahtar Teslim Kurulum Gücü
               </p>
               <h2
@@ -849,7 +849,7 @@ function TurnkeyInfrastructure() {
                 {TURNKEY_FEATURES.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <span
-                      className="mt-2 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0"
+                      className="mt-2 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 flex-shrink-0"
                       aria-hidden="true"
                     />
                     <span className="text-base">{feature}</span>
@@ -868,16 +868,16 @@ function TurnkeyInfrastructure() {
                   quality={82}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1429]/85 via-[#0a1429]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040817]/85 via-[#040817]/20 to-transparent" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Saha Kaydı</p>
+                <p className="text-xs font-black uppercase tracking-widest text-violet-300 mb-2">Saha Kaydı</p>
                 <p className="text-white font-black text-lg leading-snug mb-4">Kurulum sürecinden gerçek görüntü</p>
                 <Link
                   href={WHATSAPP}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-2xl bg-blue-600 hover:bg-blue-500 px-6 py-3 font-bold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
+                  className="inline-flex w-full items-center justify-center rounded-2xl bg-violet-600 hover:bg-violet-500 px-6 py-3 font-bold text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-600"
                 >
                   Kurulum Planı İsteyin
                 </Link>
@@ -968,7 +968,7 @@ function Gallery() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+            <p className="text-sm font-black uppercase tracking-widest text-violet-700">
               Saha kanıtı
             </p>
             <h2
@@ -988,10 +988,10 @@ function Gallery() {
           {SUCCESS_STORIES.map((story, index) => (
             <article
               key={story.title}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_8px_35px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_25px_70px_rgba(59,130,246,0.13)]"
+              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_8px_35px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-[0_25px_70px_rgba(139, 92, 246,0.13)]"
             >
               <div className="flex items-start justify-between">
-                <span className="inline-flex rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-1 text-xs font-black uppercase tracking-[0.7px] text-blue-700">
+                <span className="inline-flex rounded-full bg-gradient-to-r from-violet-100 to-purple-100 px-4 py-1 text-xs font-black uppercase tracking-[0.7px] text-violet-700">
                   {story.category}
                 </span>
                 <div className="text-xs font-mono text-slate-600">0{index + 1}</div>
@@ -999,7 +999,7 @@ function Gallery() {
               <h3 className="mt-6 text-[21px] font-black leading-tight tracking-tight text-gray-950 pr-4">
                 {story.title}
               </h3>
-              <p className="mt-4 text-[15px] font-semibold leading-snug text-blue-700">
+              <p className="mt-4 text-[15px] font-semibold leading-snug text-violet-700">
                 {story.transformation}
               </p>
 
@@ -1042,7 +1042,7 @@ function Gallery() {
             </div>
             <Link
               href="/projeler"
-              className="inline-flex min-h-[44px] w-fit items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-900 shadow-sm transition hover:border-blue-300 hover:text-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+              className="inline-flex min-h-[44px] w-fit items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-900 shadow-sm transition hover:border-violet-300 hover:text-violet-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
             >
               <Eye className="mr-2 h-4 w-4" aria-hidden="true" />
               Tüm projeler
@@ -1080,7 +1080,7 @@ function Gallery() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-blue-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-violet-100 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
           <div>
             <h4 className="text-xl font-black text-gray-950">
               Daha fazla saha görseli için proje galerisini inceleyebilirsiniz.
@@ -1092,7 +1092,7 @@ function Gallery() {
           </div>
           <Link
             href="/projeler"
-            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-violet-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             Proje Galerisini Aç
           </Link>
@@ -1112,13 +1112,13 @@ function PricingSection() {
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
-          <div className="relative bg-[#0a1429] px-6 py-8 text-white md:px-10">
+          <div className="relative bg-[#040817] px-6 py-8 text-white md:px-10">
             <div
               className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:44px_44px]"
               aria-hidden="true"
             />
             <div
-              className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#1e3a8a]/30 blur-[90px]"
+              className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#4c1d95]/30 blur-[90px]"
               aria-hidden="true"
             />
             <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -1143,16 +1143,16 @@ function PricingSection() {
               return (
                 <article
                   key={item.title}
-                  className={`group relative border-t border-slate-200 p-7 md:border-l md:border-t-0 lg:p-8 first:md:border-l-0 transition-all duration-300 ${isPopular ? "bg-blue-50/60 ring-2 ring-blue-600/70 shadow-[0_15px_50px_rgba(37,99,235,0.15)] z-10" : "hover:bg-slate-50"}`}
+                  className={`group relative border-t border-slate-200 p-7 md:border-l md:border-t-0 lg:p-8 first:md:border-l-0 transition-all duration-300 ${isPopular ? "bg-violet-50/60 ring-2 ring-violet-600/70 shadow-[0_15px_50px_rgba(124, 58, 237,0.15)] z-10" : "hover:bg-slate-50"}`}
                 >
                   {isPopular && (
-                    <div className="absolute -top-3 right-6 rounded-full bg-blue-600 px-4 py-0.5 text-xs font-black tracking-widest text-white shadow">
+                    <div className="absolute -top-3 right-6 rounded-full bg-violet-600 px-4 py-0.5 text-xs font-black tracking-widest text-white shadow">
                       EN ÇOK TERCİH EDİLEN
                     </div>
                   )}
                   <h3 className="text-[21px] font-black text-gray-950 tracking-tight">{item.title}</h3>
                   <div className="mt-4 flex items-end gap-1">
-                    <span className="text-[34px] font-black text-blue-700 tracking-tighter">{item.price}</span>
+                    <span className="text-[34px] font-black text-violet-700 tracking-tighter">{item.price}</span>
                     <span className="mb-1 text-sm font-semibold text-gray-500">+ nakliye</span>
                   </div>
                   <p className="mt-5 text-[15px] leading-relaxed text-gray-600 pr-2">{item.description}</p>
@@ -1161,7 +1161,7 @@ function PricingSection() {
             })}
           </div>
 
-          <div className="border-t border-slate-200 bg-blue-50/70 px-6 py-5 md:px-10">
+          <div className="border-t border-slate-200 bg-violet-50/70 px-6 py-5 md:px-10">
             <p className="text-sm font-semibold leading-6 text-gray-700">
               Zemin kaplama, iklimlendirme, aydınlatma, masa-sandalye, şehir dışı
               lojistik ve uzun süreli kurulumlar proje bazlı fiyatlandırılır.
@@ -1181,7 +1181,7 @@ function PricingSection() {
           </Link>
           <Link
             href="/cadir-kiralama#cadir-tipleri"
-            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 font-black text-slate-900 shadow-sm transition hover:border-blue-300 hover:text-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 font-black text-slate-900 shadow-sm transition hover:border-violet-300 hover:text-violet-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             Çadır Tiplerini İncele
           </Link>
@@ -1196,7 +1196,7 @@ function StandardsTable() {
   return (
     <section
       id="guvenlik-standartlari"
-      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1200px] lg:[contain-intrinsic-size:auto_720px] relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1200px] lg:[contain-intrinsic-size:auto_720px] relative overflow-hidden bg-[#040817] py-20 text-white"
       aria-labelledby="sahneva-standartlari-baslik"
     >
       <div
@@ -1204,12 +1204,12 @@ function StandardsTable() {
         aria-hidden="true"
       />
       <div
-        className="absolute left-[-8rem] top-10 h-72 w-72 rounded-full bg-cyan-400/[0.18] blur-[90px]"
+        className="absolute left-[-8rem] top-10 h-72 w-72 rounded-full bg-violet-400/[0.18] blur-[90px]"
         aria-hidden="true"
       />
       <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-sm font-black uppercase tracking-widest text-cyan-200">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-200">
             Teknik güvenlik kontrolü
           </p>
           <h2
@@ -1218,7 +1218,7 @@ function StandardsTable() {
           >
             Sahneva Güvenlik Standardı
           </h2>
-          <p className="text-xl text-cyan-50/[0.78] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-violet-50/[0.78] max-w-3xl mx-auto leading-relaxed">
             Çadır kiralama projelerinde güvenlik; malzeme, sabitleme, su tahliye
             ve zemin kontrolünün aynı planda yönetilmesiyle sağlanır.
           </p>
@@ -1230,23 +1230,23 @@ function StandardsTable() {
               key={row.feature}
               className="rounded-3xl border border-white/[0.14] bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-md"
             >
-              <p className="text-sm font-black uppercase tracking-wider text-cyan-200">
+              <p className="text-sm font-black uppercase tracking-wider text-violet-200">
                 {row.feature}
               </p>
               <h3 className="mt-3 text-2xl font-black text-white">{row.standard}</h3>
-              <p className="mt-4 text-sm leading-6 text-cyan-50/[0.74]">{row.detail}</p>
+              <p className="mt-4 text-sm leading-6 text-violet-50/[0.74]">{row.detail}</p>
             </article>
           ))}
         </div>
 
         <div className="mt-10 mx-auto flex max-w-5xl flex-col gap-4 rounded-3xl border border-white/[0.14] bg-white/[0.06] p-6 backdrop-blur-md md:flex-row md:items-center md:justify-between">
-          <p className="text-base leading-7 text-cyan-50/[0.78]">
+          <p className="text-base leading-7 text-violet-50/[0.78]">
             Kurulum öncesinde zemin, açıklık ve hava durumu birlikte değerlendirilir;
             sabitleme yöntemi saha keşfinde netleştirilir.
           </p>
           <Link
             href={`tel:${PHONE}`}
-            className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3 font-black text-[#0a1429] shadow-lg transition hover:bg-cyan-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+            className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3 font-black text-[#040817] shadow-lg transition hover:bg-violet-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
           >
             <Phone className="h-5 w-5" aria-hidden="true" />
             Teknik ekibi arayın
@@ -1269,7 +1269,7 @@ function SystemAndStandardSection() {
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700">
             Sistem ve standart
           </p>
           <h2
@@ -1325,8 +1325,8 @@ function SystemAndStandardSection() {
           </div>
 
           {/* 2.4 — EN 13782 */}
-          <div className="rounded-3xl border border-blue-200 bg-white p-8 shadow-sm">
-            <p className="text-xs font-black uppercase tracking-widest text-blue-700">
+          <div className="rounded-3xl border border-violet-200 bg-white p-8 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-widest text-violet-700">
               Statik hesap standardı
             </p>
             <h3 className="mt-3 text-3xl font-black tracking-tight text-gray-950">
@@ -1349,7 +1349,7 @@ function SystemAndStandardSection() {
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <CheckCircle
-                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-700"
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-700"
                     aria-hidden="true"
                   />
                   <span>{item}</span>
@@ -1408,7 +1408,7 @@ function SystemAndStandardSection() {
                     <th
                       key={col}
                       scope="col"
-                      className="px-6 py-4 text-sm font-black uppercase tracking-wider text-blue-700"
+                      className="px-6 py-4 text-sm font-black uppercase tracking-wider text-violet-700"
                     >
                       {col}
                     </th>
@@ -1469,7 +1469,7 @@ function SystemAndStandardSection() {
                 key={item.label}
                 className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
               >
-                <dt className="text-xs font-black uppercase tracking-wider text-blue-700">
+                <dt className="text-xs font-black uppercase tracking-wider text-violet-700">
                   {item.label}
                 </dt>
                 <dd>
@@ -1535,7 +1535,7 @@ function SystemAndStandardSection() {
                 key={item.method}
                 className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6"
               >
-                <p className="text-xs font-black uppercase tracking-wider text-blue-700">
+                <p className="text-xs font-black uppercase tracking-wider text-violet-700">
                   {item.surface}
                 </p>
                 <h4 className="mt-3 text-xl font-black text-gray-950">{item.method}</h4>
@@ -1562,7 +1562,7 @@ function SystemAndStandardSection() {
 function UseCases() {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95"
+      className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1580,7 +1580,7 @@ function UseCases() {
             Etkinlik çadırı kiralama ve kiralık çadır çözümlerimizin tercih edildiği başlıca kullanım alanları
           </p>
           <div
-            className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full"
+            className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full"
             aria-hidden="true"
           />
         </div>
@@ -1599,7 +1599,7 @@ function UseCases() {
                   {uc.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
                     {uc.text}
                   </h3>
                   <p className="text-white/80 text-lg leading-relaxed">
@@ -1616,7 +1616,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-600"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-600"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
@@ -1637,7 +1637,7 @@ function UseCases() {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-950/75 via-gray-950/25 to-transparent" />
           <div className="absolute inset-0 flex items-center px-8 md:px-14">
             <div>
-              <p className="text-xs font-black uppercase tracking-widest text-blue-300 mb-2">Yapı Kalitesi</p>
+              <p className="text-xs font-black uppercase tracking-widest text-violet-300 mb-2">Yapı Kalitesi</p>
               <p className="text-white font-black text-2xl md:text-3xl max-w-sm leading-snug">
                 Büyük açıklıklı çadır — kolon yok, alan tamamen kullanılabilir
               </p>
@@ -1653,7 +1653,7 @@ function UseCases() {
 function InstallationProcess() {
   return (
     <section
-      className="[content-visibility:auto] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white"
+      className="[content-visibility:auto] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
       aria-labelledby="kurulum-sureci-baslik"
     >
       <div className="container mx-auto px-4">
@@ -1664,7 +1664,7 @@ function InstallationProcess() {
           >
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-violet-100 max-w-3xl mx-auto leading-relaxed">
             Etkinlik çadırı kiralamanızda keşiften söküme tüm süreç.
           </p>
         </div>
@@ -1701,7 +1701,7 @@ function InstallationProcess() {
                 {String(index + 1).padStart(2, "0")}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-              <p className="text-blue-100 text-base leading-relaxed">
+              <p className="text-violet-100 text-base leading-relaxed">
                 {step.description}
               </p>
             </li>
@@ -1722,7 +1722,7 @@ function FAQ() {
     >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center mb-12">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700">
             Sık sorulan sorular
           </p>
           <h2
@@ -1737,13 +1737,13 @@ function FAQ() {
           {FAQ_ITEMS.map((faq) => (
             <details
               key={faq.q}
-              className="group rounded-3xl border-2 border-transparent bg-slate-50 transition-colors duration-300 hover:bg-slate-100 open:border-blue-200 open:bg-white open:shadow-sm [&_summary::-webkit-details-marker]:hidden"
+              className="group rounded-3xl border-2 border-transparent bg-slate-50 transition-colors duration-300 hover:bg-slate-100 open:border-violet-200 open:bg-white open:shadow-sm [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl p-6 text-lg font-black text-gray-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl p-6 text-lg font-black text-gray-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200">
                 <span className="flex-1">{faq.q}</span>
                 <span
                   aria-hidden="true"
-                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-xl leading-none text-blue-700 transition-transform duration-300 group-open:rotate-180"
+                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-violet-100 text-xl leading-none text-violet-700 transition-transform duration-300 group-open:rotate-180"
                 >
                   ⌄
                 </span>
@@ -1790,7 +1790,7 @@ function RelatedServices() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="ek-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -1799,7 +1799,7 @@ function RelatedServices() {
             id="ek-hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
-            Ek <span className="text-blue-700">Hizmetler</span>
+            Ek <span className="text-violet-700">Hizmetler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Etkinlik çadırı kiralamanıza eşlik eden tamamlayıcı ekipman ve teknik çözümler
@@ -1811,10 +1811,10 @@ function RelatedServices() {
             <Link
               key={href}
               href={href}
-              className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
+              className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl"
             >
-              <Icon className="h-8 w-8 text-blue-700" aria-hidden="true" />
-              <h3 className="mt-5 text-xl font-black text-gray-950 group-hover:text-blue-700">
+              <Icon className="h-8 w-8 text-violet-700" aria-hidden="true" />
+              <h3 className="mt-5 text-xl font-black text-gray-950 group-hover:text-violet-700">
                 {title}
               </h3>
               <p className="mt-3 text-sm leading-6 text-gray-600">
@@ -1832,7 +1832,7 @@ function RelatedServices() {
 function ClosingCta() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0a1429] py-16 text-white"
+      className="relative overflow-hidden bg-[#040817] py-16 text-white"
       aria-labelledby="kapanis-cta-baslik"
     >
       <div
@@ -1843,7 +1843,7 @@ function ClosingCta() {
         <h2 id="kapanis-cta-baslik" className="text-3xl font-black md:text-4xl">
           Çadır planınızı birlikte netleştirelim
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-blue-100/80 md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-violet-100/80 md:text-lg">
           Tarih, ölçü, şehir ve zemin bilgisini paylaşın; nakliye dahil kalem kalem
           teklifi aynı gün içinde iletelim.
         </p>
@@ -1860,14 +1860,14 @@ function ClosingCta() {
           </Link>
           <Link
             href={`tel:${PHONE}`}
-            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/[0.07] px-8 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/[0.07] px-8 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
           >
             <Phone className="h-5 w-5" aria-hidden="true" />
             {PHONE_DISPLAY}
           </Link>
           <Link
             href="/cadir-hesaplama"
-            className="inline-flex min-h-[56px] items-center justify-center rounded-2xl border border-white/30 bg-transparent px-8 text-[17px] font-black text-white transition hover:bg-white/[0.1] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex min-h-[56px] items-center justify-center rounded-2xl border border-white/30 bg-transparent px-8 text-[17px] font-black text-white transition hover:bg-white/[0.1] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
           >
             Ölçü hesaplayıcıyı açın
           </Link>
@@ -2043,7 +2043,7 @@ function DividerLightToDark() {
   return (
     <div className="relative h-12 bg-white overflow-hidden -mb-px" aria-hidden="true">
       <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
-        <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#0a1429" />
+        <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#040817" />
       </svg>
     </div>
   );
@@ -2051,7 +2051,7 @@ function DividerLightToDark() {
 
 function DividerDarkToLight() {
   return (
-    <div className="relative h-12 bg-[#0a1429] overflow-hidden -mb-px" aria-hidden="true">
+    <div className="relative h-12 bg-[#040817] overflow-hidden -mb-px" aria-hidden="true">
       <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
         <path d="M0,28 L1440,0 L1440,48 L0,48 Z" fill="#f8fafc" />
       </svg>
@@ -2059,11 +2059,11 @@ function DividerDarkToLight() {
   );
 }
 
-// Gradient, InstallationProcess'in from-blue-700 / via-purple-700 / to-blue-800
+// Gradient, InstallationProcess'in from-violet-700 / via-purple-700 / to-violet-800
 // degerleriyle birebir eslesmeli; aksi halde bolum gecisinde renk kaymasi olusuyor.
 function DividerBlueToWhite() {
   return (
-    <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #1d4ed8, #7e22ce, #1e40af)"}} aria-hidden="true">
+    <div className="relative h-12 overflow-hidden -mb-px" style={{background: "linear-gradient(to right, #6d28d9, #7e22ce, #5b21b6)"}} aria-hidden="true">
       <svg viewBox="0 0 1440 48" className="absolute bottom-0 w-full h-full" preserveAspectRatio="none">
         <path d="M0,0 L1440,28 L1440,48 L0,48 Z" fill="#ffffff" />
       </svg>

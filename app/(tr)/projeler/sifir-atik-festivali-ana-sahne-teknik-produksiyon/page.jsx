@@ -376,7 +376,7 @@ export const metadata = {
 
 function Eyebrow({ children }) {
   return (
-    <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">
+    <p className="text-xs font-black uppercase tracking-[0.24em] text-violet-300">
       {children}
     </p>
   );
@@ -385,9 +385,9 @@ function Eyebrow({ children }) {
 function SiteBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_8%,rgba(56,189,248,0.16),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(37,99,235,0.18),transparent_34%),linear-gradient(180deg,#0B1120_0%,#020617_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_8%,rgba(167, 139, 250,0.16),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(124, 58, 237,0.18),transparent_34%),linear-gradient(180deg,#0B1120_0%,#020617_100%)]" />
       <div className="absolute inset-0 grid-overlay opacity-45" />
-      <div className="absolute inset-x-0 top-0 h-52 bg-gradient-to-b from-cyan-400/10 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-52 bg-gradient-to-b from-violet-400/10 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#020617] to-transparent" />
     </div>
   );
@@ -413,8 +413,8 @@ function HeroSection() {
 
         <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-extrabold text-cyan-100 shadow-[0_18px_50px_rgba(8,145,178,0.22)]">
-              <span className="h-2 w-2 rounded-full bg-cyan-300" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-300/10 px-4 py-2 text-sm font-extrabold text-violet-100 shadow-[0_18px_50px_rgba(8,145,178,0.22)]">
+              <span className="h-2 w-2 rounded-full bg-violet-300" aria-hidden="true" />
               Festival Ana Sahne Operasyonu
             </div>
 
@@ -439,7 +439,7 @@ function HeroSection() {
               </a>
               <Link
                 href="/sahne-kiralama"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] px-6 py-3 font-black text-white backdrop-blur transition hover:bg-white/[0.1] focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] px-6 py-3 font-black text-white backdrop-blur transition hover:bg-white/[0.1] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
               >
                 Sahne Çözümlerini İncele
               </Link>
@@ -469,7 +469,7 @@ function HeroSection() {
           {HERO_STATS.map((item) => (
             <li key={item.value} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
               <p className="text-2xl font-black text-white">{item.value}</p>
-              <p className="mt-2 text-sm font-semibold leading-relaxed !text-cyan-100/80">{item.label}</p>
+              <p className="mt-2 text-sm font-semibold leading-relaxed !text-violet-100/80">{item.label}</p>
             </li>
           ))}
         </ul>
@@ -502,7 +502,7 @@ function ImageCard({ image, priority = false }) {
         />
       </div>
       <figcaption className="border-t border-white/10 bg-slate-950/72 p-4 text-sm leading-relaxed !text-white/85">
-        <span className="block font-black text-cyan-100">{image.title}</span>
+        <span className="block font-black text-violet-100">{image.title}</span>
         <span className="mt-1 block">{image.caption}</span>
       </figcaption>
     </figure>
@@ -518,7 +518,7 @@ function InlineLinks({ links }) {
         <Link
           key={link.href}
           href={link.href}
-          className="inline-flex min-h-[42px] items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/16"
+          className="inline-flex min-h-[42px] items-center justify-center rounded-full border border-violet-300/20 bg-violet-300/10 px-4 py-2 text-sm font-black text-violet-100 transition hover:bg-violet-300/16"
         >
           {link.label}
         </Link>
@@ -578,7 +578,7 @@ function VideoSection() {
             <p className="mt-5 text-lg leading-relaxed !text-white/85">{PROJECT_VIDEO.description}</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {proofItems.map((item) => (
-                <li key={item} className="rounded-2xl border border-cyan-300/15 bg-cyan-300/10 px-4 py-3 text-sm font-black text-cyan-100">
+                <li key={item} className="rounded-2xl border border-violet-300/15 bg-violet-300/10 px-4 py-3 text-sm font-black text-violet-100">
                   {item}
                 </li>
               ))}
@@ -617,7 +617,7 @@ function ScopeSection() {
             const Icon = icons[index % icons.length];
             return (
               <li key={item} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
-                <Icon className="h-7 w-7 text-cyan-300" aria-hidden="true" />
+                <Icon className="h-7 w-7 text-violet-300" aria-hidden="true" />
                 <p className="mt-4 text-base font-black leading-snug text-white">{item}</p>
               </li>
             );
@@ -649,7 +649,7 @@ function TechnicalProofSection() {
                 />
               </div>
               <div className="p-5">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">{item.label}</p>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-300">{item.label}</p>
                 <h3 className="mt-2 text-xl font-black text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed !text-white/85">{item.text}</p>
               </div>
@@ -674,11 +674,11 @@ function RelatedServicesSection() {
             <Link
               key={service.href}
               href={service.href}
-              className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-cyan-300/35 hover:bg-white/[0.07]"
+              className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-violet-300/35 hover:bg-white/[0.07]"
             >
               <h3 className="text-xl font-black text-white">{service.title}</h3>
               <p className="mt-3 text-sm leading-relaxed !text-white/80">{service.desc}</p>
-              <span className="mt-5 inline-flex items-center text-sm font-black text-cyan-300">
+              <span className="mt-5 inline-flex items-center text-sm font-black text-violet-300">
                 İncele
                 <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
               </span>
@@ -701,7 +701,7 @@ function FaqSection() {
             <details key={item.q} className="group p-6">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-5 text-left text-lg font-black text-white">
                 <span>{item.q}</span>
-                <span className="mt-1 rounded-full border border-white/10 bg-white/10 p-1 text-cyan-200 transition group-open:rotate-45">
+                <span className="mt-1 rounded-full border border-white/10 bg-white/10 p-1 text-violet-200 transition group-open:rotate-45">
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </summary>
@@ -717,7 +717,7 @@ function FaqSection() {
 function CtaSection() {
   return (
     <section className="px-4 pb-20 pt-10 sm:px-6 lg:px-8" aria-labelledby="cta-title">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.18),rgba(37,99,235,0.12),rgba(2,6,23,0.92))] p-8 shadow-[0_28px_90px_rgba(8,145,178,0.18)] md:p-10">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-violet-300/20 bg-[linear-gradient(135deg,rgba(139, 92, 246,0.18),rgba(124, 58, 237,0.12),rgba(2,6,23,0.92))] p-8 shadow-[0_28px_90px_rgba(8,145,178,0.18)] md:p-10">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <Eyebrow>Teknik Prodüksiyon Planı</Eyebrow>
@@ -739,7 +739,7 @@ function CtaSection() {
             </a>
             <Link
               href="/kurumsal-organizasyon"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/15 bg-white/[0.08] px-6 py-3 font-black text-white transition hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/15 bg-white/[0.08] px-6 py-3 font-black text-white transition hover:bg-white/[0.12] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
             >
               Kurumsal Prodüksiyon
             </Link>

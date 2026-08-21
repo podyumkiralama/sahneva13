@@ -320,14 +320,14 @@ export default function PodiumRentalPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#0B1120] pt-20 pb-12 lg:pt-28 lg:pb-20">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-blue-500/15 blur-3xl" />
+          <div className="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-violet-500/15 blur-3xl" />
           <div className="absolute -bottom-32 right-0 h-[400px] w-[400px] rounded-full bg-purple-500/15 blur-3xl" />
         </div>
 
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <div className="mb-4 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-200">
+              <div className="mb-4 inline-flex items-center rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-200">
                 Professional Stage Solutions
               </div>
               <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -429,7 +429,7 @@ export default function PodiumRentalPage() {
                   <ul className="space-y-2 mb-6">
                     {pkg.includes.map((item) => (
                       <li key={item} className="flex items-center gap-2 text-sm text-neutral-700">
-                        <span className="text-blue-500">✓</span> {item}
+                        <span className="text-violet-500">✓</span> {item}
                       </li>
                     ))}
                   </ul>
@@ -493,7 +493,7 @@ export default function PodiumRentalPage() {
                 <ul className="space-y-1">
                   {spec.features.map((f) => (
                     <li key={f} className="text-xs text-neutral-700 flex items-center gap-1">
-                      <span className="text-blue-500">•</span> {f}
+                      <span className="text-violet-500">•</span> {f}
                     </li>
                   ))}
                 </ul>
@@ -527,10 +527,10 @@ export default function PodiumRentalPage() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="group rounded-2xl border border-neutral-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all"
+                className="group rounded-2xl border border-neutral-200 bg-white p-5 hover:border-violet-300 hover:shadow-md transition-all"
               >
-                <s.Icon className="w-6 h-6 text-blue-600 mb-3" />
-                <h3 className="font-bold text-neutral-900 group-hover:text-blue-700 text-sm mb-1">{s.title}</h3>
+                <s.Icon className="w-6 h-6 text-violet-600 mb-3" />
+                <h3 className="font-bold text-neutral-900 group-hover:text-violet-700 text-sm mb-1">{s.title}</h3>
                 <p className="text-xs text-neutral-600">{s.desc}</p>
               </Link>
             ))}
@@ -539,7 +539,7 @@ export default function PodiumRentalPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-blue-900 via-[#0B1120] to-purple-900 text-center">
+      <section className="py-16 bg-gradient-to-br from-violet-900 via-[#0B1120] to-purple-900 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-black text-white mb-4">Ready to Get a Quote?</h2>
           <p className="text-slate-300 mb-8">Contact us for a detailed quote. We respond within 24 hours.</p>

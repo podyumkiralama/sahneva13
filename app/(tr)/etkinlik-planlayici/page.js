@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 import EventPlannerClient from "./EventPlannerClient";
@@ -110,46 +111,20 @@ export default function EventPlannerPage() {
     <div className="bg-white text-slate-900">
       <JsonLdScript id="ld-json-etkinlik-planlayici" data={PLANNER_SCHEMA} />
 
-      <section className="relative overflow-hidden bg-slate-950 px-4 py-16 text-white sm:py-20">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(59,130,246,0.25),transparent_38%),linear-gradient(135deg,#020617,#111827_48%,#0f172a)]"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-6xl">
-          <nav aria-label="Site içi konum" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60">
-              <li>
-                <Link href="/" className="hover:text-white">
-                  Ana Sayfa
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <Link href="/hizmetler" className="hover:text-white">
-                  Hizmetler
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-white/90">
-                Etkinlik Planlayıcı
-              </li>
-            </ol>
-          </nav>
-
-          <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
-            Etkinliğiniz için neye ihtiyacınız var?
-          </h1>
-          <p
-            data-speakable
-            className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg"
-          >
-            Sahneva&apos;nın çadır ve LED hesaplayıcıları tek bir kalemi hesaplar. Bu araç ise
-            etkinliğin tamamına bakar: türü, kişi sayısı, mekânı ve süresi verildiğinde sahne,
-            LED ekran, ses-ışık, çadır ve mobilya ihtiyacını birlikte çıkarır; hazır bir teknik
-            brief üretir.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        compact
+        breadcrumb={[
+          { label: "Ana Sayfa", href: "/" },
+          { label: "Hizmetler", href: "/hizmetler" },
+          { label: "Etkinlik Planlayıcı" },
+        ]}
+        eyebrow="Kapsam ve bütçe aracı"
+        title="Etkinliğiniz İçin"
+        titleAccent="Neye İhtiyacınız Var?"
+        titleWide
+        descriptionSpeakable
+        description="Sahneva'nın çadır ve LED hesaplayıcıları tek bir kalemi hesaplar. Bu araç ise etkinliğin tamamına bakar: türü, kişi sayısı, mekânı ve süresi verildiğinde sahne, LED ekran, ses-ışık, çadır ve mobilya ihtiyacını birlikte çıkarır; hazır bir teknik brief üretir."
+      />
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
         <EventPlannerClient />
@@ -166,7 +141,7 @@ export default function EventPlannerPage() {
               sandalyede günlük birim fiyatlar. Alan hesabı ise{" "}
               <Link
                 href="/cadir-hesaplama"
-                className="font-bold text-blue-700 underline underline-offset-4"
+                className="font-bold text-violet-700 underline underline-offset-4"
               >
                 çadır hesaplama aracıyla
               </Link>{" "}
@@ -198,7 +173,7 @@ export default function EventPlannerPage() {
               Terimlerin ne anlama geldiğini{" "}
               <Link
                 href="/sozluk"
-                className="font-bold text-blue-700 underline underline-offset-4"
+                className="font-bold text-violet-700 underline underline-offset-4"
               >
                 teknik sözlükte
               </Link>{" "}

@@ -149,7 +149,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "", local
                   className={[
                     "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-[background,transform] active:scale-[.98]",
                     isActive
-                      ? "border-primary/60 bg-primary/20 text-blue-900"
+                      ? "border-primary/60 bg-primary/20 text-violet-900"
                       : "border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-800",
                   ].join(" ")}
                   aria-pressed={isActive}
@@ -222,7 +222,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "", local
           </div>
           <div className="mt-1 flex items-baseline justify-between" aria-live="polite" aria-atomic="true">
             <span className="text-[13px] font-medium text-neutral-900">{t.grandTotal}</span>
-            <span className="text-lg font-bold tracking-tight text-blue-800">
+            <span className="text-lg font-bold tracking-tight text-violet-800">
               {lojistikTL ? money(genelToplam) : "—"}
             </span>
           </div>
@@ -240,7 +240,7 @@ export default function PriceEstimatorPodyum({ unitPrices, className = "", local
             locale={locale}
             nofollow
             href={`https://wa.me/905453048671?text=${encodeURIComponent(t.waText)}`}
-            className="inline-flex items-center rounded-lg border border-blue-300 bg-white px-3 py-1.5 text-xs font-semibold text-blue-800 hover:bg-blue-50"
+            className="inline-flex items-center rounded-lg border border-violet-300 bg-white px-3 py-1.5 text-xs font-semibold text-violet-800 hover:bg-violet-50"
             ariaLabel={t.waAria}
           >
             {t.waLabel}
@@ -308,7 +308,7 @@ function Info({ label, value, emphasize = false }) {
   return (
     <div className="rounded-xl border border-neutral-300 bg-white p-3">
       <div className="text-xs font-medium text-neutral-700">{label}</div>
-      <div className={["font-semibold text-neutral-900", emphasize ? "text-blue-800" : ""].join(" ")}>{value}</div>
+      <div className={["font-semibold text-neutral-900", emphasize ? "text-violet-800" : ""].join(" ")}>{value}</div>
     </div>
   );
 }

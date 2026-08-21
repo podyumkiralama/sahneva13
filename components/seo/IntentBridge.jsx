@@ -61,7 +61,7 @@ export default function IntentBridge({
               className={
                 isDark
                   ? "inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white"
-                  : "inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700"
+                  : "inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700"
               }
             >
               <Compass className="h-5 w-5" />
@@ -70,8 +70,8 @@ export default function IntentBridge({
               <p
                 className={
                   isDark
-                    ? "m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-200"
-                    : "m-0 text-xs font-black uppercase tracking-[0.2em] text-blue-700"
+                    ? "m-0 text-xs font-black uppercase tracking-[0.2em] text-violet-200"
+                    : "m-0 text-xs font-black uppercase tracking-[0.2em] text-violet-700"
                 }
               >
                 {eyebrow}
@@ -93,7 +93,7 @@ export default function IntentBridge({
               <Link
                 href={primaryPage.href}
                 prefetch={true}
-                className={isDark ? "mt-2 inline-flex items-center gap-2 text-lg font-black text-white hover:text-blue-200" : "mt-2 inline-flex items-center gap-2 text-lg font-black text-slate-950 hover:text-blue-700"}
+                className={isDark ? "mt-2 inline-flex items-center gap-2 text-lg font-black text-white hover:text-violet-200" : "mt-2 inline-flex items-center gap-2 text-lg font-black text-slate-950 hover:text-violet-700"}
               >
                 {primaryPage.label}
                 <ArrowRight className="h-4 w-4" />
@@ -136,7 +136,7 @@ export default function IntentBridge({
                   className={
                     isDark
                       ? "block rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3 hover:bg-white/[0.08]"
-                      : "block rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 hover:border-blue-200 hover:bg-blue-50/70"
+                      : "block rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 hover:border-violet-200 hover:bg-violet-50/70"
                   }
                 >
                   <span className={isDark ? "block text-sm font-bold text-white" : "block text-sm font-bold text-slate-950"}>

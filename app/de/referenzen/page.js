@@ -258,14 +258,14 @@ export default function GermanOurWorkPage() {
       <JsonLd id="de-our-work-jsonld" data={VIDEO_JSON_LD} />
 
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.22),transparent_60%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(circle_at_top,rgba(124, 58, 237,0.22),transparent_60%)]"
         aria-hidden="true"
       />
 
       <section className="relative">
         <div className="container mx-auto px-4 pt-16 md:pt-20">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-blue-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-blue-100">
+            <span className="inline-flex items-center gap-2 rounded-full border border-violet-300/25 bg-violet-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-100">
               <Clapperboard className="h-4 w-4" />
               Referenzen
             </span>
@@ -322,7 +322,7 @@ export default function GermanOurWorkPage() {
                 {featuredVideo.services.map((service) => (
                   <li
                     key={service}
-                    className="rounded-full border border-blue-300/20 bg-blue-500/10 px-3 py-1 text-xs font-black text-blue-100"
+                    className="rounded-full border border-violet-300/20 bg-violet-500/10 px-3 py-1 text-xs font-black text-violet-100"
                   >
                     {service}
                   </li>

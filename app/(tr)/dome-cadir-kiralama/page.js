@@ -304,7 +304,7 @@ function SectionJumpNav() {
             <li key={section.href} className="snap-start">
               <Link
                 href={section.href}
-                className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-5 text-sm font-black text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-5 text-sm font-black text-slate-700 transition hover:border-violet-300 hover:bg-violet-50 hover:text-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
               >
                 {section.label}
               </Link>
@@ -326,7 +326,7 @@ function WhatIsDome() {
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700">
             Yapı tipi
           </p>
           <h2
@@ -349,7 +349,7 @@ function WhatIsDome() {
               key={type.title}
               className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
             >
-              <span className="inline-flex w-fit rounded-full bg-blue-100 px-4 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
+              <span className="inline-flex w-fit rounded-full bg-violet-100 px-4 py-1 text-xs font-black uppercase tracking-wider text-violet-700">
                 {type.badge}
               </span>
               <h3 className="mt-5 text-2xl font-black tracking-tight text-gray-950">
@@ -360,7 +360,7 @@ function WhatIsDome() {
                 {type.points.map((point) => (
                   <li key={point} className="flex gap-3">
                     <CheckCircle
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-700"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-700"
                       aria-hidden="true"
                     />
                     <span>{point}</span>
@@ -394,7 +394,7 @@ function WhatIsDome() {
           dome yerine pagoda, şeffaf veya büyük açıklıklı sistemler kullanılır —{" "}
           <Link
             href="/cadir-kiralama"
-            className="font-black text-blue-700 underline underline-offset-4 hover:text-blue-800"
+            className="font-black text-violet-700 underline underline-offset-4 hover:text-violet-800"
           >
             çadır kiralama
           </Link>{" "}
@@ -410,7 +410,7 @@ function MappingSection() {
   return (
     <section
       id="mapping"
-      className="scroll-mt-24 relative overflow-hidden bg-[#0a1429] py-20 text-white"
+      className="scroll-mt-24 relative overflow-hidden bg-[#040817] py-20 text-white"
       aria-labelledby="mapping-baslik"
     >
       <div
@@ -418,14 +418,14 @@ function MappingSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#1e3a8a]/25 blur-[110px]"
+        className="absolute left-[-10rem] top-8 h-80 w-80 rounded-full bg-[#4c1d95]/25 blur-[110px]"
         aria-hidden="true"
       />
 
       <div className="container relative z-10 mx-auto max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-300">
+            <p className="text-sm font-black uppercase tracking-widest text-violet-300">
               Görüntü kurgusu
             </p>
             <h2
@@ -465,7 +465,7 @@ function MappingSection() {
                   className="rounded-3xl border border-white/[0.14] bg-slate-950/55 p-5 backdrop-blur-md"
                 >
                   <dt className="text-lg font-black text-white">{item.t}</dt>
-                  <dd className="mt-2 text-sm leading-7 text-cyan-50/[0.78]">{item.d}</dd>
+                  <dd className="mt-2 text-sm leading-7 text-violet-50/[0.78]">{item.d}</dd>
                 </div>
               ))}
             </dl>
@@ -483,7 +483,7 @@ function MappingSection() {
                 loading="lazy"
               />
             </div>
-            <figcaption className="px-6 py-5 text-sm leading-6 text-cyan-50/[0.78]">
+            <figcaption className="px-6 py-5 text-sm leading-6 text-violet-50/[0.78]">
               Kavisli yüzeyde birden fazla projektörün görüntüsü bindirme bölgelerinde
               birleştirilerek tek parça bir yüzey oluşturuluyor.
             </figcaption>
@@ -503,7 +503,7 @@ function AcousticsSection() {
       aria-labelledby="akustik-baslik"
     >
       <div className="container mx-auto max-w-5xl px-4">
-        <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+        <p className="text-sm font-black uppercase tracking-widest text-violet-700">
           Ses davranışı
         </p>
         <h2
@@ -559,7 +559,7 @@ function UseCasesSection() {
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700">
             Kullanım senaryoları
           </p>
           <h2
@@ -595,7 +595,7 @@ function ReferencesSection() {
       aria-labelledby="referanslar-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
-        <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+        <p className="text-sm font-black uppercase tracking-widest text-violet-700">
           Saha kanıtı
         </p>
         <h2
@@ -611,7 +611,7 @@ function ReferencesSection() {
               key={item.title}
               className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
             >
-              <span className="inline-flex w-fit rounded-full bg-blue-100 px-4 py-1 text-xs font-black uppercase tracking-wider text-blue-700">
+              <span className="inline-flex w-fit rounded-full bg-violet-100 px-4 py-1 text-xs font-black uppercase tracking-wider text-violet-700">
                 {item.category}
               </span>
               <h3 className="mt-5 text-2xl font-black tracking-tight text-gray-950">
@@ -645,7 +645,7 @@ function ReferencesSection() {
               </dl>
               <Link
                 href={item.href}
-                className="mt-6 inline-flex min-h-[44px] w-fit items-center gap-2 rounded-2xl border border-slate-300 bg-white px-5 text-sm font-black text-slate-900 transition hover:border-blue-300 hover:text-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+                className="mt-6 inline-flex min-h-[44px] w-fit items-center gap-2 rounded-2xl border border-slate-300 bg-white px-5 text-sm font-black text-slate-900 transition hover:border-violet-300 hover:text-violet-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
               >
                 <Eye className="h-4 w-4" aria-hidden="true" />
                 Proje sayfasını aç
@@ -697,7 +697,7 @@ function InstallationSection() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+            <p className="text-sm font-black uppercase tracking-widest text-violet-700">
               Saha planı
             </p>
             <h2
@@ -780,7 +780,7 @@ function FAQ() {
     >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
-          <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+          <p className="text-sm font-black uppercase tracking-widest text-violet-700">
             Sık sorulan sorular
           </p>
           <h2
@@ -795,13 +795,13 @@ function FAQ() {
           {FAQ_ITEMS.map((faq) => (
             <details
               key={faq.q}
-              className="group rounded-3xl border-2 border-transparent bg-white transition-colors duration-300 open:border-blue-200 open:shadow-sm [&_summary::-webkit-details-marker]:hidden"
+              className="group rounded-3xl border-2 border-transparent bg-white transition-colors duration-300 open:border-violet-200 open:shadow-sm [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl p-6 text-lg font-black text-gray-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl p-6 text-lg font-black text-gray-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200">
                 <span className="flex-1">{faq.q}</span>
                 <span
                   aria-hidden="true"
-                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-xl leading-none text-blue-700 transition-transform duration-300 group-open:rotate-180"
+                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-violet-100 text-xl leading-none text-violet-700 transition-transform duration-300 group-open:rotate-180"
                 >
                   ⌄
                 </span>
@@ -819,7 +819,7 @@ function FAQ() {
 function ClosingCta() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0a1429] py-16 text-white"
+      className="relative overflow-hidden bg-[#040817] py-16 text-white"
       aria-labelledby="dome-cta-baslik"
     >
       <div
@@ -830,7 +830,7 @@ function ClosingCta() {
         <h2 id="dome-cta-baslik" className="text-3xl font-black md:text-4xl">
           Dome kurgunuzu birlikte netleştirelim
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-blue-100/80 md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-violet-100/80 md:text-lg">
           Tarih, alan ve konsept bilgisini paylaşın; dome tipi, projeksiyon kurgusu ve
           kurulum planını kalem kalem iletelim.
         </p>
@@ -847,7 +847,7 @@ function ClosingCta() {
           </Link>
           <Link
             href={`tel:${PHONE}`}
-            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/[0.07] px-8 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/[0.07] px-8 text-[17px] font-black text-white backdrop-blur-xl transition hover:bg-white/[0.14] focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
           >
             <Phone className="h-5 w-5" aria-hidden="true" />
             {PHONE_DISPLAY}

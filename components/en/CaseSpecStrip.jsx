@@ -33,7 +33,7 @@ export default function CaseSpecStrip({ specs, className = "", labelledBy }) {
           key={key}
           className="rounded-2xl border border-white/15 bg-white/[0.06] px-4 py-3"
         >
-          <dt className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-cyan-200">
+          <dt className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-violet-200">
             <span aria-hidden="true">{icon}</span>
             {label}
           </dt>

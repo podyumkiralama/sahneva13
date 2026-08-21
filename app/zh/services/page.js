@@ -92,7 +92,7 @@ export default function ChineseServicesPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/80 to-blue-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/80 to-violet-950/70" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
@@ -155,7 +155,7 @@ export default function ChineseServicesPage() {
                   {service.scenarios.slice(0, 5).map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-indigo-50 px-3 py-2 text-xs font-bold text-indigo-700"
+                      className="rounded-full bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700"
                     >
                       {tag}
                     </span>

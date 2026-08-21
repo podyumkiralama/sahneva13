@@ -29,7 +29,7 @@ const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   loading: () => (
     <div className="flex justify-center items-center h-64" role="status" aria-label="Gallery loading">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600" aria-hidden="true" />
       <span className="sr-only">Loading gallery…</span>
     </div>
   )
@@ -227,8 +227,8 @@ function Hero() {
           blurDataURL={BLUR_DATA_URL}
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/80 via-purple-800/70 to-violet-950/90" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
@@ -297,7 +297,7 @@ function Hero() {
 /* ================== Services ================== */
 function Services() {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="services-heading">
+    <section id="services" className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="services-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-heading" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -319,7 +319,7 @@ function Services() {
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                     {service.icon}
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -328,7 +328,7 @@ function Services() {
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
                         <span className="text-base">{feature}</span>
                       </li>
                     ))}
@@ -344,7 +344,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Request a tailored quote</span>
           </Link>
@@ -387,15 +387,15 @@ function Packages() {
               <div
                 className={`bg-white rounded-3xl border-2 shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 h-full flex flex-col ${
                   pkg.badge === "Popular"
-                    ? "border-blue-500 ring-4 ring-blue-500/20 transform scale-105 group-hover:scale-110"
+                    ? "border-violet-500 ring-4 ring-violet-500/20 transform scale-105 group-hover:scale-110"
                     : "border-gray-100 group-hover:scale-105"
                 }`}
                 >
-                <div className="bg-gradient-to-r from-blue-700 to-purple-700 p-8 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-r from-violet-700 to-purple-700 p-8 text-white relative overflow-hidden">
                   {pkg.badge && (
                     <div
                       className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-bold ${
-                        pkg.badge === "Popular" ? "bg-orange-500" : pkg.badge === "Corporate" ? "bg-blue-600" : "bg-green-500"
+                        pkg.badge === "Popular" ? "bg-orange-500" : pkg.badge === "Corporate" ? "bg-violet-600" : "bg-green-500"
                       }`}
                     >
                       {pkg.badge}
@@ -407,13 +407,13 @@ function Packages() {
                     {pkg.id === "cocktail-15" && "🥂"}
                   </div>
                   <h3 className="text-2xl font-black mb-2">{pkg.name}</h3>
-                  <p className="text-blue-100 text-lg">{pkg.note}</p>
+                  <p className="text-violet-100 text-lg">{pkg.note}</p>
                 </div>
 
                 <div className="p-8 flex-grow">
                   <div className="mb-6">
                     <h4 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-violet-600 rounded-full" aria-hidden="true" />
                       Package Contents
                     </h4>
                     <ul className="space-y-3">
@@ -606,7 +606,7 @@ function Technical() {
               <ul className="space-y-3 text-white/80 text-lg leading-relaxed">
                 {item.items.map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2 flex-shrink-0" aria-hidden="true" />
+                    <span className="w-2 h-2 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full mt-2 flex-shrink-0" aria-hidden="true" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -618,7 +618,7 @@ function Technical() {
         <div className="text-center mt-12">
           <Link
             href="/en/contact"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">📝</span>
             <span>Book an on-site inspection</span>
           </Link>
@@ -650,7 +650,7 @@ const STATS = [
 
 function StatsBand() {
   return (
-    <section className="py-12 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700" aria-labelledby="stats-heading">
+    <section className="py-12 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-700" aria-labelledby="stats-heading">
       <div className="container mx-auto px-4">
         <h2 id="stats-heading" className="sr-only">
           Performance metrics
@@ -702,7 +702,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Plan your seating layout</span>
           </Link>
@@ -728,34 +728,34 @@ function Articles() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
+            <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">📚 In-depth Guide</span>
                   <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">⭐ Expert Tips</span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Practical Solutions</span>
+                  <span className="bg-violet-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Practical Solutions</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                   Table & Chair Rental: Delivering Comfort and Style for Every Guest
                 </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+                <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Choose the right inventory, ensure professional layouts and unlock flawless hospitality for your attendees.
                 </p>
               </div>
             </header>
 
             <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-violet-500">
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">🪑</span>
+                      <span className="bg-violet-100 text-violet-600 rounded-2xl p-3" aria-hidden="true">🪑</span>
                       Seating Strategy
                     </h4>
                     <p>
                       <strong className="text-gray-900">Sahneva</strong> provides
-                      <Link href="/en/table-chair-rental" className="font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4">
+                      <Link href="/en/table-chair-rental" className="font-semibold text-violet-600 hover:text-violet-700 underline underline-offset-4">
                         professional table and chair rental
                       </Link>{" "}
                       services nationwide with corporate-grade standards.
@@ -780,8 +780,8 @@ function Articles() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 rounded-r-2xl p-6 mb-8">
-                  <h5 className="font-black text-blue-700 text-xl mb-4 flex items-center gap-3">
+                <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-l-4 border-violet-500 rounded-r-2xl p-6 mb-8">
+                  <h5 className="font-black text-violet-700 text-xl mb-4 flex items-center gap-3">
                     <span className="text-2xl" aria-hidden="true">💡</span>
                     Technical Selection Tips
                   </h5>
@@ -818,13 +818,13 @@ function Articles() {
                         desc: "Coherent styling with linens, covers and décor elements",
                       },
                     ].map((item, index) => (
-                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200">
+                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200">
                         <div className="flex items-start gap-4">
                           <span className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
                             {item.icon}
                           </span>
                           <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h5>
                             <p className="text-gray-600 leading-relaxed">{item.desc}</p>
@@ -849,9 +849,9 @@ function Articles() {
           </article>
 
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-purple-600 to-violet-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">Linen & Cover Systems</h3>
-              <p className="text-blue-100 mt-2 text-lg">Select the right fabrics to elevate your presentation</p>
+              <p className="text-violet-100 mt-2 text-lg">Select the right fabrics to elevate your presentation</p>
             </header>
 
             <div className="p-6 md:p-8">
@@ -892,9 +892,9 @@ function Articles() {
           </article>
 
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">Planning & Layout Strategies</h3>
-              <p className="text-blue-100 mt-2 text-lg">Professional seating charts and space optimisation tips</p>
+              <p className="text-violet-100 mt-2 text-lg">Professional seating charts and space optimisation tips</p>
             </header>
 
             <div className="p-6 md:p-8">
@@ -908,24 +908,24 @@ function Articles() {
 
                 <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
                   <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-3">
-                    <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">📐</span>
+                    <span className="bg-violet-100 text-violet-600 rounded-xl p-2" aria-hidden="true">📐</span>
                     Planning Checklist
                   </h4>
                   <ul className="text-gray-700 space-y-2 text-base">
                     <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       Measure venue dimensions and ceiling heights
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       Define guest flow and service corridors
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       Map out stage, buffet and technical zones
                     </li>
                     <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       Create numbering and signage plans
                     </li>
                   </ul>
@@ -975,7 +975,7 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-50 to-white" aria-labelledby="faq-heading">
+    <section className="py-20 bg-gradient-to-b from-violet-50 to-white" aria-labelledby="faq-heading">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-12">
           <h2 id="faq-heading" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
@@ -998,7 +998,7 @@ function FAQ() {
                 <h3 id={`faq-${index}`} className="text-lg md:text-xl font-bold text-gray-900">
                   {item.question}
                 </h3>
-                <span className="text-2xl text-blue-600 group-open:rotate-45 transition-transform duration-300" aria-hidden="true">
+                <span className="text-2xl text-violet-600 group-open:rotate-45 transition-transform duration-300" aria-hidden="true">
                   +
                 </span>
               </summary>
@@ -1012,7 +1012,7 @@ function FAQ() {
         <div className="text-center mt-12">
           <Link
             href="/en/contact"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring">
             <span aria-hidden="true" className="text-xl mr-3">✉️</span>
             <span>Send us your questions</span>
           </Link>
@@ -1061,7 +1061,7 @@ function RelatedServices() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Complete your seating setup with our comprehensive event production capabilities
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
         <nav aria-label="Complementary services">
@@ -1070,11 +1070,11 @@ function RelatedServices() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col">
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col">
                 <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                   {service.icon}
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -1100,19 +1100,19 @@ function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-heading">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
           <div className="relative z-10">
             <h2 id="cta-heading" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Ready for Professional Seating Solutions?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Let us recommend the ideal table and chair configuration for your event. Enjoy complimentary site surveys, expert consultancy and competitive pricing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/en/contact"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg">
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg">
                 <span aria-hidden="true" className="text-xl mr-3">📞</span>
                 <span className="text-lg">Request a proposal</span>
               </Link>
@@ -1125,7 +1125,7 @@ function CTA() {
                 <span className="text-lg">Chat on WhatsApp</span>
               </a>
             </div>
-            <div className="mt-8 text-blue-200 text-lg">
+            <div className="mt-8 text-violet-200 text-lg">
               📍 Nationwide coverage • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>

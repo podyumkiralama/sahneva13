@@ -8,7 +8,7 @@ import useSearchIndex from "@/lib/useSearchIndex";
 import { SEARCH_TYPES, highlightSegments, searchEntries } from "@/lib/search/core";
 
 const FOCUS_RING_CLASS =
-  "focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white";
+  "focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-white";
 
 const MAX_RESULTS = 7;
 
@@ -172,7 +172,7 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
       <button
         ref={buttonRef}
         type="button"
-        className={`group inline-flex items-center justify-between rounded-xl border border-blue-100 bg-blue-50/90 text-neutral-700 shadow-sm transition-all duration-200 hover:border-blue-200 hover:bg-blue-100 hover:text-blue-800 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-slate-100 nav-dark:hover:bg-white/15 nav-dark:hover:text-blue-200 ${compact ? "min-h-[40px] w-24 gap-1.5 px-2.5 xl:w-28" : "min-h-[44px] w-28 gap-2 px-3 xl:w-32"} ${FOCUS_RING_CLASS}`}
+        className={`group inline-flex items-center justify-between rounded-xl border border-violet-100 bg-violet-50/90 text-neutral-700 shadow-sm transition-all duration-200 hover:border-violet-200 hover:bg-violet-100 hover:text-violet-800 nav-dark:border-white/10 nav-dark:bg-white/10 nav-dark:text-slate-100 nav-dark:hover:bg-white/15 nav-dark:hover:text-violet-200 ${compact ? "min-h-[40px] w-24 gap-1.5 px-2.5 xl:w-28" : "min-h-[44px] w-28 gap-2 px-3 xl:w-32"} ${FOCUS_RING_CLASS}`}
         aria-expanded={open ? "true" : "false"}
         aria-haspopup="dialog"
         title={searchButtonLabel}
@@ -241,7 +241,7 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
                 autoComplete="off"
                 placeholder={searchPlaceholder}
                 {...WEB_MCP_SEARCH_INPUT_PROPS}
-                className="w-full rounded-xl border border-neutral-200 bg-white py-3 pl-9 pr-3 text-sm font-medium text-neutral-900 outline-none transition-colors placeholder:text-neutral-400 focus:border-blue-300 focus:ring-2 focus:ring-blue-600/20 nav-dark:border-white/10 nav-dark:bg-white/[0.06] nav-dark:text-white nav-dark:placeholder:text-slate-500"
+                className="w-full rounded-xl border border-neutral-200 bg-white py-3 pl-9 pr-3 text-sm font-medium text-neutral-900 outline-none transition-colors placeholder:text-neutral-400 focus:border-violet-300 focus:ring-2 focus:ring-violet-600/20 nav-dark:border-white/10 nav-dark:bg-white/[0.06] nav-dark:text-white nav-dark:placeholder:text-slate-500"
               />
             </div>
             <p className="mt-2 text-xs font-medium text-neutral-500 nav-dark:text-slate-400">
@@ -271,8 +271,8 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
                       prefetch={false}
                       onMouseEnter={() => setActiveIndex(index)}
                       onClick={() => closeSearch()}
-                      className={`flex items-start gap-3 px-4 py-3 text-sm text-neutral-700 no-underline transition-colors hover:bg-blue-50 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 ${FOCUS_RING_CLASS} ${
-                        index === activeIndex ? "bg-blue-50 nav-dark:bg-white/10" : ""
+                      className={`flex items-start gap-3 px-4 py-3 text-sm text-neutral-700 no-underline transition-colors hover:bg-violet-50 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 ${FOCUS_RING_CLASS} ${
+                        index === activeIndex ? "bg-violet-50 nav-dark:bg-white/10" : ""
                       }`}
                     >
                       <span className="mt-0.5 text-lg" aria-hidden="true">
@@ -307,7 +307,7 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
               href={trimmedQuery ? `/search?q=${encodeURIComponent(trimmedQuery)}` : "/search"}
               prefetch={false}
               onClick={() => closeSearch()}
-              className={`inline-flex items-center gap-2 text-sm font-extrabold text-blue-700 no-underline transition-colors hover:text-blue-800 nav-dark:text-blue-300 nav-dark:hover:text-blue-200 ${FOCUS_RING_CLASS}`}
+              className={`inline-flex items-center gap-2 text-sm font-extrabold text-violet-700 no-underline transition-colors hover:text-violet-800 nav-dark:text-violet-300 nav-dark:hover:text-violet-200 ${FOCUS_RING_CLASS}`}
             >
               {viewAllLabel}
               <ArrowRight aria-hidden="true" className="h-4 w-4" />

@@ -36,7 +36,7 @@ const ProjectsGallery = dynamic(() => import("@/components/ProjectsGallery"), {
       aria-label="Galeri yükleniyor"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Galeri yükleniyor...</span>

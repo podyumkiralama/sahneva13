@@ -359,7 +359,7 @@ export default function Page() {
               {FAQ_ITEMS.map((item, idx) => (
                 <details
                   key={idx}
-                  className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200"
+                  className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200"
                 >
                   <summary className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors">
                     {item.q}
@@ -381,7 +381,7 @@ export default function Page() {
               konuşabiliriz.
             </p>
 
-            <div className="not-prose mt-12 rounded-3xl p-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white border border-white/10">
+            <div className="not-prose mt-12 rounded-3xl p-8 bg-gradient-to-br from-gray-900 to-violet-900 text-white border border-white/10">
               <p className="m-0 text-lg font-semibold">
                 Etkinliğiniz için sahne, podyum,{" "}
                 <Link className="underline text-white" href={SOUND_LIGHT_PATH}>
@@ -396,7 +396,7 @@ export default function Page() {
               <div className="mt-5 flex flex-col sm:flex-row gap-3">
                 <Link
                   href={STAGE_SERVICE_PATH}
-                  className="inline-flex items-center justify-center rounded-xl bg-white text-blue-900 hover:bg-blue-50 font-bold py-3.5 px-6 transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center rounded-xl bg-white text-violet-900 hover:bg-violet-50 font-bold py-3.5 px-6 transition-transform hover:-translate-y-0.5"
                 >
                   Sahne Kiralama
                 </Link>

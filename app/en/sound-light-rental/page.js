@@ -29,7 +29,7 @@ const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   loading: () => (
     <div className="flex justify-center items-center h-64" role="status" aria-label="Gallery loading">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600" aria-hidden="true" />
       <span className="sr-only">Loading gallery…</span>
     </div>
   )
@@ -170,8 +170,8 @@ function Hero() {
           blurDataURL={BLUR_DATA_URL}
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-800/70 to-blue-950/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/80 via-purple-800/70 to-violet-950/90" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
@@ -244,8 +244,8 @@ function QuickAnswer() {
   return (
     <section className="py-10 bg-white" aria-labelledby="sound-rental-turkey-heading">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
             Sound and lighting rental company in Turkey
           </p>
           <h2 id="sound-rental-turkey-heading" className="mt-3 text-2xl font-black text-slate-950">
@@ -256,9 +256,9 @@ function QuickAnswer() {
             conference audio and concert sound systems, moving-head fixtures and on-site AV crews
             in Istanbul and across Turkey. One technical team plans the venue coverage, transport,
             installation, soundcheck, live mixing, lighting cues and dismantling. For a wider scope,
-            combine this service with our <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
-            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
-            <Link className="font-bold text-blue-700 hover:text-blue-900" href="/en/corporate-events">corporate event production</Link>.
+            combine this service with our <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
+            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
+            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/corporate-events">corporate event production</Link>.
           </p>
         </div>
       </div>
@@ -269,7 +269,7 @@ function QuickAnswer() {
 /* ================== Services ================== */
 function Services() {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="services-title">
+    <section id="services" className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="services-title">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="services-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -292,7 +292,7 @@ function Services() {
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                     {service.icon}
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -301,7 +301,7 @@ function Services() {
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
                         <span className="text-base">{feature}</span>
                       </li>
                     ))}
@@ -317,7 +317,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Contact our engineers</span>
@@ -455,7 +455,7 @@ function Technical() {
           {technicalItems.map((item) => (
             <div key={item.category} className="group">
               <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl group-hover:scale-105 transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-violet-600 transition-colors flex items-center gap-3">
                   <span className="text-3xl" aria-hidden="true">
                     {item.category === "pa" && "🔊"}
                     {item.category === "mixer" && "🎛️"}
@@ -470,7 +470,7 @@ function Technical() {
                 <ul className="space-y-3">
                   {item.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-gray-700">
-                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       <span className="text-base">{feature}</span>
                     </li>
                   ))}
@@ -485,7 +485,7 @@ function Technical() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Plan a technical visit</span>
@@ -506,7 +506,7 @@ function StatsBand() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-label="Performance statistics">
+    <section className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-label="Performance statistics">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
@@ -529,7 +529,7 @@ function StatsBand() {
                 </h3>
                 <p
                   id={`stat-${index}-label`}
-                  className="text-blue-100 text-lg font-semibold"
+                  className="text-violet-100 text-lg font-semibold"
                 >
                   {stat.label}
                 </p>
@@ -545,7 +545,7 @@ function StatsBand() {
 /* ================== Use cases ================== */
 function UseCases() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="use-cases-title">
+    <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="use-cases-title">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="use-cases-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -554,7 +554,7 @@ function UseCases() {
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Customised sound and lighting solutions tailored to each event format and venue layout
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto list-none">
@@ -566,7 +566,7 @@ function UseCases() {
                     {uc.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
                       {uc.text}
                     </h3>
                     <p className="text-white/70 text-lg leading-relaxed">
@@ -584,7 +584,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Request a tailored setup</span>
@@ -612,30 +612,30 @@ function Articles() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Main article */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
+            <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">📚 In-depth guide</span>
                   <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">⭐ Expert insight</span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Practical tips</span>
+                  <span className="bg-violet-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Practical tips</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                   Professional Sound & Lighting Systems: Complete Solutions for Event Success
                 </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+                <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Corporate-grade standards, rapid installation workflows and measurable quality assurance for flawless experiences
                 </p>
               </div>
             </header>
 
             <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-violet-500">
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">🔊</span>
+                      <span className="bg-violet-100 text-violet-600 rounded-2xl p-3" aria-hidden="true">🔊</span>
                       Sound systems & technology
                     </h4>
                     <p>
@@ -695,13 +695,13 @@ function Articles() {
                         desc: "Soundcheck workflows and cue-based lighting design"
                       },
                     ].map((item, index) => (
-                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200">
+                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200">
                         <div className="flex items-start gap-4">
                           <span className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
                             {item.icon}
                           </span>
                           <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h5>
                             <p className="text-gray-600 leading-relaxed">
@@ -730,11 +730,11 @@ function Articles() {
 
           {/* Secondary article */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-purple-600 to-violet-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Technical integration & execution workflows
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Show-based lighting programming and professional FOH mixing solutions
               </p>
             </header>
@@ -777,20 +777,20 @@ function Articles() {
           </article>
 
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Event-specific solutions
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Tailored equipment packages for every audience profile and venue layout
               </p>
             </header>
 
             <div className="p-6 md:p-8">
               <div className="space-y-6">
-                <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
+                <div className="bg-violet-50 rounded-2xl p-5 border border-violet-200">
                   <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                    <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">🏟️</span>
+                    <span className="bg-violet-100 text-violet-600 rounded-xl p-2" aria-hidden="true">🏟️</span>
                     Stadium & festival productions
                   </h4>
                   <p className="text-gray-700 text-base mb-0">
@@ -895,7 +895,7 @@ function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-violet-50 open:border-violet-200 border-2 border-transparent open:border"
             >
               <summary
                 className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
@@ -903,12 +903,12 @@ function FAQ() {
                 <span className="pr-4">{faq.q}</span>
                 <span
                   aria-hidden="true"
-                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-violet-600 bg-violet-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
                 >
                   ⌄
                 </span>
               </summary>
-              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500" role="region">
+              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500" role="region">
                 {faq.a}
               </div>
             </details>
@@ -921,7 +921,7 @@ function FAQ() {
           </p>
           <Link
             href="/en/contact"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
   aria-label="See all answers on the English contact page"
           >
             <span aria-hidden="true" className="text-xl mr-3">📚</span>
@@ -970,7 +970,7 @@ function RelatedServices() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30"
+      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="related-services-title"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -988,7 +988,7 @@ function RelatedServices() {
             Additional event technology that enhances your sound and lighting experience
           </p>
           <div
-            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full"
+            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full"
             aria-hidden="true"
           />
         </div>
@@ -999,7 +999,7 @@ function RelatedServices() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
               >
                 <div
                   className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300"
@@ -1007,7 +1007,7 @@ function RelatedServices() {
                 >
                   {service.icon}
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -1034,19 +1034,19 @@ function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-title">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
           <div className="relative z-10">
             <h2 id="cta-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Ready for professional sound & lighting?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Share your event details and we will design the ideal sound and lighting configuration. Enjoy free discovery, expert consultancy and competitive pricing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/en/contact"
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
               >
                 <span aria-hidden="true" className="text-xl mr-3">📞</span>
                 <span className="text-lg">Request a proposal</span>
@@ -1061,7 +1061,7 @@ function CTA() {
                 <span className="text-lg">Chat on WhatsApp</span>
               </a>
             </div>
-            <div className="mt-8 text-blue-200 text-lg">
+            <div className="mt-8 text-violet-200 text-lg">
               📍 Service across {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>

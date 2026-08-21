@@ -76,8 +76,8 @@ const RU_SERVICES = [
 
 const HERO_DICTIONARY = {
   keywords: [
-    { text: "Аренда сцен", color: "text-blue-200" },
-    { text: "LED-экраны", color: "text-cyan-200" },
+    { text: "Аренда сцен", color: "text-violet-200" },
+    { text: "LED-экраны", color: "text-violet-200" },
     { text: "Звук и свет", color: "text-purple-200" },
     { text: "Шатры в Турции", color: "text-emerald-200" },
   ],
@@ -121,13 +121,13 @@ const HERO_BELOW_DICTIONARY = {
       icon: "01",
       title: "Оборудование и команда",
       description: "Подбираем комплект под формат, площадку, город и сроки монтажа.",
-      color: "text-cyan-300",
+      color: "text-violet-300",
     },
     {
       icon: "02",
       title: "Визуальный результат",
       description: "Сцена, LED-экран, свет и бренд-зона смотрятся как единая система.",
-      color: "text-blue-300",
+      color: "text-violet-300",
     },
     {
       icon: "03",
@@ -379,7 +379,7 @@ export default function RussianHomePage() {
       <section className="bg-white py-14 md:py-18" aria-labelledby="ru-local-advantages-title">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Локальный партнёр в Турции
             </p>
             <h2
@@ -413,7 +413,7 @@ export default function RussianHomePage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1150px] lg:[contain-intrinsic-size:auto_680px] bg-slate-50 py-14 md:py-18">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Форматы проектов
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -425,11 +425,11 @@ export default function RussianHomePage() {
               <Link
                 key={format.title}
                 href={format.href}
-                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
+                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl"
               >
                 <h3 className="text-xl font-black text-slate-950">{format.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-700">{format.text}</p>
-                <span className="mt-5 inline-flex text-sm font-black text-indigo-700 group-hover:text-indigo-900">
+                <span className="mt-5 inline-flex text-sm font-black text-violet-700 group-hover:text-violet-900">
                   Подробнее
                 </span>
               </Link>
@@ -445,7 +445,7 @@ export default function RussianHomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
                 Частые вопросы
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">

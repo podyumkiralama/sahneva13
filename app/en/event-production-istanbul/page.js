@@ -358,7 +358,7 @@ export default function EventProductionIstanbulPage() {
           </nav>
 
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Istanbul-based crew, stock and site management
           </p>
 
@@ -379,7 +379,7 @@ export default function EventProductionIstanbulPage() {
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
               href="/en/contact"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-blue-900 transition hover:bg-blue-50"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-violet-900 transition hover:bg-violet-50"
             >
               Request a production quote
             </Link>
@@ -457,12 +457,12 @@ export default function EventProductionIstanbulPage() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-blue-300 hover:shadow-lg"
+                className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-violet-300 hover:shadow-lg"
               >
-                <span className="text-xs font-black uppercase tracking-[0.16em] text-blue-700">
+                <span className="text-xs font-black uppercase tracking-[0.16em] text-violet-700">
                   {item.venue}
                 </span>
-                <span className="mt-3 text-xl font-black text-slate-950 group-hover:text-blue-800">
+                <span className="mt-3 text-xl font-black text-slate-950 group-hover:text-violet-800">
                   {item.label}
                 </span>
                 <span className="mt-3 text-sm leading-relaxed text-slate-600">{item.detail}</span>

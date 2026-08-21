@@ -134,7 +134,7 @@ export default async function EnProjectPage({ params }) {
   return (
     <div
       id="main"
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-[#0b0f1a] to-purple-900/20 text-white"
+      className="min-h-screen bg-gradient-to-br from-slate-900 via-[#040817] to-purple-900/20 text-white"
     >
       <JsonLd data={buildJsonLd(project)} />
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
@@ -149,7 +149,7 @@ export default async function EnProjectPage({ params }) {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-[#0b0f1a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-[#040817]" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 py-16 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/80 backdrop-blur">
@@ -173,7 +173,7 @@ export default async function EnProjectPage({ params }) {
           <dl className="grid gap-4 rounded-3xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur sm:grid-cols-2 lg:grid-cols-4">
             {project.facts.map(([label, value]) => (
               <div key={label}>
-                <dt className="text-xs font-bold uppercase tracking-wide text-blue-200/80">
+                <dt className="text-xs font-bold uppercase tracking-wide text-violet-200/80">
                   {label}
                 </dt>
                 <dd className="mt-1.5 text-sm font-semibold leading-relaxed text-white/90">
@@ -298,7 +298,7 @@ export default async function EnProjectPage({ params }) {
               Read more:{" "}
               <Link
                 href={project.relatedReading.href}
-                className="font-semibold text-blue-300 underline underline-offset-4 hover:text-white"
+                className="font-semibold text-violet-300 underline underline-offset-4 hover:text-white"
               >
                 {project.relatedReading.label}
               </Link>
@@ -320,7 +320,7 @@ export default async function EnProjectPage({ params }) {
               similar production in Türkiye, we can scope it with you as your{" "}
               <Link
                 href="/en/event-production-company-turkey"
-                className="font-semibold text-cyan-200 underline underline-offset-4 hover:text-white"
+                className="font-semibold text-violet-200 underline underline-offset-4 hover:text-white"
               >
                 local event production partner
               </Link>

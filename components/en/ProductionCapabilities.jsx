@@ -33,7 +33,7 @@ export default function ProductionCapabilities() {
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-300">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-300">
             What we produce
           </p>
           <h2
@@ -54,9 +54,9 @@ export default function ProductionCapabilities() {
               {href ? (
                 <Link
                   href={href}
-                  className={`${ITEM_CLASS} transition hover:border-cyan-300/50 hover:bg-white/[0.1]`}
+                  className={`${ITEM_CLASS} transition hover:border-violet-300/50 hover:bg-white/[0.1]`}
                 >
-                  <span className="underline decoration-cyan-300/60 underline-offset-4">
+                  <span className="underline decoration-violet-300/60 underline-offset-4">
                     {label}
                   </span>
                 </Link>

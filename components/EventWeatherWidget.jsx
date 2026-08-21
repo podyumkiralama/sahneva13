@@ -55,7 +55,7 @@ function getRiskTone(day) {
   if (windSpeed >= 6 || pop >= 40) {
     return {
       label: "Planlama",
-      className: "border-blue-300/30 bg-blue-400/10 text-blue-100",
+      className: "border-violet-300/30 bg-violet-400/10 text-violet-100",
     };
   }
 
@@ -181,14 +181,14 @@ export default function EventWeatherWidget({
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:36px_36px] opacity-30" />
-        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.14),transparent_44%)]" />
+        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-violet-400/15 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139, 92, 246,0.14),transparent_44%)]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/20 bg-blue-400/10 px-4 py-2 text-sm font-extrabold text-blue-100">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-400/10 px-4 py-2 text-sm font-extrabold text-violet-100">
             <ShieldCheck aria-hidden="true" className="h-4 w-4" />
             Açık hava kurulum güvenliği
           </div>
@@ -219,7 +219,7 @@ export default function EventWeatherWidget({
                 id="event-weather-city"
                 value={selectedCity}
                 onChange={(event) => setSelectedCity(event.target.value)}
-                className="mt-2 min-h-[44px] w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 text-sm font-bold text-white outline-none transition-colors focus:border-blue-300 focus:ring-2 focus:ring-blue-500"
+                className="mt-2 min-h-[44px] w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 text-sm font-bold text-white outline-none transition-colors focus:border-violet-300 focus:ring-2 focus:ring-violet-500"
               >
                 {CITIES.map((city) => (
                   <option key={city.key} value={city.key}>
@@ -239,7 +239,7 @@ export default function EventWeatherWidget({
           <div className="min-h-[168px]" aria-live="polite">
             {status === "loading" ? (
               <div>
-                <div className="mb-4 flex items-center gap-2 text-sm font-bold text-blue-100">
+                <div className="mb-4 flex items-center gap-2 text-sm font-bold text-violet-100">
                   <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
                   Hava durumu tahmini yükleniyor...
                 </div>
@@ -320,8 +320,8 @@ export default function EventWeatherWidget({
           </div>
         </div>
 
-        <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-4 rounded-3xl border border-blue-300/20 bg-blue-500/10 p-5 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm font-semibold leading-relaxed text-blue-50 sm:text-base">
+        <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-4 rounded-3xl border border-violet-300/20 bg-violet-500/10 p-5 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-semibold leading-relaxed text-violet-50 sm:text-base">
             Yağmur, rüzgar ve zemin riskine göre güvenli kurulum planı için
             Sahneva ekibinden teklif alın.
           </p>

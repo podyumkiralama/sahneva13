@@ -207,7 +207,7 @@ export default function BlogPost() {
         whatsappUrl="https://wa.me/905453048671?text=Hello%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20my%20project."
       >
 
-        <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+        <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
             Striking the right balance between professionalism and fun is one of the most challenging aspects of corporate event planning.
           </p>
@@ -216,7 +216,7 @@ export default function BlogPost() {
         <p>In 2026, corporate events need to be useful, easy to join, and enjoyable. AI tools, sustainable planning, and wellbeing activities now shape many event briefs.</p>
         <p>This guide gives you 12 event ideas you can adapt quickly. Each idea includes simple ways to make the format more fun and easier to plan.</p>
 
-        <div className="not-prose my-8 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+        <div className="not-prose my-8 rounded-2xl border border-violet-100 bg-violet-50 p-6">
           <h2 className="m-0 text-xl font-black text-slate-900">Quick takeaways</h2>
           <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-slate-700 md:grid-cols-2">
             <li>Choose one clear goal before choosing the event format.</li>

@@ -59,7 +59,7 @@ export default function TechCapabilities({
       {/* Arka Plan Efekti - Grid + Glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay opacity-20" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -67,9 +67,9 @@ export default function TechCapabilities({
         <div className="text-center max-w-4xl mx-auto mb-14 md:mb-16">
           {/* Hap Etiket */}
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-[0.16em] shadow-sm">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-bold uppercase tracking-[0.16em] shadow-sm">
               <span
-                className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"
+                className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"
                 aria-hidden="true"
               />
               {dictionary.sectionPill}
@@ -99,10 +99,10 @@ export default function TechCapabilities({
         {/* ——— KARTLAR ——— */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* SOL KART: TEKNİK ÇÖZÜMLER */}
-          <article className="group relative h-full bg-slate-900/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 border border-white/5 hover:border-blue-500/30 transition-all duration-500 shadow-2xl shadow-black/40">
+          <article className="group relative h-full bg-slate-900/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 border border-white/5 hover:border-violet-500/30 transition-all duration-500 shadow-2xl shadow-black/40">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-14 h-14 shrink-0 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform duration-300"
+                className="w-14 h-14 shrink-0 bg-violet-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-violet-600/20 group-hover:scale-110 transition-transform duration-300"
                 aria-hidden="true"
               >
                 🚀
@@ -112,7 +112,7 @@ export default function TechCapabilities({
                   {dictionary.card1Title}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  <strong className="text-blue-400 font-bold">Sahneva</strong>{" "}
+                  <strong className="text-violet-400 font-bold">Sahneva</strong>{" "}
                   {dictionary.card1DescPrefix}{dictionary.card1Desc}
                 </p>
               </div>
@@ -130,7 +130,7 @@ export default function TechCapabilities({
                   className="flex gap-4 text-slate-300 text-sm md:text-base group/li items-start"
                 >
                   <div
-                    className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 group-hover/li:scale-150 transition-transform duration-200 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                    className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0 group-hover/li:scale-150 transition-transform duration-200 shadow-[0_0_8px_rgba(139, 92, 246,0.5)]"
                     aria-hidden="true"
                   />
                   <span>{item}</span>

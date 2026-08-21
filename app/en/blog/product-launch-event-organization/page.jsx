@@ -169,7 +169,7 @@ export default function Page() {
         whatsappUrl={WA_URL}
       >
 
-        <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+        <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
             A product launch is the critical moment when your brand's new story begins. The
             lasting impact of this moment is directly tied not only to the product being
@@ -256,32 +256,32 @@ export default function Page() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Strategy &amp; Concept</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Strategy &amp; Concept</th>
                 <td className="p-4">T-60 Days</td>
                 <td className="p-4">Venue selection and technical needs analysis.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Technical Survey</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Technical Survey</th>
                 <td className="p-4">T-45 Days</td>
                 <td className="p-4">Acoustic check, electrical load and floor analysis.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Design &amp; Planning</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Design &amp; Planning</th>
                 <td className="p-4">T-30 Days</td>
                 <td className="p-4">3D stage design and lighting scenario creation.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Setup &amp; Testing</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Setup &amp; Testing</th>
                 <td className="p-4">T-2 Days</td>
                 <td className="p-4">System installation and full equipment stress testing.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Rehearsal</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Rehearsal</th>
                 <td className="p-4">T-1 Day</td>
                 <td className="p-4">Sound, lighting and presentation synchronization (General Rehearsal).</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Launch Day</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Launch Day</th>
                 <td className="p-4">D-Day</td>
                 <td className="p-4">Live direction, operations management and real-time crisis control.</td>
               </tr>
@@ -322,7 +322,7 @@ export default function Page() {
             </p>
             <Link
               href="/en/blog/national-space-program-launch-engineering-reflex"
-              className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+              className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-800 transition-colors"
             >
               Explore the Project Details →
             </Link>
@@ -333,7 +333,7 @@ export default function Page() {
         <section aria-labelledby="faq-heading" className="not-prose space-y-3 mt-6">
           <h3 id="faq-heading" className="sr-only">Frequently Asked Questions</h3>
           {FAQ_ITEMS.map((item, index) => (
-            <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200">
+            <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200">
               <summary
                 className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
               >
@@ -347,11 +347,11 @@ export default function Page() {
           ))}
         </section>
 
-        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
           <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">Ready to Bring Your Brand to the Stage?</h3>
-          <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
+          <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
             Let us take your product launch beyond an ordinary event and transform it into a
             truly unforgettable experience. Leave the technical details and the stress to us —
             you simply enjoy your success.
@@ -366,10 +366,10 @@ export default function Page() {
             >
               <span>💬</span> Message on WhatsApp
             </a>
-            <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+            <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
               <span>📞</span> Call Now
             </a>
-            <a href="mailto:info@sahneva.com" className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+            <a href="mailto:info@sahneva.com" className="inline-flex items-center justify-center gap-2 bg-violet-700 hover:bg-violet-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
               <span>✉️</span> Send an Email
             </a>
           </div>

@@ -155,11 +155,11 @@ export default function ArabicProjectsPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-indigo-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/85 to-violet-950/60" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-right">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
             Field proof
           </p>
           <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight md:text-6xl">
@@ -202,7 +202,7 @@ export default function ArabicProjectsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-right">
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-300">
                     {project.type}
                   </p>
                   <h2 className="mt-2 text-2xl font-black text-white md:text-3xl">
@@ -212,7 +212,7 @@ export default function ArabicProjectsPage() {
               </div>
 
               <div className="p-6 md:p-7">
-                <p className="text-sm font-black text-indigo-700">{project.proof}</p>
+                <p className="text-sm font-black text-violet-700">{project.proof}</p>
                 <p className="mt-3 text-base leading-7 text-slate-700">{project.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.highlights.map((item) => (
@@ -231,7 +231,7 @@ export default function ArabicProjectsPage() {
         <div className="container mx-auto px-4">
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="rounded-3xl bg-slate-950 p-7 text-white md:p-8">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
                 طريقة القراءة
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
@@ -280,7 +280,7 @@ export default function ArabicProjectsPage() {
       <section className="bg-slate-950 py-14 text-white">
         <div className="container mx-auto px-4">
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 text-right md:p-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-300">
               Project match
             </p>
             <h2 className="mt-3 text-3xl font-black">

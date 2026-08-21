@@ -317,7 +317,7 @@ function CategoryChips() {
         <a
           key={c.id}
           href={`#${c.id}`}
-          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100 transition-colors"
+          className="faq-chip px-3 py-2 rounded-full text-sm bg-slate-900/70 border border-slate-700/70 text-slate-100 hover:border-violet-400/70 hover:text-violet-100 transition-colors"
         >
           <span className="mr-1">{c.icon}</span>
           {c.title}
@@ -368,7 +368,7 @@ function FaqSection({ id, icon, title, items, links }) {
               <a
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center gap-2 font-semibold text-cyan-200 hover:text-cyan-100"
+                className="inline-flex items-center gap-2 font-semibold text-violet-200 hover:text-violet-100"
               >
                 <span aria-hidden="true">🔗</span>
                 <span>{link.label}</span>
@@ -429,7 +429,7 @@ export default function FaqPage() {
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="tel:+905453048671"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-400"
+              className="inline-flex items-center gap-2 rounded-lg bg-violet-500 px-4 py-2 font-semibold text-slate-950 hover:bg-violet-400"
             >
               📞 Get a Quote Now
             </a>
@@ -437,7 +437,7 @@ export default function FaqPage() {
               href="https://wa.me/905453048671?text=Hello%2C+I%27d+like+to+request+an+event+production+quote."
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-cyan-400/70 hover:text-cyan-100"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-violet-400/70 hover:text-violet-100"
               aria-label="Ask on WhatsApp – opens in a new tab"
             >
               💬 Ask on WhatsApp

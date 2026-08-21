@@ -158,7 +158,7 @@ function CoverageNote() {
     >
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">
             {PROVINCES_COUNT} il kurulum ağı
           </p>
           <h2 id="tum-sehirler-baslik" className="mt-3 text-2xl font-black md:text-3xl">
@@ -173,7 +173,7 @@ function CoverageNote() {
         </div>
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-          <p className="text-sm font-bold text-blue-200">Hizmet verdiğimiz iller</p>
+          <p className="text-sm font-bold text-violet-200">Hizmet verdiğimiz iller</p>
           <p className="mt-3 text-sm leading-7 text-white/70">{cityNames}</p>
         </div>
       </div>

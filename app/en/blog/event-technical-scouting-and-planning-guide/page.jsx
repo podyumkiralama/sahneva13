@@ -144,7 +144,7 @@ export default function Page() {
           "stage sound lighting",
         ]}
       >
-          <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-700 hover:prose-a:text-blue-800">
+          <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-violet-700 hover:prose-a:text-violet-800">
             <figure className="not-prose mt-2">
               <Image
                 src={FEATURED_IMAGE}
@@ -691,7 +691,7 @@ export default function Page() {
             </p>
             <p><strong>Proper scouting is the foundation of a strong production.</strong></p>
 
-            <div className="not-prose mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-5 md:p-6">
+            <div className="not-prose mt-8 rounded-2xl border border-violet-200 bg-violet-50 p-5 md:p-6">
               <p className="m-0 text-sm leading-6 text-slate-700 md:text-base">
                 To eliminate technical risks at your next event, contact Sahneva specialists
                 now and schedule a free site survey.
@@ -699,7 +699,7 @@ export default function Page() {
               <div className="mt-4">
                 <Link
                   href="/en/contact"
-                  className="inline-flex items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
+                  className="inline-flex items-center gap-2 rounded-xl bg-violet-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-800"
                 >
                   Schedule a Free Site Survey
                   <span aria-hidden="true">→</span>

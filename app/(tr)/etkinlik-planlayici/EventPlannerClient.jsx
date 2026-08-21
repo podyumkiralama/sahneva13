@@ -109,8 +109,8 @@ export default function EventPlannerClient() {
                 key={type.key}
                 className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                   eventType === type.key
-                    ? "border-blue-600 bg-blue-50 shadow-sm"
-                    : "border-slate-200 bg-white hover:border-blue-300"
+                    ? "border-violet-600 bg-violet-50 shadow-sm"
+                    : "border-slate-200 bg-white hover:border-violet-300"
                 }`}
               >
                 <input
@@ -119,7 +119,7 @@ export default function EventPlannerClient() {
                   value={type.key}
                   checked={eventType === type.key}
                   onChange={() => setEventType(type.key)}
-                  className="mt-1 h-4 w-4 accent-blue-600"
+                  className="mt-1 h-4 w-4 accent-violet-600"
                 />
                 <span className="text-sm font-bold text-slate-900">{type.label}</span>
               </label>
@@ -167,8 +167,8 @@ export default function EventPlannerClient() {
                 key={option.key}
                 className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                   venue === option.key
-                    ? "border-blue-600 bg-blue-50 shadow-sm"
-                    : "border-slate-200 bg-white hover:border-blue-300"
+                    ? "border-violet-600 bg-violet-50 shadow-sm"
+                    : "border-slate-200 bg-white hover:border-violet-300"
                 }`}
               >
                 <input
@@ -177,7 +177,7 @@ export default function EventPlannerClient() {
                   value={option.key}
                   checked={venue === option.key}
                   onChange={() => setVenue(option.key)}
-                  className="mt-1 h-4 w-4 accent-blue-600"
+                  className="mt-1 h-4 w-4 accent-violet-600"
                 />
                 <span>
                   <span className="block text-sm font-bold text-slate-900">{option.label}</span>
@@ -216,15 +216,15 @@ export default function EventPlannerClient() {
                   key={item.key}
                   className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                     extras.includes(item.key)
-                      ? "border-blue-600 bg-blue-50 shadow-sm"
-                      : "border-slate-200 bg-white hover:border-blue-300"
+                      ? "border-violet-600 bg-violet-50 shadow-sm"
+                      : "border-slate-200 bg-white hover:border-violet-300"
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={extras.includes(item.key)}
                     onChange={() => toggleExtra(item.key)}
-                    className="mt-1 h-4 w-4 accent-blue-600"
+                    className="mt-1 h-4 w-4 accent-violet-600"
                   />
                   <span>
                     <span className="block text-sm font-bold text-slate-900">{item.label}</span>
@@ -244,7 +244,7 @@ export default function EventPlannerClient() {
         aria-label="Önerilen teknik kapsam"
         className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl lg:sticky lg:top-24"
       >
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-700">
           Önerilen teknik kapsam
         </p>
         <h2 className="mt-2 text-2xl font-black leading-tight text-slate-950">
@@ -261,12 +261,12 @@ export default function EventPlannerClient() {
               <span className="min-w-0">
                 <Link
                   href={item.href}
-                  className="text-sm font-black text-slate-900 underline underline-offset-4 hover:text-blue-700"
+                  className="text-sm font-black text-slate-900 underline underline-offset-4 hover:text-violet-700"
                 >
                   {item.label}
                 </Link>
                 {item.optional ? (
-                  <span className="ml-2 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-bold text-blue-700">
+                  <span className="ml-2 rounded-full bg-violet-50 px-2 py-0.5 text-[11px] font-bold text-violet-700">
                     eklendi
                   </span>
                 ) : null}
@@ -287,7 +287,7 @@ export default function EventPlannerClient() {
 
         {plan.budget ? (
           <div className="mt-5 rounded-2xl bg-slate-950 p-5 text-white">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-200">
               Yaklaşık başlangıç aralığı
             </p>
             <p className="mt-2 text-2xl font-black leading-tight">
@@ -336,7 +336,7 @@ export default function EventPlannerClient() {
           <button
             type="button"
             onClick={handleCopy}
-            className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 px-5 text-sm font-bold text-slate-700 transition hover:border-blue-400 hover:text-blue-800"
+            className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 px-5 text-sm font-bold text-slate-700 transition hover:border-violet-400 hover:text-violet-800"
           >
             {copied ? (
               <>

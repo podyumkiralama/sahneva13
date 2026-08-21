@@ -250,7 +250,7 @@ function ServicesTabsFallback() {
           <ul className="grid md:grid-cols-2 gap-3">
             {service.items.map((item, itemIndex) => (
               <li key={itemIndex} className="flex items-center gap-3 text-neutral-700">
-                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" />
                 {item}
               </li>
             ))}
@@ -276,7 +276,7 @@ export default function EnglishServicesPage() {
       title: "Stage Rental",
       description: "Concert, festival and corporate event stages",
       icon: "🎪",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-violet-600 to-purple-500",
     },
     {
       href: "/en/led-screen-rental",
@@ -290,21 +290,21 @@ export default function EnglishServicesPage() {
       title: "Stage Platforms & Risers",
       description: "Modular decks for presentations, ceremonies and performances",
       icon: "🎤",
-      color: "from-cyan-500 to-blue-600",
+      color: "from-violet-500 to-violet-600",
     },
     {
       href: "/en/truss-rental",
       title: "Truss & Rigging",
       description: "Stage roofs, lighting truss and ground-support systems",
       icon: "🏗️",
-      color: "from-slate-500 to-blue-700",
+      color: "from-slate-500 to-violet-700",
     },
     {
       href: "/en/event-production-company-turkey",
       title: "Event Production Partner in Turkey",
       description: "Local technical production support for international agencies and brands",
       icon: "🌍",
-      color: "from-sky-500 to-indigo-500",
+      color: "from-violet-600 to-purple-500",
     },
     {
       href: "/en/mice-turkey",
@@ -318,7 +318,7 @@ export default function EnglishServicesPage() {
       title: "Event Production Istanbul",
       description: "Venue access, load-in planning and technical crew for events in Istanbul",
       icon: "🌉",
-      color: "from-blue-500 to-cyan-600",
+      color: "from-violet-500 to-violet-600",
     },
     {
       href: "/en/av-rental-istanbul",
@@ -332,7 +332,7 @@ export default function EnglishServicesPage() {
       title: "Conference AV Rental Istanbul",
       description: "Interpretation, breakout rooms, speaker management and hybrid congress delivery",
       icon: "🎙️",
-      color: "from-indigo-500 to-violet-600",
+      color: "from-violet-500 to-violet-600",
     },
     {
       href: "/en/event-production-antalya",
@@ -360,14 +360,14 @@ export default function EnglishServicesPage() {
       title: "Event Tents",
       description: "Pagoda, clear-span and industrial tent systems",
       icon: "⛺",
-      color: "from-teal-500 to-blue-500",
+      color: "from-teal-500 to-violet-500",
     },
     {
       href: "/en/table-chair-rental",
       title: "Seating & Furniture",
       description: "Banquet, conference and cocktail furniture",
       icon: "🪑",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-violet-500 to-purple-500",
     },
   ];
 
@@ -500,14 +500,14 @@ export default function EnglishServicesPage() {
       {/* Skip to Main Content */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-violet-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
       >
         Skip to main content
       </a>
 
     {/* HERO SECTION */}
 <section
-  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
+  className="relative bg-gradient-to-br from-slate-900 via-violet-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
   aria-labelledby="hero-title"
 >
   {/* FULL-BLEED BACKGROUND */}
@@ -532,7 +532,7 @@ export default function EnglishServicesPage() {
       aria-hidden="true"
       style={{
         background:
-          "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,58,138,0.35) 45%, rgba(88,28,135,0.28) 100%)",
+          "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(76, 29, 149,0.35) 45%, rgba(88,28,135,0.28) 100%)",
       }}
     />
 
@@ -549,7 +549,7 @@ export default function EnglishServicesPage() {
 
     {/* glow blobs */}
     <div className="absolute -top-28 -right-28 w-96 h-96 bg-purple-500/14 rounded-full blur-3xl" />
-    <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-blue-500/14 rounded-full blur-3xl" />
+    <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-violet-500/14 rounded-full blur-3xl" />
   </div>
 
   {/* BIG BACKGROUND TEXT */}
@@ -578,19 +578,19 @@ export default function EnglishServicesPage() {
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
         >
           <span className="block">Event Equipment Rental</span>{" "}
-          <span className="text-blue-200">Services in Turkey</span>
+          <span className="text-violet-200">Services in Turkey</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
           Stage, LED screen, sound, lighting, truss, tents and event furniture,
           <br />
-          <strong className="text-blue-300">planned, installed and operated by one local team</strong>
+          <strong className="text-violet-300">planned, installed and operated by one local team</strong>
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href="#service-list"
-            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            className="group bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             aria-label="Browse our services"
           >
             <span className="flex items-center gap-2">
@@ -628,16 +628,16 @@ export default function EnglishServicesPage() {
 
 <div id="main" className="relative" style={{ color: "#0f172a" }}>
         {/* QUICK ACCESS CARDS */}
-        <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
+        <section className="py-20 bg-gradient-to-br from-white to-violet-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                All <span className="text-blue-700">Services</span>
+                All <span className="text-violet-700">Services</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Access every piece of equipment and support you need from a single partner
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -645,7 +645,7 @@ export default function EnglishServicesPage() {
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                   aria-label={`Go to ${service.title} details`}
                 >
                   <div
@@ -654,11 +654,11 @@ export default function EnglishServicesPage() {
                   >
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed text-sm">{service.description}</p>
-                  <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold text-sm">
+                  <div className="mt-4 flex items-center gap-2 text-violet-600 font-semibold text-sm">
                     <span>View details</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -669,28 +669,28 @@ export default function EnglishServicesPage() {
         </section>
 
         {/* SERVICE FEATURES */}
-        <section className="py-20 bg-gradient-to-br from-neutral-50 to-blue-100/30">
+        <section className="py-20 bg-gradient-to-br from-neutral-50 to-violet-100/30">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Why <span className="text-blue-700">Sahneva?</span>
+                Why <span className="text-violet-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 {YEARS_OF_EXPERIENCE} years of expertise and specialised teams that deliver exceptional results
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {SERVICE_FEATURES.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed">{feature.description}</p>
@@ -705,12 +705,12 @@ export default function EnglishServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Turnkey <span className="text-blue-700">Event Solutions</span>
+                Turnkey <span className="text-violet-700">Event Solutions</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 We manage every step professionally from stage installation to full production management
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <ServicesTabsFallback />
@@ -721,12 +721,12 @@ export default function EnglishServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Event <span className="text-blue-700">Planning Guides</span>
+                Event <span className="text-violet-700">Planning Guides</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Browse related guides before requesting a quote, so equipment, logistics and timing decisions are clearer.
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -734,15 +734,15 @@ export default function EnglishServicesPage() {
                 <Link
                   key={guide.href}
                   href={guide.href}
-                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-lg"
                 >
-                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-violet-700 transition-colors">
                     {guide.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-neutral-700">
                     {guide.description}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-violet-700">
                     Read guide
                     <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
                       →
@@ -755,16 +755,16 @@ export default function EnglishServicesPage() {
         </section>
 
         {/* ADDITIONAL SERVICES */}
-        <section className="py-20 bg-gradient-to-br from-neutral-900 to-blue-900/95">
+        <section className="py-20 bg-gradient-to-br from-neutral-900 to-violet-900/95">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Additional <span className="text-blue-200">Services</span>
+                Additional <span className="text-violet-200">Services</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Complementary support to keep every aspect of your event running flawlessly
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8" />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
@@ -785,7 +785,7 @@ export default function EnglishServicesPage() {
                       "Security and crowd management",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                        <div className="w-2 h-2 bg-violet-400 rounded-full flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -870,7 +870,7 @@ export default function EnglishServicesPage() {
         <WebMcpServiceTools locale="en" contactHref="/en/contact" />
 
         {/* CTA SECTION */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Request a
@@ -883,7 +883,7 @@ export default function EnglishServicesPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href="tel:+905453048671"
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Call now for a detailed proposal"
               >
                 <span className="flex items-center justify-center gap-2">

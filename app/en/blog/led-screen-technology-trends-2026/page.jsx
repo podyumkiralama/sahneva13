@@ -189,7 +189,7 @@ const InfoBox = ({ icon, title, children, variant = "info" }) => {
   const styles =
     variant === "warn"
       ? "bg-amber-50 border-amber-200 text-amber-900"
-      : "bg-blue-50 border-blue-200 text-blue-900";
+      : "bg-violet-50 border-violet-200 text-violet-900";
 
   const titleText = variant === "warn" ? "Warning" : "Pro Tip";
 
@@ -245,7 +245,7 @@ export default function LedTrends2026Page() {
         whatsappUrl={WA_URL}
       >
 
-                <div className="bg-blue-50/60 p-6 rounded-xl border-l-4 border-blue-500 mb-8 not-prose">
+                <div className="bg-violet-50/60 p-6 rounded-xl border-l-4 border-violet-500 mb-8 not-prose">
                   <p className="text-lg text-gray-700 font-semibold italic m-0">
                     "Any LED screen will do" is over. In 2026, brands demand pixel pitch, driver technology, HDR support and camera-friendly flicker performance all at once.
                   </p>
@@ -536,7 +536,7 @@ export default function LedTrends2026Page() {
                   {FAQ_ITEMS.map((item, index) => (
                     <details
                       key={index}
-                      className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200"
+                      className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200"
                     >
                       <summary
                         className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
@@ -554,17 +554,17 @@ export default function LedTrends2026Page() {
                 </section>
 
                 {/* FINAL CTA */}
-                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                   <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">
                     Let's Design Your 2026 LED Screen Project Together
                   </h3>
-                  <p className="text-blue-100 mb-6 max-w-xl mx-auto relative z-10 text-lg">
+                  <p className="text-violet-100 mb-6 max-w-xl mx-auto relative z-10 text-lg">
                     Let us elevate your stage to a premium level with fine-pitch LED, COB, high refresh rates and the right content production.
                   </p>
 
-                  <p className="text-blue-100 max-w-xl mx-auto relative z-10 text-sm mb-6">
+                  <p className="text-violet-100 max-w-xl mx-auto relative z-10 text-sm mb-6">
                     You can review{" "}
                     <Link
                       href={LED_SERVICE_PATH}
@@ -587,7 +587,7 @@ export default function LedTrends2026Page() {
                     </a>
                     <a
                       href="tel:+905453048671"
-                      className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
+                      className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-400"
                     >
                       <span aria-hidden="true">📞</span> Call Now
                     </a>

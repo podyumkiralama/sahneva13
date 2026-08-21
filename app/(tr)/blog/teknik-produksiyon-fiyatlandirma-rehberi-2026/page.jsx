@@ -187,13 +187,13 @@ function ProTip({ title = "Kontrol edin", children }) {
     <aside
       role="note"
       aria-label={title}
-      className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+      className="my-10 bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-100 p-6 rounded-2xl shadow-sm not-prose"
     >
       <div className="flex items-start gap-4">
         <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
         <div>
-          <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">{title}</p>
-          <div className="text-blue-800 text-base leading-relaxed">{children}</div>
+          <p className="text-violet-900 font-bold mt-0 mb-2 text-lg">{title}</p>
+          <div className="text-violet-800 text-base leading-relaxed">{children}</div>
         </div>
       </div>
     </aside>
@@ -223,7 +223,7 @@ function DataTable({ caption, columns, rows }) {
             <tr key={idx} className="hover:bg-gray-50 transition-colors">
               {r.map((cell, j) =>
                 j === 0 ? (
-                  <th key={j} scope="row" className="p-4 font-bold text-blue-600">
+                  <th key={j} scope="row" className="p-4 font-bold text-violet-600">
                     {cell}
                   </th>
                 ) : (
@@ -293,7 +293,7 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
         ]}
         whatsappUrl={WA_URL}
       >
-        <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+        <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
             Bir etkinliği ilk kez bütçeleyen çoğu kişi, ekipman listesinin fiyat olduğunu varsayar.
             Nadiren öyledir. Ekip, kurulum süresi ve kamyonun yükleme rampasına ne kadar zor
@@ -598,12 +598,12 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
         </div>
 
         {/* BOTTOM CTA */}
-        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">
             Etkinliğiniz için kalem kalem teklif alın
           </h3>
-          <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
+          <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
             Sahne, ses-ışık, LED ekran ve çadır kiralamada teknik keşiften söküme kadar tüm süreci tek
             elden yönetiyoruz. Yukarıdaki altı bilgiyi gönderin; kalem bazında ayrılmış, belirsiz
             kısımları toplamın içine gömmek yerine opsiyon olarak işaretlenmiş bir teklif alın.
@@ -620,7 +620,7 @@ export default function TeknikProduksiyonFiyatlandirmaPage() {
             </a>
             <Link
               href="/iletisim"
-              className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
             >
               <span>📩</span> İletişim Formu
             </Link>

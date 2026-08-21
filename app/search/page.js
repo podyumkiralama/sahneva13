@@ -101,7 +101,7 @@ export default async function SearchPage({ searchParams }) {
       <JsonLd id="ld-json-search" data={buildSearchResultsSchema(trimmedQuery, results.length)} />
 
       <div className="max-w-4xl">
-        <p className="text-sm font-semibold text-blue-600">Site İçi Arama</p>
+        <p className="text-sm font-semibold text-violet-600">Site İçi Arama</p>
         <h1 className="mt-2 text-3xl font-black text-neutral-900 lg:text-4xl">
           Aradığınız sayfayı hızlıca bulun
         </h1>
@@ -134,7 +134,7 @@ export default async function SearchPage({ searchParams }) {
             />
             <button
               type="submit"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-blue-600 px-6 text-sm font-bold text-white shadow-lg transition hover:bg-blue-700"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-violet-600 px-6 text-sm font-bold text-white shadow-lg transition hover:bg-violet-700"
             >
               Ara
             </button>
@@ -161,7 +161,7 @@ export default async function SearchPage({ searchParams }) {
                 <li key={suggestion}>
                   <Link
                     href={`/search?q=${encodeURIComponent(suggestion)}`}
-                    className="inline-flex min-h-[40px] items-center rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm font-bold text-neutral-700 transition hover:border-blue-500 hover:text-blue-800"
+                    className="inline-flex min-h-[40px] items-center rounded-xl border border-neutral-200 bg-neutral-50 px-4 text-sm font-bold text-neutral-700 transition hover:border-violet-500 hover:text-violet-800"
                   >
                     {suggestion}
                   </Link>
@@ -200,7 +200,7 @@ export default async function SearchPage({ searchParams }) {
                     <li key={entry.href}>
                       <Link
                         href={entry.href}
-                        className="flex gap-3 px-5 py-4 transition hover:bg-blue-50/70"
+                        className="flex gap-3 px-5 py-4 transition hover:bg-violet-50/70"
                       >
                         <span className="mt-0.5 text-lg" aria-hidden="true">
                           {entry.icon}

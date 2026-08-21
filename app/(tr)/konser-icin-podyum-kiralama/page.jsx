@@ -6,6 +6,7 @@ import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import PageHero from "@/components/PageHero";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
@@ -325,87 +326,39 @@ function StructuredData() {
 
 // --- HERO ---
 function HeroSection() {
-  const stats = [
-    { icon: "🎤", value: PROJECTS_COMPLETED, label: "Tamamlanan Proje" },
-    { icon: "🇹🇷", value: "Türkiye Geneli", label: "Hizmet Alanı" },
-    { icon: "⏱️", value: `${YEARS_OF_EXPERIENCE} Yıl`, label: "Sahne Deneyimi" },
-    { icon: "🛡️", value: "Mühendislik", label: "Onaylı Sistemler" },
-  ];
-
   return (
-    <section
-      className="relative min-h-[80vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0f1a] via-blue-950 to-purple-950 pt-16 lg:pt-20"
-      aria-labelledby="hero-title"
-    >
-      <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/img/podyum/konser-hero.webp"
-          alt="Konser için profesyonel sahne ve podyum kurulumu – Sahneva"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover opacity-40"
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-        />
-      </div>
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/70 to-purple-900/75"
-        aria-hidden="true"
-      />
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <div className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-5 py-2 text-sm font-semibold text-blue-200 mb-8">
-            <span aria-hidden="true">🎤</span> Konser & Festival Sahne Uzmanı
-          </div>
-          <h1
-            id="hero-title"
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6 tracking-tight"
-          >
-            Konser İçin{" "}
-            <span className="gradient-text-clip-safe bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
-              Podyum Kiralama
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10">
-            Festival ve canlı performans sahne çözümleri — küçük ölçekli kapalı
-            mekân etkinliklerinden on binlerce kişilik açık hava organizasyonlarına
-            kadar profesyonel kurulum.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-14">
-            <Link
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <span className="text-xl mr-2" aria-hidden="true">💬</span> Hemen Teklif Al
-            </Link>
-            <Link
-              href="#hizmetler"
-              className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-xl transition-all duration-300 shadow-lg"
-            >
-              <span className="text-xl mr-2" aria-hidden="true">🎪</span> Hizmetlerimiz
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            {stats.map((s, i) => (
-              <div
-                key={i}
-                className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/12 px-4 py-4 text-center"
-              >
-                <div className="text-2xl mb-1" aria-hidden="true">{s.icon}</div>
-                <div className="text-xl font-black">{s.value}</div>
-                <div className="text-sm text-white/70 font-semibold">{s.label}</div>
-              </div>
-            ))}
-          </div>
-          <span className="sr-only">Konser İçin Podyum Kiralama - Sahneva Organizasyon</span>
-        </div>
-      </div>
-      <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
-    </section>
+    <PageHero
+      eyebrow="Konser & festival sahne uzmanı"
+      title="Konser İçin"
+      titleAccent="Podyum Kiralama"
+      description="Festival ve canlı performans sahne çözümleri — küçük ölçekli kapalı mekân etkinliklerinden on binlerce kişilik açık hava organizasyonlarına kadar profesyonel kurulum."
+      actions={[
+        {
+          key: "quote",
+          label: "Hemen Teklif Al",
+          href: WHATSAPP_URL,
+          external: true,
+          ariaLabel: "WhatsApp üzerinden konser podyumu teklifi alın",
+        },
+        {
+          key: "services",
+          label: "Hizmetlerimiz",
+          href: "#hizmetler",
+        },
+      ]}
+      metrics={[
+        { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
+        { value: "Türkiye Geneli", label: "Hizmet alanı" },
+        { value: `${YEARS_OF_EXPERIENCE} Yıl`, label: "Sahne deneyimi" },
+        { value: "Mühendislik", label: "Onaylı sistemler" },
+      ]}
+      image={{
+        src: "/img/podyum/konser-hero.webp",
+        alt: "Konser için profesyonel sahne ve podyum kurulumu – Sahneva",
+        sizes: "100vw",
+        blurDataURL: BLUR_DATA_URL,
+      }}
+    />
   );
 }
 
@@ -414,13 +367,13 @@ function ServicesSection() {
   return (
     <section
       id="hizmetler"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="py-20 bg-gradient-to-b from-white to-violet-50/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Konser Sahne{" "}
-            <span className="text-blue-700">Hizmetlerimiz</span>
+            <span className="text-violet-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Teknik rider analizi, mekân değerlendirmesi, sahne kurulumu ve
@@ -439,7 +392,7 @@ function ServicesSection() {
               >
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -458,7 +411,7 @@ function ServicesSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">📞</span> Konser
             Sahneniz İçin Teklif Alın
@@ -477,7 +430,7 @@ function ArticlesSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Konser Sahne{" "}
-            <span className="text-blue-700">Rehberi</span>
+            <span className="text-violet-700">Rehberi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Konser ve festival sahne kurulumu hakkında uzman görüşleri ve teknik
@@ -507,7 +460,7 @@ function ArticlesSection() {
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
               Konser dışındaki genel modüler platform ihtiyaçları için{" "}
-              <Link className="font-semibold text-blue-700 underline underline-offset-4" href="/podyum-kiralama">
+              <Link className="font-semibold text-violet-700 underline underline-offset-4" href="/podyum-kiralama">
                 podyum kiralama
               </Link>{" "}
               ana hizmet sayfamızdaki ölçü, kurulum ve teknik destek kapsamını
@@ -534,7 +487,7 @@ function ArticlesSection() {
         <div className="flex flex-col lg:flex-row-reverse gap-10 items-start mb-16">
           <div className="flex-1 prose prose-lg max-w-none">
             <h3 className="text-2xl font-black text-gray-900 mb-4 flex items-center gap-3">
-              <span className="inline-flex bg-blue-100 text-blue-600 rounded-2xl p-2 text-xl" aria-hidden="true">🎤</span>
+              <span className="inline-flex bg-violet-100 text-violet-600 rounded-2xl p-2 text-xl" aria-hidden="true">🎤</span>
               Her Performans İçin Profesyonel Sahne Çözümleri
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -573,8 +526,8 @@ function ArticlesSection() {
         </div>
 
         {/* ── Konser & Festival Sahnelerimiz Neleri Kapsar? (bilgi kutusu tam genişlik) ── */}
-        <aside className="rounded-3xl border-l-4 border-blue-500 bg-blue-50 p-8 md:p-10 mb-16 shadow-lg">
-          <h3 className="text-2xl font-black text-blue-700 mb-5 flex items-center gap-3">
+        <aside className="rounded-3xl border-l-4 border-violet-500 bg-violet-50 p-8 md:p-10 mb-16 shadow-lg">
+          <h3 className="text-2xl font-black text-violet-700 mb-5 flex items-center gap-3">
             <span aria-hidden="true">💡</span> Konser ve Festival Sahnelerimiz Neleri Kapsar?
           </h3>
           <div className="grid md:grid-cols-2 gap-4 text-gray-700 text-lg leading-relaxed">
@@ -713,7 +666,7 @@ function FAQSection() {
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Sık Sorulan{" "}
-            <span className="text-blue-700">Sorular</span>
+            <span className="text-violet-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600">
             Konser ve festival sahne kiralama hakkında merak edilenler
@@ -744,7 +697,7 @@ function RelatedServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">
-            İlgili <span className="text-blue-700">Hizmetler</span>
+            İlgili <span className="text-violet-700">Hizmetler</span>
           </h2>
           <p className="text-gray-600 text-lg">
             Organizasyonunuzu tamamlayan diğer çözümlerimiz
@@ -760,7 +713,7 @@ function RelatedServicesSection() {
               <div className="text-4xl mb-3 group-hover:scale-110 transition-transform" aria-hidden="true">
                 {s.icon}
               </div>
-              <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                 {s.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>

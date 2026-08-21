@@ -55,8 +55,8 @@ const DICLEFEST_TIGHT_SPACING_CSS = `
     color: #d7e2f0 !important;
   }
 
-  .diclefest-tight-scope > main [class*="text-blue-200"],
-  .diclefest-tight-scope > main [class*="text-blue-100"] {
+  .diclefest-tight-scope > main [class*="text-violet-200"],
+  .diclefest-tight-scope > main [class*="text-violet-100"] {
     color: #dbeafe !important;
   }
 

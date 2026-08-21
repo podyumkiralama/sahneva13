@@ -47,7 +47,7 @@ function StatsCounter() {
     {
       number: `${counters.projects}+`,
       label: "Başarılı Proje",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-violet-600 to-purple-500"
     },
     {
       number: `${counters.experience}`,

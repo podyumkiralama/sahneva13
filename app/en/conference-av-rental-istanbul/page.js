@@ -346,7 +346,7 @@ export default function ConferenceAvRentalIstanbulPage() {
           </nav>
 
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Congress floors, parallel sessions, interpretation
           </p>
 
@@ -366,7 +366,7 @@ export default function ConferenceAvRentalIstanbulPage() {
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
               href="/en/contact"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-blue-900 transition hover:bg-blue-50"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-violet-900 transition hover:bg-violet-50"
             >
               Request a conference AV quote
             </Link>
@@ -398,7 +398,7 @@ export default function ConferenceAvRentalIstanbulPage() {
                 <Link
                   href={layer.href}
                   prefetch={false}
-                  className="mt-3 inline-flex text-sm font-bold text-blue-700 hover:text-blue-900"
+                  className="mt-3 inline-flex text-sm font-bold text-violet-700 hover:text-violet-900"
                 >
                   {layer.hrefLabel} →
                 </Link>
@@ -435,7 +435,7 @@ export default function ConferenceAvRentalIstanbulPage() {
                   key={label}
                   className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-4"
                 >
-                  <dt className="text-xs font-black uppercase tracking-[0.16em] text-blue-300 sm:w-32 sm:shrink-0">
+                  <dt className="text-xs font-black uppercase tracking-[0.16em] text-violet-300 sm:w-32 sm:shrink-0">
                     {label}
                   </dt>
                   <dd className="text-sm leading-relaxed text-white/80">{value}</dd>

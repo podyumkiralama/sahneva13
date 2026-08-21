@@ -34,7 +34,7 @@ export default function BlogRelatedLinks({ services, locale = "tr" }) {
               <li key={service.href}>
                 <Link
                   href={service.href}
-                  className="text-sm font-semibold text-blue-700 hover:text-blue-900"
+                  className="text-sm font-semibold text-violet-700 hover:text-violet-900"
                 >
                   {service.label}
                 </Link>
@@ -52,7 +52,7 @@ export default function BlogRelatedLinks({ services, locale = "tr" }) {
           </p>
           <Link
             href={copy.regionalHref}
-            className="mt-3 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-900"
+            className="mt-3 inline-flex text-sm font-semibold text-violet-700 hover:text-violet-900"
           >
             {copy.regionalCta}
           </Link>

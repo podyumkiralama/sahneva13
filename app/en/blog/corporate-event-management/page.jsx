@@ -182,7 +182,7 @@ export default function BlogPostCorporate() {
       >
 
                 
-                <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+                <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
                   <p className="text-lg text-gray-700 font-medium italic m-0">
                     <Link href="/en/corporate-events">Corporate events</Link> are the most powerful stages where a company showcases its vision to stakeholders. The invisible hero behind this stage is a well-planned <strong>technical infrastructure</strong>.
                   </p>
@@ -210,16 +210,16 @@ export default function BlogPostCorporate() {
                 <aside
                   role="note"
                   aria-label="Professional Tip"
-                  className="my-10 bg-gradient-to-r from-indigo-50 to-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm not-prose"
+                  className="my-10 bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-100 p-6 rounded-2xl shadow-sm not-prose"
                 >
                   <div className="flex items-start gap-4">
                     <span className="text-3xl flex-shrink-0" aria-hidden="true">💡</span>
                     <div>
-                      <p className="text-blue-900 font-bold mt-0 mb-2 text-lg">Professional Tip</p>
-                      <p className="mb-2 text-blue-800 text-base">
+                      <p className="text-violet-900 font-bold mt-0 mb-2 text-lg">Professional Tip</p>
+                      <p className="mb-2 text-violet-800 text-base">
                         Starting event planning <strong>at least 2–3 months in advance</strong> and conducting a site survey jointly with the technical supplier:
                       </p>
-                      <ul className="text-blue-800 list-disc pl-5 space-y-1 text-sm m-0">
+                      <ul className="text-violet-800 list-disc pl-5 space-y-1 text-sm m-0">
                         <li className="m-0">Reduces budget overruns by 20%.</li>
                         <li className="m-0">Prevents electrical and stage size problems.</li>
                         <li className="m-0">Enables you to build a solid Plan B.</li>
@@ -279,19 +279,19 @@ export default function BlogPostCorporate() {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P2.9</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P2.9</th>
                         <td className="p-4">3m+</td>
                         <td className="p-4">Indoor (Launch)</td>
                         <td className="p-4 text-gray-600">$$$</td>
                       </tr>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P3.9</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P3.9</th>
                         <td className="p-4">4m+</td>
                         <td className="p-4">Indoor (Conference)</td>
                         <td className="p-4 text-gray-600">$$</td>
                       </tr>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <th scope="row" className="p-4 font-bold text-blue-600">P4.8</th>
+                        <th scope="row" className="p-4 font-bold text-violet-600">P4.8</th>
                         <td className="p-4">5m+</td>
                         <td className="p-4">Indoor/Outdoor</td>
                         <td className="p-4 text-gray-600">$</td>
@@ -383,9 +383,9 @@ export default function BlogPostCorporate() {
 
                 <div className="not-prose bg-gray-50 border border-gray-200 rounded-xl p-6 my-8 space-y-5">
                   {[
-                    { label: "Sound and Lighting Systems", pct: 40, w: "40%", color: "bg-blue-600" },
+                    { label: "Sound and Lighting Systems", pct: 40, w: "40%", color: "bg-violet-600" },
                     { label: "Visuals (LED Screen)", pct: 30, w: "30%", color: "bg-purple-600" },
-                    { label: "Stage and Infrastructure", pct: 20, w: "20%", color: "bg-indigo-500" },
+                    { label: "Stage and Infrastructure", pct: 20, w: "20%", color: "bg-violet-500" },
                     { label: "Personnel & Logistics", pct: 10, w: "10%", color: "bg-gray-400" },
                   ].map((item, i) => (
                     <div key={i}>
@@ -412,8 +412,8 @@ export default function BlogPostCorporate() {
                         AR-supported LED screen solutions to transcend physical venue limits at product launches. Guests can examine products in 3D with their phones.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-100">
-                      <h4 className="font-bold text-lg mb-2 text-blue-900">Hybrid Systems</h4>
+                    <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl p-5 border border-violet-100">
+                      <h4 className="font-bold text-lg mb-2 text-violet-900">Hybrid Systems</h4>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Integrated sound/lighting/video systems for both physical and online participation. Live stream quality is no longer a luxury, it is the standard.
                       </p>
@@ -442,7 +442,7 @@ export default function BlogPostCorporate() {
                 <section aria-labelledby="faq-heading" className="not-prose space-y-3 mt-6">
                   <h3 id="faq-heading" className="sr-only">Frequently Asked Questions</h3>
                   {FAQ_ITEMS.map((item, index) => (
-                    <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200">
+                    <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200">
                     <summary
                       className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
                     >
@@ -457,11 +457,11 @@ export default function BlogPostCorporate() {
                 </section>
 
                 {/* BOTTOM CTA */}
-                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+                <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                   
                   <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">Don&apos;t Leave Your Event to Chance</h3>
-                  <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
+                  <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
                     Let us represent your brand in the best possible way with our professional corporate event solutions. Contact us now for a free consultation.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -474,7 +474,7 @@ export default function BlogPostCorporate() {
                     >
                       <span>💬</span> Message on WhatsApp
                     </a>
-                    <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+                    <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
                       <span>📞</span> Call Now
                     </a>
                   </div>

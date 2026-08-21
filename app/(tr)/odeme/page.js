@@ -34,7 +34,7 @@ export default function OdemePage() {
         </p>
       </header>
 
-      <div className="mb-6 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900 dark:border-blue-900/40 dark:bg-blue-950/30 dark:text-blue-100">
+      <div className="mb-6 rounded-2xl border border-violet-200 bg-violet-50 p-4 text-sm text-violet-900 dark:border-violet-900/40 dark:bg-violet-950/30 dark:text-violet-100">
         <p className="font-semibold">
           Bu sayfa, sizinle görüşüp anlaştığımız bir teklif tutarını ödemeniz içindir.
         </p>

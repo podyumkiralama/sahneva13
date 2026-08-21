@@ -68,7 +68,7 @@ export default function ChineseAboutPage() {
       <JsonLd id="zh-about-jsonld" data={ABOUT_JSON_LD} />
       <section className="relative min-h-[62vh] overflow-hidden bg-slate-950 text-white">
         <Image src="/img/hakkimizda-hero-corporate.webp" alt="Sahneva 技术团队在项目现场" fill priority sizes="100vw" className="object-cover opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/60 to-slate-950/85" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-violet-950/60 to-slate-950/85" />
         <div className="container relative z-10 mx-auto flex min-h-[62vh] items-center px-4 py-16">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-black md:text-6xl">关于 Sahneva</h1>

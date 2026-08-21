@@ -153,7 +153,7 @@ export default function ChineseContactPage() {
         {CONTACT_CHANNELS.map((channel) => (
           <a key={channel.title} href={channel.href} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <h2 className="text-lg font-black text-neutral-900">{channel.title}</h2>
-            <p className="mt-2 text-base font-bold text-indigo-600">{channel.value}</p>
+            <p className="mt-2 text-base font-bold text-violet-600">{channel.value}</p>
             <p className="mt-3 text-sm leading-6 text-neutral-600">{channel.description}</p>
           </a>
         ))}
@@ -189,7 +189,7 @@ export default function ChineseContactPage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-6 md:p-8">
+      <section className="rounded-3xl border border-violet-100 bg-violet-50/70 p-6 md:p-8">
         <h2 className="text-2xl font-black text-neutral-900">快速报价需要提供什么？</h2>
         <ul className="mt-5 grid gap-3 md:grid-cols-2">
           {BRIEF_ITEMS.map((item) => (
@@ -202,7 +202,7 @@ export default function ChineseContactPage() {
 
       <section className="grid gap-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm lg:grid-cols-[0.8fr_1.2fr] md:p-8">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
             Request a quote
           </p>
           <h2 className="mt-3 text-3xl font-black text-neutral-900">
@@ -235,7 +235,7 @@ export default function ChineseContactPage() {
                 required
                 autoComplete="name"
                 {...WEB_MCP_QUOTE_FIELD_PROPS.name}
-                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
               />
             </div>
             <div>
@@ -251,7 +251,7 @@ export default function ChineseContactPage() {
                 inputMode="tel"
                 placeholder="+86 ..."
                 {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
-                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
               />
             </div>
           </div>
@@ -270,7 +270,7 @@ export default function ChineseContactPage() {
                 inputMode="email"
                 placeholder="name@example.com"
                 {...WEB_MCP_QUOTE_FIELD_PROPS.email}
-                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                className="mt-2 w-full rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
               />
             </div>
             <div>
@@ -283,7 +283,7 @@ export default function ChineseContactPage() {
                 required
                 autoComplete="off"
                 {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
-                className="mt-2 w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+                className="mt-2 w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
               >
                 <option value="">请选择活动形式</option>
                 <option value="Corporate Event">企业活动</option>
@@ -308,7 +308,7 @@ export default function ChineseContactPage() {
               autoComplete="off"
               placeholder="城市、日期、场地、人数、所需设备..."
               {...WEB_MCP_QUOTE_FIELD_PROPS.message}
-              className="mt-2 w-full resize-none rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-100"
+              className="mt-2 w-full resize-none rounded-2xl border border-neutral-200 px-4 py-3 text-neutral-900 outline-none transition focus-visible:border-violet-500 focus-visible:ring-4 focus-visible:ring-violet-100"
             />
           </div>
 
@@ -318,7 +318,7 @@ export default function ChineseContactPage() {
 
           <button
             type="submit"
-            className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-indigo-600 px-6 text-sm font-black text-white transition hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200"
+            className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-violet-600 px-6 text-sm font-black text-white transition hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             发送咨询
           </button>

@@ -170,7 +170,7 @@ export default function Page() {
       >
 
         {/* Giriş Kutusu */}
-        <div className="bg-blue-50/50 p-6 rounded-xl border-l-4 border-blue-500 mb-8">
+        <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium italic m-0">
             Bir ürün lansmanı, markanızın yeni hikayesinin başladığı kritik andır. Bu anın kalıcılığı, sadece sunulan ürünle değil, sunumun teknik kalitesiyle de doğrudan ilişkilidir.
           </p>
@@ -260,32 +260,32 @@ export default function Page() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Strateji &amp; Konsept</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Strateji &amp; Konsept</th>
                 <td className="p-4">T-60 Gün</td>
                 <td className="p-4">Mekân seçimi ve teknik ihtiyaç analizi.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Teknik Keşif</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Teknik Keşif</th>
                 <td className="p-4">T-45 Gün</td>
                 <td className="p-4">Akustik kontrol, elektrik yükü ve zemin analizi.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Tasarım &amp; Planlama</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Tasarım &amp; Planlama</th>
                 <td className="p-4">T-30 Gün</td>
                 <td className="p-4">3D sahne tasarımı ve ışık senaryosu oluşturma.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Kurulum &amp; Test</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Kurulum &amp; Test</th>
                 <td className="p-4">T-2 Gün</td>
                 <td className="p-4">Sistemin kurulması ve tüm ekipmanların stress testi.</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Prova</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Prova</th>
                 <td className="p-4">T-1 Gün</td>
                 <td className="p-4">Ses, ışık ve sunum senkronizasyonu (Genel Prova).</td>
               </tr>
               <tr className="hover:bg-gray-50 transition-colors">
-                <th scope="row" className="p-4 font-bold text-blue-600">Lansman Günü</th>
+                <th scope="row" className="p-4 font-bold text-violet-600">Lansman Günü</th>
                 <td className="p-4">D-Day</td>
                 <td className="p-4">Canlı reji, operasyon yönetimi ve anlık kriz kontrolü.</td>
               </tr>
@@ -322,7 +322,7 @@ export default function Page() {
             </p>
             <Link
               href="/blog/milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi"
-              className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+              className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-800 transition-colors"
             >
               Projenin Detaylarını İnceleyin →
             </Link>
@@ -334,7 +334,7 @@ export default function Page() {
         <section aria-labelledby="faq-heading" className="not-prose space-y-3 mt-6">
           <h3 id="faq-heading" className="sr-only">Sıkça Sorulan Sorular</h3>
           {FAQ_ITEMS.map((item, index) => (
-            <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-blue-100 open:border-blue-300 transition-all duration-200">
+            <details key={index} className="group bg-white border border-gray-200 rounded-xl overflow-hidden open:ring-2 open:ring-violet-100 open:border-violet-300 transition-all duration-200">
               <summary
                 className="flex items-center justify-between p-4 md:p-5 cursor-pointer font-semibold text-gray-800 select-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
               >
@@ -349,11 +349,11 @@ export default function Page() {
         </section>
 
         {/* BOTTOM CTA */}
-        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+        <div className="not-prose mt-16 bg-gradient-to-br from-gray-900 to-violet-900 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
           <h3 className="text-2xl md:text-3xl font-black mb-4 relative z-10">Markanızı Sahneye Taşımaya Hazır mısınız?</h3>
-          <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
+          <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
             Ürün lansmanınızı sıradan bir etkinlikten öteye taşıyıp gerçekten unutulmaz bir deneyime dönüştürelim. Teknik detayları ve stresi bize bırakın, siz sadece başarınızın tadını çıkarın.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -366,10 +366,10 @@ export default function Page() {
             >
               <span>💬</span> WhatsApp&apos;tan Yazın
             </a>
-            <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+            <a href="tel:+905453048671" className="inline-flex items-center justify-center gap-2 bg-white text-violet-900 hover:bg-violet-50 font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
               <span>📞</span> Hemen Arayın
             </a>
-            <a href="mailto:info@sahneva.com" className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
+            <a href="mailto:info@sahneva.com" className="inline-flex items-center justify-center gap-2 bg-violet-700 hover:bg-violet-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg">
               <span>✉️</span> E-posta Gönderin
             </a>
           </div>

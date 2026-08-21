@@ -28,11 +28,11 @@ export function SectionShell({ variant = "light", id, labelledBy, children }) {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {variant === "ink" ? (
           <>
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/60" />
           </>
         ) : (
-          <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
+          <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
         )}
       </div>
       <div className="relative container mx-auto px-4">{children}</div>
@@ -52,7 +52,7 @@ export function SectionHead({ id, kicker, title, desc, dark = false, center = fa
               : "border-slate-200 bg-white text-slate-700",
           ].join(" ")}
         >
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+          <span className="h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
           <span className="font-semibold">{kicker}</span>
         </div>
       ) : null}
@@ -109,7 +109,7 @@ export function BulletCard({ title, intro, items = [], dark = false }) {
         <ul className={`mt-4 space-y-2 text-sm ${dark ? "text-white/75" : "text-slate-700"}`}>
           {items.map((item) => (
             <li key={item} className="flex gap-2">
-              <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
+              <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" aria-hidden="true" />
               <span className="leading-relaxed">{item}</span>
             </li>
           ))}
@@ -189,9 +189,9 @@ export function SiblingLinks({ title, intro, links = [] }) {
             <Link
               href={link.href}
               prefetch={false}
-              className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-blue-300 hover:shadow-md"
+              className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-violet-300 hover:shadow-md"
             >
-              <span className="text-base font-bold text-slate-950 group-hover:text-blue-800">
+              <span className="text-base font-bold text-slate-950 group-hover:text-violet-800">
                 {link.label}
               </span>
               <span className="mt-2 text-sm leading-relaxed text-slate-600">{link.desc}</span>
@@ -212,7 +212,7 @@ export function CtaBand({ title, desc, primary, secondary }) {
         {primary ? (
           <Link
             href={primary.href}
-            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-blue-900 transition hover:bg-blue-50"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-violet-900 transition hover:bg-violet-50"
           >
             {primary.label}
           </Link>

@@ -230,10 +230,10 @@ export default function GermanMicePage() {
           sizes="100vw"
           className="object-cover opacity-55"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/72 to-slate-950/92" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950/72 to-slate-950/92" />
         <div className="container relative z-10 mx-auto px-4 py-20 md:py-24">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-cyan-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-cyan-100 backdrop-blur">
+            <p className="inline-flex rounded-full border border-violet-200/25 bg-white/10 px-4 py-2 text-sm font-black uppercase tracking-[0.16em] text-violet-100 backdrop-blur">
               MICE Türkei
             </p>
             <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
@@ -266,7 +266,7 @@ export default function GermanMicePage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Die vier Formate
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -278,14 +278,14 @@ export default function GermanMicePage() {
               <Link
                 key={pillar.letter}
                 href={pillar.href}
-                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
+                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-xl font-black text-white">
                   {pillar.letter}
                 </span>
                 <h3 className="mt-4 text-xl font-black text-slate-950">{pillar.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-700">{pillar.text}</p>
-                <span className="mt-4 inline-flex text-sm font-black text-indigo-700 group-hover:text-indigo-900">
+                <span className="mt-4 inline-flex text-sm font-black text-violet-700 group-hover:text-violet-900">
                   Passende Technik →
                 </span>
               </Link>
@@ -297,7 +297,7 @@ export default function GermanMicePage() {
       <section className="bg-slate-50 py-16 md:py-20">
         <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Zusammenarbeit
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -326,7 +326,7 @@ export default function GermanMicePage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Leistungsumfang
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950 md:text-5xl">
@@ -349,7 +349,7 @@ export default function GermanMicePage() {
       <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
               Destinationen
             </p>
             <h2 className="mt-3 text-3xl font-black md:text-5xl">
@@ -373,7 +373,7 @@ export default function GermanMicePage() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Häufige Fragen
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">

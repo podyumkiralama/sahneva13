@@ -95,8 +95,8 @@ const ZH_SERVICES = [
 
 const HERO_DICTIONARY = {
   keywords: [
-    { text: "展会", color: "text-blue-200" },
-    { text: "新品发布会", color: "text-cyan-200" },
+    { text: "展会", color: "text-violet-200" },
+    { text: "新品发布会", color: "text-violet-200" },
     { text: "经销商大会", color: "text-purple-200" },
     { text: "企业活动", color: "text-emerald-200" },
     { text: "品牌活动", color: "text-amber-200" },
@@ -139,13 +139,13 @@ const HERO_BELOW_DICTIONARY = {
       icon: "01",
       title: "土耳其本地团队",
       description: "本地沟通、场地协调、物流安排与现场执行由一个团队负责。",
-      color: "text-cyan-300",
+      color: "text-violet-300",
     },
     {
       icon: "02",
       title: "清晰方案与报价",
       description: "根据场地和活动流程明确设备、人员、工期与执行范围。",
-      color: "text-blue-300",
+      color: "text-violet-300",
     },
     {
       icon: "03",
@@ -437,7 +437,7 @@ export default function ChineseHomePage() {
               >
                 第三届土耳其—中国经贸论坛（TCBC）
               </h2>
-              <p className="mt-3 font-bold text-blue-200">伊斯坦布尔｜2026年2月7日</p>
+              <p className="mt-3 font-bold text-violet-200">伊斯坦布尔｜2026年2月7日</p>
               <p className="mt-5 text-base leading-8 text-white/80">
                 该会议由 DEİK、TÜSİAD 与中国国际贸易促进委员会（CCPIT）共同举办。图中为
                 Sahneva 团队完成的活动现场，展示了我们在中土商务会议中的本地技术执行能力。
@@ -485,7 +485,7 @@ export default function ChineseHomePage() {
       <section className="bg-white py-14 md:py-18" aria-labelledby="zh-local-advantages-title">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               土耳其本地优势
             </p>
             <h2
@@ -503,7 +503,7 @@ export default function ChineseHomePage() {
             {ZH_LOCAL_ADVANTAGES.map(({ Icon, title, description }) => (
               <li key={title} className="h-full">
                 <article className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                  <Icon className="h-7 w-7 text-indigo-600" aria-hidden="true" />
+                  <Icon className="h-7 w-7 text-violet-600" aria-hidden="true" />
                   <h3 className="mt-4 text-lg font-black text-slate-950">{title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-700">{description}</p>
                 </article>
@@ -516,7 +516,7 @@ export default function ChineseHomePage() {
       <section className="content-visibility-auto [contain-intrinsic-size:auto_1150px] lg:[contain-intrinsic-size:auto_680px] bg-slate-50 py-14 md:py-18">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               项目类型
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -528,11 +528,11 @@ export default function ChineseHomePage() {
               <Link
                 key={format.title}
                 href={format.href}
-                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
+                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl"
               >
                 <h3 className="text-xl font-black text-slate-950">{format.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-700">{format.text}</p>
-                <span className="mt-5 inline-flex text-sm font-black text-indigo-700 group-hover:text-indigo-900">
+                <span className="mt-5 inline-flex text-sm font-black text-violet-700 group-hover:text-violet-900">
                   了解详情
                 </span>
               </Link>
@@ -548,7 +548,7 @@ export default function ChineseHomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
                 常见问题
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">

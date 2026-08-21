@@ -35,7 +35,7 @@ export default function RegionalCityLinks({ service = "etkinlik ekipmanı kirala
           id="bolgesel-kiralama-baslik"
           className="mb-4 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl"
         >
-          Türkiye Genelinde <span className="text-blue-700">Bölgesel Kiralama</span>
+          Türkiye Genelinde <span className="text-violet-700">Bölgesel Kiralama</span>
         </h2>
 
         <p className="text-lg leading-relaxed text-gray-700">
@@ -51,7 +51,7 @@ export default function RegionalCityLinks({ service = "etkinlik ekipmanı kirala
 
         <Link
           href="/bolgesel-kiralama"
-          className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-blue-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200"
+          className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-violet-700 px-7 py-3 font-black text-white shadow-lg transition hover:bg-violet-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
         >
           Bölgesel kurulum ve lojistik planı
         </Link>

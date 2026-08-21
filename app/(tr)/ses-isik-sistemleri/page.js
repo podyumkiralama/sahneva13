@@ -42,7 +42,7 @@ const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
   loading: () => (
     <div className="flex justify-center items-center h-64" role="status" aria-label="Galeri yükleniyor">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" aria-hidden="true" />
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600" aria-hidden="true" />
       <span className="sr-only">Galeri yükleniyor...</span>
     </div>
   )
@@ -299,11 +299,11 @@ function FeaturedBrands() {
 /* ================== Hizmetler ================== */
 function Services() {
   return (
-    <section id="hizmetler" className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-blue-50/50" aria-labelledby="hizmetler-baslik">
+    <section id="hizmetler" className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="hizmetler-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Ses ve Işık Sistemleri <span className="text-blue-700">Kiralama Hizmetleri</span>
+            Ses ve Işık Sistemleri <span className="text-violet-700">Kiralama Hizmetleri</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık sistemleri kiralama hizmetlerimiz: keşif, projelendirme, kurulum, canlı operasyon ve söküm
@@ -322,7 +322,7 @@ function Services() {
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                     {service.icon}
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -331,7 +331,7 @@ function Services() {
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
                         <span className="text-base">{feature}</span>
                       </li>
                     ))}
@@ -347,7 +347,7 @@ function Services() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Detaylı Teklif için İletişime Geçin</span>
@@ -400,7 +400,7 @@ function Gallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Proje <span className="text-blue-700">Galerimiz</span>
+            Proje <span className="text-violet-700">Galerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Gerçekleştirdiğimiz başarılı ses ve ışık sistemi kurulumlarından örnekler
@@ -474,7 +474,7 @@ function Technical() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Teknik <span className="text-blue-700">Altyapımız</span>
+            Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             En son teknoloji ekipmanlar ve profesyonel teknik altyapı ile hizmetinizdeyiz
@@ -485,7 +485,7 @@ function Technical() {
           {technicalItems.map((item) => (
             <div key={item.category} className="group">
               <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl group-hover:scale-105 transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-blue-600 transition-colors flex items-center gap-3">
+                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-violet-600 transition-colors flex items-center gap-3">
                   <span className="text-3xl" aria-hidden="true">
                     {item.category === "pa" && "🔊"}
                     {item.category === "mixer" && "🎛️"}
@@ -502,7 +502,7 @@ function Technical() {
                 <ul className="space-y-3">
                   {item.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3 text-gray-700">
-                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0" aria-hidden="true" />
+                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
                       <span className="text-base">{feature}</span>
                     </li>
                   ))}
@@ -526,7 +526,7 @@ function StatsBand() {
   ];
   
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white" aria-label="Başarı İstatistiklerimiz">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-label="Başarı İstatistiklerimiz">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
@@ -549,7 +549,7 @@ function StatsBand() {
                 </h3>
                 <p
                   id={`tr-stat-${index}-label`}
-                  className="text-blue-100 text-lg font-semibold"
+                  className="text-violet-100 text-lg font-semibold"
                 >
                   {stat.label}
                 </p>
@@ -565,16 +565,16 @@ function StatsBand() {
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-blue-900/95" aria-labelledby="kullanim-alanlari-baslik">
+    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Kullanım <span className="text-cyan-300">Alanları</span>
+            Kullanım <span className="text-violet-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık çözümlerimizin tercih edildiği başlıca etkinlik türleri ve özel çözümlerimiz
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
+          <div className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto list-none">
@@ -586,7 +586,7 @@ function UseCases() {
                     {uc.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
                       {uc.text}
                     </h3>
                     <p className="text-white/70 text-lg leading-relaxed">
@@ -604,7 +604,7 @@ function UseCases() {
             href={WHATSAPP}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span aria-hidden="true" className="text-xl mr-3">💬</span>
             <span>Etkinliğiniz için Özel Çözüm Alın</span>
@@ -622,7 +622,7 @@ function Articles() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Bilgi & <span className="text-blue-700">Profesyonel Rehber</span>
+            Bilgi & <span className="text-violet-700">Profesyonel Rehber</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık sistemleri hakkında uzman görüşleri ve teknik bilgiler
@@ -632,30 +632,30 @@ function Articles() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Ana Makale */}
           <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-blue-700 via-purple-700 to-blue-800 text-white p-8 md:p-10 relative overflow-hidden">
+            <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">📚 Kapsamlı Rehber</span>
                   <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">⭐ Uzman Görüşü</span>
-                  <span className="bg-blue-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Pratik Çözümler</span>
+                  <span className="bg-violet-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Pratik Çözümler</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
                   Profesyonel Ses ve Işık Sistemleri: Etkinlik Başarınız İçin Tam Kapsamlı Çözümler
                 </h3>
-                <p className="text-blue-100 mt-4 text-lg md:text-xl leading-relaxed">
+                <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
                   Kurumsal standartlar, hızlı kurulum süreçleri ve ölçülebilir kalite garantisi ile etkinliklerinizde mükemmel performans
                 </p>
               </div>
             </header>
 
             <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-blue-500">
+              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-violet-500">
                 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="space-y-6">
                     <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-blue-100 text-blue-600 rounded-2xl p-3" aria-hidden="true">🔊</span>
+                      <span className="bg-violet-100 text-violet-600 rounded-2xl p-3" aria-hidden="true">🔊</span>
                       Ses Sistemleri ve Teknolojileri
                     </h4>
                     <p>
@@ -689,8 +689,8 @@ function Articles() {
                 </div>
 
                 {/* Önemli Bilgi Kutusu */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 rounded-r-2xl p-6 mb-8">
-                  <h5 className="font-black text-blue-700 text-xl mb-4 flex items-center gap-3">
+                <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-l-4 border-violet-500 rounded-r-2xl p-6 mb-8">
+                  <h5 className="font-black text-violet-700 text-xl mb-4 flex items-center gap-3">
                     <span className="text-2xl" aria-hidden="true">💡</span> 
                     Profesyonel Uygulama Stratejisi
                   </h5>
@@ -730,13 +730,13 @@ function Articles() {
                         desc: "Soundcheck ve cue planlı ışık programlama" 
                       },
                     ].map((item, index) => (
-                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-blue-200">
+                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200">
                         <div className="flex items-start gap-4">
                           <span className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
                             {item.icon}
                           </span>
                           <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                               {item.title}
                             </h5>
                             <p className="text-gray-600 leading-relaxed">
@@ -766,11 +766,11 @@ function Articles() {
 
           {/* Yan Makaleler */}
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-purple-600 to-violet-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Teknik Entegrasyon ve Uygulama Süreçleri
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Akışa göre programlanmış ışık show ve profesyonel FOH miksaj çözümleri
               </p>
             </header>
@@ -815,11 +815,11 @@ function Articles() {
           </article>
 
           <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 md:p-8">
+            <header className="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                 Etkinlik Türlerine Özel Çözümler
               </h3>
-              <p className="text-blue-100 mt-2 text-lg">
+              <p className="text-violet-100 mt-2 text-lg">
                 Her etkinlik türüne özel ses ve ışık stratejileri ve teknik çözümler
               </p>
             </header>
@@ -827,9 +827,9 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <div className="space-y-6">
-                  <div className="bg-blue-50 rounded-2xl p-5 border border-blue-200">
+                  <div className="bg-violet-50 rounded-2xl p-5 border border-violet-200">
                     <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-blue-100 text-blue-600 rounded-xl p-2" aria-hidden="true">🏢</span>
+                      <span className="bg-violet-100 text-violet-600 rounded-xl p-2" aria-hidden="true">🏢</span>
                       Kurumsal Etkinlikler
                     </h4>
                     <p className="text-gray-700 text-base mb-0">
@@ -901,7 +901,7 @@ function FAQ() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Sık Sorulan <span className="text-blue-700">Sorular</span>
+            Sık Sorulan <span className="text-violet-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Ses ve ışık sistemleri kiralama hakkında merak edilen sorular ve cevapları
@@ -912,7 +912,7 @@ function FAQ() {
           {FAQ_ITEMS.map((faq, index) => (
             <details 
               key={index} 
-              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-blue-50 open:border-blue-200 border-2 border-transparent open:border"
+              className="group bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-all duration-500 open:bg-violet-50 open:border-violet-200 border-2 border-transparent open:border"
             >
             <summary
   className="cursor-pointer list-none flex items-center justify-between text-xl font-bold text-gray-900"
@@ -921,12 +921,12 @@ function FAQ() {
                 <span className="pr-4">{faq.q}</span>
                 <span 
                   aria-hidden="true" 
-                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-blue-600 bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                  className="ml-4 transition-transform duration-500 group-open:rotate-180 text-violet-600 bg-violet-100 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
                 >
                   ⌄
                 </span>
               </summary>
-              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-blue-500" role="region">
+              <div className="mt-6 text-gray-700 leading-relaxed text-lg pl-4 border-l-4 border-violet-500" role="region">
                 {faq.a}
               </div>
             </details>
@@ -939,7 +939,7 @@ function FAQ() {
           </p>
           <Link
             href="/sss"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
             aria-label="Sık Sorulan Sorular sayfasındaki tüm soruları görüntüle"
           >
             <span aria-hidden="true" className="text-xl mr-3">📚</span>
@@ -989,7 +989,7 @@ function RelatedServices() {
   
   return (
     <section 
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-100/30" 
+      className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30" 
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
@@ -999,7 +999,7 @@ function RelatedServices() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Tamamlayıcı{" "}
-            <span className="text-blue-700">
+            <span className="text-violet-700">
               Hizmetlerimiz
             </span>
           </h2>
@@ -1007,7 +1007,7 @@ function RelatedServices() {
             Ses ve ışık sistemlerinizi tamamlayacak diğer profesyonel etkinlik çözümlerimiz
           </p>
           <div 
-            className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8 rounded-full" 
+            className="w-32 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8 rounded-full" 
             aria-hidden="true" 
           />
         </div>
@@ -1018,15 +1018,15 @@ function RelatedServices() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
+                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
               >
                 <div 
-                  className="mb-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" 
+                  className="mb-6 text-violet-600 group-hover:scale-110 transition-transform duration-300" 
                   aria-hidden="true"
                 >
                   <service.Icon size={36} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors mb-4 flex-grow">
+                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -1053,20 +1053,20 @@ function CTA() {
   return (
     <section className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
           <div className="relative z-10">
             <h2 id="cta-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Profesyonel Ses & Işık Çözümlerine Hazır Mısınız?
             </h2>
-            <p className="text-blue-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun ses ve ışık sistemlerini sunalım. Ücretsiz keşif, profesyonel danışmanlık ve 
               kalem kalem şeffaf fiyatlandırma ile hizmetinizdeyiz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
                 href="/iletisim" 
-                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-blue-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
+                className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
               >
                 <span aria-hidden="true" className="text-xl mr-3">📞</span> 
                 <span className="text-lg">Hemen Teklif Al</span>
@@ -1081,7 +1081,7 @@ function CTA() {
                 <span className="text-lg">WhatsApp'tan Yaz</span>
               </a>
             </div>
-            <div className="mt-8 text-blue-200 text-lg">
+            <div className="mt-8 text-violet-200 text-lg">
               📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>

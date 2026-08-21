@@ -1,8 +1,8 @@
 // app/hizmetler/page.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
-import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
@@ -238,7 +238,7 @@ function ServicesTabsFallback() {
           <ul className="grid md:grid-cols-2 gap-3">
             {service.items.map((item, itemIndex) => (
               <li key={itemIndex} className="flex items-center gap-3 text-neutral-700">
-                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                <div className="w-2 h-2 bg-violet-500 rounded-full flex-shrink-0" />
                 {item}
               </li>
             ))}
@@ -264,7 +264,7 @@ export default function ServicesPage() {
       title: "Sahne Kiralama", 
       description: "Truss sistemleri, modüler sahne, profesyonel kurulum",
       icon: "🎪",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-violet-600 to-purple-500"
     },
     {
       href: "/podyum-kiralama",
@@ -285,7 +285,7 @@ export default function ServicesPage() {
       title: "Türkiye’de Etkinlik Çözüm Ortağı",
       description: "Yabancı ajans ve markalar için yerel teknik prodüksiyon desteği",
       icon: "ğŸŒ",
-      color: "from-sky-500 to-indigo-500"
+      color: "from-violet-600 to-purple-500"
     },
     {
       href: "/ses-isik-sistemleri",
@@ -299,21 +299,21 @@ export default function ServicesPage() {
       title: "Çadır Kiralama",
       description: "Pagoda, şeffaf, endüstriyel çadır sistemleri",
       icon: "⛺",
-      color: "from-teal-500 to-blue-500"
+      color: "from-teal-500 to-violet-500"
     },
     {
       href: "/masa-sandalye-kiralama",
       title: "Masa & Sandalye",
       description: "Banket, konferans, bistro tipi mobilyalar",
       icon: "🪑",
-      color: "from-indigo-500 to-purple-500"
+      color: "from-violet-500 to-purple-500"
     },
     {
       href: "/dijital-kursu-kiralama",
       title: "Dijital Kürsü Kiralama",
       description: "LED ekranlı ve şeffaf dijital sunum kürsüleri",
       icon: "🎙️",
-      color: "from-blue-500 to-indigo-500"
+      color: "from-violet-600 to-purple-500"
     }
   ];
 
@@ -381,146 +381,52 @@ export default function ServicesPage() {
       {/* Skip to Main Content */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-3 focus:left-3 focus:bg-violet-600 focus:text-white focus:px-4 focus:py-3 focus:rounded-lg focus:font-semibold focus:shadow-lg transition-all duration-200"
       >
         Ana içeriğe atla
       </a>
 
-    {/* ✅ HERO SECTION - Premium + GSC-safe */}
-<section
-  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white overflow-hidden"
-  aria-labelledby="hero-title"
->
-  {/* FULL-BLEED BACKGROUND */}
-  <div className="absolute inset-0 pointer-events-none">
-    <Image
-      src="/img/hizmetler-hero.webp"
-      alt="Sahneva Hizmetler - Profesyonel Etkinlik Ekipmanları ve Teknoloji Çözümleri"
-      fill
-      priority
-      fetchPriority="high"
-      quality={80}
-      sizes="100vw"
-      className="object-cover object-center"
-    />
-
-    {/* okunabilirlik için film (morluk kontrollü) */}
-    <div className="absolute inset-0 bg-black/40" />
-
-    {/* gradient (soft) */}
-    <div
-      className="absolute inset-0"
-      aria-hidden="true"
-      style={{
-        background:
-          "linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,58,138,0.35) 45%, rgba(88,28,135,0.28) 100%)",
-      }}
-    />
-
-    {/* grid overlay (faq vibe) */}
-    <div
-      className="absolute inset-0 opacity-35"
-      aria-hidden="true"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
-    />
-
-    {/* glow blobs (soft) */}
-    <div className="absolute -top-28 -right-28 w-96 h-96 bg-purple-500/14 rounded-full blur-3xl" />
-    <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-blue-500/14 rounded-full blur-3xl" />
-  </div>
-
-  {/* BIG BACKGROUND TEXT */}
-  <div
-    className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
-    aria-hidden="true"
-  >
-    <span className="text-[120px] lg:text-[180px] font-black text-white/5 tracking-wider">
-      HİZMETLER
-    </span>
-  </div>
-
-  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
-  <div className="relative z-10">
-    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
-      <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-        <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md rounded-full px-6 py-3 border border-white/30 mb-6">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true" />
-          <span className="text-white/90 text-sm font-medium">
-            Türkiye Geneli Profesyonel Hizmet
-          </span>
-        </div>
-
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_12px_35px_rgba(0,0,0,0.55)]"
-        >
-          <span className="block">PROFESYONEL</span>{" "}
-          {/* ✅ gradient-text yerine güvenli vurgu */}
-          <span className="text-blue-200">Hizmetlerimiz</span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-          Sahne, LED ekran, ses-ışık sistemlerinden komple etkinlik prodüksiyonuna kadar
-          <br />
-          <strong className="text-blue-300">tek çatı altında premium çözümler</strong>
-        </p>
-
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a
-            href="#hizmet-listesi"
-            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            aria-label="Hizmetlerimizi inceleyin"
-          >
-            <span className="flex items-center gap-2">
-              Hizmetleri Keşfet
-              <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">
-                →
-              </span>
-            </span>
-          </a>
-
-          <a
-            href="tel:+905453048671"
-            className="group bg-white/20 backdrop-blur-md hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            aria-label="Hemen ara - Detaylı bilgi için"
-          >
-            📞 Hemen Ara
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Scroll hint */}
-  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true">
-    <div className="animate-bounce">
-      <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-        <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
-      </div>
-    </div>
-  </div>
-
-  {/* alt geçiş */}
-  <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
-</section>
+      {/* ================== HERO ================== */}
+      <PageHero
+        eyebrow="Türkiye geneli profesyonel hizmet"
+        title="Profesyonel"
+        titleAccent="Hizmetlerimiz"
+        description="Sahne, LED ekran, ses-ışık sistemlerinden komple etkinlik prodüksiyonuna kadar <strong>tek çatı altında premium çözümler</strong>."
+        actions={[
+          {
+            key: "services",
+            label: "Hizmetleri Keşfet",
+            href: "#hizmet-listesi",
+            ariaLabel: "Hizmetlerimizi inceleyin",
+          },
+          {
+            key: "call",
+            label: "Hemen Ara",
+            href: "tel:+905453048671",
+            ariaLabel: "Hemen ara - Detaylı bilgi için",
+          },
+        ]}
+        image={{
+          src: "/img/hizmetler-hero.webp",
+          alt: "Sahneva Hizmetler - Profesyonel Etkinlik Ekipmanları ve Teknoloji Çözümleri",
+          sizes: "100vw",
+          quality: 78,
+        }}
+      />
 
 <div id="main" className="relative" style={{ color: "#0f172a" }}>
 
         {/* ✅ HIZLI ERİŞİM KARTLARI */}
-        <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
+        <section className="py-20 bg-gradient-to-br from-white to-violet-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Tüm <span className="text-blue-700">Hizmetlerimiz</span>
+                Tüm <span className="text-violet-700">Hizmetlerimiz</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Etkinliğiniz için ihtiyaç duyduğunuz tüm ekipman ve hizmetleri tek noktadan temin edin
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8"></div>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -528,19 +434,19 @@ export default function ServicesPage() {
                 <Link
                   key={index}
                   href={service.href}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105"
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105"
                   aria-label={`${service.title} sayfasına git`}
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-3 group-hover:text-violet-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed text-sm">
                     {service.description}
                   </p>
-                  <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold text-sm">
+                  <div className="mt-4 flex items-center gap-2 text-violet-600 font-semibold text-sm">
                     <span>Detayları Gör</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -551,28 +457,28 @@ export default function ServicesPage() {
         </section>
 
         {/* ✅ HİZMET ÖZELLİKLERİ */}
-        <section className="py-20 bg-gradient-to-br from-neutral-50 to-blue-100/30">
+        <section className="py-20 bg-gradient-to-br from-neutral-50 to-violet-100/30">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Neden <span className="text-blue-700">Sahneva?</span>
+                Neden <span className="text-violet-700">Sahneva?</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 {YEARS_OF_EXPERIENCE} yıllık deneyimimiz ve uzman ekibimizle fark yaratıyoruz
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {SERVICE_FEATURES.map((feature, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center"
                 >
                   <div className="text-4xl mb-4 gradient-text gradient-text--safe-xl">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-black text-neutral-900 mb-4 group-hover:text-violet-600 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-neutral-700 leading-relaxed">
@@ -589,12 +495,12 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Komple <span className="text-blue-700">Etkinlik Çözümleri</span>
+                Komple <span className="text-violet-700">Etkinlik Çözümleri</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Sahne kurulumundan organizasyon yönetimine kadar tüm süreci profesyonelce yönetiyoruz
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8"></div>
             </div>
 
             <ServicesTabsFallback />
@@ -605,12 +511,12 @@ export default function ServicesPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-                Planlama <span className="text-blue-700">Rehberleri</span>
+                Planlama <span className="text-violet-700">Rehberleri</span>
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 Teklif almadan önce ekipman, keşif ve bütçe kararlarını daha netleştirmek için ilgili rehberlere göz atın.
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -618,15 +524,15 @@ export default function ServicesPage() {
                 <Link
                   key={guide.href}
                   href={guide.href}
-                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+                  className="group rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-lg"
                 >
-                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-lg font-black text-neutral-900 group-hover:text-violet-700 transition-colors">
                     {guide.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-neutral-700">
                     {guide.description}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-blue-700">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-violet-700">
                     Rehberi incele
                     <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
                       →
@@ -639,16 +545,16 @@ export default function ServicesPage() {
         </section>
 
         {/* ✅ EK HİZMETLER */}
-        <section className="py-20 bg-gradient-to-br from-neutral-900 to-blue-900/95">
+        <section className="py-20 bg-gradient-to-br from-neutral-900 to-violet-900/95">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Ek <span className="text-blue-200">Hizmetlerimiz</span>
+                Ek <span className="text-violet-200">Hizmetlerimiz</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Etkinliğinizin kusursuz geçmesi için ihtiyaç duyabileceğiniz tüm destek hizmetleri
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-8"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8"></div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
@@ -667,7 +573,7 @@ export default function ServicesPage() {
                       "Güvenlik ve crowd management"
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                        <div className="w-2 h-2 bg-violet-400 rounded-full flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -746,7 +652,7 @@ export default function ServicesPage() {
         <WebMcpServiceTools locale="tr" contactHref="/iletisim" />
 
         {/* ✅ CTA SECTION */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+        <section className="py-20 bg-gradient-to-br from-violet-600 to-purple-600">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Hemen <span className="text-yellow-300">Teklif Alın</span>
@@ -758,7 +664,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <a
                 href="tel:+905453048671"
-                className="group bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-white text-violet-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Hemen ara - Detaylı teklif için"
               >
                 <span className="flex items-center justify-center gap-2">

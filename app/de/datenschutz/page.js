@@ -187,7 +187,7 @@ export default function GermanPrivacyPage() {
 
       <div className="container mx-auto max-w-4xl px-4 py-16 md:py-20">
         <header className="border-b border-white/10 pb-8">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">
             Rechtliche Hinweise
           </p>
           <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -224,12 +224,12 @@ export default function GermanPrivacyPage() {
                   34400 Kağıthane / Istanbul, Türkei
                   <br />
                   Telefon:{" "}
-                  <a className="font-bold text-cyan-200 hover:text-white" href={`tel:${PHONE}`}>
+                  <a className="font-bold text-violet-200 hover:text-white" href={`tel:${PHONE}`}>
                     +90 545 304 86 71
                   </a>
                   <br />
                   E-Mail:{" "}
-                  <a className="font-bold text-cyan-200 hover:text-white" href={`mailto:${MAIL}`}>
+                  <a className="font-bold text-violet-200 hover:text-white" href={`mailto:${MAIL}`}>
                     {MAIL}
                   </a>
                 </address>
@@ -240,7 +240,7 @@ export default function GermanPrivacyPage() {
                   {section.list.map((item) => (
                     <li key={item} className="flex gap-3 text-base leading-8 text-slate-300">
                       <span
-                        className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300"
+                        className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-300"
                         aria-hidden="true"
                       />
                       <span>{item}</span>
@@ -261,12 +261,12 @@ export default function GermanPrivacyPage() {
             <p className="mt-4 text-base leading-8 text-slate-300">
               Für Auskünfte, Löschungen oder den Widerruf einer Einwilligung genügt eine formlose
               Nachricht an{" "}
-              <a className="font-bold text-cyan-200 hover:text-white" href={`mailto:${MAIL}`}>
+              <a className="font-bold text-violet-200 hover:text-white" href={`mailto:${MAIL}`}>
                 {MAIL}
               </a>
               . Wir bearbeiten Ihr Anliegen innerhalb der gesetzlichen Fristen. Für Fragen zu einem
               laufenden Projekt erreichen Sie uns über die{" "}
-              <Link className="font-bold text-cyan-200 hover:text-white" href="/de/kontakt">
+              <Link className="font-bold text-violet-200 hover:text-white" href="/de/kontakt">
                 Kontaktseite
               </Link>
               .

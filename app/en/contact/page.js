@@ -129,14 +129,14 @@ export default function ContactPage() {
 
 {/* HERO */}
 <section
-  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white"
+  className="relative bg-gradient-to-br from-slate-900 via-violet-900 to-purple-900 pt-14 lg:pt-16 text-white"
   aria-labelledby="hero-title"
 >
   {/* BACKGROUND EFFECTS */}
   <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
     <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/25 rounded-full blur-3xl" />
-    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/25 rounded-full blur-3xl" />
-    <div className="absolute top-40 left-1/2 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl -translate-x-1/2" />
+    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-500/25 rounded-full blur-3xl" />
+    <div className="absolute top-40 left-1/2 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl -translate-x-1/2" />
 
     {/* dark overlay */}
     <div className="absolute inset-0 bg-black/35" />
@@ -170,13 +170,13 @@ export default function ContactPage() {
           className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.55)]"
         >
           <span className="block">GET IN</span>{" "}
-          <span className="text-blue-200">Touch</span>
+          <span className="text-violet-200">Touch</span>
         </h1>
 
         {/* Description */}
         <p className="text-lg md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
           Tell us about your event so we can deliver the{" "}
-          <strong className="text-blue-300">best technical solution</strong>
+          <strong className="text-violet-300">best technical solution</strong>
           <br />
           <strong className="text-purple-300">
             Detailed proposals within 2 hours
@@ -208,7 +208,7 @@ export default function ContactPage() {
         style={{ color: "#0f172a" }}
       >
         {/* Quick contact cards */}
-        <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
+        <section className="py-20 bg-gradient-to-br from-white to-violet-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             
               <div className="text-center mb-16">
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                   Choose the channel that works for you and we will reply within two hours.
                 </p>
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+                <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
               </div>
             
 
@@ -238,7 +238,7 @@ export default function ContactPage() {
                     info="+90 545 304 86 71"
                     description="Speak immediately with our production specialists."
                     href={`tel:${PHONE}`}
-                    color="from-blue-700 to-cyan-700"
+                    color="from-violet-700 to-purple-700"
                     buttonText="Call Now"
                   />
                 
@@ -272,7 +272,7 @@ export default function ContactPage() {
         </section>
 
         {/* Map + Form */}
-        <section className="py-20 bg-gradient-to-br from-neutral-50 to-blue-100/30">
+        <section className="py-20 bg-gradient-to-br from-neutral-50 to-violet-100/30">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Map and location */}
@@ -288,7 +288,7 @@ export default function ContactPage() {
                     <p className="text-xl text-neutral-600 mb-8">
                       We operate nationwide. Use the map to plan a visit to our Istanbul headquarters.
                     </p>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 lg:mx-0 mx-auto" />
+                    <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 lg:mx-0 mx-auto" />
                   </div>
                 
 
@@ -313,7 +313,7 @@ export default function ContactPage() {
                       href={GMB_PROFILE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gradient-to-r from-blue-700 to-purple-800 hover:from-blue-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl text-center transition-all duration-300 hover:scale-105 shadow-lg"
+                      className="flex-1 bg-gradient-to-r from-violet-700 to-purple-800 hover:from-violet-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl text-center transition-all duration-300 hover:scale-105 shadow-lg"
                       aria-label="Open Sahneva on Google Maps (opens in a new tab)"
                     >
                       <span className="flex items-center justify-center gap-2">
@@ -344,7 +344,7 @@ export default function ContactPage() {
                       <InfoRow label="Phone" icon="📞">
                         <a
                           href={`tel:${PHONE}`}
-                          className="text-blue-600 hover:text-blue-700 font-medium"
+                          className="text-violet-600 hover:text-violet-700 font-medium"
                         >
                           {PHONE}
                         </a>
@@ -400,7 +400,7 @@ export default function ContactPage() {
                     className="space-y-6"
                   >
                     <div
-                      className="p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-blue-900"
+                      className="p-4 bg-violet-50 border border-violet-100 rounded-xl text-sm text-violet-900"
                       role="status"
                       aria-live="polite"
                     >
@@ -425,7 +425,7 @@ export default function ContactPage() {
                           placeholder="Your name"
                           aria-describedby="name-help"
                           {...WEB_MCP_QUOTE_FIELD_PROPS.name}
-                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                           required
                           autoComplete="name"
                           inputMode="text"
@@ -448,7 +448,7 @@ export default function ContactPage() {
                           placeholder="+90 ___ ___ __ __"
                           aria-describedby="phone-help"
                           {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
-                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                           required
                           autoComplete="tel"
                           inputMode="tel"
@@ -473,7 +473,7 @@ export default function ContactPage() {
                         placeholder="email@example.com"
                         aria-describedby="email-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.email}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                         required
                         autoComplete="email"
                         inputMode="email"
@@ -495,7 +495,7 @@ export default function ContactPage() {
                         name="eventType"
                         aria-describedby="event-type-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                         required
                         autoComplete="off"
                       >
@@ -527,7 +527,7 @@ export default function ContactPage() {
                         rows={5}
                         aria-describedby="message-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.message}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60 resize-none"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60 resize-none"
                         required
                         autoComplete="off"
                       />
@@ -561,7 +561,7 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-700 to-purple-800 hover:from-blue-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                      className="w-full bg-gradient-to-r from-violet-700 to-purple-800 hover:from-violet-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                     >
                       <span className="flex items-center justify-center gap-2">
                         🚀 Get My Proposal
@@ -572,7 +572,7 @@ export default function ContactPage() {
                       By submitting the form you accept our
                       <Link
                         href="/en/privacy-policy"
-                        className="text-blue-600 hover:text-blue-700 underline"
+                        className="text-violet-600 hover:text-violet-700 underline"
                       >
                         &nbsp;privacy policy
                       </Link>
@@ -586,7 +586,7 @@ export default function ContactPage() {
         </section>
 
         {/* Emergency support */}
-        <section className="py-20 bg-gradient-to-br from-neutral-900 to-blue-900/95">
+        <section className="py-20 bg-gradient-to-br from-neutral-900 to-violet-900/95">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-12 border border-white/20">
@@ -644,7 +644,7 @@ export default function ContactPage() {
       <div className="fixed bottom-0 left-0 w-full bg-white shadow-2xl border-t py-4 flex justify-around md:hidden z-50">
         <a
           href={`tel:${PHONE}`}
-          className="flex flex-col items-center text-blue-600 font-bold text-sm"
+          className="flex flex-col items-center text-violet-600 font-bold text-sm"
           aria-label="Call Sahneva"
         >
           <span className="text-lg">📞</span>
@@ -687,7 +687,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
 
   return (
     <div
-      className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
+      className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center"
       role="listitem"
       aria-labelledby={headingId}
       aria-describedby={descriptionId}
@@ -697,7 +697,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       </div>
       <h3
         id={headingId}
-        className="text-xl font-black text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors"
+        className="text-xl font-black text-neutral-900 mb-3 group-hover:text-violet-600 transition-colors"
       >
         {title}
       </h3>

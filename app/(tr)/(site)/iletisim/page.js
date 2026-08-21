@@ -1,6 +1,7 @@
 // app/(site)/iletisim/page.jsx
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { COMPANY } from "@/lib/legal/companyInfo";
 import {
@@ -128,82 +129,14 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden">
       <ContactStructuredData />
 
-{/* HERO */}
-<section
-  className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-14 lg:pt-16 text-white"
-  aria-labelledby="hero-title"
->
-  {/* ARKA PLAN EFEKTLERİ (dekor, GSC-safe) */}
-  <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/25 rounded-full blur-3xl" />
-    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/25 rounded-full blur-3xl" />
-    <div className="absolute top-40 left-1/2 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl -translate-x-1/2" />
-
-    {/* koyu film */}
-    <div className="absolute inset-0 bg-black/35" />
-  </div>
-
-  {/* ARKA PLAN YAZISI */}
-  <div
-    className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
-    aria-hidden="true"
-  >
-    <span className="text-[100px] lg:text-[160px] font-black text-white/5 tracking-wider">
-      İLETİŞİM
-    </span>
-  </div>
-
-  {/* CONTENT (NORMAL FLOW – GSC SAFE) */}
-  <div className="relative z-10">
-    <div className="container mx-auto px-4 py-10 md:py-12 text-center">
-      <div className="max-w-4xl 2xl:max-w-5xl mx-auto">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-white/90 text-sm font-medium">
-            7/24 Teknik Destek
-          </span>
-        </div>
-
-        {/* Title */}
-        <h1
-          id="hero-title"
-          className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.55)]"
-        >
-          <span className="block">BİZE</span>{" "}
-          <span className="text-blue-200">Ulaşın</span>
-        </h1>
-
-        {/* Description */}
-        <p className="text-lg md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl 2xl:max-w-4xl mx-auto">
-          Etkinliğiniz için{" "}
-          <strong className="text-blue-300">en uygun çözümleri</strong>{" "}
-          sunalım
-          <br />
-          <strong className="text-purple-300">
-            2 saat içinde detaylı teklif
-          </strong>{" "}
-          hazırlıyoruz
-        </p>
-      </div>
-    </div>
-  </div>
-
-  {/* Scroll hint */}
-  <div
-    className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
-    aria-hidden="true"
-  >
-    <div className="animate-bounce">
-      <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-        <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
-      </div>
-    </div>
-  </div>
-
-  {/* alt geçiş */}
-  <div className="h-12 bg-gradient-to-b from-transparent to-white" />
-</section>
+      {/* HERO */}
+      <PageHero
+        compact
+        eyebrow="7/24 teknik destek"
+        title="Bize"
+        titleAccent="Ulaşın"
+        description="Etkinliğiniz için <strong>en uygun çözümleri</strong> sunalım; <strong>2 saat içinde detaylı teklif</strong> hazırlıyoruz."
+      />
 
       <div
         id="main"
@@ -211,7 +144,7 @@ export default function ContactPage() {
         style={{ color: "#0f172a" }}
       >
         {/* Hızlı İletişim Kartları */}
-        <section className="py-20 bg-gradient-to-br from-white to-blue-50/50">
+        <section className="py-20 bg-gradient-to-br from-white to-violet-50/50">
           <div className="container max-w-6xl mx-auto px-4">
             
               <div className="text-center mb-16">
@@ -225,7 +158,7 @@ export default function ContactPage() {
                   Size en uygun iletişim yöntemiyle hemen bize ulaşın, 2 saat
                   içinde yanıt verelim
                 </p>
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-8" />
+                <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
               </div>
             
 
@@ -242,7 +175,7 @@ export default function ContactPage() {
                     info="+90 545 304 86 71"
                     description="Hemen arayın, uzman ekibimizle görüşün"
                     href={`tel:${PHONE}`}
-                    color="from-blue-700 to-cyan-700"
+                    color="from-violet-700 to-purple-700"
                     buttonText="Hemen Ara"
                   />
                 
@@ -276,7 +209,7 @@ export default function ContactPage() {
         </section>
 
         {/* Harita + Form */}
-        <section className="py-20 bg-gradient-to-br from-neutral-50 to-blue-100/30">
+        <section className="py-20 bg-gradient-to-br from-neutral-50 to-violet-100/30">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Harita ve Konum */}
@@ -293,7 +226,7 @@ export default function ContactPage() {
                       Türkiye geneli hizmet veriyoruz. Ofisimizi ziyaret etmek
                       için haritayı kullanabilirsiniz.
                     </p>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 lg:mx-0 mx-auto" />
+                    <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 lg:mx-0 mx-auto" />
                   </div>
                 
 
@@ -352,7 +285,7 @@ export default function ContactPage() {
                       href={GMB_PROFILE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 bg-gradient-to-r from-blue-700 to-purple-800 hover:from-blue-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl text-center transition-all duration-300 hover:scale-105 shadow-lg"
+                      className="flex-1 bg-gradient-to-r from-violet-700 to-purple-800 hover:from-violet-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl text-center transition-all duration-300 hover:scale-105 shadow-lg"
                       aria-label="Google Haritalar'da Sahneva profilini aç (yeni sekmede açılır)"
                     >
                       <span className="flex items-center justify-center gap-2">
@@ -383,7 +316,7 @@ export default function ContactPage() {
                       <InfoRow label="Telefon" icon="📞">
                         <a
                           href={`tel:${PHONE}`}
-                          className="inline-flex min-h-[44px] items-center text-blue-600 hover:text-blue-700 font-medium"
+                          className="inline-flex min-h-[44px] items-center text-violet-600 hover:text-violet-700 font-medium"
                         >
                           {PHONE}
                         </a>
@@ -440,7 +373,7 @@ export default function ContactPage() {
                     className="space-y-6"
                   >
                     <div
-                      className="p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-blue-900"
+                      className="p-4 bg-violet-50 border border-violet-100 rounded-xl text-sm text-violet-900"
                       role="status"
                       aria-live="polite"
                     >
@@ -465,7 +398,7 @@ export default function ContactPage() {
                           placeholder="Adınız ve soyadınız"
                           aria-describedby="name-help"
                           {...WEB_MCP_QUOTE_FIELD_PROPS.name}
-                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                           required
                           autoComplete="name"
                           inputMode="text"
@@ -488,7 +421,7 @@ export default function ContactPage() {
                           placeholder="+90 ___ ___ __ __"
                           aria-describedby="phone-help"
                           {...WEB_MCP_QUOTE_FIELD_PROPS.phone}
-                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                          className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                           required
                           autoComplete="tel"
                           inputMode="tel"
@@ -513,7 +446,7 @@ export default function ContactPage() {
                         placeholder="email@example.com"
                         aria-describedby="email-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.email}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                         required
                         autoComplete="email"
                         inputMode="email"
@@ -535,7 +468,7 @@ export default function ContactPage() {
                         name="eventType"
                         aria-describedby="event-type-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.eventType}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60"
                         required
                         autoComplete="off"
                       >
@@ -569,7 +502,7 @@ export default function ContactPage() {
                         rows={5}
                         aria-describedby="message-help"
                         {...WEB_MCP_QUOTE_FIELD_PROPS.message}
-                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-blue-500/60 resize-none"
+                        className="w-full border border-neutral-300 rounded-xl p-4 transition-all duration-200 focus-ring focus-visible:border-violet-500/60 resize-none"
                         required
                         autoComplete="off"
                       />
@@ -603,7 +536,7 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-700 to-purple-800 hover:from-blue-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                      className="w-full bg-gradient-to-r from-violet-700 to-purple-800 hover:from-violet-800 hover:to-purple-900 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                     >
                       <span className="flex items-center justify-center gap-2">
                         🚀 Hemen Teklif Al
@@ -614,7 +547,7 @@ export default function ContactPage() {
                       Formu göndererek{" "}
                       <Link
                         href="/gizlilik-politikasi"
-                        className="text-blue-600 hover:text-blue-700 underline"
+                        className="text-violet-600 hover:text-violet-700 underline"
                       >
                         gizlilik politikamızı
                       </Link>{" "}
@@ -628,7 +561,7 @@ export default function ContactPage() {
         </section>
 
         {/* Acil Destek */}
-        <section className="py-20 bg-gradient-to-br from-neutral-900 to-blue-900/95">
+        <section className="py-20 bg-gradient-to-br from-neutral-900 to-violet-900/95">
           <div className="container max-w-4xl mx-auto px-4 text-center text-white">
             
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-12 border border-white/20">
@@ -690,14 +623,14 @@ export default function ContactPage() {
               Teklif istemeden önce ilgili hizmet sayfasındaki kapsam, ekipman ve fiyatı etkileyen detayları inceleyerek daha hızlı sonuç alabilirsiniz.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/sahne-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Sahne Kiralama</Link>
-              <Link href="/led-ekran-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">LED Ekran Kiralama</Link>
-              <Link href="/ses-isik-sistemleri" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Ses ve Işık Sistemleri</Link>
-              <Link href="/podyum-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Podyum Kiralama</Link>
-              <Link href="/cadir-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Çadır Kiralama</Link>
-              <Link href="/truss-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Truss Kiralama</Link>
-              <Link href="/kurumsal-organizasyon" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Kurumsal Organizasyon</Link>
-              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-blue-50 hover:text-blue-800">Masa Sandalye Kiralama</Link>
+              <Link href="/sahne-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Sahne Kiralama</Link>
+              <Link href="/led-ekran-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">LED Ekran Kiralama</Link>
+              <Link href="/ses-isik-sistemleri" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Ses ve Işık Sistemleri</Link>
+              <Link href="/podyum-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Podyum Kiralama</Link>
+              <Link href="/cadir-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Çadır Kiralama</Link>
+              <Link href="/truss-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Truss Kiralama</Link>
+              <Link href="/kurumsal-organizasyon" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Kurumsal Organizasyon</Link>
+              <Link href="/masa-sandalye-kiralama" className="rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-violet-50 hover:text-violet-800">Masa Sandalye Kiralama</Link>
             </div>
           </div>
         </section>
@@ -713,7 +646,7 @@ export default function ContactPage() {
       >
         <a
           href={`tel:${PHONE}`}
-          className="flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center rounded-lg px-2 text-sm font-bold text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+          className="flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center rounded-lg px-2 text-sm font-bold text-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600"
           aria-label="Sahneva'yı ara"
         >
           <span className="text-lg">📞</span>
@@ -756,7 +689,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
 
   return (
     <div
-      className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-200 transition-all duration-500 hover:scale-105 text-center"
+      className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl border border-neutral-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center"
       role="listitem"
       aria-labelledby={headingId}
       aria-describedby={descriptionId}
@@ -766,7 +699,7 @@ function ContactCard({ icon, title, info, description, href, color, buttonText }
       </div>
       <h3
         id={headingId}
-        className="text-xl font-black text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors"
+        className="text-xl font-black text-neutral-900 mb-3 group-hover:text-violet-600 transition-colors"
       >
         {title}
       </h3>

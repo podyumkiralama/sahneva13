@@ -332,7 +332,7 @@ export default function AvRentalIstanbulPage() {
           </nav>
 
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Stock held in Istanbul — not sub-hired
           </p>
 
@@ -352,7 +352,7 @@ export default function AvRentalIstanbulPage() {
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
               href="/en/contact"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-blue-900 transition hover:bg-blue-50"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-violet-900 transition hover:bg-violet-50"
             >
               Request an AV quote
             </Link>
@@ -384,7 +384,7 @@ export default function AvRentalIstanbulPage() {
                 <Link
                   href={part.href}
                   prefetch={false}
-                  className="mt-3 inline-flex text-sm font-bold text-blue-700 hover:text-blue-900"
+                  className="mt-3 inline-flex text-sm font-bold text-violet-700 hover:text-violet-900"
                 >
                   {part.hrefLabel} →
                 </Link>

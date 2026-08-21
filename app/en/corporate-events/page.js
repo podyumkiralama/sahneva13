@@ -36,7 +36,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
       aria-label="Gallery loading"
     >
       <div
-        className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+        className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"
         aria-hidden="true"
       />
       <span className="sr-only">Loading gallery...</span>
@@ -146,14 +146,14 @@ function SectionShell({ variant = "light", id, children }) {
                 backgroundSize: "64px 64px",
               }}
             />
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
-            <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-400/12 blur-[140px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
+            <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-400/12 blur-[140px]" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/60" />
           </>
         ) : (
           <>
-            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
-            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-500/8 blur-[120px]" />
+            <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
+            <div className="absolute -bottom-48 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-500/8 blur-[120px]" />
           </>
         )}
       </div>
@@ -175,7 +175,7 @@ function H2({ kicker, title, desc, dark = false, center = false }) {
               : "border-slate-200 bg-white text-slate-700",
           ].join(" ")}
         >
-          <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+          <span className="h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
           <span className="font-semibold">{kicker}</span>
         </div>
       ) : null}
@@ -241,8 +241,8 @@ function PremiumMediaCard({ src, alt }) {
             backgroundSize: "64px 64px",
           }}
         />
-        <div className="absolute -top-24 left-1/2 h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[90px]" />
-        <div className="absolute -bottom-24 right-[-20%] h-[260px] w-[260px] rounded-full bg-cyan-500/18 blur-[90px]" />
+        <div className="absolute -top-24 left-1/2 h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-[90px]" />
+        <div className="absolute -bottom-24 right-[-20%] h-[260px] w-[260px] rounded-full bg-violet-500/18 blur-[90px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/25" />
       </div>
 
@@ -283,8 +283,8 @@ function PremiumGridBg() {
           backgroundSize: "72px 72px",
         }}
       />
-      <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-blue-600/25 blur-[130px]" />
-      <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-cyan-400/15 blur-[140px]" />
+      <div className="absolute -top-40 left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-full bg-violet-600/25 blur-[130px]" />
+      <div className="absolute -bottom-52 right-[-10%] h-[520px] w-[520px] rounded-full bg-violet-400/15 blur-[140px]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
     </div>
   );
@@ -496,7 +496,7 @@ function Hero({ breadcrumbItems }) {
         {/* Breadcrumb line (inside hero) */}
         <div className="flex items-center gap-2 text-white/70 text-sm">
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
           </span>
           <span className="font-medium">Home</span>
           <span className="text-white/40">/</span>
@@ -505,7 +505,7 @@ function Hero({ breadcrumbItems }) {
 
         <div className="mt-8 max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/75 shadow-[0_20px_60px_rgba(15,23,42,0.45)]">
-            <span className="h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+            <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
             Corporate Production
           </div>
           <h1
@@ -514,7 +514,7 @@ function Hero({ breadcrumbItems }) {
           >
             Large-Scale{" "}
             <span className="text-white/90">Corporate Event Production</span>{" "}
-            <span className="block text-blue-300">in Turkey</span>
+            <span className="block text-violet-300">in Turkey</span>
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
@@ -526,7 +526,7 @@ function Hero({ breadcrumbItems }) {
               href={WHATSAPP}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(37,99,235,0.35)] hover:bg-blue-500 transition focus-ring"
+              className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-[0_20px_50px_rgba(124, 58, 237,0.35)] hover:bg-violet-500 transition focus-ring"
             >
               Request a Quote
             </Link>
@@ -588,8 +588,8 @@ function Hero({ breadcrumbItems }) {
 function QuickAnswerSection() {
   return (
     <SectionShell variant="soft" id="quick-answer">
-      <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-        <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+      <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
           Quick answer
         </p>
         <h2 className="mt-3 text-2xl font-black text-slate-950">
@@ -611,13 +611,13 @@ function QuickAnswerSection() {
           We work either as <strong>main contractor</strong> for the whole event, or as the <strong>technical
           production partner behind an agency</strong>, PCO or DMC that keeps client ownership. Which model suits a
           given project, and how we work with international organisers generally, is set out on our{" "}
-          <Link href="/en/event-production-company-turkey" className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+          <Link href="/en/event-production-company-turkey" className="font-semibold text-violet-700 underline underline-offset-4 hover:text-violet-900">
             event production company in Turkey
           </Link>{" "}
           page.
         </p>
 
-        <div className="mt-6 rounded-xl border border-blue-200 bg-white p-5">
+        <div className="mt-6 rounded-xl border border-violet-200 bg-white p-5">
           <p className="text-sm font-black text-slate-900">
             Judge the work, not the claim
           </p>
@@ -628,7 +628,7 @@ function QuickAnswerSection() {
           </p>
           <Link
             href="/en/our-work"
-            className="mt-4 inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-500 focus-ring"
+            className="mt-4 inline-flex items-center justify-center rounded-xl bg-violet-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-violet-500 focus-ring"
           >
             Watch our project videos
           </Link>
@@ -655,7 +655,7 @@ function IntroSection() {
             kicker="Corporate approach"
             title={
               <>
-                What Do <span className="text-blue-700">Corporate Event Companies</span> Offer?
+                What Do <span className="text-violet-700">Corporate Event Companies</span> Offer?
               </>
             }
             desc={CORPORATE_DISCIPLINE_DESC}
@@ -665,7 +665,7 @@ function IntroSection() {
             {HERO_FEATURES.map((f) => (
               <Card key={f.t}>
                 <div className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                  <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
                   <div>
                     <div className="font-black text-gray-900">{f.t}</div>
                     <div className="mt-2 text-gray-600 leading-relaxed">{f.d}</div>
@@ -695,7 +695,7 @@ function ShowcaseSection() {
             title={
               <>
                 Corporate Event{" "}
-                <span className="text-blue-700">Production in Action</span>
+                <span className="text-violet-700">Production in Action</span>
               </>
             }
             desc={CORPORATE_DISCIPLINE_DESC}
@@ -705,7 +705,7 @@ function ShowcaseSection() {
             {HERO_FEATURES.map((f) => (
               <Card key={f.t}>
                 <div className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                  <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
                   <div>
                     <div className="font-black text-gray-900">{f.t}</div>
                     <div className="mt-2 text-gray-600 leading-relaxed">{f.d}</div>
@@ -790,7 +790,7 @@ function SelectionSection() {
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span
-                  className="mt-2 h-2 w-2 rounded-full bg-blue-600"
+                  className="mt-2 h-2 w-2 rounded-full bg-violet-600"
                   aria-hidden="true"
                 />
                 <span>{item}</span>
@@ -833,7 +833,7 @@ function AdvantagesSectionBlock() {
             ].map(([t, d]) => (
               <Card key={t}>
                 <div className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                  <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
                   <div>
                     <div className="font-black text-gray-900">{t}</div>
                     <div className="mt-2 text-gray-600 leading-relaxed">{d}</div>
@@ -985,7 +985,7 @@ function PlanningGuide() {
             <ul className="mt-5 grid gap-2 sm:grid-cols-2 text-gray-700">
               {step.checklist.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                  <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -1006,7 +1006,7 @@ function Services() {
         kicker="Service scope"
         title={
           <>
-            Our Corporate <span className="text-blue-700">Services</span>
+            Our Corporate <span className="text-violet-700">Services</span>
           </>
         }
         desc="Planning, technical design, installation, operations and support — all managed within a single operational flow."
@@ -1018,7 +1018,7 @@ function Services() {
           const id = `svc-${slugify(service.title)}`;
           return (
             <Card key={id}>
-              <div className="text-sm font-semibold text-blue-700">
+              <div className="text-sm font-semibold text-violet-700">
                 Corporate Events
               </div>
               <h3 id={id} className="mt-2 text-xl font-black text-gray-900">
@@ -1031,7 +1031,7 @@ function Services() {
               <ul className="mt-5 space-y-2 text-gray-700">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+                    <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -1042,7 +1042,7 @@ function Services() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-5 py-3 font-bold text-white hover:bg-violet-500 transition focus-ring"
                 >
                   Request a Quote
                 </Link>
@@ -1107,7 +1107,7 @@ function Gallery() {
         kicker="References"
         title={
           <>
-            Our Corporate <span className="text-blue-700">Projects</span>
+            Our Corporate <span className="text-violet-700">Projects</span>
           </>
         }
         desc="Selected highlights from our corporate event productions."
@@ -1179,7 +1179,7 @@ function Technical() {
             "Lighting: stage atmosphere + speaker illumination",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-violet-600" aria-hidden="true" />
               <span>{item}</span>
             </li>
           ))}
@@ -1229,7 +1229,7 @@ function UseCases() {
         kicker="Use cases"
         title={
           <>
-            Event <span className="text-blue-700">Types</span>
+            Event <span className="text-violet-700">Types</span>
           </>
         }
         desc="The primary event formats for which our corporate event solutions are chosen."
@@ -1250,7 +1250,7 @@ function UseCases() {
           href={WHATSAPP}
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
+          className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-7 py-3 font-bold text-white hover:bg-violet-500 transition focus-ring"
         >
           Get a Custom Solution for Your Event
         </Link>
@@ -1292,7 +1292,7 @@ function Articles() {
             kicker="Decision-making guide"
             title={
               <>
-                Corporate <span className="text-blue-700">Insights</span>
+                Corporate <span className="text-violet-700">Insights</span>
               </>
             }
             desc="Clear scope, site checks and rehearsal planning reduce operational risk."
@@ -1304,7 +1304,7 @@ function Articles() {
                 <h3 className="text-xl font-black text-gray-900">{g.title}</h3>
                 <p className="mt-3 text-gray-600 leading-relaxed">{g.desc}</p>
                 <div className="mt-5">
-                  <Link href="/en/blog" className="text-blue-700 font-bold hover:underline">
+                  <Link href="/en/blog" className="text-violet-700 font-bold hover:underline">
                     View related articles →
                   </Link>
                 </div>
@@ -1333,7 +1333,7 @@ function Articles() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-5 py-3 font-bold text-white hover:bg-violet-500 transition focus-ring"
               >
                 Request a guided quote
               </Link>
@@ -1514,7 +1514,7 @@ function RelatedServices() {
         kicker="Integrated package"
         title={
           <>
-            Our Complementary <span className="text-blue-700">Services</span>
+            Our Complementary <span className="text-violet-700">Services</span>
           </>
         }
         desc="Other professional event solutions to complete your corporate event."
@@ -1523,7 +1523,7 @@ function RelatedServices() {
 
       <p className="mx-auto mb-8 max-w-3xl text-center leading-relaxed text-gray-600">
         If your team is planning from abroad, our{" "}
-        <Link href="/en/event-production-company-turkey" className="font-bold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+        <Link href="/en/event-production-company-turkey" className="font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900">
           event production partner in Turkey
         </Link>{" "}
         page explains how Sahneva supports venues, logistics, stage, LED screen, sound, lighting, truss and on-site technical coordination.
@@ -1533,10 +1533,10 @@ function RelatedServices() {
         {services.map((s) => (
           <Link key={s.href} href={s.href} className="focus-ring rounded-3xl">
             <Card className="h-full">
-              <div className="text-sm font-semibold text-blue-700">Service</div>
+              <div className="text-sm font-semibold text-violet-700">Service</div>
               <div className="mt-2 text-xl font-black text-gray-900">{s.title}</div>
               <p className="mt-3 text-gray-600 leading-relaxed">{s.desc}</p>
-              <div className="mt-5 text-blue-700 font-bold">Explore →</div>
+              <div className="mt-5 text-violet-700 font-bold">Explore →</div>
             </Card>
           </Link>
         ))}
@@ -1570,7 +1570,7 @@ function CTA() {
                 href={WHATSAPP}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-500 transition focus-ring"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-6 py-3 font-bold text-white hover:bg-violet-500 transition focus-ring"
               >
                 Message us on WhatsApp
               </a>

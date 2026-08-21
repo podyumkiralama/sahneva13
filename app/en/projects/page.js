@@ -143,22 +143,22 @@ export default async function ProjectsIndexPageEn() {
   ];
 
   return (
-    <div id="main" className="min-h-screen bg-gradient-to-br from-slate-900 via-[#0b0f1a] to-purple-900/20 text-white">
+    <div id="main" className="min-h-screen bg-gradient-to-br from-slate-900 via-[#040817] to-purple-900/20 text-white">
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={ORIGIN} />
       <ProjectsStructuredData />
 
       {/* Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl" />
       </div>
 
       <section className="relative mx-auto max-w-7xl px-4 pt-20 md:pt-24 pb-20">
         {/* Header Section */}
         <header className="text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-            <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full animate-pulse" />
             <span className="text-sm text-white/70">Written technical scope</span>
           </div>
 
@@ -170,14 +170,14 @@ export default async function ProjectsIndexPageEn() {
 
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
             Each project written up with the part that usually goes unrecorded:{" "}
-            <span className="text-blue-300 font-semibold">dimensions, structure, crew size</span>{" "}
+            <span className="text-violet-300 font-semibold">dimensions, structure, crew size</span>{" "}
             and the venue constraints that shaped the build. For footage of the work itself, see the videos.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mt-10">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-blue-300">{projects.length}+</div>
+              <div className="text-2xl md:text-3xl font-bold text-violet-300">{projects.length}+</div>
               <div className="text-white/60 text-sm">Completed Projects</div>
             </div>
             <div className="text-center">
@@ -199,12 +199,12 @@ export default async function ProjectsIndexPageEn() {
                 className="group relative"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                 <Link
                   href={p.href}
                   hrefLang={p.inTurkish ? "tr" : undefined}
-                  className="relative flex flex-col h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/10 overflow-hidden"
+                  className="relative flex flex-col h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-violet-500/10 overflow-hidden"
                   title={`View project: ${p.title}`}
                 >
                   {/* Image Container */}
@@ -304,7 +304,7 @@ export default async function ProjectsIndexPageEn() {
                       >
                         {p.tags.slice(0, 3).map((t) => (
                           <li key={t}>
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-200 border border-blue-500/30">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-200 border border-violet-500/30">
                               #{t}
                             </span>
                           </li>
@@ -342,7 +342,7 @@ export default async function ProjectsIndexPageEn() {
       <section className="relative bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto mb-9 max-w-3xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-indigo-600">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
               Portfolio
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
@@ -363,7 +363,7 @@ export default async function ProjectsIndexPageEn() {
           <div className="mt-8 text-center">
             <Link
               href="/en/our-work"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-indigo-600 px-7 text-sm font-black text-indigo-700 transition hover:bg-indigo-600 hover:text-white"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-violet-600 px-7 text-sm font-black text-violet-700 transition hover:bg-violet-600 hover:text-white"
             >
               Watch on-site project videos
             </Link>

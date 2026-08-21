@@ -117,7 +117,7 @@ export default function PrivacyPolicyPage() {
                   <span className="inline-flex items-center rounded-full border border-purple-400/30 bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-100">
                     Secure Communication (HTTPS)
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-100">
+                  <span className="inline-flex items-center rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-100">
                     Cookie Management
                   </span>
                 </div>
@@ -145,7 +145,7 @@ export default function PrivacyPolicyPage() {
                     <dd>
                       <a
                         href={`mailto:${MAIL}`}
-                        className="text-sky-300 underline-offset-2 hover:underline"
+                        className="text-violet-300 underline-offset-2 hover:underline"
                       >
                         {MAIL}
                       </a>
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage() {
                     <dd>
                       <a
                         href={`tel:${PHONE}`}
-                        className="text-sky-300 underline-offset-2 hover:underline"
+                        className="text-violet-300 underline-offset-2 hover:underline"
                       >
                         +90 (545) 304 86 71
                       </a>
@@ -186,52 +186,52 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#data-collected" className="hover:text-sky-300">
+                    <a href="#data-collected" className="hover:text-violet-300">
                       1. Data We Collect
                     </a>
                   </li>
                   <li>
-                    <a href="#processing-purposes" className="hover:text-sky-300">
+                    <a href="#processing-purposes" className="hover:text-violet-300">
                       2. Processing Purposes
                     </a>
                   </li>
                   <li>
-                    <a href="#legal-basis" className="hover:text-sky-300">
+                    <a href="#legal-basis" className="hover:text-violet-300">
                       3. Legal Basis
                     </a>
                   </li>
                   <li>
-                    <a href="#retention-periods" className="hover:text-sky-300">
+                    <a href="#retention-periods" className="hover:text-violet-300">
                       4. Retention Periods
                     </a>
                   </li>
                   <li>
-                    <a href="#data-sharing" className="hover:text-sky-300">
+                    <a href="#data-sharing" className="hover:text-violet-300">
                       5. Data Sharing
                     </a>
                   </li>
                   <li>
-                    <a href="#your-rights" className="hover:text-sky-300">
+                    <a href="#your-rights" className="hover:text-violet-300">
                       6. Your Rights
                     </a>
                   </li>
                   <li>
-                    <a href="#security" className="hover:text-sky-300">
+                    <a href="#security" className="hover:text-violet-300">
                       7. Data Security
                     </a>
                   </li>
                   <li>
-                    <a href="#cookies" className="hover:text-sky-300">
+                    <a href="#cookies" className="hover:text-violet-300">
                       8. Cookies
                     </a>
                   </li>
                   <li>
-                    <a href="#changes" className="hover:text-sky-300">
+                    <a href="#changes" className="hover:text-violet-300">
                       9. Changes
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="hover:text-sky-300">
+                    <a href="#contact" className="hover:text-violet-300">
                       10. Contact
                     </a>
                   </li>
@@ -426,7 +426,7 @@ export default function PrivacyPolicyPage() {
                 </ul>
                 <p className="mt-2">
                   Simply send your request to{" "}
-                  <a href={`mailto:${MAIL}`} className="text-sky-300 underline-offset-2 hover:underline">
+                  <a href={`mailto:${MAIL}`} className="text-violet-300 underline-offset-2 hover:underline">
                     {MAIL}
                   </a>
                   . We respond within 30 days.
@@ -496,7 +496,7 @@ export default function PrivacyPolicyPage() {
                   We update this page when our scope of services or legal regulations change.
                   When a significant change occurs, we clearly state this here. The current text
                   can always be found at{" "}
-                  <span className="text-sky-300">/en/privacy-policy</span>.
+                  <span className="text-violet-300">/en/privacy-policy</span>.
                 </p>
               </section>
 
@@ -510,7 +510,7 @@ export default function PrivacyPolicyPage() {
                   processing of your personal data, you can reach us through the following channels:
                 </p>
 
-                <div className="mt-4 rounded-3xl border border-purple-500/40 bg-gradient-to-r from-purple-900/50 via-slate-900 to-sky-900/40 p-5 shadow-lg shadow-purple-900/40">
+                <div className="mt-4 rounded-3xl border border-purple-500/40 bg-gradient-to-r from-purple-900/50 via-slate-900 to-violet-900/40 p-5 shadow-lg shadow-purple-900/40">
                   <p className="text-sm text-slate-100">
                     <span className="font-semibold">Data Controller:</span> Sahneva Organization
                   </p>
@@ -518,7 +518,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">Email:</span>{" "}
                     <a
                       href={`mailto:${MAIL}`}
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       {MAIL}
                     </a>
@@ -527,7 +527,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">Phone:</span>{" "}
                     <a
                       href={`tel:${PHONE}`}
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       +90 (545) 304 86 71
                     </a>
@@ -536,7 +536,7 @@ export default function PrivacyPolicyPage() {
                     <span className="font-semibold">Website:</span>{" "}
                     <Link
                       href="/en"
-                      className="text-sky-100 underline-offset-2 hover:underline"
+                      className="text-violet-100 underline-offset-2 hover:underline"
                     >
                       www.sahneva.com
                     </Link>

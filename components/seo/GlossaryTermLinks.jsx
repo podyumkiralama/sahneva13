@@ -55,8 +55,8 @@ export default function GlossaryTermLinks({
       aria-labelledby={headingId}
       className="[content-visibility:auto] [contain-intrinsic-size:auto_420px] bg-white px-4 py-12"
     >
-      <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-blue-50/60 p-6 shadow-sm md:p-8">
-        <p className="text-sm font-black uppercase tracking-widest text-blue-700">
+      <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-violet-50/60 p-6 shadow-sm md:p-8">
+        <p className="text-sm font-black uppercase tracking-widest text-violet-700">
           {strings.eyebrow}
         </p>
         <h2
@@ -74,7 +74,7 @@ export default function GlossaryTermLinks({
             <li key={entry.slug}>
               <Link
                 href={`${strings.glossaryHref}#${entry.slug}`}
-                className="inline-flex min-h-[40px] items-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 transition hover:border-blue-500 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                className="inline-flex min-h-[40px] items-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-800 transition hover:border-violet-500 hover:text-violet-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
               >
                 {entry.term}
               </Link>
@@ -85,7 +85,7 @@ export default function GlossaryTermLinks({
         <p className="mt-6">
           <Link
             href={strings.glossaryHref}
-            className="inline-flex min-h-[44px] items-center font-black text-blue-700 underline underline-offset-4 hover:text-blue-900"
+            className="inline-flex min-h-[44px] items-center font-black text-violet-700 underline underline-offset-4 hover:text-violet-900"
           >
             {strings.allTerms(strings.totalCount)}
           </Link>

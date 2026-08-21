@@ -202,9 +202,9 @@ const ARTICLE_SIDE_IMAGES = [
 ];
 
 const focusVisibleRing =
-  "focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
+  "focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 const focusVisibleRingLight =
-  "focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
+  "focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
 
 const INTERNATIONAL_CAPABILITY_FORM_PROPS = {
   toolname: "checkServiceCapability",
@@ -395,7 +395,7 @@ function SectionHeading({ eyebrow, title, text, align = "center", dark = false }
   return (
     <div className={cn("mx-auto max-w-4xl", align === "center" ? "text-center" : "")}>
       {eyebrow ? (
-        <p className={cn("text-sm font-black uppercase tracking-[0.22em]", dark ? "text-cyan-200" : "text-blue-700")}>{eyebrow}</p>
+        <p className={cn("text-sm font-black uppercase tracking-[0.22em]", dark ? "text-violet-200" : "text-violet-700")}>{eyebrow}</p>
       ) : null}
       <h2 className={cn("mt-3 text-3xl font-black tracking-tight md:text-5xl", dark ? "text-white" : "text-slate-950")}>{title}</h2>
       {text ? <p className={cn("mt-5 text-lg leading-relaxed", dark ? "text-white/[0.72]" : "text-slate-600")}>{text}</p> : null}
@@ -412,7 +412,7 @@ function InternationalServiceCapabilityTool({ locale = "en" }) {
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-10">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-700">{copy.eyebrow}</p>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-700">{copy.eyebrow}</p>
             <h2 id="international-capability-title" className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               {copy.title}
             </h2>
@@ -508,7 +508,7 @@ function InternationalServiceCapabilityTool({ locale = "en" }) {
 
             <button
               type="submit"
-              className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-slate-950 px-7 font-black text-white transition hover:bg-blue-950", focusVisibleRingLight)}
+              className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-slate-950 px-7 font-black text-white transition hover:bg-violet-950", focusVisibleRingLight)}
             >
               {copy.submit}
             </button>
@@ -554,35 +554,35 @@ export default function EventProductionPartnerPage({ locale }) {
             sizes="100vw"
             className="object-cover opacity-45"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.34),transparent_32%),linear-gradient(90deg,rgba(2,6,23,0.96),rgba(15,23,42,0.72),rgba(2,6,23,0.94))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(139,92,246,0.34),transparent_32%),linear-gradient(90deg,rgba(2,6,23,0.96),rgba(15,23,42,0.72),rgba(2,6,23,0.94))]" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:48px_48px] opacity-25" />
           <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-32">
             <div>
-              <div className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-200/10 px-5 py-2 text-sm font-black uppercase tracking-[0.22em] text-cyan-100">
+              <div className="inline-flex rounded-full border border-violet-300/30 bg-violet-200/10 px-5 py-2 text-sm font-black uppercase tracking-[0.22em] text-violet-100">
                 {content.eyebrow}
               </div>
               <h1 className="mt-7 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">{content.h1}</h1>
               <p className="mt-7 max-w-3xl text-xl leading-relaxed text-white/[0.78] md:text-2xl">{content.intro}</p>
               {content.heroTrust ? (
-                <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-cyan-50/85">{content.heroTrust}</p>
+                <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-violet-50/85">{content.heroTrust}</p>
               ) : null}
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 shadow-[0_18px_44px_rgba(16,185,129,0.32)] transition hover:bg-emerald-400", focusVisibleRing)}>
+                <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-violet-600 px-7 font-black text-white shadow-[0_18px_44px_rgba(124,58,237,0.32)] transition hover:bg-violet-500", focusVisibleRing)}>
                   {content.primaryCta}
                 </a>
                 <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>
                   {content.secondaryCta}
                 </Link>
-                <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/30 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
+                <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-violet-200/30 bg-violet-200/10 px-7 font-black text-violet-100 transition hover:bg-violet-200/15" />
               </div>
               {content.heroTrustBadge ? (
-                <div className="mt-6 inline-flex max-w-full rounded-full border border-cyan-200/25 bg-white/10 px-5 py-2 text-sm font-black text-cyan-100 shadow-lg shadow-cyan-950/20 backdrop-blur">
+                <div className="mt-6 inline-flex max-w-full rounded-full border border-violet-200/25 bg-white/10 px-5 py-2 text-sm font-black text-violet-100 shadow-lg shadow-violet-950/20 backdrop-blur">
                   {content.heroTrustBadge}
                 </div>
               ) : null}
             </div>
             <div className="rounded-[2rem] border border-white/14 bg-white/[0.08] p-6 shadow-2xl backdrop-blur-xl">
-              <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.productionScope}</p>
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-100">{content.productionScope}</p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {content.scopeItems.map((item) => (
                   <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-5 text-lg font-black">
@@ -594,7 +594,7 @@ export default function EventProductionPartnerPage({ locale }) {
                 <p className="text-4xl font-black text-white">{content.statValue}</p>
                 <p className="mt-3 leading-relaxed text-white/[0.68]">{content.statText}</p>
               </div>
-              <a href={COMPANY_PROFILE_PDF_URL} target="_blank" rel="noopener noreferrer" aria-label={content.pdfAria} className={cn("mt-5 block rounded-2xl border border-cyan-200/25 bg-cyan-200/10 p-5 font-black text-cyan-100 transition hover:bg-cyan-200/15", focusVisibleRing)}>
+              <a href={COMPANY_PROFILE_PDF_URL} target="_blank" rel="noopener noreferrer" aria-label={content.pdfAria} className={cn("mt-5 block rounded-2xl border border-violet-200/25 bg-violet-200/10 p-5 font-black text-violet-100 transition hover:bg-violet-200/15", focusVisibleRing)}>
                 {content.heroPdfText}
               </a>
             </div>
@@ -653,7 +653,7 @@ export default function EventProductionPartnerPage({ locale }) {
                     <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
                   </div>
                   <div className="p-6">
-                    <span className="rounded-full bg-cyan-200/10 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-cyan-100">{category}</span>
+                    <span className="rounded-full bg-violet-200/10 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-violet-100">{category}</span>
                     <h3 className="mt-4 text-xl font-black">{title}</h3>
                     <p className="mt-3 leading-relaxed text-white/[0.68]">{text}</p>
                   </div>
@@ -661,7 +661,7 @@ export default function EventProductionPartnerPage({ locale }) {
               ))}
             </div>
             <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.05] p-6">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{visuals.servicesLabel}</p>
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-100">{visuals.servicesLabel}</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {(serviceLinks[locale] ?? serviceLinks.en).map(([href, label]) => (
                   <Link key={href} href={href} className={cn("rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-sm font-bold text-white/[0.82] transition hover:bg-white/[0.12]", focusVisibleRing)}>
@@ -680,10 +680,10 @@ export default function EventProductionPartnerPage({ locale }) {
             <SectionHeading {...content.servicesHeading} />
             <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {content.services.map((service) => (
-                <Link key={service.href} href={service.href} className={cn("group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl", focusVisibleRingLight)}>
+                <Link key={service.href} href={service.href} className={cn("group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl", focusVisibleRingLight)}>
                   <h3 className="text-xl font-black text-slate-950">{service.title}</h3>
                   <p className="mt-3 leading-relaxed text-slate-600">{service.text}</p>
-                  <span className="mt-5 inline-flex text-sm font-black text-blue-700 group-hover:text-blue-800">↗</span>
+                  <span className="mt-5 inline-flex text-sm font-black text-violet-700 group-hover:text-violet-800">↗</span>
                 </Link>
               ))}
             </div>
@@ -756,7 +756,7 @@ export default function EventProductionPartnerPage({ locale }) {
                     </div>
                   ) : null}
                   <div className={cn(imageEntry ? "p-7 md:p-10" : "")}>
-                    <span className="text-sm font-black uppercase tracking-[0.2em] text-blue-700">0{index + 1}</span>
+                    <span className="text-sm font-black uppercase tracking-[0.2em] text-violet-700">0{index + 1}</span>
                     <h2 className="mt-3 text-2xl font-black tracking-tight text-slate-950 md:text-3xl">{title}</h2>
                     {paragraphs.map((paragraph) => (
                       <p key={paragraph} className="mt-4 text-lg leading-relaxed text-slate-600">
@@ -773,7 +773,7 @@ export default function EventProductionPartnerPage({ locale }) {
         <section className="bg-slate-950 px-6 py-20 text-white md:px-10">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.esports.eyebrow}</p>
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-100">{content.esports.eyebrow}</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">{content.esports.title}</h2>
               <p className="mt-5 text-lg leading-relaxed text-white/[0.7]">{content.esports.text}</p>
             </div>
@@ -784,14 +784,14 @@ export default function EventProductionPartnerPage({ locale }) {
         </section>
 
         <section className="px-6 py-20 md:px-10">
-          <div className="mx-auto max-w-7xl rounded-[2rem] bg-gradient-to-br from-blue-700 to-slate-950 p-8 text-white shadow-2xl md:p-12">
+          <div className="mx-auto max-w-7xl rounded-[2rem] bg-gradient-to-br from-violet-700 to-slate-950 p-8 text-white shadow-2xl md:p-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-100">{content.profile.eyebrow}</p>
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-100">{content.profile.eyebrow}</p>
                 <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">{content.profile.title}</h2>
                 <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.74]">{content.profile.text}</p>
               </div>
-              <PdfButton content={content} className="inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-7 font-black text-slate-950 transition hover:bg-cyan-50" />
+              <PdfButton content={content} className="inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-7 font-black text-slate-950 transition hover:bg-violet-50" />
             </div>
           </div>
         </section>
@@ -802,7 +802,7 @@ export default function EventProductionPartnerPage({ locale }) {
             <div className="mt-12 grid gap-5 md:grid-cols-5">
               {content.process.map(([title, text], index) => (
                 <article key={title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <span className="text-sm font-black text-blue-700">0{index + 1}</span>
+                  <span className="text-sm font-black text-violet-700">0{index + 1}</span>
                   <h3 className="mt-3 text-lg font-black">{title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
                 </article>
@@ -819,7 +819,7 @@ export default function EventProductionPartnerPage({ locale }) {
                 <details key={question} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                   <summary className={cn("flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl text-lg font-black text-slate-950", focusVisibleRingLight)}>
                     <span>{question}</span>
-                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-xl leading-none text-blue-700">
+                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-xl leading-none text-violet-700">
                       <span className="group-open:hidden">+</span>
                       <span className="hidden group-open:inline">-</span>
                     </span>
@@ -836,13 +836,13 @@ export default function EventProductionPartnerPage({ locale }) {
             <h2 className="text-3xl font-black tracking-tight md:text-5xl">{content.final.title}</h2>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-white/[0.72]">{content.final.text}</p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-emerald-500 px-7 font-black text-slate-950 transition hover:bg-emerald-400", focusVisibleRing)}>
+              <a href={whatsappUrl} target="_blank" rel="nofollow noopener noreferrer" className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full bg-violet-600 px-7 font-black text-white transition hover:bg-violet-500", focusVisibleRing)}>
                 {content.final.whatsapp}
               </a>
               <Link href={content.final.contactHref} className={cn("inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 bg-white/10 px-7 font-black text-white transition hover:bg-white/15", focusVisibleRing)}>
                 {content.final.contact}
               </Link>
-              <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-200/10 px-7 font-black text-cyan-100 transition hover:bg-cyan-200/15" />
+              <PdfButton content={content} className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-violet-200/25 bg-violet-200/10 px-7 font-black text-violet-100 transition hover:bg-violet-200/15" />
             </div>
           </div>
         </section>

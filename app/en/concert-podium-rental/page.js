@@ -214,7 +214,7 @@ function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[80vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0f1a] via-blue-950 to-purple-950 pt-16 lg:pt-20"
+      className="relative min-h-[80vh] 2xl:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#040817] via-violet-950 to-purple-950 pt-16 lg:pt-20"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
@@ -231,12 +231,12 @@ function HeroSection() {
         />
       </div>
       <div
-        className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/70 to-purple-900/75"
+        className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-violet-900/70 to-purple-900/75"
         aria-hidden="true"
       />
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <div className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-5 py-2 text-sm font-semibold text-blue-200 mb-8">
+          <div className="inline-flex items-center gap-2 bg-violet-500/20 backdrop-blur-sm border border-violet-400/30 rounded-full px-5 py-2 text-sm font-semibold text-violet-200 mb-8">
             <span aria-hidden="true">🎤</span> Concert &amp; Festival Stage Specialist
           </div>
           <h1
@@ -244,7 +244,7 @@ function HeroSection() {
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6 tracking-tight"
           >
             Concert{" "}
-            <span className="gradient-text-clip-safe bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
+            <span className="gradient-text-clip-safe bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text">
               Stage Deck Rental
             </span>
           </h1>
@@ -292,8 +292,8 @@ function QuickAnswerSection() {
   return (
     <section className="bg-white py-10" aria-labelledby="concert-podium-quick-answer">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-blue-100 bg-blue-50 p-6 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
             Quick answer
           </p>
           <h2 id="concert-podium-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
@@ -319,13 +319,13 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-b from-white to-blue-50/50"
+      className="py-20 bg-gradient-to-b from-white to-violet-50/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Concert Stage{" "}
-            <span className="text-blue-700">Services</span>
+            <span className="text-violet-700">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Technical rider analysis, venue assessment, stage installation, and
@@ -344,7 +344,7 @@ function ServicesSection() {
               >
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
@@ -363,7 +363,7 @@ function ServicesSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">📞</span> Get a Quote for Your Concert Stage
           </Link>
@@ -381,7 +381,7 @@ function ArticlesSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Concert Stage{" "}
-            <span className="text-blue-700">Guide</span>
+            <span className="text-violet-700">Guide</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Expert insights and technical knowledge on concert and festival stage installation
@@ -426,7 +426,7 @@ function ArticlesSection() {
         <div className="flex flex-col lg:flex-row-reverse gap-10 items-start mb-16">
           <div className="flex-1 prose prose-lg max-w-none">
             <h3 className="text-2xl font-black text-gray-900 mb-4 flex items-center gap-3">
-              <span className="inline-flex bg-blue-100 text-blue-600 rounded-2xl p-2 text-xl" aria-hidden="true">🎤</span>
+              <span className="inline-flex bg-violet-100 text-violet-600 rounded-2xl p-2 text-xl" aria-hidden="true">🎤</span>
               Professional Stage Solutions for Every Performance
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -461,8 +461,8 @@ function ArticlesSection() {
         </div>
 
         {/* Info box */}
-        <aside className="rounded-3xl border-l-4 border-blue-500 bg-blue-50 p-8 md:p-10 mb-16 shadow-lg">
-          <h3 className="text-2xl font-black text-blue-700 mb-5 flex items-center gap-3">
+        <aside className="rounded-3xl border-l-4 border-violet-500 bg-violet-50 p-8 md:p-10 mb-16 shadow-lg">
+          <h3 className="text-2xl font-black text-violet-700 mb-5 flex items-center gap-3">
             <span aria-hidden="true">💡</span> What Do Our Concert and Festival Stages Include?
           </h3>
           <div className="grid md:grid-cols-2 gap-4 text-gray-700 text-lg leading-relaxed">
@@ -580,7 +580,7 @@ function FAQSection() {
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Frequently Asked{" "}
-            <span className="text-blue-700">Questions</span>
+            <span className="text-violet-700">Questions</span>
           </h2>
           <p className="text-xl text-gray-600">
             Common questions about concert and festival stage rental
@@ -611,7 +611,7 @@ function RelatedServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">
-            Related <span className="text-blue-700">Services</span>
+            Related <span className="text-violet-700">Services</span>
           </h2>
           <p className="text-gray-600 text-lg">
             Other solutions to complement your event
@@ -627,7 +627,7 @@ function RelatedServicesSection() {
               <div className="text-4xl mb-3 group-hover:scale-110 transition-transform" aria-hidden="true">
                 {s.icon}
               </div>
-              <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
                 {s.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>

@@ -16,14 +16,14 @@ function ChoiceButton({ active, children, description, onClick }) {
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${
+      className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-700 ${
         active
-          ? "border-blue-600 bg-blue-50 shadow-sm"
-          : "border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50"
+          ? "border-violet-600 bg-violet-50 shadow-sm"
+          : "border-slate-200 bg-white hover:border-violet-300 hover:bg-slate-50"
       }`}
     >
       <span className="flex items-start gap-3">
-        <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${active ? "border-blue-600 bg-blue-600 text-white" : "border-slate-300"}`} aria-hidden="true">
+        <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${active ? "border-violet-600 bg-violet-600 text-white" : "border-slate-300"}`} aria-hidden="true">
           {active ? <Check className="h-3.5 w-3.5" /> : null}
         </span>
         <span>
@@ -73,12 +73,12 @@ export default function ServiceDecisionGuide({ guide }) {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">{guide.eyebrow}</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-700">{guide.eyebrow}</p>
             <h2 id={`${guide.id}-baslik`} className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{guide.title}</h2>
             <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">{guide.description}</p>
           </div>
           {answeredCount ? (
-            <button type="button" onClick={reset} className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-700 transition hover:border-blue-300 hover:text-blue-800">
+            <button type="button" onClick={reset} className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-700 transition hover:border-violet-300 hover:text-violet-800">
               <RotateCcw className="h-4 w-4" aria-hidden="true" />
               Baştan seç
             </button>
@@ -103,8 +103,8 @@ export default function ServiceDecisionGuide({ guide }) {
                     ))}
                   </div>
                   {questionIndex === 0 ? (
-                    <div className="mt-4 flex gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
-                      <Info className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" aria-hidden="true" />
+                    <div className="mt-4 flex gap-3 rounded-2xl border border-violet-100 bg-violet-50 p-4 text-sm leading-6 text-slate-700">
+                      <Info className="mt-0.5 h-5 w-5 shrink-0 text-violet-700" aria-hidden="true" />
                       <p>{guide.learningNote}</p>
                     </div>
                   ) : null}
@@ -114,7 +114,7 @@ export default function ServiceDecisionGuide({ guide }) {
           </div>
 
           <aside className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-xl shadow-slate-950/15 sm:p-7" aria-live="polite">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Sizin için ilk teknik çerçeve</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">Sizin için ilk teknik çerçeve</p>
             {isReady ? (
               <>
                 <h3 className="mt-3 text-2xl font-black leading-tight">Ne gerektiği daha net</h3>
@@ -122,7 +122,7 @@ export default function ServiceDecisionGuide({ guide }) {
                 <div className="mt-5 space-y-3">
                   {selectedAnswers.map(({ question, option }) => (
                     <article key={question.id} className="rounded-2xl bg-white/8 p-4">
-                      <p className="text-xs font-black uppercase tracking-[0.13em] text-blue-200">{question.title}</p>
+                      <p className="text-xs font-black uppercase tracking-[0.13em] text-violet-200">{question.title}</p>
                       <h4 className="mt-2 text-sm font-black text-white">{option.answerTitle}</h4>
                       <p className="mt-2 text-sm leading-6 text-slate-300">{option.answer}</p>
                     </article>
@@ -134,7 +134,7 @@ export default function ServiceDecisionGuide({ guide }) {
                     <div className="mt-3 space-y-2">
                       {recommendedServices.map((service) => (
                         <Link key={service.href} href={service.href} className="block rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10">
-                          <span className="text-sm font-black text-white underline decoration-blue-300/60 underline-offset-4">{service.label}</span>
+                          <span className="text-sm font-black text-white underline decoration-violet-300/60 underline-offset-4">{service.label}</span>
                           <span className="mt-1 block text-xs leading-5 text-slate-300">{service.why}</span>
                         </Link>
                       ))}
@@ -162,7 +162,7 @@ export default function ServiceDecisionGuide({ guide }) {
               </>
             ) : (
               <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm leading-6 text-slate-300">
-                <ClipboardList className="mb-3 h-6 w-6 text-blue-200" aria-hidden="true" />
+                <ClipboardList className="mb-3 h-6 w-6 text-violet-200" aria-hidden="true" />
                 Her cevaptan sonra bir sonraki soru açılır. Üç cevap tamamlandığında, teknik ekip için anlaşılır bir başlangıç planını burada göreceksiniz.
               </div>
             )}
@@ -171,7 +171,7 @@ export default function ServiceDecisionGuide({ guide }) {
               <p className="text-sm font-black text-white">Terim desteği</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {guide.terms.map(([slug, label]) => (
-                  <Link key={slug} href={GLOSSARY_DETAIL_LINKS[slug]?.href ?? `/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-blue-100 transition hover:bg-white/10 hover:text-white">{label}</Link>
+                  <Link key={slug} href={GLOSSARY_DETAIL_LINKS[slug]?.href ?? `/sozluk#${slug}`} className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-bold text-violet-100 transition hover:bg-white/10 hover:text-white">{label}</Link>
                 ))}
               </div>
             </div>

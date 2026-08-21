@@ -6,7 +6,7 @@ import { PROJECTS_COMPLETED, YEARS_OF_EXPERIENCE } from "@/lib/stats";
 
 const CheckIcon = () => (
   <svg
-    className="w-4 h-4 flex-shrink-0 text-cyan-400 drop-shadow-[0_0_6px_rgba(34,211,238,0.6)]"
+    className="w-4 h-4 flex-shrink-0 text-violet-400 drop-shadow-[0_0_6px_rgba(167, 139, 250,0.6)]"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -88,14 +88,14 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
     >
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 grid-overlay" />
-        <div className="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen" />
+        <div className="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl md:mb-12">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-cyan-300 shadow-[0_0_18px_rgba(8,47,73,0.8)]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-violet-300 shadow-[0_0_18px_rgba(8,47,73,0.8)]">
             <span
-              className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.9)]"
+              className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse shadow-[0_0_10px_rgba(167, 139, 250,0.9)]"
               aria-hidden="true"
             />
             {d.badge}
@@ -115,7 +115,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
             <RichText text={d.description} />{" "}
             <Link
               href={d.linkHref}
-              className="inline-flex min-h-[44px] items-center font-semibold text-cyan-200 underline underline-offset-4 hover:text-cyan-100"
+              className="inline-flex min-h-[44px] items-center font-semibold text-violet-200 underline underline-offset-4 hover:text-violet-100"
             >
               {d.linkText}
             </Link>
@@ -126,8 +126,8 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col gap-7 rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5 shadow-[0_18px_55px_rgba(15,23,42,0.9)] sm:p-6 md:p-7">
             <div>
-              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-                <span className="h-[1px] w-6 bg-cyan-400" aria-hidden="true" />
+              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">
+                <span className="h-[1px] w-6 bg-violet-400" aria-hidden="true" />
                 {d.processHeading}
               </h3>
 
@@ -135,9 +135,9 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                 {d.processSteps.map((item) => (
                   <li
                     key={item.step}
-                    className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3.5 transition-colors hover:border-cyan-500/60 hover:bg-slate-900/90"
+                    className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3.5 transition-colors hover:border-violet-500/60 hover:bg-slate-900/90"
                   >
-                    <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-cyan-500/70 bg-slate-950 text-sm font-bold text-cyan-300 shadow-[0_0_14px_rgba(8,47,73,0.9)]">
+                    <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-violet-500/70 bg-slate-950 text-sm font-bold text-violet-300 shadow-[0_0_14px_rgba(8,47,73,0.9)]">
                       {item.step}
                     </div>
                     <div>
@@ -155,7 +155,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
 
             <div className="border-t border-slate-800/80 pt-5">
               <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
-                <span className="text-cyan-400" aria-hidden="true">
+                <span className="text-violet-400" aria-hidden="true">
                   *
                 </span>
                 {d.techStandardsHeading}
@@ -179,9 +179,9 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
               {d.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-cyan-500/30 bg-cyan-500/5 px-3 py-2.5 text-left"
+                  className="rounded-xl border border-violet-500/30 bg-violet-500/5 px-3 py-2.5 text-left"
                 >
-                  <div className="text-lg font-bold leading-tight text-cyan-300">
+                  <div className="text-lg font-bold leading-tight text-violet-300">
                     {stat.value}
                   </div>
                   <div className="text-sm uppercase tracking-[0.14em] text-slate-400">
@@ -211,7 +211,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 animate-pulse" />
                     {d.imageBadge1}
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-cyan-400/70 bg-cyan-500/25 px-2.5 py-0.5 text-sm font-semibold text-cyan-100 backdrop-blur-md">
+                  <span className="inline-flex items-center rounded-full border border-violet-400/70 bg-violet-500/25 px-2.5 py-0.5 text-sm font-semibold text-violet-100 backdrop-blur-md">
                     P3.9 LED Screen
                   </span>
                 </div>
@@ -231,7 +231,7 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
               <div className="rounded-2xl border border-slate-800 bg-slate-950/90 p-4">
                 <div className="mb-2 flex items-center gap-2">
                   <span
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-lg text-cyan-300"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/10 text-lg text-violet-300"
                     aria-hidden="true"
                   >
                     S
@@ -245,24 +245,24 @@ export default function CorporateIntro({ dictionary: dictionaryOverride } = {}) 
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-cyan-500/45 bg-gradient-to-br from-slate-950 via-slate-950 to-sky-950/70 p-4">
+              <div className="rounded-2xl border border-violet-500/45 bg-gradient-to-br from-slate-950 via-slate-950 to-violet-950/70 p-4">
                 <div className="mb-2 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span
-                      className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500 text-sm font-bold text-slate-950 shadow-[0_0_18px_rgba(34,211,238,0.9)]"
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-violet-500 text-sm font-bold text-slate-950 shadow-[0_0_18px_rgba(167, 139, 250,0.9)]"
                       aria-hidden="true"
                     >
                       +
                     </span>
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-cyan-200">
+                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-violet-200">
                       {d.card2Label}
                     </p>
                   </div>
-                  <span className="text-sm font-semibold text-cyan-200/80">
+                  <span className="text-sm font-semibold text-violet-200/80">
                     {d.card2Badge}
                   </span>
                 </div>
-                <p className="text-sm leading-relaxed text-sky-50/90">
+                <p className="text-sm leading-relaxed text-violet-50/90">
                   {d.card2Text}
                 </p>
               </div>
