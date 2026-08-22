@@ -61,12 +61,13 @@ const PAGE_LAST_MODIFIED = getLastModifiedDateTimeForFile(
   "app/(tr)/kurumsal-organizasyon/page.js",
   "2026-04-29T00:00:00+03:00",
 );
-const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
+const PAGE_TITLE = "Kurumsal Organizasyon | LED ve Sahne Prodüksiyonu | Sahneva";
 const PAGE_DESCRIPTION =
   "Lansman, konferans ve gala için kurumsal etkinlik organizasyonu: sahne, LED ekran, ses-ışık, truss, teknik reji, kurulum ve söküm tek ekipten.";
 const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
 const OG_DESCRIPTION = PAGE_DESCRIPTION;
 const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
+const OG_IMAGE_ALT = "Kurumsal organizasyon sahne, LED ekran ve teknik prodüksiyon Sahneva";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
 const HERO_IMAGE_VARIANTS = {
@@ -267,7 +268,8 @@ export const metadata = {
         url: `${ORIGIN}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Kurumsal organizasyon sahne, LED ekran ve teknik prodüksiyon Sahneva",
+        type: "image/webp",
+        alt: OG_IMAGE_ALT,
       },
     ],
   },
@@ -275,7 +277,12 @@ export const metadata = {
     card: "summary_large_image",
     title: OG_TITLE,
     description: PAGE_DESCRIPTION,
-    images: [`${ORIGIN}${OG_IMAGE}`],
+    images: [
+      {
+        url: `${ORIGIN}${OG_IMAGE}`,
+        alt: OG_IMAGE_ALT,
+      },
+    ],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -404,7 +411,6 @@ function CorporateOrganizationJsonLd() {
     ...(VIDEO_DURATIONS[video.id] ? { duration: VIDEO_DURATIONS[video.id] } : {}),
     thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
-    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
     inLanguage: "tr-TR",
     isFamilyFriendly: true,
     publisher: { "@id": ORGANIZATION_ID },

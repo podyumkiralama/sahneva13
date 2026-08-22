@@ -60,6 +60,8 @@ const HERO_IMAGE_HEIGHT = 541;
 const OG_IMAGE = `${SITE_URL}/img/cadir/og-cadir-kiralama.jpg`;
 const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
+const OG_IMAGE_ALT =
+  "Sahneva çadır kiralama - büyük açıklıklı etkinlik çadırının vinçle kurulumu ve yanındaki pagoda çadırlar";
 
 // Base64 blur placeholder (LCP hero için)
 const BLUR_DATA_URL =
@@ -89,7 +91,7 @@ export const metadata = {
         width: OG_IMAGE_WIDTH,
         height: OG_IMAGE_HEIGHT,
         type: "image/jpeg",
-        alt: "Sahneva çadır kiralama - büyük açıklıklı etkinlik çadırının vinçle kurulumu ve yanındaki pagoda çadırlar",
+        alt: OG_IMAGE_ALT,
       },
     ],
   },
@@ -98,7 +100,12 @@ export const metadata = {
     title: "Çadır Kiralama | Profesyonel Etkinlik Çözümleri",
     description:
       "Düğün, fuar, konser ve özel etkinlikler için profesyonel çadır kiralama çözümleri.",
-    images: [OG_IMAGE],
+    images: [
+      {
+        url: OG_IMAGE,
+        alt: OG_IMAGE_ALT,
+      },
+    ],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -1997,7 +2004,6 @@ function TentRentalJsonLd() {
       : {}),
     thumbnailUrl: `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`,
     embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
-    contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
     inLanguage: "tr-TR",
     publisher: { "@id": ORGANIZATION_ID },
     ...(getVideoEntities(video.videoId).length
