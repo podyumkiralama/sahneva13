@@ -130,7 +130,7 @@ function ArticleSchema() {
         publisher: { "@id": orgId },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
         about: [
-          { "@type": "Thing", name: "İstanbul kurumsal etkinlik firmaları" },
+          { "@type": "Thing", name: "İstanbul kurumsal etkinlik planlaması" },
           { "@type": "Thing", name: "Profesyonel sahne ve LED ekran kiralama" },
           { "@type": "Thing", name: "Etkinlik yönetiminde teknik prodüksiyon" },
           { "@type": "Thing", name: "Hibrit etkinlik" },

@@ -63,10 +63,9 @@ const PAGE_LAST_MODIFIED = getLastModifiedDateTimeForFile(
 );
 const PAGE_TITLE = "Kurumsal Organizasyon | Sahne ve LED Ekran Prodüksiyonu";
 const PAGE_DESCRIPTION =
-  "Lansman, konferans ve gala için sahne, LED ekran, ses-ışık, truss ve teknik rejiyi tek ekipten yönetin. Türkiye geneli kurumsal organizasyon çözümleri.";
+  "Lansman, konferans ve gala için kurumsal etkinlik organizasyonu: sahne, LED ekran, ses-ışık, truss, teknik reji, kurulum ve söküm tek ekipten.";
 const OG_TITLE = "Kurumsal Organizasyon | Sahneva";
-const OG_DESCRIPTION =
-  "Lansman, konferans, gala ve bayi toplantılarında sahne, LED ekran, ses-ışık, truss, teknik reji ve saha operasyonunu tek ekipten planlayın.";
+const OG_DESCRIPTION = PAGE_DESCRIPTION;
 const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
@@ -244,9 +243,15 @@ export const metadata = {
   description: PAGE_DESCRIPTION,
   keywords: [
     "kurumsal organizasyon",
+    "kurumsal etkinlik",
     "kurumsal organizasyon şirketleri",
+    "kurumsal etkinlik firmaları",
+    "kurumsal organizasyon firmaları",
+    "kurumsal etkinlik şirketleri",
     "kurumsal etkinlik organizasyonu",
+    "kurumsal etkinlik organizasyon şirketleri",
     "kurumsal etkinlik prodüksiyonu",
+    "kurumsal organizasyon hizmetleri",
     "sahne led ekran prodüksiyonu",
   ],
   alternates: buildAlternatesForPath("/kurumsal-organizasyon"),
@@ -451,8 +456,13 @@ function CorporateOrganizationJsonLd() {
       "@type": "Service",
       "@id": serviceId,
       name: "Kurumsal Organizasyon ve Teknik Prodüksiyon",
+      alternateName: [
+        "Kurumsal etkinlik organizasyonu",
+        "Kurumsal etkinlik prodüksiyonu",
+      ],
       serviceType: [
         "kurumsal organizasyon",
+        "kurumsal organizasyon hizmetleri",
         "kurumsal etkinlik organizasyonu",
         "kurumsal etkinlik prodüksiyonu",
         "sahne ve LED ekran prodüksiyonu",
@@ -505,7 +515,7 @@ function Hero() {
     <PageHero
       eyebrow="Türkiye'nin kurumsal etkinlik teknoloji partneri"
       title="Kurumsal Organizasyon"
-      description="Sahne, LED ekran ve teknik prodüksiyon tek ekipten."
+      description="Kurumsal etkinlik prodüksiyonu: sahne, LED ekran, ses-ışık ve reji tek ekipten."
       note="Sahneva, kurumsal organizasyonlarda sahne, LED ekran, ses-ışık, truss ve teknik reji süreçlerini tek ekipten yöneten etkinlik teknoloji partneridir. Lansman, konferans ve gala sahnelerinde LED görüntüsü, reji akışı, kurumsal kimliğinize uygun sahne dili ve etkinlik sonrası söküm planı tek muhatapla ilerler."
       badges={[...ASSURANCE_ITEMS.slice(0, 4), "Kredi Kartı ile Taksitli Ödeme"]}
       actions={[
@@ -701,16 +711,16 @@ function Positioning() {
   return (
     <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
       <SectionHeader
-        eyebrow="Teknik altyapı"
-        title="Teknik altyapı ve envanter gücümüz"
-        desc="Kurumsal organizasyon şirketleri arasında fark yaratan şey yalnızca ekipman çeşitliliği değil; sahne, LED ekran, ses-ışık, reji ve saha ekibinin tek planla çalışmasıdır."
+        eyebrow="Firma seçimi"
+        title="Kurumsal organizasyon firması seçerken teknik ölçütler"
+        desc="Kurumsal etkinlik şirketleri karşılaştırılırken gerçek saha referansları, özmal envanter, prova, yedek plan, kurulum ve söküm sorumluluğu birlikte değerlendirilmelidir."
       />
 
       <p className="mb-8 max-w-4xl text-lg leading-8 text-slate-700">
-        Sahneva olarak bu hizmeti yalnızca ekipman temini olarak değil; sahne mimarisi,
-        LED ekran, ses-ışık, reji, prova ve saha koordinasyonunu kapsayan uçtan uca teknik prodüksiyon süreci
-        olarak ele alıyoruz. Aynı envanter, tek salonluk bir şirket etkinliğinde de birkaç bin kişilik lansmanda
-        da aynı ekip tarafından planlanır.
+        Kurumsal etkinlik firmaları ve kurumsal organizasyon şirketleri yalnız ekipman listesiyle değil;
+        yazılı teknik kapsam, keşif ve prova disiplini, saha sorumlusu ve gerçek proje kayıtlarıyla
+        karşılaştırılmalıdır. Sahneva bu ölçütleri tek teknik prodüksiyon planında birleştirir; yüz kişilik
+        şirket etkinliğinden birkaç bin katılımcılı lansmana kadar aynı operasyon disipliniyle çalışır.
       </p>
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

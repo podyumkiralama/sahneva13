@@ -322,8 +322,8 @@ export const FAQ_ITEMS = [
     a: "İkisi de. Sahneva bir kurumsal etkinliği baştan sona ana yüklenici olarak alabilir; planlama, ekipman, kurulum, etkinlik günü operasyonu ve söküm tek sözleşme altında yürütülür ve markanın tek muhatabı olur. Aynı zamanda etkinlik ajansları, PCO ve DMC firmalarının projelerinde teknik prodüksiyon partneri olarak çalışırız; bu modelde müşteri sahipliği ve kreatif yön ajansta kalırken sahne, LED ekran, ses, ışık, truss ve saha operasyonunu biz üstleniriz.",
   },
   {
-    q: "Sadece ekipman mı sağlıyorsunuz?",
-    a: "Hayır. Sahneva yalnızca ekipman sağlayan bir firma değildir; kurumsal organizasyon projelerinde keşif, teknik planlama, sahne ve LED ekran mimarisi, prova, kurulum, saha koordinasyonu ve etkinlik sonrası söküm süreci aynı operasyon akışı içinde yönetilir. Bu yaklaşım, işi ekipman kiralama değil, planlı bir teknik prodüksiyon disiplini olarak ele almamızı sağlar.",
+    q: "Kurumsal etkinlik şirketleri ve organizasyon firmaları nasıl karşılaştırılmalı?",
+    a: "Kurumsal etkinlik şirketleri ve kurumsal organizasyon firmaları; gerçek proje referansları, yazılı teknik kapsam, ekipman kaynağı, keşif, prova, yedekleme, saha sorumlusu, kurulum ve söküm planıyla karşılaştırılmalıdır. Sahneva yalnız ekipman sağlayan bir tedarikçi değildir; sahne, LED ekran, ses-ışık, truss ve reji süreçlerini tek teknik operasyon altında yürütür.",
   },
   {
     q: "Teklif için hangi bilgiler yeterli?",
