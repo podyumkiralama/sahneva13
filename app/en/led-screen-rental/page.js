@@ -11,6 +11,7 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -20,6 +21,12 @@ const PHONE = "+905453048671";
 const WA_TEXT =
   "Hello, I'd like to request a professional quote for our LED screen rental project. Event type: [Concert/Expo/Wedding], Date: [Date], City: [City].";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
+const STANDARD_LED_RATE = new Intl.NumberFormat("en-GB").format(
+  LED_SCREEN_PRICING.standard.perSqm,
+);
+const P19_LED_RATE = new Intl.NumberFormat("en-GB").format(
+  LED_SCREEN_PRICING.premiumP19.perSqm,
+);
 
 // Base64 blur placeholder
 const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
@@ -259,6 +266,17 @@ function QuickAnswer() {
             with our <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
             <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
             <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/corporate-events">corporate event production</Link>.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-slate-700">
+            Published starting rates are TRY {STANDARD_LED_RATE}/m² for standard indoor/outdoor panels and
+            TRY {P19_LED_RATE}/m² for P1.9 indoor LED. See the{" "}
+            <Link
+              className="font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
+              href="/en/led-screen-rental-prices"
+            >
+              LED screen rental price guide
+            </Link>{" "}
+            for the itemised installation, processing, crew and logistics scope.
           </p>
         </div>
       </div>
@@ -842,7 +860,7 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "How much does LED screen rental cost?",
     answer:
-      "Pricing depends on pixel pitch and total surface area. Indoor P2.5 LED walls start from TL 2,800 per square metre and outdoor P4 LED walls from TL 1,800 per square metre, including certified installation and operator support.",
+      `Published starting rates are TRY ${STANDARD_LED_RATE} per square metre for standard indoor/outdoor LED screens and TRY ${P19_LED_RATE} per square metre for P1.9 indoor LED. Installation, structure, processing, crew and logistics are confirmed in an itemised project quote.`,
   },
   {
     question: "How long does installation take?",
@@ -870,7 +888,7 @@ function FAQ() {
   const faqs = [
     {
       q: "How much does LED screen rental cost?",
-      a: "Pricing depends on pixel pitch and total surface area. Indoor P2.5 LED walls start from ₺2,800 per m² and outdoor P4 LED walls from ₺1,800 per m², including certified installation and operator support."
+      a: `Published starting rates are TRY ${STANDARD_LED_RATE} per m² for standard indoor/outdoor LED screens and TRY ${P19_LED_RATE} per m² for P1.9 indoor LED. Installation, structure, processing, crew and logistics are confirmed in an itemised project quote.`
     },
     {
       q: "How long does installation take?",
@@ -1173,6 +1191,7 @@ export default function Page() {
       <ServiceBlogLinks
         locale="en"
         links={[
+          { href: "/en/blog/led-pixel-pitch-viewing-distance-guide", label: "LED Pixel Pitch & Viewing Distance Guide" },
           { href: "/en/blog/led-screen-technology-trends-2026", label: "2026 LED Screen Technology Trends" },
           { href: "/en/blog/event-technical-scouting-and-planning-guide", label: "Event Technical Scouting and Planning Guide" },
         ]}

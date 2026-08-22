@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 
 import { ADDITIONAL_DAY_DISCOUNT, multiDaySaving, multiDayTotal } from "@/lib/pricing";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 import { Calculator, CheckCircle, MessageCircle, Monitor, Ruler, Sparkles } from "lucide-react";
 
 const PHONE = "905453048671";
@@ -11,15 +12,15 @@ const PHONE = "905453048671";
 const screenTypes = {
   indoor: {
     label: "İç mekan LED ekran",
-    sqmPrice: 1800,
-    minimum: 35000,
+    sqmPrice: LED_SCREEN_PRICING.standard.perSqm,
+    minimum: LED_SCREEN_PRICING.standard.minimum,
     smallLimit: 15,
     note: "AVM, otel, konferans, lansman ve kurumsal salon etkinlikleri için.",
   },
   outdoor: {
     label: "Dış mekan LED ekran",
-    sqmPrice: 1800,
-    minimum: 35000,
+    sqmPrice: LED_SCREEN_PRICING.standard.perSqm,
+    minimum: LED_SCREEN_PRICING.standard.minimum,
     smallLimit: 15,
     note: "Festival, konser, belediye etkinliği ve açık hava organizasyonları için.",
   },
@@ -42,7 +43,7 @@ const extras = [
   {
     key: "watchout",
     label: "Watchout / gelişmiş reji",
-    price: 50000,
+    price: LED_SCREEN_PRICING.watchout,
     premium: true,
     description: "Mapping, lansman, senkron video, çoklu ekran ve gelişmiş sahne akışlarında önerilir.",
   },
@@ -85,8 +86,8 @@ export default function LedCalculatorClient() {
     const numericDays = Math.max(Number(days) || 1, 1);
     const area = screenType === "direction" ? numericWidth : numericWidth * numericHeight;
     const isP19Indoor = screenType === "indoor" && pitch === "P1.9";
-    const sqmPrice = isP19Indoor ? 4500 : type.sqmPrice;
-    const minimum = isP19Indoor ? 50000 : type.minimum;
+    const sqmPrice = isP19Indoor ? LED_SCREEN_PRICING.premiumP19.perSqm : type.sqmPrice;
+    const minimum = isP19Indoor ? LED_SCREEN_PRICING.premiumP19.minimum : type.minimum;
     const baseDaily = screenType === "direction" ? type.sqmPrice * numericWidth : area * sqmPrice;
     const usesMinimum =
       screenType === "direction"

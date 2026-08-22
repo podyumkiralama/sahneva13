@@ -18,10 +18,11 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PageHero from "@/components/PageHero";
 import LedPriceCalculator from "@/components/LedPriceCalculator.client";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 export const revalidate = 86400;
 
@@ -35,16 +36,16 @@ const MODIFIED_DATE = `${getLastModifiedForFile(
   "app/(tr)/led-ekran-kiralama-fiyatlari/page.js",
   "2026-05-21"
 )}T00:00:00+03:00`;
-const PRICE_VALID_UNTIL = "2027-12-31";
+const PRICE_VALID_UNTIL = LED_SCREEN_PRICING.priceValidUntil;
 const PHONE = "905453048671";
 const WHATSAPP_TEXT =
   "Merhaba, LED ekran kiralama fiyat teklifi istiyorum. Etkinlik tarihi: [gg.aa.yyyy], şehir: [il/ilçe], mekan: [iç/dış], tahmini ekran ölçüsü: [en x boy / m2], ekran tipi: [standart/P1.9].";
 const WHATSAPP_URL = `https://wa.me/${PHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`;
 
 const PRICES = {
-  standard: 1800,
-  premiumP19: 4500,
-  currency: "TRY",
+  standard: LED_SCREEN_PRICING.standard.perSqm,
+  premiumP19: LED_SCREEN_PRICING.premiumP19.perSqm,
+  currency: LED_SCREEN_PRICING.currency,
 };
 
 const quickLinks = [
@@ -61,12 +62,12 @@ const quickLinks = [
 const priceRows = [
   {
     type: "Standart indoor / outdoor LED ekran",
-    price: "1.800 TL/m²’den başlayan fiyatlarla",
+    price: `${tl(PRICES.standard)} TL/m²’den başlayan fiyatlarla`,
     scope: "P2.9, P3.9 ve proje ihtiyacına göre seçilen standart panel kurulumları",
   },
   {
     type: "P1.9 Indoor LED ekran",
-    price: "4.500 TL/m²’den başlayan fiyatlarla",
+    price: `${tl(PRICES.premiumP19)} TL/m²’den başlayan fiyatlarla`,
     scope: "Yakın izleme mesafesi, lansman, gala, konferans ve kapalı alan protokol işleri",
   },
   {
@@ -124,14 +125,14 @@ const scenarios = [
     meters: "P1.9 indoor LED ekran",
     screen: "Yakın izleme mesafesi ve yüksek çözünürlük",
     detail: "Lansman, konferans, gala ve protokol etkinliklerinde kamera dostu görüntü kalitesi hedeflenir.",
-    price: "4.500 TL/m²’den başlayan fiyatlarla; reji, görüntü işlemcisi, kurulum, söküm ve teknik ekip proje kapsamına göre planlanır.",
+    price: `${tl(PRICES.premiumP19)} TL/m²’den başlayan fiyatlarla; reji, görüntü işlemcisi, kurulum, söküm ve teknik ekip proje kapsamına göre planlanır.`,
   },
 ];
 
 const faq = [
   {
     q: "LED ekran kiralama fiyatları ne kadar?",
-    a: "2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda 1.800 TL/m²’den, P1.9 Indoor LED ekranda 4.500 TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.",
+    a: `2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda ${tl(PRICES.standard)} TL/m²’den, P1.9 Indoor LED ekranda ${tl(PRICES.premiumP19)} TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.`,
   },
   {
     q: "LED ekran kiralama fiyatı m² bazlı mı hesaplanır?",
@@ -175,11 +176,7 @@ export const metadata = {
   title: "LED Ekran Kiralama Fiyatları 2026 | m² ve Kurulum",
   description:
     "2026 LED ekran kiralama fiyatları: P1.9, P2.5, P2.9 ve P3.9 panellerde m² bazlı başlangıç bedelleri; kurulum, reji ve lojistikle netleşir.",
-  alternates: buildLanguageAlternates({
-    tr: SLUG,
-    canonical: SLUG,
-    xDefault: SLUG,
-  }),
+  alternates: buildAlternatesForPath(SLUG),
   keywords: [
     "led ekran kiralama fiyatları",
     "led ekran kiralama fiyatları 2026",
@@ -620,9 +617,9 @@ export default function Page() {
         <section className="relative border-y border-white/10 bg-slate-950 py-8">
           <div className="container mx-auto grid gap-4 px-4 md:grid-cols-4">
             {[
-              ["300 m²", "P1.9 Indoor LED envanteri"],
-              ["1.800 TL", "standart m² başlangıç"],
-              ["4.500 TL", "P1.9 m² başlangıç"],
+              [`${LED_SCREEN_PRICING.premiumP19.availableSqm} m²`, "P1.9 Indoor LED envanteri"],
+              [`${tl(PRICES.standard)} TL`, "standart m² başlangıç"],
+              [`${tl(PRICES.premiumP19)} TL`, "P1.9 m² başlangıç"],
               ["NovaStar", "görüntü işlemcisi ve reji planı"],
             ].map(([value, label]) => (
               <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
@@ -686,9 +683,9 @@ export default function Page() {
                   Ortalama LED ekran kiralama m² fiyatları
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-slate-700">
-                  Standart LED ekran projelerinde fiyat çoğunlukla 1.800 TL/m²’den başlar.
+                  Standart LED ekran projelerinde fiyat çoğunlukla {tl(PRICES.standard)} TL/m²’den başlar.
                   Yakın izleme mesafesinde kullanılan P1.9 Indoor LED ekranlarda ise
-                  başlangıç fiyatı 4.500 TL/m² bandına çıkar. Bu fark, piksel yoğunluğu,
+                  başlangıç fiyatı {tl(PRICES.premiumP19)} TL/m² bandına çıkar. Bu fark, piksel yoğunluğu,
                   çözünürlük, kamera dostu görüntü ve teknik kontrol ihtiyacından doğar.
                 </p>
                 <p className="mt-5 text-lg leading-8 text-slate-700">
@@ -706,8 +703,8 @@ export default function Page() {
 
               <div className="grid gap-4">
                 {[
-                  ["Standart indoor/outdoor", "1.800 TL/m²", "başlayan fiyat"],
-                  ["P1.9 Indoor LED", "4.500 TL/m²", "başlayan fiyat"],
+                  ["Standart indoor/outdoor", `${tl(PRICES.standard)} TL/m²`, "başlayan fiyat"],
+                  ["P1.9 Indoor LED", `${tl(PRICES.premiumP19)} TL/m²`, "başlayan fiyat"],
                   ["Kurulum + söküm", "Proje bazlı", "saha erişimine göre"],
                 ].map(([name, value, note]) => (
                   <div key={name} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">

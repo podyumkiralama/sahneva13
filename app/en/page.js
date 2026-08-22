@@ -23,6 +23,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_EN } from "@/lib/faqData";
 import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ================== ISR ================== */
@@ -96,9 +97,9 @@ const HOME_JSON_LD = {
       "@type": "WebPage",
       "@id": WEBPAGE_ID,
       url: EN_HOME_URL,
-      name: "Technical Production Partner in Türkiye | Stage, LED, Sound | Sahneva",
+      name: "Stage, LED, Sound & Event Technology in Türkiye | Sahneva",
       description:
-        "Türkiye-based technical production partner for international conferences, launches, exhibitions and large-scale events. Stage, LED, sound, lighting and truss equipment, technical crew and on-site execution from one team.",
+        "Discover Sahneva's stage, LED, sound, lighting, truss and event technology capabilities, backed by technical crew and nationwide field delivery across Türkiye.",
       inLanguage: "en-US",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
@@ -168,7 +169,7 @@ const HOME_JSON_LD = {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: 1800,
+            price: LED_SCREEN_PRICING.standard.perSqm,
             priceCurrency: "TRY",
             unitText: "m²",
             unitCode: "MTK",
@@ -320,14 +321,14 @@ const HOME_JSON_LD = {
     {
       "@type": "Service",
       "@id": SERVICE_ID,
-      name: "Event Equipment Rental",
+      name: "Event Technology and Equipment Services",
       description:
         "Stage, podium, LED wall, sound-light systems and tent rental across Türkiye. Setup, technical operation and dismantling included.",
       url: EN_HOME_URL,
       areaServed: { "@type": "Country", name: "Türkiye" },
       provider: { "@id": ORGANIZATION_ID },
       hasOfferCatalog: { "@id": CATALOG_ID },
-      serviceType: "Event Production",
+      serviceType: "Event Technology and Equipment Rental",
     },
 
     {
@@ -514,9 +515,9 @@ const HERO_DICT_EN = {
   badge: "One Team • One Roof • One Solution",
   titleVariant: "english",
   titleLines: [
-    { text: "Your Trusted" },
-    { text: "Technical" },
-    { text: "Production ", emphasis: "Partner", compact: true },
+    { text: "Stage, LED," },
+    { text: "Sound & Lighting" },
+    { text: "for Live Events", compact: true },
     { text: "in T\u00fcrkiye." },
   ],
   heroDescription:
@@ -915,13 +916,13 @@ const FAQ_DICT_EN = {
 
 /* ================== Metadata ================== */
 export const metadata = {
-  title: "Technical Production Partner in Türkiye | Stage, LED, Sound",
+  title: "Stage, LED, Sound & Event Technology in Türkiye | Sahneva",
   description:
-    "Türkiye-based technical production partner for conferences, launches and large-scale events. Stage, LED, sound, lighting, truss and on-site crew from one team.",
+    "Explore stage, LED, sound, lighting, truss and event technology capabilities with technical crew and nationwide field delivery across Türkiye.",
   openGraph: {
-    title: "Your Trusted Technical Production Partner in Türkiye | Sahneva",
+    title: "Stage, LED, Sound & Event Technology in Türkiye | Sahneva",
     description:
-      "From international conferences to product launches and exhibitions, Sahneva delivers the technical production, equipment and on-site execution your event needs across Türkiye.",
+      "Explore Sahneva's stage, LED, sound, lighting, truss and event technology capabilities for live events across Türkiye.",
     url: EN_HOME_URL,
     type: "website",
     locale: "en_US",
@@ -937,9 +938,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Trusted Technical Production Partner in Türkiye | Sahneva",
+    title: "Stage, LED, Sound & Event Technology in Türkiye | Sahneva",
     description:
-      "Stage, LED, sound, lighting, truss and on-site technical crew for conferences, launches and large-scale events across Türkiye.",
+      "Stage, LED, sound, lighting, truss and technical crew for live events across Türkiye.",
     images: [`${BASE_SITE_URL}/img/og/sahneva-og.webp`],
   },
   alternates: {
@@ -968,13 +969,13 @@ export default function EnglishHomePage() {
 
       <div className="bg-[#0B1120] pb-2 pt-0">
         <p className="container mx-auto max-w-4xl px-4 text-center text-sm leading-relaxed text-white/55 md:text-base">
-          Sahneva is a Turkey-based event production company specializing in stage design, LED screen
-          rental, professional audio systems, lighting and technical production services for corporate
-          events, congresses and international organizations. For international agencies and brands planning events in Türkiye, Sahneva works as a local{" "}
+          Sahneva brings stage platforms, LED screens, sound, lighting, truss, event tents, technical
+          crew and nationwide field logistics into one event technology operation. International
+          agencies and brands that need a Turkey-side execution team can review our dedicated{" "}
           <Link href="/en/event-production-company-turkey" className="font-bold text-violet-200 underline underline-offset-4 hover:text-white">
-            event production partner in Turkey
+            event production company in Turkey
           </Link>{" "}
-          for venue coordination, stage, LED screen, sound, lighting, truss and field operation.
+          page for local planning, venue coordination and show delivery.
         </p>
       </div>
 

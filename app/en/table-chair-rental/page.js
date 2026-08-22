@@ -1239,6 +1239,7 @@ export default function Page() {
       <ServiceBlogLinks
         locale="en"
         links={[
+          { href: "/en/blog/event-seating-layout-guide", label: "Event Seating Layout Guide" },
           { href: "/en/blog/corporate-event-planning-guide-2026", label: "2026 Corporate Event Planning Guide" },
           { href: "/en/blog/12-fun-corporate-event-ideas", label: "12 Corporate Event Ideas" },
         ]}

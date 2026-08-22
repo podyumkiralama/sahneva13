@@ -21,6 +21,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_DE } from "@/lib/faqData";
 import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 import { CORPORATE_EVENTS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ================== ISR ================== */
@@ -166,7 +167,7 @@ const HOME_JSON_LD = {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: 1800,
+            price: LED_SCREEN_PRICING.standard.perSqm,
             priceCurrency: "TRY",
             unitText: "m²",
             unitCode: "MTK",

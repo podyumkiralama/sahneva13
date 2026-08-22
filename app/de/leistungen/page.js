@@ -9,6 +9,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -84,7 +85,7 @@ function ServicesStructuredData() {
           },
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "1800.00",
+            price: LED_SCREEN_PRICING.standard.perSqm,
             priceCurrency: "TRY",
             unitText: "m²",
             unitCode: "MTK",

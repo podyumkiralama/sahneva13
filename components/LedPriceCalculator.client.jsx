@@ -2,10 +2,20 @@
 
 import { useMemo, useState } from "react";
 import { MessageCircle } from "lucide-react";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
+import { multiDayTotal } from "@/lib/pricing";
 
 const SCREEN_TYPES = {
-  standard: { label: "Standart LED ekran", sqm: 1800, minimum: 35000 },
-  p19: { label: "P1.9 Indoor LED", sqm: 4500, minimum: 50000 },
+  standard: {
+    label: "Standart LED ekran",
+    sqm: LED_SCREEN_PRICING.standard.perSqm,
+    minimum: LED_SCREEN_PRICING.standard.minimum,
+  },
+  p19: {
+    label: "P1.9 Indoor LED",
+    sqm: LED_SCREEN_PRICING.premiumP19.perSqm,
+    minimum: LED_SCREEN_PRICING.premiumP19.minimum,
+  },
 };
 
 const WEB_MCP_LED_CALCULATOR_FORM_PROPS = {
@@ -60,7 +70,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
 
   const result = useMemo(() => {
     const type = SCREEN_TYPES[screenType] || SCREEN_TYPES.standard;
-    const parsedDays = Math.max(positiveNumber(days, 1), 1);
+    const parsedDays = Math.max(Math.round(positiveNumber(days, 1)), 1);
     const parsedWidth = positiveNumber(width);
     const parsedHeight = positiveNumber(height);
     const area = parsedWidth * parsedHeight;
@@ -72,8 +82,8 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
         : baseDaily < type.minimum
       : false;
     const firstDay = hasValidArea ? (usesMinimum ? type.minimum : baseDaily) : 0;
-    const dayTotal = firstDay * parsedDays;
-    const watchoutPrice = watchout ? 50000 : 0;
+    const dayTotal = multiDayTotal(firstDay, parsedDays);
+    const watchoutPrice = watchout ? LED_SCREEN_PRICING.watchout : 0;
     const total = dayTotal + watchoutPrice;
 
     const message =
@@ -89,7 +99,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
       area,
       firstDay,
       total,
-      watchoutText: watchout ? "+50.000 TL" : "İsteğe bağlı",
+      watchoutText: watchout ? `+${formatPrice(LED_SCREEN_PRICING.watchout)}` : "İsteğe bağlı",
       note: !hasValidArea
         ? "Ölçü girildiğinde yaklaşık başlangıç bedeli hesaplanır."
         : usesMinimum
@@ -194,7 +204,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
               />
               <span>
                 <strong style={{ color: "#fff", display: "block" }}>Watchout / gelişmiş reji</strong>
-                Mapping, çoklu ekran senkronizasyonu ve gelişmiş sahne akışlarında isteğe bağlı +50.000 TL olarak eklenir.
+                Mapping, çoklu ekran senkronizasyonu ve gelişmiş sahne akışlarında isteğe bağlı +{formatPrice(LED_SCREEN_PRICING.watchout)} olarak eklenir.
               </span>
             </label>
           </form>

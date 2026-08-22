@@ -13,6 +13,7 @@ import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
+import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 const { home } = LOCALE_CONTENT.ar;
 
@@ -520,7 +521,7 @@ function StructuredData() {
             itemOffered: { "@type": "Service", name: "تأجير شاشات LED" },
             priceSpecification: {
               "@type": "UnitPriceSpecification",
-              price: 1800,
+              price: LED_SCREEN_PRICING.standard.perSqm,
               priceCurrency: "TRY",
               unitText: "م²",
               unitCode: "MTK",

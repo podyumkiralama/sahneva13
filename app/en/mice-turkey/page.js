@@ -21,10 +21,17 @@ const BLUR_DATA_URL =
 
 export const metadata = {
   title: {
-    absolute: "MICE Turkey — Meetings, Incentives, Conferences | Sahneva",
+    absolute: "MICE Turkey | Technical Production & AV Support | Sahneva",
   },
   description:
-    "MICE event production and congress AV supplier in Turkey: stage, LED screen, sound and lighting for meetings, incentives, conferences and exhibitions.",
+    "MICE technical production and on-site AV management in Turkey, with stage, LED, sound and lighting support for PCOs, DMCs, meetings and congresses.",
+  keywords: [
+    "MICE Turkey",
+    "MICE technical production Turkey",
+    "MICE event production Turkey",
+    "PCO technical partner Turkey",
+    "DMC production support Turkey",
+  ],
   alternates: buildLanguageAlternates({
     en: "/en/mice-turkey",
     de: "/de/mice-tuerkei",
@@ -32,10 +39,9 @@ export const metadata = {
     xDefault: "/en/mice-turkey",
   }),
   openGraph: {
-    title:
-      "MICE Turkey — Technical Production for Meetings, Incentives, Conferences & Exhibitions | Sahneva",
+    title: "MICE Turkey | Technical Production & AV Support | Sahneva",
     description:
-      "Stage, LED screen, sound and lighting for MICE events in Turkey. One technical partner for meetings, incentive events, international congresses and exhibitions in Istanbul, Antalya and nationwide.",
+      "Technical production, stage, LED, sound and lighting for MICE events, with local delivery support for PCOs, DMCs and event agencies across Türkiye.",
     url: `${ORIGIN}/en/mice-turkey`,
     type: "website",
     siteName: "Sahneva",
@@ -51,9 +57,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MICE Turkey — Technical Production for MICE Events | Sahneva",
+    title: "MICE Turkey | Technical Production & AV Support | Sahneva",
     description:
-      "Stage, LED screen, sound and lighting for MICE events in Istanbul, Antalya and across Türkiye.",
+      "Local MICE technical production and AV support for PCOs, DMCs and event agencies across Türkiye.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -238,7 +244,7 @@ function Hero() {
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
-            Sahneva is Turkey's technical production partner for MICE events. We provide stage, LED screen, sound, lighting, truss and tent support for international organizers, PCOs and DMCs planning meetings, incentive events, congresses and exhibitions in Istanbul, Antalya and across Türkiye.
+            Sahneva is Turkey's technical production partner for MICE events. We provide stage, LED screen, sound, lighting, truss and tent support as the local technical supplier for international organizers, PCOs and DMCs planning meetings, incentive events, congresses and exhibitions in Istanbul, Antalya and across Türkiye.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -273,7 +279,7 @@ function Hero() {
         <GlassCard className="mt-10 px-4 py-4 md:px-6 md:py-5">
           <div className="grid gap-4 md:grid-cols-4">
             {[
-              { t: "MICE Segment", d: "International PCO · DMC · Corporate travel teams" },
+              { t: "MICE Segment", d: "International PCO · DMC · Event agency teams" },
               { t: "Technical scope", d: "Stage · LED screen · Sound · Lighting · Truss · Tent" },
               { t: "Communication", d: "English-speaking project manager on every project" },
               { t: "Coverage", d: "Istanbul · Antalya · Izmir · Ankara · Bodrum · Nationwide" },
@@ -644,15 +650,22 @@ function PcoDmc() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <H2
-              kicker="For PCOs and DMCs"
+              kicker="PCO and DMC production support"
               title={
                 <>
-                  We Work Directly with{" "}
-                  <span className="text-violet-700">PCOs, DMCs & Agency Partners</span>
+                  Local Technical Production for{" "}
+                  <span className="text-violet-700">PCOs, DMCs & Event Agencies</span>
                 </>
               }
-              desc="If you are a Professional Conference Organiser, Destination Management Company or international event agency bringing a project to Turkey, Sahneva can become your local technical production arm."
+              desc="Sahneva plugs into the project as the Turkey-side technical production supplier, coordinating equipment, crew, venue access, setup, show operation and dismantling with your appointed PCO, DMC or event agency."
             />
+
+            <div className="mb-5 rounded-2xl border border-violet-200 bg-violet-50 p-5 text-sm leading-relaxed text-slate-700">
+              <strong className="text-slate-950">Scope boundary:</strong>{" "}
+              our service covers technical production and venue-side delivery. Destination management,
+              flights, accommodation, delegate transport, registration, tours and travel planning remain
+              with the appointed DMC, PCO or agency.
+            </div>
 
             <div className="space-y-4">
               {[
@@ -787,8 +800,8 @@ const FAQ_ITEMS = [
     a: "MICE stands for Meetings, Incentives, Conferences and Exhibitions. Turkey attracts MICE events because of its central location between Europe and Asia, direct flight connectivity, competitive costs, world-class congress hotels in Istanbul and Antalya, and a strong government tourism support framework.",
   },
   {
-    q: "Can Sahneva support a PCO or DMC as a local technical sub-contractor in Turkey?",
-    a: "Yes. We regularly work as a sub-contractor to PCOs and DMCs, providing the local stage, LED screen, sound, lighting, truss and tent production scope while the international agency retains client-facing project management. We can align with your technical rider and work within your production timeline.",
+    q: "What does Sahneva provide to PCOs and DMCs, and what stays with them?",
+    a: "Sahneva provides the Turkey-side technical production scope: stage, LED screen, sound, lighting, truss, tent, technical crew, venue coordination, setup, show operation and dismantling. Destination management, flights, hotels, delegate transport, registration, tours and travel planning remain with the appointed DMC, PCO or agency.",
   },
   {
     q: "Do you provide AV production for congresses and conferences in Istanbul?",
@@ -824,7 +837,7 @@ function Faq() {
           center
           kicker="FAQ for MICE planners"
           title="Frequently Asked Questions"
-          desc="Answers for PCOs, DMCs and international event teams evaluating Turkey as a MICE destination."
+          desc="Answers for PCOs, DMCs and event agencies seeking local MICE technical production support in Turkey."
         />
         <div className="space-y-3">
           {FAQ_ITEMS.map((f) => (
@@ -941,9 +954,9 @@ function MiceTurkeyJsonLd() {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: "MICE Turkey — Technical Production for Meetings, Incentives, Conferences & Exhibitions | Sahneva",
+        name: "MICE Turkey | Technical Production and AV Support | Sahneva",
         description:
-          "Professional MICE event technical production in Turkey. Stage, LED screen, sound and lighting for meetings, incentive events, conferences and exhibitions in Istanbul, Antalya and across Türkiye.",
+          "MICE technical production and venue-side AV management in Turkey, with stage, LED screen, sound and lighting support for PCOs, DMCs and event agencies.",
         inLanguage: "en-US",
         isPartOf: { "@id": `${ORIGIN}/#website` },
         breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
@@ -962,9 +975,9 @@ function MiceTurkeyJsonLd() {
         "@type": "Service",
         "@id": `${pageUrl}#service`,
         name: "MICE Event Technical Production in Turkey",
-        serviceType: "MICE Event Production",
+        serviceType: "MICE Technical Production and AV Management",
         description:
-          "Technical production services for MICE events in Turkey — stage, LED screen, sound, lighting, truss and tent for meetings, incentive events, conferences and exhibitions.",
+          "Technical production and venue-side AV management for MICE events in Turkey — stage, LED screen, sound, lighting, truss and tent support for meetings, incentives, conferences and exhibitions.",
         provider: { "@id": `${ORIGIN}/#org` },
         areaServed: [
           { "@type": "Country", name: "Turkey" },
@@ -976,7 +989,7 @@ function MiceTurkeyJsonLd() {
         audience: {
           "@type": "Audience",
           audienceType:
-            "PCOs, DMCs, international event agencies and corporate teams planning MICE events in Turkey",
+            "PCOs, DMCs and event agencies seeking local MICE technical production support in Turkey",
         },
         url: pageUrl,
       },

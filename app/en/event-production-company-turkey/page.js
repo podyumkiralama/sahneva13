@@ -3,7 +3,33 @@ import { buildInternationalEventMetadata } from "@/lib/internationalEventProduct
 
 export const revalidate = 86400;
 
-export const metadata = buildInternationalEventMetadata("en");
+const baseMetadata = buildInternationalEventMetadata("en");
+const pageTitle = "Event Production Company in Turkey | Local Partner | Sahneva";
+const pageDescription =
+  "Event production services in Turkey for international agencies: local planning, stage, LED, sound, lighting, crew, logistics, setup and show delivery.";
+
+export const metadata = {
+  ...baseMetadata,
+  title: { absolute: pageTitle },
+  description: pageDescription,
+  keywords: [
+    "event production Turkey",
+    "event production company Turkey",
+    "event production services Turkey",
+    "technical event production Turkey",
+    "local production partner Turkey",
+  ],
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: pageTitle,
+    description: pageDescription,
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: pageTitle,
+    description: pageDescription,
+  },
+};
 
 function InternationalPageLayoutPolish() {
   return (

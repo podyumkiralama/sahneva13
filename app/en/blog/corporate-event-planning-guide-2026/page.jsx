@@ -71,6 +71,7 @@ export const metadata = {
     "LED screen rental",
     "technical production",
     "run of show",
+    "event production checklist",
     "event budget",
   ],
   authors: [{ name: AUTHOR_NAME }],
@@ -205,6 +206,7 @@ export default function Page() {
           { "@type": "Thing", name: "Istanbul corporate event companies" },
           { "@type": "Thing", name: "Professional stage and LED screen rental" },
           { "@type": "Thing", name: "Technical production in event management" },
+          { "@type": "Thing", name: "Live event production checklist" },
           { "@type": "Thing", name: "Hybrid event" },
           { "@type": "Thing", name: "Live streaming production" },
         ],
@@ -345,6 +347,7 @@ export default function Page() {
                     ["#s10", "10. Seating and flow"],
                     ["#s11", "11. Setup and rehearsal"],
                     ["#s11a", "11A. Event day checklist"],
+                    ["#live-production-checklist", "11B. Live-event production checklist"],
                     ["#s12", "12. Post-event review"],
                     ["#s12a", "12A. Success measurement and feedback"],
                   ].map(([href, text]) => (
@@ -791,6 +794,59 @@ export default function Page() {
                     "Has the final walk-through been completed?",
                     "Has all equipment been tested?",
                     "Is the team communication list and emergency procedure ready?",
+                  ]}
+                />
+              </section>
+
+              {/* live production checklist */}
+              <section className="mt-10">
+                <H2 id="live-production-checklist">11B. Live-event production checklist</H2>
+                <p className="mt-3 text-sm leading-7 text-slate-700">
+                  The event-day list confirms that the venue is ready; the live-production list confirms
+                  that every technical department can execute the same show. Give each checkpoint an owner,
+                  a deadline and a clear hand-off. For multi-supplier projects, the production manager should
+                  keep one master version and issue the final revision before rehearsal.
+                </p>
+
+                <Table
+                  caption="Live-event production hand-offs"
+                  columns={["Phase", "Confirm", "Hand-off"]}
+                  rows={[
+                    ["Pre-production", "Approved drawings, equipment scope, crew call sheet and contact list", "Producer to department leads"],
+                    ["Load-in", "Access, power, rigging, stage, LED, audio, lighting and cable routes", "Venue to technical leads"],
+                    ["System test", "Signal paths, playback, microphones, comms, backup media and spare equipment", "Department leads to show caller"],
+                    ["Rehearsal", "Run-of-show cues, speaker entrances, camera framing and content versions", "Show caller to all operators"],
+                    ["Show call", "Cue authority, change-control rule and incident escalation route", "Producer to show caller"],
+                    ["De-rig", "Power-down order, equipment count, venue protection and collection timing", "Technical leads to logistics"],
+                  ]}
+                />
+
+                <p className="mt-3 text-sm leading-7 text-slate-700">
+                  If one company is coordinating the full technical chain, confirm that its proposal names
+                  the production manager, show caller and department responsibilities. See{" "}
+                  <Link
+                    className="font-semibold underline underline-offset-4"
+                    href="/en/event-production-company-turkey"
+                  >
+                    event production in Turkey
+                  </Link>{" "}
+                  for the commercial service scope behind this checklist.
+                </p>
+
+                <InteractiveChecklist
+                  locale="en"
+                  storageKey="live_event_production_checklist"
+                  items={[
+                    "Are the latest stage, screen, seating, rigging and cable drawings approved?",
+                    "Does every crew member have the final call sheet and decision contact?",
+                    "Are venue access, loading, parking, power and working-at-height rules confirmed?",
+                    "Have primary and backup playback, signal and microphone paths been tested?",
+                    "Are the final media files labelled, version-controlled and loaded on backup devices?",
+                    "Has intercom or crew communication been tested at every operating position?",
+                    "Does the run-of-show name the caller and every technical cue?",
+                    "Have presenter entrances, handovers, videos, walk-in music and lighting states been rehearsed?",
+                    "Are spare equipment, emergency lighting and escalation procedures understood?",
+                    "Is the de-rig sequence agreed so furniture, staging and technical crews do not block one another?",
                   ]}
                 />
               </section>
