@@ -199,8 +199,9 @@ const ZH_LOCAL_ADVANTAGES = [
   },
   {
     Icon: Clock3,
-    title: "快速响应",
-    description: "收到城市、日期和活动需求后，及时确认档期、设备与技术条件。",
+    title: "快速确认与清晰报价",
+    description:
+      "完整提交城市、日期、场地、进撤场时段和设备需求后，团队核对档期，并明确设备、人员、物流、搭建与拆除范围。",
   },
   {
     Icon: Globe2,
@@ -226,6 +227,27 @@ const ZH_LOCAL_ADVANTAGES = [
     Icon: Languages,
     title: "多语言沟通",
     description: "支持中文、英文和土耳其语需求沟通与报价，减少信息误差。",
+  },
+];
+
+const ZH_TCBC_EXECUTION_DETAILS = [
+  {
+    Icon: Wrench,
+    title: "进场与搭建",
+    description:
+      "按照场地方规定的进场时段组织设备进场，完成舞台与LED显示系统搭建、接线、画面测试及活动前检查。",
+  },
+  {
+    Icon: Headphones,
+    title: "活动日技术支持",
+    description:
+      "活动期间由技术人员驻场，跟进显示系统状态并处理现场技术需求；客户只需对接一个土耳其本地执行团队。",
+  },
+  {
+    Icon: Truck,
+    title: "会后有序撤场",
+    description:
+      "活动结束后按场地方规定的撤场流程安排拆卸、清点和装车，并配合完成场地交接。",
   },
 ];
 
@@ -408,72 +430,81 @@ export default function ChineseHomePage() {
 
       <section className="bg-white py-14 md:py-18" aria-labelledby="zh-china-case-title">
         <div className="mx-auto max-w-7xl px-4">
-          <article className="grid overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative min-h-[280px] lg:min-h-[500px]">
-              <Image
-                src="/img/blog/bayi-toplantisi-organizasyonu-rehberi-hero.webp"
-                alt="第三届土耳其—中国经贸论坛现场的大型LED显示屏、会议舞台与参会人员"
-                fill
-                quality={80}
-                sizes="(max-width: 1024px) 100vw, 55vw"
-                className="object-cover object-center"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"
-                aria-hidden="true"
-              />
-              <p className="absolute bottom-5 left-5 rounded-full border border-white/20 bg-slate-950/75 px-4 py-2 text-sm font-black text-white backdrop-blur-sm">
-                真实项目 · 伊斯坦布尔
-              </p>
+          <article className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl">
+            <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="relative min-w-0 min-h-[280px]">
+                <Image
+                  src="/img/blog/bayi-toplantisi-organizasyonu-rehberi-hero.webp"
+                  alt="第三届土耳其—中国经贸论坛现场的大型LED显示屏、会议舞台与参会人员"
+                  fill
+                  quality={80}
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover object-center"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"
+                  aria-hidden="true"
+                />
+                <p className="absolute bottom-5 left-5 rounded-full border border-white/20 bg-slate-950/75 px-4 py-2 text-sm font-black text-white backdrop-blur-sm">
+                  真实项目 · 伊斯坦布尔
+                </p>
+              </div>
+
+              <div className="flex min-w-0 flex-col justify-center p-6 text-white sm:p-8 lg:p-10">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-emerald-300">
+                  中土商务活动技术执行案例
+                </p>
+                <h2
+                  id="zh-china-case-title"
+                  className="mt-3 text-3xl font-black leading-tight md:text-4xl"
+                >
+                  第三届土耳其—中国经贸论坛（TCBC）
+                </h2>
+                <p className="mt-3 font-bold text-violet-200">伊斯坦布尔｜2026年2月7日</p>
+                <p className="mt-5 text-base leading-8 text-white/80">
+                  该会议由 DEİK、TÜSİAD 与中国国际贸易促进委员会（CCPIT）共同举办。图中为
+                  Sahneva 团队完成的活动现场，展示了我们在中土商务会议中的本地技术执行能力。
+                </p>
+                <p className="mt-4 text-base leading-8 text-white/80">
+                  该项目并非只交付设备；从设备进场、舞台与LED显示系统搭建、安装调试、活动日技术支持到会后拆除，
+                  均由土耳其本地团队统一协调执行。
+                </p>
+
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/zh/contact"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-emerald-500 px-5 font-black text-white transition hover:bg-emerald-600"
+                  >
+                    提交活动信息，获取方案与报价
+                  </Link>
+                  <Link
+                    href="/zh/our-work"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 font-black text-white transition hover:bg-white/15"
+                  >
+                    查看更多现场项目
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col justify-center p-6 text-white sm:p-8 lg:p-10">
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-emerald-300">
-                中土商务活动技术执行案例
+            <div className="border-t border-white/10 p-6 text-white sm:p-8 lg:p-10">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-emerald-300">
+                项目执行重点
               </p>
-              <h2
-                id="zh-china-case-title"
-                className="mt-3 text-3xl font-black leading-tight md:text-4xl"
-              >
-                第三届土耳其—中国经贸论坛（TCBC）
-              </h2>
-              <p className="mt-3 font-bold text-violet-200">伊斯坦布尔｜2026年2月7日</p>
-              <p className="mt-5 text-base leading-8 text-white/80">
-                该会议由 DEİK、TÜSİAD 与中国国际贸易促进委员会（CCPIT）共同举办。图中为
-                Sahneva 团队完成的活动现场，展示了我们在中土商务会议中的本地技术执行能力。
-              </p>
-              <p className="mt-4 text-base leading-8 text-white/80">
-                从设备进场、舞台与LED显示系统搭建、安装调试到活动日现场技术支持与会后拆除，
-                由土耳其本地团队统一协调。
-              </p>
-
-              <ul className="mt-6 flex list-none flex-wrap gap-2 p-0" aria-label="项目技术范围">
-                {["中土商务会议", "LED显示系统", "舞台搭建", "安装调试", "现场技术支持"].map(
-                  (item) => (
-                    <li
-                      key={item}
-                      className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm font-bold text-white/90"
-                    >
-                      {item}
-                    </li>
-                  )
-                )}
+              <ul className="mt-3 grid list-none gap-3 p-0 lg:grid-cols-3" aria-label="项目执行重点">
+                {ZH_TCBC_EXECUTION_DETAILS.map(({ Icon, title, description }) => (
+                  <li
+                    key={title}
+                    className="flex gap-3 rounded-2xl border border-white/15 bg-white/[0.07] p-4"
+                  >
+                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" aria-hidden="true" />
+                    <div>
+                      <h3 className="text-base font-black text-white">{title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-white/[0.72]">{description}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/zh/contact"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-emerald-500 px-5 font-black text-white transition hover:bg-emerald-600"
-                >
-                  为类似活动获取报价
-                </Link>
-                <Link
-                  href="/zh/our-work"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 font-black text-white transition hover:bg-white/15"
-                >
-                  查看更多现场项目
-                </Link>
-              </div>
             </div>
           </article>
         </div>
