@@ -88,7 +88,7 @@ const PAGE_SECTIONS = [
   { href: "#akustik", label: "Akustik" },
   { href: "#kullanim-alanlari", label: "Kullanım senaryoları" },
   { href: "#galeri", label: "Referanslar" },
-  { href: "#surec", label: "Kurulum ve zemin" },
+  { href: "#kurulum-sureci", label: "Kurulum ve zemin" },
   { href: "#sss", label: "Sık sorulanlar" },
 ];
 
@@ -690,9 +690,9 @@ function ReferencesSection() {
 function InstallationSection() {
   return (
     <section
-      id="surec"
+      id="kurulum-sureci"
       className="scroll-mt-24 bg-white py-20"
-      aria-labelledby="surec-baslik"
+      aria-labelledby="kurulum-sureci-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
@@ -701,7 +701,7 @@ function InstallationSection() {
               Saha planı
             </p>
             <h2
-              id="surec-baslik"
+              id="kurulum-sureci-baslik"
               className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
             >
               Dome Kurulumunda Zemin ve Saha Neyi Belirler?
@@ -993,10 +993,10 @@ export default function Page() {
       <Hero />
       <SectionJumpNav />
       <WhatIsDome />
+      <ReferencesSection />
       <MappingSection />
       <AcousticsSection />
       <UseCasesSection />
-      <ReferencesSection />
       <InstallationSection />
       <FAQ />
 

@@ -711,6 +711,9 @@ export default function Page() {
 
       <Hero />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.truss} />
+      <Content />
+      <Gallery />
+      <Technical />
       <ServiceGuideShowcase
         eyebrow="Truss kiralama rehberi"
         title="Truss sistemini doğru seçmek için hızlı karar rehberi"
@@ -730,9 +733,6 @@ export default function Page() {
           caption: "Truss formu, yük taşıma ve teknik ekipman entegrasyonu aynı planda çözülür.",
         }}
       />
-      <Content />
-      <Gallery />
-      <Technical />
       <FAQ />
       <ServiceBlogLinks
         links={[

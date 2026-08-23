@@ -861,8 +861,9 @@ function StatsBand() {
 
   return (
     <section
+      id="saha-kaniti"
+      aria-label="Masa sandalye saha kanıtı: stok, proje ve hizmet sayıları"
       className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
-      aria-label="Başarı İstatistiklerimiz"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

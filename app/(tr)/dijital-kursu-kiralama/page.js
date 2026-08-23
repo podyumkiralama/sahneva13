@@ -703,10 +703,10 @@ function UseCasesSection() {
 function InstallationProcess() {
   return (
     <section
-      id="surec" className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-labelledby="surec-baslik">
+      id="kurulum-sureci" className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-labelledby="kurulum-sureci-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="surec-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+          <h2 id="kurulum-sureci-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
           <p className="text-xl text-violet-100 max-w-3xl mx-auto leading-relaxed">
@@ -858,9 +858,9 @@ export default function Page() {
 
       <Hero />
       <KursuTipleriSection />
-      <IntegrationSection />
-      <TechSpecsSection />
       <Gallery />
+      <TechSpecsSection />
+      <IntegrationSection />
       <UseCasesSection />
       <InstallationProcess />
       <FAQ />

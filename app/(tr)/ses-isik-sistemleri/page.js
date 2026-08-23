@@ -528,7 +528,9 @@ function StatsBand() {
   ];
   
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-label="Başarı İstatistiklerimiz">
+    <section
+      id="saha-kaniti"
+      aria-label="Ses ve ışık saha kanıtı: proje, müşteri ve deneyim sayıları" className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
@@ -1216,10 +1218,10 @@ export default function Page() {
       <SoundLightJsonLd />
       <Hero />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.soundLight} />
-      <FeaturedBrands />
       <Services />
       <Gallery />
       <Technical />
+      <FeaturedBrands />
       <StatsBand />
       <UseCases />
       <Articles />

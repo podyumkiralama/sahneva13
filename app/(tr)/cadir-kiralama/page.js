@@ -1661,14 +1661,14 @@ function UseCases() {
 function InstallationProcess() {
   return (
     <section
-      id="surec"
+      id="kurulum-sureci"
       className="[content-visibility:auto] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
-      aria-labelledby="surec-baslik"
+      aria-labelledby="kurulum-sureci-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="surec-baslik"
+            id="kurulum-sureci-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
           >
             Kurulum <span className="text-white/90">Süreci</span>
@@ -2101,12 +2101,12 @@ export default function Page() {
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.tent} />
       <TentCalculatorCta />
       <TentSelectorSection />
+      <PricingSection />
+      <Gallery />
       <DividerLightToDark />
       <TentStockSection />
       <DividerDarkToLight />
-      <PricingSection />
       <TurnkeyInfrastructure />
-      <Gallery />
       <DividerLightToDark />
       <StandardsTable />
       <DividerDarkToLight />

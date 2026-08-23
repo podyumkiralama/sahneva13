@@ -407,7 +407,7 @@ function CompactDecisionGuide() {
   const questionCount = guide.questions.length;
 
   return (
-    <section className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
+    <section id="karar-rehberi" className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
       <div className="mx-auto max-w-6xl">
         <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <summary className="flex cursor-pointer list-none flex-col gap-4 p-5 marker:content-none sm:flex-row sm:items-center sm:justify-between sm:p-7 [&::-webkit-details-marker]:hidden">
@@ -1387,7 +1387,9 @@ function StatsBand() {
   ];
 
   return (
-    <section className="py-10 bg-[#0B1120]" aria-label="Başarı İstatistiklerimiz">
+    <section
+      id="saha-kaniti"
+      aria-label="LED ekran saha kanıtı: envanter, proje ve kurulum sayıları" className="py-10 bg-[#0B1120]" >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -1988,19 +1990,19 @@ export default function Page() {
       <LedScreenJsonLd />
       <Hero />
       <CompactDecisionGuide />
-      <VisualProofStrip />
-      <StatsBand />
-      <UseCases />
       <Services />
+      <Gallery />
+      <VisualProofStrip />
+      <Technical />
       <P19InvestmentProof />
       <TechnicalDocuments />
+      <StatsBand />
+      <UseCases />
       <CurvedP19InstallationProof />
-      <Technical />
       <WhySahneva />
-      <Gallery />
-      <RegionalService />
       <FAQ />
       <RelatedServices />
+      <RegionalService />
     </>
   );
 }

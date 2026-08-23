@@ -691,7 +691,7 @@ function VideoProof() {
 
 function TechnicalDiscoverySection() {
   return (
-    <Section id="teknik-kesif" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
+    <Section id="surec" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
       <SectionHeader
         eyebrow="Teknik keşif"
         title="Teknik keşif ve mekân değerlendirmesi"
@@ -796,7 +796,7 @@ function CorporateServiceSections() {
 
 function PackagePlanningSection() {
   return (
-    <Section id="teknik-altyapi" className="bg-white pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-packages">
+    <Section id="kapsam-planlama" className="bg-white pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-packages">
       <SectionHeader
         eyebrow="Kapsam ve teklif"
         title="Etkinlik türüne göre kapsam paketleri"
@@ -867,7 +867,7 @@ function PackagePlanningSection() {
 
 function OperationFlow() {
   return (
-    <Section id="surec" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-flow">
+    <Section id="akis" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-flow">
       <SectionHeader
         dark
         eyebrow="Proje akışı"
@@ -1154,24 +1154,27 @@ export default function Page() {
       <div className="bg-white">
         <Hero />
 
-        {/* Ticari niyeti gercek referanslar ve saha kayitlariyla destekle. */}
-        {/* Adlandirilmis kurum referanslari, saha kayitlarinin hemen ustunde:
-            once "kimlerle calistik", hemen ardindan "iste kaydi". */}
-        <ClientReferences />
-
-        <VideoProof />
-        <VisualProof />
-        <CorporateServiceSections />
+        {/* Kanonik omurga: surec -> hizmetler -> galeri -> kullanim alanlari ->
+            rehber -> sss. h3 basan alt bolumler kendi h2'siyle birlikte tasinir,
+            belge ana hatti bozulmaz. */}
 
         {/* Surec: teknik kesif (h2) + saha akisi (h3) */}
         <TechnicalDiscoverySection />
         <OperationFlow />
 
-        {/* Formatlar (h2) + paket planlama (h3) */}
+        {/* Hizmet kapsami: formatlar (h2) + paket planlama (h3) */}
         <Formats />
         <PackagePlanningSection />
 
-        {/* Ekipman: konumlandirma (h2) + saha ekibi ve produksiyon kapsami (h3).
+        {/* Referans ve saha kaydi: once "kimlerle calistik", hemen ardindan
+            "iste kaydi" (h2) ve gorsel kanit (h3). */}
+        <ClientReferences />
+        <VideoProof />
+        <VisualProof />
+
+        <CorporateServiceSections />
+
+        {/* Rehber: konumlandirma (h2) + saha ekibi ve produksiyon kapsami (h3).
             Iki acik zeminli bolum yan yana, koyu zeminli olan grubu kapatiyor;
             onceki acik-koyu-acik dizilimi grubu gorsel olarak uce boluyordu. */}
         <Positioning />

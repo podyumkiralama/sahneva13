@@ -874,8 +874,9 @@ function StatsSection() {
   ];
   return (
     <section
+      id="saha-kaniti"
+      aria-label="Podyum kiralama saha kanıtı: proje, kurulum ve deneyim sayıları"
       className="content-visibility-auto [contain-intrinsic-size:auto_600px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
-      aria-label="Sahneva podyum kiralama istatistikleri"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -1273,16 +1274,16 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <StructuredData />
       <HeroSection />
-      <GallerySection />
-      <PodiumFlowSection />
       <PodiumDecisionGuide />
+      <PodiumFlowSection />
       <ServicesSection />
+      <PriceSummarySection />
+      <GallerySection />
       <TechnicalSection />
       <InfrastructureAssuranceSection />
       <StatsSection />
       <UseCasesSection />
       <ProcessAndTipsSection />
-      <PriceSummarySection />
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
