@@ -16,6 +16,7 @@ import {
 import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
@@ -648,7 +649,7 @@ function VisualProof() {
 
 function VideoProof() {
   return (
-    <Section id="videolar" dark deferredClass="content-visibility-auto cv-corporate-videos">
+    <Section id="galeri" dark deferredClass="content-visibility-auto cv-corporate-videos">
       <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
         <div>
           <SectionHeader
@@ -691,7 +692,7 @@ function VideoProof() {
 
 function TechnicalDiscoverySection() {
   return (
-    <Section id="teknik-kesif" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
+    <Section id="surec" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-discovery">
       <SectionHeader
         eyebrow="Teknik keşif"
         title="Teknik keşif ve mekân değerlendirmesi"
@@ -715,7 +716,7 @@ function TechnicalDiscoverySection() {
 
 function Positioning() {
   return (
-    <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
+    <Section id="rehber" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
       <SectionHeader
         eyebrow="Firma seçimi"
         title="Kurumsal organizasyon firması seçerken teknik ölçütler"
@@ -747,7 +748,7 @@ function Positioning() {
 function CorporateServiceSections() {
   return (
     <>
-      <Section id="etkinlik-turleri-kurumsal-cozumler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
+      <Section id="kullanim-alanlari" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
         <SectionHeader
           eyebrow="Hizmet kapsamı"
           title="Lansman, konferans ve gala için teknik çözümler"
@@ -896,7 +897,7 @@ function OperationFlow() {
 
 function Formats() {
   return (
-    <Section id="formatlar" className="bg-white" deferredClass="content-visibility-auto cv-corporate-formats">
+    <Section id="hizmetler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-formats">
       <SectionHeader
         eyebrow="Kullanım alanları"
         title="Lansman, konferans ve gala prodüksiyonu"
@@ -1003,7 +1004,7 @@ function ProductionStack() {
 
 function InternalLinks() {
   return (
-    <Section id="baglantilar" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
+    <Section id="tamamlayici-hizmetler" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
       <SectionHeader
         eyebrow="Tamamlayıcı hizmetler"
         title="İlgili hizmetler ve referanslar"
@@ -1110,13 +1111,14 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#05070d] py-16 text-white md:py-20" aria-labelledby="cta-title">
+    <section
+      id="cta" className="relative isolate overflow-hidden bg-[#05070d] py-16 text-white md:py-20" aria-labelledby="cta-baslik">
       <div className="absolute inset-0 grid-overlay opacity-35" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/60 to-transparent" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-normal text-white">Teklif briefi</p>
-          <h2 id="cta-title" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
+          <h2 id="cta-baslik" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
             Kurumsal organizasyonunuz için teklif alın
           </h2>
           <p className="mt-4 text-base leading-8 text-white/[0.72] md:text-lg">
@@ -1153,24 +1155,27 @@ export default function Page() {
       <div className="bg-white">
         <Hero />
 
-        {/* Ticari niyeti gercek referanslar ve saha kayitlariyla destekle. */}
-        {/* Adlandirilmis kurum referanslari, saha kayitlarinin hemen ustunde:
-            once "kimlerle calistik", hemen ardindan "iste kaydi". */}
-        <ClientReferences />
-
-        <VideoProof />
-        <VisualProof />
-        <CorporateServiceSections />
+        {/* Kanonik omurga: surec -> hizmetler -> galeri -> kullanim alanlari ->
+            rehber -> sss. h3 basan alt bolumler kendi h2'siyle birlikte tasinir,
+            belge ana hatti bozulmaz. */}
 
         {/* Surec: teknik kesif (h2) + saha akisi (h3) */}
         <TechnicalDiscoverySection />
         <OperationFlow />
 
-        {/* Formatlar (h2) + paket planlama (h3) */}
+        {/* Hizmet kapsami: formatlar (h2) + paket planlama (h3) */}
         <Formats />
         <PackagePlanningSection />
 
-        {/* Ekipman: konumlandirma (h2) + saha ekibi ve produksiyon kapsami (h3).
+        {/* Referans ve saha kaydi: once "kimlerle calistik", hemen ardindan
+            "iste kaydi" (h2) ve gorsel kanit (h3). */}
+        <ClientReferences />
+        <VideoProof />
+        <VisualProof />
+
+        <CorporateServiceSections />
+
+        {/* Rehber: konumlandirma (h2) + saha ekibi ve produksiyon kapsami (h3).
             Iki acik zeminli bolum yan yana, koyu zeminli olan grubu kapatiyor;
             onceki acik-koyu-acik dizilimi grubu gorsel olarak uce boluyordu. */}
         <Positioning />
@@ -1184,6 +1189,7 @@ export default function Page() {
           title="Kurumsal organizasyonda geçen terimler"
           description="Lansman, bayi toplantısı, gala ve hibrit etkinlik formatlarının teknik kapsam açısından ne anlama geldiğini sözlükte topladık."
         />
+        <RegionalCityLinks service="kurumsal organizasyon" />
         <PaymentOptionsNote />
         <CTASection />
       </div>

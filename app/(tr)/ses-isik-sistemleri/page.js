@@ -18,6 +18,7 @@ import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -396,7 +397,8 @@ const GALLERY_IMAGES = [
 
 function Gallery() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1400px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section
+      id="galeri" className="content-visibility-auto [contain-intrinsic-size:auto_1400px] md:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
@@ -470,10 +472,11 @@ function Technical() {
   ];
 
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="altyapi-baslik">
+    <section
+      id="teknik-altyapi" className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="teknik-altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="teknik-altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -526,7 +529,9 @@ function StatsBand() {
   ];
   
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-label="Başarı İstatistiklerimiz">
+    <section
+      id="saha-kaniti"
+      aria-label="Ses ve ışık saha kanıtı: proje, müşteri ve deneyim sayıları" className="content-visibility-auto [contain-intrinsic-size:auto_620px] lg:[contain-intrinsic-size:auto_360px] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
@@ -565,7 +570,8 @@ function StatsBand() {
 /* ================== Kullanım Alanları ================== */
 function UseCases() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-alanlari-baslik">
+    <section
+      id="kullanim-alanlari" className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
@@ -618,10 +624,11 @@ function UseCases() {
 /* ================== Bilgi & Rehber ================== */
 function Articles() {
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_4200px] md:[contain-intrinsic-size:auto_3400px] lg:[contain-intrinsic-size:auto_2600px] py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="bilgi-rehber-baslik">
+    <section
+      id="rehber" className="content-visibility-auto [contain-intrinsic-size:auto_4200px] md:[contain-intrinsic-size:auto_3400px] lg:[contain-intrinsic-size:auto_2600px] py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="rehber-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
-          <h2 id="bilgi-rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="rehber-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Bilgi & <span className="text-violet-700">Profesyonel Rehber</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -897,7 +904,8 @@ const FAQ_ITEMS = [
 function FAQ() {
   
   return (
-    <section className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -988,7 +996,8 @@ function RelatedServices() {
   ];
   
   return (
-    <section 
+    <section
+      id="tamamlayici-hizmetler" 
       className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30" 
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
@@ -1051,7 +1060,8 @@ function RelatedServices() {
 /* ================== CTA ================== */
 function CTA() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="cta-baslik">
+    <section
+      id="cta" className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
@@ -1209,16 +1219,21 @@ export default function Page() {
       <SoundLightJsonLd />
       <Hero />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.soundLight} />
-      <FeaturedBrands />
       <Services />
       <Gallery />
       <Technical />
+      <FeaturedBrands />
       <StatsBand />
       <UseCases />
       <Articles />
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.soundLight} links={CONTENT_CLUSTERS.soundLight.guides} />
+      <GlossaryTermLinks
+        servicePath="/ses-isik-sistemleri"
+        title="Ses ve ışık kurgusunda geçen terimler"
+        description="Line array, FOH, konuşulabilirlik ve DMX; ses basıncı ile ışık kurgusunun mekâna göre nasıl planlandığını anlatan başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="ses ve ışık sistemleri kiralama" />
       <PaymentOptionsNote />
       <CTA />

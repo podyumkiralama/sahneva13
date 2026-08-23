@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PageHero from "@/components/PageHero";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -289,9 +291,43 @@ export default function Page() {
         }}
       />
 
+      {/* ---------- Operasyon akisi ---------- */}
+      <section
+        id="surec"
+        aria-labelledby="surec-baslik"
+        className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 id="surec-baslik" className="text-3xl font-bold text-slate-900">
+            Kadro etkinliğin üç aşamasında da sahada
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+            Personel yalnızca etkinlik günü değil, hazırlık ve söküm dönemlerinde de
+            görevde olur. Alan teslim alındığı andan kapanışa kadar aynı ekip çalışır.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {PHASES.map((phase) => (
+              <div
+                key={phase.step}
+                className="rounded-2xl border border-slate-200 bg-white p-7"
+              >
+                <span className="text-4xl font-bold text-amber-500">{phase.step}</span>
+                <h3 className="mt-4 text-xl font-semibold text-slate-900">
+                  {phase.title}
+                </h3>
+                <p className="mt-3 text-slate-600">{phase.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ---------- Kadrolar ---------- */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="text-3xl font-bold text-slate-900">
+      <section
+        id="hizmetler"
+        aria-labelledby="hizmetler-baslik"
+        className="mx-auto max-w-6xl px-4 py-20">
+        <h2 id="hizmetler-baslik" className="text-3xl font-bold text-slate-900">
           Sağladığımız personel kadroları
         </h2>
         <p className="mt-4 max-w-3xl text-lg text-slate-600">
@@ -329,64 +365,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------- Operasyon akisi ---------- */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold text-slate-900">
-            Kadro etkinliğin üç aşamasında da sahada
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            Personel yalnızca etkinlik günü değil, hazırlık ve söküm dönemlerinde de
-            görevde olur. Alan teslim alındığı andan kapanışa kadar aynı ekip çalışır.
-          </p>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {PHASES.map((phase) => (
-              <div
-                key={phase.step}
-                className="rounded-2xl border border-slate-200 bg-white p-7"
-              >
-                <span className="text-4xl font-bold text-amber-500">{phase.step}</span>
-                <h3 className="mt-4 text-xl font-semibold text-slate-900">
-                  {phase.title}
-                </h3>
-                <p className="mt-3 text-slate-600">{phase.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Guvenlik operasyon kapsami ---------- */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="text-3xl font-bold text-slate-900">
-          Festival ve büyük alan güvenliğinde kapsam
-        </h2>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">
-          Geniş alanlı etkinliklerde güvenlik, giriş kontrolünden ibaret değil. Kadronun
-          fiilen üstlendiği görevler şunlar:
-        </p>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SECURITY_SCOPE.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
-            >
-              <ShieldCheck
-                className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
-                aria-hidden="true"
-              />
-              <span className="text-slate-800">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       {/* ---------- Fark ---------- */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
+      <section
+        id="teknik-altyapi"
+        aria-labelledby="teknik-altyapi-baslik"
+        className="mx-auto max-w-6xl px-4 py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="text-3xl font-bold text-slate-900">
+            <h2 id="teknik-altyapi-baslik" className="text-3xl font-bold text-slate-900">
               Personel ve ekipman aynı yerden
             </h2>
             <p className="mt-5 text-lg text-slate-600">
@@ -431,10 +417,41 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ---------- Guvenlik operasyon kapsami ---------- */}
+      <section
+        id="kullanim-alanlari"
+        aria-labelledby="kullanim-alanlari-baslik"
+        className="mx-auto max-w-6xl px-4 py-20">
+        <h2 id="kullanim-alanlari-baslik" className="text-3xl font-bold text-slate-900">
+          Festival ve büyük alan güvenliğinde kapsam
+        </h2>
+        <p className="mt-4 max-w-3xl text-lg text-slate-600">
+          Geniş alanlı etkinliklerde güvenlik, giriş kontrolünden ibaret değil. Kadronun
+          fiilen üstlendiği görevler şunlar:
+        </p>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SECURITY_SCOPE.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
+            >
+              <ShieldCheck
+                className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
+                aria-hidden="true"
+              />
+              <span className="text-slate-800">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* ---------- Kurumsal etkinlik ---------- */}
-      <section className="bg-slate-900 py-20 text-white">
+      <section
+        id="rehber"
+        aria-labelledby="rehber-baslik"
+        className="bg-slate-900 py-20 text-white">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold">
+          <h2 id="rehber-baslik" className="text-3xl font-bold">
             Kurumsal etkinlik personel temini
           </h2>
           <p className="mt-5 text-lg text-slate-300">
@@ -458,8 +475,11 @@ export default function Page() {
       </section>
 
       {/* ---------- SSS ---------- */}
-      <section className="mx-auto max-w-4xl px-4 py-20">
-        <h2 className="text-3xl font-bold text-slate-900">Sık sorulan sorular</h2>
+      <section
+        id="sss"
+        aria-labelledby="sss-baslik"
+        className="mx-auto max-w-4xl px-4 py-20">
+        <h2 id="sss-baslik" className="text-3xl font-bold text-slate-900">Sık sorulan sorular</h2>
         <div className="mt-10 space-y-4">
           {FAQ_ITEMS.map((item) => (
             <details
@@ -476,9 +496,12 @@ export default function Page() {
       </section>
 
       {/* ---------- Ilgili hizmetler ---------- */}
-      <section className="bg-slate-50 py-16">
+      <section
+        id="tamamlayici-hizmetler"
+        aria-labelledby="tamamlayici-hizmetler-baslik"
+        className="bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-2xl font-bold text-slate-900">İlgili hizmetler</h2>
+          <h2 id="tamamlayici-hizmetler-baslik" className="text-2xl font-bold text-slate-900">İlgili hizmetler</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {RELATED.map((item) => (
               <Link
@@ -494,9 +517,15 @@ export default function Page() {
         </div>
       </section>
 
+      <RegionalCityLinks service="etkinlik personel temini" />
+      <PaymentOptionsNote />
+
       {/* ---------- CTA ---------- */}
-      <section className="mx-auto max-w-4xl px-4 py-20 text-center">
-        <h2 className="text-3xl font-bold text-slate-900">
+      <section
+        id="cta"
+        aria-labelledby="cta-baslik"
+        className="mx-auto max-w-4xl px-4 py-20 text-center">
+        <h2 id="cta-baslik" className="text-3xl font-bold text-slate-900">
           Etkinliğiniz için kadro planlayalım
         </h2>
         <p className="mt-5 text-lg text-slate-600">

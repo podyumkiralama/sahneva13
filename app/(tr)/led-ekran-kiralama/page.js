@@ -10,6 +10,8 @@ import AccessibleFaq from "@/components/AccessibleFaq.client";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
@@ -360,7 +362,8 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="bg-white py-10 md:py-14" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="bg-white py-10 md:py-14" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
           <summary className="cursor-pointer list-none p-5 marker:content-none sm:p-7 [&::-webkit-details-marker]:hidden">
@@ -406,7 +409,7 @@ function CompactDecisionGuide() {
   const questionCount = guide.questions.length;
 
   return (
-    <section className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
+    <section id="karar-rehberi" className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
       <div className="mx-auto max-w-6xl">
         <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <summary className="flex cursor-pointer list-none flex-col gap-4 p-5 marker:content-none sm:flex-row sm:items-center sm:justify-between sm:p-7 [&::-webkit-details-marker]:hidden">
@@ -1062,7 +1065,8 @@ const VISUAL_FLOW_IMAGES = [
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
   return (
-    <section className="bg-slate-50 py-14 md:py-16" aria-labelledby="galeri-baslik">
+    <section
+      id="galeri" className="bg-slate-50 py-14 md:py-16" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-9 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl">
@@ -1320,10 +1324,10 @@ function Technical() {
   ];
 
   return (
-    <section id="teknik-altyapi" className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="altyapi-baslik">
+    <section id="teknik-altyapi" className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="teknik-altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center md:mb-10">
-          <h2 id="altyapi-baslik" className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl">
+          <h2 id="teknik-altyapi-baslik" className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl">
             Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1385,7 +1389,9 @@ function StatsBand() {
   ];
 
   return (
-    <section className="py-10 bg-[#0B1120]" aria-label="Başarı İstatistiklerimiz">
+    <section
+      id="saha-kaniti"
+      aria-label="LED ekran saha kanıtı: envanter, proje ve kurulum sayıları" className="py-10 bg-[#0B1120]" >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -1584,11 +1590,12 @@ function RegionalService() {
   ];
 
   return (
-    <section className="bg-gray-50 py-14 md:py-16" aria-labelledby="bolgesel-hizmet-baslik">
+    <section
+      id="bolgesel-kiralama" className="bg-gray-50 py-14 md:py-16" aria-labelledby="bolgesel-kiralama-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 max-w-5xl">
           <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kurulum ve lojistik ağı</p>
-          <h2 id="bolgesel-hizmet-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+          <h2 id="bolgesel-kiralama-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
             İstanbul, Marmara ve Çevre İllerde <span className="text-violet-700">Lider Güç</span>
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-relaxed text-gray-600 md:text-lg">
@@ -1749,7 +1756,8 @@ function RelatedServices() {
   ];
   
   return (
-    <section 
+    <section
+      id="tamamlayici-hizmetler" 
       className="bg-gradient-to-br from-gray-50 to-violet-100/30 py-10 md:py-12"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
@@ -1969,6 +1977,49 @@ function LedScreenJsonLd() {
 }
 
 /* ================== Sayfa Bileşeni ================== */
+/* ================== Kapanış CTA ================== */
+function CTA() {
+  return (
+    <section id="cta" className="py-20 bg-white" aria-labelledby="cta-baslik">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-700 to-purple-700 p-8 text-center text-white md:p-12">
+          <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
+          <div className="relative z-10">
+            <h2 id="cta-baslik" className="mb-6 text-3xl font-black md:text-4xl lg:text-5xl">
+              LED Ekran Kurulumunuzu Birlikte Planlayalım
+            </h2>
+            <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-violet-100">
+              Alan ölçüsü, izleme mesafesi ve içerik çözünürlüğünü paylaşın; uygun pixel
+              pitch, kabinet sayısı ve kurulum yöntemini kalem kalem fiyatlandıralım.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/iletisim"
+                className="focus-ring inline-flex transform items-center justify-center rounded-2xl bg-white px-8 py-4 font-bold text-violet-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
+                <span aria-hidden="true" className="mr-3 text-xl">📞</span>
+                <span className="text-lg">Hemen Teklif Al</span>
+              </Link>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="focus-ring inline-flex transform items-center justify-center rounded-2xl border-2 border-white bg-transparent px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white/20"
+              >
+                <span aria-hidden="true" className="mr-3 text-xl">💬</span>
+                <span className="text-lg">WhatsApp'tan Yaz</span>
+              </a>
+            </div>
+            <p className="mt-6 text-sm font-semibold text-violet-100">
+              Keşif ve ölçü danışmanlığı ücretsiz; teklif kalem kalem paylaşılır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   const baseUrl = SITE_URL;
   const canonical = `${baseUrl}/led-ekran-kiralama`;
@@ -1984,19 +2035,26 @@ export default function Page() {
       <LedScreenJsonLd />
       <Hero />
       <CompactDecisionGuide />
-      <VisualProofStrip />
-      <StatsBand />
-      <UseCases />
       <Services />
+      <Gallery />
+      <VisualProofStrip />
+      <Technical />
       <P19InvestmentProof />
       <TechnicalDocuments />
+      <StatsBand />
+      <UseCases />
       <CurvedP19InstallationProof />
-      <Technical />
       <WhySahneva />
-      <Gallery />
-      <RegionalService />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        servicePath="/led-ekran-kiralama"
+        title="LED ekran kararlarında geçen terimler"
+        description="Pixel pitch, nit parlaklık, kabinet ve görüntü işlemcisi; ekran ölçüsünü ve izleme mesafesini doğrudan belirleyen başlıklar. Tanımlar sözlükte."
+      />
+      <RegionalService />
+      <PaymentOptionsNote />
+      <CTA />
     </>
   );
 }

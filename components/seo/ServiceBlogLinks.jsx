@@ -49,6 +49,7 @@ function TentRentalCompactAddons() {
   return (
     <>
       <section
+        id="bolgesel-lojistik"
         className="[content-visibility:auto] [contain-intrinsic-size:auto_700px] bg-white px-4 py-12"
         aria-labelledby="cadir-bolgesel-lojistik-baslik"
       >

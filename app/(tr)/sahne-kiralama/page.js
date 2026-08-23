@@ -15,6 +15,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
@@ -403,7 +404,7 @@ const HERO_ACTIONS = [
   {
     key: "packages",
     label: "Paketleri Gör",
-    href: "#paketler",
+    href: "#fiyatlar",
   },
 ];
 
@@ -432,9 +433,9 @@ function Hero() {
 function RentalFlow() {
   return (
     <section
-      id="teklif-akisi"
+      id="surec"
       className="bg-white py-14 sm:py-16"
-      aria-labelledby="teklif-akisi-baslik"
+      aria-labelledby="surec-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -443,7 +444,7 @@ function RentalFlow() {
               Hızlı karar akışı
             </p>
             <h2
-              id="teklif-akisi-baslik"
+              id="surec-baslik"
               className="max-w-2xl break-words text-2xl font-black leading-tight text-gray-950 sm:text-4xl md:text-5xl"
             >
               Sahne kiralamada önce ihtiyacı netleştirelim, sonra paketi seçelim.
@@ -465,7 +466,7 @@ function RentalFlow() {
                 WhatsApp ile Başlayın
               </Link>
               <Link
-                href="#paketler"
+                href="#fiyatlar"
                 className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl border border-gray-300 bg-white px-6 py-3 font-bold text-gray-950 shadow-sm transition hover:border-violet-300 hover:bg-violet-50 hover:no-underline focus-ring sm:w-auto"
               >
                 Paketleri Karşılaştır
@@ -715,14 +716,14 @@ function Services() {
 function Packages() {
   return (
     <section
-      id="paketler"
+      id="fiyatlar"
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="paketler-baslik"
+      aria-labelledby="fiyatlar-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="paketler-baslik"
+            id="fiyatlar-baslik"
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Sahne Kiralama{" "}
@@ -919,7 +920,8 @@ function StaticGallery({ images, visibleCount = 8, priorityCount = 2 }) {
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section
+      id="galeri" className="py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
@@ -1043,13 +1045,14 @@ function Technical() {
 
   return (
     <section
+      id="teknik-altyapi"
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="altyapi-baslik"
+      aria-labelledby="teknik-altyapi-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="altyapi-baslik"
+            id="teknik-altyapi-baslik"
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Teknik{" "}
@@ -1115,8 +1118,9 @@ function StatsBand() {
 
   return (
     <section
+      id="saha-kaniti"
+      aria-label="Sahne kiralama saha kanıtı: proje, il ve deneyim sayıları"
       className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
-      aria-label="Başarı İstatistiklerimiz"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -1160,6 +1164,7 @@ function StatsBand() {
 function UseCases() {
   return (
     <section
+      id="kullanim-alanlari"
       className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
@@ -1236,13 +1241,14 @@ function UseCases() {
 function Articles() {
   return (
     <section
+      id="rehber"
       className="py-20 bg-gradient-to-b from-white to-gray-50/50"
-      aria-labelledby="bilgi-rehber-baslik"
+      aria-labelledby="rehber-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2
-            id="bilgi-rehber-baslik"
+            id="rehber-baslik"
             className="mb-6 text-balance text-3xl font-black leading-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Bilgi &{" "}
@@ -1619,7 +1625,8 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2
@@ -1724,6 +1731,7 @@ function RelatedServices() {
 
   return (
     <section
+      id="tamamlayici-hizmetler"
       className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
@@ -1789,7 +1797,8 @@ function RelatedServices() {
 /* ================== CTA ================== */
 function CTA() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="cta-baslik">
+    <section
+      id="cta" className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div
@@ -1955,18 +1964,23 @@ export default function Page() {
       <Hero />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.stage} />
       <RentalFlow />
-      <SizeGuide />
-      <Packages />
       <Services />
+      <Packages />
       <Gallery />
       <Technical />
       <EventWeatherWidget />
       <StatsBand />
       <UseCases />
+      <SizeGuide />
       <Articles />
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
+      <GlossaryTermLinks
+        servicePath="/sahne-kiralama"
+        title="Sahne planlamasında geçen terimler"
+        description="Sahne yükü, görüş hattı, riser ve etek perde; ölçü ve yükseklik kararını teknik olarak belirleyen başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="sahne kiralama" />
       <PaymentOptionsNote />
       <CTA />

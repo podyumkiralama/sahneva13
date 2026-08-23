@@ -52,6 +52,7 @@ export default function GlossaryTermLinks({
 
   return (
     <section
+      id="sozluk-terimleri"
       aria-labelledby={headingId}
       className="[content-visibility:auto] [contain-intrinsic-size:auto_420px] bg-white px-4 py-12"
     >

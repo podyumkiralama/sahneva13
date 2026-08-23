@@ -165,15 +165,15 @@ export default function PodiumDecisionGuide() {
 
   return (
     <section
-      id="podyum-kesif-rehberi"
+      id="karar-rehberi"
       className="bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950 px-4 py-16 text-white sm:py-20"
-      aria-labelledby="podyum-kesif-rehberi-baslik"
+      aria-labelledby="karar-rehberi-baslik"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-200">Podyum için soru-cevap rehberi</p>
-            <h2 id="podyum-kesif-rehberi-baslik" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 id="karar-rehberi-baslik" className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               Podyum ölçüsünü bilmiyorsanız buradan başlayın
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
