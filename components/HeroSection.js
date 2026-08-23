@@ -108,7 +108,7 @@ export default function HeroSection({ dictionary: dictionaryOverride } = {}) {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0B1120] py-20 text-white md:py-24 lg:py-28"
+      className="hero-shell hero-shell-inner relative flex flex-col justify-center overflow-hidden bg-[#0B1120] text-white"
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >

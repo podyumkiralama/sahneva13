@@ -186,7 +186,6 @@ export default function TentCalculatorPage() {
       <JsonLd />
 
       <PageHero
-        compact
         breadcrumb={[
           { label: "Ana Sayfa", href: "/" },
           { label: "Çadır Kiralama", href: "/cadir-kiralama" },

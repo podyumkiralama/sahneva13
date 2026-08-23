@@ -131,7 +131,6 @@ export default function ContactPage() {
 
       {/* HERO */}
       <PageHero
-        compact
         eyebrow="7/24 teknik destek"
         title="Bize"
         titleAccent="Ulaşın"

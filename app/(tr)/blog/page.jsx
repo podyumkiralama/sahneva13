@@ -130,7 +130,6 @@ export default function BlogPage() {
       <BlogJsonLd posts={posts} baseUrl={baseUrl} />
 
       <PageHero
-        compact
         breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "Blog" }]}
         eyebrow="Etkinlik teknolojileri günlüğü"
         title="Sahneva"

@@ -264,7 +264,6 @@ export default function Page() {
 
       {/* ---------- Hero ---------- */}
       <PageHero
-        compact
         eyebrow="Etkinlik operasyon hizmetleri"
         title="Etkinlik Personel Temini"
         titleWide

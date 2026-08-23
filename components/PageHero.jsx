@@ -3,6 +3,10 @@
 // ortak hero bileşeni: #040817 zemin, mor aksan, keskin geometri, mono
 // etiketler ve ağır büyük harf başlık. Hizmet sayfalarındaki farklı hero
 // varyantları bunun yerine tek kaynaktan gelir.
+//
+// Yükseklik standardı: hero her sayfada ekrana tam oturur (globals.css
+// içindeki --hero-h / --hero-pt). Ayrı bir "compact" yüksekliği yok;
+// kısa içerikli sayfalar da aynı ölçüyü kullanır.
 import Image from "next/image";
 import Link from "next/link";
 
@@ -134,7 +138,6 @@ export default function PageHero({
   aside,
   asideLabel,
   image,
-  compact = false,
   titleId = "hero-title",
   descriptionId = "hero-desc",
   children,
@@ -144,7 +147,7 @@ export default function PageHero({
 
   return (
     <section
-      className={`${styles.hero}${compact ? ` ${styles.heroCompact}` : ""}`}
+      className={styles.hero}
       aria-labelledby={titleId}
       aria-describedby={description ? descriptionId : undefined}
     >

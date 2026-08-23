@@ -39,6 +39,25 @@
     "Helvetica Neue", Arial, sans-serif;
 
   color-scheme: dark;
+
+  /* ================== HERO STANDARDI ==================
+     Navbar `fixed top-0` durdugu icin header sayfada yer kaplamaz; hero'lar
+     ekranin tamamini (--hero-h) kaplar ve icerik, navbari hesaba katan ust
+     bosluk (--hero-pt) ile dikeyde ortalanir. Boylece her sayfada hero tam
+     ekrana oturur, bir sonraki bolum hero'nun altindan yarim gorunmez.
+     Tum hero bilesenleri (PageHero, TurkishHomepageHero, HeroSection) bu
+     degerleri kullanir; olcu tek yerden degisir. */
+  --nav-h: 4rem; /* Navbar: h-16 */
+  --hero-h: 100svh;
+  --hero-pt: calc(var(--nav-h) + clamp(1.75rem, 4.5vh, 3.5rem));
+  --hero-pb: clamp(2.5rem, 6vh, 4.5rem);
+  --hero-gutter: clamp(1.25rem, 4vw, 4rem);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-h: 5rem; /* Navbar: lg:h-20 */
+  }
 }
 
 /* Base */
@@ -168,6 +187,19 @@
 
 /* Components */
 @layer components {
+  /* Hero standardi: CSS module kullanmayan hero'lar (TurkishHomepageHero,
+     HeroSection) ayni olcuyu bu iki sinif uzerinden alir. Yukseklik
+     `min-height` oldugu icin icerik tasarsa bolum buyur, kirpilmaz. */
+  .hero-shell {
+    position: relative;
+    min-height: var(--hero-h);
+  }
+
+  .hero-shell-inner {
+    padding-top: var(--hero-pt);
+    padding-bottom: var(--hero-pb);
+  }
+
   .prose :is(h1, h2, h3) {
     @apply tracking-tight;
   }
