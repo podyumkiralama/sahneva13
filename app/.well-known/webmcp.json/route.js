@@ -1,5 +1,6 @@
-import { getWebMcpImportantPages } from "@/lib/seo/aiDiscovery";
+import { getAiDiscoveryImportantPages } from "@/lib/seo/aiDiscovery";
 import { SITE_URL } from "@/lib/seo/seoConfig";
+import { SAHNEVA_WEBMCP_TOOL_NAMES } from "@/lib/webmcp/toolNames";
 
 export const revalidate = 3600;
 
@@ -109,9 +110,21 @@ const locations = [
 
 function buildManifest() {
   return {
-    schemaVersion: "1.0",
-    name: "Sahneva WebMCP Manifest",
-    type: "read_only_ai_agent_manifest",
+    formatVersion: "1.1",
+    name: "Sahneva AI Discovery Helper Manifest",
+    type: "auxiliary_ai_discovery_manifest",
+    status: {
+      standardized: false,
+      normative: false,
+      note:
+        "This is a Sahneva-authored helper for HTTP discovery. It is not the official WebMCP browser API or a W3C-defined .well-known manifest format.",
+      officialBrowserApi: "document.modelContext.registerTool()",
+      specification: "https://webmachinelearning.github.io/webmcp/",
+      specificationMaturity:
+        "Draft Community Group Report dated 19 August 2026; not a W3C Standard or Standards Track document.",
+      runtimeRequirement:
+        "WebMCP browser tools are available only while a Sahneva page is open in a supporting secure-context browser.",
+    },
     site: SITE_URL,
     generatedAt: new Date().toISOString(),
     organization: {
@@ -125,7 +138,14 @@ function buildManifest() {
     },
     capabilities: {
       mode: "read_only_guidance",
-      declarativeToolsOnSite: [
+      browserWebMcp: {
+        api: "document.modelContext.registerTool()",
+        integrationMode: "imperative_runtime",
+        toolNames: SAHNEVA_WEBMCP_TOOL_NAMES,
+        availability:
+          "Registered while a Sahneva page is open in a supporting secure-context browser; normal forms and links remain the fallback.",
+      },
+      formMetadataToolsOnSite: [
         "searchSite",
         "requestEventProductionQuote",
         "calculateLedScreenEstimate",
@@ -170,7 +190,7 @@ function buildManifest() {
         "Share the Sahneva Company Profile PDF and the PUBG Turkiye Finals production showcase video reference.",
     },
     locations,
-    importantPages: getWebMcpImportantPages(),
+    importantPages: getAiDiscoveryImportantPages(),
     contact: {
       preferredForInternationalClients: "email",
       email: CONTACT_EMAIL,

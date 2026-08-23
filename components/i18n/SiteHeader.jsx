@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
 import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
+import WebMcpRuntime from "@/components/webmcp/WebMcpRuntime.client";
 
 const focusRingClass = "focus-ring";
 
@@ -117,6 +118,7 @@ export default function SiteHeader({ locale, strings }) {
       className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/95 backdrop-blur-md nav-dark:border-white/10 nav-dark:bg-[#0B1120]/95"
       dir={direction}
     >
+      <WebMcpRuntime locale={locale} />
       <div
         aria-live="polite"
         aria-atomic="true"

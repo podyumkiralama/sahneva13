@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
+import WebMcpRuntime from "@/components/webmcp/WebMcpRuntime.client";
 import { getSearchIndex } from "@/lib/searchIndex";
 import { SITE_URL } from "@/lib/seo/seoConfig";
 import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -98,6 +99,7 @@ export default async function SearchPage({ searchParams }) {
 
   return (
     <section className="container py-12 lg:py-16">
+      <WebMcpRuntime locale="tr" />
       <JsonLd id="ld-json-search" data={buildSearchResultsSchema(trimmedQuery, results.length)} />
 
       <div className="max-w-4xl">

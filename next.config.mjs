@@ -28,7 +28,7 @@ const securityHeaders = (() => {
     {
       key: "Permissions-Policy",
       value:
-        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), fullscreen=(self \"https://www.youtube.com\" \"https://www.youtube-nocookie.com\")",
+        "camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), tools=(self), fullscreen=(self \"https://www.youtube.com\" \"https://www.youtube-nocookie.com\")",
     },
     {
       key: "Strict-Transport-Security",

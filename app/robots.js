@@ -2,12 +2,11 @@
 import { SITE_URL } from "@/lib/seo/seoConfig";
 
 /**
- * Kullanıcı sorusuna canlı cevap üretirken sayfa çeken botlar.
- * Yapay zekâ yanıtlarındaki alıntı (citation) bu grup üzerinden geliyor;
- * bu yüzden `llms.txt` ve `webmcp.json` gibi ajanlara açılan dosyaları
- * açıkça izin listesine alan ayrı bir grupta tutuluyorlar.
+ * Arama, kullanıcı tarafından tetiklenen erişim ve ürün doğrulama botları.
+ * Bu kurallar yalnızca robots.txt tarama tercihlerini bildirir; WAF/CDN
+ * erişimi, indekslenme veya yapay zekâ yanıtlarında alıntılanma garantisi vermez.
  */
-const AI_ANSWER_AGENTS = [
+const AI_ACCESS_AGENTS = [
   // OpenAI - ChatGPT arama, kullanıcı tetikli sayfa çekme ve reklam doğrulama
   "OAI-SearchBot",
   "ChatGPT-User",
@@ -27,14 +26,13 @@ const AI_ANSWER_AGENTS = [
 ];
 
 /**
- * Model eğitimi ve temellendirme (grounding) amaçlı tarayıcılar.
- * Sahneva'nın marka ve hizmet bilgisinin model belleğine girmesi istendiği
- * için açık bırakılıyor; engellenirse marka adı yanıtlarda geçmez.
+ * Sağlayıcıların model geliştirme/eğitim veya genişletilmiş AI kullanımı için
+ * belgelediği tarayıcılar. İzin vermek içeriği taranabilir kılar; eğitime
+ * alınma, model belleğinde tutulma veya yanıtlarda görünme garantisi vermez.
  */
 const AI_TRAINING_AGENTS = [
   "GPTBot",
   "ClaudeBot",
-  "anthropic-ai",
   "Google-Extended",
   "Google-CloudVertexBot",
   "Applebot-Extended",
@@ -59,7 +57,7 @@ export default function robots() {
         disallow,
       },
       {
-        userAgent: AI_ANSWER_AGENTS,
+        userAgent: AI_ACCESS_AGENTS,
         allow,
         disallow,
       },

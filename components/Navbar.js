@@ -9,6 +9,7 @@ import NavbarSearchDropdown from "@/components/NavbarSearchDropdown.client";
 import ServicesDropdownBehavior from "@/components/ServicesDropdownBehavior.client";
 import ThemeSwitcher from "@/components/theme/ThemeSwitcher.client";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher.client";
+import WebMcpRuntime from "@/components/webmcp/WebMcpRuntime.client";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 
 const FOCUS_RING_CLASS =
@@ -88,6 +89,7 @@ export default function Navbar({ locale = "tr", ...props }) {
 
   return (
     <>
+      <WebMcpRuntime locale={locale} />
       <nav aria-label={navAriaLabel} {...props} className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200/80 shadow-lg transition-colors duration-300 nav-dark:bg-[#0B1120]/95 nav-dark:border-white/10">
         <ServicesDropdownBehavior detailsId="nav-services-details" />
         <ServicesDropdownBehavior detailsId="nav-research-details" panelId="nav-research-panel" />
