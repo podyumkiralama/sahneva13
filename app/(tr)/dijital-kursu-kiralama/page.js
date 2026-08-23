@@ -369,7 +369,7 @@ const HERO_ACTIONS = [
   {
     key: "types",
     label: "Kürsü Tiplerini İncele",
-    href: "#kursu-tipleri",
+    href: "#hizmetler",
   },
 ];
 
@@ -413,9 +413,9 @@ function Hero() {
 function KursuTipleriSection() {
   return (
     <section
-      id="kursu-tipleri"
+      id="hizmetler"
       className="bg-white py-20"
-      aria-labelledby="kursu-tipleri-baslik"
+      aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-3xl text-center">
@@ -423,7 +423,7 @@ function KursuTipleriSection() {
             DOĞRU KÜRSÜYÜ SEÇİN
           </div>
           <h2
-            id="kursu-tipleri-baslik"
+            id="hizmetler-baslik"
             className="text-4xl font-black tracking-tight text-gray-950 md:text-5xl lg:text-6xl"
           >
             Hangi Dijital Kürsü Size Uygun?
@@ -534,8 +534,9 @@ function IntegrationSection() {
 function TechSpecsSection() {
   return (
     <section
+      id="teknik-altyapi"
       className="relative overflow-hidden bg-[#040817] py-20 text-white"
-      aria-labelledby="teknik-ozellikler-baslik"
+      aria-labelledby="teknik-altyapi-baslik"
     >
       <div
         className="absolute inset-0 opacity-[0.14] bg-[linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:46px_46px]"
@@ -552,7 +553,7 @@ function TechSpecsSection() {
             HAGEL TD5000XD • Türk Mühendisliği Tasarımı
           </p>
           <h2
-            id="teknik-ozellikler-baslik"
+            id="teknik-altyapi-baslik"
             className="mt-3 text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white"
           >
             Dijital Kürsü Teknik Özellikleri
@@ -640,10 +641,11 @@ function Gallery() {
 
 function UseCasesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-baslik">
+    <section
+      id="kullanim-alanlari" className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="kullanim-alanlari-baslik">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="kullanim-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+          <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             Kullanım{" "}
             <span className="gradient-text gradient-text--safe-xl">Alanları</span>
           </h2>
@@ -700,10 +702,11 @@ function UseCasesSection() {
 
 function InstallationProcess() {
   return (
-    <section className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-labelledby="kurulum-sureci-baslik">
+    <section
+      id="surec" className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-labelledby="surec-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="kurulum-sureci-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+          <h2 id="surec-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Kurulum <span className="text-white/90">Süreci</span>
           </h2>
           <p className="text-xl text-violet-100 max-w-3xl mx-auto leading-relaxed">
@@ -741,7 +744,8 @@ function InstallationProcess() {
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <p className="text-sm font-black uppercase tracking-widest text-violet-700 mb-4">Sık sorulan sorular</p>
@@ -774,7 +778,7 @@ function FAQ() {
 
 function Offer() {
   return (
-    <section id="teklif" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="teklif-baslik">
+    <section id="cta" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
           <div className="relative bg-[#040817] px-6 py-8 text-white md:px-10">
@@ -782,7 +786,7 @@ function Offer() {
             <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#4c1d95]/30 blur-[90px]" aria-hidden="true" />
             <div className="relative z-10">
               <p className="text-sm font-black uppercase tracking-widest text-white/70">HIZLI TEKLİF</p>
-              <h2 id="teklif-baslik" className="mt-3 text-3xl font-black md:text-5xl">
+              <h2 id="cta-baslik" className="mt-3 text-3xl font-black md:text-5xl">
                 Dijital Kürsü Teklifi Alın
               </h2>
               <p className="mt-3 text-base leading-7 text-white/75 max-w-xl">

@@ -430,7 +430,7 @@ function InfrastructureAssuranceSection() {
     <section
       id="podyum-stok-kapasitesi"
       className="bg-slate-50 py-16 md:py-20"
-      aria-labelledby="podyum-stok-title"
+      aria-labelledby="podyum-stok-kapasitesi-baslik"
     >
       <div className="container mx-auto max-w-6xl px-4">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -438,7 +438,7 @@ function InfrastructureAssuranceSection() {
             <p className="mb-3 text-sm font-black uppercase tracking-widest text-violet-700">
               Operasyon güvencesi
             </p>
-            <h2 id="podyum-stok-title" className="max-w-3xl text-3xl font-black leading-tight text-slate-950 md:text-5xl">
+            <h2 id="podyum-stok-kapasitesi-baslik" className="max-w-3xl text-3xl font-black leading-tight text-slate-950 md:text-5xl">
               Yüksekliğe göre kurulum kapasitesi
             </h2>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
@@ -552,9 +552,9 @@ function InfrastructureAssuranceSection() {
 function PodiumFlowSection() {
   return (
     <section
-      id="teklif-akisi"
+      id="surec"
       className="py-16 bg-white"
-      aria-labelledby="teklif-akisi-title"
+      aria-labelledby="surec-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_0.82fr] gap-8 items-stretch">
@@ -563,7 +563,7 @@ function PodiumFlowSection() {
               Doğru ölçü, güvenli kurulum
             </p>
             <h2
-              id="teklif-akisi-title"
+              id="surec-baslik"
               className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-5"
             >
               Podyum kiralama sürecini daha net ve hızlı ilerletiyoruz
@@ -679,11 +679,11 @@ function ServicesSection() {
     <section
       id="hizmetler"
       className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1200px] py-20 bg-gradient-to-b from-white to-violet-50/50"
-      aria-labelledby="hizmetler-title"
+      aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Modüler Podyum ve <span className="text-violet-700">Taşınabilir Sahne Platformu Uygulamaları</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -733,10 +733,10 @@ function ServicesSection() {
 
 function PriceSummarySection() {
   return (
-    <section id="podyum-fiyat-ozeti" className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="podyum-fiyat-ozeti-title">
+    <section id="fiyatlar" className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="fiyatlar-baslik">
       <div className="container mx-auto max-w-5xl px-4 text-center">
         <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-violet-700">Fiyat rehberi</p>
-        <h2 id="podyum-fiyat-ozeti-title" className="text-3xl font-black text-gray-900 md:text-5xl">
+        <h2 id="fiyatlar-baslik" className="text-3xl font-black text-gray-900 md:text-5xl">
           Podyum Kiralama Fiyatları ve Kurulum Maliyeti
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-gray-700">
@@ -770,13 +770,13 @@ function GallerySection() {
 
   return (
     <section
-      id="uygulamalar"
+      id="galeri"
       className="py-16 bg-gradient-to-b from-white to-violet-50/50 md:py-20"
-      aria-labelledby="uygulamalar-title"
+      aria-labelledby="galeri-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="uygulamalar-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="galeri-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Podyum Uygulamalarından <span className="text-violet-700">Seçkiler</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -828,11 +828,11 @@ function TechnicalSection() {
     <section
       id="teknik-altyapi"
       className="content-visibility-auto [contain-intrinsic-size:auto_2400px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1100px] py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="teknik-altyapi-title"
+      aria-labelledby="teknik-altyapi-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="teknik-altyapi-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
+          <h2 id="teknik-altyapi-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
             Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -911,11 +911,11 @@ function UseCasesSection() {
     <section
       id="kullanim-alanlari"
       className="content-visibility-auto [contain-intrinsic-size:auto_2200px] md:[contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_900px] py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
-      aria-labelledby="kullanim-alanlari-title"
+      aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="kullanim-alanlari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+          <h2 id="kullanim-alanlari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             Kullanım <span className="text-violet-300">Alanları</span>
           </h2>
           <p className="text-xl text-white/[0.85] max-w-3xl mx-auto leading-relaxed">
@@ -967,11 +967,11 @@ function ProcessAndTipsSection() {
     <section
       id="surec-ipuclari"
       className="content-visibility-auto [contain-intrinsic-size:auto_1900px] md:[contain-intrinsic-size:auto_1500px] lg:[contain-intrinsic-size:auto_1300px] py-20 bg-white"
-      aria-labelledby="surec-ipuclari-title"
+      aria-labelledby="surec-ipuclari-baslik"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-14">
-          <h2 id="surec-ipuclari-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="surec-ipuclari-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Podyum Kiralama <span className="text-violet-700">Süreci</span> ve İpuçları
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1125,11 +1125,11 @@ function FAQSection() {
     <section
       id="sss"
       className="content-visibility-auto [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_980px] py-20 bg-white"
-      aria-labelledby="sss-title"
+      aria-labelledby="sss-baslik"
     >
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 id="sss-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Sık Sorulan <span className="text-violet-700">Sorular</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -1181,11 +1181,11 @@ function RelatedServicesSection() {
     <section
       id="tamamlayici-hizmetler"
       className="content-visibility-auto [contain-intrinsic-size:auto_1800px] sm:[contain-intrinsic-size:auto_1100px] lg:[contain-intrinsic-size:auto_760px] py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
-      aria-labelledby="tamamlayici-hizmetler-title"
+      aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="tamamlayici-hizmetler-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+          <h2 id="tamamlayici-hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Tamamlayıcı <span className="text-violet-700">Hizmetlerimiz</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1219,14 +1219,15 @@ function RelatedServicesSection() {
 function CTASection() {
   return (
     <section
+      id="cta"
       className="content-visibility-auto [contain-intrinsic-size:auto_760px] lg:[contain-intrinsic-size:auto_520px] py-20 bg-white"
-      aria-labelledby="cta-title"
+      aria-labelledby="cta-baslik"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10">
-            <h2 id="cta-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h2 id="cta-baslik" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               Profesyonel Podyum Çözümlerine Hazır Mısınız?
             </h2>
             <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">

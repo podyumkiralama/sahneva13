@@ -282,7 +282,7 @@ const HERO_ACTIONS = [
   {
     key: "packages",
     label: "Fiyat ve Paketler",
-    href: "#paketler",
+    href: "#fiyatlar",
     ariaLabel: "Fiyat ve paket seçeneklerini inceleyin",
   },
 ];
@@ -438,15 +438,15 @@ function Packages() {
 
   return (
     <section
-      id="paketler"
+      id="fiyatlar"
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="paketler-baslik"
+      aria-labelledby="fiyatlar-baslik"
     >
       <div className="container mx-auto px-4">
         {/* Başlık Bloğu */}
         <div className="text-center mb-16">
           <h2
-            id="paketler-baslik"
+            id="fiyatlar-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Masa Sandalye Kiralama{" "}
@@ -670,7 +670,8 @@ const GALLERY_IMAGES = [
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="galeri-baslik">
+    <section
+      id="galeri" className="py-20 bg-white" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
@@ -787,13 +788,14 @@ function Technical() {
 
   return (
     <section
+      id="teknik-altyapi"
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
-      aria-labelledby="altyapi-baslik"
+      aria-labelledby="teknik-altyapi-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="altyapi-baslik"
+            id="teknik-altyapi-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
             Teknik{" "}
@@ -904,6 +906,7 @@ function StatsBand() {
 function UseCases() {
   return (
     <section
+      id="kullanim-alanlari"
       className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
@@ -976,13 +979,14 @@ function UseCases() {
 function Articles() {
   return (
     <section
+      id="rehber"
       className="py-20 bg-gradient-to-b from-white to-gray-50/50"
-      aria-labelledby="bilgi-rehber-baslik"
+      aria-labelledby="rehber-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h2
-            id="bilgi-rehber-baslik"
+            id="rehber-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Bilgi &{" "}
@@ -1357,7 +1361,8 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2
@@ -1449,6 +1454,7 @@ function RelatedServices() {
 
   return (
     <section
+      id="tamamlayici-hizmetler"
       className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >
@@ -1513,7 +1519,8 @@ function RelatedServices() {
 /* ================== CTA ================== */
 function CTA() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="cta-baslik">
+    <section
+      id="cta" className="py-20 bg-white" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-gradient-to-r from-violet-700 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div

@@ -360,7 +360,8 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section className="bg-white py-10 md:py-14" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="bg-white py-10 md:py-14" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
           <summary className="cursor-pointer list-none p-5 marker:content-none sm:p-7 [&::-webkit-details-marker]:hidden">
@@ -1062,7 +1063,8 @@ const VISUAL_FLOW_IMAGES = [
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
   return (
-    <section className="bg-slate-50 py-14 md:py-16" aria-labelledby="galeri-baslik">
+    <section
+      id="galeri" className="bg-slate-50 py-14 md:py-16" aria-labelledby="galeri-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-9 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl">
@@ -1320,10 +1322,10 @@ function Technical() {
   ];
 
   return (
-    <section id="teknik-altyapi" className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="altyapi-baslik">
+    <section id="teknik-altyapi" className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="teknik-altyapi-baslik">
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center md:mb-10">
-          <h2 id="altyapi-baslik" className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl">
+          <h2 id="teknik-altyapi-baslik" className="mb-4 text-3xl font-black text-gray-900 md:mb-6 md:text-5xl lg:text-6xl">
             Teknik <span className="text-violet-700">Altyapımız</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1584,11 +1586,12 @@ function RegionalService() {
   ];
 
   return (
-    <section className="bg-gray-50 py-14 md:py-16" aria-labelledby="bolgesel-hizmet-baslik">
+    <section
+      id="bolgesel-kiralama" className="bg-gray-50 py-14 md:py-16" aria-labelledby="bolgesel-kiralama-baslik">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8 max-w-5xl">
           <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kurulum ve lojistik ağı</p>
-          <h2 id="bolgesel-hizmet-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+          <h2 id="bolgesel-kiralama-baslik" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
             İstanbul, Marmara ve Çevre İllerde <span className="text-violet-700">Lider Güç</span>
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-relaxed text-gray-600 md:text-lg">
@@ -1749,7 +1752,8 @@ function RelatedServices() {
   ];
   
   return (
-    <section 
+    <section
+      id="tamamlayici-hizmetler" 
       className="bg-gradient-to-br from-gray-50 to-violet-100/30 py-10 md:py-12"
       aria-labelledby="tamamlayici-hizmetler-baslik"
     >

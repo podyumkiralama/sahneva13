@@ -17,7 +17,7 @@ const CARD_LOGOS = [
 // ziyaretçinin kendi hesaplayıp doğrudan ödemeye gitmesini teşvik etmez.
 export default function PaymentOptionsNote() {
   return (
-    <section className="bg-white px-4 py-10" aria-labelledby="odeme-secenekleri-baslik">
+    <section id="odeme-secenekleri" className="bg-white px-4 py-10" aria-labelledby="odeme-secenekleri-baslik">
       <div className="mx-auto max-w-4xl rounded-2xl border border-neutral-200 bg-neutral-50 p-6 text-center md:p-8">
         <h2 id="odeme-secenekleri-baslik" className="text-lg font-black text-neutral-900 md:text-xl">
           Kredi Kartı ile Taksitli Ödeme İmkanı

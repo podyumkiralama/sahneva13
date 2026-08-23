@@ -314,7 +314,7 @@ const HERO_ACTIONS = [
   {
     key: "form",
     label: "Form ile Fiyat Al",
-    href: "#teklif",
+    href: "#cta",
   },
 ];
 
@@ -344,10 +344,11 @@ function Hero() {
 
 function Content() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="icerik-baslik">
+    <section
+      id="hizmetler" className="py-20 bg-white" aria-labelledby="hizmetler-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <header className="text-center mb-16">
-          <h2 id="icerik-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+          <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
             Truss Kiralama{" "}
             <span className="gradient-text gradient-text--safe-xl">
               Nedir?
@@ -480,10 +481,11 @@ function Technical() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="teknik-baslik">
+    <section
+      id="teknik-altyapi" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="teknik-altyapi-baslik">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 id="teknik-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+          <h2 id="teknik-altyapi-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
             Teknik{" "}
             <span className="gradient-text gradient-text--safe-xl">
               Planlama
@@ -547,7 +549,8 @@ function Technical() {
 
 function FAQ() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="sss-baslik">
+    <section
+      id="sss" className="py-20 bg-white" aria-labelledby="sss-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 id="sss-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
@@ -619,10 +622,10 @@ function FAQ() {
 
 function Offer() {
   return (
-    <section id="teklif" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="teklif-baslik">
+    <section id="cta" className="py-20 bg-gradient-to-b from-white to-slate-50" aria-labelledby="cta-baslik">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 id="teklif-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+          <h2 id="cta-baslik" className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
             Truss Kiralama{" "}
             <span className="gradient-text gradient-text--safe-xl">
               Teklifi Alın

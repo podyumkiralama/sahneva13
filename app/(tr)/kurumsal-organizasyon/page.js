@@ -648,7 +648,7 @@ function VisualProof() {
 
 function VideoProof() {
   return (
-    <Section id="videolar" dark deferredClass="content-visibility-auto cv-corporate-videos">
+    <Section id="galeri" dark deferredClass="content-visibility-auto cv-corporate-videos">
       <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
         <div>
           <SectionHeader
@@ -715,7 +715,7 @@ function TechnicalDiscoverySection() {
 
 function Positioning() {
   return (
-    <Section id="kurumsal-organizasyon" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
+    <Section id="rehber" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-positioning">
       <SectionHeader
         eyebrow="Firma seçimi"
         title="Kurumsal organizasyon firması seçerken teknik ölçütler"
@@ -747,7 +747,7 @@ function Positioning() {
 function CorporateServiceSections() {
   return (
     <>
-      <Section id="etkinlik-turleri-kurumsal-cozumler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
+      <Section id="kullanim-alanlari" className="bg-white" deferredClass="content-visibility-auto cv-corporate-event-types">
         <SectionHeader
           eyebrow="Hizmet kapsamı"
           title="Lansman, konferans ve gala için teknik çözümler"
@@ -796,7 +796,7 @@ function CorporateServiceSections() {
 
 function PackagePlanningSection() {
   return (
-    <Section id="kapsam-planlama" className="bg-white pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-packages">
+    <Section id="teknik-altyapi" className="bg-white pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-packages">
       <SectionHeader
         eyebrow="Kapsam ve teklif"
         title="Etkinlik türüne göre kapsam paketleri"
@@ -867,7 +867,7 @@ function PackagePlanningSection() {
 
 function OperationFlow() {
   return (
-    <Section id="akis" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-flow">
+    <Section id="surec" dark className="pt-0 md:pt-4" deferredClass="content-visibility-auto cv-corporate-flow">
       <SectionHeader
         dark
         eyebrow="Proje akışı"
@@ -896,7 +896,7 @@ function OperationFlow() {
 
 function Formats() {
   return (
-    <Section id="formatlar" className="bg-white" deferredClass="content-visibility-auto cv-corporate-formats">
+    <Section id="hizmetler" className="bg-white" deferredClass="content-visibility-auto cv-corporate-formats">
       <SectionHeader
         eyebrow="Kullanım alanları"
         title="Lansman, konferans ve gala prodüksiyonu"
@@ -1003,7 +1003,7 @@ function ProductionStack() {
 
 function InternalLinks() {
   return (
-    <Section id="baglantilar" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
+    <Section id="tamamlayici-hizmetler" className="bg-slate-50" deferredClass="content-visibility-auto cv-corporate-links">
       <SectionHeader
         eyebrow="Tamamlayıcı hizmetler"
         title="İlgili hizmetler ve referanslar"
@@ -1110,13 +1110,14 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#05070d] py-16 text-white md:py-20" aria-labelledby="cta-title">
+    <section
+      id="cta" className="relative isolate overflow-hidden bg-[#05070d] py-16 text-white md:py-20" aria-labelledby="cta-baslik">
       <div className="absolute inset-0 grid-overlay opacity-35" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/60 to-transparent" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-normal text-white">Teklif briefi</p>
-          <h2 id="cta-title" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
+          <h2 id="cta-baslik" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
             Kurumsal organizasyonunuz için teklif alın
           </h2>
           <p className="mt-4 text-base leading-8 text-white/[0.72] md:text-lg">

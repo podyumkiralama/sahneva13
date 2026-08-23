@@ -83,12 +83,12 @@ export const metadata = {
 };
 
 const PAGE_SECTIONS = [
-  { href: "#dome-nedir", label: "Dome nedir" },
+  { href: "#hizmetler", label: "Dome nedir" },
   { href: "#mapping", label: "360° mapping" },
   { href: "#akustik", label: "Akustik" },
-  { href: "#kullanim", label: "Kullanım senaryoları" },
-  { href: "#referanslar", label: "Referanslar" },
-  { href: "#kurulum", label: "Kurulum ve zemin" },
+  { href: "#kullanim-alanlari", label: "Kullanım senaryoları" },
+  { href: "#galeri", label: "Referanslar" },
+  { href: "#surec", label: "Kurulum ve zemin" },
   { href: "#sss", label: "Sık sorulanlar" },
 ];
 
@@ -277,7 +277,7 @@ const HERO_ACTIONS = [
 function Hero() {
   return (
     <PageHero
-      titleId="dome-hero-baslik"
+      titleId="hero-title"
       descriptionId="dome-hero-aciklama"
       eyebrow="Dome çadır · 360° mapping · Deneyim alanı"
       title="Dome Çadır Kiralama"
@@ -320,9 +320,9 @@ function SectionJumpNav() {
 function WhatIsDome() {
   return (
     <section
-      id="dome-nedir"
+      id="hizmetler"
       className="scroll-mt-24 bg-white py-20"
-      aria-labelledby="dome-nedir-baslik"
+      aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">
@@ -330,7 +330,7 @@ function WhatIsDome() {
             Yapı tipi
           </p>
           <h2
-            id="dome-nedir-baslik"
+            id="hizmetler-baslik"
             className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
           >
             Dome Çadır Nedir?
@@ -553,9 +553,9 @@ function AcousticsSection() {
 function UseCasesSection() {
   return (
     <section
-      id="kullanim"
+      id="kullanim-alanlari"
       className="scroll-mt-24 bg-white py-20"
-      aria-labelledby="kullanim-baslik"
+      aria-labelledby="kullanim-alanlari-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">
@@ -563,7 +563,7 @@ function UseCasesSection() {
             Kullanım senaryoları
           </p>
           <h2
-            id="kullanim-baslik"
+            id="kullanim-alanlari-baslik"
             className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
           >
             Dome Çadır Hangi Etkinliklerde Tercih Edilir?
@@ -590,16 +590,16 @@ function UseCasesSection() {
 function ReferencesSection() {
   return (
     <section
-      id="referanslar"
+      id="galeri"
       className="scroll-mt-24 bg-slate-50 py-20"
-      aria-labelledby="referanslar-baslik"
+      aria-labelledby="galeri-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
         <p className="text-sm font-black uppercase tracking-widest text-violet-700">
           Saha kanıtı
         </p>
         <h2
-          id="referanslar-baslik"
+          id="galeri-baslik"
           className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
         >
           Kurduğumuz Dome Çadır Projeleri
@@ -690,9 +690,9 @@ function ReferencesSection() {
 function InstallationSection() {
   return (
     <section
-      id="kurulum"
+      id="surec"
       className="scroll-mt-24 bg-white py-20"
-      aria-labelledby="kurulum-baslik"
+      aria-labelledby="surec-baslik"
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
@@ -701,7 +701,7 @@ function InstallationSection() {
               Saha planı
             </p>
             <h2
-              id="kurulum-baslik"
+              id="surec-baslik"
               className="mt-3 text-4xl font-black tracking-tight text-gray-950 md:text-5xl"
             >
               Dome Kurulumunda Zemin ve Saha Neyi Belirler?
@@ -776,7 +776,7 @@ function FAQ() {
     <section
       id="sss"
       className="scroll-mt-24 bg-slate-50 py-20"
-      aria-labelledby="dome-sss-baslik"
+      aria-labelledby="sss-baslik"
     >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
@@ -784,7 +784,7 @@ function FAQ() {
             Sık sorulan sorular
           </p>
           <h2
-            id="dome-sss-baslik"
+            id="sss-baslik"
             className="mt-3 text-4xl font-black text-gray-950 md:text-5xl"
           >
             Dome Çadır Hakkında Merak Edilenler
@@ -819,15 +819,16 @@ function FAQ() {
 function ClosingCta() {
   return (
     <section
+      id="cta"
       className="relative overflow-hidden bg-[#040817] py-16 text-white"
-      aria-labelledby="dome-cta-baslik"
+      aria-labelledby="cta-baslik"
     >
       <div
         className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
         aria-hidden="true"
       />
       <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
-        <h2 id="dome-cta-baslik" className="text-3xl font-black md:text-4xl">
+        <h2 id="cta-baslik" className="text-3xl font-black md:text-4xl">
           Dome kurgunuzu birlikte netleştirelim
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-violet-100/80 md:text-lg">

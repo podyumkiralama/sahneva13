@@ -27,6 +27,7 @@ export default function RegionalCityLinks({ service = "etkinlik ekipmanı kirala
 
   return (
     <section
+      id="bolgesel-kiralama"
       className="content-visibility-auto [contain-intrinsic-size:auto_420px] py-16 bg-white"
       aria-labelledby="bolgesel-kiralama-baslik"
     >

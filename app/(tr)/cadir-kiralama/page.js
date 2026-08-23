@@ -119,10 +119,10 @@ const HERO = {
 };
 
 const PAGE_SECTIONS = [
-  { href: "#cadir-tipleri", label: "Çadır tipleri" },
+  { href: "#hizmetler", label: "Çadır tipleri" },
   { href: "#stok-kapasitesi", label: "Stok ve kapasite" },
   { href: "#fiyatlar", label: "Fiyatlar" },
-  { href: "#referanslar", label: "Referanslar" },
+  { href: "#galeri", label: "Referanslar" },
   { href: "#guvenlik-standartlari", label: "Güvenlik standardı" },
   { href: "#sistem-ve-standart", label: "Sistem ve standart" },
   { href: "#sss", label: "Sık sorulanlar" },
@@ -608,9 +608,9 @@ function SectionJumpNav() {
 function TentSelectorSection() {
   return (
     <section
-      id="cadir-tipleri"
+      id="hizmetler"
       className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1400px] lg:[contain-intrinsic-size:auto_760px] bg-white py-20"
-      aria-labelledby="cadir-tipleri-baslik"
+      aria-labelledby="hizmetler-baslik"
     >
       <div className="container mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-3xl text-center">
@@ -618,7 +618,7 @@ function TentSelectorSection() {
             DOĞRU ÇADIRI SEÇİN
           </div>
           <h2
-            id="cadir-tipleri-baslik"
+            id="hizmetler-baslik"
             className="text-4xl font-black tracking-tight text-gray-950 md:text-5xl lg:text-6xl"
           >
             Hangi Çadır Size Uygun?
@@ -968,7 +968,7 @@ function Gallery() {
 
   return (
     <section
-      id="referanslar"
+      id="galeri"
       className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_2600px] md:[contain-intrinsic-size:auto_1900px] lg:[contain-intrinsic-size:auto_1560px] bg-slate-50 py-16"
       aria-labelledby="galeri-baslik"
     >
@@ -1115,7 +1115,7 @@ function PricingSection() {
     <section
       id="fiyatlar"
       className="scroll-mt-24 [content-visibility:auto] [contain-intrinsic-size:auto_1100px] md:[contain-intrinsic-size:auto_760px] py-16 bg-gradient-to-b from-slate-50 to-white"
-      aria-labelledby="fiyatlandirma-baslik"
+      aria-labelledby="fiyatlar-baslik"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.10)]">
@@ -1133,7 +1133,7 @@ function PricingSection() {
                 <p className="text-sm font-black uppercase tracking-widest text-white/70">
                   NET BAŞLANGIÇ BEDELLERİ
                 </p>
-                <h2 id="fiyatlandirma-baslik" className="mt-3 text-3xl font-black md:text-5xl">
+                <h2 id="fiyatlar-baslik" className="mt-3 text-3xl font-black md:text-5xl">
                   Çadır Kiralama Fiyatları 2026
                 </h2>
               </div>
@@ -1187,7 +1187,7 @@ function PricingSection() {
             Hemen Teklif Al
           </Link>
           <Link
-            href="/cadir-kiralama#cadir-tipleri"
+            href="/cadir-kiralama#hizmetler"
             className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-slate-300 bg-white px-8 py-4 font-black text-slate-900 shadow-sm transition hover:border-violet-300 hover:text-violet-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-200"
           >
             Çadır Tiplerini İncele
@@ -1569,6 +1569,7 @@ function SystemAndStandardSection() {
 function UseCases() {
   return (
     <section
+      id="kullanim-alanlari"
       className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95"
       aria-labelledby="kullanim-alanlari-baslik"
     >
@@ -1660,13 +1661,14 @@ function UseCases() {
 function InstallationProcess() {
   return (
     <section
+      id="surec"
       className="[content-visibility:auto] py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white"
-      aria-labelledby="kurulum-sureci-baslik"
+      aria-labelledby="surec-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="kurulum-sureci-baslik"
+            id="surec-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
           >
             Kurulum <span className="text-white/90">Süreci</span>
@@ -1797,13 +1799,14 @@ function RelatedServices() {
 
   return (
     <section
+      id="tamamlayici-hizmetler"
       className="py-20 bg-gradient-to-br from-gray-50 to-violet-100/30"
-      aria-labelledby="ek-hizmetler-baslik"
+      aria-labelledby="tamamlayici-hizmetler-baslik"
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2
-            id="ek-hizmetler-baslik"
+            id="tamamlayici-hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6"
           >
             Ek <span className="text-violet-700">Hizmetler</span>
@@ -1839,15 +1842,16 @@ function RelatedServices() {
 function ClosingCta() {
   return (
     <section
+      id="cta"
       className="relative overflow-hidden bg-[#040817] py-16 text-white"
-      aria-labelledby="kapanis-cta-baslik"
+      aria-labelledby="cta-baslik"
     >
       <div
         className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
         aria-hidden="true"
       />
       <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
-        <h2 id="kapanis-cta-baslik" className="text-3xl font-black md:text-4xl">
+        <h2 id="cta-baslik" className="text-3xl font-black md:text-4xl">
           Çadır planınızı birlikte netleştirelim
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-violet-100/80 md:text-lg">
