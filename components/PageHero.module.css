@@ -7,15 +7,13 @@
 .hero {
   position: relative;
   z-index: 0;
-  min-height: clamp(600px, 78svh, 780px);
+  /* Tek standart: hero ekrana tam oturur (globals.css --hero-h).
+     `min-height` oldugu icin icerigi tasan sayfalarda bolum buyur. */
+  min-height: var(--hero-h, 100svh);
   isolation: isolate;
   overflow: hidden;
   background: #040817;
   color: #ffffff;
-}
-
-.heroCompact {
-  min-height: clamp(460px, 58svh, 600px);
 }
 
 .backdrop {
@@ -82,8 +80,8 @@
   align-items: center;
   max-width: 1680px;
   margin-inline: auto;
-  padding: clamp(6.5rem, 12vh, 8.5rem) clamp(1.25rem, 4vw, 4rem)
-    clamp(4rem, 8vh, 6rem);
+  padding-block: var(--hero-pt) var(--hero-pb);
+  padding-inline: var(--hero-gutter, clamp(1.25rem, 4vw, 4rem));
 }
 
 .innerSplit {
@@ -155,7 +153,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin: 0 0 1.15rem;
+  margin: 0 0 clamp(0.75rem, 1.8svh, 1.15rem);
   color: #a78bfa;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.6875rem;
@@ -177,7 +175,9 @@
   max-width: 15ch;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(2.75rem, 5.1vw, 5.25rem);
+  /* Olcek hem genislige hem yukseklige bagli: alcak ekranlarda baslik
+     buyuyup hero'yu tasirmasin, hero tek ekranda kalsin. */
+  font-size: clamp(2.75rem, min(5.1vw, 9svh), 5.25rem);
   font-weight: 900;
   letter-spacing: -0.055em;
   line-height: 0.9;
@@ -193,12 +193,12 @@
 
 .titleWide {
   max-width: 22ch;
-  font-size: clamp(2.45rem, 4.1vw, 4.25rem);
+  font-size: clamp(2.45rem, min(4.1vw, 7.4svh), 4.25rem);
 }
 
 .description {
   max-width: 44rem;
-  margin: 1.5rem 0 0;
+  margin: clamp(1rem, 2.4svh, 1.5rem) 0 0;
   color: rgb(255 255 255 / 88%);
   font-size: clamp(1rem, 1.18vw, 1.2rem);
   font-weight: 500;
@@ -241,7 +241,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 1.5rem 0 0;
+  margin: clamp(1rem, 2.4svh, 1.5rem) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -296,7 +296,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: 1.85rem;
+  margin-top: clamp(1.15rem, 2.9svh, 1.85rem);
 }
 
 .action {
@@ -347,7 +347,7 @@
   display: grid;
   grid-template-columns: repeat(min(var(--metric-columns, 4), 2), minmax(0, 1fr));
   max-width: 58rem;
-  margin: 2.35rem 0 0;
+  margin: clamp(1.4rem, 3.4svh, 2.35rem) 0 0;
   padding: 0;
   border-top: 1px solid rgb(139 92 246 / 32%);
   border-left: 1px solid rgb(139 92 246 / 32%);
@@ -426,11 +426,6 @@
 }
 
 @media (max-width: 1023px) {
-  .hero,
-  .heroCompact {
-    min-height: auto;
-  }
-
   .heroWash {
     background: rgb(2 6 23 / 40%);
   }
@@ -443,11 +438,6 @@
       rgb(2 6 23 / 70%) 74%,
       rgb(2 6 23 / 92%) 100%
     );
-  }
-
-  .inner {
-    padding-top: clamp(5.5rem, 14vh, 7rem);
-    padding-bottom: clamp(3rem, 8vh, 4rem);
   }
 
   .title,
@@ -502,7 +492,7 @@
 /* Sayfa içi hızlı geçiş şeridi: hero'nun altına ayrı bir kutu koymak yerine
    kopya sütununun devamı olarak, aynı mono/mor dilde. */
 .quickLinks {
-  margin-top: 2.25rem;
+  margin-top: clamp(1.35rem, 3.2svh, 2.25rem);
   border-top: 1px solid rgb(139 92 246 / 32%);
   padding-top: 1.15rem;
 }

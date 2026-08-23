@@ -327,7 +327,7 @@ export default function TurkishHomepageHero({ dictionary: dictionaryOverride } =
 
   return (
     <section
-      className={`${styles.hero} relative isolate overflow-hidden bg-[#040817] pb-28 pt-24 text-white sm:pb-32 sm:pt-28 lg:pb-36 lg:pt-28`}
+      className={`${styles.hero} hero-shell hero-shell-inner relative isolate flex flex-col justify-center overflow-hidden bg-[#040817] text-white`}
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >

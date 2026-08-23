@@ -76,7 +76,6 @@ export default async function ProjectsIndexPage() {
       </div>
 
       <PageHero
-        compact
         breadcrumb={[
           { label: "Ana Sayfa", href: "/" },
           { label: "Projeler" },

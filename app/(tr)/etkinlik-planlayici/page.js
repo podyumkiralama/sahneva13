@@ -112,7 +112,6 @@ export default function EventPlannerPage() {
       <JsonLdScript id="ld-json-etkinlik-planlayici" data={PLANNER_SCHEMA} />
 
       <PageHero
-        compact
         breadcrumb={[
           { label: "Ana Sayfa", href: "/" },
           { label: "Hizmetler", href: "/hizmetler" },

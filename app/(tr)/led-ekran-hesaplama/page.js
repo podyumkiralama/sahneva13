@@ -90,7 +90,6 @@ export default function Page() {
     <main className="bg-slate-950 pb-20 text-white">
       <JsonLd id="ld-json-led-ekran-olcu-planlama" data={PLANNING_PAGE_SCHEMA} />
       <PageHero
-        compact
         breadcrumb={[
           { label: "Ana Sayfa", href: "/" },
           { label: "LED Ekran Kiralama", href: "/led-ekran-kiralama" },

@@ -1,5 +1,7 @@
+/* Ortak hero standardi (globals.css --hero-h): anasayfa hero'su da ic
+   sayfalarla ayni yukseklikte, ekrana tam oturur. */
 .hero {
-  min-height: clamp(720px, 100svh, 880px);
+  min-height: var(--hero-h, 100svh);
 }
 
 .heroImage {
@@ -30,7 +32,6 @@
 
 .heroCopy {
   width: min(48vw, 720px);
-  padding-top: clamp(2.25rem, 6vh, 4.75rem);
   pointer-events: auto;
 }
 
@@ -406,10 +407,6 @@
 }
 
 @media (max-width: 1023px) {
-  .hero {
-    min-height: auto;
-  }
-
   .heroImage {
     object-position: 50% 52%;
   }
@@ -430,7 +427,6 @@
 
   .heroCopy {
     width: min(100%, 42rem);
-    padding-top: 1.5rem;
   }
 
   .heroTitle {

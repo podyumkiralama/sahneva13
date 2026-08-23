@@ -138,7 +138,6 @@ export default function GlossaryPage() {
 
       {/* Hero */}
       <PageHero
-        compact
         breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "Sözlük" }]}
         eyebrow={`${GLOSSARY_TERMS.length} terim · ${GLOSSARY_CATEGORIES.length} başlık`}
         title="Etkinlik Prodüksiyonu"

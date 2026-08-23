@@ -401,7 +401,6 @@ export default function FaqPage() {
       )}
 
       <PageHero
-        compact
         breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "SSS" }]}
         eyebrow="Teklif, kurulum ve saha operasyonu"
         title="Sık Sorulan"
