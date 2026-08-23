@@ -24,7 +24,7 @@ export const metadata = {
     absolute: "MICE Turkey | Technical Production & AV Support | Sahneva",
   },
   description:
-    "MICE technical production and on-site AV management in Turkey, with stage, LED, sound and lighting support for PCOs, DMCs, meetings and congresses.",
+    "MICE technical production in Turkey, with stage, LED, sound and lighting support for PCOs, DMCs, MICE agencies, conference organizers and congress teams.",
   keywords: [
     "MICE Turkey",
     "MICE technical production Turkey",
@@ -244,7 +244,7 @@ function Hero() {
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
-            Sahneva is Turkey's technical production partner for MICE events. We provide stage, LED screen, sound, lighting, truss and tent support as the local technical supplier for international organizers, PCOs and DMCs planning meetings, incentive events, congresses and exhibitions in Istanbul, Antalya and across Türkiye.
+            Sahneva is Turkey's technical production partner for MICE events. We provide stage, LED screen, sound, lighting, truss and tent support as the local technical supplier for conference organizers, MICE agencies, PCOs and DMCs planning meetings, incentive events, congresses and exhibitions in Istanbul, Antalya and across Türkiye.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -650,21 +650,21 @@ function PcoDmc() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <H2
-              kicker="PCO and DMC production support"
+              kicker="DMC, PCO and MICE agency production support"
               title={
                 <>
                   Local Technical Production for{" "}
-                  <span className="text-violet-700">PCOs, DMCs & Event Agencies</span>
+                  <span className="text-violet-700">DMCs, MICE Agencies & Conference Organizers</span>
                 </>
               }
-              desc="Sahneva plugs into the project as the Turkey-side technical production supplier, coordinating equipment, crew, venue access, setup, show operation and dismantling with your appointed PCO, DMC or event agency."
+              desc="Sahneva joins the appointed destination management company, PCO, MICE agency or conference organizer as the Turkey-side technical production supplier, coordinating equipment, crew, venue access, setup, show operation and dismantling."
             />
 
             <div className="mb-5 rounded-2xl border border-violet-200 bg-violet-50 p-5 text-sm leading-relaxed text-slate-700">
               <strong className="text-slate-950">Scope boundary:</strong>{" "}
-              our service covers technical production and venue-side delivery. Destination management,
-              flights, accommodation, delegate transport, registration, tours and travel planning remain
-              with the appointed DMC, PCO or agency.
+              a destination management company in Turkey normally owns travel, accommodation, transfers and local
+              experiences; a PCO or conference organizer owns congress registration and programme delivery. Sahneva
+              does not replace those roles. Our service covers technical production and venue-side delivery.
             </div>
 
             <div className="space-y-4">
@@ -800,8 +800,8 @@ const FAQ_ITEMS = [
     a: "MICE stands for Meetings, Incentives, Conferences and Exhibitions. Turkey attracts MICE events because of its central location between Europe and Asia, direct flight connectivity, competitive costs, world-class congress hotels in Istanbul and Antalya, and a strong government tourism support framework.",
   },
   {
-    q: "What does Sahneva provide to PCOs and DMCs, and what stays with them?",
-    a: "Sahneva provides the Turkey-side technical production scope: stage, LED screen, sound, lighting, truss, tent, technical crew, venue coordination, setup, show operation and dismantling. Destination management, flights, hotels, delegate transport, registration, tours and travel planning remain with the appointed DMC, PCO or agency.",
+    q: "Is Sahneva a DMC, MICE agency or conference organizer in Turkey?",
+    a: "No. Sahneva is the Turkey-side technical production partner. We work alongside the appointed DMC or destination management company, PCO, MICE agency or conference organizer, providing stage, LED screen, sound, lighting, truss, tent, technical crew, venue coordination, setup, show operation and dismantling. Flights, hotels, delegate transport, registration, tours and travel planning remain with the appointed lead team.",
   },
   {
     q: "Do you provide AV production for congresses and conferences in Istanbul?",
@@ -989,7 +989,7 @@ function MiceTurkeyJsonLd() {
         audience: {
           "@type": "Audience",
           audienceType:
-            "PCOs, DMCs and event agencies seeking local MICE technical production support in Turkey",
+            "DMCs, destination management companies, PCOs, MICE agencies and conference organizers seeking local MICE technical production support in Turkey",
         },
         url: pageUrl,
       },

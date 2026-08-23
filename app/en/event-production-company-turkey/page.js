@@ -15,6 +15,7 @@ export const metadata = {
   keywords: [
     "event production Turkey",
     "event production company Turkey",
+    "event production company in Turkey",
     "event production services Turkey",
     "technical event production Turkey",
     "local production partner Turkey",

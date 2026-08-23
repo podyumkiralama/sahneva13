@@ -47,16 +47,16 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 /* ================== META ================== */
 export const metadata = {
   title: {
-    absolute: "Large-Scale Corporate Event Production in Turkey | Sahneva",
+    absolute: "Corporate Event Management & Production in Turkey | Sahneva",
   },
   description:
-    `Sahneva produces large-scale corporate events in Istanbul and across Turkey: stage, LED screen, sound, lighting and field crew from one team. ${PROJECTS_COMPLETED} projects.`,
+    "Corporate event management in Turkey for launches, conferences and galas: stage, LED, sound, lighting and field crew from one production company.",
   alternates: buildAlternatesForPath("/en/corporate-events"),
   openGraph: {
     title:
-      "Large-Scale Corporate Event Production in Turkey | Sahneva",
+      "Corporate Event Management & Production in Turkey | Sahneva",
     description:
-      "Stage, LED screen, sound and lighting support for corporate events in Turkey. Plan conferences, launches and galas with one technical team.",
+      "Corporate event management and production for launches, conferences and galas across Turkey.",
     url: `${ORIGIN}/en/corporate-events`,
     type: "website",
     siteName: "Sahneva",
@@ -73,9 +73,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Large-Scale Corporate Event Production in Turkey | Sahneva",
+      "Corporate Event Management & Production in Turkey | Sahneva",
     description:
-      "Stage, LED screen, sound and lighting support for corporate events in Turkey.",
+      "Corporate event management and production for launches, conferences and galas across Turkey.",
     images: [`${ORIGIN}/img/kurumsal/hero.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -96,7 +96,7 @@ const CORPORATE_DISCIPLINE_DESC =
 
 const KEYWORD_CHIPS = [
   "Corporate event production company",
-  "Corporate event production",
+  "Corporate event management Turkey",
   "Large-scale corporate events",
   "Conference production",
   "Corporate AV production",
@@ -518,7 +518,8 @@ function Hero({ breadcrumbItems }) {
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-white/75">
-            Plan conferences, launches and galas in Turkey with one technical team. Sahneva coordinates stage, LED screen, sound, lighting, crew and site flow.
+            Corporate event management in Turkey for conferences, launches and galas, delivered by one technical team.
+            Sahneva coordinates stage, LED screen, sound, lighting, crew and site flow.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -754,16 +755,26 @@ function SelectionSection() {
             id="selection-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
           >
-            How to Choose a Corporate Event Company?
+            How to Choose a Corporate Event Company in Turkey
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Choosing the right partner is the first major step. The team should manage content flow, stage design and site work. In Istanbul, venue and logistics experience saves time.
+            Choosing a corporate event company in Turkey starts with the delivery model. Compare corporate references,
+            technical capacity, venue knowledge and who owns the creative programme versus technical delivery.
           </p>
         </div>
 
         <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
           <p>
-            Check references before you decide. Good references show real launch, gala and conference experience. The team should understand stage, LED screen, sound and lighting together.
+            If a separate event agency leads the client and creative scope, Sahneva can work behind it as the technical
+            production partner. Our{" "}
+            <Link
+              href="/en/event-production-company-turkey"
+              className="font-semibold text-violet-700 underline underline-offset-4 hover:text-violet-900"
+            >
+              event production company in Turkey
+            </Link>{" "}
+            page explains that wider local-partner model. For either model, check references that show real launch, gala
+            and conference experience across stage, LED screen, sound and lighting.
           </p>
 
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
@@ -1354,14 +1365,14 @@ const FAQ_ITEMS = [
       `A full scope covers stage and podium build, LED screen sizing and content path, speech-intelligible audio, presenter and room lighting, truss and rigging with load planning, power distribution, a rehearsed run of show, event-day operation and de-rig. Sahneva delivers these as one contract rather than separate hires, across ${PROJECTS_COMPLETED} projects since 2012 in all ${PROVINCES_COUNT} provinces of Turkey. Recorded project videos from TEKNOFEST, the TUA National Space Program launch, the PUBG Türkiye finals and the EAACI Congress in Istanbul are published at sahneva.com/en/our-work.`,
   },
   {
-    question: "We already work with an event agency — can Sahneva still be involved?",
+    question: "What is the difference between a corporate event company and an event agency in Turkey?",
     answer:
-      "Yes. On corporate programmes we are most often the technical production partner behind an agency that keeps client ownership and creative direction, and we can equally take the event end to end as main contractor where there is no agency. For a corporate buyer the practical difference is who holds the contract and the creative call; the technical scope and the on-site team are the same either way. How each model works is set out on our event production company in Turkey page.",
+      "An event agency may lead client strategy, creative direction, guest experience and content. Sahneva's corporate event management scope focuses on technical planning and delivery: stage, LED, sound, lighting, crew, rehearsals, live operation and de-rig. We can work directly as the main contractor or behind the client's agency.",
   },
   {
-    question: "What do corporate event companies do?",
+    question: "What does a corporate event company in Turkey manage?",
     answer:
-      "Corporate event companies manage goals, content flow, technical production and site operations. For launches, dealer meetings and galas, they bring stage, sound, lighting and LED screens into one plan.",
+      "For corporate programmes, event management in Turkey connects goals and content with venue logistics and technical production. Sahneva brings stage, LED, sound, lighting, power, crew, setup, live operation and de-rig into one production plan for launches, conferences, dealer meetings and galas.",
   },
   {
     question: "Why choose an experienced corporate event production team?",
@@ -1396,9 +1407,9 @@ function CorporateEventsJsonLd() {
 
   const baseService = {
     "@type": "Service",
-    name: "Corporate Events Production",
+    name: "Corporate Event Management and Production in Turkey",
     description: pageDescription,
-    serviceType: "Corporate Event Production",
+    serviceType: "Corporate Event Management and Technical Production",
     provider,
     areaServed: { "@type": "Country", name: "Turkey" },
     url: pageUrl,
@@ -1413,7 +1424,7 @@ function CorporateEventsJsonLd() {
   const webPageNode = {
     "@type": "WebPage",
     "@id": webPageId,
-    name: "Large-Scale Corporate Event Production in Turkey | Sahneva",
+    name: "Corporate Event Management & Production in Turkey | Sahneva",
     description: pageDescription,
     url: pageUrl,
     inLanguage: "en-US",
