@@ -10,6 +10,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -695,6 +696,77 @@ function Offer() {
 }
 
 /* ================== PAGE ================== */
+/* ================== Tamamlayıcı Hizmetler ================== */
+function RelatedServices() {
+  const services = [
+    {
+      href: "/sahne-kiralama",
+      title: "Sahne Kiralama",
+      desc: "Truss portalının üzerine oturacağı modüler sahne ve platform sistemleri",
+    },
+    {
+      href: "/ses-isik-sistemleri",
+      title: "Ses & Işık Sistemleri",
+      desc: "Truss'a asılacak moving head, spot ve line array kurgusu",
+    },
+    {
+      href: "/led-ekran-kiralama",
+      title: "LED Ekran Kiralama",
+      desc: "Ground support ve truss taşıyıcıya monte LED ekran çözümleri",
+    },
+    {
+      href: "/podyum-kiralama",
+      title: "Podyum Kiralama",
+      desc: "Konferans ve protokol alanları için modüler podyum sistemleri",
+    },
+  ];
+
+  return (
+    <section
+      id="tamamlayici-hizmetler"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_760px] bg-gradient-to-br from-gray-50 to-violet-100/30 py-20"
+      aria-labelledby="tamamlayici-hizmetler-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mb-14 text-center">
+          <h2
+            id="tamamlayici-hizmetler-baslik"
+            className="mb-6 text-4xl font-black text-gray-900 md:text-5xl"
+          >
+            Tamamlayıcı <span className="text-violet-700">Hizmetlerimiz</span>
+          </h2>
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
+            Truss kurgusunu tamamlayan sahne, ışık ve ekran sistemleri; aynı teknik ekipten planlanır.
+          </p>
+          <div
+            className="mx-auto mt-8 h-1 w-32 rounded-full bg-gradient-to-r from-violet-600 to-purple-600"
+            aria-hidden="true"
+          />
+        </div>
+
+        <nav aria-label="Tamamlayıcı hizmetler">
+          <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="focus-ring group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-8 text-center shadow-xl transition-all duration-300 hover:border-violet-200 hover:shadow-2xl"
+              >
+                <h3 className="mb-4 flex-grow text-xl font-bold text-gray-900 transition-colors group-hover:text-violet-700">
+                  {service.title}
+                </h3>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  {service.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <div>
@@ -734,6 +806,7 @@ export default function Page() {
         }}
       />
       <FAQ />
+      <RelatedServices />
       <ServiceBlogLinks
         links={[
           {
@@ -745,6 +818,11 @@ export default function Page() {
             label: "Milli Uzay Programı Lansmanı: Mühendislik Refleksi",
           },
         ]}
+      />
+      <GlossaryTermLinks
+        servicePath="/truss-kiralama"
+        title="Truss ve rigging'de geçen terimler"
+        description="SWL, dinamik yük, ground support ve baseplate balast; truss kurgusunun güvenlik sınırını belirleyen başlıklar. Tanımlar sözlükte."
       />
       <RegionalCityLinks service="truss kiralama" />
       <PaymentOptionsNote />

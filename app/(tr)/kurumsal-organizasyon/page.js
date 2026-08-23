@@ -16,6 +16,7 @@ import {
 import SahnevaGradientGlow from "@/components/ui/SahnevaGradientGlow";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
@@ -1188,6 +1189,7 @@ export default function Page() {
           title="Kurumsal organizasyonda geçen terimler"
           description="Lansman, bayi toplantısı, gala ve hibrit etkinlik formatlarının teknik kapsam açısından ne anlama geldiğini sözlükte topladık."
         />
+        <RegionalCityLinks service="kurumsal organizasyon" />
         <PaymentOptionsNote />
         <CTASection />
       </div>

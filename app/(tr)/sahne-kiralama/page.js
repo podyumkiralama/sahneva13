@@ -15,6 +15,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
@@ -1975,6 +1976,11 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.stageRental} links={CONTENT_CLUSTERS.stageRental.guides} />
+      <GlossaryTermLinks
+        servicePath="/sahne-kiralama"
+        title="Sahne planlamasında geçen terimler"
+        description="Sahne yükü, görüş hattı, riser ve etek perde; ölçü ve yükseklik kararını teknik olarak belirleyen başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="sahne kiralama" />
       <PaymentOptionsNote />
       <CTA />

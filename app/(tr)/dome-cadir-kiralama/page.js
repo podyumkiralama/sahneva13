@@ -13,6 +13,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import VideoEmbed from "@/components/VideoEmbed.client";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import RegionalCityLinks from "@/components/RegionalCityLinks";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
@@ -977,6 +978,77 @@ function DomeRentalJsonLd() {
 }
 
 /* ================== Sayfa Bileşeni ================== */
+/* ================== Tamamlayıcı Hizmetler ================== */
+function RelatedServices() {
+  const services = [
+    {
+      href: "/cadir-kiralama",
+      title: "Çadır Kiralama",
+      desc: "Pagoda, şeffaf ve büyük açıklıklı çadır sistemleri",
+    },
+    {
+      href: "/ses-isik-sistemleri",
+      title: "Ses & Işık Sistemleri",
+      desc: "Kubbe akustiğine göre kurgulanan ses ve ambiyans aydınlatması",
+    },
+    {
+      href: "/led-ekran-kiralama",
+      title: "LED Ekran Kiralama",
+      desc: "Dome içi ve dışı için LED ekran ve video wall çözümleri",
+    },
+    {
+      href: "/masa-sandalye-kiralama",
+      title: "Masa Sandalye Kiralama",
+      desc: "Dome içi oturma düzeni ve karşılama alanı ekipmanları",
+    },
+  ];
+
+  return (
+    <section
+      id="tamamlayici-hizmetler"
+      className="[content-visibility:auto] [contain-intrinsic-size:auto_760px] bg-gradient-to-br from-gray-50 to-violet-100/30 py-20"
+      aria-labelledby="tamamlayici-hizmetler-baslik"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mb-14 text-center">
+          <h2
+            id="tamamlayici-hizmetler-baslik"
+            className="mb-6 text-4xl font-black text-gray-900 md:text-5xl"
+          >
+            Tamamlayıcı <span className="text-violet-700">Hizmetlerimiz</span>
+          </h2>
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
+            Dome kurgusunu tamamlayan çadır, görüntü ve ses sistemleri; aynı saha ekibinden planlanır.
+          </p>
+          <div
+            className="mx-auto mt-8 h-1 w-32 rounded-full bg-gradient-to-r from-violet-600 to-purple-600"
+            aria-hidden="true"
+          />
+        </div>
+
+        <nav aria-label="Tamamlayıcı hizmetler">
+          <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="focus-ring group flex h-full flex-col rounded-3xl border-2 border-gray-100 bg-white p-8 text-center shadow-xl transition-all duration-300 hover:border-violet-200 hover:shadow-2xl"
+              >
+                <h3 className="mb-4 flex-grow text-xl font-bold text-gray-900 transition-colors group-hover:text-violet-700">
+                  {service.title}
+                </h3>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  {service.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${ORIGIN}/` },
@@ -999,6 +1071,7 @@ export default function Page() {
       <UseCasesSection />
       <InstallationSection />
       <FAQ />
+      <RelatedServices />
 
       <ServiceBlogLinks
         eyebrow="Dome içerik kümesi"
@@ -1027,6 +1100,7 @@ export default function Page() {
         title="Dome projelerinde geçen terimler"
         description="Mapping, ankraj ve rüzgâr yükü gibi başlıklar dome kurulumunun kapsamını belirler; tanımlar sözlükte."
       />
+      <RegionalCityLinks service="dome çadır kiralama" />
       <PaymentOptionsNote />
       <ClosingCta />
     </>

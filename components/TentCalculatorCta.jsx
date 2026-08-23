@@ -3,7 +3,11 @@ import { Calculator, ArrowRight, Ruler, Users } from "lucide-react";
 
 export default function TentCalculatorCta() {
   return (
-    <section className="relative overflow-hidden bg-[#0B1120] px-4 py-12 text-white">
+    <section
+      id="cadir-hesaplama"
+      aria-label="Çadır alanı hesaplama aracı"
+      className="relative overflow-hidden bg-[#0B1120] px-4 py-12 text-white"
+    >
       <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:52px_52px]" />
       <div className="absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-violet-500/20 blur-[100px]" />
 

@@ -18,6 +18,7 @@ import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Layout, Monitor, Layers, Tent } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -1228,6 +1229,11 @@ export default function Page() {
       <FAQ />
       <RelatedServices />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.soundLight} links={CONTENT_CLUSTERS.soundLight.guides} />
+      <GlossaryTermLinks
+        servicePath="/ses-isik-sistemleri"
+        title="Ses ve ışık kurgusunda geçen terimler"
+        description="Line array, FOH, konuşulabilirlik ve DMX; ses basıncı ile ışık kurgusunun mekâna göre nasıl planlandığını anlatan başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="ses ve ışık sistemleri kiralama" />
       <PaymentOptionsNote />
       <CTA />

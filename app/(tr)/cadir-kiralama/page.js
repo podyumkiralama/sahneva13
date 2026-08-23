@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
@@ -832,8 +833,9 @@ function TentStockSection() {
 function TurnkeyInfrastructure() {
   return (
     <section
+      id="teknik-altyapi"
       className="py-16 bg-white"
-      aria-labelledby="anahtar-teslim-baslik"
+      aria-labelledby="teknik-altyapi-baslik"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-gradient-to-br from-violet-50 via-white to-purple-50 rounded-3xl border border-violet-100 p-8 md:p-10 shadow-xl">
@@ -843,7 +845,7 @@ function TurnkeyInfrastructure() {
                 Anahtar Teslim Kurulum Gücü
               </p>
               <h2
-                id="anahtar-teslim-baslik"
+                id="teknik-altyapi-baslik"
                 className="text-3xl md:text-4xl font-black text-gray-900 mb-4"
               >
                 “Sıfırdan Kurulum” Odaklı Anahtar Teslim Çadır Altyapısı
@@ -2116,6 +2118,11 @@ export default function Page() {
       <DividerBlueToWhite />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        servicePath="/cadir-kiralama"
+        title="Çadır kurulumunda geçen terimler"
+        description="Ankraj, rüzgâr yükü, çadır zemini ve su tahliyesi; açık alanda güvenli kurulumu belirleyen başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="çadır kiralama" />
 
       <ServiceBlogLinks

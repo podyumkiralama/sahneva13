@@ -10,6 +10,8 @@ import AccessibleFaq from "@/components/AccessibleFaq.client";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
+import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
@@ -1975,6 +1977,49 @@ function LedScreenJsonLd() {
 }
 
 /* ================== Sayfa Bileşeni ================== */
+/* ================== Kapanış CTA ================== */
+function CTA() {
+  return (
+    <section id="cta" className="py-20 bg-white" aria-labelledby="cta-baslik">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-700 to-purple-700 p-8 text-center text-white md:p-12">
+          <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
+          <div className="relative z-10">
+            <h2 id="cta-baslik" className="mb-6 text-3xl font-black md:text-4xl lg:text-5xl">
+              LED Ekran Kurulumunuzu Birlikte Planlayalım
+            </h2>
+            <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-violet-100">
+              Alan ölçüsü, izleme mesafesi ve içerik çözünürlüğünü paylaşın; uygun pixel
+              pitch, kabinet sayısı ve kurulum yöntemini kalem kalem fiyatlandıralım.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/iletisim"
+                className="focus-ring inline-flex transform items-center justify-center rounded-2xl bg-white px-8 py-4 font-bold text-violet-700 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
+                <span aria-hidden="true" className="mr-3 text-xl">📞</span>
+                <span className="text-lg">Hemen Teklif Al</span>
+              </Link>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="focus-ring inline-flex transform items-center justify-center rounded-2xl border-2 border-white bg-transparent px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white/20"
+              >
+                <span aria-hidden="true" className="mr-3 text-xl">💬</span>
+                <span className="text-lg">WhatsApp'tan Yaz</span>
+              </a>
+            </div>
+            <p className="mt-6 text-sm font-semibold text-violet-100">
+              Keşif ve ölçü danışmanlığı ücretsiz; teklif kalem kalem paylaşılır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   const baseUrl = SITE_URL;
   const canonical = `${baseUrl}/led-ekran-kiralama`;
@@ -2002,7 +2047,14 @@ export default function Page() {
       <WhySahneva />
       <FAQ />
       <RelatedServices />
+      <GlossaryTermLinks
+        servicePath="/led-ekran-kiralama"
+        title="LED ekran kararlarında geçen terimler"
+        description="Pixel pitch, nit parlaklık, kabinet ve görüntü işlemcisi; ekran ölçüsünü ve izleme mesafesini doğrudan belirleyen başlıklar. Tanımlar sözlükte."
+      />
       <RegionalService />
+      <PaymentOptionsNote />
+      <CTA />
     </>
   );
 }

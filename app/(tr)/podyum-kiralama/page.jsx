@@ -13,6 +13,7 @@ import RegionalCityLinks from "@/components/RegionalCityLinks";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import JsonLd from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
+import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import {
   ArrowRight,
   Briefcase,
@@ -1287,6 +1288,11 @@ export default function Page() {
       <FAQSection />
       <RelatedServicesSection />
       <ServiceBlogLinks {...CONTENT_CLUSTERS.podium} links={CONTENT_CLUSTERS.podium.guides} />
+      <GlossaryTermLinks
+        servicePath="/podyum-kiralama"
+        title="Podyum kurulumunda geçen terimler"
+        description="Modüler podyum, görüş hattı, rampa erişimi ve korkuluk-merdiven; podyum yüksekliği ve güvenli erişim kararlarının arkasındaki başlıklar. Tanımlar sözlükte."
+      />
       <RegionalCityLinks service="podyum kiralama" />
       <PaymentOptionsNote />
       <CTASection />
