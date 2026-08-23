@@ -152,6 +152,37 @@ function buildManifest() {
         "checkServiceCapability",
         "calculatePodiumEstimate",
       ],
+      toolNameRelationship: {
+        note:
+          "Declarative HTML form workflows and imperative document.modelContext runtime tools intentionally use separate names so both execution models can coexist without name collisions. Each mapping below is one capability family, not duplicate tool inventory or a direct alias.",
+        mappings: [
+          {
+            capability: "site_search",
+            formMetadataTool: "searchSite",
+            browserRuntimeTool: "searchSahnevaSite",
+          },
+          {
+            capability: "quote_preparation",
+            formMetadataTool: "requestEventProductionQuote",
+            browserRuntimeTool: "prepareSahnevaQuoteBrief",
+          },
+          {
+            capability: "led_screen_estimate",
+            formMetadataTool: "calculateLedScreenEstimate",
+            browserRuntimeTool: "calculateSahnevaLedEstimate",
+          },
+          {
+            capability: "service_discovery",
+            formMetadataTool: "checkServiceCapability",
+            browserRuntimeTool: "findSahnevaService",
+          },
+          {
+            capability: "stage_platform_estimate",
+            formMetadataTool: "calculatePodiumEstimate",
+            browserRuntimeTool: "calculateSahnevaPodiumEstimate",
+          },
+        ],
+      },
       notes: [
         "LED screen rental estimate form is available as a client-side estimate tool. Final pricing requires Sahneva confirmation based on project scope, city, venue, logistics and setup details.",
         "Service capability checks are guidance only and do not confirm real-time stock, crew or equipment availability.",

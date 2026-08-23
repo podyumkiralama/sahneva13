@@ -2,21 +2,28 @@
 
 import { useMemo, useState } from "react";
 import { MessageCircle } from "lucide-react";
+import {
+  LED_ESTIMATE_SCOPE_NOTE,
+  calculateLedScreenEstimate,
+} from "@/lib/ledEstimate";
 import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
-import { multiDayTotal } from "@/lib/pricing";
 
 const SCREEN_TYPES = {
   standard: {
     label: "Standart LED ekran",
-    sqm: LED_SCREEN_PRICING.standard.perSqm,
-    minimum: LED_SCREEN_PRICING.standard.minimum,
   },
   p19: {
     label: "P1.9 Indoor LED",
-    sqm: LED_SCREEN_PRICING.premiumP19.perSqm,
-    minimum: LED_SCREEN_PRICING.premiumP19.minimum,
   },
 };
+
+const INITIAL_FORM_VALUES = Object.freeze({
+  screenType: "standard",
+  days: 1,
+  width: 6,
+  height: 3,
+  watchout: false,
+});
 
 const WEB_MCP_LED_CALCULATOR_FORM_PROPS = {
   toolname: "calculateLedScreenEstimate",
@@ -61,55 +68,106 @@ function positiveNumber(value, fallback = 0) {
   return Math.max(parsed, 0);
 }
 
+function readSubmittedValues(form) {
+  const formData = new FormData(form);
+  const requestedScreenType = formData.get("screenType");
+
+  return {
+    screenType: requestedScreenType === "p19" ? "p19" : "standard",
+    days: Math.max(Math.round(positiveNumber(formData.get("days"), 1)), 1),
+    width: positiveNumber(formData.get("width")),
+    height: positiveNumber(formData.get("height")),
+    watchout: formData.has("watchout"),
+  };
+}
+
+function estimateNote(estimate) {
+  return estimate.usesMinimumPackage
+    ? "Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır."
+    : "Bu ölçüde hesaplama m² başlangıç bedeli üzerinden yapılır.";
+}
+
 export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl }) {
-  const [screenType, setScreenType] = useState("standard");
-  const [days, setDays] = useState("1");
-  const [width, setWidth] = useState("6");
-  const [height, setHeight] = useState("3");
-  const [watchout, setWatchout] = useState(false);
+  const [screenType, setScreenType] = useState(INITIAL_FORM_VALUES.screenType);
+  const [days, setDays] = useState(String(INITIAL_FORM_VALUES.days));
+  const [width, setWidth] = useState(String(INITIAL_FORM_VALUES.width));
+  const [height, setHeight] = useState(String(INITIAL_FORM_VALUES.height));
+  const [watchout, setWatchout] = useState(INITIAL_FORM_VALUES.watchout);
+  const [submittedValues, setSubmittedValues] = useState(INITIAL_FORM_VALUES);
 
   const result = useMemo(() => {
-    const type = SCREEN_TYPES[screenType] || SCREEN_TYPES.standard;
-    const parsedDays = Math.max(Math.round(positiveNumber(days, 1)), 1);
-    const parsedWidth = positiveNumber(width);
-    const parsedHeight = positiveNumber(height);
-    const area = parsedWidth * parsedHeight;
-    const baseDaily = area * type.sqm;
-    const hasValidArea = area > 0;
-    const usesMinimum = hasValidArea
-      ? screenType === "standard"
-        ? area <= 15 || baseDaily < type.minimum
-        : baseDaily < type.minimum
-      : false;
-    const firstDay = hasValidArea ? (usesMinimum ? type.minimum : baseDaily) : 0;
-    const dayTotal = multiDayTotal(firstDay, parsedDays);
-    const watchoutPrice = watchout ? LED_SCREEN_PRICING.watchout : 0;
-    const total = dayTotal + watchoutPrice;
+    const type = SCREEN_TYPES[submittedValues.screenType] || SCREEN_TYPES.standard;
+    const estimate = calculateLedScreenEstimate({
+      screenType: submittedValues.screenType,
+      widthMeters: submittedValues.width,
+      heightMeters: submittedValues.height,
+      days: submittedValues.days,
+      watchout: submittedValues.watchout,
+    });
 
     const message =
       "Merhaba, LED ekran fiyat hesaplama sonucuna göre teklif almak istiyorum.\n" +
       `Ekran tipi: ${type.label}\n` +
-      `Ölçü: ${parsedWidth}x${parsedHeight} m\n` +
-      `Toplam alan: ${formatArea(area)}\n` +
-      `Gün sayısı: ${parsedDays}\n` +
-      `Watchout: ${watchout ? "Evet" : "Hayır"}\n` +
-      `Yaklaşık başlangıç bedeli: ${formatPrice(total)}`;
+      `Ölçü: ${estimate.dimensionsMeters.width}x${estimate.dimensionsMeters.height} m\n` +
+      `Toplam alan: ${formatArea(estimate.areaSqm)}\n` +
+      `Gün sayısı: ${estimate.days}\n` +
+      `Watchout: ${submittedValues.watchout ? "Evet" : "Hayır"}\n` +
+      `Yaklaşık başlangıç bedeli: ${formatPrice(estimate.estimatedTotal)}`;
 
     return {
-      area,
-      firstDay,
-      total,
-      watchoutText: watchout ? `+${formatPrice(LED_SCREEN_PRICING.watchout)}` : "İsteğe bağlı",
-      note: !hasValidArea
-        ? "Ölçü girildiğinde yaklaşık başlangıç bedeli hesaplanır."
-        : usesMinimum
-          ? "Bu ölçüde m² hesabı yerine minimum kurulum paketi baz alınır."
-          : "Bu ölçüde hesaplama m² başlangıç bedeli üzerinden yapılır.",
+      ...estimate,
+      area: estimate.areaSqm,
+      total: estimate.estimatedTotal,
+      watchoutText: submittedValues.watchout
+        ? `+${formatPrice(estimate.watchoutAmount)}`
+        : "İsteğe bağlı",
+      note: estimateNote(estimate),
       whatsappHref: phone
         ? `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
         : fallbackWhatsappUrl,
     };
-  }, [days, fallbackWhatsappUrl, height, phone, screenType, watchout, width]);
+  }, [fallbackWhatsappUrl, phone, submittedValues]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const nextValues = readSubmittedValues(event.currentTarget);
+    const estimate = calculateLedScreenEstimate({
+      screenType: nextValues.screenType,
+      widthMeters: nextValues.width,
+      heightMeters: nextValues.height,
+      days: nextValues.days,
+      watchout: nextValues.watchout,
+    });
+    const submitEvent = event.nativeEvent;
+
+    if (
+      submitEvent?.agentInvoked === true &&
+      typeof submitEvent.respondWith === "function"
+    ) {
+      submitEvent.respondWith(
+        Promise.resolve({
+          status: "published_starting_estimate",
+          ...estimate,
+          finalPriceConfirmed: false,
+          contactPage: new URL(
+            "/iletisim",
+            event.currentTarget.ownerDocument.location.origin,
+          ).href,
+          note: LED_ESTIMATE_SCOPE_NOTE,
+        }),
+      );
+    }
+
+    // An agent can populate native form controls without updating React state.
+    // Sync both the visible fields and the submitted result from FormData.
+    setScreenType(nextValues.screenType);
+    setDays(String(nextValues.days));
+    setWidth(String(nextValues.width));
+    setHeight(String(nextValues.height));
+    setWatchout(nextValues.watchout);
+    setSubmittedValues(nextValues);
+  }
 
   return (
     <div data-led-calculator style={styles.shell}>
@@ -124,7 +182,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
           <form
             style={styles.form}
             {...WEB_MCP_LED_CALCULATOR_FORM_PROPS}
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div>
               <label htmlFor="led-calc-type" style={styles.labelText}>
@@ -135,6 +193,7 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 name="screenType"
                 value={screenType}
                 onChange={(event) => setScreenType(event.target.value)}
+                required
                 style={styles.input}
                 {...WEB_MCP_LED_FIELD_PROPS.screenType}
               >
@@ -152,8 +211,11 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 name="days"
                 type="number"
                 min="1"
+                max="30"
+                step="1"
                 value={days}
                 onChange={(event) => setDays(event.target.value)}
+                required
                 style={styles.input}
                 {...WEB_MCP_LED_FIELD_PROPS.days}
               />
@@ -167,10 +229,12 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 id="led-calc-width"
                 name="width"
                 type="number"
-                min="1"
-                step="0.5"
+                min="0.1"
+                max="100"
+                step="0.1"
                 value={width}
                 onChange={(event) => setWidth(event.target.value)}
+                required
                 style={styles.input}
                 {...WEB_MCP_LED_FIELD_PROPS.width}
               />
@@ -184,10 +248,12 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 id="led-calc-height"
                 name="height"
                 type="number"
-                min="1"
-                step="0.5"
+                min="0.1"
+                max="50"
+                step="0.1"
                 value={height}
                 onChange={(event) => setHeight(event.target.value)}
+                required
                 style={styles.input}
                 {...WEB_MCP_LED_FIELD_PROPS.height}
               />
@@ -207,11 +273,19 @@ export default function LedPriceCalculator({ styles, phone, fallbackWhatsappUrl 
                 Mapping, çoklu ekran senkronizasyonu ve gelişmiş sahne akışlarında isteğe bağlı +{formatPrice(LED_SCREEN_PRICING.watchout)} olarak eklenir.
               </span>
             </label>
+
+            <button
+              type="submit"
+              aria-controls="led-calculator-result"
+              style={styles.submitButton}
+            >
+              Fiyatı Hesapla
+            </button>
           </form>
         </div>
 
-        <div style={styles.resultPanel}>
-          <div style={styles.resultCard}>
+        <div id="led-calculator-result" style={styles.resultPanel}>
+          <div aria-atomic="true" aria-live="polite" style={styles.resultCard}>
             <p style={styles.resultEyebrow}>Yaklaşık Başlangıç Bedeli</p>
             <p data-led-total style={styles.total}>
               {formatPrice(result.total)}
