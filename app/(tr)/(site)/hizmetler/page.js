@@ -315,6 +315,13 @@ export default function ServicesPage() {
       description: "LED ekranlı ve şeffaf dijital sunum kürsüleri",
       icon: "🎙️",
       color: "from-violet-600 to-purple-500"
+    },
+    {
+      href: "/sisme-oyun-parki-kiralama",
+      title: "Şişme Oyun Parkı",
+      description: "Kaydırak, engel parkuru, takım ve aktivite oyunları",
+      icon: "🎯",
+      color: "from-fuchsia-500 to-violet-600"
     }
   ];
 

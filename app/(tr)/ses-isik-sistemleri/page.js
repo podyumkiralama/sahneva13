@@ -23,6 +23,7 @@ import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { formatTRY, SOUND_LIGHT_PACKAGE_PRICES } from "@/lib/pricing";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -51,28 +52,28 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Ses ve Işık Sistemleri Kiralama",
-  description: `Konser, festival ve kurumsal etkinlikler için ses sistemi kiralama, ışık sistemi kiralama ve line array çözümleri. ${PROVINCES_COUNT} ilde kurulum ve canlı operasyon.`,
+  title: "Ses Sistemi Kiralama ve Işık Sistemleri",
+  description: `Türkiye genelinde ses sistemi kiralama: line array, hoparlör, mikrofon, dijital mikser, kurulum ve teknik ekip. Işık ve başlangıç paketlerini inceleyin.`,
   alternates: buildAlternatesForPath("/ses-isik-sistemleri"),
   openGraph: {
-    title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
-    description: "Türkiye genelinde uçtan uca ses & ışık çözümleri: keşif, projelendirme, kurulum, canlı miksaj ve söküm.",
+    title: "Ses Sistemi Kiralama ve Işık Sistemleri | Sahneva",
+    description: "Line array, hoparlör, mikrofon, dijital mikser, sahne ışığı, kurulum ve canlı teknik operasyon için başlangıç paketlerini inceleyin.",
     url: `${ORIGIN}/ses-isik-sistemleri`,
     type: "website",
     siteName: "Sahneva",
     locale: "tr_TR",
     images: [{ 
-      url: `${ORIGIN}/img/ses-isik/isik-sistemi.webp`, 
-      width: 1200, 
-      height: 630, 
-      alt: "Sahneva Organizasyon ses ve ışık sistemleri kiralama – line array, hareketli ışık ve profesyonel sahne çözümleri"
+      url: `${ORIGIN}/img/ses-isik/ses-sistemi.webp`,
+      width: 1600,
+      height: 720,
+      alt: "Sahneva ses sistemi kiralama için line array hoparlör ve sahne ışık sistemi kurulumu"
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ses ve Işık Sistemleri Kiralama | Sahneva",
-    description: "Line array, dijital mikser, kablosuz mikrofon, hareketli başlık, truss ve canlı operasyonla Türkiye genelinde ses & ışık kiralama.",
-    images: [`${ORIGIN}/img/ses-isik/isik-sistemi.webp`],
+    title: "Ses Sistemi Kiralama ve Işık Sistemleri | Sahneva",
+    description: "Line array, hoparlör, dijital mikser, kablosuz mikrofon, sahne ışığı ve canlı operasyonla Türkiye genelinde teknik kurulum.",
+    images: [`${ORIGIN}/img/ses-isik/ses-sistemi.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -86,16 +87,16 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/ses-isik/isik-sistemi.webp",
-  alt: "Profesyonel ses ve ışık sistemi kurulumu - Line array ses sistemi ve hareketli ışık başlıkları ile konser etkinliği",
+  src: "/img/ses-isik/ses-sistemi.webp",
+  alt: "Ses sistemi kiralama için line array hoparlör ve sahne ışık sistemi kurulumu",
   sizes: "(max-width: 768px) 100vw, 100vw",
 };
 
 const SERVICES = [
   {
     icon: "🔊",
-    title: "Line Array Kiralama ve PA Sistemleri",
-    description: "Konser ses sistemi kiralama ve geniş alanlarda homojen kapsama için profesyonel çözümler",
+    title: "Ses Sistemi Kiralama: Line Array ve PA",
+    description: "Konser, kurumsal etkinlik ve açık alanlar için hoparlör kiralama, subwoofer ve homojen ses kapsaması",
     features: ["L/R cluster + sub dizilim", "Monitörleme (wedges/IEM)", "FOH miks & akustik ölçüm"],
   },
   {
@@ -127,6 +128,29 @@ const SERVICES = [
     title: "Canlı Operasyon & Teknik Destek",
     description: "Etkinlik boyunca kesintisiz teknik destek ve operasyon",
     features: ["Soundcheck & prova", "Acil müdahale ekipleri", "Etkinlik sonrası söküm"],
+  },
+];
+
+const SOUND_LIGHT_PACKAGES = [
+  {
+    id: "ses-konser",
+    label: "Ses sistemi kiralama",
+    title: "Konser Ses Paketi",
+    description: "Konser, festival ve yüksek katılımlı etkinliklerde sahne ile izleyici alanını kapsayan profesyonel ses paketi.",
+    image: "/img/ses-isik/ses-sistemi.webp",
+    imageAlt: "Konser ses sistemi kiralama için line array hoparlör kurulumu",
+    price: SOUND_LIGHT_PACKAGE_PRICES["ses-konser"],
+    features: ["Line array PA", "Subwoofer seti", "Monitör miks", "Teknik ekip"],
+  },
+  {
+    id: "isik-sahne",
+    label: "Işık sistemi kiralama",
+    title: "Sahne Işık Paketi",
+    description: "Sahne, lansman ve performans alanlarında program akışına göre kurulan hareketli ışık ve kontrol paketi.",
+    image: "/img/ses-isik/hero.webp",
+    imageAlt: "Sahne ışık sistemi kiralama ve hareketli ışık kurulumu",
+    price: SOUND_LIGHT_PACKAGE_PRICES["isik-sahne"],
+    features: ["8 hareketli başlık", "LED wash", "DMX kontrol", "Kurulum ve programlama"],
   },
 ];
 
@@ -232,11 +256,11 @@ const HERO_ACTIONS = [
 function Hero() {
   return (
     <PageHero
-      eyebrow="Türkiye geneli ses ve ışık sistemleri kurulumu"
-      title="Ses ve Işık Sistemleri"
-      titleAccent="Kiralama ve Canlı Operasyon"
+      eyebrow="Türkiye genelinde ses sistemi kiralama ve kurulum"
+      title="Ses Sistemi Kiralama"
+      titleAccent="Işık ve Canlı Operasyon"
       titleWide
-      description="Konser, festival, lansman ve konferans etkinlikleri için line array ses sistemleri, dijital mikserler, kablosuz mikrofonlar ve hareketli ışık başlıklarıyla anahtar teslim çözümler."
+      description="Line array hoparlör, subwoofer, dijital mikser, kablosuz mikrofon ve sahne ışık sistemleri; nakliye, kurulum, soundcheck, canlı operasyon ve sökümle tek planda."
       badges={HERO_BADGES}
       actions={HERO_ACTIONS}
       metrics={HERO_METRICS}
@@ -304,7 +328,7 @@ function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="hizmetler-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Ses ve Işık Sistemleri <span className="text-violet-700">Kiralama Hizmetleri</span>
+            Ses Sistemi ve Işık Sistemi <span className="text-violet-700">Kiralama Hizmetleri</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ses ve ışık sistemleri kiralama hizmetlerimiz: keşif, projelendirme, kurulum, canlı operasyon ve söküm
@@ -353,6 +377,91 @@ function Services() {
             <span aria-hidden="true" className="text-xl mr-3">📞</span>
             <span>Detaylı Teklif için İletişime Geçin</span>
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PricingGuide() {
+  return (
+    <section
+      id="fiyatlar"
+      className="content-visibility-auto [contain-intrinsic-size:auto_1700px] md:[contain-intrinsic-size:auto_1050px] lg:[contain-intrinsic-size:auto_820px] py-20 bg-slate-950 text-white"
+      aria-labelledby="fiyatlar-baslik"
+    >
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="max-w-4xl mb-12">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-300 mb-4">
+            Görünür başlangıç paketleri
+          </p>
+          <h2 id="fiyatlar-baslik" className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+            Ses Sistemi Kiralama <span className="text-violet-300">Paketleri ve Fiyatları</span>
+          </h2>
+          <p className="mt-6 text-lg md:text-xl leading-relaxed text-slate-300 max-w-3xl">
+            Aşağıdaki rakamlar ilk bütçe çerçevesini gösterir. Nihai teknik liste; kişi sayısı, mekân, etkinlik süresi,
+            nakliye, mikrofon ve monitör adedi, kurulum ile canlı operasyon kapsamına göre hazırlanır.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {SOUND_LIGHT_PACKAGES.map((pkg) => (
+            <article
+              key={pkg.id}
+              id={pkg.id}
+              className="overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-2xl"
+              aria-labelledby={`${pkg.id}-baslik`}
+            >
+              <div className="relative aspect-[16/7] overflow-hidden bg-slate-900">
+                <Image
+                  src={pkg.image}
+                  alt={pkg.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" aria-hidden="true" />
+              </div>
+              <div className="p-7 md:p-9">
+                <span className="inline-flex rounded-full border border-violet-300/30 bg-violet-400/10 px-4 py-2 text-sm font-bold text-violet-200">
+                  {pkg.label}
+                </span>
+                <h3 id={`${pkg.id}-baslik`} className="mt-5 text-3xl font-black">
+                  {pkg.title}
+                </h3>
+                <p className="mt-3 text-slate-300 leading-relaxed">{pkg.description}</p>
+                <p className="mt-6 text-3xl font-black text-white">
+                  {formatTRY(pkg.price)} TL&apos;den <span className="text-base font-semibold text-slate-300">başlayan paket</span>
+                </p>
+                <ul className="mt-6 grid sm:grid-cols-2 gap-3" aria-label={`${pkg.title} kapsamı`}>
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-slate-200">
+                      <span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-violet-300/20 bg-violet-400/10 p-7 md:flex-row md:items-center md:justify-between md:p-9">
+          <div className="max-w-3xl">
+            <h3 className="text-2xl font-black">Teklifleri aynı kapsam üzerinden karşılaştırın</h3>
+            <p className="mt-2 text-slate-300 leading-relaxed">
+              PA ve subwoofer modeli, dijital mikser, mikrofonlar, sahne monitörü, FOH ekibi, nakliye, kurulum,
+              soundcheck ve söküm kalemlerinin teklifte açıkça yazılmasını isteyin.
+            </p>
+          </div>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-2xl bg-white px-7 py-4 font-black text-violet-800 transition hover:scale-[1.02]"
+          >
+            Kalem Kalem Teklif Al
+          </a>
         </div>
       </div>
     </section>
@@ -899,6 +1008,14 @@ const FAQ_ITEMS = [
       q: "Konser ses sistemi kiralama hizmetine neler dahildir?",
       a: "Konser ses sistemi kiralama kapsamında ihtiyaca göre line array veya top-sub PA sistemi, sahne monitörü ya da IEM, mikrofonlar, dijital mikser, stagebox, FOH ve monitör mühendisliği, soundcheck, kurulum, canlı operasyon ve söküm planlanır.",
     },
+    {
+      q: '"Ses sistemleri kiralama" ile "ses ışık kiralama" arasındaki fark nedir?',
+      a: "Ses sistemleri kiralama; hoparlör, subwoofer, dijital mikser, mikrofon, sahne monitörü, kablolama ve ses teknik ekibini kapsar. Ses ışık kiralama ise bu yapıya hareketli ışık, wash, DMX kontrolü ve ışık operatörünü de ekler. Teklif, yalnız ihtiyaç duyduğunuz kalemlerle hazırlanabilir.",
+    },
+    {
+      q: "Günlük ses sistemi kiralama ve İstanbul kurulumu sunuyor musunuz?",
+      a: `Evet. İstanbul dahil Türkiye'nin ${PROVINCES_COUNT} ilinde günlük veya çok günlük ses sistemi kiralama planlanabilir. Mekân, kişi sayısı ve program akışına göre ekipman listesi çıkarılır; nakliye, kurulum, soundcheck, canlı teknik operasyon ve söküm kalemleri teklifte ayrı ayrı belirtilir.`,
+    },
   ];
 
 function FAQ() {
@@ -1117,18 +1234,10 @@ function SoundLightJsonLd() {
   // Base Service Tanımı (AggregateRating YOK)
   const baseService = {
     "@type": "Service",
-    name: "Ses ve Işık Sistemleri Kiralama",
+    name: "Ses Sistemi Kiralama ve Işık Sistemleri",
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    offers: {
-      "@type": "AggregateOffer",
-      url: `${pageUrl}#teklif`,
-      priceCurrency: "TRY",
-      lowPrice: 30000,
-      highPrice: 54000,
-      offerCount: 2,
-    },
   };
 
   // Service Node (çakışmasız merge)
@@ -1169,9 +1278,9 @@ function SoundLightJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Ses ve Işık Sistemleri Kiralama | Profesyonel Çözümler | Sahneva",
+        name: "Ses Sistemi Kiralama ve Işık Sistemleri | Sahneva",
         description:
-          `Konser, festival ve kurumsal etkinlikler için profesyonel ses & ışık sistemleri kiralama. Line array, dijital mikser, hareketli ışık, truss ve canlı operasyon. ${PROVINCES_COUNT} ilde hizmet.`,
+          `Konser, festival ve kurumsal etkinlikler için ses sistemi kiralama, line array, hoparlör, dijital mikser, sahne ışığı, kurulum ve canlı operasyon. ${PROVINCES_COUNT} ilde hizmet.`,
         url: pageUrl,
         inLanguage: "tr-TR",
         isPartOf: { "@id": WEBSITE_ID },
@@ -1220,6 +1329,7 @@ export default function Page() {
       <Hero />
       <ServiceDecisionGuide guide={SERVICE_DECISION_GUIDES.soundLight} />
       <Services />
+      <PricingGuide />
       <Gallery />
       <Technical />
       <FeaturedBrands />

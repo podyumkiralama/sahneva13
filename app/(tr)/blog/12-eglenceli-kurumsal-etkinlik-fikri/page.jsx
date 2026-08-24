@@ -216,6 +216,7 @@ export default function BlogPost() {
         <p>
           Fikir aşamasından uygulamaya geçerken{" "}
           <Link href="/kurumsal-organizasyon">kurumsal organizasyon</Link>,{" "}
+          <Link href="/sisme-oyun-parki-kiralama">şişme oyun parkı ve takım oyunları</Link>,{" "}
           <Link href="/sahne-kiralama">sahne kiralama</Link>,{" "}
           <Link href="/led-ekran-kiralama">LED ekran kiralama</Link> ve{" "}
           <Link href="/ses-isik-sistemleri">ses-ışık sistemleri</Link> ihtiyaçlarını aynı teknik plan içinde değerlendirmek gerekir.

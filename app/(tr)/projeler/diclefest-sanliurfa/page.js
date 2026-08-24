@@ -671,9 +671,15 @@ export default function DicleFestSanliurfaProjectPage() {
                 parçalarıdır.
               </p>
               <p>
-                Bu nedenle DicleFest Şanlıurfa kapsamında festival teknik altyapısı, oyun alanı
-                kurulumu, etkinlik çadırı kurulumu ve konser alanı kurulumu tek saha operasyonu
-                içinde değerlendirildi.
+                Bu nedenle DicleFest Şanlıurfa kapsamında festival teknik altyapısı, {" "}
+                <Link
+                  href="/sisme-oyun-parki-kiralama"
+                  className="font-bold text-violet-200 underline decoration-violet-400/60 underline-offset-4 transition hover:text-white"
+                >
+                  oyun ve aktivite alanı kurulumu
+                </Link>
+                , etkinlik çadırı kurulumu ve konser alanı kurulumu tek saha operasyonu içinde
+                değerlendirildi.
               </p>
             </div>
           </div>
