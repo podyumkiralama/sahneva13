@@ -14,7 +14,7 @@ export default function ServiceWorkerRegistration() {
 
     const registerServiceWorker = async () => {
       try {
-        await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v4", {
+        await navigator.serviceWorker.register("/sw.js?v=sahneva-sw-v5", {
           scope: "/",
           updateViaCache: "none",
         });

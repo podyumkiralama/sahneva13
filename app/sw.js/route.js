@@ -8,7 +8,7 @@
 // gösterme riski taşırdı. Buradaki tek iş, canlı destek bildirimlerini
 // karşılamak.
 
-const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v4";
+const SW_SOURCE = `const SW_VERSION = "sahneva-sw-v5";
 
 const NOTIFICATION_ICON = "/android-chrome-192x192.png";
 const NOTIFICATION_BADGE = "/favicon-32x32.png";
@@ -19,14 +19,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    (async () => {
-      if ("navigationPreload" in self.registration) {
-        await self.registration.navigationPreload.enable();
-      }
-      await self.clients.claim();
-    })()
-  );
+  event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener("message", (event) => {
@@ -104,10 +97,6 @@ self.addEventListener("notificationclick", (event) => {
   );
 });
 
-// Chrome'un "uygulama olarak kur" ölçütü kayıtlı bir fetch dinleyicisi arıyor.
-// İstekler bilinçli olarak değiştirilmiyor: respondWith çağrılmadığı için
-// tarayıcı isteği her zamanki gibi kendisi yürütür, araya önbellek girmez.
-self.addEventListener("fetch", () => {});
 `;
 
 export const dynamic = "force-dynamic";
