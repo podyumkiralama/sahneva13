@@ -176,6 +176,7 @@ const RELATED_LINKS = [
   { href: "/led-ekran-kiralama", label: "Kurumsal etkinlik LED ekran çözümleri" },
   { href: "/sahne-kiralama", label: "Konferans ve gala sahne kurulumu" },
   { href: "/podyum-kiralama", label: "Protokol podyum ve platform altyapısı" },
+  { href: "/masa-sandalye-kiralama", label: "Gala ve konferans için masa sandalye kiralama" },
   { href: "/ses-isik-sistemleri", label: "Kurumsal ses ve ışık prodüksiyonu" },
   { href: "/truss-kiralama", label: "LED ve sahne için truss altyapısı" },
   { href: "/turkiyede-etkinlik-cozum-ortagi", label: "Uluslararası firmalar için yerel çözüm ortağı" },
@@ -1008,7 +1009,7 @@ function InternalLinks() {
       <SectionHeader
         eyebrow="Tamamlayıcı hizmetler"
         title="İlgili hizmetler ve referanslar"
-        desc="Kurumsal etkinliklerde sahne, LED ekran, podyum, ses-ışık, truss ve proje referansları aynı teknik planın parçaları olarak değerlendirilir."
+        desc="Kurumsal etkinliklerde sahne, LED ekran, podyum, ses-ışık, truss, masa-sandalye düzeni ve proje referansları aynı teknik planın parçaları olarak değerlendirilir."
       />
 
       <div className="grid gap-5 lg:grid-cols-[1fr_.9fr]">

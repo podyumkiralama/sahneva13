@@ -1,5 +1,6 @@
 ﻿// app/masa-sandalye-kiralama/page.jsx
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
+import { FURNITURE_PACKAGE_PRICES } from "@/lib/pricing";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -54,33 +55,33 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Masa Sandalye Kiralama İstanbul | Davet & Toplantı",
+  title: "Masa Sandalye Kiralama ve Fiyatları",
   description:
-    "Masa sandalye kiralama: Napolyon ve konferans sandalyesi, banket-bistro masa, örtü-kılıf. İstanbul'da düğün ve kurumsal etkinliklere hızlı teslim.",
+    "Masa sandalye kiralama fiyatları; Napolyon ve konferans sandalyesi, banket ve bistro masa paketleri. İstanbul merkezli Türkiye geneli kurulum.",
   alternates: buildAlternatesForPath("/masa-sandalye-kiralama"),
   openGraph: {
-    title: "Masa Sandalye Kiralama | Sahneva",
+    title: "Masa Sandalye Kiralama ve Fiyatları | Sahneva",
     description:
-      "Davet, konferans ve kokteyl düzenleri için masa sandalye kiralama. Örtü-kılıf, planlama ve profesyonel kurulum.",
+      "Organizasyonlar için masa ve sandalye kiralama: banket ve bistro masa, Napolyon ve konferans sandalyesi, teslimat, yerleşim ve kurulum.",
     url: `${ORIGIN}/masa-sandalye-kiralama`,
     type: "website",
     siteName: "Sahneva",
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/sandalye/1.webp`,
-        width: 1200,
-        height: 630,
-        alt: "Sahneva Organizasyon masa sandalye kiralama – düğün, kurumsal etkinlik ve organizasyon için profesyonel çözümler",
+        url: `${ORIGIN}/img/sandalye/6.webp`,
+        width: 1600,
+        height: 745,
+        alt: "Kurumsal davet için kurulmuş banket masaları ve Napolyon sandalyeleri",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
+    title: "Masa Sandalye Kiralama ve Fiyatları | Sahneva",
     description:
-      "Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf; numaralandırma ve profesyonel yerleşim.",
-    images: [`${ORIGIN}/img/sandalye/1.webp`],
+      "İstanbul merkezli Türkiye geneli masa ve sandalye kiralama; paket fiyatları, teslimat, yerleşim ve kurulum.",
+    images: [`${ORIGIN}/img/sandalye/6.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -314,11 +315,11 @@ const HERO_METRICS = [
 function Hero() {
   return (
     <PageHero
-      eyebrow="İstanbul geneli hızlı teslim"
+      eyebrow="İstanbul merkezli Türkiye geneli kurulum"
       title="Profesyonel"
       titleAccent="Masa Sandalye Kiralama"
       titleWide
-      description="İstanbul'da düğün, nişan ve kurumsal organizasyonlar için kiralık masa ve sandalye seçenekleri sunuyoruz: Napolyon ve konferans sandalyeleri, banket masalar, örtü-kılıf sistemleri ile <strong>yerleşim planı ve hızlı kurulum</strong>."
+      description="İstanbul merkezli Türkiye geneli düğün, nişan ve kurumsal organizasyonlar için masa ve sandalye kiralama: Napolyon ve konferans sandalyeleri, banket ve bistro masalar, örtü-kılıf sistemleri ile <strong>yerleşim planı ve profesyonel kurulum</strong>."
       badges={HERO_BADGES}
       actions={HERO_ACTIONS}
       metrics={HERO_METRICS}
@@ -347,15 +348,15 @@ function Services() {
             id="hizmetler-baslik"
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900"
           >
-            Masa Sandalye{" "}
+            Kiralık Masa ve Sandalye{" "}
             <span className="text-violet-700">
-              Kiralama Seçenekleri
+              Seçenekleri
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Masa sandalye kiralama hizmetlerimiz: geniş envanter, örtü-kılıf
-            sistemleri, sandalye kiralama ihtiyacı için doğru ürün seçimi ve
-            profesyonel yerleşim
+            Organizasyonlar için masa ve sandalye kiralama; Napolyon,
+            konferans ve protokol sandalyeleri, banket ve bistro masalar,
+            örtü-kılıf, teslimat ve profesyonel yerleşim seçeneklerini kapsar.
           </p>
         </div>
 
@@ -429,13 +430,6 @@ function Packages() {
       currency: "TRY",
       maximumFractionDigits: 0,
     }).format(n);
-
-  // Basit fiyatlandırma (gerçek projede API'den gelecek)
-  const packagePrices = {
-    "davet-100": 12500,
-    "konferans-60": 9800,
-    "kokteyl-15": 7200,
-  };
 
   return (
     <section
@@ -589,7 +583,7 @@ function Packages() {
                           Günlük Kira (İstanbul)
                         </div>
                         <div className="mt-2 text-3xl font-black text-gray-900">
-                          {formatTRY(packagePrices[pkg.id])}
+                          {formatTRY(FURNITURE_PACKAGE_PRICES[pkg.id])}
                           <span className="text-sm text-gray-500 font-normal ml-1">
                             + KDV
                           </span>
@@ -1348,8 +1342,8 @@ const FAQ_ITEMS = [
     a: "Kurumsal etkinliklerde masa sandalye yerleşimi; toplantı formatına (konferans, gala, kokteyl), katılımcı sayısına, sahne ve podyum konumuna ve sirkülasyon ihtiyacına göre planlanır. Tiyatro düzeni, sınıf düzeni veya banket düzeni arasında seçim yapılır; her düzen için masa-sandalye adedi, geçiş mesafeleri ve teknik ekipman alanı önceden hesaplanır. Kurumsal etkinlikler için yerleşim planı hizmetimiz paket kapsamındadır.",
   },
   {
-    q: "Aynı gün teslim mümkün mü?",
-    a: "Evet, program uygunluğuna bağlı olarak İstanbul içi aynı gün teslim seçeneğimiz bulunmaktadır. Acil ihtiyaçlarınız için WhatsApp hattımızdan hemen iletişime geçebilirsiniz.",
+    q: "Masa ve sandalye ayrı ayrı kiralanabilir mi?",
+    a: "Evet. Yalnız sandalye kiralama, yalnız masa kiralama veya kiralık masa sandalye seti olarak teklif hazırlanabilir. Model, adet, etkinlik tarihi, şehir, teslimat ve kurulum ihtiyacına göre kalem kalem fiyatlandırılır.",
   },
   {
     q: "Örtü ve kılıf renk seçenekleri neler?",
@@ -1592,7 +1586,10 @@ function TableChairJsonLd() {
   const baseService = {
     "@type": "Service",
     name: "Masa Sandalye Kiralama",
+    alternateName: ["Masa ve Sandalye Kiralama", "Kiralık Masa Sandalye"],
     description: pageDescription,
+    serviceType: "Etkinlik Mobilyası Kiralama",
+    category: "Masa, sandalye ve etkinlik mobilyası kiralama",
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
   };
@@ -1640,7 +1637,7 @@ function TableChairJsonLd() {
       {
         "@type": "WebPage",
         "@id": webPageId,
-        name: "Masa Sandalye Kiralama | Profesyonel Çözümler | Sahneva",
+        name: "Masa Sandalye Kiralama ve Fiyatları | Sahneva",
         description: pageDescription,
         url: pageUrl,
         inLanguage: "tr-TR",
