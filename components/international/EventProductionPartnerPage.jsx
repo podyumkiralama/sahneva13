@@ -543,7 +543,7 @@ export default function EventProductionPartnerPage({ locale }) {
   return (
     <>
       <JsonLdScript id={`international-event-production-${locale}`} data={buildInternationalEventJsonLd(locale)} />
-      <main dir={isRtl ? "rtl" : undefined} className="overflow-hidden bg-white text-slate-950">
+      <div dir={isRtl ? "rtl" : undefined} className="overflow-hidden bg-white text-slate-950">
         <section className="relative min-h-[620px] overflow-hidden bg-slate-950 text-white md:min-h-[760px]">
           <Image
             src={INTERNATIONAL_EVENT_HERO_IMAGE}
@@ -846,7 +846,7 @@ export default function EventProductionPartnerPage({ locale }) {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

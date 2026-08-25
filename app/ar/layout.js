@@ -163,6 +163,7 @@ export default function ArabicLayout({ children }) {
       lang="ar"
       xmlLang="ar"
       dir={content.direction}
+      data-scroll-behavior="smooth"
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >

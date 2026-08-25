@@ -165,6 +165,7 @@ export default function EventPlannerClient() {
             {VENUE_OPTIONS.map((option) => (
               <label
                 key={option.key}
+                htmlFor={`planlayici-mekan-${option.key}`}
                 className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                   venue === option.key
                     ? "border-violet-600 bg-violet-50 shadow-sm"
@@ -172,6 +173,7 @@ export default function EventPlannerClient() {
                 }`}
               >
                 <input
+                  id={`planlayici-mekan-${option.key}`}
                   type="radio"
                   name="mekan"
                   value={option.key}
@@ -179,6 +181,7 @@ export default function EventPlannerClient() {
                   onChange={() => setVenue(option.key)}
                   className="mt-1 h-4 w-4 accent-violet-600"
                 />
+                <span className="sr-only">Mekân seçeneği: </span>
                 <span>
                   <span className="block text-sm font-bold text-slate-900">{option.label}</span>
                   <span className="mt-0.5 block text-sm leading-6 text-slate-600">
@@ -214,6 +217,7 @@ export default function EventPlannerClient() {
               {availableExtras.map((item) => (
                 <label
                   key={item.key}
+                  htmlFor={`planlayici-ek-hizmet-${item.key}`}
                   className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                     extras.includes(item.key)
                       ? "border-violet-600 bg-violet-50 shadow-sm"
@@ -221,11 +225,13 @@ export default function EventPlannerClient() {
                   }`}
                 >
                   <input
+                    id={`planlayici-ek-hizmet-${item.key}`}
                     type="checkbox"
                     checked={extras.includes(item.key)}
                     onChange={() => toggleExtra(item.key)}
                     className="mt-1 h-4 w-4 accent-violet-600"
                   />
+                  <span className="sr-only">Ek hizmet seçeneği: </span>
                   <span>
                     <span className="block text-sm font-bold text-slate-900">{item.label}</span>
                     <span className="mt-0.5 block text-xs leading-5 text-slate-600">

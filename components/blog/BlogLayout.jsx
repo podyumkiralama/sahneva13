@@ -158,8 +158,8 @@ export default function BlogLayout({
         </div>
       </header>
 
-      {/* MAIN */}
-      <main className="bg-white py-16">
+      {/* Blog content; the locale layout already provides the page's main landmark. */}
+      <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <Breadcrumbs items={breadcrumbItems} />
 
@@ -247,7 +247,7 @@ export default function BlogLayout({
             currentKeywords={currentKeywords}
           />
         </div>
-      </main>
+      </div>
     </>
   );
 }

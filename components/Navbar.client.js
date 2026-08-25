@@ -546,8 +546,12 @@ export default function Navbar({
               {/* Hizmetler */}
               <div
                 className="relative"
-                onMouseEnter={openNow}
-                onMouseLeave={closeWithDelay}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === "mouse") openNow();
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "mouse") closeWithDelay();
+                }}
               >
                 <button
                   id={servicesBtnId}
@@ -607,8 +611,12 @@ export default function Navbar({
                   <div
                     id={servicesPanelId}
                     className="fixed inset-x-0 top-[80px] z-[70]"
-                    onMouseEnter={openNow}
-                    onMouseLeave={closeWithDelay}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType === "mouse") openNow();
+                    }}
+                    onPointerLeave={(event) => {
+                      if (event.pointerType === "mouse") closeWithDelay();
+                    }}
                   >
                     <div className="mx-auto max-w-7xl px-4">
                       <div className="rounded-3xl border border-neutral-200 bg-white shadow-2xl overflow-hidden max-h-[calc(100vh-120px)] overflow-y-auto">
@@ -700,7 +708,9 @@ export default function Navbar({
                                   <div className="mt-2 space-y-2">
                                     {col.items.map((service) => {
                                       const index = SERVICE_LINKS.findIndex(
-                                        (s) => s.href === service.href
+                                        (s) =>
+                                          s.href === service.href &&
+                                          s.label === service.label
                                       );
                                       if (index < 0) return null;
 
@@ -710,7 +720,7 @@ export default function Navbar({
 
                                       return (
                                         <ServiceLink
-                                          key={service.href}
+                                          key={`${service.href}-${service.label}`}
                                           index={index}
                                           isOpen={servicesOpen}
                                           firstItemRef={

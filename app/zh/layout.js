@@ -171,6 +171,7 @@ export default function ChineseLayout({ children }) {
       lang="zh-CN"
       xmlLang="zh-CN"
       dir={content.direction}
+      data-scroll-behavior="smooth"
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >

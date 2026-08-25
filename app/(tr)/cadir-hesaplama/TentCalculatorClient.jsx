@@ -73,11 +73,12 @@ export default function TentCalculatorClient() {
       <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
           <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+            <label htmlFor="cadir-hesaplama-kisi-sayisi" className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
               <Users className="h-4 w-4 text-violet-200" />
               Kişi sayısı
             </label>
             <input
+              id="cadir-hesaplama-kisi-sayisi"
               type="number"
               min="1"
               value={people}
@@ -85,57 +86,63 @@ export default function TentCalculatorClient() {
               className="mb-7 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-5 py-4 text-2xl font-black text-white outline-none ring-violet-400/30 transition focus:ring-4"
             />
 
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Ruler className="h-4 w-4 text-violet-200" />
-              Oturma / kullanım düzeni
-            </label>
-            <div className="mb-7 grid gap-3 sm:grid-cols-2">
-              {Object.entries(layoutRates).map(([key, item]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setLayout(key)}
-                  className={`rounded-2xl border px-4 py-4 text-left transition ${
-                    layout === key
-                      ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
-                      : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
-                  }`}
-                >
-                  <span className="block font-black">{item.label}</span>
-                  <span className="mt-1 block text-xs leading-5 text-slate-400">Yaklaşık {item.sqm} m² / kişi</span>
-                  <span className="mt-2 block text-xs leading-5 text-slate-400">{item.note}</span>
-                </button>
-              ))}
-            </div>
-
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <CheckCircle className="h-4 w-4 text-violet-200" />
-              Ek alanlar
-            </label>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {extras.map((item) => {
-                const active = selectedExtras.includes(item.key);
-                return (
+            <fieldset className="mb-7">
+              <legend className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <Ruler className="h-4 w-4 text-violet-200" />
+                Oturma / kullanım düzeni
+              </legend>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {Object.entries(layoutRates).map(([key, item]) => (
                   <button
-                    key={item.key}
+                    key={key}
                     type="button"
-                    onClick={() =>
-                      setSelectedExtras((current) =>
-                        active ? current.filter((key) => key !== item.key) : [...current, item.key]
-                      )
-                    }
+                    aria-pressed={layout === key}
+                    onClick={() => setLayout(key)}
                     className={`rounded-2xl border px-4 py-4 text-left transition ${
-                      active
+                      layout === key
                         ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
                         : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                     }`}
                   >
                     <span className="block font-black">{item.label}</span>
-                    <span className="mt-1 block text-xs text-slate-400">+{item.sqm} m²</span>
+                    <span className="mt-1 block text-xs leading-5 text-slate-400">Yaklaşık {item.sqm} m² / kişi</span>
+                    <span className="mt-2 block text-xs leading-5 text-slate-400">{item.note}</span>
                   </button>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <CheckCircle className="h-4 w-4 text-violet-200" />
+                Ek alanlar
+              </legend>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {extras.map((item) => {
+                  const active = selectedExtras.includes(item.key);
+                  return (
+                    <button
+                      key={item.key}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() =>
+                        setSelectedExtras((current) =>
+                          active ? current.filter((key) => key !== item.key) : [...current, item.key]
+                        )
+                      }
+                      className={`rounded-2xl border px-4 py-4 text-left transition ${
+                        active
+                          ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
+                          : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
+                      }`}
+                    >
+                      <span className="block font-black">{item.label}</span>
+                      <span className="mt-1 block text-xs text-slate-400">+{item.sqm} m²</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
           </div>
 
           <aside className="rounded-[34px] border border-violet-300/20 bg-gradient-to-br from-violet-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">

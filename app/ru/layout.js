@@ -171,6 +171,7 @@ export default function RussianLayout({ children }) {
       lang="ru"
       xmlLang="ru"
       dir={content.direction}
+      data-scroll-behavior="smooth"
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >

@@ -117,7 +117,7 @@ export default function GlossaryTermDetailPage({ term, detail, pageUrl }) {
         </div>
       </section>
 
-      <main>
+      <div>
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="kisa-tanim">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kısa tanım</p>
@@ -205,7 +205,7 @@ export default function GlossaryTermDetailPage({ term, detail, pageUrl }) {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

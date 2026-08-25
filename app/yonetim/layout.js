@@ -32,14 +32,24 @@ export const viewport = {
 
 export default function AdminLayout({ children }) {
   return (
-    <html lang="tr" className={`${inter.variable} font-sans`}>
+    <html lang="tr" data-scroll-behavior="smooth" className={`${inter.variable} font-sans`}>
       {/* CSP `require-trusted-types-for 'script'` her sayfada geçerli; bu
           politika olmadan Next.js kendi parçalarını yükleyemez ve panel
           "Yükleniyor…" ekranında donar. */}
       <head>
         <TrustedTypesPolicy />
       </head>
-      <body className="bg-slate-100 text-slate-900">{children}</body>
+      <body className="bg-slate-100 text-slate-900">
+        <a
+          href="#_main_content"
+          className="fixed -left-[10000px] -top-[10000px] z-[9999] inline-flex min-h-[44px] items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg focus:left-2 focus:top-2 focus-ring"
+        >
+          Ana içeriğe geç
+        </a>
+        <main id="_main_content" tabIndex={-1}>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

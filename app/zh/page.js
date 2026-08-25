@@ -473,7 +473,7 @@ export default function ChineseHomePage() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/zh/contact"
-                    className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-emerald-500 px-5 font-black text-white transition hover:bg-emerald-600"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-emerald-700 px-5 font-black text-white transition hover:bg-emerald-800"
                   >
                     提交活动信息，获取方案与报价
                   </Link>
@@ -620,7 +620,7 @@ export default function ChineseHomePage() {
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/zh/contact"
-                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-emerald-500 px-7 text-base font-black text-white transition hover:bg-emerald-600"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-emerald-700 px-7 text-base font-black text-white transition hover:bg-emerald-800"
               >
                 获取中文报价
               </Link>

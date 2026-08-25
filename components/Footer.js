@@ -530,7 +530,7 @@ export default function Footer({
             <ul className="space-y-0.5 text-sm text-gray-300">
               {SERVICES.map((link) => (
                 <FooterLink
-                  key={link.href}
+                  key={`${link.href}-${link.label}`}
                   href={link.href}
                   hoverColorClass="hover:text-violet-300 hover:border-violet-400"
                 >

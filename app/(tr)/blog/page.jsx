@@ -1,5 +1,6 @@
 ﻿import JsonLd from "@/components/seo/JsonLd";
 import BlogList from "@/components/blog/BlogList.client";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { getBlogPosts } from "@/lib/blogPosts";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
@@ -162,33 +163,22 @@ export default function BlogPage() {
 
         <div className="relative mt-24 overflow-hidden rounded-2xl bg-violet-900 p-8 text-center text-white md:p-12">
           <div className="relative z-10 mx-auto max-w-2xl">
-            <h3 className="mb-4 text-2xl font-bold md:text-3xl">
-              Bültenimize Katılın
-            </h3>
+            <h2 className="mb-4 text-2xl font-bold md:text-3xl">
+              Yeni İçerikleri Takip Edin
+            </h2>
             <p className="mb-8 text-violet-100">
-              Yeni yazılarımızdan ve etkinlik sektörü haberlerinden ilk siz haberdar olun.
+              Yeni rehberlerimiz ve etkinlik sektörü içeriklerimiz hakkında bilgi almak için
+              Sahneva ekibiyle iletişime geçin.
             </p>
 
-            <form className="flex flex-col gap-3 sm:flex-row">
-              <label htmlFor="newsletter-email" className="sr-only">
-                Bülten e-posta adresi
-              </label>
-              <input
-                id="newsletter-email"
-                type="email"
-                placeholder="E-posta adresiniz"
-                className="min-h-[48px] flex-1 rounded-lg px-5 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-400"
-                required
-              />
-              <button
-                type="submit"
-                className="min-h-[48px] rounded-lg bg-violet-500 px-8 py-3 font-semibold shadow-lg transition-colors hover:bg-violet-400"
-              >
-                Abone Ol
-              </button>
-            </form>
-            <p className="mt-4 text-sm text-violet-300 opacity-80">
-              Spam yok, sadece değerli içerik.
+            <Link
+              href="/iletisim"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-white px-8 py-3 font-semibold text-violet-900 shadow-lg transition-colors hover:bg-violet-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-violet-900"
+            >
+              İletişime Geçin
+            </Link>
+            <p className="mt-4 text-sm text-violet-100">
+              Bu bağlantı iletişim sayfamızı açar; otomatik bülten aboneliği oluşturmaz.
             </p>
           </div>
         </div>

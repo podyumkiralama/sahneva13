@@ -231,6 +231,7 @@ export default function GermanLayout({ children }) {
       lang="de"
       xmlLang="de"
       dir="ltr"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >

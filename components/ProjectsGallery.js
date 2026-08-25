@@ -413,34 +413,6 @@ export default function ProjectsGallery({
     []
   );
 
-  const handleImageClick = useCallback(
-    (event) => {
-      if (openState.items.length <= 1) return;
-      if (!window.matchMedia("(min-width: 768px)").matches) return;
-
-      const target = event.currentTarget;
-      const nativeEvent = event.nativeEvent;
-      const width = target.clientWidth;
-      if (!width) return;
-
-      const offsetX =
-        typeof nativeEvent?.offsetX === "number"
-          ? nativeEvent.offsetX
-          : event.clientX - target.getBoundingClientRect().left;
-      const clickRatio = offsetX / width;
-
-      if (clickRatio <= 0.35) {
-        prev();
-        return;
-      }
-
-      if (clickRatio >= 0.65) {
-        next();
-      }
-    },
-    [next, prev, openState.items.length]
-  );
-
   const handleTouchStart = useCallback((event) => {
     const touch = event.touches?.[0];
     if (!touch) return;
@@ -475,14 +447,16 @@ export default function ProjectsGallery({
     if (!dialogEl) return;
 
     const FOCUSABLE_SELECTORS =
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), textarea, input, select';
+      'a[href], button:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"]), textarea, input, select';
 
     const getFocusable = () =>
       Array.from(dialogEl.querySelectorAll(FOCUSABLE_SELECTORS)).filter(
         (el) =>
           el instanceof HTMLElement &&
           !el.hasAttribute("disabled") &&
-          el.getAttribute("aria-hidden") !== "true"
+          !el.hidden &&
+          el.getAttribute("aria-hidden") !== "true" &&
+          el.getClientRects().length > 0
       );
 
     const handleKeyDown = (event) => {
@@ -545,8 +519,18 @@ export default function ProjectsGallery({
       overflow: body.style.overflow,
       width: body.style.width,
     };
+    const portalElement = portal.current;
+    const backgroundElements = Array.from(body.children)
+      .filter((element) => element !== portalElement)
+      .map((element) => ({
+        element,
+        wasInert: element.hasAttribute("inert"),
+      }));
 
     const lockFrame = window.requestAnimationFrame(() => {
+      for (const { element } of backgroundElements) {
+        element.setAttribute("inert", "");
+      }
       body.style.position = "fixed";
       body.style.top = `-${scrollYRef.current}px`;
       body.style.overflow = "hidden";
@@ -559,6 +543,9 @@ export default function ProjectsGallery({
       body.style.top = previousStyles.top;
       body.style.overflow = previousStyles.overflow;
       body.style.width = previousStyles.width;
+      for (const { element, wasInert } of backgroundElements) {
+        if (!wasInert) element.removeAttribute("inert");
+      }
       const root = document.documentElement;
       const previousScrollBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = "auto";
@@ -704,8 +691,14 @@ export default function ProjectsGallery({
       aria-label={fillTemplate(normalizedDictionary.dialogAria, {
         title: openState.title,
       })}
-      onClick={(e) => e.target === e.currentTarget && close()}
     >
+      <button
+        type="button"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute inset-0 cursor-default border-0 bg-transparent p-0"
+        onClick={close}
+      />
       <div className="sr-only" aria-live="polite">
         {fillTemplate(normalizedDictionary.liveMessage, {
           title: openState.title,
@@ -717,7 +710,7 @@ export default function ProjectsGallery({
         type="button"
         ref={closeBtn}
         className={`
-          mobile-safe-dialog-close absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white/80
+          mobile-safe-dialog-close absolute top-6 right-6 z-30 p-3 rounded-full bg-white/10 text-white/80
           hover:text-white hover:bg-white/20
           ${LIGHTBOX_FOCUS_RING}
         `}
@@ -746,7 +739,7 @@ export default function ProjectsGallery({
             type="button"
             onClick={prev}
             className="
-              hidden md:flex absolute left-6 top-1/2 -translate-y-1/2
+              hidden md:flex absolute left-6 top-1/2 z-30 -translate-y-1/2
               bg-black/40 hover:bg-black/60 border border-white/10
               rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
               focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
@@ -761,7 +754,7 @@ export default function ProjectsGallery({
             type="button"
             onClick={next}
             className="
-              hidden md:flex absolute right-6 top-1/2 -translate-y-1/2
+              hidden md:flex absolute right-6 top-1/2 z-30 -translate-y-1/2
               bg-black/40 hover:bg-black/60 border border-white/10
               rounded-full w-14 h-14 items-center justify-center text-white/90 hover:text-white
               focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black
@@ -776,7 +769,6 @@ export default function ProjectsGallery({
 
       <div
         className="relative flex h-[80dvh] max-h-[calc(100dvh-4rem)] w-full max-w-6xl items-center justify-center p-4 sm:p-6"
-        onClick={handleImageClick}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -794,6 +786,25 @@ export default function ProjectsGallery({
           } transition-all duration-300`}
           unoptimized={shouldBypassImageOptimizer(lightboxImageSrc)}
         />
+
+        {openState.items.length > 1 && (
+          <>
+            <button
+              type="button"
+              tabIndex={-1}
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 hidden w-[35%] cursor-default border-0 bg-transparent p-0 md:block"
+              onClick={prev}
+            />
+            <button
+              type="button"
+              tabIndex={-1}
+              aria-hidden="true"
+              className="absolute inset-y-0 right-0 hidden w-[35%] cursor-default border-0 bg-transparent p-0 md:block"
+              onClick={next}
+            />
+          </>
+        )}
 
         {openState.items.length > 1 && (
           <div className="absolute inset-x-0 -bottom-2 flex items-center justify-between px-6 md:hidden text-white/80 text-sm">

@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Play } from "lucide-react";
 import DeferredHydration from "@/components/DeferredHydration.client";
 
@@ -102,6 +103,14 @@ function StickyVideoRailInner({
 
   const dragRef = useRef(null);
   const startPosRef = useRef({ mouseX: 0, mouseY: 0, x: 0, y: 0 });
+  const dialogRef = useRef(null);
+  const dialogCloseButtonRef = useRef(null);
+  const dialogOpenerRef = useRef(null);
+  const expandButtonRef = useRef(null);
+  const minimizedButtonRef = useRef(null);
+  const lastExternalFocusRef = useRef(null);
+  const dialogReturnModeRef = useRef("opener");
+  const scrollYRef = useRef(0);
   const headingId = useId();
   const descriptionId = useId();
 
@@ -134,20 +143,192 @@ function StickyVideoRailInner({
     setIsMinimized(true);
   }, []);
 
-  // ESC ile kapatma (aynı sayfada tekrar auto-open olmasın)
-  useEffect(() => {
-    if (!isMounted) return;
+  const rememberExternalFocus = (event) => {
+    const previousTarget = event.relatedTarget;
+    if (
+      previousTarget instanceof HTMLElement &&
+      previousTarget.isConnected &&
+      !event.currentTarget.contains(previousTarget)
+    ) {
+      lastExternalFocusRef.current = previousTarget;
+    }
+  };
 
-    const onKeyDown = (e) => {
-      if (e.key !== "Escape") return;
-      setIsOpen(false);
+  const handlePlay = () => {
+    setHasStarted(true);
+    setIsOpen(true);
+    setIsMinimized(false);
+  };
+
+  const handleChangeVideo = (index) => {
+    setActiveIndex(index);
+    setHasStarted(false);
+  };
+
+  const handleExpand = (event) => {
+    dialogOpenerRef.current = event.currentTarget;
+    dialogReturnModeRef.current = "opener";
+    setIsExpanded(true);
+    setIsMinimized(false);
+  };
+
+  const handleCollapseFromExpanded = () => {
+    dialogReturnModeRef.current = "opener";
+    setIsExpanded(false);
+  };
+
+  const handleClose = () => {
+    dialogReturnModeRef.current = "external";
+    setIsOpen(false);
+    setIsExpanded(false);
+    setIsMinimized(false);
+  };
+
+  const handleToggleMinimize = () => {
+    if (isExpanded) {
+      dialogReturnModeRef.current = "minimized";
       setIsExpanded(false);
+      setIsMinimized(true);
+      return;
+    }
+    setIsMinimized((v) => !v);
+  };
+
+  // Expanded player is a true modal: keep keyboard and virtual focus inside,
+  // prevent background scrolling, and return focus when the modal closes.
+  useEffect(() => {
+    if (!isMounted || !isOpen || !isExpanded || !dialogRef.current) {
+      return undefined;
+    }
+
+    const dialog = dialogRef.current;
+    const body = document.body;
+    const previousBodyStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      overflow: body.style.overflow,
+      width: body.style.width,
+    };
+    const backgroundElements = Array.from(body.children)
+      .filter((element) => element !== dialog)
+      .map((element) => ({
+        element,
+        wasInert: element.hasAttribute("inert"),
+      }));
+    scrollYRef.current = window.scrollY;
+
+    const getFocusableElements = () =>
+      Array.from(
+        dialog.querySelectorAll(
+          'a[href], button:not([disabled]), iframe, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter(
+        (element) =>
+          element instanceof HTMLElement &&
+          !element.hidden &&
+          element.getAttribute("aria-hidden") !== "true" &&
+          element.getAttribute("inert") === null
+      );
+
+    const focusInitialControl = () => {
+      (dialogCloseButtonRef.current ?? getFocusableElements()[0] ?? dialog).focus();
+    };
+
+    const lockFrame = window.requestAnimationFrame(() => {
+      for (const { element } of backgroundElements) {
+        element.setAttribute("inert", "");
+      }
+      body.style.position = "fixed";
+      body.style.top = `-${scrollYRef.current}px`;
+      body.style.overflow = "hidden";
+      body.style.width = "100%";
+      focusInitialControl();
+    });
+
+    const handleDialogKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        dialogReturnModeRef.current = "opener";
+        setIsExpanded(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusableElements = getFocusableElements();
+      if (!focusableElements.length) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+      const current = document.activeElement;
+
+      if (event.shiftKey && (current === first || !dialog.contains(current))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (current === last || !dialog.contains(current))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    const keepFocusInsideDialog = (event) => {
+      if (!dialog.contains(event.target)) focusInitialControl();
+    };
+
+    document.addEventListener("keydown", handleDialogKeyDown, true);
+    document.addEventListener("focusin", keepFocusInsideDialog, true);
+
+    return () => {
+      window.cancelAnimationFrame(lockFrame);
+      document.removeEventListener("keydown", handleDialogKeyDown, true);
+      document.removeEventListener("focusin", keepFocusInsideDialog, true);
+      for (const { element, wasInert } of backgroundElements) {
+        if (!wasInert) element.removeAttribute("inert");
+      }
+      body.style.position = previousBodyStyles.position;
+      body.style.top = previousBodyStyles.top;
+      body.style.overflow = previousBodyStyles.overflow;
+      body.style.width = previousBodyStyles.width;
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, scrollYRef.current);
+      root.style.scrollBehavior = previousScrollBehavior;
+
+      window.requestAnimationFrame(() => {
+        const returnTarget =
+          dialogReturnModeRef.current === "minimized"
+            ? minimizedButtonRef.current
+            : dialogReturnModeRef.current === "opener"
+              ? expandButtonRef.current ?? dialogOpenerRef.current
+              : lastExternalFocusRef.current;
+
+        if (returnTarget instanceof HTMLElement && returnTarget.isConnected) {
+          returnTarget.focus();
+        }
+      });
+    };
+  }, [isExpanded, isMounted, isOpen]);
+
+  // Preserve the compact player's existing Escape-to-dismiss behavior. The
+  // expanded modal handles Escape separately so it can restore focus safely.
+  useEffect(() => {
+    if (!isMounted || !isOpen || isExpanded) return undefined;
+
+    const handleCompactEscape = (event) => {
+      if (event.key !== "Escape") return;
+      setIsOpen(false);
       setIsMinimized(false);
     };
 
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isMounted]);
+    window.addEventListener("keydown", handleCompactEscape);
+    return () => window.removeEventListener("keydown", handleCompactEscape);
+  }, [isExpanded, isMounted, isOpen]);
 
   // Drag hareketi (dependency fix: position eklendi)
   useEffect(() => {
@@ -211,45 +392,12 @@ function StickyVideoRailInner({
 
   if (!isMounted) return null;
 
-  const handlePlay = () => {
-    setHasStarted(true);
-    setIsOpen(true);
-    setIsMinimized(false);
-  };
-
-  const handleChangeVideo = (index) => {
-    setActiveIndex(index);
-    setHasStarted(false);
-  };
-
-  const handleExpand = () => {
-    setIsExpanded(true);
-    setIsMinimized(false);
-  };
-
-  const handleCollapseFromExpanded = () => {
-    setIsExpanded(false);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-    setIsExpanded(false);
-    setIsMinimized(false);
-  };
-
-  const handleToggleMinimize = () => {
-    if (isExpanded) {
-      setIsExpanded(false);
-      setIsMinimized(true);
-      return;
-    }
-    setIsMinimized((v) => !v);
-  };
-
   // =============== Tam ekran / sinema modu ===============
   if (isExpanded && isOpen) {
-    return (
+    return createPortal(
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         className="mobile-safe-dialog fixed inset-0 z-[80] flex flex-col items-center bg-black/90 px-2 py-2 backdrop-blur-sm sm:px-6"
         aria-modal="true"
         role="dialog"
@@ -273,6 +421,7 @@ function StickyVideoRailInner({
             <button
               type="button"
               onClick={handleCollapseFromExpanded}
+              aria-label={isEn ? "Collapse video player" : "Video oynatıcıyı küçült"}
               className="rail-control group"
               data-variant="primary"
             >
@@ -282,6 +431,7 @@ function StickyVideoRailInner({
             <button
               type="button"
               onClick={handleToggleMinimize}
+              aria-label={isEn ? "Minimize video player" : "Video oynatıcıyı simge durumuna küçült"}
               className="rail-control group"
               data-variant="muted"
             >
@@ -289,8 +439,10 @@ function StickyVideoRailInner({
               <span className="hidden sm:inline">Simge</span>
             </button>
             <button
+              ref={dialogCloseButtonRef}
               type="button"
               onClick={handleClose}
+              aria-label={isEn ? "Close video player" : "Video oynatıcıyı kapat"}
               className="rail-control group"
               data-variant="danger"
             >
@@ -424,7 +576,8 @@ function StickyVideoRailInner({
             </div>
           </aside>
         </div>
-      </div>
+      </div>,
+      document.body
     );
   }
 
@@ -432,7 +585,9 @@ function StickyVideoRailInner({
   if (isOpen && isMinimized) {
     return (
       <button
+        ref={minimizedButtonRef}
         type="button"
+        onFocus={rememberExternalFocus}
         onClick={() => {
           setIsMinimized(false);
           setIsExpanded(false);
@@ -457,6 +612,7 @@ function StickyVideoRailInner({
   return (
     <div
       ref={dragRef}
+      onFocusCapture={rememberExternalFocus}
       className="mobile-fixed-bottom-end fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6"
       style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
       role={computedRole}
@@ -471,15 +627,13 @@ function StickyVideoRailInner({
 
       <div className="w-[280px] overflow-hidden rounded-2xl border border-white/20 bg-slate-900/95 shadow-2xl backdrop-blur-lg sm:w-[340px]">
         {/* Başlık + drag alanı */}
-        <div
-          className="flex items-center justify-between px-4 py-3 cursor-move select-none bg-gradient-to-r from-slate-800 to-slate-900 border-b border-white/10"
-          onMouseDown={startDrag}
-          onTouchStart={startDrag}
-        >
-          <div
-            className="flex items-center gap-2 flex-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-inset"
-            tabIndex={0}
+        <div className="flex items-center justify-between px-4 py-3 cursor-move select-none bg-gradient-to-r from-slate-800 to-slate-900 border-b border-white/10">
+          <button
+            type="button"
+            className="flex items-center gap-2 flex-1 cursor-move rounded text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-inset"
             aria-label={movePlayerAriaLabel}
+            onMouseDown={startDrag}
+            onTouchStart={startDrag}
             onKeyDown={(e) => {
               const STEP = 40;
               const moves = {
@@ -498,9 +652,10 @@ function StickyVideoRailInner({
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               {accessibleTitle}
             </span>
-          </div>
+          </button>
           <div className="flex items-center gap-1">
             <button
+              ref={expandButtonRef}
               type="button"
               onClick={handleExpand}
               aria-label="Videoyu büyüt"

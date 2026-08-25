@@ -151,42 +151,46 @@ export default function LedCalculatorClient() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
           <div className="rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl md:p-7">
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Monitor className="h-4 w-4 text-violet-200" />
-              LED ekran tipi
-            </label>
-            <div className="mb-7 grid gap-3 md:grid-cols-3">
-              {Object.entries(screenTypes).map(([key, item]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => {
-                    setScreenType(key);
-                    setPitch(pitchOptions[key][0]);
-                    if (key === "direction") {
-                      setHeight(1);
-                      setWidth(1);
-                    }
-                  }}
-                  className={`rounded-2xl border px-4 py-4 text-left transition ${
-                    screenType === key
-                      ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
-                      : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
-                  }`}
-                >
-                  <span className="block font-black">{item.label}</span>
-                  <span className="mt-2 block text-xs leading-5 text-slate-400">{item.note}</span>
-                </button>
-              ))}
-            </div>
+            <fieldset className="mb-7">
+              <legend className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <Monitor className="h-4 w-4 text-violet-200" />
+                LED ekran tipi
+              </legend>
+              <div className="grid gap-3 md:grid-cols-3">
+                {Object.entries(screenTypes).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-pressed={screenType === key}
+                    onClick={() => {
+                      setScreenType(key);
+                      setPitch(pitchOptions[key][0]);
+                      if (key === "direction") {
+                        setHeight(1);
+                        setWidth(1);
+                      }
+                    }}
+                    className={`rounded-2xl border px-4 py-4 text-left transition ${
+                      screenType === key
+                        ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
+                        : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
+                    }`}
+                  >
+                    <span className="block font-black">{item.label}</span>
+                    <span className="mt-2 block text-xs leading-5 text-slate-400">{item.note}</span>
+                  </button>
+                ))}
+              </div>
+            </fieldset>
 
             <div className="mb-7 grid gap-4 sm:grid-cols-3">
               <div>
-                <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <label htmlFor="led-hesaplama-en" className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
                   <Ruler className="h-4 w-4 text-violet-200" />
                   {screenType === "direction" ? "Adet" : "En (m)"}
                 </label>
                 <input
+                  id="led-hesaplama-en"
                   type="number"
                   min="1"
                   step="0.5"
@@ -198,11 +202,12 @@ export default function LedCalculatorClient() {
 
               {screenType !== "direction" ? (
                 <div>
-                  <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                  <label htmlFor="led-hesaplama-boy" className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
                     <Ruler className="h-4 w-4 text-violet-200" />
                     Boy (m)
                   </label>
                   <input
+                    id="led-hesaplama-boy"
                     type="number"
                     min="1"
                     step="0.5"
@@ -214,11 +219,12 @@ export default function LedCalculatorClient() {
               ) : null}
 
               <div>
-                <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <label htmlFor="led-hesaplama-gun" className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
                   <CheckCircle className="h-4 w-4 text-violet-200" />
                   Gün sayısı
                 </label>
                 <input
+                  id="led-hesaplama-gun"
                   type="number"
                   min="1"
                   value={days}
@@ -228,58 +234,64 @@ export default function LedCalculatorClient() {
               </div>
             </div>
 
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <Sparkles className="h-4 w-4 text-violet-200" />
-              Pixel pitch
-            </label>
-            <div className="mb-7 grid gap-3 sm:grid-cols-4">
-              {pitchOptions[screenType].map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => setPitch(item)}
-                  className={`rounded-2xl border px-4 py-3 text-center font-black transition ${
-                    pitch === item
-                      ? "border-violet-300 bg-violet-500/20 text-white"
-                      : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-
-            <label className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
-              <CheckCircle className="h-4 w-4 text-violet-200" />
-              Ek hizmetler
-            </label>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {extras.map((item) => {
-                const active = selectedExtras.includes(item.key);
-                return (
+            <fieldset className="mb-7">
+              <legend className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <Sparkles className="h-4 w-4 text-violet-200" />
+                Pixel pitch
+              </legend>
+              <div className="grid gap-3 sm:grid-cols-4">
+                {pitchOptions[screenType].map((item) => (
                   <button
-                    key={item.key}
+                    key={item}
                     type="button"
-                    onClick={() =>
-                      setSelectedExtras((current) =>
-                        active ? current.filter((key) => key !== item.key) : [...current, item.key]
-                      )
-                    }
-                    className={`rounded-2xl border px-4 py-4 text-left transition ${
-                      active
-                        ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
+                    aria-pressed={pitch === item}
+                    onClick={() => setPitch(item)}
+                    className={`rounded-2xl border px-4 py-3 text-center font-black transition ${
+                      pitch === item
+                        ? "border-violet-300 bg-violet-500/20 text-white"
                         : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
                     }`}
                   >
-                    <span className="block font-black">{item.label}</span>
-                    <span className="mt-1 block text-xs leading-5 text-slate-400">
-                      {item.price > 0 ? `+${formatPrice(item.price)}` : "Proje bazlı"}
-                    </span>
-                    <span className="mt-2 block text-xs leading-5 text-slate-400">{item.description}</span>
+                    {item}
                   </button>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend className="mb-3 flex items-center gap-2 text-sm font-black text-slate-100">
+                <CheckCircle className="h-4 w-4 text-violet-200" />
+                Ek hizmetler
+              </legend>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {extras.map((item) => {
+                  const active = selectedExtras.includes(item.key);
+                  return (
+                    <button
+                      key={item.key}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() =>
+                        setSelectedExtras((current) =>
+                          active ? current.filter((key) => key !== item.key) : [...current, item.key]
+                        )
+                      }
+                      className={`rounded-2xl border px-4 py-4 text-left transition ${
+                        active
+                          ? "border-violet-300 bg-violet-500/20 text-white shadow-[0_15px_50px_rgba(139, 92, 246,0.18)]"
+                          : "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]"
+                      }`}
+                    >
+                      <span className="block font-black">{item.label}</span>
+                      <span className="mt-1 block text-xs leading-5 text-slate-400">
+                        {item.price > 0 ? `+${formatPrice(item.price)}` : "Proje bazlı"}
+                      </span>
+                      <span className="mt-2 block text-xs leading-5 text-slate-400">{item.description}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
           </div>
 
           <aside className="rounded-[34px] border border-violet-300/20 bg-gradient-to-br from-violet-500/20 via-white/[0.07] to-slate-950 p-5 shadow-2xl md:p-7">

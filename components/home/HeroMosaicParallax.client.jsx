@@ -155,6 +155,29 @@ export default function HeroMosaicParallax({
     [resetParallax, videos],
   );
 
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell) return;
+
+    // Only native buttons marked as video triggers are actionable. Keeping
+    // delegation off the wrapper avoids presenting the mosaic itself as an
+    // interactive control while preserving keyboard-generated click events.
+    shell.addEventListener("click", handleMosaicClick);
+    return () => shell.removeEventListener("click", handleMosaicClick);
+  }, [handleMosaicClick]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog || !activeVideo) return;
+
+    const handleBackdropClick = (event) => {
+      if (event.currentTarget === event.target) closeVideo();
+    };
+
+    dialog.addEventListener("click", handleBackdropClick);
+    return () => dialog.removeEventListener("click", handleBackdropClick);
+  }, [activeVideo, closeVideo]);
+
   const handlePointerMove = (event) => {
     if (!parallaxEnabledRef.current || event.pointerType === "touch") {
       resetParallax();
@@ -222,7 +245,6 @@ export default function HeroMosaicParallax({
       onPointerLeave={resetParallax}
       onPointerCancel={resetParallax}
       onFocusCapture={resetParallax}
-      onClick={handleMosaicClick}
     >
       {children}
 
@@ -233,9 +255,6 @@ export default function HeroMosaicParallax({
           className={styles.dialog}
           aria-labelledby="hero-project-video-title"
           onClose={handleDialogClose}
-          onClick={(event) => {
-            if (event.currentTarget === event.target) closeVideo();
-          }}
         >
           <div className={styles.window}>
             <header className={styles.header}>

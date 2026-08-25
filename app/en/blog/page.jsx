@@ -377,33 +377,23 @@ export default async function BlogPage() {
 
         <div className="mt-24 bg-violet-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Join Our Newsletter
-            </h3>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Follow Our Latest Insights
+            </h2>
             <p className="text-violet-100 mb-8">
-              Be the first to hear about our new articles and event industry news.
+              Contact the Sahneva team for information about our latest guides and event
+              industry insights.
             </p>
 
-            <form className="flex flex-col sm:flex-row gap-3">
-              <label htmlFor="newsletter-email" className="sr-only">
-                Newsletter email address
-              </label>
-              <input
-                id="newsletter-email"
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-400"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-violet-500 hover:bg-violet-400 px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-xs text-violet-300 mt-4 opacity-70">
-              No spam, just valuable content.
+            <Link
+              href="/en/contact"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-white px-8 py-3 font-semibold text-violet-900 shadow-lg transition-colors hover:bg-violet-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-violet-900"
+            >
+              Contact Our Team
+            </Link>
+            <p className="mt-4 text-sm text-violet-100">
+              This opens our contact page; it does not create an automatic newsletter
+              subscription.
             </p>
           </div>
         </div>

@@ -239,6 +239,7 @@ export default function EnglishLayout({ children }) {
       lang="en"
       xmlLang="en"
       dir="ltr"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >

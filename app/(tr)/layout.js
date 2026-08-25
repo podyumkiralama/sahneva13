@@ -236,7 +236,7 @@ export const viewport = {
 
 export default function TurkishLayout({ children }) {
   return (
-    <html lang="tr" className={`${inter.variable} font-sans`}>
+    <html lang="tr" data-scroll-behavior="smooth" className={`${inter.variable} font-sans`}>
       <head>
         <TrustedTypesPolicy />
         <AhrefsAnalytics />

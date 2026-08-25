@@ -250,6 +250,7 @@ function Reveal({ children }) {
 
 function useSmartScroll() {
   const navRef = useRef(null);
+  const reduce = usePrefersReducedMotion();
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
@@ -260,7 +261,7 @@ function useSmartScroll() {
     const y = el.getBoundingClientRect().top + window.scrollY - navH - extra;
 
     window.history.replaceState(null, "", `#${id}`);
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
   };
 
   return { navRef, scrollToId };

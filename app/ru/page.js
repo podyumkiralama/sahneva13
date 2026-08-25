@@ -491,7 +491,7 @@ export default function RussianHomePage() {
           </div>
           <Link
             href="/ru/contact"
-            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-emerald-500 px-7 text-base font-black text-white transition hover:bg-emerald-600"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-emerald-700 px-7 text-base font-black text-white transition hover:bg-emerald-800"
           >
             Получить расчет
           </Link>

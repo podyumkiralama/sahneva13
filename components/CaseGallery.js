@@ -202,13 +202,6 @@ function CaseGallery({
   const handlePrev = useCallback(() => navigate("prev"), [navigate]);
   const handleNext = useCallback(() => navigate("next"), [navigate]);
 
-  const handleBackdropClick = useCallback(
-    (event) => {
-      if (event.target === event.currentTarget) closeLightbox();
-    },
-    [closeLightbox]
-  );
-
   const handleTouchStart = useCallback((event) => {
     const touch = event.touches?.[0];
     if (!touch) return;
@@ -241,8 +234,18 @@ function CaseGallery({
       overflow: body.style.overflow,
       width: body.style.width,
     };
+    const dialog = dialogRef.current;
+    const backgroundElements = Array.from(body.children)
+      .filter((element) => element !== dialog)
+      .map((element) => ({
+        element,
+        wasInert: element.hasAttribute("inert"),
+      }));
 
     const lockFrame = window.requestAnimationFrame(() => {
+      for (const { element } of backgroundElements) {
+        element.setAttribute("inert", "");
+      }
       body.style.position = "fixed";
       body.style.top = `-${scrollYRef.current}px`;
       body.style.overflow = "hidden";
@@ -256,7 +259,14 @@ function CaseGallery({
       body.style.top = previousStyles.top;
       body.style.overflow = previousStyles.overflow;
       body.style.width = previousStyles.width;
+      for (const { element, wasInert } of backgroundElements) {
+        if (!wasInert) element.removeAttribute("inert");
+      }
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
       window.scrollTo(0, scrollYRef.current);
+      root.style.scrollBehavior = previousScrollBehavior;
       lastFocus.current?.focus?.();
     };
   }, [open]);
@@ -287,8 +297,14 @@ function CaseGallery({
 
       const focusable = Array.from(
         dialogRef.current.querySelectorAll(
-          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          'button:not([disabled]):not([tabindex="-1"]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
         )
+      ).filter(
+        (element) =>
+          element instanceof HTMLElement &&
+          !element.hidden &&
+          element.getAttribute("aria-hidden") !== "true" &&
+          element.getClientRects().length > 0
       );
       if (!focusable.length) return;
 
@@ -443,10 +459,16 @@ function CaseGallery({
               aria-labelledby="case-gallery-title"
               aria-describedby="case-gallery-description"
               className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 p-3 backdrop-blur-xl sm:p-5"
-              onClick={handleBackdropClick}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
             >
+          <button
+            type="button"
+            tabIndex={-1}
+            aria-hidden="true"
+            className="absolute inset-0 cursor-default border-0 bg-transparent p-0"
+            onClick={closeLightbox}
+          />
           <h2 id="case-gallery-title" className="sr-only">
             {t.galleryTitle}
           </h2>

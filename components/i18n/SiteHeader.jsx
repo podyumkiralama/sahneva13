@@ -155,7 +155,7 @@ export default function SiteHeader({ locale, strings }) {
                   <div className="invisible absolute left-0 top-full z-[80] w-80 translate-y-2 rounded-2xl border border-neutral-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 nav-dark:border-white/10 nav-dark:bg-[#111827]">
                     {strings.serviceLinks.map((service) => (
                       <Link
-                        key={service.href}
+                        key={`${service.href}-${service.label}`}
                         href={service.href}
                         className={`block rounded-xl px-4 py-3 text-sm no-underline transition hover:bg-neutral-50 nav-dark:hover:bg-white/10 ${focusRingClass}`}
                       >
@@ -259,7 +259,7 @@ export default function SiteHeader({ locale, strings }) {
                   <div className="ml-3 border-l border-neutral-200 pl-3 nav-dark:border-white/10">
                     {strings.serviceLinks.map((service) => (
                       <Link
-                        key={service.href}
+                        key={`${service.href}-${service.label}`}
                         href={service.href}
                         className={`block rounded-lg px-4 py-2 text-sm font-semibold text-neutral-600 hover:bg-neutral-100 nav-dark:text-slate-200 nav-dark:hover:bg-white/10 ${focusRingClass}`}
                         onClick={() => closeMenu()}

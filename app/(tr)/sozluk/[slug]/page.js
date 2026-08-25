@@ -268,7 +268,7 @@ export default async function LineArrayGlossaryPage({ params }) {
         </div>
       </section>
 
-      <main>
+      <div>
         <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16" aria-labelledby="kisa-tanim">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Kısa tanım</p>
@@ -493,7 +493,7 @@ export default async function LineArrayGlossaryPage({ params }) {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

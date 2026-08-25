@@ -464,6 +464,7 @@ function InlineLink({ href, children }) {
 
 function useSmartScroll() {
   const navRef = useRef(null);
+  const reduce = usePrefersReducedMotion();
 
   const scrollToId = (id) => {
     const element = document.getElementById(id);
@@ -472,7 +473,7 @@ function useSmartScroll() {
     const navHeight = navRef.current?.offsetHeight ?? 0;
     const top = element.getBoundingClientRect().top + window.scrollY - navHeight - 12;
     window.history.replaceState(null, "", `#${id}`);
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
   };
 
   return { navRef, scrollToId };

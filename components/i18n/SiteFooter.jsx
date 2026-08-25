@@ -19,22 +19,22 @@ export default function SiteFooter({ strings }) {
             <h2 className="text-lg font-bold text-white">Sahneva</h2>
             <p className="mt-3 text-sm leading-6 text-slate-300">{strings.about}</p>
             <div className="mt-4 space-y-2 text-sm">
-              <p>
+              <p className="text-slate-200">
                 <strong>{strings.phoneLabel}:</strong>{" "}
                 <a
                   href="tel:+905453048671"
-                  className={`hover:text-emerald-300 ${focusRingClass}`}
+                  className={`text-slate-200 hover:text-emerald-300 ${focusRingClass}`}
                 >
                   <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
                     +90 545 304 86 71
                   </span>
                 </a>
               </p>
-              <p>
+              <p className="text-slate-200">
                 <strong>{strings.mailLabel}:</strong>{" "}
                 <a
                   href="mailto:info@sahneva.com"
-                  className={`hover:text-emerald-300 ${focusRingClass}`}
+                  className={`text-slate-200 hover:text-emerald-300 ${focusRingClass}`}
                 >
                   info@sahneva.com
                 </a>
@@ -48,10 +48,10 @@ export default function SiteFooter({ strings }) {
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               {strings.services.map((item) => (
-                <li key={item.href}>
+                <li key={`${item.href}-${item.label}`}>
                   <Link
                     href={item.href}
-                    className={`hover:text-emerald-300 ${focusRingClass}`}
+                    className={`text-slate-200 hover:text-emerald-300 ${focusRingClass}`}
                   >
                     {item.label}
                   </Link>
@@ -72,7 +72,7 @@ export default function SiteFooter({ strings }) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-full border border-white/15 px-3 py-1 hover:border-emerald-300 hover:text-emerald-300 transition ${focusRingClass}`}
+                  className={`rounded-full border border-white/15 px-3 py-1 text-slate-200 hover:border-emerald-300 hover:text-emerald-300 transition ${focusRingClass}`}
                 >
                   {item.label}
                   <span className="sr-only"> – {newTabLabel}</span>

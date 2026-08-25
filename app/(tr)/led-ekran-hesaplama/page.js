@@ -87,7 +87,7 @@ const PLANNING_PAGE_SCHEMA = {
 
 export default function Page() {
   return (
-    <main className="bg-slate-950 pb-20 text-white">
+    <div className="bg-slate-950 pb-20 text-white">
       <JsonLd id="ld-json-led-ekran-olcu-planlama" data={PLANNING_PAGE_SCHEMA} />
       <PageHero
         breadcrumb={[
@@ -141,6 +141,6 @@ export default function Page() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
