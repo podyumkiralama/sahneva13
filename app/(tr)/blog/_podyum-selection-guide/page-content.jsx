@@ -13,19 +13,21 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
   ""
 );
 
-const SLUG = "podyum-kiralama-nasil-secilir";
+// Bu özel modül, daha güçlü geçmiş bağlantı ve hreflang sinyallerine sahip
+// /blog/etkinlige-gore-podyum-tercihi rotasının birleşik rehberini üretir.
+const SLUG = "etkinlige-gore-podyum-tercihi";
 const BLOG_PATH = `/blog/${SLUG}`;
 const BLOG_URL = `${SITE_URL}${BLOG_PATH}`;
 
-const PUBLISH_DATE = "2026-04-21T09:00:00+03:00";
+const PUBLISH_DATE = "2025-12-28T00:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile(
-  "app/(tr)/blog/podyum-kiralama-nasil-secilir/page.jsx",
-  "2026-04-21T09:00:00+03:00"
+  "app/(tr)/blog/etkinlige-gore-podyum-tercihi/page.jsx",
+  "2025-12-28T00:00:00+03:00"
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
-const ARTICLE_TITLE = "Podyum Kiralama Nasıl Seçilir?";
+const ARTICLE_TITLE = "Etkinliğe Göre Podyum Kiralama Nasıl Seçilir?";
 const META_DESCRIPTION =
-  "Podyum kiralama için doğru ölçü, yükseklik, zemin, güvenlik ve fiyat kriterlerini öğrenin; etkinliğiniz için uygun platformu seçin.";
+  "Kurumsal etkinlik, düğün, konser ve açık alan için podyum ölçüsü, yükseklik, zemin, yüzey ve güvenlik kriterlerini karşılaştırın.";
 
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const PODIUM_PRICE_PATH = "/podyum-kurulum-fiyatlari";
@@ -101,7 +103,8 @@ export const metadata = {
     canonical: BLOG_URL,
     languages: {
       "tr-TR": BLOG_URL,
-      "x-default": BLOG_URL,
+      "en-US": `${SITE_URL}/en/blog/choosing-the-right-podium-for-your-event`,
+      "x-default": `${SITE_URL}/en/blog/choosing-the-right-podium-for-your-event`,
     },
   },
   image: HERO_IMG,
@@ -117,7 +120,7 @@ export const metadata = {
         url: `${SITE_URL}${HERO_IMG}`,
         width: 1200,
         height: 630,
-        alt: "Podyum kiralama seçimi için ölçü, yükseklik ve güvenlik rehberi",
+        alt: "Etkinliğe göre podyum kiralama seçimi için ölçü, yükseklik ve güvenlik rehberi",
       },
     ],
   },
@@ -131,18 +134,21 @@ export const metadata = {
   keywords: [
     "podyum kiralama",
     "podyum kiralama nasıl seçilir",
+    "etkinliğe göre podyum seçimi",
     "modüler podyum kiralama",
     "podyum ölçüsü",
     "podyum yüksekliği",
     "podyum kiralama fiyatları",
     "sahne podyum kiralama",
     "etkinlik podyumu",
+    "düğün podyumu",
+    "konser podyumu",
   ],
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva Organizasyon",
   category: "Podyum Kiralama",
   date: PUBLISH_DATE,
-  readTime: "8 dk okuma",
+  readTime: "10 dk okuma",
   other: {
     "article:published_time": PUBLISH_DATE,
     "article:modified_time": MODIFIED_DATE,
@@ -171,6 +177,16 @@ const FAQ_ITEMS = [
     question: "Podyum LED ekran ve ses sistemiyle birlikte kiralanabilir mi?",
     answer:
       "Evet. Podyum kiralama; LED ekran, ses-ışık sistemi, truss ve sahne çözümleriyle birlikte planlanabilir. Tek planla ilerlemek kurulum süresini ve saha risklerini azaltır.",
+  },
+  {
+    question: "Düğün ve kurumsal etkinlik için aynı podyum seçilir mi?",
+    answer:
+      "Her zaman değil. Düğünde sık giriş-çıkış, geniş merdiven ve dekor yüzeyi öne çıkarken kurumsal etkinlikte konuşmacı akışı, kürsü, LED ekran ve marka görünürlüğü öncelik kazanır. Aynı modüler altyapı farklı ölçü ve kaplamayla uyarlanabilir.",
+  },
+  {
+    question: "Açık alan podyumu seçerken hangi bilgiler gerekir?",
+    answer:
+      "Zemin türü ve eğimi, hava koşulları, istenen yükseklik, sahnedeki kişi ve ekipman yükü, merdiven-korkuluk ihtiyacı ile kurulum alanına erişim bilgileri teknik keşiften önce paylaşılmalıdır.",
   },
 ];
 

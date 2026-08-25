@@ -339,6 +339,13 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        // İki podyum seçim rehberi aynı niyette yarışıyordu. Yeni gövde,
+        // daha eski ve daha çok iç bağlantı alan canonical URL'de birleştirildi.
+        source: "/blog/podyum-kiralama-nasil-secilir",
+        destination: "/blog/etkinlige-gore-podyum-tercihi",
+        statusCode: 301,
+      },
+      {
         // Genel kuralın kapsayamadığı durum: "-2026" gibi rakamla biten meşru
         // slug'lara eklenmiş hayalet sonekler (örn. /blog/...-2026-2). Genel
         // kural path'in rakam dışı karakterle bitmesini şart koştuğu için bu

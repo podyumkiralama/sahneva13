@@ -391,7 +391,15 @@ export default function RussianHomePage() {
             <p className="mt-5 text-base leading-8 text-slate-700 md:text-lg">
               Sahneva помогает брендам, агентствам и частным организаторам, которые
               планируют событие в Турции: подбираем оборудование, монтажный график,
-              логистику и техническую поддержку на площадке.
+              логистику и техническую поддержку на площадке. Если проект объединяет
+              несколько направлений, изучите наш подход к{" "}
+              <Link
+                href="/ru/event-production-company-turkey"
+                className="font-bold text-violet-700 underline decoration-violet-300 underline-offset-4 transition hover:text-violet-900"
+              >
+                техническому продакшну мероприятий в Турции
+              </Link>
+              .
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

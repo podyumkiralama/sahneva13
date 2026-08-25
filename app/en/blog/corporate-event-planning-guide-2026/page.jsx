@@ -66,13 +66,13 @@ export const metadata = {
   },
   keywords: [
     "corporate event planning",
-    "corporate event checklist",
-    "stage rental",
-    "LED screen rental",
-    "technical production",
-    "run of show",
-    "event production checklist",
-    "event budget",
+    "corporate event planning checklist",
+    "corporate event planning timeline",
+    "corporate event budget planning",
+    "corporate event run of show",
+    "event planning checklist PDF",
+    "technical production planning",
+    "hybrid event planning",
   ],
   authors: [{ name: AUTHOR_NAME }],
   date: PUBLISH_DATE,
@@ -203,10 +203,12 @@ export default function Page() {
         isPartOf: { "@id": WEBSITE_ID },
         url,
         about: [
-          { "@type": "Thing", name: "Istanbul corporate event companies" },
-          { "@type": "Thing", name: "Professional stage and LED screen rental" },
-          { "@type": "Thing", name: "Technical production in event management" },
-          { "@type": "Thing", name: "Live event production checklist" },
+          { "@type": "Thing", name: "Corporate event planning checklist" },
+          { "@type": "Thing", name: "Corporate event planning timeline" },
+          { "@type": "Thing", name: "Corporate event budget planning" },
+          { "@type": "Thing", name: "Run-of-show planning" },
+          { "@type": "Thing", name: "Downloadable event planning checklist" },
+          { "@type": "Thing", name: "Technical production planning" },
           { "@type": "Thing", name: "Hybrid event" },
           { "@type": "Thing", name: "Live streaming production" },
         ],
@@ -239,7 +241,7 @@ export default function Page() {
           {/* Header */}
           <header>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700">
-              Istanbul corporate event companies • technical production
+              Planning checklist • timeline • budget • run of show
             </div>
 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
@@ -256,6 +258,19 @@ export default function Page() {
               single plan, even the smallest glitch can quickly derail your flow
               and budget. This guide consolidates the entire process from
               strategy to run-of-show in one place.
+            </p>
+
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
+              Use this article for the planning timeline, budget structure,
+              run-of-show and downloadable checklist. If you need a delivery
+              partner rather than a planning resource, review our{" "}
+              <Link
+                href="/en/corporate-events"
+                className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-700"
+              >
+                corporate event production services
+              </Link>
+              .
             </p>
 
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">

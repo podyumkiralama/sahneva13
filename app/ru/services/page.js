@@ -106,6 +106,14 @@ export default function RussianServicesPage() {
             <p className="mt-5 max-w-3xl text-lg leading-8 text-white/[0.82]">
               Сцены, LED-экраны, звук, свет, truss, шатры, мебель и площадочная
               команда для конференций, выставок, gala, концертов и open-air проектов в Турции.
+              Если нужен единый подрядчик для всех направлений, изучите наш{" "}
+              <Link
+                href="/ru/event-production-company-turkey"
+                className="font-bold text-emerald-300 underline decoration-emerald-300/60 underline-offset-4 transition hover:text-emerald-200"
+              >
+                комплексный технический продакшн мероприятий
+              </Link>
+              .
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
               {SERVICE_KEYWORDS.map((keyword) => (
@@ -199,4 +207,3 @@ export default function RussianServicesPage() {
     </div>
   );
 }
-

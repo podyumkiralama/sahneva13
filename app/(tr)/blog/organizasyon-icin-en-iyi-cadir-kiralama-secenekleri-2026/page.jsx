@@ -22,9 +22,9 @@ const MODIFIED_DATE = getLastModifiedDateTimeForFile(
   "2026-02-05T00:00:00+03:00"
 );
 const AUTHOR_NAME = "Sahneva İçerik Ekibi";
-const ARTICLE_TITLE = "2026 Çadır Kiralama Rehberi: En İyi Seçenekler";
+const ARTICLE_TITLE = "Pagoda mı Şeffaf mı? 2026 Çadır Seçim Rehberi";
 const META_DESCRIPTION =
-  "Kurumsal etkinlikten düğüne, fuardan festivale: 2026 çadır kiralama rehberi. Doğru çadır seçimi, kurulum süreci ve maliyetleri hızlıca öğrenin.";
+  "Pagoda, şeffaf, geniş modül ve dome çadırları görünüm, kapasite ve kullanım amacına göre karşılaştırın; etkinliğiniz için doğru sistemi seçin.";
 
 const TENT_SERVICE_PATH = "/cadir-kiralama";
 const TENT_CALC_PATH = "/cadir-hesaplama";
@@ -84,15 +84,13 @@ const WA_URL =
   );
 
 const TOC_ITEMS = [
-  { href: "#neden-cadir", label: "Neden çadır?" },
-  { href: "#cadir-tipleri", label: "Çadır tipleri" },
-  { href: "#kapasite-olcu", label: "Kapasite ve m² hesabı" },
-  { href: "#zemin-ankraj", label: "Zemin ve sabitleme" },
-  { href: "#teknik-entegrasyon", label: "Teknik entegrasyon" },
-  { href: "#kurulum", label: "Kurulum süreci" },
-  { href: "#maliyet", label: "Maliyet kalemleri" },
-  { href: "#risk", label: "Sık yapılan hatalar" },
-  { href: "#sonuc", label: "Sonuç ve teklif" },
+  { href: "#hizli-karsilastirma", label: "Hızlı karşılaştırma" },
+  { href: "#pagoda", label: "Pagoda ne zaman seçilir?" },
+  { href: "#seffaf", label: "Şeffaf çadır ne zaman seçilir?" },
+  { href: "#genis-modul", label: "Geniş modül ne zaman seçilir?" },
+  { href: "#kapasite", label: "Kapasiteyi eleme ölçütü" },
+  { href: "#saha-kosullari", label: "Seçimi değiştiren saha koşulları" },
+  { href: "#karar-listesi", label: "Karar listesi" },
 ];
 
 export const metadata = {
@@ -119,7 +117,7 @@ export const metadata = {
         url: `${SITE_URL}${HERO_IMG}`,
         width: 1200,
         height: 630,
-        alt: "Organizasyonlar için 2026 çadır kiralama rehberi",
+        alt: "Pagoda, şeffaf ve modüler çadır seçim rehberi",
       },
     ],
   },
@@ -132,21 +130,20 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
   keywords: [
     "çadır kiralama",
-    "organizasyon çadırı",
-    "etkinlik çadırı kiralama",
-    "kurumsal etkinlik çadırı",
-    "düğün çadırı kiralama",
-    "fuar çadırı",
-    "festival çadırı",
+    "etkinliğe göre çadır seçimi",
+    "çadır türleri karşılaştırma",
+    "pagoda mı şeffaf çadır mı",
     "pagoda çadır",
     "şeffaf çadır",
-    "çadır kiralama fiyatları",
+    "geniş modül çadır",
+    "kurumsal etkinlik çadırı",
+    "düğün çadırı seçimi",
   ],
   authors: [{ name: AUTHOR_NAME }],
   publisher: "Sahneva Organizasyon",
   category: "Çadır Kiralama",
   date: PUBLISH_DATE,
-  readTime: "9 dk okuma",
+  readTime: "8 dk okuma",
   other: {
     "article:published_time": PUBLISH_DATE,
     "article:modified_time": MODIFIED_DATE,
@@ -157,29 +154,29 @@ export const metadata = {
 
 const FAQ_ITEMS = [
   {
-    question: "Kurumsal etkinlikler için en güvenli çadır sistemi hangisi?",
+    question: "Pagoda çadır ile şeffaf çadır arasındaki temel fark nedir?",
     answer:
-      "Alüminyum konstrüksiyon çerçeve çadırlar en güvenli ve teknik entegrasyona uygun çözümdür. Truss, LED ekran ve iklimlendirme altyapıları için ideal taşıyıcı yapıyı sunar.",
+      "Pagoda çadır, sivri tepe formu ve küçük modülleriyle karşılama, kokteyl ve VIP alanlarında öne çıkar. Şeffaf çadır ise manzara, gün ışığı ve dekorun görünür kalmasının istendiği düğün ve gala projelerinde tercih edilir.",
   },
   {
-    question: "Kaç kişilik etkinlik için kaç metrekare çadır gerekir?",
+    question: "Büyük katılımlı etkinliklerde hangi çadır tipi seçilir?",
     answer:
-      "Ayakta kokteyl düzeninde kişi başı yaklaşık 1 m², yuvarlak masa yemek düzeninde 1,5 m², tiyatro düzeni oturmada 0,8 m² hesaplanır. Örneğin 200 kişilik bir yemekli davet için sahne ve servis alanıyla birlikte 300-350 m² çadır planlanmalıdır.",
+      "Fuar, festival ve büyük kurumsal davetlerde geniş açıklıklı alüminyum çerçeve veya high-peak modüler sistemler tercih edilir. Kesin sistem; kişi sayısı kadar sahne, servis, kaçış koridoru ve teknik alan ihtiyacına göre belirlenir.",
   },
   {
-    question: "Çadır kurulumu ne kadar sürer?",
+    question: "Dome çadır hangi etkinlikler için uygundur?",
     answer:
-      "Süre; metrekare, zemin ve hava koşullarına bağlıdır. 100-300 m² arası kurulumlar genellikle aynı gün tamamlanır. Büyük ölçekli işlerde 6-12 kişilik ekip, 1-2 forklift ve 1-2 tam gün operasyon gerekebilir. Teknik keşif bu planın 2-4 hafta önce yapılmasını gerektirir.",
+      "Dome çadır; ürün lansmanı, 360 derece projection mapping ve deneyim odaklı marka aktivasyonlarında güçlü bir görsel kabuk sunar. Standart davet çadırından farklı olarak içerik ve projeksiyon kurgusuyla birlikte proje bazlı planlanır.",
   },
   {
-    question: "Düğün ve özel günlerde çadır seçimi nasıl olmalı?",
+    question: "Şeffaf çadır her mevsim kullanılabilir mi?",
     answer:
-      "Şeffaf tavanlı veya yüksek kubbeli sistemler hem estetik hem de havalandırma açısından avantaj sağlar. Zemin analizi ve rüzgar hesabı mutlaka yapılmalıdır.",
+      "Kullanılabilir; ancak şeffaf yüzeylerde yazın güneş yükü, kışın yoğuşma ve ısı kaybı ayrıca değerlendirilmelidir. Gölgeleme, klima, ısıtma ve havalandırma ihtiyacı mevsime göre teklife eklenir.",
   },
   {
-    question: "Çadır kiralama maliyetini en çok ne etkiler?",
+    question: "Çadır ölçüsünü seçerken yalnız kişi sayısı yeterli mi?",
     answer:
-      "Metrekare, zemin koşulları, ankraj ihtiyacı, iklimlendirme, LED ekran/sahne entegrasyonu ve lojistik giderleri maliyetin ana belirleyicileridir.",
+      "Hayır. Oturma düzeni, sahne, dans pisti, servis koridoru, reji, vestiyer ve kaçış güzergâhları da hesaba katılmalıdır. Kişi sayısı yalnız ilk eleme ölçütüdür.",
   },
   {
     question: "İstanbul dışına çadır kurulumu yapıyor musunuz?",
@@ -210,14 +207,12 @@ function ArticleJsonLd() {
         },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         about: [
-          { "@type": "Service", name: "Çadır Kiralama", url: `${SITE_URL}${TENT_SERVICE_PATH}` },
-          {
-            "@type": "Service",
-            name: "Kurumsal Organizasyon",
-            url: `${SITE_URL}${CORPORATE_SERVICE_PATH}`,
-          },
+          { "@type": "Thing", name: "Etkinliğe göre çadır seçimi" },
+          { "@type": "Thing", name: "Pagoda ve şeffaf çadır karşılaştırması" },
+          { "@type": "Thing", name: "Geniş modül çadır seçimi" },
         ],
         mentions: [
+          `${SITE_URL}${TENT_SERVICE_PATH}`,
           `${SITE_URL}${TENT_CALC_PATH}`,
           `${SITE_URL}${STAGE_SERVICE_PATH}`,
           `${SITE_URL}${LED_SERVICE_PATH}`,
@@ -421,7 +416,7 @@ export default function Page() {
           src: HERO_IMG,
           alt: ARTICLE_TITLE,
         }}
-        pills={["Çadır Kiralama", "Seçim Rehberi", "Teknik Planlama"]}
+        pills={["Çadır Kiralama", "Tür Karşılaştırması", "Seçim Rehberi"]}
         title={ARTICLE_TITLE}
         description={metadata.description}
         publishDate={PUBLISH_DATE}
@@ -439,243 +434,157 @@ export default function Page() {
         whatsappUrl={WA_URL}
       >
         <p>
-          <strong>Çadır kiralama</strong> kararı, yalnızca kaç metrekare tente kurulacağıyla
-          verilmez. Etkinliğin türü, katılımcı sayısı, zemin yapısı, rüzgar yükü, teknik ekipman
-          entegrasyonu ve kurulum takvimi birlikte değerlendirildiğinde doğru çadır sistemi ortaya
-          çıkar. Bu rehberde, teklif almadan önce netleştirmeniz gereken tüm başlıkları adım adım
-          topladık.
+          <strong>Çadır kiralama</strong> araştırmasında ilk soru fiyat değil, hangi sistemin
+          etkinliğinize uyduğudur. Pagoda; karşılama alanında güçlü bir siluet oluşturur, şeffaf
+          çadır manzarayı ve dekoru görünür bırakır, geniş modül sistem ise kalabalık ve teknik
+          prodüksiyon için kesintisiz alan sağlar. Bu rehber, bu seçenekleri aynı karar ölçütleriyle
+          karşılaştırır. Kurulum kapsamı ve saha operasyonu için ayrı{" "}
+          <Link href={TENT_SERVICE_PATH}>çadır kiralama hizmet sayfamızı</Link> kullanabilirsiniz.
         </p>
 
+        <h2 id="hizli-karsilastirma">Hızlı Karşılaştırma: Hangi Çadır Hangi Etkinliğe Uyar?</h2>
+        <p>
+          Seçimi görünüm, ölçek ve içeride kurulacak sistemler belirler. Küçük bir VIP karşılama
+          alanıyla yüzlerce kişilik gala aynı kabuğa ihtiyaç duymaz. Aşağıdaki tablo seçenekleri ilk
+          aşamada elemek içindir; kesin ölçü ve taşıyıcı planı teknik keşifle belirlenir.
+        </p>
         <TentTypeTable />
-
-        <h2 id="neden-cadir">Organizasyonun Görünmeyen Sigortası: Çadır</h2>
-        <p>
-          Açık hava organizasyonlarında her şey hazır gibi görünür: sahne ışıkları parlar, ses net,
-          LED ekranlar kristal... Ancak bir anda rüzgar çıkar, zemin yumuşar ve o "mükemmel" kurulum
-          sallanmaya başlar. İşte o an anlarsınız ki, etkinliğin asıl gizli kahramanı{" "}
-          <strong>çadır sistemidir</strong>.
-        </p>
-        <p>
-          Yanlış çadır seçimi sadece konforu değil, tüm organizasyonun güvenliğini riske atar.
-          Sahneva olarak yılların saha tecrübesiyle söylüyoruz: <Link href={TENT_SERVICE_PATH}>çadır kiralama</Link>{" "}
-          bir tente işi değil; mühendislik, rüzgar yükü hesabı, zemin analizi ve operasyon
-          planlamasıdır.
-        </p>
-
-        <h2 id="cadir-tipleri">1. Etkinlik Türüne Göre Çadır Tipleri</h2>
-
-        <h3>Kurumsal etkinlikler, lansmanlar ve bayi toplantıları</h3>
-        <p>
-          Prestij ve teknik güvenlik birlikte düşünülmelidir. Tercih edilen sistem: alüminyum
-          konstrüksiyon çerçeve çadırlar (4-6 metre yan yükseklik). Truss sistemleri sorunsuz
-          entegre edilir, line array ses sistemleri taşınabilir, dev LED ekran montajı güvenle
-          yapılır, klima ve havalandırma kurulabilir.
-        </p>
-        <p>
-          Sahadaki gerçeklik: Bir lansman projesinde 300 m² alanda ağır truss ve 12 metrelik LED
-          ekran kurduk. Forklift ile ana kirişler kaldırıldı, zemin eğimi milimetrik ölçüldü, ankraj
-          beton bloklarla desteklendi. Tonlarca yük altında tek titreşim yaşanmadı. Marka deneyimini
-          bir adım öteye taşımak isteyen projelerde{" "}
-          <Link href={DOME_BLOG_PATH}>dome çadır ve 360° mapping kurulumları</Link> da
-          değerlendirilebilir.
-        </p>
-
-        <GuideImage
-          src={HERO_IMG}
-          alt="Kurumsal etkinliklerde pagoda çadır kurulumu"
-          caption="Kurumsal etkinliklerde pagoda ve çerçeve sistemler, truss ve LED entegrasyonu için idealdir."
-        />
-
-        <h3>Düğün, nişan ve özel günler</h3>
-        <p>
-          Estetik önemlidir; ancak teknik altyapı sağlam değilse o estetik risk haline gelir.
-          Tercih edilen sistemler: şeffaf tavanlı (clear-top) çadırlar, yüksek kubbeli yapılar ve
-          5-6 metre tavan yüksekliği. Bu sistemler avize, dekor ve ışık askılarına uygundur; hava
-          sirkülasyonu sağlar.
-        </p>
-        <p>
-          Güvenlik detayı: Bir düğünde ani fırtınada, önceden yaptığımız zemin sertlik analizi,
-          rüzgar yönü hesabı, çapraz gergiler ve beton blok sabitlemeleri sayesinde gece sorunsuz
-          geçti.
-        </p>
-
-        <GuideImage
-          src={IMG_CLEAR_TOP}
-          alt="Şeffaf tavanlı düğün çadırı kurulumu"
-          caption="Şeffaf tavanlı çadırlar, dekor ve aydınlatma kurulumunda etkileyici bir atmosfer yaratır."
-        />
-
-        <h3>Fuar, sergi ve festival alanları</h3>
-        <p>
-          Geniş alanlar ve yüksek insan trafiği için modüler sistemler şarttır. Tercih edilen:
-          yüksek açıklıklı (high-peak) sistemler, geniş modül çadırlar ve 100-1.000 m² arası
-          yapılar. Stand yerleşim planı, yangın çıkış koridorları, elektrik dağıtımı ve forklift
-          giriş-çıkış alanı kurulumdan önce çizilen teknik planın parçasıdır.
-        </p>
-
-        <GuideImage
-          src={IMG_WIDE_MODULE}
-          alt="Festival ve sergi alanları için geniş modül çadır örneği"
-          caption="Yüksek peak ve geniş açıklıklı çadırlar, yoğun insan trafiğini rahat yönetmenizi sağlar."
-        />
-
-        <h2 id="kapasite-olcu">2. Kaç Kişi İçin Kaç Metrekare Çadır Gerekir?</h2>
-        <p>
-          Metrekare hesabı, oturma düzenine göre değişir. Ayakta kokteylde kişi başı yaklaşık 1 m²
-          yeterliyken, yuvarlak masalı yemek düzeninde bu değer 1,5 m² seviyesine çıkar. Sahne,
-          dans pisti, servis koridoru ve teknik reji alanı bu hesaba ayrıca eklenmelidir.
-        </p>
-
-        <CapacityTable />
-
-        <p>
-          Yaklaşık alan ihtiyacınızı hızlıca görmek için{" "}
-          <Link href={TENT_CALC_PATH}>çadır hesaplama aracı</Link> üzerinden kişi sayısı ve oturma
-          düzenine göre ilk m² fikrini alabilirsiniz.
-        </p>
-
-        <DecisionBox title="Hızlı karar sorusu">
-          Etkinlikte aynı anda kaç kişi bulunacak ve hangi düzende ağırlanacak? Bu iki cevap,
-          çadır ölçüsünü belirleyen en pratik başlangıç noktasıdır.
+        <DecisionBox title="Tek cümlelik seçim kuralı">
+          Görsel vurgu için pagoda, manzara ve dekor için şeffaf çadır, yüksek kapasite ve teknik
+          prodüksiyon için geniş modül; sürükleyici marka deneyimi için dome sistemini değerlendirin.
         </DecisionBox>
 
-        <h2 id="zemin-ankraj">3. Zemin Yapısı ve Sabitleme Güvenliğin Temelidir</h2>
+        <h2 id="pagoda">Pagoda Çadır Ne Zaman Seçilir?</h2>
         <p>
-          Çadır kurulacak alan çim, asfalt, beton veya toprak olabilir; her zemin farklı sabitleme
-          yöntemi gerektirir. Toprak ve çim zeminlerde kazıklı ankraj kullanılırken, delinemeyen
-          beton ve asfalt zeminlerde beton blok sabitleme uygulanır. Rüzgar yükü hesabı ve zemin
-          sertlik analizi, özellikle açık ve rüzgara maruz alanlarda kurulumun olmazsa olmazıdır.
+          Pagoda çadırın sivri tepe formu uzaktan kolay fark edilir. Bu nedenle kayıt masası,
+          karşılama noktası, VIP lounge, ürün sergileme ve kokteyl alanı gibi küçük-orta ölçekli
+          bölümlerde kullanışlıdır. Birden fazla modül yan yana kurularak giriş aksı veya marka
+          köyü de oluşturulabilir.
         </p>
         <p>
-          Zemin eğimliyse, çadır içi zemin kaplama ve{" "}
-          <Link href={PODIUM_SERVICE_PATH}>podyum sistemleriyle</Link> 10-20 cm yükseltilmiş düz bir
-          taban oluşturulabilir. Bu hem masa-sandalye stabilitesi hem de yağmur drenajı açısından
-          fark yaratır.
+          Pagoda seçerken yalnız dış görünüşe bakmayın. Kapalı yan panel ihtiyacı, misafir akışı,
+          servis kapısı ve modüller arasındaki geçişler baştan çizilmelidir. Büyük sahne, yoğun
+          oturma düzeni veya geniş LED ekran gerekiyorsa pagoda yerine alüminyum çerçeve sistem daha
+          doğru bir başlangıç olabilir.
         </p>
+        <GuideImage
+          src={HERO_IMG}
+          alt="Kurumsal etkinlikte pagoda çadır seçimi"
+          caption="Pagoda modüller; karşılama, kokteyl ve VIP alanlarına belirgin bir giriş silueti kazandırır."
+        />
 
-        <h2 id="teknik-entegrasyon">4. Sahne, LED Ekran ve İklimlendirme Entegrasyonu</h2>
+        <h2 id="seffaf">Şeffaf Çadır Ne Zaman Seçilir?</h2>
         <p>
-          Çadır çoğu zaman tek başına düşünülür; ancak etkinliğin gerçek başarısı çadır, sahne,
-          ekran, ses ve ışığın birlikte çalışmasına bağlıdır. Çadır içine kurulacak{" "}
-          <Link href={STAGE_SERVICE_PATH}>sahne</Link> ve{" "}
-          <Link href={LED_SERVICE_PATH}>LED ekran</Link> sistemleri, tavan yüksekliğini ve taşıyıcı
-          yapı ihtiyacını doğrudan etkiler. Aynı şekilde{" "}
-          <Link href={SOUND_LIGHT_PATH}>ses ışık sistemleri</Link> için truss, kablo geçişi ve
-          teknik masa konumu önceden planlanmalıdır.
+          Şeffaf tavanlı veya şeffaf yan panelli sistemler; düğün, gala ve manzaralı mekânlarda dış
+          çevreyi dekorun parçasına dönüştürür. Gündüz doğal ışık, akşam ise içerideki aydınlatma
+          kurgusu dışarıdan görünür. Bu özellik, kapalı beyaz tenteye göre daha atmosferik bir sonuç
+          verir.
         </p>
         <p>
-          Kış etkinliklerinde ısıtma, yaz etkinliklerinde klima ve havalandırma kapasitesi çadır
-          hacmine göre hesaplanır. Jeneratör konumu, kablo güzergahı ve elektrik dağıtım panosu da
-          aynı teknik planın parçasıdır. Tüm bu kalemleri tek planla ilerletmek isteyen kurumlar
-          için <Link href={CORPORATE_SERVICE_PATH}>kurumsal organizasyon</Link> hizmetimiz anahtar
-          teslim çözüm sunar.
+          Bunun karşılığında iklim kontrolü daha dikkatli planlanır. Yazın güneş yükü ve sera
+          etkisi, kışın ısı kaybı ve yoğuşma; gölgeleme, klima, ısıtma ve havalandırma kararını
+          değiştirir. Öğlen yapılan bir yaz etkinliğinde tamamen şeffaf tavan yerine şeffaf yan panel
+          ile opak tavan kombinasyonu daha dengeli olabilir.
         </p>
+        <GuideImage
+          src={IMG_CLEAR_TOP}
+          alt="Düğün ve gala için şeffaf çadır seçimi"
+          caption="Şeffaf sistemler manzarayı korur; mevsim ve günün saati iklimlendirme kararına doğrudan etki eder."
+        />
 
-        <h2 id="kurulum">5. Profesyonel Çadır Kurulum Süreci</h2>
-        <p>"Kurulum ne kadar sürer?" sorusunun cevabı zemine, hava durumuna ve alana bağlıdır.</p>
-        <div className="not-prose my-8 grid gap-4 md:grid-cols-3">
-          {[
-            {
-              title: "Teknik Keşif (2-4 Hafta Önce)",
-              items: [
-                "Alan ölçümü",
-                "Zemin analizi (çim, asfalt, toprak)",
-                "Rüzgar yönü ve hız değerlendirmesi",
-                "Lojistik giriş planlaması",
-              ],
-            },
-            {
-              title: "Kurulum Günü Operasyonu",
-              items: [
-                "Forklift / vinç konumlandırma",
-                "Ana taşıyıcı kiriş montajı",
-                "Tente gerilimi",
-                "Yan panel ve kapı sistemleri",
-                "Çift kontrol ankraj",
-              ],
-            },
-            {
-              title: "Güvenlik Testi",
-              items: [
-                "Rüzgar yükü kontrolü",
-                "Zemin tutuş testi",
-                "Bağlantı noktalarının son kontrolü",
-              ],
-            },
-          ].map((step) => (
-            <div key={step.title} className="rounded-2xl border border-gray-200 bg-gray-50 p-4">
-              <h3 className="text-sm font-semibold text-gray-900">{step.title}</h3>
-              <ul className="mt-3 space-y-2 text-xs text-gray-600">
-                {step.items.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <h2 id="genis-modul">Geniş Modül ve High-Peak Çadır Ne Zaman Seçilir?</h2>
         <p>
-          Büyük ölçekli işlerde 6-12 kişilik ekip, 1-2 forklift ve 1 tam gün operasyon gerekebilir.
+          Fuar, festival, bayi toplantısı, lansman ve büyük yemekli davetlerde öncelik kesintisiz iç
+          hacimdir. Alüminyum çerçeve ve geniş açıklıklı modüler sistemler; masa düzeni, sahne,
+          servis koridorları ve teknik reji için daha esnek bir yerleşim sunar. İhtiyaç arttıkça
+          sistem boyuna modüllerle büyütülebilir.
+        </p>
+        <p>
+          Tavan yüksekliği de seçim ölçütüdür. <Link href={STAGE_SERVICE_PATH}>Sahne</Link>,{" "}
+          <Link href={LED_SERVICE_PATH}>LED ekran</Link> ve{" "}
+          <Link href={SOUND_LIGHT_PATH}>ses-ışık sistemleri</Link> kurulacaksa, yalnız taban
+          metrekaresini değil üst hacmi ve güvenli askı planını da değerlendirin. Dairesel görüntü
+          veya projection mapping odaklı bir lansmanda ise klasik geniş modül yerine{" "}
+          <Link href={DOME_BLOG_PATH}>dome çadır çözümü</Link> daha güçlü bir deneyim sunabilir.
+        </p>
+        <GuideImage
+          src={IMG_WIDE_MODULE}
+          alt="Fuar ve festival için geniş modül çadır seçimi"
+          caption="Geniş modül sistemler; kalabalık akışı, sahne ve teknik alanları aynı hacimde planlamayı kolaylaştırır."
+        />
+
+        <h2 id="kapasite">Kapasiteyi Bir Eleme Ölçütü Olarak Kullanın</h2>
+        <p>
+          Kişi sayısı doğru sistemi tek başına seçmez ama uygun olmayan seçenekleri hızlıca eler.
+          Ayakta kokteyl ile yuvarlak masa düzeni aynı katılımcı sayısında farklı alan ister; sahne,
+          dans pisti, servis ve reji alanları da ayrıca eklenir.
+        </p>
+        <CapacityTable />
+        <p>
+          İlk m² aralığını görmek için <Link href={TENT_CALC_PATH}>çadır hesaplama aracını</Link>{" "}
+          kullanın. Sonucu kesin proje ölçüsü olarak değil, pagoda modülleriyle mi yoksa geniş
+          açıklıklı tek hacimle mi ilerlemeniz gerektiğini gösteren bir başlangıç verisi olarak
+          değerlendirin.
         </p>
 
         <TentGallery />
 
-        <h2 id="maliyet">6. 2026 Çadır Kiralama Maliyetlerini Etkileyen Faktörler</h2>
+        <h2 id="saha-kosullari">Aynı Etkinlikte Seçimi Değiştiren Saha Koşulları</h2>
         <p>
-          Maliyetler; metrekare büyüklüğü, kiralama süresi, mevsim, zemin koşulları, ek ankraj
-          ihtiyacı, klima ve iklimlendirme, LED ekran/sahne entegrasyonu, forklift-vinç gereksinimi
-          ve İstanbul dışı lojistik kalemlerine göre değişir. Bu nedenle yalnızca "kaç metrekare?"
-          sorusuyla alınan fiyatlar çoğu zaman eksik kalır.
+          Fotoğrafta beğendiğiniz sistem her alana aynı şekilde uygulanamaz. Çim ve toprak zemin
+          kazıklı ankraja izin verirken, delinemeyen beton veya asfalt yüzeylerde balast planı
+          gerekir. Eğimli alanda düz bir kullanım yüzeyi için{" "}
+          <Link href={PODIUM_SERVICE_PATH}>modüler platform</Link> eklenmesi gerekebilir.
         </p>
-        <p>
-          En doğru fiyat için etkinlik tarihi, il/ilçe, alan ölçüsü, kişi sayısı, oturma düzeni,
-          çadır içinde kullanılacak teknik ekipmanlar ve kurulum-söküm saatleri netleştirilmelidir.
-        </p>
-        <div className="not-prose rounded-2xl border border-gray-200 bg-gray-50 p-5">
-          <p className="m-0 font-semibold text-gray-900">Teklif alırken mutlaka sorun:</p>
-          <ul className="mt-3 space-y-2 text-sm text-gray-700">
-            <li>• Teknik keşif yapıldı mı?</li>
-            <li>• Rüzgar yükü hesabı var mı?</li>
-            <li>• İSG standartları uygulanıyor mu?</li>
-            <li>• Sabitleme yöntemi nedir?</li>
-          </ul>
+        <div className="not-prose my-8 grid gap-4 md:grid-cols-2">
+          {[
+            {
+              title: "Rüzgâr ve açık cephe",
+              text: "Sahil, tepe veya açık arazide rüzgâr maruziyeti; yan panel kullanımını, ankrajı ve uygun sistem ölçüsünü değiştirir.",
+            },
+            {
+              title: "Mevsim ve günün saati",
+              text: "Şeffaf yüzey, gölgeleme, ısıtma, klima ve havalandırma kararı hava koşullarıyla birlikte verilmelidir.",
+            },
+            {
+              title: "Yükleme erişimi",
+              text: "Forklift veya vinç girişinin sınırlı olduğu alanlarda büyük modül yerine daha küçük parçalarla kurulabilen çözüm gerekebilir.",
+            },
+            {
+              title: "İçerideki prodüksiyon",
+              text: "Sahne yüksekliği, LED ekran ölçüsü, truss ve reji alanı çadırın taban ölçüsünü ve tavan yüksekliğini etkiler.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+              <h3 className="m-0 text-base font-black text-gray-900">{item.title}</h3>
+              <p className="mb-0 mt-2 text-sm leading-relaxed text-gray-700">{item.text}</p>
+            </div>
+          ))}
         </div>
-
-        <h2 id="risk">7. Sık Yapılan Hatalar: En Büyük Risk Planlama Eksikliği</h2>
         <p>
-          Sahada karşılaştığımız sorunların neredeyse tamamı aynı dört hataya dayanır: yetersiz
-          sabitleme, yanlış zemin analizi, forklift trafiğinin hesaplanmaması ve yapının aşırı yük
-          ile zorlanması. Kişi sayısına tam denk gelen metrekareyle ilerlemek de yaygın bir hatadır;
-          servis, sahne ve sirkülasyon alanı her zaman ayrıca hesaplanmalıdır. Profesyonel keşif ve
-          kurulum, bu riskleri sıfıra yaklaştırır.
+          Ankraj hesabı, taşıyıcı detaylar, kurulum-söküm takvimi ve fiyat kapsamı bu seçim
+          rehberinin değil, teknik keşif ve teklif sürecinin konusudur. Bu ayrıntıları{" "}
+          <Link href={TENT_SERVICE_PATH}>çadır kiralama hizmet kapsamımızda</Link> bulabilirsiniz.
         </p>
 
-        <h2>Teklif Almadan Önce Çadır Kiralama Kontrol Listesi</h2>
+        <h2 id="karar-listesi">Tekliften Önce Çadır Türünü Netleştiren 7 Cevap</h2>
         <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
           <ul className="m-0 space-y-3 text-base leading-relaxed text-gray-800">
-            <li>Etkinlik türü: kurumsal, düğün, fuar, festival veya uzun dönem depolama</li>
-            <li>Katılımcı sayısı ve oturma düzeni (kokteyl, yemek, tiyatro)</li>
-            <li>Alan ölçüsü, zemin türü ve eğim durumu</li>
-            <li>Sahne, podyum, LED ekran, ses-ışık entegrasyonu ihtiyacı</li>
-            <li>Isıtma, klima veya havalandırma gereksinimi</li>
-            <li>Elektrik altyapısı ve jeneratör planı</li>
-            <li>Kurulum, etkinlik ve söküm tarihleri</li>
-            <li>Şehir ve alan erişimi (forklift/vinç girişi, yükleme alanı)</li>
+            <li>Etkinliğin ana formatı: karşılama, kokteyl, yemek, fuar, festival veya lansman</li>
+            <li>İstenen görünüm: belirgin pagoda silueti, şeffaf manzara veya geniş tek hacim</li>
+            <li>Katılımcı sayısı ve oturma düzeni</li>
+            <li>Sahne, LED ekran, dekor ve teknik reji için ayrılacak alan</li>
+            <li>Mekânın zemin türü, eğimi ve rüzgâra açıklığı</li>
+            <li>Etkinlik mevsimi, başlangıç saati ve iklimlendirme ihtiyacı</li>
+            <li>Kurulum alanına forklift/vinç ve yükleme aracının erişimi</li>
           </ul>
         </div>
-
-        <h2 id="sonuc">Sonuç: Başarılı Organizasyonun Temeli Güvendir</h2>
         <p>
-          Doğru çadır sadece yağmurdan korumaz; markanızın itibarını, misafirlerinizin güvenliğini
-          ve emeğinizi taşır. Etkinlik günü herkes sahneye bakarken, arka planda forklift operatörü
-          milimetrik manevra yapar, teknik ekip bağlantıları iki kez kontrol eder, rüzgar hesapları
-          gözden geçirilir. Ve siz içiniz rahat izlersiniz.
-        </p>
-        <p>
-          Etkinliğiniz için doğru sistemi seçmek ve fiyat almak isterseniz{" "}
-          <Link href={TENT_SERVICE_PATH}>çadır kiralama</Link> hizmet sayfamızdaki kapsam, çadır
-          tipleri ve kurulum detaylarını inceleyebilir; anahtar teslim projeler için{" "}
-          <Link href={CORPORATE_SERVICE_PATH}>kurumsal organizasyon</Link> ekibimizden teklif
-          alabilirsiniz.
+          Bu cevaplar hazır olduğunda sistem seçimi hızlanır ve farklı tedarikçilerden gelen
+          teklifleri aynı kapsam üzerinden karşılaştırmak kolaylaşır. Çadır, sahne ve teknik
+          prodüksiyonun birlikte planlandığı projeler için{" "}
+          <Link href={CORPORATE_SERVICE_PATH}>kurumsal organizasyon</Link> ekibimizle tek brief
+          üzerinden ilerleyebilirsiniz.
         </p>
 
         <section aria-labelledby="faq-heading" className="not-prose mt-12 space-y-3">
