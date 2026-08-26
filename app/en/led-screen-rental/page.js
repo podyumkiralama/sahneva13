@@ -12,15 +12,24 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
+import { getLastModifiedForFile } from "@/lib/seoLastModified";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const PAGE_LAST_MODIFIED = getLastModifiedForFile(
+  "app/en/led-screen-rental/page.js",
+  "2026-08-26",
+);
 const PHONE = "+905453048671";
 const WA_TEXT =
   "Hello, I'd like to request a professional quote for our LED screen rental project. Event type: [Concert/Expo/Wedding], Date: [Date], City: [City].";
 const WHATSAPP = `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(WA_TEXT)}`;
+const CURVED_P19_RING_IMAGE =
+  "/img/led/absen-p19-sekiz-panel-360-dairesel-led-arka-baglanti-sahneva.webp";
+const CURVED_P19_STAGE_IMAGE =
+  "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp";
 const STANDARD_LED_RATE = new Intl.NumberFormat("en-GB").format(
   LED_SCREEN_PRICING.standard.perSqm,
 );
@@ -45,12 +54,12 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "LED Screen & LED Wall Rental in Turkey",
   description:
-    "LED screen rental company in Turkey for indoor and outdoor LED walls, with P2–P6 pixel pitch, 4K processing, installation and on-site operators.",
+    "LED screen and LED wall rental in Turkey with indoor, outdoor, P1.9 curved and circular systems, 4K processing, installation and on-site operators.",
   alternates: buildAlternatesForPath("/en/led-screen-rental"),
   openGraph: {
     title: "LED Screen & LED Wall Rental in Turkey | Sahneva",
     description:
-      "Indoor and outdoor LED screen rental with P2–P6 pixel pitch, high brightness, IP65 protection and certified installation.",
+      "Indoor, outdoor and curved LED screen rental in Turkey with Absen P1.9, Unilumin P2.6/P2.9, installation, processing and on-site operators.",
     url: `${ORIGIN}/en/led-screen-rental`,
     type: "website",
     siteName: "Sahneva",
@@ -66,7 +75,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "LED Screen & LED Wall Rental in Turkey | Sahneva",
     description:
-      "LED screen rental with high brightness, 4K processors and nationwide certified crews for concerts, expos and corporate events.",
+      "LED screen rental with P1.9 curved indoor and outdoor LED walls, NovaStar processing and nationwide installation crews.",
     images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -89,9 +98,9 @@ const HERO = {
 const SERVICES = [
   {
     icon: "🖥️",
-    title: "Indoor LED Screens",
-    description: "High-resolution displays with P2.5–P3.9 pixel pitch for close viewing distances",
-    features: ["P2.5–P3.9 pixel pitch", "800–1500 nit brightness", "4K-ready processors", "Rapid installation"],
+    title: "Indoor & Curved LED Screens",
+    description: "High-resolution Absen and Unilumin panels for close-view and shaped indoor installations",
+    features: ["Absen P1.9 curved indoor", "Unilumin P2.6 / P2.9", "Circular and concave layouts", "NovaStar processing"],
   },
   {
     icon: "🌞",
@@ -103,7 +112,7 @@ const SERVICES = [
     icon: "🎬",
     title: "LED Video Wall Systems",
     description: "Modular video wall configurations for creative layouts and scenic designs",
-    features: ["Modular design", "Flexible configurations", "High refresh rates", "Professional controllers"],
+    features: ["Modular design", "Curved and circular layouts", "High refresh rates", "Professional controllers"],
   },
   {
     icon: "⚡",
@@ -263,7 +272,7 @@ function QuickAnswer() {
             exhibitions, product launches, concerts and festivals. We handle the site survey,
             nationwide logistics, safe rigging, installation, video processing, content testing,
             live operation and dismantling. International agencies can also combine the LED wall
-            with our <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/event-production-company-turkey">local event production support</Link>,{" "}
+            with our <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/event-production-company-turkey">event stage production support in Turkey</Link>,{" "}
             <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
             <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/corporate-events">corporate event production</Link>.
           </p>
@@ -348,6 +357,96 @@ function Services() {
   );
 }
 
+/* ================== Real curved P1.9 application ================== */
+function CurvedP19Proof() {
+  return (
+    <section
+      id="curved-circular-led-screen"
+      className="bg-[#0B1120] py-16 text-white md:py-20"
+      aria-labelledby="curved-p19-heading"
+    >
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-300">
+              Real Absen P1.9 application
+            </p>
+            <h2 id="curved-p19-heading" className="mt-3 text-3xl font-black leading-tight md:text-5xl">
+              Curved and circular <span className="text-violet-300">LED screen installation</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/75">
+              During workshop pre-assembly, eight Absen P1.9 panels were joined at 45° per panel to form a
+              closed 360° LED ring. This is our smallest circular configuration; larger diameters can be
+              planned by adapting the panel count and joint angles to the project dimensions.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-white/65">
+              For curved P1.9 LED screen rental in Istanbul or elsewhere in Turkey, the final diameter,
+              screen resolution, support method and content canvas are confirmed against the stage design.
+            </p>
+          </div>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-violet-300/30 bg-violet-300/10 px-5 py-3 font-black text-violet-100 transition hover:bg-violet-300/20 focus-ring sm:w-fit"
+            aria-label="Discuss a curved LED screen project on WhatsApp (opens in a new tab)"
+          >
+            Discuss a curved LED build
+          </a>
+        </div>
+
+        <div className="mt-9 grid gap-5 md:grid-cols-[0.75fr_1.25fr]">
+          <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+            <div className="relative h-[340px] overflow-hidden bg-slate-950 md:h-[460px]">
+              <Image
+                src={CURVED_P19_RING_IMAGE}
+                alt="Rear connections of eight Absen P1.9 LED panels joined at 45 degrees to form a 360-degree circular display"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 38vw"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="p-5">
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-violet-300">
+                Smallest circular format
+              </span>
+              <h3 className="mt-2 text-xl font-black">8 panels × 45° = 360°</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
+                The rear view shows the cabinet joints and the complete circular geometry before the screen is
+                prepared for the event site.
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
+            <div className="relative h-[340px] overflow-hidden bg-slate-950 md:h-[460px]">
+              <Image
+                src={CURVED_P19_STAGE_IMAGE}
+                alt="Absen P1.9 curved upper LED band and circular LED ring installed on an event stage"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 62vw"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="p-5">
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-violet-300">
+                Event-site application
+              </span>
+              <h3 className="mt-2 text-xl font-black">Curved upper band and circular LED ring</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
+                The curved elements were installed with the main stage wall and checked as separate mapped
+                canvases during the image rehearsal.
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ================== Gallery ================== */
 const GALLERY_IMAGES = [
   {
@@ -424,8 +523,8 @@ function Technical() {
     {
       category: "pixel",
       title: "Pixel technologies",
-      description: "P2.5–P6 pixel pitch options tailored to every audience distance",
-      features: ["P2.5: Premium indoor detail", "P3.9: Hybrid use", "P4: Outdoor standard", "P6: Long-distance viewing"]
+      description: "Pixel-pitch options selected around viewing distance, content detail and camera use",
+      features: ["P1.9: Close-view indoor detail", "P2.6 / P2.9: Indoor event formats", "P3.9 / P4: Hybrid and outdoor use", "P6: Long-distance viewing"]
     },
     {
       category: "brightness",
@@ -875,7 +974,17 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "Which pixel pitch should I choose?",
     answer:
-      "Pixel pitch should match viewing distance. P2.5 to P3.9 suits 3 to 10 metre audiences, P4 suits 10 to 25 metres and P6 suits 25 metres and above.",
+      "Start with the closest viewing distance, content detail and camera plan. P1.9 suits close-view presentations and camera-led productions, P2.6 or P2.9 covers many indoor conference and launch layouts, and P3.9 is considered for longer viewing distances and outdoor stages.",
+  },
+  {
+    question: "Can you build curved or circular LED screens?",
+    answer:
+      "Yes. Sahneva's Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed.",
+  },
+  {
+    question: "Can this system be used as a flexible LED alternative?",
+    answer:
+      "Yes, when a brief uses flexible LED to mean a planned curved or circular display rather than a freely bendable soft module. Sahneva's photographed Absen P1.9 system uses rental cabinets joined at planned angles, so it is a different product type from flexible LED modules. We confirm the radius, dimensions, viewing distance and support method before recommending it as the alternative.",
   },
   {
     question: "Do you provide LED screen rental outside Istanbul?",
@@ -900,7 +1009,15 @@ function FAQ() {
     },
     {
       q: "Which pixel pitch should I choose?",
-      a: "Match the pixel pitch to viewing distance. Pick P2.5–P3.9 for 3–10 m audiences, P4 for 10–25 m and P6 for 25 m+. Indoor events usually select P2.5–P3.9 while outdoor concerts and rallies use P4–P6 for optimal clarity."
+      a: "Start with the closest viewing distance, content detail and camera plan. P1.9 suits close-view presentations and camera-led productions, P2.6 or P2.9 covers many indoor conference and launch layouts, and P3.9 is considered for longer viewing distances and outdoor stages."
+    },
+    {
+      q: "Can you build curved or circular LED screens?",
+      a: "Yes. Sahneva's Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed."
+    },
+    {
+      q: "Can this system be used as a flexible LED alternative?",
+      a: "Yes, when a brief uses flexible LED to mean a planned curved or circular display rather than a freely bendable soft module. Sahneva's photographed Absen P1.9 system uses rental cabinets joined at planned angles, so it is a different product type from flexible LED modules. We confirm the radius, dimensions, viewing distance and support method before recommending it as the alternative."
     },
     {
       q: "Do you provide LED screen rental outside Istanbul?",
@@ -1114,10 +1231,15 @@ function LedScreenJsonLd() {
       {
         "@type": "Service",
         name: "LED Screen and LED Wall Rental in Turkey",
-        description: "Professional LED screen rental in Turkey with P2–P6 pixel pitch, indoor and outdoor LED walls, video processors, installation teams and on-site operators.",
+        description: "LED screen rental in Turkey with Absen P1.9 curved and circular indoor displays, Unilumin P2.6/P2.9 panels, outdoor LED walls, video processors, installation teams and on-site operators.",
           provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
-        serviceType: "LED screen and LED wall rental",
+        serviceType: "LED screen, LED wall, curved LED and circular LED display rental",
+        image: [
+          `${ORIGIN}${HERO.src}`,
+          `${ORIGIN}${CURVED_P19_RING_IMAGE}`,
+          `${ORIGIN}${CURVED_P19_STAGE_IMAGE}`,
+        ],
         offers: {
           "@type": "Offer",
           description: "Comprehensive LED wall rental with installation and operators"
@@ -1133,8 +1255,15 @@ function LedScreenJsonLd() {
       {
         "@type": "WebPage",
         name: "LED Screen & LED Wall Rental in Turkey | Sahneva",
-        description: "LED screen rental in Turkey with P2–P6 pixel pitch, 4K processing, high-brightness indoor and outdoor LED walls, installation and operators.",
+        description: "LED screen rental in Turkey with P1.9 curved indoor, P2.6/P2.9 and outdoor LED walls, processing, installation and on-site operators.",
         url: `${ORIGIN}/en/led-screen-rental`,
+        inLanguage: "en",
+        dateModified: PAGE_LAST_MODIFIED,
+        image: [
+          `${ORIGIN}${HERO.src}`,
+          `${ORIGIN}${CURVED_P19_RING_IMAGE}`,
+          `${ORIGIN}${CURVED_P19_STAGE_IMAGE}`,
+        ],
         mainEntity: {
           "@type": "Service",
           name: "LED Screen Rental"
@@ -1175,6 +1304,7 @@ export default function Page() {
       <Hero />
       <QuickAnswer />
       <Services />
+      <CurvedP19Proof />
       <Gallery />
       <Technical />
       <StatsBand />
@@ -1191,9 +1321,9 @@ export default function Page() {
       <ServiceBlogLinks
         locale="en"
         links={[
+          { href: "/en/blog/flexible-vs-curved-led-screens-for-events", label: "Flexible vs. Curved LED Screens for Events" },
           { href: "/en/blog/led-pixel-pitch-viewing-distance-guide", label: "LED Pixel Pitch & Viewing Distance Guide" },
           { href: "/en/blog/led-screen-technology-trends-2026", label: "2026 LED Screen Technology Trends" },
-          { href: "/en/blog/event-technical-scouting-and-planning-guide", label: "Event Technical Scouting and Planning Guide" },
         ]}
         relatedServices={[
           { href: "/en/av-rental-istanbul", label: "AV Rental Istanbul", intent: "LED bundled with audio, lighting and crew for Istanbul events" },

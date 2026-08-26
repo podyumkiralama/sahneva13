@@ -412,6 +412,15 @@ export default function Page() {
           portrait
         />
 
+        <p>
+          “Flexible LED” and cabinet-based curved LED are not interchangeable construction methods. If the
+          brief includes an exhibition curve, cylindrical feature or circular ring, compare the two systems
+          in the{" "}
+          <Link href="/en/blog/flexible-vs-curved-led-screens-for-events">
+            flexible vs. curved LED screens for events guide
+          </Link>.
+        </p>
+
         <h2 id="quote-checklist">What to include in an LED screen quote request</h2>
         <p>
           A useful brief lets suppliers quote the same scope. Share the following before comparing price:
