@@ -9,7 +9,6 @@ import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -2018,19 +2017,6 @@ function TentRentalJsonLd() {
       : {}),
   }));
 
-  const productNodes = buildServiceProductSchema
-    ? buildServiceProductSchema({
-        serviceId,
-        pageUrl,
-        origin: ORIGIN,
-        items: PRICING_ITEMS.map((item) => ({
-          name: item.title,
-          description: item.description,
-          price: item.price,
-        })),
-      })
-    : [];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -2043,7 +2029,6 @@ function TentRentalJsonLd() {
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       faqNode,
-      ...(Array.isArray(productNodes) ? productNodes : []),
       ...videoNodes,
     ],
   };

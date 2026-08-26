@@ -59,6 +59,29 @@ const LENGTH_EXEMPT = /^\/(zh|ar|ru)(\/|$)/;
 // Next.js'in kendi ic rotalari; SEO yuzeyi degil.
 const INTERNAL_ROUTES = new Set(["/_global-error", "/_not-found"]);
 
+// Bu rotalar perakende urun satmaz; ekipman kiralama, nakliye, kurulum ve
+// sokumu tek saha hizmeti olarak sunar. Product veya Merchant'a ozgu kargo/iade
+// sinyalleri Google Merchant tarafinda sahte bir fiziksel urun kaydi acabilir.
+const RENTAL_SERVICE_ROUTES = new Set([
+  "/sahne-kiralama",
+  "/masa-sandalye-kiralama",
+  "/ses-isik-sistemleri",
+  "/sisme-oyun-parki-kiralama",
+  "/en/stage-rental",
+]);
+const RENTAL_REQUIRED_SCHEMA_TYPES = new Set(["Service", "OfferCatalog", "Offer"]);
+const RENTAL_FORBIDDEN_SCHEMA_TYPES = new Set([
+  "Product",
+  "AggregateOffer",
+  "MerchantReturnPolicy",
+  "OfferShippingDetails",
+]);
+const RENTAL_FORBIDDEN_SCHEMA_PROPS = new Set([
+  "availability",
+  "hasMerchantReturnPolicy",
+  "shippingDetails",
+]);
+
 const PUBLIC_DIR = path.resolve(process.cwd(), "public");
 
 /* -------------------- yapisal veri kurallari --------------------
@@ -342,6 +365,10 @@ for (const file of files) {
     addWarning(route, "jsonld-missing", "indekslenebilir sayfada JSON-LD yok");
   }
 
+  const routeSchemaTypes = new Set();
+  const routeSchemaProps = new Set();
+  const routeSchemaPayloads = [];
+
   for (const block of ldBlocks) {
     let parsed;
     try {
@@ -350,6 +377,23 @@ for (const file of files) {
       addError(route, "jsonld-invalid", `JSON parse hatasi: ${error.message}`);
       continue;
     }
+    routeSchemaPayloads.push(parsed);
+
+    const collectRentalSignals = (node) => {
+      if (Array.isArray(node)) return node.forEach(collectRentalSignals);
+      if (!node || typeof node !== "object") return;
+      for (const type of [].concat(node["@type"] ?? [])) {
+        if (typeof type === "string") routeSchemaTypes.add(type);
+      }
+      for (const prop of Object.keys(node)) {
+        if (!prop.startsWith("@")) routeSchemaProps.add(prop);
+      }
+      Object.values(node).forEach((value) => {
+        if (value && typeof value === "object") collectRentalSignals(value);
+      });
+    };
+    collectRentalSignals(parsed);
+
     const collect = (node) => {
       if (Array.isArray(node)) return node.forEach(collect);
       if (!node || typeof node !== "object") return;
@@ -422,6 +466,35 @@ for (const file of files) {
     // Sablon sizintisi: derlenmemis placeholder yayina cikmamali.
     if (/\{\{|\$\{/.test(block)) {
       addError(route, "jsonld-placeholder", "JSON-LD icinde derlenmemis sablon ifadesi var");
+    }
+  }
+
+  if (RENTAL_SERVICE_ROUTES.has(route)) {
+    for (const type of RENTAL_REQUIRED_SCHEMA_TYPES) {
+      if (!routeSchemaTypes.has(type)) {
+        addError(route, "rental-service-schema-missing", `${type} semasi bulunamadi`);
+      }
+    }
+    for (const type of RENTAL_FORBIDDEN_SCHEMA_TYPES) {
+      if (routeSchemaTypes.has(type)) {
+        addError(route, "rental-merchant-schema", `${type} kiralama hizmetinde kullanilamaz`);
+      }
+    }
+    for (const prop of RENTAL_FORBIDDEN_SCHEMA_PROPS) {
+      if (routeSchemaProps.has(prop)) {
+        addError(route, "rental-merchant-property", `${prop} kiralama hizmetinde kullanilamaz`);
+      }
+    }
+
+    if (
+      route === "/en/stage-rental" &&
+      JSON.stringify(routeSchemaPayloads).includes(`${SITE_ORIGIN}/sahne-kiralama`)
+    ) {
+      addError(
+        route,
+        "rental-locale-leak",
+        "Ingilizce sahne semasina Turkce /sahne-kiralama kimligi siziyor",
+      );
     }
   }
 }

@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
@@ -1859,7 +1859,7 @@ function StageJsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  const { service: serviceSchema, products } = buildServiceProductSchema({
+  const { service: serviceSchema, offers } = buildServiceOfferSchema({
     slug: "/sahne-kiralama",
     locale: "tr-TR",
   });
@@ -1885,7 +1885,7 @@ function StageJsonLd() {
   };
 
   const serviceId = serviceNode["@id"];
-  const productNodes = products ?? [];
+  const offerNodes = offers ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS, {
     id: `${pageUrl}#faq`,
     pageId: webPageId,
@@ -1933,7 +1933,7 @@ function StageJsonLd() {
       },
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      ...productNodes,
+      ...offerNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],
   };

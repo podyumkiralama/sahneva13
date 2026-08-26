@@ -8,7 +8,7 @@ import { join } from "node:path";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
@@ -1226,7 +1226,7 @@ function SoundLightJsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  const { service: serviceSchema, products } = buildServiceProductSchema({
+  const { service: serviceSchema, offers } = buildServiceOfferSchema({
     slug: "/ses-isik-sistemleri",
     locale: "tr-TR",
   });
@@ -1253,7 +1253,7 @@ function SoundLightJsonLd() {
 
   const serviceId = serviceNode["@id"];
 
-  const productNodes = products ?? [];
+  const offerNodes = offers ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS, {
     id: `${pageUrl}#faq`,
     pageId: webPageId,
@@ -1299,7 +1299,7 @@ function SoundLightJsonLd() {
       },
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      ...productNodes,
+      ...offerNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],
   };

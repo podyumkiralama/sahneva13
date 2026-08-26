@@ -13,7 +13,7 @@ import PageHero from "@/components/PageHero";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { Music, Layers, Monitor, Tent } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
@@ -1577,7 +1577,7 @@ function TableChairJsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  const { service: serviceSchema, products } = buildServiceProductSchema({
+  const { service: serviceSchema, offers } = buildServiceOfferSchema({
     slug: "/masa-sandalye-kiralama",
     locale: "tr-TR",
   });
@@ -1612,7 +1612,7 @@ function TableChairJsonLd() {
   const serviceId = serviceNode["@id"] ?? `${pageUrl}#service`;
   serviceNode["@id"] = serviceId;
 
-  const productNodes = products ?? [];
+  const offerNodes = offers ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS, {
     id: `${pageUrl}#faq`,
     pageId: webPageId,
@@ -1657,7 +1657,7 @@ function TableChairJsonLd() {
       },
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      ...productNodes,
+      ...offerNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],
   };

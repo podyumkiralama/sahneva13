@@ -239,16 +239,21 @@ function StructuredData() {
             itemListElement: category.products.map((product) => ({
               "@type": "Offer",
               url: PAGE_URL + "#" + product.id,
+              eligibleRegion: { "@type": "Country", name: "Türkiye" },
+              seller: { "@id": ORIGIN + "/#org" },
               itemOffered: {
-                "@type": "Product",
+                "@type": "Service",
                 name: product.name,
-                category: category.title,
+                serviceType: category.title,
                 image: ORIGIN + product.image,
+                provider: { "@id": ORIGIN + "/#org" },
+                areaServed: { "@type": "Country", name: "Türkiye" },
+                providerMobility: "dynamic",
                 description:
                   product.dimension +
                   ". " +
                   product.useCase +
-                  ". Proje bazlı tedarik seçeneği.",
+                  ". Proje bazlı kiralama ve saha kurulumu.",
               },
             })),
           })),

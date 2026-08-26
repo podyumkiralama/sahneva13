@@ -6,7 +6,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import { buildFaqSchema } from "@/lib/structuredData/faq";
-import { buildServiceProductSchema } from "@/lib/structuredData/serviceProducts";
+import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -1593,11 +1593,9 @@ function StageJsonLd() {
 
   const provider = { "@id": ORGANIZATION_ID };
 
-  // Uses the Turkish slug to look up shared product schema data (no en-US entry exists).
-  // The actual page URL and inLanguage are overridden below.
-  const { service: serviceSchema, products } = buildServiceProductSchema({
-    slug: "/sahne-kiralama",
-    locale: "tr-TR",
+  const { service: serviceSchema, offers } = buildServiceOfferSchema({
+    slug: "/en/stage-rental",
+    locale: "en-US",
   });
 
   const baseService = {
@@ -1619,7 +1617,7 @@ function StageJsonLd() {
   };
 
   const serviceId = serviceNode["@id"];
-  const productNodes = products ?? [];
+  const offerNodes = offers ?? [];
   const faqSchema = buildFaqSchema(FAQ_ITEMS, {
     id: `${pageUrl}#faq`,
     pageId: webPageId,
@@ -1650,7 +1648,7 @@ function StageJsonLd() {
         },
         mainEntity: { "@id": serviceId },
       },
-      ...productNodes,
+      ...offerNodes,
       ...(faqSchema ? [faqSchema] : []),
     ],
   };
