@@ -263,7 +263,7 @@ export default function NavbarMobile({ locale = "tr", serviceLinks, researchLink
                 <div className="space-y-1 rounded-lg border border-neutral-200 bg-white p-2 nav-dark:border-white/10 nav-dark:bg-[#111827]">
                   {serviceLinks.map(({ href, label, icon, description }) => (
                     <Link
-                      key={href}
+                      key={`${href}-${label}`}
                       href={href}
                       prefetch={false}
                       onClick={() => closeMenu()}
