@@ -140,8 +140,6 @@ const GalleryCard = memo(function GalleryCard({
 
   if (variant === "heroMosaic") {
     const titleId = `project-mosaic-${cardId}-title`;
-    const detailId = `project-mosaic-${cardId}-detail`;
-    const countId = `project-mosaic-${cardId}-count`;
     const imageCount = gallery.images.length;
     const imageSizes = featured
       ? "(max-width: 1023px) calc(100vw - 2rem), (max-width: 1535px) 58vw, 900px"
@@ -153,16 +151,12 @@ const GalleryCard = memo(function GalleryCard({
           type="button"
           onClick={handleOpen}
           className={heroStyles.button}
-          aria-labelledby={titleId}
-          aria-describedby={`${detailId} ${countId}`}
+          data-project-mosaic-trigger
           aria-haspopup="dialog"
         >
           <Image
             src={coverSrc}
-            alt={fillTemplate(dictionary.lightboxAlt, {
-              title,
-              index: 1,
-            })}
+            alt=""
             fill
             sizes={imageSizes}
             quality={75}
@@ -176,7 +170,7 @@ const GalleryCard = memo(function GalleryCard({
           />
 
           <span className={heroStyles.shade} aria-hidden="true" />
-          <span id={countId} className={heroStyles.assetCount}>
+          <span className={heroStyles.assetCount}>
             GALERİ · {imageCount} KARE
           </span>
           <span className={heroStyles.caption}>
@@ -184,7 +178,7 @@ const GalleryCard = memo(function GalleryCard({
             <span id={titleId} className={heroStyles.projectTitle}>
               {gallery.shortTitle ?? title}
             </span>
-            <span id={detailId} className={heroStyles.meta}>
+            <span className={heroStyles.meta}>
               {gallery.meta ?? gallery.description}
             </span>
           </span>

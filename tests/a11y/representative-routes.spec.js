@@ -70,6 +70,41 @@ for (const route of representativeRoutes) {
   });
 }
 
+test("home project mosaic visible labels match their accessible names", async ({
+  page,
+}) => {
+  const response = await page.goto("/", { waitUntil: "domcontentloaded" });
+  expect(response?.ok(), `/ returned HTTP ${response?.status()}`).toBeTruthy();
+
+  const projectTriggers = page.locator("[data-project-mosaic-trigger]");
+  await expect(projectTriggers).toHaveCount(3);
+  await page.addScriptTag({ path: axePath });
+
+  const violations = await page.evaluate(async () => {
+    const results = await window.axe.run("[data-project-mosaic-trigger]", {
+      runOnly: {
+        type: "rule",
+        values: ["label-content-name-mismatch"],
+      },
+      rules: {
+        "label-content-name-mismatch": { enabled: true },
+      },
+    });
+
+    return results.violations.map(({ id, impact, help, nodes }) => ({
+      id,
+      impact,
+      help,
+      targets: nodes.map(({ target }) => target.join(" ")),
+    }));
+  });
+
+  expect(
+    violations,
+    `Project mosaic label mismatches:\n${JSON.stringify(violations, null, 2)}`,
+  ).toEqual([]);
+});
+
 test("skip link moves keyboard focus to the Turkish main content", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const skipLink = page.locator('a[href="#_main_content"]').first();

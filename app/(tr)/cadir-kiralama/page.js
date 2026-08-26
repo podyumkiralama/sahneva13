@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 
 /* ================== Sabitler ================== */
 export const revalidate = 86400;
@@ -2125,28 +2126,7 @@ export default function Page() {
       />
       <RegionalCityLinks service="çadır kiralama" />
 
-      <ServiceBlogLinks
-        eyebrow="Çadır içerik kümesi"
-        title="Çadır seçimine dair rehberler"
-        description="Çadır tipini, ölçüsünü ve kurulum takvimini netleştirmeden önce okunacak rehberler."
-        links={[
-          {
-            href: "/blog/organizasyon-icin-en-iyi-cadir-kiralama-secenekleri-2026",
-            label: "2026 Çadır Kiralama Rehberi",
-            intent: "Etkinlik türüne göre çadır sistemi seçimi",
-          },
-          {
-            href: "/blog/etkinlik-teknik-kesif-ve-planlama-rehberi",
-            label: "Teknik Keşif ve Planlama Rehberi",
-            intent: "Zemin, ölçü ve ankraj kararını kurulumdan önce netleştirmek için",
-          },
-          {
-            href: "/blog/kurumsal-etkinlik-yonetimi",
-            label: "Kurumsal Etkinlik Yönetimi Rehberi",
-            intent: "Çadırı bütün etkinlik planına oturtmak için",
-          },
-        ]}
-      />
+      <ServiceBlogLinks {...CONTENT_CLUSTERS.tent} links={CONTENT_CLUSTERS.tent.guides} />
       <PaymentOptionsNote />
       <ClosingCta />
     </>
