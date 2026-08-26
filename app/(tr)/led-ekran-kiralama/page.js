@@ -107,6 +107,15 @@ const CURVED_P19_INSTALLATION_IMAGES = [
     positionClass: "object-[center_75%]",
   },
   {
+    src: "/img/led/absen-p19-sekiz-panel-360-dairesel-led-arka-baglanti-sahneva.webp",
+    alt: "Depoda 45 derece açıyla birleştirilen sekiz Absen P1.9 panelden oluşan 360 derece dairesel LED ekranın arka bağlantıları",
+    eyebrow: "En küçük dairesel form",
+    title: "8 panel × 45° = 360°",
+    caption:
+      "Sekiz Absen P1.9 panel, panel başına 45° açıyla birleştirilerek 360° dairesel form oluşturuldu. Bu en küçük dairesel kurulumumuzdur; daha büyük çaplar proje ölçüsüne göre panel sayısı ve birleşim açıları planlanarak hazırlanabilir.",
+    positionClass: "object-[center_58%]",
+  },
+  {
     src: "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp",
     alt: "Etkinlik sahnesinde Absen P1.9 kavisli üst LED bant ve dairesel asılı LED ekran kurulumu",
     eyebrow: "Saha uygulaması",
@@ -684,7 +693,7 @@ function CurvedP19ImageCard({ item, aspectClass, sizes, className = "" }) {
 }
 
 function CurvedP19InstallationProof() {
-  const [preAssembly, stageInstallation, technicalRehearsal] =
+  const [preAssembly, smallestCircularForm, stageInstallation, technicalRehearsal] =
     CURVED_P19_INSTALLATION_IMAGES;
 
   return (
@@ -704,8 +713,9 @@ function CurvedP19InstallationProof() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/72">
               Kavisli LED ekran kurulumu yalnızca kabinetleri yan yana getirmekten ibaret değildir. Bu uygulamada
-              Absen P1.9 paneller önce depoda hedeflenen formda test edildi; ardından kavisli üst bant, dairesel LED
-              halka ve ana sahne ekranı etkinlik alanında kurularak görüntü provası yapıldı.
+              Absen P1.9 paneller önce depoda hedeflenen formda test edildi. Dairesel parçada sekiz panel, panel
+              başına 45° açıyla birleştirilerek 360° form oluşturuldu; ardından kurulum etkinlik alanında görüntü
+              provasından geçirildi.
             </p>
           </div>
 
@@ -721,11 +731,20 @@ function CurvedP19InstallationProof() {
         </div>
 
         <div className="mt-9 space-y-5">
-          <CurvedP19ImageCard
-            item={preAssembly}
-            aspectClass="h-[300px] sm:h-[380px] lg:h-[480px]"
-            sizes="(max-width: 768px) 100vw, 80vw"
-          />
+          <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[1.25fr_0.75fr] md:overflow-visible md:px-0 md:pb-0">
+            <CurvedP19ImageCard
+              item={preAssembly}
+              aspectClass="h-[320px] sm:h-[390px] lg:h-[480px]"
+              sizes="(max-width: 768px) 86vw, 62vw"
+              className="w-[86vw] shrink-0 snap-start md:w-auto"
+            />
+            <CurvedP19ImageCard
+              item={smallestCircularForm}
+              aspectClass="h-[320px] sm:h-[390px] lg:h-[480px]"
+              sizes="(max-width: 768px) 72vw, 38vw"
+              className="w-[72vw] shrink-0 snap-start md:w-auto"
+            />
+          </div>
           <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[0.75fr_1.25fr] md:overflow-visible md:px-0 md:pb-0">
             <CurvedP19ImageCard
               item={stageInstallation}
