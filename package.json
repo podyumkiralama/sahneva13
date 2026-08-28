@@ -57,6 +57,9 @@
       "safari >= 16.4"
     ]
   },
+  "allowScripts": {
+    "unrs-resolver": false
+  },
   "engines": {
     "node": "24.x"
   }

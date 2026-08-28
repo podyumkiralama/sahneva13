@@ -39,6 +39,11 @@ Kod commit'i: `91e708049e8a6f5c756b674f54df7cc4ca6f4230`
    `moderate` speculation rule davranışı korunarak yalnızca kullanıcı niyeti
    oluştuğunda doküman prefetch'ine izin verildi.
 7. Next.js güvenlik güncellemesi ayrı PR #510 ile `main`e alındı.
+8. Next.js ESLint zincirindeki `unrs-resolver` paketinin modern npm için gerekli
+   olmayan legacy `postinstall` fallback'i `allowScripts` politikasında açıkça
+   reddedildi. Platform binding'i normal optional dependency olarak kurulmaya
+   devam ederken build uyarısı ve gereksiz kurulum-zamanı kod çalıştırması
+   kaldırıldı.
 
 ## Doğrulama sonuçları
 
@@ -50,6 +55,8 @@ Kod commit'i: `91e708049e8a6f5c756b674f54df7cc4ca6f4230`
 | Render edilmiş HTML | 191 sayfa, 0 hata, 0 uyarı |
 | En yüksek yakın-kopya oranı | Yüzde 19,6; yüzde 65 hata eşiğinin altında |
 | Güvenlik başlıkları | `security:check`, başarılı |
+| Install-script politikası | `unrs-resolver` postinstall açıkça reddedildi; temiz kurulum ve lint başarılı |
+| Tedarik zinciri | 0 npm açığı; 403 registry imzası ve 92 attestation doğrulandı |
 | Mobil tarayıcı kontrolü | 200, doğru H1/title/canonical, overlay ve console hatası yok |
 | Lighthouse mobil laboratuvarı | 89; FCP 1,67 sn, TBT 106 ms, CLS 0, LCP 3,60 sn |
 | Production runtime | Son bir saatlik kontrolde hata kümesi bulunmadı |
