@@ -144,7 +144,7 @@ export const GERMAN_SERVICE_LIST = [
     heroImage: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
     gallery: "led",
     heroStats: [
-      { value: "P2–P6", label: "Verfügbare Pixelabstände" },
+      { value: "400 m²", label: "P1.9 Indoor-Bestand" },
       { value: "4.500+ nit", label: "Helligkeit im Außenbereich" },
       { value: "bis 600 m²", label: "Maximale Fläche" },
     ],

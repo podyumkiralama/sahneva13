@@ -783,7 +783,7 @@ export default function Page() {
                 />
                 <div className="mt-8 rounded-3xl border border-violet-300/30 bg-violet-300/10 p-6">
                   <p className="text-lg leading-8 text-violet-50">
-                    Sahneva, LED ekran envanterine <strong>300 m² P1.9 Indoor LED envanteri</strong> eklemiştir.
+                    Sahneva&apos;nın LED ekran envanterinde <strong>400 m² P1.9 Indoor LED</strong> bulunmaktadır.
                     Bu özmal envanter gücü, yakın izleme mesafesinde yüksek çözünürlüklü görüntü isteyen kurumsal sahnelerde
                     fiyat/performans kararını daha net hale getirir.
                   </p>
@@ -816,7 +816,7 @@ export default function Page() {
                 {
                   icon: BadgeCheck,
                   title: "P1.9 fiyatı neden farklı?",
-                  text: "300 m² özmal P1.9 Indoor LED envanteri daha yüksek piksel yoğunluğu içerdiğinden m² başlangıç fiyatı standart panellere göre daha yüksek planlanır.",
+                  text: "400 m² özmal P1.9 Indoor LED envanteri daha yüksek piksel yoğunluğu içerdiğinden m² başlangıç fiyatı standart panellere göre daha yüksek planlanır.",
                 },
                 {
                   icon: Cpu,

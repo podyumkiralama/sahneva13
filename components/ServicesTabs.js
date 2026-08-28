@@ -86,7 +86,7 @@ const DEFAULT_SERVICES = [
     image:
       "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva-display.webp",
     features: [
-      "300 m² P1.9 Indoor LED Envanteri",
+      "400 m² P1.9 Indoor LED Envanteri",
       "P1.9 / P2.5 / P2.9 Piksel Aralığı",
       "3840 Hz Yenileme Hızı",
       "Kurulum ve Teknik Reji",

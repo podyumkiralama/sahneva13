@@ -40,7 +40,7 @@ const SERVICE_CARDS = [
     image: "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp",
     description:
       "شاشات LED داخلية وخارجية للمعارض، الجالا، المؤتمرات والحفلات مع معالج صورة، إدارة محتوى وفريق تشغيل أثناء الحدث.",
-    features: ["P1.9 داخلي", "LED wall", "شاشة خارجية", "تحكم بالصورة"],
+    features: ["مخزون P1.9 داخلي: 400 م²", "LED wall", "شاشة خارجية", "تحكم بالصورة"],
   },
   {
     id: "sound-light",

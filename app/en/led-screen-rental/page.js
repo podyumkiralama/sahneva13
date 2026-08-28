@@ -979,7 +979,7 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "Can you build curved or circular LED screens?",
     answer:
-      "Yes. Sahneva's Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed.",
+      "Yes. Sahneva's 400 m² Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed.",
   },
   {
     question: "Can this system be used as a flexible LED alternative?",
@@ -1013,7 +1013,7 @@ function FAQ() {
     },
     {
       q: "Can you build curved or circular LED screens?",
-      a: "Yes. Sahneva's Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed."
+      a: "Yes. Sahneva's 400 m² Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed."
     },
     {
       q: "Can this system be used as a flexible LED alternative?",
