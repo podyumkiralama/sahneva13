@@ -147,5 +147,8 @@ test.describe("mobile accessibility", () => {
     expect(response?.ok(), `/projeler returned HTTP ${response?.status()}`).toBeTruthy();
     await expect(page.locator("main")).toHaveCount(1);
     await expect(page.locator("h1").first()).toBeVisible();
+    await expect(page.getByText("Yayımlanmış proje dosyası", { exact: true })).toBeVisible();
+    await expect(page.getByText("Toplam tamamlanan proje", { exact: true })).toBeVisible();
+    await expect(page.getByText("Müşteri memnuniyeti", { exact: true })).toHaveCount(0);
   });
 });

@@ -7,6 +7,7 @@ import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -82,10 +83,10 @@ export default async function ProjectsIndexPage() {
         ]}
         eyebrow="Proje portfolyosu"
         title="Projelerimiz"
-        description="Sahneva olarak hayata geçirdiğimiz unutulmaz anlardan seçkiler. Her detayı özenle tasarlanmış projelerimizi keşfedin."
+        description="Tamamladığımız saha çalışmalarından ayrıntılarıyla yayımladığımız proje seçkisini keşfedin."
         metrics={[
-          { value: `${projects.length}+`, label: "Tamamlanan proje" },
-          { value: "100%", label: "Müşteri memnuniyeti" },
+          { value: `${projects.length}`, label: "Yayımlanmış proje dosyası" },
+          { value: PROJECTS_COMPLETED, label: "Toplam tamamlanan proje" },
         ]}
       />
 
