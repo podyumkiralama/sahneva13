@@ -278,6 +278,20 @@ export default function GermanServicesPage() {
       color: "from-violet-600 to-purple-500",
     },
     {
+      href: "/de/konzertbuehne-mieten",
+      title: "Konzertbühne mieten",
+      description: "Hauptbühne, Seitentürme, FOH und Absperrung für Konzerte und Festivals",
+      icon: "🎤",
+      color: "from-fuchsia-600 to-violet-500",
+    },
+    {
+      href: "/de/laufsteg-mieten",
+      title: "Laufsteg mieten",
+      description: "Runway, Backstage-Zugang und Oberfläche für Modenschauen und Präsentationen",
+      icon: "✨",
+      color: "from-pink-500 to-purple-500",
+    },
+    {
       href: "/de/led-wand-mieten",
       title: "LED-Wand mieten",
       description: "Pixelabstände P2 bis P6 für innen und außen",

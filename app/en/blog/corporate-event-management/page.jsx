@@ -21,10 +21,11 @@ const STAGE_SERVICE_PATH = "/en/stage-rental";
 const PODIUM_SERVICE_PATH = "/en/podium-rental";
 const LED_SERVICE_PATH = "/en/led-screen-rental";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I'd like to get a quote for my project.");
+const ARTICLE_TITLE = "Corporate Event Management and Technical Rental Guide";
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Corporate Event Management and Technical Rental Guide",
+  title: "Corporate Event Management Guide",
   description:
     "Stage, podium, LED screen, sound-lighting and tent rental guide for seamless corporate events. Tips for launches and dealer meetings.",
   alternates: {
@@ -119,7 +120,7 @@ function ArticleSchema() {
       {
         "@type": "BlogPosting",
         "@id": `${BLOG_URL}#blogposting`,
-        headline: metadata?.title || "Blog Post",
+        headline: ARTICLE_TITLE,
         description: metadata?.description,
         image: `${site}/img/blog/kurumsal-etkinlik-hero.webp`,
         datePublished: PUBLISH_DATE,
@@ -163,9 +164,9 @@ export default function BlogPostCorporate() {
         locale="en"
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
+        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : ARTICLE_TITLE) }}
         pills={["Sahneva Blog", "Production & Technical", "Event Engineering"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
+        title={ARTICLE_TITLE}
         description={metadata?.description}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}

@@ -232,6 +232,9 @@ function pageSignals(text) {
   const alternates = /\balternates\s*:|\blanguages\s*:/.test(text);
   const visibleFaq = /id=["']faq["']|FAQ_ITEMS|function\s+FAQ\s*\(|Sık Sorulan|Частые вопросы/i.test(text);
   const faqSchema = /FAQPage|buildFaqSchema|mainEntity:\s*.*Question/s.test(text);
+  const noindex =
+    /\brobots\s*:\s*\{[\s\S]{0,500}?\bindex\s*:\s*false\b/.test(text) ||
+    /\brobots\s*:\s*["'`][^"'`]*\bnoindex\b/i.test(text);
 
   return {
     title,
@@ -244,6 +247,7 @@ function pageSignals(text) {
     alternates,
     visibleFaq,
     faqSchema,
+    noindex,
   };
 }
 
@@ -267,7 +271,8 @@ function isMoneyRoute(route) {
   );
 }
 
-function shouldCheckStaticSitemapRegistry(route) {
+function shouldCheckStaticSitemapRegistry(route, signals) {
+  if (signals.noindex) return false;
   if (IGNORE_SITEMAP_MISSING.has(route)) return false;
   if (route.startsWith("/blog/") || route.startsWith("/en/blog/")) return false;
   if (route.startsWith("/projeler/") || route.startsWith("/en/projects/")) return false;
@@ -308,7 +313,7 @@ function analyzePages(pageFiles, sitemapPaths) {
     if (missingImageAlt) issues.push(`${missingImageAlt} image component(s) without alt`);
 
     if (
-      shouldCheckStaticSitemapRegistry(page.route) &&
+      shouldCheckStaticSitemapRegistry(page.route, signals) &&
       !sitemapPaths.has(page.route)
     ) {
       issues.push("route not listed in STATIC_PAGE_META sitemap registry");
@@ -325,7 +330,7 @@ function analyzePages(pageFiles, sitemapPaths) {
   return { pages, pageReports, fileToRoute };
 }
 
-function analyzeLinks(files, routes, fileToRoute) {
+function analyzeLinks(files, routes, fileToRoute, noindexRoutes) {
   const routeSet = new Set(routes.map((item) => item.route));
   const incoming = new Map([...routeSet].map((route) => [route, []]));
   const brokenInternalLinks = [];
@@ -361,6 +366,7 @@ function analyzeLinks(files, routes, fileToRoute) {
       ([route, refs]) =>
         refs.length === 0 &&
         !["/", "/en", "/ar", "/ru"].includes(route) &&
+        !noindexRoutes.has(route) &&
         !IGNORE_ORPHAN_CANDIDATES.has(route)
     )
     .map(([route]) => route)
@@ -592,7 +598,10 @@ async function main() {
   const sitemapPaths = extractSitemapStaticPaths();
   const redirectReport = await auditRedirectConflicts(sitemapPaths);
   const { pages, pageReports, fileToRoute } = analyzePages(pageFiles, sitemapPaths);
-  const linkReport = analyzeLinks(allSourceFiles, pages, fileToRoute);
+  const noindexRoutes = new Set(
+    pageReports.filter((page) => page.signals.noindex).map((page) => page.route)
+  );
+  const linkReport = analyzeLinks(allSourceFiles, pages, fileToRoute, noindexRoutes);
   const localBusinessReport = analyzeLocalBusiness();
 
   const pageIssues = pageReports

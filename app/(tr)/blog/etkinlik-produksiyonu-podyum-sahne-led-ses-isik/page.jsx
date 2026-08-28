@@ -38,6 +38,7 @@ const ARTICLE_IMAGES = {
 };
 
 const TITLE = "Etkinlik Prodüksiyonu: Podyum, Sahne, LED Ekran, Ses ve Işık";
+const META_TITLE = "Etkinlik Prodüksiyonu: Sahne, LED, Ses ve Işık";
 const DESCRIPTION =
   "Podyumdan ana sahneye, LED ekrandan ses ve ışık sistemlerine kadar profesyonel etkinlik prodüksiyonunun tüm aşamalarını keşfedin.";
 
@@ -94,7 +95,7 @@ const FAQ_ITEMS = [
 ];
 
 export const metadata = {
-  title: TITLE,
+  title: META_TITLE,
   description: DESCRIPTION,
   alternates: buildLanguageAlternates({ canonical: BLOG_PATH, tr: BLOG_PATH }),
   image: HERO_IMAGE,

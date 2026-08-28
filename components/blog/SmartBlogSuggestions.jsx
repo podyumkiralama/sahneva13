@@ -6,12 +6,13 @@ import path from "path";
 
 const FALLBACK_IMAGE = "/img/blog/default.webp";
 const MAX_ITEMS = 3;
+const TR_BLOG_DIR = path.join(process.cwd(), "app", "(tr)", "blog");
+const EN_BLOG_DIR = path.join(process.cwd(), "app", "en", "blog");
 
 // Her locale kendi blog klasorunden okur; EN yazilarin altinda TR kartlar
 // cikmasin diye kaynak dizin ve link oneki birlikte secilir.
 const LOCALE_SOURCES = {
   tr: {
-    dir: ["app", "(tr)", "blog"],
     basePath: "/blog",
     heading: "Diğer yazılara da göz atın",
     allPosts: "Tüm yazılar",
@@ -21,7 +22,6 @@ const LOCALE_SOURCES = {
     fallbackAuthor: "Sahneva Editör",
   },
   en: {
-    dir: ["app", "en", "blog"],
     basePath: "/en/blog",
     heading: "Explore more articles",
     allPosts: "All posts",
@@ -76,7 +76,9 @@ async function importPostModule(locale, postSlug) {
 }
 
 async function getBlogPosts(locale, source) {
-  const blogDir = path.join(process.cwd(), ...source.dir);
+  // Dizinleri sabit ifadelerle kurmak Turbopack'in izlenecek dosya agacini
+  // build sirasinda kesin olarak belirlemesini saglar.
+  const blogDir = locale === "en" ? EN_BLOG_DIR : TR_BLOG_DIR;
 
   if (!existsSync(blogDir)) {
     return [];

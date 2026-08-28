@@ -23,6 +23,7 @@ const STAGE_SERVICE_PATH = "/sahne-kiralama";
 const PODIUM_SERVICE_PATH = "/podyum-kiralama";
 const LED_SERVICE_PATH = "/led-ekran-kiralama";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Merhaba, projem için teklif almak istiyorum.");
+const ARTICLE_TITLE = "Kurumsal Etkinlik Yönetimi ve Teknik Kiralama Rehberi";
 const TOC_ITEMS = [
   { href: "#sahne-podyum", label: "Sahne ve podyum planı" },
   { href: "#led-ekran", label: "LED ekran kurgusu" },
@@ -39,7 +40,7 @@ const CORNERSTONE_LINKS = [
 
 /* ================== META DATA ================== */
 export const metadata = {
-  title: "Kurumsal Etkinlik Yönetimi ve Teknik Kiralama Rehberi",
+  title: "Kurumsal Etkinlik Yönetimi Rehberi",
   description:
     "Kurumsal organizasyonlarınızda kusursuz bir akış için sahne, podyum, LED ekran, ses-ışık ve çadır kiralama rehberi. Lansman ve bayi toplantısı ipuçları.",
   alternates: {
@@ -137,7 +138,7 @@ function ArticleSchema() {
       {
         "@type": "BlogPosting",
         "@id": `${BLOG_URL}#blogposting`,
-        headline: metadata?.title || "Blog Yazısı",
+        headline: ARTICLE_TITLE,
         description: metadata?.description,
         image: `${site}/img/blog/kurumsal-etkinlik-hero.webp`,
         datePublished: PUBLISH_DATE,
@@ -184,9 +185,9 @@ export default function BlogPostCorporate() {
       <BlogLayout
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}
-        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : (metadata?.title ? String(metadata.title).replace(/\\s*\\|\\s*Sahneva.*$/, "") : "Sahneva Blog")) }}
+        heroImage={{ src: (typeof IMAGES !== "undefined" && IMAGES?.hero?.src ? IMAGES.hero.src : (typeof FEATURED_IMAGE !== "undefined" ? FEATURED_IMAGE : (typeof HERO_IMAGE !== "undefined" ? HERO_IMAGE : (typeof OG_IMAGE !== "undefined" ? OG_IMAGE : "")))), alt: (typeof IMAGES !== "undefined" && IMAGES?.hero?.alt ? IMAGES.hero.alt : ARTICLE_TITLE) }}
         pills={["Sahneva Blog", "Prodüksiyon & Teknik", "Etkinlik Mühendisliği"]}
-        title={(metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "")}
+        title={ARTICLE_TITLE}
         description={metadata?.description}
         publishDate={PUBLISH_DATE}
         author={AUTHOR_NAME}

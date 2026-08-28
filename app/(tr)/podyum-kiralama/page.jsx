@@ -403,6 +403,7 @@ const HERO_ACTIONS = [
     key: "pricing",
     label: "Fiyatlandırmayı İncele",
     href: "/podyum-kurulum-fiyatlari",
+    prefetch: false,
   },
 ];
 

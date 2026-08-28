@@ -52,6 +52,15 @@ const DESCRIPTION_MAX = 165;
 const DESCRIPTION_MIN = 70;
 const BRAND = "Sahneva";
 
+// Google'in olcekli icerik ve doorway spam politikalarina karsi yuksek esikli
+// bir build korumasi. Ayni dildeki indekslenebilir sayfalarin ana icerigi
+// bes kelimelik dizilerle karsilastirilir; ortak header/footer bu sayede sonucu
+// sisirmez. Esik bilincli olarak yuksek: benzer hizmet terminolojisi degil,
+// gercek yakin-kopya sayfalar hedeflenir.
+const DUPLICATE_CONTENT_MIN_WORDS = 250;
+const DUPLICATE_CONTENT_SHINGLE_SIZE = 5;
+const DUPLICATE_CONTENT_ERROR_THRESHOLD = 0.65;
+
 // Baslik/aciklama uzunluk kontrolunden muaf rotalar. Latin disi alfabelerde
 // karakter sayisi SERP genisligiyle ortusmedigi icin zh/ar/ru bilincli disarida.
 const LENGTH_EXEMPT = /^\/(zh|ar|ru)(\/|$)/;
@@ -161,6 +170,42 @@ const decodeEntities = (value) =>
 
 const first = (html, regex) => (html.match(regex) || [])[1] || "";
 
+const localeGroupForRoute = (route) => {
+  const match = route.match(/^\/(en|de|ar|ru|zh)(?:\/|$)/);
+  return match?.[1] ?? "tr";
+};
+
+const visibleMainTokens = (html) => {
+  const main = first(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i) || html;
+  const visibleText = decodeEntities(
+    main
+      .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+      .replace(/<svg\b[\s\S]*?<\/svg>/gi, " ")
+      .replace(/<[^>]+>/g, " "),
+  ).toLowerCase();
+
+  return visibleText.match(/[\p{L}\p{N}]{3,}/gu) ?? [];
+};
+
+const wordShingles = (tokens) => {
+  const shingles = new Set();
+  for (let index = 0; index <= tokens.length - DUPLICATE_CONTENT_SHINGLE_SIZE; index += 1) {
+    shingles.add(
+      tokens.slice(index, index + DUPLICATE_CONTENT_SHINGLE_SIZE).join(" "),
+    );
+  }
+  return shingles;
+};
+
+const jaccardSimilarity = (left, right) => {
+  let intersection = 0;
+  for (const value of left) {
+    if (right.has(value)) intersection += 1;
+  }
+  return intersection / (left.size + right.size - intersection || 1);
+};
+
 /* -------------------- bulgu toplama -------------------- */
 const errors = [];
 const warnings = [];
@@ -184,6 +229,7 @@ const jsonLdTypes = new Map();
 const indexableRoutes = new Set();
 const linkedRoutes = new Set();
 const imageRefs = new Map(); // public yolu -> [bulundugu rotalar]
+const contentFingerprints = [];
 // canonical -> { route, langs: Map(hreflang -> href) }
 const hreflangIndex = new Map();
 let auditedCount = 0;
@@ -217,7 +263,18 @@ for (const file of files) {
   }
 
   const indexable = !/noindex/i.test(robots);
-  if (indexable) indexableRoutes.add(route);
+  if (indexable) {
+    indexableRoutes.add(route);
+    const tokens = visibleMainTokens(html);
+    if (tokens.length >= DUPLICATE_CONTENT_MIN_WORDS) {
+      contentFingerprints.push({
+        route,
+        locale: localeGroupForRoute(route),
+        wordCount: tokens.length,
+        shingles: wordShingles(tokens),
+      });
+    }
+  }
 
   /* ---- og:url <-> canonical ---- */
   // Kendi openGraph'i olmayan sayfa kok layout'un anasayfa etiketlerini
@@ -515,6 +572,30 @@ for (const [description, routes] of descriptionIndex) {
   }
 }
 
+/* ---- yakin-kopya / doorway icerik korumasi ---- */
+let strongestContentPair = null;
+for (let leftIndex = 0; leftIndex < contentFingerprints.length; leftIndex += 1) {
+  for (let rightIndex = leftIndex + 1; rightIndex < contentFingerprints.length; rightIndex += 1) {
+    const left = contentFingerprints[leftIndex];
+    const right = contentFingerprints[rightIndex];
+    if (left.locale !== right.locale) continue;
+
+    const similarity = jaccardSimilarity(left.shingles, right.shingles);
+    if (!strongestContentPair || similarity > strongestContentPair.similarity) {
+      strongestContentPair = { left, right, similarity };
+    }
+
+    if (similarity >= DUPLICATE_CONTENT_ERROR_THRESHOLD) {
+      addError(
+        left.route,
+        "content-near-duplicate",
+        `${(similarity * 100).toFixed(1)}% bes-kelimelik ortusme -> ${right.route} ` +
+          `(${left.wordCount}/${right.wordCount} kelime)`,
+      );
+    }
+  }
+}
+
 /* -------------------- sitemap kapsami -------------------- */
 // Indekslenebilir her sayfa bir sitemap'te bulunmali. Bu kontrol olmadigi icin
 // /defile-podyum-kiralama, locale filtresindeki `startsWith("/de")` yuzunden
@@ -666,6 +747,13 @@ const group = (items) => {
 
 console.log(`== Rendered HTML Audit ==`);
 console.log(`pages=${auditedCount}  errors=${errors.length}  warnings=${warnings.length}\n`);
+
+if (strongestContentPair) {
+  console.log(
+    `near_duplicate_max=${(strongestContentPair.similarity * 100).toFixed(1)}% ` +
+      `${strongestContentPair.left.route} <-> ${strongestContentPair.right.route}\n`,
+  );
+}
 
 if (errors.length) {
   console.log("== ERRORS ==");
