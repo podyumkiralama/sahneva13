@@ -12,7 +12,7 @@ export const HERO = {
 export const HERO_STATS = [
   { value: `${YEARS_OF_EXPERIENCE} yıl`, label: "Deneyim" },
   { value: PROJECTS_COMPLETED, label: "Başarılı proje" },
-  { value: "300 m²", label: "P1.9 LED stoğu" },
+  { value: "400 m²", label: "P1.9 LED stoğu" },
 ];
 
 export const GUIDE_AUTHOR = "Sahneva Prodüksiyon Ekibi";
@@ -29,7 +29,7 @@ export const BRAND_LOGOS = [
   { src: "/img/ses-isik/clearcom.png", alt: "Clear-Com interkom sistemi markası", width: 220, height: 64 },
 ];
 
-// NOT: "300 m² P1.9 indoor LED" iddiası sayfada yedi ayrı yerde tekrarlanıyordu.
+// NOT: P1.9 indoor LED stok iddiası sayfada yedi ayrı yerde tekrarlanıyordu.
 // Artık yalnızca üç yerde geçiyor: hero istatistiği, OVERVIEW_POINTS içindeki
 // ayrıntılı madde ve SSS cevabı. Boşalan yerlere sayfada başka hiç geçmeyen,
 // doğrulanmış bilgiler yazıldı.
@@ -54,7 +54,7 @@ export const GUIDE_PROMISES = [
 
 export const OVERVIEW_POINTS = [
   {
-    title: "300 m² P1.9 indoor LED yatırımı",
+    title: "400 m² P1.9 indoor LED yatırımı",
     desc: "Türkiye'de sayılı firmada bulunan P1.9 indoor LED stoğuyla yakın izleme mesafesinde premium görüntü kalitesi kurulur.",
   },
   {
@@ -331,7 +331,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Türkiye genelinde kurumsal organizasyon desteği veriyor musunuz?",
-    a: "Evet. İstanbul merkezli planlama ve teknik ekip koordinasyonuyla Türkiye genelinde kurumsal etkinlik prodüksiyonu organize edebiliyoruz. Sahneva; 300 m² P1.9 indoor LED stoğu, sahne, ses-ışık, truss ve reji altyapısıyla konferans, lansman, gala, bayi toplantısı ve büyük ölçekli event organizasyonlarında uçtan uca teknik destek sağlar. Şehir dışı projelerde ekip ve ekipman İstanbul'dan sevk edilir; yerel organizasyon firmalarıyla ortak yürütülen işlerde teknik kapsamı Sahneva üstlenir.",
+    a: "Evet. İstanbul merkezli planlama ve teknik ekip koordinasyonuyla Türkiye genelinde kurumsal etkinlik prodüksiyonu organize edebiliyoruz. Sahneva; 400 m² P1.9 indoor LED stoğu, sahne, ses-ışık, truss ve reji altyapısıyla konferans, lansman, gala, bayi toplantısı ve büyük ölçekli event organizasyonlarında uçtan uca teknik destek sağlar. Şehir dışı projelerde ekip ve ekipman İstanbul'dan sevk edilir; yerel organizasyon firmalarıyla ortak yürütülen işlerde teknik kapsamı Sahneva üstlenir.",
   },
   {
     q: "Canlı yayın veya kamera akışı dahil edilebilir mi?",

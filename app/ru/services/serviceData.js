@@ -122,7 +122,7 @@ export const RUSSIAN_SERVICE_PAGES = {
       zh: "/zh/led-screen-rental",
     },
     heroStats: [
-      { value: "300 м²", label: "P1.9 indoor" },
+      { value: "400 м²", label: "P1.9 indoor" },
       { value: "3840 Hz", label: "обновление" },
       { value: "P3.9", label: "outdoor" },
     ],

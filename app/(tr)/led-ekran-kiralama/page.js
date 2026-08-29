@@ -194,14 +194,14 @@ const LED_PIXEL_ROWS = [
 export const metadata = {
   title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor",
   description:
-    "İstanbul ve Türkiye genelinde LED ekran kiralama. 300 m² Absen P1.9 indoor, Unilumin P2.6/P2.9 ve P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
+    "İstanbul ve Türkiye genelinde LED ekran kiralama. 400 m² Absen P1.9 indoor, Unilumin P2.6/P2.9 ve P3.9 paneller; kurulum, NovaStar reji ve teknik ekip.",
   keywords:
     "led ekran kiralama, p1.9 led ekran, kavisli led ekran kiralama, p2.9 led ekran, p2.6 led ekran, p3.9 led ekran, led wall kiralama, video wall kiralama, outdoor led ekran, indoor led ekran, konser led ekran",
   alternates: buildAlternatesForPath("/led-ekran-kiralama"),
   openGraph: {
     title: "LED Ekran Kiralama İstanbul | Indoor & Outdoor LED Wall",
     description:
-      "İstanbul ve Türkiye genelinde iç ve dış mekan LED wall kurulumları. 300 m² Absen P1.9, Unilumin P2.6/P2.9, NovaStar reji ve teknik ekip desteği.",
+      "İstanbul ve Türkiye genelinde iç ve dış mekan LED wall kurulumları. 400 m² Absen P1.9, Unilumin P2.6/P2.9, NovaStar reji ve teknik ekip desteği.",
     url: `${ORIGIN}/led-ekran-kiralama`,
     type: "website",
     siteName: "Sahneva",
@@ -250,7 +250,7 @@ const SERVICES = [
     image: P19_PROOF_DISPLAY_IMAGE_SRC,
     title: "İç Mekan LED Ekranlar",
     description: "Absen P1.9 ile Unilumin P2.6 ve P2.9 seçenekleriyle lansman, fuar, gala ve konferanslarda yakın izleme mesafesine uygun indoor LED ekran kurulumları.",
-    features: ["Absen P1.9", "Unilumin P2.6 / P2.9", "300 m² Absen P1.9 Envanteri", "Yakın İzleme Netliği"],
+    features: ["Absen P1.9", "Unilumin P2.6 / P2.9", "400 m² Absen P1.9 Envanteri", "Yakın İzleme Netliği"],
     cta: { label: "Detaylı Bilgi" },
   },
   {
@@ -341,7 +341,7 @@ const USE_CASES = [
 const FAQ_ITEMS = [
   {
     q: "P1.9 indoor LED ekran hangi etkinliklerde kullanılır?",
-    a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 300 m² genişliğindeki Absen P1.9 Indoor LED envanteri, yakın izleme mesafesinde yüksek çözünürlüklü görüntü ve özmal altyapı gücü sağlar."
+    a: "P1.9 Indoor LED ekran; lansman, fuar, gala, konferans, üst düzey kurumsal toplantı ve yakın izleme mesafesi gerektiren salon kurulumlarında tercih edilir. Sahneva'nın 400 m² genişliğindeki Absen P1.9 Indoor LED envanteri, yakın izleme mesafesinde yüksek çözünürlüklü görüntü ve özmal altyapı gücü sağlar."
   },
   {
     q: "İç Mekan (Indoor) ve Dış Mekan (Outdoor) LED Ekran Arasındaki Fark Nedir?",
@@ -456,7 +456,7 @@ function P19InvestmentProof() {
             Özmal Envanter Gücü
           </div>
           <h2 id="p19-yatirim-baslik" className="text-3xl font-black leading-tight text-gray-900 md:text-5xl">
-            300 m² Absen P1.9 Indoor LED Envanteri
+            400 m² Absen P1.9 Indoor LED Envanteri
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-gray-600 md:text-xl">
             Absen P1.9 Indoor LED altyapısıyla lansman, fuar, gala ve konferanslarda yakın izleme mesafesine
@@ -990,7 +990,7 @@ const GALLERY_IMAGES = [
   {
     src: P19_PROOF_DISPLAY_IMAGE_SRC,
     alt: "Sahneva 300 m² Absen P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
-    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 300 m² Absen P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
+    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 400 m² Absen P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
   },
   {
     src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
@@ -1401,7 +1401,7 @@ function Technical() {
 /* ================== İstatistik Bant (Güncellenmiş) ================== */
 function StatsBand() {
   const stats = [
-    { value: "300 m²", label: "Absen P1.9 Indoor LED Envanteri" },
+    { value: "400 m²", label: "Absen P1.9 Indoor LED Envanteri" },
     { value: PROJECTS_COMPLETED, label: "Başarılı Proje" },
     { value: `${PROVINCES_COUNT} İl`, label: "Kendi Araçlarımızla Kurulum" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıllık Deneyim" },
@@ -1891,7 +1891,7 @@ function LedScreenJsonLd() {
       url: `${ORIGIN}${P19_PROOF_IMAGE_SRC}`,
       width: 1600,
       height: 739,
-      caption: "Sahneva 300 m² Absen P1.9 Indoor LED ekran envanteri",
+      caption: "Sahneva 400 m² Absen P1.9 Indoor LED ekran envanteri",
     },
     datePublished: PAGE_PUBLISHED_DATE,
     dateModified: PAGE_LAST_MODIFIED,

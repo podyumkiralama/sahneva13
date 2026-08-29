@@ -561,7 +561,7 @@ export default function Page() {
                 />
                 <div className="mt-7 rounded-3xl border border-violet-300/30 bg-violet-300/10 p-6">
                   <p className="text-lg leading-8 text-violet-50">
-                    Sahneva has a published <strong>300 m² Absen P1.9 indoor LED inventory</strong>.
+                    Sahneva has a published <strong>400 m² Absen P1.9 indoor LED inventory</strong>.
                     Owned indoor stock also includes Unilumin P2.6 and P2.9 panels, so the pitch can
                     follow the viewing distance and content instead of forcing every brief onto one cabinet.{" "}
                     Use the <Link href="/en/blog/led-pixel-pitch-viewing-distance-guide" className="font-bold underline underline-offset-4">pixel pitch and viewing distance guide</Link>{" "}
