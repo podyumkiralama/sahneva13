@@ -8,6 +8,10 @@ const pixel7 = devices["Pixel 7"];
 const representativeRoutes = [
   { name: "Turkish home", path: "/" },
   { name: "Turkish service", path: "/led-ekran-kiralama" },
+  {
+    name: "Turkish project detail",
+    path: "/projeler/bayrampasa-adapark-30-agustos-sahne-kurulumu",
+  },
   { name: "Turkish blog", path: "/blog" },
   { name: "English home", path: "/en" },
   { name: "English service", path: "/en/led-screen-rental" },
