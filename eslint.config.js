@@ -7,7 +7,7 @@ import { defineConfig } from "eslint/config";
 export default defineConfig([
   // 1) Ignore klasörleri
   {
-    ignores: ["**/.next/**", "node_modules/**"],
+    ignores: ["**/.next/**", "**/.open-next/**", "node_modules/**"],
   },
 
   // 2) Temel JS ayarları
