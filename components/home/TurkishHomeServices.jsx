@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import styles from "./TurkishHomeServices.module.css";
 
 const SERVICES = [
@@ -113,12 +113,10 @@ export default function TurkishHomeServices() {
               prefetch={false}
               className={styles.link}
             >
-              <Image
+              <StaticResponsiveImage
                 src={service.image}
                 alt=""
-                fill
                 sizes="(max-width: 639px) 40vw, (max-width: 1023px) 50vw, 34vw"
-                quality={68}
                 loading="lazy"
                 className={styles.image}
                 style={{ objectPosition: service.imagePosition }}

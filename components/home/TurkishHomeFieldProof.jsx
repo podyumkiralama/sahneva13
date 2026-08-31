@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import styles from "./TurkishHomeFieldProof.module.css";
 
 const TECH_CONNECTIONS = [
@@ -93,12 +93,10 @@ export default function TurkishHomeFieldProof() {
 
           <div className={styles.techGrid}>
             <figure className={styles.controlPanel}>
-              <Image
+              <StaticResponsiveImage
                 src="/img/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi/teknik-reji-canli-kamera-aktarim-kurulumu.webp"
                 alt="Canlı kamera aktarımı için kurulan Sahneva teknik reji masası"
-                fill
                 sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1279px) 56vw, 780px"
-                quality={75}
                 className={styles.controlImage}
               />
               <div className={styles.signalPath} aria-hidden="true">
@@ -154,13 +152,11 @@ export default function TurkishHomeFieldProof() {
           <ol className={styles.filmStrip} aria-label="Kurumsal etkinlik formatları">
             {CORPORATE_FORMATS.map((format) => (
               <li key={format.code} className={styles.filmFrame}>
-                <Image
+                <StaticResponsiveImage
                   src={format.image}
                   alt=""
                   aria-hidden="true"
-                  fill
-                  sizes="(max-width: 767px) calc(100vw - 2rem), 33vw"
-                  quality={72}
+                  sizes="(max-width: 767px) 48vw, 33vw"
                   className={styles.filmImage}
                   style={{ objectPosition: format.position }}
                 />

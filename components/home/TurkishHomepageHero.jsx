@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { getClientReferences } from "@/lib/clientReferences";
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import HeroMosaicParallax from "./HeroMosaicParallax.client";
 import styles from "./TurkishHomepageHeroEffects.module.css";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
@@ -199,12 +199,10 @@ function ServiceMosaic({
               aria-haspopup="dialog"
               style={{ position: "absolute" }}
             >
-              <Image
+              <StaticResponsiveImage
                 src={service.image}
                 alt=""
-                fill
-                sizes="(min-width: 1536px) 840px, (min-width: 1024px) 46vw, 100vw"
-                quality={65}
+                sizes="(max-width: 639px) calc(100vw - 5rem), (max-width: 1023px) 100vw, (max-width: 1535px) 46vw, 840px"
                 loading={service.eager ? "eager" : "lazy"}
                 className={styles.tileImage}
                 style={{ objectPosition: service.imagePosition }}
@@ -332,13 +330,11 @@ export default function TurkishHomepageHero({ dictionary: dictionaryOverride } =
       aria-describedby="hero-desc"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
+        <StaticResponsiveImage
           src={HOME_PRIMARY_IMAGE.src}
           alt=""
-          fill
           priority
           sizes="100vw"
-          quality={85}
           className={styles.heroImage}
         />
         <div className={styles.heroWash} />

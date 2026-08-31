@@ -13,6 +13,7 @@ import {
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import heroStyles from "./ProjectsGalleryTriptych.module.css";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
@@ -142,8 +143,8 @@ const GalleryCard = memo(function GalleryCard({
     const titleId = `project-mosaic-${cardId}-title`;
     const imageCount = gallery.images.length;
     const imageSizes = featured
-      ? "(max-width: 1023px) calc(100vw - 2rem), (max-width: 1535px) 58vw, 900px"
-      : "(max-width: 1023px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 58vw, 900px";
+      ? "(max-width: 1023px) calc(100vw - 2rem), (max-width: 1535px) 54vw, 780px"
+      : "(max-width: 1023px) calc((100vw - 2.5rem) / 2), (max-width: 1535px) 23vw, 340px";
 
     return (
       <article className={heroStyles.card} aria-labelledby={titleId}>
@@ -154,13 +155,10 @@ const GalleryCard = memo(function GalleryCard({
           data-project-mosaic-trigger
           aria-haspopup="dialog"
         >
-          <Image
+          <StaticResponsiveImage
             src={coverSrc}
             alt=""
-            fill
             sizes={imageSizes}
-            quality={75}
-            unoptimized={shouldBypassImageOptimizer(coverSrc)}
             loading="lazy"
             className={`${heroStyles.image} ${
               prefersReducedMotion ? heroStyles.reducedMotion : ""

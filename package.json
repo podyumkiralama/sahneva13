@@ -17,7 +17,8 @@
     "deps:dedupe": "npm dedupe",
     "security:check": "node scripts/check-security-headers.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
-    "seo:html": "node scripts/html-audit.mjs"
+    "seo:html": "node scripts/html-audit.mjs",
+    "images:home": "node scripts/generate-home-responsive-images.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -40,6 +41,7 @@
     "eslint-config-next": "^16.3.3",
     "eslint-plugin-react": "7.37.5",
     "globals": "^17.9.0",
+    "sharp": "0.35.3",
     "tailwindcss": "4.3.3",
     "typescript": "^6.0.3"
   },
