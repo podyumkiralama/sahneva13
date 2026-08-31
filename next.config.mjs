@@ -138,6 +138,12 @@ const nextConfig = {
   },
 
   images: {
+    // Public visuals are already exported as production-ready WebP files and
+    // served with immutable CDN caching. Serving them directly prevents the
+    // site from depending on Vercel's metered /_next/image transformations;
+    // when that quota is exhausted browsers otherwise receive HTTP 402 and
+    // render broken images across every locale.
+    unoptimized: true,
     deviceSizes: [320, 420, 512, 640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ["image/avif", "image/webp"],
