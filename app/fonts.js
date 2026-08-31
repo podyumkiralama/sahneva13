@@ -9,11 +9,14 @@ export const inter = localFont({
       weight: "100 900",
     },
   ],
-  // Keep text paint unblocked; allow font to swap in after first render.
-  display: "swap",
-  // Preload to start the font fetch during initial navigation instead of waiting
-  // for layout hydration, reducing perceived latency on slow networks.
-  preload: true,
+  // Keep the first render stable on slow connections. `swap` can replace the
+  // fallback several seconds later and move a text-based LCP to that late
+  // repaint; `optional` keeps the cold-load paint as the final paint while the
+  // cached font is still used on following navigations.
+  display: "optional",
+  // Do not compete with the hero's CSS and media on the first navigation. The
+  // optional face is fetched when needed and remains cached for later routes.
+  preload: false,
   variable: "--font-inter",
   fallback: [
     "system-ui",

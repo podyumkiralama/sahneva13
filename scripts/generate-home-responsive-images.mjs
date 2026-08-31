@@ -5,6 +5,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 import {
+  HOME_RESPONSIVE_AVIF_SETTINGS,
   HOME_RESPONSIVE_IMAGE_CONFIG,
   buildHomeResponsiveImagePath,
 } from "../lib/homeResponsiveImages.js";
@@ -46,16 +47,25 @@ async function generateImage(sourceUrl, config) {
   const generated = [];
 
   for (const width of config.widths) {
-    const outputUrl = buildHomeResponsiveImagePath(config, width);
-    const outputPath = path.join(PUBLIC_DIR, outputUrl.slice(1));
+    const webpUrl = buildHomeResponsiveImagePath(config, width);
+    const webpPath = path.join(PUBLIC_DIR, webpUrl.slice(1));
+    const avifUrl = buildHomeResponsiveImagePath(config, width, "avif");
+    const avifPath = path.join(PUBLIC_DIR, avifUrl.slice(1));
 
-    await mkdir(path.dirname(outputPath), { recursive: true });
+    await mkdir(path.dirname(webpPath), { recursive: true });
     await sharp(sourcePath)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality: config.quality, effort: EFFORT })
-      .toFile(outputPath);
+      .toFile(webpPath);
+    await sharp(sourcePath)
+      .resize({ width, withoutEnlargement: true })
+      .avif({
+        quality: HOME_RESPONSIVE_AVIF_SETTINGS.quality,
+        effort: HOME_RESPONSIVE_AVIF_SETTINGS.effort,
+      })
+      .toFile(avifPath);
 
-    generated.push(outputUrl);
+    generated.push(webpUrl, avifUrl);
   }
 
   return generated;

@@ -27,7 +27,6 @@ const DEFAULT_MOSAIC_TILES = [
     image: "/img/blog/kurumsal-etkinlik-led-ekran-sahne.webp",
     imagePosition: "50% 50%",
     tileClass: styles.tileTop,
-    eager: true,
   },
   {
     label: "Çadır",
@@ -40,7 +39,6 @@ const DEFAULT_MOSAIC_TILES = [
     image: "/images/projects/saha-2026-dome-cadir-final.webp",
     imagePosition: "64% 40%",
     tileClass: styles.tileMiddle,
-    eager: true,
   },
   {
     label: "Podyum",

@@ -325,7 +325,9 @@ export default function HomePage() {
       </div>
 
       {/* Projeler */}
-      <div className={sectionStyles.sectionRoot}>
+      <div
+        className={`${sectionStyles.sectionRoot} content-visibility-auto [contain-intrinsic-size:auto_650px] lg:[contain-intrinsic-size:auto_730px]`}
+      >
         <div className={sectionStyles.header}>
           <div className={sectionStyles.headingBlock}>
             <p className={sectionStyles.eyebrow}>
@@ -367,8 +369,12 @@ export default function HomePage() {
         />
       </div>
 
-      <TurkishHomeFieldProof />
-      <TurkishHomeDecisionDesk />
+      <div className="content-visibility-auto [contain-intrinsic-size:auto_1520px] lg:[contain-intrinsic-size:auto_1240px]">
+        <TurkishHomeFieldProof />
+      </div>
+      <div className="content-visibility-auto [contain-intrinsic-size:auto_1580px] lg:[contain-intrinsic-size:auto_1060px]">
+        <TurkishHomeDecisionDesk />
+      </div>
     </div>
   );
 }

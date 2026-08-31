@@ -8,6 +8,11 @@ const FILL_STYLE = {
   color: "transparent",
 };
 
+const PICTURE_STYLE = {
+  ...FILL_STYLE,
+  display: "block",
+};
+
 /**
  * Direct, pre-generated responsive image for quota-safe static assets.
  *
@@ -37,23 +42,30 @@ export default function StaticResponsiveImage({
   const srcSet = image.variants
     .map((variant) => `${variant.src} ${variant.width}w`)
     .join(", ");
+  const avifSrcSet = image.avifVariants
+    .map((variant) => `${variant.src} ${variant.width}w`)
+    .join(", ");
 
   return (
-    // Native srcset is deliberate: global Next optimization is disabled to
-    // prevent Vercel quota failures, and Next removes srcset in that mode.
-    <img
-      {...imageProps}
-      src={fallback.src}
-      srcSet={srcSet}
-      sizes={sizes}
-      width={image.width}
-      height={image.height}
-      alt={alt}
-      className={className}
-      style={{ ...FILL_STYLE, ...style }}
-      loading={priority ? "eager" : loading}
-      fetchPriority={priority ? "high" : fetchPriority}
-      decoding={decoding}
-    />
+    // Native picture/srcset is deliberate: global Next optimization is
+    // disabled to prevent Vercel quota failures. Browsers with AVIF support
+    // receive the smaller static source; WebP remains the universal fallback.
+    <picture style={PICTURE_STYLE}>
+      <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
+      <img
+        {...imageProps}
+        src={fallback.src}
+        srcSet={srcSet}
+        sizes={sizes}
+        width={image.width}
+        height={image.height}
+        alt={alt}
+        className={className}
+        style={{ ...FILL_STYLE, ...style }}
+        loading={priority ? "eager" : loading}
+        fetchPriority={priority ? "high" : fetchPriority}
+        decoding={decoding}
+      />
+    </picture>
   );
 }
