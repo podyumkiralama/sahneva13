@@ -5,14 +5,41 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import PageHero from "@/components/PageHero";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import {
+  Activity,
+  ArrowRight,
+  Armchair,
+  BookOpen,
+  Briefcase,
+  Camera,
+  Clock3,
+  Cpu,
+  Eye,
+  Hammer,
+  Headphones,
+  Layers,
+  MapPin,
+  MessageCircle,
+  Monitor,
+  Music,
+  Phone,
+  Settings,
+  Shield,
+  SlidersHorizontal,
+  Star,
+  Sun,
+  Tent,
+  Tv,
+  Users,
+  Zap,
+} from "lucide-react";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -30,25 +57,25 @@ const CURVED_P19_RING_IMAGE =
   "/img/led/absen-p19-sekiz-panel-360-dairesel-led-arka-baglanti-sahneva.webp";
 const CURVED_P19_STAGE_IMAGE =
   "/img/led/absen-p19-kavisli-led-sahne-ust-bant-halka-sahneva.webp";
-const STANDARD_LED_RATE = new Intl.NumberFormat("en-GB").format(
-  LED_SCREEN_PRICING.standard.perSqm,
-);
-const P19_LED_RATE = new Intl.NumberFormat("en-GB").format(
-  LED_SCREEN_PRICING.premiumP19.perSqm,
-);
+const P19_PROOF_DISPLAY_IMAGE =
+  "/img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp";
+const P19_TECHNICAL_CONTROL_IMAGE =
+  "/img/led/p19-indoor-led-teknik-masa-kurumsal-konferans-sahneva.webp";
+const CORPORATE_CONFERENCE_IMAGE =
+  "/img/led/kurumsal-konferans-led-ekran-sahne-isik-sahneva.webp";
+const GALA_STAGE_HERO_DESKTOP =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-desktop.webp";
+const GALA_STAGE_HERO_TABLET =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-tablet.webp";
+const GALA_STAGE_HERO_MOBILE =
+  "/img/led/gala-led-sahne-video-wall-sahneva-hero-mobile.webp";
+const OUTDOOR_CONCERT_IMAGE =
+  "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
 
-// Base64 blur placeholder
-const BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
-
-/* ================== Dynamic gallery (CaseGallery) ================== */
-const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
-  loading: () => (
-    <div className="flex justify-center items-center h-64" role="status" aria-label="Gallery loading">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600" aria-hidden="true" />
-      <span className="sr-only">Loading gallery…</span>
-    </div>
-  )
-});
+const getServiceWhatsappLink = (title) => {
+  const text = `Hello, I would like a technical assessment and proposal for ${title}. Event date: [dd.mm.yyyy], venue: [indoor/outdoor], estimated screen size: [xx m2].`;
+  return `https://wa.me/${PHONE.replace("+", "")}?text=${encodeURIComponent(text)}`;
+};
 
 /* ================== META ================== */
 export const metadata = {
@@ -65,10 +92,10 @@ export const metadata = {
     siteName: "Sahneva",
     locale: "en_US",
     images: [{
-      url: `${ORIGIN}/img/hizmet-led-ekran.webp`,
-      width: 1200,
-      height: 630,
-      alt: "Sahneva LED screen rental - professional visual solutions"
+      url: `${ORIGIN}${GALA_STAGE_HERO_DESKTOP}`,
+      width: 1440,
+      height: 810,
+      alt: "Premium LED wall and stage production by Sahneva"
     }],
   },
   twitter: {
@@ -76,7 +103,7 @@ export const metadata = {
     title: "LED Screen & LED Wall Rental in Turkey | Sahneva",
     description:
       "LED screen rental with P1.9 curved indoor and outdoor LED walls, NovaStar processing and nationwide installation crews.",
-    images: [`${ORIGIN}/img/hizmet-led-ekran.webp`],
+    images: [`${ORIGIN}${GALA_STAGE_HERO_DESKTOP}`],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -90,267 +117,231 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/hizmet-led-ekran.webp",
-  alt: "Professional LED screen installation – concert stage with a large LED wall and visual show",
-  sizes: "(max-width: 768px) 100vw, 100vw",
+  src: GALA_STAGE_HERO_DESKTOP,
+  tabletSrc: GALA_STAGE_HERO_TABLET,
+  mobileSrc: GALA_STAGE_HERO_MOBILE,
+  alt: "Premium corporate stage with a large LED wall, lighting and technical production by Sahneva",
 };
 
 const SERVICES = [
   {
-    icon: "🖥️",
+    Icon: Monitor,
+    image: P19_PROOF_DISPLAY_IMAGE,
     title: "Indoor & Curved LED Screens",
-    description: "High-resolution Absen and Unilumin panels for close-view and shaped indoor installations",
+    description: "High-resolution Absen and Unilumin systems for launches, conferences, exhibitions and close-view corporate productions.",
     features: ["Absen P1.9 curved indoor", "Unilumin P2.6 / P2.9", "Circular and concave layouts", "NovaStar processing"],
+    cta: "Discuss an indoor setup",
   },
   {
-    icon: "🌞",
+    Icon: Sun,
+    image: OUTDOOR_CONCERT_IMAGE,
     title: "Outdoor LED Screens",
-    description: "Weather-resistant LED walls with P4–P6 pixel pitch and high-brightness output",
+    description: "High-brightness, weather-resistant LED walls for concerts, festivals and open-air brand experiences.",
     features: ["P4–P6 pixel pitch", "5000–6500+ nit", "IP65 weatherproof", "UV-resistant panels"],
+    cta: "Plan an outdoor screen",
   },
   {
-    icon: "🎬",
+    Icon: Layers,
+    image: CURVED_P19_STAGE_IMAGE,
     title: "LED Video Wall Systems",
-    description: "Modular video wall configurations for creative layouts and scenic designs",
+    description: "Modular, curved and circular LED canvases designed as part of the stage architecture.",
     features: ["Modular design", "Curved and circular layouts", "High refresh rates", "Professional controllers"],
+    cta: "Explore creative formats",
   },
   {
-    icon: "⚡",
+    Icon: Cpu,
+    image: P19_TECHNICAL_CONTROL_IMAGE,
     title: "Control & Broadcast Systems",
-    description: "Professional video processing, routing and live broadcast solutions",
+    description: "Professional processing, media playback, presentation switching and live broadcast integration.",
     features: ["Novastar processors", "4K scaling", "Media servers", "Live streaming support"],
+    cta: "Plan the control system",
   },
   {
-    icon: "🔧",
+    Icon: Zap,
+    image: CORPORATE_CONFERENCE_IMAGE,
     title: "Installation & Rigging",
-    description: "Certified rigging teams, truss structures and full safety solutions",
+    description: "Coordinated delivery, rigging, installation, safety checks and dismantling by one field team.",
     features: ["Ground stack setups", "Truss rigging", "Safety systems", "Fast assembly"],
+    cta: "Request an installation plan",
   },
   {
-    icon: "🎮",
+    Icon: Headphones,
+    image: "/img/led/absen-p19-led-teknik-ekip-kablo-hazirlik-sahneva.webp",
     title: "Operator & Technical Support",
-    description: "Experienced LED operators and 24/7 technical response",
+    description: "Experienced operators manage content, playback and on-site technical continuity throughout the event.",
     features: ["Professional operators", "Content management", "24/7 technical support", "Emergency response"],
+    cta: "Add an on-site operator",
   },
 ];
 
 const USE_CASES = [
   {
-    icon: "🎵",
-    text: "Concerts, festivals and stage performances",
+    Icon: Music,
+    title: "Concerts & festivals",
     desc: "Main stage LED walls with side screens and IMAG support"
   },
   {
-    icon: "💼",
-    text: "Corporate launches and conferences",
+    Icon: Briefcase,
+    title: "Corporate launches",
     desc: "Professional presentation backdrops and brand showcases"
   },
   {
-    icon: "🎪",
-    text: "Trade shows and exhibitions",
+    Icon: Tent,
+    title: "Trade shows & exhibitions",
     desc: "Booth integrations and interactive digital displays"
   },
   {
-    icon: "🏟️",
-    text: "Sports events and stadiums",
+    Icon: Activity,
+    title: "Sports & stadium events",
     desc: "Giant screens, scoreboards and fan engagement content"
   },
   {
-    icon: "🛍️",
-    text: "Retail venues and shopping malls",
+    Icon: Tv,
+    title: "Retail & public spaces",
     desc: "Advertising loops and informational signage"
   },
   {
-    icon: "💒",
-    text: "Weddings and private celebrations",
+    Icon: Camera,
+    title: "Private celebrations",
     desc: "Live ceremony broadcasts and photo/video displays"
+  },
+  {
+    Icon: Users,
+    title: "Public events",
+    desc: "Reliable high-visibility systems for ceremonies and city events"
+  },
+  {
+    Icon: Headphones,
+    title: "Broadcast & studio",
+    desc: "Camera-ready playback, processing and technical show control"
   },
 ];
 
 /* ================== HERO ================== */
+const HERO_BADGES = [
+  "Indoor LED",
+  "Outdoor LED",
+  "Curved & Circular LED",
+  "Processing & Technical Crew",
+  "Nationwide Delivery",
+];
+
+const HERO_ACTIONS = [
+  {
+    key: "quote",
+    label: "Request a Proposal",
+    href: WHATSAPP,
+    external: true,
+    ariaLabel: "Request an LED screen rental proposal on WhatsApp",
+  },
+  {
+    key: "services",
+    label: "Explore Our Capabilities",
+    href: "#services",
+    ariaLabel: "Explore Sahneva LED screen capabilities",
+  },
+];
+
+const HERO_METRICS = [
+  {
+    value: "Indoor",
+    label: "High-resolution LED",
+    detail: "Premium LED walls for conferences, launches, studios and close-view environments.",
+  },
+  {
+    value: "Outdoor",
+    label: "High-brightness systems",
+    detail: "Weather-ready visual systems for festivals, concerts and open-air productions.",
+  },
+  {
+    value: PROJECTS_COMPLETED,
+    label: "Delivered productions",
+    detail: "A visual portfolio spanning corporate events, exhibitions and large-scale stages.",
+  },
+  {
+    value: `${PROVINCES_COUNT} cities`,
+    label: "Nationwide operation",
+    detail: "Transport, installation, show operation and dismantling coordinated by one team.",
+  },
+];
+
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-slate-900 pt-20 min-h-[80vh] 2xl:min-h-[85vh]" aria-labelledby="hero-title">
-      <div className="absolute inset-0">
-        <Image 
-          src={HERO.src} 
-          alt={HERO.alt} 
-          fill 
-          priority 
-          fetchPriority="high"
-          className="object-cover"
-          sizes={HERO.sizes}
-          quality={85}
-         
-          blurDataURL={BLUR_DATA_URL}
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/80 via-purple-800/70 to-violet-950/90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 via-transparent to-purple-900/60" aria-hidden="true" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 text-center text-white py-12">
-        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-xl px-4 py-2 border border-white/30 mb-6">
-          <span className="relative flex w-2 h-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-          </span>
-          <span className="text-sm font-bold text-white">Nationwide professional service</span>
-        </div>
-
-        <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 drop-shadow-2xl">
-          <span className="gradient-text gradient-text--safe-xl">LED Screen Rental</span> in Turkey
-        </h1>
-
-        <p className="text-xl md:text-2xl text-white/95 max-w-3xl 2xl:max-w-4xl mx-auto leading-relaxed font-light mb-4">
-          Concerts • Trade shows • Launch events • Festivals • Corporate productions
-        </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-normal mb-6">
-          Indoor and outdoor LED walls, 4K processing and high-brightness output with
-          <span className="font-semibold text-white"> nationwide installation and operators</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="Request an LED screen quote on WhatsApp (opens in a new tab)"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">💬</span>
-            <span className="text-base">Get a fast quote</span>
-            <span className="sr-only">(opens in a new tab)</span>
-          </Link>
-
-          <Link
-            href="#services"
-            aria-label="Explore our LED screen services"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white/50 text-white bg-slate-900/85 backdrop-blur-lg hover:bg-slate-900/95 hover:border-white/70 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
-          >
-            <span aria-hidden="true" className="text-xl mr-2">🎯</span> 
-            <span className="text-base">Our services</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
-            <div className="text-white/80 text-sm">{GOOGLE_REVIEW_COUNT_DISPLAY}+ client reviews</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🏆</span>
-            <div className="text-xl font-black text-white">{PROJECTS_COMPLETED}</div>
-            <div className="text-white/80 text-sm">Completed projects</div>
-          </div>
-          <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">🚀</span>
-            <div className="text-xl font-black text-white">{PROVINCES_COUNT} cities</div>
-            <div className="text-white/80 text-sm">Nationwide coverage</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================== Commercial quick answer ================== */
-function QuickAnswer() {
-  return (
-    <section className="py-10 bg-white" aria-labelledby="led-rental-turkey-heading">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-violet-100 bg-violet-50 p-6 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">
-            LED screen rental company in Turkey
-          </p>
-          <h2 id="led-rental-turkey-heading" className="mt-3 text-2xl font-black text-slate-950">
-            Indoor and outdoor LED wall rental, installed and operated by one team.
-          </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-700">
-            Sahneva supplies event LED screens in Istanbul and across Turkey for conferences,
-            exhibitions, product launches, concerts and festivals. We handle the site survey,
-            nationwide logistics, safe rigging, installation, video processing, content testing,
-            live operation and dismantling. International agencies can also combine the LED wall
-            with our <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/event-production-company-turkey">event stage production support in Turkey</Link>,{" "}
-            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/truss-rental">truss and rigging</Link>, or{" "}
-            <Link className="font-bold text-violet-700 hover:text-violet-900" href="/en/corporate-events">corporate event production</Link>.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">
-            Published starting rates are TRY {STANDARD_LED_RATE}/m² for standard indoor/outdoor panels and
-            TRY {P19_LED_RATE}/m² for P1.9 indoor LED. See the{" "}
-            <Link
-              className="font-bold text-violet-700 underline underline-offset-4 hover:text-violet-900"
-              href="/en/led-screen-rental-prices"
-            >
-              LED screen rental price guide
-            </Link>{" "}
-            for the itemised installation, processing, crew and logistics scope.
-          </p>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Premium LED screen rental in Istanbul and across Turkey"
+      title="LED Screen Rental"
+      description="Premium indoor, outdoor, curved and circular LED walls planned as part of the complete event environment. Sahneva coordinates visual design, nationwide transport, installation, processing, show operation and dismantling through one production team."
+      badges={HERO_BADGES}
+      actions={HERO_ACTIONS}
+      metrics={HERO_METRICS}
+      image={{
+        src: HERO.src,
+        alt: HERO.alt,
+        width: 1440,
+        height: 810,
+        sources: [
+          { media: "(max-width: 640px)", srcSet: HERO.mobileSrc },
+          { media: "(max-width: 1024px)", srcSet: HERO.tabletSrc },
+        ],
+      }}
+    />
   );
 }
 
 /* ================== Services ================== */
 function Services() {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-violet-50/50" aria-labelledby="services-title">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="services-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            LED screen and <span className="gradient-text gradient-text--safe-xl">LED wall rental services</span>
+    <section id="services" className="bg-gradient-to-b from-white to-violet-50/50 py-14 md:py-16" aria-labelledby="services-title">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mb-9 max-w-4xl">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Visual production portfolio</p>
+          <h2 id="services-title" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+            LED solutions designed for <span className="text-violet-700">premium event environments</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            LED screen rental with technical consultancy, installation, operation and 24/7 support
+          <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg">
+            Explore indoor, outdoor, curved and broadcast-ready LED systems through real Sahneva installations.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {SERVICES.map((service) => {
             const id = `svc-${slugify(service.title)}`;
             return (
-              <div key={id} className="group">
-                <article 
-                  className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl p-8 group-hover:scale-105 transition-all duration-500 h-full flex flex-col"
-                  aria-labelledby={id}
-                >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                    {service.icon}
+              <article key={id} className="group relative min-h-[380px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl sm:w-auto" aria-labelledby={id}>
+                <Image
+                  src={service.image}
+                  alt={`${service.title} delivered by Sahneva`}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/10" aria-hidden="true" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white md:p-6">
+                  <div className="mb-3 inline-flex rounded-xl border border-white/15 bg-white/10 p-2.5 text-violet-100 backdrop-blur-sm">
+                    <service.Icon size={24} aria-hidden="true" />
                   </div>
-                  <h3 id={id} className="text-2xl font-black mb-4 text-gray-900 group-hover:text-violet-600 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3 text-gray-700">
-                        <span className="w-2 h-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                        <span className="text-base">{feature}</span>
-                      </li>
+                  <h3 id={id} className="text-xl font-black md:text-2xl">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">{service.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {service.features.slice(0, 2).map((feature) => (
+                      <span key={feature} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-bold text-white/90 backdrop-blur-sm">
+                        {feature}
+                      </span>
                     ))}
-                  </ul>
-                </article>
-              </div>
+                  </div>
+                  <a
+                    href={getServiceWhatsappLink(service.title)}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 text-sm font-black text-slate-950 transition hover:bg-violet-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-300"
+                  >
+                    {service.cta}
+                    <ArrowRight size={17} aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
             );
           })}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href={WHATSAPP}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
-            aria-label="Request a detailed proposal on WhatsApp (opens in a new tab)"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">📞</span>
-            <span>Request a detailed proposal</span>
-            <span className="sr-only">(opens in a new tab)</span>
-          </Link>
         </div>
       </div>
     </section>
@@ -450,67 +441,100 @@ function CurvedP19Proof() {
 /* ================== Gallery ================== */
 const GALLERY_IMAGES = [
   {
-    src: "/img/galeri/led-ekran-kiralama-1.webp",
-    alt: "Large LED wall built on a concert stage during a live performance"
+    src: P19_PROOF_DISPLAY_IMAGE,
+    alt: "Large Absen P1.9 LED wall in a premium corporate event stage",
+    caption: "A large-format P1.9 LED canvas integrated with lighting, scenic design and stage architecture.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-2.webp",
-    alt: "LED screen at a corporate event with presentation visuals and professional lighting"
+    src: P19_TECHNICAL_CONTROL_IMAGE,
+    alt: "Professional LED control desk during a corporate production",
+    caption: "Processing, playback and technical monitoring managed from a dedicated show-control position.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-3.webp",
-    alt: "High-brightness LED wall at an outdoor festival delivering crisp daylight visuals"
+    src: CORPORATE_CONFERENCE_IMAGE,
+    alt: "Corporate conference LED wall with professional stage lighting",
+    caption: "A presentation-led corporate environment planned for clear content, balanced light and camera use.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-4.webp",
-    alt: "Video wall inside a trade show booth showcasing branded content"
+    src: "/img/led/led-wall-urun-lansmani-hybrid-sahneva.webp",
+    alt: "Hybrid product launch with a premium LED wall",
+    caption: "A clean visual backdrop for product launches, executive presentations and hybrid broadcasts.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-5.webp",
-    alt: "Giant LED screen inside a stadium displaying live scores and footage"
+    src: "/img/led/led-ekran-fuar-lansman-salon-kurulumu-sahneva.webp",
+    alt: "LED wall installation for an exhibition and launch venue",
+    caption: "Brand content carried across a wide-format LED surface in an indoor event venue.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-6.webp",
-    alt: "LED screen at a wedding streaming live photos and videos"
+    src: "/img/led/gala-led-sahne-video-wall-sahneva.webp",
+    alt: "Gala stage with LED video wall and show lighting",
+    caption: "A cinematic gala setup combining LED content, stage depth and carefully layered lighting.",
   },
   {
-    src: "/img/galeri/led-ekran-kiralama-7.webp",
-    alt: "Professional LED backdrop inside a TV studio prepared for live broadcast"
-  },
-  {
-    src: "/img/galeri/led-ekran-kiralama-8.webp",
-    alt: "Advertising LED screen inside a shopping mall for high-traffic promotion"
+    src: OUTDOOR_CONCERT_IMAGE,
+    alt: "Outdoor concert stage with a high-brightness LED screen",
+    caption: "High-brightness LED visuals designed for open-air viewing distances and live performance content.",
   },
 ];
 
 function Gallery() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="gallery-heading">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="gallery-heading" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Project <span className="gradient-text gradient-text--safe-xl">gallery</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Highlights from LED screen installations we delivered across Turkey
-          </p>
-        </div>
-
-        <div className="max-w-7xl mx-auto">
-          <CaseGallery images={GALLERY_IMAGES} visibleCount={8} locale="en" />
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg mb-6">
-            Discover more projects and creative LED wall configurations
-          </p>
-          <Link
-            href="/en/projects"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transform transition-all duration-300 focus-ring"
-          >
-            <span aria-hidden="true" className="text-xl mr-3">📸</span>
-            <span>View all projects</span>
+    <section id="gallery" className="bg-slate-50 py-14 md:py-16" aria-labelledby="gallery-heading">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="mb-9 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Sahneva visual archive</p>
+            <h2 id="gallery-heading" className="mt-3 text-3xl font-black leading-tight text-gray-900 md:text-5xl">
+              Real installations. <span className="text-violet-700">Premium visual impact.</span>
+            </h2>
+            <p className="mt-4 text-base font-medium leading-relaxed text-gray-600 md:text-lg">
+              Selected corporate, launch, gala and outdoor installations from Sahneva&apos;s field portfolio.
+            </p>
+          </div>
+          <Link href="/en/projects" className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border border-violet-200 bg-white px-5 text-sm font-black text-violet-800 transition hover:bg-violet-50 lg:self-auto">
+            <Eye size={18} aria-hidden="true" />
+            View all projects
           </Link>
+        </div>
+
+        <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
+          <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
+            <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
+              <Image src={GALLERY_IMAGES[0].src} alt={GALLERY_IMAGES[0].alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 66vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" aria-hidden="true" />
+              <div className="absolute inset-x-6 bottom-6 max-w-2xl">
+                <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">Featured installation</div>
+                <h3 className="text-3xl font-black text-white md:text-4xl">Corporate stage design with Absen P1.9 LED</h3>
+                <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
+              </div>
+            </div>
+          </article>
+
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
+            {GALLERY_IMAGES.slice(1, 3).map((image) => (
+              <article key={image.src} className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto">
+                <div className="relative h-[240px] lg:h-[260px]">
+                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
+                </div>
+                <div className="p-5"><p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Selected field applications</h3>
+          <p className="mt-2 text-base text-gray-600">A closer look at the visual character, scale and technical finish of our LED productions.</p>
+          <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
+            {GALLERY_IMAGES.slice(3).map((image) => (
+              <article key={image.src} className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto">
+                <div className="relative h-[320px] md:h-[360px]">
+                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw" />
+                </div>
+                <div className="p-5"><p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p></div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -524,81 +548,93 @@ function Technical() {
       category: "pixel",
       title: "Pixel technologies",
       description: "Pixel-pitch options selected around viewing distance, content detail and camera use",
+      Icon: Eye,
       features: ["P1.9: Close-view indoor detail", "P2.6 / P2.9: Indoor event formats", "P3.9 / P4: Hybrid and outdoor use", "P6: Long-distance viewing"]
     },
     {
       category: "brightness",
       title: "Brightness & visibility",
       description: "Optimised luminance for indoor venues and open-air sunlight",
+      Icon: Sun,
       features: ["Indoor: 800–1500 nit", "Outdoor: 3500–6500 nit", "Auto brightness control", "Daylight clarity"]
     },
     {
       category: "protection",
       title: "Protection systems",
       description: "Weather-resistant cabinets with IP-rated sealing and robust build",
+      Icon: Shield,
       features: ["IP65 front protection", "IP54 rear sealing", "UV-resistant housing", "Dust-proof modules"]
     },
     {
       category: "control",
       title: "Control systems",
       description: "Professional video processing, switching and redundancy",
+      Icon: Settings,
       features: ["Novastar processors", "4K video scaling", "Media servers", "Remote monitoring"]
     },
     {
       category: "rigging",
       title: "Rigging systems",
       description: "Engineered structures for rapid and safe installations",
+      Icon: Zap,
       features: ["Ground stack platforms", "Truss rigging", "Motorised hoists", "Quick-lock mechanisms"]
     },
     {
       category: "support",
       title: "Technical support",
       description: "Round-the-clock engineers with backup inventory and diagnostics",
+      Icon: Headphones,
       features: ["24/7 technical hotline", "Spare module stock", "Rapid response crew", "Remote diagnostics"]
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" aria-labelledby="technical-title">
+    <section className="bg-gradient-to-b from-gray-50 to-white py-14 md:py-20" aria-labelledby="technical-title">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="technical-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900">
-            Technical <span className="gradient-text gradient-text--safe-xl">infrastructure</span>
+        <div className="mb-8 text-center md:mb-10">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-700">Engineered for the show</p>
+          <h2 id="technical-title" className="mt-3 text-3xl font-black text-gray-900 md:text-5xl lg:text-6xl">
+            Technical <span className="text-violet-700">infrastructure</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We deploy the latest LED technology and certified infrastructure for every production
+          <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
+            Core specifications stay easy to scan; detailed configuration is available only when you need it.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {technicalItems.map((item) => (
-            <div key={item.category} className="group">
-              <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg hover:shadow-xl group-hover:scale-105 transition-all duration-500 h-full">
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-violet-600 transition-colors flex items-center gap-3">
-                  <span className="text-3xl" aria-hidden="true">
-                    {item.category === "pixel" && "🔍"}
-                    {item.category === "brightness" && "☀️"}
-                    {item.category === "protection" && "🛡️"}
-                    {item.category === "control" && "🎮"}
-                    {item.category === "rigging" && "⚡"}
-                    {item.category === "support" && "📞"}
+        <div className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
+          {technicalItems.map((item) => {
+            const detailsId = `${slugify(item.title)}-details`;
+
+            return (
+            <div key={item.category} className="group w-[82vw] shrink-0 snap-start md:w-auto">
+              <div className="h-full rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <h3 className="mb-3 flex items-center gap-3 text-xl font-black text-gray-900 transition-colors group-hover:text-violet-700">
+                  <span className="text-violet-700 transition-transform duration-300 group-hover:scale-110">
+                    <item.Icon size={28} strokeWidth={1.7} aria-hidden="true" />
                   </span>
                   {item.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                  {item.description}
-                </p>
-                <ul className="space-y-3">
-                  {item.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3 text-gray-700">
-                      <span className="w-2 h-2 bg-gradient-to-r from-green-500 to-violet-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      <span className="text-base">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-base leading-relaxed text-gray-600">{item.description}</p>
+                <details className="mt-4 rounded-xl border border-gray-100 bg-gray-50/70 p-4">
+                  <summary
+                    aria-controls={detailsId}
+                    className="flex min-h-11 cursor-pointer select-none items-center rounded-lg font-semibold text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2"
+                  >
+                    View specifications
+                  </summary>
+                  <ul id={detailsId} className="mt-3 space-y-2">
+                    {item.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-gray-700">
+                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-violet-700" aria-hidden="true" />
+                        <span className="text-sm leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>
@@ -608,41 +644,20 @@ function Technical() {
 /* ================== Performance stats ================== */
 function StatsBand() {
   const stats = [
-    { value: PROJECTS_COMPLETED, label: "Delivered productions", icon: "🎬" },
-    { value: "50+", label: "Enterprise clients", icon: "🏢" },
-    { value: `${PROVINCES_COUNT}`, label: "Cities served", icon: "🗺️" },
-    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of experience", icon: "⭐" },
+    { value: "400 m²", label: "Absen P1.9 indoor inventory" },
+    { value: PROJECTS_COMPLETED, label: "Delivered productions" },
+    { value: `${PROVINCES_COUNT} provinces`, label: "Nationwide installation" },
+    { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of experience" },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white" aria-label="Our performance statistics">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {stats.map((stat, index) => (
-            <article
-              key={stat.label}
-              className="text-center group"
-              role="group"
-              aria-labelledby={`led-stat-${index}-value`}
-              aria-describedby={`led-stat-${index}-label`}
-            >
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 group-hover:bg-white/20 transition-all duration-500 group-hover:scale-105">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                  {stat.icon}
-                </div>
-                <h3
-                  id={`led-stat-${index}-value`}
-                  className="text-4xl md:text-5xl font-black mb-2 text-white drop-shadow-lg"
-                >
-                  {stat.value}
-                </h3>
-                <p
-                  id={`led-stat-${index}-label`}
-                  className="text-violet-100 text-lg font-semibold"
-                >
-                  {stat.label}
-                </p>
-              </div>
+    <section id="field-proof" className="bg-[#0B1120] py-10" aria-label="LED screen field proof and service coverage">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-4">
+          {stats.map((stat) => (
+            <article key={stat.label} className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm md:p-6">
+              <div className="text-2xl font-black text-white md:text-3xl">{stat.value}</div>
+              <div className="mt-1 text-sm leading-snug text-white/75">{stat.label}</div>
             </article>
           ))}
         </div>
@@ -654,36 +669,26 @@ function StatsBand() {
 /* ================== Use cases ================== */
 function UseCases() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-violet-900/95" aria-labelledby="use-cases-title">
+    <section className="bg-slate-950 py-14 md:py-20" aria-labelledby="use-cases-title">
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="use-cases-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            LED screen rental for <span className="gradient-text gradient-text--safe-xl">events across Turkey</span>
+        <div className="mb-8 text-center md:mb-14">
+          <p className="text-sm font-black uppercase tracking-[0.16em] text-violet-400">Built around the event</p>
+          <h2 id="use-cases-title" className="mt-3 text-3xl font-black text-white md:text-5xl lg:text-6xl">
+            LED systems for <span className="text-violet-400">every show format</span>
           </h2>
-          <p className="text-xl text-white/85 max-w-3xl mx-auto leading-relaxed">
-            Key event types that benefit from our LED screen packages and specialist workflows
+          <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-white/70 md:text-xl">
+            A production-ready visual system, configured around the venue, content, audience and camera plan.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-violet-400 to-purple-400 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto list-none">
+        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 lg:gap-6">
           {USE_CASES.map((uc) => (
-            <li key={uc.text} className="h-full">
-              <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30 hover:border-white/50 transition-all duration-500 group hover:scale-105 h-full">
-                <div className="flex flex-col items-start gap-4">
-                  <div className="text-3xl bg-white/20 rounded-2xl p-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                    {uc.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-xl mb-2 group-hover:text-violet-300 transition-colors">
-                      {uc.text}
-                    </h3>
-                    <p className="text-white/70 text-lg leading-relaxed">
-                      {uc.desc}
-                    </p>
-                  </div>
-                </div>
+            <li key={uc.title} className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 md:w-auto">
+              <div className="mb-5 text-violet-400 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+                <uc.Icon size={32} strokeWidth={1.5} />
               </div>
+              <h3 className="mb-3 text-lg font-black uppercase leading-tight tracking-wide text-white">{uc.title}</h3>
+              <p className="border-t border-white/10 pt-3 text-sm leading-relaxed text-white/75">{uc.desc}</p>
             </li>
           ))}
         </ul>
@@ -696,7 +701,7 @@ function UseCases() {
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
             aria-label="Request a tailored solution for your event on WhatsApp (opens in a new tab)"
           >
-            <span aria-hidden="true" className="text-xl mr-3">💬</span>
+            <MessageCircle size={20} aria-hidden="true" className="mr-3" />
             <span>Request a tailored solution for your event</span>
             <span className="sr-only">(opens in a new tab)</span>
           </Link>
@@ -706,260 +711,12 @@ function UseCases() {
   );
 }
 
-/* ================== Knowledge & guides ================== */
-function Articles() {
-  return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50/50" aria-labelledby="guides-title">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 id="guides-title" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Knowledge & <span className="gradient-text gradient-text--safe-xl">professional guidance</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Expert insight and technical tips for choosing LED walls for any production
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Ana Makale */}
-          <article className="lg:col-span-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-            <header className="bg-gradient-to-r from-violet-700 via-purple-700 to-violet-800 text-white p-8 md:p-10 relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/10" aria-hidden="true"></div>
-              <div className="relative z-10">
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">📚 Comprehensive guide</span>
-                  <span className="bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">⭐ Expert insight</span>
-                  <span className="bg-violet-500/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold">🎯 Practical solutions</span>
-                </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                  LED Screen Rental: Visual excellence for standout events
-                </h3>
-                <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Deliver flawless performances with the latest LED walls, certified rigging and on-site visual production
-                </p>
-              </div>
-            </header>
-
-            <div className="p-8 md:p-10">
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-violet-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-em:text-gray-600 prose-ul:mt-6 prose-ul:mb-6 prose-li:marker:text-violet-500">
-                
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="space-y-6">
-                    <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-violet-100 text-violet-600 rounded-2xl p-3" aria-hidden="true">🖥️</span>
-                      LED display technologies
-                    </h4>
-                    <p>
-                      <strong className="text-gray-900">Sahneva</strong> delivers enterprise-grade
-                      <Link href="/en/led-screen-rental" className="font-semibold text-violet-600 hover:text-violet-700 underline underline-offset-4">
-                        LED screen rental services
-                      </Link>{" "}
-                      with nationwide crews, engineering and logistics.
-                    </p>
-                    <p>
-                      From indoor concerts to open-air festivals we manage technical surveys, pixel pitch optimisation,
-                      professional assembly and live operation as a
-                      <strong className="text-gray-900"> turnkey package</strong>.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <h4 className="text-2xl font-black text-gray-900 flex items-center gap-4">
-                      <span className="bg-purple-100 text-purple-600 rounded-2xl p-3" aria-hidden="true">🌞</span>
-                      Brightness and visibility
-                    </h4>
-                    <p>
-                      Indoor deployments run at 800–1500 nit while outdoor walls reach 3500–6500+ nit, ensuring crisp visuals in any lighting.
-                    </p>
-                    <p>
-                      With P2.5–P6 pixel pitches we tune solutions to the viewing distance, preventing both close-range pixelation and long-range detail loss.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Highlight box */}
-                <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-l-4 border-violet-500 rounded-r-2xl p-6 mb-8">
-                  <h5 className="font-black text-violet-700 text-xl mb-4 flex items-center gap-3">
-                    <span className="text-2xl" aria-hidden="true">💡</span>
-                    Technical selection strategy
-                  </h5>
-                  <p className="text-gray-700 text-lg mb-0 leading-relaxed">
-                    Viewing distance is the defining factor. Choose P2.5–P3.9 for 3–10 m, P4 for 10–25 m and P6 for 25 m+.
-                    For outdoor stages prioritise brightness ratings and IP protection to withstand direct sun and weather.
-                  </p>
-                </div>
-
-                {/* Success factors grid */}
-                <div className="mb-8">
-                  <h4 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-4">
-                    <span className="bg-green-100 text-green-600 rounded-2xl p-3" aria-hidden="true">🚀</span>
-                    Critical success factors
-                  </h4>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {[
-                      {
-                        icon: "🎯",
-                        title: "Accurate pixel selection",
-                        desc: "Pixel pitch aligned with expected viewing distance"
-                      },
-                      {
-                        icon: "📊",
-                        title: "Brightness optimisation",
-                        desc: "Luminance tuned to venue and ambient light"
-                      },
-                      {
-                        icon: "🔒",
-                        title: "Safety systems",
-                        desc: "Rigging, power distribution and contingency planning"
-                      },
-                      {
-                        icon: "🎭",
-                        title: "Content optimisation",
-                        desc: "Content authored for native resolution and aspect"
-                      },
-                    ].map((item, index) => (
-                      <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200">
-                        <div className="flex items-start gap-4">
-                          <span className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0" aria-hidden="true">
-                            {item.icon}
-                          </span>
-                          <div>
-                            <h5 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-violet-600 transition-colors">
-                              {item.title}
-                            </h5>
-                            <p className="text-gray-600 leading-relaxed">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-2xl p-6 mt-8">
-                  <h5 className="font-black text-yellow-700 text-lg mb-3 flex items-center gap-3">
-                    <span className="text-xl" aria-hidden="true">💎</span>
-                    Why partner with Sahneva?
-                  </h5>
-                  <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and service across {PROVINCES_COUNT} cities</strong>
-                    position us as your trusted LED screen partner, backed by cutting-edge equipment,
-                    certified crews and 24/7 technical response.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          {/* Secondary articles */}
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-purple-600 to-violet-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
-                Technical installation & operation
-              </h3>
-              <p className="text-violet-100 mt-2 text-lg">
-                Professional deployment workflows and live-show management
-              </p>
-            </header>
-
-            <div className="p-6 md:p-8">
-              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
-                <p>
-                  Every LED wall build starts with a detailed site survey. We review structural conditions,
-                  power distribution, audience sight-lines and available rigging points.
-                </p>
-                <p>
-                  Our certified crew assembles the wall within 2–6 hours, manages cabling and power systems,
-                  and completes full testing plus colour calibration before handover.
-                </p>
-
-                <div className="bg-gray-50 rounded-2xl p-5 mt-6 border border-gray-200">
-                  <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-3">
-                    <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">📋</span>
-                    Installation standards
-                  </h4>
-                  <ul className="text-gray-700 space-y-2 text-base">
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Ground stack platforms or flown truss rigging
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Professional power distribution and UPS systems
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Colour calibration and visual optimisation
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      Spare module strategy and rapid response plan
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 h-full">
-            <header className="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight">
-                Tailored solutions by event type
-              </h3>
-              <p className="text-violet-100 mt-2 text-lg">
-                LED wall strategies tuned for every show format
-              </p>
-            </header>
-
-            <div className="p-6 md:p-8">
-              <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
-                <div className="space-y-6">
-                  <div className="bg-violet-50 rounded-2xl p-5 border border-violet-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-violet-100 text-violet-600 rounded-xl p-2" aria-hidden="true">🎵</span>
-                      Concert & festival staging
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      High brightness, wide viewing angles, live camera integration and multi-screen layouts
-                    </p>
-                  </div>
-
-                  <div className="bg-purple-50 rounded-2xl p-5 border border-purple-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-purple-100 text-purple-600 rounded-xl p-2" aria-hidden="true">💼</span>
-                      Corporate experiences
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      Ultra-sharp resolution, clear text readability, presentation switching and accurate brand colours
-                    </p>
-                  </div>
-
-                  <div className="bg-green-50 rounded-2xl p-5 border border-green-200">
-                    <h4 className="font-bold text-gray-900 text-lg flex items-center gap-3 mb-2">
-                      <span className="bg-green-100 text-green-600 rounded-xl p-2" aria-hidden="true">🎪</span>
-                      Trade shows & exhibits
-                    </h4>
-                    <p className="text-gray-700 text-base mb-0">
-                      Compact footprints, fast deployment, interactive content and durability for heavy footfall
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ================== FAQ ================== */
 const FAQ_SCHEMA_ITEMS = [
   {
-    question: "How much does LED screen rental cost?",
+    question: "What is included in an LED screen rental project?",
     answer:
-      `Published starting rates are TRY ${STANDARD_LED_RATE} per square metre for standard indoor/outdoor LED screens and TRY ${P19_LED_RATE} per square metre for P1.9 indoor LED. Installation, structure, processing, crew and logistics are confirmed in an itemised project quote.`,
+      "Each project is planned around the screen system, support structure, video processing, transport, installation, on-site crew, show operation and dismantling. The final scope is confirmed after the venue, content and production requirements are reviewed.",
   },
   {
     question: "How long does installation take?",
@@ -996,8 +753,8 @@ const FAQ_SCHEMA_ITEMS = [
 function FAQ() {
   const faqs = [
     {
-      q: "How much does LED screen rental cost?",
-      a: `Published starting rates are TRY ${STANDARD_LED_RATE} per m² for standard indoor/outdoor LED screens and TRY ${P19_LED_RATE} per m² for P1.9 indoor LED. Installation, structure, processing, crew and logistics are confirmed in an itemised project quote.`
+      q: "What is included in an LED screen rental project?",
+      a: "Each project is planned around the screen system, support structure, video processing, transport, installation, on-site crew, show operation and dismantling. The final scope is confirmed after the venue, content and production requirements are reviewed."
     },
     {
       q: "How long does installation take?",
@@ -1073,7 +830,7 @@ function FAQ() {
             className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
   aria-label="Explore all LED screen FAQs"
           >
-            <span aria-hidden="true" className="text-xl mr-3">📚</span>
+            <BookOpen size={20} aria-hidden="true" className="mr-3" />
             <span className="text-lg">View LED screen FAQs</span>
           </Link>
         </div>
@@ -1088,31 +845,31 @@ function RelatedServices() {
     {
       href: "/en/av-rental-istanbul",
       title: "AV rental in Istanbul",
-      icon: "🎚️",
+      Icon: SlidersHorizontal,
       desc: "Screens bundled with audio, microphones, lighting and streaming for Istanbul events"
     },
     {
       href: "/en/sound-light-rental",
       title: "Sound & lighting systems",
-      icon: "🎵",
+      Icon: Music,
       desc: "Concert-grade audio, lighting design and truss solutions"
     },
     {
       href: "/en/stage-rental",
       title: "Stage rental",
-      icon: "🛠️",
+      Icon: Hammer,
       desc: "Modular and portable stages engineered for any venue"
     },
     {
       href: "/en/table-chair-rental",
       title: "Table & chair rentals",
-      icon: "🪑",
+      Icon: Armchair,
       desc: "Banquet seating, cocktail furniture and layout planning"
     },
     {
       href: "/en/tent-rental",
       title: "Event tents",
-      icon: "🎪",
+      Icon: Tent,
       desc: "Aluminium structure tents and weatherproof covered areas"
     },
   ];
@@ -1143,23 +900,23 @@ function RelatedServices() {
         </div>
 
         <nav aria-label="Complementary services">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service) => (
               <Link
                 key={service.href}
                 href={service.href}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500 hover:scale-105 text-center focus-ring h-full flex flex-col"
+                className="group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-lg focus-ring"
               >
                 <div 
-                  className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" 
+                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50 text-violet-700 transition-transform duration-300 group-hover:scale-110"
                   aria-hidden="true"
                 >
-                  {service.icon}
+                  <service.Icon size={24} strokeWidth={1.7} />
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 group-hover:text-violet-600 transition-colors mb-4 flex-grow">
+                <h3 className="mb-3 text-lg font-black leading-tight text-gray-900 transition-colors group-hover:text-violet-700">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
+                <p className="text-sm leading-relaxed text-gray-600 transition-colors group-hover:text-gray-700">
                   {service.desc}
                 </p>
               </Link>
@@ -1191,14 +948,14 @@ function CTA() {
             </h2>
             <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Share your event plan and we will recommend the ideal LED configuration with free site survey,
-              professional consultancy and transparent pricing guarantees.
+              technical planning, visual integration and one coordinated production scope.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/en/contact"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-white text-violet-700 hover:scale-105 transform transition-all duration-300 hover:shadow-2xl focus-ring shadow-lg"
               >
-                <span aria-hidden="true" className="text-xl mr-3">📞</span>
+                <Phone size={20} aria-hidden="true" className="mr-3" />
                 <span className="text-lg">Request a proposal</span>
               </Link>
               <a
@@ -1208,13 +965,15 @@ function CTA() {
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300 focus-ring shadow-lg"
                 aria-label="Message us on WhatsApp (opens in a new tab)"
               >
-                <span aria-hidden="true" className="text-xl mr-3">💬</span>
+                <MessageCircle size={20} aria-hidden="true" className="mr-3" />
                 <span className="text-lg">Message us on WhatsApp</span>
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
             </div>
-            <div className="mt-8 text-violet-200 text-lg">
-              📍 Service in {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+            <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-violet-100 md:text-base">
+              <span className="inline-flex items-center gap-2"><MapPin size={18} aria-hidden="true" />Service in {PROVINCES_COUNT} provinces</span>
+              <span className="inline-flex items-center gap-2"><Clock3 size={18} aria-hidden="true" />24/7 technical support</span>
+              <span className="inline-flex items-center gap-2"><Star size={18} aria-hidden="true" />{YEARS_OF_EXPERIENCE} years of experience</span>
             </div>
           </div>
         </div>
@@ -1302,21 +1061,19 @@ export default function Page() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
       <LedScreenJsonLd />
       <Hero />
-      <QuickAnswer />
       <Services />
       <CurvedP19Proof />
       <Gallery />
       <Technical />
       <StatsBand />
       <UseCases />
-      <Articles />
       <FAQ />
       <RelatedServices />
       <GlossaryTermLinks
         locale="en"
         servicePath="/en/led-screen-rental"
         title="Terms used in an LED screen quote"
-        description="Pixel pitch, nits, cabinets and the video processor drive both the price and the image quality; the definitions are in the glossary."
+        description="Pixel pitch, nits, cabinets and the video processor shape image quality and the technical production plan; the definitions are in the glossary."
       />
       <ServiceBlogLinks
         locale="en"
