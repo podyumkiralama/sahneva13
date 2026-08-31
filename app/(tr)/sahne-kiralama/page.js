@@ -1,4 +1,4 @@
-﻿// app/sahne-kiralama/page.jsx
+// app/sahne-kiralama/page.jsx
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
@@ -1864,22 +1864,14 @@ function StageJsonLd() {
     locale: "tr-TR",
   });
 
-  const baseService = {
+  // Merkezi Service şeması tek kaynak; yalnızca güvenli fallback tutulur.
+  const serviceNode = serviceSchema || {
     "@type": "Service",
+    "@id": `${pageUrl}#service`,
     name: "Sahne Kiralama",
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-    // ❌ aggregateRating YOK (yorum yok dedin)
-  };
-
-  // ✅ Çakışmasız merge + WebPage bağlantısı
-  const serviceNode = {
-    ...(serviceSchema || {}),
-    ...baseService,
-    "@type": "Service",
-    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
-    provider,
     url: pageUrl,
     mainEntityOfPage: { "@id": webPageId },
   };

@@ -1,4 +1,4 @@
-﻿// app/en/stage-rental/page.js
+// app/en/stage-rental/page.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
@@ -1598,20 +1598,14 @@ function StageJsonLd() {
     locale: "en-US",
   });
 
-  const baseService = {
+  // Keep the shared Service schema as the single source of truth.
+  const serviceNode = serviceSchema || {
     "@type": "Service",
+    "@id": `${pageUrl}#service`,
     name: "Stage Rental in Turkey",
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Turkey" },
-  };
-
-  const serviceNode = {
-    ...(serviceSchema || {}),
-    ...baseService,
-    "@type": "Service",
-    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
-    provider,
     url: pageUrl,
     mainEntityOfPage: { "@id": webPageId },
   };

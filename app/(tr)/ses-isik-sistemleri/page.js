@@ -1,4 +1,4 @@
-﻿// app/ses-isik-sistemleri/page.jsx
+// app/ses-isik-sistemleri/page.jsx
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
@@ -1231,22 +1231,14 @@ function SoundLightJsonLd() {
     locale: "tr-TR",
   });
 
-  // Base Service Tanımı (AggregateRating YOK)
-  const baseService = {
+  // Merkezi Service şeması tek kaynak; yalnızca güvenli fallback tutulur.
+  const serviceNode = serviceSchema || {
     "@type": "Service",
+    "@id": `${pageUrl}#service`,
     name: "Ses Sistemi Kiralama ve Işık Sistemleri",
     description: pageDescription,
     provider,
     areaServed: { "@type": "Country", name: "Türkiye" },
-  };
-
-  // Service Node (çakışmasız merge)
-  const serviceNode = {
-    ...(serviceSchema || {}),
-    ...baseService,
-    "@type": "Service",
-    "@id": serviceSchema?.["@id"] || `${pageUrl}#service`,
-    provider,
     url: pageUrl,
     mainEntityOfPage: { "@id": webPageId },
   };
