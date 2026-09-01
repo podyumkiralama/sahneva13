@@ -45,19 +45,70 @@ export default function NavbarSearchDropdown({ locale = "tr", compact = false })
   const isEn = locale === "en";
   const isZh = locale === "zh";
   const isDe = locale === "de";
-  const searchButtonLabel = isEn ? "Search" : isZh ? "搜索" : isDe ? "Suche" : "Ara";
-  const searchAriaLabel = isEn ? "Search the site" : isZh ? "站内搜索" : isDe ? "Website durchsuchen" : "Site içinde arama";
-  const searchInputLabel = isEn ? "Search the site" : isZh ? "在网站内搜索" : isDe ? "Website durchsuchen" : "Site içinde arama yapın";
-  const searchPlaceholder = isEn ? "E.g. LED wall rental..." : isZh ? "例如：LED屏幕租赁..." : isDe ? "z. B. LED-Wand mieten ..." : "Örn: LED ekran kiralama...";
+  const isRu = locale === "ru";
+  const searchButtonLabel = isEn
+    ? "Search"
+    : isZh
+      ? "搜索"
+      : isDe
+        ? "Suche"
+        : isRu
+          ? "Поиск"
+          : "Ara";
+  const searchAriaLabel = isEn
+    ? "Search the site"
+    : isZh
+      ? "站内搜索"
+      : isDe
+        ? "Website durchsuchen"
+        : isRu
+          ? "Поиск по сайту"
+          : "Site içinde arama";
+  const searchInputLabel = isEn
+    ? "Search the site"
+    : isZh
+      ? "在网站内搜索"
+      : isDe
+        ? "Website durchsuchen"
+        : isRu
+          ? "Введите запрос"
+          : "Site içinde arama yapın";
+  const searchPlaceholder = isEn
+    ? "E.g. LED wall rental..."
+    : isZh
+      ? "例如：LED屏幕租赁..."
+      : isDe
+        ? "z. B. LED-Wand mieten ..."
+        : isRu
+          ? "Например: аренда LED-экрана..."
+          : "Örn: LED ekran kiralama...";
   const searchHint = isEn
     ? "Press Enter to open the search page."
     : isZh
       ? "按 Enter 键打开搜索页面。"
       : isDe
         ? "Mit Enter gelangen Sie zur Suchseite."
-        : "Enter ile arama sayfasına gidebilirsiniz.";
-  const noResults = isEn ? "No matching page found." : isZh ? "未找到匹配的页面。" : isDe ? "Keine passende Seite gefunden." : "Eşleşen bir sayfa bulunamadı.";
-  const viewAllLabel = isEn ? "View all results" : isZh ? "查看全部结果" : isDe ? "Alle Ergebnisse ansehen" : "Tüm sonuçları gör";
+        : isRu
+          ? "Нажмите Enter, чтобы открыть страницу поиска."
+          : "Enter ile arama sayfasına gidebilirsiniz.";
+  const noResults = isEn
+    ? "No matching page found."
+    : isZh
+      ? "未找到匹配的页面。"
+      : isDe
+        ? "Keine passende Seite gefunden."
+        : isRu
+          ? "Подходящая страница не найдена."
+          : "Eşleşen bir sayfa bulunamadı.";
+  const viewAllLabel = isEn
+    ? "View all results"
+    : isZh
+      ? "查看全部结果"
+      : isDe
+        ? "Alle Ergebnisse ansehen"
+        : isRu
+          ? "Посмотреть все результаты"
+          : "Tüm sonuçları gör";
 
   const router = useRouter();
   const wrapperRef = useRef(null);

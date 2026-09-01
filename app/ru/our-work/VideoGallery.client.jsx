@@ -12,7 +12,7 @@ const VIDEO_FILTERS = [
   },
   {
     id: "led",
-    label: "LED Экран",
+    label: "LED-экран",
     matches: (text) => text.includes("led"),
   },
   {
@@ -23,12 +23,13 @@ const VIDEO_FILTERS = [
   },
   {
     id: "tent",
-    label: "Тент / Дом",
-    matches: (text) => text.includes("тент") || text.includes("дом"),
+    label: "Шатры и купольные конструкции",
+    matches: (text) =>
+      text.includes("шат") || text.includes("тент") || text.includes("купол"),
   },
   {
     id: "corporate",
-    label: "Корпоратив",
+    label: "Корпоративные мероприятия",
     matches: (text) =>
       text.includes("корпоратив") ||
       text.includes("гала") ||

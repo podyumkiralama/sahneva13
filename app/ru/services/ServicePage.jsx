@@ -205,7 +205,7 @@ export default function ServicePage({ service }) {
         <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
-              Комплект услуги
+              Состав услуги
             </p>
             <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
               Технический план под площадку, город и формат события
@@ -295,11 +295,30 @@ export default function ServicePage({ service }) {
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-600">
-                Сценарии использования
+                Реальные проекты и типовые сценарии
               </p>
               <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 md:text-5xl">
-                Для событий, где важны видимость, темп и аккуратная техническая работа
+                Как техническое решение работает на площадке
               </h2>
+              <p className="mt-5 text-base leading-8 text-slate-700">
+                Примеры основаны на опубликованных материалах Sahneva с реальных площадок.
+                Точный состав оборудования для нового проекта определяется после брифа и
+                проверки условий монтажа.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                <Link
+                  href="/ru/our-work"
+                  className="inline-flex min-h-[46px] items-center justify-center rounded-xl bg-violet-600 px-5 text-sm font-black text-white transition hover:bg-violet-700"
+                >
+                  Видео с площадок
+                </Link>
+                <Link
+                  href="/ru/projects"
+                  className="inline-flex min-h-[46px] items-center justify-center rounded-xl border border-slate-300 px-5 text-sm font-black text-slate-950 transition hover:border-slate-950"
+                >
+                  Описания проектов
+                </Link>
+              </div>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {service.useCases.map((item) => (
@@ -309,6 +328,22 @@ export default function ServicePage({ service }) {
                 </article>
               ))}
             </div>
+          </div>
+          <div className="mt-8 rounded-3xl border border-violet-100 bg-violet-50 p-6 md:p-8">
+            <h3 className="text-xl font-black text-slate-950">
+              Нужен единый подрядчик для нескольких технических направлений?
+            </h3>
+            <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-700 md:text-base">
+              На странице комплексного продакшена описано, как сцена, LED-экраны, звук,
+              свет, ферменные конструкции, шатры, логистика, монтаж и демонтаж объединяются
+              под ответственностью одной команды.
+            </p>
+            <Link
+              href="/ru/event-production-company-turkey"
+              className="mt-5 inline-flex min-h-[46px] items-center justify-center rounded-xl bg-slate-950 px-5 text-sm font-black text-white transition hover:bg-slate-800"
+            >
+              Комплексное техническое обеспечение
+            </Link>
           </div>
         </div>
       </section>
@@ -365,7 +400,7 @@ export default function ServicePage({ service }) {
 
           <div className="rounded-3xl bg-slate-950 p-6 text-white md:p-8">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-emerald-300">
-              Расчет под вашу площадку
+              Расчёт для вашей площадки
             </p>
             <h2 className="mt-3 text-3xl font-black">Отправьте город, дату и формат</h2>
             <p className="mt-4 text-sm leading-7 text-white/[0.74]">
@@ -403,7 +438,8 @@ export default function ServicePage({ service }) {
             </h2>
             <p className="mt-4 text-base leading-8 text-white/[0.70]">
               Часто один проект требует сразу несколько направлений: сцена, LED, звук,
-              свет, шатер, подиум, truss, мебель и поддержка в день события.
+              свет, шатёр, подиум, ферменные конструкции, мебель и техническое
+              сопровождение во время мероприятия.
             </p>
           </div>
           <RelatedServices currentSlug={service.slug} />
@@ -412,4 +448,3 @@ export default function ServicePage({ service }) {
     </div>
   );
 }
-

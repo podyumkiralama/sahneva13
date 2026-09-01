@@ -16,14 +16,14 @@ const VALUES = [
 
 export const metadata = {
   // Шаблон layout добавляет " | Sahneva" — бренд в заголовке не повторяем.
-  title: "О компании — технический продакшен мероприятий",
+  title: "О компании — техническое обеспечение мероприятий",
   description:
-    "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
+    "Sahneva — команда технического обеспечения мероприятий в Турции: сцены, LED-экраны, звук, свет, ферменные конструкции и шатры.",
   alternates: buildAlternatesForPath("/ru/about"),
   openGraph: {
     title: "О Sahneva",
     description:
-      "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
+      "Sahneva — команда технического обеспечения мероприятий в Турции: сцены, LED-экраны, звук, свет, ферменные конструкции и шатры.",
     url: RU_ABOUT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "О Sahneva",
     description:
-      "Sahneva - команда технического продакшена мероприятий в Турции: сцены, LED-экраны, звук, свет, truss и шатры.",
+      "Sahneva — команда технического обеспечения мероприятий в Турции: сцены, LED-экраны, звук, свет, ферменные конструкции и шатры.",
     images: [RU_ABOUT_IMAGE],
   },
 };
@@ -74,7 +74,10 @@ export default function RussianAboutPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-black md:text-6xl">О Sahneva</h1>
             <p className="mt-5 text-lg leading-8 text-white/85">
-              Мы проектируем и реализуем техническую часть мероприятий: сцены, подиумы, LED-экраны, звук, свет, truss, шатры и мебель. Работаем с корпоративными событиями, концертами, фестивалями, выставками и запусками продуктов.
+              Мы проектируем и реализуем техническую часть мероприятий: сцены, подиумы,
+              LED-экраны, звук, свет, ферменные конструкции, шатры и мебель. Работаем с
+              корпоративными событиями, концертами, фестивалями, выставками и
+              презентациями продуктов.
             </p>
             <Link href="/ru/contact" className="mt-8 inline-flex min-h-[48px] items-center rounded-xl bg-emerald-500 px-6 font-bold text-white hover:bg-emerald-600">
               Обсудить проект
@@ -85,12 +88,17 @@ export default function RussianAboutPage() {
 
       <section className="container mx-auto grid gap-8 px-4 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-5 text-base leading-8 text-neutral-700">
-          <h2 className="text-3xl font-black text-neutral-900">Технический продакшен без лишней сложности</h2>
+          <h2 className="text-3xl font-black text-neutral-900">Техническое обеспечение без лишней сложности</h2>
           <p>
             Sahneva помогает организаторам принимать технические решения быстро и уверенно. Мы учитываем площадку, поток гостей, сценический сценарий, видимость экрана, акустику, световую атмосферу и логистику.
           </p>
           <p>
             Наша цель - сделать событие понятным для команды, безопасным для площадки и впечатляющим для гостей.
+          </p>
+          <p>
+            Для проектов в помещениях доступно 400 м² панелей Absen P1.9. Малый шаг
+            пикселя подходит для презентаций, выставок и съёмки с близкого расстояния;
+            окончательный выбор экрана зависит от плана зала, контента, освещения и камер.
           </p>
         </div>
         <Image src="/img/ekip-calisma.webp" alt="Техническая команда Sahneva во время подготовки" width={720} height={480} className="rounded-2xl object-cover shadow-xl" />

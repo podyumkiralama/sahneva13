@@ -83,6 +83,54 @@ const VIDEOS = [
   },
 ];
 
+const RUSSIAN_VIDEO_TEXT = {
+  "173gBurWSRQ": {
+    title: "Монтаж сцены, подиума и LED-экрана",
+    description: "Закулисные кадры монтажа сцены и подготовки площадки.",
+  },
+  "4ygMbL4FDRc": {
+    title: "Монтаж LED-экрана, подиума и шатра",
+    description: "Установка LED-экрана и подготовка сценического освещения.",
+  },
+  JNzGlNzNRuk: {
+    title: "Сцена, LED-экран и шатровая конструкция",
+    description: "Монтаж подиума, сцены и купольного шатра для мероприятия.",
+  },
+  _9Q7v0ZL304: {
+    title: "Подготовка площадки со сценой, LED-экраном и шатром",
+    description: "Монтаж сцены, подиума и шатра, установка столов и стульев.",
+  },
+  ah4ORjaQSMA: {
+    title: "Техническое обеспечение выпускной церемонии",
+    description: "Сцена, LED-экран, звук и свет для университетской выпускной церемонии.",
+  },
+  c72ILTyJH4A: {
+    title: "Сцена и LED-экран для выставки Halal Expo",
+    description: "Монтаж сцены, LED-экрана, звука и света на выставочной площадке.",
+  },
+  egd21AA1dZ0: {
+    title: "Техническое обеспечение молодёжного фестиваля в Анкаре",
+    description: "Сцена, LED-экран, звук, свет и техническая инфраструктура фестиваля.",
+  },
+  tyb1lG9KtiA: {
+    title: "Монтаж шатра и технической инфраструктуры",
+    description: "Установка шатра для мероприятий, выставок, фестивалей и специальных проектов.",
+  },
+  "1R5Av0x5ouA": {
+    title: "Сценическое световое шоу",
+    description: "Световой дизайн для концертов, фестивалей, церемоний и представлений.",
+  },
+  "HNDZ-wYVKLw": {
+    title: "Сцена для корпоративного мероприятия и презентации",
+    description: "Сцена, LED-экран, звук и свет для корпоративной программы.",
+  },
+};
+
+const RUSSIAN_VIDEOS = VIDEOS.map((video) => ({
+  ...video,
+  ...RUSSIAN_VIDEO_TEXT[video.id],
+}));
+
 const INITIAL_POSITION = { x: -24, y: -24 };
 
 function StickyVideoRailInner({
@@ -122,19 +170,90 @@ function StickyVideoRailInner({
     role ?? (ariaLabel || ariaLabelledby ? "region" : undefined);
 
   const isEn = locale === "en";
-  const accessibleTitle = isEn ? "Sahneva Video Gallery" : "Sahneva Video Galerisi";
-  const accessibleDescription = isEn
-    ? "A draggable, expandable video player to watch Sahneva's featured videos and switch between clips in the playlist."
-    : "Sahneva'nın öne çıkan videolarını oynatmak ve listedeki diğer kliplere geçiş yapmak için sürüklenebilir, açılır bir oynatıcı.";
-  const watchVideosLabel = isEn ? "Watch Videos" : "Videoları Görüntüle";
-  const openLabel = isEn ? "Open" : "Aç";
-  const openPlayerAriaLabel = isEn ? "Open video player" : "Video oynatıcıyı aç";
-  const movePlayerAriaLabel = isEn
-    ? "Move the video player. Use the arrow keys to reposition it."
-    : "Video oynatıcıyı taşı. Ok tuşlarıyla yeniden konumlandırabilirsiniz.";
+  const isRu = locale === "ru";
+  const videoCopy = isEn
+    ? {
+        title: "Sahneva Video Gallery",
+        description:
+          "A draggable, expandable video player to watch Sahneva's featured videos and switch between clips in the playlist.",
+        watch: "Watch Videos",
+        open: "Open",
+        openPlayer: "Open video player",
+        movePlayer: "Move the video player. Use the arrow keys to reposition it.",
+        collapse: "Collapse video player",
+        collapseShort: "Collapse",
+        minimize: "Minimize video player",
+        minimizeShort: "Minimize",
+        close: "Close video player",
+        closeShort: "Close",
+        clickToPlay: "Click to play",
+        playlist: "Playlist",
+        otherVideos: "Other videos",
+        singleVideo: "Only one video is currently available.",
+        videoSelection: "Video selection",
+        expand: "Expand video",
+        expandShort: "EXPAND",
+        playerTitle: "Sahneva video player",
+      }
+    : isRu
+      ? {
+          title: "Видеогалерея Sahneva",
+          description:
+            "Перетаскиваемый видеоплеер с возможностью разворачивания и выбора других роликов из списка.",
+          watch: "Смотреть видео",
+          open: "Открыть",
+          openPlayer: "Открыть видеоплеер",
+          movePlayer:
+            "Переместите видеоплеер. Для изменения положения используйте клавиши со стрелками.",
+          collapse: "Уменьшить видеоплеер",
+          collapseShort: "Уменьшить",
+          minimize: "Свернуть видеоплеер",
+          minimizeShort: "Свернуть",
+          close: "Закрыть видеоплеер",
+          closeShort: "Закрыть",
+          clickToPlay: "Нажмите для воспроизведения",
+          playlist: "Плейлист",
+          otherVideos: "Другие видео",
+          singleVideo: "Сейчас доступно только одно видео.",
+          videoSelection: "Выбор видео",
+          expand: "Развернуть видео",
+          expandShort: "РАЗВЕРНУТЬ",
+          playerTitle: "Видеоплеер Sahneva",
+        }
+      : {
+          title: "Sahneva Video Galerisi",
+          description:
+            "Sahneva'nın öne çıkan videolarını oynatmak ve listedeki diğer kliplere geçiş yapmak için sürüklenebilir, açılır bir oynatıcı.",
+          watch: "Videoları Görüntüle",
+          open: "Aç",
+          openPlayer: "Video oynatıcıyı aç",
+          movePlayer:
+            "Video oynatıcıyı taşı. Ok tuşlarıyla yeniden konumlandırabilirsiniz.",
+          collapse: "Video oynatıcıyı küçült",
+          collapseShort: "Küçült",
+          minimize: "Video oynatıcıyı simge durumuna küçült",
+          minimizeShort: "Simge",
+          close: "Video oynatıcıyı kapat",
+          closeShort: "Kapat",
+          clickToPlay: "Oynatmak için tıklayın",
+          playlist: "Oynatma Listesi",
+          otherVideos: "Diğer videolar",
+          singleVideo: "Şu anda sadece tek video var.",
+          videoSelection: "Video seçimi",
+          expand: "Videoyu büyüt",
+          expandShort: "BÜYÜT",
+          playerTitle: "Sahneva video oynatıcı",
+        };
+  const accessibleTitle = videoCopy.title;
+  const accessibleDescription = videoCopy.description;
+  const watchVideosLabel = videoCopy.watch;
+  const openLabel = videoCopy.open;
+  const openPlayerAriaLabel = videoCopy.openPlayer;
+  const movePlayerAriaLabel = videoCopy.movePlayer;
 
-  const currentVideo = VIDEOS[activeIndex];
-  const playlistForExpanded = VIDEOS.filter((_, i) => i !== activeIndex);
+  const videos = locale === "ru" ? RUSSIAN_VIDEOS : VIDEOS;
+  const currentVideo = videos[activeIndex];
+  const playlistForExpanded = videos.filter((_, i) => i !== activeIndex);
 
   // İlk mount + mobile tespiti
   useEffect(() => {
@@ -421,33 +540,33 @@ function StickyVideoRailInner({
             <button
               type="button"
               onClick={handleCollapseFromExpanded}
-              aria-label={isEn ? "Collapse video player" : "Video oynatıcıyı küçült"}
+              aria-label={videoCopy.collapse}
               className="rail-control group"
               data-variant="primary"
             >
               <span className="text-lg">↘️</span>
-              <span className="hidden sm:inline">Küçült</span>
+              <span className="hidden sm:inline">{videoCopy.collapseShort}</span>
             </button>
             <button
               type="button"
               onClick={handleToggleMinimize}
-              aria-label={isEn ? "Minimize video player" : "Video oynatıcıyı simge durumuna küçült"}
+              aria-label={videoCopy.minimize}
               className="rail-control group"
               data-variant="muted"
             >
               <span className="text-lg">🗕</span>
-              <span className="hidden sm:inline">Simge</span>
+              <span className="hidden sm:inline">{videoCopy.minimizeShort}</span>
             </button>
             <button
               ref={dialogCloseButtonRef}
               type="button"
               onClick={handleClose}
-              aria-label={isEn ? "Close video player" : "Video oynatıcıyı kapat"}
+              aria-label={videoCopy.close}
               className="rail-control group"
               data-variant="danger"
             >
               <span className="text-lg">✕</span>
-              <span className="hidden sm:inline">Kapat</span>
+              <span className="hidden sm:inline">{videoCopy.closeShort}</span>
             </button>
           </div>
         </div>
@@ -480,13 +599,13 @@ function StickyVideoRailInner({
                     {currentVideo.title}
                   </p>
                   <p className="mt-2 text-sm text-white/80 max-w-xl px-4 text-center">
-                    Oynatmak için tıklayın
+                    {videoCopy.clickToPlay}
                   </p>
                 </button>
               )}
               {hasStarted && (
                 <iframe
-                  title={currentVideo.title || "Sahneva video oynatıcı"}
+                  title={currentVideo.title || videoCopy.playerTitle}
                   src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&mute=0&rel=0&modestbranding=1&controls=1&playsinline=1`}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -504,10 +623,10 @@ function StickyVideoRailInner({
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <div>
                   <p className="text-xs uppercase tracking-wide text-slate-400">
-                    Oynatma Listesi
+                    {videoCopy.playlist}
                   </p>
                   <p className="text-sm font-semibold text-white">
-                    Diğer videolar
+                    {videoCopy.otherVideos}
                   </p>
                 </div>
               </div>
@@ -519,16 +638,16 @@ function StickyVideoRailInner({
             <div
               className="flex-1 overflow-y-auto custom-scroll px-1 py-1"
               role="radiogroup"
-              aria-label="Video seçimi"
+              aria-label={videoCopy.videoSelection}
             >
               {playlistForExpanded.length === 0 && (
                 <p className="px-4 py-3 text-xs text-slate-400">
-                  Şu anda sadece tek video var.
+                  {videoCopy.singleVideo}
                 </p>
               )}
 
               {playlistForExpanded.map((video) => {
-                const index = VIDEOS.findIndex((v) => v.id === video.id);
+                const index = videos.findIndex((v) => v.id === video.id);
                 const isActive = index === activeIndex;
 
                 return (
@@ -658,18 +777,18 @@ function StickyVideoRailInner({
               ref={expandButtonRef}
               type="button"
               onClick={handleExpand}
-              aria-label="Videoyu büyüt"
+              aria-label={videoCopy.expand}
               className="rail-control group"
               data-variant="primary"
             >
               <span className="group-hover:scale-110 transition-transform text-sm">
-                ⤢ BÜYÜT
+                ⤢ {videoCopy.expandShort}
               </span>
             </button>
             <button
               type="button"
               onClick={handleToggleMinimize}
-              aria-label="Simge durumuna küçült"
+              aria-label={videoCopy.minimize}
               className="rail-control group"
               data-variant="muted"
             >
@@ -678,7 +797,7 @@ function StickyVideoRailInner({
             <button
               type="button"
               onClick={handleClose}
-              aria-label="Kapat"
+              aria-label={videoCopy.close}
               className="rail-control group"
               data-variant="danger"
             >
@@ -712,14 +831,14 @@ function StickyVideoRailInner({
                 {currentVideo.title}
               </p>
               <p className="mt-2 text-xs text-white/80 px-4 text-center">
-                Oynatmak için tıklayın
+                {videoCopy.clickToPlay}
               </p>
             </button>
           )}
 
           {hasStarted && (
             <iframe
-              title={currentVideo.title || "Sahneva video oynatıcı"}
+              title={currentVideo.title || videoCopy.playerTitle}
               src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&mute=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -734,9 +853,9 @@ function StickyVideoRailInner({
           <summary className="flex items-center justify-between px-4 py-3 text-sm text-slate-200 cursor-pointer select-none hover:bg-white/5 transition-colors">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="font-medium">Diğer Videolar</span>
+              <span className="font-medium">{videoCopy.otherVideos}</span>
               <span className="text-xs bg-violet-500 text-white px-2 py-1 rounded-full">
-                {VIDEOS.length - 1}
+                {videos.length - 1}
               </span>
             </div>
             <span className="text-lg group-open:rotate-180 transition-transform duration-200">
@@ -747,9 +866,9 @@ function StickyVideoRailInner({
           <div
             className="max-h-48 overflow-y-auto custom-scroll pb-2 bg-slate-800/50 px-1"
             role="radiogroup"
-            aria-label="Video seçimi"
+            aria-label={videoCopy.videoSelection}
           >
-            {VIDEOS.map((video, idx) => {
+            {videos.map((video, idx) => {
               const isActive = idx === activeIndex;
 
               return (
