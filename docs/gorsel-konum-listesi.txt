@@ -51,6 +51,12 @@ KULLANIM: her satırın sonundaki `sehir=` kısmını doldur.
 /img/led/gala-led-sahne-video-wall-sahneva.webp  |  sehir=İstanbul  |  tarih=
 # 300 m² P1.9 Indoor LED Ekran Kurulumu
 /img/led/300m2-p19-indoor-led-ekran-kurumsal-etkinlik-sahneva.webp  |  sehir=İstanbul  |  tarih=
+# Kahramanmaraş P1.9 Indoor LED Ekran Kurulumu
+/img/led/p19-kahramanmaras-acilis-led-ekran-sahneva.webp  |  sehir=Kahramanmaraş  |  tarih=
+# COP31 Konferans Sahnesi P1.9 LED Ekran
+/img/led/p19-cop31-konferans-led-ekran-sahneva.webp  |  sehir=Ankara  |  tarih=
+# Malatya Tören Salonu P1.9 LED Ekran
+/img/led/p19-malatya-kura-toreni-led-ekran-sahneva.webp  |  sehir=Malatya  |  tarih=
 # LED Ekran Kiralama Hizmeti
 /img/hizmet-led-ekran.webp  |  sehir=İstanbul  |  tarih=
 

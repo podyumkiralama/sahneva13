@@ -77,6 +77,13 @@ const LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC =
   "/img/led/gala-led-sahne-video-wall-sahneva-hero-mobile.webp";
 const LED_OUTDOOR_CONCERT_IMAGE_SRC =
   "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
+const P19_KAHRAMANMARAS_EVENT_IMAGE_SRC =
+  "/img/led/p19-kahramanmaras-acilis-led-ekran-sahneva.webp";
+const P19_COP31_CONFERENCE_IMAGE_SRC =
+  "/img/led/p19-cop31-konferans-led-ekran-sahneva.webp";
+const P19_MALATYA_EVENT_IMAGE_SRC =
+  "/img/led/p19-malatya-kura-toreni-led-ekran-sahneva.webp";
+const P39_EVENT_STAGE_IMAGE_SRC = "/img/kurumsal/2.webp";
 // Yalnızca kullanım alanına göre önceden boyutlandırılmış varyantlar optimizer'ı atlar.
 // 1600px'lik ham kaynak görseller Next optimizer'dan geçerek srcset ile küçültülür.
 const PREMIUM_LED_IMAGE_SRCS = new Set([
@@ -990,12 +997,38 @@ const GALLERY_IMAGES = [
   {
     src: P19_PROOF_DISPLAY_IMAGE_SRC,
     alt: "Sahneva 300 m² Absen P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi",
-    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 400 m² Absen P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur."
+    caption: "Geniş ölçekli kongre, lansman ve gala sahneleri için planlanan 400 m² Absen P1.9 indoor LED envanteri; yakın izleme mesafesinde yüksek çözünürlüklü, dengeli ve profesyonel bir görüntü alanı oluşturur.",
+    technology: "Absen P1.9 Indoor",
+  },
+  {
+    src: P19_KAHRAMANMARAS_EVENT_IMAGE_SRC,
+    alt: "Kahramanmaraş açılış programında P1.9 indoor LED ekran ve protokol sahnesi kurulumu",
+    caption: "Kahramanmaraş Açılış Programı | P1.9 Indoor LED | Geniş sunum yüzeyi, protokol sahnesi ve canlı görüntü akışı.",
+    technology: "P1.9 Indoor",
+  },
+  {
+    src: P19_COP31_CONFERENCE_IMAGE_SRC,
+    alt: "COP31 diplomatik misyonlar bilgilendirme toplantısında geniş P1.9 indoor LED ekranlı konferans sahnesi",
+    caption: "COP31 Diplomatik Misyonlar Toplantısı | P1.9 Indoor LED | Kamera çekimine ve yakın izlemeye uygun yüksek çözünürlüklü konferans ekranı.",
+    technology: "P1.9 Indoor",
+  },
+  {
+    src: P19_MALATYA_EVENT_IMAGE_SRC,
+    alt: "Malatya kura töreninde P1.9 indoor LED ekranlı sahne ve canlı kamera görüntüsü",
+    caption: "Malatya Kura Töreni | P1.9 Indoor LED | Sahne içeriği ve canlı kamera görüntülerinin tek geniş yüzeyde yönetimi.",
+    technology: "P1.9 Indoor",
+  },
+  {
+    src: P39_EVENT_STAGE_IMAGE_SRC,
+    alt: "Etkinlik sahnesinde P3.9 LED ana ekran ve iki yan destek ekranı",
+    caption: "Etkinlik Sahnesi | P3.9 LED Ekran | Ana görüntü yüzeyi ve yan destek ekranlarıyla geniş izleyici alanına yüksek görünürlük.",
+    technology: "P3.9 Sahne LED",
   },
   {
     src: P19_TECHNICAL_CONTROL_IMAGE_SRC,
     alt: "Absen P1.9 indoor LED ekran sahnesinde teknik prodüksiyon kontrol masası ve canlı görüntü akışı",
-    caption: "Teknik Operasyon | Absen P1.9 Indoor LED | Merkezi Kontrol Masası | Gerçek Zamanlı Sahne Yönetimi"
+    caption: "Teknik Operasyon | Absen P1.9 Indoor LED | Merkezi Kontrol Masası | Gerçek Zamanlı Sahne Yönetimi",
+    technology: "Absen P1.9 Indoor",
   },
   {
     src: LED_CORPORATE_CONFERENCE_CARD_IMAGE_SRC,
@@ -1121,7 +1154,7 @@ function Gallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 max-w-2xl">
                 <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">
-                  Öne çıkan kurulum
+                  Öne çıkan kurulum · {GALLERY_IMAGES[0].technology}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white">
                   Absen P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
@@ -1147,6 +1180,11 @@ function Gallery() {
                     loading="lazy"
                     unoptimized={shouldBypassLedImageOptimizer(image.src)}
                   />
+                  {image.technology ? (
+                    <span className="absolute left-4 top-4 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
+                      {image.technology}
+                    </span>
+                  ) : null}
                 </div>
                 <div className="p-5">
                   <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
@@ -1162,12 +1200,12 @@ function Gallery() {
             <p className="mt-2 text-base text-gray-600">Kurumsal salon, lansman, gala ve açık hava uygulamalarından seçilmiş gerçek kareler.</p>
           </div>
           <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
-            {GALLERY_IMAGES.slice(3, 8).map((image) => (
+            {GALLERY_IMAGES.slice(3).map((image) => (
               <article
                 key={image.src}
                 className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
               >
-                <div className="relative h-[320px] md:h-[360px]">
+                <div className="relative aspect-[4/3]">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -1177,6 +1215,11 @@ function Gallery() {
                     loading="lazy"
                     unoptimized={shouldBypassLedImageOptimizer(image.src)}
                   />
+                  {image.technology ? (
+                    <span className="absolute left-4 top-4 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
+                      {image.technology}
+                    </span>
+                  ) : null}
                 </div>
                 <div className="p-5">
                   <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
@@ -1940,6 +1983,7 @@ function LedScreenJsonLd() {
     serviceId,
     webPageId,
     name: "LED ekran kiralama galeri görselleri",
+    limit: GALLERY_IMAGES.length,
   });
   const curvedP19ImageUrls = CURVED_P19_INSTALLATION_IMAGES.map(
     (image) => `${ORIGIN}${image.src}`
