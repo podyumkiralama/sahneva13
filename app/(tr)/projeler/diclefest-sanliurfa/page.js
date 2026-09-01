@@ -649,7 +649,7 @@ export default function DicleFestSanliurfaProjectPage() {
                 </Link>
                 ,{" "}
                 <Link href="/led-ekran-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
-                  LED ekran çözümleri
+                  festival LED ekran çözümleri
                 </Link>
                 ,{" "}
                 <Link href="/ses-isik-sistemleri" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">

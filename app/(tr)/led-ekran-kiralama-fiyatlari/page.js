@@ -44,7 +44,9 @@ const WHATSAPP_URL = `https://wa.me/${PHONE}?text=${encodeURIComponent(WHATSAPP_
 
 const PRICES = {
   standard: LED_SCREEN_PRICING.standard.perSqm,
+  standardMinimum: LED_SCREEN_PRICING.standard.minimum,
   premiumP19: LED_SCREEN_PRICING.premiumP19.perSqm,
+  premiumP19Minimum: LED_SCREEN_PRICING.premiumP19.minimum,
   currency: LED_SCREEN_PRICING.currency,
 };
 
@@ -133,6 +135,10 @@ const faq = [
   {
     q: "LED ekran kiralama fiyatları ne kadar?",
     a: `2026 LED ekran kiralama fiyatları standart indoor/outdoor ekranlarda ${tl(PRICES.standard)} TL/m²’den, P1.9 Indoor LED ekranda ${tl(PRICES.premiumP19)} TL/m²’den başlayan fiyatlarla planlanır. Net teklif ekran tipi, toplam m², kurulum süresi, mekan erişimi, reji ve lojistik kapsamına göre çıkarılır.`,
+  },
+  {
+    q: "İstanbul’da LED ekran kiralama fiyatı nasıl hesaplanır?",
+    a: `İstanbul’da LED ekran kiralama hesabı m² birim bedeliyle başlar; standart indoor/outdoor kurulumlar ${tl(PRICES.standard)} TL/m²’den, P1.9 Indoor çözümler ${tl(PRICES.premiumP19)} TL/m²’den başlayan bedellerle planlanır. Toplam proje bedelinde standart sistemler için ${tl(PRICES.standardMinimum)} TL, P1.9 Indoor için ${tl(PRICES.premiumP19Minimum)} TL minimum paket uygulanır. Net fiyat; ilçe, mekan erişimi, kurulum-söküm saatleri, rigging, NovaStar görüntü işlemcisi, teknik reji ve ekip süresine göre belirlenir.`,
   },
   {
     q: "LED ekran kiralama fiyatı m² bazlı mı hesaplanır?",

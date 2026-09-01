@@ -15,6 +15,7 @@ import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
+import GalleryLightbox from "@/components/GalleryLightbox.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import {
   Monitor,
@@ -1113,6 +1114,10 @@ const VISUAL_FLOW_IMAGES = [
     detail: "Ürün lansmanı ve bayi toplantılarında LED wall sahnenin ana iletişim alanına dönüşür.",
   },
 ];
+const LIGHTBOX_GALLERY_IMAGES = GALLERY_IMAGES.map((image) => ({
+  ...image,
+  unoptimized: shouldBypassLedImageOptimizer(image.src),
+}));
 
 /* ================== Geliştirilmiş Galeri ve Başarı Hikayeleri ================== */
 function Gallery() {
@@ -1139,95 +1144,130 @@ function Gallery() {
           </Link>
         </div>
 
-        <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-          <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
-            <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
-              <Image
-                src={GALLERY_IMAGES[0].src}
-                alt={GALLERY_IMAGES[0].alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                loading="lazy"
-                unoptimized={shouldBypassLedImageOptimizer(GALLERY_IMAGES[0].src)}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-              <div className="absolute inset-x-6 bottom-6 max-w-2xl">
-                <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">
-                  Öne çıkan kurulum · {GALLERY_IMAGES[0].technology}
+        <GalleryLightbox images={LIGHTBOX_GALLERY_IMAGES} label="LED ekran kurulum galerisi">
+          <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
+            <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
+              <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
+                <Image
+                  src={GALLERY_IMAGES[0].src}
+                  alt={GALLERY_IMAGES[0].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  loading="lazy"
+                  unoptimized={shouldBypassLedImageOptimizer(GALLERY_IMAGES[0].src)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <button
+                  type="button"
+                  data-lightbox-index="0"
+                  aria-label={`${GALLERY_IMAGES[0].alt} - görseli büyüt`}
+                  className="group absolute inset-0 z-10 cursor-zoom-in rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300"
+                >
+                  <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-slate-950/85 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <Eye size={16} aria-hidden="true" />
+                    Büyüt
+                  </span>
+                </button>
+                <div className="pointer-events-none absolute inset-x-6 bottom-6 z-20 max-w-2xl">
+                  <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">
+                    Öne çıkan kurulum · {GALLERY_IMAGES[0].technology}
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-black text-white">
+                    Absen P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white">
-                  Absen P1.9 Indoor LED ile Kurumsal Sahne Tasarımı
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-white/80">{GALLERY_IMAGES[0].caption}</p>
               </div>
+            </article>
+
+            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
+              {GALLERY_IMAGES.slice(1, 3).map((image, index) => (
+                <article
+                  key={image.src}
+                  className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto"
+                >
+                  <div className="relative h-[240px] lg:h-[260px]">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      loading="lazy"
+                      unoptimized={shouldBypassLedImageOptimizer(image.src)}
+                    />
+                    <button
+                      type="button"
+                      data-lightbox-index={index + 1}
+                      aria-label={`${image.alt} - görseli büyüt`}
+                      className="group absolute inset-0 z-10 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-500"
+                    >
+                      <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-slate-950/85 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100">
+                        <Eye size={16} aria-hidden="true" />
+                        Büyüt
+                      </span>
+                    </button>
+                    {image.technology ? (
+                      <span className="pointer-events-none absolute left-4 top-4 z-20 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
+                        {image.technology}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-          </article>
+          </div>
 
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
-            {GALLERY_IMAGES.slice(1, 3).map((image) => (
-              <article
-                key={image.src}
-                className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto"
-              >
-                <div className="relative h-[240px] lg:h-[260px]">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    loading="lazy"
-                    unoptimized={shouldBypassLedImageOptimizer(image.src)}
-                  />
-                  {image.technology ? (
-                    <span className="absolute left-4 top-4 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
-                      {image.technology}
-                    </span>
-                  ) : null}
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
-                </div>
-              </article>
-            ))}
+          <div className="mb-14">
+            <div className="mb-7">
+              <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Sahadan uygulama görselleri</h3>
+              <p className="mt-2 text-base text-gray-600">Kurumsal salon, lansman, gala ve açık hava uygulamalarından seçilmiş gerçek kareler.</p>
+            </div>
+            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
+              {GALLERY_IMAGES.slice(3).map((image, index) => (
+                <article
+                  key={image.src}
+                  className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                      loading="lazy"
+                      unoptimized={shouldBypassLedImageOptimizer(image.src)}
+                    />
+                    <button
+                      type="button"
+                      data-lightbox-index={index + 3}
+                      aria-label={`${image.alt} - görseli büyüt`}
+                      className="group absolute inset-0 z-10 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-500"
+                    >
+                      <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-slate-950/85 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100">
+                        <Eye size={16} aria-hidden="true" />
+                        Büyüt
+                      </span>
+                    </button>
+                    {image.technology ? (
+                      <span className="pointer-events-none absolute left-4 top-4 z-20 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
+                        {image.technology}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="mb-14">
-          <div className="mb-7">
-            <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Sahadan uygulama görselleri</h3>
-            <p className="mt-2 text-base text-gray-600">Kurumsal salon, lansman, gala ve açık hava uygulamalarından seçilmiş gerçek kareler.</p>
-          </div>
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
-            {GALLERY_IMAGES.slice(3).map((image) => (
-              <article
-                key={image.src}
-                className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
-              >
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                    loading="lazy"
-                    unoptimized={shouldBypassLedImageOptimizer(image.src)}
-                  />
-                  {image.technology ? (
-                    <span className="absolute left-4 top-4 rounded-full bg-slate-950/85 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur">
-                      {image.technology}
-                    </span>
-                  ) : null}
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        </GalleryLightbox>
 
         <div className="mt-14">
           <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">

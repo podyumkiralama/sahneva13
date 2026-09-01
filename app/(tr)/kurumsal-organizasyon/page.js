@@ -231,7 +231,15 @@ const EVENT_TYPE_SOLUTIONS = [
   },
   {
     title: "Fuar ve marka deneyim alanları",
-    text: "Fuar alanlarında LED ekran, podyum, ses, ışık ve yönlendirme kurgusu ziyaretçi trafiği ve marka etkileşimi dikkate alınarak hazırlanır.",
+    text: (
+      <>
+        Fuar alanlarında{" "}
+        <Link href="/led-ekran-kiralama" className="font-bold text-violet-700 underline underline-offset-4">
+          fuar LED ekran kiralama
+        </Link>
+        , podyum, ses, ışık ve yönlendirme kurgusu ziyaretçi trafiği ve marka etkileşimi dikkate alınarak hazırlanır.
+      </>
+    ),
   },
   {
     title: "Açık alan kurumsal etkinlikleri",

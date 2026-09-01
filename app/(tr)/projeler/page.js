@@ -83,7 +83,15 @@ export default async function ProjectsIndexPage() {
         ]}
         eyebrow="Proje portfolyosu"
         title="Projelerimiz"
-        description="Tamamladığımız saha çalışmalarından ayrıntılarıyla yayımladığımız proje seçkisini keşfedin."
+        description={
+          <>
+            Tamamladığımız saha çalışmalarından ayrıntılarıyla yayımladığımız proje seçkisini keşfedin. Konser, fuar ve kurumsal etkinliklerdeki{" "}
+            <Link href="/led-ekran-kiralama" className="font-bold text-violet-100 underline underline-offset-4">
+              etkinlik LED ekran kiralama ve kurulum çözümlerimizi
+            </Link>{" "}
+            inceleyin.
+          </>
+        }
         metrics={[
           { value: `${projects.length}`, label: "Yayımlanmış proje dosyası" },
           { value: PROJECTS_COMPLETED, label: "Toplam tamamlanan proje" },

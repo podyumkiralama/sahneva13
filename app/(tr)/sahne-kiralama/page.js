@@ -1287,7 +1287,13 @@ function Articles() {
                   Teslim Çözümler
                 </h3>
                 <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Modüler sahne sistemleri, truss rigging, LED ekran entegrasyonu
+                  Modüler sahne sistemleri, truss rigging,{" "}
+                  <Link
+                    href="/led-ekran-kiralama"
+                    className="font-semibold text-white underline decoration-violet-300/60 underline-offset-4"
+                  >
+                    konser ve etkinlik LED ekran entegrasyonu
+                  </Link>{" "}
                   ve profesyonel ekip ile etkinliklerinizde mükemmel performans
                 </p>
               </div>
