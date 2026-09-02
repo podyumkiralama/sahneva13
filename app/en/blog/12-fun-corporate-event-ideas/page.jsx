@@ -4,7 +4,6 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
-import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
@@ -434,17 +433,7 @@ export default function BlogPost() {
           </div>
         </div>
 
-        <SmartBlogSuggestions
-          locale="en"
-          currentSlug={SLUG}
-          currentCategory={metadata.category}
-          currentKeywords={metadata.keywords}
-        />
-
         <BlogRelatedLinks locale="en" services={[
-          { href: "/en/corporate-events", label: "Corporate Events" },
-          { href: "/en/stage-rental", label: "Stage Rental" },
-          { href: "/en/led-screen-rental", label: "LED Screen Rental" },
           { href: "/en/sound-light-rental", label: "Sound & Lighting" },
           { href: "/en/tent-rental", label: "Tent Rental" },
         ]} />

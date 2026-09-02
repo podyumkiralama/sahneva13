@@ -405,8 +405,7 @@ export default function Page() {
           description="<strong>Podyum kurulum fiyatları</strong>; metrekare, yükseklik, halı kaplama, kumaş giydirme, nakliye ve söküm kalemlerine göre değişir. Bu sayfada <strong>m² podyum maliyeti</strong>, etkinlik türüne göre bütçe aralıkları ve örnek hesaplamalar yer alır."
           note={
             <>
-              Podyum kiralama hizmeti hakkında genel bilgi almak için{" "}
-              <Link href="/podyum-kiralama">podyum kiralama</Link> ana sayfasını
+              Podyum kiralama hizmeti hakkında genel bilgileri ana hizmet sayfamızda
               inceleyebilirsiniz. Bu sayfada ise podyum kurulum fiyatları, m²
               maliyetleri ve fiyatı etkileyen unsurları açıklıyoruz. Fiyatlar{" "}
               {PRICE_VALID_UNTIL} tarihine kadar güncellenebilir; sezon yoğunluğuna
@@ -966,11 +965,8 @@ export default function Page() {
                 </p>
                 <p className="text-violet-200 text-base mb-8 max-w-2xl mx-auto">
                   Podyum kurulum fiyatları ve m² maliyetleri hakkında bilgi almak için
-                  bu sayfayı inceliyorsunuz.{" "}
-                  <Link href="/podyum-kiralama" className="font-bold text-white underline underline-offset-4">
-                    Podyum kiralama hizmeti
-                  </Link>{" "}
-                  hakkında genel bilgi için ana sayfamızı ziyaret edin.
+                  bu sayfayı inceliyorsunuz. Podyum kiralama hizmetinin genel kapsamına
+                  üst bölümdeki hizmet bağlantısından ulaşabilirsiniz.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
@@ -981,13 +977,6 @@ export default function Page() {
                   >
                     <span className="text-xl mr-3">💬</span> WhatsApp'tan Yaz
                   </a>
-
-                  <Link
-                    href="/podyum-kiralama"
-                    className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
-                  >
-                    <span className="text-xl mr-3">🎯</span> Podyum Kiralama Hizmeti
-                  </Link>
                 </div>
               </div>
             </div>

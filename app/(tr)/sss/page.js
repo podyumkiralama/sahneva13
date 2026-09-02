@@ -279,7 +279,7 @@ const FAQ_CATEGORIES = [
 function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-function injectLinks(text) {
+function injectLinks(text, linkedHrefs) {
   const pairs = [
     { key: "podyum", href: "/podyum-kiralama" },
     { key: "LED ekran", href: "/led-ekran-kiralama" },
@@ -291,13 +291,33 @@ function injectLinks(text) {
   ];
   let html = text;
   for (const { key, href } of pairs) {
-    const re = new RegExp(`(${escapeRegex(key)})`, "gi");
+    if (linkedHrefs.has(href)) continue;
+
+    const re = new RegExp(`(${escapeRegex(key)})`, "i");
+    if (!re.test(html)) continue;
+
     html = html.replace(
       re,
       `<a href="${href}" class="underline hover:no-underline font-medium">$1</a>`
     );
+    linkedHrefs.add(href);
   }
-  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  return html;
+}
+
+function prepareFaqCategories(categories) {
+  const reservedHrefs = categories.flatMap((category) =>
+    (category.links ?? []).map((link) => link.href)
+  );
+  const linkedHrefs = new Set(reservedHrefs);
+
+  return categories.map((category) => ({
+    ...category,
+    items: category.items.map((item) => ({
+      ...item,
+      linkedAnswer: injectLinks(item.a, linkedHrefs),
+    })),
+  }));
 }
 
 /* ——— BİLEŞENLER ——— */
@@ -350,7 +370,7 @@ function FaqSection({ id, icon, title, items, links }) {
                   </svg>
                 </summary>
                 <div className="faq-anim mt-3 text-slate-300 leading-relaxed">
-                  {injectLinks(it.a)}
+                  <span dangerouslySetInnerHTML={{ __html: it.linkedAnswer }} />
                 </div>
               </details>
             
@@ -378,6 +398,7 @@ function FaqSection({ id, icon, title, items, links }) {
 
 /* ——— SAYFA ——— */
 export default function FaqPage() {
+  const linkedCategories = prepareFaqCategories(FAQ_CATEGORIES);
   const faqSchema = buildFaqSchema(FAQ_ITEMS);
   const jsonLd = faqSchema
     ? {
@@ -415,7 +436,7 @@ export default function FaqPage() {
         
 
         <div className="space-y-6">
-          {FAQ_CATEGORIES.map((c) => (
+          {linkedCategories.map((c) => (
             <FaqSection key={c.id} {...c} />
           ))}
         </div>

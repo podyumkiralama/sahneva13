@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
-import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -327,9 +326,8 @@ export default function BlogPostAudioTrends2026() {
               </p>
 
               <p>
-                Profesyonel{" "}
-                <Link href="/ses-isik-sistemleri">ses sistemleri kiralama</Link>{" "}
-                çözümleri için ekibimizle iletişime geçebilir, mühendislik yaklaşımımızı yakından görmek
+                Profesyonel ses sistemleri kiralama çözümleri için ekibimizle iletişime geçebilir,
+                mühendislik yaklaşımımızı yakından görmek
                 için{" "}
                 <Link href="/hakkimizda">teknik partner</Link>{" "}
                 sayfamızı inceleyebilirsiniz.
@@ -353,12 +351,6 @@ export default function BlogPostAudioTrends2026() {
                 </Link>
               </div>
 
-              <BlogRelatedLinks
-                services={[
-                  { href: "/ses-isik-sistemleri", label: "Ses & Işık Sistemleri" },
-                  { href: "/sahne-kiralama", label: "Sahne Kiralama" },
-                ]}
-              />
       </BlogLayout>
     </>
   );}

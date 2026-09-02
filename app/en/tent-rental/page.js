@@ -625,10 +625,10 @@ function Articles() {
                       Tent systems & technologies
                     </h4>
                     <p>
-                      <strong className="text-gray-900">Sahneva</strong> delivers
-                      <Link href="/en/tent-rental" className="font-semibold text-violet-600 hover:text-violet-700 underline underline-offset-4">
+                      <strong className="text-gray-900">Sahneva</strong> delivers{" "}
+                      <strong className="font-semibold text-gray-900">
                         professional tent rental
-                      </Link>
+                      </strong>{" "}
                       solutions with corporate-level engineering across Türkiye.
                     </p>
                     <p>

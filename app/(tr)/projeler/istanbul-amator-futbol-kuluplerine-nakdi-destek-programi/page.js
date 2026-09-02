@@ -290,12 +290,6 @@ export default function AmateurFootballSupportProjectPage() {
                 Teklif Al
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
-              <Link
-                href="/kurumsal-organizasyon"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-black text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15"
-              >
-                Kurumsal Organizasyon Hizmetleri
-              </Link>
             </div>
           </div>
 
@@ -398,11 +392,7 @@ export default function AmateurFootballSupportProjectPage() {
           uygun P1.9 LED envanteriyle planlandı.
         </p>
         <p>
-          Bu nedenle{" "}
-          <Link href="/led-ekran-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
-            LED ekran çözümleri
-          </Link>{" "}
-          ve{" "}
+          Bu nedenle LED ekran çözümleri ve{" "}
           <Link href="/sahne-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
             sahne kurulumu
           </Link>{" "}
@@ -456,11 +446,8 @@ export default function AmateurFootballSupportProjectPage() {
           <Link href="/podyum-kiralama" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
             Podyum ve platform çözümleri
           </Link>{" "}
-          ile{" "}
-          <Link href="/kurumsal-organizasyon" className="font-bold text-violet-200 underline decoration-violet-300/40 underline-offset-4">
-            kurumsal organizasyon
-          </Link>{" "}
-          projelerinde teknik kurulumun yalnızca sahnede değil, tüm salon akışında karşılık bulması gerekir.
+          ile kurumsal organizasyon projelerinde teknik kurulumun yalnızca sahnede değil,
+          tüm salon akışında karşılık bulması gerekir.
         </p>
       </CaseSection>
 
@@ -559,11 +546,7 @@ function TechnicalEquipmentSection() {
               bir görsel yüzey oluşturdu.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate-300">
-              Sahneva’nın{" "}
-              <Link href="/led-ekran-kiralama" className="font-black text-violet-100 underline decoration-violet-300/50 underline-offset-4">
-                P1.9 indoor LED ekran çözümleri
-              </Link>{" "}
-              sayfasında yeni premium envanter olarak konumlandırılan P1.9 indoor LED altyapısı,
+              Sahneva’nın yeni premium envanteri olarak konumlandırılan P1.9 indoor LED altyapısı,
               bu referansta ana sahne ve yan ekran görünürlüğünü destekleyen ana görüntü zemini oldu.
             </p>
           </article>

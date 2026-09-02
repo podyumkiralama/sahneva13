@@ -47,6 +47,14 @@ function normalizeKeywords(value) {
     .filter(Boolean);
 }
 
+function normalizeSlug(value) {
+  const pathname = String(value ?? "")
+    .split(/[?#]/, 1)[0]
+    .replace(/\/+$/, "");
+
+  return pathname.split("/").filter(Boolean).at(-1) ?? "";
+}
+
 function normalizePostMeta(slug, rawMeta = {}, source = LOCALE_SOURCES.tr) {
   const fallbackTitle = slug
     .replace(/-/g, " ")
@@ -184,9 +192,17 @@ export default async function SmartBlogSuggestions({
   const source = LOCALE_SOURCES[locale] ?? LOCALE_SOURCES.tr;
   const resolvedHeading = heading ?? source.heading;
   const posts = await getBlogPosts(locale, source);
-  const filtered = posts.filter((post) => post.slug !== currentSlug);
+  const normalizedCurrentSlug = normalizeSlug(currentSlug);
+  const filtered = posts.filter(
+    (post) => normalizeSlug(post.slug) !== normalizedCurrentSlug,
+  );
 
-  const currentTextTokens = new Set(toTokens([currentSlug.replace(/-/g, " "), ...(currentKeywords ?? [])]));
+  const currentTextTokens = new Set(
+    toTokens([
+      normalizedCurrentSlug.replace(/-/g, " "),
+      ...(currentKeywords ?? []),
+    ]),
+  );
 
   const scored = filtered.map((post) => ({
     ...post,

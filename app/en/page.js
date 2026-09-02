@@ -382,7 +382,7 @@ const SERVICES_EN = [
       "Fast assembly with compact transport",
       "Wide range of colours and accessories",
     ],
-    href: "/en/stage-rental",
+    href: "/en/podium-rental",
   },
   {
     id: "led",

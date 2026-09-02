@@ -589,9 +589,8 @@ export default function Page() {
             <>
               Bu sayfada m² bazlı başlangıç bedellerini ve fiyatı etkileyen teknik
               kalemleri inceleyebilirsiniz. Envanter gücü, kurulum senaryoları,
-              rigging, reji ve saha operasyon detayları için ana hizmet sayfamız olan{" "}
-              <Link href="/led-ekran-kiralama">LED Ekran Kiralama</Link> bölümünü
-              ziyaret edebilirsiniz.
+              rigging, reji ve saha operasyon detayları için ana LED ekran kiralama
+              hizmetimizi inceleyebilirsiniz.
             </>
           }
           metrics={[
@@ -710,11 +709,8 @@ export default function Page() {
                   çözünürlük, kamera dostu görüntü ve teknik kontrol ihtiyacından doğar.
                 </p>
                 <p className="mt-5 text-lg leading-8 text-slate-700">
-                  Ana hizmet kapsamını görmek için{" "}
-                  <Link className="font-black text-violet-700 underline underline-offset-4" href="/led-ekran-kiralama">
-                    LED ekran kiralama
-                  </Link>{" "}
-                  sayfasını; platform ve sahne ilişkisini karşılaştırmak için{" "}
+                  Ana LED ekran kiralama hizmetinin kapsamını bu sayfadaki teknik
+                  başlıklarda görebilir; platform ve sahne ilişkisini karşılaştırmak için{" "}
                   <Link className="font-black text-violet-700 underline underline-offset-4" href="/podyum-kurulum-fiyatlari">
                     podyum kurulum fiyatları
                   </Link>{" "}
@@ -909,11 +905,7 @@ export default function Page() {
                   description="LED ekran projesinde fiyatı belirleyen en önemli farklardan biri operasyon kapsamıdır. Ekran sadece panel değildir; sinyal akışı, scaler/görüntü işlemcisi ayarı, içerik kontrolü, kablolama, test ve etkinlik anı teknik ekip desteği birlikte planlanır."
                 />
                 <p className="mt-6 text-lg leading-8 text-slate-300">
-                  Kurumsal etkinliklerde{" "}
-                  <Link className="font-black text-violet-200 underline underline-offset-4" href="/kurumsal-organizasyon">
-                    kurumsal etkinlik teknik prodüksiyonu
-                  </Link>
-                  ,{" "}
+                  Kurumsal etkinlik teknik prodüksiyonunda{" "}
                   <Link className="font-black text-violet-200 underline underline-offset-4" href="/ses-isik-sistemleri">
                     ses ve ışık sistemleri
                   </Link>{" "}

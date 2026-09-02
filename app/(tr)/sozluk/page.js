@@ -14,7 +14,6 @@ import {
   GLOSSARY_TERMS,
   getGlossaryTermsAlphabetical,
   getGlossaryTermsByCategory,
-  isServiceHref,
 } from "@/lib/glossary";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -26,7 +25,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/hero-bg.webp`;
 const GLOSSARY_DETAIL_SLUGS = new Set(["line-array", ...PODIUM_GLOSSARY_DETAIL_SLUGS]);
 
-const glossaryHref = (slug) =>
+const glossaryDetailHref = (slug) =>
   GLOSSARY_DETAIL_SLUGS.has(slug) ? `/sozluk/${slug}` : `#${slug}`;
 
 export const revalidate = 86400;
@@ -185,7 +184,7 @@ export default function GlossaryPage() {
             {getGlossaryTermsAlphabetical().map((entry) => (
               <li key={entry.slug} data-glossary-index-item={entry.slug}>
                 <Link
-                  href={glossaryHref(entry.slug)}
+                  href={`#${entry.slug}`}
                   className="inline-flex min-h-[36px] items-center rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 transition hover:border-violet-500 hover:text-violet-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
                 >
                   {entry.term}
@@ -234,7 +233,7 @@ export default function GlossaryPage() {
                     <dt>
                       <h3 className="text-xl font-black tracking-tight text-slate-950">
                         {GLOSSARY_DETAIL_SLUGS.has(entry.slug) ? (
-                          <Link href={glossaryHref(entry.slug)} className="hover:text-violet-800">
+                          <Link href={glossaryDetailHref(entry.slug)} className="hover:text-violet-800">
                             {entry.term}
                           </Link>
                         ) : (
@@ -283,23 +282,6 @@ export default function GlossaryPage() {
                           >
                             {entry.related.label}
                           </Link>
-                          {/* Teklif butonu yalnızca ticari hizmet sayfalarında;
-                              rehber yazısına "fiyat al" demek yanlış beklenti kurar. */}
-                          {isServiceHref(entry.related.href) ? (
-                            <Link
-                              // Fragment yok: hizmet sayfalarında ortak bir
-                              // "#teklif" çapası bulunmuyor, uydurmak kullanıcıyı
-                              // sayfanın başına düşürmekten başka işe yaramaz.
-                              href={entry.related.href}
-                              className="glossary-cta"
-                            >
-                              Fiyat / teklif al
-                              <span aria-hidden="true" className="ml-1.5">
-                                →
-                              </span>
-                              <span className="sr-only"> — {entry.related.label}</span>
-                            </Link>
-                          ) : null}
                         </div>
                       ) : null}
                     </dd>

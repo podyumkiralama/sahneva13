@@ -170,6 +170,21 @@ const decodeEntities = (value) =>
 
 const first = (html, regex) => (html.match(regex) || [])[1] || "";
 
+const internalPathFromHref = (href) => {
+  const decoded = decodeEntities(href).trim();
+  if (!decoded || decoded.includes("#") || decoded.includes("?")) return null;
+
+  try {
+    const url = new URL(decoded, SITE_ORIGIN);
+    const site = new URL(SITE_ORIGIN);
+    const normalizeHost = (host) => host.replace(/^www\./, "");
+    if (normalizeHost(url.hostname) !== normalizeHost(site.hostname)) return null;
+    return url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : "/";
+  } catch {
+    return null;
+  }
+};
+
 const localeGroupForRoute = (route) => {
   const match = route.match(/^\/(en|de|ar|ru|zh)(?:\/|$)/);
   return match?.[1] ?? "tr";
@@ -399,6 +414,18 @@ for (const file of files) {
   ).length;
   if (unsafeBlank) {
     addError(route, "target-blank-unsafe", `${unsafeBlank} baglantida rel=noopener yok`);
+  }
+
+  // Header ve footer'daki global gezinme baglantilari bu kontrolden ayridir.
+  // Ana icerikte canonical rotaya tekrar giden bir link kullaniciya yeni bir
+  // hedef sunmaz ve gereksiz prefetch/navigation uretir. Fragment ve sorgu
+  // baglantilari ise sayfa ici gezinme veya arac durumu tasiyabildigi icin korunur.
+  const main = first(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i) || html;
+  const selfLinks = [...main.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/gi)]
+    .map((match) => internalPathFromHref(match[1]))
+    .filter((href) => href === route);
+  if (selfLinks.length) {
+    addError(route, "self-link", `ana icerikte canonical rotaya ${selfLinks.length} link`);
   }
 
   const namelessButtons = [

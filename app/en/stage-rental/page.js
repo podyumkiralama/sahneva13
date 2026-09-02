@@ -1068,12 +1068,9 @@ function Articles() {
                     <p>
                       <strong className="text-gray-900">Sahneva</strong>{" "}
                       delivers{" "}
-                      <Link
-                        href="/en/stage-rental"
-                        className="font-semibold text-violet-600 hover:text-violet-700 underline underline-offset-4"
-                      >
+                      <strong className="font-semibold text-gray-900">
                         professional stage rental
-                      </Link>{" "}
+                      </strong>{" "}
                       services across Turkey for corporate and live event
                       projects.
                     </p>

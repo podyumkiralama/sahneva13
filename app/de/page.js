@@ -333,7 +333,7 @@ const SERVICES_DE = [
       "Schneller Aufbau bei kompaktem Transportvolumen",
       "Breite Auswahl an Farben und Zubehör",
     ],
-    href: "/de/buehne-mieten",
+    href: "/de/laufsteg-mieten",
   },
   {
     id: "led",

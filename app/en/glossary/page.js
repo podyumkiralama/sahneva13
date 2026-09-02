@@ -10,7 +10,6 @@ import {
   EN_GLOSSARY_TERMS,
   getEnGlossaryTermsAlphabetical,
   getEnGlossaryTermsByCategory,
-  isEnServiceHref,
 } from "@/lib/enGlossary";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -267,17 +266,6 @@ export default function GlossaryPage() {
                           >
                             {entry.related.label}
                           </Link>
-                          {/* Quote button only on commercial service pages; a
-                              guide article should not promise pricing. */}
-                          {isEnServiceHref(entry.related.href) ? (
-                            <Link href={entry.related.href} className="glossary-cta">
-                              Request a quote
-                              <span aria-hidden="true" className="ml-1.5">
-                                →
-                              </span>
-                              <span className="sr-only"> — {entry.related.label}</span>
-                            </Link>
-                          ) : null}
                         </div>
                       ) : null}
                     </dd>

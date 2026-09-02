@@ -754,10 +754,10 @@ function Articles() {
                       Seating Strategy
                     </h4>
                     <p>
-                      <strong className="text-gray-900">Sahneva</strong> provides
-                      <Link href="/en/table-chair-rental" className="font-semibold text-violet-600 hover:text-violet-700 underline underline-offset-4">
+                      <strong className="text-gray-900">Sahneva</strong> provides{" "}
+                      <strong className="font-semibold text-gray-900">
                         professional table and chair rental
-                      </Link>{" "}
+                      </strong>{" "}
                       services nationwide with corporate-grade standards.
                     </p>
                     <p>
