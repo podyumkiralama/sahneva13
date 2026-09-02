@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -33,6 +34,10 @@ const LED_SERVICE_PATH = "/en/led-screen-rental";
 const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I'd like to get a quote for my project.");
 
 const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile(
+  "app/en/blog/how-stage-rental-prices-are-determined/page.jsx",
+  PUBLISH_DATE
+);
 
 /* ================== META ================== */
 export const metadata = {
@@ -64,6 +69,9 @@ export const metadata = {
       "Stage price is determined by m²; the budget becomes clear when technical layers and rider are provided.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
+  authors: [{ name: AUTHOR_NAME }],
+  publisher: "Sahneva",
+  date: PUBLISH_DATE,
   robots: AI_PREVIEW_ROBOTS,
 };
 
@@ -89,11 +97,32 @@ function ImgFigure({ src, alt, caption }) {
   );
 }
 
+function ArticleSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${BLOG_URL}#blogposting`,
+    url: BLOG_URL,
+    headline: TITLE,
+    description: DESCRIPTION,
+    image: `${SITE_URL}${HERO_IMG}`,
+    datePublished: PUBLISH_DATE,
+    dateModified: MODIFIED_DATE,
+    inLanguage: "en-US",
+    author: { "@id": `${SITE_URL}/#editor` },
+    publisher: { "@id": `${SITE_URL}/#org` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
+    isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/en/blog#blog` },
+  };
+
+  return <JsonLd data={schema} suppressHydrationWarning />;
+}
+
 /* ================== PAGE ================== */
 export default function Page() {
   
   const breadcrumbItems = [
-    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Home", url: `${SITE_URL}/en` },
     { name: "Blog", url: `${SITE_URL}/en/blog` },
     { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
   ];
@@ -101,6 +130,7 @@ export default function Page() {
 return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
+      <ArticleSchema />
       <BlogLayout
         locale="en"
         siteUrl={SITE_URL}
@@ -230,21 +260,11 @@ return (
               This is why the LED screen item is most often priced daily.
             </p>
 
-            <p>
-              For details about LED screen service:{" "}
-              <a href="https://www.sahneva.com/led-ekran-kiralama">LED Screen Rental</a>.
-            </p>
-
             <h3>Why are truss and podium sometimes in the same daily/weekly band?</h3>
             <p>
               Truss and podium are the load-bearing infrastructure of the stage. Daily or weekly planning can be done
               depending on the project type; in some projects the daily/weekly price band may approach each other.
               Because the main cost is most often related to the installation-dismantling organisation, labour plan and project scope.
-            </p>
-
-            <p>
-              For podium solutions:{" "}
-              <a href="https://www.sahneva.com/podyum-kiralama">Podium Rental</a>.
             </p>
 
             <h3>Sound & lighting: speech vs concert are not the same</h3>
@@ -256,7 +276,7 @@ return (
 
             <p>
               For details:{" "}
-              <a href="https://www.sahneva.com/ses-isik-sistemleri">Sound & Lighting Systems</a>.
+              <Link href="/en/sound-light-rental">Sound & Lighting Systems</Link>.
             </p>
 
             {/* tent */}
@@ -275,7 +295,7 @@ return (
 
             <p>
               For tent service:{" "}
-              <a href="https://www.sahneva.com/cadir-kiralama">Tent Rental</a>.
+              <Link href="/en/tent-rental">Tent Rental</Link>.
             </p>
 
             {/* estimated vs firm */}
@@ -465,54 +485,17 @@ return (
               the technical rider is the main determinant of price.
             </p>
 
-            <p>
-              You can quickly get information from the relevant pages:
-            </p>
-            <ul>
-              <li>
-                <a href="https://www.sahneva.com/sahne-kiralama">Stage Rental</a>
-              </li>
-              <li>
-                <a href="https://www.sahneva.com/led-ekran-kiralama">LED Screen Rental</a>
-              </li>
-              <li>
-                <a href="https://www.sahneva.com/ses-isik-sistemleri">Sound & Lighting Systems</a>
-              </li>
-              <li>
-                <a href="https://www.sahneva.com/podyum-kiralama">Podium Rental</a>
-              </li>
-              <li>
-                <a href="https://www.sahneva.com/cadir-kiralama">Tent Rental</a>
-              </li>
-              <li>
-                <Link href="/en/corporate-events">Corporate Events</Link>
-              </li>
-            </ul>
           </div>
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/en/stage-rental"
-              className="inline-flex items-center justify-center rounded-2xl bg-gray-900 px-6 py-4 font-bold text-white hover:bg-gray-800"
-            >
-              Stage Rental Details
-            </Link>
-            <Link
               href="/en/contact"
-              className="inline-flex items-center justify-center rounded-2xl border border-gray-300 bg-white px-6 py-4 font-bold text-gray-900 hover:bg-gray-50"
+              className="inline-flex items-center justify-center rounded-2xl bg-gray-900 px-6 py-4 font-bold text-white hover:bg-gray-800"
             >
               Discovery / Get a Quote
             </Link>
           </div>
-
-          <BlogRelatedLinks
-            locale="en"
-            services={[
-              { href: "/en/stage-rental", label: "Stage Rental" },
-              { href: "/en/podium-rental", label: "Podium Rental" },
-            ]}
-          />
       </BlogLayout>
     </>
   );}

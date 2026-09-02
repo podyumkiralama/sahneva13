@@ -186,7 +186,7 @@ function ServicesTabsFallback() {
       description: "High-resolution indoor and outdoor LED wall solutions",
       anchor: "led-services",
       items: [
-        "Pixel pitch options P2.5, P3, P4, P5, P6",
+        "P1.9 fine-pitch, P2.6 / P2.9 indoor and P3.9 / P4–P6 longer-view options",
         "Indoor and outdoor (IP65) LED cabinets",
         "Installation, technical operator and content management",
         "HD video processors and control systems",
@@ -282,7 +282,7 @@ export default function EnglishServicesPage() {
     {
       href: "/en/led-screen-rental",
       title: "LED Wall Rentals",
-      description: "P2–P6 pixel pitch, indoor/outdoor solutions",
+      description: "P1.9 fine-pitch, P2.6 / P2.9 indoor and outdoor LED solutions",
       icon: "🖥️",
       color: "from-green-500 to-emerald-500",
     },
@@ -320,6 +320,13 @@ export default function EnglishServicesPage() {
       description: "Venue access, load-in planning and technical crew for events in Istanbul",
       icon: "🌉",
       color: "from-violet-500 to-violet-600",
+    },
+    {
+      href: "/en/hangar-event-venue-istanbul",
+      title: "Hangar Event Venue Istanbul",
+      description: "A 90 × 30 m equipped hall with ready P1.9 LED, stage, sound, lighting and flexible layouts",
+      icon: "🏛️",
+      color: "from-amber-500 to-violet-700",
     },
     {
       href: "/en/av-rental-istanbul",

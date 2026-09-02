@@ -19,6 +19,7 @@ import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const PAGE_PATH = "/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const EN_PAGE_URL = `${SITE_URL}/en/projects/millet-bahcesi-hangar-event-production`;
 const IMAGE_BASE = "/img/projeler/istanbul-amator-futbol-kuluplerine-nakdi-destek-programi";
 const PROJECT_NAME = "İstanbul Amatör Futbol Kulüplerine 180 Milyon TL Nakdi Destek Programı";
 const VENUE_NAME = "Millet Bahçesi Hangar";
@@ -29,7 +30,7 @@ const DESCRIPTION =
 const OG_DESCRIPTION =
   "Kapalı alan protokol etkinliğinde LED ekran, sahne, podyum, ses-ışık, truss, teknik reji ve salon düzeni Sahneva tarafından yönetildi.";
 const PUBLISHED_AT = "2026-05-19T12:00:00+03:00";
-const MODIFIED_AT = "2026-07-31T12:00:00+03:00";
+const MODIFIED_AT = "2026-09-02T12:00:00+03:00";
 
 const IMAGES = {
   hero: {
@@ -229,7 +230,8 @@ export const metadata = {
     canonical: PAGE_URL,
     languages: {
       "tr-TR": PAGE_URL,
-      "x-default": PAGE_URL,
+      "en-US": EN_PAGE_URL,
+      "x-default": EN_PAGE_URL,
     },
   },
   openGraph: {

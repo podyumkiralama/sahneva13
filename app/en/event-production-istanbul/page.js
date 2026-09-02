@@ -203,6 +203,12 @@ const ISTANBUL_PROOF = [
     href: "/en/projects/eaaci-congress-istanbul-led-installation",
   },
   {
+    label: "Millet Bahçesi Hangar",
+    venue: "Atatürk Airport National Garden, Istanbul",
+    detail: "A documented one-event configuration with a 16 × 8 m scaffold stage, 16 × 6 m P1.9 main LED wall, four side screens and hall operations.",
+    href: "/en/projects/millet-bahcesi-hangar-event-production",
+  },
+  {
     label: "Protocol-level indoor build",
     venue: "Indoor hangar venue, Istanbul",
     detail: "24 × 8 m stage and a 24 × 6 m P2 LED screen on a truss and scaffold skeleton, installed by 60 crew over two working days.",
@@ -253,6 +259,11 @@ const FAQ_ITEMS = [
 ];
 
 const SIBLING_LINKS = [
+  {
+    href: "/en/hangar-event-venue-istanbul",
+    label: "Hangar Event Venue Istanbul",
+    desc: "A 90 × 30 m hall at Atatürk Airport National Garden with a ready stage, P1.9 LED, sound, lighting and furniture — usable as installed or reconfigured for the event.",
+  },
   {
     href: "/en/av-rental-istanbul",
     label: "AV Rental Istanbul",

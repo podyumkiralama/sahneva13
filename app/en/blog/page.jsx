@@ -8,7 +8,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { BLOG_PUBLISHED_AT } from "@/lib/sitemap/data";
 /* ================== RUNTIME & ISR ================== */
 export const runtime = "nodejs";
 export const revalidate = 3600;
@@ -141,7 +142,13 @@ async function getBlogPosts() {
           ? `app/en/blog/${postSlug}/page.jsx`
           : `app/en/blog/${postSlug}/page.js`;
         const modifiedDate = `${getLastModifiedForFile(fileRelativePath, "2026-02-01")}T00:00:00+03:00`;
-        const normalized = normalizePostMeta(postSlug, { ...postMetadata, modifiedDate });
+        const publishedDate =
+          safeDateString(postMetadata.date) ?? BLOG_PUBLISHED_AT[postSlug] ?? null;
+        const normalized = normalizePostMeta(postSlug, {
+          ...postMetadata,
+          date: publishedDate,
+          modifiedDate,
+        });
         if (normalized.draft) continue;
 
         posts.push(normalized);
@@ -198,7 +205,7 @@ function BlogJsonLd({ posts, baseUrl }) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: site,
+            item: `${site}/en`,
           },
           {
             "@type": "ListItem",
@@ -369,7 +376,7 @@ export default async function BlogPage() {
             <p className="text-gray-600 mt-2">
               Blog content is being prepared, please check back later.
             </p>
-            <Link href="/" className="mt-6 text-violet-600 hover:underline">
+            <Link href="/en" className="mt-6 text-violet-600 hover:underline">
               Go to Homepage
             </Link>
           </div>

@@ -1488,6 +1488,11 @@ function FAQ() {
 function RelatedServices() {
   const services = [
     {
+      href: "/en/hangar-event-venue-istanbul",
+      title: "Hangar Event Venue Istanbul",
+      desc: "A large, equipped Istanbul event hall with a ready stage, P1.9 LED, sound, lighting and flexible layouts",
+    },
+    {
       href: "/en/mice-turkey",
       title: "MICE Turkey",
       desc: "Congresses, incentives, conferences and exhibitions — end-to-end MICE production in Turkey",
