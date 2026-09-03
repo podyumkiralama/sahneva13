@@ -160,7 +160,7 @@ export default function ContactPage() {
         <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 mb-6">
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           <span className="text-white/90 text-sm font-medium">
-            24/7 Technical Support
+            Project Technical Support
           </span>
         </div>
 
@@ -602,7 +602,7 @@ export default function ContactPage() {
                 <p className="text-xl text-white/80 mb-8 leading-relaxed">
                   Experiencing a technical issue during your event?
                   <br />
-                  Call our emergency hotline for immediate assistance 24/7.
+                  Use the agreed project contact for support during your scheduled production.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -631,7 +631,7 @@ export default function ContactPage() {
 
                 <div className="mt-8 p-4 bg-yellow-500/20 rounded-xl border border-yellow-400/30 max-w-2xl mx-auto">
                   <p className="text-yellow-200 text-sm">
-                    <strong>⏰ 24/7 Service:</strong> We deploy technicians the same day to resolve issues at your ongoing events.
+                    <strong>⏰ Project support:</strong> Support hours, escalation contacts and any standby crew are agreed in the production scope.
                   </p>
                 </div>
               </div>

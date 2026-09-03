@@ -131,7 +131,7 @@ export default function ContactPage() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="7/24 teknik destek"
+        eyebrow="Proje bazlı teknik destek"
         title="Bize"
         titleAccent="Ulaşın"
         description="Etkinliğiniz için <strong>en uygun çözümleri</strong> birlikte netleştirelim. Mesai saatlerinde hızlı ilk dönüş sağlarız; teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir."
@@ -573,7 +573,7 @@ export default function ContactPage() {
                 <p className="text-xl text-white/80 mb-8 leading-relaxed">
                   Mevcut etkinliğinizde teknik sorun mu yaşıyorsunuz?
                   <br />
-                  7/24 acil destek hattımızdan hemen yardım alın.
+                  Planlanan destek saatlerinde proje sorumlunuzla iletişime geçin.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -602,9 +602,9 @@ export default function ContactPage() {
 
                 <div className="mt-8 p-4 bg-yellow-500/20 rounded-xl border border-yellow-400/30 max-w-2xl mx-auto">
                   <p className="text-yellow-200 text-sm">
-                    <strong>⏰ 7/24 Hizmet:</strong> Mevcut etkinliklerinizde
-                    yaşadığınız teknik sorunlarda aynı gün içinde çözüm
-                    sunuyoruz.
+                    <strong>⏰ Proje desteği:</strong> Destek saatleri, müdahale
+                    sorumluları ve varsa yedek ekip etkinliğin teknik kapsamında
+                    önceden belirlenir.
                   </p>
                 </div>
               </div>

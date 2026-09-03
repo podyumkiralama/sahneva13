@@ -121,8 +121,8 @@ const SERVICES = [
   {
     icon: "🔧",
     title: "Installation & Technical Support",
-    description: "Expert crew for installation, dismantling and 24/7 assistance",
-    features: ["Certified installation", "Dismantling service", "24/7 technical support", "Emergency response team"],
+    description: "Experienced crew for installation, dismantling and project-specific support",
+    features: ["Planned installation", "Dismantling service", "Agreed support hours", "Project escalation contacts"],
   },
 ];
 
@@ -406,8 +406,8 @@ function Technical() {
     {
       category: "safety",
       title: "Safety Systems",
-      description: "Stability engineering that complies with TS EN wind and load standards",
-      features: ["90 km/h wind resistance", "Professional anchoring", "Ballast weighting", "Integrated rain gutters"],
+      description: "Site-specific stability, anchoring, ballast and drainage planning",
+      features: ["Ground and weather assessment", "Project-specific anchoring", "Ballast planning", "Integrated rain gutters"],
     },
     {
       category: "dimensions",
@@ -425,13 +425,13 @@ function Technical() {
       category: "installation",
       title: "Installation Process",
       description: "Rapid mobilisation with experienced crew, logistics and dismantling",
-      features: [`${setupDurationText("tent", "en")} setup`, "Certified crew", "Dedicated logistics", "Post-event dismantling"],
+      features: [`${setupDurationText("tent", "en")} setup`, "Experienced crew", "Dedicated logistics", "Post-event dismantling"],
     },
     {
       category: "support",
       title: "Technical Support",
-      description: "24/7 service desk, emergency response and preventive maintenance",
-      features: ["24/7 technical hotline", "Emergency response team", "Spare part inventory", "Scheduled maintenance"],
+      description: "Project-specific support contacts, escalation planning and preventive maintenance",
+      features: ["Agreed support hours", "Escalation contacts", "Spare part planning", "Scheduled maintenance"],
     },
   ];
 
@@ -670,7 +670,7 @@ function Articles() {
                     {[
                       { icon: "🎯", title: "Detailed survey & analysis", desc: "Topography reviews, guest flow planning and risk assessment" },
                       { icon: "📊", title: "Engineering & load design", desc: "Wind load calculations, ballast planning and structural compliance" },
-                      { icon: "🔒", title: "Safety systems", desc: "Certified anchoring, emergency plans and monitored access" },
+                      { icon: "🔒", title: "Safety systems", desc: "Project-specific anchoring or ballast plans, emergency planning and monitored access" },
                       { icon: "🎭", title: "Aesthetic integration", desc: "Decor, lighting concepts and branding coordination" },
                     ].map((item, index) => (
                       <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group hover:border-violet-200">
@@ -698,7 +698,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and nationwide coverage</strong> make us a trusted production partner. Premium materials, specialist crews and 24/7 technical support come standard with every project.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and nationwide coverage</strong> support our production planning. Materials, specialist crews and support arrangements are defined for each project.
                   </p>
                 </div>
               </div>
@@ -741,7 +741,7 @@ function Articles() {
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
-                      90 km/h wind resistance with certified anchoring
+                      Project-specific anchoring and ballast planning
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0" aria-hidden="true" />
@@ -820,7 +820,7 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "Are the tents resistant to bad weather?",
     answer:
-      "Tents are engineered for 90 km/h wind loads with TS EN 13782 compliant aluminium frames and 650 gr/m2 UV-resistant PVC membranes. Integrated rain gutters support water drainage during heavy showers.",
+      "Weather suitability is assessed for each venue using the tent type, dimensions, ground conditions, anchoring or ballast options and forecast. Final limits and safety actions are confirmed in the project plan.",
   },
   {
     question: "Do you provide event tent rental across Turkey?",
@@ -841,7 +841,7 @@ function FAQ() {
     },
     {
       q: "Are the tents resistant to bad weather?",
-      a: "Yes. All tents are engineered for 90 km/h wind loads with TS EN 13782 compliant aluminium frames and 650 gr/m² UV-resistant PVC membranes. Integrated rain gutters ensure safe water drainage during heavy showers.",
+      a: "Weather suitability is assessed for each venue using the tent type, dimensions, ground conditions, anchoring or ballast options and forecast. Final limits, drainage measures and safety actions are confirmed in the project plan.",
     },
     {
       q: "Do you provide event tent rental across Turkey?",
@@ -1028,7 +1028,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 Service across {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of experience
+              📍 Service across {PROVINCES_COUNT} provinces • ⏰ Project-specific support plan • ⭐ {YEARS_OF_EXPERIENCE} years of experience
             </div>
           </div>
         </div>

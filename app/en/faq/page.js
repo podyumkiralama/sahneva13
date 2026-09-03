@@ -8,7 +8,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 
 /* ================== META ================== */
 export const metadata = {
-  title: "Frequently Asked Questions | Event Rental FAQ Guide",
+  title: "Event Rental FAQ | Frequently Asked Questions",
   description:
     "Detailed answers about stage, LED screen, sound and lighting, and tent rentals, installation timelines, logistics, pricing and contracts.",
   alternates: buildAlternatesForPath("/en/faq"),
@@ -76,7 +76,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Who is responsible on the day of the event?",
-        a: "Every project has an on-site production lead. Audio, lighting, video, stage/rigging and overall coordination are handled by dedicated crew leaders.",
+        a: "Projects can include an on-site production lead and dedicated crew leads for audio, lighting, video, stage/rigging and overall coordination, depending on scope.",
       },
     ],
   },
@@ -249,7 +249,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Which regions do you cover and how do you schedule deliveries?",
-        a: "We work across Türkiye. Same-day installation is possible within Istanbul, while other cities follow a planned logistics schedule.",
+        a: "We work across Türkiye. Installation timing in Istanbul and other cities is confirmed from the equipment scope, venue access and logistics schedule.",
       },
       {
         q: "How do invoicing and contracts work?",

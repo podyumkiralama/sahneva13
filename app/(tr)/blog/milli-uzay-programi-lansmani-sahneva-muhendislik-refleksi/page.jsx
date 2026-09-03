@@ -36,7 +36,7 @@ const VIDEO_EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
 const VIDEO_THUMB = `https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`;
 
 export const metadata = {
-  title: "Milli Uzay Programı Lansmanı | Mühendislik Refleksi",
+  title: "Milli Uzay Programı Lansmanı | Teknik Refleks",
   description: DESCRIPTION,
   keywords: [
     "Milli Uzay Programı",

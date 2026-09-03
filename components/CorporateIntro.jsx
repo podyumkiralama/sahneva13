@@ -61,7 +61,7 @@ const DEFAULT_DICTIONARY = {
   stats: [
     { value: PROJECTS_COMPLETED, label: "Ba?ar?l? proje" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Y\u0131ll\u0131k saha deneyimi" },
-    { value: "7/24", label: "Teknik destek" },
+    { value: "Planlı", label: "Teknik destek" },
   ],
   imageAlt:
     "Kurumsal lansman sahne kurulumu, LED ekran kiralama ve profesyonel \u0131\u015f\u0131k sistemleri ile canl\u0131 etkinlik.",

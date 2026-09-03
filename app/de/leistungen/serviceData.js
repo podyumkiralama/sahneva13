@@ -490,7 +490,7 @@ export const GERMAN_SERVICE_LIST = [
     title: "Firmenevents in der Türkei – technische Produktion aus einer Hand",
     metaTitle: "Firmenevents in der Türkei | Technische Produktion",
     metaDescription:
-      "Konferenzen, Produktlaunches, Händlertagungen und Galaabende in der Türkei: Bühne, LED-Wand, Ton, Licht und Regie aus einer Hand – auch als Partner Ihrer Agentur.",
+      "Technische Produktion für Konferenzen, Produktlaunches, Händlertagungen und Galaabende in der Türkei: Bühne, LED-Wand, Ton, Licht und Regie.",
     description:
       "Konferenzen, Produktlaunches, Händlertagungen und Galaabende: Wir übernehmen die technische Produktion vollständig – als Hauptauftragnehmer oder als technischer Partner im Hintergrund Ihrer Agentur.",
     intent:
@@ -606,7 +606,7 @@ export const GERMAN_SERVICE_LIST = [
     title: "Traversen mieten in der Türkei – Portale, Türme und Dachkonstruktionen",
     metaTitle: "Traversen mieten in der Türkei | Portale & Rigging",
     metaDescription:
-      "Aluminiumtraversen, Portale, Türme und Dachkonstruktionen für Veranstaltungen in der Türkei mieten – mit Lastnachweis, Kettenzügen und Montage durch eigene Crew.",
+      "Traversen, Portale, Türme und Dachkonstruktionen für Events in der Türkei mieten: mit Lastnachweis, Kettenzügen und Montage durch die Sahneva-Crew.",
     description:
       "Aluminiumtraversen, Portale, Traversentürme und Dachkonstruktionen als Tragsystem für LED-Wände, Lichttechnik, Beschallung und Banner – geplant nach Punktlast und Aufhängesituation.",
     intent:

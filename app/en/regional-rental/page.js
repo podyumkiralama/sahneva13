@@ -12,7 +12,7 @@ const PAGE_URL = `${SITE}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 
 export const metadata = {
-  title: "Regional Rental | Istanbul, Ankara, Izmir & Türkiye",
+  title: "Regional Rental | Istanbul, Ankara & Türkiye",
   description:
     "LED screen, truss, stage platform, sound and lighting rental across Turkey. Setup, testing and dismantling for Istanbul, Ankara, Izmir and Antalya.",
   alternates: buildAlternatesForPath("/en/regional-rental"),

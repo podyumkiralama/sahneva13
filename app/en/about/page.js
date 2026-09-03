@@ -112,9 +112,9 @@ export default function AboutPage() {
     },
     {
       year: "2024",
-      title: "Innovation Leadership",
+      title: "Expanded Technical Capability",
       description:
-        "With next-generation gear, digital integrations and live streaming solutions, we created new standards in the sector and surpassed 700 projects.",
+        "We expanded our production capability with newer equipment, digital integrations and live-streaming workflows while growing the project portfolio.",
       icon: "⚡",
     },
   ];
@@ -124,13 +124,13 @@ export default function AboutPage() {
       icon: "🛡️",
       title: "Quality & Safety",
       description:
-        "ISO-standard quality control, occupational safety protocols and scheduled equipment maintenance",
+        "Documented quality checks, site safety planning and scheduled equipment maintenance",
     },
     {
       icon: "⚡",
       title: "Rapid Installation",
       description:
-        `Same-day deployment: podium builds in ${setupDurationText("podium", "en")}, full stage builds with truss and rigging in ${setupDurationText("stage", "en")}`,
+        `Planned deployment: podium builds in ${setupDurationText("podium", "en")}, full stage builds with truss and rigging in ${setupDurationText("stage", "en")}`,
     },
     {
       icon: "💎",
@@ -145,13 +145,13 @@ export default function AboutPage() {
     },
     {
       icon: "📞",
-      title: "24/7 Support",
+      title: "Project Support",
       description: "Professional technical consultancy before, during and after every installation",
     },
     {
       icon: "💰",
       title: "Transparent Pricing",
-      description: "Detailed quotations with budget-friendly options and zero hidden fees",
+      description: "Itemised quotations that show the agreed equipment, crew and delivery scope",
     },
   ];
 
@@ -345,8 +345,8 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
                   <p>
-                    <strong className="text-violet-600">Sahneva</strong> has been one of Türkiye's
-                    leading event production companies since 2012. With a team specialised in stage
+                    <strong className="text-violet-600">Sahneva</strong> has supported event productions
+                    across Türkiye since 2012. With a team specialised in stage
                     rentals, LED walls, sound and lighting systems and professional installation,
                     we bring every event to life through technical excellence and creative vision.
                   </p>
@@ -492,7 +492,7 @@ export default function AboutPage() {
 
             <div className="mt-16 text-center">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-black text-white mb-4">Why thousands of clients choose us</h3>
+                <h3 className="text-2xl font-black text-white mb-4">Why event teams choose us</h3>
                 <p className="text-white/80 text-lg leading-relaxed mb-6">
                   Technical mastery, reliability and a customer-first mindset allow us to deliver more value with every production.
                 </p>

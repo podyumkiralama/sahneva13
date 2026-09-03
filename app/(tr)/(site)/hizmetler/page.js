@@ -328,13 +328,13 @@ export default function ServicesPage() {
   const SERVICE_FEATURES = [
     {
       icon: "⚡",
-      title: "Aynı Gün Kurulum",
+      title: "Planlı Kurulum",
       description: `Kapsama göre ${setupDurationText("overall", "tr")} içinde profesyonel kurulum ve teslimat`
     },
     {
       icon: "🛡️",
-      title: "Güvenlik Garantisi",
-      description: "ISO standartlarında iş güvenliği ve kalite kontrol"
+      title: "Güvenlik Planı",
+      description: "Belgeli saha kontrolleri, iş güvenliği planı ve kalite kontrol"
     },
     {
       icon: "💎", 
@@ -348,13 +348,13 @@ export default function ServicesPage() {
     },
     {
       icon: "📞",
-      title: "7/24 Destek",
-      description: "Kesintisiz teknik destek ve danışmanlık"
+      title: "Proje Desteği",
+      description: "Etkinlik takvimine göre teknik destek ve danışmanlık"
     },
     {
       icon: "💰", 
       title: "Şeffaf Fiyat",
-      description: "Detaylı teklif, gizli maliyet olmadan hizmet"
+      description: "Ekipman, ekip ve teslimat kapsamını gösteren detaylı teklif"
     }
   ];
 

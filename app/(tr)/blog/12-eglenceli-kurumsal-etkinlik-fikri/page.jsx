@@ -215,7 +215,7 @@ export default function BlogPost() {
 
         <p>
           Fikir aşamasından uygulamaya geçerken{" "}
-          <Link href="/kurumsal-organizasyon">kurumsal organizasyon</Link>,{" "}
+          <Link href="/kurumsal-organizasyon">kurumsal organizasyon hizmeti</Link>,{" "}
           <Link href="/sisme-oyun-parki-kiralama">şişme oyun parkı ve takım oyunları</Link>,{" "}
           <Link href="/sahne-kiralama">sahne kiralama</Link>,{" "}
           <Link href="/led-ekran-kiralama">LED ekran kiralama</Link> ve{" "}
@@ -360,6 +360,7 @@ export default function BlogPost() {
         {/* 9 */}
         <h3 id="etkinlik-9" className="text-2xl font-bold mt-14 scroll-mt-20">9. Yiyecek & İçecek Tadım Kurumsal Etkinlikleri</h3>
         <p>Yiyecek ve içecek tadım etkinlikleri, geleneksel iş buluşmalarının ötesine geçen lezzet odaklı ve etkileşimli bir deneyim sunar. Rahat bir ortamda gerçekleşen bu organizasyonlar, ekip dinamiğini ve networking'i doğal bir şekilde destekler. 2026'da sürdürülebilir içerik seçimleri ve yerel üreticilerle iş birliği bu etkinliklerin merkezine oturuyor.</p>
+        <p>Davetli sayısı, oturma biçimi ve servis akışı birlikte netleştirildiğinde <Link href="/masa-sandalye-kiralama">masa sandalye kiralama yerleşimi</Link> hem dolaşımı hem de tadım istasyonlarına erişimi destekler.</p>
         <h4 className="font-semibold text-lg mt-8 mb-4 text-violet-700">Nasıl eğlenceli hale getirilir:</h4>
         <ul className="list-disc pl-6 space-y-3">
           <li>Yerel ve sürdürülebilir işletmelerle iş birliği yapın – Bölgesel tatları öne çıkararak etkinliğe özgün bir kimlik kazandırın.</li>

@@ -17,7 +17,7 @@ export const metadata = {
   // Das Locale-Layout hängt " | Sahneva" an – Marke hier nicht wiederholen.
   title: "MICE Türkei — Technik für Kongresse und Incentives",
   description:
-    "Technische Produktion für MICE-Programme in der Türkei: Kongresse, Tagungen, Incentive-Reisen und Messeauftritte mit Bühne, LED-Wand, Ton, Licht und Crew vor Ort.",
+    "Technische Produktion für MICE in der Türkei: Kongresse, Tagungen, Incentives und Messen mit Bühne, LED-Wand, Ton, Licht, Crew und Betreuung vor Ort.",
   alternates: buildLanguageAlternates({
     en: "/en/mice-turkey",
     de: PAGE_PATH,

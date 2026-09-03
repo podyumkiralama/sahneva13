@@ -112,7 +112,7 @@ const HERO_DICTIONARY = {
   proofPoints: [
     { value: PROJECTS_COMPLETED, label: "已完成项目" },
     { value: "全国", label: "本地物流与执行" },
-    { value: "24/7", label: "活动现场支持" },
+    { value: "按项目", label: "活动现场支持" },
     { value: "1 个团队", label: "安装、执行与拆除" },
   ],
   ctaCall: "致电咨询",

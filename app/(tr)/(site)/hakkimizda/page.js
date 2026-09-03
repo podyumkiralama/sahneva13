@@ -140,13 +140,13 @@ export default function HakkimizdaPage() {
       icon: "🛡️",
       title: "Kalite ve Güvenlik",
       description:
-        "ISO standartlarında kalite kontrol, iş güvenliği protokolleri ve düzenli ekipman bakımları",
+        "Belgeli kalite kontrolleri, saha güvenliği planı ve düzenli ekipman bakımları",
     },
     {
       icon: "⚡",
       title: "Hızlı Kurulum",
       description:
-        `Aynı gün kurulum: podyum ${setupDurationText("podium", "tr")}, truss ve rigging içeren sahne ${setupDurationText("stage", "tr")}`,
+        `Planlı kurulum: podyum ${setupDurationText("podium", "tr")}, truss ve rigging içeren sahne ${setupDurationText("stage", "tr")}`,
     },
     {
       icon: "💎",
@@ -161,13 +161,13 @@ export default function HakkimizdaPage() {
     },
     {
       icon: "📞",
-      title: "7/24 Destek",
+      title: "Proje Desteği",
       description: "Kurulum öncesi, anı ve sonrası profesyonel teknik danışmanlık",
     },
     {
       icon: "💰",
       title: "Şeffaf Fiyatlandırma",
-      description: "Detaylı teklifleme, gizli maliyet olmadan bütçe dostu çözümler",
+      description: "Ekipman, ekip ve teslimat kapsamını gösteren detaylı teklifler",
     },
   ];
 

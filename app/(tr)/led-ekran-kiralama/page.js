@@ -307,8 +307,8 @@ const SERVICES = [
     Icon: Headphones,
     image: "/img/led/absen-p19-led-teknik-ekip-kablo-hazirlik-sahneva.webp",
     title: "Operatör & Teknik Destek",
-    description: "Deneyimli operatörler ve 7/24 teknik destek hizmeti",
-    features: ["Profesyonel Reji ve Ekran Operatörü", "Anlık İçerik ve Reji Yönetimi", "7/24 Teknik Destek Planı", "Hızlı Müdahale Protokolü"],
+    description: "Deneyimli operatörler ve etkinlik programına göre planlanan teknik destek",
+    features: ["Profesyonel Reji ve Ekran Operatörü", "Anlık İçerik ve Reji Yönetimi", "Proje Bazlı Teknik Destek Planı", "Saha Müdahale Protokolü"],
     cta: { label: "Operatör Talep Et" },
   },
 ];
@@ -367,11 +367,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kadıköy, Şişli veya Beşiktaş gibi merkezi ilçelerde acil kurulum mümkün mü?",
-    a: "Evet, İstanbul içi operasyonlarımızda her iki yakadaki depolarımız sayesinde, acil taleplerde trafiğe takılmadan aynı gün veya birkaç saat içinde mobil ekiplerimizle hızlı kurulum yapabiliyoruz. Erken saatte mobilize olarak İstanbul trafiğine yakalanmadan kurulumu tamamlıyoruz."
+    a: "Acil İstanbul taleplerinde uygunluk; ekran ölçüsü, stok, ekip, trafik, yükleme saati ve saha erişimine göre kontrol edilir. Kurulum süresi ancak bu bilgiler doğrulandıktan sonra teyit edilir."
   },
   {
     q: "Kocaeli, Bursa veya Tekirdağ gibi çevre illerde hafta sonu teknik destek nasıl planlanıyor?",
-    a: "Çevre illerdeki hafta sonu etkinlikleri için 7/24 teknik destek, araç ve varsa konaklama planını ilk briefte birlikte netleştiriyoruz. Ekran tipi, kurulum saati ve saha erişimini baştan doğrulayarak operasyon kapsamını netleştiriyoruz."
+    a: "Çevre illerdeki hafta sonu etkinlikleri için destek saatlerini, saha sorumlusunu, aracı ve varsa konaklamayı ilk briefte birlikte netleştiriyoruz. Ekran tipi, kurulum saati ve saha erişimini baştan doğrulayarak operasyon kapsamını belirliyoruz."
   },
   {
     q: "İstanbul dışında, Marmara'nın hava şartlarına uygun ekranlarınız var mı?",
@@ -1469,9 +1469,9 @@ function Technical() {
     {
       category: "destek",
       title: "Teknik Destek",
-      description: "7/24 teknik destek ve acil müdahale hizmetleri",
+      description: "Proje takvimine göre teknik destek ve saha müdahale planı",
       Icon: Headphones,
-      features: ["7/24 Teknik Destek Planı", "Anlık Yedek Modül Güvencesi", "Sahada Acil Müdahale Ekibi", "Uzaktan Diagnostik ve Hata Tespiti"]
+      features: ["Proje Bazlı Destek Planı", "Yedek Modül Planlaması", "Saha Müdahale Ekibi", "Uzaktan Diagnostik ve Hata Tespiti"]
     }
   ];
 
@@ -1731,7 +1731,7 @@ function RegionalService() {
     },
     { 
       name: "İstanbul Anadolu Yakası", 
-      detail: "Kadıköy, Ataşehir ve Ümraniye depolarımızdan, köprü trafiğine takılmadan anlık sevkiyat ve aynı gün müdahale.",
+      detail: "Kadıköy, Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy ve Ataşehir için stok, ekip ve trafik durumuna göre sevkiyat planı.",
       districts: "Kadıköy, Üsküdar, Maltepe, Tuzla, Pendik, Çekmeköy, Ataşehir"
     },
     { 
@@ -1879,8 +1879,8 @@ function RegionalService() {
               <tbody>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Müdahale & Kurulum</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Acil taleplerde aynı gün 2-4 saat içinde hızlı kurulum planı.</td>
-                  <td className="px-8 py-5 text-gray-700 font-medium">Planlı sevkiyat ile etkinlikten 1 gün önce güvenli kurulum sağlanır.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Acil taleplerde stok, ekip ve saha erişimine göre kurulum süresi teyit edilir.</td>
+                  <td className="px-8 py-5 text-gray-700 font-medium">Şehir dışı sevkiyat ve kurulum takvimi proje planında netleştirilir.</td>
                 </tr>
                 <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-5 font-bold text-gray-800">Sevkiyat Planı</td>

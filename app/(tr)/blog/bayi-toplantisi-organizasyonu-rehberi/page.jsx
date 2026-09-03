@@ -372,7 +372,8 @@ export default function BayiToplantisiPage() {
           Bu da salon seçimini konaklama, ulaşım ve karşılama akışıyla birlikte düşünmeyi gerektirir. Otel
           balo salonu çoğu zaman en pratik çözümdür; çünkü konaklama, catering ve toplantı alanı tek noktada
           birleşir. Ancak balo salonlarında tavan yüksekliği, kolon konumları ve elektrik kapasitesi teknik
-          tasarımı sınırlayabilir.
+          tasarımı sınırlayabilir. Davetli sayısı netleştiğinde <Link href="/masa-sandalye-kiralama">oturma planı</Link>,
+          servis koridorları ve sahne görüş açıları aynı yerleşim üzerinde kontrol edilmelidir.
         </p>
         <Figure
           src="/img/blog/bayi-toplantisi-salon-toplanti-duzeni.webp"

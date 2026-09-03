@@ -197,7 +197,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Kadıköy, Şişli, Beşiktaş gibi merkezi yerlerde acil çadır kurulumu yapıyor musunuz?",
-    a: "Evet. İstanbul Avrupa ve Anadolu yakasındaki ekip planlamamızla merkezi ilçelere aynı gün veya planlı kurulum desteği sağlayabiliyoruz. Net süre; tarih, ölçü, zemin ve ekip yoğunluğuna göre belirlenir.",
+    a: "Acil İstanbul taleplerinde uygunluk; tarih, ölçü, zemin, ekip, araç erişimi ve hava koşullarına göre kontrol edilir. Net kurulum süresi bu bilgilerden sonra teyit edilir.",
   },
   {
     q: "Kocaeli, Bursa, Tekirdağ gibi çevre illere kiralama ve nakliye süreçleri nasıl işliyor?",
@@ -1204,8 +1204,8 @@ function PricingSection() {
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-white/75">
-                Ölçü, tarih, şehir, zemin ve ek hizmetler paylaşıldığında nihai teklif
-                aynı gün içinde netleştirilir.
+                Ölçü, tarih, şehir, zemin ve ek hizmetler paylaşıldığında teklif
+                takvimi proje kapsamına göre teyit edilir.
               </p>
             </div>
           </div>
@@ -1927,7 +1927,7 @@ function ClosingCta() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-violet-100/80 md:text-lg">
           Tarih, ölçü, şehir ve zemin bilgisini paylaşın; nakliye dahil kalem kalem
-          teklifi aynı gün içinde iletelim.
+          teklif için kapsamı ve teslim takvimini netleştirelim.
         </p>
 
         <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">

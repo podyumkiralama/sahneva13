@@ -39,7 +39,7 @@ const CaseGallery = dynamic(() => import("@/components/CaseGallery"), {
 export const metadata = {
   title: "Sound System & Event Lighting Rental in Turkey",
   description:
-    "Sound system, PA and concert lighting rental in Turkey for conferences, concerts and corporate events, with line-array audio, AV crews, setup and live operation.",
+    "Sound system, PA and event lighting rental in Turkey for conferences, concerts and corporate events, with line-array audio, AV crews, setup and operation.",
   alternates: buildAlternatesForPath("/en/sound-light-rental"),
   openGraph: {
     title: "Sound System & Event Lighting Rental in Turkey | Sahneva",
@@ -108,7 +108,7 @@ const SERVICES = [
   {
     icon: "🧱",
     title: "Truss & Rigging Systems",
-    description: "Certified aluminium structures and safe rigging solutions",
+    description: "Aluminium structures and rigging planned around loads, support points and venue conditions",
     features: ["Aluminium truss grids", "Ground support systems", "Professional rigging hardware"],
   },
   {
@@ -428,7 +428,7 @@ function Technical() {
     {
       category: "truss",
       title: "Truss & rigging",
-      description: "Aluminium structures, ground support towers and certified rigging",
+      description: "Aluminium structures, ground support towers and project-specific rigging plans",
       features: ["Truss systems", "Rigging hardware", "Safety solutions"]
     },
     {
@@ -645,7 +645,7 @@ function Articles() {
                       with corporate-level engineering across Turkey.
                     </p>
                     <p>
-                      Whether your event is an outdoor concert or an indoor summit, our turnkey model covers acoustic assessment, technical design, certified{" "}
+                      Whether your event is an outdoor concert or an indoor summit, our turnkey model covers acoustic assessment, technical design, planned{" "}
                       <em className="text-gray-600">truss & rigging</em>{" "}
                       and live operation so every workflow is managed by one expert team.
                     </p>
@@ -687,7 +687,7 @@ function Articles() {
                       {
                         icon: "🔒",
                         title: "Safe rigging systems",
-                        desc: "Certified equipment and experienced rigging crew"
+                        desc: "Suitable equipment and experienced rigging crew"
                       },
                       {
                         icon: "🎭",
@@ -721,7 +721,7 @@ function Articles() {
                   </h5>
                   <p className="text-yellow-800 mb-0">
                     <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and nationwide coverage</strong>
-                    make us a trusted production partner. Premium equipment, specialised crews and 24/7 technical support are included with every project.
+                    support project planning across Turkey. Equipment, specialist crews and an agreed on-site support plan are scoped for each project.
                   </p>
                 </div>
               </div>
@@ -841,12 +841,12 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "Do you provide live operation and technical staff?",
     answer:
-      "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end to end. Emergency technical response is available 24/7.",
+      "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end to end. Support hours and escalation contacts are agreed for each production.",
   },
   {
     question: "How is power distribution handled?",
     answer:
-      "We collect generator or venue power details, then coordinate electrical requirements with certified electricians and professional distribution systems.",
+      "We collect generator or venue power details, then coordinate load, distribution and connection requirements with the venue and the project team.",
   },
   {
     question: "Do you provide sound system and AV rental outside Istanbul?",
@@ -867,11 +867,11 @@ function FAQ() {
     },
     {
       q: "Do you provide live operation and technical staff?",
-      a: "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end-to-end. Our emergency technical response line is available 24/7.",
+      a: "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end-to-end. Support hours and escalation contacts are agreed for each production.",
     },
     {
       q: "How is power distribution handled?",
-      a: "Transport, installation and operation are on us. We gather generator or venue power details from you, then coordinate electrical requirements with our certified electricians and professional distribution systems.",
+      a: "Transport, installation and operation can be included in the scope. We gather generator or venue power details, then coordinate load, distribution and connection requirements with the venue and the project team.",
     },
     {
       q: "Do you provide sound system and AV rental outside Istanbul?",
@@ -1062,7 +1062,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 Service across {PROVINCES_COUNT} provinces • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
+              📍 Service across {PROVINCES_COUNT} provinces • ⏰ Project-specific support plan • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>
         </div>

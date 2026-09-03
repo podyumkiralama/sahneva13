@@ -184,7 +184,7 @@ export default function HowItWorksPage() {
   const faqs = [
     {
       q: "How long does it take to prepare a quote?",
-      a: "Generally, the quote is delivered the same day or within 24–48 hours after requirements are clarified. For projects requiring a site survey, the timeframe may vary depending on the site plan.",
+      a: "After the requirements are clarified, we confirm the quote timeline according to project scope, venue information and whether a site survey is required.",
     },
     {
       q: "Is a site survey mandatory?",

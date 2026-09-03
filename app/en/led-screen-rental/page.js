@@ -179,7 +179,7 @@ const SERVICES = [
     image: "/img/led/absen-p19-led-teknik-ekip-kablo-hazirlik-sahneva.webp",
     title: "Operator & Technical Support",
     description: "Experienced operators manage content, playback and on-site technical continuity throughout the event.",
-    features: ["Professional operators", "Content management", "24/7 technical support", "Emergency response"],
+    features: ["Professional operators", "Content management", "Agreed support hours", "Escalation planning"],
     cta: "Add an on-site operator",
   },
 ];
@@ -607,9 +607,9 @@ function Technical() {
     {
       category: "support",
       title: "Technical support",
-      description: "Round-the-clock engineers with backup inventory and diagnostics",
+      description: "Project support contacts with backup inventory and diagnostics",
       Icon: Headphones,
-      features: ["24/7 technical hotline", "Spare module stock", "Rapid response crew", "Remote diagnostics"]
+      features: ["Agreed support contacts", "Spare module stock", "On-site escalation plan", "Remote diagnostics"]
     }
   ];
 
@@ -1009,7 +1009,7 @@ function CTA() {
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-violet-100 md:text-base">
               <span className="inline-flex items-center gap-2"><MapPin size={18} aria-hidden="true" />Service in {PROVINCES_COUNT} provinces</span>
-              <span className="inline-flex items-center gap-2"><Clock3 size={18} aria-hidden="true" />24/7 technical support</span>
+              <span className="inline-flex items-center gap-2"><Clock3 size={18} aria-hidden="true" />Project-specific technical support</span>
               <span className="inline-flex items-center gap-2"><Star size={18} aria-hidden="true" />{YEARS_OF_EXPERIENCE} years of experience</span>
             </div>
           </div>

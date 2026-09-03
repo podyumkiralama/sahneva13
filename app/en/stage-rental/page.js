@@ -114,7 +114,7 @@ const SERVICES = [
     icon: "🏗️",
     title: "Truss & Rigging Systems",
     description:
-      "Aluminium truss roofs, professional rigging hardware and certified safety planning",
+      "Aluminium truss roofs, professional rigging hardware and project-specific safety planning",
     features: [
       "Aluminium truss",
       "Professional rigging",
@@ -162,12 +162,12 @@ const SERVICES = [
     icon: "🔧",
     title: "Turnkey Delivery",
     description:
-      "Installation, live operation, de-rigging and 24/7 technical assistance included",
+      "Installation, live operation, de-rigging and an agreed technical support plan",
     features: [
       "Setup & dismantling",
       "Show operation",
       "Technical management",
-      "24/7 support",
+      "Project support plan",
     ],
   },
 ];
@@ -878,7 +878,7 @@ function Technical() {
 function StatsBand() {
   const stats = [
     { value: PROJECTS_COMPLETED, label: "Completed Projects", icon: "🏆" },
-    { value: "24/7", label: "Technical Support", icon: "🎵" },
+    { value: "Planned", label: "Technical Support", icon: "🎵" },
     { value: `${PROVINCES_COUNT}`, label: "Cities Served", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of Experience", icon: "⭐" },
   ];
@@ -1219,7 +1219,7 @@ function Articles() {
                   checked before use and installed by an experienced crew.
                 </p>
                 <p>
-                  Aluminium truss, certified rigging hardware and clear load
+                  Aluminium truss, suitable rigging hardware and clear load
                   planning help the stage stay safe.
                 </p>
 
@@ -1253,7 +1253,7 @@ function Articles() {
                         className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0"
                         aria-hidden="true"
                       />
-                      Certified rigging hardware and hoists
+                      Rigging hardware and hoists selected for the project load plan
                     </li>
                     <li className="flex items-center gap-3">
                       <span
@@ -1568,7 +1568,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 Nationwide service • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years
+              📍 Nationwide service • ⏰ Project-specific technical support • ⭐ {YEARS_OF_EXPERIENCE} years
               of experience
             </div>
           </div>

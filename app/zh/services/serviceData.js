@@ -231,7 +231,7 @@ export const CHINESE_SERVICE_PAGES = {
     heroStats: [
       { value: "线阵", label: "音响" },
       { value: "DMX", label: "灯光" },
-      { value: "24/7", label: "支持" },
+      { value: "按项目", label: "支持" },
     ],
     intro:
       "音响和灯光必须与活动流程紧密配合。我们根据场地和观众规模配置扩声系统，根据舞台、节目、品牌风格和拍摄需求设计灯位。",

@@ -771,9 +771,9 @@ function Technical() {
     {
       category: "destek",
       title: "Teknik Destek",
-      description: "7/24 teknik destek ve operasyon yönetimi",
+      description: "Etkinlik takvimine göre teknik destek ve operasyon yönetimi",
       features: [
-        "7/24 teknik destek",
+        "Proje bazlı teknik destek",
         "Operasyon yönetimi",
         "Acil müdahale",
         "Profesyonel ekip",
@@ -1172,8 +1172,8 @@ function Articles() {
                       {YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet
                     </strong>{" "}
                     ile masa sandalye kiralama konusunda güvenilir çözüm
-                    ortağınız. Geniş envanter, uzman ekip ve 7/24 teknik destek
-                    planıyla çalışan sandalye kiralama firması.
+                    ortağınız. Envanter, ekip ve saha desteği her etkinliğin
+                    takvimine ve yerleşim kapsamına göre planlanır.
                   </p>
                 </div>
               </div>
@@ -1532,8 +1532,8 @@ function CTA() {
             </h2>
             <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
               Etkinliğiniz için en uygun masa sandalye sistemlerini sunalım.
-              Ücretsiz keşif, profesyonel danışmanlık ve rekabetçi fiyat
-              garantisi ile hizmetinizdeyiz.
+              Keşif, profesyonel danışmanlık ve ekipman, taşıma, kurulum ile
+              söküm kapsamını ayrı gösteren teklif hazırlayalım.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -1558,7 +1558,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ Proje bazlı teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>
@@ -1582,7 +1582,7 @@ function TableChairJsonLd() {
     locale: "tr-TR",
   });
 
-  // ❗ Burada sadece aggregateRating'i çıkardık, diğer her şey aynı.
+  // Yorum ve puan verisi API kaynağı olmadan Service şemasına eklenmez.
   const baseService = {
     "@type": "Service",
     name: "Masa Sandalye Kiralama",

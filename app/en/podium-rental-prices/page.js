@@ -869,7 +869,7 @@ export default function Page() {
                 </h2>
                 <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
                   Send us date + district + m² + height + carpet/skirt information and we&apos;ll
-                  get back to you within 24 hours with a clear quote and site plan.
+                  review the request and confirm the quote timeline based on scope and site conditions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a

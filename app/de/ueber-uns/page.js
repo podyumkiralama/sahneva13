@@ -85,12 +85,12 @@ const WORKING_MODELS = [
 export const metadata = {
   title: "Über uns — Ihr Technikteam in der Türkei",
   description:
-    `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.`,
+    `Sahneva ist ein Technikteam aus Istanbul. Seit ${FOUNDING_YEAR} entstanden über ${PROJECTS_COMPLETED_COUNT} Projekte mit Bühne, LED-Wand, Ton, Licht, Traversen und Zelten aus einer Hand.`,
   alternates: buildAlternatesForPath("/de/ueber-uns"),
   openGraph: {
     title: "Über uns — Technikteam für Veranstaltungen in der Türkei | Sahneva",
     description:
-      `Sahneva ist ein Team für Veranstaltungstechnik mit Sitz in Istanbul. Seit ${FOUNDING_YEAR} über ${PROJECTS_COMPLETED_COUNT} Projekte: Bühne, LED-Wand, Ton, Licht, Traversen und Zelte aus einer Hand.`,
+      `Sahneva ist ein Technikteam aus Istanbul. Seit ${FOUNDING_YEAR} entstanden über ${PROJECTS_COMPLETED_COUNT} Projekte mit Bühne, LED-Wand, Ton, Licht, Traversen und Zelten aus einer Hand.`,
     url: DE_ABOUT_URL,
     siteName: "Sahneva",
     type: "website",

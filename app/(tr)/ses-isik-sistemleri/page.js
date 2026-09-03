@@ -760,7 +760,7 @@ function Articles() {
                   Profesyonel Ses ve Işık Sistemleri: Etkinlik Başarınız İçin Tam Kapsamlı Çözümler
                 </h3>
                 <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
-                  Kurumsal standartlar, hızlı kurulum süreçleri ve ölçülebilir kalite garantisi ile etkinliklerinizde mükemmel performans
+                  Proje kapsamı, planlı kurulum adımları ve ölçülebilir saha kontrolleriyle tutarlı ses ve ışık operasyonu
                 </p>
               </div>
             </header>
@@ -838,7 +838,7 @@ function Articles() {
                       { 
                         icon: "🔒", 
                         title: "Güvenli Rigging Sistemleri", 
-                        desc: "Sertifikalı ekipman ve uzman rigging ekibi" 
+                        desc: "Uygun ekipman ve deneyimli rigging ekibi"
                       },
                       { 
                         icon: "🎭", 
@@ -873,7 +873,7 @@ function Articles() {
                   <p className="text-yellow-800 mb-0">
                     <strong>{YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet</strong> ile 
                     ses ve ışık sistemleri konusunda güvenilir çözüm ortağınız. Profesyonel ekipman, 
-                    uzman ekip ve 7/24 teknik destek garantisi.
+                    uzman ekip ve proje takvimine göre belirlenen teknik destek planı.
                   </p>
                 </div>
               </div>
@@ -994,7 +994,7 @@ const FAQ_ITEMS = [
     },
     { 
       q: "Canlı operasyon ve teknik destek ekibiniz var mı?", 
-      a: "Evet. Tüm etkinliklerimizde FOH (Front of House) ses mühendisi, monitör mühendisi ve ışık operatöründen oluşan profesyonel teknik ekibimiz canlı operasyon yönetimi sağlar. 7/24 acil teknik destek hizmetimiz mevcuttur." 
+      a: "Evet. Proje kapsamına göre FOH (Front of House) ses mühendisi, monitör mühendisi ve ışık operatörü canlı operasyonu yönetebilir. Destek saatleri ve müdahale sorumluları her etkinliğin teknik planında belirlenir."
     },
     { 
       q: "Güç ihtiyacı ve elektrik altyapısı nasıl sağlanıyor?", 
@@ -1209,7 +1209,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ Proje bazlı teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

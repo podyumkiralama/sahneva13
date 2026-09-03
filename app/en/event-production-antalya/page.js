@@ -251,7 +251,7 @@ function Hero() {
             {[
               { t: "Antalya coverage", d: "Kemer · Belek · Side · Alanya · City centre" },
               { t: "Technical scope", d: "Stage · LED screen · Sound · Lighting · Truss · Tent" },
-              { t: "Coordination", d: "English-speaking project manager on every project" },
+              { t: "Coordination", d: "English-language coordination available by project scope" },
               { t: "Nationwide reach", d: "Istanbul-based · logistics to all Turkish cities" },
             ].map((x) => (
               <div key={x.t} className="text-center md:text-left">
@@ -264,9 +264,9 @@ function Hero() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {[
-            { t: "Antalya expertise", d: "Resort hotels, congress venues, open-air locations" },
-            { t: "English-first", d: "All project communication and on-site coordination" },
-            { t: "24h quote", d: "Technical proposal for standard Antalya event formats" },
+            { t: "Antalya formats", d: "Resort events, congress venues and open-air locations" },
+            { t: "English-language support", d: "Available for project communication and on-site coordination" },
+            { t: "Scope review", d: "Proposal timing confirmed after the brief and venue review" },
           ].map((s) => (
             <div key={s.t} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white shadow-[0_20px_60px_rgba(15,23,42,0.35)] backdrop-blur">
               <div className="text-lg font-black">{s.t}</div>
@@ -390,7 +390,7 @@ function EventFormats() {
             <span className="text-violet-700">in Antalya</span>
           </>
         }
-        desc="From pharmaceutical congresses and corporate dealer meetings to incentive galas and trade exhibitions — these are Antalya's most common international event formats."
+        desc="Technical formats that international organizers commonly plan in Antalya, from congresses and dealer meetings to incentive galas and trade exhibitions."
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -458,8 +458,8 @@ function TechnicalServices() {
       <div className="max-w-6xl mx-auto">
         <H2
           kicker="Production scope in Antalya"
-          title="What We Provide for Events in Antalya"
-          desc="Our full technical scope for Antalya events — everything below can be managed through one local production team."
+          title="AV, Sound, Lighting and Stage Production in Antalya"
+          desc="Our full technical scope for Antalya events — everything below can be managed through one Turkey-based production team."
         />
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-4">
@@ -485,7 +485,7 @@ function TechnicalServices() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
               <Image
                 src="/img/kurumsal/premium/kurumsal-organizasyon-konferans-led-kanit.webp"
-                alt="Conference stage and LED screen setup at an Antalya resort hotel"
+                alt="Representative conference stage and LED screen setup"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -497,7 +497,7 @@ function TechnicalServices() {
             <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
               <Image
                 src="/img/kurumsal/premium/kurumsal-organizasyon-gala-isik-kanit.webp"
-                alt="Gala dinner production at an Antalya resort — moving light and stage design"
+                alt="Representative gala stage with moving lights and LED screen"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -508,8 +508,8 @@ function TechnicalServices() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { src: "/img/kurumsal/bayi-toplantisi.webp", alt: "Dealer meeting stage setup at Antalya resort hotel ballroom" },
-                { src: "/img/kurumsal/premium/konferans-podium.webp", alt: "Conference podium and speaker stage at Antalya congress venue" },
+                { src: "/img/kurumsal/bayi-toplantisi.webp", alt: "Representative dealer meeting stage setup" },
+                { src: "/img/kurumsal/premium/konferans-podium.webp", alt: "Representative conference podium and speaker stage" },
               ].map((img) => (
                 <div key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
                   <Image
@@ -544,11 +544,11 @@ function HowWeWork() {
       />
       <div className="max-w-4xl mx-auto grid gap-4">
         {[
-          ["1. Send your event brief", "Share event type, hotel name or venue, date, expected attendance and any known technical requirements. WhatsApp or contact form both work. We respond same business day."],
-          ["2. Technical proposal within 24h", "We prepare a clear technical scope for stage, LED screen, sound, lighting, truss and tent based on your brief. The proposal includes indicative budgets for each technical department."],
+          ["1. Send your event brief", "Share event type, hotel name or venue, date, expected attendance and any known technical requirements by WhatsApp or the contact form."],
+          ["2. Scope and proposal review", "After reviewing the brief, we prepare a technical scope for stage, LED screen, sound, lighting, truss and tent, with indicative budgets for the relevant departments."],
           ["3. Site inspection (if needed)", "For new venues or complex productions, we join a site inspection with your team. We survey power supply, loading access, room dimensions and any technical constraints specific to the Antalya property."],
           ["4. Production planning & coordination", "We coordinate directly with the hotel technical department and your international team. Delivery timeline, setup schedule, crew roles and run-of-show are aligned in advance."],
-          ["5. Installation, rehearsal & event day", "Our Antalya technical crew handles installation, sound checks, screen tests and rehearsal. On event day, the team remains fully on-site for the entire event duration."],
+          ["5. Installation, rehearsal & event day", "The assigned technical crew handles installation, sound checks, screen tests and rehearsal. On event day, the team remains on-site for the agreed event duration."],
           ["6. Strike & handover", "Post-event, the technical team manages de-rigging, equipment load-out and full venue handover — with handover notes provided to your team if required."],
         ].map(([title, desc]) => (
           <Card key={title} dark className="p-6">
@@ -569,8 +569,8 @@ function Stats() {
         {[
           { v: PROJECTS_COMPLETED, l: "Events produced across Turkey" },
           { v: "2012", l: "Operating since" },
-          { v: "English", l: "All project communication" },
-          { v: "24h", l: "Technical quote turnaround" },
+          { v: "English", l: "Coordination available" },
+          { v: "Scoped", l: "Proposal turnaround" },
         ].map((s) => (
           <Card key={s.l} className="text-center p-6">
             <div className="text-3xl font-black text-violet-700">{s.v}</div>
@@ -584,23 +584,23 @@ function Stats() {
 
 /* ===== Gallery ===== */
 const ANTALYA_GALLERY = [
-  { src: "/img/kurumsal/lansman.webp", alt: "Product launch stage setup at Antalya resort hotel" },
-  { src: "/img/kurumsal/premium/konferans-led-ekran.webp", alt: "Conference LED screen wall at Antalya congress venue" },
-  { src: "/img/kurumsal/premium/kurumsal-organizasyon-p19-led-kanit.webp", alt: "P19 LED screen production at Antalya event" },
-  { src: "/img/kurumsal/premium/salon-isik-kurulumu.webp", alt: "Ballroom lighting installation for Antalya gala event" },
-  { src: "/img/kurumsal/premium/panel-led-sahne.webp", alt: "Panel LED stage at Antalya corporate event" },
-  { src: "/img/kurumsal/konferans.webp", alt: "International conference production at Antalya resort" },
-  { src: "/img/kurumsal/premium/kurumsal-organizasyon-konferans-podyum-kanit.webp", alt: "Conference podium production at Antalya congress venue" },
-  { src: "/img/kurumsal/7.webp", alt: "Corporate dinner and gala event setup in Antalya" },
+  { src: "/img/kurumsal/lansman.webp", alt: "Representative product launch stage setup" },
+  { src: "/img/kurumsal/premium/konferans-led-ekran.webp", alt: "Representative conference LED screen wall" },
+  { src: "/img/kurumsal/premium/kurumsal-organizasyon-p19-led-kanit.webp", alt: "P1.9 LED screen used in a corporate production" },
+  { src: "/img/kurumsal/premium/salon-isik-kurulumu.webp", alt: "Representative ballroom lighting installation" },
+  { src: "/img/kurumsal/premium/panel-led-sahne.webp", alt: "Representative panel and LED stage setup" },
+  { src: "/img/kurumsal/konferans.webp", alt: "Representative international conference production" },
+  { src: "/img/kurumsal/premium/kurumsal-organizasyon-konferans-podyum-kanit.webp", alt: "Representative conference podium production" },
+  { src: "/img/kurumsal/7.webp", alt: "Representative corporate dinner and gala setup" },
 ];
 
 function AntalyaGallery() {
   return (
     <SectionShell variant="soft" id="antalya-gallery">
       <H2
-        kicker="Production references"
-        title={<>Antalya Events — <span className="text-violet-700">Our Work</span></>}
-        desc="Technical production from conferences, incentive galas, product launches and corporate meetings at Antalya resort hotels and congress venues."
+        kicker="Representative production setups"
+        title={<>Formats We Can Deliver <span className="text-violet-700">in Antalya</span></>}
+        desc="Real Sahneva production images illustrating the stage, LED, lighting and conference formats that can be planned for an Antalya brief; they are not presented as Antalya venue records."
         center
       />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -634,15 +634,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Which Antalya hotels and venues do you work in?",
-    a: "We work in all major Antalya resort and congress hotels, including properties in Belek (Rixos, Regnum, Titanic, Calista, Cornelia), Kemer, Side and Alanya zones, as well as Antalya Congress Centre and city-centre conference hotels. If you have a specific property, we can confirm coverage and any venue-specific technical notes.",
+    a: "Share the hotel or venue name in your brief. We first confirm access, loading, power, rigging and venue-specific operating requirements before defining the production scope.",
   },
   {
     q: "Do you support pharmaceutical and medical congresses in Antalya?",
-    a: "Yes. Medical and pharmaceutical congresses are among our most common Antalya event formats. We provide plenary stage and LED screen, simultaneous interpretation systems, breakout room AV packages, recording suites and multi-room speaker systems for multi-day congress programmes.",
+    a: "Yes. A medical or pharmaceutical congress scope can include a plenary stage and LED screen, simultaneous interpretation, breakout-room AV, recording and multi-room audio. The final system is defined from the programme and venue requirements.",
   },
   {
     q: "Can you produce incentive gala evenings and award ceremonies in Antalya?",
-    a: "Yes. Gala dinners and incentive award ceremonies are a core Antalya production type for us. We provide gala stage, moving light design, colour-wash atmosphere, LED screen content, award moment spotlighting and full sound design for evening event programmes.",
+    a: "Yes. A gala or incentive programme can include a gala stage, moving-light design, colour wash, LED content playback, award-moment lighting and event sound, planned around the venue and run-of-show.",
   },
   {
     q: "Do you support outdoor and beach events in Antalya?",
@@ -650,11 +650,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can Sahneva work with our international PCO or event agency?",
-    a: "Yes. We regularly work as a local technical sub-contractor to PCOs, DMCs and international event agencies bringing events to Antalya. We can provide RFP responses, join site inspections and align our production scope with your project structure.",
+    a: "Yes. We can work as a Turkey-side technical production partner for PCOs, DMCs and international event agencies, support the RFP process, join site inspections and align the scope with the agency's project structure.",
   },
   {
     q: "How do we get a quote for an Antalya event?",
-    a: "Send us your event brief — event type, Antalya zone or hotel name, date, expected guest count and any known technical expectations. Via WhatsApp or our contact form. We return a technical scope and budget within 24 hours for standard Antalya event formats.",
+    a: "Send the event type, Antalya zone or hotel name, date, expected guest count and known technical requirements by WhatsApp or the contact form. We review the brief, identify missing site information and then confirm the proposal schedule.",
   },
   {
     q: "Do you also cover Istanbul, Izmir and other Turkish cities?",
@@ -726,13 +726,13 @@ function Cta() {
           dark center
           kicker="Start your Antalya event"
           title="Planning an Event in Antalya?"
-          desc="Tell us your venue, event type, date and guest count. We'll return with a clear technical production proposal within 24 hours."
+          desc="Tell us your venue, event type, date and guest count. We will review the brief, identify the required technical departments and confirm the proposal schedule."
         />
         <div className="grid gap-4 sm:grid-cols-2">
           <Card dark className="p-7">
             <div className="text-white font-black text-xl">WhatsApp — fastest response</div>
             <p className="mt-3 text-white/70 text-sm leading-relaxed">
-              Message your Antalya event details — hotel, date, event type, guest count. We reply the same business day.
+              Message your Antalya event details — hotel, date, event type and guest count. We will review the brief and confirm the next step.
             </p>
             <div className="mt-6">
               <a
@@ -748,7 +748,7 @@ function Cta() {
           <Card dark className="p-7">
             <div className="text-white font-black text-xl">Contact form</div>
             <p className="mt-3 text-white/70 text-sm leading-relaxed">
-              Prefer a form? Send your Antalya event brief and our English-speaking team responds within one business day.
+              Prefer a form? Send the complete Antalya brief and our English-speaking team will review the scope and reply with the required next steps.
             </p>
             <div className="mt-6">
               <Link
@@ -761,7 +761,7 @@ function Cta() {
           </Card>
         </div>
         <div className="mt-8 text-center text-white/50 text-sm">
-          Belek · Kemer · Side · Alanya · Antalya city centre · English coordination · RFP in 24h
+          Belek · Kemer · Side · Alanya · Antalya city centre · English-language coordination available
         </div>
       </div>
     </SectionShell>

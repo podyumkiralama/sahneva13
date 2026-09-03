@@ -151,7 +151,7 @@ const TECHNICAL_SPECS = [
   {
     title: "Safety Systems",
     icon: "🛡️",
-    description: "Safety and stability systems compliant with TS EN standards",
+    description: "Safety and stability measures planned for the venue, dimensions and intended load",
     features: ["Non-slip covering", "Railing systems", "Stairs and ramp", "Anti-tip measures"],
   },
   {
@@ -366,7 +366,7 @@ export default function PodiumRentalPage() {
               { value: PROJECTS_COMPLETED, label: "Successful Projects" },
               { value: "12 m²", label: "Min. Size" },
               { value: `${PROVINCES_COUNT}`, label: "Cities" },
-              { value: "24/7", label: "Support" },
+              { value: "Planned", label: "Support" },
             ].map((s) => (
               <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
                 <div className="text-2xl font-black text-white">{s.value}</div>
@@ -533,7 +533,7 @@ export default function PodiumRentalPage() {
       <section className="py-16 bg-gradient-to-br from-violet-900 via-[#0B1120] to-purple-900 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-black text-white mb-4">Ready to Get a Quote?</h2>
-          <p className="text-slate-300 mb-8">Contact us for a detailed quote. We respond within 24 hours.</p>
+          <p className="text-slate-300 mb-8">Contact us for a detailed quote. We will confirm timing after reviewing the dimensions, venue and schedule.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={WHATSAPP_URL}

@@ -96,12 +96,12 @@ const WORKING_LANGUAGES = [
 export const metadata = {
   title: "Kontakt — Angebot für Veranstaltungstechnik",
   description:
-    "Sahneva kontaktieren: Bühne, LED-Wand, Ton- und Lichttechnik, Zelte und Mobiliar für Ihre Veranstaltung in der Türkei. Angebot auf Deutsch, Englisch oder Türkisch.",
+    "Sahneva für Veranstaltungstechnik in der Türkei kontaktieren: Bühne, LED-Wand, Ton, Licht, Zelte und Mobiliar. Angebot auf Deutsch, Englisch oder Türkisch.",
   alternates: buildAlternatesForPath("/de/kontakt"),
   openGraph: {
     title: "Kontakt — Angebot für Veranstaltungstechnik in der Türkei | Sahneva",
     description:
-      "Sahneva kontaktieren: Bühne, LED-Wand, Ton- und Lichttechnik, Zelte und Mobiliar für Ihre Veranstaltung in der Türkei. Angebot auf Deutsch, Englisch oder Türkisch.",
+      "Sahneva für Veranstaltungstechnik in der Türkei kontaktieren: Bühne, LED-Wand, Ton, Licht, Zelte und Mobiliar. Angebot auf Deutsch, Englisch oder Türkisch.",
     url: DE_CONTACT_URL,
     siteName: "Sahneva",
     type: "website",
@@ -386,7 +386,7 @@ export default function GermanContactPage() {
               Türkei
             </p>
             <p className="mt-4 text-sm leading-6 text-white/[0.74]">
-              Erreichbarkeit: rund um die Uhr
+              Erreichbarkeit: nach vereinbartem Projektplan
             </p>
           </div>
         </div>

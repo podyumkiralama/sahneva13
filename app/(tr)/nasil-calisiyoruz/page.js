@@ -189,7 +189,7 @@ export default function HowItWorksPage() {
   const faqs = [
     {
       q: "Teklif ne kadar sürede hazırlanır?",
-      a: "Genellikle aynı gün veya 24–48 saat içinde ihtiyaçlar netleştirildikten sonra teklif iletilir. Keşif gerektiren projelerde süre, saha planına göre değişebilir.",
+      a: "İhtiyaçlar netleştirildikten sonra teklif takvimi; proje kapsamı, mekân bilgileri ve keşif gereksinimine göre teyit edilir.",
     },
     {
       q: "Keşif yapmak zorunlu mu?",

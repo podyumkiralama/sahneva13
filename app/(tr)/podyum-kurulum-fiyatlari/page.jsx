@@ -961,7 +961,7 @@ export default function Page() {
                 </h2>
                 <p className="text-violet-100 text-xl mb-4 max-w-3xl mx-auto leading-relaxed">
                   Tarih + ilçe + m² + yükseklik + halı/kumaş bilgilerini iletin,
-                  24 saat içinde net podyum kurulum maliyeti ve saha planıyla dönüş yapalım.
+                  kapsam incelemesinden sonra podyum kurulum maliyeti ve saha planı takvimini netleştirelim.
                 </p>
                 <p className="text-violet-200 text-base mb-8 max-w-2xl mx-auto">
                   Podyum kurulum fiyatları ve m² maliyetleri hakkında bilgi almak için

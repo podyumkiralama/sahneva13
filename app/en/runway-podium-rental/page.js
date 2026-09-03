@@ -285,7 +285,7 @@ function HeroSection() {
                 { icon: "📐", value: "Custom", label: "Runway Layout" },
                 { icon: "👗", value: PROJECTS_COMPLETED, label: "Completed Projects" },
                 { icon: "🚀", value: "End-to-End", label: "Service" },
-                { icon: "🛡️", value: "TS EN", label: "Safety Standards" },
+                { icon: "🛡️", value: "Planned", label: "Safety Measures" },
               ].map((s) => (
                 <div
                   key={s.label}
@@ -628,7 +628,7 @@ function StatsSection() {
     { value: PROJECTS_COMPLETED, label: "Completed Projects", icon: "👗" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years Experience", icon: "⭐" },
     { value: "End-to-End", label: "Service", icon: "🚀" },
-    { value: "TS EN", label: "Safety Standard", icon: "🛡️" },
+    { value: "Planned", label: "Safety Measures", icon: "🛡️" },
   ];
   return (
     <section className="py-20 bg-gradient-to-r from-violet-700 via-pink-700 to-violet-800 text-white">

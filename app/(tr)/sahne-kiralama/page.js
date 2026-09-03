@@ -187,7 +187,7 @@ const SERVICES = [
     icon: "🔧",
     title: "Anahtar Teslim Çözümler",
     description: "Kurulum, operasyon, canlı yönetim ve söküm dahil tam hizmet",
-    features: ["Kurulum & söküm", "Canlı operasyon", "Teknik yönetim", "7/24 destek"],
+    features: ["Kurulum & söküm", "Canlı operasyon", "Teknik yönetim", "Proje destek planı"],
   },
 ];
 
@@ -398,7 +398,7 @@ const HERO_METRICS = [
     detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
   },
   {
-    value: "7/24",
+    value: "Planlı",
     label: "Teknik Destek",
     detail: "Mini sahneden konser sahnesine her ölçekte kurulum ve saha desteği.",
   },
@@ -464,7 +464,7 @@ function RentalFlow() {
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-600">
               En doğru teklif için önce etkinlik formatını, sahne ölçüsünü ve
               kurulum şartlarını sade bir akışta topluyoruz. Hazır paketlerden
-              biri uygunsa aynı gün hızlı teklif hazırlanabilir.
+              biri uygunsa teklif takvimini kapsam incelemesinden sonra netleştiriyoruz.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -1123,7 +1123,7 @@ function Technical() {
 function StatsBand() {
   const stats = [
     { value: PROJECTS_COMPLETED, label: "Tamamlanan Proje", icon: "🏆" },
-    { value: "7/24", label: "Teknik Destek", icon: "🎵" },
+    { value: "Planlı", label: "Teknik Destek", icon: "🎵" },
     { value: `${PROVINCES_COUNT}`, label: "İlde Hizmet", icon: "🗺️" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
   ];
@@ -1454,8 +1454,8 @@ function Articles() {
                       {YEARS_OF_EXPERIENCE} yıllık deneyim, {PROJECTS_COMPLETED} başarılı proje ve {PROVINCES_COUNT} ilde hizmet
                     </strong>{" "}
                     ile sahne kiralama konusunda güvenilir çözüm ortağınız. En
-                    son teknoloji ekipman, uzman ekip ve 7/24 teknik destek
-                    garantisi.
+                    güncel ekipman, uzman ekip ve proje takvimine göre belirlenen
+                    teknik destek planı.
                   </p>
                 </div>
               </div>
@@ -1476,9 +1476,9 @@ function Articles() {
             <div className="p-6 md:p-8">
               <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed">
                 <p>
-                  Truss sistemleri sahne güvenliğinin temel taşlarıdır. Tüm
-                  sistemlerimiz TS EN 13814 sahne güvenlik standartlarına uygun
-                  olarak tasarlanmış ve kurulmuştur.
+                  Truss sistemleri sahne güvenliğinin temel taşlarıdır. Sistem,
+                  ekipman yükleri, destek noktaları, zemin ve mekân koşulları
+                  değerlendirilerek projeye özel planlanır ve kurulur.
                 </p>
                 <p>
                   Alüminyum malzeme, yüksek güvenlik katsayıları, profesyonel
@@ -1605,7 +1605,7 @@ function Articles() {
 const FAQ_ITEMS = [
   {
     q: "Sahne kiralama fiyatları ne kadar?",
-    a: "Sahne kiralama fiyatı; sahne ölçüsü, yükseklik, truss ihtiyacı, ses-ışık kapsamı, etkinlik tarihi ve lokasyona göre değişir. Standart fiyatlı bir katalog üzerinden satış yapmıyoruz; mini sahne, standart sahne ve konser sahnesi paketlerimizin kapsamını yukarıda inceleyip tarih ile tahmini ölçünüzü paylaştığınızda aynı gün net bir teklif hazırlıyoruz.",
+    a: "Sahne kiralama fiyatı; sahne ölçüsü, yükseklik, truss ihtiyacı, ses-ışık kapsamı, etkinlik tarihi ve lokasyona göre değişir. Standart fiyatlı bir katalog üzerinden satış yapmıyoruz; tarih ile tahmini ölçünüz paylaşıldığında kapsamı inceliyor ve teklif takvimini teyit ediyoruz.",
   },
   {
     q: "Sahne kurulumu ne kadar sürer?",
@@ -1859,7 +1859,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ 7/24 teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
+              📍 {PROVINCES_COUNT} ilde hizmet • ⏰ Proje bazlı teknik destek • ⭐ {YEARS_OF_EXPERIENCE} yıl deneyim
             </div>
           </div>
         </div>

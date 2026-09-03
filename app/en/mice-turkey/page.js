@@ -281,7 +281,7 @@ function Hero() {
             {[
               { t: "MICE Segment", d: "International PCO · DMC · Event agency teams" },
               { t: "Technical scope", d: "Stage · LED screen · Sound · Lighting · Truss · Tent" },
-              { t: "Communication", d: "English-speaking project manager on every project" },
+              { t: "Communication", d: "English-language coordination available by project scope" },
               { t: "Coverage", d: "Istanbul · Antalya · Izmir · Ankara · Bodrum · Nationwide" },
             ].map((x) => (
               <div key={x.t} className="text-center md:text-left">
@@ -523,7 +523,7 @@ function WhyTurkey() {
 const CITIES = [
   {
     name: "Istanbul",
-    desc: "Turkey's largest MICE hub. Historic venues, five-star conference hotels, ICC Istanbul, Raffles, Hilton Bosphorus and cruise terminal event spaces. Sahneva supports MICE events across all major Istanbul venue types.",
+    desc: "A major MICE hub with historic venues, conference hotels, ICC Istanbul and cruise-terminal event spaces. Sahneva can support briefs across different Istanbul venue types after site and access review.",
     events: ["International congresses", "Pharma and medical meetings", "Financial sector events", "Gala dinners with Bosphorus views"],
   },
   {
@@ -669,10 +669,10 @@ function PcoDmc() {
 
             <div className="space-y-4">
               {[
-                ["RFP-ready briefing process", "Send us your technical rider or production brief. We return a clear scope and budget within 24 hours for standard MICE formats."],
+                ["RFP-ready briefing process", "Send us your technical rider or production brief. We confirm the proposal timeline after reviewing the scope and venue requirements."],
                 ["Site inspection support", "For venue recce visits, our team can join site inspections to assess power, loading access, ceiling heights, acoustics and technical suitability."],
                 ["Sub-contractor flexibility", "We can work as a sub-contractor to your agency or act as the primary technical vendor — whichever fits your project structure."],
-                ["Dedicated project manager", "Every MICE project has a named English-speaking project manager who coordinates from first brief to post-event handover notes."],
+                ["English-language coordination", "English-language project coordination can be assigned according to the event scope, schedule and production team."],
               ].map(([t, d]) => (
                 <Card key={t} className="p-5">
                   <div className="flex items-start gap-3">
@@ -702,7 +702,7 @@ function PcoDmc() {
               <GlassCard className="p-4">
                 <div className="text-white font-black text-sm">International project coordination</div>
                 <p className="mt-1 text-white/70 text-xs leading-relaxed">
-                  English communication · RFP in 24h · Named project manager · Site inspection available
+                  English-language coordination · Scope-based proposal timing · Site inspection available
                 </p>
               </GlassCard>
             </div>
@@ -728,7 +728,7 @@ function StatsBand() {
           { v: PROJECTS_COMPLETED, l: "Event projects completed" },
           { v: "10+ yrs", l: "MICE production experience" },
           { v: `${PROVINCES_COUNT} cities`, l: "Coverage across Turkey" },
-          { v: "24h", l: "Quote turnaround for MICE briefs" },
+          { v: "Scoped", l: "Quote turnaround for MICE briefs" },
         ].map((s) => (
           <Card key={s.l} dark>
             <div className="text-3xl md:text-4xl font-black text-white">{s.v}</div>
@@ -813,7 +813,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How does the RFP process work for MICE events?",
-    a: "Share your event brief — event type (M/I/C/E), city, venue, date, guest count, and any technical expectations. We review and return a clear production scope with budget indicators within 24 hours for standard MICE formats. Detailed technical proposals follow after a venue survey or confirmed site inspection.",
+    a: "Share your event brief — event type (M/I/C/E), city, venue, date, guest count and technical expectations. We review the brief, confirm the proposal timeline and prepare the detailed technical scope after a venue survey or confirmed site inspection when required.",
   },
   {
     q: "Do you support multi-day congresses with multiple rooms?",
@@ -901,13 +901,13 @@ function Cta() {
           dark center
           kicker="Send your brief"
           title="Planning a MICE Event in Turkey?"
-          desc="Share your event type, city, date and expected attendance. We'll return with a clear technical production scope within 24 hours."
+          desc="Share your event type, city, date and expected attendance. We will review the brief and confirm the proposal timeline based on scope and venue requirements."
         />
         <div className="grid gap-4 sm:grid-cols-2">
           <Card dark className="p-7">
             <div className="text-white font-black text-xl">WhatsApp brief (fastest)</div>
             <p className="mt-3 text-white/70 text-sm leading-relaxed">
-              Message us your MICE event type, city, dates and estimated guest count. We respond same business day.
+              Message us your MICE event type, city, dates and estimated guest count. Briefs are acknowledged during business hours and proposal timing depends on scope.
             </p>
             <div className="mt-6">
               <a
@@ -923,7 +923,7 @@ function Cta() {
           <Card dark className="p-7">
             <div className="text-white font-black text-xl">Contact form</div>
             <p className="mt-3 text-white/70 text-sm leading-relaxed">
-              Use our contact form to send a detailed brief. A dedicated English-speaking project manager will respond within one business day.
+              Use our contact form to send a detailed brief. We will confirm the relevant contact and proposal timeline after reviewing the project scope.
             </p>
             <div className="mt-6">
               <Link
@@ -936,7 +936,7 @@ function Cta() {
           </Card>
         </div>
         <div className="mt-8 text-center text-white/50 text-sm">
-          Istanbul · Antalya · Izmir · Ankara · Bodrum · Nationwide Türkiye · English project coordination · RFP in 24h
+          Istanbul · Antalya · Izmir · Ankara · Bodrum · Nationwide Türkiye · English-language project coordination available
         </div>
       </div>
     </SectionShell>

@@ -458,8 +458,9 @@ export default function KurumsalOrganizasyonNedirPage() {
         {/* s6 */}
         <h2 id="s6">6. Teknik prodüksiyonun rolü</h2>
         <p>
-          Fikir ne kadar iyi olursa olsun, izleyiciye ulaşmasını sağlayan teknik prodüksiyondur. Sahne ve
-          podyum sunumu taşır; <Link href="/led-ekran-kiralama">LED ekran</Link> hikâyeyi görselleştirir;{" "}
+          Fikir ne kadar iyi olursa olsun, izleyiciye ulaşmasını sağlayan teknik prodüksiyondur. Sahne,
+          podyum ve <Link href="/dijital-kursu-kiralama">dijital kürsü</Link> sunumu taşır;{" "}
+          <Link href="/led-ekran-kiralama">LED ekran</Link> hikâyeyi görselleştirir;{" "}
           <Link href="/ses-isik-sistemleri">ses ve ışık sistemleri</Link> atmosferi ve anlaşılırlığı kurar;
           reji ise tüm bunları senkron tutar. Bu bileşenlerin ayrı tedarikçilerden gelmesi yerine tek elden
           yönetilmesi, sahadaki en yaygın krizleri baştan önler.

@@ -319,14 +319,14 @@ export default function Footer({
           ? "Angebot über WhatsApp anfordern"
           : "WhatsApp’tan teklif alın";
   const proofItems = isEn
-    ? [`${PROJECTS_COMPLETED} projects`, "Across Türkiye", "24/7 operations"]
+    ? [`${PROJECTS_COMPLETED} projects`, "Across Türkiye", "Project-led operations"]
     : isRu
-      ? [`${PROJECTS_COMPLETED} проектов`, "По всей Турции", "Поддержка 24/7"]
+      ? [`${PROJECTS_COMPLETED} проектов`, "По всей Турции", "Поддержка по проекту"]
       : isZh
-        ? [`${PROJECTS_COMPLETED} 项目`, "土耳其全国", "24/7 运营"]
+        ? [`${PROJECTS_COMPLETED} 项目`, "土耳其全国", "项目支持"]
         : isDe
-          ? [`${PROJECTS_COMPLETED} Projekte`, "Türkeiweit", "Betreuung rund um die Uhr"]
-          : [`${PROJECTS_COMPLETED} proje`, `${PROVINCES_COUNT} il`, "7/24 operasyon"];
+          ? [`${PROJECTS_COMPLETED} Projekte`, "Türkeiweit", "Projektbezogene Betreuung"]
+          : [`${PROJECTS_COMPLETED} proje`, `${PROVINCES_COUNT} il`, "Proje bazlı operasyon"];
 
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;

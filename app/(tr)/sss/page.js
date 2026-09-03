@@ -257,7 +257,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Teslimat bölgeleri ve zamanlama?",
-        a: "Türkiye genelinde çalışıyoruz. İstanbul içi aynı gün kurulum mümkün; şehir dışına planlı sevkiyat yapılır.",
+        a: "Türkiye genelinde çalışıyoruz. İstanbul ve şehir dışı kurulum süresi; ekipman kapsamı, saha erişimi ve sevkiyat planına göre teyit edilir.",
       },
       {
         q: "Faturalandırma ve sözleşme süreçleri?",

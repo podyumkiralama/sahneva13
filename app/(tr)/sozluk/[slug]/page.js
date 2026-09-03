@@ -108,7 +108,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: "Line Array Nedir? | Profesyonel Ses Sistemi Rehberi",
+    title: "Line Array Nedir? | Profesyonel Ses Rehberi",
     description:
       "Line array ses sistemi nedir? Kapsama, açılandırma, subwoofer yerleşimi, FOH ve salon yapısına göre profesyonel ses sistemi planlama rehberi.",
     alternates: buildLanguageAlternates({

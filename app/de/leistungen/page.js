@@ -372,8 +372,8 @@ export default function GermanServicesPage() {
     },
     {
       icon: "📞",
-      title: "Erreichbar rund um die Uhr",
-      description: "Technische Betreuung und Beratung auch außerhalb der Bürozeiten",
+      title: "Projektbezogene Betreuung",
+      description: "Technische Betreuung und Beratung nach vereinbartem Produktionsplan",
     },
     {
       icon: "💰",
@@ -813,8 +813,8 @@ export default function GermanServicesPage() {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-2xl mx-auto">
               <p className="text-white/90 text-sm">
-                <strong>⏱️ Antwort innerhalb von 2 Stunden:</strong> Während der Geschäftszeiten
-                erhalten Sie zu jeder Anfrage ein ausführliches Angebot samt technischer Einschätzung.
+                <strong>⏱️ Angebotszeit nach Umfang:</strong> Nach Prüfung von Briefing und Location
+                bestätigen wir den Zeitrahmen für Angebot und technische Einschätzung.
               </p>
             </div>
           </div>

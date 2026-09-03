@@ -398,14 +398,14 @@ const SERVICES_EN = [
       "Novastar/Brompton processing and redundancy",
       "Complete installation and operator support",
     ],
-    href: "/en/services#led",
+    href: "/en/led-screen-rental",
   },
   {
     id: "av",
     title: "Sound, Lighting & Truss",
     icon: "🎭",
     description:
-      "Concert-grade PA systems, lighting rigs and truss structures operated by certified engineers.",
+      "Concert-grade PA systems, lighting rigs and truss structures supported by on-site technical crews.",
     image: "/img/ses-isik/ses-sistemi.webp",
     features: [
       "Line-array systems with digital mixing consoles",
@@ -628,7 +628,7 @@ const CORPORATE_INTRO_DICT_EN = {
   stats: [
     { value: CORPORATE_EVENTS, label: "Corporate events" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Years of field experience" },
-    { value: "7/24", label: "Technical support" },
+    { value: "Planned", label: "Technical support" },
   ],
   imageAlt:
     "Corporate launch stage setup with LED screen rental and professional lighting systems at a live event.",
@@ -747,7 +747,7 @@ const CORPORATE_EVENTS_ADVANTAGES_EN = [
   {
     icon: "⚡",
     label: "Lightning-Fast Build",
-    desc: "Same-day installation by experienced crews",
+    desc: "Installation by experienced crews to the agreed schedule",
     bg: "bg-white/[0.04]",
     border: "border-white/10",
     textColor: "text-white",
@@ -767,7 +767,7 @@ const CORPORATE_EVENTS_ADVANTAGES_EN = [
   {
     icon: "👷",
     label: "Experienced Crew",
-    desc: "Certified engineers overseeing every discipline",
+    desc: "Experienced technical crews coordinating every discipline",
     bg: "bg-white/[0.04]",
     border: "border-white/10",
     textColor: "text-white",
@@ -808,7 +808,7 @@ const CORPORATE_EVENTS_DICT_EN = {
   bannerTitleHighlight: "turnkey production",
   bannerTitleSuffix: "support",
   bannerDescription:
-    "Tell us about your goals and we will provide staging, LED visuals, sound and lighting, and broadcast workflows ready for rehearsals the same day.",
+    "Tell us about your goals and we will plan staging, LED visuals, sound, lighting and broadcast workflows around the agreed rehearsal schedule.",
   phoneCtaLabel: "Call our team",
   phoneCtaHref: "tel:+905453048671",
   phoneCtaAria: "Call Sahneva for immediate technical consultation: +90 545 304 86 71",
@@ -817,7 +817,7 @@ const CORPORATE_EVENTS_DICT_EN = {
     "https://wa.me/905453048671?text=Hello%2C+I'm+planning+a+corporate+event.+Can+we+discuss+staging+and+technical+production+options%3F",
   whatsappCtaAria: "Send a WhatsApp message",
   whatsappSrHint: "(opens in a new tab)",
-  supportStats: ["24/7 technical standby", "Prompt business-hours acknowledgement"],
+  supportStats: ["Project-specific support plan", "Prompt business-hours acknowledgement"],
 };
 
 const TECH_CAPABILITIES_DICT_EN = {
@@ -977,6 +977,35 @@ export default function EnglishHomePage() {
           </Link>{" "}
           page for local planning, venue coordination and show delivery.
         </p>
+        <nav
+          aria-label="English event production service shortcuts"
+          className="container mx-auto mt-5 flex max-w-5xl flex-wrap justify-center gap-2 px-4"
+        >
+          <Link
+            href="/en/sound-light-rental"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white/80 transition hover:border-violet-300/60 hover:bg-violet-400/10 hover:text-white"
+          >
+            Sound system &amp; event lighting rental in Turkey
+          </Link>
+          <Link
+            href="/en/event-production-company-turkey"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white/80 transition hover:border-violet-300/60 hover:bg-violet-400/10 hover:text-white"
+          >
+            Technical event production in Turkey
+          </Link>
+          <Link
+            href="/en/event-production-antalya"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white/80 transition hover:border-violet-300/60 hover:bg-violet-400/10 hover:text-white"
+          >
+            AV, lighting &amp; stage production in Antalya
+          </Link>
+          <Link
+            href="/en/stage-rental"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white/80 transition hover:border-violet-300/60 hover:bg-violet-400/10 hover:text-white"
+          >
+            Stage rental &amp; design in Turkey
+          </Link>
+        </nav>
       </div>
 
       {/* Why international clients choose Sahneva — kısa sürüm.

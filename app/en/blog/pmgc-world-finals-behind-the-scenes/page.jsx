@@ -18,7 +18,7 @@ const AWARD_IMG = "/img/blog/kurumsal-etkinlik-sahne-genel.webp";
 
 const TITLE = "7 Days, Zero Sleep, Millimetric Passion: Behind the Scenes of the PMGC World Finals";
 const DESCRIPTION =
-  "Ülker Arena PMGC 2023 World Finals behind the scenes: 7 days of millimetric setup, rigging safety, global coordination and award-winning production details.";
+  "Ülker Arena PMGC 2023 World Finals behind the scenes: seven days of stage, LED, rigging and field-operation detail from Sahneva's documented technical scope.";
 
 const PUBLISH_DATE = "2026-01-05T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/en/blog/pmgc-world-finals-behind-the-scenes/page.jsx", "2026-02-05T00:00:00+03:00");
@@ -219,26 +219,25 @@ export default function Page() {
             flawless opening ceremony.
           </p>
 
-          <h2>4. The Earned Award: Best Technical Application of the Year</h2>
+          <h2>4. Project Recognition: Best Audio, Visual &amp; Lighting Application</h2>
           <p>
-            The reward for all those sleepless nights and technical effort was recognized at the
-            industry's most prestigious platform. This mega production, carried out together with
-            Dimi Agency, was honored with the{" "}
-            <strong>"Best Audio, Visual &amp; Lighting Application"</strong> award at the 11th
-            Masters of Events Corporate Awards (Ace of M.I.C.E.) ceremony.
+            The official ACE of M.I.C.E. winners list records{" "}
+            <strong>DİMİ / PUBG MOBILE WORLD CHAMPIONSHIP 2023</strong> in the
+            "Best Audio, Visual &amp; Lighting Application" category at the 12th Masters of
+            Events ceremony in 2024. Sahneva&apos;s role described on this page is the documented
+            on-site and technical production scope; the official award recipient is DİMİ.
           </p>
 
           <ImgFigure
             src={AWARD_IMG}
-            alt="Trophy received at the Ace of M.I.C.E. Awards ceremony"
-            caption="Ace of M.I.C.E. 2023 – Best Audio, Visual & Lighting Application award."
+            alt="ACE of M.I.C.E. trophy for the Best Audio, Visual and Lighting Application category"
+            caption="The official 2024 winners list credits DİMİ for PUBG Mobile World Championship 2023."
           />
 
           <p>
-            This award came at the intersection of our agency's vision and Sahneva's flawless
-            technical execution on the ground. For us, this trophy is the victory of those 7
-            sleepless days, our millimetric carpentry calculations, and the team that brought
-            "impossible" installations to life.
+            The recognition belongs to the project and its officially listed recipient. This
+            article focuses separately on the stage, LED, rigging and field work that Sahneva
+            documents as its contribution to the production.
           </p>
 
           <h2>PMGC 2023 Grand Finals - Istanbul</h2>
@@ -267,7 +266,7 @@ export default function Page() {
           <h3>References</h3>
           <ul>
             <li>Project: PMGC 2023 Grand Finals - Istanbul</li>
-            <li>Award: Ace of M.I.C.E. 2023 – Best Audio, Visual &amp; Lighting Application</li>
+            <li>Award listing: 2024 / 12th Masters of Events — DİMİ / PUBG Mobile World Championship 2023</li>
             <li>
               Official Source:{" "}
               <a

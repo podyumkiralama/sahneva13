@@ -420,7 +420,7 @@ const HERO_DICT_DE = {
   proofPoints: [
     { value: PROJECTS_COMPLETED, label: "realisierte Projekte" },
     { value: "Türkeiweit", label: "lokale Logistik und Aufbau" },
-    { value: "24/7", label: "Kommunikation und Betreuung" },
+    { value: "Projektbezogen", label: "Kommunikation und Betreuung" },
     { value: "Ein Team", label: "Bühne, LED, Ton und Licht" },
   ],
   ctaCall: "Jetzt anrufen",
@@ -458,7 +458,7 @@ const HERO_BELOW_DICT_DE = {
   processAriaLabel: "Drei Schritte zur Angebotsanfrage für eine Veranstaltung in der Türkei",
   consultationTitle: "Kostenlose technische Beratung",
   consultationDesc:
-    "Wir planen die <strong>passende Bühnen- und Podestlösung</strong> für Ihre Veranstaltung und stimmen die LED-Technik auf Ihr Budget ab — unverbindlich. <span class=\"block mt-1 text-yellow-300 font-medium\">⚡ Ausführliches Angebot innerhalb von 2 Stunden.</span>",
+    "Wir planen die <strong>passende Bühnen- und Podestlösung</strong> für Ihre Veranstaltung und stimmen die LED-Technik auf Ihr Budget ab — unverbindlich. <span class=\"block mt-1 text-yellow-300 font-medium\">Die Angebotszeit bestätigen wir nach Prüfung von Umfang und Location.</span>",
   consultationCta: "Angebot anfordern",
   consultationCtaHref: "/de/kontakt#angebot-formular",
   sectionBadge: "In 3 Schritten zum Angebot",
@@ -512,7 +512,7 @@ const CORPORATE_INTRO_DICT_DE = {
   stats: [
     { value: CORPORATE_EVENTS, label: "Firmenveranstaltungen" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Jahre Praxis vor Ort" },
-    { value: "24/7", label: "Technische Erreichbarkeit" },
+    { value: "Geplant", label: "Technische Erreichbarkeit" },
   ],
   imageAlt:
     "Bühnenaufbau für einen Produktlaunch mit gemieteter LED-Wand und professioneller Lichttechnik während der Veranstaltung.",
@@ -693,7 +693,7 @@ const CORPORATE_EVENTS_DICT_DE = {
     "https://wa.me/905453048671?text=Guten+Tag%2C+wir+planen+eine+Firmenveranstaltung.+K%C3%B6nnen+wir+%C3%BCber+B%C3%BChne+und+Technik+sprechen%3F",
   whatsappCtaAria: "Nachricht über WhatsApp senden",
   whatsappSrHint: "(wird in einem neuen Tab geöffnet)",
-  supportStats: ["Technische Erreichbarkeit rund um die Uhr", "Ausführliches Angebot innerhalb von 2 Stunden"],
+  supportStats: ["Technische Erreichbarkeit nach Projektplan", "Angebotszeit nach Umfang bestätigt"],
 };
 
 const TECH_CAPABILITIES_DICT_DE = {

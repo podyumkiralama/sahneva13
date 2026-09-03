@@ -170,7 +170,7 @@ const TECHNICAL_SPECS = [
   {
     title: "Güvenlik Sistemleri",
     icon: "🛡️",
-    description: "TS EN standartlarına uygun güvenlik ve stabilite sistemleri",
+    description: "Mekân, ölçü ve kullanım yüküne göre planlanan güvenlik ve stabilite önlemleri",
     features: ["Kaymaz kaplama", "Korkuluk sistemleri", "Merdiven ve rampa", "Anti-tip önlemler"],
   },
   {

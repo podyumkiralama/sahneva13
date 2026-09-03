@@ -254,7 +254,7 @@ export default function BlogPostCorporate() {
 
                 <h2 id="sahne-podyum">1. Odak Noktasını Tasarlamak: Sahne ve Podyum</h2>
                 <p>
-                  Her etkinliğin kalbi sahnedir. Konuşmacıların ve protokolün yer aldığı alan; salonun her noktasından görülebilir, güvenli ve estetik olmalıdır. Kurumsal kimliğinize uygun, TÜV sertifikalı sistemlerle kurulan bir <Link href="/sahne-kiralama">sahne kiralama</Link> hizmeti almak, işin temelidir.
+                  Her etkinliğin kalbi sahnedir. Konuşmacıların ve protokolün yer aldığı alan; salonun her noktasından görülebilir, güvenli ve estetik olmalıdır. Kurumsal kimliğinize uygun, taşıma kapasitesi ve saha koşulları proje bazında doğrulanan bir <Link href="/sahne-kiralama">sahne kiralama</Link> hizmeti almak, işin temelidir.
                 </p>
                 <p>
                   Özellikle konuşma ağırlıklı etkinliklerde protokolün rahat hareketi için modüler <Link href="/podyum-kiralama">podyum kiralama</Link> çözümleri devreye girer. Halı kaplı, skörtlü ve güvenli bir podyum, konuşmacıya özgüven verir.

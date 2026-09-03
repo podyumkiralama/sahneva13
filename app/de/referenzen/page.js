@@ -16,7 +16,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 // Bewusst anders betitelt als /de/projekte, damit keine doppelten Titel entstehen.
 const PAGE_TITLE = "Referenzen — Videos aus unseren Produktionen";
 const PAGE_DESCRIPTION =
-  "Videos von realisierten Sahneva-Produktionen: Bühnenbau, LED-Wände, Ton- und Lichttechnik sowie Zelte bei TEKNOFEST, Produktlaunches, Kongressen und E-Sport-Finals.";
+  "Videos realisierter Sahneva-Produktionen: Bühnen, LED-Wände, Ton, Licht und Zelte bei Festivals, Kongressen, Produktlaunches und E-Sport-Finals.";
 const PUBLISHED_AT = "2026-08-04T00:00:00+03:00";
 
 const PROJECT_VIDEOS = [

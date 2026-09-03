@@ -56,7 +56,7 @@ const DEFAULT_DICTIONARY = {
   phoneCtaHref: "tel:+905453048671",
   whatsappCtaLabel: "Hızlı Teklif Al",
   whatsappCtaHref: `https://wa.me/905453048671?text=${WHATSAPP_CORPORATE_MESSAGE}&utm_source=homepage&utm_medium=corporate_whatsapp`,
-  supportStats: ["Resmi Sözleşmeli", "7/24 Teknik Destek", "Anahtar Teslim"],
+  supportStats: ["Resmi Sözleşmeli", "Proje Bazlı Teknik Destek", "Anahtar Teslim"],
 };
 
 function mergeDictionary(base, override = {}) {

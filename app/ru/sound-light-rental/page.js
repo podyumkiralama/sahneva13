@@ -5,14 +5,16 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const service = RUSSIAN_SERVICE_PAGES["sound-light-rental"];
 const canonical = buildCanonical(service.href);
+const metaTitle = service.metaTitle ?? service.title;
+const metaDescription = service.metaDescription ?? service.description;
 
 export const metadata = {
-  title: service.title,
-  description: service.description,
+  title: metaTitle,
+  description: metaDescription,
   alternates: buildAlternatesForPath("/ru/sound-light-rental"),
   openGraph: {
-    title: service.title,
-    description: service.description,
+    title: metaTitle,
+    description: metaDescription,
     url: canonical,
     siteName: "Sahneva",
     type: "website",
@@ -21,8 +23,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: service.title,
-    description: service.description,
+    title: metaTitle,
+    description: metaDescription,
     images: [`${SITE_URL}${service.ogImage}`],
   },
 };

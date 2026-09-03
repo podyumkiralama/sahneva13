@@ -585,7 +585,7 @@ function Technical() {
             Technical <span className="gradient-text gradient-text--safe-xl">Infrastructure</span>
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Certified crews, detailed planning and premium equipment ensure a seamless seating experience
+            Experienced crews, detailed planning and suitable equipment support a coordinated seating setup
           </p>
         </div>
 
@@ -841,7 +841,7 @@ function Articles() {
                     Why Sahneva?
                   </h5>
                   <p className="text-yellow-800 mb-0">
-                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and service across {PROVINCES_COUNT} provinces</strong> make us a trusted partner for seating and furniture rentals. Benefit from our large inventory, expert crews and 24/7 technical support commitment.
+                    <strong>{YEARS_OF_EXPERIENCE} years of experience, {PROJECTS_COMPLETED} successful projects and service across {PROVINCES_COUNT} provinces</strong> support our seating and furniture planning. Inventory, crew and on-site support are scoped for each event.
                   </p>
                 </div>
               </div>
@@ -1126,7 +1126,7 @@ function CTA() {
               </a>
             </div>
             <div className="mt-8 text-violet-200 text-lg">
-              📍 Nationwide coverage • ⏰ 24/7 technical support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
+              📍 Nationwide coverage • ⏰ Project-specific support • ⭐ {YEARS_OF_EXPERIENCE} years of expertise
             </div>
           </div>
         </div>

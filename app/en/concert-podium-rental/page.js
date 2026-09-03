@@ -209,7 +209,7 @@ function HeroSection() {
     { icon: "🎤", value: PROJECTS_COMPLETED, label: "Completed Projects" },
     { icon: "🇹🇷", value: "Nationwide", label: "Service Area" },
     { icon: "📅", value: `${YEARS_OF_EXPERIENCE} Years`, label: "Field Experience" },
-    { icon: "🛡️", value: "Engineering", label: "Certified Systems" },
+    { icon: "🛡️", value: "Engineering", label: "Planned Systems" },
   ];
 
   return (

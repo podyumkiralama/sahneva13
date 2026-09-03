@@ -35,7 +35,7 @@ export const BRAND_LOGOS = [
 // doğrulanmış bilgiler yazıldı.
 export const ASSURANCE_ITEMS = [
   "Tek keşif ve tek run-of-show",
-  "Ace of M.I.C.E. 2023 ödüllü teknik uygulama",
+  "PMGC 2023 teknik uygulama referansı",
   "Yedekli güç ve kontrol planı",
   "Saha günü tek operasyon muhatabı",
   "Kurulumdan söküme planlı kapanış",

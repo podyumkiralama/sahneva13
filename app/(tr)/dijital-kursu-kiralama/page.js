@@ -791,7 +791,7 @@ function Offer() {
                 Dijital Kürsü Teklifi Alın
               </h2>
               <p className="mt-3 text-base leading-7 text-white/75 max-w-xl">
-                Aşağıdaki bilgileri paylaşın; aynı gün içinde net fiyat ve kurulum planı iletilsin.
+                Aşağıdaki bilgileri paylaşın; kapsam incelemesinden sonra fiyat ve kurulum takvimi netleşsin.
               </p>
             </div>
           </div>

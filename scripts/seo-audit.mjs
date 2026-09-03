@@ -59,6 +59,30 @@ const TRUST_CLAIM_RULES = [
     label: "merkezi proje sayisiyla celisen eski toplam",
     pattern: /\b(?:1200|1[.,]200)(?:&apos;|['’])?den\s+fazla\s+(?:basarili|başarılı)?\s*proje/gi,
   },
+  {
+    label: "merkezi SLA verisi olmayan sabit yanit suresi",
+    pattern: /\b(?:within\s+24\s+hours|within\s+one\s+business\s+day|same\s+business\s+day|technical\s+proposal\s+within\s+24h|RFP\s+in\s+24h|same[-\s]day\s+(?:installation|deployment)|24\s+saat\s+içinde\s+(?:net\s+)?(?:fiyat|teklif|maliyet|plan)|aynı\s+gün\s+(?:net|hızlı)\s+(?:teklif|kurulum)|(?:Antwort|Angebot)\s+innerhalb\s+von\s+2\s+Stunden)\b/gi,
+  },
+  {
+    label: "merkezi nobet plani olmayan 24/7 destek iddiasi",
+    pattern: /\b(?:(?:24\/7|7\/24)\s+(?:technical\s+|operations\s+|on-site\s+)?(?:support|assistance|service|hotline|standby|response)|(?:7\/24|24\/7)\s+(?:acil\s+)?(?:teknik\s+)?(?:destek|hizmet|operasyon))\b/gi,
+  },
+  {
+    label: "belge gerektiren sabit sertifika iddiasi",
+    pattern: /\b(?:certified\s+(?:engineers?|electricians?|rigging|anchoring|systems?|crew|installation|equipment|structures?)|sertifikalı\s+(?:mühendis(?:ler)?|elektrikçi(?:ler)?|rigging|ankraj|sistem(?:ler)?|ekip|kurulum|ekipman))\b/gi,
+  },
+  {
+    label: "proje hesabina baglanmamis sabit ruzgar dayanim iddiasi",
+    pattern: /\b90\s*km\s*\/\s*h\b/gi,
+  },
+  {
+    label: "belgesiz standart ve mutlak fiyat seffafligi iddiasi",
+    pattern: /\b(?:ISO-standard|ISO\s+standartlarında|zero\s+hidden\s+(?:fees|costs)|gizli\s+maliyet\s+olmadan|TS\s+EN(?:\s+\d+)?[^.\n]{0,50}(?:standards?|safety|standartlarına\s+uygun))\b/gi,
+  },
+  {
+    label: "PMGC odulunde yanlis toren veya yil atfi",
+    pattern: /\b(?:11th\s+Masters\s+of\s+Events\s+Corporate\s+Awards|11\.\s*Masters\s+of\s+Events\s+Corporate\s+Awards|Ace\s+of\s+M\.I\.C\.E\.\s+2023\s*(?:[-–]\s*(?:Best|En\s+İyi)|ödüllü))\b/gi,
+  },
 ];
 
 // Yerel çalışma kopyaları dağıtıma dahil değildir; bunları taramak aynı bağlantıları
@@ -725,7 +749,7 @@ async function main() {
   printList(
     trustClaimReport,
     (item) => `- ${item.label} in ${item.file}:${item.line}\n  ${item.source}`,
-    "No unsupported self-rating, stale trust number or #1 claim found."
+    "No guarded trust or GEO claim found."
   );
 
   printSection("Redirect / Sitemap Conflicts");

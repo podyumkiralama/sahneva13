@@ -382,13 +382,13 @@ export default function EnglishServicesPage() {
   const SERVICE_FEATURES = [
     {
       icon: "⚡",
-      title: "Same-Day Installation",
+      title: "Scheduled Installation",
       description: `Professional setup and delivery within ${setupDurationText("overall", "en")}, depending on scope`,
     },
     {
       icon: "🛡️",
-      title: "Safety Guaranteed",
-      description: "ISO-standard safety protocols and quality control",
+      title: "Safety Planning",
+      description: "Documented site checks, safety planning and quality control",
     },
     {
       icon: "💎",
@@ -402,13 +402,13 @@ export default function EnglishServicesPage() {
     },
     {
       icon: "📞",
-      title: "24/7 Support",
-      description: "Continuous technical assistance and consultancy",
+      title: "Project Support",
+      description: "Technical assistance and consultancy scoped to the production schedule",
     },
     {
       icon: "💰",
       title: "Transparent Pricing",
-      description: "Detailed proposals with zero hidden costs",
+      description: "Detailed proposals that show the agreed equipment, crew and delivery scope",
     },
   ];
 

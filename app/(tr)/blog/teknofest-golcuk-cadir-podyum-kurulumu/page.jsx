@@ -23,7 +23,7 @@ const TITLE = "TEKNOFEST Kapsamında Gölcük'te Büyük Ölçekli Çadır ve Po
 const META_TITLE = "TEKNOFEST Gölcük Çadır ve Podyum Kurulumu";
 const SOCIAL_TITLE = META_TITLE + " | Sahneva";
 const DESCRIPTION =
-  "Sahneva, TEKNOFEST kapsamında Gölcük'te 1.500 m² çadır ve 1.350 m² podyumu bir günde kurdu. Türkiye geneli etkinlik altyapısı, lojistik, kurulum ve söküm çözümleri.";
+  "Sahneva, TEKNOFEST kapsamında Gölcük'te 1.500 m² çadır ve 1.350 m² podyumu bir günde kurdu; lojistik, saha kurulumu ve sökümü birlikte yönetti.";
 
 const HERO_IMAGE = `/img/blog/${SLUG}-hero.webp`;
 const ARTICLE_IMAGES = {

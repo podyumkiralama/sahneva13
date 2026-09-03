@@ -9,7 +9,7 @@ const DEFAULT_PROCESS_STEPS = [
   },
   {
     title: "Kurulum & Test",
-    desc: "Saha ekibi, güvenlik ve yedek güç kontrolleriyle aynı gün devreye alma",
+    desc: "Saha ekibi, güvenlik ve yedek güç kontrolleriyle planlanan devreye alma",
     badge: "2",
   },
   {

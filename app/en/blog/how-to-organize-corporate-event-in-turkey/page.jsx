@@ -671,7 +671,7 @@ export default function HowToOrganizeCorporateEventInTurkeyPage() {
               <div className="rounded-2xl bg-violet-600 p-5 text-white">
                 <div className="font-black text-lg mb-2">Planning an event in Turkey?</div>
                 <p className="text-violet-100 text-sm leading-relaxed mb-4">
-                  Send us your brief — city, event type, date, guest count. We respond within 24 hours.
+                  Send us your brief — city, event type, date and guest count. We will review it and confirm the proposal timeline based on scope.
                 </p>
                 <a
                   href={WHATSAPP}

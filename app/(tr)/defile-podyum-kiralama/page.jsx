@@ -330,7 +330,7 @@ function HeroSection() {
         { value: "Özel Ölçü", label: "Podyum planı" },
         { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
         { value: "Uçtan Uca", label: "Hizmet kapsamı" },
-        { value: "TS EN", label: "Güvenlik standartları" },
+        { value: "Planlı", label: "Güvenlik önlemleri" },
       ]}
       image={{
         src: HERO_IMAGE,
@@ -653,7 +653,7 @@ function StatsSection() {
     { value: PROJECTS_COMPLETED, label: "Tamamlanan Proje", icon: "👗" },
     { value: `${YEARS_OF_EXPERIENCE}`, label: "Yıl Deneyim", icon: "⭐" },
     { value: "Uçtan", label: "Uca Hizmet", icon: "🚀" },
-    { value: "TS EN", label: "Güvenlik Standardı", icon: "🛡️" },
+    { value: "Planlı", label: "Güvenlik Önlemleri", icon: "🛡️" },
   ];
   return (
     <section className="py-20 bg-gradient-to-r from-violet-700 via-pink-700 to-violet-800 text-white">

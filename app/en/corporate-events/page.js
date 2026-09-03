@@ -114,7 +114,7 @@ const HERO_FEATURES = [
 const HERO_STATS = [
   { t: "Since 2012", d: "Event operations experience" },
   { t: "360°", d: "End-to-end production management" },
-  { t: "24/7", d: "On-site and technical support" },
+  { t: "Planned", d: "On-site and technical support" },
 ];
 
 const SHOWCASE_IMAGES = [
@@ -379,7 +379,7 @@ const SERVICES = [
       "Generator systems",
       "UPS uninterruptible power",
       "Emergency planning",
-      "24/7 technical support",
+      "Project-specific technical support",
     ],
   },
 ];
@@ -1610,7 +1610,7 @@ function CTA() {
         </div>
 
         <div className="mt-10 text-center text-white/60">
-          Istanbul-based • Nationwide Türkiye • Redundant power &amp; control • 24/7 operations support
+          Istanbul-based • Nationwide Türkiye • Redundant power &amp; control • Project-specific operations support
         </div>
       </div>
     </SectionShell>

@@ -18,7 +18,7 @@ const AWARD_IMG = "/img/blog/kurumsal-etkinlik-sahne-genel.webp";
 
 const TITLE = "7 Gün, Sıfır Uyku, Milimetrik Tutku: PMGC Dünya Finali’nin Sahne Arkası";
 const DESCRIPTION =
-  "Ülker Arena PMGC 2023 Dünya Finali sahne arkası: 7 günlük milimetrik kurulum, rigging güvenliği, global koordinasyon ve ödül alan prodüksiyon detayları.";
+  "Ülker Arena PMGC 2023 Dünya Finali sahne arkası: Sahneva'nın belgelenen teknik kapsamında 7 günlük sahne, LED, rigging ve saha operasyonu.";
 
 const PUBLISH_DATE = "2026-01-05T10:00:00+03:00";
 const MODIFIED_DATE = getLastModifiedDateTimeForFile("app/(tr)/blog/pmgc-dunya-finali-sahne-arkasi/page.jsx", "2026-02-05T00:00:00+03:00");
@@ -215,25 +215,25 @@ export default function Page() {
             farklı olsa da, hedefimiz tekti: Kusursuz bir açılış seremonisi.
           </p>
 
-          <h2>4. Ve Beklenen Ödül: Yılın En İyi Teknik Uygulaması</h2>
+          <h2>4. Projenin Sektörel Tanınırlığı</h2>
           <p>
-            Tüm bu uykusuz gecelerin ve verdiğimiz teknik emeğin karşılığı, sektörün en prestijli
-            platformunda tescillendi. Dimi Ajans ile birlikte yürüttüğümüz bu dev prodüksiyon,
-            11. Masters of Events Corporate Awards (Ace of M.I.C.E.) töreninde;
-            <strong> "En İyi Ses, Işık, Görüntü Uygulaması"</strong> ödülüne layık görüldü.
+            Resmî ACE of M.I.C.E. kazananlar listesinde{" "}
+            <strong>DİMİ / PUBG MOBILE DÜNYA ŞAMPİYONASI 2023</strong>, 2024 yılında
+            düzenlenen 12. Masters of Events töreninde "En İyi Ses, Işık, Görüntü
+            Uygulaması" kategorisinde yer alıyor. Bu sayfada anlatılan Sahneva rolü,
+            belgelenen saha ve teknik prodüksiyon kapsamıdır; resmî ödül alıcısı DİMİ&apos;dir.
           </p>
 
           <ImgFigure
             src={AWARD_IMG}
-            alt="Ace of M.I.C.E. Awards ödül töreninde alınan kupa"
-            caption="Ace of M.I.C.E. 2023 - En İyi Ses, Işık, Görüntü Uygulaması ödülü."
+            alt="ACE of M.I.C.E. En İyi Ses, Işık, Görüntü Uygulaması kategorisi kupası"
+            caption="Resmî 2024 kazananlar listesi PMGC 2023 projesi için DİMİ'yi gösteriyor."
           />
 
           <p>
-            Bu ödül; ajansımızın vizyonu ile Sahneva’nın sahadaki kusursuz teknik uygulamasının
-            birleştiği noktada geldi. Bizim için bu kupa; uykusuz geçen o 7 günün, milimetrik
-            marangozluk hesaplarımızın ve "imkansız" denilen kurulumları hayata geçiren
-            ekibimizin zaferidir.
+            Bu tanınma projenin bütününe ve resmî listede belirtilen alıcıya aittir. Yazı ise
+            Sahneva&apos;nın prodüksiyona katkısı olarak belgelediği sahne, LED, rigging ve saha
+            çalışmalarına odaklanır.
           </p>
 
           <h2>PMGC 2023 Grand Finals - Istanbul</h2>
@@ -261,7 +261,7 @@ export default function Page() {
           <h3>Referanslar</h3>
           <ul>
             <li>Proje: PMGC 2023 Grand Finals - Istanbul</li>
-            <li>Ödül: Ace of M.I.C.E. 2023 - En İyi Ses, Işık, Görüntü Uygulaması</li>
+            <li>Ödül kaydı: 2024 / 12. Masters of Events — DİMİ / PUBG Mobile Dünya Şampiyonası 2023</li>
             <li>
               Resmi Kaynak:{" "}
               <a
