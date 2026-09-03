@@ -489,7 +489,7 @@ export default function Footer({
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
                 <Image
-                  src="/android-chrome-512x512.png"
+                  src="/img/logo.svg"
                   alt="Sahneva logo"
                   width={48}
                   height={48}

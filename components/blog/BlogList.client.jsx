@@ -4,14 +4,35 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ALL_CATEGORIES = "Tümü";
+const COPY = {
+  tr: {
+    allCategories: "Tümü",
+    basePath: "/blog",
+    categoryLabel: "Blog kategorileri",
+    dateLocale: "tr-TR",
+    emptyDescription: "Seçilen kategori için yayınlanmış blog içeriği bulunmuyor.",
+    emptyTitle: "Yazı Bulunamadı",
+    loadMore: "Daha Fazla Yazı Göster",
+    readMore: "Devamını Oku",
+  },
+  en: {
+    allCategories: "All",
+    basePath: "/en/blog",
+    categoryLabel: "Blog categories",
+    dateLocale: "en-GB",
+    emptyDescription: "No published articles were found in the selected category.",
+    emptyTitle: "No Articles Found",
+    loadMore: "Show More Articles",
+    readMore: "Read More",
+  },
+};
 const INITIAL_VISIBLE_COUNT = 9;
 const PAGE_SIZE = 6;
 
-function formatDate(date) {
+function formatDate(date, locale) {
   if (!date) return null;
 
-  return new Date(date).toLocaleDateString("tr-TR", {
+  return new Date(date).toLocaleDateString(locale, {
     day: "numeric",
     month: "long",
     timeZone: "Europe/Istanbul",
@@ -19,14 +40,14 @@ function formatDate(date) {
   });
 }
 
-function BlogCard({ post, index }) {
-  const formattedDate = formatDate(post.date);
+function BlogCard({ post, index, copy }) {
+  const formattedDate = formatDate(post.date, copy.dateLocale);
   const shouldPrefetch = index < 3;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-violet-300 hover:shadow-xl">
       <Link
-        href={`/blog/${post.slug}`}
+        href={`${copy.basePath}/${post.slug}`}
         prefetch={shouldPrefetch}
         className="flex h-full flex-col"
         aria-label={post.title}
@@ -77,7 +98,7 @@ function BlogCard({ post, index }) {
 
           <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
             <span className="text-sm font-semibold text-violet-600 group-hover:underline">
-              Devamını Oku
+              {copy.readMore}
             </span>
             <span
               className="text-lg text-gray-600 transition-transform group-hover:translate-x-1"
@@ -92,19 +113,20 @@ function BlogCard({ post, index }) {
   );
 }
 
-export default function BlogList({ posts }) {
-  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORIES);
+export default function BlogList({ posts, locale = "tr" }) {
+  const copy = COPY[locale] ?? COPY.tr;
+  const [activeCategory, setActiveCategory] = useState(copy.allCategories);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
 
   const categories = useMemo(() => {
     const uniqueCategories = new Set(posts.map((post) => post.category).filter(Boolean));
-    return [ALL_CATEGORIES, ...Array.from(uniqueCategories)];
-  }, [posts]);
+    return [copy.allCategories, ...Array.from(uniqueCategories)];
+  }, [copy.allCategories, posts]);
 
   const filteredPosts = useMemo(() => {
-    if (activeCategory === ALL_CATEGORIES) return posts;
+    if (activeCategory === copy.allCategories) return posts;
     return posts.filter((post) => post.category === activeCategory);
-  }, [activeCategory, posts]);
+  }, [activeCategory, copy.allCategories, posts]);
 
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredPosts.length;
@@ -118,7 +140,8 @@ export default function BlogList({ posts }) {
     <div className="space-y-8">
       <div
         className="flex flex-wrap items-center justify-center gap-3"
-        aria-label="Blog kategorileri"
+        role="group"
+        aria-label={copy.categoryLabel}
       >
         {categories.map((category) => {
           const isActive = category === activeCategory;
@@ -148,7 +171,7 @@ export default function BlogList({ posts }) {
             aria-live="polite"
           >
             {visiblePosts.map((post, index) => (
-              <BlogCard key={post.slug} post={post} index={index} />
+              <BlogCard key={post.slug} post={post} index={index} copy={copy} />
             ))}
           </div>
 
@@ -160,16 +183,16 @@ export default function BlogList({ posts }) {
                 aria-controls="blog-post-grid"
                 className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-violet-700 focus-ring"
               >
-                Daha Fazla Yazı Göster
+                {copy.loadMore}
               </button>
             </div>
           ) : null}
         </>
       ) : (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white py-20 text-center">
-          <h3 className="text-xl font-semibold text-gray-900">Yazı Bulunamadı</h3>
+          <h3 className="text-xl font-semibold text-gray-900">{copy.emptyTitle}</h3>
           <p className="mt-2 text-gray-600">
-            Seçilen kategori için yayınlanmış blog içeriği bulunmuyor.
+            {copy.emptyDescription}
           </p>
         </div>
       )}

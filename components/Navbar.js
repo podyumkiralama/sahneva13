@@ -78,14 +78,14 @@ export default function Navbar({ locale = "tr", ...props }) {
   const servicesDropdownLabel = isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : isDe ? "Leistungen" : "Hizmetler";
   const exploreLabel = isEn ? "Explore Us" : isRu ? "О Sahneva" : isZh ? "了解 Sahneva" : isDe ? "Sahneva kennenlernen" : "Bizi Araştırın";
   const exploreSubtitle = isEn ? "Process, contact and information pages" : isRu ? "Контакты, услуги и проекты" : isZh ? "联系方式、服务与项目案例" : isDe ? "Kontakt, Leistungen und Projekte" : "Süreç, iletişim ve bilgi sayfaları";
-  const servicesSubtitle = isEn ? "Stage, podium, LED screen, sound-light and more." : isRu ? "Сцены, подиумы, LED-экраны, звук, свет и шатры." : isZh ? "舞台、T台、LED屏幕、音响灯光与篷房。" : isDe ? "Bühne, Podest, LED-Wand, Ton- und Lichttechnik und mehr." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
+  const servicesSubtitle = isEn ? "Stage, riser, LED screen, sound and lighting, and more." : isRu ? "Сцены, подиумы, LED-экраны, звук, свет и шатры." : isZh ? "舞台、T台、LED屏幕、音响灯光与篷房。" : isDe ? "Bühne, Podest, LED-Wand, Ton- und Lichttechnik und mehr." : "Sahne, podyum, LED ekran, ses-ışık ve daha fazlası.";
   const viewAllLabel = isEn ? "View All Services" : isRu ? "Все услуги" : isZh ? "查看全部服务" : isDe ? "Alle Leistungen ansehen" : "Tümünü gör";
   const whatsappLabel = isEn ? "WhatsApp Support" : isRu ? "WhatsApp" : isZh ? "WhatsApp" : isDe ? "WhatsApp" : "WhatsApp Destek";
   const logoAriaLabel = isEn ? "Sahneva - Home" : isRu ? "Sahneva - Главная" : isZh ? "Sahneva - 首页" : isDe ? "Sahneva – Startseite" : "Sahneva - Ana Sayfa";
   const navAriaLabel = isEn ? "Main menu" : isRu ? "Главное меню" : isZh ? "主菜单" : isDe ? "Hauptmenü" : "Ana menü";
   const megaBadge = isEn || isRu || isZh || isDe ? "Sahneva" : "Sahneva Organizasyon";
   const megaTitle = isEn ? "Services" : isRu ? "Услуги" : isZh ? "服务项目" : isDe ? "Leistungen" : "Hizmetler";
-  const megaImageAlt = isEn ? "Sahneva services: stage, podium, LED screen, sound-light and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : isZh ? "Sahneva 服务：舞台、T台、LED屏幕、音响灯光与篷房" : isDe ? "Leistungen von Sahneva: Bühne, Podest, LED-Wand, Ton- und Lichttechnik und mehr" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
+  const megaImageAlt = isEn ? "Sahneva services: stage, riser, LED screen, sound and lighting, and more" : isRu ? "Услуги Sahneva: сцены, подиумы, LED-экраны, звук, свет и шатры" : isZh ? "Sahneva 服务：舞台、T台、LED屏幕、音响灯光与篷房" : isDe ? "Leistungen von Sahneva: Bühne, Podest, LED-Wand, Ton- und Lichttechnik und mehr" : "Sahneva hizmetleri: sahne, podyum, LED ekran, ses-ışık ve daha fazlası";
 
   return (
     <>

@@ -27,7 +27,7 @@ const AUTHOR_NAME = "Sahneva Editorial Team";
 
 const WHATSAPP_NUMBER = "905453048671";
 const WA_MSG = encodeURIComponent(
-  "Hello, I'd like to plan a stage/podium for my event. I can share location and date details."
+  "Hello, I'd like to plan a stage platform for my event. I can share location and date details."
 );
 const WA_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WA_MSG}`;
 

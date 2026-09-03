@@ -132,10 +132,10 @@ const HOME_JSON_LD = {
           url: `${BASE_SITE_URL}/en/stage-rental`,
           itemOffered: {
             "@type": "Service",
-            name: "Podium Rental",
+            name: "Stage Platform Rental",
             url: `${BASE_SITE_URL}/en/stage-rental`,
             image: `${BASE_SITE_URL}/img/hizmet-podyum.webp`,
-            description: `Modular podium and stage rental service. ${PRICING_DISCLAIMER}`,
+            description: `Modular stage platform, riser and catwalk rental service. ${PRICING_DISCLAIMER}`,
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
@@ -323,7 +323,7 @@ const HOME_JSON_LD = {
       "@id": SERVICE_ID,
       name: "Event Technology and Equipment Services",
       description:
-        "Stage, podium, LED wall, sound-light systems and tent rental across Türkiye. Setup, technical operation and dismantling included.",
+        "Stage, stage platform, LED wall, sound and lighting systems and tent rental across Türkiye. Setup, technical operation and dismantling included.",
       url: EN_HOME_URL,
       areaServed: { "@type": "Country", name: "Türkiye" },
       provider: { "@id": ORGANIZATION_ID },
@@ -370,13 +370,13 @@ const SERVICES_EN = [
   },
   {
     id: "podium",
-    title: "Podium & Catwalks",
+    title: "Stage Platforms & Catwalks",
     icon: "👑",
     description:
-      "Elegant podiums, catwalks and presentation stages for award nights, brand launches and ceremonies.",
+      "Elegant stage platforms, catwalks and presentation stages for award nights, brand launches and ceremonies.",
     image: "/img/hizmet-podyum.webp",
     features: [
-      "Custom podium heights and shapes",
+      "Custom platform heights and shapes",
       "Protocol desks, lecterns and backdrop options",
       "Carpet, vinyl or wooden finishes",
       "Fast assembly with compact transport",
@@ -428,7 +428,7 @@ const SERVICES_EN = [
       "Waterproof and UV-resistant fabrics",
       "Sidewalls, glass panels and flooring",
       "Ambient lighting and branding elements",
-      "Full logistics, installation and dismantle",
+      "Full logistics, installation and dismantling",
     ],
     href: "/en/tent-rental",
   },
@@ -574,7 +574,7 @@ const HERO_BELOW_DICT_EN = {
   processAriaLabel: "Three steps to request an event quote in Türkiye",
   consultationTitle: "Free Professional Consultation",
   consultationDesc:
-    "Let us plan the <strong>ideal stage and podium rental solution</strong> for your event and match LED screen rental options to your budget \u2014 at no charge. <span class=\"block mt-1 text-yellow-300 font-medium\">\u26a1 Detailed quote guaranteed within 2 hours.</span>",
+    "Let us plan the <strong>ideal stage and platform rental solution</strong> for your event and match LED screen rental options to your budget \u2014 at no charge. <span class=\"block mt-1 text-yellow-300 font-medium\">\u26a1 We acknowledge briefs promptly during business hours. Proposal timing depends on scope and whether a site survey is required.</span>",
   consultationCta: "Get a Quote",
   consultationCtaHref: "/en/contact#proposal-form",
   sectionBadge: "3 Steps to Your Quote",
@@ -589,7 +589,7 @@ const CORPORATE_INTRO_DICT_EN = {
   heading: "For your brand,",
   headingHighlight: "end-to-end stage and technical management",
   description:
-    "For launches, dealer meetings, conferences and trade fairs; we manage the full technical infrastructure \u2014 <strong>stage, LED screen rental, sound-lighting and truss structures</strong> \u2014 through a single team. We absorb technical risk and design a flawlessly executed event flow.",
+    "For launches, dealer meetings, conferences and trade fairs; we manage the full technical infrastructure \u2014 <strong>stage, LED screen rental, sound and lighting, and truss structures</strong> \u2014 through a single team. We absorb technical risk and design a flawlessly executed event flow.",
   linkHref: "/en/corporate-events",
   linkText: "Corporate event solutions",
   linkSuffix: " \u2014 see our step-by-step process.",
@@ -603,12 +603,12 @@ const CORPORATE_INTRO_DICT_EN = {
     {
       step: "2",
       title: "Technical Design",
-      text: "We design 3D stage plans, sound-lighting and LED layouts.",
+      text: "We design 3D stage plans plus sound, lighting and LED layouts.",
     },
     {
       step: "3",
       title: "Setup & Testing",
-      text: "All stage, sound-lighting and video systems installed with redundancy.",
+      text: "All stage, audio, lighting and video systems are installed with redundancy.",
     },
     {
       step: "4",
@@ -638,7 +638,7 @@ const CORPORATE_INTRO_DICT_EN = {
     "Istanbul \u2022 2000+ attendees \u2022 Multi-camera live stream & full technical production",
   card1Label: "Single-point management",
   card1Text:
-    "We bring stage, LED screen, sound-lighting, truss, generator and direction crews under one technical team. You manage the entire process through a single point of contact.",
+    "We bring stage, LED screen, sound and lighting, truss, generator and direction crews under one technical team. You manage the entire process through a single point of contact.",
   card2Label: "Sahneva Events",
   card2Badge: "Your corporate solutions partner",
   card2Text:
@@ -675,10 +675,10 @@ const PROJECT_GALLERIES_EN = {
     stats: "100+ Outdoor Events",
     icon: "⛺",
   },
-  "Podium & Stage Builds": {
+  "Stage Platform & Stage Builds": {
     imageSlug: "podyum-kiralama",
     imageCount: 36,
-    description: "Custom podiums, risers and catwalks supporting product launches and ceremonies.",
+    description: "Custom stage platforms, risers and catwalks supporting product launches and ceremonies.",
     stats: "200+ Installations",
     icon: "👑",
   },
@@ -687,7 +687,7 @@ const PROJECT_GALLERIES_EN = {
 const PROJECTS_DICT_EN = {
   title: "Project Gallery",
   subtitle:
-    "We have been a professional solutions partner in over 500 corporate events, concerts, fairs and event organisation projects.",
+    `Our ${PROJECTS_COMPLETED} completed projects include corporate events, concerts, fairs and technical production builds.`,
   statsLabel: "Completed projects",
   exploreAria: "Open gallery — {{title}} ({{count}} projects)",
   exploreHiddenLabel: "Open gallery — {{title}} ({{count}} projects)",
@@ -808,7 +808,7 @@ const CORPORATE_EVENTS_DICT_EN = {
   bannerTitleHighlight: "turnkey production",
   bannerTitleSuffix: "support",
   bannerDescription:
-    "Tell us about your goals and we will provide staging, LED visuals, sound-lighting and broadcast workflows ready for rehearsals the same day.",
+    "Tell us about your goals and we will provide staging, LED visuals, sound and lighting, and broadcast workflows ready for rehearsals the same day.",
   phoneCtaLabel: "Call our team",
   phoneCtaHref: "tel:+905453048671",
   phoneCtaAria: "Call Sahneva for immediate technical consultation: +90 545 304 86 71",
@@ -817,7 +817,7 @@ const CORPORATE_EVENTS_DICT_EN = {
     "https://wa.me/905453048671?text=Hello%2C+I'm+planning+a+corporate+event.+Can+we+discuss+staging+and+technical+production+options%3F",
   whatsappCtaAria: "Send a WhatsApp message",
   whatsappSrHint: "(opens in a new tab)",
-  supportStats: ["24/7 technical standby", "Detailed quote within 2 hours"],
+  supportStats: ["24/7 technical standby", "Prompt business-hours acknowledgement"],
 };
 
 const TECH_CAPABILITIES_DICT_EN = {
@@ -826,7 +826,7 @@ const TECH_CAPABILITIES_DICT_EN = {
   sectionTitleHighlight: "Event Production Partner",
   sectionTitleSuffix: "in Türkiye",
   sectionDescription:
-    "LED wall technology, sound-light systems and reliable infrastructure solutions covering all corporate event needs under one roof.",
+    "LED wall technology, sound and lighting systems and reliable infrastructure solutions covering all corporate event needs under one roof.",
   card1Title: "Technical Solutions",
   card1DescPrefix: "", // Turkish uses "olarak " before the description; English doesn't need a prefix
   card1Desc:
@@ -862,11 +862,11 @@ const WHY_CHOOSE_US_DICT_EN = {
   advantagesGroupAriaLabel: "Sahneva Infrastructure Advantages",
   bigLeftTitle: "End-to-End Technical Service & Professional Solutions",
   bigLeftDesc:
-    "Sahneva provides complete technical solutions for stages, podiums, LED screens and sound-lighting systems across Türkiye.",
+    "Sahneva provides complete technical solutions for stages, stage platforms, LED screens and sound and lighting systems across Türkiye.",
   bigLeftFeatures: [
     "IP65 outdoor LED panels, 4500+ nit brightness",
     "Professional line-array sound systems, digital mixing infrastructure",
-    "Modular podium and stage platforms, truss rental solutions",
+    "Modular stage platforms and risers, truss rental solutions",
     "DMX-controlled lighting systems and ambient lighting",
   ],
   bigRightTitle: "Robust Infrastructure for Large-Scale Events",
@@ -880,7 +880,7 @@ const WHY_CHOOSE_US_DICT_EN = {
   ],
   features: [
     { title: "Rated by Our Clients", desc: `${GOOGLE_RATING}/5 average from ${GOOGLE_REVIEW_COUNT_DISPLAY}+ verified Google reviews. Named client references and on-site project videos back it up.`, stat: `${GOOGLE_RATING}/5 on Google` },
-    { title: "Fast Setup & Delivery", desc: "Podiums and LED walls go up in hours; a full stage build with truss and rigging takes longer. Every quote states the setup window for your scope.", stat: setupDurationText("overall", "en") },
+    { title: "Fast Setup & Delivery", desc: "Stage platforms and LED walls go up in hours; a full stage build with truss and rigging takes longer. Every quote states the setup window for your scope.", stat: setupDurationText("overall", "en") },
     { title: "Premium LED Technology", desc: "High brightness and clarity with P2–P6 indoor/outdoor LED screens.", stat: "P2–P6" },
     { title: "Expert Technical Team", desc: `${YEARS_OF_EXPERIENCE} years of experience in stage, sound, lighting and LED — expert technical crew.`, stat: `${TECHNICAL_TEAM_SIZE} Experts` },
     { title: "Transparent, Itemised Pricing", desc: "Every quote lists equipment, crew, logistics, setup and dismantling as separate lines, so you can see exactly what you are paying for.", stat: "Itemised Quotes" },
@@ -893,7 +893,7 @@ const FAQ_DICT_EN = {
   sectionTitlePrefix: "Rental Process &",
   sectionTitleHighlight: "Frequently Asked Questions",
   sectionDesc:
-    "We answer all your questions about stage, LED wall, sound-lighting systems and technical operation processes.",
+    "We answer all your questions about stage, LED wall, sound and lighting systems and technical operation processes.",
   supportTitle: "Couldn't find the answer?",
   supportDesc:
     "Your project may require a custom solution. Speak with our expert technical team.",
@@ -990,7 +990,7 @@ export default function EnglishHomePage() {
       >
         <h2 id="services-title" className="sr-only">Services</h2>
         <p className="sr-only">
-          Stage rental, podium rental, LED wall rental, sound-lighting systems, truss rental, tent
+          Stage rental, stage platform rental, LED wall rental, sound and lighting systems, truss rental, tent
           rental and table-chair rental solutions across Türkiye.
         </p>
         <a className="sr-only" href="/en/services">View all services</a>

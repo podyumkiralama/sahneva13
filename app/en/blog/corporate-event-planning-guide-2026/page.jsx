@@ -194,11 +194,7 @@ export default function Page() {
         datePublished: publishedISO,
         dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
-        author: {
-          "@type": "Organization",
-          "@id": ORGANIZATION_ID,
-          name: "Sahneva",
-        },
+        author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,
@@ -646,7 +642,7 @@ export default function Page() {
                 <Figure
                   src="/img/blog/kurumsal-sahne-podyum-yerlesim.webp"
                   alt="Corporate event stage and podium layout example"
-                  caption="Stage/podium layout: sightline + camera line + step safety considered together."
+                  caption="Stage platform layout: sightlines, camera angles, and step safety considered together."
                 />
 
                 <InteractiveChecklist
@@ -845,7 +841,7 @@ export default function Page() {
                   >
                     event production in Turkey
                   </Link>{" "}
-                  for the commercial service scope behind this checklist.
+                  for the technical production services behind this checklist.
                 </p>
 
                 <InteractiveChecklist

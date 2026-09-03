@@ -247,7 +247,7 @@ const COPY = {
     heroBadges: ["Across Turkey", "Installation + operations", "Fast quoting"],
     heroTitle: "Regional Rental",
     heroSubtitle:
-      "Let's plan by city: LED screen, truss, stage/podium, and sound-lighting.",
+      "Let's plan by city: LED screen, truss, stage/platform, sound, and lighting.",
     heroBody:
       "Sahneva manages event installations end-to-end with city-based logistics and crew planning. We clarify technical requirements during quoting, schedule installation and testing, support the event day operation, and hand over the venue in order after dismantling.",
     suggestedPackages: "Suggested packages:",
@@ -261,7 +261,7 @@ const COPY = {
       },
       {
         title: "One crew, one coordination flow",
-        body: "LED screen, truss, stage/podium, and sound-lighting move on one timeline under one responsible team.",
+        body: "LED screen, truss, stage/platform, sound, and lighting move on one timeline under one responsible team.",
       },
       {
         title: "Quotes settle faster",

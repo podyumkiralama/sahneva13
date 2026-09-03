@@ -215,7 +215,7 @@ function buildJsonLd() {
 
   const howTo = {
     "@type": "HowTo",
-    name: "How to get a podium price quote?",
+    name: "How to get a stage platform price quote?",
     description:
       "Share the required information for a fast quote, and we will generate a clear budget based on dimensions and site plan.",
     inLanguage: "en-US",
@@ -328,7 +328,7 @@ export default function Page() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: `${BASE_SITE_URL}/en` },
-          { name: "Podium Rental", url: `${BASE_SITE_URL}/en/podium-rental` },
+          { name: "Stage Platform Rental", url: `${BASE_SITE_URL}/en/podium-rental` },
           { name: "Stage Platform Rental Prices", url },
         ]}
       />
@@ -385,7 +385,7 @@ export default function Page() {
                 </h1>
 
                 <p className="text-base md:text-xl text-white/85 leading-relaxed mb-4 max-w-3xl mx-auto">
-                  You can review the current podium rental prices for <b>2026</b> in Istanbul
+                  You can review the current stage platform rental prices for <b>2026</b> in Istanbul
                   on an <b>m² basis</b> below. Clear calculation examples for fashion shows,
                   concerts, and wedding events are included.
                 </p>
@@ -400,7 +400,7 @@ export default function Page() {
                     href="/en/podium-rental"
                     className="inline-flex items-center justify-center font-extrabold px-8 py-4 rounded-2xl border-2 border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-xl transition shadow-lg"
                   >
-                    <span className="text-xl mr-2">🎯</span> Podium Rental
+                    <span className="text-xl mr-2">🎯</span> Stage Platform Rental
                   </Link>
                   <a
                     href="https://wa.me/905453048671?text=Hello%2C+I+would+like+a+podium+rental+price+quote.+Date%3A+%5Bdd.mm.yyyy%5D+Area%3A+%5Bm2%5D+District%3A+%5Bdistrict%5D"
@@ -445,7 +445,7 @@ export default function Page() {
               <div role="region" aria-label="2026 Current Unit Price Table table, scroll horizontally" tabIndex={0} className="overflow-x-auto">
                 <table className="min-w-full border-separate border-spacing-0">
                   <caption className="sr-only">
-                    2026 podium rental unit prices table: platform, carpet, skirt, and Istanbul
+                    2026 stage platform rental unit prices table: platform, carpet, skirt, and Istanbul
                     transportation (installation+dismantling included). Prices are reference starting values.
                   </caption>
                   <thead>
@@ -464,7 +464,7 @@ export default function Page() {
                   <tbody className="text-base text-gray-700">
                     <tr>
                       <td className="border-b border-gray-100 px-6 py-4">
-                        Platform (Modular Podium)
+                        Platform (Modular Stage Deck)
                       </td>
                       <td className="border-b border-gray-100 px-6 py-4">
                         m² / week
@@ -516,10 +516,10 @@ export default function Page() {
 
             <div className="mt-10 max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3 text-center">
-                Podium Rental Prices in Istanbul 2026
+                Stage Platform Rental Prices in Istanbul 2026
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center">
-                Podium rental prices across Istanbul are calculated based on square metres, height,
+                Stage platform rental prices across Istanbul are calculated based on square metres, height,
                 carpet/skirt options, and transportation items. The table above shows the starting
                 unit prices valid for 2026.
               </p>
@@ -628,7 +628,7 @@ export default function Page() {
                 sizes="100vw"
               />
               <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
-                Site preparation and modular podium alignment step.
+                Site preparation and modular stage platform alignment step.
               </figcaption>
             </figure>
 
@@ -777,7 +777,7 @@ export default function Page() {
             <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
               <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
                 <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
-                  Fashion show podium prices
+                  Fashion show runway prices
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
                   Budget may differ due to runway dimensions, heavy traffic, and time planning.
@@ -786,13 +786,13 @@ export default function Page() {
                   href="/en/runway-podium-rental"
                   className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
-                  Runway Podium Page →
+                  Runway &amp; Catwalk Page →
                 </Link>
               </div>
 
               <div className="group bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-violet-200 transition-all duration-500">
                 <h3 className="text-2xl font-black text-gray-900 group-hover:text-violet-600 transition-colors">
-                  Concert podium prices
+                  Concert stage deck prices
                 </h3>
                 <p className="mt-3 text-lg text-gray-600 leading-relaxed">
                   Truss/lighting/sound integration and load-in/out hours may affect the budget.
@@ -801,7 +801,7 @@ export default function Page() {
                   href="/en/concert-podium-rental"
                   className="mt-6 inline-flex items-center justify-center font-bold px-6 py-3 rounded-2xl border-2 border-gray-200 text-gray-900 hover:border-violet-200 hover:text-violet-700 transition"
                 >
-                  Concert Podium Page →
+                  Concert Stage Deck Page →
                 </Link>
               </div>
             </div>
@@ -820,7 +820,7 @@ export default function Page() {
                 sizes="100vw"
               />
               <figcaption className="px-4 py-3 text-sm text-gray-600 bg-gray-50">
-                Podium view in an event use scenario.
+                Stage platform view in an event use scenario.
               </figcaption>
             </figure>
           </div>
@@ -885,12 +885,12 @@ export default function Page() {
                     href="/en/podium-rental"
                     className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
                   >
-                    <span className="text-xl mr-3">🎯</span> Professional Podium Rental Service
+                    <span className="text-xl mr-3">🎯</span> Professional Stage Platform Rental Service
                   </Link>
                 </div>
                 <p className="mt-6 text-sm text-white/80">
-                  This page targets price intent; you can review the service page for service scope
-                  and example applications.
+                  Use this page to understand the main price factors; review the service page for
+                  installation options, project scope and example applications.
                 </p>
               </div>
             </div>

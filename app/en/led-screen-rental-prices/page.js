@@ -452,7 +452,12 @@ export default function Page() {
             />
 
             <div className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-              <div className="overflow-x-auto">
+              <div
+                role="region"
+                aria-label="LED screen rental starting rates table, scroll horizontally"
+                tabIndex={0}
+                className="overflow-x-auto"
+              >
                 <table className="w-full min-w-[920px] border-collapse text-left">
                   <caption className="sr-only">
                     LED screen rental starting rates and project-specific quote items in Turkey
@@ -564,7 +569,7 @@ export default function Page() {
                     Sahneva has a published <strong>400 m² Absen P1.9 indoor LED inventory</strong>.
                     Owned indoor stock also includes Unilumin P2.6 and P2.9 panels, so the pitch can
                     follow the viewing distance and content instead of forcing every brief onto one cabinet.{" "}
-                    Use the <Link href="/en/blog/led-pixel-pitch-viewing-distance-guide" className="font-bold underline underline-offset-4">pixel pitch and viewing distance guide</Link>{" "}
+                    Use the <Link href="/en/blog/led-pixel-pitch-viewing-distance-guide" className="font-bold text-white underline underline-offset-4">pixel pitch and viewing distance guide</Link>{" "}
                     to compare those options before requesting a quote.
                   </p>
                 </div>

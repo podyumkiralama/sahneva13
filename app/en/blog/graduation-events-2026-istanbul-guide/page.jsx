@@ -23,7 +23,7 @@ const VIDEO_SECONDARY_ID = "pWpVKKHSdwQ";
 
 const TITLE = "Graduation Events 2026 Istanbul Guide";
 const DESCRIPTION =
-  "Istanbul graduation ceremony guide 2026: stage, LED screen, sound-lighting, live broadcast planning, trends and budget tips.";
+  "Istanbul graduation ceremony guide 2026: stage, LED screen, sound and lighting, live broadcast planning, trends and budget tips.";
 const AUTHOR_NAME = "Sahneva Editorial Team";
 
 const PUBLISH_DATE = "2026-02-10T09:00:00+03:00";
@@ -65,7 +65,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Graduation Ceremony Organization 2026 Guide",
     description:
-      "Up-to-date guide for stage, LED screen, sound-lighting and live broadcast planning at Istanbul graduation events.",
+      "Up-to-date guide for stage, LED screen, sound and lighting, and live broadcast planning at Istanbul graduation events.",
     images: [`${SITE_URL}${HERO_IMG}`],
   },
   keywords: [

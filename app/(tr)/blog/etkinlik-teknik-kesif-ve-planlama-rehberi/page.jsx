@@ -63,19 +63,8 @@ export default function Page() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         image: [{ "@type": "ImageObject", url: OG_IMAGE, width: 1600, height: 720 }],
-        author: {
-          "@type": "Organization",
-          name: "Sahneva Organizasyon",
-        },
-        publisher: {
-          "@type": "Organization",
-          "@id": ORGANIZATION_ID,
-          name: "Sahneva Organizasyon",
-          logo: {
-            "@type": "ImageObject",
-            url: `${BASE_SITE_URL}/img/logo.svg`,
-          },
-        },
+        author: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
       },
       {

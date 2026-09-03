@@ -648,7 +648,8 @@ export default function BayiToplantisiPage() {
           </h3>
           <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
             Bayi sayısı, şehir ve tarih bilgisini yazın; teknik keşiften ödül gecesine kadar tüm süreci tek
-            elden yönetelim. Çoğu projede 2 saat içinde projelendirilmiş teklif çıkıyoruz.
+            elden yönetelim. Mesai saatlerinde hızlı ilk dönüş sağlarız; teklif süresi kapsamın
+            netliğine ve keşif gereksinimine göre değişir.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <a

@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: "Contact | Sahneva - Professional Event Solutions",
     description:
-      "Request a proposal for stage, LED screen or sound-lighting systems. Nationwide coverage with rapid mobilisation and on-site experts.",
+      "Request a proposal for stage, LED screen or sound and lighting systems. Nationwide coverage with rapid mobilisation and on-site experts.",
     url: PAGE_URL,
     siteName: "Sahneva",
     images: [
@@ -29,7 +29,7 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/hero-bg.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Contact – stage, LED screen and sound-light rental proposal",
+        alt: "Sahneva Contact – stage, LED screen, sound and lighting rental proposal",
       },
     ],
     type: "website",
@@ -39,7 +39,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Contact | Sahneva - Professional Event Solutions",
     description:
-      "Request a proposal for stage, LED screen or sound-lighting systems. Nationwide coverage with rapid mobilisation and on-site experts.",
+      "Request a proposal for stage, LED screen or sound and lighting systems. Nationwide coverage with rapid mobilisation and on-site experts.",
     images: [`${BASE_SITE_URL}/img/hero-bg.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -109,7 +109,7 @@ function ContactStructuredData() {
         url: PAGE_URL,
         name: "Sahneva Contact",
         description:
-          "Professional stage rental, LED screen and sound-light systems contact information",
+          "Professional stage rental, LED screen and sound and lighting systems contact information",
         image: `${BASE_SITE_URL}/img/hero-bg.webp`,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
@@ -179,7 +179,7 @@ export default function ContactPage() {
           <strong className="text-violet-300">best technical solution</strong>
           <br />
           <strong className="text-purple-300">
-            Detailed proposals within 2 hours
+            Prompt business-hours acknowledgement
           </strong>
         </p>
       </div>
@@ -219,7 +219,9 @@ export default function ContactPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Choose the channel that works for you and we will reply within two hours.
+                  Choose the channel that works for you. We acknowledge briefs promptly during
+                  business hours; proposal timing depends on scope and whether a site survey is
+                  required.
                 </p>
                 <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
               </div>
@@ -388,7 +390,8 @@ export default function ContactPage() {
                       </span>
                     </h2>
                     <p className="text-neutral-600">
-                      Share your event details and receive a tailored quotation within two hours.
+                      Share your event details for a prompt business-hours acknowledgement.
+                      Proposal timing depends on scope and whether a site survey is required.
                     </p>
                   </div>
 

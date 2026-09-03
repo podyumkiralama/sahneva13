@@ -693,8 +693,8 @@ export default function KurumsalEtkinlikPlanlamaPage() {
           </h3>
           <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
             Sahneva olarak {PROJECTS_COMPLETED} başarılı projede edindiğimiz deneyimle, {PROVINCES_COUNT} ilde teknik keşiften yayın
-            zincirine kadar tüm süreci tek elden yönetiyoruz. Çoğu projede 2 saat içinde projelendirilmiş
-            teklif çıkıyoruz.
+            zincirine kadar tüm süreci tek elden yönetiyoruz. Mesai saatlerinde hızlı ilk dönüş
+            sağlarız; teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <a

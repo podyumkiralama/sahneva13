@@ -6,6 +6,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { EDITOR_ID, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -96,8 +97,7 @@ export const metadata = {
 };
 
 function ArticleSchema() {
-  const orgId = `${SITE_URL}/#org`;
-  const editorId = `${SITE_URL}/#editor`;
+  const orgId = ORGANIZATION_ID;
 
   const data = {
     "@context": "https://schema.org",
@@ -111,7 +111,7 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@id": editorId },
+        author: { "@id": EDITOR_ID },
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -125,25 +125,6 @@ function ArticleSchema() {
           { "@type": "WebPage", "@id": `${SITE_URL}/kurumsal-organizasyon` },
           { "@type": "WebPage", "@id": `${SITE_URL}/sahne-kiralama` },
         ],
-      },
-      {
-        "@type": "Organization",
-        "@id": orgId,
-        name: "Sahneva",
-        url: SITE_URL,
-        logo: {
-          "@type": "ImageObject",
-          "@id": `${SITE_URL}/#logo`,
-          url: `${SITE_URL}/img/logo.webp`,
-          contentUrl: `${SITE_URL}/img/logo.webp`,
-        },
-      },
-      {
-        "@type": "Person",
-        "@id": editorId,
-        name: AUTHOR_NAME,
-        url: SITE_URL,
-        worksFor: { "@id": orgId },
       },
     ],
   };

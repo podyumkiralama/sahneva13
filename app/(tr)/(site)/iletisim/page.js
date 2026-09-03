@@ -109,9 +109,9 @@ function ContactStructuredData() {
         "@type": "ContactPage",
         "@id": `${PAGE_URL}#contact-page`,
         url: PAGE_URL,
-        name: "Sahneva ??leti??im",
+        name: "Sahneva İletişim",
         description:
-          "Profesyonel sahne kiralama, LED ekran, ses-??????k sistemleri ileti??im bilgileri",
+          "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri iletişim bilgileri",
         image: `${BASE_SITE_URL}/img/hero-bg.webp`,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
@@ -134,7 +134,7 @@ export default function ContactPage() {
         eyebrow="7/24 teknik destek"
         title="Bize"
         titleAccent="Ulaşın"
-        description="Etkinliğiniz için <strong>en uygun çözümleri</strong> sunalım; <strong>2 saat içinde detaylı teklif</strong> hazırlıyoruz."
+        description="Etkinliğiniz için <strong>en uygun çözümleri</strong> birlikte netleştirelim. Mesai saatlerinde hızlı ilk dönüş sağlarız; teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir."
       />
 
       <div
@@ -154,8 +154,8 @@ export default function ContactPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-                  Size en uygun iletişim yöntemiyle hemen bize ulaşın, 2 saat
-                  içinde yanıt verelim
+                  Size en uygun iletişim yöntemiyle bize ulaşın. Mesai saatlerinde hızlı ilk dönüş
+                  sağlayalım; teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
                 </p>
                 <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto mt-8" />
               </div>
@@ -359,8 +359,8 @@ export default function ContactPage() {
                       </span>
                     </h2>
                     <p className="text-neutral-600">
-                      Etkinlik bilgilerinizi bırakın, 2 saat içinde detaylı
-                      teklif sunalım
+                      Etkinlik bilgilerinizi bırakın; mesai saatlerinde hızlı ilk dönüş sağlayalım.
+                      Teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
                     </p>
                   </div>
 

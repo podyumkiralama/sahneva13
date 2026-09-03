@@ -1,9 +1,9 @@
 ﻿// app/en/blog/page.jsx
 import Link from "next/link";
-import Image from "next/image";
 import { readdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+import BlogList from "@/components/blog/BlogList.client";
 import JsonLd from "@/components/seo/JsonLd";
 import { normalizeBaseUrl } from "@/lib/seo/breadcrumbs";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
@@ -248,73 +248,6 @@ function BlogJsonLd({ posts, baseUrl }) {
   return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
-/* ================== BLOG CARD ================== */
-function BlogCard({ post, isFeatured = false }) {
-  const formattedDate = post.date
-    ? new Date(post.date).toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })
-    : null;
-
-  return (
-    <article className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-violet-300 hover:shadow-xl transition-all duration-300">
-      <Link
-        href={`/en/blog/${post.slug}`}
-        className="flex flex-col h-full"
-        aria-label={post.title}
-      >
-        <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={isFeatured}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-          <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-violet-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-            {post.category}
-          </span>
-        </div>
-
-        <div className="flex flex-col flex-1 p-6">
-          <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
-            {formattedDate && (
-              <time dateTime={post.date} className="flex items-center gap-1">
-                📅 {formattedDate}
-              </time>
-            )}
-            {formattedDate && (
-              <span className="w-1 h-1 bg-gray-400 rounded-full" />
-            )}
-            <span className="flex items-center gap-1">⏱️ {post.readTime}</span>
-          </div>
-
-          <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-violet-600 transition-colors">
-            {post.title}
-          </h2>
-
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 flex-1">
-            {post.description}
-          </p>
-
-          <div className="pt-4 mt-auto border-t border-gray-100 flex items-center justify-between">
-            <span className="text-violet-600 text-sm font-semibold group-hover:underline">
-              Read More
-            </span>
-            <span className="text-gray-600 text-lg transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </div>
-        </div>
-      </Link>
-    </article>
-  );
-}
-
 /* ================== MAIN PAGE ================== */
 export default async function BlogPage() {
   const posts = await getBlogPosts();
@@ -364,11 +297,7 @@ export default async function BlogPage() {
         </div>
 
         {hasPosts ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post, index) => (
-              <BlogCard key={post.slug} post={post} isFeatured={index === 0} />
-            ))}
-          </div>
+          <BlogList posts={posts} locale="en" />
         ) : (
           <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-dashed border-gray-300 text-center">
             <div className="text-6xl mb-4 opacity-50">📝</div>

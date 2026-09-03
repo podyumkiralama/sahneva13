@@ -3,6 +3,7 @@ import RegionalRentalClient from "./RegionalRentalClient";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { REGIONAL_CITIES } from "@/lib/seo/regionalCities";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
 
@@ -39,8 +40,6 @@ export const metadata = {
 };
 
 function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
-  const orgId = `${SITE}/#org`;
-  const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const catalogId = `${PAGE_URL}#offerCatalog`;
@@ -52,29 +51,13 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": orgId,
-        name: "Sahneva Organizasyon",
-        url: SITE,
-        telephone: "+90 545 304 86 71",
-        areaServed: { "@type": "Country", name: "Türkiye" },
-      },
-      {
-        "@type": "WebSite",
-        "@id": webId,
-        url: SITE,
-        name: "Sahneva Organizasyon",
-        publisher: { "@id": orgId },
-        inLanguage: "tr-TR",
-      },
-      {
         "@type": "WebPage",
         "@id": pageId,
         url: PAGE_URL,
         name: "Bölgesel Kiralama",
         description:
           "Türkiye genelinde etkinlik ekipmanı kiralama: LED ekran, truss, sahne/podyum ve ses-ışık sistemleri. Kurulum, test ve söküm dahil.",
-        isPartOf: { "@id": webId },
+        isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": serviceId },
         inLanguage: "tr-TR",
         breadcrumb: { "@id": breadcrumbId },
@@ -92,7 +75,7 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
         "@id": serviceId,
         name: "Bölgesel Kiralama",
         serviceType: "Etkinlik ekipmanı kiralama, kurulum ve operasyon",
-        provider: { "@id": orgId },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: [
           { "@type": "Country", name: "Türkiye" },
           ...regions.map((region) => ({ "@type": "City", name: region.name })),

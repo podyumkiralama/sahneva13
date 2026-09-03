@@ -27,7 +27,7 @@ const WA_URL = "https://wa.me/905453048671?text=" + encodeURIComponent("Hello, I
 export const metadata = {
   title: "Product Launch Event Organization",
   description:
-    "Stage, LED screen, sound-lighting and technical production for product launches. Turnkey setup and operation across Turkey.",
+    "Stage, LED screen, sound and lighting, and technical production for product launches. Turnkey setup and operation across Turkey.",
   alternates: buildLanguageAlternates({
     canonical: BLOG_PATH,
     tr: "/blog/urun-lansmani-organizasyonu",
@@ -37,7 +37,7 @@ export const metadata = {
   openGraph: {
     title: "Product Launch Event Organization | Sahneva",
     description:
-      "A flawless product launch with Sahneva: stage design, LED screen, sound-lighting, live broadcast and 360° visual experience solutions.",
+      "A flawless product launch with Sahneva: stage design, LED screen, sound and lighting, live broadcast, and 360° visual experience solutions.",
     url: BLOG_URL,
     type: "article",
     locale: "en_US",

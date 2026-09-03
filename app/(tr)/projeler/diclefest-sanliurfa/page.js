@@ -15,6 +15,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -860,12 +861,6 @@ function buildJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#org`,
-        name: "Sahneva",
-        url: SITE_URL,
-      },
-      {
         "@type": "WebPage",
         "@id": `${PAGE_URL}#webpage`,
         url: PAGE_URL,
@@ -877,7 +872,7 @@ function buildJsonLd() {
         primaryImageOfPage: { "@id": `${PAGE_URL}#image-1` },
         breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
         mainEntity: { "@id": `${PAGE_URL}#project` },
-        publisher: { "@id": `${SITE_URL}/#org` },
+        publisher: { "@id": ORGANIZATION_ID },
       },
       {
         "@type": ["CreativeWork", "Project"],
@@ -887,8 +882,8 @@ function buildJsonLd() {
         description: OG_DESCRIPTION,
         url: PAGE_URL,
         image: GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`),
-        provider: { "@id": `${SITE_URL}/#org` },
-        publisher: { "@id": `${SITE_URL}/#org` },
+        provider: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
         datePublished: PUBLISHED_AT,
         dateModified: MODIFIED_AT,
         temporalCoverage: "2026-05-14/2026-05-17",

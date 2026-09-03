@@ -59,9 +59,9 @@ function AboutStructuredData() {
         "@type": "AboutPage",
         "@id": `${SITE_URL}/hakkimizda#webpage`,
         url: `${SITE_URL}/hakkimizda`,
-        name: "Hakk??m??zda | Sahneva - Profesyonel Etkinlik Teknolojileri",
+        name: "Hakkımızda | Sahneva - Profesyonel Etkinlik Teknolojileri",
         description:
-          "Profesyonel sahne kiralama, LED ekran, ses-??????k sistemleri ve etkinlik prod??ksiyon hizmetleri",
+          "Profesyonel sahne kiralama, LED ekran, ses-ışık sistemleri ve etkinlik prodüksiyon hizmetleri",
         image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
@@ -531,7 +531,8 @@ export default function HakkimizdaPage() {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-2xl mx-auto">
               <p className="text-white/90 text-sm">
-                <strong>⏱️ 2 Saat İçinde Yanıt:</strong> Mesai saatleri içinde tüm taleplerinize 2 saat içinde detaylı teklif ve profesyonel danışmanlık sunuyoruz.
+                <strong>⏱️ Hızlı ilk dönüş:</strong> Mesai saatlerinde hızlı ilk dönüş sağlarız.
+                Teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
               </p>
             </div>
           </div>

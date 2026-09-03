@@ -3,6 +3,7 @@
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
@@ -46,6 +47,7 @@ import {
 } from "lucide-react";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { getHomeResponsiveImage } from "@/lib/homeResponsiveImages";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Sabitler ================== */
@@ -96,6 +98,14 @@ const PREMIUM_LED_IMAGE_SRCS = new Set([
   LED_GALA_STAGE_HERO_MOBILE_IMAGE_SRC,
 ]);
 const shouldBypassLedImageOptimizer = (src) => PREMIUM_LED_IMAGE_SRCS.has(src);
+
+function QuotaSafeLedImage({ src, alt, fill, unoptimized, ...props }) {
+  if (getHomeResponsiveImage(src)) {
+    return <StaticResponsiveImage src={src} alt={alt} {...props} />;
+  }
+
+  return <Image src={src} alt={alt} fill={fill} unoptimized={unoptimized} {...props} />;
+}
 const PAGE_LAST_MODIFIED = getLastModifiedForFile(
   "app/(tr)/led-ekran-kiralama/page.js",
   "2026-01-14"
@@ -485,7 +495,7 @@ function P19InvestmentProof() {
 
         <figure className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-2xl">
           <div className="relative aspect-[16/9]">
-            <Image
+            <QuotaSafeLedImage
               src={P19_PROOF_DISPLAY_IMAGE_SRC}
               alt="Sahneva 300 m² Absen P1.9 indoor LED ekran kurulumu ile kurumsal gala ve konferans sahnesi"
               fill
@@ -645,11 +655,16 @@ function TechnicalDocuments() {
             </p>
           </div>
 
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
+          <div
+            role="region"
+            aria-label="LED ekipmanı saha hazırlığı görsellerini yatay kaydır"
+            tabIndex={0}
+            className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0"
+          >
             {inventoryProofImages.map((item) => (
               <figure key={item.src} className="w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl md:w-auto">
                 <div className={`relative overflow-hidden ${item.aspectClass}`}>
-                  <Image
+                  <QuotaSafeLedImage
                     src={item.src}
                     alt={item.alt}
                     fill
@@ -676,7 +691,7 @@ function CurvedP19ImageCard({ item, aspectClass, sizes, className = "" }) {
   return (
     <figure className={`${className} overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl`}>
       <div className={`relative overflow-hidden bg-slate-950 ${aspectClass}`}>
-        <Image
+        <QuotaSafeLedImage
           src={item.src}
           alt={item.alt}
           fill
@@ -739,7 +754,12 @@ function CurvedP19InstallationProof() {
         </div>
 
         <div className="mt-9 space-y-5">
-          <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[1.25fr_0.75fr] md:overflow-visible md:px-0 md:pb-0">
+          <div
+            role="region"
+            aria-label="Kavisli LED ön montaj görsellerini yatay kaydır"
+            tabIndex={0}
+            className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[1.25fr_0.75fr] md:overflow-visible md:px-0 md:pb-0"
+          >
             <CurvedP19ImageCard
               item={preAssembly}
               aspectClass="h-[320px] sm:h-[390px] lg:h-[480px]"
@@ -753,7 +773,12 @@ function CurvedP19InstallationProof() {
               className="w-[72vw] shrink-0 snap-start md:w-auto"
             />
           </div>
-          <div className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[0.75fr_1.25fr] md:overflow-visible md:px-0 md:pb-0">
+          <div
+            role="region"
+            aria-label="Kavisli LED saha uygulaması görsellerini yatay kaydır"
+            tabIndex={0}
+            className="-mx-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-[0.75fr_1.25fr] md:overflow-visible md:px-0 md:pb-0"
+          >
             <CurvedP19ImageCard
               item={stageInstallation}
               aspectClass="h-[360px] sm:h-[480px] lg:h-[600px]"
@@ -791,7 +816,12 @@ function VisualProofStrip() {
           </p>
         </div>
 
-        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
+        <div
+          role="region"
+          aria-label="Gerçek LED kurulumları görsel özetini yatay kaydır"
+          tabIndex={0}
+          className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0"
+        >
           {VISUAL_FLOW_IMAGES.map((item, index) => (
             <article
               key={item.src}
@@ -800,7 +830,7 @@ function VisualProofStrip() {
               }`}
             >
               <div className="relative aspect-[4/3]">
-                <Image
+                <QuotaSafeLedImage
                   src={item.src}
                   alt={item.alt}
                   fill
@@ -934,7 +964,12 @@ function Services() {
           </nav>
         </div>
 
-        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+        <div
+          role="region"
+          aria-label="LED ekran hizmet kartlarını yatay kaydır"
+          tabIndex={0}
+          className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3"
+        >
           {SERVICES.map((service) => {
             const id = `svc-${slugify(service.title)}`;
             return (
@@ -943,7 +978,7 @@ function Services() {
                 className="group relative min-h-[360px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl sm:w-auto"
                 aria-labelledby={id}
               >
-                <Image
+                <QuotaSafeLedImage
                   src={service.image}
                   alt={`${service.title} için Sahneva gerçek LED ekran kurulumu`}
                   fill
@@ -1148,7 +1183,7 @@ function Gallery() {
           <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
             <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
               <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
-                <Image
+                <QuotaSafeLedImage
                   src={GALLERY_IMAGES[0].src}
                   alt={GALLERY_IMAGES[0].alt}
                   fill
@@ -1181,14 +1216,19 @@ function Gallery() {
               </div>
             </article>
 
-            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
+            <div
+              role="region"
+              aria-label="Öne çıkan LED kurulum görsellerini yatay kaydır"
+              tabIndex={0}
+              className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0"
+            >
               {GALLERY_IMAGES.slice(1, 3).map((image, index) => (
                 <article
                   key={image.src}
                   className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto"
                 >
                   <div className="relative h-[240px] lg:h-[260px]">
-                    <Image
+                    <QuotaSafeLedImage
                       src={image.src}
                       alt={image.alt}
                       fill
@@ -1227,14 +1267,19 @@ function Gallery() {
               <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Sahadan uygulama görselleri</h3>
               <p className="mt-2 text-base text-gray-600">Kurumsal salon, lansman, gala ve açık hava uygulamalarından seçilmiş gerçek kareler.</p>
             </div>
-            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
+            <div
+              role="region"
+              aria-label="LED saha uygulaması galerisini yatay kaydır"
+              tabIndex={0}
+              className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4"
+            >
               {GALLERY_IMAGES.slice(3).map((image, index) => (
                 <article
                   key={image.src}
                   className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto"
                 >
                   <div className="relative aspect-[4/3]">
-                    <Image
+                    <QuotaSafeLedImage
                       src={image.src}
                       alt={image.alt}
                       fill
@@ -1279,7 +1324,12 @@ function Gallery() {
             </p>
           </div>
 
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3">
+          <div
+            role="region"
+            aria-label="LED video galerisini yatay kaydır"
+            tabIndex={0}
+            className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3"
+          >
             {VIDEO_GALLERY.map((video) => (
               <article
                 key={video.id}
@@ -1437,7 +1487,12 @@ function Technical() {
           </p>
         </div>
 
-        <div className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
+        <div
+          role="region"
+          aria-label="LED teknik altyapı kartlarını yatay kaydır"
+          tabIndex={0}
+          className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6"
+        >
           {technicalItems.map((item) => {
             const detailsId = `${slugify(item.title)}-details`;
 
@@ -1575,7 +1630,12 @@ function WhySahneva() {
           />
         </div>
 
-        <div className="-mx-4 flex max-w-6xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
+        <div
+          role="region"
+          aria-label="Sahneva LED avantajlarını yatay kaydır"
+          tabIndex={0}
+          className="-mx-4 flex max-w-6xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6"
+        >
           {features.map((feature) => (
             <div key={feature.title} className="group w-[82vw] shrink-0 snap-start md:w-auto">
               <article
@@ -1631,24 +1691,31 @@ function UseCases() {
           <div className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-8 rounded-full" aria-hidden="true" />
         </div>
 
-        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 lg:gap-6">
-          {USE_CASES.map((uc) => (
-            <li
-              key={uc.title}
-              className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-white/30 hover:bg-white/10 md:w-auto"
-            >
-              <div className="text-violet-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
-                <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
-              </div>
-              <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
-                {uc.title}
-              </h3>
-              <p className="text-white/80 text-sm leading-relaxed border-t border-white/10 pt-3">
-                {uc.desc}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <div
+          role="region"
+          aria-label="LED ekran kullanım alanlarını yatay kaydır"
+          tabIndex={0}
+          className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:overflow-visible md:px-0 md:pb-0"
+        >
+          <ul className="flex snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {USE_CASES.map((uc) => (
+              <li
+                key={uc.title}
+                className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-white/30 hover:bg-white/10 md:w-auto"
+              >
+                <div className="text-violet-400 mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+                  <uc.Icon size={32} strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <h3 className="text-white font-black text-lg mb-3 leading-tight uppercase tracking-wide">
+                  {uc.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed border-t border-white/10 pt-3">
+                  {uc.desc}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

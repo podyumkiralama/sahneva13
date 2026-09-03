@@ -170,6 +170,28 @@ const decodeEntities = (value) =>
 
 const first = (html, regex) => (html.match(regex) || [])[1] || "";
 
+// Ayni JSON-LD @id'si bir sayfada birden fazla kez tanimlanabilir; salt
+// { "@id": "..." } referanslari sorun degildir. Ancak iki tam tanim ayni
+// kimlik alanina farkli tekil degerler verirse JSON-LD islemcisi bunlari tek
+// dugumde birlestirir ve varlik kimligi belirsizlesir. Dizileri (dogal olarak
+// cok degerli olabilir) ve yalniz @id tasiyan referanslari bilincli olarak
+// karsilastirmiyoruz.
+const comparableJsonLdValue = (property, value) => {
+  if (value == null || Array.isArray(value)) return null;
+
+  let comparable = value;
+  if (typeof value === "object") {
+    comparable = value["@id"] ?? value.url ?? value.contentUrl ?? value.name;
+  }
+
+  if (!["string", "number", "boolean"].includes(typeof comparable)) return null;
+
+  let normalized = String(comparable).trim();
+  if (property === "telephone") normalized = normalized.replace(/[^+\d]/g, "");
+  if (/^https?:\/\//i.test(normalized)) normalized = normalized.replace(/\/$/, "");
+  return normalized;
+};
+
 const internalPathFromHref = (href) => {
   const decoded = decodeEntities(href).trim();
   if (!decoded || decoded.includes("#") || decoded.includes("?")) return null;
@@ -188,6 +210,13 @@ const internalPathFromHref = (href) => {
 const localeGroupForRoute = (route) => {
   const match = route.match(/^\/(en|de|ar|ru|zh)(?:\/|$)/);
   return match?.[1] ?? "tr";
+};
+
+const expectedOgLocaleForRoute = (route) => {
+  const locale = localeGroupForRoute(route);
+  if (locale === "tr") return "tr_TR";
+  if (locale === "en") return "en_US";
+  return null;
 };
 
 const visibleMainTokens = (html) => {
@@ -300,6 +329,17 @@ for (const file of files) {
     if (norm(ogUrl) !== norm(canonical)) {
       addError(route, "og-url-canonical-mismatch", `og:url=${ogUrl} canonical=${canonical}`);
     }
+  }
+
+  /* ---- TR/EN Open Graph locale ---- */
+  const expectedOgLocale = expectedOgLocaleForRoute(route);
+  const ogLocale = first(html, /<meta property="og:locale" content="([^"]*)"/i);
+  if (indexable && expectedOgLocale && ogLocale !== expectedOgLocale) {
+    addError(
+      route,
+      "og-locale-mismatch",
+      `og:locale=${ogLocale || "missing"} expected=${expectedOgLocale}`,
+    );
   }
 
   /* ---- ic link ve gorsel referanslari (capraz kontroller icin) ---- */
@@ -452,6 +492,7 @@ for (const file of files) {
   const routeSchemaTypes = new Set();
   const routeSchemaProps = new Set();
   const routeSchemaPayloads = [];
+  const routeIdDefinitions = new Map();
 
   for (const block of ldBlocks) {
     let parsed;
@@ -468,6 +509,13 @@ for (const file of files) {
       if (!node || typeof node !== "object") return;
       for (const type of [].concat(node["@type"] ?? [])) {
         if (typeof type === "string") routeSchemaTypes.add(type);
+      }
+      // @id-only referanslarin @type'i yoktur ve bu indekse girmez.
+      if (node["@id"] && node["@type"]) {
+        routeIdDefinitions.set(node["@id"], [
+          ...(routeIdDefinitions.get(node["@id"]) || []),
+          node,
+        ]);
       }
       for (const prop of Object.keys(node)) {
         if (!prop.startsWith("@")) routeSchemaProps.add(prop);
@@ -550,6 +598,35 @@ for (const file of files) {
     // Sablon sizintisi: derlenmemis placeholder yayina cikmamali.
     if (/\{\{|\$\{/.test(block)) {
       addError(route, "jsonld-placeholder", "JSON-LD icinde derlenmemis sablon ifadesi var");
+    }
+  }
+
+  for (const [id, definitions] of routeIdDefinitions) {
+    if (definitions.length < 2) continue;
+
+    const conflicts = [];
+    const properties = new Set(
+      definitions.flatMap((definition) =>
+        Object.keys(definition).filter((property) => !property.startsWith("@")),
+      ),
+    );
+
+    for (const property of properties) {
+      const values = new Set(
+        definitions
+          .map((definition) => comparableJsonLdValue(property, definition[property]))
+          .filter((value) => value !== null),
+      );
+      if (values.size < 2) continue;
+
+      const printable = [...values]
+        .map((value) => (value.length > 80 ? `${value.slice(0, 77)}...` : value))
+        .join(" <> ");
+      conflicts.push(`${property}=${printable}`);
+    }
+
+    if (conflicts.length) {
+      addError(route, "jsonld-id-conflict", `${id}: ${conflicts.join("; ")}`);
     }
   }
 

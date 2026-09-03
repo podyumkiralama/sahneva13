@@ -8,6 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
@@ -245,8 +246,6 @@ export const metadata = {
 };
 
 function PodiumRentalJsonLd({ faqs }) {
-  const orgId = `${ORIGIN}/#org`;
-  const webId = `${ORIGIN}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const serviceId = `${PAGE_URL}#service`;
@@ -256,21 +255,13 @@ function PodiumRentalJsonLd({ faqs }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": webId,
-        url: ORIGIN,
-        name: "Sahneva",
-        publisher: { "@id": orgId },
-        inLanguage: "en-US",
-      },
-      {
         "@type": "WebPage",
         "@id": pageId,
         url: PAGE_URL,
         name: "Stage Platform Rental in Turkey | Modular Risers | Sahneva",
         description: "Modular stage platform and event riser rental in Turkey with delivery, setup and dismantling.",
-        isPartOf: { "@id": webId },
-        about: { "@id": orgId },
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
         breadcrumb: { "@id": breadcrumbId },
       },
@@ -286,7 +277,7 @@ function PodiumRentalJsonLd({ faqs }) {
         "@type": "Service",
         "@id": serviceId,
         name: "Stage Platform and Event Riser Rental",
-        provider: { "@id": orgId },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "Country", name: "Türkiye" },
         description: "Professional modular stage platform and event riser rental with setup and dismantling across Turkey.",
       },

@@ -186,7 +186,7 @@ function StructuredData() {
           width: 2048,
           height: 1536,
         },
-        author: { "@type": "Organization", "@id": ORGANIZATION_ID, name: "Sahneva" },
+        author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         audience: {

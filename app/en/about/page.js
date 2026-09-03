@@ -61,7 +61,7 @@ function AboutStructuredData() {
         url: `${SITE_URL}/en/about`,
         name: "About Us | Sahneva - Professional Event Technologies",
         description:
-          "Professional stage rentals, LED screens, sound-light systems and event production services",
+          "Professional stage rentals, LED screens, sound and lighting systems and event production services",
         image: `${SITE_URL}/img/hakkimizda-hero-corporate.webp`,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
@@ -347,7 +347,7 @@ export default function AboutPage() {
                   <p>
                     <strong className="text-violet-600">Sahneva</strong> has been one of Türkiye's
                     leading event production companies since 2012. With a team specialised in stage
-                    rentals, LED walls, sound-light systems and professional installation,
+                    rentals, LED walls, sound and lighting systems and professional installation,
                     we bring every event to life through technical excellence and creative vision.
                   </p>
                   <p>
@@ -601,7 +601,9 @@ export default function AboutPage() {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-2xl mx-auto">
               <p className="text-white/90 text-sm">
-                <strong>⏱️ Response within 2 hours:</strong> During business hours we provide a detailed quotation and professional guidance within two hours.
+                <strong>⏱️ Prompt acknowledgement:</strong> During business hours we acknowledge
+                briefs promptly. Proposal timing depends on scope and whether a site survey is
+                required.
               </p>
             </div>
           </div>

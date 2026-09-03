@@ -386,7 +386,8 @@ export default function BlogPostDome360Mapping() {
                     👉 Dome Tent &amp; Technical Production Quote
                   </p>
                   <p className="text-sm text-violet-800">
-                    Get in touch within 2 hours for a 3D layout plan and mapping concept.
+                    Share your brief for a 3D layout plan and mapping concept. We acknowledge
+                    briefs promptly during business hours; proposal timing depends on scope.
                   </p>
                   <p className="text-sm text-violet-800 mt-2">
                     Other options:{" "}

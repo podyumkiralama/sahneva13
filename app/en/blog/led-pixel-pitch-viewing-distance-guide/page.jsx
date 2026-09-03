@@ -196,7 +196,7 @@ function StructuredData() {
           width: 1600,
           height: 739,
         },
-        author: { "@type": "Organization", "@id": ORGANIZATION_ID, name: "Sahneva" },
+        author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         audience: {
@@ -277,8 +277,8 @@ export default function Page() {
 
         <p>
           This buyer&apos;s guide focuses on that decision. For equipment, installation and on-site operation,
-          see <Link href="/en/led-screen-rental">LED screen rental</Link>. For the commercial scope behind a
-          quote—including panel area, processing, crew, rigging and logistics—use the dedicated{" "}
+          see <Link href="/en/led-screen-rental">LED screen rental</Link>. To compare the full quote scope—including
+          panel area, processing, crew, rigging and logistics—use the dedicated{" "}
           <Link href="/en/led-screen-rental-prices">LED screen rental price guide</Link>.
         </p>
 

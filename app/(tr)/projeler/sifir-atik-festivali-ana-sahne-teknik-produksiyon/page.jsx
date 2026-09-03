@@ -15,6 +15,7 @@ import {
 import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -769,7 +770,7 @@ function buildJsonLd() {
     name: service.title,
     description: service.desc,
     url: `${SITE_URL}${service.href}`,
-    provider: { "@id": `${SITE_URL}/#org` },
+    provider: { "@id": ORGANIZATION_ID },
   }));
 
   const videoNode = {
@@ -782,7 +783,7 @@ function buildJsonLd() {
     embedUrl: PROJECT_VIDEO.embedUrl,
     contentUrl: PROJECT_VIDEO.contentUrl,
     inLanguage: "tr-TR",
-    publisher: { "@id": `${SITE_URL}/#org` },
+    publisher: { "@id": ORGANIZATION_ID },
     ...getVideoFactProps("z4DqZERYXkM"),
     url: `${PAGE_URL}#ana-sahne-gercek-saha-operasyonu-videosu`,
   };
@@ -790,12 +791,6 @@ function buildJsonLd() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#org`,
-        name: "Sahneva",
-        url: SITE_URL,
-      },
       {
         "@type": "WebPage",
         "@id": `${PAGE_URL}#webpage`,
@@ -813,7 +808,7 @@ function buildJsonLd() {
         // (araligi Thing oldugu icin Service gecerli).
         hasPart: [{ "@id": `${PAGE_URL}#faq` }, { "@id": videoNode["@id"] }],
         mentions: serviceNodes.map((node) => ({ "@id": node["@id"] })),
-        publisher: { "@id": `${SITE_URL}/#org` },
+        publisher: { "@id": ORGANIZATION_ID },
       },
       {
         "@type": ["CreativeWork", "Project"],
@@ -823,8 +818,8 @@ function buildJsonLd() {
         description: META_DESCRIPTION,
         url: PAGE_URL,
         image: Object.values(IMAGES).map((image) => `${SITE_URL}${image.src}`),
-        provider: { "@id": `${SITE_URL}/#org` },
-        publisher: { "@id": `${SITE_URL}/#org` },
+        provider: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
         datePublished: PUBLISHED_AT,
         dateModified: MODIFIED_AT,
         inLanguage: "tr-TR",

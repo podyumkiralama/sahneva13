@@ -5,6 +5,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { EDITOR_ID, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -176,8 +177,7 @@ export const metadata = {
 };
 
 function ArticleSchema() {
-  const orgId = `${SITE_URL}/#org`;
-  const editorId = `${SITE_URL}/#editor`;
+  const orgId = ORGANIZATION_ID;
 
   const data = {
     "@context": "https://schema.org",
@@ -191,7 +191,7 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@id": editorId },
+        author: { "@id": EDITOR_ID },
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -210,25 +210,6 @@ function ArticleSchema() {
           { "@type": "WebPage", "@id": `${SITE_URL}/truss-kiralama` },
           { "@type": "WebPage", "@id": `${SITE_URL}/kurumsal-organizasyon` },
         ],
-      },
-      {
-        "@type": "Organization",
-        "@id": orgId,
-        name: "Sahneva",
-        url: SITE_URL,
-        logo: {
-          "@type": "ImageObject",
-          "@id": `${SITE_URL}/#logo`,
-          url: `${SITE_URL}/img/logo.png`,
-          contentUrl: `${SITE_URL}/img/logo.png`,
-        },
-      },
-      {
-        "@type": "Person",
-        "@id": editorId,
-        name: AUTHOR_NAME,
-        url: SITE_URL,
-        worksFor: { "@id": orgId },
       },
       {
         "@type": "FAQPage",

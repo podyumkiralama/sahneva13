@@ -19,7 +19,7 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
-  "Hello, I would like to request a quote for concert podium rental."
+  "Hello, I would like to request a quote for concert stage deck rental."
 )}`;
 
 const BLUR_DATA_URL =
@@ -125,13 +125,13 @@ const RELATED_SERVICES = [
     href: "/en/podium-rental",
     title: "Stage Platform Rental",
     icon: "🎭",
-    desc: "Modular podium solutions for all event types",
+    desc: "Modular stage platform solutions for all event types",
   },
   {
     href: "/en/runway-podium-rental",
     title: "Runway & Catwalk Rental",
     icon: "👗",
-    desc: "Fashion show and brand launch podiums",
+    desc: "Fashion show and brand launch catwalk platforms",
   },
   {
     href: "/en/led-screen-rental",
@@ -151,7 +151,7 @@ const RELATED_SERVICES = [
 export const metadata = {
   title: "Concert Stage Deck Rental | Festival Staging",
   description:
-    "Concert and festival podium rental with main platforms, side towers, FOH areas and end-to-end technical support across Turkey.",
+    "Concert and festival stage deck rental with main platforms, side towers, FOH areas and end-to-end technical support across Turkey.",
   alternates: buildAlternatesForPath("/en/concert-podium-rental"),
   openGraph: {
     title: "Concert Stage Deck Rental | Sahneva",
@@ -166,7 +166,7 @@ export const metadata = {
         url: `${ORIGIN}/img/podyum/konser-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Professional stage and podium rental for concerts – Sahneva",
+        alt: "Professional stage deck rental for concerts – Sahneva",
       },
     ],
   },
@@ -208,7 +208,7 @@ function HeroSection() {
   const stats = [
     { icon: "🎤", value: PROJECTS_COMPLETED, label: "Completed Projects" },
     { icon: "🇹🇷", value: "Nationwide", label: "Service Area" },
-    { icon: "??", value: `${YEARS_OF_EXPERIENCE} Years`, label: "Field Experience" },
+    { icon: "📅", value: `${YEARS_OF_EXPERIENCE} Years`, label: "Field Experience" },
     { icon: "🛡️", value: "Engineering", label: "Certified Systems" },
   ];
 
@@ -220,7 +220,7 @@ function HeroSection() {
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           src="/img/podyum/konser-hero.webp"
-          alt="Professional stage and podium installation for concerts – Sahneva"
+          alt="Professional stage deck installation for concerts – Sahneva"
           fill
           priority
           fetchPriority="high"
@@ -280,7 +280,7 @@ function HeroSection() {
               </div>
             ))}
           </div>
-          <span className="sr-only">Concert Podium Rental - Sahneva Organization</span>
+          <span className="sr-only">Concert Stage Deck Rental - Sahneva Organization</span>
         </div>
       </div>
       <div className="relative z-10 h-12 bg-gradient-to-b from-transparent to-white" />
@@ -297,7 +297,7 @@ function QuickAnswerSection() {
             Quick answer
           </p>
           <h2 id="concert-podium-quick-answer" className="mt-3 text-2xl font-black text-slate-950">
-            Concert podium rental includes the main stage and support platforms.
+            Concert stage deck rental includes the main stage and support platforms.
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-700">
             A concert setup usually needs a main platform, side platforms, FOH,
@@ -396,7 +396,7 @@ function ArticlesSection() {
               lighting, sound, LED screens, backstage work, and audience experience meet.
             </p>
             <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              Sahneva plans concert podium rental and festival stage installation for different
+              Sahneva plans concert stage deck rental and festival stage installation for different
               event scales. We support indoor shows, open-air concerts, and large festival fields
               across Istanbul and Turkey.
             </p>
@@ -500,7 +500,7 @@ function ArticlesSection() {
           <div className="w-full lg:w-[420px] shrink-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
             <Image
               src="/img/podyum/konser-3.webp"
-              alt="Outdoor concert podium – LED screen integration and truss system"
+              alt="Outdoor concert stage deck – LED screen integration and truss system"
               width={840}
               height={560}
               className="w-full h-auto object-cover"
@@ -548,7 +548,7 @@ function ArticlesSection() {
         {/* Why Sahneva box */}
         <aside className="rounded-3xl border-l-4 border-yellow-400 bg-yellow-50 p-8 md:p-10 shadow-lg">
           <h3 className="text-2xl font-black text-yellow-700 mb-5 flex items-center gap-3">
-            <span aria-hidden="true">💎</span> Why Sahneva for Concert Podium Rental?
+            <span aria-hidden="true">💎</span> Why Sahneva for Concert Stage Deck Rental?
           </h3>
             <p className="text-yellow-800 text-lg leading-relaxed mb-4">
               Sahneva brings equipment planning, field experience, and technical coordination
@@ -556,7 +556,7 @@ function ArticlesSection() {
             </p>
             <p className="text-yellow-800 text-lg leading-relaxed mb-6">
               Share your event date, city, venue, stage size, and technical rider. We can prepare
-              a project-based quote for podium, stage, LED, sound, lighting, and truss needs.
+              a project-based quote for stage platforms, LED, sound, lighting, and truss needs.
             </p>
           <Link
             href={WHATSAPP_URL}

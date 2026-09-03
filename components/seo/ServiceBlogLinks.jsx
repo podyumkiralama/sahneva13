@@ -18,6 +18,10 @@ function getAnchorText(item) {
   return item.anchorText || item.label;
 }
 
+function getVisibleDescription(item) {
+  return item.description || item.summary;
+}
+
 function isTentRentalCluster(clusterItems) {
   return clusterItems.some((item) =>
     item?.href?.includes("dome-cadir") || item?.href?.includes("cadir"),
@@ -105,22 +109,22 @@ function TentRentalCompactAddons() {
 
 const CLUSTER_COPY = {
   tr: {
-    eyebrow: "İç link akışı",
+    eyebrow: "İlgili içerikler",
     title: "Bu konuya dair rehberler",
     description: "İlgili blog yazılarından detaylı ipuçları ve güncel yaklaşımları keşfedin.",
     guidesTitle: "İlgili rehber içerikler",
-    servicesTitle: "İlgili hizmet halkası",
-    servicesDesc: "Bu rehber ve hizmet kümesini destekleyen en yakın sayfaları burada topluyoruz.",
-    navAriaSuffix: "iç link kümesi",
+    servicesTitle: "İlgili hizmetler",
+    servicesDesc: "İhtiyacınızı tamamlayan hizmet sayfalarını buradan inceleyebilirsiniz.",
+    navAriaSuffix: "bağlantıları",
   },
   en: {
-    eyebrow: "Internal link flow",
+    eyebrow: "Related resources",
     title: "Guides on this topic",
     description: "Explore detailed tips and up-to-date approaches from our related articles.",
     guidesTitle: "Related guide articles",
-    servicesTitle: "Related service cluster",
-    servicesDesc: "The closest pages supporting this guide and service cluster are collected here.",
-    navAriaSuffix: "internal link cluster",
+    servicesTitle: "Related services",
+    servicesDesc: "Explore the service pages that complement this topic and project scope.",
+    navAriaSuffix: "links",
   },
 };
 
@@ -132,8 +136,6 @@ export default function ServiceBlogLinks({
   links = [],
   relatedServices = [],
   primaryIntent,
-  secondaryIntent,
-  funnelStage,
 }) {
   if (!links.length && !relatedServices.length) return null;
 
@@ -182,25 +184,6 @@ export default function ServiceBlogLinks({
             <h3 className="mt-5 text-2xl font-black tracking-tight text-slate-900 md:text-3xl">{resolvedTitle}</h3>
             <p className="mt-3 text-base leading-relaxed text-slate-600">{resolvedDescription}</p>
 
-            {primaryIntent || secondaryIntent ? (
-              <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-slate-700">
-                {primaryIntent ? (
-                  <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1.5 text-violet-800">
-                    {primaryIntent}
-                  </span>
-                ) : null}
-                {secondaryIntent ? (
-                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
-                    {secondaryIntent}
-                  </span>
-                ) : null}
-                {funnelStage ? (
-                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-emerald-800">
-                    {funnelStage}
-                  </span>
-                ) : null}
-              </div>
-            ) : null}
           </div>
 
           <div className={`mt-8 grid gap-6 ${relatedServices.length ? "lg:grid-cols-[1.15fr_0.85fr]" : ""}`}>
@@ -211,7 +194,9 @@ export default function ServiceBlogLinks({
                   <div className="text-lg font-black">{copy.guidesTitle}</div>
                 </div>
                 <ul className="mt-5 grid gap-3 md:grid-cols-2">
-                  {links.map((link) => (
+                  {links.map((link) => {
+                    const visibleDescription = getVisibleDescription(link);
+                    return (
                     <li key={link.href}>
                       <Link
                         href={link.href}
@@ -220,9 +205,9 @@ export default function ServiceBlogLinks({
                       >
                         <span>
                           <span className="block">{getAnchorText(link)}</span>
-                          {link.intent ? (
+                          {visibleDescription ? (
                             <span className="mt-1 block text-xs font-medium leading-relaxed text-slate-500">
-                              {link.intent}
+                              {visibleDescription}
                             </span>
                           ) : null}
                         </span>
@@ -232,7 +217,8 @@ export default function ServiceBlogLinks({
                         />
                       </Link>
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             ) : null}
@@ -247,7 +233,9 @@ export default function ServiceBlogLinks({
                   {copy.servicesDesc}
                 </p>
                 <ul className="mt-5 grid gap-3">
-                  {relatedServices.map((service) => (
+                  {relatedServices.map((service) => {
+                    const visibleDescription = getVisibleDescription(service);
+                    return (
                     <li key={service.href}>
                       <Link
                         href={service.href}
@@ -256,9 +244,9 @@ export default function ServiceBlogLinks({
                       >
                         <span>
                           <span className="block">{getAnchorText(service)}</span>
-                          {service.intent ? (
+                          {visibleDescription ? (
                             <span className="mt-1 block text-xs font-medium leading-relaxed text-white/55">
-                              {service.intent}
+                              {visibleDescription}
                             </span>
                           ) : null}
                         </span>
@@ -268,7 +256,8 @@ export default function ServiceBlogLinks({
                         />
                       </Link>
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             ) : null}

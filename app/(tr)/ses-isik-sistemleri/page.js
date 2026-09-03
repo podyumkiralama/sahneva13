@@ -423,7 +423,7 @@ function PricingGuide() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" aria-hidden="true" />
               </div>
               <div className="p-7 md:p-9">
-                <span className="inline-flex rounded-full border border-violet-300/30 bg-violet-400/10 px-4 py-2 text-sm font-bold text-violet-200">
+                <span className="inline-flex rounded-full border border-violet-700 bg-violet-800 px-4 py-2 text-sm font-bold text-white">
                   {pkg.label}
                 </span>
                 <h3 id={`${pkg.id}-baslik`} className="mt-5 text-3xl font-black">

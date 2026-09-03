@@ -666,7 +666,8 @@ export default function ServicesPage() {
               Hemen <span className="text-yellow-300">Teklif Alın</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Etkinliğiniz için en uygun çözümleri sunalım. 2 saat içinde detaylı teklif hazırlıyoruz.
+              Etkinliğiniz için en uygun çözümleri birlikte netleştirelim. Mesai saatlerinde hızlı
+              ilk dönüş sağlarız; teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
@@ -684,7 +685,7 @@ export default function ServicesPage() {
                 href="https://wa.me/905453048671"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="WhatsApp'tan yaz - Hızlı teklif için (yeni sekmede açılır)"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -705,8 +706,8 @@ export default function ServicesPage() {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-2xl mx-auto">
               <p className="text-white/90 text-sm">
-                <strong>⏱️ 2 Saat İçinde Yanıt:</strong> Mesai saatleri içinde tüm taleplerinize 
-                2 saat içinde detaylı teklif ve profesyonel danışmanlık sunuyoruz.
+                <strong>⏱️ Hızlı ilk dönüş:</strong> Mesai saatlerinde hızlı ilk dönüş sağlarız.
+                Teklif süresi kapsamın netliğine ve keşif gereksinimine göre değişir.
               </p>
             </div>
           </div>

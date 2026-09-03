@@ -1,4 +1,4 @@
-﻿import Image, { getImageProps } from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -71,52 +71,9 @@ const OG_IMAGE = "/img/kurumsal/premium/kurumsal-organizasyon-og.webp";
 const OG_IMAGE_ALT = "Kurumsal organizasyon sahne, LED ekran ve teknik prodüksiyon Sahneva";
 const BLUR_DATA_URL = DEFAULT_BLUR_DATA_URL;
 const HERO_IMAGE_SIZE = { width: 1440, height: 960 };
-const HERO_IMAGE_VARIANTS = {
-  desktop: { width: 1440, height: 960 },
-  tablet: { width: 1080, height: 720 },
-  mobile: { width: 760, height: 507 },
-};
-const HERO_IMAGE_CLASS =
-  "absolute inset-0 h-full w-full object-cover object-center";
 const GALLERY_MAIN_SIZES = "(max-width: 1024px) calc(100vw - 32px), 840px";
 const GALLERY_SIDE_SIZES = "(max-width: 1024px) calc(100vw - 32px), 400px";
 const GALLERY_CARD_SIZES = "(max-width: 768px) calc(100vw - 32px), 410px";
-
-function getOptimizedHeroPictureProps() {
-  const commonProps = {
-    alt: HERO.alt,
-    sizes: HERO.sizes,
-    className: HERO_IMAGE_CLASS,
-  };
-  const {
-    props: { srcSet: mobileSrcSet },
-  } = getImageProps({
-    ...commonProps,
-    src: HERO.mobileSrc ?? HERO.src,
-    ...HERO_IMAGE_VARIANTS.mobile,
-    quality: 72,
-    sizes: "100vw",
-  });
-  const {
-    props: { srcSet: tabletSrcSet },
-  } = getImageProps({
-    ...commonProps,
-    src: HERO.tabletSrc ?? HERO.src,
-    ...HERO_IMAGE_VARIANTS.tablet,
-    quality: 74,
-    sizes: "100vw",
-  });
-  const { props: imageProps } = getImageProps({
-    ...commonProps,
-    src: HERO.src,
-    ...HERO_IMAGE_VARIANTS.desktop,
-    quality: 78,
-    loading: "eager",
-    fetchPriority: "high",
-  });
-
-  return { imageProps, mobileSrcSet, tabletSrcSet };
-}
 
 const generateWhatsAppLink = (intent = "kurumsal organizasyon") => {
   const text = `Merhaba, ${intent} için teklif istiyorum. Etkinlik türü: [lansman/konferans/gala], tarih: [gg.aa.yyyy], şehir/mekan: [bilgi], kişi sayısı: [xxx].`;
@@ -525,8 +482,6 @@ function CorporateOrganizationJsonLd() {
 }
 
 function Hero() {
-  const heroPicture = getOptimizedHeroPictureProps();
-
   return (
     <PageHero
       eyebrow="Türkiye'nin kurumsal etkinlik teknoloji partneri"
@@ -553,11 +508,12 @@ function Hero() {
         { value: `${PROVINCES_COUNT} il`, label: "Türkiye geneli kurulum" },
       ]}
       image={{
+        src: HERO.src,
         alt: HERO.alt,
-        imgProps: heroPicture.imageProps,
+        ...HERO_IMAGE_SIZE,
         sources: [
-          { media: "(max-width: 640px)", srcSet: heroPicture.mobileSrcSet },
-          { media: "(max-width: 1024px)", srcSet: heroPicture.tabletSrcSet },
+          { media: "(max-width: 640px)", srcSet: HERO.mobileSrc },
+          { media: "(max-width: 1024px)", srcSet: HERO.tabletSrc },
         ],
       }}
     />

@@ -535,7 +535,7 @@ const TECHNICAL_ITEMS = [
     items: [
       "Crewed delivery and on-site assembly",
       "Protective padding and floor guards",
-      "Night-time dismantle options",
+      "Night-time dismantling options",
     ],
   },
   {
@@ -959,7 +959,7 @@ const FAQ_ITEMS = [
   {
     question: "Do you handle delivery and setup?",
     answer:
-      "All packages include transport, crewed installation and dismantle. Night-time operations and multi-day rentals are available on request.",
+      "All packages include transport, crewed installation and dismantling. Night-time operations and multi-day rentals are available on request.",
   },
   {
     question: "Do you provide event furniture rental across Turkey?",

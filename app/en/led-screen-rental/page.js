@@ -5,6 +5,7 @@ import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
+import StaticResponsiveImage from "@/components/media/StaticResponsiveImage";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
@@ -12,6 +13,7 @@ import PageHero from "@/components/PageHero";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
+import { getHomeResponsiveImage } from "@/lib/homeResponsiveImages";
 import {
   Activity,
   ArrowRight,
@@ -71,6 +73,14 @@ const GALA_STAGE_HERO_MOBILE =
   "/img/led/gala-led-sahne-video-wall-sahneva-hero-mobile.webp";
 const OUTDOOR_CONCERT_IMAGE =
   "/img/led/acik-hava-konser-led-ekran-sahneva.webp";
+
+function QuotaSafeLedImage({ src, alt, fill, unoptimized, ...props }) {
+  if (getHomeResponsiveImage(src)) {
+    return <StaticResponsiveImage src={src} alt={alt} {...props} />;
+  }
+
+  return <Image src={src} alt={alt} fill={fill} unoptimized={unoptimized} {...props} />;
+}
 
 const getServiceWhatsappLink = (title) => {
   const text = `Hello, I would like a technical assessment and proposal for ${title}. Event date: [dd.mm.yyyy], venue: [indoor/outdoor], estimated screen size: [xx m2].`;
@@ -303,12 +313,17 @@ function Services() {
           </p>
         </div>
 
-        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+        <div
+          role="region"
+          aria-label="LED screen service cards, scroll horizontally"
+          tabIndex={0}
+          className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3"
+        >
           {SERVICES.map((service) => {
             const id = `svc-${slugify(service.title)}`;
             return (
               <article key={id} className="group relative min-h-[380px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl sm:w-auto" aria-labelledby={id}>
-                <Image
+                <QuotaSafeLedImage
                   src={service.image}
                   alt={`${service.title} delivered by Sahneva`}
                   fill
@@ -389,7 +404,7 @@ function CurvedP19Proof() {
         <div className="mt-9 grid gap-5 md:grid-cols-[0.75fr_1.25fr]">
           <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
             <div className="relative h-[340px] overflow-hidden bg-slate-950 md:h-[460px]">
-              <Image
+              <QuotaSafeLedImage
                 src={CURVED_P19_RING_IMAGE}
                 alt="Rear connections of eight Absen P1.9 LED panels joined at 45 degrees to form a 360-degree circular display"
                 fill
@@ -412,7 +427,7 @@ function CurvedP19Proof() {
 
           <figure className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-xl">
             <div className="relative h-[340px] overflow-hidden bg-slate-950 md:h-[460px]">
-              <Image
+              <QuotaSafeLedImage
                 src={CURVED_P19_STAGE_IMAGE}
                 alt="Absen P1.9 curved upper LED band and circular LED ring installed on an event stage"
                 fill
@@ -500,7 +515,7 @@ function Gallery() {
         <div className="mb-12 grid items-start gap-5 lg:grid-cols-[1.35fr_0.65fr]">
           <article className="relative self-start overflow-hidden rounded-3xl border border-gray-200 bg-slate-900 shadow-xl">
             <div className="relative h-[420px] sm:h-[520px] lg:h-[690px]">
-              <Image src={GALLERY_IMAGES[0].src} alt={GALLERY_IMAGES[0].alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 66vw" />
+              <QuotaSafeLedImage src={GALLERY_IMAGES[0].src} alt={GALLERY_IMAGES[0].alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 66vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" aria-hidden="true" />
               <div className="absolute inset-x-6 bottom-6 max-w-2xl">
                 <div className="mb-3 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-violet-200 backdrop-blur">Featured installation</div>
@@ -510,11 +525,16 @@ function Gallery() {
             </div>
           </article>
 
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0">
+          <div
+            role="region"
+            aria-label="Featured LED installation gallery, scroll horizontally"
+            tabIndex={0}
+            className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:overflow-visible lg:px-0 lg:pb-0"
+          >
             {GALLERY_IMAGES.slice(1, 3).map((image) => (
               <article key={image.src} className="w-[82vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg lg:w-auto">
                 <div className="relative h-[240px] lg:h-[260px]">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
+                  <QuotaSafeLedImage src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
                 </div>
                 <div className="p-5"><p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p></div>
               </article>
@@ -525,11 +545,16 @@ function Gallery() {
         <div>
           <h3 className="text-2xl font-black text-gray-900 md:text-3xl">Selected field applications</h3>
           <p className="mt-2 text-base text-gray-600">A closer look at the visual character, scale and technical finish of our LED productions.</p>
-          <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4">
+          <div
+            role="region"
+            aria-label="LED field application gallery, scroll horizontally"
+            tabIndex={0}
+            className="-mx-4 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4"
+          >
             {GALLERY_IMAGES.slice(3).map((image) => (
               <article key={image.src} className="w-[80vw] shrink-0 snap-start overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl md:w-auto">
                 <div className="relative h-[320px] md:h-[360px]">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw" />
+                  <QuotaSafeLedImage src={image.src} alt={image.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw" />
                 </div>
                 <div className="p-5"><p className="text-sm font-semibold leading-relaxed text-gray-700">{image.caption}</p></div>
               </article>
@@ -601,7 +626,12 @@ function Technical() {
           </p>
         </div>
 
-        <div className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6">
+        <div
+          role="region"
+          aria-label="LED technical infrastructure cards, scroll horizontally"
+          tabIndex={0}
+          className="-mx-4 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-6"
+        >
           {technicalItems.map((item) => {
             const detailsId = `${slugify(item.title)}-details`;
 
@@ -681,17 +711,24 @@ function UseCases() {
           </p>
         </div>
 
-        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 lg:gap-6">
-          {USE_CASES.map((uc) => (
-            <li key={uc.title} className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 md:w-auto">
-              <div className="mb-5 text-violet-400 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
-                <uc.Icon size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="mb-3 text-lg font-black uppercase leading-tight tracking-wide text-white">{uc.title}</h3>
-              <p className="border-t border-white/10 pt-3 text-sm leading-relaxed text-white/75">{uc.desc}</p>
-            </li>
-          ))}
-        </ul>
+        <div
+          role="region"
+          aria-label="LED screen use cases, scroll horizontally"
+          tabIndex={0}
+          className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:overflow-visible md:px-0 md:pb-0"
+        >
+          <ul className="flex snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {USE_CASES.map((uc) => (
+              <li key={uc.title} className="group w-[82vw] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 md:w-auto">
+                <div className="mb-5 text-violet-400 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+                  <uc.Icon size={32} strokeWidth={1.5} />
+                </div>
+                <h3 className="mb-3 text-lg font-black uppercase leading-tight tracking-wide text-white">{uc.title}</h3>
+                <p className="border-t border-white/10 pt-3 text-sm leading-relaxed text-white/75">{uc.desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="text-center mt-12">
           <Link

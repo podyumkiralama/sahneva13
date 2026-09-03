@@ -5,6 +5,7 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { EDITOR_ID, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -140,8 +141,7 @@ export const metadata = {
 };
 
 function ArticleSchema() {
-  const orgId = `${SITE_URL}/#org`;
-  const editorId = `${SITE_URL}/#editor`;
+  const orgId = ORGANIZATION_ID;
   const articleId = `${BLOG_URL}#article`;
   const webpageId = `${BLOG_URL}#webpage`;
   const imageId = `${BLOG_URL}#primaryimage`;
@@ -164,7 +164,7 @@ function ArticleSchema() {
         name: TITLE,
         description: DESCRIPTION,
         inLanguage: "tr-TR",
-        isPartOf: { "@id": `${SITE_URL}/#website` },
+        isPartOf: { "@id": WEBSITE_ID },
         primaryImageOfPage: { "@id": imageId },
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
@@ -175,7 +175,7 @@ function ArticleSchema() {
         headline: TITLE,
         description: DESCRIPTION,
         image: { "@id": imageId },
-        author: { "@id": editorId },
+        author: { "@id": EDITOR_ID },
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@id": webpageId },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -247,25 +247,6 @@ function ArticleSchema() {
             text: "Işık geçişlerini, sahne akışını, konuşmacı görünürlüğünü, kamera görüntüsünü ve kritik final anlarını etkinlik öncesi test edin.",
           },
         ],
-      },
-      {
-        "@type": "Organization",
-        "@id": orgId,
-        name: "Sahneva",
-        url: SITE_URL,
-        logo: {
-          "@type": "ImageObject",
-          "@id": `${SITE_URL}/#logo`,
-          url: `${SITE_URL}/img/logo.png`,
-          contentUrl: `${SITE_URL}/img/logo.png`,
-        },
-      },
-      {
-        "@type": "Person",
-        "@id": editorId,
-        name: AUTHOR_NAME,
-        url: SITE_URL,
-        worksFor: { "@id": orgId },
       },
       {
         "@type": "FAQPage",

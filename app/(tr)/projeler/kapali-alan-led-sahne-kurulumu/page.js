@@ -27,6 +27,7 @@ export const metadata = {
       "Devlet Protokolüne Uygun Kapalı Alan LED ve Sahne Kurulumu — Sahneva",
     description:
       "24×6 m P2 LED, 24×8 m sahne/podyum, scaff ve truss ile büyük ölçekli kapalı alan kurulumu.",
+    locale: "tr_TR",
     images: [
       {
         url: `${SITE_URL}${HERO_IMAGE}`,

@@ -18,7 +18,7 @@ import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
-import { WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
@@ -32,7 +32,6 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const PAGE_PATH = "/dome-cadir-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
 const PHONE = "+905453048671";
@@ -867,13 +866,7 @@ function DomeRentalJsonLd() {
   const pageDescription =
     "360° mapping, lansman ve deneyim alanı kurguları için dome çadır kiralama. Pnömatik ve geodezik dome kurulumu, projeksiyon ve akustik planıyla birlikte.";
 
-  const provider = {
-    "@type": "Organization",
-    "@id": ORGANIZATION_ID,
-    name: "Sahneva",
-    url: ORIGIN,
-    telephone: PHONE,
-  };
+  const provider = { "@id": ORGANIZATION_ID };
 
   const serviceNode = {
     "@type": "Service",

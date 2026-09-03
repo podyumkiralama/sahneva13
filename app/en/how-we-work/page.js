@@ -3,6 +3,7 @@ import HowItWorksClient from "@/app/(tr)/nasil-calisiyoruz/HowItWorksClient";
 import { EN_HOW_IT_WORKS_DICTIONARY } from "./dictionary";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 /* ================== SEO METADATA ================== */
@@ -39,8 +40,6 @@ export const metadata = {
 
 /* ================== JSON-LD ================== */
 function HowWeWorkJsonLd({ stepsData, faqs }) {
-  const orgId = `${SITE}/#org`;
-  const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const howtoId = `${PAGE_URL}#howto`;
@@ -50,22 +49,14 @@ function HowWeWorkJsonLd({ stepsData, faqs }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": webId,
-        url: SITE,
-        name: "Sahneva Organization",
-        publisher: { "@id": orgId },
-        inLanguage: "en-US",
-      },
-      {
         "@type": "WebPage",
         "@id": pageId,
         url: PAGE_URL,
         name: "How We Work",
         description:
           "At Sahneva, the process is planned end-to-end: needs analysis, quote, technical survey, installation, and dismantling.",
-        isPartOf: { "@id": webId },
-        about: { "@id": orgId },
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
         breadcrumb: { "@id": breadcrumbId },
       },
@@ -121,7 +112,7 @@ export default function HowItWorksPage() {
       label: "First contact",
       title: "Needs Form & Initial Contact",
       plainText:
-        "Share your needs (LED screen, truss, stage, sound-lighting) with us via the contact form or WhatsApp.",
+        "Share your needs (LED screen, truss, stage, sound and lighting) with us via the contact form or WhatsApp.",
       imageSrc: `${IMG_DIR}/01-ilk-iletisim.webp`,
       imageAlt: "Initial contact with Sahneva and identifying needs",
     },
@@ -166,7 +157,7 @@ export default function HowItWorksPage() {
       label: "24/48 hours before",
       title: "Installation & Tests",
       plainText:
-        "Installation takes place 24-48 hours before the event. Sound-lighting and LED screen tests and safety checks are completed.",
+        "Installation takes place 24-48 hours before the event. Sound, lighting and LED screen tests and safety checks are completed.",
       imageSrc: `${IMG_DIR}/06-kurulum.webp`,
       imageAlt: "On-site installation and testing process",
     },
@@ -205,7 +196,7 @@ export default function HowItWorksPage() {
     },
     {
       q: "Can I get multiple services at the same time?",
-      a: "Yes. We can package items such as stage, truss, sound-lighting, tent, and seating arrangement into a single project.",
+      a: "Yes. We can package items such as stage, truss, sound and lighting, tent, and seating arrangement into a single project.",
     },
   ];
 

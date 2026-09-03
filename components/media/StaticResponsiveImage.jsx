@@ -17,8 +17,8 @@ const PICTURE_STYLE = {
  * Direct, pre-generated responsive image for quota-safe static assets.
  *
  * The site intentionally keeps Next's metered image transformer disabled.
- * This component restores real browser `srcset` selection for the audited
- * Turkish-homepage images without sending a request to /_next/image.
+ * This component restores real browser `srcset` selection for audited static
+ * site images without sending a request to /_next/image.
  */
 export default function StaticResponsiveImage({
   src,

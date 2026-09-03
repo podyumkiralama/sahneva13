@@ -446,7 +446,8 @@ export default function BlogPostDome360Mapping() {
                     👉 Dome Çadır &amp; Teknik Prodüksiyon Teklifi
                   </p>
                   <p className="text-sm text-violet-800">
-                    2 saat içinde 3D yerleşim planı ve mapping konsepti için iletişime geçin.
+                    3D yerleşim planı ve mapping konsepti için briefinizi paylaşın. Mesai
+                    saatlerinde hızlı ilk dönüş sağlarız; teklif süresi kapsama göre değişir.
                   </p>
                   <p className="text-sm text-violet-800 mt-2">
                     Diğer seçenekler:{" "}

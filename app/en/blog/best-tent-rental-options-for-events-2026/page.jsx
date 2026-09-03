@@ -73,7 +73,7 @@ const GALLERY_IMAGES = [
     alt: "Tent, stage and technical equipment integration at an event site",
     title: "On-Site Integration",
     caption:
-      "The tent is handled in a single technical plan together with stage, LED screen and sound-light systems.",
+      "The tent is handled in a single technical plan together with the stage, LED screen, sound, and lighting systems.",
   },
 ];
 

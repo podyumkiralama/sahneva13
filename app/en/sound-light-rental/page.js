@@ -115,7 +115,7 @@ const SERVICES = [
     icon: "🎚️",
     title: "Live Operation & Technical Crew",
     description: "End-to-end technical direction from rehearsal to teardown",
-    features: ["Soundcheck & rehearsals", "Rapid-response technicians", "Post-show dismantle"],
+    features: ["Soundcheck & rehearsals", "Rapid-response technicians", "Post-show dismantling"],
   },
 ];
 
@@ -276,7 +276,7 @@ function Services() {
             Sound system, PA & <span className="gradient-text gradient-text--safe-xl">event lighting rental</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Complete sound and lighting rental including discovery, design, installation, live operation and dismantle
+            Complete sound and lighting rental including discovery, design, installation, live operation and dismantling
           </p>
         </div>
 
@@ -834,9 +834,9 @@ const FAQ_SCHEMA_ITEMS = [
       "We assess venue size, audience capacity, event format and budget to recommend a suitable package. A site survey helps us analyse the space and tailor the configuration.",
   },
   {
-    question: "How long do installation and dismantle take?",
+    question: "How long do installation and dismantling take?",
     answer:
-      "Indoor setups are typically completed within 4 to 6 hours, while outdoor productions take around 6 to 8 hours. Complex rigging projects may begin the day before. Dismantle averages 2 to 4 hours depending on scope.",
+      "Indoor setups are typically completed within 4 to 6 hours, while outdoor productions take around 6 to 8 hours. Complex rigging projects may begin the day before. Dismantling averages 2 to 4 hours depending on scope.",
   },
   {
     question: "Do you provide live operation and technical staff?",
@@ -862,8 +862,8 @@ function FAQ() {
       a: "We assess your venue size, audience capacity, event format and budget to recommend the optimal package. Our complimentary site survey allows us to analyse the space and tailor the configuration precisely.",
     },
     {
-      q: "How long do installation and dismantle take?",
-      a: "Indoor setups are typically completed within 4–6 hours, while outdoor productions take around 6–8 hours. Complex rigging projects begin the day before. Dismantle averages 2–4 hours depending on scope.",
+      q: "How long do installation and dismantling take?",
+      a: "Indoor setups are typically completed within 4–6 hours, while outdoor productions take around 6–8 hours. Complex rigging projects begin the day before. Dismantling averages 2–4 hours depending on scope.",
     },
     {
       q: "Do you provide live operation and technical staff?",

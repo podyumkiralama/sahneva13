@@ -80,9 +80,9 @@ export const metadata = {
     locale: "tr_TR",
     images: [
       {
-        url: `${ORIGIN}/img/sahne/6.webp`,
-        width: 1200,
-        height: 630,
+        url: `${ORIGIN}/img/sahne/6-hero-desktop.webp`,
+        width: 1600,
+        height: 900,
         alt: "Sahneva Organizasyon sahne kiralama – konser, konferans, lansman ve festival için profesyonel sahne çözümleri",
       },
     ],
@@ -92,7 +92,7 @@ export const metadata = {
     title: "Sahne Kiralama | Profesyonel Sahne Çözümleri | Sahneva",
     description:
       "Konser, konferans, lansman ve festival etkinlikleri için profesyonel sahne çözümleri.",
-    images: [`${ORIGIN}/img/sahne/6.webp`],
+    images: [`${ORIGIN}/img/sahne/6-hero-desktop.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,
 };
@@ -107,9 +107,20 @@ const slugify = (s) =>
     .replace(/-+/g, "-");
 
 const HERO = {
-  src: "/img/sahne/6.webp",
+  src: "/img/sahne/6-hero-desktop.webp",
+  width: 1600,
+  height: 900,
+  sources: [
+    {
+      media: "(max-width: 640px)",
+      srcSet: "/img/sahne/6-hero-mobile.webp",
+    },
+    {
+      media: "(max-width: 1024px)",
+      srcSet: "/img/sahne/6-hero-tablet.webp",
+    },
+  ],
   alt: "Profesyonel sahne kurulumu - Konser sahnesinde truss sistemleri, LED ekran ve ışık performansı",
-  sizes: "(max-width: 768px) 100vw, 100vw",
 };
 
 const SERVICES = [
@@ -420,9 +431,10 @@ function Hero() {
       metrics={HERO_METRICS}
       image={{
         src: HERO.src,
+        sources: HERO.sources,
+        width: HERO.width,
+        height: HERO.height,
         alt: HERO.alt,
-        sizes: HERO.sizes,
-        quality: 68,
         blurDataURL: BLUR_DATA_URL,
       }}
     />

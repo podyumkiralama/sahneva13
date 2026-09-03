@@ -204,7 +204,10 @@ export default function Page() {
           <img
             src="/img/blog/urun-lansmani-proje-acilis-standi.webp"
             alt="Ürün lansmanı karşılama alanı: markalı giriş portalı ve dış mekan kurulumu"
+            width="1600"
+            height="1200"
             loading="lazy"
+            decoding="async"
             className="w-full h-auto object-cover"
           />
           <figcaption className="bg-gray-50 px-4 py-3 text-sm text-gray-500">
@@ -228,7 +231,10 @@ export default function Page() {
           <img
             src="/img/blog/urun-lansmani-marka-sahne-led-ekran.webp"
             alt="Ürün lansmanı sahnesi: dikey LED ekranlar ve marka temalı sahne tasarımı"
+            width="1600"
+            height="1200"
             loading="lazy"
+            decoding="async"
             className="w-full h-auto object-cover"
           />
           <figcaption className="bg-gray-50 px-4 py-3 text-sm text-gray-500">
@@ -362,7 +368,7 @@ export default function Page() {
               target="_blank"
               rel="nofollow noopener noreferrer"
               aria-label="WhatsApp üzerinden teklif isteyin — yeni sekmede açılır"
-              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
             >
               <span>💬</span> WhatsApp&apos;tan Yazın
             </a>

@@ -55,7 +55,7 @@ export const metadata = {
         url: `${BASE_SITE_URL}${OG_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Event technical production cost breakdown — stage, LED screen and sound-lighting",
+        alt: "Event technical production cost breakdown — stage, LED screen, sound and lighting",
       },
     ],
   },
@@ -210,11 +210,7 @@ export default function Page() {
         datePublished: publishedISO,
         dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
-        author: {
-          "@type": "Organization",
-          "@id": ORGANIZATION_ID,
-          name: "Sahneva",
-        },
+        author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,
@@ -308,8 +304,8 @@ export default function Page() {
 
             <Figure
               src={FEATURED_IMAGE}
-              alt="Corporate event build with stage, LED screen and sound-lighting system in place"
-              caption="A corporate build with stage, LED screen and sound-lighting in place. What you can see is the equipment; what moves the budget is the crew and the hours it took to get there."
+              alt="Corporate event build with stage, LED screen, sound and lighting systems in place"
+              caption="A corporate build with stage, LED screen, sound and lighting in place. What you can see is the equipment; what moves the budget is the crew and the hours it took to get there."
               priority
               loading="eager"
             />
@@ -691,7 +687,7 @@ export default function Page() {
                   <strong className="font-semibold text-slate-900">
                     {PROJECTS_COMPLETED} projects
                   </strong>{" "}
-                  covering stage, sound-lighting, LED screen and tent, managing
+                  covering stage, sound and lighting, LED screen, and tent, managing
                   the process from technical survey to de-rig under one
                   contract. Send the six items above and you will get a
                   quotation broken down by line, with anything uncertain marked

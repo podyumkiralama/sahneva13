@@ -148,7 +148,7 @@ const globalJsonLd = {
       name: "Sahneva Organizasyon",
       alternateName: "Sahneva",
       description:
-        "Professional event production solutions for stage, podium, LED screen, sound-light and tent rentals.",
+        "Professional event production solutions for stage, stage platform, LED screen, sound and lighting, and tent rentals.",
       inLanguage: "en-US",
       about: [
         "stage rental",
@@ -209,7 +209,7 @@ export const metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Sahneva – stage, podium, LED screen, sound-light and tent rental services across Türkiye",
+        alt: "Sahneva – stage, stage platform, LED screen, sound and lighting, and tent rental services across Türkiye",
       },
     ],
   },

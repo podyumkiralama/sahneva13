@@ -10,12 +10,12 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 export const metadata = {
   title: "Frequently Asked Questions | Event Rental FAQ Guide",
   description:
-    "Detailed answers about stage, LED screen, sound-light and tent rentals, installation timelines, logistics, pricing and contracts.",
+    "Detailed answers about stage, LED screen, sound and lighting, and tent rentals, installation timelines, logistics, pricing and contracts.",
   alternates: buildAlternatesForPath("/en/faq"),
   openGraph: {
     title: "Frequently Asked Questions | Sahneva",
     description:
-      "Detailed answers about stage, LED screen, sound-light and tent rental processes.",
+      "Detailed answers about stage, LED screen, sound and lighting, and tent rental processes.",
     url: `${SITE_URL}/en/faq`,
     type: "website",
     siteName: "Sahneva",
@@ -33,7 +33,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Frequently Asked Questions | Sahneva",
     description:
-      "Detailed answers about stage, LED screen, sound-light and tent rental processes.",
+      "Detailed answers about stage, LED screen, sound and lighting, and tent rental processes.",
     images: [`${SITE_URL}/img/hero-bg.webp`],
   },
   robots: AI_PREVIEW_ROBOTS,

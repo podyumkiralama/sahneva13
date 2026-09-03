@@ -19,7 +19,7 @@ const SITE_URL = (
 const ORIGIN = SITE_URL;
 const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const WHATSAPP_URL = `https://wa.me/905453048671?text=${encodeURIComponent(
-  "Hello, I would like to request a quote for runway and podium rental."
+  "Hello, I would like to request a quote for runway and catwalk rental."
 )}`;
 
 const BLUR_DATA_URL =
@@ -31,7 +31,7 @@ const HERO_IMAGE = "/img/podyum/defile-podyum-kiralama-hero.webp";
 const CONTENT_IMAGES = [
   {
     src: "/img/podyum/defile-runway-tasarimi.webp",
-    alt: "T-shape runway design – podium installation for fashion show",
+    alt: "T-shape runway design – catwalk platform installation for fashion show",
     width: 1440,
     height: 1322,
   },
@@ -69,14 +69,14 @@ const SERVICES = [
     icon: "🏗️",
     title: "Elevated Catwalk Platforms",
     description:
-      "Safe and aesthetic elevated presentation platforms that maximize the audience&apos;s viewing angle.",
+      "Safe and aesthetic elevated presentation platforms that maximize the audience's viewing angle.",
     features: ["Adjustable height", "Step transitions", "Non-slip surface", "Safety details"],
   },
   {
     icon: "🎨",
     title: "Custom Surface Coverings",
     description:
-      "Make the stage align with the collection&apos;s aesthetic language with glossy, matte, or carpet surface options.",
+      "Make the stage align with the collection's aesthetic language with glossy, matte, or carpet surface options.",
     features: ["Glossy covering", "Matte covering", "Carpet covering", "Custom colors"],
   },
   {
@@ -96,7 +96,7 @@ const SERVICES = [
 ];
 
 const USE_CASES = [
-  { icon: "👗", text: "Boutique designer shows", desc: "Custom podium for small, intimate collection presentations" },
+  { icon: "👗", text: "Boutique designer shows", desc: "Custom catwalk for small, intimate collection presentations" },
   { icon: "🏆", text: "Fashion week presentations", desc: "Large stage for prestigious, high-attendance fashion weeks" },
   { icon: "🚀", text: "Product launches", desc: "Dramatic stage installations for prestigious brands" },
   { icon: "📷", text: "Showroom presentations", desc: "Corporate showroom and brand presentations" },
@@ -107,7 +107,7 @@ const USE_CASES = [
 const FAQ_ITEMS = [
   {
     q: "Which runway types are available for fashion shows?",
-    a: "We offer straight (linear), U-shape, and T-shape runway designs. We plan the most suitable type together based on the collection&apos;s flow, model walking rhythm, and audience seating arrangement.",
+    a: "We offer straight (linear), U-shape, and T-shape runway designs. We plan the most suitable type together based on the collection's flow, model walking rhythm, and audience seating arrangement.",
   },
   {
     q: "What catwalk surface covering options are there?",
@@ -115,7 +115,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is LED and projection integration possible?",
-    a: "Yes, LED backdrop scenes, projection mapping, and stage lighting systems can be integrated into the podium installation. The lighting design is customized to match the collection&apos;s atmosphere.",
+    a: "Yes, LED backdrop scenes, projection mapping, and stage lighting systems can be integrated into the runway installation. The lighting design is customized to match the collection's atmosphere.",
   },
   {
     q: "Can installation and dismantling be planned in line with rehearsal hours?",
@@ -123,12 +123,12 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you only serve in Istanbul?",
-    a: "No. Based primarily in Istanbul, we carry out podium and runway stage installations for fashion events across Turkey. For out-of-city projects, please request a custom quote.",
+    a: "No. Based primarily in Istanbul, we carry out runway and catwalk platform installations for fashion events across Turkey. For out-of-city projects, please request a custom quote.",
   },
 ];
 
 const RELATED_SERVICES = [
-  { href: "/en/podium-rental", title: "Podium Rental", icon: "🎭", desc: "Modular podium systems and professional installation" },
+  { href: "/en/podium-rental", title: "Stage Platform Rental", icon: "🎭", desc: "Modular stage platform systems and professional installation" },
   { href: "/en/stage-rental", title: "Stage Rental", icon: "🏗️", desc: "Stages for concerts, conferences, and launch events" },
   { href: "/en/led-screen-rental", title: "LED Screen Rental", icon: "🖥️", desc: "High-resolution LED screen and video wall solutions" },
   { href: "/en/sound-light-rental", title: "Sound & Lighting Systems", icon: "🎵", desc: "Professional sound and lighting system rental" },
@@ -138,12 +138,12 @@ const RELATED_SERVICES = [
 export const metadata = {
   title: "Runway & Catwalk Rental | Fashion Show Staging",
   description:
-    "Runway & fashion podium rental: T/U-shape, straight runway, LED backdrop, projection mapping + full technical support. Istanbul professional event stages.",
+    "Runway and catwalk platform rental: T/U-shape, straight runway, LED backdrop, projection mapping and full technical support for Istanbul fashion events.",
   alternates: buildAlternatesForPath("/en/runway-podium-rental"),
   openGraph: {
     title: "Runway & Catwalk Rental | Sahneva",
     description:
-      "T-shape runway, LED integration, and full technical support for fashion shows and podium events.",
+      "T-shape runway, LED integration, and full technical support for fashion shows and catwalk events.",
     url: `${ORIGIN}/en/runway-podium-rental`,
     type: "website",
     siteName: "Sahneva",
@@ -153,7 +153,7 @@ export const metadata = {
         url: `${ORIGIN}${HERO_IMAGE}`,
         width: 1200,
         height: 630,
-        alt: "Sahneva runway podium rental – professional runway stage solutions for fashion events",
+        alt: "Sahneva runway and catwalk rental – professional staging for fashion events",
       },
     ],
   },
@@ -206,7 +206,7 @@ function HeroSection() {
       <div className="absolute inset-0 pointer-events-none">
         <Image
           src={HERO_IMAGE}
-          alt="Professional podium installation for fashion shows – runway stage design"
+          alt="Professional catwalk platform installation for fashion shows – runway stage design"
           fill
           priority
           fetchPriority="high"
@@ -302,7 +302,7 @@ function HeroSection() {
               ))}
             </div>
 
-            <span className="sr-only">Runway Podium Rental - Sahneva Organization</span>
+            <span className="sr-only">Runway and Catwalk Rental - Sahneva Organization</span>
           </div>
         </div>
       </div>
@@ -351,7 +351,7 @@ function ServicesSection() {
             <span className="text-violet-700"></span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Managing the entire process from podium design to lighting integration, LED backdrop
+            Managing the entire process from runway design to lighting integration, LED backdrop
             solutions to backstage planning
           </p>
         </div>
@@ -414,7 +414,7 @@ function ContentSection() {
                 </span>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-                Runway &amp; Podium Rental | Professional Stage Solutions for Fashion Events
+                Runway &amp; Catwalk Rental | Professional Stage Solutions for Fashion Events
               </h2>
               <p className="text-violet-100 mt-4 text-lg md:text-xl leading-relaxed">
                 The central element that carries the brand&apos;s identity, the collection&apos;s spirit, and the designer&apos;s vision: the stage
@@ -428,9 +428,9 @@ function ContentSection() {
               </p>
 
               <p>
-                Sahneva plans runway and podium rental for boutique shows, fashion week
+                Sahneva plans runway and catwalk rental for boutique shows, fashion week
                 presentations, and product launches. We support projects in Istanbul and across
-                Turkey with podium design, lighting, LED backdrop, and backstage planning.
+                Turkey with runway design, lighting, LED backdrop, and backstage planning.
               </p>
 
               {/* 3 content images */}
@@ -457,14 +457,14 @@ function ContentSection() {
                 Flexible Staging Solutions for All Fashion Events
               </h3>
               <p>
-                From intimate designer shows to large-scale podium productions, our stage rental
+                From intimate designer shows to large-scale runway productions, our stage rental
                 solutions are designed with high load capacity, aesthetic integrity, and modular
                 installation advantages. Working with fashion designers, agencies, and corporate
                 brands, we serve a wide spectrum from fashion shows to special events, showroom
                 presentations to temporary store launches.
               </p>
               <p>
-                Our runway and podium rental scope includes straight, U-shape, and T-shape runway
+                Our runway and catwalk rental scope includes straight, U-shape, and T-shape runway
                 designs. It can also include elevated presentation platforms, LED-supported
                 backdrops, and photo areas.
               </p>
@@ -476,7 +476,7 @@ function ContentSection() {
 
               <aside className="mt-8 rounded-2xl border-l-4 border-violet-500 bg-violet-50 p-5">
                 <h4 className="font-black text-violet-700 text-lg mb-2">
-                  💡 Customizable Podium and Stage Designs
+                  💡 Customizable Runway and Stage Designs
                 </h4>
                 <p className="mb-0">
                   No two fashion events are the same. A minimal collection may need a clean
@@ -666,7 +666,7 @@ function FAQSection() {
             Frequently Asked <span className="text-violet-700">Questions</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Common questions and answers about runway and podium rental
+            Common questions and answers about runway and catwalk rental
           </p>
         </div>
 
@@ -715,7 +715,7 @@ function RelatedServicesSection() {
             Complementary <span className="text-violet-700">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Other professional event solutions to complement your runway and podium installation
+            Other professional event solutions to complement your runway and catwalk installation
           </p>
         </div>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -752,7 +752,7 @@ function CTASection() {
               Make Your Collection Unforgettable with an Impressive Stage
             </h2>
             <p className="text-violet-100 text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              Contact the Sahneva team to receive professional podium rental service for your
+              Contact the Sahneva team to receive professional stage platform rental service for your
               next runway show or fashion event, plan technical details together, and receive a
               custom price quote.
             </p>
@@ -769,7 +769,7 @@ function CTASection() {
                 href="/en/podium-rental"
                 className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl border-2 border-white text-white bg-transparent hover:bg-white/20 hover:scale-105 transform transition-all duration-300"
               >
-                <span className="text-xl mr-3">🎭</span> Podium Rental
+                <span className="text-xl mr-3">🎭</span> Stage Platform Rental
               </Link>
             </div>
           </div>

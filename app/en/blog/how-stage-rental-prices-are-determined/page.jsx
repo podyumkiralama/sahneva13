@@ -22,7 +22,7 @@ const IMG_RIDER = "/img/blog/sahne-kiralama-fiyatlari-teknik-rider.webp";
 
 const TITLE = "How Are Stage Rental Prices Determined?";
 const DESCRIPTION =
-  "Stage rental prices depend on m², truss, LED, sound-lighting and rider details. Share requirements for an estimated budget.";
+  "Stage rental prices depend on m², truss, LED, sound and lighting, and rider details. Share requirements for an estimated budget.";
 const AUTHOR_NAME = "Sahneva Editorial Team";
 const FEATURED_IMAGE = HERO_IMG;
 const HERO_IMAGE = HERO_IMG;
@@ -248,7 +248,7 @@ return (
 
             <ImgFigure
               src={IMG_TEKNIK}
-              alt="Truss, LED screen and sound-lighting systems"
+              alt="Truss, LED screen, sound and lighting systems"
               caption="LED screens are most often priced daily; truss/podium is evaluated according to project scope."
             />
 
@@ -271,7 +271,7 @@ return (
             <p>
               The system needed at a corporate speech event is not the same as at a concert with live music/orchestra.
               When live music comes into play, the on-stage monitor layout, microphone requirements, mixing and lighting
-              setup grow. This is why the sound-lighting item is one of the most variable budget generators for the stage.
+              setup grow. This is why sound and lighting are among the most variable parts of a stage budget.
             </p>
 
             <p>
@@ -321,7 +321,7 @@ return (
             <p>
               Because the event may not be single-layered. For example, the stage may take on different roles within one day:
               morning protocol speech, evening concert; a different programme after the concert. Also, every figure given
-              without discussing the brand/quantity/specifications of LED screens, sound-lighting, truss and similar items
+              without discussing the brand, quantity, and specifications of LED screens, sound and lighting, truss, and similar items
               is an "average."
             </p>
 
@@ -329,7 +329,7 @@ return (
             <p>
               For the estimated price to be more realistic, at minimum the following are required:
               venue/area information, desired stage size, event type (corporate or concert), whether LED is wanted,
-              sound-lighting scope and event duration (number of days).
+              sound and lighting scope, and event duration (number of days).
             </p>
 
             {/* rider */}
@@ -349,7 +349,7 @@ return (
             <h3>Typical areas where the rider changes the price</h3>
             <ul>
               <li>
-                <strong>Sound-lighting scope:</strong> Details such as live music, orchestra, backline fundamentally change the budget.
+                <strong>Sound and lighting scope:</strong> Details such as live music, orchestra, and backline fundamentally change the budget.
               </li>
               <li>
                 <strong>LED screen:</strong> Once size, brand and usage (indoor/outdoor) are clear, costs become clear.
@@ -448,7 +448,7 @@ return (
             </p>
             <p>
               For this reason, during the quotation process, these questions matter as much as "stage price":
-              "What event?", "Is there a technical plan?", "Is LED/sound-lighting included?", "Will the stage also be used in a different flow on the same day?"
+              "What event?", "Is there a technical plan?", "Are LED, sound, and lighting included?", "Will the stage also be used in a different flow on the same day?"
               When these questions are clarified, the price is also clarified.
             </p>
 
@@ -463,7 +463,7 @@ return (
                   <strong>Height:</strong> Generally does not affect price
                 </li>
                 <li>
-                  <strong>LED / sound-lighting / truss:</strong> Quantity + brand + specification
+                  <strong>LED / sound and lighting / truss:</strong> Quantity + brand + specification
                 </li>
                 <li>
                   <strong>Tent:</strong> Per m², determines layout
@@ -481,7 +481,7 @@ return (
             <h2>The fastest route to a firm price</h2>
             <p>
               To get a firm price; the event type, venue/area information, desired stage size and technical layers
-              (LED, sound-lighting, truss, tent etc.) should be shared as clearly as possible. If there is an artist or live music,
+              (LED, sound and lighting, truss, tent, etc.) should be shared as clearly as possible. If there is an artist or live music,
               the technical rider is the main determinant of price.
             </p>
 

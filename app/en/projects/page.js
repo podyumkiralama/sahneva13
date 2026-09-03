@@ -65,7 +65,7 @@ const TR_PROJECT_DISPLAY = {
   "istanbul-amator-futbol-kuluplerine-nakdi-destek-programi": {
     title: "180 Million TRY Cash Support Programme for Istanbul Amateur Football Clubs",
     excerpt:
-      "At the indoor protocol event held by the Ministry of Youth and Sports at Millet Bahçesi Hangar, the LED screen, stage, podium, sound-lighting, truss, technical control and hall layout were coordinated by Sahneva.",
+      "At the indoor protocol event held by the Ministry of Youth and Sports at Millet Bahçesi Hangar, the LED screen, stage platform, sound and lighting, truss, technical control, and hall layout were coordinated by Sahneva.",
     tags: ["LED Screen", "Stage Installation", "Protocol Event", "Sound & Lighting", "Technical Control"],
   },
   "diclefest-sanliurfa": {

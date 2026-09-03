@@ -6,6 +6,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { EDITOR_ID, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 
@@ -184,21 +185,8 @@ function ArticleJsonLd() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: {
-          "@type": "Organization",
-          name: AUTHOR_NAME,
-          url: SITE_URL,
-        },
-        publisher: {
-          "@type": "Organization",
-          "@id": `${SITE_URL}/#org`,
-          name: "Sahneva Organizasyon",
-          url: SITE_URL,
-          logo: {
-            "@type": "ImageObject",
-            url: `${SITE_URL}/img/logo.webp`,
-          },
-        },
+        author: { "@id": EDITOR_ID },
+        publisher: { "@id": ORGANIZATION_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
         audience: {

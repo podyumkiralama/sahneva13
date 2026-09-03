@@ -27,7 +27,7 @@ export const metadata = {
         url: `${BASE_SITE_URL}/img/hizmetler-hero.webp`,
         width: 1200,
         height: 630,
-        alt: "Sahneva Services – Stage, LED wall, sound-light and tent rental services",
+        alt: "Sahneva Services – stage, LED wall, sound and lighting, and tent rental services",
       },
     ],
     type: "website",
@@ -109,8 +109,8 @@ function ServicesStructuredData() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Podium Rental",
-            description: "Modular podium and catwalk solutions",
+            name: "Stage Platform & Riser Rental",
+            description: "Modular stage platform, riser and catwalk solutions",
           },
           priceSpecification: {
             "@type": "PriceSpecification",
@@ -177,7 +177,7 @@ function ServicesTabsFallback() {
       items: [
         "Stage systems in 3x3m, 6x4m, 8x4m, 10x6m dimensions",
         "Aluminium truss systems and safety equipment",
-        "Modular podium systems (1x1m, 2x1m) and catwalk layouts",
+        "Modular stage platform systems (1x1m, 2x1m) and catwalk layouts",
         "Stage decoration and branding services",
       ],
     },
@@ -456,7 +456,7 @@ export default function EnglishServicesPage() {
     {
       href: "/en/blog/fisekhane-pubg-guinness-world-record",
       title: "PUBG Guinness World Record case",
-      description: "A real project example covering stage, LED, sound-light and broadcast infrastructure.",
+      description: "A real project example covering stage, LED, sound and lighting, and broadcast infrastructure.",
     },
     {
       href: "/en/blog/pmgc-world-finals-behind-the-scenes",
@@ -466,7 +466,7 @@ export default function EnglishServicesPage() {
     {
       href: "/en/blog/graduation-events-2026-istanbul-guide",
       title: "Graduation events guide",
-      description: "Stage, LED screen, sound-lighting and flow planning for graduation ceremonies.",
+      description: "Stage, LED screen, sound and lighting, and flow planning for graduation ceremonies.",
     },
     {
       href: "/en/blog/best-tent-rental-options-for-events-2026",
@@ -495,8 +495,8 @@ export default function EnglishServicesPage() {
     },
     {
       href: "/en/concert-podium-rental",
-      title: "Concert podium rental",
-      description: "Festival stages, main platforms, side towers and FOH podium planning.",
+      title: "Concert stage deck rental",
+      description: "Festival stages, main platforms, side towers and FOH platform planning.",
     },
   ];
 
@@ -885,7 +885,8 @@ export default function EnglishServicesPage() {
               <span className="text-yellow-300">&nbsp;Proposal</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Tell us about your event and we will prepare a detailed quotation within two hours.
+              Tell us about your event. We acknowledge briefs promptly during business hours;
+              proposal timing depends on scope and whether a site survey is required.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
@@ -903,7 +904,7 @@ export default function EnglishServicesPage() {
                 href="https://wa.me/905453048671"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
+                className="group bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-4 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 min-w-[200px] text-center"
                 aria-label="Chat on WhatsApp for a quick proposal (opens in a new tab)"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -924,7 +925,9 @@ export default function EnglishServicesPage() {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-2xl mx-auto">
               <p className="text-white/90 text-sm">
-                <strong>⏱️ Response within 2 hours:</strong> During business hours we send detailed proposals and professional consultancy within two hours for every request.
+                <strong>⏱️ Prompt acknowledgement:</strong> During business hours we acknowledge
+                briefs promptly. Proposal timing depends on scope and whether a site survey is
+                required.
               </p>
             </div>
           </div>

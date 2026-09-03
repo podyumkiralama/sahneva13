@@ -264,7 +264,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does the venue already have stage, LED, sound and lighting?",
-    a: "Yes. The venue has a scaffold-supported stage, P1.9 LED screen, sound and lighting infrastructure, plus tables and chairs ready to plan around. The commercial scope, operators, exact dimensions and any additional equipment are confirmed in the event proposal.",
+    a: "Yes. The venue has a scaffold-supported stage, P1.9 LED screen, sound and lighting infrastructure, plus tables and chairs ready to plan around. The exact production scope, operators, dimensions, and any additional equipment are confirmed in the event proposal.",
   },
   {
     q: "Can the installed setup be changed?",
@@ -625,7 +625,7 @@ export default function HangarEventVenueIstanbulPage() {
           id="formats-title"
           dark
           kicker="Venue formats"
-          title="One large hall, several commercial event intents"
+          title="One large hall, several event formats"
           desc="The hall can move between stage-led, seated, dining and exhibition uses instead of forcing every organiser into the same floor plan."
         />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

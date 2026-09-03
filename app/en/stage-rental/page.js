@@ -164,7 +164,7 @@ const SERVICES = [
     description:
       "Installation, live operation, de-rigging and 24/7 technical assistance included",
     features: [
-      "Setup & dismantle",
+      "Setup & dismantling",
       "Show operation",
       "Technical management",
       "24/7 support",
@@ -222,7 +222,7 @@ const PACKAGES = [
       "40 cm height with anti-slip surface",
       "6 m straight truss backdrop",
       "2 LED bars + 2 spot lights",
-      "Setup, testing and dismantle",
+      "Setup, testing and dismantling",
     ],
     note: "Ideal for talks, press briefings and intimate indoor events.",
   },
@@ -242,7 +242,7 @@ const PACKAGES = [
       "U-shaped 12 m truss roof",
       "4 moving heads + 6 wash lights",
       "2.1 PA system, digital mixer, wireless mic",
-      "Setup, live technical operation, dismantle",
+      "Setup, live technical operation, dismantling",
     ],
     note: "Designed for corporate launches, mixed talk + performance shows and mall events.",
   },
@@ -263,7 +263,7 @@ const PACKAGES = [
       "Line-array PA, stage monitors, backline infrastructure",
       "LED wall (e.g. 5×3 m) + scaler",
       "Lighting: moving heads, wash, blinders, haze",
-      "Setup, soundcheck, show operation, dismantle",
+      "Setup, soundcheck, show operation, dismantling",
     ],
     note: "Perfect for concerts, festivals and large-scale outdoor gatherings.",
   },
@@ -565,10 +565,10 @@ function Packages() {
                     <div
                       className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-bold ${
                         pkg.badge === "Popular"
-                          ? "bg-orange-500"
+                          ? "bg-orange-700"
                           : pkg.badge === "Professional"
                           ? "bg-violet-600"
-                          : "bg-green-500"
+                          : "bg-green-700"
                       }`}
                     >
                       {pkg.badge}
@@ -1385,11 +1385,7 @@ function FAQ() {
           </p>
         </div>
 
-        <div
-          className="space-y-6"
-          role="list"
-          aria-label="Frequently asked questions list"
-        >
+        <div className="space-y-6">
           {FAQ_ITEMS.map((faq, index) => (
             <details
               key={index}

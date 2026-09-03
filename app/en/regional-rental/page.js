@@ -1,6 +1,7 @@
 import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalClient";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
 const SITE =
@@ -13,14 +14,14 @@ const OG_IMAGE = `${SITE}/img/bolgesel-kiralama/hero.webp`;
 export const metadata = {
   title: "Regional Rental | Istanbul, Ankara, Izmir & Türkiye",
   description:
-    "LED screen, truss, stage/podium and sound-lighting rental across Turkey. Setup, testing and dismantling for Istanbul, Ankara, Izmir and Antalya.",
+    "LED screen, truss, stage platform, sound and lighting rental across Turkey. Setup, testing and dismantling for Istanbul, Ankara, Izmir and Antalya.",
   alternates: buildAlternatesForPath("/en/regional-rental"),
   openGraph: {
     type: "website",
     url: PAGE_URL,
     title: "Regional Rental | Sahneva",
     description:
-      "Event equipment rental across Turkey: LED screen, truss, stage/podium, and sound-lighting. Installation, operation, and dismantling included.",
+      "Event equipment rental across Turkey: LED screen, truss, stage platform, sound and lighting. Installation, operation, and dismantling included.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Sahneva Regional Rental" }],
     siteName: "Sahneva",
     locale: "en_US",
@@ -36,8 +37,6 @@ export const metadata = {
 };
 
 function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
-  const orgId = `${SITE}/#org`;
-  const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const catalogId = `${PAGE_URL}#offerCatalog`;
@@ -49,29 +48,13 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": orgId,
-        name: "Sahneva Organization",
-        url: SITE,
-        telephone: "+90 545 304 86 71",
-        areaServed: { "@type": "Country", name: "Turkey" },
-      },
-      {
-        "@type": "WebSite",
-        "@id": webId,
-        url: SITE,
-        name: "Sahneva Organization",
-        publisher: { "@id": orgId },
-        inLanguage: "en-US",
-      },
-      {
         "@type": "WebPage",
         "@id": pageId,
         url: PAGE_URL,
         name: "Regional Rental",
         description:
-          "Event equipment rental across Turkey: LED screen, truss, stage/podium, and sound-lighting. Installation, testing, and dismantling included.",
-        isPartOf: { "@id": webId },
+          "Event equipment rental across Turkey: LED screen, truss, stage platform, sound and lighting. Installation, testing, and dismantling included.",
+        isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": serviceId },
         inLanguage: "en-US",
         breadcrumb: { "@id": breadcrumbId },
@@ -89,7 +72,7 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
         "@id": serviceId,
         name: "Regional Rental",
         serviceType: "Event equipment rental, installation, and operations",
-        provider: { "@id": orgId },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: [
           { "@type": "Country", name: "Turkey" },
           ...regions.map((region) => ({ "@type": "City", name: region.name })),
@@ -217,11 +200,11 @@ export default function Page() {
     {
       name: "Tekirdag",
       slug: "tekirdag",
-      desc: "Festivals, stages, sound-lighting, and LED screen installations.",
+      desc: "Festivals, stages, sound and lighting, and LED screen installations.",
       focus:
         "Festival logistics and durable equipment choice are usually the two most critical decision points here.",
       planning:
-        "We balance LED visibility, stage placement, and sound-lighting scenarios against wind and viewing distance.",
+        "We balance LED visibility, stage placement, and sound and lighting requirements against wind and viewing distance.",
       services: ["/en/led-screen-rental", "/en/truss-rental", "/en/sound-light-rental"],
     },
   ];
@@ -257,7 +240,7 @@ export default function Page() {
   const faqs = [
     {
       q: "What does regional rental mean?",
-      a: "It means planning event equipment including LED screen, truss, stage/podium, and sound-lighting according to your city and delivering the setup end-to-end with installation and dismantling included.",
+      a: "It means planning event equipment including LED screens, truss, stage platforms, sound, and lighting for your city, then delivering the setup end to end with installation and dismantling included.",
     },
     {
       q: "Do you serve across Turkey?",
@@ -269,7 +252,7 @@ export default function Page() {
     },
     {
       q: "Can I get multiple services in the same project?",
-      a: "Yes. We can plan LED screen, truss, stage/podium, and sound-lighting as one coordinated package.",
+      a: "Yes. We can plan LED screens, truss, stage platforms, sound, and lighting as one coordinated package.",
     },
     {
       q: "When does installation take place?",

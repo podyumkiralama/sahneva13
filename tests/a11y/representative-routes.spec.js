@@ -21,6 +21,13 @@ const representativeRoutes = [
   { name: "Chinese home", path: "/zh" },
 ];
 
+const mobileScrollableRoutes = [
+  { name: "Turkish LED rental", path: "/led-ekran-kiralama" },
+  { name: "English LED rental", path: "/en/led-screen-rental" },
+  { name: "Turkish tent rental", path: "/cadir-kiralama" },
+  { name: "English LED prices", path: "/en/led-screen-rental-prices" },
+];
+
 for (const route of representativeRoutes) {
   test(`${route.name} has no serious or critical automated WCAG violations`, async ({
     page,
@@ -155,4 +162,36 @@ test.describe("mobile accessibility", () => {
     await expect(page.getByText("Toplam tamamlanan proje", { exact: true })).toBeVisible();
     await expect(page.getByText("Müşteri memnuniyeti", { exact: true })).toHaveCount(0);
   });
+
+  for (const route of mobileScrollableRoutes) {
+    test(`${route.name} horizontal scrolling remains keyboard-accessible`, async ({
+      page,
+    }) => {
+      const response = await page.goto(route.path, { waitUntil: "domcontentloaded" });
+      expect(response, `${route.path} did not return a document response`).not.toBeNull();
+      expect(response.ok(), `${route.path} returned HTTP ${response.status()}`).toBeTruthy();
+      await page.addScriptTag({ path: axePath });
+
+      const violations = await page.evaluate(async () => {
+        const results = await window.axe.run(document, {
+          runOnly: {
+            type: "rule",
+            values: ["scrollable-region-focusable"],
+          },
+        });
+
+        return results.violations.map(({ id, impact, help, nodes }) => ({
+          id,
+          impact,
+          help,
+          targets: nodes.map(({ target }) => target.join(" ")),
+        }));
+      });
+
+      expect(
+        violations,
+        `${route.path} keyboard-inaccessible scroll regions:\n${JSON.stringify(violations, null, 2)}`,
+      ).toEqual([]);
+    });
+  }
 });

@@ -300,7 +300,7 @@ const INSTALLATION_STEPS = [
 const FAQ_ITEMS = [
   {
     q: "Dijital kürsü kiralama nedir?",
-    a: "Dijital kürsü; LED ekranlı, şeffaf akrilik veya özel tasarımlı, konuşmacının notlarını ve içeriğini görüntüleyebildiği modern sunum platformudur. Kiralama hizmetimiz nakliye ve kurulum dahildir.",
+    a: "Dijital kürsü; LED ekranlı, şeffaf akrilik veya özel tasarımlı, konuşmacının notlarını ve içeriğini görüntüleyebildiği modern sunum platformudur. Kiralama hizmetimize nakliye ve kurulum dahildir.",
   },
   {
     q: "Hangi etkinlikler için uygundur?",

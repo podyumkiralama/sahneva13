@@ -57,7 +57,7 @@ export const EN_HOW_IT_WORKS_DICTIONARY = {
         { text: ", " },
         { href: "/en/truss-rental", label: "truss" },
         { text: ", " },
-        { href: "/en/podium-rental", label: "stage/podium" },
+        { href: "/en/podium-rental", label: "stage platform" },
         { text: ", " },
         { href: "/en/sound-light-rental", label: "sound and lighting" },
         { text: "." },

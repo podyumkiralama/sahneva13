@@ -10,7 +10,7 @@ import PageHero from "@/components/PageHero";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { VIDEO_DURATIONS, getVideoEntities } from "@/lib/seo/projectVideoFacts";
-import { WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import RegionalCityLinks from "@/components/RegionalCityLinks";
 import TentCalculatorCta from "@/components/TentCalculatorCta";
@@ -42,7 +42,6 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com"
 ).replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const PHONE = "+905453048671";
 const PHONE_DISPLAY = "+90 545 304 86 71";
 const WA_TEXT =
@@ -1464,7 +1463,12 @@ function SystemAndStandardSection() {
             </p>
           </div>
 
-          <div className="overflow-x-auto">
+          <div
+            role="region"
+            aria-label="Büyük açıklıklı çadır ölçüleri tablosunu yatay kaydır"
+            tabIndex={0}
+            className="overflow-x-auto"
+          >
             <table className="w-full min-w-[640px] border-collapse text-left">
               <caption className="sr-only">
                 Sahneva büyük açıklıklı çadır sistemlerinin 20, 30 ve 40 metre
@@ -1963,13 +1967,7 @@ function TentRentalJsonLd() {
   const pageDescription =
     "Açık hava etkinlikleri için pagoda, şeffaf ve büyük açıklıklı çadır çözümleri. Keşif, kurulum, zemin, iklimlendirme ve lojistik tek elden planlanır.";
 
-  const provider = {
-    "@type": "Organization",
-    "@id": ORGANIZATION_ID,
-    name: "Sahneva",
-    url: ORIGIN,
-    telephone: PHONE,
-  };
+  const provider = { "@id": ORGANIZATION_ID };
 
   const serviceNode = {
     "@type": "Service",

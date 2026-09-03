@@ -122,7 +122,7 @@ const SERVICES = [
     icon: "🔧",
     title: "Installation & Technical Support",
     description: "Expert crew for installation, dismantling and 24/7 assistance",
-    features: ["Certified installation", "Dismantle service", "24/7 technical support", "Emergency response team"],
+    features: ["Certified installation", "Dismantling service", "24/7 technical support", "Emergency response team"],
   },
 ];
 
@@ -424,8 +424,8 @@ function Technical() {
     {
       category: "installation",
       title: "Installation Process",
-      description: "Rapid mobilisation with experienced crew, logistics and dismantle",
-      features: [`${setupDurationText("tent", "en")} setup`, "Certified crew", "Dedicated logistics", "Post-event dismantle"],
+      description: "Rapid mobilisation with experienced crew, logistics and dismantling",
+      features: [`${setupDurationText("tent", "en")} setup`, "Certified crew", "Dedicated logistics", "Post-event dismantling"],
     },
     {
       category: "support",
@@ -633,7 +633,7 @@ function Articles() {
                     </p>
                     <p>
                       Whether your event is an outdoor wedding or a corporate fair, our turnkey model covers detailed site surveys,
-                      structural calculations, safe installation and dismantle so every stage is coordinated by one expert team.
+                      structural calculations, safe installation and dismantling so every stage is coordinated by one expert team.
                     </p>
                   </div>
 
@@ -810,7 +810,7 @@ const FAQ_SCHEMA_ITEMS = [
   {
     question: "How much does tent rental cost?",
     answer:
-      "A 5x5 metre pagoda tent rental is priced from TL 7,000 including Istanbul transport, professional installation, dismantle and essential technical support. Standard tents are priced by square metre, while bespoke designs are quoted after a project briefing.",
+      "A 5x5 metre pagoda tent rental is priced from TL 7,000 including Istanbul transport, professional installation, dismantling and essential technical support. Standard tents are priced by square metre, while bespoke designs are quoted after a project briefing.",
   },
   {
     question: "How long does tent installation take?",
@@ -833,7 +833,7 @@ function FAQ() {
   const faqs = [
     {
       q: "How much does tent rental cost?",
-      a: "Our 5×5 metre pagoda tent rental is ₺7,000 including Istanbul transport, professional installation, dismantle and essential technical support. Standard tents are priced at ₺300 per square metre. Bespoke designs and premium models are quoted after a project briefing.",
+      a: "Our 5×5 metre pagoda tent rental is ₺7,000 including Istanbul transport, professional installation, dismantling and essential technical support. Standard tents are priced at ₺300 per square metre. Bespoke designs and premium models are quoted after a project briefing.",
     },
     {
       q: "How long does tent installation take?",
@@ -888,7 +888,8 @@ function FAQ() {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 text-lg mb-6">
-            Still have questions? Share your requirements and our consultants will respond within the hour.
+            Still have questions? Share your requirements. We acknowledge briefs promptly during
+            business hours; proposal timing depends on scope and whether a site survey is required.
           </p>
           <Link
             href="/en/contact"

@@ -96,7 +96,7 @@ const PROJECT_VIDEOS = [
     id: "c72ILTyJH4A",
     title: "Fatih Municipality – 400 Projects in 5 Years Event",
     description:
-      "Field footage from the stage, LED screen, sound-lighting and technical production setup for Fatih Municipality's 400 projects event.",
+      "Field footage from the stage, LED screen, sound and lighting, and technical production setup for Fatih Municipality's 400 projects event.",
     services: ["Corporate Event", "Stage", "LED Screen", "Sound & Lighting"],
     youtubeUrl: "https://www.youtube.com/watch?v=c72ILTyJH4A",
     thumbnailUrl: "https://i.ytimg.com/vi/c72ILTyJH4A/hqdefault.jpg",
@@ -106,7 +106,7 @@ const PROJECT_VIDEOS = [
     id: "173gBurWSRQ",
     title: "PUBG Turkey Finals 2023",
     description:
-      "Field footage from the stage, LED screen, sound-lighting, podium and technical production setup for PUBG Turkey Finals 2023.",
+      "Field footage from the stage, LED screen, sound and lighting, stage platform, and technical production setup for PUBG Turkey Finals 2023.",
     services: ["E-Sports", "Stage", "LED Screen", "Sound & Lighting"],
     youtubeUrl: "https://www.youtube.com/watch?v=173gBurWSRQ",
     thumbnailUrl: "https://i.ytimg.com/vi/173gBurWSRQ/hqdefault.jpg",
@@ -303,7 +303,7 @@ export default function OurWorkPage() {
                 Event production videos from the field
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-                Footage shot on real builds — stage, LED screen, sound-lighting, truss, podium and tent going up in the venues they were made for. For the technical write-ups, the case studies are on the projects page.
+                Footage shot on real builds — stage, LED screen, sound and lighting, truss, stage platforms, and tents going up in the venues they were made for. For the technical write-ups, the case studies are on the projects page.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

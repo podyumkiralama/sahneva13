@@ -43,7 +43,7 @@ const IMG_CONFETTI = "/img/blog/fisekhane-pubg-rekor-ani.webp";
 export const metadata = {
   title: "Fişekhane PUBG Mobile Guinness World Record™",
   description:
-      "At the Fişekhane PUBG Mobile event, we provided stage, podium, LED screen, sound-lighting and live broadcast infrastructure.",
+      "At the Fişekhane PUBG Mobile event, we provided the stage, stage platform, LED screen, sound and lighting, and live broadcast infrastructure.",
   image: HERO_IMAGE,
   alternates: buildLanguageAlternates({
     canonical: BLOG_PATH,
@@ -53,7 +53,7 @@ export const metadata = {
   openGraph: {
     title: "PUBG Mobile Guinness World Record™ at Fişekhane | Sahneva Technical Support",
     description:
-      "Technical support for stage/podium, LED screen, sound-lighting, technical operations and live broadcast/filming.",
+      "Technical support for the stage and stage platform, LED screen, sound and lighting, technical operations, and live broadcast/filming.",
     url: BLOG_URL,
     type: "article",
     locale: "en_US",
@@ -71,7 +71,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "PUBG Mobile Guinness World Record™ at Fişekhane",
     description:
-      "Technical support for stage/podium, LED screen, sound-lighting and live broadcast/filming infrastructure.",
+      "Technical support for the stage and stage platform, LED screen, sound and lighting, and live broadcast/filming infrastructure.",
     images: [`${SITE_URL}${OG_IMAGE}`],
   },
   keywords: [
@@ -126,7 +126,7 @@ function ArticleSchema() {
         headline:
           "PUBG Mobile Guinness World Record™ Turkey Gathering at Fişekhane: Technical Infrastructure Support",
         description:
-          "At the PUBG Mobile event held at Fişekhane, we provided the stage/podium, LED screen, sound-lighting, technical support and live broadcast/filming infrastructure.",
+          "At the PUBG Mobile event held at Fişekhane, we provided the stage and stage platform, LED screen, sound and lighting, technical support, and live broadcast/filming infrastructure.",
         image: { "@id": PRIMARY_IMAGE_ID },
         author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
@@ -215,7 +215,7 @@ export default function BlogPostFisekhanePubgGuinness() {
               <p>
                 We provided integrated support across all critical technical areas required for
                 the event. We operated from a single plan so that stage flow, visual content
-                management, sound-lighting balance and broadcast/filming processes could advance
+                management, sound and lighting balance, and broadcast/filming processes could advance
                 together.
               </p>
 
@@ -254,7 +254,7 @@ export default function BlogPostFisekhanePubgGuinness() {
 
               <h2 id="setup-operation">Setup and Operations</h2>
               <p>
-                Stage/podium placement was planned taking into account the architectural structure
+                Stage and platform placement was planned around the architectural structure
                 of Fişekhane and the intensity of the event. During installation, cable routes,
                 safe passage areas and technical equipment positions were defined, aiming for
                 smooth operations throughout the event.
@@ -263,7 +263,7 @@ export default function BlogPostFisekhanePubgGuinness() {
               <Figure
                 src={IMG_STAGE}
                 alt="Stage and podium setup at Fişekhane before the PUBG Mobile event"
-                caption="Pre-event stage/podium setup: venue flow and technical equipment placement were planned accordingly."
+                caption="Pre-event stage platform setup: venue flow and technical equipment placement were planned accordingly."
               />
 
               <h2 id="broadcast-filming">Live Broadcast and Filming Support</h2>
@@ -283,7 +283,7 @@ export default function BlogPostFisekhanePubgGuinness() {
                       Integrated technical solution from a single point
                     </p>
                     <p className="text-slate-700 mt-2">
-                      Stage/podium + LED screen + sound/lighting + technical crew + broadcast/filming
+                      Stage platform + LED screen + sound and lighting + technical crew + broadcast/filming
                       coordination — all managed within a single operations plan.
                     </p>
                   </div>
@@ -307,7 +307,7 @@ export default function BlogPostFisekhanePubgGuinness() {
               <p>
                 For e-sports, launches, concerts and{" "}
                 <Link href="/en/corporate-events">corporate events</Link>: when stage, LED screen,
-                sound-lighting, technical operations and broadcast/filming processes are planned
+                sound and lighting, technical operations, and broadcast/filming processes are planned
                 together, risks decrease and event quality improves significantly.
               </p>
 

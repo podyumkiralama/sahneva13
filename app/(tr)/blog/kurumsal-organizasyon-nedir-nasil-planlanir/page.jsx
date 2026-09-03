@@ -548,8 +548,9 @@ export default function KurumsalOrganizasyonNedirPage() {
             Kurumsal organizasyonunuzu tek elden planlayalım
           </h3>
           <p className="text-violet-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
-            Amaç tanımından teknik prodüksiyona kadar tüm süreci tek elden yönetelim. Çoğu projede 2 saat
-            içinde projelendirilmiş teklif çıkıyoruz.
+            Amaç tanımından teknik prodüksiyona kadar tüm süreci tek elden yönetelim. Mesai
+            saatlerinde hızlı ilk dönüş sağlarız; teklif süresi kapsamın netliğine ve keşif
+            gereksinimine göre değişir.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <a
