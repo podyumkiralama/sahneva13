@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
@@ -226,9 +226,9 @@ function Hero() {
 
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
-            <div className="text-white/80 text-sm">180+ client reviews</div>
+            <span className="text-2xl mb-2" aria-hidden="true">📐</span>
+            <div className="text-xl font-black text-white">Custom</div>
+            <div className="text-white/80 text-sm">Layouts & capacities</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>

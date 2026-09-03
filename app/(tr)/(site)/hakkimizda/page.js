@@ -11,7 +11,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Hakkımızda | Sahneva",
     description:
-      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} başarılı proje, Google'da ${GOOGLE_RATING}/5 puan.`,
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} tamamlanmış projeden gelen saha birikimi.`,
     url: "https://www.sahneva.com/hakkimizda",
     images: [
       {
@@ -41,7 +41,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Hakkımızda | Sahneva – Profesyonel Etkinlik Teknolojileri",
     description:
-      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} başarılı proje, Google'da ${GOOGLE_RATING}/5 puan.`,
+      `${YEARS_OF_EXPERIENCE} yıllık deneyimle Türkiye genelinde profesyonel etkinlik çözümleri. ${PROJECTS_COMPLETED} tamamlanmış projeden gelen saha birikimi.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -432,7 +432,7 @@ export default function HakkimizdaPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "Teknik altyapıda sıfır hata hedefi",
-                    "Google değerlendirmeleri üzerinden takip edilen müşteri memnuniyeti",
+                    "Proje sonrasında kayda alınan müşteri geri bildirimleri",
                     "Sürekli inovasyon ve ekipman yenileme",
                     "Çevreye duyarlı, sürdürülebilir çözümler",
                   ].map((item, index) => (

@@ -136,8 +136,10 @@ Mevcut altyapı değerlendirmesi:
 
 ## Bu çalışmada uygulanan düzeltmeler
 
-1. İngilizce ses-ışık sayfasındaki elle yazılmış `250+ reviews`, merkezi ve
-   yuvarlatılmış Google değerlendirme değerine bağlandı.
+1. İngilizce ses-ışık sayfasındaki elle yazılmış `250+ reviews` dahil olmak
+   üzere kaynağı doğrulanamayan tüm sabit Google puanı ve yorum sayıları
+   kaldırıldı. Yeni entegrasyon yalnız Google Business Profile API canlı veri
+   döndürürse görünür; hata veya eksik yapılandırmada sayı göstermez.
 2. İngilizce LED, çadır ve masa-sandalye hizmetlerinde Google'ın desteklediği
    reviewed-item türü olmayan `Service.aggregateRating` kaldırıldı.
 3. Türkçe ürün lansmanı yazısındaki merkezi 700+ proje verisiyle çelişen
@@ -147,6 +149,9 @@ Mevcut altyapı değerlendirmesi:
 5. İngilizce Antalya/MICE sayfalarındaki kaynaksız `#1`, uçuş, otel ve güneşli
    gün sayıları sadeleştirildi; karar vericiye yararlı lojistik ve prodüksiyon
    dili korundu.
+6. Google Business Profile puanı için sunucu tarafında OAuth kullanan, sonucu
+   24 saat önbellekleyen ve istemciye hiçbir gizli anahtar göndermeyen bir
+   entegrasyon hazırlandı. Kurulum bilgileri eklenene kadar bileşen gizlidir.
 6. Kaynak SEO denetiminin artık görünür FAQ için FAQPage zorunluluğu üretmesi
    durduruldu.
 7. Aynı denetime self-rating `aggregateRating`, elle yazılmış yorum toplamı,

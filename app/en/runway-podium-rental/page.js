@@ -9,7 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED } from "@/lib/stats";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. SETTINGS & CONSTANTS ================== */
 export const revalidate = 86400;
@@ -282,7 +282,7 @@ function HeroSection() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {[
-                { icon: "⭐", value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT_DISPLAY}+ Reviews` },
+                { icon: "📐", value: "Custom", label: "Runway Layout" },
                 { icon: "👗", value: PROJECTS_COMPLETED, label: "Completed Projects" },
                 { icon: "🚀", value: "End-to-End", label: "Service" },
                 { icon: "🛡️", value: "TS EN", label: "Safety Standards" },

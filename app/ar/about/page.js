@@ -5,7 +5,7 @@ import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROJECTS_COMPLETED_COUNT, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
@@ -20,7 +20,7 @@ export const metadata = {
   openGraph: {
     title: "من نحن | سحنيفا - تقنيات الفعاليات الاحترافية",
     description:
-      `حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد إلى ${YEARS_OF_EXPERIENCE} عامًا. أكثر من ${PROJECTS_COMPLETED_COUNT} مشروع ناجح وتقييم ${GOOGLE_RATING}/5 على Google.`,
+      `حلول فعاليات احترافية في جميع أنحاء تركيا بخبرة تمتد إلى ${YEARS_OF_EXPERIENCE} عامًا وخبرة ميدانية من أكثر من ${PROJECTS_COMPLETED_COUNT} مشروع منجز.`,
     url: AR_ABOUT_URL,
     images: [
       {
@@ -262,7 +262,7 @@ export default function ArabicAboutPage() {
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   {[
                     { number: PROJECTS_COMPLETED, label: "مشروع منجز" },
-                    { number: `${GOOGLE_RATING}/5`, label: "تقييم Google" },
+                    { number: "موثّق", label: "تفاصيل المشاريع" },
                     { number: `${PROVINCES_COUNT}`, label: "محافظة نغطّيها" },
                     { number: TECHNICAL_TEAM_SIZE, label: "فرد في الفريق المتخصص" },
                   ].map((stat, index) => (
@@ -451,7 +451,7 @@ export default function ArabicAboutPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "أهداف خالية من الأخطاء في البنية التحتية التقنية",
-                    "متابعة رضا العملاء عبر تقييمات Google العلنية",
+                    "تسجيل ملاحظات العملاء بعد تسليم المشروع",
                     "ابتكار مستمر وتحديث للمعدات",
                     "عمليات مراعية للبيئة ومستدامة",
                   ].map((item, index) => (

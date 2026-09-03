@@ -10,7 +10,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ───── META & ISR ───── */
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "About Us | Sahneva - Professional Event Technologies",
     description:
-      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. ${PROJECTS_COMPLETED} successful projects and a ${GOOGLE_RATING}/5 Google rating.`,
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise and field experience from ${PROJECTS_COMPLETED} completed projects.`,
     url: "https://www.sahneva.com/en/about",
     images: [
       {
@@ -41,7 +41,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "About Us | Sahneva – Professional Event Technologies",
     description:
-      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise. ${PROJECTS_COMPLETED} successful projects and a ${GOOGLE_RATING}/5 Google rating.`,
+      `Professional event solutions across Türkiye with ${YEARS_OF_EXPERIENCE} years of expertise and field experience from ${PROJECTS_COMPLETED} completed projects.`,
     images: ["https://www.sahneva.com/img/hakkimizda-hero-corporate.webp"],
   },
   robots: AI_PREVIEW_ROBOTS,
@@ -525,7 +525,7 @@ export default function AboutPage() {
                 <ul className="space-y-3 text-gray-700">
                   {[
                     "Zero-error targets in technical infrastructure",
-                    "Client satisfaction tracked through public Google reviews",
+                    "Client feedback recorded after project delivery",
                     "Continuous innovation and equipment upgrades",
                     "Environmentally conscious and sustainable operations",
                   ].map((item, index) => (

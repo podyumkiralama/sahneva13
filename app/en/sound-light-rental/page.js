@@ -10,12 +10,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import {
-  GOOGLE_RATING,
-  GOOGLE_REVIEW_COUNT_DISPLAY,
-  PROJECTS_COMPLETED,
-  PROVINCES_COUNT,
-} from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== Constants ================== */
 export const revalidate = 86400;
@@ -224,9 +219,9 @@ function Hero() {
 
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-            <span className="text-2xl mb-2" aria-hidden="true">⭐</span>
-            <div className="text-xl font-black text-white">{GOOGLE_RATING}/5</div>
-            <div className="text-white/80 text-sm">{GOOGLE_REVIEW_COUNT_DISPLAY}+ reviews</div>
+            <span className="text-2xl mb-2" aria-hidden="true">🎚️</span>
+            <div className="text-xl font-black text-white">On-Site</div>
+            <div className="text-white/80 text-sm">Sound & light crew</div>
           </div>
           <div className="flex flex-col items-center text-center p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
             <span className="text-2xl mb-2" aria-hidden="true">🏆</span>

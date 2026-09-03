@@ -12,7 +12,7 @@ import ServiceGuideShowcase from "@/components/seo/ServiceGuideShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED } from "@/lib/stats";
+import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== 1. AYARLAR & SABİTLER ================== */
 export const revalidate = 86400;
@@ -327,7 +327,7 @@ function HeroSection() {
         },
       ]}
       metrics={[
-        { value: `${GOOGLE_RATING}/5`, label: `${GOOGLE_REVIEW_COUNT_DISPLAY}+ değerlendirme` },
+        { value: "Özel Ölçü", label: "Podyum planı" },
         { value: PROJECTS_COMPLETED, label: "Tamamlanan proje" },
         { value: "Uçtan Uca", label: "Hizmet kapsamı" },
         { value: "TS EN", label: "Güvenlik standartları" },

@@ -1,6 +1,6 @@
 // components/WhyChooseUs.js
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
+import { PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 const ICON_CLASS = "w-7 h-7";
 
@@ -51,7 +51,7 @@ const GlobeMapIcon = ({ className }) => (
 );
 
 const DEFAULT_FEATURES = [
-  { icon: <CheckStarIcon className={ICON_CLASS} />, title: "Müşterilerimizin Değerlendirmesi", desc: `Google'da ${GOOGLE_REVIEW_COUNT_DISPLAY}+ doğrulanmış değerlendirmede ${GOOGLE_RATING}/5 ortalama. Adı açık kurum referansları ve sahada çekilmiş proje videoları da bunu destekliyor.`, stat: `Google'da ${GOOGLE_RATING}/5`, gradient: "from-amber-400 to-orange-400", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
+  { icon: <CheckStarIcon className={ICON_CLASS} />, title: "Sahadan Proje Kanıtları", desc: "Proje sayfalarında kurulum kapsamını, saha fotoğraflarını ve uygulama ayrıntılarını birlikte yayınlıyoruz.", stat: "Gerçek Projeler", gradient: "from-amber-400 to-orange-400", accentHoverClass: "group-hover:text-amber-200", pillClass: "bg-amber-500/10 border-amber-400/40 text-amber-100" },
   { icon: <BoltClockIcon className={ICON_CLASS} />, title: "Hızlı Kurulum ve Teslimat", desc: "Podyum ve LED ekran birkaç saatte kalkar; truss ve rigging içeren sahne kurulumu daha uzun sürer. Her teklifte kapsamınıza ait kurulum penceresi yazılıdır.", stat: setupDurationText("overall", "tr"), gradient: "from-violet-500 to-purple-400", accentHoverClass: "group-hover:text-violet-200", pillClass: "bg-violet-500/10 border-violet-400/40 text-violet-100" },
   { icon: <DisplayIcon className={ICON_CLASS} />, title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6", gradient: "from-violet-400 to-fuchsia-400", accentHoverClass: "group-hover:text-fuchsia-200", pillClass: "bg-fuchsia-500/10 border-fuchsia-400/40 text-fuchsia-100" },
   { icon: <UsersIcon className={ICON_CLASS} />, title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: `${TECHNICAL_TEAM_SIZE} Uzman`, gradient: "from-emerald-400 to-green-400", accentHoverClass: "group-hover:text-emerald-200", pillClass: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100" },
@@ -83,7 +83,7 @@ const DEFAULT_DICTIONARY = {
     "Jeneratör, UPS ve yedekli enerji altyapısı",
   ],
   features: [
-    { title: "Müşterilerimizin Değerlendirmesi", desc: `Google'da ${GOOGLE_REVIEW_COUNT_DISPLAY}+ doğrulanmış değerlendirmede ${GOOGLE_RATING}/5 ortalama. Adı açık kurum referansları ve sahada çekilmiş proje videoları da bunu destekliyor.`, stat: `Google'da ${GOOGLE_RATING}/5` },
+    { title: "Sahadan Proje Kanıtları", desc: "Proje sayfalarında kurulum kapsamını, saha fotoğraflarını ve uygulama ayrıntılarını birlikte yayınlıyoruz.", stat: "Gerçek Projeler" },
     { title: "Hızlı Kurulum ve Teslimat", desc: "Podyum ve LED ekran birkaç saatte kalkar; truss ve rigging içeren sahne kurulumu daha uzun sürer. Her teklifte kapsamınıza ait kurulum penceresi yazılıdır.", stat: setupDurationText("overall", "tr") },
     { title: "Premium LED Teknolojisi", desc: "P2–P6 indoor/outdoor LED ekranlarla yüksek parlaklık ve netlikte görüntüleme.", stat: "P2–P6" },
     { title: "Uzman Teknik Ekip", desc: `${YEARS_OF_EXPERIENCE} yıl deneyimli, sahne, ses, ışık ve LED alanında uzman teknik kadro.`, stat: `${TECHNICAL_TEAM_SIZE} Uzman` },

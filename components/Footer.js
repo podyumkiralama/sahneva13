@@ -13,6 +13,7 @@ import {
   Star,
 } from "lucide-react";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "@/components/icons/BrandIcons";
+import GoogleBusinessRating from "@/components/GoogleBusinessRating";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
@@ -674,6 +675,8 @@ export default function Footer({
                 </div>
               </div>
             </address>
+
+            <GoogleBusinessRating locale={locale} />
 
             <nav
               className="pt-2 flex flex-col gap-2"

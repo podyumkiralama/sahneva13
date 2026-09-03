@@ -22,7 +22,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT_DISPLAY, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 import { formatTRY, SOUND_LIGHT_PACKAGE_PRICES } from "@/lib/pricing";
 
 /* ================== Sabitler ================== */
@@ -232,9 +232,9 @@ const HERO_METRICS = [
     detail: "Türkiye genelinde nakliye, kurulum ve söküm koordinasyonu.",
   },
   {
-    value: `${GOOGLE_RATING}/5`,
-    label: "Müşteri Puanı",
-    detail: `Google Business Profile üzerinde ${GOOGLE_REVIEW_COUNT_DISPLAY}+ değerlendirme ortalaması.`,
+    value: "Uçtan Uca",
+    label: "Teknik Operasyon",
+    detail: "Keşif, kurulum, canlı operasyon ve söküm aynı teknik plan içinde yürütülür.",
   },
 ];
 

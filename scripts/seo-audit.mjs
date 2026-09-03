@@ -9,6 +9,8 @@ const rootDir = path.resolve(__dirname, "..");
 
 const SOURCE_EXTENSIONS = new Set([".js", ".jsx", ".mjs", ".ts", ".tsx"]);
 const APP_DIR = path.join(rootDir, "app");
+const COMPONENTS_DIR = path.join(rootDir, "components");
+const LIB_DIR = path.join(rootDir, "lib");
 const SITEMAP_DATA_FILE = path.join(rootDir, "lib", "sitemap", "data.js");
 
 const ROUTE_REJECT_PATTERNS = [
@@ -38,8 +40,16 @@ const TRUST_CLAIM_RULES = [
     pattern: /\baggregateRating\s*:/g,
   },
   {
-    label: "elle yazilmis yorum sayisi; lib/stats.js kullanilmali",
-    pattern: /\b\d{2,}\+\s+(?:Google\s+)?(?:reviews?|degerlendirme(?:ler)?|değerlendirme(?:ler)?)/gi,
+    label: "API disinda elle yazilmis yorum sayisi",
+    pattern: /\b\d{2,}\+\s+(?:(?:Google|client)\s+)?(?:reviews?|degerlendirme(?:ler)?|değerlendirme(?:ler)?)/gi,
+  },
+  {
+    label: "elle yazilmis Google puani",
+    pattern: /(?:\bGoogle\b[^\n]{0,80}\b[0-5](?:[.,]\d)?\s*\/\s*5\b|\b[0-5](?:[.,]\d)?\s*\/\s*5\b[^\n]{0,80}\bGoogle\b)/gi,
+  },
+  {
+    label: "statik Google yorum/puan sabiti",
+    pattern: /\bexport\s+const\s+GOOGLE_(?:RATING|REVIEW_COUNT(?:_DISPLAY)?)\b/g,
   },
   {
     label: "kanitsiz #1/1 numarali ustunluk iddiasi",
@@ -649,7 +659,11 @@ async function main() {
   );
   const linkReport = analyzeLinks(allSourceFiles, pages, fileToRoute, noindexRoutes);
   const localBusinessReport = analyzeLocalBusiness();
-  const trustClaimReport = analyzeTrustClaims(walk(APP_DIR));
+  const trustClaimReport = analyzeTrustClaims([
+    ...walk(APP_DIR),
+    ...walk(COMPONENTS_DIR),
+    ...walk(LIB_DIR),
+  ]);
 
   const pageIssues = pageReports
     .filter((page) => page.issues.length)
