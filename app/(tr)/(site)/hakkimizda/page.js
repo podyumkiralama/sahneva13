@@ -191,7 +191,7 @@ export default function HakkimizdaPage() {
         title="Hakkımızda"
         titleAccent="Sahneva"
         description={`Etkinlik teknolojilerinde ${YEARS_OF_EXPERIENCE} yıl deneyim ve ${PROJECTS_COMPLETED} proje.`}
-        note="Türkiye'nin <strong>1 numaralı etkinlik teknoloji partneri</strong> olarak her projede teknik mükemmellik ve yaratıcı vizyonu buluşturuyoruz."
+        note="İstanbul merkezli <strong>etkinlik teknoloji çözüm ortağı</strong> olarak her projede teknik planlama ile yaratıcı vizyonu buluşturuyoruz."
         actions={[
           {
             key: "whatsapp",
@@ -427,7 +427,7 @@ export default function HakkimizdaPage() {
                 <h3 className="text-3xl font-black text-gray-900 mb-6">Misyonumuz</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   Etkinlik teknolojilerinde <strong>yenilikçi, güvenilir ve sürdürülebilir</strong> çözümler sunarak
-                  müşterilerimizin marka değerini artırmak, teknik mükemmellik ve yaratıcı vizyonla Türkiye'nin etkinlik sektörüne liderlik etmek.
+                  müşterilerimizin marka değerini artırmak, teknik mükemmellik ve yaratıcı vizyonla Türkiye&apos;de etkinlik sektörünün gelişimine katkı sunmak.
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   {[

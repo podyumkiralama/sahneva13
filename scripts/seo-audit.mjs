@@ -27,6 +27,30 @@ const PRICE_PAGE_PATHS = new Set([
   "/podyum-kurulum-fiyatlari",
 ]);
 
+// Google Search, Mayis 2026'dan beri FAQ rich result gostermiyor ve AI
+// ozellikleri icin ozel schema/kelime kalibi istemiyor. Buna karsilik
+// kanitsiz ticari ustunluk, bayat elle yazilmis sayilar ve desteklenmeyen
+// self-rating isaretlemeleri guven sorununa donusur. Bu kurallar tam da bu
+// yuksek riskli tekrarlarin repoya geri girmesini engeller.
+const TRUST_CLAIM_RULES = [
+  {
+    label: "Service/self-rating aggregateRating adayi",
+    pattern: /\baggregateRating\s*:/g,
+  },
+  {
+    label: "elle yazilmis yorum sayisi; lib/stats.js kullanilmali",
+    pattern: /\b\d{2,}\+\s+(?:Google\s+)?(?:reviews?|degerlendirme(?:ler)?|değerlendirme(?:ler)?)/gi,
+  },
+  {
+    label: "kanitsiz #1/1 numarali ustunluk iddiasi",
+    pattern: /(?:(?:Turkiye|Türkiye)(?:['’]|&apos;)(?:nin|nın)|Turkey(?:['’]|&apos;)s)\s+(?:<strong>)?(?:#\s*1|1\s+numarali|1\s+numaralı)/gi,
+  },
+  {
+    label: "merkezi proje sayisiyla celisen eski toplam",
+    pattern: /\b(?:1200|1[.,]200)(?:&apos;|['’])?den\s+fazla\s+(?:basarili|başarılı)?\s*proje/gi,
+  },
+];
+
 // Yerel çalışma kopyaları dağıtıma dahil değildir; bunları taramak aynı bağlantıları
 // ikinci kez raporlayıp denetim sonucunu yanıltır.
 const IGNORED_SOURCE_DIRECTORIES = new Set(["node_modules", ".next", ".git", ".claude"]);
@@ -306,9 +330,8 @@ function analyzePages(pageFiles, sitemapPaths) {
       if (!signals.jsonLd) issues.push("missing JSON-LD signal");
     }
 
-    if (signals.visibleFaq && !signals.faqSchema) {
-      issues.push("visible FAQ without FAQPage schema signal");
-    }
+    // Gorunur SSS, kullaniciya yardim ettigi surece degerlidir. FAQPage ise
+    // Google'da artik rich result uretmedigi icin yoklugu SEO hatasi degildir.
 
     if (missingImageAlt) issues.push(`${missingImageAlt} image component(s) without alt`);
 
@@ -409,6 +432,29 @@ function analyzeLocalBusiness() {
     }
 
     findings.push({ file: relative, checks });
+  }
+
+  return findings;
+}
+
+function analyzeTrustClaims(files) {
+  const findings = [];
+
+  for (const filePath of files) {
+    const text = readText(filePath);
+    const relativeFile = toPosix(path.relative(rootDir, filePath));
+
+    for (const rule of TRUST_CLAIM_RULES) {
+      for (const match of text.matchAll(rule.pattern)) {
+        const line = lineNumberForIndex(text, match.index ?? 0);
+        findings.push({
+          file: relativeFile,
+          line,
+          label: rule.label,
+          source: getLine(text, line),
+        });
+      }
+    }
   }
 
   return findings;
@@ -603,6 +649,7 @@ async function main() {
   );
   const linkReport = analyzeLinks(allSourceFiles, pages, fileToRoute, noindexRoutes);
   const localBusinessReport = analyzeLocalBusiness();
+  const trustClaimReport = analyzeTrustClaims(walk(APP_DIR));
 
   const pageIssues = pageReports
     .filter((page) => page.issues.length)
@@ -614,6 +661,7 @@ async function main() {
   console.log(`broken_internal_links=${linkReport.brokenInternalLinks.length}`);
   console.log(`orphan_candidates=${linkReport.orphanCandidates.length}`);
   console.log(`price_page_link_occurrences=${linkReport.priceLinks.length}`);
+  console.log(`trust_claim_issues=${trustClaimReport.length}`);
 
   printSection("Page Issues");
   printList(
@@ -659,6 +707,13 @@ async function main() {
     console.log(`- ${finding.file}: ${result}`);
   }
 
+  printSection("Trust and GEO Claim Consistency");
+  printList(
+    trustClaimReport,
+    (item) => `- ${item.label} in ${item.file}:${item.line}\n  ${item.source}`,
+    "No unsupported self-rating, stale trust number or #1 claim found."
+  );
+
   printSection("Redirect / Sitemap Conflicts");
   if (redirectReport.skipped) {
     console.log(`- Skipped: ${redirectReport.skipped}`);
@@ -694,14 +749,16 @@ async function main() {
   printSection("Notes");
   console.log("- This audit is read-only and does not change pages.");
   console.log("- Metadata signals can be inherited from layouts; review warnings before editing.");
+  console.log("- Visible FAQ content is useful, but FAQPage markup is no longer required by this audit.");
   console.log("- Use Search Console/Vercel logs for live 404 evidence before adding redirects.");
 
-  // Bu denetimin tek KIRAN kontrolu. Digerleri uyari niteliginde oldugu icin
-  // cikis kodunu etkilemez; yonlendirme/sitemap cakismasi ise her zaman hatadir
-  // ve baska hicbir asama yakalamaz (build yesil kalir, HTML denetimi temiz gecer).
-  if (redirectReport.conflicts.length) {
+  // Yonlendirme/sitemap cakismasi ve kanitsiz guven iddialari build'i kirar.
+  // Diger bulgular uyari niteligindedir ve inceleme gerektirir.
+  if (redirectReport.conflicts.length || trustClaimReport.length) {
     console.log("");
-    console.log(`[seo-audit] ${redirectReport.conflicts.length} yonlendirme/sitemap cakismasi.`);
+    console.log(
+      `[seo-audit] redirect_conflicts=${redirectReport.conflicts.length}; trust_claim_issues=${trustClaimReport.length}.`
+    );
     process.exitCode = 1;
   }
 }

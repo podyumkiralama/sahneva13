@@ -11,7 +11,7 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import PageHero from "@/components/PageHero";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 import { getLastModifiedForFile } from "@/lib/seoLastModified";
 import { getHomeResponsiveImage } from "@/lib/homeResponsiveImages";
 import {
@@ -1041,12 +1041,6 @@ function LedScreenJsonLd() {
           description: "Comprehensive LED wall rental with installation and operators"
         },
         url: `${ORIGIN}/en/led-screen-rental`,
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: GOOGLE_RATING,
-          reviewCount: `${GOOGLE_REVIEW_COUNT}`,
-          bestRating: "5"
-        },
       },
       {
         "@type": "WebPage",

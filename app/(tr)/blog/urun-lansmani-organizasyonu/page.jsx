@@ -7,7 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { PROVINCES_COUNT } from "@/lib/stats";
+import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -177,7 +177,7 @@ export default function Page() {
         </div>
 
         <p>
-          Sahneva olarak, 2012&apos;den beri edindiğimiz {YEARS_OF_EXPERIENCE} yıllık deneyim ve 1200&apos;den fazla başarılı proje ile bu kritik anı riske atmıyoruz. Türkiye genelinde kusursuz teknik prodüksiyon çözümleri sunuyoruz.
+          Sahneva olarak, 2012&apos;den beri edindiğimiz {YEARS_OF_EXPERIENCE} yıllık deneyim ve {PROJECTS_COMPLETED} tamamlanmış projeden gelen saha birikimiyle ürün lansmanlarını planlıyoruz. Türkiye genelinde teknik prodüksiyon çözümleri sunuyoruz.
         </p>
 
         <h2 id="teknik-kusursuzluk">1. Neden Teknik Kusursuzluk?</h2>

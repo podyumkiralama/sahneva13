@@ -528,7 +528,7 @@ const CITIES = [
   },
   {
     name: "Antalya",
-    desc: "Turkey's #1 resort MICE destination. Kemer, Belek and Side resort hotels host large-scale incentive groups and congresses year-round. Strong natural light and outdoor production options.",
+    desc: "A major resort MICE destination in Turkey. Kemer, Belek and Side resort hotels host large-scale incentive groups and congresses year-round, with strong natural light and outdoor production options.",
     events: ["Incentive travel programs", "International congresses", "Pharmaceutical meetings", "Beach gala productions"],
   },
   {
@@ -550,7 +550,7 @@ function MiceCities() {
         kicker="Key MICE destinations"
         title={
           <>
-            Turkey's Top{" "}
+            Turkey's Major{" "}
             <span className="text-violet-700">MICE Cities</span>
           </>
         }

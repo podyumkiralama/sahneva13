@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
+import { GOOGLE_RATING, PROJECTS_COMPLETED, PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 /* ================== Constants ================== */
@@ -1060,12 +1060,6 @@ function TentJsonLd() {
         },
         url: pageUrl,
         mainEntityOfPage: { "@id": webPageId },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: GOOGLE_RATING,
-          reviewCount: `${GOOGLE_REVIEW_COUNT}`,
-          bestRating: "5"
-        },
       },
       {
         "@type": "WebPage",

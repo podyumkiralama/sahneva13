@@ -288,16 +288,16 @@ function WhyAntalya() {
           Antalya for international events
         </p>
         <h2 className="mt-3 text-2xl font-black text-slate-950">
-          Why Antalya is Turkey's #1 international event destination
+          Why Antalya works for international events
         </h2>
         <p className="mt-3 text-base leading-relaxed text-slate-700">
-          Antalya hosts more international conferences and incentive travel events than any other Turkish city outside Istanbul. Its combination of five-star resort infrastructure, direct European flights, Mediterranean climate and world-class congress facilities makes it the default destination for European corporate groups, pharmaceutical congresses, dealer meetings and incentive programs.
+          Antalya combines resort infrastructure, international flight connections, a long outdoor-event season and congress facilities. These factors make the city practical for corporate groups, medical congresses, dealer meetings and incentive programmes when venue access, guest logistics and technical production are planned together.
         </p>
         <ul className="mt-5 grid gap-3 text-sm font-semibold text-slate-800 md:grid-cols-4">
-          <li className="rounded-xl bg-white px-4 py-3">Year-round flights from 50+ countries</li>
-          <li className="rounded-xl bg-white px-4 py-3">200+ five-star resort and congress hotels</li>
-          <li className="rounded-xl bg-white px-4 py-3">Mediterranean climate (300+ sun days)</li>
-          <li className="rounded-xl bg-white px-4 py-3">Competitive all-inclusive event pricing</li>
+          <li className="rounded-xl bg-white px-4 py-3">International flight connections</li>
+          <li className="rounded-xl bg-white px-4 py-3">Resort and congress hotel options</li>
+          <li className="rounded-xl bg-white px-4 py-3">Long outdoor-event season</li>
+          <li className="rounded-xl bg-white px-4 py-3">Integrated guest and event logistics</li>
         </ul>
       </div>
     </SectionShell>
