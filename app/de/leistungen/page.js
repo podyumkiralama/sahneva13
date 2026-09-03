@@ -9,7 +9,6 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -64,99 +63,58 @@ function ServicesStructuredData() {
       itemListElement: [
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Bühne mieten",
             description: "Planung, Aufbau und Betreuung von Bühnenkonstruktionen",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "10000.00",
-            maxPrice: "200000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "LED-Wand mieten",
             description: "Vermietung hochauflösender LED-Wände inklusive Bildregie",
           },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: LED_SCREEN_PRICING.standard.perSqm,
-            priceCurrency: "TRY",
-            unitText: "m²",
-            unitCode: "MTK",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Ton- und Lichttechnik",
             description: "Vermietung von Beschallungs- und Lichtanlagen mit Technikpersonal",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "10000.00",
-            maxPrice: "300000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Podest mieten",
             description: "Modulare Podeste und Laufstege",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "250.00",
-            maxPrice: "100000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Eventzelt mieten" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "6000.00",
-            maxPrice: "800000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Stuhlvermietung" },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "200.00",
-            priceCurrency: "TRY",
-            unitText: "pro Stück",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Tischvermietung" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "1000.00",
-            maxPrice: "2000.00",
-          },
         },
         {
           "@type": "Offer",
           itemOffered: { "@type": "Service", name: "Logistik Istanbul" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            price: "7000.00",
-          },
         },
       ],
     },

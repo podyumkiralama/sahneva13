@@ -11,6 +11,7 @@ import {
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 export const revalidate = 86400;
 
@@ -202,7 +203,7 @@ export default function Page() {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": `${url}#post`,
+        "@id": `${url}#blogposting`,
         mainEntityOfPage: { "@id": url },
         headline: "Event Technical Production Costs: A 2026 Buyer's Guide",
         description: PAGE_DESCRIPTION,
@@ -210,7 +211,7 @@ export default function Page() {
         datePublished: publishedISO,
         dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,
@@ -224,15 +225,6 @@ export default function Page() {
           { "@type": "Thing", name: "Comparing event production quotes" },
           { "@type": "Thing", name: "Event production quotation line items" },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
       },
     ],
   };

@@ -11,6 +11,7 @@ import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
+const PAGE_URL = `${SITE_URL}/projeler`;
 
 export const metadata = {
   title: "Projeler | Etkinlik Sahne ve LED Referanslarımız",
@@ -46,12 +47,14 @@ function ProjectsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${PAGE_URL}#webpage`,
     name: "Projeler | Sahneva Organizasyon",
     description:
       "Sahneva Organizasyon tarafından gerçekleştirilen sahne, podyum, LED ekran ve ses-ışık projeleri.",
-    url: `${SITE_URL}/projeler`,
+    url: PAGE_URL,
     image: `${SITE_URL}/img/hero-bg.webp`,
     inLanguage: "tr-TR",
+    breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
   };
 
   return <JsonLd data={schema} />;
@@ -67,7 +70,11 @@ export default async function ProjectsIndexPage() {
 
   return (
     <div id="main" className="min-h-screen bg-gradient-to-br from-slate-900 via-[#040817] to-purple-900/20 text-white">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={baseUrl}
+        id={`${PAGE_URL}#breadcrumb`}
+      />
       <ProjectsStructuredData />
       {/* Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">

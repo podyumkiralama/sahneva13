@@ -6,7 +6,7 @@ import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 const RU_HOME_URL = buildCanonical("/ru");
@@ -257,77 +257,60 @@ const RU_HOME_FAQ_ITEMS = [
   },
 ];
 
-// Bu dugum merkezi LocalBusiness varligini GENISLETIR, yenisini tanimlamaz.
-// Onceden `${RU_HOME_URL}#business` kimligiyle ayri bir isletme gibi duruyordu;
-// layout zaten ayni sayfada tam LocalBusiness dugumunu basiyor, yani Google iki
-// ayri Sahneva gorebilirdi. Ayni @id ile basilinca ikisi tek varlikta birlesiyor.
-//
-// url / telephone / areaServed alanlari BILINCLI olarak kaldirildi: merkezi dugum
-// bunlari zaten tasiyor ve farkli degerlerle (ana adres, bosluksuz telefon, "TR")
-// tasiyor. Ikisi birden basilsa tek varlik celiskili degerler tasirdi. Asagida
-// kalanlar merkezi dugumde OLMAYAN, RU diline ozgu eklemelerdir.
+// Kurum kimligi kok sayfada tanimlidir; bu locale ana sayfasi yalnizca kendi
+// WebPage, ana Service ve gorunen hizmet katalogunu tanimlar.
+const RU_HOME_WEBPAGE_ID = `${RU_HOME_URL}#webpage`;
+const RU_HOME_SERVICE_ID = `${RU_HOME_URL}#service`;
+const RU_HOME_CATALOG_ID = `${RU_HOME_URL}#catalog`;
+const LEASE_OUT = "http://purl.org/goodrelations/v1#LeaseOut";
+
 const RU_HOME_JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": LOCAL_BUSINESS_ID,
-  name: "Sahneva Organizasyon",
-  image: `${SITE_URL}/img/hero-bg.webp`,
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 41.096173214009205,
-    longitude: 28.97663777534253,
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-    addressLocality: "Kagithane",
-    addressRegion: "Istanbul",
-    postalCode: "34408",
-    addressCountry: "TR",
-  },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
+      "@type": "WebPage",
+      "@id": RU_HOME_WEBPAGE_ID,
+      url: RU_HOME_URL,
+      name: "Аренда сцен, LED-экранов, звука и шатров в Турции",
+      description:
+        "Sahneva: аренда сцен, подиумов, LED-экранов, звука, света, ферменных конструкций, шатров и мебели для мероприятий в Стамбуле и по всей Турции.",
+      inLanguage: "ru-RU",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": RU_HOME_SERVICE_ID },
+    },
+    {
+      "@type": "Service",
+      "@id": RU_HOME_SERVICE_ID,
+      name: "Аренда оборудования и техническое производство мероприятий",
+      description:
+        "Аренда сцен, подиумов, LED-экранов, звука, света, шатров и мебели для мероприятий в Турции.",
+      url: RU_HOME_URL,
+      serviceType: "Event production and equipment rental",
+      areaServed: { "@type": "Country", name: "Türkiye" },
+      provider: { "@id": ORGANIZATION_ID },
+      hasOfferCatalog: { "@id": RU_HOME_CATALOG_ID },
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": RU_HOME_CATALOG_ID,
+      name: "Услуги аренды оборудования для мероприятий",
+      itemListElement: RU_SERVICES.slice(0, 5).map((service) => ({
+        "@type": "Offer",
+        url: `${SITE_URL}${service.href}`,
+        ...(service.id !== "corporate" ? { businessFunction: LEASE_OUT } : {}),
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          url: `${SITE_URL}${service.href}`,
+          areaServed: { "@type": "Country", name: "Türkiye" },
+          provider: { "@id": ORGANIZATION_ID },
+        },
+      })),
     },
   ],
-  description:
-    "Аренда сцен, подиумов, LED-экранов, звука, света, шатров и мебели для мероприятий в Турции.",
-  makesOffer: RU_SERVICES.slice(0, 5).map((service) => ({
-    "@type": "Offer",
-    url: `${SITE_URL}${service.href}`,
-    itemOffered: {
-      "@type": "Service",
-      name: service.title,
-      areaServed: "Türkiye",
-    },
-  })),
 };
 
-const RU_HOME_FAQ_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${RU_HOME_URL}#faq`,
-  inLanguage: "ru-RU",
-  mainEntity: RU_HOME_FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
 
 export const metadata = {
   title: {
@@ -369,7 +352,6 @@ export default function RussianHomePage() {
   return (
     <div className="overflow-x-hidden bg-[#0B1120]">
       <JsonLd data={RU_HOME_JSON_LD} />
-      <JsonLd data={RU_HOME_FAQ_JSON_LD} id="ru-home-faq-jsonld" />
       <HeroSection dictionary={HERO_DICTIONARY} />
       <HeroBelow dictionary={HERO_BELOW_DICTIONARY} />
 

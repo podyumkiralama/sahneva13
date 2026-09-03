@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import SupportLauncher from "@/components/support/SupportLauncher.client";
-import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
@@ -25,161 +24,12 @@ import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import {
-  BASE_SITE_URL,
-  LOCAL_BUSINESS_ID,
-  ORGANIZATION_ID,
-  SOCIAL_PROFILES,
-  WEBSITE_ID,
-} from "@/lib/seo/schemaIds";
+import { BASE_SITE_URL } from "@/lib/seo/schemaIds";
 
 import { buildDynamicOgImage, buildDynamicTwitterImages } from "@/lib/seo/dynamicOg";
-import {
-  LOCAL_BUSINESS_IDENTITY,
-  ORGANIZATION_IDENTITY,
-} from "@/lib/structuredData/organizationIdentity";
 
 const content = LOCALE_CONTENT.tr;
 
-const LOGO_ID = `${BASE_SITE_URL}/#logo`;
-const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
-const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
-const EDITOR_ID = `${BASE_SITE_URL}/#editor`;
-
-/* ================== JSON-LD: GLOBAL GRAPH ================== */
-const globalJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ImageObject",
-      "@id": LOGO_ID,
-      url: LOGO_URL,
-      contentUrl: LOGO_URL,
-      caption: "Sahneva Organizasyon logosu",
-    },
-    {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      ...ORGANIZATION_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: ["Sahneva", "Sahneva Teknik"],
-      url: BASE_SITE_URL,
-      logo: { "@id": LOGO_ID },
-      image: LOGO_URL,
-      description:
-        "Sahneva Organizasyon; sahne, podyum, LED ekran, ses-ışık, truss, çadır ve kurumsal etkinlik teknik prodüksiyonu alanlarında Türkiye genelinde hizmet veren etkinlik prodüksiyon firmasıdır.",
-      telephone: "+905453048671",
-      foundingLocation: {
-        "@type": "Place",
-        name: "İstanbul, Türkiye",
-      },
-      areaServed: [
-        { "@type": "Country", name: "Türkiye" },
-        { "@type": "City", name: "İstanbul" },
-      ],
-      knowsAbout: [
-        "kurumsal organizasyon",
-        "sahne kiralama",
-        "podyum kiralama",
-        "LED ekran kiralama",
-        "ses ve ışık sistemleri",
-        "truss kiralama",
-        "çadır kiralama",
-        "teknik prodüksiyon",
-        "etkinlik teknik keşfi",
-      ],
-      sameAs: SOCIAL_PROFILES,
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          telephone: "+905453048671",
-          contactType: "customer service",
-          areaServed: "TR",
-          availableLanguage: ["tr", "en", "de", "ar", "ru", "zh"],
-        },
-      ],
-    },
-    {
-      "@type": "Person",
-      "@id": EDITOR_ID,
-      name: "Sahneva Editör",
-      url: BASE_SITE_URL,
-      worksFor: { "@id": ORGANIZATION_ID },
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": LOCAL_BUSINESS_ID,
-      ...LOCAL_BUSINESS_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      image: OG_IMAGE_URL,
-      logo: { "@id": LOGO_ID },
-      telephone: "+905453048671",
-      priceRange: "₺₺₺",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 41.096173214009205,
-        longitude: 28.97663777534253,
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-        addressLocality: "Kağıthane",
-        addressRegion: "İstanbul",
-        postalCode: "34408",
-        addressCountry: "TR",
-      },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-          ],
-          opens: "00:00",
-          closes: "23:59",
-        },
-      ],
-      areaServed: "TR",
-      parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: SOCIAL_PROFILES,
-    },
-    {
-      "@type": "WebSite",
-      "@id": WEBSITE_ID,
-      url: BASE_SITE_URL,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      description:
-        "Sahne, podyum, LED ekran, ses-ışık ve çadır kiralama hizmetleri için profesyonel etkinlik prodüksiyon çözümleri.",
-      inLanguage: "tr-TR",
-      about: [
-        "sahne kiralama",
-        "podyum kiralama",
-        "led ekran kiralama",
-        "çadır kiralama",
-        "kurumsal organizasyon",
-      ],
-      publisher: { "@id": ORGANIZATION_ID },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
-  ],
-};
-
-/* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
   manifest: "/manifest.json",
@@ -253,7 +103,6 @@ export default function TurkishLayout({ children }) {
         <SkipLinks locale="tr" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-        <JsonLd id="global-ld-json" data={globalJsonLd} />
         <header
           id="_main_header"
           aria-label="Sahneva site ust menusu ve ana navigasyon"

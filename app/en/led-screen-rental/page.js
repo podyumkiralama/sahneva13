@@ -47,6 +47,10 @@ import {
 export const revalidate = 86400;
 const ORIGIN = "https://www.sahneva.com";
 const ORGANIZATION_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
+const PAGE_URL = `${ORIGIN}/en/led-screen-rental`;
+const WEBPAGE_ID = `${PAGE_URL}#webpage`;
+const SERVICE_ID = `${PAGE_URL}#service`;
 const PAGE_LAST_MODIFIED = getLastModifiedForFile(
   "app/en/led-screen-rental/page.js",
   "2026-08-26",
@@ -749,44 +753,6 @@ function UseCases() {
 }
 
 /* ================== FAQ ================== */
-const FAQ_SCHEMA_ITEMS = [
-  {
-    question: "What is included in an LED screen rental project?",
-    answer:
-      "Each project is planned around the screen system, support structure, video processing, transport, installation, on-site crew, show operation and dismantling. The final scope is confirmed after the venue, content and production requirements are reviewed.",
-  },
-  {
-    question: "How long does installation take?",
-    answer:
-      "Standard LED wall builds take 2 to 6 hours. Up to 20 square metres typically completes within 2 to 3 hours, 20 to 50 square metres within 3 to 4 hours and large-format installs within 4 to 6 hours. Complex rigging or custom structures may require more time.",
-  },
-  {
-    question: "Can LED screens operate in rain?",
-    answer:
-      "Yes. Outdoor cabinets feature IP65 front protection and can operate safely in rain. In extreme storms or high winds, operation may be paused for safety.",
-  },
-  {
-    question: "Which pixel pitch should I choose?",
-    answer:
-      "Start with the closest viewing distance, content detail and camera plan. P1.9 suits close-view presentations and camera-led productions, P2.6 or P2.9 covers many indoor conference and launch layouts, and P3.9 is considered for longer viewing distances and outdoor stages.",
-  },
-  {
-    question: "Can you build curved or circular LED screens?",
-    answer:
-      "Yes. Sahneva's 400 m² Absen P1.9 inventory supports curved and circular indoor LED configurations. In one workshop-tested build, eight panels joined at 45 degrees formed a closed 360-degree ring. Larger diameters are planned with additional panels and project-specific geometry after the required dimensions are confirmed.",
-  },
-  {
-    question: "Can this system be used as a flexible LED alternative?",
-    answer:
-      "Yes, when a brief uses flexible LED to mean a planned curved or circular display rather than a freely bendable soft module. Sahneva's photographed Absen P1.9 system uses rental cabinets joined at planned angles, so it is a different product type from flexible LED modules. We confirm the radius, dimensions, viewing distance and support method before recommending it as the alternative.",
-  },
-  {
-    question: "Do you provide LED screen rental outside Istanbul?",
-    answer:
-      "Yes. We provide indoor and outdoor LED wall rental across Turkey, including nationwide transport, installation, video processing, on-site operators and dismantling. International agencies can coordinate the complete local scope through one English-speaking production contact.",
-  },
-];
-
 function FAQ() {
   const faqs = [
     {
@@ -1026,9 +992,10 @@ function LedScreenJsonLd() {
     "@graph": [
       {
         "@type": "Service",
+        "@id": SERVICE_ID,
         name: "LED Screen and LED Wall Rental in Turkey",
         description: "LED screen rental in Turkey with Absen P1.9 curved and circular indoor displays, Unilumin P2.6/P2.9 panels, outdoor LED walls, video processors, installation teams and on-site operators.",
-          provider: { "@id": ORGANIZATION_ID },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
         serviceType: "LED screen, LED wall, curved LED and circular LED display rental",
         image: [
@@ -1038,38 +1005,28 @@ function LedScreenJsonLd() {
         ],
         offers: {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           description: "Comprehensive LED wall rental with installation and operators"
         },
-        url: `${ORIGIN}/en/led-screen-rental`,
+        url: PAGE_URL,
       },
       {
         "@type": "WebPage",
+        "@id": WEBPAGE_ID,
         name: "LED Screen & LED Wall Rental in Turkey | Sahneva",
         description: "LED screen rental in Turkey with P1.9 curved indoor, P2.6/P2.9 and outdoor LED walls, processing, installation and on-site operators.",
-        url: `${ORIGIN}/en/led-screen-rental`,
-        inLanguage: "en",
+        url: PAGE_URL,
+        inLanguage: "en-US",
+        isPartOf: { "@id": WEBSITE_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+        about: { "@id": SERVICE_ID },
         dateModified: PAGE_LAST_MODIFIED,
         image: [
           `${ORIGIN}${HERO.src}`,
           `${ORIGIN}${CURVED_P19_RING_IMAGE}`,
           `${ORIGIN}${CURVED_P19_STAGE_IMAGE}`,
         ],
-        mainEntity: {
-          "@type": "Service",
-          name: "LED Screen Rental"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${ORIGIN}/en/led-screen-rental#faq`,
-        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
+        mainEntity: { "@id": SERVICE_ID },
       }
     ],
   };

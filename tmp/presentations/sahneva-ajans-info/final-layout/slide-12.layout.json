@@ -1,0 +1,711 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/jcvqby",
+    "id": "jcvqby",
+    "slide": 12,
+    "layoutId": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07111F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 905
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Sahneva Navy",
+    "colors": {
+      "accent1": "#67C8FF",
+      "accent2": "#63E0AE",
+      "accent3": "#8F80FF",
+      "accent4": "#FF6B8A",
+      "accent5": "#F4B860",
+      "accent6": "#7FD8BE",
+      "bg1": "#07111F",
+      "bg2": "#13223A",
+      "tx1": "#F8FBFF",
+      "tx2": "#DDE8F8",
+      "dk1": "#000000",
+      "dk2": "#0B1727",
+      "lt1": "#F8FBFF",
+      "lt2": "#DDE8F8",
+      "hlink": "#67C8FF",
+      "folHlink": "#8F80FF"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "33800799-f2dd-4105-8984-12bf1b173467",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/qp0r65wn",
+      "id": "1",
+      "bbox": [
+        665,
+        0,
+        615,
+        905
+      ],
+      "geometry": "rect",
+      "alt": "Sıfır Atık Festivali ana sahne teknik prodüksiyonu",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "bc02c5ae-e5b1-4047-aa91-7e29ebb45a21",
+        "contentType": "image/png",
+        "byteLength": 4859342
+      }
+    },
+    {
+      "order": 2,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/dsrah0vy",
+      "id": "2",
+      "bbox": [
+        64,
+        44,
+        188,
+        88
+      ],
+      "geometry": "rect",
+      "alt": "contact-logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "23ca2ac0-fcef-4da3-81ef-13c64b957fa6",
+        "contentType": "image/png",
+        "byteLength": 7760
+      }
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5onex8fe",
+      "id": "3",
+      "name": "contact-panel",
+      "bbox": [
+        64,
+        190,
+        555,
+        570
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q9wf6dwz",
+      "id": "4",
+      "name": "contact-title",
+      "bbox": [
+        104,
+        240,
+        475,
+        160
+      ],
+      "geometry": "rect",
+      "text": "Bir sonraki etkinliğin teknik kapsamını birlikte netleştirelim.",
+      "textPreview": "Bir sonraki etkinliğin teknik kapsamını birlikte netleştirelim.",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bir sonraki etkinliğin"
+          },
+          {
+            "index": 2,
+            "text": "teknik kapsamını"
+          },
+          {
+            "index": 3,
+            "text": "birlikte netleştirelim."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bir sonraki etkinliğin teknik kapsamını birlikte netleştirelim.",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bir sonraki etkinliğin teknik kapsamını birlikte netleştirelim.",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ra5wzix4",
+      "id": "5",
+      "name": "contact-body",
+      "bbox": [
+        104,
+        435,
+        475,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Etkinlik tarihi, şehir, mekân, ölçüler ve teknik beklentiyi paylaşın; ekipman, üretim, ekip ve lojistik kapsamını tek planda oluşturalım.",
+      "textPreview": "Etkinlik tarihi, şehir, mekân, ölçüler ve teknik beklentiyi paylaşın; ekipman, üretim, ekip ve lojistik kapsamını tek planda oluşturalım.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#DDE8F8",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Etkinlik tarihi, şehir, mekân, ölçüler ve teknik"
+          },
+          {
+            "index": 2,
+            "text": "beklentiyi paylaşın; ekipman, üretim, ekip ve lojistik"
+          },
+          {
+            "index": 3,
+            "text": "kapsamını tek planda oluşturalım."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Etkinlik tarihi, şehir, mekân, ölçüler ve teknik beklentiyi paylaşın; ekipman, üretim, ekip ve lojistik kapsamını tek planda oluşturalım.",
+          "lineSpacingPercent": 116000,
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.16
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Etkinlik tarihi, şehir, mekân, ölçüler ve teknik beklentiyi paylaşın; ekipman, üretim, ekip ve lojistik kapsamını tek planda oluşturalım.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.16
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sbex8nep",
+      "id": "6",
+      "name": "contact-site",
+      "bbox": [
+        104,
+        575,
+        330,
+        32
+      ],
+      "geometry": "rect",
+      "text": "www.sahneva.com",
+      "textPreview": "www.sahneva.com",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "www.sahneva.com"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "www.sahneva.com",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "www.sahneva.com",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dcne1sfa",
+      "id": "7",
+      "name": "contact-mail",
+      "bbox": [
+        104,
+        625,
+        330,
+        32
+      ],
+      "geometry": "rect",
+      "text": "info@sahneva.com",
+      "textPreview": "info@sahneva.com",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "info@sahneva.com"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "info@sahneva.com",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "info@sahneva.com",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6tsvutgf",
+      "id": "8",
+      "name": "contact-phone",
+      "bbox": [
+        104,
+        675,
+        330,
+        32
+      ],
+      "geometry": "rect",
+      "text": "+90 545 304 86 71",
+      "textPreview": "+90 545 304 86 71",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "+90 545 304 86 71"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "+90 545 304 86 71",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "+90 545 304 86 71",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7elwnex0",
+      "id": "9",
+      "name": "contact-qr-card",
+      "bbox": [
+        900,
+        560,
+        260,
+        255
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3y1kzy98",
+      "id": "10",
+      "name": "contact-qr-bg",
+      "bbox": [
+        952,
+        582,
+        156,
+        156
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/hk3q54bi",
+      "id": "11",
+      "bbox": [
+        960,
+        590,
+        140,
+        140
+      ],
+      "alt": "contact bağlantı QR kodu",
+      "contentType": "image/svg+xml",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "0089c9a3-3372-4fc6-8ac9-cbbf1d7bc1fc",
+        "contentType": "image/svg+xml",
+        "byteLength": 36850
+      }
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p032187e",
+      "id": "12",
+      "name": "contact-qr-link",
+      "bbox": [
+        925,
+        760,
+        210,
+        28
+      ],
+      "geometry": "rect",
+      "text": "İletişim sayfasını aç ↗",
+      "textPreview": "İletişim sayfasını aç ↗",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "İletişim sayfasını aç ↗"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "İletişim sayfasını aç ↗",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "İletişim sayfasını aç ↗",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4zul83qt",
+      "id": "13",
+      "name": "contact-legal",
+      "bbox": [
+        64,
+        844,
+        560,
+        20
+      ],
+      "geometry": "rect",
+      "text": "SAHNEVA ORGANİZASYON TASARIM VE REKLAM LİMİTED ŞİRKETİ",
+      "textPreview": "SAHNEVA ORGANİZASYON TASARIM VE REKLAM LİMİTED ŞİRKETİ",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 12,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SAHNEVA ORGANİZASYON TASARIM VE REKLAM LİMİTED ŞİRKETİ"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SAHNEVA ORGANİZASYON TASARIM VE REKLAM LİMİTED ŞİRKETİ",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 12,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SAHNEVA ORGANİZASYON TASARIM VE REKLAM LİMİTED ŞİRKETİ",
+              "fontSize": 12,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

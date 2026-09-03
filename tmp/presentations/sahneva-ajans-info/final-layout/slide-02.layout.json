@@ -1,0 +1,1978 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/rs7hnp",
+    "id": "rs7hnp",
+    "slide": 2,
+    "layoutId": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07111F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 905
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Sahneva Navy",
+    "colors": {
+      "accent1": "#67C8FF",
+      "accent2": "#63E0AE",
+      "accent3": "#8F80FF",
+      "accent4": "#FF6B8A",
+      "accent5": "#F4B860",
+      "accent6": "#7FD8BE",
+      "bg1": "#07111F",
+      "bg2": "#13223A",
+      "tx1": "#F8FBFF",
+      "tx2": "#DDE8F8",
+      "dk1": "#000000",
+      "dk2": "#0B1727",
+      "lt1": "#F8FBFF",
+      "lt2": "#DDE8F8",
+      "hlink": "#67C8FF",
+      "folHlink": "#8F80FF"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "33800799-f2dd-4105-8984-12bf1b173467",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sb6t8bit",
+      "id": "1",
+      "name": "grid-v-0",
+      "bbox": [
+        0,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/raxsf6h8",
+      "id": "2",
+      "name": "grid-v-92",
+      "bbox": [
+        92,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/694b610n",
+      "id": "3",
+      "name": "grid-v-184",
+      "bbox": [
+        184,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/10fal0za",
+      "id": "4",
+      "name": "grid-v-276",
+      "bbox": [
+        276,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gz6tcvyp",
+      "id": "5",
+      "name": "grid-v-368",
+      "bbox": [
+        368,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fexsjqh4",
+      "id": "6",
+      "name": "grid-v-460",
+      "bbox": [
+        460,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/edobalgz",
+      "id": "7",
+      "name": "grid-v-552",
+      "bbox": [
+        552,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4zap0zm",
+      "id": "8",
+      "name": "grid-v-644",
+      "bbox": [
+        644,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o3qtgvy1",
+      "id": "9",
+      "name": "grid-v-736",
+      "bbox": [
+        736,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/21onelsz",
+      "id": "10",
+      "name": "grid-v-828",
+      "bbox": [
+        828,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/32xo7qtk",
+      "id": "11",
+      "name": "grid-v-920",
+      "bbox": [
+        920,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4365gva5",
+      "id": "12",
+      "name": "grid-v-1012",
+      "bbox": [
+        1012,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4f690bq",
+      "id": "13",
+      "name": "grid-v-1104",
+      "bbox": [
+        1104,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5oni5sb",
+      "id": "14",
+      "name": "grid-v-1196",
+      "bbox": [
+        1196,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r6xobq9w",
+      "id": "15",
+      "name": "grid-h-0",
+      "bbox": [
+        0,
+        0,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cr65kvah",
+      "id": "16",
+      "name": "grid-h-92",
+      "bbox": [
+        0,
+        92,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsz6d0rm",
+      "id": "17",
+      "name": "grid-h-184",
+      "bbox": [
+        0,
+        184,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/694n61s7",
+      "id": "18",
+      "name": "grid-h-276",
+      "bbox": [
+        0,
+        276,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ad4z6tc",
+      "id": "19",
+      "name": "grid-h-368",
+      "bbox": [
+        0,
+        368,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/be9k7294",
+      "id": "20",
+      "name": "grid-h-460",
+      "bbox": [
+        0,
+        460,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ad03ex8z",
+      "id": "21",
+      "name": "grid-h-552",
+      "bbox": [
+        0,
+        552,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xgr29cra",
+      "id": "22",
+      "name": "grid-h-644",
+      "bbox": [
+        0,
+        644,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wfilg7qp",
+      "id": "23",
+      "name": "grid-h-736",
+      "bbox": [
+        0,
+        736,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/na9k3i98",
+      "id": "24",
+      "name": "grid-h-828",
+      "bbox": [
+        0,
+        828,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 25,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/5czelof2",
+      "id": "25",
+      "bbox": [
+        48,
+        24,
+        132,
+        62
+      ],
+      "geometry": "rect",
+      "alt": "sahneva-logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "0f4b7b86-3aa6-451a-a97b-ebc80ca7d6aa",
+        "contentType": "image/png",
+        "byteLength": 7760
+      }
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9cr25sre",
+      "id": "26",
+      "name": "section-label",
+      "bbox": [
+        910,
+        32,
+        320,
+        24
+      ],
+      "geometry": "rect",
+      "text": "AJANS İŞ ORTAKLIĞI",
+      "textPreview": "AJANS İŞ ORTAKLIĞI",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AJANS İŞ ORTAKLIĞI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AJANS İŞ ORTAKLIĞI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AJANS İŞ ORTAKLIĞI",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obilcnqt",
+      "id": "27",
+      "name": "footer-label",
+      "bbox": [
+        48,
+        864,
+        320,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Sahneva | Ajans Teknik Profil",
+      "textPreview": "Sahneva | Ajans Teknik Profil",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahneva | Ajans Teknik Profil"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahneva | Ajans Teknik Profil",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahneva | Ajans Teknik Profil",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/76tkfm9c",
+      "id": "28",
+      "name": "page-number",
+      "bbox": [
+        1180,
+        864,
+        50,
+        18
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65k3mh8r",
+      "id": "29",
+      "name": "pill-AJANS IŞ ORTAKLIĞI",
+      "bbox": [
+        64,
+        110,
+        210,
+        40
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4fu9kf2d",
+      "id": "30",
+      "name": "pill-label-AJANS IŞ ORTAKLIĞI",
+      "bbox": [
+        78,
+        118,
+        182,
+        24
+      ],
+      "geometry": "rect",
+      "text": "AJANS IŞ ORTAKLIĞI",
+      "textPreview": "AJANS IŞ ORTAKLIĞI",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AJANS IŞ ORTAKLIĞI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AJANS IŞ ORTAKLIĞI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AJANS IŞ ORTAKLIĞI",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/503qtk3i",
+      "id": "31",
+      "name": "slide-title",
+      "bbox": [
+        64,
+        170,
+        590,
+        122
+      ],
+      "geometry": "rect",
+      "text": "Brief'i sahada çalışan\nteknik plana dönüştürüyoruz",
+      "textPreview": "Brief'i sahada çalışan | teknik plana dönüştürüyoruz",
+      "resolvedFontSize": 46,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 46,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Brief'i sahada çalışan"
+          },
+          {
+            "index": 2,
+            "text": "teknik plana"
+          },
+          {
+            "index": 3,
+            "text": "dönüştürüyoruz"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Brief'i sahada çalışan",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Brief'i sahada çalışan",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "teknik plana dönüştürüyoruz",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "teknik plana dönüştürüyoruz",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idcripk7",
+      "id": "32",
+      "name": "partner-body",
+      "bbox": [
+        66,
+        318,
+        560,
+        150
+      ],
+      "geometry": "rect",
+      "text": "Sahneva; ekipman planlaması, üretim, lojistik, kurulum, prova, etkinlik günü teknik operasyon ve söküm süreçlerini tek koordinasyon altında yürütür. Ajans ekibi yaratıcı akışı yönetirken saha uygulaması teknik planla ilerler.",
+      "textPreview": "Sahneva; ekipman planlaması, üretim, lojistik, kurulum, prova, etkinlik günü teknik operasyon ve söküm süreçlerini tek koordinasyon altın...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#DDE8F8",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahneva; ekipman planlaması, üretim, lojistik, kurulum,"
+          },
+          {
+            "index": 2,
+            "text": "prova, etkinlik günü teknik operasyon ve söküm"
+          },
+          {
+            "index": 3,
+            "text": "süreçlerini tek koordinasyon altında yürütür. Ajans ekibi"
+          },
+          {
+            "index": 4,
+            "text": "yaratıcı akışı yönetirken saha uygulaması teknik planla"
+          },
+          {
+            "index": 5,
+            "text": "ilerler."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahneva; ekipman planlaması, üretim, lojistik, kurulum, prova, etkinlik günü teknik operasyon ve söküm süreçlerini tek koordinasyon altında yürütür. Ajans ekibi yaratıcı akışı yönetirken saha uygulaması teknik planla ilerler.",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahneva; ekipman planlaması, üretim, lojistik, kurulum, prova, etkinlik günü teknik operasyon ve söküm süreçlerini tek koordinasyon altında yürütür. Ajans ekibi yaratıcı akışı yönetirken saha uygulaması teknik planla ilerler.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3el8ruls",
+      "id": "33",
+      "name": "partner-card-1",
+      "bbox": [
+        64,
+        520,
+        260,
+        122
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s3u9oz29",
+      "id": "34",
+      "name": "partner-card-no-1",
+      "bbox": [
+        82,
+        536,
+        48,
+        26
+      ],
+      "geometry": "rect",
+      "text": "01",
+      "textPreview": "01",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d43qx43u",
+      "id": "35",
+      "name": "partner-card-title-1",
+      "bbox": [
+        82,
+        562,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Teknik kapsam",
+      "textPreview": "Teknik kapsam",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Teknik kapsam"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Teknik kapsam",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Teknik kapsam",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1crmpk3",
+      "id": "36",
+      "name": "partner-card-body-1",
+      "bbox": [
+        82,
+        594,
+        220,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Mekân, ölçü, akış ve ekipman ihtiyacı netleştirilir.",
+      "textPreview": "Mekân, ölçü, akış ve ekipman ihtiyacı netleştirilir.",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mekân, ölçü, akış ve ekipman"
+          },
+          {
+            "index": 2,
+            "text": "ihtiyacı netleştirilir."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mekân, ölçü, akış ve ekipman ihtiyacı netleştirilir.",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mekân, ölçü, akış ve ekipman ihtiyacı netleştirilir.",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2l8vulo",
+      "id": "37",
+      "name": "partner-card-2",
+      "bbox": [
+        345,
+        520,
+        260,
+        122
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/07e9sz25",
+      "id": "38",
+      "name": "partner-card-no-2",
+      "bbox": [
+        363,
+        536,
+        48,
+        26
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18nq143q",
+      "id": "39",
+      "name": "partner-card-title-2",
+      "bbox": [
+        363,
+        562,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Üretim ve hazırlık",
+      "textPreview": "Üretim ve hazırlık",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Üretim ve hazırlık"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Üretim ve hazırlık",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Üretim ve hazırlık",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lgfqh476",
+      "id": "40",
+      "name": "partner-card-body-2",
+      "bbox": [
+        363,
+        594,
+        220,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Baskı, dekor, konstrüksiyon ve ekipman hazırlığı planlanır.",
+      "textPreview": "Baskı, dekor, konstrüksiyon ve ekipman hazırlığı planlanır.",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Baskı, dekor, konstrüksiyon ve"
+          },
+          {
+            "index": 2,
+            "text": "ekipman hazırlığı planlanır."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Baskı, dekor, konstrüksiyon ve ekipman hazırlığı planlanır.",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Baskı, dekor, konstrüksiyon ve ekipman hazırlığı planlanır.",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0f698z6l",
+      "id": "41",
+      "name": "partner-card-3",
+      "bbox": [
+        64,
+        670,
+        260,
+        122
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zed8fup0",
+      "id": "42",
+      "name": "partner-card-no-3",
+      "bbox": [
+        82,
+        686,
+        48,
+        26
+      ],
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yd4r6pof",
+      "id": "43",
+      "name": "partner-card-title-3",
+      "bbox": [
+        82,
+        712,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Kurulum ve prova",
+      "textPreview": "Kurulum ve prova",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Kurulum ve prova"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Kurulum ve prova",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Kurulum ve prova",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dcvqdk7u",
+      "id": "44",
+      "name": "partner-card-body-3",
+      "bbox": [
+        82,
+        744,
+        220,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Saha yerleşimi, enerji, sinyal ve test süreci tamamlanır.",
+      "textPreview": "Saha yerleşimi, enerji, sinyal ve test süreci tamamlanır.",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Saha yerleşimi, enerji, sinyal ve"
+          },
+          {
+            "index": 2,
+            "text": "test süreci tamamlanır."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Saha yerleşimi, enerji, sinyal ve test süreci tamamlanır.",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Saha yerleşimi, enerji, sinyal ve test süreci tamamlanır.",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbm94f69",
+      "id": "45",
+      "name": "partner-card-4",
+      "bbox": [
+        345,
+        670,
+        260,
+        122
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bad8bap4",
+      "id": "46",
+      "name": "partner-card-no-4",
+      "bbox": [
+        363,
+        686,
+        48,
+        26
+      ],
+      "geometry": "rect",
+      "text": "04",
+      "textPreview": "04",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "04"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "04",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "04",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q94r2poj",
+      "id": "47",
+      "name": "partner-card-title-4",
+      "bbox": [
+        363,
+        712,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Canlı operasyon",
+      "textPreview": "Canlı operasyon",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Canlı operasyon"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Canlı operasyon",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Canlı operasyon",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x8zapo7e",
+      "id": "48",
+      "name": "partner-card-body-4",
+      "bbox": [
+        363,
+        744,
+        220,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Reji, ses, ışık, LED ve saha ekibi etkinlik boyunca yönetilir.",
+      "textPreview": "Reji, ses, ışık, LED ve saha ekibi etkinlik boyunca yönetilir.",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Reji, ses, ışık, LED ve saha ekibi"
+          },
+          {
+            "index": 2,
+            "text": "etkinlik boyunca yönetilir."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Reji, ses, ışık, LED ve saha ekibi etkinlik boyunca yönetilir.",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Reji, ses, ışık, LED ve saha ekibi etkinlik boyunca yönetilir.",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 49,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/3254zadk",
+      "id": "49",
+      "bbox": [
+        680,
+        158,
+        530,
+        646
+      ],
+      "geometry": "roundRect",
+      "alt": "Kurumsal etkinlikte LED ekran, sahne ve ışık prodüksiyonu",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 3019"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "9db0ee9e-d513-496d-a603-3625e3a38402",
+        "contentType": "image/png",
+        "byteLength": 1279207
+      }
+    }
+  ],
+  "composeRuns": []
+}

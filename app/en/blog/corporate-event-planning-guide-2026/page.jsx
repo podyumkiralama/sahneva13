@@ -12,6 +12,7 @@ import {
 } from "@/lib/seo/schemaIds";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 export const revalidate = 86400;
 
@@ -184,7 +185,7 @@ export default function Page() {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": `${url}#post`,
+        "@id": `${url}#blogposting`,
         mainEntityOfPage: { "@id": url },
         headline:
           "2026 Corporate Event Planning Guide: Checklist and Technical Tips",
@@ -194,7 +195,7 @@ export default function Page() {
         datePublished: publishedISO,
         dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         url,

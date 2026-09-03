@@ -12,8 +12,6 @@ import TurkishHomeDecisionDesk from "@/components/home/TurkishHomeDecisionDesk";
 import TurkishHomeFieldProof from "@/components/home/TurkishHomeFieldProof";
 import JsonLd from "@/components/seo/JsonLd";
 import sectionStyles from "@/components/TurkishProjectsSection.module.css";
-import { FAQ_ITEMS } from "@/lib/faqData";
-
 import {
   AI_PREVIEW_ROBOTS,
   buildAlternateLanguages,
@@ -22,6 +20,7 @@ import {
   HOME_PAGE_TITLE,
 } from "@/lib/seo/seoConfig";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { SITE_IDENTITY_JSON_LD } from "@/lib/structuredData/organizationIdentity";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 /* ================== ISR ================== */
@@ -90,7 +89,6 @@ const HOME_URL = `${BASE_SITE_URL}/`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
 const SERVICE_ID = `${HOME_URL}#primary-service`;
 const CATALOG_ID = `${HOME_URL}#catalog`;
-const FAQ_ID = `${HOME_URL}#sss`;
 const HERO_IMAGE_ID = `${HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${HOME_URL}#og-image`;
 const HOME_PAGE_DESCRIPTION =
@@ -154,6 +152,7 @@ const HOME_JSON_LD = {
       inLanguage: "tr-TR",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": SERVICE_ID },
       primaryImageOfPage: { "@id": HERO_IMAGE_ID },
     },
 
@@ -181,6 +180,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/podyum-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Podyum Kiralama",
@@ -194,6 +194,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/led-ekran-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "LED Ekran Kiralama",
@@ -208,6 +209,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/cadir-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Çadır Kiralama",
@@ -221,6 +223,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/masa-sandalye-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Sandalye Kiralama",
@@ -233,6 +236,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/masa-sandalye-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Masa Kiralama",
@@ -245,6 +249,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/sahne-kiralama`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Sahne Kiralama",
@@ -259,6 +264,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/ses-isik-sistemleri`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Ses-Işık Sistemleri",
@@ -295,26 +301,13 @@ const HOME_JSON_LD = {
       hasOfferCatalog: { "@id": CATALOG_ID },
       serviceType: "Event Production",
     },
-
-    {
-      "@type": "FAQPage",
-      "@id": FAQ_ID,
-      url: `${HOME_URL}#sss`,
-      mainEntity: FAQ_ITEMS.map(({ question, answer }) => ({
-        "@type": "Question",
-        name: question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: answer,
-        },
-      })),
-    },
   ],
 };
 
 export default function HomePage() {
   return (
     <div className="overflow-x-hidden bg-black">
+      <JsonLd id="site-identity-json-ld" data={SITE_IDENTITY_JSON_LD} />
       <JsonLd data={HOME_JSON_LD} suppressHydrationWarning />
 
       <TurkishHomepageHero />

@@ -7,6 +7,9 @@ import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const AR_PROJECTS_URL = buildCanonical("/ar/projects");
+const AR_PROJECTS_WEBPAGE_ID = `${AR_PROJECTS_URL}#webpage`;
+const AR_PROJECTS_BREADCRUMB_ID = `${AR_PROJECTS_URL}#breadcrumb`;
+const AR_PROJECTS_LIST_ID = `${AR_PROJECTS_URL}#project-list`;
 const AR_PROJECTS_TITLE = "مشاريع فعاليات في تركيا";
 const AR_PROJECTS_DESCRIPTION =
   "نماذج من إنتاج Sahneva للفعاليات في تركيا: مسرح رئيسي، شاشة LED، صوت وإضاءة، تراس، خيام وتشغيل ميداني للمعارض والمؤتمرات والحفلات.";
@@ -88,11 +91,16 @@ const FIELD_EVIDENCE = [
 const PROJECTS_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
+  "@id": AR_PROJECTS_WEBPAGE_ID,
   name: AR_PROJECTS_TITLE,
   url: AR_PROJECTS_URL,
   inLanguage: "ar",
+  breadcrumb: {
+    "@id": AR_PROJECTS_BREADCRUMB_ID,
+  },
   mainEntity: {
     "@type": "ItemList",
+    "@id": AR_PROJECTS_LIST_ID,
     itemListElement: PROJECT_STORIES.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -143,6 +151,7 @@ export default function ArabicProjectsPage() {
           { name: "المشاريع", url: "/ar/projects" },
         ]}
         baseUrl={SITE_URL}
+        id={AR_PROJECTS_BREADCRUMB_ID}
       />
 
       <section className="relative overflow-hidden bg-slate-950 py-16 text-white md:py-20">

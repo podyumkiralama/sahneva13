@@ -1,7 +1,6 @@
 // app/en/podium-rental-prices/page.js
 import Image from "next/image";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
@@ -116,22 +115,13 @@ function tl(n) {
 
 /* ================== JSON-LD ================== */
 function buildJsonLd() {
-  // Mini: 12 m² + carpet + 14 m skirt + Istanbul transport (installation+dismantling included)
-  const exampleLow =
-    12 * UNIT_PRICES.platform_m2_week +
-    12 * UNIT_PRICES.carpet_m2_week +
-    14 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_nakliye;
-
-  // Pro: 48 m² + carpet + 28 m skirt + Istanbul transport (installation+dismantling included)
-  const exampleHigh =
-    48 * UNIT_PRICES.platform_m2_week +
-    48 * UNIT_PRICES.carpet_m2_week +
-    28 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_nakliye;
+  const webPageId = `${url}#webpage`;
+  const serviceId = `${url}#service`;
+  const breadcrumbId = `${url}#breadcrumb`;
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": breadcrumbId,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_SITE_URL}/en` },
       {
@@ -144,20 +134,12 @@ function buildJsonLd() {
     ],
   };
 
-  const aggregateOffer = {
-    "@type": "AggregateOffer",
-    priceCurrency: UNIT_PRICES.currency,
-    lowPrice: String(exampleLow),
-    highPrice: String(exampleHigh),
-    offerCount: "4",
-    priceValidUntil: PRICE_VALID_UNTIL,
-    availability: "https://schema.org/InStock",
-    url,
-  };
-
   const mainService = {
     "@type": "Service",
+    "@id": serviceId,
     name: "Stage Platform Rental Prices (m² Based) — 2026",
+    url,
+    mainEntityOfPage: { "@id": webPageId },
     provider: { "@id": ORGANIZATION_ID },
     areaServed: [
       { "@type": "Country", name: "Turkey" },
@@ -167,11 +149,11 @@ function buildJsonLd() {
       offers: [
       {
         "@type": "Offer",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         name: "Platform (Modular Stage Deck) — 2026",
         price: String(UNIT_PRICES.platform_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -180,7 +162,6 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.carpet_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -189,7 +170,6 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.skirt_ml_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -198,20 +178,11 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.ist_nakliye),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
     ],
   };
 
-  const faqPage = {
-    "@type": "FAQPage",
-    mainEntity: FAQ.map((x) => ({
-      "@type": "Question",
-      name: x.q,
-      acceptedAnswer: { "@type": "Answer", text: x.a },
-    })),
-  };
 
   const howTo = {
     "@type": "HowTo",
@@ -240,7 +211,7 @@ function buildJsonLd() {
 
   const webpage = {
     "@type": "WebPage",
-    "@id": url,
+    "@id": webPageId,
     url,
     name: "Stage Platform Rental Prices 2026",
     isPartOf: { "@id": WEBSITE_ID },
@@ -248,6 +219,8 @@ function buildJsonLd() {
     datePublished: PUBLISH_DATE,
     dateModified: PUBLISH_DATE,
     inLanguage: "en-US",
+    breadcrumb: { "@id": breadcrumbId },
+    mainEntity: { "@id": serviceId },
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${BASE_SITE_URL}/img/podyum/podyum-kiralama-fiyatlari-hero.webp`,
@@ -256,7 +229,7 @@ function buildJsonLd() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webpage, breadcrumb, mainService, aggregateOffer, faqPage, howTo],
+    "@graph": [webpage, breadcrumb, mainService, howTo],
   };
 }
 
@@ -325,14 +298,6 @@ export default function Page() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Home", url: `${BASE_SITE_URL}/en` },
-          { name: "Stage Platform Rental", url: `${BASE_SITE_URL}/en/podium-rental` },
-          { name: "Stage Platform Rental Prices", url },
-        ]}
-      />
-
       <JsonLd
         id="ld-json-podium-prices-en"
         data={jsonLd}

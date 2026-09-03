@@ -806,29 +806,6 @@ function Articles() {
 }
 
   /* ================== FAQ ================== */
-const FAQ_SCHEMA_ITEMS = [
-  {
-    question: "How much does tent rental cost?",
-    answer:
-      "A 5x5 metre pagoda tent rental is priced from TL 7,000 including Istanbul transport, professional installation, dismantling and essential technical support. Standard tents are priced by square metre, while bespoke designs are quoted after a project briefing.",
-  },
-  {
-    question: "How long does tent installation take?",
-    answer:
-      "A 5x5 metre pagoda installs in roughly 2 to 3 hours, while a 6x6 metre unit takes 3 to 4 hours. Large-scale projects are usually assembled one day in advance.",
-  },
-  {
-    question: "Are the tents resistant to bad weather?",
-    answer:
-      "Weather suitability is assessed for each venue using the tent type, dimensions, ground conditions, anchoring or ballast options and forecast. Final limits and safety actions are confirmed in the project plan.",
-  },
-  {
-    question: "Do you provide event tent rental across Turkey?",
-    answer:
-      `Yes. We provide pagoda, clear-span, marquee, dome and industrial tent rentals across all ${PROVINCES_COUNT} Turkish provinces, with faster logistics in metropolitan cities such as Istanbul, Ankara, Izmir and Antalya.`,
-  },
-];
-
 function FAQ() {
   const faqs = [
     {
@@ -1056,6 +1033,7 @@ function TentJsonLd() {
         serviceType: "Event tent and temporary structure rental",
         offers: {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           description: "Professional tent rental packages"
         },
         url: pageUrl,
@@ -1076,18 +1054,6 @@ function TentJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}#faq`,
-        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
       }
     ],
   };

@@ -2010,6 +2010,9 @@ function LedScreenJsonLd() {
         "Unilumin P2.6 ve P2.9 LED ekran kiralama",
       ].map((name) => ({
         "@type": "Offer",
+        ...(name.includes("kiralama")
+          ? { businessFunction: "http://purl.org/goodrelations/v1#LeaseOut" }
+          : {}),
         itemOffered: {
           "@type": "Service",
           name,
@@ -2112,18 +2115,6 @@ function LedScreenJsonLd() {
     ...gallerySchema.imageNodes.map((image) => ({ "@id": image["@id"] })),
   ];
 
-  const faqSchema = {
-    "@type": "FAQPage",
-    "@id": `${pageUrl}#faq`,
-    mainEntity: FAQ_ITEMS.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -2134,7 +2125,6 @@ function LedScreenJsonLd() {
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...videoObjects,
-      faqSchema,
     ],
   };
 

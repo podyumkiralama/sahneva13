@@ -1,6 +1,5 @@
 // app/de/impressum/page.js
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
 import { COMPANY, COMPANY_INFO_COMPLETE } from "@/lib/legal/companyInfo";
@@ -174,16 +173,9 @@ function InfoTable({ title, rows }) {
 }
 
 export default function GermanImprintPage() {
-  const breadcrumbItems = [
-    { name: "Startseite", url: `${SITE_URL}/de` },
-    { name: "Impressum", url: PAGE_URL },
-  ];
-
   return (
     <div className="bg-slate-950 text-slate-100">
       <JsonLd id="de-impressum-jsonld" data={JSON_LD} />
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-
       <div className="container mx-auto max-w-4xl px-4 py-16 md:py-20">
         <header className="border-b border-white/10 pb-8">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-violet-200">

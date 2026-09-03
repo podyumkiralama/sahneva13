@@ -3,8 +3,12 @@ import Link from "next/link";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import JsonLd from "@/components/seo/JsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -48,6 +52,10 @@ const CORNERSTONE_LINKS = [
 ];
 
 const PUBLISH_DATE = "2026-01-05T09:00:00+03:00";
+const MODIFIED_DATE = getLastModifiedDateTimeForFile(
+  "app/(tr)/blog/sahne-kiralama-fiyatlari-neye-gore-belirlenir/page.jsx",
+  PUBLISH_DATE,
+);
 
 /* ================== META ================== */
 export const metadata = {
@@ -89,6 +97,29 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
+function ArticleSchema() {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": `${BLOG_URL}#blogposting`,
+        url: BLOG_URL,
+        headline: TITLE,
+        description: DESCRIPTION,
+        image: `${SITE_URL}${HERO_IMG}`,
+        datePublished: PUBLISH_DATE,
+        dateModified: MODIFIED_DATE,
+        inLanguage: "tr-TR",
+        author: buildArticleAuthor(AUTHOR_NAME),
+        publisher: { "@id": ORGANIZATION_ID },
+        mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
+        isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
+      }}
+    />
+  );
+}
+
 /* ================== KÜÇÜK BİLEŞENLER ================== */
 function ImgFigure({ src, alt, caption }) {
   return (
@@ -120,9 +151,10 @@ export default function Page() {
     { name: (metadata?.title ? String(metadata.title).replace(/\s*\|\s*Sahneva.*$/, "") : "Blog"), url: BLOG_URL },
   ];
 
-return (
+  return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
+      <ArticleSchema />
       <BlogLayout
         siteUrl={SITE_URL}
         breadcrumbItems={breadcrumbItems}

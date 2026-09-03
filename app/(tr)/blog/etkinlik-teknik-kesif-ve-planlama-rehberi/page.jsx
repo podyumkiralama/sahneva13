@@ -8,6 +8,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 export const revalidate = 86400;
 
@@ -53,7 +54,7 @@ export default function Page() {
     "@graph": [
       {
         "@type": "Article",
-        "@id": `${url}#article`,
+        "@id": `${url}#blogposting`,
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
         headline: "Etkinlik Teknik Keşif ve Planlama Rehberi",
         description:
@@ -63,7 +64,7 @@ export default function Page() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         image: [{ "@type": "ImageObject", url: OG_IMAGE, width: 1600, height: 720 }],
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor("Sahneva Organizasyon"),
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
       },

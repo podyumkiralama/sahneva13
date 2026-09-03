@@ -3,6 +3,7 @@ import RegionalRentalClient from "@/app/(tr)/bolgesel-kiralama/RegionalRentalCli
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://www.sahneva.com";
@@ -40,7 +41,7 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
-function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
+function RegionalRentalJsonLd({ services, steps, regions }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,6 +67,7 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
         "@id": `${PAGE_URL}#service`,
         name: "Regionale Vermietung von Veranstaltungstechnik",
         serviceType: "Veranstaltungstechnik",
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: [
           { "@type": "Country", name: "Türkiye" },
           ...regions.map((region) => ({ "@type": "City", name: region.name })),
@@ -75,6 +77,7 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
           name: "Leistungen der regionalen Vermietung",
           itemListElement: services.map((service) => ({
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: {
               "@type": "Service",
               name: service.title,
@@ -93,16 +96,6 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
           position: index + 1,
           name: step.title,
           text: step.desc,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        inLanguage: "de-DE",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.q,
-          acceptedAnswer: { "@type": "Answer", text: faq.a },
         })),
       },
     ],
@@ -254,7 +247,7 @@ export default function GermanRegionalRentalPage() {
 
   return (
     <div className="relative overflow-hidden">
-      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
+      <RegionalRentalJsonLd services={services} steps={steps} regions={regions} />
       <RegionalRentalClient
         regions={regions}
         services={services}

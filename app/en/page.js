@@ -22,8 +22,6 @@ import { buildCanonical, buildAlternateLanguages, getOgImageUrl } from "@/lib/se
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { FAQ_ITEMS_EN } from "@/lib/faqData";
-import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 import { CORPORATE_EVENTS, PROJECTS_COMPLETED, PROVINCES_COUNT, TECHNICAL_TEAM_SIZE, setupDurationText } from "@/lib/stats";
 
 /* ================== ISR ================== */
@@ -82,7 +80,6 @@ const EN_HOME_URL = `${BASE_SITE_URL}/en`;
 const WEBPAGE_ID = `${EN_HOME_URL}#webpage`;
 const SERVICE_ID = `${EN_HOME_URL}#primary-service`;
 const CATALOG_ID = `${EN_HOME_URL}#catalog`;
-const FAQ_ID = `${EN_HOME_URL}#faq`;
 const HERO_IMAGE_ID = `${EN_HOME_URL}#hero-image`;
 const OG_IMAGE_ID = `${EN_HOME_URL}#og-image`;
 const PRICING_DISCLAIMER =
@@ -103,6 +100,7 @@ const HOME_JSON_LD = {
       inLanguage: "en-US",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": SERVICE_ID },
       primaryImageOfPage: { "@id": HERO_IMAGE_ID },
     },
 
@@ -130,6 +128,7 @@ const HOME_JSON_LD = {
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/stage-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Stage Platform Rental",
@@ -139,25 +138,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: PODIUM_UNIT_PRICES.platformSqmWeek,
-            priceCurrency: "TRY",
-            unitText: "m²",
-            unitCode: "MTK",
-            referenceQuantity: {
-              "@type": "QuantitativeValue",
-              value: 1,
-              unitCode: "MTK",
-            },
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/services#led`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "LED Wall Rental",
@@ -167,25 +154,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: LED_SCREEN_PRICING.standard.perSqm,
-            priceCurrency: "TRY",
-            unitText: "m²",
-            unitCode: "MTK",
-            referenceQuantity: {
-              "@type": "QuantitativeValue",
-              value: 1,
-              unitCode: "MTK",
-            },
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/tent-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Event Tent Rental",
@@ -194,19 +169,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: 6000,
-            maxPrice: 800000,
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/table-chair-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Chair Rental",
@@ -215,25 +184,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: 250,
-            priceCurrency: "TRY",
-            unitText: "unit",
-            unitCode: "C62",
-            referenceQuantity: {
-              "@type": "QuantitativeValue",
-              value: 1,
-              unitCode: "C62",
-            },
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/table-chair-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Table Rental",
@@ -242,19 +199,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: 1000,
-            maxPrice: 2000,
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/stage-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Stage Rental",
@@ -264,19 +215,13 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: 10000,
-            maxPrice: 200000,
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
         {
           "@type": "Offer",
           url: `${BASE_SITE_URL}/en/sound-light-rental`,
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Sound & Lighting Systems",
@@ -285,13 +230,6 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: 10000,
-            maxPrice: 300000,
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
@@ -306,12 +244,6 @@ const HOME_JSON_LD = {
             provider: { "@id": ORGANIZATION_ID },
             areaServed: { "@type": "Country", name: "Türkiye" },
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            price: 7000,
-            priceCurrency: "TRY",
-          },
-          availability: "https://schema.org/InStock",
           areaServed: { "@type": "Country", name: "Türkiye" },
           seller: { "@id": ORGANIZATION_ID },
         },
@@ -329,20 +261,6 @@ const HOME_JSON_LD = {
       provider: { "@id": ORGANIZATION_ID },
       hasOfferCatalog: { "@id": CATALOG_ID },
       serviceType: "Event Technology and Equipment Rental",
-    },
-
-    {
-      "@type": "FAQPage",
-      "@id": FAQ_ID,
-      url: `${EN_HOME_URL}#faq`,
-      mainEntity: FAQ_ITEMS_EN.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
     },
   ],
 };

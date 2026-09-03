@@ -1,0 +1,1225 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/a6xj45",
+    "id": "a6xj45",
+    "slide": 8,
+    "layoutId": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07111F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 905
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Sahneva Navy",
+    "colors": {
+      "accent1": "#67C8FF",
+      "accent2": "#63E0AE",
+      "accent3": "#8F80FF",
+      "accent4": "#FF6B8A",
+      "accent5": "#F4B860",
+      "accent6": "#7FD8BE",
+      "bg1": "#07111F",
+      "bg2": "#13223A",
+      "tx1": "#F8FBFF",
+      "tx2": "#DDE8F8",
+      "dk1": "#000000",
+      "dk2": "#0B1727",
+      "lt1": "#F8FBFF",
+      "lt2": "#DDE8F8",
+      "hlink": "#67C8FF",
+      "folHlink": "#8F80FF"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "33800799-f2dd-4105-8984-12bf1b173467",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7ulsnq9",
+      "id": "1",
+      "name": "grid-v-0",
+      "bbox": [
+        0,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6l4zi9o",
+      "id": "2",
+      "name": "grid-v-92",
+      "bbox": [
+        92,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5c3qd83",
+      "id": "3",
+      "name": "grid-v-184",
+      "bbox": [
+        184,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pkjmx8ri",
+      "id": "4",
+      "name": "grid-v-276",
+      "bbox": [
+        276,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ojalo3qx",
+      "id": "5",
+      "name": "grid-v-368",
+      "bbox": [
+        368,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ni1kvy9s",
+      "id": "6",
+      "name": "grid-v-460",
+      "bbox": [
+        460,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hs3mt87",
+      "id": "7",
+      "name": "grid-v-552",
+      "bbox": [
+        552,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gj2torm",
+      "id": "8",
+      "name": "grid-v-644",
+      "bbox": [
+        644,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0falk3q1",
+      "id": "9",
+      "name": "grid-v-736",
+      "bbox": [
+        736,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ulgju9kn",
+      "id": "10",
+      "name": "grid-v-828",
+      "bbox": [
+        828,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmpknel8",
+      "id": "11",
+      "name": "grid-v-920",
+      "bbox": [
+        920,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gny1wj2t",
+      "id": "12",
+      "name": "grid-v-1012",
+      "bbox": [
+        1012,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ho72po3e",
+      "id": "13",
+      "name": "grid-v-1104",
+      "bbox": [
+        1104,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6hwjq94r",
+      "id": "14",
+      "name": "grid-v-1196",
+      "bbox": [
+        1196,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ipkjelc",
+      "id": "15",
+      "name": "grid-h-0",
+      "bbox": [
+        0,
+        0,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jy1sjmh",
+      "id": "16",
+      "name": "grid-h-92",
+      "bbox": [
+        0,
+        92,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tk72lo32",
+      "id": "17",
+      "name": "grid-h-184",
+      "bbox": [
+        0,
+        184,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytwjmp4f",
+      "id": "18",
+      "name": "grid-h-276",
+      "bbox": [
+        0,
+        276,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ju5kful0",
+      "id": "19",
+      "name": "grid-h-368",
+      "bbox": [
+        0,
+        368,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m1876xg",
+      "id": "20",
+      "name": "grid-h-460",
+      "bbox": [
+        0,
+        460,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2l87y1gb",
+      "id": "21",
+      "name": "grid-h-552",
+      "bbox": [
+        0,
+        552,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pojq9gfm",
+      "id": "22",
+      "name": "grid-h-644",
+      "bbox": [
+        0,
+        644,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/onap0by1",
+      "id": "23",
+      "name": "grid-h-736",
+      "bbox": [
+        0,
+        736,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq18b6xs",
+      "id": "24",
+      "name": "grid-h-828",
+      "bbox": [
+        0,
+        828,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 25,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/1o3ypkb2",
+      "id": "25",
+      "bbox": [
+        48,
+        24,
+        132,
+        62
+      ],
+      "geometry": "rect",
+      "alt": "sahneva-logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "b0327146-c719-4351-b1bc-c4d7dc7b6b46",
+        "contentType": "image/png",
+        "byteLength": 7760
+      }
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dcjqdgfy",
+      "id": "26",
+      "name": "section-label",
+      "bbox": [
+        910,
+        32,
+        320,
+        24
+      ],
+      "geometry": "rect",
+      "text": "SES, IŞIK VE REJI",
+      "textPreview": "SES, IŞIK VE REJI",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SES, IŞIK VE REJI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SES, IŞIK VE REJI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SES, IŞIK VE REJI",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/crap4bed",
+      "id": "27",
+      "name": "footer-label",
+      "bbox": [
+        48,
+        864,
+        320,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Sahneva | Ajans Teknik Profil",
+      "textPreview": "Sahneva | Ajans Teknik Profil",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahneva | Ajans Teknik Profil"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahneva | Ajans Teknik Profil",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahneva | Ajans Teknik Profil",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ruh8zmx8",
+      "id": "28",
+      "name": "page-number",
+      "bbox": [
+        1180,
+        864,
+        50,
+        18
+      ],
+      "geometry": "rect",
+      "text": "08",
+      "textPreview": "08",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "08"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "08",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "08",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6to7qhg3",
+      "id": "29",
+      "name": "pill-TEKNIK OPERASYON",
+      "bbox": [
+        64,
+        110,
+        210,
+        40
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wzm50nel",
+      "id": "30",
+      "name": "pill-label-TEKNIK OPERASYON",
+      "bbox": [
+        78,
+        118,
+        182,
+        24
+      ],
+      "geometry": "rect",
+      "text": "TEKNIK OPERASYON",
+      "textPreview": "TEKNIK OPERASYON",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEKNIK OPERASYON"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEKNIK OPERASYON",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEKNIK OPERASYON",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0vmtsv6",
+      "id": "31",
+      "name": "slide-title",
+      "bbox": [
+        64,
+        170,
+        620,
+        110
+      ],
+      "geometry": "rect",
+      "text": "Ses, ışık, truss ve teknik reji",
+      "textPreview": "Ses, ışık, truss ve teknik reji",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 44,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ses, ışık, truss ve teknik reji"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ses, ışık, truss ve teknik reji",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 44,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ses, ışık, truss ve teknik reji",
+              "fontSize": 44,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/l87il8vm",
+      "id": "32",
+      "bbox": [
+        64,
+        310,
+        350,
+        480
+      ],
+      "geometry": "roundRect",
+      "alt": "Işık ve gösteri kontrol masası",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0.08,
+        "top": 0,
+        "right": 0.08,
+        "bottom": 0
+      },
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 4571"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "3dd54c23-7c05-438b-a8dd-238fe1e7d2d9",
+        "contentType": "image/png",
+        "byteLength": 1809572
+      }
+    },
+    {
+      "order": 33,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/k7y1s3e1",
+      "id": "33",
+      "bbox": [
+        448,
+        315,
+        280,
+        220
+      ],
+      "geometry": "roundRect",
+      "alt": "Büyük ölçekli line array ses sistemi",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0.12,
+        "right": 0,
+        "bottom": 0.12
+      },
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7273"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "bfb5bed2-ecd9-4b97-985c-9c0456991fb0",
+        "contentType": "image/png",
+        "byteLength": 7546705
+      }
+    },
+    {
+      "order": 34,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/bi50fydk",
+      "id": "34",
+      "bbox": [
+        756,
+        315,
+        454,
+        220
+      ],
+      "geometry": "roundRect",
+      "alt": "Konser sahnesinde truss rigging ve ışık tasarımı",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7273"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "6961ef3f-340d-4d5b-bb67-e7058023ba08",
+        "contentType": "image/png",
+        "byteLength": 1095723
+      }
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9wvmp8va",
+      "id": "35",
+      "name": "sound-light-copy",
+      "bbox": [
+        448,
+        565,
+        762,
+        225
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtknudwj",
+      "id": "36",
+      "name": "sound-light-title",
+      "bbox": [
+        482,
+        595,
+        690,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Ekipman parkı ve saha ekibi birlikte çalışır",
+      "textPreview": "Ekipman parkı ve saha ekibi birlikte çalışır",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ekipman parkı ve saha ekibi birlikte çalışır"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ekipman parkı ve saha ekibi birlikte çalışır",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ekipman parkı ve saha ekibi birlikte çalışır",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ut4nyd4",
+      "id": "37",
+      "name": "sound-light-body",
+      "bbox": [
+        482,
+        650,
+        690,
+        118
+      ],
+      "geometry": "rect",
+      "text": "Line array PA ve subwoofer sistemleri\nDijital mikser, stagebox, kablosuz mikrofon ve RF altyapısı\nMoving head, beam, wash ve DMX kontrol\nTruss, rigging, teknik reji, prova ve canlı operasyon",
+      "textPreview": "Line array PA ve subwoofer sistemleri | Dijital mikser, stagebox, kablosuz mikrofon ve RF altyapısı | Moving head, beam, wash ve DMX kont...",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#DDE8F8",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Line array PA ve subwoofer sistemleri"
+          },
+          {
+            "index": 2,
+            "text": "Dijital mikser, stagebox, kablosuz mikrofon ve RF altyapısı"
+          },
+          {
+            "index": 3,
+            "text": "Moving head, beam, wash ve DMX kontrol"
+          },
+          {
+            "index": 4,
+            "text": "Truss, rigging, teknik reji, prova ve canlı operasyon"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Line array PA ve subwoofer sistemleri",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Line array PA ve subwoofer sistemleri",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Dijital mikser, stagebox, kablosuz mikrofon ve RF altyapısı",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dijital mikser, stagebox, kablosuz mikrofon ve RF altyapısı",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Moving head, beam, wash ve DMX kontrol",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Moving head, beam, wash ve DMX kontrol",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Truss, rigging, teknik reji, prova ve canlı operasyon",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Truss, rigging, teknik reji, prova ve canlı operasyon",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

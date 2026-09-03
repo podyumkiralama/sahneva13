@@ -1,10 +1,7 @@
 // app/sss/page.js
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import PageHero from "@/components/PageHero";
-import JsonLd from "@/components/seo/JsonLd";
-import { FAQ_ITEMS } from "@/lib/faqData";
 import { buildTentPriceSentence } from "@/lib/pricing";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 
@@ -399,14 +396,6 @@ function FaqSection({ id, icon, title, items, links }) {
 /* ——— SAYFA ——— */
 export default function FaqPage() {
   const linkedCategories = prepareFaqCategories(FAQ_CATEGORIES);
-  const faqSchema = buildFaqSchema(FAQ_ITEMS);
-  const jsonLd = faqSchema
-    ? {
-        ...faqSchema,
-        "@id": "https://www.sahneva.com/sss#faq",
-        inLanguage: "tr-TR",
-      }
-    : null;
   const baseUrl = SITE_URL;
   const breadcrumbItems = [
     { name: "Ana Sayfa", url: `${baseUrl}/` },
@@ -416,10 +405,6 @@ export default function FaqPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={baseUrl} />
-      {/* JSON-LD – SSR ile direkt HTML içinde */}
-      {jsonLd && (
-      <JsonLd data={jsonLd} />
-      )}
 
       <PageHero
         breadcrumb={[{ label: "Ana Sayfa", href: "/" }, { label: "SSS" }]}

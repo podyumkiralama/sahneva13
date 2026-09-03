@@ -230,12 +230,12 @@ function buildJsonLd() {
 
   const aggregateOffer = {
     "@type": "AggregateOffer",
+    businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
     priceCurrency: PRICES.currency,
     lowPrice: String(PRICES.standard),
     highPrice: String(PRICES.premiumP19),
     offerCount: "2",
     priceValidUntil: PRICE_VALID_UNTIL,
-    availability: "https://schema.org/InStock",
     url: PAGE_URL,
   };
 
@@ -246,21 +246,21 @@ function buildJsonLd() {
     itemListElement: [
       {
         "@type": "Offer",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         name: "Standart indoor / outdoor LED ekran başlangıç fiyatı",
         price: String(PRICES.standard),
         priceCurrency: PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url: `${PAGE_URL}#ortalama-led-ekran-kiralama-m2-fiyatlari`,
         description: "Standart indoor/outdoor LED ekran kiralama için m² bazlı başlangıç fiyatı.",
       },
       {
         "@type": "Offer",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         name: "P1.9 Indoor LED ekran başlangıç fiyatı",
         price: String(PRICES.premiumP19),
         priceCurrency: PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url: `${PAGE_URL}#p19-led-ekran-kiralama-fiyati`,
         description: "P1.9 Indoor LED ekran kiralama için m² bazlı başlangıç fiyatı.",
       },
@@ -283,17 +283,6 @@ function buildJsonLd() {
     hasOfferCatalog: { "@id": offerCatalogId },
   };
 
-  const faqPage = {
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
 
   const howTo = {
     "@type": "HowTo",
@@ -347,7 +336,7 @@ function buildJsonLd() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webPage, service, offerCatalog, faqPage, howTo],
+    "@graph": [webPage, service, offerCatalog, howTo],
   };
 }
 

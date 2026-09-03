@@ -7,6 +7,7 @@ import PaymentOptionsNote from "@/components/payments/PaymentOptionsNote";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import {
   ArrowRight,
@@ -30,7 +31,6 @@ const SITE_URL = (
 ).replace(/\/$/, "");
 
 const ORIGIN = SITE_URL;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const PAGE_PATH = "/etkinlik-personel-temini";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
@@ -197,13 +197,6 @@ export const metadata = {
 
 /* ================== Yapisal Veri ================== */
 function StaffingStructuredData() {
-  const faqs = FAQ_ITEMS.map((f, i) => ({
-    "@type": "Question",
-    "@id": `${PAGE_URL}#faq-q-${i + 1}`,
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  }));
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -221,14 +214,13 @@ function StaffingStructuredData() {
           url: OG_IMAGE,
         },
         mainEntity: { "@id": `${PAGE_URL}#service` },
-        hasPart: [{ "@id": `${PAGE_URL}#faq` }],
       },
       {
         "@type": "Service",
         "@id": `${PAGE_URL}#service`,
         name: "Etkinlik Personel Temini",
         serviceType: "Etkinlik personel temini",
-        provider: { "@id": LOCAL_BUSINESS_ID },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
         url: PAGE_URL,
         description:
@@ -236,15 +228,8 @@ function StaffingStructuredData() {
         offers: {
           "@type": "Offer",
           url: PAGE_URL,
-          availability: "https://schema.org/InStock",
-          priceCurrency: "TRY",
           // Not: kadro etkinlik olceğine gore kuruldugu icin fiyat eklenmiyor.
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        mainEntity: faqs,
       },
     ],
   };

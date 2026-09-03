@@ -6,9 +6,10 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
-import { EDITOR_ID, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
   /\/$/,
@@ -185,7 +186,7 @@ function ArticleJsonLd() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@id": EDITOR_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -204,15 +205,6 @@ function ArticleJsonLd() {
           { "@type": "WebPage", "@id": `${SITE_URL}${TENT_CALC_PATH}` },
           { "@type": "WebPage", "@id": `${SITE_URL}${TENT_FLOOR_GLOSSARY_PATH}` },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

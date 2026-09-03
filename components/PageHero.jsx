@@ -127,7 +127,6 @@ export default function PageHero({
   titleAccent,
   titleWide = false,
   description,
-  descriptionSpeakable = false,
   note,
   badges,
   chipGroups,
@@ -192,7 +191,6 @@ export default function PageHero({
             <p
               id={descriptionId}
               className={styles.description}
-              data-speakable={descriptionSpeakable ? "" : undefined}
             >
               {typeof description === "string" ? (
                 <RichText text={description} />

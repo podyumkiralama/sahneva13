@@ -9,6 +9,7 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 export const revalidate = 86400;
 
@@ -172,7 +173,7 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": BLOG_URL + "#article",
+        "@id": BLOG_URL + "#blogposting",
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         headline: "Event Seating Layout Guide: Theatre, Classroom, Banquet, Cabaret and Cocktail",
         description: DESCRIPTION,
@@ -186,7 +187,7 @@ function StructuredData() {
           width: 2048,
           height: 1536,
         },
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR),
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
         audience: {
@@ -208,15 +209,6 @@ function StructuredData() {
           { "@type": "ListItem", position: 2, name: "Blog", item: BASE_SITE_URL + "/en/blog" },
           { "@type": "ListItem", position: 3, name: "Event Seating Layout Guide", item: BLOG_URL },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": BLOG_URL + "#faq",
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

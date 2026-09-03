@@ -6,6 +6,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== CONFIGURATION ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
@@ -49,7 +50,7 @@ export const metadata = {
 
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
-  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const ARTICLE_ID = `${BLOG_URL}#blogposting`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
 
   const jsonLd = {
@@ -83,7 +84,7 @@ function ArticleSchema() {
         headline: metadata.title,
         description: metadata.description,
         image: { "@id": PRIMARY_IMAGE_ID },
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
         datePublished: PUBLISH_DATE,
@@ -95,40 +96,6 @@ function ArticleSchema() {
   return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
-function FaqSchema() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is a corporate event?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "A corporate event is a planned organization arranged by a company for its employees, clients or stakeholders, aimed at achieving specific business goals or developing professional relationships.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why are corporate events important?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Corporate events play a critical role in making success visible, boosting work motivation and providing incentives for employees. They offer networking opportunities, support teamwork and encourage knowledge sharing.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What are the leading corporate event trends for 2026?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "In 2026, AI integration, sustainability and carbon-neutral events, wellbeing-focused activities, micro-experience formats and immersive/sensory design have moved to the center of corporate events.",
-        },
-      },
-    ],
-  };
-
-  return <JsonLd data={jsonLd} suppressHydrationWarning />;
-}
 
 /* ================== HELPER COMPONENTS ================== */
 function Tip2026({ children }) {
@@ -182,7 +149,6 @@ export default function BlogPost() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      <FaqSchema />
 
       <BlogLayout
         locale="en"

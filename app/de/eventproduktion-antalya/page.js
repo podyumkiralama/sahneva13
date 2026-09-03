@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
@@ -181,16 +180,6 @@ function AntalyaJsonLd() {
           ...REGIONS.map((region) => ({ "@type": "Place", name: region.name })),
         ],
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        inLanguage: "de-DE",
-        mainEntity: FAQ.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
-      },
     ],
   };
 
@@ -201,13 +190,6 @@ export default function GermanAntalyaPage() {
   return (
     <div className="bg-white">
       <AntalyaJsonLd />
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Startseite", url: `${ORIGIN}/de` },
-          { name: "Eventproduktion Antalya", url: PAGE_URL },
-        ]}
-        baseUrl={ORIGIN}
-      />
 
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <Image

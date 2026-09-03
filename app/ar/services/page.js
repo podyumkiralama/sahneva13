@@ -109,9 +109,11 @@ const SERVICES_JSON_LD = {
   // OfferCatalog ItemList/Intangible altindadir, CreativeWork degil; `inLanguage`
   // bu turde gecersiz. Sayfa dili WebPage/WebSite dugumlerinde zaten bildiriliyor.
   url: AR_SERVICES_URL,
-  itemListElement: SERVICE_CARDS.map((service, index) => ({
+  itemListElement: SERVICE_CARDS.map((service) => ({
     "@type": "Offer",
-    position: index + 1,
+    ...(service.title.includes("تأجير")
+      ? { businessFunction: "http://purl.org/goodrelations/v1#LeaseOut" }
+      : {}),
     itemOffered: {
       "@type": "Service",
       name: service.title,

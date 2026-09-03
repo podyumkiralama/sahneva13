@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { Tent, Briefcase, Monitor, Music } from "lucide-react";
@@ -245,11 +244,10 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
-function PodiumRentalJsonLd({ faqs }) {
+function PodiumRentalJsonLd() {
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const serviceId = `${PAGE_URL}#service`;
-  const faqId = `${PAGE_URL}#faq`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -281,16 +279,6 @@ function PodiumRentalJsonLd({ faqs }) {
         areaServed: { "@type": "Country", name: "Türkiye" },
         description: "Professional modular stage platform and event riser rental with setup and dismantling across Turkey.",
       },
-      {
-        "@type": "FAQPage",
-        "@id": faqId,
-        inLanguage: "en-US",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
     ],
   };
 
@@ -298,15 +286,9 @@ function PodiumRentalJsonLd({ faqs }) {
 }
 
 export default function PodiumRentalPage() {
-  const breadcrumbItems = [
-    { name: "Home", url: `${ORIGIN}/en` },
-    { name: "Stage Platform Rental", url: PAGE_URL },
-  ];
-
   return (
     <div className="relative">
-      <PodiumRentalJsonLd faqs={FAQ_ITEMS} />
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={ORIGIN} />
+      <PodiumRentalJsonLd />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#0B1120] pt-20 pb-12 lg:pt-28 lg:pb-20">

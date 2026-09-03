@@ -9,6 +9,7 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(
@@ -104,11 +105,10 @@ export const metadata = {
 /* ================== JSON-LD (ID-LI, GLOBAL ILE UYUMLU) ================== */
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
-  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const ARTICLE_ID = `${BLOG_URL}#blogposting`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
   const VIDEO_ID = `${BLOG_URL}#video`;
   const VIDEO_LASER_ID = `${BLOG_URL}#laser-video`;
-  const LOGO_ID = `${SITE_URL}/#logo`; // global graph formatınla uyumlu
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -170,17 +170,12 @@ function ArticleSchema() {
         description:
           "Pnömatik/geodezik dome çadır + 360° mapping ile kapsayıcı lansmanlar: Batman Dicle Elektrik – Dicle Fest örneği, kurulum, akustik ve senkronizasyon.",
         image: { "@id": PRIMARY_IMAGE_ID },
-        author: { "@id": ORGANIZATION_ID }, // global Organization
+        author: buildArticleAuthor(AUTHOR_NAME), // global Organization
         publisher: { "@id": ORGANIZATION_ID }, // global Organization
         inLanguage: "tr-TR",
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         video: [{ "@id": VIDEO_ID }, { "@id": VIDEO_LASER_ID }],
-      },
-      // Optional: globaldeki logo node'unu sadece @id ile işaretle (duplicate olmasın)
-      {
-        "@type": "ImageObject",
-        "@id": LOGO_ID,
       },
     ],
   };

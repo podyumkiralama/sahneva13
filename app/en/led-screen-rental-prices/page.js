@@ -242,12 +242,12 @@ function buildJsonLd() {
   const offers = [
     {
       "@type": "Offer",
+      businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
       "@id": standardOfferId,
       name: "Standard indoor / outdoor LED screen starting rate",
       price: String(PRICES.standard),
       priceCurrency: PRICES.currency,
       priceValidUntil: PRICE_VALID_UNTIL,
-      availability: "https://schema.org/InStock",
       url: `${PAGE_URL}#published-led-screen-rental-prices`,
       description: "Published starting rate per square metre for a standard indoor or outdoor LED screen.",
       eligibleRegion: { "@type": "Country", name: "Turkey" },
@@ -265,12 +265,12 @@ function buildJsonLd() {
     },
     {
       "@type": "Offer",
+      businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
       "@id": p19OfferId,
       name: "P1.9 indoor LED screen starting rate",
       price: String(PRICES.premiumP19),
       priceCurrency: PRICES.currency,
       priceValidUntil: PRICE_VALID_UNTIL,
-      availability: "https://schema.org/InStock",
       url: `${PAGE_URL}#p19-led-screen-rental-cost`,
       description: "Published starting rate per square metre for a P1.9 indoor LED screen.",
       eligibleRegion: { "@type": "Country", name: "Turkey" },
@@ -318,25 +318,13 @@ function buildJsonLd() {
         provider: { "@id": ORGANIZATION_ID },
         areaServed: { "@type": "Country", name: "Turkey" },
         hasOfferCatalog: { "@id": offerCatalogId },
-        offers,
+        offers: offers.map((offer) => ({ "@id": offer["@id"] })),
       },
       {
         "@type": "OfferCatalog",
         "@id": offerCatalogId,
         name: "Published 2026 LED Screen Rental Prices in Turkey",
         itemListElement: offers,
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq-schema`,
-        mainEntity: faq.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.a,
-          },
-        })),
       },
     ],
   };

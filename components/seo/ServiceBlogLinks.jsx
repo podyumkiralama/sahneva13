@@ -158,13 +158,7 @@ export default function ServiceBlogLinks({
         itemListElement: clusterItems.map((item, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          item: {
-            "@type": "WebPage",
-            "@id": toAbsoluteUrl(item.href),
-            url: toAbsoluteUrl(item.href),
-            name: getAnchorText(item),
-            description: item.intent,
-          },
+          item: { "@id": toAbsoluteUrl(item.href) },
         })),
       }
     : null;

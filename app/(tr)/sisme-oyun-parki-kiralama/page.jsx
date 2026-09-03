@@ -193,7 +193,6 @@ const RELATED = [
 function StructuredData() {
   const serviceId = PAGE_URL + "#service";
   const webpageId = PAGE_URL + "#webpage";
-  const faqId = PAGE_URL + "#faq";
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -212,7 +211,6 @@ function StructuredData() {
           width: 3264,
           height: 1472,
         },
-        hasPart: [{ "@id": faqId }],
       },
       {
         "@type": "Service",
@@ -238,6 +236,7 @@ function StructuredData() {
             name: category.title,
             itemListElement: category.products.map((product) => ({
               "@type": "Offer",
+              businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
               url: PAGE_URL + "#" + product.id,
               eligibleRegion: { "@type": "Country", name: "Türkiye" },
               seller: { "@id": ORIGIN + "/#org" },
@@ -258,17 +257,6 @@ function StructuredData() {
             })),
           })),
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": faqId,
-        inLanguage: "tr-TR",
-        mainEntity: FAQ_ITEMS.map((item, index) => ({
-          "@type": "Question",
-          "@id": PAGE_URL + "#faq-" + (index + 1),
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

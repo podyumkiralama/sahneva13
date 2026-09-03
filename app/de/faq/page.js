@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
-import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT } from "@/lib/stats";
 
@@ -231,22 +230,6 @@ const WHATSAPP_HREF =
   "https://wa.me/905453048671?text=Guten+Tag%2C+ich+h%C3%A4tte+gerne+ein+Angebot+f%C3%BCr+Veranstaltungstechnik+von+Sahneva.";
 
 export default function GermanFaqPage() {
-  const mainEntity = FAQ_CATEGORIES.flatMap((category) =>
-    category.items.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  );
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${PAGE_URL}#faq`,
-    inLanguage: "de-DE",
-    mainEntity,
-  };
-
   const breadcrumbItems = [
     { name: "Startseite", url: `${SITE_URL}/de` },
     { name: "Häufige Fragen", url: PAGE_URL },
@@ -255,7 +238,6 @@ export default function GermanFaqPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
-      <JsonLd data={jsonLd} id="de-faq-jsonld" />
 
       <div className="bg-gradient-to-b from-slate-950 via-[#0b1020] to-slate-950">
         <div className="container py-10 text-slate-100 md:py-14">

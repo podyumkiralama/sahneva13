@@ -9,7 +9,6 @@ import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -64,99 +63,58 @@ function ServicesStructuredData() {
       itemListElement: [
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Stage Rental",
             description: "Professional stage installation and rental services",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "10000.00",
-            maxPrice: "200000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "LED Wall Rental",
             description: "High-resolution LED wall rental services",
           },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: LED_SCREEN_PRICING.standard.perSqm,
-            priceCurrency: "TRY",
-            unitText: "m²",
-            unitCode: "MTK",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Sound and Lighting Systems",
             description: "Professional sound and lighting system rental services",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "10000.00",
-            maxPrice: "300000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: {
             "@type": "Service",
             name: "Stage Platform & Riser Rental",
             description: "Modular stage platform, riser and catwalk solutions",
           },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "250.00",
-            maxPrice: "100000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Event Tent Rental" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "6000.00",
-            maxPrice: "800000.00",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Chair Rental" },
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "200.00",
-            priceCurrency: "TRY",
-            unitText: "per unit",
-          },
         },
         {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           itemOffered: { "@type": "Service", name: "Table Rental" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            minPrice: "1000.00",
-            maxPrice: "2000.00",
-          },
         },
         {
           "@type": "Offer",
           itemOffered: { "@type": "Service", name: "Istanbul Logistics" },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "TRY",
-            price: "7000.00",
-          },
         },
       ],
     },

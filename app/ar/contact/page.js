@@ -5,10 +5,12 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const AR_CONTACT_URL = buildCanonical("/ar/contact");
+const AR_CONTACT_WEBPAGE_ID = `${AR_CONTACT_URL}#webpage`;
+const AR_CONTACT_BREADCRUMB_ID = `${AR_CONTACT_URL}#breadcrumb`;
 // Layout başlık şablonu " | Sahneva" ekliyor; sayfa başlığında marka tekrarlanmaz.
 const AR_CONTACT_TITLE = "تواصل معنا | طلب عرض سعر فني للفعاليات";
 const AR_CONTACT_DESCRIPTION =
@@ -122,11 +124,15 @@ const SERVICE_PROMPTS = [
 const CONTACT_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
+  "@id": AR_CONTACT_WEBPAGE_ID,
   name: AR_CONTACT_TITLE,
   url: AR_CONTACT_URL,
   inLanguage: "ar",
+  breadcrumb: {
+    "@id": AR_CONTACT_BREADCRUMB_ID,
+  },
   about: {
-    "@id": LOCAL_BUSINESS_ID,
+    "@id": ORGANIZATION_ID,
   },
 };
 
@@ -167,6 +173,7 @@ export default function ArabicContactPage() {
           { name: "تواصل معنا", url: "/ar/contact" },
         ]}
         baseUrl={SITE_URL}
+        id={AR_CONTACT_BREADCRUMB_ID}
       />
 
       <section className="relative overflow-hidden bg-slate-950 py-16 text-white md:py-20">

@@ -15,7 +15,6 @@ import StickyVideoRailClient from "@/components/StickyVideoRail.client";
 import SupportLauncher from "@/components/support/SupportLauncher.client";
 import { isStoreConfigured } from "@/lib/support/config";
 import { isFilesConfigured } from "@/lib/support/files";
-import JsonLd from "@/components/seo/JsonLd";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
   AI_PREVIEW_ROBOTS,
@@ -23,100 +22,9 @@ import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import {
-  LOCAL_BUSINESS_IDENTITY,
-  ORGANIZATION_IDENTITY,
-} from "@/lib/structuredData/organizationIdentity";
-import {
-  LOCAL_BUSINESS_ID,
-  ORGANIZATION_ID,
-  SOCIAL_PROFILES,
-  WEBSITE_ID,
-} from "@/lib/seo/schemaIds";
 
 const content = LOCALE_CONTENT.zh;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
-
-const LOGO_ID = `${BASE_SITE_URL}/#logo`;
-const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
-
-const globalJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ImageObject",
-      "@id": LOGO_ID,
-      url: LOGO_URL,
-      contentUrl: LOGO_URL,
-    },
-    {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      ...ORGANIZATION_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      logo: { "@id": LOGO_ID },
-      description:
-        "土耳其专业活动技术制作公司，提供舞台、T台、LED屏幕、音响灯光及篷房租赁服务，覆盖土耳其全境。",
-      knowsAbout: [
-        "舞台租赁",
-        "T台租赁",
-        "LED屏幕租赁",
-        "篷房租赁",
-        "企业活动制作",
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+905453048671",
-        contactType: "customer service",
-        areaServed: "TR",
-        availableLanguage: ["tr", "en", "de", "ar", "ru", "zh"],
-      },
-      sameAs: SOCIAL_PROFILES,
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": LOCAL_BUSINESS_ID,
-      ...LOCAL_BUSINESS_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      image: OG_IMAGE_URL,
-      logo: { "@id": LOGO_ID },
-      telephone: "+905453048671",
-      priceRange: "₺₺₺",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 41.096173214009205,
-        longitude: 28.97663777534253,
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-        addressLocality: "Kagithane",
-        addressRegion: "Istanbul",
-        postalCode: "34408",
-        addressCountry: "TR",
-      },
-      areaServed: "TR",
-      parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: SOCIAL_PROFILES,
-    },
-    {
-      "@type": "WebSite",
-      "@id": WEBSITE_ID,
-      url: BASE_SITE_URL,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      description:
-        "舞台、T台、LED屏幕、音响灯光与篷房租赁的专业活动技术解决方案。",
-      inLanguage: "zh",
-      publisher: { "@id": ORGANIZATION_ID },
-    },
-  ],
-};
-
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
   manifest: "/manifest.json",
@@ -185,7 +93,6 @@ export default function ChineseLayout({ children }) {
         <SkipLinks locale="zh" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-        <JsonLd id="global-ld-json-zh" data={globalJsonLd} />
         <div className="flex min-h-screen flex-col bg-white text-neutral-900">
           <div id="_main_header">
             <Navbar locale="zh" />

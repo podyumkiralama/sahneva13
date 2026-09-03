@@ -3,7 +3,6 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import Image from "next/image";
 import Link from "next/link";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROJECTS_COMPLETED, PROVINCES_COUNT } from "@/lib/stats";
@@ -993,15 +992,6 @@ function MiceTurkeyJsonLd() {
         },
         url: pageUrl,
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}#faq`,
-        mainEntity: FAQ_ITEMS.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
     ],
   };
 
@@ -1010,15 +1000,8 @@ function MiceTurkeyJsonLd() {
 
 /* ===== Page ===== */
 export default function MiceTurkeyPage() {
-  const breadcrumbItems = [
-    { name: "Home", url: `${ORIGIN}/en` },
-    { name: "Services", url: `${ORIGIN}/en/services` },
-    { name: "MICE Turkey", url: `${ORIGIN}/en/mice-turkey` },
-  ];
-
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={ORIGIN} />
       <MiceTurkeyJsonLd />
       <Hero />
       <WhatIsMice />

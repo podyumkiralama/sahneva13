@@ -7,6 +7,8 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "etkinlik-produksiyonu-podyum-sahne-led-ses-isik";
@@ -155,30 +157,14 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: modified,
         inLanguage: "tr-TR",
-        author: { "@type": "Organization", name: AUTHOR_NAME },
-        publisher: { "@type": "Organization", name: "Sahneva", url: site },
+        author: buildArticleAuthor(AUTHOR_NAME),
+        publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
       }}
     />
   );
 }
 
-function FaqSchema() {
-  return (
-    <JsonLd
-      id="ld-event-production-faq"
-      data={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
-      }}
-    />
-  );
-}
 
 function Figure({ src, alt, caption, width, height }) {
   return (
@@ -255,7 +241,6 @@ export default function EventProductionBlogPage() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      <FaqSchema />
 
       <BlogLayout
         breadcrumbItems={breadcrumbItems}

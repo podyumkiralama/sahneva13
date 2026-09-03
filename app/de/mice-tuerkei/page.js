@@ -2,9 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 
@@ -184,6 +184,7 @@ function MiceJsonLd() {
         name: "Technische Produktion für MICE-Programme in der Türkei",
         serviceType: "MICE-Eventtechnik",
         description: metadata.description,
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: [
           { "@type": "Country", name: "Türkiye" },
           ...VENUES.map((venue) => ({ "@type": "City", name: venue.city })),
@@ -192,16 +193,6 @@ function MiceJsonLd() {
           "@type": "Audience",
           audienceType: "PCOs, DMCs, Incentive-Agenturen und Unternehmen mit eigenem Eventteam",
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        inLanguage: "de-DE",
-        mainEntity: FAQ.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
       },
     ],
   };
@@ -213,13 +204,6 @@ export default function GermanMicePage() {
   return (
     <div className="bg-white">
       <MiceJsonLd />
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Startseite", url: `${ORIGIN}/de` },
-          { name: "MICE Türkei", url: PAGE_URL },
-        ]}
-        baseUrl={ORIGIN}
-      />
 
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <Image

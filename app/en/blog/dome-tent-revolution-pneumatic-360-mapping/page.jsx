@@ -10,6 +10,7 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
@@ -97,11 +98,10 @@ export const metadata = {
 /* ================== JSON-LD ================== */
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
-  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const ARTICLE_ID = `${BLOG_URL}#blogposting`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
   const VIDEO_ID = `${BLOG_URL}#video`;
   const VIDEO_LASER_ID = `${BLOG_URL}#laser-video`;
-  const LOGO_ID = `${SITE_URL}/#logo`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -162,16 +162,12 @@ function ArticleSchema() {
         description:
           "Immersive launches with pneumatic/geodesic dome tent + 360° mapping: Batman Dicle Electricity – Dicle Fest case study, installation, acoustics and synchronisation.",
         image: { "@id": PRIMARY_IMAGE_ID },
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         video: [{ "@id": VIDEO_ID }, { "@id": VIDEO_LASER_ID }],
-      },
-      {
-        "@type": "ImageObject",
-        "@id": LOGO_ID,
       },
     ],
   };

@@ -827,34 +827,6 @@ function Articles() {
 }
 
 /* ================== FAQ ================== */
-const FAQ_SCHEMA_ITEMS = [
-  {
-    question: "Which sound and lighting package suits my event?",
-    answer:
-      "We assess venue size, audience capacity, event format and budget to recommend a suitable package. A site survey helps us analyse the space and tailor the configuration.",
-  },
-  {
-    question: "How long do installation and dismantling take?",
-    answer:
-      "Indoor setups are typically completed within 4 to 6 hours, while outdoor productions take around 6 to 8 hours. Complex rigging projects may begin the day before. Dismantling averages 2 to 4 hours depending on scope.",
-  },
-  {
-    question: "Do you provide live operation and technical staff?",
-    answer:
-      "Yes. Projects can include FOH sound engineers, monitor engineers and lighting operators who manage the show end to end. Support hours and escalation contacts are agreed for each production.",
-  },
-  {
-    question: "How is power distribution handled?",
-    answer:
-      "We collect generator or venue power details, then coordinate load, distribution and connection requirements with the venue and the project team.",
-  },
-  {
-    question: "Do you provide sound system and AV rental outside Istanbul?",
-    answer:
-      "Yes. We provide PA systems, professional audio, event lighting and on-site AV crews across Turkey. The project scope can include transport, setup, soundcheck, live operation and dismantling under one technical contact.",
-  },
-];
-
 function FAQ() {
   const faqs = [
     {
@@ -1090,6 +1062,7 @@ function SoundLightJsonLd() {
         serviceType: "Sound system, PA and event lighting rental",
         offers: {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           description: "Professional sound and lighting system rental service"
         },
         url: pageUrl,
@@ -1110,18 +1083,6 @@ function SoundLightJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}#faq`,
-        mainEntity: FAQ_SCHEMA_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
       }
     ],
   };

@@ -1995,9 +1995,8 @@ function TentRentalJsonLd() {
       itemListElement: [
         ...PRICING_ITEMS.filter((item) => item.title !== "Büyük Çadırlar"),
         ...SPAN_OFFER_ITEMS,
-      ].map((item, index) => ({
+      ].map((item) => ({
         "@type": "Offer",
-        position: index + 1,
         name: item.title,
         description: item.description,
         priceCurrency: "TRY",
@@ -2009,7 +2008,7 @@ function TentRentalJsonLd() {
           ...(item.unitCode ? { unitCode: item.unitCode, unitText: item.unitText } : {}),
           description: item.price,
         },
-        availability: "https://schema.org/InStock",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         url: pageUrl,
       })),
     },
@@ -2049,19 +2048,6 @@ function TentRentalJsonLd() {
     ],
   };
 
-  const faqNode = {
-    "@type": "FAQPage",
-    "@id": `${pageUrl}#faq`,
-    isPartOf: { "@id": webPageId },
-    about: { "@id": serviceId },
-    mainEntityOfPage: { "@id": webPageId },
-    inLanguage: "tr-TR",
-    mainEntity: FAQ_ITEMS.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })),
-  };
 
   const videoNodes = (VIDEO_EMBEDS || []).map((video) => ({
     "@type": "VideoObject",
@@ -2091,7 +2077,6 @@ function TentRentalJsonLd() {
       serviceNode,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      faqNode,
       ...videoNodes,
     ],
   };

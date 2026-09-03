@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -109,7 +110,7 @@ function ArticleSchema() {
     datePublished: PUBLISH_DATE,
     dateModified: MODIFIED_DATE,
     inLanguage: "en-US",
-    author: { "@id": `${SITE_URL}/#editor` },
+    author: buildArticleAuthor(AUTHOR_NAME),
     publisher: { "@id": `${SITE_URL}/#org` },
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
     isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/en/blog#blog` },

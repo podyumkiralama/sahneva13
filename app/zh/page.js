@@ -21,7 +21,7 @@ import HeroBelow from "@/components/HeroBelow";
 import ServicesTabs from "@/components/ServicesTabs";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildAlternateLanguages, buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
-import { LOCAL_BUSINESS_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { PROJECTS_COMPLETED } from "@/lib/stats";
 
 const ZH_HOME_URL = buildCanonical("/zh");
@@ -312,77 +312,60 @@ const ZH_HOME_FAQ_ITEMS = [
   },
 ];
 
-// Bu dugum merkezi LocalBusiness varligini GENISLETIR, yenisini tanimlamaz.
-// Onceden `${ZH_HOME_URL}#business` kimligiyle ayri bir isletme gibi duruyordu;
-// layout zaten ayni sayfada tam LocalBusiness dugumunu basiyor, yani Google iki
-// ayri Sahneva gorebilirdi. Ayni @id ile basilinca ikisi tek varlikta birlesiyor.
-//
-// url / telephone / areaServed alanlari BILINCLI olarak kaldirildi: merkezi dugum
-// bunlari zaten tasiyor ve farkli degerlerle (ana adres, bosluksuz telefon, "TR")
-// tasiyor. Ikisi birden basilsa tek varlik celiskili degerler tasirdi. Asagida
-// kalanlar merkezi dugumde OLMAYAN, ZH diline ozgu eklemelerdir.
+// Kurum kimligi kok sayfada tanimlidir; bu locale ana sayfasi yalnizca kendi
+// WebPage, ana Service ve gorunen hizmet katalogunu tanimlar.
+const ZH_HOME_WEBPAGE_ID = `${ZH_HOME_URL}#webpage`;
+const ZH_HOME_SERVICE_ID = `${ZH_HOME_URL}#service`;
+const ZH_HOME_CATALOG_ID = `${ZH_HOME_URL}#catalog`;
+const LEASE_OUT = "http://purl.org/goodrelations/v1#LeaseOut";
+
 const ZH_HOME_JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": LOCAL_BUSINESS_ID,
-  name: "Sahneva Organizasyon",
-  image: `${SITE_URL}/img/hero-bg.webp`,
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 41.096173214009205,
-    longitude: 28.97663777534253,
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-    addressLocality: "Kagithane",
-    addressRegion: "Istanbul",
-    postalCode: "34408",
-    addressCountry: "TR",
-  },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
+      "@type": "WebPage",
+      "@id": ZH_HOME_WEBPAGE_ID,
+      url: ZH_HOME_URL,
+      name: "土耳其舞台、LED屏幕、音响灯光与篷房租赁",
+      description:
+        "Sahneva 是中国企业在土耳其的本地活动技术合作伙伴，提供舞台、LED显示屏、音响灯光、本地运输、安装、现场支持与拆除。",
+      inLanguage: "zh-CN",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": ZH_HOME_SERVICE_ID },
+    },
+    {
+      "@type": "Service",
+      "@id": ZH_HOME_SERVICE_ID,
+      name: "土耳其活动设备租赁与技术制作",
+      description:
+        "面向中国企业的土耳其本地活动技术与现场执行服务，包括舞台、LED显示屏、音响灯光、篷房、运输、安装、现场支持与拆除。",
+      url: ZH_HOME_URL,
+      serviceType: "Event production and equipment rental",
+      areaServed: { "@type": "Country", name: "Türkiye" },
+      provider: { "@id": ORGANIZATION_ID },
+      hasOfferCatalog: { "@id": ZH_HOME_CATALOG_ID },
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": ZH_HOME_CATALOG_ID,
+      name: "土耳其活动设备租赁服务",
+      itemListElement: ZH_SERVICES.slice(0, 5).map((service) => ({
+        "@type": "Offer",
+        url: `${SITE_URL}${service.href}`,
+        ...(service.id !== "corporate" ? { businessFunction: LEASE_OUT } : {}),
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          url: `${SITE_URL}${service.href}`,
+          areaServed: { "@type": "Country", name: "Türkiye" },
+          provider: { "@id": ORGANIZATION_ID },
+        },
+      })),
     },
   ],
-  description:
-    "中国企业在土耳其的本地活动技术与现场执行合作伙伴，提供舞台、LED显示屏、音响灯光、本地运输、安装、现场支持与拆除。",
-  makesOffer: ZH_SERVICES.slice(0, 5).map((service) => ({
-    "@type": "Offer",
-    url: `${SITE_URL}${service.href}`,
-    itemOffered: {
-      "@type": "Service",
-      name: service.title,
-      areaServed: "Türkiye",
-    },
-  })),
 };
 
-const ZH_HOME_FAQ_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${ZH_HOME_URL}#faq`,
-  inLanguage: "zh-CN",
-  mainEntity: ZH_HOME_FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
 
 export const metadata = {
   title: {
@@ -424,7 +407,6 @@ export default function ChineseHomePage() {
   return (
     <div className="overflow-x-hidden bg-[#0B1120]">
       <JsonLd data={ZH_HOME_JSON_LD} />
-      <JsonLd data={ZH_HOME_FAQ_JSON_LD} id="zh-home-faq-jsonld" />
       <HeroSection dictionary={HERO_DICTIONARY} />
       <HeroBelow dictionary={HERO_BELOW_DICTIONARY} />
 

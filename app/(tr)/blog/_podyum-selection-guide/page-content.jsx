@@ -7,6 +7,8 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(
   /\/$/,
@@ -203,13 +205,8 @@ function ArticleJsonLd() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@type": "Organization", name: "Sahneva Organizasyon", url: SITE_URL },
-        publisher: {
-          "@type": "Organization",
-          name: "Sahneva Organizasyon",
-          url: SITE_URL,
-          logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-        },
+        author: buildArticleAuthor(AUTHOR_NAME),
+        publisher: { "@id": ORGANIZATION_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         about: [
           { "@type": "Service", name: "Podyum Kiralama", url: `${SITE_URL}${PODIUM_SERVICE_PATH}` },
@@ -221,15 +218,6 @@ function ArticleJsonLd() {
           `${SITE_URL}${SOUND_LIGHT_PATH}`,
           `${SITE_URL}${TENT_SERVICE_PATH}`,
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

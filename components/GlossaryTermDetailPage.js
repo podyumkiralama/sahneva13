@@ -111,7 +111,7 @@ export default function GlossaryTermDetailPage({ term, detail, pageUrl }) {
           <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
             {detail.title}
           </h1>
-          <p data-speakable className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
             {detail.summary}
           </p>
         </div>

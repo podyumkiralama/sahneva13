@@ -176,8 +176,10 @@ function BlogJsonLd({ posts, baseUrl }) {
 
   const site = String(baseUrl || "").replace(/\/$/, "");
   const orgId = `${site}/#org`;
-  const editorId = `${site}/#editor`;
+  const websiteId = `${site}/#website`;
   const blogUrl = `${site}/en/blog`;
+  const blogId = `${blogUrl}#blog`;
+  const breadcrumbId = `${blogUrl}#breadcrumb`;
 
   const title =
     typeof metadata?.title === "string"
@@ -188,18 +190,34 @@ function BlogJsonLd({ posts, baseUrl }) {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "CollectionPage",
+        "@id": `${blogUrl}#webpage`,
+        url: blogUrl,
+        name: title,
+        description: metadata?.description,
+        inLanguage: "en-US",
+        isPartOf: { "@id": websiteId },
+        publisher: { "@id": orgId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: { "@id": blogId },
+      },
+      {
         "@type": "Blog",
-        "@id": `${blogUrl}#blog`,
+        "@id": blogId,
         url: blogUrl,
         name: title,
         description: metadata?.description,
         publisher: { "@id": orgId },
         inLanguage: "en-US",
+        mainEntityOfPage: { "@id": `${blogUrl}#webpage` },
+        blogPost: posts.map((post) => ({
+          "@id": `${blogUrl}/${post.slug}#blogposting`,
+        })),
       },
 
       {
         "@type": "BreadcrumbList",
-        "@id": `${blogUrl}#breadcrumb`,
+        "@id": breadcrumbId,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -215,33 +233,6 @@ function BlogJsonLd({ posts, baseUrl }) {
           },
         ],
       },
-
-      ...posts.map((post) => {
-        const postUrl = `${blogUrl}/${post.slug}`;
-        const img = String(post.image || "");
-        const absImg = /^https?:\/\//i.test(img) ? img : `${site}${img}`;
-
-        return {
-          "@type": "BlogPosting",
-          "@id": `${postUrl}#blogposting`,
-          url: postUrl,
-          headline: post.title,
-          description: post.description,
-          image: absImg,
-          datePublished: post.date || undefined,
-          dateModified: post.modifiedDate || post.date || undefined,
-          inLanguage: "en-US",
-          author: { "@id": editorId },
-          publisher: { "@id": orgId },
-          mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": postUrl,
-          },
-          isPartOf: {
-            "@id": `${blogUrl}#blog`,
-          },
-        };
-      }),
     ],
   };
 

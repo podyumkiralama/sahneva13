@@ -5,8 +5,9 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
-import { EDITOR_ID, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "kurumsal-etkinlikte-isik-kurgusu";
@@ -142,7 +143,7 @@ export const metadata = {
 
 function ArticleSchema() {
   const orgId = ORGANIZATION_ID;
-  const articleId = `${BLOG_URL}#article`;
+  const articleId = `${BLOG_URL}#blogposting`;
   const webpageId = `${BLOG_URL}#webpage`;
   const imageId = `${BLOG_URL}#primaryimage`;
 
@@ -175,7 +176,7 @@ function ArticleSchema() {
         headline: TITLE,
         description: DESCRIPTION,
         image: { "@id": imageId },
-        author: { "@id": EDITOR_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@id": webpageId },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -247,18 +248,6 @@ function ArticleSchema() {
             text: "Işık geçişlerini, sahne akışını, konuşmacı görünürlüğünü, kamera görüntüsünü ve kritik final anlarını etkinlik öncesi test edin.",
           },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
       },
     ],
   };

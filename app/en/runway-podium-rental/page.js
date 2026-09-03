@@ -3,7 +3,6 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -193,7 +192,6 @@ function StructuredData() {
           })),
         },
       },
-      buildFaqSchema ? buildFaqSchema(FAQ_ITEMS) : {},
     ].filter(Boolean),
   };
 

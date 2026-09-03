@@ -121,11 +121,24 @@ const CREATIVEWORK_ONLY_PROPS = new Set([
 const PROPERTY_DOMAINS = {
   isRelatedTo: ["Product", "Service"],
   isSimilarTo: ["Product", "Service"],
+  position: ["CreativeWork", "ListItem"],
   telephone: [
     "Organization", "LocalBusiness", "GovernmentOrganization", "Place",
     "ContactPoint", "Person", "PostalAddress",
   ],
 };
+
+// PROPERTY_DOMAINS ust turleri ifade eder; yalnizca burada denetlenen ve
+// render edilen gerekli alt tur baglarini acikca tanimlariz.
+const PROPERTY_DOMAIN_PARENT_TYPES = {
+  HowToStep: ["CreativeWork"],
+};
+
+const matchesPropertyDomain = (types, domains) =>
+  types.some((type) =>
+    domains.includes(type) ||
+    (PROPERTY_DOMAIN_PARENT_TYPES[type] ?? []).some((parentType) =>
+      domains.includes(parentType)));
 
 // Ozellik -> referans verdigi dugumun tasimasi gereken tur kisiti.
 // Deger `@id` ile verildiginde ayni dokumandaki dugum cozulerek kontrol edilir.
@@ -135,6 +148,88 @@ const REFERENCE_RANGES = {
   hasPart: { allow: (types) => !types.some((t) => INTANGIBLE_TYPES.has(t)), label: "CreativeWork" },
   workExample: { allow: (types) => !types.some((t) => INTANGIBLE_TYPES.has(t)), label: "CreativeWork" },
 };
+
+const WEBPAGE_TYPES = new Set([
+  "WebPage", "AboutPage", "ContactPage", "CollectionPage", "SearchResultsPage",
+]);
+const ARTICLE_TYPES = new Set(["Article", "BlogPosting", "NewsArticle"]);
+const URL_VALUE_PROPERTIES = new Set([
+  "@id", "url", "contentUrl", "embedUrl", "thumbnailUrl", "sameAs", "item",
+  "mainEntityOfPage", "image", "logo", "publishingPrinciples", "urlTemplate",
+]);
+
+// Site kimligi yalnizca kanonik ana sayfada tam tanimlanir. Alt sayfalar bu
+// dugumlere cross-document @id referansi verebilir; ayni varligi yeniden
+// tanimlayamaz. Editor bir kisi degil, Sahneva'nin kurumsal icerik ekibidir.
+const ROOT_GLOBAL_ENTITY_REQUIREMENTS = new Map([
+  [
+    `${SITE_ORIGIN}/#org`,
+    {
+      requiredTypes: new Set(["Organization", "LocalBusiness"]),
+      allowedAssertionTypes: new Set(["Organization", "LocalBusiness"]),
+      allowedAssertionNames: new Set([
+        "Sahneva Organizasyon", "Sahneva Teknik", "Sahneva Technical",
+        "Sahneva Organization", "Sahneva Event Operations Team",
+        "Sahneva Technical Production Team",
+      ]),
+      definitionAnyProperties: new Set([
+        "legalName", "address", "logo", "contactPoint", "telephone", "email",
+        "taxID", "vatID", "identifier", "geo", "openingHoursSpecification",
+        "hasOfferCatalog", "foundingDate", "foundingLocation", "areaServed",
+        "sameAs", "description", "image", "paymentAccepted",
+        "currenciesAccepted", "knowsAbout",
+      ]),
+      requiredUrls: new Map([["url", SITE_ORIGIN]]),
+      requiredReferences: new Map([
+        ["logo", `${SITE_ORIGIN}/#logo`],
+        ["hasOfferCatalog", `${SITE_ORIGIN}/#catalog`],
+      ]),
+    },
+  ],
+  [
+    `${SITE_ORIGIN}/#website`,
+    {
+      requiredTypes: new Set(["WebSite"]),
+      allowedAssertionTypes: new Set(["WebSite"]),
+      definitionAllProperties: new Set(["publisher", "name", "url"]),
+      requiredUrls: new Map([["url", SITE_ORIGIN]]),
+      requiredReferences: new Map([["publisher", `${SITE_ORIGIN}/#org`]]),
+    },
+  ],
+  [
+    `${SITE_ORIGIN}/#editor`,
+    {
+      requiredTypes: new Set(["Organization"]),
+      allowedAssertionTypes: new Set(["Organization"]),
+      allowedAssertionNames: new Set([
+        "Sahneva İçerik Ekibi", "Sahneva Icerik Ekibi",
+        "Sahneva Editorial Team", "Sahneva Content Team",
+        "Sahneva Prodüksiyon Ekibi", "Sahneva Editör", "Sahneva Editor",
+      ]),
+      definitionAllProperties: new Set(["parentOrganization"]),
+      requiredReferences: new Map([["parentOrganization", `${SITE_ORIGIN}/#org`]]),
+    },
+  ],
+  [
+    `${SITE_ORIGIN}/#logo`,
+    {
+      requiredTypes: new Set(["ImageObject"]),
+      allowedAssertionTypes: new Set(["ImageObject"]),
+      definitionAllProperties: new Set(["contentUrl", "url"]),
+      requiredUrls: new Map([
+        ["url", null],
+        ["contentUrl", null],
+      ]),
+    },
+  ],
+]);
+const ROOT_ORGANIZATION_ID = `${SITE_ORIGIN}/#org`;
+const ROOT_EDITOR_ID = `${SITE_ORIGIN}/#editor`;
+const ARTICLE_AUTHOR_IDS = new Set([ROOT_ORGANIZATION_ID, ROOT_EDITOR_ID]);
+const LIGHTWEIGHT_AUTHOR_ASSERTION_PROPERTIES = new Set([
+  "@id", "@type", "name", "url",
+]);
+const FORBIDDEN_LOCAL_BUSINESS_ID = `${SITE_ORIGIN}/#local`;
 
 /* -------------------- yardimcilar -------------------- */
 const walk = (dir, out = []) => {
@@ -192,6 +287,166 @@ const comparableJsonLdValue = (property, value) => {
   return normalized;
 };
 
+const jsonLdTypesOf = (node) =>
+  [].concat(node?.["@type"] ?? []).filter((type) => typeof type === "string");
+
+const walkJsonLd = (node, visitor, parent = null, property = null) => {
+  if (Array.isArray(node)) {
+    node.forEach((item) => walkJsonLd(item, visitor, parent, property));
+    return;
+  }
+  if (!node || typeof node !== "object") return;
+
+  visitor(node, parent, property);
+  for (const [key, value] of Object.entries(node)) {
+    if (value && typeof value === "object") walkJsonLd(value, visitor, node, key);
+  }
+};
+
+const topLevelJsonLdNodes = (payload) => {
+  if (Array.isArray(payload)) return payload.filter((node) => node && typeof node === "object");
+  if (!payload || typeof payload !== "object") return [];
+  if (Array.isArray(payload["@graph"])) return payload["@graph"];
+  return [payload];
+};
+
+const isSubstantiveIdDefinition = (node) =>
+  Boolean(node?.["@id"]) && Object.keys(node).some((property) => !property.startsWith("@"));
+
+const isRootIdentityFullDefinition = (resolvedId, node) => {
+  const requirement = ROOT_GLOBAL_ENTITY_REQUIREMENTS.get(resolvedId);
+  if (!requirement || !isSubstantiveIdDefinition(node)) return false;
+
+  const hasAllDefinitionProperties = requirement.definitionAllProperties
+    ? [...requirement.definitionAllProperties].every((property) =>
+        Object.hasOwn(node, property))
+    : true;
+  const hasAnyDefinitionProperty = requirement.definitionAnyProperties
+    ? [...requirement.definitionAnyProperties].some((property) =>
+        Object.hasOwn(node, property))
+    : true;
+  return hasAllDefinitionProperties && hasAnyDefinitionProperty;
+};
+
+const isLightweightAuthorAssertion = (resolvedId, node) =>
+  ARTICLE_AUTHOR_IDS.has(resolvedId) &&
+  ["@type", "name", "url"].every((property) => Object.hasOwn(node, property)) &&
+  Object.keys(node).every((property) =>
+    LIGHTWEIGHT_AUTHOR_ASSERTION_PROPERTIES.has(property));
+
+const isIdReference = (node) =>
+  Boolean(node?.["@id"]) &&
+  Object.keys(node).length === 1 &&
+  Object.hasOwn(node, "@id");
+
+const normalizeSchemaUrl = (value) => {
+  if (typeof value !== "string" || !/^https?:\/\//i.test(value)) return null;
+  try {
+    const parsed = new URL(value);
+    parsed.hash = "";
+    const normalized = parsed.href.replace(/\/$/, "");
+    return normalized;
+  } catch {
+    return null;
+  }
+};
+
+const schemaReferenceUrl = (value) => {
+  if (typeof value === "string") return value;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  return value["@id"] ?? value.url ?? null;
+};
+
+const resolveSchemaId = (value, pageUrl) => {
+  if (typeof value !== "string") return null;
+  try {
+    return new URL(value, pageUrl).href;
+  } catch {
+    return null;
+  }
+};
+
+const resolvedSchemaReferences = (value, pageUrl) =>
+  [].concat(value ?? [])
+    .map((item) => schemaReferenceUrl(item))
+    .map((reference) => resolveSchemaId(reference, pageUrl))
+    .filter(Boolean);
+
+const articleAuthorContractIssues = (value, pageUrl) => {
+  const authors = [].concat(value ?? []);
+  if (authors.length === 0) return ["author @id yok; #editor veya #org olmali"];
+
+  const issues = [];
+  for (const author of authors) {
+    const rawId = schemaReferenceUrl(author);
+    const authorId = resolveSchemaId(rawId, pageUrl);
+    if (!ARTICLE_AUTHOR_IDS.has(authorId)) {
+      issues.push(`author=${rawId || "@id yok"}; #editor veya #org olmali`);
+    }
+
+    const authorTypes = jsonLdTypesOf(author);
+    if (!authorTypes.includes("Organization")) {
+      issues.push(`author=${rawId || "@id yok"}; @type Organization olmali`);
+    }
+    if (typeof author?.name !== "string" || !author.name.trim()) {
+      issues.push(`author=${rawId || "@id yok"}; gorunur name olmali`);
+    }
+
+    const authorUrl = schemaReferenceUrl(author?.url);
+    if (normalizeSchemaUrl(authorUrl) !== normalizeSchemaUrl(SITE_ORIGIN)) {
+      issues.push(`author=${rawId || "@id yok"}; url ana sayfa olmali`);
+    }
+  }
+  return issues;
+};
+
+const articlePublisherContractIssues = (value, pageUrl) => {
+  const publishers = [].concat(value ?? []);
+  if (publishers.length === 0) return ["publisher @id yok; #org olmali"];
+
+  return publishers.flatMap((publisher) => {
+    const rawId = schemaReferenceUrl(publisher);
+    const publisherId = resolveSchemaId(rawId, pageUrl);
+    return publisherId === ROOT_ORGANIZATION_ID
+      ? []
+      : [`publisher=${rawId || "@id yok"}; #org olmali`];
+  });
+};
+
+const selectPrimaryArticle = (articles, canonicalBase, pageUrl) => {
+  const canonicalCandidates = canonicalBase
+    ? articles.filter((node) => {
+        const candidateBases = [
+          normalizeSchemaUrl(resolveSchemaId(node["@id"], pageUrl)),
+          normalizeSchemaUrl(resolveSchemaId(schemaReferenceUrl(node.url), pageUrl)),
+          ...resolvedSchemaReferences(node.mainEntityOfPage, pageUrl)
+            .map((reference) => normalizeSchemaUrl(reference)),
+        ];
+        return candidateBases.includes(canonicalBase);
+      })
+    : [];
+
+  if (canonicalCandidates.length === 1) {
+    return { node: canonicalCandidates[0], ambiguousCount: 0 };
+  }
+  if (canonicalCandidates.length > 1) {
+    return { node: null, ambiguousCount: canonicalCandidates.length };
+  }
+  return {
+    node: articles.length === 1 ? articles[0] : null,
+    ambiguousCount: 0,
+  };
+};
+
+const absoluteUrlStrings = (value, out = []) => {
+  if (Array.isArray(value)) {
+    value.forEach((item) => absoluteUrlStrings(item, out));
+  } else if (typeof value === "string" && /^https?:\/\//i.test(value)) {
+    out.push(value);
+  }
+  return out;
+};
+
 const internalPathFromHref = (href) => {
   const decoded = decodeEntities(href).trim();
   if (!decoded || decoded.includes("#") || decoded.includes("?")) return null;
@@ -219,17 +474,58 @@ const expectedOgLocaleForRoute = (route) => {
   return null;
 };
 
-const visibleMainTokens = (html) => {
+const visibleMainText = (html) => {
   const main = first(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i) || html;
-  const visibleText = decodeEntities(
+  return decodeEntities(
     main
       .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
       .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
       .replace(/<svg\b[\s\S]*?<\/svg>/gi, " ")
       .replace(/<[^>]+>/g, " "),
-  ).toLowerCase();
+  ).replace(/\s+/g, " ").trim();
+};
+
+const visibleMainTokens = (html) => {
+  const visibleText = visibleMainText(html).toLowerCase();
 
   return visibleText.match(/[\p{L}\p{N}]{3,}/gu) ?? [];
+};
+
+const JSONLD_PRICE_VALUE_PROPERTIES = new Set([
+  "price", "lowPrice", "highPrice", "minPrice", "maxPrice",
+]);
+
+const escapeRegExp = (value) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const priceValueVariants = (value) => {
+  const numericValue =
+    typeof value === "number" ? value : Number(String(value).trim());
+  if (!Number.isFinite(numericValue)) return [];
+
+  const variants = new Set([String(numericValue)]);
+  for (const locale of ["tr-TR", "en-US", "de-DE"]) {
+    variants.add(new Intl.NumberFormat(locale, {
+      maximumFractionDigits: 2,
+    }).format(numericValue));
+    variants.add(new Intl.NumberFormat(locale, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(numericValue));
+  }
+  return [...variants].map((variant) => variant.replace(/\s+/g, " "));
+};
+
+const isPriceValueVisible = (visibleText, value) =>
+  priceValueVariants(value).some((variant) =>
+    new RegExp(`(?<![\\p{N}])${escapeRegExp(variant)}(?![\\p{N}])`, "u")
+      .test(visibleText));
+
+const currencyPattern = (currency) => {
+  if (currency === "TRY") return /(?:\bTRY\b|\bTL\b|₺)/iu;
+  if (currency === "EUR") return /(?:\bEUR\b|€)/iu;
+  if (currency === "USD") return /(?:\bUSD\b|\$)/iu;
+  return new RegExp(`\\b${escapeRegExp(currency)}\\b`, "iu");
 };
 
 const wordShingles = (tokens) => {
@@ -249,6 +545,160 @@ const jaccardSimilarity = (left, right) => {
   }
   return intersection / (left.size + right.size - intersection || 1);
 };
+
+// Dosya sistemi/build gerektirmeyen dar regresyon probe'u. CI veya yerel
+// incelemede: node scripts/html-audit.mjs --probe-jsonld-contract
+if (process.argv.includes("--probe-jsonld-contract")) {
+  const assertProbe = (condition, message) => {
+    if (!condition) throw new Error(`[html-audit probe] ${message}`);
+  };
+  const probeCanonical = `${SITE_ORIGIN}/probe`;
+  const wrongArticle = {
+    "@type": "BlogPosting",
+    "@id": `${SITE_ORIGIN}/wrong#article`,
+    mainEntityOfPage: { "@id": `${SITE_ORIGIN}/wrong#webpage` },
+  };
+  const listingArticles = [
+    { "@type": "BlogPosting", "@id": `${SITE_ORIGIN}/one#article` },
+    { "@type": "BlogPosting", "@id": `${SITE_ORIGIN}/two#article` },
+  ];
+  const validAuthorAssertion = {
+    "@id": ROOT_EDITOR_ID,
+    "@type": "Organization",
+    name: "Sahneva Editorial Team",
+    url: SITE_ORIGIN,
+  };
+  const administrativeOrganization = {
+    "@id": ROOT_ORGANIZATION_ID,
+    "@type": ["Organization", "LocalBusiness"],
+    name: "Sahneva Organizasyon",
+    url: SITE_ORIGIN,
+    address: { "@type": "PostalAddress" },
+  };
+  const probePriceHtml =
+    '<main>Teklif: 15.000 TL<script type="application/ld+json">' +
+    '{"price":99999,"priceCurrency":"TRY"}</script></main>';
+
+  assertProbe(isIdReference({ "@id": "#entity" }), "@id-only referans taninmadi");
+  assertProbe(
+    !isIdReference({ "@id": "#entity", "@type": "Person" }),
+    "@id + @type saf referans sayildi",
+  );
+  assertProbe(
+    resolveSchemaId("#entity", probeCanonical) ===
+      resolveSchemaId(`${probeCanonical}#entity`, probeCanonical),
+    "goreli ve mutlak @id ayni kimlige cozulmedi",
+  );
+  assertProbe(
+    selectPrimaryArticle(
+      [wrongArticle],
+      normalizeSchemaUrl(probeCanonical),
+      probeCanonical,
+    ).node === wrongArticle,
+    "tum canonical alanlari yanlis tek Article secilmedi",
+  );
+  assertProbe(
+    selectPrimaryArticle(
+      listingArticles,
+      normalizeSchemaUrl(probeCanonical),
+      probeCanonical,
+    ).node === null,
+    "liste sayfasindaki ilgisiz Article dugumu ana Article secildi",
+  );
+  assertProbe(
+    !ROOT_GLOBAL_ENTITY_REQUIREMENTS
+      .get(ROOT_EDITOR_ID)
+      .allowedAssertionTypes.has("Person"),
+    "#editor Person tur atamasina izin veriyor",
+  );
+  assertProbe(
+    isLightweightAuthorAssertion(ROOT_EDITOR_ID, validAuthorAssertion),
+    "type/name/url author nesnesi hafif assertion sayilmadi",
+  );
+  assertProbe(
+    !isRootIdentityFullDefinition(ROOT_EDITOR_ID, validAuthorAssertion),
+    "hafif author assertion tam kok tanim sayildi",
+  );
+  assertProbe(
+    isRootIdentityFullDefinition(ROOT_ORGANIZATION_ID, administrativeOrganization),
+    "idari Organization nesnesi tam kok tanim sayilmadi",
+  );
+  assertProbe(
+    !isLightweightAuthorAssertion(ROOT_ORGANIZATION_ID, administrativeOrganization),
+    "adresli Organization hafif author assertion sayildi",
+  );
+  assertProbe(
+    isRootIdentityFullDefinition(`${SITE_ORIGIN}/#website`, {
+      "@id": `${SITE_ORIGIN}/#website`,
+      "@type": "WebSite",
+      name: "Sahneva",
+      url: SITE_ORIGIN,
+      publisher: { "@id": ROOT_ORGANIZATION_ID },
+    }),
+    "publisher/name/url WebSite tam kok tanim sayilmadi",
+  );
+  assertProbe(
+    isRootIdentityFullDefinition(ROOT_EDITOR_ID, {
+      ...validAuthorAssertion,
+      parentOrganization: { "@id": ROOT_ORGANIZATION_ID },
+    }),
+    "parentOrganization tasiyan editor tam kok tanim sayilmadi",
+  );
+  assertProbe(
+    isRootIdentityFullDefinition(`${SITE_ORIGIN}/#logo`, {
+      "@id": `${SITE_ORIGIN}/#logo`,
+      "@type": "ImageObject",
+      url: `${SITE_ORIGIN}/img/logo.png`,
+      contentUrl: `${SITE_ORIGIN}/img/logo.png`,
+    }),
+    "url/contentUrl logo tam kok tanim sayilmadi",
+  );
+  assertProbe(
+    articleAuthorContractIssues(validAuthorAssertion, probeCanonical).length === 0,
+    "gecerli nested author sozlesmesi reddedildi",
+  );
+  assertProbe(
+    articleAuthorContractIssues({ "@id": ROOT_EDITOR_ID }, probeCanonical).length === 3,
+    "eksik author type/name/url alanlari yakalanmadi",
+  );
+  assertProbe(
+    articlePublisherContractIssues(
+      { "@id": ROOT_ORGANIZATION_ID },
+      probeCanonical,
+    ).length === 0,
+    "gecerli #org publisher reddedildi",
+  );
+  assertProbe(
+    articlePublisherContractIssues(
+      { "@id": ROOT_EDITOR_ID },
+      probeCanonical,
+    ).length === 1,
+    "#org disindaki publisher yakalanmadi",
+  );
+  assertProbe(
+    visibleMainText(probePriceHtml) === "Teklif: 15.000 TL",
+    "JSON-LD scriptindeki fiyat gorunur ana icerik sayildi",
+  );
+  assertProbe(
+    isPriceValueVisible(visibleMainText(probePriceHtml), 15000),
+    "yerellestirilmis gorunur fiyat degeri taninmadi",
+  );
+  assertProbe(
+    !isPriceValueVisible(visibleMainText(probePriceHtml), 5000),
+    "fiyat degeri daha uzun bir sayinin alt dizesiyle eslesti",
+  );
+  assertProbe(
+    currencyPattern("TRY").test(visibleMainText(probePriceHtml)),
+    "TRY icin gorunur TL para birimi taninmadi",
+  );
+  assertProbe(
+    !currencyPattern("EUR").test(visibleMainText(probePriceHtml)),
+    "gorunmeyen EUR para birimi var sayildi",
+  );
+
+  console.log("[html-audit probe] 22/22 JSON-LD contract checks passed");
+  process.exit(0);
+}
 
 /* -------------------- bulgu toplama -------------------- */
 const errors = [];
@@ -276,6 +726,15 @@ const imageRefs = new Map(); // public yolu -> [bulundugu rotalar]
 const contentFingerprints = [];
 // canonical -> { route, langs: Map(hreflang -> href) }
 const hreflangIndex = new Map();
+// global @id -> [{ route, node }]
+const rootGlobalEntityDefinitions = new Map(
+  [...ROOT_GLOBAL_ENTITY_REQUIREMENTS.keys()].map((id) => [id, []]),
+);
+// Tam tanim olmayan { @id, @type } dugumleri de global kimlige tur atar. Bu
+// atamalar cardinality'ye dahil edilmez ama kimlik sozlesmesiyle uyumlu olmali.
+const rootGlobalEntityTypeAssertions = new Map(
+  [...ROOT_GLOBAL_ENTITY_REQUIREMENTS.keys()].map((id) => [id, []]),
+);
 let auditedCount = 0;
 
 for (const file of files) {
@@ -492,117 +951,239 @@ for (const file of files) {
   const routeSchemaTypes = new Set();
   const routeSchemaProps = new Set();
   const routeSchemaPayloads = [];
+  const routeSchemaNodes = [];
+  const routeTopLevelNodes = [];
   const routeIdDefinitions = new Map();
+  const routeIdReferences = new Set();
+  const routeJsonLdFindings = new Set();
+  const pageSchemaBase = canonical || `${SITE_ORIGIN}${route}`;
+  const canonicalBase = normalizeSchemaUrl(canonical);
+  const addJsonLdError = (rule, detail) => {
+    const key = `${rule}\u0000${detail}`;
+    if (routeJsonLdFindings.has(key)) return;
+    routeJsonLdFindings.add(key);
+    addError(route, rule, detail);
+  };
 
   for (const block of ldBlocks) {
     let parsed;
     try {
       parsed = JSON.parse(block);
     } catch (error) {
-      addError(route, "jsonld-invalid", `JSON parse hatasi: ${error.message}`);
+      addJsonLdError("jsonld-invalid", `JSON parse hatasi: ${error.message}`);
       continue;
     }
     routeSchemaPayloads.push(parsed);
+    routeTopLevelNodes.push(...topLevelJsonLdNodes(parsed));
 
-    const collectRentalSignals = (node) => {
-      if (Array.isArray(node)) return node.forEach(collectRentalSignals);
-      if (!node || typeof node !== "object") return;
-      for (const type of [].concat(node["@type"] ?? [])) {
-        if (typeof type === "string") routeSchemaTypes.add(type);
-      }
-      // @id-only referanslarin @type'i yoktur ve bu indekse girmez.
-      if (node["@id"] && node["@type"]) {
-        routeIdDefinitions.set(node["@id"], [
-          ...(routeIdDefinitions.get(node["@id"]) || []),
-          node,
-        ]);
-      }
-      for (const prop of Object.keys(node)) {
-        if (!prop.startsWith("@")) routeSchemaProps.add(prop);
-      }
-      Object.values(node).forEach((value) => {
-        if (value && typeof value === "object") collectRentalSignals(value);
-      });
-    };
-    collectRentalSignals(parsed);
+    walkJsonLd(parsed, (node) => {
+      routeSchemaNodes.push(node);
 
-    const collect = (node) => {
-      if (Array.isArray(node)) return node.forEach(collect);
-      if (!node || typeof node !== "object") return;
-      for (const type of [].concat(node["@type"] ?? [])) {
+      for (const type of jsonLdTypesOf(node)) {
+        routeSchemaTypes.add(type);
         jsonLdTypes.set(type, (jsonLdTypes.get(type) || 0) + 1);
       }
-      if (node["@graph"]) collect(node["@graph"]);
-    };
-    collect(parsed);
 
-    /* ---- tur/ozellik uyumu ---- */
-    // Once @id -> tur haritasi: referansla verilen dugumlerin araligi ancak
-    // ayni dokumandaki hedef cozulerek denetlenebilir.
-    const idTypes = new Map();
-    const indexIds = (node) => {
-      if (Array.isArray(node)) return node.forEach(indexIds);
-      if (!node || typeof node !== "object") return;
-      if (node["@id"] && node["@type"]) idTypes.set(node["@id"], [].concat(node["@type"]));
-      Object.values(node).forEach((v) => { if (v && typeof v === "object") indexIds(v); });
-    };
-    indexIds(parsed);
+      for (const property of Object.keys(node)) {
+        if (!property.startsWith("@")) routeSchemaProps.add(property);
 
-    const typesOfValue = (value) => {
-      if (!value || typeof value !== "object") return null;
-      if (Array.isArray(value)) return null;
-      if (value["@type"]) return [].concat(value["@type"]);
-      if (value["@id"]) return idTypes.get(value["@id"]) ?? null;
-      return null;
-    };
+        if (!URL_VALUE_PROPERTIES.has(property)) continue;
+        for (const candidate of absoluteUrlStrings(node[property])) {
+          try {
+            new URL(candidate);
+          } catch {
+            addJsonLdError("jsonld-url-invalid", `${property}=${candidate}`);
+            continue;
+          }
 
-    const validate = (node) => {
-      if (Array.isArray(node)) return node.forEach(validate);
-      if (!node || typeof node !== "object") return;
-      const types = [].concat(node["@type"] ?? []).filter((t) => typeof t === "string");
-
-      for (const prop of Object.keys(node)) {
-        if (prop.startsWith("@")) continue;
-
-        // 1) CreativeWork'e ozgu ozellik, Intangible turde
-        if (CREATIVEWORK_ONLY_PROPS.has(prop) && types.some((t) => INTANGIBLE_TYPES.has(t))) {
-          addError(route, "jsonld-invalid-property", `${types.join("/")}.${prop} (CreativeWork ozelligi)`);
-        }
-
-        // 2) Ozelligin yazilabilecegi turler sabit
-        const domains = PROPERTY_DOMAINS[prop];
-        if (domains && types.length && !types.some((t) => domains.includes(t))) {
-          addError(route, "jsonld-invalid-property", `${types.join("/")}.${prop} (yalnizca ${domains.join("/")})`);
-        }
-
-        // 3) Referans verilen dugumun turu araliga uymali
-        const range = REFERENCE_RANGES[prop];
-        if (range) {
-          for (const value of [].concat(node[prop])) {
-            const targetTypes = typesOfValue(value);
-            if (targetTypes && !range.allow(targetTypes)) {
-              addError(
-                route,
-                "jsonld-invalid-range",
-                `${types.join("/") || "?"}.${prop} -> ${targetTypes.join("/")} (beklenen: ${range.label})`,
+          const sitePrefix = SITE_ORIGIN.toLowerCase();
+          const lowerCandidate = candidate.toLowerCase();
+          if (lowerCandidate.startsWith(sitePrefix)) {
+            const boundary = candidate[SITE_ORIGIN.length];
+            if (boundary && !["/", "#", "?"].includes(boundary)) {
+              addJsonLdError(
+                "jsonld-url-malformed",
+                `${property}=${candidate} (site origininden sonra / eksik)`,
               );
             }
           }
         }
       }
 
-      Object.values(node).forEach((v) => { if (v && typeof v === "object") validate(v); });
-    };
-    validate(parsed);
+      const rawId = node["@id"];
+      const resolvedId = resolveSchemaId(rawId, pageSchemaBase);
+      if (rawId && !resolvedId) {
+        addJsonLdError("jsonld-id-invalid", `@id=${rawId}`);
+      }
+
+      if (resolvedId) {
+        const isReservedIdentity = ROOT_GLOBAL_ENTITY_REQUIREMENTS.has(resolvedId);
+        const isSubstantive = isSubstantiveIdDefinition(node);
+        const isRootIdentityDefinition = isRootIdentityFullDefinition(resolvedId, node);
+        const isFullDefinition =
+          isSubstantive && (!isReservedIdentity || isRootIdentityDefinition);
+
+        if (isFullDefinition) {
+          routeIdDefinitions.set(resolvedId, [
+            ...(routeIdDefinitions.get(resolvedId) || []),
+            node,
+          ]);
+
+          if (isReservedIdentity) {
+            rootGlobalEntityDefinitions.get(resolvedId).push({ route, node });
+          }
+        } else if (isIdReference(node)) {
+          routeIdReferences.add(resolvedId);
+        } else {
+          // @id + @type salt referans degil, tur atamasidir. Yine de hedefin
+          // cozulmesi gerekir; reserved kimlikteki tur ayrica asagida denetlenir.
+          routeIdReferences.add(resolvedId);
+        }
+
+        if (
+          isReservedIdentity &&
+          isSubstantive &&
+          !isRootIdentityDefinition &&
+          !isLightweightAuthorAssertion(resolvedId, node)
+        ) {
+          addJsonLdError(
+            "jsonld-global-id-partial-definition",
+            `${resolvedId}: hafif author assertion veya tam kok kimlik tanimi degil`,
+          );
+        }
+
+        if (
+          isReservedIdentity &&
+          Object.hasOwn(node, "@type")
+        ) {
+          rootGlobalEntityTypeAssertions.get(resolvedId).push({ route, node });
+        }
+      }
+
+      let isForbiddenLocalBusinessId = resolvedId === FORBIDDEN_LOCAL_BUSINESS_ID;
+      if (resolvedId && !isForbiddenLocalBusinessId) {
+        const parsedId = new URL(resolvedId);
+        isForbiddenLocalBusinessId =
+          parsedId.origin === new URL(SITE_ORIGIN).origin &&
+          parsedId.hash.toLowerCase() === "#local";
+      }
+      if (isForbiddenLocalBusinessId) {
+        addJsonLdError(
+          "jsonld-local-id-forbidden",
+          `${resolvedId} tanimi/referansi kullanilamaz; #org kullanin`,
+        );
+      }
+    });
 
     // Sablon sizintisi: derlenmemis placeholder yayina cikmamali.
     if (/\{\{|\$\{/.test(block)) {
-      addError(route, "jsonld-placeholder", "JSON-LD icinde derlenmemis sablon ifadesi var");
+      addJsonLdError("jsonld-placeholder", "JSON-LD icinde derlenmemis sablon ifadesi var");
+    }
+  }
+
+  /* ---- JSON-LD fiyatlari <-> gorunur ana icerik ---- */
+  // Google, kullanicinin goremedigi fiyat/teklif bilgisinin isaretlenmesini
+  // yasaklar. Script metnini gorunur saymiyoruz; sayisal deger ile para birimi
+  // gercek <main> metninde ayri ayri bulunmalidir.
+  if (indexable) {
+    const mainVisibleText = visibleMainText(html);
+    for (const node of routeSchemaNodes) {
+      const types = jsonLdTypesOf(node).join("/") || "?";
+      const currency =
+        typeof node.priceCurrency === "string"
+          ? node.priceCurrency.trim().toUpperCase()
+          : "";
+
+      for (const property of JSONLD_PRICE_VALUE_PROPERTIES) {
+        if (!Object.hasOwn(node, property)) continue;
+        if (priceValueVariants(node[property]).length === 0) continue;
+
+        if (!isPriceValueVisible(mainVisibleText, node[property])) {
+          addJsonLdError(
+            "jsonld-price-not-visible",
+            `${types}.${property}=${node[property]} ana icerikte gorunmuyor`,
+          );
+        }
+        if (currency && !currencyPattern(currency).test(mainVisibleText)) {
+          addJsonLdError(
+            "jsonld-price-currency-not-visible",
+            `${types}.priceCurrency=${currency} ana icerikte gorunmuyor`,
+          );
+        }
+      }
+    }
+  }
+
+  /* ---- tur/ozellik uyumu ---- */
+  // @id -> tur haritasi tum script bloklarindan kurulur. Layout'taki bir dugume
+  // sayfa-level JSON-LD'den verilen referans da boylece dogru cozulur.
+  const idTypes = new Map();
+  for (const node of routeSchemaNodes) {
+    if (!node["@id"] || jsonLdTypesOf(node).length === 0) continue;
+    const resolvedId = resolveSchemaId(node["@id"], pageSchemaBase);
+    if (!resolvedId) continue;
+    idTypes.set(
+      resolvedId,
+      [...new Set([...(idTypes.get(resolvedId) || []), ...jsonLdTypesOf(node)])],
+    );
+  }
+
+  const typesOfValue = (value) => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+    if (value["@type"]) return jsonLdTypesOf(value);
+    if (value["@id"]) {
+      const resolvedId = resolveSchemaId(value["@id"], pageSchemaBase);
+      return (resolvedId && idTypes.get(resolvedId)) ?? null;
+    }
+    return null;
+  };
+
+  for (const node of routeSchemaNodes) {
+    const types = jsonLdTypesOf(node);
+
+    for (const prop of Object.keys(node)) {
+      if (prop.startsWith("@")) continue;
+
+      // 1) CreativeWork'e ozgu ozellik, Intangible turde
+      if (CREATIVEWORK_ONLY_PROPS.has(prop) && types.some((type) => INTANGIBLE_TYPES.has(type))) {
+        addJsonLdError(
+          "jsonld-invalid-property",
+          `${types.join("/")}.${prop} (CreativeWork ozelligi)`,
+        );
+      }
+
+      // 2) Ozelligin yazilabilecegi turler sabit
+      const domains = PROPERTY_DOMAINS[prop];
+      if (domains && types.length && !matchesPropertyDomain(types, domains)) {
+        addJsonLdError(
+          "jsonld-invalid-property",
+          `${types.join("/")}.${prop} (yalnizca ${domains.join("/")})`,
+        );
+      }
+
+      // 3) Referans verilen dugumun turu araliga uymali
+      const range = REFERENCE_RANGES[prop];
+      if (range) {
+        for (const value of [].concat(node[prop])) {
+          const targetTypes = typesOfValue(value);
+          if (targetTypes && !range.allow(targetTypes)) {
+            addJsonLdError(
+              "jsonld-invalid-range",
+              `${types.join("/") || "?"}.${prop} -> ${targetTypes.join("/")} (beklenen: ${range.label})`,
+            );
+          }
+        }
+      }
     }
   }
 
   for (const [id, definitions] of routeIdDefinitions) {
     if (definitions.length < 2) continue;
+
+    addJsonLdError(
+      "jsonld-id-duplicate-definition",
+      `${id}: ${definitions.length} tam tanim (referanslar @id-only olmali)`,
+    );
 
     const conflicts = [];
     const properties = new Set(
@@ -626,7 +1207,169 @@ for (const file of files) {
     }
 
     if (conflicts.length) {
-      addError(route, "jsonld-id-conflict", `${id}: ${conflicts.join("; ")}`);
+      addJsonLdError("jsonld-id-conflict", `${id}: ${conflicts.join("; ")}`);
+    }
+  }
+
+  /* ---- kopuk ayni-dokuman @id referanslari ---- */
+  const siteBase = normalizeSchemaUrl(SITE_ORIGIN);
+  for (const resolved of routeIdReferences) {
+    if (routeIdDefinitions.has(resolved)) continue;
+    if (ROOT_GLOBAL_ENTITY_REQUIREMENTS.has(resolved)) continue;
+
+    const parsedReference = new URL(resolved);
+    if (!parsedReference.hash || parsedReference.origin !== new URL(SITE_ORIGIN).origin) continue;
+
+    const referenceBase = normalizeSchemaUrl(resolved);
+    if (referenceBase !== canonicalBase && referenceBase !== siteBase) continue;
+
+    addJsonLdError("jsonld-id-unresolved", `${resolved} icin ayni dokumanda tanim yok`);
+  }
+
+  /* ---- JSON-LD ana dugumleri <-> canonical ---- */
+  const topLevelWebPages = routeTopLevelNodes.filter((node) =>
+    jsonLdTypesOf(node).some((type) => WEBPAGE_TYPES.has(type)),
+  );
+  for (const node of topLevelWebPages) {
+    const types = jsonLdTypesOf(node);
+    const nodeIdBase = normalizeSchemaUrl(resolveSchemaId(node["@id"], pageSchemaBase));
+    const nodeUrlBase = normalizeSchemaUrl(
+      resolveSchemaId(schemaReferenceUrl(node.url), pageSchemaBase),
+    );
+    const isPrimaryWebPage =
+      (/#webpage$/i.test(node["@id"] ?? "") ||
+        (topLevelWebPages.length === 1 && topLevelWebPages[0] === node));
+
+    if (isPrimaryWebPage && !node["@id"]) {
+      addJsonLdError(
+        "jsonld-webpage-id-missing",
+        `${types.join("/")} ana dugumunde @id yok`,
+      );
+    } else if (isPrimaryWebPage && canonicalBase && nodeIdBase !== canonicalBase) {
+      addJsonLdError(
+        "jsonld-canonical-mismatch",
+        `${types.join("/")}.@id=${node["@id"]} canonical=${canonical}`,
+      );
+    }
+    if (isPrimaryWebPage && node.url && canonicalBase && nodeUrlBase !== canonicalBase) {
+      addJsonLdError(
+        "jsonld-canonical-mismatch",
+        `${types.join("/")}.url=${node.url} canonical=${canonical}`,
+      );
+    }
+  }
+
+  // Liste sayfalari cok sayida top-level BlogPosting tasiyabilir. Canonical ile
+  // iliskili tek dugumu seceriz; hicbiri eslesmiyorsa yalniz tek Article bulunan
+  // sayfada onu yine ana dugum sayariz ki uc canonical alani da yanlisken kontrol
+  // sessizce atlanmasin.
+  const topLevelArticles = routeTopLevelNodes.filter((node) =>
+    jsonLdTypesOf(node).some((type) => ARTICLE_TYPES.has(type)),
+  );
+  const articleSelection = selectPrimaryArticle(
+    topLevelArticles,
+    canonicalBase,
+    pageSchemaBase,
+  );
+  const primaryArticle = articleSelection.node;
+  const isBlogDetailRoute = /^\/(?:en\/)?blog\/[^/]+$/.test(route);
+  if (isBlogDetailRoute && !primaryArticle) {
+    addJsonLdError(
+      "jsonld-article-missing",
+      "blog detay rotasinda canonical Article/BlogPosting/NewsArticle dugumu yok",
+    );
+  }
+  if (articleSelection.ambiguousCount) {
+    addJsonLdError(
+      "jsonld-article-primary-ambiguous",
+      `${articleSelection.ambiguousCount} Article/BlogPosting canonical sayfayi sahipleniyor`,
+    );
+  }
+
+  if (primaryArticle) {
+    const types = jsonLdTypesOf(primaryArticle);
+    const resolvedArticleId = resolveSchemaId(primaryArticle["@id"], pageSchemaBase);
+    const articleIdBase = normalizeSchemaUrl(
+      resolvedArticleId,
+    );
+    const articleUrlBase = normalizeSchemaUrl(
+      resolveSchemaId(schemaReferenceUrl(primaryArticle.url), pageSchemaBase),
+    );
+
+    if (primaryArticle["@id"] && canonicalBase && articleIdBase !== canonicalBase) {
+      addJsonLdError(
+        "jsonld-canonical-mismatch",
+        `${types.join("/")}.@id=${primaryArticle["@id"]} canonical=${canonical}`,
+      );
+    }
+    if (
+      isBlogDetailRoute &&
+      canonicalBase &&
+      resolvedArticleId !== `${canonicalBase}#blogposting`
+    ) {
+      addJsonLdError(
+        "jsonld-article-id-contract",
+        `${types.join("/")}.@id=${primaryArticle["@id"] ?? "yok"}; beklenen ${canonicalBase}#blogposting`,
+      );
+    }
+    if (primaryArticle.url && canonicalBase && articleUrlBase !== canonicalBase) {
+      addJsonLdError(
+        "jsonld-canonical-mismatch",
+        `${types.join("/")}.url=${schemaReferenceUrl(primaryArticle.url)} canonical=${canonical}`,
+      );
+    }
+
+    const mainEntityBases = resolvedSchemaReferences(
+      primaryArticle.mainEntityOfPage,
+      pageSchemaBase,
+    ).map((reference) => normalizeSchemaUrl(reference));
+    if (!primaryArticle.mainEntityOfPage || mainEntityBases.length === 0) {
+      addJsonLdError(
+        "jsonld-article-main-entity-missing",
+        `${types.join("/")}.mainEntityOfPage yok veya @id/url icermiyor`,
+      );
+    } else if (
+      canonicalBase &&
+      mainEntityBases.some((base) => base !== canonicalBase)
+    ) {
+      addJsonLdError(
+        "jsonld-canonical-mismatch",
+        `${types.join("/")}.mainEntityOfPage canonical=${canonical} olmali`,
+      );
+    }
+
+    for (const issue of articleAuthorContractIssues(
+      primaryArticle.author,
+      pageSchemaBase,
+    )) {
+      addJsonLdError(
+        "jsonld-article-author",
+        `${types.join("/")}.${issue}`,
+      );
+    }
+
+    for (const issue of articlePublisherContractIssues(
+      primaryArticle.publisher,
+      pageSchemaBase,
+    )) {
+      addJsonLdError(
+        "jsonld-article-publisher",
+        `${types.join("/")}.${issue}`,
+      );
+    }
+  }
+
+  for (const node of routeTopLevelNodes) {
+    const types = jsonLdTypesOf(node);
+    if (types.includes("BreadcrumbList") && Array.isArray(node.itemListElement)) {
+      const lastItem = node.itemListElement.at(-1);
+      const lastUrl = schemaReferenceUrl(lastItem?.item);
+      if (lastUrl && canonicalBase && normalizeSchemaUrl(lastUrl) !== canonicalBase) {
+        addJsonLdError(
+          "jsonld-breadcrumb-canonical-mismatch",
+          `son oge=${lastUrl} canonical=${canonical}`,
+        );
+      }
     }
   }
 
@@ -655,6 +1398,108 @@ for (const file of files) {
         route,
         "rental-locale-leak",
         "Ingilizce sahne semasina Turkce /sahne-kiralama kimligi siziyor",
+      );
+    }
+  }
+}
+
+/* ---- kok site kimligi: tek tanim, dogru rota ve dogru tur ---- */
+for (const [id, requirement] of ROOT_GLOBAL_ENTITY_REQUIREMENTS) {
+  const definitions = rootGlobalEntityDefinitions.get(id) ?? [];
+  if (definitions.length !== 1) {
+    addError(
+      "/",
+      "jsonld-global-id-cardinality",
+      `${id}: ${definitions.length} tam tanim bulundu; / rotasinda tam olarak 1 olmali`,
+    );
+  }
+
+  for (const { route, node } of definitions) {
+    if (route !== "/") {
+      addError(
+        route,
+        "jsonld-global-id-location",
+        `${id} yalnizca / rotasinda tam tanimlanabilir`,
+      );
+    }
+
+    const types = jsonLdTypesOf(node);
+    const missingTypes = [...requirement.requiredTypes].filter(
+      (requiredType) => !types.includes(requiredType),
+    );
+    if (missingTypes.length) {
+      addError(
+        route,
+        "jsonld-global-id-type",
+        `${id}: ${types.join("/") || "tur yok"}; eksik ${missingTypes.join("/")}`,
+      );
+    }
+
+    for (const [property, expectedUrl] of requirement.requiredUrls ?? []) {
+      const rawUrl = schemaReferenceUrl(node[property]);
+      const normalizedUrl = normalizeSchemaUrl(rawUrl);
+      if (!normalizedUrl) {
+        addError(
+          route,
+          "jsonld-global-id-contract",
+          `${id}.${property} mutlak ve gecerli URL olmali`,
+        );
+      } else if (
+        expectedUrl &&
+        normalizedUrl !== normalizeSchemaUrl(expectedUrl)
+      ) {
+        addError(
+          route,
+          "jsonld-global-id-contract",
+          `${id}.${property}=${rawUrl}; beklenen ${expectedUrl}`,
+        );
+      }
+    }
+
+    for (const [property, expectedId] of requirement.requiredReferences ?? []) {
+      const targets = resolvedSchemaReferences(
+        node[property],
+        `${SITE_ORIGIN}${route === "/" ? "/" : route}`,
+      );
+      if (targets.length !== 1 || targets[0] !== expectedId) {
+        addError(
+          route,
+          "jsonld-global-id-contract",
+          `${id}.${property}=${targets.join(", ") || "@id yok"}; beklenen ${expectedId}`,
+        );
+      }
+    }
+  }
+
+  for (const { route, node } of rootGlobalEntityTypeAssertions.get(id) ?? []) {
+    const types = jsonLdTypesOf(node);
+    if (types.length === 0) {
+      addError(
+        route,
+        "jsonld-global-id-type-assertion",
+        `${id}: gecerli @type atamasi yok`,
+      );
+      continue;
+    }
+    const unexpectedTypes = types.filter(
+      (type) => !requirement.allowedAssertionTypes.has(type),
+    );
+    if (unexpectedTypes.length) {
+      addError(
+        route,
+        "jsonld-global-id-type-assertion",
+        `${id}: ${unexpectedTypes.join("/")} tur atamasi kimlik sozlesmesiyle uyumsuz`,
+      );
+    }
+    if (
+      requirement.allowedAssertionNames &&
+      typeof node.name === "string" &&
+      !requirement.allowedAssertionNames.has(node.name.trim())
+    ) {
+      addError(
+        route,
+        "jsonld-global-id-name-assertion",
+        `${id}: name=${node.name} kimlik alias sozlesmesinde yok`,
       );
     }
   }

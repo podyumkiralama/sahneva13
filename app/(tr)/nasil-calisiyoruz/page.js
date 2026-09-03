@@ -36,25 +36,16 @@ export const metadata = {
 };
 
 /* ================== JSON-LD ================== */
-function HowWeWorkJsonLd({ stepsData, faqs }) {
+function HowWeWorkJsonLd({ stepsData }) {
   const orgId = `${SITE}/#org`;
   const webId = `${SITE}/#website`;
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const howtoId = `${PAGE_URL}#howto`;
-  const faqId = `${PAGE_URL}#faq`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": webId,
-        url: SITE,
-        name: "Sahneva Organizasyon",
-        publisher: { "@id": orgId },
-        inLanguage: "tr-TR",
-      },
       {
         "@type": "WebPage",
         "@id": pageId,
@@ -90,16 +81,6 @@ function HowWeWorkJsonLd({ stepsData, faqs }) {
           text: s.plainText,
           url: `${PAGE_URL}#adim-${s.stepNo}`,
           image: `${SITE}${s.imageSrc}`,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        "@id": faqId,
-        inLanguage: "tr-TR",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
     ],
@@ -207,7 +188,7 @@ export default function HowItWorksPage() {
 
   return (
     <div className="relative overflow-hidden">
-      <HowWeWorkJsonLd stepsData={stepsData} faqs={faqs} />
+      <HowWeWorkJsonLd stepsData={stepsData} />
       <HowItWorksClient stepsData={stepsData} faqs={faqs} />
     </div>
   );

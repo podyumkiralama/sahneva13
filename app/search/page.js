@@ -49,11 +49,7 @@ export const metadata = {
   robots: { index: false, follow: true },
 };
 
-/**
- * Sayfa noindex; sema burada siralama icin degil, WebSite.potentialAction ile
- * tanimlanan SearchAction hedefinin gercekten bir arama sonucu sayfasi oldugunu
- * dogrulamak icin bulunur.
- */
+/** Sayfa noindex; sema yalnizca mevcut arama sonucunun turunu ve site bagini aciklar. */
 const buildSearchResultsSchema = (query, resultCount) => ({
   "@context": "https://schema.org",
   "@type": "SearchResultsPage",

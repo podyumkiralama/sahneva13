@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const stageWideImg = {
   src: "/img/blog/led-2026-sahne-genis.webp",
@@ -149,7 +150,6 @@ const FAQ_ITEMS = [
 function ArticleSchema() {
   const site = String(SITE_URL || "").replace(/\/$/, "");
   const orgId = `${site}/#org`;
-  const editorId = `${site}/#editor`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -163,20 +163,11 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "en-US",
-        author: { "@id": editorId },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${site}/en/blog#blog` },
         mentions: [{ "@type": "WebPage", "@id": LED_SERVICE_URL }],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

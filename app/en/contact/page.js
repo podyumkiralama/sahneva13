@@ -4,7 +4,6 @@ import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import {
   BASE_SITE_URL,
-  LOCAL_BUSINESS_ID,
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
@@ -113,7 +112,7 @@ function ContactStructuredData() {
         image: `${BASE_SITE_URL}/img/hero-bg.webp`,
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
-        mainEntity: { "@id": LOCAL_BUSINESS_ID },
+        mainEntity: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
       },
     ],

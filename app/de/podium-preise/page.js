@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import JsonLd from "@/components/seo/JsonLd";
-import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 
@@ -156,9 +156,6 @@ export const metadata = {
 };
 
 function PriceJsonLd() {
-  const low = calc(EXAMPLES[0].area, EXAMPLES[0].skirt);
-  const high = calc(EXAMPLES[2].area, EXAMPLES[2].skirt);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -169,7 +166,22 @@ function PriceJsonLd() {
         name: "Podium mieten: Preise nach m²",
         description: metadata.description,
         inLanguage: "de-DE",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
         breadcrumb: { "@id": `${url}#breadcrumb` },
+        mainEntity: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        url,
+        name: "Podestvermietung: Preise nach Quadratmeter",
+        description: metadata.description,
+        serviceType: "Podestvermietung und projektbezogene Preisberechnung",
+        provider: { "@id": ORGANIZATION_ID },
+        areaServed: { "@type": "Country", name: "Türkiye" },
+        mainEntityOfPage: { "@id": `${url}#webpage` },
+        hasOfferCatalog: { "@id": `${url}#catalog` },
       },
       {
         "@type": "OfferCatalog",
@@ -178,6 +190,9 @@ function PriceJsonLd() {
         url,
         itemListElement: PRICE_ROWS.map((row) => ({
           "@type": "Offer",
+          ...(row.item === "Podestfläche"
+            ? { businessFunction: "http://purl.org/goodrelations/v1#LeaseOut" }
+            : {}),
           itemOffered: {
             "@type": "Service",
             name: row.item,
@@ -187,27 +202,6 @@ function PriceJsonLd() {
           price: String(row.price),
           priceCurrency: UNIT_PRICES.currency,
           priceValidUntil: PRICE_VALID_UNTIL,
-          availability: "https://schema.org/InStock",
-        })),
-      },
-      {
-        "@type": "AggregateOffer",
-        "@id": `${url}#aggregate`,
-        priceCurrency: UNIT_PRICES.currency,
-        lowPrice: String(low),
-        highPrice: String(high),
-        offerCount: EXAMPLES.length,
-        priceValidUntil: PRICE_VALID_UNTIL,
-        url,
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        inLanguage: "de-DE",
-        mainEntity: FAQ.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
         })),
       },
     ],
@@ -226,7 +220,11 @@ export default function GermanPodiumPricesPage() {
   return (
     <div className="bg-white">
       <PriceJsonLd />
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={BASE_SITE_URL} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={BASE_SITE_URL}
+        id={`${url}#breadcrumb`}
+      />
 
       <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="container mx-auto px-4">

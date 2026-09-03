@@ -474,15 +474,6 @@ function StructuredData() {
         about: { "@id": venueId },
         inLanguage: "en",
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
-        })),
-      },
       ...imageObjects,
     ],
   };

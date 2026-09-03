@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -46,17 +47,14 @@ export default function PrivacyPolicyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${SITE_URL}/gizlilik-politikasi#webpage`,
     name: "Gizlilik Politikası",
     url: `${SITE_URL}/gizlilik-politikasi`,
     description:
       "Sahneva Organizasyon’un KVKK ve GDPR uyumlu gizlilik politikası, çerez kullanımı ve veri işleme süreçleri.",
     inLanguage: "tr-TR",
     image: `${SITE_URL}/img/hero-bg.webp`,
-    isPartOf: {
-      "@type": "WebSite",
-      name: "Sahneva",
-      url: SITE_URL,
-    },
+    isPartOf: { "@id": WEBSITE_ID },
   };
   const baseUrl = SITE_URL;
   const breadcrumbItems = [

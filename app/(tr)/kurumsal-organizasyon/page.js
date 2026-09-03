@@ -29,7 +29,6 @@ import {
   ORGANIZATION_ID,
   WEBSITE_ID,
 } from "@/lib/seo/schemaIds";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ClientReferences from "@/components/seo/ClientReferences";
 import { buildClientReferenceMentions } from "@/lib/clientReferences";
@@ -344,18 +343,6 @@ function CorporateOrganizationJsonLd() {
   const webPageId = `${PAGE_URL}#webpage`;
   const serviceId = `${PAGE_URL}#service`;
   const galleryId = `${PAGE_URL}#saha-kaniti`;
-  const faqSchema = buildFaqSchema(
-    FAQ_ITEMS.map(({ q, a }) => ({ question: q, answer: a })),
-    {
-      id: `${PAGE_URL}#faq`,
-      pageId: webPageId,
-      serviceId,
-      inLanguage: "tr-TR",
-    },
-  );
-  const faqNode = faqSchema
-    ? Object.fromEntries(Object.entries(faqSchema).filter(([key]) => key !== "@context"))
-    : null;
 
   const imageObjects = FEATURED_GALLERY.map((image, index) => ({
     "@type": "ImageObject",
@@ -420,7 +407,6 @@ function CorporateOrganizationJsonLd() {
         `${ORIGIN}/blog/kurumsal-etkinlik-yonetimi`,
       ],
       hasPart: [
-        { "@id": `${PAGE_URL}#faq` },
         { "@id": galleryId },
         ...imageObjects.map((image) => ({ "@id": image["@id"] })),
         ...videoObjects.map((video) => ({ "@id": video["@id"] })),
@@ -472,7 +458,6 @@ function CorporateOrganizationJsonLd() {
     ...videoObjects,
   ];
 
-  if (faqNode) graph.push(faqNode);
 
   return (
     <JsonLdScript

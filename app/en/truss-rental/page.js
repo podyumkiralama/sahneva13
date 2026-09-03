@@ -8,6 +8,7 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -19,7 +20,6 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 );
 
 const ORIGIN = SITE_URL;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const PAGE_PATH = "/en/truss-rental";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
@@ -93,16 +93,6 @@ function TrussJsonLd() {
     caption: img.alt,
   }));
 
-  const faqs = FAQ_ITEMS.map((f, i) => ({
-    "@type": "Question",
-    "@id": `${PAGE_URL}#faq-q-${i + 1}`,
-    name: f.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: f.a,
-    },
-  }));
-
   const jsonLd = {
       "@context": "https://schema.org",
       "@graph": [
@@ -117,7 +107,6 @@ function TrussJsonLd() {
         primaryImageOfPage: { "@type": "ImageObject", "@id": `${PAGE_URL}#primaryimage`, url: OG_IMAGE },
         mainEntity: { "@id": `${PAGE_URL}#service` },
         hasPart: [
-          { "@id": `${PAGE_URL}#faq` },
           { "@id": `${PAGE_URL}#gallery` },
         ],
       },
@@ -126,7 +115,7 @@ function TrussJsonLd() {
         "@id": `${PAGE_URL}#service`,
         name: "Truss Rental and Rigging in Turkey",
         serviceType: "Event truss and rigging rental",
-        provider: { "@id": LOCAL_BUSINESS_ID },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
         url: PAGE_URL,
           description:
@@ -134,21 +123,15 @@ function TrussJsonLd() {
           offers: {
           "@type": "Offer",
           url: PAGE_URL,
-          availability: "https://schema.org/InStock",
-          priceCurrency: "TRY",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        mainEntity: faqs,
       },
       {
         "@type": "CollectionPage",
         "@id": `${PAGE_URL}#gallery`,
         name: "Truss Installation Gallery",
         url: `${PAGE_URL}#gallery`,
-        hasPart: galleryImages,
+        hasPart: galleryImages.map((image) => ({ "@id": image["@id"] })),
       },
       ...galleryImages,
     ],

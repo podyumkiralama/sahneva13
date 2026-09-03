@@ -309,21 +309,10 @@ function StructuredData() {
     url: PAGE_URL,
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${PAGE_URL}#faq`,
-    mainEntity: FAQ_ITEMS.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
 
   return (
     <>
       <JsonLd data={serviceSchema} />
-      <JsonLd data={faqSchema} />
     </>
   );
 }

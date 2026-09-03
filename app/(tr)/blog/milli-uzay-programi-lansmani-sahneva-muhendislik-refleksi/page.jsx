@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "milli-uzay-programi-lansmani-sahneva-muhendislik-refleksi";
@@ -97,13 +99,8 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@type": "Person", name: AUTHOR_NAME },
-        publisher: {
-          "@type": "Organization",
-          name: "Sahneva Organizasyon",
-          url: SITE_URL,
-          logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-        },
+        author: buildArticleAuthor(AUTHOR_NAME),
+        publisher: { "@id": ORGANIZATION_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         video: { "@id": `${BLOG_URL}#video` },
       },
@@ -118,11 +115,7 @@ function ArticleSchema() {
         embedUrl: VIDEO_EMBED_URL,
         contentUrl: VIDEO_URL,
         ...getVideoFactProps("j1Tr5l8DVW8"),
-        publisher: {
-          "@type": "Organization",
-          name: "Sahneva Organizasyon",
-          url: SITE_URL,
-        },
+        publisher: { "@id": ORGANIZATION_ID },
       },
     ],
   };

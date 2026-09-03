@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== CONSTANTS ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -80,7 +81,7 @@ function buildArticleJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `${BLOG_URL}#article`,
+    "@id": `${BLOG_URL}#blogposting`,
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
     headline: metadata.title,
     description: metadata.description,
@@ -88,13 +89,8 @@ function buildArticleJsonLd() {
     datePublished: PUBLISH_DATE,
     dateModified: MODIFIED_DATE,
     inLanguage: "en-US",
-    author: { "@type": "Organization", name: "Sahneva", url: SITE_URL },
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-    },
+    author: buildArticleAuthor(AUTHOR_NAME),
+    publisher: { "@id": ORGANIZATION_ID },
   };
 }
 
@@ -115,44 +111,11 @@ function buildBreadcrumbJsonLd() {
   };
 }
 
-function buildFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "At which events are podium stages used?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Podium stages can be used at a wide variety of events such as conferences, concerts, openings and award ceremonies; they can be scaled from a small platform up to a massive concert stage.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What are the advantages of podium stages?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Visibility, modular flexibility, fast setup and dismantling, safety and stability, and professional perception and aesthetics are the main advantages of podium stages.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "When is a podium stage not preferred?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "In small and intimate meetings or interactive workshops/ateliers where everyone needs to be at the same level, a podium stage can be unnecessary or even disadvantageous.",
-        },
-      },
-    ],
-  };
-}
 
 /* ================== PAGE ================== */
 export default function Page() {
   const articleJsonLd = buildArticleJsonLd();
   const breadcrumbJsonLd = buildBreadcrumbJsonLd();
-  const faqJsonLd = buildFaqJsonLd();
 
   const breadcrumbItems = [
     { name: "Home", url: `${SITE_URL}/` },
@@ -165,10 +128,8 @@ export default function Page() {
 
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={articleJsonLd} />
-      <JsonLd data={faqJsonLd} />
 
       <BlogLayout
         locale="en"

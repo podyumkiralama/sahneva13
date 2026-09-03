@@ -1,0 +1,2674 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/xkskbo",
+    "id": "xkskbo",
+    "slide": 9,
+    "layoutId": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07111F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 905
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Sahneva Navy",
+    "colors": {
+      "accent1": "#67C8FF",
+      "accent2": "#63E0AE",
+      "accent3": "#8F80FF",
+      "accent4": "#FF6B8A",
+      "accent5": "#F4B860",
+      "accent6": "#7FD8BE",
+      "bg1": "#07111F",
+      "bg2": "#13223A",
+      "tx1": "#F8FBFF",
+      "tx2": "#DDE8F8",
+      "dk1": "#000000",
+      "dk2": "#0B1727",
+      "lt1": "#F8FBFF",
+      "lt2": "#DDE8F8",
+      "hlink": "#67C8FF",
+      "folHlink": "#8F80FF"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "33800799-f2dd-4105-8984-12bf1b173467",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/eh8nmloz",
+      "id": "1",
+      "name": "grid-v-0",
+      "bbox": [
+        0,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1kj6h07a",
+      "id": "2",
+      "name": "grid-v-92",
+      "bbox": [
+        92,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gjq5ov6p",
+      "id": "3",
+      "name": "grid-v-184",
+      "bbox": [
+        184,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m1ojapg",
+      "id": "4",
+      "name": "grid-v-276",
+      "bbox": [
+        276,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2lsnq5ov",
+      "id": "5",
+      "name": "grid-v-368",
+      "bbox": [
+        368,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p8j6lk7m",
+      "id": "6",
+      "name": "grid-v-460",
+      "bbox": [
+        460,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ona5sf61",
+      "id": "7",
+      "name": "grid-v-552",
+      "bbox": [
+        552,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqx476pc",
+      "id": "8",
+      "name": "grid-v-644",
+      "bbox": [
+        644,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ipone1or",
+      "id": "9",
+      "name": "grid-v-736",
+      "bbox": [
+        736,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8ritwzet",
+      "id": "10",
+      "name": "grid-v-828",
+      "bbox": [
+        828,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tsrap4ve",
+      "id": "11",
+      "name": "grid-v-920",
+      "bbox": [
+        920,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6p0bupwn",
+      "id": "12",
+      "name": "grid-v-1012",
+      "bbox": [
+        1012,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7q9snud8",
+      "id": "13",
+      "name": "grid-v-1104",
+      "bbox": [
+        1104,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gv2t0ze5",
+      "id": "14",
+      "name": "grid-v-1196",
+      "bbox": [
+        1196,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hgbut4va",
+      "id": "15",
+      "name": "grid-h-0",
+      "bbox": [
+        0,
+        0,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ut0by9wz",
+      "id": "16",
+      "name": "grid-h-92",
+      "bbox": [
+        0,
+        92,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vutcrudk",
+      "id": "17",
+      "name": "grid-h-184",
+      "bbox": [
+        0,
+        184,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wzytofel",
+      "id": "18",
+      "name": "grid-h-276",
+      "bbox": [
+        0,
+        276,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xk7ahkv6",
+      "id": "19",
+      "name": "grid-h-368",
+      "bbox": [
+        0,
+        368,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d4fi5cjy",
+      "id": "20",
+      "name": "grid-h-460",
+      "bbox": [
+        0,
+        460,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c36hc72d",
+      "id": "21",
+      "name": "grid-h-552",
+      "bbox": [
+        0,
+        552,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2x0321s",
+      "id": "22",
+      "name": "grid-h-644",
+      "bbox": [
+        0,
+        644,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qhozaxk7",
+      "id": "23",
+      "name": "grid-h-736",
+      "bbox": [
+        0,
+        736,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/18zi9cju",
+      "id": "24",
+      "name": "grid-h-828",
+      "bbox": [
+        0,
+        828,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 25,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/ba1w3udg",
+      "id": "25",
+      "bbox": [
+        48,
+        24,
+        132,
+        62
+      ],
+      "geometry": "rect",
+      "alt": "sahneva-logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "d09dcc63-bac2-46c4-bdf1-e43555b7bde0",
+        "contentType": "image/png",
+        "byteLength": 7760
+      }
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z6h07m1o",
+      "id": "26",
+      "name": "section-label",
+      "bbox": [
+        910,
+        32,
+        320,
+        24
+      ],
+      "geometry": "rect",
+      "text": "PROJE VIDEOLARI",
+      "textPreview": "PROJE VIDEOLARI",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PROJE VIDEOLARI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PROJE VIDEOLARI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PROJE VIDEOLARI",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e58zyhkj",
+      "id": "27",
+      "name": "footer-label",
+      "bbox": [
+        48,
+        864,
+        320,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Sahneva | Ajans Teknik Profil",
+      "textPreview": "Sahneva | Ajans Teknik Profil",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahneva | Ajans Teknik Profil"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahneva | Ajans Teknik Profil",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahneva | Ajans Teknik Profil",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9czidwj6",
+      "id": "28",
+      "name": "page-number",
+      "bbox": [
+        1180,
+        864,
+        50,
+        18
+      ],
+      "geometry": "rect",
+      "text": "09",
+      "textPreview": "09",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "09"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "09",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "09",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obq14r2l",
+      "id": "29",
+      "name": "pill-SEÇILI IŞLER • 1/2",
+      "bbox": [
+        64,
+        110,
+        220,
+        40
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6hkfyt03",
+      "id": "30",
+      "name": "pill-label-SEÇILI IŞLER • 1/2",
+      "bbox": [
+        78,
+        118,
+        192,
+        24
+      ],
+      "geometry": "rect",
+      "text": "SEÇILI IŞLER • 1/2",
+      "textPreview": "SEÇILI IŞLER • 1/2",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SEÇILI IŞLER • 1/2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SEÇILI IŞLER • 1/2",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SEÇILI IŞLER • 1/2",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7itw7yh8",
+      "id": "31",
+      "name": "slide-title",
+      "bbox": [
+        64,
+        170,
+        800,
+        70
+      ],
+      "geometry": "rect",
+      "text": "Gerçek işlerden proje videoları",
+      "textPreview": "Gerçek işlerden proje videoları",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Gerçek işlerden proje videoları"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Gerçek işlerden proje videoları",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Gerçek işlerden proje videoları",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sj2x03it",
+      "id": "32",
+      "name": "video-card-01",
+      "bbox": [
+        54,
+        220,
+        370,
+        575
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 33,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/idgzadgb",
+      "id": "33",
+      "bbox": [
+        68,
+        234,
+        342,
+        220
+      ],
+      "geometry": "roundRect",
+      "alt": "Sıfır Atık Festivali Ana Sahne Prodüksiyonu video kapak görseli",
+      "contentType": "image/jpeg",
+      "imageCrop": {
+        "left": 0,
+        "top": 0.05,
+        "right": 0,
+        "bottom": 0.05
+      },
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7273"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "bb5c6bba-5abc-45f1-b6a8-36e391b116ca",
+        "contentType": "image/jpeg",
+        "byteLength": 23369
+      }
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ulkf2t0z",
+      "id": "34",
+      "name": "video-play-01",
+      "bbox": [
+        82,
+        392,
+        52,
+        52
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#07111F",
+      "lineColor": "#8FD7FF",
+      "lineWidth": 1
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmdwbyhk",
+      "id": "35",
+      "name": "video-play-icon-01",
+      "bbox": [
+        96,
+        404,
+        25,
+        25
+      ],
+      "geometry": "rect",
+      "text": "▶",
+      "textPreview": "▶",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▶"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▶",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gnmx43i5",
+      "id": "36",
+      "name": "video-no-01",
+      "bbox": [
+        78,
+        482,
+        120,
+        24
+      ],
+      "geometry": "rect",
+      "text": "VİDEO 01",
+      "textPreview": "VİDEO 01",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "VİDEO 01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "VİDEO 01",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "VİDEO 01",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h8vyd8zq",
+      "id": "37",
+      "name": "video-title-01",
+      "bbox": [
+        78,
+        522,
+        322,
+        82
+      ],
+      "geometry": "rect",
+      "text": "Sıfır Atık Festivali\nAna Sahne Prodüksiyonu",
+      "textPreview": "Sıfır Atık Festivali | Ana Sahne Prodüksiyonu",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sıfır Atık Festivali"
+          },
+          {
+            "index": 2,
+            "text": "Ana Sahne"
+          },
+          {
+            "index": 3,
+            "text": "Prodüksiyonu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sıfır Atık Festivali",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sıfır Atık Festivali",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Ana Sahne Prodüksiyonu",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ana Sahne Prodüksiyonu",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/294f6d0b",
+      "id": "38",
+      "name": "video-meta-01",
+      "bbox": [
+        78,
+        621,
+        322,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Sahne • LED • ses • ışık",
+      "textPreview": "Sahne • LED • ses • ışık",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahne • LED • ses • ışık"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahne • LED • ses • ışık",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahne • LED • ses • ışık",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3adgfihg",
+      "id": "39",
+      "name": "video-01-qr-bg",
+      "bbox": [
+        76,
+        670,
+        98,
+        98
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 1
+    },
+    {
+      "order": 40,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/ozmxo3ut",
+      "id": "40",
+      "bbox": [
+        84,
+        678,
+        82,
+        82
+      ],
+      "alt": "video-01 bağlantı QR kodu",
+      "contentType": "image/svg+xml",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "5095f43f-05cc-4729-a192-73768df388c5",
+        "contentType": "image/svg+xml",
+        "byteLength": 47189
+      }
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q50fqdsf",
+      "id": "41",
+      "name": "video-link-01",
+      "bbox": [
+        194,
+        698,
+        190,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Videoyu aç ↗",
+      "textPreview": "Videoyu aç ↗",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Videoyu aç ↗"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Videoyu aç ↗",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Videoyu aç ↗",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsbe18rq",
+      "id": "42",
+      "name": "video-qr-help-01",
+      "bbox": [
+        194,
+        740,
+        190,
+        22
+      ],
+      "geometry": "rect",
+      "text": "Tara veya tıkla",
+      "textPreview": "Tara veya tıkla",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tara veya tıkla"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tara veya tıkla",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tara veya tıkla",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7ixs3a5",
+      "id": "43",
+      "name": "video-card-02",
+      "bbox": [
+        459,
+        220,
+        370,
+        575
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 44,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/w36hs3u5",
+      "id": "44",
+      "bbox": [
+        473,
+        234,
+        342,
+        220
+      ],
+      "geometry": "roundRect",
+      "alt": "SAHA 2026 Dome ve Fuar Alanı video kapak görseli",
+      "contentType": "image/jpeg",
+      "imageCrop": {
+        "left": 0,
+        "top": 0.05,
+        "right": 0,
+        "bottom": 0.05
+      },
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7273"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "e242f625-1ddd-4ac7-a181-7f05c9e8ff5e",
+        "contentType": "image/jpeg",
+        "byteLength": 14661
+      }
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytkfudsb",
+      "id": "45",
+      "name": "video-play-02",
+      "bbox": [
+        487,
+        392,
+        52,
+        52
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#07111F",
+      "lineColor": "#8FD7FF",
+      "lineWidth": 1
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwbe5sr2",
+      "id": "46",
+      "name": "video-play-icon-02",
+      "bbox": [
+        501,
+        404,
+        25,
+        25
+      ],
+      "geometry": "rect",
+      "text": "▶",
+      "textPreview": "▶",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▶"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▶",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0v2xwnah",
+      "id": "47",
+      "name": "video-no-02",
+      "bbox": [
+        483,
+        482,
+        120,
+        24
+      ],
+      "geometry": "rect",
+      "text": "VİDEO 02",
+      "textPreview": "VİDEO 02",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "VİDEO 02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "VİDEO 02",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "VİDEO 02",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fypwre9s",
+      "id": "48",
+      "name": "video-title-02",
+      "bbox": [
+        483,
+        522,
+        322,
+        82
+      ],
+      "geometry": "rect",
+      "text": "SAHA 2026\nDome ve Fuar Alanı",
+      "textPreview": "SAHA 2026 | Dome ve Fuar Alanı",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SAHA 2026"
+          },
+          {
+            "index": 2,
+            "text": "Dome ve Fuar Alanı"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SAHA 2026",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SAHA 2026",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Dome ve Fuar Alanı",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dome ve Fuar Alanı",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 49,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/exgvits7",
+      "id": "49",
+      "name": "video-meta-02",
+      "bbox": [
+        483,
+        621,
+        322,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Dome • zemin • ambiyans",
+      "textPreview": "Dome • zemin • ambiyans",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Dome • zemin • ambiyans"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dome • zemin • ambiyans",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dome • zemin • ambiyans",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 50,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/krulcvmt",
+      "id": "50",
+      "name": "video-02-qr-bg",
+      "bbox": [
+        481,
+        670,
+        98,
+        98
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 1
+    },
+    {
+      "order": 51,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/exsr2l0f",
+      "id": "51",
+      "bbox": [
+        489,
+        678,
+        82,
+        82
+      ],
+      "alt": "video-02 bağlantı QR kodu",
+      "contentType": "image/svg+xml",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "c20db609-73e8-4cdd-9bb8-32985fd49bd1",
+        "contentType": "image/svg+xml",
+        "byteLength": 48435
+      }
+    },
+    {
+      "order": 52,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y5c3al4n",
+      "id": "52",
+      "name": "video-link-02",
+      "bbox": [
+        599,
+        698,
+        190,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Videoyu aç ↗",
+      "textPreview": "Videoyu aç ↗",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Videoyu aç ↗"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Videoyu aç ↗",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Videoyu aç ↗",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 53,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j6lk3ql8",
+      "id": "53",
+      "name": "video-qr-help-02",
+      "bbox": [
+        599,
+        740,
+        190,
+        22
+      ],
+      "geometry": "rect",
+      "text": "Tara veya tıkla",
+      "textPreview": "Tara veya tıkla",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tara veya tıkla"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tara veya tıkla",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tara veya tıkla",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 54,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3al8bmh",
+      "id": "54",
+      "name": "video-card-03",
+      "bbox": [
+        864,
+        220,
+        370,
+        575
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 55,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/69sry10j",
+      "id": "55",
+      "bbox": [
+        878,
+        234,
+        342,
+        220
+      ],
+      "geometry": "roundRect",
+      "alt": "TEKNOFEST Çadır İçi Dekorasyon video kapak görseli",
+      "contentType": "image/jpeg",
+      "imageCrop": {
+        "left": 0,
+        "top": 0.05,
+        "right": 0,
+        "bottom": 0.05
+      },
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7273"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "4734cd25-0001-4522-8868-39c0560a77c7",
+        "contentType": "image/jpeg",
+        "byteLength": 6967
+      }
+    },
+    {
+      "order": 56,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a1s36l4r",
+      "id": "56",
+      "name": "video-play-03",
+      "bbox": [
+        892,
+        392,
+        52,
+        52
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#07111F",
+      "lineColor": "#8FD7FF",
+      "lineWidth": 1
+    },
+    {
+      "order": 57,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b21kz6lw",
+      "id": "57",
+      "name": "video-play-icon-03",
+      "bbox": [
+        906,
+        404,
+        25,
+        25
+      ],
+      "geometry": "rect",
+      "text": "▶",
+      "textPreview": "▶",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "▶"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "▶",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "▶",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 58,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gzelkfm1",
+      "id": "58",
+      "name": "video-no-03",
+      "bbox": [
+        888,
+        482,
+        120,
+        24
+      ],
+      "geometry": "rect",
+      "text": "VİDEO 03",
+      "textPreview": "VİDEO 03",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "VİDEO 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "VİDEO 03",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "VİDEO 03",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 59,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0nmdk36",
+      "id": "59",
+      "name": "video-title-03",
+      "bbox": [
+        888,
+        522,
+        322,
+        82
+      ],
+      "geometry": "rect",
+      "text": "TEKNOFEST\nÇadır İçi Dekorasyon",
+      "textPreview": "TEKNOFEST | Çadır İçi Dekorasyon",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "TEKNOFEST"
+          },
+          {
+            "index": 2,
+            "text": "Çadır İçi Dekorasyon"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "TEKNOFEST",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "TEKNOFEST",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Çadır İçi Dekorasyon",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Çadır İçi Dekorasyon",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 60,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pgj2xkvq",
+      "id": "60",
+      "name": "video-meta-03",
+      "bbox": [
+        888,
+        621,
+        322,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Dekor • LED • ses • yerleşim",
+      "textPreview": "Dekor • LED • ses • yerleşim",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Dekor • LED • ses • yerleşim"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dekor • LED • ses • yerleşim",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dekor • LED • ses • yerleşim",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 61,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4falofe5",
+      "id": "61",
+      "name": "video-03-qr-bg",
+      "bbox": [
+        886,
+        670,
+        98,
+        98
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 1
+    },
+    {
+      "order": 62,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/8nyd4z21",
+      "id": "62",
+      "bbox": [
+        894,
+        678,
+        82,
+        82
+      ],
+      "alt": "video-03 bağlantı QR kodu",
+      "contentType": "image/svg+xml",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "3789d940-16b2-4695-b7c8-7ef9affab548",
+        "contentType": "image/svg+xml",
+        "byteLength": 47411
+      }
+    },
+    {
+      "order": 63,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2ds3m5wz",
+      "id": "63",
+      "name": "video-link-03",
+      "bbox": [
+        1004,
+        698,
+        190,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Videoyu aç ↗",
+      "textPreview": "Videoyu aç ↗",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Videoyu aç ↗"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Videoyu aç ↗",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Videoyu aç ↗",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 64,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcj2t0ve",
+      "id": "64",
+      "name": "video-qr-help-03",
+      "bbox": [
+        1004,
+        740,
+        190,
+        22
+      ],
+      "geometry": "rect",
+      "text": "Tara veya tıkla",
+      "textPreview": "Tara veya tıkla",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tara veya tıkla"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tara veya tıkla",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tara veya tıkla",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 65,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gralkvet",
+      "id": "65",
+      "name": "all-videos-9",
+      "bbox": [
+        870,
+        824,
+        350,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Tüm video arşivini görüntüle ↗",
+      "textPreview": "Tüm video arşivini görüntüle ↗",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "middle",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tüm video arşivini görüntüle ↗"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tüm video arşivini görüntüle ↗",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tüm video arşivini görüntüle ↗",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

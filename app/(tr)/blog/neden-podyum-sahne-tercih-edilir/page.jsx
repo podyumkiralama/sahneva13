@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== SABİTLER ================== */
 const ORIGIN = "https://www.sahneva.com";
@@ -75,7 +76,7 @@ function buildArticleJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `${BLOG_URL}#article`,
+    "@id": `${BLOG_URL}#blogposting`,
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
     headline: metadata.title,
     description: metadata.description,
@@ -83,13 +84,8 @@ function buildArticleJsonLd() {
     datePublished: PUBLISH_DATE,
     dateModified: MODIFIED_DATE,
     inLanguage: "tr-TR",
-    author: { "@type": "Organization", name: "Sahneva Organizasyon", url: SITE_URL },
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva Organizasyon",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-    },
+    author: buildArticleAuthor(AUTHOR_NAME),
+    publisher: { "@id": ORGANIZATION_ID },
   };
 }
 
@@ -110,47 +106,11 @@ function buildBreadcrumbJsonLd() {
   };
 }
 
-function buildFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Podyum sahne hangi etkinliklerde kullanılır?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Podyum sahneler konferans, konser, açılış ve ödül töreni gibi çok çeşitli etkinliklerde kullanılabilir; küçük bir platformdan devasa bir konser sahnesine kadar ölçeklenebilir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Podyum sahnelerin avantajları nelerdir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Görünürlük, modüler esneklik, hızlı kurulum-söküm, güvenlik ve stabilite ile profesyonel algı ve estetik podyum sahnelerin başlıca avantajlarıdır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Ne zaman podyum sahne tercih edilmez?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Küçük ve samimi toplantılarda veya herkesin aynı hizada olması gereken interaktif çalıştay/atölyelerde podyum sahne gereksiz ya da dezavantajlı olabilir.",
-        },
-      },
-    ],
-  };
-}
 
 /* ================== SAYFA ================== */
 export default function Page() {
   const articleJsonLd = buildArticleJsonLd();
   const breadcrumbJsonLd = buildBreadcrumbJsonLd();
-  const faqJsonLd = buildFaqJsonLd();
 
   
   const breadcrumbItems = [
@@ -161,10 +121,8 @@ export default function Page() {
 
 return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd data={breadcrumbJsonLd} />
             <JsonLd data={articleJsonLd} />
-            <JsonLd data={faqJsonLd} />
       
             {/* HERO */}
       <BlogLayout

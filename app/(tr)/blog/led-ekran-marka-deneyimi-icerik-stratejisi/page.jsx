@@ -6,8 +6,9 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
-import { EDITOR_ID, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "led-ekran-marka-deneyimi-icerik-stratejisi";
@@ -153,7 +154,7 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@id": EDITOR_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
@@ -162,15 +163,6 @@ function ArticleSchema() {
           { "@type": "Thing", name: "Etkinlik içerik stratejisi" },
           { "@type": "Thing", name: "Kurumsal etkinlik iletişimi" },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

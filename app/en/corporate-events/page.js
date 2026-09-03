@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLdScript from "@/components/seo/JsonLd";
 import ServiceBlogLinks from "@/components/seo/ServiceBlogLinks";
@@ -1439,14 +1438,12 @@ function CorporateEventsJsonLd() {
     },
   };
 
-  const faqNode = buildFaqSchema?.(FAQ_ITEMS) || null;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       webPageNode,
       serviceNode,
-      ...(faqNode ? [faqNode] : []),
     ],
   };
 

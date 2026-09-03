@@ -13,7 +13,7 @@ import {
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
+import { ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 const { home } = LOCALE_CONTENT.ar;
 
@@ -51,8 +51,11 @@ const HERO_FEATURES_AR = [
   },
 ];
 
-const ORGANIZATION_ID = `${SITE_URL}/#org`;
 const AR_PAGE_URL = buildCanonical("/ar");
+const AR_WEBPAGE_ID = `${AR_PAGE_URL}#webpage`;
+const AR_SERVICE_ID = `${AR_PAGE_URL}#service`;
+const AR_CATALOG_ID = `${AR_PAGE_URL}#catalog`;
+const AR_OG_IMAGE_ID = `${AR_PAGE_URL}#og`;
 const AR_OG_IMAGE_URL = `${SITE_URL}/img/og/sahneva-og.webp`;
 const AR_WHATSAPP_HREF = `https://wa.me/905453048671?text=${encodeURIComponent(
   "مرحبًا، أود الحصول على عرض سعر لفعالية في تركيا.\n\nالمدينة:\nالتاريخ:\nمكان الفعالية:\nنوع الفعالية:",
@@ -487,116 +490,75 @@ function StructuredData() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": `${AR_PAGE_URL}#webpage`,
+        "@id": AR_WEBPAGE_ID,
         url: AR_PAGE_URL,
         name: "تأجير منصات وشاشات LED وأنظمة صوت وإضاءة | Sahneva",
         inLanguage: "ar",
+        isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": ORGANIZATION_ID },
+        mainEntity: { "@id": AR_SERVICE_ID },
+        primaryImageOfPage: { "@id": AR_OG_IMAGE_ID },
       },
       {
         "@type": "OfferCatalog",
-        "@id": `${AR_PAGE_URL}#catalog`,
+        "@id": AR_CATALOG_ID,
         name: "خدمات تقنيات الفعاليات",
         url: AR_PAGE_URL,
         itemListElement: [
           {
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: {
               "@type": "Service",
               name: "تأجير المنصات",
               description: "خدمات هندسة المنصات والبوديوم",
             },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "TRY",
-              minPrice: 10000,
-              maxPrice: 200000,
-            },
-            availability: "https://schema.org/InStock",
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: { "@type": "Service", name: "تأجير شاشات LED" },
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              price: LED_SCREEN_PRICING.standard.perSqm,
-              priceCurrency: "TRY",
-              unitText: "م²",
-              unitCode: "MTK",
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
             itemOffered: { "@type": "Service", name: "أنظمة الصوت والإضاءة" },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "TRY",
-              minPrice: 10000,
-              maxPrice: 300000,
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
             itemOffered: { "@type": "Service", name: "خيام الفعاليات" },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "TRY",
-              minPrice: 6000,
-              maxPrice: 800000,
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: { "@type": "Service", name: "تأجير المنصات (بوديوم)" },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "TRY",
-              minPrice: 250,
-              maxPrice: 100000,
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: { "@type": "Service", name: "تأجير الكراسي" },
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              price: 250,
-              priceCurrency: "TRY",
-              unitText: "للوحدة",
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
+            businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             itemOffered: { "@type": "Service", name: "تأجير الطاولات" },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "TRY",
-              minPrice: 1000,
-              maxPrice: 2000,
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
           {
             "@type": "Offer",
             itemOffered: { "@type": "Service", name: "خدمة النقل داخل إسطنبول" },
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              price: 7000,
-              priceCurrency: "TRY",
-            },
             areaServed: "TR",
             seller: { "@id": ORGANIZATION_ID },
           },
@@ -610,33 +572,21 @@ function StructuredData() {
       },
       {
         "@type": "Service",
-        "@id": `${AR_PAGE_URL}#service`,
+        "@id": AR_SERVICE_ID,
         name: "حلول تقنيات الفعاليات",
         description:
           "حلول متكاملة للمنصات، شاشات LED، الصوت، الإضاءة والخيام مع فرق تشغيل محترفة في كل تركيا.",
         url: AR_PAGE_URL,
         areaServed: { "@type": "Country", name: "TR" },
         provider: { "@id": ORGANIZATION_ID },
+        hasOfferCatalog: { "@id": AR_CATALOG_ID },
       },
       {
         "@type": "ImageObject",
-        "@id": `${AR_PAGE_URL}#og`,
+        "@id": AR_OG_IMAGE_ID,
         contentUrl: AR_OG_IMAGE_URL,
         width: 1200,
         height: 630,
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${AR_PAGE_URL}#faq`,
-        url: AR_PAGE_URL,
-        mainEntity: FAQ_ITEMS_AR.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
       },
     ],
   };

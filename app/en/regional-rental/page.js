@@ -36,11 +36,10 @@ export const metadata = {
   robots: AI_PREVIEW_ROBOTS,
 };
 
-function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
+function RegionalRentalJsonLd({ services, steps, regions }) {
   const pageId = `${PAGE_URL}#webpage`;
   const breadcrumbId = `${PAGE_URL}#breadcrumb`;
   const catalogId = `${PAGE_URL}#offerCatalog`;
-  const faqId = `${PAGE_URL}#faq`;
   const howtoId = `${PAGE_URL}#howto`;
   const serviceId = `${PAGE_URL}#service`;
 
@@ -83,9 +82,11 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
         "@type": "OfferCatalog",
         "@id": catalogId,
         name: "Regional Rental Services",
-        itemListElement: services.map((service, idx) => ({
+        itemListElement: services.map((service) => ({
           "@type": "Offer",
-          position: idx + 1,
+          ...(service.href.includes("rental")
+            ? { businessFunction: "http://purl.org/goodrelations/v1#LeaseOut" }
+            : {}),
           itemOffered: {
             "@type": "Service",
             name: service.title,
@@ -107,16 +108,6 @@ function RegionalRentalJsonLd({ services, faqs, steps, regions }) {
           name: step.title,
           text: step.desc,
           url: `${PAGE_URL}#${step.id}`,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        "@id": faqId,
-        inLanguage: "en-US",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.q,
-          acceptedAnswer: { "@type": "Answer", text: faq.a },
         })),
       },
     ],
@@ -266,7 +257,7 @@ export default function Page() {
 
   return (
     <div className="relative overflow-hidden">
-      <RegionalRentalJsonLd services={services} faqs={faqs} steps={steps} regions={regions} />
+      <RegionalRentalJsonLd services={services} steps={steps} regions={regions} />
       <RegionalRentalClient
         regions={regions}
         services={services}

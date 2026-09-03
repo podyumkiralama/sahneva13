@@ -76,10 +76,6 @@ const GLOSSARY_JSON_LD = {
       mainEntity: { "@id": TERM_SET_ID },
       breadcrumb: { "@id": BREADCRUMB_ID },
       publisher: { "@id": ORGANIZATION_ID },
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ["h1", "[data-speakable]"],
-      },
     },
     {
       "@type": "BreadcrumbList",
@@ -151,7 +147,6 @@ export default function GlossaryPage() {
             Event production glossary
           </h1>
           <p
-            data-speakable
             className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg"
           >
             What the technical terms used in quotes and site surveys mean, what they

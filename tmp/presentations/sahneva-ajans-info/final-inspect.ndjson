@@ -1,0 +1,533 @@
+{"kind":"slide","id":"sl/7bgdi4","slide":1,"title":"AJANS TEKNİK PROFİLİ","textShapes":5}
+{"kind":"shape","id":"sh/kf29sfmp","slide":1,"name":"cover-band","bbox":[0,720,1280,180]}
+{"kind":"shape","id":"sh/lgbalkna","slide":1,"name":"cover-divider","bbox":[0,716,1280,4]}
+{"kind":"shape","id":"sh/bq9sfa58","slide":1,"name":"pill-AJANS TEKNİK PROFİLİ","bbox":[54,838,226,34]}
+{"kind":"textbox","id":"sh/cbi9ovmt","slide":1,"textChars":20,"textLines":1}
+{"kind":"textbox","id":"sh/xcbah0ne","slide":1,"textChars":68,"textLines":1}
+{"kind":"textbox","id":"sh/ul4byp47","slide":1,"textChars":65,"textLines":1}
+{"kind":"shape","id":"sh/v6dsru5c","slide":1,"name":"cover-callout","bbox":[904,744,326,128]}
+{"kind":"textbox","id":"sh/vqh83mx4","slide":1,"textChars":31,"textLines":1}
+{"kind":"textbox","id":"sh/a587uhwz","slide":1,"textChars":72,"textLines":1}
+{"kind":"image","id":"im/q1kfmhgn","slide":1,"name":"","geometry":"rect","alt":"PUBG Mobile Global Championship Türkiye finalinde geniş LED ekranlı ana sahne ve ışık prodüksiyonu","bbox":[0,0,1280,720]}
+{"kind":"image","id":"im/z6dgzmxk","slide":1,"name":"","geometry":"rect","alt":"cover-logo","bbox":[54,736,190,88]}
+{"kind":"notes","id":"nt/7bgdi4","slide":1,"text":"[Sources] | - Kapak görseli: C:/Users/KASIM/Desktop/yeni desktop/desktop/img/..."}
+{"kind":"slide","id":"sl/rs7hnp","slide":2,"title":"AJANS İŞ ORTAKLIĞI","textShapes":18}
+{"kind":"shape","id":"sh/sb6t8bit","slide":2,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/raxsf6h8","slide":2,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/694b610n","slide":2,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/10fal0za","slide":2,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/gz6tcvyp","slide":2,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/fexsjqh4","slide":2,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/edobalgz","slide":2,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/p4zap0zm","slide":2,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/o3qtgvy1","slide":2,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/21onelsz","slide":2,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/32xo7qtk","slide":2,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/4365gva5","slide":2,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/p4f690bq","slide":2,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/q5oni5sb","slide":2,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/r6xobq9w","slide":2,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/cr65kvah","slide":2,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/dsz6d0rm","slide":2,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/694n61s7","slide":2,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/7ad4z6tc","slide":2,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/be9k7294","slide":2,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/ad03ex8z","slide":2,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/xgr29cra","slide":2,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/wfilg7qp","slide":2,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/na9k3i98","slide":2,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/9cr25sre","slide":2,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/obilcnqt","slide":2,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/76tkfm9c","slide":2,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/65k3mh8r","slide":2,"name":"pill-AJANS IŞ ORTAKLIĞI","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/4fu9kf2d","slide":2,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/503qtk3i","slide":2,"textChars":50,"textLines":2}
+{"kind":"textbox","id":"sh/idcripk7","slide":2,"textChars":225,"textLines":1}
+{"kind":"shape","id":"sh/3el8ruls","slide":2,"name":"partner-card-1","bbox":[64,520,260,122]}
+{"kind":"textbox","id":"sh/s3u9oz29","slide":2,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/d43qx43u","slide":2,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/q1crmpk3","slide":2,"textChars":52,"textLines":1}
+{"kind":"shape","id":"sh/r2l8vulo","slide":2,"name":"partner-card-2","bbox":[345,520,260,122]}
+{"kind":"textbox","id":"sh/07e9sz25","slide":2,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/18nq143q","slide":2,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/lgfqh476","slide":2,"textChars":59,"textLines":1}
+{"kind":"shape","id":"sh/0f698z6l","slide":2,"name":"partner-card-3","bbox":[64,670,260,122]}
+{"kind":"textbox","id":"sh/zed8fup0","slide":2,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/yd4r6pof","slide":2,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/dcvqdk7u","slide":2,"textChars":57,"textLines":1}
+{"kind":"shape","id":"sh/cbm94f69","slide":2,"name":"partner-card-4","bbox":[345,670,260,122]}
+{"kind":"textbox","id":"sh/bad8bap4","slide":2,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/q94r2poj","slide":2,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/x8zapo7e","slide":2,"textChars":62,"textLines":1}
+{"kind":"image","id":"im/5czelof2","slide":2,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/3254zadk","slide":2,"name":"","geometry":"roundRect","alt":"Kurumsal etkinlikte LED ekran, sahne ve ışık prodüksiyonu","bbox":[680,158,530,646]}
+{"kind":"notes","id":"nt/rs7hnp","slide":2,"text":"[Sources] | - Görsel: public/img/kurumsal/premium/kurumsal-organizasyon-hero-..."}
+{"kind":"slide","id":"sl/184lij","slide":3,"title":"KAPASITE ÖZETI","textShapes":14}
+{"kind":"shape","id":"sh/ovu1knax","slide":3,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/nulkri9c","slide":3,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/mtcjidsr","slide":3,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/x0n2xsre","slide":3,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/wze1onat","slide":3,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/bylkvi98","slide":3,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/axcjmdsn","slide":3,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/lon21cra","slide":3,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/knels7a5","slide":3,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/yxob25gn","slide":3,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/zyxcbaxs","slide":3,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/kz6t4fyd","slide":3,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/l0zud0fy","slide":3,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/ml8b65wj","slide":3,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/7mhcfax4","slide":3,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/8nqt8fep","slide":3,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/9ozuhkfa","slide":3,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/2p4bulgf","slide":3,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/nqds3qx0","slide":3,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/rat8bmds","slide":3,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/q9kr2hw7","slide":3,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/dwbqdwvi","slide":3,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/sv294rex","slide":3,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/369872dg","slide":3,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/58rq9cvm","slide":3,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/47i907e1","slide":3,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/n2d8j6dk","slide":3,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/214ra1wf","slide":3,"name":"pill-GÜNCEL STOK BEYANI","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/0vuxozql","slide":3,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/lw3eh476","slide":3,"textChars":39,"textLines":1}
+{"kind":"shape","id":"sh/y9cfmp8f","slide":3,"name":"led-total-panel","bbox":[64,300,550,320]}
+{"kind":"textbox","id":"sh/zulwfup0","slide":3,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/8zexsjqh","slide":3,"textChars":75,"textLines":2}
+{"kind":"shape","id":"sh/90nelo72","slide":3,"name":"podium-total-panel","bbox":[650,300,560,190]}
+{"kind":"textbox","id":"sh/mxwfq98b","slide":3,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/ny5wjepw","slide":3,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/w3exwjqt","slide":3,"name":"dome-total-panel","bbox":[650,515,560,220]}
+{"kind":"textbox","id":"sh/x47ypo7e","slide":3,"textChars":7,"textLines":1}
+{"kind":"textbox","id":"sh/hcfy5obe","slide":3,"textChars":45,"textLines":2}
+{"kind":"shape","id":"sh/gb6xcjut","slide":3,"name":"capacity-bottom","bbox":[64,660,550,140]}
+{"kind":"textbox","id":"sh/vaxw3et8","slide":3,"textChars":37,"textLines":1}
+{"kind":"textbox","id":"sh/u9ofa9cn","slide":3,"textChars":69,"textLines":1}
+{"kind":"textbox","id":"sh/t8fe14bi","slide":3,"textChars":95,"textLines":1}
+{"kind":"image","id":"im/hcz6p43i","slide":3,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"notes","id":"nt/184lij","slide":3,"text":"[Sources] | - Stok miktarları: kullanıcı tarafından sağlanan güncel beyan, 03..."}
+{"kind":"slide","id":"sl/ecex10","slide":4,"title":"INDOOR LED","textShapes":11}
+{"kind":"shape","id":"sh/m54nuh8f","slide":4,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/98vm5c76","slide":4,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/87m5w7ql","slide":4,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/vax47mpc","slide":4,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/u94nyh8r","slide":4,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/hcfm9w72","slide":4,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/wb650rqh","slide":4,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/bet4vips","slide":4,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/adk3mx87","slide":4,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/cfmxg7at","slide":4,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/dgve9cbe","slide":4,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/qdkfexsn","slide":4,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/betw72t8","slide":4,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/03mxkra5","slide":4,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/l4vydwra","slide":4,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/yh4fihsz","slide":4,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/zidgbm9k","slide":4,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/gn2x8nal","slide":4,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/h8behsb6","slide":4,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/xsjmpkzy","slide":4,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/wralwfyd","slide":4,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/vq14nahs","slide":4,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/ap83upg7","slide":4,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/5wjmt4zu","slide":4,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/ju14ruho","slide":4,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/its3ypgj","slide":4,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/t03mx4z6","slide":4,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/szu54zyl","slide":4,"name":"pill-INDOOR LED EKRAN","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/q54ji1w3","slide":4,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/b6d0r6xo","slide":4,"textChars":44,"textLines":2}
+{"kind":"shape","id":"sh/c761kbet","slide":4,"name":"absen-panel","bbox":[64,322,500,225]}
+{"kind":"textbox","id":"sh/d8fitgfe","slide":4,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/y9ojmlwz","slide":4,"textChars":76,"textLines":2}
+{"kind":"shape","id":"sh/zax0vqxk","slide":4,"name":"unilumin-panel","bbox":[64,575,500,225]}
+{"kind":"textbox","id":"sh/0b61obe5","slide":4,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/lwf2xgfq","slide":4,"textChars":76,"textLines":2}
+{"kind":"shape","id":"sh/vud0jqp0","slide":4,"name":"led-service-strip","bbox":[820,625,390,175]}
+{"kind":"textbox","id":"sh/ut4jalof","slide":4,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/hgvil07q","slide":4,"textChars":70,"textLines":1}
+{"kind":"image","id":"im/7298vy98","slide":4,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/xkzu5wb2","slide":4,"name":"","geometry":"roundRect","alt":"Kurumsal konferans sahnesinde indoor LED ekran uygulaması","bbox":[610,178,600,420]}
+{"kind":"image","id":"im/wjqtcbuh","slide":4,"name":"","geometry":"roundRect","alt":"LED ekran flight-case depo envanteri","bbox":[610,625,190,175]}
+{"kind":"notes","id":"nt/ecex10","slide":4,"text":"[Sources] | - Stok miktarları ve marka/model: kullanıcı tarafından sağlanan g..."}
+{"kind":"slide","id":"sl/tj7wx9","slide":5,"title":"PODYUM VE PLATFORM","textShapes":8}
+{"kind":"shape","id":"sh/z2lsbexk","slide":5,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/03u94jyp","slide":5,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/l43adofa","slide":5,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/qxsry9gn","slide":5,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/byls7ux8","slide":5,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/czu90zyt","slide":5,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/d03a94fe","slide":5,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/29srupgr","slide":5,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/3a1s3uxc","slide":5,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/7mtwbi9c","slide":5,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/6lkfid8r","slide":5,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/tobed8ri","slide":5,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/8n2xknqx","slide":5,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/vqtwfi9o","slide":5,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/upkfmd83","slide":5,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/hsbehsre","slide":5,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/gr2xonq9","slide":5,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/bu9w3y94","slide":5,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/atgvat8z","slide":5,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/epozi1s7","slide":5,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/fax0b6ts","slide":5,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/0b6hkrad","slide":5,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/1czidwby","slide":5,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/qlozehsb","slide":5,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/sn6hgrah","slide":5,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/dofi9wbm","slide":5,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/ih4zahsz","slide":5,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/3idg3mtk","slide":5,"name":"pill-PODYUM STOĞU","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/lc329kv2","slide":5,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/kbulgfuh","slide":5,"textChars":22,"textLines":1}
+{"kind":"textbox","id":"sh/za1k7adc","slide":5,"textChars":167,"textLines":1}
+{"kind":"shape","id":"sh/y9sje5cr","slide":5,"name":"podium-metric-panel","bbox":[64,520,475,220]}
+{"kind":"textbox","id":"sh/x8j250v6","slide":5,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/c7a1cvul","slide":5,"textChars":19,"textLines":1}
+{"kind":"image","id":"im/8fmx4329","slide":5,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/ovid8zi5","slide":5,"name":"","geometry":"roundRect","alt":"Tamamlanmış siyah podyum ve basamak sistemi","bbox":[590,175,620,380]}
+{"kind":"image","id":"im/pwreh4ja","slide":5,"name":"","geometry":"roundRect","alt":"Geniş alanda podyum ve zemin kurulum süreci","bbox":[590,585,620,215]}
+{"kind":"notes","id":"nt/tj7wx9","slide":5,"text":"[Sources] | - Podyum miktarı: kullanıcı tarafından sağlanan güncel beyan, 03...."}
+{"kind":"slide","id":"sl/m6nrve","slide":6,"title":"ÇADIR SISTEMLERI","textShapes":17}
+{"kind":"shape","id":"sh/43mh4byh","slide":6,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/j2d0b6xw","slide":6,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/i14z21gb","slide":6,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/h0vi9wz6","slide":6,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/wzmh0byl","slide":6,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/vyt076h0","slide":6,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/uxkzy1gf","slide":6,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/9wbi5wzu","slide":6,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/8v2hwry9","slide":6,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/mxs3at0z","slide":6,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/7i1k3y1k","slide":6,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/8julc3i5","slide":6,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/9k3258jq","slide":6,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/ytsj6t03","slide":6,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/zu1kze18","slide":6,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/kva18jit","slide":6,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/lwj21oje","slide":6,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/ap8j290r","slide":6,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/bqhkve1c","slide":6,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/fux03ah4","slide":6,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/etoza5gj","slide":6,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/1wfi5kza","slide":6,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/gv6hcfyp","slide":6,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/nyx07ah0","slide":6,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/p0zi9kz6","slide":6,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/oz6hgfyl","slide":6,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/j2dgvqhw","slide":6,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/i14z2lgb","slide":6,"name":"pill-ÇADIR SISTEMLERI","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/8vy5gnax","slide":6,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/9wr6psbi","slide":6,"textChars":44,"textLines":1}
+{"kind":"textbox","id":"sh/nuponitc","slide":6,"textChars":19,"textLines":1}
+{"kind":"shape","id":"sh/07y5cna1","slide":6,"name":"dome-1","bbox":[650,300,250,120]}
+{"kind":"textbox","id":"sh/ls7mlsbm","slide":6,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/y5gnadsv","slide":6,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/z6p4jitg","slide":6,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/kni5o7a5","slide":6,"name":"dome-2","bbox":[650,448,250,120]}
+{"kind":"textbox","id":"sh/5ob6xcbq","slide":6,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/1832p4r2","slide":6,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/g7ulgzqh","slide":6,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/f6lkne9w","slide":6,"name":"dome-3","bbox":[650,596,250,120]}
+{"kind":"textbox","id":"sh/u5cje98r","slide":6,"textChars":4,"textLines":1}
+{"kind":"textbox","id":"sh/pc32tore","slide":6,"textChars":7,"textLines":1}
+{"kind":"textbox","id":"sh/obulkjqt","slide":6,"textChars":7,"textLines":1}
+{"kind":"shape","id":"sh/29c3i98n","slide":6,"name":"tent-supply","bbox":[650,722,560,115]}
+{"kind":"textbox","id":"sh/d0n2xora","slide":6,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/czelojqp","slide":6,"textChars":74,"textLines":2}
+{"kind":"image","id":"im/dkbilk7u","slide":6,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/xkfmhore","slide":6,"name":"","geometry":"roundRect","alt":"Tamamlanmış dome çadır etkinlik uygulaması","bbox":[64,310,540,350]}
+{"kind":"image","id":"im/svmpgn69","slide":6,"name":"","geometry":"roundRect","alt":"Vinçli büyük açıklıklı etkinlik çadırı kurulumu","bbox":[930,300,280,268]}
+{"kind":"notes","id":"nt/m6nrve","slide":6,"text":"[Sources] | - Dome açıklıkları ve adetleri: kullanıcı tarafından sağlanan gün..."}
+{"kind":"slide","id":"sl/cpobzz","slide":7,"title":"ÜRETIM VE DEKOR","textShapes":9}
+{"kind":"shape","id":"sh/4vmpkre9","slide":7,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/jud8rmxo","slide":7,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/it47ihw3","slide":7,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/t0fqxwvq","slide":7,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/sz69obe5","slide":7,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/ryd8v6dk","slide":7,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/6x4rm1wf","slide":7,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/94bqlcfm","slide":7,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/832ps7e1","slide":7,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/il0zaxoj","slide":7,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/jm9gj25o","slide":7,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/4nihc769","slide":7,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/5orylcnu","slide":7,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/6p0zexof","slide":7,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/rqtgn250","slide":7,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/sr2hg7ml","slide":7,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/tsbypcn6","slide":7,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/etkzih4b","slide":7,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/fetgrm5w","slide":7,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/bidgfml4","slide":7,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/qh4f6hkj","slide":7,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/dkvyhw3a","slide":7,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/cjmx8r2p","slide":7,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/3utgb2l8","slide":7,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/pgbydc3y","slide":7,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/ov2x472t","slide":7,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/fqtw72lw","slide":7,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/ep0fyxkb","slide":7,"name":"pill-ÜRETIM ALTYAPISI","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/4vyd83i9","slide":7,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/5w7uh8ju","slide":7,"textChars":30,"textLines":1}
+{"kind":"shape","id":"sh/itgv6t03","slide":7,"name":"steel-copy","bbox":[64,315,450,205]}
+{"kind":"textbox","id":"sh/jupcfy1o","slide":7,"textChars":38,"textLines":1}
+{"kind":"textbox","id":"sh/szidc3il","slide":7,"textChars":146,"textLines":1}
+{"kind":"shape","id":"sh/t0rul8jq","slide":7,"name":"print-copy","bbox":[64,548,450,245]}
+{"kind":"textbox","id":"sh/6xgvad0f","slide":7,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/ry9cji10","slide":7,"textChars":158,"textLines":5}
+{"kind":"image","id":"im/dwvuh8va","slide":7,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/3utcbyx8","slide":7,"name":"","geometry":"roundRect","alt":"Etkinlik çadırında markalı dekor ve baskı uygulamaları","bbox":[560,185,650,290]}
+{"kind":"image","id":"im/itkv2dg3","slide":7,"name":"","geometry":"roundRect","alt":"Baskılı lansman ve karşılama standı uygulaması","bbox":[560,510,315,283]}
+{"kind":"image","id":"im/2dsfyh4z","slide":7,"name":"","geometry":"roundRect","alt":"Dome çadır iskelet ve konstrüksiyon kurulum süreci","bbox":[895,510,315,283]}
+{"kind":"notes","id":"nt/cpobzz","slide":7,"text":"[Sources] | - Üretim ve malzeme kapsamı: kullanıcı tarafından sağlanan beyan,..."}
+{"kind":"slide","id":"sl/a6xj45","slide":8,"title":"SES, IŞIK VE REJI","textShapes":7}
+{"kind":"shape","id":"sh/c7ulsnq9","slide":8,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/b6l4zi9o","slide":8,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/a5c3qd83","slide":8,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/pkjmx8ri","slide":8,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/ojalo3qx","slide":8,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/ni1kvy9s","slide":8,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/2hs3mt87","slide":8,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/1gj2torm","slide":8,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/0falk3q1","slide":8,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/ulgju9kn","slide":8,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/vmpknel8","slide":8,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/gny1wj2t","slide":8,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/ho72po3e","slide":8,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/6hwjq94r","slide":8,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/7ipkjelc","slide":8,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/8jy1sjmh","slide":8,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/tk72lo32","slide":8,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/ytwjmp4f","slide":8,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/ju5kful0","slide":8,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/3m1876xg","slide":8,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/2l87y1gb","slide":8,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/pojq9gfm","slide":8,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/onap0by1","slide":8,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/bq18b6xs","slide":8,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/dcjqdgfy","slide":8,"textChars":17,"textLines":1}
+{"kind":"textbox","id":"sh/crap4bed","slide":8,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/ruh8zmx8","slide":8,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/6to7qhg3","slide":8,"name":"pill-TEKNIK OPERASYON","bbox":[64,110,210,40]}
+{"kind":"textbox","id":"sh/wzm50nel","slide":8,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/h0vmtsv6","slide":8,"textChars":31,"textLines":1}
+{"kind":"shape","id":"sh/9wvmp8va","slide":8,"name":"sound-light-copy","bbox":[448,565,762,225]}
+{"kind":"textbox","id":"sh/mtknudwj","slide":8,"textChars":44,"textLines":1}
+{"kind":"textbox","id":"sh/7ut4nyd4","slide":8,"textChars":190,"textLines":4}
+{"kind":"image","id":"im/1o3ypkb2","slide":8,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/l87il8vm","slide":8,"name":"","geometry":"roundRect","alt":"Işık ve gösteri kontrol masası","bbox":[64,310,350,480]}
+{"kind":"image","id":"im/k7y1s3e1","slide":8,"name":"","geometry":"roundRect","alt":"Büyük ölçekli line array ses sistemi","bbox":[448,315,280,220]}
+{"kind":"image","id":"im/bi50fydk","slide":8,"name":"","geometry":"roundRect","alt":"Konser sahnesinde truss rigging ve ışık tasarımı","bbox":[756,315,454,220]}
+{"kind":"notes","id":"nt/a6xj45","slide":8,"text":"[Sources] | - Ses ve ışık kapasitesi: kullanıcı tarafından sağlanan nitel bey..."}
+{"kind":"slide","id":"sl/xkskbo","slide":9,"title":"PROJE VIDEOLARI","textShapes":24}
+{"kind":"shape","id":"sh/eh8nmloz","slide":9,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/1kj6h07a","slide":9,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/gjq5ov6p","slide":9,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/3m1ojapg","slide":9,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/2lsnq5ov","slide":9,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/p8j6lk7m","slide":9,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/ona5sf61","slide":9,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/jqx476pc","slide":9,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/ipone1or","slide":9,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/8ritwzet","slide":9,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/tsrap4ve","slide":9,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/6p0bupwn","slide":9,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/7q9snud8","slide":9,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/gv2t0ze5","slide":9,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/hgbut4va","slide":9,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/ut0by9wz","slide":9,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/vutcrudk","slide":9,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/wzytofel","slide":9,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/xk7ahkv6","slide":9,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/d4fi5cjy","slide":9,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/c36hc72d","slide":9,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/r2x0321s","slide":9,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/qhozaxk7","slide":9,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/18zi9cju","slide":9,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/z6h07m1o","slide":9,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/e58zyhkj","slide":9,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/9czidwj6","slide":9,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/obq14r2l","slide":9,"name":"pill-SEÇILI IŞLER • 1/2","bbox":[64,110,220,40]}
+{"kind":"textbox","id":"sh/6hkfyt03","slide":9,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/7itw7yh8","slide":9,"textChars":31,"textLines":1}
+{"kind":"shape","id":"sh/sj2x03it","slide":9,"name":"video-card-01","bbox":[54,220,370,575]}
+{"kind":"shape","id":"sh/ulkf2t0z","slide":9,"name":"video-play-01","bbox":[82,392,52,52]}
+{"kind":"textbox","id":"sh/fmdwbyhk","slide":9,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/gnmx43i5","slide":9,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/h8vyd8zq","slide":9,"textChars":43,"textLines":2}
+{"kind":"textbox","id":"sh/294f6d0b","slide":9,"textChars":24,"textLines":1}
+{"kind":"shape","id":"sh/3adgfihg","slide":9,"name":"video-01-qr-bg","bbox":[76,670,98,98]}
+{"kind":"textbox","id":"sh/q50fqdsf","slide":9,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/dsbe18rq","slide":9,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/c7ixs3a5","slide":9,"name":"video-card-02","bbox":[459,220,370,575]}
+{"kind":"shape","id":"sh/ytkfudsb","slide":9,"name":"video-play-02","bbox":[487,392,52,52]}
+{"kind":"textbox","id":"sh/lwbe5sr2","slide":9,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/0v2xwnah","slide":9,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/fypwre9s","slide":9,"textChars":28,"textLines":2}
+{"kind":"textbox","id":"sh/exgvits7","slide":9,"textChars":23,"textLines":1}
+{"kind":"shape","id":"sh/krulcvmt","slide":9,"name":"video-02-qr-bg","bbox":[481,670,98,98]}
+{"kind":"textbox","id":"sh/y5c3al4n","slide":9,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/j6lk3ql8","slide":9,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/w3al8bmh","slide":9,"name":"video-card-03","bbox":[864,220,370,575]}
+{"kind":"shape","id":"sh/a1s36l4r","slide":9,"name":"video-play-03","bbox":[892,392,52,52]}
+{"kind":"textbox","id":"sh/b21kz6lw","slide":9,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/gzelkfm1","slide":9,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/h0nmdk36","slide":9,"textChars":30,"textLines":2}
+{"kind":"textbox","id":"sh/pgj2xkvq","slide":9,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/4falofe5","slide":9,"name":"video-03-qr-bg","bbox":[886,670,98,98]}
+{"kind":"textbox","id":"sh/2ds3m5wz","slide":9,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/hcj2t0ve","slide":9,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/gralkvet","slide":9,"textChars":30,"textLines":1}
+{"kind":"image","id":"im/ba1w3udg","slide":9,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/idgzadgb","slide":9,"name":"","geometry":"roundRect","alt":"Sıfır Atık Festivali Ana Sahne Prodüksiyonu video kapak görseli","bbox":[68,234,342,220]}
+{"kind":"image","id":"im/ozmxo3ut","slide":9,"name":"","alt":"video-01 bağlantı QR kodu","bbox":[84,678,82,82]}
+{"kind":"image","id":"im/w36hs3u5","slide":9,"name":"","geometry":"roundRect","alt":"SAHA 2026 Dome ve Fuar Alanı video kapak görseli","bbox":[473,234,342,220]}
+{"kind":"image","id":"im/exsr2l0f","slide":9,"name":"","alt":"video-02 bağlantı QR kodu","bbox":[489,678,82,82]}
+{"kind":"image","id":"im/69sry10j","slide":9,"name":"","geometry":"roundRect","alt":"TEKNOFEST Çadır İçi Dekorasyon video kapak görseli","bbox":[878,234,342,220]}
+{"kind":"image","id":"im/8nyd4z21","slide":9,"name":"","alt":"video-03 bağlantı QR kodu","bbox":[894,678,82,82]}
+{"kind":"notes","id":"nt/xkskbo","slide":9,"text":"[Sources] | - Video ve proje başlıkları: https://www.sahneva.com/yaptiklarimi..."}
+{"kind":"slide","id":"sl/znfx07","slide":10,"title":"PROJE VIDEOLARI","textShapes":24}
+{"kind":"shape","id":"sh/jm50f6dg","slide":10,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/4ne1oru1","slide":10,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/5onihwvm","slide":10,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/6pgjq1c7","slide":10,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/rqp0j6dc","slide":10,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/sry1sbux","slide":10,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/ts7ilgbi","slide":10,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/etgjulc3","slide":10,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/fup0nqto","slide":10,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/3atsvq1g","slide":10,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/29kr25kv","slide":10,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/pcvax0j6","slide":10,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/obm94v2l","slide":10,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/fmtsrq14","slide":10,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/elkrylkj","slide":10,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/18bat0ja","slide":10,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/gn290v2p","slide":10,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/zids3a18","slide":10,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/yh4bupk3","slide":10,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/ad8v294b","slide":10,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/vyhcvelg","slide":10,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/wzqd4jm1","slide":10,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/x0zuxo3m","slide":10,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/i18v6tk7","slide":10,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/k3ad832d","slide":10,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/54je183y","slide":10,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/y5ovup43","slide":10,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/z6xcnulo","slide":10,"name":"pill-SEÇILI IŞLER • 2/2","bbox":[64,110,220,40]}
+{"kind":"textbox","id":"sh/103ytcn6","slide":10,"textChars":18,"textLines":1}
+{"kind":"textbox","id":"sh/gzux07ml","slide":10,"textChars":31,"textLines":1}
+{"kind":"shape","id":"sh/fylgr250","slide":10,"name":"video-card-04","bbox":[54,220,370,575]}
+{"kind":"shape","id":"sh/ponyxcn2","slide":10,"name":"video-play-04","bbox":[82,392,52,52]}
+{"kind":"textbox","id":"sh/o3ex47mh","slide":10,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/325gv25w","slide":10,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/21wf2x4b","slide":10,"textChars":33,"textLines":2}
+{"kind":"textbox","id":"sh/5sjelsny","slide":10,"textChars":24,"textLines":1}
+{"kind":"shape","id":"sh/k7axsn6d","slide":10,"name":"video-04-qr-bg","bbox":[76,670,98,98]}
+{"kind":"textbox","id":"sh/9oritg76","slide":10,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/ml0jylov","slide":10,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/nm90rqpg","slide":10,"name":"video-card-05","bbox":[459,220,370,575]}
+{"kind":"shape","id":"sh/lkripg7a","slide":10,"name":"video-play-05","bbox":[487,392,52,52]}
+{"kind":"textbox","id":"sh/yxgju1oj","slide":10,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/zip0n6p4","slide":10,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/cvyhsbqt","slide":10,"textChars":38,"textLines":2}
+{"kind":"textbox","id":"sh/dw7ilw7e","slide":10,"textChars":29,"textLines":1}
+{"kind":"shape","id":"sh/fq5kb690","slide":10,"name":"video-05-qr-bg","bbox":[481,670,98,98]}
+{"kind":"textbox","id":"sh/1sn2dwr6","slide":10,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/gre14ral","slide":10,"textChars":15,"textLines":1}
+{"kind":"shape","id":"sh/3upkf69c","slide":10,"name":"video-card-06","bbox":[864,220,370,575]}
+{"kind":"shape","id":"sh/pg72hgr2","slide":10,"name":"video-play-06","bbox":[892,392,52,52]}
+{"kind":"textbox","id":"sh/ovy18bah","slide":10,"textChars":1,"textLines":1}
+{"kind":"textbox","id":"sh/bipkjq98","slide":10,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/qhgjalsn","slide":10,"textChars":28,"textLines":2}
+{"kind":"textbox","id":"sh/mpkvy9g7","slide":10,"textChars":25,"textLines":1}
+{"kind":"shape","id":"sh/7qdwrexs","slide":10,"name":"video-06-qr-bg","bbox":[886,670,98,98]}
+{"kind":"textbox","id":"sh/9svetofi","slide":10,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/ylkvu9gv","slide":10,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/zmtwnuxg","slide":10,"textChars":30,"textLines":1}
+{"kind":"image","id":"im/gn2h8nu9","slide":10,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"image","id":"im/9o3mlk72","slide":10,"name":"","geometry":"roundRect","alt":"TEKNOFEST Sahne ve Teknik Altyapı video kapak görseli","bbox":[68,234,342,220]}
+{"kind":"image","id":"im/7qtkzmhs","slide":10,"name":"","alt":"video-04 bağlantı QR kodu","bbox":[84,678,82,82]}
+{"kind":"image","id":"im/fetk3mh4","slide":10,"name":"","geometry":"roundRect","alt":"PUBG Türkiye Finali Teknik Prodüksiyon video kapak görseli","bbox":[473,234,342,220]}
+{"kind":"image","id":"im/lof2xgfe","slide":10,"name":"","alt":"video-05 bağlantı QR kodu","bbox":[489,678,82,82]}
+{"kind":"image","id":"im/dkv2twf2","slide":10,"name":"","geometry":"roundRect","alt":"EAACI İstanbul 360° LED Wall video kapak görseli","bbox":[878,234,342,220]}
+{"kind":"image","id":"im/jyl8belc","slide":10,"name":"","alt":"video-06 bağlantı QR kodu","bbox":[894,678,82,82]}
+{"kind":"notes","id":"nt/znfx07","slide":10,"text":"[Sources] | - Video ve proje başlıkları: https://www.sahneva.com/yaptiklarimi..."}
+{"kind":"slide","id":"sl/55zut3","slide":11,"title":"ÇALIŞMA MODELI","textShapes":21}
+{"kind":"shape","id":"sh/cb2d0beh","slide":11,"name":"grid-v-0","bbox":[0,0,0,905]}
+{"kind":"shape","id":"sh/batw76xw","slide":11,"name":"grid-v-92","bbox":[92,0,0,905]}
+{"kind":"shape","id":"sh/a9kvy1wb","slide":11,"name":"grid-v-184","bbox":[184,0,0,905]}
+{"kind":"shape","id":"sh/p8be5gfq","slide":11,"name":"grid-v-276","bbox":[276,0,0,905]}
+{"kind":"shape","id":"sh/o72dwbe5","slide":11,"name":"grid-v-368","bbox":[368,0,0,905]}
+{"kind":"shape","id":"sh/n6tw36xk","slide":11,"name":"grid-v-460","bbox":[460,0,0,905]}
+{"kind":"shape","id":"sh/250vu1wz","slide":11,"name":"grid-v-552","bbox":[552,0,0,905]}
+{"kind":"shape","id":"sh/94veh0vu","slide":11,"name":"grid-v-644","bbox":[644,0,0,905]}
+{"kind":"shape","id":"sh/83mx8vep","slide":11,"name":"grid-v-736","bbox":[736,0,0,905]}
+{"kind":"shape","id":"sh/e5wn610v","slide":11,"name":"grid-v-828","bbox":[828,0,0,905]}
+{"kind":"shape","id":"sh/f6pof6hg","slide":11,"name":"grid-v-920","bbox":[920,0,0,905]}
+{"kind":"shape","id":"sh/g7yp8bil","slide":11,"name":"grid-v-1012","bbox":[1012,0,0,905]}
+{"kind":"shape","id":"sh/1876hgz6","slide":11,"name":"grid-v-1104","bbox":[1104,0,0,905]}
+{"kind":"shape","id":"sh/61wn210j","slide":11,"name":"grid-v-1196","bbox":[1196,0,0,905]}
+{"kind":"shape","id":"sh/725ob6h4","slide":11,"name":"grid-h-0","bbox":[0,0,1280,0]}
+{"kind":"shape","id":"sh/s3e54rip","slide":11,"name":"grid-h-92","bbox":[0,92,1280,0]}
+{"kind":"shape","id":"sh/t4n6dwza","slide":11,"name":"grid-h-184","bbox":[0,184,1280,0]}
+{"kind":"shape","id":"sh/qxg7elg3","slide":11,"name":"grid-h-276","bbox":[0,276,1280,0]}
+{"kind":"shape","id":"sh/by9onqh8","slide":11,"name":"grid-h-368","bbox":[0,368,1280,0]}
+{"kind":"shape","id":"sh/ni1kfix0","slide":11,"name":"grid-h-460","bbox":[0,460,1280,0]}
+{"kind":"shape","id":"sh/mhs36dgf","slide":11,"name":"grid-h-552","bbox":[0,552,1280,0]}
+{"kind":"shape","id":"sh/9kjmhsfq","slide":11,"name":"grid-h-644","bbox":[0,644,1280,0]}
+{"kind":"shape","id":"sh/8jal8ny5","slide":11,"name":"grid-h-736","bbox":[0,736,1280,0]}
+{"kind":"shape","id":"sh/v614j2xw","slide":11,"name":"grid-h-828","bbox":[0,828,1280,0]}
+{"kind":"textbox","id":"sh/x83mlsf2","slide":11,"textChars":14,"textLines":1}
+{"kind":"textbox","id":"sh/w7ulc7yh","slide":11,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/jal4n2x8","slide":11,"textChars":2,"textLines":1}
+{"kind":"shape","id":"sh/i9c3exgn","slide":11,"name":"pill-SAHA OPERASYONU","bbox":[64,110,260,40]}
+{"kind":"textbox","id":"sh/gfel47ul","slide":11,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/1gn2xcv6","slide":11,"textChars":40,"textLines":1}
+{"kind":"shape","id":"sh/udc32xcf","slide":11,"name":"workflow-line","bbox":[112,455,1055,0]}
+{"kind":"shape","id":"sh/fe5kv2d0","slide":11,"name":"workflow-node-1","bbox":[82,425,60,60]}
+{"kind":"textbox","id":"sh/sbu107up","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/tc32tcva","slide":11,"textChars":5,"textLines":1}
+{"kind":"shape","id":"sh/69cjyxcj","slide":11,"name":"workflow-node-2","bbox":[257.83,425,60,60]}
+{"kind":"textbox","id":"sh/7alkr2d4","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/k7u1wnud","slide":11,"textChars":5,"textLines":1}
+{"kind":"shape","id":"sh/5832psvy","slide":11,"name":"workflow-node-3","bbox":[433.67,425,60,60]}
+{"kind":"textbox","id":"sh/9czixobq","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/8rqh4ja5","slide":11,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/nqh0vetk","slide":11,"name":"workflow-node-4","bbox":[609.5,425,60,60]}
+{"kind":"textbox","id":"sh/mp8z2tsf","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/xgji18b2","slide":11,"textChars":18,"textLines":2}
+{"kind":"shape","id":"sh/wfah83ah","slide":11,"name":"workflow-node-5","bbox":[785.33,425,60,60]}
+{"kind":"textbox","id":"sh/veh0zytw","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/ad8z6tsb","slide":11,"textChars":16,"textLines":2}
+{"kind":"shape","id":"sh/dkfyp4bi","slide":11,"name":"workflow-node-6","bbox":[961.17,425,60,60]}
+{"kind":"textbox","id":"sh/cj6hwzax","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/2dknal4j","slide":11,"textChars":15,"textLines":2}
+{"kind":"shape","id":"sh/3etoj654","slide":11,"name":"workflow-node-7","bbox":[1137,425,60,60]}
+{"kind":"textbox","id":"sh/4f25cbmp","slide":11,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/pgb6lgna","slide":11,"textChars":5,"textLines":1}
+{"kind":"shape","id":"sh/qhknel4v","slide":11,"name":"brief-inputs","bbox":[126,650,1028,125]}
+{"kind":"textbox","id":"sh/ridonq5g","slide":11,"textChars":48,"textLines":1}
+{"kind":"textbox","id":"sh/cjm5gvml","slide":11,"textChars":117,"textLines":1}
+{"kind":"image","id":"im/1kbudgv2","slide":11,"name":"","geometry":"rect","alt":"sahneva-logo","bbox":[48,24,132,62]}
+{"kind":"notes","id":"nt/55zut3","slide":11,"text":"[Sources] | - Süreç kurgusu: kullanıcı briefi ve Sahneva hizmet akışı; https:..."}
+{"kind":"slide","id":"sl/jcvqby","slide":12,"title":"Bir sonraki etkinliğin teknik kapsamını birlikte netleştirelim.","textShapes":7}
+{"kind":"shape","id":"sh/5onex8fe","slide":12,"name":"contact-panel","bbox":[64,190,555,570]}
+{"kind":"textbox","id":"sh/q9wf6dwz","slide":12,"textChars":63,"textLines":1}
+{"kind":"textbox","id":"sh/ra5wzix4","slide":12,"textChars":137,"textLines":1}
+{"kind":"textbox","id":"sh/sbex8nep","slide":12,"textChars":15,"textLines":1}
+{"kind":"textbox","id":"sh/dcne1sfa","slide":12,"textChars":16,"textLines":1}
+{"kind":"textbox","id":"sh/6tsvutgf","slide":12,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/7elwnex0","slide":12,"name":"contact-qr-card","bbox":[900,560,260,255]}
+{"kind":"shape","id":"sh/3y1kzy98","slide":12,"name":"contact-qr-bg","bbox":[952,582,156,156]}
+{"kind":"textbox","id":"sh/p032187e","slide":12,"textChars":23,"textLines":1}
+{"kind":"textbox","id":"sh/4zul83qt","slide":12,"textChars":54,"textLines":1}
+{"kind":"image","id":"im/qp0r65wn","slide":12,"name":"","geometry":"rect","alt":"Sıfır Atık Festivali ana sahne teknik prodüksiyonu","bbox":[665,0,615,905]}
+{"kind":"image","id":"im/dsrah0vy","slide":12,"name":"","geometry":"rect","alt":"contact-logo","bbox":[64,44,188,88]}
+{"kind":"image","id":"im/hk3q54bi","slide":12,"name":"","alt":"contact bağlantı QR kodu","bbox":[960,590,140,140]}
+{"kind":"notes","id":"nt/jcvqby","slide":12,"text":"[Sources] | - Görsel: public/img/projeler/sifir-atik-festivali/sifir-atik-fes..."}
+{"kind":"notice","message":"Truncated: omitted 0 lines. Increase maxChars or narrow target."}

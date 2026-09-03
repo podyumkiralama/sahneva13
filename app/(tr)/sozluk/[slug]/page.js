@@ -175,12 +175,7 @@ function LineArrayJsonLd({ term }) {
         url: PAGE_URL,
         // DefinedTerm Intangible altindadir; `inLanguage` bu turde gecersiz.
         inDefinedTermSet: { "@id": `${SITE}/sozluk#termset` },
-        subjectOf: {
-          "@type": "WebPage",
-          "@id": pageId,
-          url: PAGE_URL,
-          name: "Line Array Nedir?",
-        },
+        subjectOf: { "@id": pageId },
       },
       {
         "@type": "BreadcrumbList",
@@ -261,7 +256,7 @@ export default async function LineArrayGlossaryPage({ params }) {
           <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
             Line Array Nedir?
           </h1>
-          <p data-speakable className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg">
             Line array sistemini sadece hoparlör adediyle değil; kapsama hedefi, açılandırma,
             salon yapısı, subwoofer planı ve FOH operasyonuyla birlikte değerlendiririz.
           </p>

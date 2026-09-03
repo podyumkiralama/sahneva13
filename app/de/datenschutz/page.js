@@ -3,6 +3,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
+import { WEBSITE_ID } from "@/lib/seo/schemaIds";
 
 export const revalidate = 86400;
 
@@ -161,17 +162,14 @@ const SECTIONS = [
 const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": `${PAGE_URL}#webpage`,
   name: "Datenschutz",
   url: PAGE_URL,
   description:
     "Datenschutzhinweise von Sahneva Organizasyon: Verarbeitung personenbezogener Daten, Cookies, Auftragsverarbeiter und Betroffenenrechte.",
   inLanguage: "de-DE",
   image: `${SITE_URL}/img/hero-bg.webp`,
-  isPartOf: {
-    "@type": "WebSite",
-    name: "Sahneva",
-    url: SITE_URL,
-  },
+  isPartOf: { "@id": WEBSITE_ID },
 };
 
 export default function GermanPrivacyPage() {

@@ -30,13 +30,7 @@ export default function IntentBridge({
         itemListElement: clusterPages.map((page, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          item: {
-            "@type": "WebPage",
-            "@id": toAbsoluteUrl(page.href),
-            url: toAbsoluteUrl(page.href),
-            name: page.label,
-            description: page.intent,
-          },
+          item: { "@id": toAbsoluteUrl(page.href) },
         })),
       }
     : null;

@@ -6,6 +6,7 @@ import path from "path";
 import { existsSync } from "fs";
 import { readdir } from "fs/promises";
 import JsonLd from "@/components/seo/JsonLd";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
@@ -120,7 +121,7 @@ function ArticlesJsonLd({ items }) {
         image,
         datePublished: a.datePublished || undefined,
         dateModified: a.dateModified || a.datePublished || undefined,
-        author: { "@id": ORG_ID },
+        author: buildArticleAuthor(a.author),
         publisher: { "@id": ORG_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
       },

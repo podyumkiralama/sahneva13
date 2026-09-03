@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import TentCalculatorClient from "./TentCalculatorClient";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { buildCalculatorSchema } from "@/lib/structuredData/calculators";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
@@ -97,15 +98,12 @@ const blogLinks = [
   },
 ];
 
-const FAQ_ID = `${PAGE_URL}#faq`;
-
 const CALCULATOR_SCHEMA = buildCalculatorSchema({
   path: "/cadir-hesaplama",
   name: "Çadır Hesaplama Aracı",
   description:
     "Kişi sayısı, oturma düzeni, sahne, LED ekran ve catering alanına göre yaklaşık çadır m² ihtiyacını ve önerilen çadır ölçüsünü hesaplayan Sahneva aracı.",
   image: "/img/cadir/hero.webp",
-  faqId: FAQ_ID,
   featureList: [
     "Kişi sayısına göre yaklaşık çadır m² hesaplama",
     "Kokteyl, yemekli ve düğün düzeni için ayrı alan katsayıları",
@@ -152,38 +150,10 @@ const CALCULATOR_SCHEMA = buildCalculatorSchema({
   ],
 });
 
-function JsonLd() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": FAQ_ID,
-    url: PAGE_URL,
-    inLanguage: "tr-TR",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(CALCULATOR_SCHEMA) }}
-      />
-    </>
-  );
-}
-
 export default function TentCalculatorPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-[#0B1120] text-white">
-      <JsonLd />
+      <JsonLd data={CALCULATOR_SCHEMA} />
 
       <PageHero
         breadcrumb={[
@@ -195,7 +165,6 @@ export default function TentCalculatorPage() {
         title="Kaç Kişiye"
         titleAccent="Kaç m² Çadır Gerekir?"
         titleWide
-        descriptionSpeakable
         description="Kişi sayısı, oturma düzeni ve sahne, LED ekran, catering gibi ek alanlara göre etkinliğiniz için yaklaşık çadır ölçüsünü hesaplayın."
       />
 

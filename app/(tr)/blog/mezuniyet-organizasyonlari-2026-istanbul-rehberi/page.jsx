@@ -7,6 +7,8 @@ import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getVideoFactProps } from "@/lib/seo/projectVideoFacts";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
@@ -85,7 +87,7 @@ function buildArticleJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `${BLOG_URL}#article`,
+    "@id": `${BLOG_URL}#blogposting`,
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
     video: [
       { "@id": `${BLOG_URL}#video-mezuniyet-produksiyon` },
@@ -97,17 +99,8 @@ function buildArticleJsonLd() {
     datePublished: PUBLISH_DATE,
     dateModified: MODIFIED_DATE,
     inLanguage: "tr-TR",
-    author: {
-      "@type": "Organization",
-      name: "Sahneva Organizasyon",
-      url: SITE_URL,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva Organizasyon",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-    },
+    author: buildArticleAuthor(AUTHOR_NAME),
+    publisher: { "@id": ORGANIZATION_ID },
     keywords: metadata.keywords,
   };
 }
@@ -145,51 +138,11 @@ function buildVideoJsonLd() {
       isFamilyFriendly: true,
       ...getVideoFactProps(video.videoId),
       mainEntityOfPage: { "@id": BLOG_URL },
-      publisher: {
-        "@type": "Organization",
-        name: "Sahneva Organizasyon",
-        url: SITE_URL,
-        logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-      },
+      publisher: { "@id": ORGANIZATION_ID },
     })),
   };
 }
 
-function buildFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Mezuniyet töreni organizasyonu için ne kadar önce planlamaya başlanmalı?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "İstanbul’da 500+ katılımlı mezuniyet töreni organizasyonu için ideal süre 4–6 aydır. Mekân rezervasyonu, teknik keşif, sahne-LED ölçüleri ve prova planı bu sürede netleşir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "LED ekran mezuniyet organizasyonlarında neden kritik?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "LED ekran, isim senkronu, canlı kamera ve tören akışı için merkez noktadır. Güneş altında okunabilir parlaklık ve doğru konumlandırma, mezuniyet töreni organizasyonu kalitesini doğrudan artırır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Mezuniyet partisi ile resmi tören aynı sahnede yapılabilir mi?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Evet, ancak ışık, ses ve sahne akışı iki modlu planlanmalıdır. Resmi törenden partiye geçişte ışık senaryosu ve ses profili yeniden kurgulanmalıdır.",
-        },
-      },
-    ],
-  };
-}
 
 export default function BlogPostGraduationGuide() {
   const breadcrumbItems = [
@@ -203,7 +156,6 @@ export default function BlogPostGraduationGuide() {
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd data={buildArticleJsonLd()} />
       <JsonLd data={buildVideoJsonLd()} />
-      <JsonLd data={buildFaqJsonLd()} />
 
       <BlogLayout
         siteUrl={SITE_URL}

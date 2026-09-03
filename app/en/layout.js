@@ -9,7 +9,6 @@ import DeferredSpeedInsights from "@/components/DeferredSpeedInsights.client";
 import SupportLauncher from "@/components/support/SupportLauncher.client";
 import { isStoreConfigured } from "@/lib/support/config";
 import { isFilesConfigured } from "@/lib/support/files";
-import JsonLd from "@/components/seo/JsonLd";
 import SkipLinks from "@/components/SkipLinks";
 import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper.client";
 import AhrefsAnalytics from "@/components/analytics/AhrefsAnalytics";
@@ -18,159 +17,15 @@ import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistratio
 import SpeculationRules from "@/components/performance/SpeculationRules";
 import { LOCALE_CONTENT } from "@/lib/i18n/localeContent";
 import {
-  LOCAL_BUSINESS_IDENTITY,
-  ORGANIZATION_IDENTITY,
-} from "@/lib/structuredData/organizationIdentity";
-import {
   AI_PREVIEW_ROBOTS,
   buildAlternateLanguages,
   buildCanonical,
 } from "@/lib/seo/seoConfig";
-import {
-  BASE_SITE_URL,
-  LOCAL_BUSINESS_ID,
-  ORGANIZATION_ID,
-  SOCIAL_PROFILES,
-  WEBSITE_ID,
-} from "@/lib/seo/schemaIds";
+import { BASE_SITE_URL } from "@/lib/seo/schemaIds";
 
 const content = LOCALE_CONTENT.en;
-
-const EDITOR_ID = `${BASE_SITE_URL}/#editor`;
-const LOGO_ID = `${BASE_SITE_URL}/#logo`;
 const OG_IMAGE_URL = `${BASE_SITE_URL}/img/hero-bg.webp`;
-const LOGO_URL = `${BASE_SITE_URL}/img/logo.png`;
 
-/* ================== JSON-LD: GLOBAL GRAPH (English) ================== */
-const globalJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ImageObject",
-      "@id": LOGO_ID,
-      url: LOGO_URL,
-      contentUrl: LOGO_URL,
-    },
-
-    {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      ...ORGANIZATION_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      logo: { "@id": LOGO_ID },
-      description:
-        "Sahneva is a Turkey-based event production company specializing in stage design, LED screen rental, professional audio systems, lighting and technical production services for corporate events, congresses and international organizations.",
-      knowsAbout: [
-        "event production",
-        "podium rental",
-        "stage rental",
-        "modular stage rental",
-        "LED screen rental",
-        "professional audio systems",
-        "line array sound systems",
-        "event lighting design",
-        "truss systems",
-        "tent rental",
-        "live broadcasting",
-        "corporate event organization",
-        "congress and exhibition production",
-        "esports event production",
-      ],
-      sameAs: SOCIAL_PROFILES,
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+905453048671",
-        contactType: "customer service",
-        areaServed: "TR",
-        availableLanguage: ["tr", "en", "de", "ar", "ru", "zh"],
-      },
-    },
-
-    {
-      "@type": "Person",
-      "@id": EDITOR_ID,
-      name: "Sahneva Editor",
-      url: BASE_SITE_URL,
-      worksFor: { "@id": ORGANIZATION_ID },
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": LOCAL_BUSINESS_ID,
-      ...LOCAL_BUSINESS_IDENTITY,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      url: BASE_SITE_URL,
-      image: OG_IMAGE_URL,
-      logo: { "@id": LOGO_ID },
-      telephone: "+905453048671",
-      priceRange: "₺₺₺",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 41.096173214009205,
-        longitude: 28.97663777534253,
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Hamidiye, Anadolu Cd. 61 A",
-        addressLocality: "Kagithane",
-        addressRegion: "Istanbul",
-        postalCode: "34408",
-        addressCountry: "TR",
-      },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-          ],
-          opens: "00:00",
-          closes: "23:59",
-        },
-      ],
-      areaServed: "TR",
-      parentOrganization: { "@id": ORGANIZATION_ID },
-      sameAs: SOCIAL_PROFILES,
-    },
-
-    {
-      "@type": "WebSite",
-      "@id": WEBSITE_ID,
-      url: BASE_SITE_URL,
-      name: "Sahneva Organizasyon",
-      alternateName: "Sahneva",
-      description:
-        "Professional event production solutions for stage, stage platform, LED screen, sound and lighting, and tent rentals.",
-      inLanguage: "en-US",
-      about: [
-        "stage rental",
-        "podium rental",
-        "LED screen rental",
-        "tent rental",
-        "corporate events",
-      ],
-      publisher: { "@id": ORGANIZATION_ID },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${BASE_SITE_URL}/search?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
-  ],
-};
-
-/* ================== META ================== */
 export const metadata = {
   metadataBase: new URL(BASE_SITE_URL),
   manifest: "/manifest.json",
@@ -253,7 +108,6 @@ export default function EnglishLayout({ children }) {
         <SkipLinks locale="en" />
         <AnalyticsConsentWrapper />
         <ServiceWorkerRegistration />
-      <JsonLd id="global-ld-json-en" data={globalJsonLd} />
 
       <div className="min-h-screen text-slate-100 flex flex-col">
         <header

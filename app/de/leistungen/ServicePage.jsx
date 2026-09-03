@@ -16,7 +16,6 @@ const WHATSAPP_TEXT = encodeURIComponent(
 
 function buildServiceJsonLd(service) {
   const pageUrl = `${SITE_URL}${service.href}`;
-  const faqId = `${pageUrl}#faq`;
   const serviceId = `${pageUrl}#service`;
 
   const graph = [
@@ -29,7 +28,6 @@ function buildServiceJsonLd(service) {
       inLanguage: "de-DE",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": serviceId },
-      hasPart: [{ "@id": faqId }],
     },
     {
       "@type": "Service",
@@ -44,36 +42,11 @@ function buildServiceJsonLd(service) {
         { "@type": "City", name: "Ankara" },
         { "@type": "City", name: "Izmir" },
       ],
-      // Kurulus/site kimlikleri merkezi: lib/seo/schemaIds.js. Burada bir zamanlar
-      // LOCALE#business ve LOCALE#website vardi; ayni sirketi ve ayni siteyi her
-      // dilde AYRI birer varlik gibi gosteriyordu. Layout zaten bu sayfada tam
-      // Organization/WebSite/LocalBusiness dugumlerini basiyor, o yuzden burada
-      // yalnizca referans veriliyor.
+      // Tam kurum kimligi yalnizca domain kokunde tanimlidir.
       provider: { "@id": ORGANIZATION_ID },
-      offers: {
-        "@type": "Offer",
-        availability: "https://schema.org/InStock",
-        url: pageUrl,
-        priceCurrency: "TRY",
-      },
     },
   ];
 
-  if (service.faq?.length) {
-    graph.push({
-      "@type": "FAQPage",
-      "@id": faqId,
-      inLanguage: "de-DE",
-      mainEntity: service.faq.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
-    });
-  }
 
   return {
     "@context": "https://schema.org",

@@ -202,29 +202,6 @@ function buildJsonLd() {
     name: "Podyum kurulum fiyatları galeri görselleri",
   });
 
-  const exampleLow =
-    12 * UNIT_PRICES.platform_m2_week +
-    12 * UNIT_PRICES.carpet_m2_week +
-    14 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_nakliye;
-
-  const exampleHigh =
-    48 * UNIT_PRICES.platform_m2_week +
-    48 * UNIT_PRICES.carpet_m2_week +
-    28 * UNIT_PRICES.skirt_ml_week +
-    UNIT_PRICES.ist_nakliye;
-
-  const aggregateOffer = {
-    "@type": "AggregateOffer",
-    priceCurrency: UNIT_PRICES.currency,
-    lowPrice: String(exampleLow),
-    highPrice: String(exampleHigh),
-    offerCount: "4",
-    priceValidUntil: PRICE_VALID_UNTIL,
-    availability: "https://schema.org/InStock",
-    url,
-  };
-
   const mainService = {
     "@type": "Service",
     "@id": serviceId,
@@ -241,11 +218,11 @@ function buildJsonLd() {
     offers: [
       {
         "@type": "Offer",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         name: "Platform (Modüler Podyum) Kurulum — 2026",
         price: String(UNIT_PRICES.platform_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -254,7 +231,6 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.carpet_m2_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -263,7 +239,6 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.skirt_ml_week),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
       {
@@ -272,20 +247,11 @@ function buildJsonLd() {
         price: String(UNIT_PRICES.ist_nakliye),
         priceCurrency: UNIT_PRICES.currency,
         priceValidUntil: PRICE_VALID_UNTIL,
-        availability: "https://schema.org/InStock",
         url,
       },
     ],
   };
 
-  const faqPage = {
-    "@type": "FAQPage",
-    mainEntity: FAQ.map((x) => ({
-      "@type": "Question",
-      name: x.q,
-      acceptedAnswer: { "@type": "Answer", text: x.a },
-    })),
-  };
 
   const howTo = {
     "@type": "HowTo",
@@ -318,6 +284,7 @@ function buildJsonLd() {
     name: "Podyum Kurulum Fiyatları 2026",
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORGANIZATION_ID },
+    breadcrumb: { "@id": `${url}#breadcrumb` },
     datePublished: PUBLISH_DATE,
     dateModified: PUBLISH_DATE,
     primaryImageOfPage: {
@@ -342,8 +309,6 @@ function buildJsonLd() {
       mainService,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      aggregateOffer,
-      faqPage,
       howTo,
     ],
   };
@@ -386,6 +351,7 @@ export default function Page() {
   return (
     <>
       <BreadcrumbJsonLd
+        id={`${url}#breadcrumb`}
         items={[
           { name: "Ana Sayfa", url: `${BASE_SITE_URL}/` },
           { name: "Podyum Kiralama", url: `${BASE_SITE_URL}/podyum-kiralama` },

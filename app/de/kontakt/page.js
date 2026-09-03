@@ -1,12 +1,12 @@
 import JsonLd from "@/components/seo/JsonLd";
 import QuoteFormValidation from "@/components/QuoteFormValidation.client";
 import { buildCanonical, SITE_URL } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 
 const DE_CONTACT_URL = buildCanonical("/de/kontakt");
 const DE_CONTACT_IMAGE = `${SITE_URL}/img/hero-bg.webp`;
 const FORM_ENDPOINT = "https://formspree.io/f/xanppven";
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const WEB_MCP_QUOTE_FORM_PROPS = {
   toolname: "requestEventProductionQuote",
@@ -134,8 +134,8 @@ const CONTACT_JSON_LD = {
       name: metadata.openGraph.title,
       description: metadata.description,
       inLanguage: "de-DE",
-      about: { "@id": LOCAL_BUSINESS_ID },
-      mainEntity: { "@id": LOCAL_BUSINESS_ID },
+      about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": ORGANIZATION_ID },
       breadcrumb: { "@id": `${DE_CONTACT_URL}#breadcrumb` },
     },
     {

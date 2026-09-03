@@ -806,7 +806,7 @@ function buildJsonLd() {
         // `hasPart` yalnizca CreativeWork kabul eder; Service dugumleri oraya
         // giremez. Sayfanin bu hizmetlerden bahsettigi `mentions` ile belirtiliyor
         // (araligi Thing oldugu icin Service gecerli).
-        hasPart: [{ "@id": `${PAGE_URL}#faq` }, { "@id": videoNode["@id"] }],
+        hasPart: [{ "@id": videoNode["@id"] }],
         mentions: serviceNodes.map((node) => ({ "@id": node["@id"] })),
         publisher: { "@id": ORGANIZATION_ID },
       },
@@ -847,19 +847,6 @@ function buildJsonLd() {
           { "@type": "ListItem", position: 2, name: "Projeler", item: `${SITE_URL}/projeler` },
           { "@type": "ListItem", position: 3, name: PROJECT_NAME, item: PAGE_URL },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        inLanguage: "tr-TR",
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.a,
-          },
-        })),
       },
       ...serviceNodes,
       ...imageObjects,

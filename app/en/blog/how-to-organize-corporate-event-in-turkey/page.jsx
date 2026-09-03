@@ -1,10 +1,14 @@
 // app/en/blog/how-to-organize-corporate-event-in-turkey/page.jsx
 import Image from "next/image";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
-import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import {
+  BASE_SITE_URL,
+  ORGANIZATION_ID,
+  WEBSITE_ID,
+} from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 export const revalidate = 86400;
 
@@ -110,7 +114,7 @@ function BlogJsonLd() {
     "@graph": [
       {
         "@type": "Article",
-        "@id": `${url}#article`,
+        "@id": `${url}#blogposting`,
         url,
         headline: "How to Organize a Corporate Event in Turkey — A Guide for International Companies",
         description:
@@ -118,7 +122,7 @@ function BlogJsonLd() {
         image: `${BASE_SITE_URL}${FEATURED_IMAGE}`,
         datePublished: PUBLISH_DATE,
         dateModified: PUBLISH_DATE,
-        author: { "@type": "Organization", name: AUTHOR_NAME, url: BASE_SITE_URL },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         inLanguage: "en-US",
         isPartOf: { "@id": WEBSITE_ID },
@@ -159,15 +163,8 @@ const TOC = [
 
 /* ===== Page ===== */
 export default function HowToOrganizeCorporateEventInTurkeyPage() {
-  const breadcrumbItems = [
-    { name: "Home", url: `${BASE_SITE_URL}/en` },
-    { name: "Blog", url: `${BASE_SITE_URL}/en/blog` },
-    { name: "How to Organize a Corporate Event in Turkey", url },
-  ];
-
   return (
     <>
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={BASE_SITE_URL} />
       <BlogJsonLd />
 
       <article className="bg-white">

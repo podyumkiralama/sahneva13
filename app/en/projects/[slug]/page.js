@@ -12,6 +12,7 @@ import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
 import { getEnProject, getEnProjectSlugs } from "@/lib/enProjects";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = BASE_SITE_URL;
 
@@ -82,7 +83,7 @@ function buildJsonLd(project) {
       image,
       datePublished: project.date,
       inLanguage: "en-US",
-      author: { "@id": ORGANIZATION_ID },
+      author: buildArticleAuthor("Sahneva Technical"),
       publisher: { "@id": ORGANIZATION_ID },
       isPartOf: { "@id": WEBSITE_ID },
       mainEntityOfPage: { "@type": "WebPage", "@id": url },

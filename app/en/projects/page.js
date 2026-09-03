@@ -13,6 +13,7 @@ import { buildAlternatesForPath } from "@/lib/seo/alternates";
 export const revalidate = 86400;
 
 const ORIGIN = "https://www.sahneva.com";
+const PAGE_URL = `${ORIGIN}/en/projects`;
 
 // Baslik ve aciklama tek yerde: daha once meta / OG / Twitter / JSON-LD
 // ayrisiyordu ve OG hala eski "Projects" genel metnini tasiyordu.
@@ -29,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: `${PAGE_TITLE} | Sahneva`,
     description: PAGE_DESCRIPTION,
-    url: `${ORIGIN}/en/projects`,
+    url: PAGE_URL,
     type: "website",
     locale: "en_US",
     siteName: "Sahneva",
@@ -85,11 +86,13 @@ function ProjectsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": `${PAGE_URL}#webpage`,
     name: `${PAGE_TITLE} | Sahneva`,
     description: PAGE_DESCRIPTION,
-    url: `${ORIGIN}/en/projects`,
+    url: PAGE_URL,
     image: `${ORIGIN}/img/og/sahneva-og.webp`,
     inLanguage: "en-US",
+    breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
   };
 
   return (
@@ -143,7 +146,11 @@ export default async function ProjectsIndexPageEn() {
 
   return (
     <div id="main" className="min-h-screen bg-gradient-to-br from-slate-900 via-[#040817] to-purple-900/20 text-white">
-      <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={ORIGIN} />
+      <BreadcrumbJsonLd
+        items={breadcrumbItems}
+        baseUrl={ORIGIN}
+        id={`${PAGE_URL}#breadcrumb`}
+      />
       <ProjectsStructuredData />
 
       {/* Background Effects */}

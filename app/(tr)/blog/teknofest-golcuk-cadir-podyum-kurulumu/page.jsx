@@ -7,6 +7,8 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const SLUG = "teknofest-golcuk-cadir-podyum-kurulumu";
@@ -52,24 +54,6 @@ const TOC_ITEMS = [
   { href: "#kurulum-sokum", label: "Kurulum ve söküm" },
   { href: "#etkinlik-altyapisi", label: "Etkinlik altyapısı planı" },
   { href: "#teklif", label: "Projenizi planlayın" },
-];
-
-const FAQ_ITEMS = [
-  {
-    question: "Sahneva Türkiye'nin her şehrinde çadır ve podyum kurulumu yapıyor mu?",
-    answer:
-      "Evet. Sahneva; proje ölçüsüne, etkinlik tarihine ve saha ihtiyacına göre Türkiye genelinde çadır, podyum, lojistik, kurulum ve söküm hizmetlerini planlar.",
-  },
-  {
-    question: "Çadır kiralama ve podyum kiralama aynı projede birlikte planlanabilir mi?",
-    answer:
-      "Evet. Çadır içi kullanım alanı, girişler, zemin, sahne veya stant yerleşimi birlikte ele alındığında daha bütünlüklü bir etkinlik altyapısı oluşturulur.",
-  },
-  {
-    question: "Büyük metrajlı çadır kurulumu için hangi bilgilerle teklif alınabilir?",
-    answer:
-      "Etkinlik tarihi, şehir, alanın yaklaşık ölçüsü, kullanım amacı, çadır ve podyum ihtiyacı ile kurulum-söküm takvimi paylaşılması, proje planının hızlıca oluşturulmasını sağlar.",
-  },
 ];
 
 export const metadata = {
@@ -134,22 +118,13 @@ function ArticleSchema() {
             datePublished: PUBLISH_DATE,
             dateModified: MODIFIED_DATE,
             inLanguage: "tr-TR",
-            author: { "@type": "Organization", name: AUTHOR_NAME },
-            publisher: { "@type": "Organization", name: "Sahneva", url: SITE_URL },
+            author: buildArticleAuthor(AUTHOR_NAME),
+            publisher: { "@id": ORGANIZATION_ID },
             isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog#blog` },
             about: [
               { "@type": "Service", name: "Çadır Kiralama", url: `${SITE_URL}${TENT_SERVICE_PATH}` },
               { "@type": "Service", name: "Podyum Kiralama", url: `${SITE_URL}${PODIUM_SERVICE_PATH}` },
             ],
-          },
-          {
-            "@type": "FAQPage",
-            "@id": `${BLOG_URL}#faq`,
-            mainEntity: FAQ_ITEMS.map((item) => ({
-              "@type": "Question",
-              name: item.question,
-              acceptedAnswer: { "@type": "Answer", text: item.answer },
-            })),
           },
         ],
       }}

@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -1246,12 +1245,6 @@ function SoundLightJsonLd() {
   const serviceId = serviceNode["@id"];
 
   const offerNodes = offers ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS, {
-    id: `${pageUrl}#faq`,
-    pageId: webPageId,
-    serviceId,
-    inLanguage: "tr-TR",
-  });
   const gallerySchema = buildImageGallerySchema({
     images: GALLERY_IMAGES,
     origin: ORIGIN,
@@ -1292,7 +1285,6 @@ function SoundLightJsonLd() {
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...offerNodes,
-      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 

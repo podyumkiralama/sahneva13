@@ -121,7 +121,6 @@ export default function EventPlannerPage() {
         title="Etkinliğiniz İçin"
         titleAccent="Neye İhtiyacınız Var?"
         titleWide
-        descriptionSpeakable
         description="Sahneva'nın çadır ve LED hesaplayıcıları tek bir kalemi hesaplar. Bu araç ise etkinliğin tamamına bakar: türü, kişi sayısı, mekânı ve süresi verildiğinde sahne, LED ekran, ses-ışık, çadır ve mobilya ihtiyacını birlikte çıkarır; hazır bir teknik brief üretir."
       />
 

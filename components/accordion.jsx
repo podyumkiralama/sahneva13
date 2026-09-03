@@ -57,8 +57,6 @@ export default function Accordion({ items = [], variant = "light" }) {
   return (
     <div 
       className="space-y-4"
-      itemScope 
-      itemType="https://schema.org/FAQPage"
       role="region"
       aria-label="Sıkça Sorulan Sorular"
     >
@@ -71,9 +69,6 @@ export default function Accordion({ items = [], variant = "light" }) {
           <article 
             key={item.id || index} 
             className={styles.cardBase}
-            itemScope 
-            itemProp="mainEntity" 
-            itemType="https://schema.org/Question"
             role="article"
           >
             {/* ✅ İYİLEŞTİRİLDİ: Soru butonu SEO optimizasyonu */}
@@ -85,10 +80,9 @@ export default function Accordion({ items = [], variant = "light" }) {
               aria-describedby={isOpen ? answerId : undefined}
               onClick={() => handleToggle(index)}
               id={questionId}
-              itemProp="name"
               title={`${item.q} - Detaylı bilgi için tıklayın`}
             >
-              <span className={styles.questionClass} itemProp="name">
+              <span className={styles.questionClass}>
                 {item.q}
               </span>
 
@@ -120,12 +114,9 @@ export default function Accordion({ items = [], variant = "light" }) {
               }`}
               aria-labelledby={questionId}
               role="region"
-              itemScope 
-              itemProp="acceptedAnswer" 
-              itemType="https://schema.org/Answer"
               hidden={!isOpen}
             >
-              <div itemProp="text" className="space-y-2">
+              <div className="space-y-2">
                 {typeof item.a === 'string' ? (
                   <p>{item.a}</p>
                 ) : (

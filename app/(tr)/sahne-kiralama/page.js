@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
@@ -1896,12 +1895,6 @@ function StageJsonLd() {
 
   const serviceId = serviceNode["@id"];
   const offerNodes = offers ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS, {
-    id: `${pageUrl}#faq`,
-    pageId: webPageId,
-    serviceId,
-    inLanguage: "tr-TR",
-  });
   const gallerySchema = buildImageGallerySchema({
     images: GALLERY_IMAGES,
     origin: ORIGIN,
@@ -1944,7 +1937,6 @@ function StageJsonLd() {
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
       ...offerNodes,
-      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 

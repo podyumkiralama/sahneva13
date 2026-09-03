@@ -9,6 +9,7 @@ import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds"
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { buildLanguageAlternates } from "@/lib/seo/alternates";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== URLS ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(
@@ -94,7 +95,7 @@ export const metadata = {
 /* ================== JSON-LD (GLOBAL ILE UYUMLU) ================== */
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
-  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const ARTICLE_ID = `${BLOG_URL}#blogposting`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
 
   const jsonLd = {
@@ -131,7 +132,7 @@ function ArticleSchema() {
         description:
           "Fişekhane’de gerçekleşen PUBG Mobile etkinliğinde sahne/podyum, LED ekran, ses-ışık, teknik destek ve canlı yayın/çekim altyapısı tarafımızdan sağlandı.",
         image: { "@id": PRIMARY_IMAGE_ID },
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         inLanguage: "tr-TR",
         datePublished: PUBLISH_DATE,

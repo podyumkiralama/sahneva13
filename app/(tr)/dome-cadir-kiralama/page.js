@@ -884,12 +884,11 @@ function DomeRentalJsonLd() {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Dome Çadır Kiralama Çözümleri",
-      itemListElement: DOME_TYPES.map((type, index) => ({
+      itemListElement: DOME_TYPES.map((type) => ({
         "@type": "Offer",
-        position: index + 1,
         name: `${type.title} Kiralama`,
         description: type.summary,
-        availability: "https://schema.org/InStock",
+        businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         url: PAGE_URL,
       })),
     },
@@ -929,19 +928,6 @@ function DomeRentalJsonLd() {
     ],
   };
 
-  const faqNode = {
-    "@type": "FAQPage",
-    "@id": `${PAGE_URL}#faq`,
-    isPartOf: { "@id": webPageId },
-    about: { "@id": serviceId },
-    mainEntityOfPage: { "@id": webPageId },
-    inLanguage: "tr-TR",
-    mainEntity: FAQ_ITEMS.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })),
-  };
 
   const videoNode = {
     "@type": "VideoObject",
@@ -962,7 +948,6 @@ function DomeRentalJsonLd() {
       serviceNode,
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      faqNode,
       videoNode,
     ],
   };

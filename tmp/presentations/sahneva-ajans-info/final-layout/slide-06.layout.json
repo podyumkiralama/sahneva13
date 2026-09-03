@@ -1,0 +1,1905 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/m6nrve",
+    "id": "m6nrve",
+    "slide": 6,
+    "layoutId": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07111F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 905
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Sahneva Navy",
+    "colors": {
+      "accent1": "#67C8FF",
+      "accent2": "#63E0AE",
+      "accent3": "#8F80FF",
+      "accent4": "#FF6B8A",
+      "accent5": "#F4B860",
+      "accent6": "#7FD8BE",
+      "bg1": "#07111F",
+      "bg2": "#13223A",
+      "tx1": "#F8FBFF",
+      "tx2": "#DDE8F8",
+      "dk1": "#000000",
+      "dk2": "#0B1727",
+      "lt1": "#F8FBFF",
+      "lt2": "#DDE8F8",
+      "hlink": "#67C8FF",
+      "folHlink": "#8F80FF"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6d2a5c2b-0861-4dbe-b963-1887aaa6a5df",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "33800799-f2dd-4105-8984-12bf1b173467",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "33800799-f2dd-4105-8984-12bf1b173467",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/43mh4byh",
+      "id": "1",
+      "name": "grid-v-0",
+      "bbox": [
+        0,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2d0b6xw",
+      "id": "2",
+      "name": "grid-v-92",
+      "bbox": [
+        92,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i14z21gb",
+      "id": "3",
+      "name": "grid-v-184",
+      "bbox": [
+        184,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0vi9wz6",
+      "id": "4",
+      "name": "grid-v-276",
+      "bbox": [
+        276,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wzmh0byl",
+      "id": "5",
+      "name": "grid-v-368",
+      "bbox": [
+        368,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vyt076h0",
+      "id": "6",
+      "name": "grid-v-460",
+      "bbox": [
+        460,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uxkzy1gf",
+      "id": "7",
+      "name": "grid-v-552",
+      "bbox": [
+        552,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9wbi5wzu",
+      "id": "8",
+      "name": "grid-v-644",
+      "bbox": [
+        644,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v2hwry9",
+      "id": "9",
+      "name": "grid-v-736",
+      "bbox": [
+        736,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mxs3at0z",
+      "id": "10",
+      "name": "grid-v-828",
+      "bbox": [
+        828,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7i1k3y1k",
+      "id": "11",
+      "name": "grid-v-920",
+      "bbox": [
+        920,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8julc3i5",
+      "id": "12",
+      "name": "grid-v-1012",
+      "bbox": [
+        1012,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9k3258jq",
+      "id": "13",
+      "name": "grid-v-1104",
+      "bbox": [
+        1104,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsj6t03",
+      "id": "14",
+      "name": "grid-v-1196",
+      "bbox": [
+        1196,
+        0,
+        0,
+        905
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zu1kze18",
+      "id": "15",
+      "name": "grid-h-0",
+      "bbox": [
+        0,
+        0,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kva18jit",
+      "id": "16",
+      "name": "grid-h-92",
+      "bbox": [
+        0,
+        92,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwj21oje",
+      "id": "17",
+      "name": "grid-h-184",
+      "bbox": [
+        0,
+        184,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ap8j290r",
+      "id": "18",
+      "name": "grid-h-276",
+      "bbox": [
+        0,
+        276,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bqhkve1c",
+      "id": "19",
+      "name": "grid-h-368",
+      "bbox": [
+        0,
+        368,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fux03ah4",
+      "id": "20",
+      "name": "grid-h-460",
+      "bbox": [
+        0,
+        460,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/etoza5gj",
+      "id": "21",
+      "name": "grid-h-552",
+      "bbox": [
+        0,
+        552,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1wfi5kza",
+      "id": "22",
+      "name": "grid-h-644",
+      "bbox": [
+        0,
+        644,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gv6hcfyp",
+      "id": "23",
+      "name": "grid-h-736",
+      "bbox": [
+        0,
+        736,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nyx07ah0",
+      "id": "24",
+      "name": "grid-h-828",
+      "bbox": [
+        0,
+        828,
+        1280,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#20324F",
+      "lineWidth": 1
+    },
+    {
+      "order": 25,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/dkbilk7u",
+      "id": "25",
+      "bbox": [
+        48,
+        24,
+        132,
+        62
+      ],
+      "geometry": "rect",
+      "alt": "sahneva-logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "dbf2e1eb-75be-4d9b-9731-d980398b680a",
+        "contentType": "image/png",
+        "byteLength": 7760
+      }
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p0zi9kz6",
+      "id": "26",
+      "name": "section-label",
+      "bbox": [
+        910,
+        32,
+        320,
+        24
+      ],
+      "geometry": "rect",
+      "text": "ÇADIR SISTEMLERI",
+      "textPreview": "ÇADIR SISTEMLERI",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ÇADIR SISTEMLERI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ÇADIR SISTEMLERI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ÇADIR SISTEMLERI",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oz6hgfyl",
+      "id": "27",
+      "name": "footer-label",
+      "bbox": [
+        48,
+        864,
+        320,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Sahneva | Ajans Teknik Profil",
+      "textPreview": "Sahneva | Ajans Teknik Profil",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sahneva | Ajans Teknik Profil"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sahneva | Ajans Teknik Profil",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sahneva | Ajans Teknik Profil",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j2dgvqhw",
+      "id": "28",
+      "name": "page-number",
+      "bbox": [
+        1180,
+        864,
+        50,
+        18
+      ],
+      "geometry": "rect",
+      "text": "06",
+      "textPreview": "06",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "06"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "06",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "06",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i14z2lgb",
+      "id": "29",
+      "name": "pill-ÇADIR SISTEMLERI",
+      "bbox": [
+        64,
+        110,
+        210,
+        40
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8vy5gnax",
+      "id": "30",
+      "name": "pill-label-ÇADIR SISTEMLERI",
+      "bbox": [
+        78,
+        118,
+        182,
+        24
+      ],
+      "geometry": "rect",
+      "text": "ÇADIR SISTEMLERI",
+      "textPreview": "ÇADIR SISTEMLERI",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ÇADIR SISTEMLERI"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ÇADIR SISTEMLERI",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ÇADIR SISTEMLERI",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "center",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9wr6psbi",
+      "id": "31",
+      "name": "slide-title",
+      "bbox": [
+        64,
+        170,
+        760,
+        116
+      ],
+      "geometry": "rect",
+      "text": "Öz stok ile proje bazlı temin ayrı planlanır",
+      "textPreview": "Öz stok ile proje bazlı temin ayrı planlanır",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Öz stok ile proje bazlı temin ayrı"
+          },
+          {
+            "index": 2,
+            "text": "planlanır"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Öz stok ile proje bazlı temin ayrı planlanır",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Öz stok ile proje bazlı temin ayrı planlanır",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/xkfmhore",
+      "id": "32",
+      "bbox": [
+        64,
+        310,
+        540,
+        350
+      ],
+      "geometry": "roundRect",
+      "alt": "Tamamlanmış dome çadır etkinlik uygulaması",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 4571"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "c13f9fe3-a316-4691-bd57-1ff91e3d900a",
+        "contentType": "image/png",
+        "byteLength": 1156022
+      }
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nuponitc",
+      "id": "33",
+      "name": "dome-caption",
+      "bbox": [
+        64,
+        680,
+        540,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Dome çadır öz stoğu",
+      "textPreview": "Dome çadır öz stoğu",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Dome çadır öz stoğu"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dome çadır öz stoğu",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dome çadır öz stoğu",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/07y5cna1",
+      "id": "34",
+      "name": "dome-1",
+      "bbox": [
+        650,
+        300,
+        250,
+        120
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ls7mlsbm",
+      "id": "35",
+      "name": "dome-size-1",
+      "bbox": [
+        675,
+        318,
+        100,
+        48
+      ],
+      "geometry": "rect",
+      "text": "25 m",
+      "textPreview": "25 m",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 34,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "25 m"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "25 m",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "25 m",
+              "fontSize": 34,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y5gnadsv",
+      "id": "36",
+      "name": "dome-count-1",
+      "bbox": [
+        775,
+        328,
+        100,
+        34
+      ],
+      "geometry": "rect",
+      "text": "3 adet",
+      "textPreview": "3 adet",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3 adet"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3 adet",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3 adet",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z6p4jitg",
+      "id": "37",
+      "name": "dome-label-1",
+      "bbox": [
+        675,
+        374,
+        100,
+        22
+      ],
+      "geometry": "rect",
+      "text": "açıklık",
+      "textPreview": "açıklık",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "açıklık"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "açıklık",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "açıklık",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kni5o7a5",
+      "id": "38",
+      "name": "dome-2",
+      "bbox": [
+        650,
+        448,
+        250,
+        120
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5ob6xcbq",
+      "id": "39",
+      "name": "dome-size-2",
+      "bbox": [
+        675,
+        466,
+        100,
+        48
+      ],
+      "geometry": "rect",
+      "text": "20 m",
+      "textPreview": "20 m",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 34,
+        "typeface": "Arial",
+        "color": "#63E0AE",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "20 m"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "20 m",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "typeface": "Arial",
+            "color": "#63E0AE",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "20 m",
+              "fontSize": 34,
+              "typeface": "Arial",
+              "color": "#63E0AE",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1832p4r2",
+      "id": "40",
+      "name": "dome-count-2",
+      "bbox": [
+        775,
+        476,
+        100,
+        34
+      ],
+      "geometry": "rect",
+      "text": "4 adet",
+      "textPreview": "4 adet",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "4 adet"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "4 adet",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "4 adet",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7ulgzqh",
+      "id": "41",
+      "name": "dome-label-2",
+      "bbox": [
+        675,
+        522,
+        100,
+        22
+      ],
+      "geometry": "rect",
+      "text": "açıklık",
+      "textPreview": "açıklık",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "açıklık"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "açıklık",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "açıklık",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f6lkne9w",
+      "id": "42",
+      "name": "dome-3",
+      "bbox": [
+        650,
+        596,
+        250,
+        120
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#13223A",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u5cje98r",
+      "id": "43",
+      "name": "dome-size-3",
+      "bbox": [
+        675,
+        614,
+        100,
+        48
+      ],
+      "geometry": "rect",
+      "text": "10 m",
+      "textPreview": "10 m",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 34,
+        "typeface": "Arial",
+        "color": "#8F80FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "10 m"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "10 m",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "typeface": "Arial",
+            "color": "#8F80FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "10 m",
+              "fontSize": 34,
+              "typeface": "Arial",
+              "color": "#8F80FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pc32tore",
+      "id": "44",
+      "name": "dome-count-3",
+      "bbox": [
+        775,
+        624,
+        100,
+        34
+      ],
+      "geometry": "rect",
+      "text": "10 adet",
+      "textPreview": "10 adet",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#F8FBFF",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "10 adet"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "10 adet",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#F8FBFF",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "10 adet",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#F8FBFF",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obulkjqt",
+      "id": "45",
+      "name": "dome-label-3",
+      "bbox": [
+        675,
+        670,
+        100,
+        22
+      ],
+      "geometry": "rect",
+      "text": "açıklık",
+      "textPreview": "açıklık",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#AABAD2",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "açıklık"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "açıklık",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#AABAD2",
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "açıklık",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#AABAD2",
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 46,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/svmpgn69",
+      "id": "46",
+      "bbox": [
+        930,
+        300,
+        280,
+        268
+      ],
+      "geometry": "roundRect",
+      "alt": "Vinçli büyük açıklıklı etkinlik çadırı kurulumu",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 5970"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "c5d36070-d6b2-41fe-a1ba-6db71724eede",
+        "contentType": "image/png",
+        "byteLength": 2508268
+      }
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/29c3i98n",
+      "id": "47",
+      "name": "tent-supply",
+      "bbox": [
+        650,
+        722,
+        560,
+        115
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0D192B",
+      "lineColor": "#41597F",
+      "lineWidth": 1
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0n2xora",
+      "id": "48",
+      "name": "tent-supply-title",
+      "bbox": [
+        680,
+        738,
+        500,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Proje bazlı temin",
+      "textPreview": "Proje bazlı temin",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#8FD7FF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Proje bazlı temin"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Proje bazlı temin",
+          "lineSpacingPercent": 105000,
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#8FD7FF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Proje bazlı temin",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#8FD7FF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.05
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 49,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czelojqp",
+      "id": "49",
+      "name": "tent-supply-body",
+      "bbox": [
+        680,
+        775,
+        500,
+        48
+      ],
+      "geometry": "rect",
+      "text": "40 m ve 20 m açıklıklı etkinlik çadırları\n5×5, 4×4 ve 3×3 modüler çadırlar",
+      "textPreview": "40 m ve 20 m açıklıklı etkinlik çadırları | 5×5, 4×4 ve 3×3 modüler çadırlar",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 17,
+        "typeface": "Arial",
+        "color": "#DDE8F8",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "40 m ve 20 m açıklıklı etkinlik çadırları"
+          },
+          {
+            "index": 2,
+            "text": "5×5, 4×4 ve 3×3 modüler çadırlar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "40 m ve 20 m açıklıklı etkinlik çadırları",
+          "lineSpacingPercent": 118000,
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.18
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "40 m ve 20 m açıklıklı etkinlik çadırları",
+              "fontSize": 17,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.18
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "5×5, 4×4 ve 3×3 modüler çadırlar",
+          "lineSpacingPercent": 118000,
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Arial",
+            "color": "#DDE8F8",
+            "alignment": "left",
+            "lineSpacing": 1.18
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "5×5, 4×4 ve 3×3 modüler çadırlar",
+              "fontSize": 17,
+              "typeface": "Arial",
+              "color": "#DDE8F8",
+              "alignment": "left",
+              "lineSpacing": 1.18
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

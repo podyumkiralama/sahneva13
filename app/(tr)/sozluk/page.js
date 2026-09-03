@@ -83,10 +83,6 @@ const GLOSSARY_JSON_LD = {
       mainEntity: { "@id": TERM_SET_ID },
       breadcrumb: { "@id": BREADCRUMB_ID },
       publisher: { "@id": ORGANIZATION_ID },
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ["h1", "[data-speakable]"],
-      },
     },
     {
       "@type": "BreadcrumbList",
@@ -142,7 +138,6 @@ export default function GlossaryPage() {
         title="Etkinlik Prodüksiyonu"
         titleAccent="Sözlüğü"
         titleWide
-        descriptionSpeakable
         description={
           <>
             Teklif ve keşif görüşmelerinde geçen teknik terimlerin ne anlama

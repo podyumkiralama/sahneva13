@@ -8,9 +8,7 @@ import WebMcpServiceTools from "@/components/WebMcpServiceTools";
 import { BASE_SITE_URL, ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
 import { PROVINCES_COUNT, setupDurationText } from "@/lib/stats";
-import { PODIUM_UNIT_PRICES } from "@/lib/pricing";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
-import { LED_SCREEN_PRICING } from "@/lib/ledScreenPricing";
 
 /* ───── META & ISR ───── */
 export const metadata = {
@@ -62,99 +60,58 @@ function ServicesStructuredData() {
       'itemListElement': [
         {
           '@type': 'Offer',
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
           'itemOffered': {
             '@type': 'Service',
             'name': 'Sahne Kiralama',
             'description': 'Profesyonel sahne kurulumu ve kiralama hizmetleri'
           },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'minPrice': '10000.00',
-            'maxPrice': '200000.00'
-          }
         },
         {
           '@type': 'Offer',
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
           'itemOffered': {
             '@type': 'Service',
             'name': 'LED Ekran Kiralama',
             'description': 'Yüksek çözünürlüklü LED ekran kiralama hizmetleri'
-          },
-          'priceSpecification': {
-            '@type': 'UnitPriceSpecification',
-            'price': LED_SCREEN_PRICING.standard.perSqm,
-            'priceCurrency': 'TRY',
-            'unitText': 'm²',
-            'unitCode': 'MTK'
           }
         },
         {
           '@type': 'Offer',
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
           'itemOffered': {
             '@type': 'Service',
             'name': 'Ses ve Işık Sistemleri',
             'description': 'Profesyonel ses ve ışık sistemi kiralama hizmetleri'
-          },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'minPrice': '10000.00',
-            'maxPrice': '300000.00'
           }
         },
         {
           '@type': 'Offer',
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
           'itemOffered': {
             '@type': 'Service',
             'name': 'Podyum Kiralama',
             'description': 'Modüler podyum sahne çözümleri'
-          },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'minPrice': PODIUM_UNIT_PRICES.platformSqmWeek.toFixed(2),
-            'maxPrice': '100000.00'
           }
         },
         {
           '@type': 'Offer',
-          'itemOffered': { '@type': 'Service', 'name': 'Çadır Kiralama' },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'minPrice': '6000.00',
-            'maxPrice': '800000.00'
-          }
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
+          'itemOffered': { '@type': 'Service', 'name': 'Çadır Kiralama' }
         },
         {
           '@type': 'Offer',
-          'itemOffered': { '@type': 'Service', 'name': 'Sandalye Kiralama' },
-          'priceSpecification': {
-            '@type': 'UnitPriceSpecification',
-            'price': '250.00',
-            'priceCurrency': 'TRY',
-            'unitText': 'adet / gün'
-          }
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
+          'itemOffered': { '@type': 'Service', 'name': 'Sandalye Kiralama' }
         },
         {
           '@type': 'Offer',
-          'itemOffered': { '@type': 'Service', 'name': 'Masa Kiralama' },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'minPrice': '1000.00',
-            'maxPrice': '2000.00'
-          }
+          'businessFunction': 'http://purl.org/goodrelations/v1#LeaseOut',
+          'itemOffered': { '@type': 'Service', 'name': 'Masa Kiralama' }
         },
         {
           '@type': 'Offer',
-          'itemOffered': { '@type': 'Service', 'name': 'İstanbul İçi Nakliye' },
-          'priceSpecification': {
-            '@type': 'PriceSpecification',
-            'priceCurrency': 'TRY',
-            'price': '7000.00'
-          }
+          'itemOffered': { '@type': 'Service', 'name': 'İstanbul İçi Nakliye' }
         }
       ]
     }

@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { CONTENT_CLUSTERS } from "@/lib/seo/contentClusters";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -125,7 +126,6 @@ function ArticleSchema() {
   // RootLayout'ta tanımlı ID'leri kullanmak için sabit tanımlarınızı burada yapıyorsunuz.
   // Bu değişkenler, RootLayout'taki BASE_SITE_URL, ORGANIZATION_ID, etc. ile tutarlı olmalıdır.
   const orgId = `${site}/#org`;
-  const editorId = `${site}/#editor`;
 
   // MODIFIED_DATE yoksa publish'i kullan
   const modified =
@@ -145,21 +145,10 @@ function ArticleSchema() {
         dateModified: modified,
         inLanguage: "tr-TR",
         // RootLayout'taki tanımlara referans veriliyor:
-        author: { "@id": editorId },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
-      },
-
-      // FAQ rich result
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

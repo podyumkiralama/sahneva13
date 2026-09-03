@@ -13,6 +13,7 @@ import PageHero from "@/components/PageHero";
 import { MessageCircle, Eye, CheckCircle } from "lucide-react";
 import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -20,7 +21,6 @@ export const revalidate = 86400;
 /* ================== Sabitler ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const ORIGIN = SITE_URL;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const PAGE_PATH = "/dijital-kursu-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
@@ -88,13 +88,6 @@ function StructuredData() {
     caption: img.alt,
   }));
 
-  const faqs = FAQ_ITEMS.map((f, i) => ({
-    "@type": "Question",
-    "@id": `${PAGE_URL}#faq-q-${i + 1}`,
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  }));
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -108,31 +101,29 @@ function StructuredData() {
         isPartOf: { "@id": `${ORIGIN}/#website` },
         primaryImageOfPage: { "@type": "ImageObject", "@id": `${PAGE_URL}#primaryimage`, url: OG_IMAGE },
         mainEntity: { "@id": `${PAGE_URL}#service` },
-        hasPart: [{ "@id": `${PAGE_URL}#faq` }, { "@id": `${PAGE_URL}#gallery` }],
+        hasPart: [{ "@id": `${PAGE_URL}#gallery` }],
       },
       {
         "@type": "Service",
         "@id": `${PAGE_URL}#service`,
         name: "Dijital Kürsü Kiralama",
         serviceType: "Dijital kürsü kiralama",
-        provider: { "@id": LOCAL_BUSINESS_ID },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
         url: PAGE_URL,
         description: "Konferans, lansman ve kurumsal etkinlikler için LED ekranlı dijital kürsü kiralama ve kurulum hizmeti.",
         offers: {
           "@type": "Offer",
           url: PAGE_URL,
-          availability: "https://schema.org/InStock",
-          priceCurrency: "TRY",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
         },
       },
-      { "@type": "FAQPage", "@id": `${PAGE_URL}#faq`, mainEntity: faqs },
       {
         "@type": "CollectionPage",
         "@id": `${PAGE_URL}#gallery`,
         name: "Dijital Kürsü Galeri",
         url: `${PAGE_URL}#galeri`,
-        hasPart: galleryImages,
+        hasPart: galleryImages.map((image) => ({ "@id": image["@id"] })),
       },
       ...galleryImages,
     ],

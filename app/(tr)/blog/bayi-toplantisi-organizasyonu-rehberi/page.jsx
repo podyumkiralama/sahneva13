@@ -7,6 +7,7 @@ import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import InteractiveChecklist from "@/components/blog/InteractiveChecklist.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== YAPILANDIRMA & SABİTLER ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -117,7 +118,6 @@ const FAQ_ITEMS = [
 function ArticleSchema() {
   const site = String(SITE_URL || "").replace(/\/$/, "");
   const orgId = `${site}/#org`;
-  const editorId = `${site}/#editor`;
   const modified = MODIFIED_DATE || PUBLISH_DATE;
 
   const schema = {
@@ -132,19 +132,10 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: modified,
         inLanguage: "tr-TR",
-        author: { "@id": editorId },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": orgId },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         isPartOf: { "@type": "Blog", "@id": `${site}/blog#blog` },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
       },
     ],
   };

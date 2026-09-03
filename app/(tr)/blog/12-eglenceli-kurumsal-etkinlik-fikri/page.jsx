@@ -8,6 +8,7 @@ import BlogLayout from "@/components/blog/BlogLayout";
 import SmartBlogSuggestions from "@/components/blog/SmartBlogSuggestions";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { BASE_SITE_URL, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== YAPILANDIRMA ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? BASE_SITE_URL).replace(/\/$/, "");
@@ -57,7 +58,7 @@ export const metadata = {
 
 function ArticleSchema() {
   const WEBPAGE_ID = `${BLOG_URL}#webpage`;
-  const ARTICLE_ID = `${BLOG_URL}#article`;
+  const ARTICLE_ID = `${BLOG_URL}#blogposting`;
   const PRIMARY_IMAGE_ID = `${BLOG_URL}#primaryimage`;
 
   const jsonLd = {
@@ -91,7 +92,7 @@ function ArticleSchema() {
         headline: metadata.title,
         description: metadata.description,
         image: { "@id": PRIMARY_IMAGE_ID },
-        author: { "@id": ORGANIZATION_ID },
+        author: buildArticleAuthor(AUTHOR_NAME),
         publisher: { "@id": ORGANIZATION_ID },
         inLanguage: "tr-TR",
         datePublished: PUBLISH_DATE,
@@ -103,40 +104,6 @@ function ArticleSchema() {
   return <JsonLd data={jsonLd} suppressHydrationWarning />;
 }
 
-function FaqSchema() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Kurumsal etkinlik nedir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kurumsal etkinlik; bir şirket tarafından çalışanları, müşterileri veya paydaşları için düzenlenen, belirli iş hedeflerine ulaşmayı ya da profesyonel ilişkileri geliştirmeyi amaçlayan planlı organizasyonlardır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Kurumsal etkinlikler neden önemlidir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kurumsal etkinlikler, başarıyı görünür kılmak, iş motivasyonunu artırmak ve çalışanlara teşvik sağlamak açısından önemli bir rol oynar. Networking fırsatları sunar, ekip çalışmasını destekler ve bilgi paylaşımını teşvik eder.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "2026'da öne çıkan kurumsal etkinlik trendleri nelerdir?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "2026'da AI entegrasyonu, sürdürülebilirlik ve karbon nötr etkinlikler, wellbeing odaklı aktiviteler, micro-experience formatlar ve immersive/duyusal tasarım kurumsal etkinliklerin merkezine oturdu.",
-        },
-      },
-    ],
-  };
-
-  return <JsonLd data={jsonLd} suppressHydrationWarning />;
-}
 
 /* ================== YARDIMCI BILEŞENLER ================== */
 function Tip2026({ children }) {
@@ -190,7 +157,6 @@ export default function BlogPost() {
     <> 
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <ArticleSchema />
-      <FaqSchema />
 
       <BlogLayout
         siteUrl={SITE_URL}

@@ -439,8 +439,8 @@ function analyzeLinks(files, routes, fileToRoute, noindexRoutes) {
 
 function analyzeLocalBusiness() {
   const files = [
-    "app/(tr)/layout.js",
-    "app/en/layout.js",
+    "lib/structuredData/organizationIdentity.js",
+    "app/(tr)/(site)/page.js",
     "app/(tr)/(site)/iletisim/page.js",
   ];
 
@@ -455,11 +455,17 @@ function analyzeLocalBusiness() {
 
     const text = readText(fullPath);
     const checks = [];
-    if (relative.endsWith("layout.js")) {
+    if (relative === "lib/structuredData/organizationIdentity.js") {
+      checks.push(["Organization + LocalBusiness", /\["Organization",\s*"LocalBusiness"\]/.test(text)]);
       checks.push(["openingHoursSpecification", /openingHoursSpecification\s*:/.test(text)]);
-      checks.push(["GeoCoordinates", /GeoCoordinates/.test(text)]);
       checks.push(["PostalAddress", /PostalAddress/.test(text)]);
+      checks.push(["WebSite", /"@type":\s*"WebSite"/.test(text)]);
+      checks.push(["editor is Organization", /"@type":\s*"Organization",\s*"@id":\s*EDITOR_ID/.test(text)]);
+      checks.push(["no #local identity", !/["'`]https:\/\/www\.sahneva\.com\/#local/.test(text)]);
       checks.push(["no aggregateRating", !/aggregateRating|review\s*:/.test(text)]);
+    } else if (relative === "app/(tr)/(site)/page.js") {
+      checks.push(["root identity import", /SITE_IDENTITY_JSON_LD/.test(text)]);
+      checks.push(["root identity render", /data=\{SITE_IDENTITY_JSON_LD\}/.test(text)]);
     } else {
       checks.push(["Google Maps embed", /google\.com\/maps\/embed/.test(text)]);
       checks.push(["iframe title", /<iframe[\s\S]*\btitle=/.test(text)]);

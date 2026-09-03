@@ -2,7 +2,6 @@
 import { YEARS_OF_EXPERIENCE } from "@/lib/experience";
 import Image from "next/image";
 import Link from "next/link";
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildImageGallerySchema } from "@/lib/structuredData/imageGallery";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -318,7 +317,6 @@ function StructuredData() {
       },
       ...(gallerySchema.galleryNode ? [gallerySchema.galleryNode] : []),
       ...gallerySchema.imageNodes,
-      buildFaqSchema(FAQ_ITEMS.map((f) => ({ question: f.q, answer: f.a }))),
     ],
   };
   return <JsonLd data={schema} />;

@@ -4,6 +4,7 @@ import Link from "next/link";
 import CaseGallery from "@/components/CaseGallery";
 import JsonLd from "@/components/seo/JsonLd";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
 const HERO_IMAGE = "/img/projeler/kapali-alan-led/1.webp";
@@ -74,7 +75,7 @@ export default function CasePage() {
     description:
       "24×6 m P2 LED, 24×8 m sahne/podyum, scaff ve truss ile büyük ölçekli kapalı alan kurulumu.",
     image: `${SITE_URL}${HERO_IMAGE}`,
-    author: { "@id": ORGANIZATION_ID },
+    author: buildArticleAuthor("Sahneva Teknik"),
     publisher: { "@id": ORGANIZATION_ID },
     mainEntityOfPage: {
       "@type": "WebPage",

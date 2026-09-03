@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import { buildFaqSchema } from "@/lib/structuredData/faq";
 import { buildServiceOfferSchema } from "@/lib/structuredData/serviceProducts";
 import { buildAlternatesForPath } from "@/lib/seo/alternates";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -1605,12 +1604,6 @@ function StageJsonLd() {
 
   const serviceId = serviceNode["@id"];
   const offerNodes = offers ?? [];
-  const faqSchema = buildFaqSchema(FAQ_ITEMS, {
-    id: `${pageUrl}#faq`,
-    pageId: webPageId,
-    serviceId,
-    inLanguage: "en-US",
-  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -1636,7 +1629,6 @@ function StageJsonLd() {
         mainEntity: { "@id": serviceId },
       },
       ...offerNodes,
-      ...(faqSchema ? [faqSchema] : []),
     ],
   };
 

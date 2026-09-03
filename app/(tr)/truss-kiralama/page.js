@@ -14,6 +14,7 @@ import GlossaryTermLinks from "@/components/seo/GlossaryTermLinks";
 import ServiceDecisionGuide from "@/components/ServiceDecisionGuide.client";
 import { SERVICE_DECISION_GUIDES } from "@/lib/serviceDecisionGuides";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 
 /* ================== ISR ================== */
 export const revalidate = 86400;
@@ -25,7 +26,6 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com")
 );
 
 const ORIGIN = SITE_URL;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#local`;
 
 const PAGE_PATH = "/truss-kiralama";
 const PAGE_URL = `${ORIGIN}${PAGE_PATH}`;
@@ -101,16 +101,6 @@ function TrussStructuredData() {
     caption: img.alt,
   }));
 
-  const faqs = FAQ_ITEMS.map((f, i) => ({
-    "@type": "Question",
-    "@id": `${PAGE_URL}#faq-q-${i + 1}`,
-    name: f.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: f.a,
-    },
-  }));
-
   const jsonLd = {
       "@context": "https://schema.org",
       "@graph": [
@@ -125,7 +115,6 @@ function TrussStructuredData() {
         primaryImageOfPage: { "@type": "ImageObject", "@id": `${PAGE_URL}#primaryimage`, url: OG_IMAGE },
         mainEntity: { "@id": `${PAGE_URL}#service` },
         hasPart: [
-          { "@id": `${PAGE_URL}#faq` },
           { "@id": `${PAGE_URL}#gallery` },
         ],
       },
@@ -134,7 +123,7 @@ function TrussStructuredData() {
         "@id": `${PAGE_URL}#service`,
         name: "Truss Kiralama ve Kurulum",
         serviceType: "Truss kiralama",
-        provider: { "@id": LOCAL_BUSINESS_ID },
+        provider: { "@id": ORGANIZATION_ID },
         areaServed: "TR",
         url: PAGE_URL,
         description:
@@ -142,22 +131,16 @@ function TrussStructuredData() {
         offers: {
           "@type": "Offer",
           url: PAGE_URL,
-          availability: "https://schema.org/InStock",
-          priceCurrency: "TRY",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           // Not: fiyat proje bazlı; price eklemiyoruz. Rich results için Offer var ama fiyat yok.
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        mainEntity: faqs,
       },
       {
         "@type": "CollectionPage",
         "@id": `${PAGE_URL}#gallery`,
         name: "Truss Kurulum Galerisi",
         url: `${PAGE_URL}#galeri`,
-        hasPart: galleryImages,
+        hasPart: galleryImages.map((image) => ({ "@id": image["@id"] })),
       },
       ...galleryImages,
     ],

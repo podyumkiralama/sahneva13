@@ -169,7 +169,7 @@ function ArbeitsweiseJsonLd() {
         inLanguage: "de-DE",
         about: { "@id": orgId },
         breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
-        hasPart: [{ "@id": `${PAGE_URL}#howto` }, { "@id": `${PAGE_URL}#faq` }],
+        hasPart: [{ "@id": `${PAGE_URL}#howto` }],
       },
       {
         "@type": "BreadcrumbList",
@@ -193,16 +193,6 @@ function ArbeitsweiseJsonLd() {
           name: step.title,
           text: step.text,
           image: `${SITE}${step.imageSrc}`,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${PAGE_URL}#faq`,
-        inLanguage: "de-DE",
-        mainEntity: FAQS.map((item) => ({
-          "@type": "Question",
-          name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
         })),
       },
     ],

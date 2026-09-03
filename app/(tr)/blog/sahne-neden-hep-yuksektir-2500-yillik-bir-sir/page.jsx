@@ -2,9 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
 import BlogRelatedLinks from "@/components/blog/BlogRelatedLinks";
 import BlogLayout from "@/components/blog/BlogLayout";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 /* ================== CONFIG ================== */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sahneva.com").replace(/\/$/, "");
@@ -136,8 +138,8 @@ function ArticleSchema() {
         datePublished: PUBLISH_DATE,
         dateModified: MODIFIED_DATE,
         inLanguage: "tr-TR",
-        author: { "@type": "Person", name: AUTHOR_NAME },
-        publisher: { "@type": "Organization", name: "Sahneva Organizasyon", url: SITE_URL },
+        author: buildArticleAuthor(AUTHOR_NAME),
+        publisher: { "@id": ORGANIZATION_ID },
         mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
         mentions: [
           { "@type": "WebPage", "@id": `${SITE_URL}${STAGE_SERVICE_PATH}` },
@@ -145,15 +147,6 @@ function ArticleSchema() {
           { "@type": "WebPage", "@id": `${SITE_URL}${LED_SERVICE_PATH}` },
           { "@type": "WebPage", "@id": `${SITE_URL}${SOUND_LIGHT_PATH}` },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${BLOG_URL}#faq`,
-        mainEntity: FAQ_ITEMS.map((x) => ({
-          "@type": "Question",
-          name: x.q,
-          acceptedAnswer: { "@type": "Answer", text: x.a },
-        })),
       },
     ],
   };

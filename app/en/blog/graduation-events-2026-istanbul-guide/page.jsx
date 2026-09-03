@@ -6,6 +6,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import LazyVideoEmbed from "@/components/LazyVideoEmbed.client";
 import { getLastModifiedDateTimeForFile } from "@/lib/seoLastModified";
 import { AI_PREVIEW_ROBOTS } from "@/lib/seo/seoConfig";
+import { ORGANIZATION_ID } from "@/lib/seo/schemaIds";
+import { buildArticleAuthor } from "@/lib/structuredData/articleIdentity";
 
 const ORIGIN = "https://www.sahneva.com";
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? ORIGIN).replace(/\/$/, "");
@@ -87,7 +89,7 @@ function buildArticleJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `${BLOG_URL}#article`,
+    "@id": `${BLOG_URL}#blogposting`,
     mainEntityOfPage: { "@type": "WebPage", "@id": BLOG_URL },
     headline: TITLE,
     description: DESCRIPTION,
@@ -95,53 +97,12 @@ function buildArticleJsonLd() {
     datePublished: PUBLISH_DATE,
     dateModified: MODIFIED_DATE,
     inLanguage: "en-US",
-    author: {
-      "@type": "Organization",
-      name: "Sahneva",
-      url: SITE_URL,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Sahneva",
-      url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/img/logo.webp` },
-    },
+    author: buildArticleAuthor(AUTHOR_NAME),
+    publisher: { "@id": ORGANIZATION_ID },
     keywords: metadata.keywords,
   };
 }
 
-function buildFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How far in advance should planning begin for a graduation ceremony?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "For a 500+ attendee graduation ceremony organization in Istanbul, the ideal lead time is 4–6 months. Venue reservation, technical survey, stage-LED dimensions and rehearsal plan are clarified within this period.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why are LED screens critical at graduation events?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The LED screen is the central point for name sync, live camera and ceremony flow. Sun-readable brightness and correct positioning directly enhance the quality of graduation ceremony organization.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can a graduation party and formal ceremony take place on the same stage?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, but the lighting, sound and stage flow must be planned in two modes. The lighting scenario and sound profile must be reconfigured for the transition from the formal ceremony to the party.",
-        },
-      },
-    ],
-  };
-}
 
 export default function BlogPostGraduationGuide() {
   const breadcrumbItems = [
@@ -154,7 +115,6 @@ export default function BlogPostGraduationGuide() {
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} baseUrl={SITE_URL} />
       <JsonLd data={buildArticleJsonLd()} />
-      <JsonLd data={buildFaqJsonLd()} />
 
       <BlogLayout
         locale="en"

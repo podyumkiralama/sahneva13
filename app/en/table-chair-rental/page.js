@@ -1155,6 +1155,7 @@ function TableChairJsonLd() {
         serviceType: "Event furniture, table and chair rental",
         offers: {
           "@type": "Offer",
+          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
           description: "Professional table and chair rental packages",
         },
         url: pageUrl,
@@ -1176,18 +1177,6 @@ function TableChairJsonLd() {
           url: `${ORIGIN}${HERO.src}`,
         },
         mainEntity: { "@id": serviceId },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}#faq`,
-        mainEntity: FAQ_ITEMS.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
       },
     ],
   };
