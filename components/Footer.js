@@ -331,7 +331,8 @@ export default function Footer({
   const computedHeadingId =
     ariaLabelledby ?? headingIdProp ?? `site-footer-heading-${instanceId}`;
   const computedDescriptionId =
-    ariaDescribedby ?? descriptionIdProp ?? `site-footer-desc-${instanceId}`;
+    footerStrings?.description &&
+    (ariaDescribedby ?? descriptionIdProp ?? `site-footer-desc-${instanceId}`);
 
   // Footer sütun başlıkları h3. Üstlerinde bir h2 basılmazsa, içeriğinde yalnızca
   // h1 bulunan sayfalarda (ödeme sonucu, teşekkürler) h1 → h3 seviye atlaması

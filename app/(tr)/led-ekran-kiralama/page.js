@@ -436,7 +436,7 @@ function CompactDecisionGuide() {
   const questionCount = guide.questions.length;
 
   return (
-    <section id="karar-rehberi" className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
+    <section id="led-karar-rehberi" className="bg-slate-50 px-4 py-8 md:py-10" aria-label="İsteğe bağlı LED ekran seçim rehberi">
       <div className="mx-auto max-w-6xl">
         <details className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <summary className="flex cursor-pointer list-none flex-col gap-4 p-5 marker:content-none sm:flex-row sm:items-center sm:justify-between sm:p-7 [&::-webkit-details-marker]:hidden">

@@ -8,13 +8,29 @@ const pixel7 = devices["Pixel 7"];
 const representativeRoutes = [
   { name: "Turkish home", path: "/" },
   { name: "Turkish service", path: "/led-ekran-kiralama" },
+  { name: "Turkish stage rental", path: "/sahne-kiralama" },
+  { name: "Turkish podium rental", path: "/podyum-kiralama" },
+  { name: "Turkish sound & light systems", path: "/ses-isik-sistemleri" },
+  { name: "Turkish corporate organization", path: "/kurumsal-organizasyon" },
+  { name: "Turkish contact", path: "/iletisim" },
   {
     name: "Turkish project detail",
     path: "/projeler/bayrampasa-adapark-30-agustos-sahne-kurulumu",
   },
   { name: "Turkish blog", path: "/blog" },
+  {
+    name: "Turkish blog detail",
+    path: "/blog/kurumsal-etkinlik-yonetimi",
+  },
+  { name: "Turkish price page", path: "/led-ekran-kiralama-fiyatlari" },
   { name: "English home", path: "/en" },
   { name: "English service", path: "/en/led-screen-rental" },
+  { name: "English blog", path: "/en/blog" },
+  {
+    name: "English blog detail",
+    path: "/en/blog/corporate-event-management",
+  },
+  { name: "English price page", path: "/en/led-screen-rental-prices" },
   { name: "Arabic home", path: "/ar" },
   { name: "German home", path: "/de" },
   { name: "Russian home", path: "/ru" },
@@ -47,7 +63,7 @@ for (const route of representativeRoutes) {
     await expect(page.locator("h1").first()).toBeVisible();
     await page.addScriptTag({ path: axePath });
 
-    const violations = await page.evaluate(async () => {
+    const routeSummary = await page.evaluate(async () => {
       const results = await window.axe.run(document, {
         runOnly: {
           type: "tag",
@@ -62,24 +78,157 @@ for (const route of representativeRoutes) {
         },
       });
 
-      return results.violations
-        .filter(({ impact }) => impact === "serious" || impact === "critical")
-        .map(({ id, impact, help, nodes }) => ({
-          id,
-          impact,
-          help,
-          targets: nodes.map(({ target }) => target.join(" ")),
-        }));
+      const impacts = {
+        critical: 0,
+        serious: 0,
+        moderate: 0,
+        minor: 0,
+      };
+
+      for (const { impact } of results.violations) {
+        if (impact && Object.prototype.hasOwnProperty.call(impacts, impact)) {
+          impacts[impact]++;
+        }
+      }
+
+      const headings = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6")).map((heading) =>
+        Number(heading.tagName.slice(1)),
+      );
+      const headingBreaks = [];
+      for (let index = 1; index < headings.length; index += 1) {
+        const previous = headings[index - 1];
+        const current = headings[index];
+        if (current - previous > 1) {
+          headingBreaks.push({ from: previous, to: current });
+        }
+      }
+
+      const labelledIdRefs = Array.from(
+        document.querySelectorAll("[aria-labelledby], [aria-describedby]"),
+      ).flatMap((el) => {
+        const ids = [];
+        const labeled = el.getAttribute("aria-labelledby");
+        const described = el.getAttribute("aria-describedby");
+        if (labeled) {
+          ids.push(...labeled.split(/\s+/).filter(Boolean).map((id) => ({id, type: "aria-labelledby"})));
+        }
+        if (described) {
+          ids.push(...described.split(/\s+/).filter(Boolean).map((id) => ({id, type: "aria-describedby"})));
+        }
+        return ids;
+      });
+      const missingAriaRefs = labelledIdRefs
+        .filter(({ id }) => !document.getElementById(id))
+        .map(({ id, type }) => `${type}:${id}`);
+
+      const ids = Array.from(document.querySelectorAll("[id]")).map((el) => el.id);
+      const idCounts = ids.reduce((acc, id) => {
+        if (!id) {
+          return acc;
+        }
+        acc[id] = (acc[id] || 0) + 1;
+        return acc;
+      }, {});
+      const duplicateIds = Object.entries(idCounts)
+        .filter(([, count]) => count > 1)
+        .map(([id, count]) => ({ id, count }));
+
+      return {
+        impacts,
+        headingBreaks,
+        missingAriaRefs,
+        duplicateIds,
+        violationIds: results.violations
+          .filter(
+            ({ impact }) =>
+              impact === "serious" || impact === "critical",
+          )
+          .map(({ id, impact, help, nodes }) => ({
+            id,
+            impact,
+            help,
+            targets: nodes.map(({ target }) => target.join(" ")),
+          })),
+      };
     });
 
+    console.log(
+      `${route.path} WCAG impact distribution: ${
+        JSON.stringify(routeSummary.impacts)
+      }`,
+    );
+    if (routeSummary.headingBreaks.length > 0) {
+      console.log(
+        `${route.path} heading-level jumps: ${JSON.stringify(
+          routeSummary.headingBreaks,
+        )}`,
+      );
+    }
+    if (routeSummary.missingAriaRefs.length > 0) {
+      console.log(
+        `${route.path} broken aria refs: ${JSON.stringify(
+          routeSummary.missingAriaRefs,
+        )}`,
+      );
+    }
+    if (routeSummary.duplicateIds.length > 0) {
+      console.log(
+        `${route.path} duplicate ids: ${JSON.stringify(
+          routeSummary.duplicateIds,
+        )}`,
+      );
+    }
+
     expect(
-      violations,
-      `${route.path} accessibility violations:\n${JSON.stringify(violations, null, 2)}`,
+      routeSummary.violationIds,
+      `${route.path} accessibility violations:\n${JSON.stringify(
+        routeSummary.violationIds,
+        null,
+        2,
+      )}`,
+    ).toEqual([]);
+    expect(
+      routeSummary.headingBreaks,
+      `${route.path} heading structure should avoid skipped levels`,
+    ).toEqual([]);
+    expect(
+      routeSummary.missingAriaRefs,
+      `${route.path} should not have broken aria-* references`,
+    ).toEqual([]);
+    expect(
+      routeSummary.duplicateIds,
+      `${route.path} should not have duplicate ids`,
     ).toEqual([]);
     expect(consoleErrors, `${route.path} console errors`).toEqual([]);
     expect(pageErrors, `${route.path} uncaught page errors`).toEqual([]);
   });
 }
+
+test("contact page form controls have accessible names", async ({ page }) => {
+  const response = await page.goto("/iletisim", { waitUntil: "domcontentloaded" });
+  expect(response?.ok(), `/iletisim returned HTTP ${response?.status()}`).toBeTruthy();
+  await page.addScriptTag({ path: axePath });
+
+    const violations = await page.evaluate(async () => {
+      const results = await window.axe.run(document, {
+        runOnly: {
+          type: "rule",
+          values: ["label", "label-title-only"],
+        },
+      });
+    return results.violations.map(({ id, impact, help, nodes }) => ({
+      id,
+      impact,
+      help,
+      targets: nodes.map(({ target }) => target.join(" ")),
+    }));
+  });
+
+  expect(
+    violations,
+    `Contact form label violations:\n${JSON.stringify(violations, null, 2)}`,
+  ).toEqual([]);
+});
 
 test("home project mosaic visible labels match their accessible names", async ({
   page,

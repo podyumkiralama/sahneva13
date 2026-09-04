@@ -102,9 +102,7 @@ export default function ArabicLayout({ children }) {
         {children}
       </main>
 
-      <div id="_main_footer">
-        <SiteFooter strings={content.footer} />
-      </div>
+      <SiteFooter strings={content.footer} />
       <SupportLauncher
           locale="ar"
           enabled={isStoreConfigured()}

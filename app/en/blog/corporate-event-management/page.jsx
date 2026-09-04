@@ -174,7 +174,7 @@ export default function BlogPostCorporate() {
       >
         <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
           <p className="text-lg text-gray-700 font-medium m-0">
-            For event agencies and corporate organisers delivering <Link href="/en/corporate-events">corporate events</Link> in Türkiye, the technical plan turns an approved programme into a safe, buildable show. Stage, LED screen, sound, lighting, rigging and power must work as one production system.
+            For event agencies and corporate organisers delivering <Link href="/en/corporate-events" className="font-semibold text-violet-700 underline underline-offset-4">corporate events</Link> in Türkiye, the technical plan turns an approved programme into a safe, buildable show. Stage, LED screen, sound, lighting, rigging and power must work as one production system.
           </p>
         </div>
 
@@ -368,7 +368,7 @@ export default function BlogPostCorporate() {
               target="_blank"
               rel="nofollow noopener noreferrer"
               aria-label="Request a quote via WhatsApp — opens in a new tab"
-              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
             >
               <span>💬</span> Message on WhatsApp
             </a>

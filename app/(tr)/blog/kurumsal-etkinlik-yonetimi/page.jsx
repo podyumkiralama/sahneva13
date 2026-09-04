@@ -197,7 +197,13 @@ export default function BlogPostCorporate() {
                 
                 <div className="bg-violet-50/50 p-6 rounded-xl border-l-4 border-violet-500 mb-8">
                   <p className="text-lg text-gray-700 font-medium italic m-0">
-                    <Link href="/kurumsal-organizasyon">Kurumsal etkinlikler</Link>, bir şirketin vizyonunu paydaşlarına gösterdiği en güçlü sahnelerdir. Bu sahnenin arkasındaki görünmeyen kahraman ise; doğru planlanmış <strong>teknik altyapı</strong>dır.
+                    <Link
+                      href="/kurumsal-organizasyon"
+                      className="font-semibold text-violet-700 underline underline-offset-4"
+                    >
+                      Kurumsal etkinlikler
+                    </Link>
+                    , bir şirketin vizyonunu paydaşlarına gösterdiği en güçlü sahnelerdir. Bu sahnenin arkasındaki görünmeyen kahraman ise; doğru planlanmış <strong>teknik altyapı</strong>dır.
                   </p>
                 </div>
 
@@ -375,7 +381,7 @@ export default function BlogPostCorporate() {
                         </ul>
                       </div>
                       <div className="bg-green-50/50 p-4 rounded-xl border border-green-100">
-                        <h4 className="text-sm font-bold text-green-600 uppercase mb-3 tracking-wide">Sahneva Çözümü</h4>
+                    <h4 className="text-sm font-bold text-violet-900 uppercase mb-3 tracking-wide">Sahneva Çözümü</h4>
                         <ul className="space-y-2 text-sm text-gray-700">
                           <li className="flex gap-2"><span className="text-green-500">✓</span> 12 Line-Array modülü ile homojen ses</li>
                           <li className="flex gap-2"><span className="text-green-500">✓</span> Watchout sistemli 60m² P2 LED Ekran</li>
@@ -483,7 +489,7 @@ export default function BlogPostCorporate() {
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                       aria-label="WhatsApp üzerinden teklif isteyin — yeni sekmede açılır"
-                      className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
+                      className="inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-transform hover:-translate-y-1 shadow-lg"
                     >
                       <span>💬</span> WhatsApp'tan Yazın
                     </a>
