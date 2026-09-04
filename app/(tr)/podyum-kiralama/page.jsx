@@ -721,7 +721,7 @@ function ServicesSection() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center justify-center font-bold min-h-[44px] px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl"
           >
             <span className="text-xl mr-3" aria-hidden="true">📞</span> Teknik kapsam için iletişime geçin
           </a>
@@ -1166,7 +1166,7 @@ function FAQSection() {
           <Link
             href="/sss"
             prefetch={false}
-            className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
+            className="inline-flex items-center justify-center font-bold min-h-[44px] px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 transform transition-all duration-300 hover:shadow-xl focus-ring"
           >
             <span className="text-xl mr-3" aria-hidden="true">📚</span>
             <span className="text-lg">Tüm SSS&apos;yi Görüntüle</span>
